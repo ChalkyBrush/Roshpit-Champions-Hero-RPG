@@ -16,7 +16,17 @@
     	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
     	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <% ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE %> range"
 
+    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
 
+		"item_property_berserker"				"Berserker Rage"
+		"property_berserker_rage_description"	"Landing an attack increases your attack power by <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_POWER_PCT_PER_STACK %>% and increases attack speed by <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> for <% ITEM_RPC_BERSERKER_GLOVES_DURATION %> seconds. Each stack makes you take <% ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% extra damage from all sources.<br>Switching targets removes <% ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY %>% of your stacks. Max <% ITEM_RPC_BERSERKER_GLOVES_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
+		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
+
+    	"item_rpc_berserker_gloves_ruby1"								"Only @ruby_property1% stack loss upon switching targets"
+    	"item_rpc_berserker_gloves_emerald1"								"Reduces the increased damage taken vulnerability to @emerald_property1% per stack"
+    	"item_rpc_berserker_gloves_sapphire1"								"Each Berserker Rage stack increases Base Attack Damage by @sapphire_property1"
+    	"item_rpc_berserker_gloves_amethyst1"								"Increases max Berserker Rage Stacks by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
@@ -55,18 +65,6 @@
 		"item_rpc_magebane_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_magebane_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_magebane_gloves_Description"						"Slot: Hands"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
-    	"item_rpc_berserker_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_berserker_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_berserker_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Slot: Hands"
-		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Landing an attack increases your attack damage by <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>x your level and increases attack speed by <% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %> for <% ITEM_RPC_BERSERKER_GLOVES_DURATION %> seconds. Each stack makes you take <% ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE %>% extra damage from all sources.<br>Switching targets removes <% ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY %>% of your stacks."
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"

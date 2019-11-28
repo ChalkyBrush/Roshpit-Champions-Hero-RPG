@@ -1,3 +1,145 @@
+	"item_rpc_berserker_gloves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/berserker_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_one"			"200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_two"		"30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_three"		"12"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"property_four"		"5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_BERSERKER_GLOVES_GEM_RUBY %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_EMERALD %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_SAPPHIRE %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_berserker_gloves"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"berserker_gloves_attack_land"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_berserker_gloves_buff_visible"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_berserker_gloves_buff_visible"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
+				"StatusEffectPriority"  "10"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+					"FireSound"
+					{
+						"EffectName"	"RPCItems.BerserkerGloves"
+						"Target" 		"TARGET"
+					}
+				}
+				"IsHidden"	"0"
+				"TextureName"	"axe_battle_hunger"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_POWER_PCT_PER_STACK %>"
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_berserker_gloves_buff_attack_damage"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_berserker_gloves_buff_attack_damage"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_autumnrock_bracer"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2121,131 +2263,6 @@
 			"modifier_swiftspike_bad"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_berserker_gloves"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/berserker_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"30"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BERSERKER_GLOVES_GEM_RUBY %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_EMERALD %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_SAPPHIRE %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BERSERKER_GLOVES_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_berserker_gloves_base"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"berserker_gloves_attack_land"
-					}
-				}
-			}
-			"modifier_berserker_gloves_buff_visible"
-			{
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
-				"StatusEffectPriority"  "10"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
-						"EffectAttachType"  "follow_overhead"
-						"Target"            "TARGET"
-					}
-					"FireSound"
-					{
-						"EffectName"	"RPCItems.BerserkerGloves"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"TextureName"	"axe_battle_hunger"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_SPEED_PER_STACK %>"
-				}
-			}
-			"modifier_berserker_gloves_buff_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"<% ITEM_RPC_BERSERKER_GLOVES_ATTACK_DMG_PER_LVL_PER_STACK %>"
-				}
 			}
 		}
 	}

@@ -13089,15 +13089,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"狂战士护手"
-    	"item_rpc_berserker_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_berserker_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_berserker_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"部位：手"
 		"item_property_berserker"				"狂暴之怒"
-		"property_berserker_rage_description"	"每攻击同一目标一次将获得一层buff增加基础攻击力 <font color='#ccff66'>200</font>x 乘以你的等级并且提高攻击速度 <font color='#ccff66'>30</font> 持续 <font color='#ccff66'>12</font> 秒。同时每层buff会使玩家受到的伤害提高 <font color='#ccff66'>5</font>% 。<br>转移攻击目标移除<font color='#ccff66'>25</font>%的层数。"
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"狂暴之怒"
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"攻击力和攻击速度提高，但是受到的伤害也将增加。"
+		"property_berserker_rage_description"	"Landing an attack increases your attack power by <font color='#ccff66'>8</font>% and increases attack speed by <font color='#ccff66'>25</font> for <font color='#ccff66'>12</font> seconds. Each stack makes you take <font color='#ccff66'>5</font>% extra damage from all sources.<br>Switching targets removes <font color='#ccff66'>50</font>% of your stacks. Max <font color='#ccff66'>20</font> stacks."
+		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
+		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
+
+    	"item_rpc_berserker_gloves_ruby1"								"Only @ruby_property1% stack loss upon switching targets"
+    	"item_rpc_berserker_gloves_emerald1"								"Reduces the increased damage taken vulnerability to @emerald_property1% per stack"
+    	"item_rpc_berserker_gloves_sapphire1"								"Each Berserker Rage stack increases Base Attack Damage by @sapphire_property1"
+    	"item_rpc_berserker_gloves_amethyst1"								"Increases max Berserker Rage Stacks by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"暗影臂章"
@@ -13410,13 +13411,13 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"秋岩护腕"
-    	"item_rpc_autumnrock_bracer_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_autumnrock_bracer_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_autumnrock_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_autumnrock_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_autumnrock_bracer"						"沟壑"
-		 "property_autumnrock_bracer_description"				"受到伤害时有<font color='#ccff66'>10</font>%机率对攻击者施放沟壑。沟壑眩晕敌人<font color='#ccff66'>1</font>秒并造成 <font color='#ccff66'>3</font>x 你的力量值的魔法伤害。<br>每<font color='#ccff66'>0</font>点当前生命值提高装备伤害 <font color='#ccff66'>0</font>%。"
-		 
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <font color='#ccff66'>0.8</font> second delay. The fissure stuns for <font color='#ccff66'>1</font> seconds and deals <font color='#ccff66'>3</font>x your Strength as Magical damage. Max <font color='#ccff66'>6</font> procs per second."
+
+    	"item_rpc_autumnrock_bracer_ruby1"								"Increases Strength by @ruby_property1 and Fissure proc chance by @ruby_property2%"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Fissure damage by @emerald_property1 and the stun duration by @emerald_property2"
+    	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
+    	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <font color='#ccff66'>500</font> range"
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"孔雀色的护腕"
     	"item_rpc_malachite_shade_bracer_ruby1"							"blah blah @ruby_property1 gem"

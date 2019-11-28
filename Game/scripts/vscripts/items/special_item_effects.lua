@@ -4104,15 +4104,23 @@ function berserker_gloves_attack_land(event)
 
 	if target:GetEntityIndex() == ability.targetIndex then
 	else
+		local stack_penalty = ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY
+		if ability:GetGemValue("ruby") > 0 then
+			stack_penalty = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BERSERKER_GLOVES_GEM_RUBY)
+		end
 		multiplier = (100-ITEM_RPC_BERSERKER_GLOVES_STACKS_PENALTY)/100
 	end
 
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_visible", {duration = ITEM_RPC_BERSERKER_GLOVES_DURATION})
-	local newStacks = math.floor((attacker:GetModifierStackCount("modifier_berserker_gloves_buff_visible", caster) + 1) * multiplier)
+	local max_stacks = ITEM_RPC_BERSERKER_GLOVES_MAX_STACKS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BERSERKER_GLOVES_GEM_AMETHYST)
+	local newStacks = math.min(math.floor((attacker:GetModifierStackCount("modifier_berserker_gloves_buff_visible", caster) + 1) * multiplier), max_stacks)
 	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_invisible", {duration = ITEM_RPC_BERSERKER_GLOVES_DURATION})
-	attacker:SetModifierStackCount("modifier_berserker_gloves_buff_invisible", caster, newStacks * heroLevel)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_berserker_gloves_buff_attack_damage", {duration = ITEM_RPC_BERSERKER_GLOVES_DURATION})
+		local attack_damage_bonus = newStacks * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BERSERKER_GLOVES_GEM_SAPPHIRE)
+		attacker:SetModifierStackCount("modifier_berserker_gloves_buff_attack_damage", caster, attack_damage_bonus)
+	end
 
 	ability.targetIndex = target:GetEntityIndex()
 
