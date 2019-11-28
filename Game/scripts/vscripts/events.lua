@@ -211,8 +211,6 @@ function GameMode:OnNPCSpawned(keys)
 end
 
 function GameMode:CorrectRespawn(npc)
-
-	Runes:RunesOnRespawn(npc)
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR

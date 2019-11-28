@@ -322,25 +322,25 @@
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"[T5-a] Glyph of Frostbite"
 		"item_rpc_sorceress_glyph_5_a_description" 				"Множитель урона, наносимого [Q1] по замороженным врагам увеличен до <% SORCERESS_GLYPH_5_A_MULTIPLY %>x."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"[T1-2] (T1-2) Glyph of Crystallization"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"[T1-2] Glyph of Crystallization"
 		"item_rpc_sorceress_glyph_1_2_description" 				"Элементаль воды с <% SORCERESS_GLYPH_1_2_CHANCE %>% шансом заморозит атакуемую цель на <% SORCERESS_GLYPH_1_2_DURATION %> сек."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"[T2-2] (T2-2) Glyph of Razor Ice"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"[T2-2] Glyph of Razor Ice"
 		"item_rpc_sorceress_glyph_2_2_description" 				"Шанс взрыва ледяного копья увеличен до <% SORCERESS_GLYPH_2_2_CHANCE %>%, базовый урон увеличен в <% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"[T3-2] (T3-2) Glyph of Enlightened Magic"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"[T3-2] Glyph of Enlightened Magic"
 		"item_rpc_sorceress_glyph_3_2_description" 				"Бонус регенерации маны и интеллекта от руны [W3] увеличен в <% SORCERESS_GLYPH_3_2_BONUS_AMPLIFY %> раз(а)."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"[T4-2] (T4-2) Glyph of Arcane Vibration"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"[T4-2] Glyph of Arcane Vibration"
 		"item_rpc_sorceress_glyph_4_2_description" 				"(E) @Ability3 тратит только <% SORCERESS_GLYPH_4_2_STACKS_SPEND %> зарядов Flicker. Сброс перезарядки ультимейта происходит гарантированно."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"[T5-2] (T5-2) Glyph of Softening"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"[T5-2] Glyph of Softening"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Sorceress добавляет на <% SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION * 100 %>% меньше времени к иммунитету врагов к оглушению."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"[T6-2] (T6-2) Glyph of Scorching"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"[T6-2] Glyph of Scorching"
 		"item_rpc_sorceress_glyph_6_2_description" 				"Снижение сопротивления к стихии Огня от руны [R3] сильнее на <% SORCERESS_GLYPH_6_2_R3_MULT %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"[T7-2] (T7-2) Glyph of Arcane Channelling"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"[T7-2] Glyph of Arcane Channelling"
 		"item_rpc_sorceress_glyph_7_2_description" 				"Увеличивает урон от (W) @Ability2 в <% SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY %> раз(а), а к его текущей стоимости добавляется <% SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT %>% от макс. маны."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Книга Глифов Sorceress"

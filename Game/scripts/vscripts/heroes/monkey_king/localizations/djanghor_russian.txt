@@ -160,7 +160,7 @@
     	"DOTA_Tooltip_ability_djanghor_rune_q_3_suffix"								" сек."
 
     	"DOTA_Tooltip_ability_djanghor_rune_q_4"									"[Q4] Primal Instinct"
-    	"DOTA_Tooltip_ability_djanghor_rune_q_4_Description"						"Увеличивает силу пассивных умений в ветке (Q)."
+    	"DOTA_Tooltip_ability_djanghor_rune_q_4_Description"						"Увеличивает эффект от усилений меток @Ability1."
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_property_one"						"Усиление бонусов"
     	"DOTA_Tooltip_ability_djanghor_rune_q_4_suffix"								"%"
 

@@ -161,7 +161,7 @@
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
     	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Пассивно увеличивает урон стихии <font color=\"#B5FFB7\">Время</font>."
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Урон <font color=\"#B5FFB7\">Времени</font"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Урон <font color=\"#B5FFB7\">Времени</font>"
     	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
 
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"

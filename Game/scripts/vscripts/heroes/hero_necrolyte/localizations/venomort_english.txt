@@ -268,7 +268,7 @@
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"[T1-1] Glyph of Nimble Poison"
-		"item_rpc_venomort_glyph_1_1_description" 				"Reduces the cooldown of @Ability1 to @glyph_property1 seconds."
+		"item_rpc_venomort_glyph_1_1_description" 				"Reduces the cooldown of @Ability1 to <% VENOMORT_GLYPH_1_1_COOLDOWN %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_2_1"		"[T2-1] Glyph of Immunodeficiency"
 		"item_rpc_venomort_glyph_2_1_description" 				"For each of Venomort's effects that gains power based on the number of affected targets, Paragon enemies count as @glyph_property2 units, while bosses count as @glyph_property1."

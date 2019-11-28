@@ -146,7 +146,7 @@
         "DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"          "Получает увеличенный урон от Chernobog"    
 
         "DOTA_Tooltip_ability_chernobog_rune_r_2"                               "[R2] Night Stalker"
-        "DOTA_Tooltip_ability_chernobog_rune_r_2_Description"                   "Внутри купола @Ability4 противники атакуются Тенями от [E2]. Урон эих атак повышен."
+        "DOTA_Tooltip_ability_chernobog_rune_r_2_Description"                   "Внутри купола @Ability4 противники атакуются Тенями от [E2]. Урон этих атак повышен."
         "DOTA_Tooltip_ability_chernobog_rune_r_2_property_one"                  "Урон Теней"
         "DOTA_Tooltip_ability_chernobog_rune_r_2_suffix"                        "%"
 		
