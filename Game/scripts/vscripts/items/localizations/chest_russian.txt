@@ -432,14 +432,16 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
-		"item_rpc_water_mage_robes_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_water_mage_robes_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"Во время прочтения (R) @Ability4, во все стороны от героя будет выпущен мощный поток воды, наносящий магический урон за каждую волну, который равен сумме <% ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG %>х урона героя и <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x Интеллекта. Дополнительно замедляет врагов на <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>% и увеличивает Пост-Резистный урон по противникам, попавшим под волну на <% ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP %>%."
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
-		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Скорость передвижения снижена"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
+
+		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
+		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
 

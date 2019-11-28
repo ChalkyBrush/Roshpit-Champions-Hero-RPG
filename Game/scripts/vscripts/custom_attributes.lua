@@ -1528,6 +1528,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		magic_armor_modify = magic_armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
 	end
+	if unit:HasModifier("modifier_water_mage_slow") then
+		local robes = unit:FindModifierByName("modifier_water_mage_slow"):GetAbility()
+		magic_armor_modify = magic_armor_modify + robes:GetFinalGemPropertyValue("ruby", ITEM_RPC_WATER_MAGE_ROBES_GEM_RUBY)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 

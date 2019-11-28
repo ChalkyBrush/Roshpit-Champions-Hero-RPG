@@ -1755,7 +1755,7 @@ end
 function rare_construct_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.RareWaterConstruct.Die", caster)
-	RPCItems:RollWaterMageRobes(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_water_mage_robes")
 end
 
 function flood_robe_upgrading_think(event)

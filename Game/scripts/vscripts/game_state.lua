@@ -2242,12 +2242,6 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
 	end
 
-	if victim:HasModifier("modifier_water_mage_slow") then
-		modifier = victim:FindModifierByName("modifier_water_mage_slow")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			mult = mult + ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP/100
-		end
-	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
 		if victim:HasModifier("modifier_arkimus_immortal_weapon_3") then
 			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100

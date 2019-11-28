@@ -827,7 +827,7 @@ function Filters:BeginRChannel(caster)
         caster.galaxy_orb:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_galaxy_orb_channel", {duration = 8.0})
     end
     if caster:HasModifier("modifier_water_mage_robes") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_water_mage_channeling", {duration = 8.0})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_water_mage_channeling", {duration = ability:GetChannelTime()})
     end
     if caster:HasModifier("modifier_ocean_tempest_pallium") then
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].manaDrained = 0
@@ -1045,6 +1045,15 @@ function Filters:ApplyWskills(caster)
             EmitSoundOn("RPCItem.StoneCuirass.Trigger", caster)
         end
     end
+    if caster:HasModifier("modifier_water_mage_robes") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
+            local proc = Filters:GetProc(caster, caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_WATER_MAGE_ROBES_GEM_AMETHYST))
+            if proc then
+                EmitSoundOn("Tanari.WaterTemple.RareWrathWater", caster)
+                Filters:WaterMageRobeProjectile(caster.equipped_gear[RPC_GEAR_SLOT_BODY], caster, caster:GetForwardVector())
+            end
+        end
+    end
     if caster:HasModifier("modifier_buzukis_finger") then
         Filters:BuzukisFinger(caster)
     end
@@ -1126,11 +1135,15 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_burnout") then
         local currentStacks = caster:GetModifierStackCount("modifier_burnout", Events.GameMaster) + 1
         caster:SetModifierStackCount("modifier_burnout", Events.GameMaster, currentStacks)
-        if currentStacks == 15 then
+        if currentStacks == 7 then
             local disableAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
             if IsValidEntity(disableAbility) then
-                disableAbility:StartCooldown(5)
-                Notifications:Top(caster:GetPlayerOwnerID(), {text = "Too Fast!", duration = 2, style = {color = "red"}, continue = true})
+                local cd = 1
+                if caster:HasModifier("modifier_hood_of_lords_lua") then
+                    cd = 2
+                end
+                disableAbility:StartCooldown(cd)
+                -- Notifications:Top(caster:GetPlayerOwnerID(), {text = "Too Fast!", duration = 2, style = {color = "red"}, continue = true})
                 -- disableAbility:SetActivated(false)
                 -- Timers:CreateTimer(5, function()
                 --     if IsValidEntity(disableAbility) then
@@ -5373,4 +5386,33 @@ function Filters:TwilightVestments(hero, damage, damagetype)
             end)
         end)
     end
+end
+
+function Filters:WaterMageRobeProjectile(ability, caster, fv)
+    local range = 1200
+    local start_radius = 320
+    local end_radius = 320
+    local speed = 700 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_WATER_MAGE_ROBES_GEM_EMERALD2)
+    local projectileParticle = "particles/units/heroes/hero_tidehunter/tidehunter_gush_upgrade.vpcf"
+    local info =
+    {
+        Ability = ability,
+        EffectName = projectileParticle,
+        vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 30),
+        fDistance = range,
+        fStartRadius = start_radius,
+        fEndRadius = end_radius,
+        Source = caster,
+        StartPosition = "attach_origin",
+        bHasFrontalCone = true,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        fExpireTime = GameRules:GetGameTime() + 6.0,
+        bDeleteOnHit = false,
+        vVelocity = fv * speed,
+        bProvidesVision = false,
+    }
+    projectile = ProjectileManager:CreateLinearProjectile(info)
 end

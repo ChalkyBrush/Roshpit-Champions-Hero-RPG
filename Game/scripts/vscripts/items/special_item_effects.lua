@@ -3547,40 +3547,24 @@ function lava_forge_fireball_hit(event)
 	end
 end
 
+function water_mage_robes_channel_init(event)
+	local hero = event.caster.hero
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_arcana_spring_cast_ring_outer_pnt.vpcf", hero, 4)
+end
+
 function water_mage_robes_channel_think(event)
 	local caster = event.target
 	local ability = event.ability
 	ability.hero = caster
 	EmitSoundOn("Tanari.WaterTemple.RareWrathWater", caster)
-	local range = 1200
-	local start_radius = 320
-	local end_radius = 320
+
 	local baseFV = caster:GetForwardVector()
-	local speed = 700
-	local projectileParticle = "particles/units/heroes/hero_tidehunter/tidehunter_gush_upgrade.vpcf"
+
+	
 	for i = 1, 6, 1 do
 		local fv = WallPhysics:rotateVector(baseFV, 2 * math.pi * i / 6)
-		local info =
-		{
-			Ability = ability,
-			EffectName = projectileParticle,
-			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 30),
-			fDistance = range,
-			fStartRadius = start_radius,
-			fEndRadius = end_radius,
-			Source = caster,
-			StartPosition = "attach_origin",
-			bHasFrontalCone = true,
-			bReplaceExisting = false,
-			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			fExpireTime = GameRules:GetGameTime() + 6.0,
-			bDeleteOnHit = false,
-			vVelocity = fv * speed,
-			bProvidesVision = false,
-		}
-		projectile = ProjectileManager:CreateLinearProjectile(info)
+		Filters:WaterMageRobeProjectile(ability, caster, fv)
 	end
 end
 
@@ -3588,7 +3572,7 @@ function water_mage_robes_projectile_hit(event)
 	local hero = event.ability.hero
 	local target = event.target
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG + hero:GetIntellect() * ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG
+	local damage = hero:GetIntellect() * ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_WATER_MAGE_ROBES_GEM_EMERALD1)
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	ability:ApplyDataDrivenModifier(event.caster, target, "modifier_water_mage_slow", {duration = ITEM_RPC_WATER_MAGE_ROBES_SLOW_DURATION})
 end
