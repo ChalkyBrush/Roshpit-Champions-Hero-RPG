@@ -2334,43 +2334,6 @@ end
 function eternal_essence_projectile_hit(event)
 end
 
-function bladeforge_attack_land(event)
-	local attacker = event.attacker
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_bladeforge_debuff", {duration = 6})
-	local current_stack = target:GetModifierStackCount("modifier_bladeforge_debuff", ability)
-	if current_stack < 5000 then
-		target:SetModifierStackCount("modifier_bladeforge_debuff", ability, current_stack + 1)
-	end
-	local proc = Filters:GetProc(attacker, 20)
-	if proc then
-		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetForwardVector(), true)
-		target.bladeforgeBleedDPS = event.attack_damage * 1.0
-		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_bladeforge_bleed", {duration = 3})
-		Timers:CreateTimer(3, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
-	end
-end
-
-function bladeforge_bleed_think(event)
-	local target = event.target
-	local damage = target.bladeforgeBleedDPS
-	local ability = event.ability
-	Filters:ApplyItemDamage(target, event.caster.hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-end
-
-function bladeforge_bleed_end(event)
-	local target = target
-	target.bladeforgeBleedDPS = nil
-end
-
 function hermit_spike_damage_taken(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -8324,7 +8287,7 @@ function aquasteel_think(event)
 	if ability:GetGemValue("emerald") > 0 then
 		ability.interval = ability.interval + 1
 		if ability.interval >= ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AQUASTEEL_BRACERS_GEM_EMERALD)/0.5 then
-			local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_AQUASTEEL_BRACERS_EMERALD_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_AQUASTEEL_BRACERS_EMERALD_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				Filters:AquaSteelWaterJet(hero, ability, enemies[1])
 			end
@@ -8357,4 +8320,50 @@ function autumnrock_bracer_take_damage(event)
 			end
 		end
 	end)
+end
+
+function bladeforge_attack_land(event)
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_bladeforge_armor_debuff", {duration = ITEM_RPC_BLADEFORGE_GAUNTLET_RUBY_DURATION})
+		local current_stack = target:GetModifierStackCount("modifier_bladeforge_armor_debuff", ability)
+		local new_stacks = math.min(current_stack + 1, ITEM_RPC_BLADEFORGE_GAUNTLET_RUBY_MAX_STACKS)
+		target:SetModifierStackCount("modifier_bladeforge_armor_debuff", ability, new_stacks)
+		target:CalculateAndSaveRoshpitAttributes()
+	end
+	local proc_chance = ITEM_RPC_BLADEFORGE_GAUNTLET_PROC_CHANCE + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE1)
+	local proc = Filters:GetProc(attacker, proc_chance)
+	if proc then
+		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+		local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "follow_origin", target:GetForwardVector(), true)
+		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
+		local bleed_duration = ITEM_RPC_BLADEFORGE_BLEED_DURATION + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST2)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_bladeforge_bleed", {duration = bleed_duration})
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		if ability:GetGemValue("amethyst") > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_bladeforge_health_regen_loss", {duration = bleed_duration})
+			local health_regen_loss_amount = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_AMETHYST1)
+			target:SetModifierStackCount("modifier_bladeforge_health_regen_loss", caster, health_regen_loss_amount)
+		end
+	end
+end
+
+function bladeforge_bleed_think(event)
+	local target = event.target
+	local hero = event.caster.hero
+	local ability = event.ability
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*((ITEM_RPC_BLADEFORGE_GAUNTLET_BLEED_DMG_ATK_PWR_PCT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_SAPPHIRE2))/100)
+	local ability = event.ability
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+end
+
+function bladeforge_bleed_end(event)
+	local target = target
 end

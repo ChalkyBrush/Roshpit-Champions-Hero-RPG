@@ -46670,6 +46670,173 @@
 		}
 	}
 
+	"item_rpc_bladeforge_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/bladeforge_gauntlet"  //"bladeforge_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"1"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"-50 -100 -150 -200 -250"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"240 480 720 960 1200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"70 140 210 280 350"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"1 2 3 4 5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"6 12 18 24 30"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"80 160 240 320 400"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"0.6 1.2 1.8 2.4 3.0"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			"particle" "particles/blood_impact/blood_advisor_pierce_spray.vpcf"
+			"particle"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bladeforge_gauntlet"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bladeforge_attack_land"
+						"attack_damage"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_bladeforge_armor_debuff"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"TextureName"	"bloodseeker_rupture"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_bladeforge_bleed"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"TextureName"	"bloodseeker_rupture"
+				"AttachEffect"
+				{
+					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+					"EffectAttachType"  "attach_origin"
+					"Target"            "TARGET"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bladeforge_bleed_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bladeforge_bleed_end"
+						"target"		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_bladeforge_health_regen_loss"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_bladeforge_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_berserker_gloves"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -48935,155 +49102,6 @@
 			"modifier_swiftspike_bad"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_bladeforge_gauntlet"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/bladeforge_gauntlet"  //"bladeforge_gauntlet"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"-100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"1"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-			"particle" "particles/blood_impact/blood_advisor_pierce_spray.vpcf"
-			"particle"	"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_bladeforge_gauntlet"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"bladeforge_attack_land"
-						"attack_damage"	"%attack_damage"
-					}
-					"AttachEffect"
-					{
-						"EffectName"        "particles/blood_impact/blood_advisor_pierce_spray.vpcf"
-						"EffectAttachType"  "attach_hitloc"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_hitloc"
-							"TARGET"	"attach_hitloc"
-							"TARGET"	"attach_hitloc"
-							"TARGET"	"attach_hitloc"
-							"TARGET"	"attach_hitloc"
-						}
-					}
-				}
-			}
-			"modifier_bladeforge_debuff"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"bloodseeker_rupture"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%property_one"
-				}
-			}
-			"modifier_bladeforge_bleed"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"bloodseeker_rupture"
-				"AttachEffect"
-				{
-					"EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
-					"EffectAttachType"  "attach_origin"
-					"Target"            "TARGET"
-				}
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"bladeforge_bleed_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"bladeforge_bleed_end"
-						"target"		"TARGET"
-					}
-				}
 			}
 		}
 	}

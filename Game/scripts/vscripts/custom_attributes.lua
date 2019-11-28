@@ -1019,6 +1019,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local shields_count = unit:GetModifierStackCount("modifier_stormshield_active_shields", unit.InventoryUnit)
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STORMSHIELD_CLOAK_GEM_RUBY)*shields_count
 	end
+	if unit:HasModifier("modifier_bladeforge_armor_debuff") then
+		local bladeforge_modifier = unit:FindModifierByName("modifier_bladeforge_armor_debuff")
+		local bladeforge_gauntlet = bladeforge_modifier:GetAbility()
+		armor_modify = armor_modify + bladeforge_gauntlet:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY)*bladeforge_modifier:GetStackCount()
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then

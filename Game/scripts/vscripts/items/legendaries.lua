@@ -1312,27 +1312,6 @@ function RPCItems:RollGrandArcanist(item_level)
     return item
 end
 
-function RPCItems:RollBladeforgeGauntlet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_bladeforge_gauntlet", "immortal", "Bladeforge Gauntlet", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "bladeforge"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bladeforge", "#AB0303", 1, "#property_bladeforge_description")
-
-    local maxFactor = RPCItems:GetMaxFactor()
-    local value = RandomInt(maxFactor * 8, maxFactor * 150) * 3
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollRoyalWristguards(item_level)
     local item = RPCItems:CreateVariant("item_rpc_royal_wristguards", "immortal", "Royal Wristguards", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4641,6 +4620,32 @@ function RPCItems:RollBerserkerGloves(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_berserker", "#850D0D", 1, "#property_berserker_rage_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollBladeforgeGauntlet(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_bladeforge_gauntlet", "immortal", "Bladeforge Gauntlet", "hands", true, "Slot: Hands")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_bladeforge_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bladeforge", "#AB0303", 1, "#property_bladeforge_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor_pierce", 2)
+    end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
@@ -8730,7 +8735,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun", "item_rpc_seraphic_soulvest", "item_rpc_skyforge_flurry_plate", "item_rpc_sorcerers_regalia", "item_rpc_space_tech_vest",
         "item_rpc_spellslinger_coat", "item_rpc_staggering_knight_crusher_armor", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_vampiric_breastplate", "item_rpc_windsteel_armor"}
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
-        itemsList = {"item_rpc_berserker_gloves"}
+        itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet"}
     end
     return itemsList
 end

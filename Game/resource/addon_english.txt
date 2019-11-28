@@ -13070,6 +13070,20 @@
     	"item_rpc_berserker_gloves_sapphire1"								"Each Berserker Rage stack increases Base Attack Damage by @sapphire_property1"
     	"item_rpc_berserker_gloves_amethyst1"								"Increases max Berserker Rage Stacks by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
+
+		"item_property_bladeforge"					"Rupture"
+		"property_bladeforge_description"			"Your basic attacks have a <font color='#ccff66'>20</font>% chance to make the enemy bleed for <font color='#ccff66'>3</font> seconds, taking <font color='#ccff66'>50</font>% of your attack power as Physical damage every <font color='#ccff66'>0.5</font> seconds."
+		"DOTA_Tooltip_modifier_bladeforge_armor_debuff"	"Rupture"
+		"DOTA_Tooltip_modifier_bladeforge_armor_debuff_Description"	"Losing Armor per stack."
+		"DOTA_Tooltip_modifier_bladeforge_bleed"	"Rupture"
+		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Taking damage based on Bladeforge wearer's attack damage every <font color='#ccff66'>0.5</font> seconds"
+
+    	"item_rpc_bladeforge_gauntlet_ruby1"								"Attacks leave a stacking @ruby_property1 Armor loss debuff that lasts for <font color='#ccff66'>10</font> seconds. Max <font color='#ccff66'>20</font> stacks" 
+    	"item_rpc_bladeforge_gauntlet_emerald1"								"Increases Armor Pierce by @emerald_property1 and Base Attack Damage by @emerald_property2"
+    	"item_rpc_bladeforge_gauntlet_sapphire1"								"Increases bleed chance on attack by @sapphire_property1% and increases the bleed damage by an additional @sapphire_property2% of attack power"
+    	"item_rpc_bladeforge_gauntlet_amethyst1"								"Bleeding enemies lose @amethyst_property1 health regen and bleed duration is increased by @amethyst_property2"
+
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
@@ -13293,19 +13307,6 @@
     	"item_rpc_eternal_essence_gauntlet_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_eternal_essence"				"Absorption"
 		"property_eternal_essence_description"		"Slaying an enemy heals you for 4% of their max health."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_bladeforge_gauntlet"								"Bladeforge Gauntlet"
-    	"item_rpc_bladeforge_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_bladeforge_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_bladeforge_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_bladeforge_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_bladeforge"					"Rupture"
-		"property_bladeforge_description"			"Your basic attacks leave a stacking @special_property1 Armor debuff on struck units for 6 seconds. Attacks have a 20% chance to make the enemy bleed for 3 seconds, taking @special_property2% of your attack power as Magical damage every 0.5 seconds."
-		"DOTA_Tooltip_modifier_bladeforge_debuff"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_debuff_Description"	"Losing 100 Armor per stack."
-		"DOTA_Tooltip_modifier_bladeforge_bleed"	"Rupture"
-		"DOTA_Tooltip_modifier_bladeforge_bleed_Description"	"Taking Magical damage every 0.5s"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
