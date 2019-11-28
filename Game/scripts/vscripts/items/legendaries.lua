@@ -1399,31 +1399,6 @@ function RPCItems:RollRoyalWristguards(item_level)
     return item
 end
 
-function RPCItems:RollAquasteelBracers(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_aquasteel_bracers", "immortal", "Aquasteel Bracers", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "aquasteel"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aquasteel", "#56BBEA", 1, "#property_aquasteel_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 3, 14, 0, 0, item.newItemTable.rarity, false, maxFactor * 8)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 1.5)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollDemonfireGauntlet(item_level)
     local item = RPCItems:CreateVariant("item_rpc_demonfire_gauntlet", "immortal", "Demonfire Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4639,7 +4614,38 @@ function RPCItems:RollWindsteelArmor(item_level)
     return item
 end
 
---FEET
+--GLOVES
+
+function RPCItems:RollAquasteelBracers(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_aquasteel_bracers", "immortal", "Aquasteel Bracers", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_aquasteel_bracers"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aquasteel", "#56BBEA", 1, "#property_aquasteel_description")
+
+    local luck = RandomInt(1, 4)
+    if luck < 3 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+-- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")

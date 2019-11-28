@@ -720,6 +720,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_WATER_MAGE_ROBES_GEM_SAPPHIRE1, hero, "element_water", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_WATER_MAGE_ROBES_GEM_SAPPHIRE2, hero, "spell_pierce", RPC_GEAR_SLOT_BODY)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_aquasteel_bracers" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE1, hero, "armor", RPC_GEAR_SLOT_GLOVES)
+		end		
 	end
 end
 

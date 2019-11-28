@@ -13469,13 +13469,12 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"水之钢铁护腕"
-    	"item_rpc_aquasteel_bracers_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_aquasteel_bracers_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_aquasteel"								"水爆"
-		"property_aquasteel_description"						"受到伤害时，有 <font color='#ccff66'>20</font>% 的几率向攻击者喷射一股水流，水流对敌人造成 <font color='#ccff66'>8</font>x 攻击力 + <font color='#ccff66'>10</font>x 护甲值的伤害，并且眩晕敌人 <font color='#ccff66'>1.5</font> 秒。"
-		
+		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <font color='#ccff66'>25</font>% of your attack power, and stunning for <font color='#ccff66'>0.5</font> seconds."
+    	"item_rpc_aquasteel_bracers_ruby1"								"Increases Water Jet damage by @ruby_property1 and the stun duration by @ruby_property2"
+    	"item_rpc_aquasteel_bracers_emerald1"								"Fire a Water Jet at a random target within <font color='#ccff66'>500</font> range every @emerald_property1 seconds"
+    	"item_rpc_aquasteel_bracers_sapphire1"								"Increases armor by @sapphire_property1, and Water Jet damage by @sapphire_property2% of armor"
+    	"item_rpc_aquasteel_bracers_amethyst1"								"Enemies hit by [R] are hit by a Water Jet. Max @amethyst_property1 Jets per second from this effect"
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"炎魔手套"
     	"item_rpc_demonfire_gauntlet_ruby1"								"blah blah @ruby_property1 gem"

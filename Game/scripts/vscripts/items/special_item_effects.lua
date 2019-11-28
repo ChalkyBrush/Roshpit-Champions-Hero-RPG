@@ -4946,34 +4946,6 @@ function flamethrower_impact(event)
 	end
 end
 
-function aquasteel_take_damage(event)
-	local unit = event.unit
-	local attacker = event.attacker
-	local caster = event.unit
-	local ability = event.ability
-	local proc = Filters:GetProc(caster, ITEM_RPC_AQUASTEEL_BRACERS_CHANCE)
-	if unit:GetEntityIndex() == attacker:GetEntityIndex() then
-	else
-		if proc then
-			local dagon_particle = ParticleManager:CreateParticle("particles/econ/events/ti7/dagon_ti7.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-			ParticleManager:SetParticleControlEnt(dagon_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
-			ParticleManager:SetParticleControlEnt(dagon_particle, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), false)
-			local particle_effect_intensity = 700
-			ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
-			Timers:CreateTimer(2.0, function()
-				ParticleManager:DestroyParticle(dagon_particle, false)
-				ParticleManager:ReleaseParticleIndex(dagon_particle)
-			end)
-			local damage = ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG * OverflowProtectedGetAverageTrueAttackDamage(caster) + caster:GetPhysicalArmorValue(false) * ITEM_RPC_AQUASTEEL_BRACERS_ARMOR_TO_DMG
-			EmitSoundOn("RPCItem.Aquasteel", attacker)
-			Timers:CreateTimer(0.1, function()
-				Filters:ApplyItemDamage(attacker, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR, attacker)
-			end)
-		end
-	end
-end
-
 function demonfire_attack_land(event)
 	local caster = event.caster
 	local target = event.attacker
@@ -8339,4 +8311,37 @@ function windsteel_amethyst_falling_end(event)
 	local caster = event.caster
 	local hero = caster.hero
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+end
+
+function aquasteel_take_damage(event)
+	local unit = event.unit
+	local attacker = event.attacker
+	local caster = event.unit
+	local ability = event.ability
+	local proc = Filters:GetProc(caster, ITEM_RPC_AQUASTEEL_BRACERS_CHANCE)
+	if unit:GetEntityIndex() == attacker:GetEntityIndex() then
+	else
+		if proc then
+			Filters:AquaSteelWaterJet(caster, ability, attacker)
+		end
+	end
+end
+
+function aquasteel_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if not ability.interval then
+		ability.interval = 0
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		ability.interval = ability.interval + 1
+		if ability.interval >= ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AQUASTEEL_BRACERS_GEM_EMERALD)/0.5 then
+			local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_AQUASTEEL_BRACERS_EMERALD_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				Filters:AquaSteelWaterJet(hero, ability, enemies[1])
+			end
+			ability.interval = 0		
+		end
+	end
 end

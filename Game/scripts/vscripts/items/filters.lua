@@ -1778,6 +1778,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
         end
+        if attacker:HasModifier("modifier_aquasteel_bracers") then
+            Filters:AquaSteelRHit(attacker, victim)
+        end
         if attacker:HasModifier("modifier_plate_of_the_watcher4") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST2)/100
         end
@@ -5417,4 +5420,35 @@ function Filters:WaterMageRobeProjectile(ability, caster, fv)
         bProvidesVision = false,
     }
     projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function Filters:AquaSteelRHit(caster, target)
+    local aqua_bracers = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    if aqua_bracers:GetGemValue("amethyst") > 0 then
+        local limitKey = "_aquasteel_amethyst"
+        local max_procs_per_second = aqua_bracers:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AQUASTEEL_BRACERS_GEM_AMETHYST)
+        Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
+            Filters:AquaSteelWaterJet(caster, aqua_bracers, target)
+        end)       
+    end
+end
+
+function Filters:AquaSteelWaterJet(caster, ability, target)
+    local dagon_particle = ParticleManager:CreateParticle("particles/econ/events/ti7/dagon_ti7.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControlEnt(dagon_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
+    ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
+    local particle_effect_intensity = 700
+    ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
+    Timers:CreateTimer(2.0, function()
+        ParticleManager:DestroyParticle(dagon_particle, false)
+        ParticleManager:ReleaseParticleIndex(dagon_particle)
+    end)
+    local damage = (ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG/100) * OverflowProtectedGetAverageTrueAttackDamage(caster) + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY1)
+    damage = damage + (ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AQUASTEEL_BRACERS_GEM_SAPPHIRE2)/100)*caster:GetRoshpitArmor()
+    local stun_duration = ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AQUASTEEL_BRACERS_GEM_RUBY2)
+    EmitSoundOn("RPCItem.Aquasteel", target)
+    Timers:CreateTimer(0.1, function()
+        Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+        Filters:ApplyStun(caster, stun_duration, target)
+    end)
 end

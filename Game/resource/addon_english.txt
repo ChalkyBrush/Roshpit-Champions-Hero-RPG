@@ -13040,6 +13040,15 @@
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
 
+    	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
+		"item_property_aquasteel"								"Water Jet"
+		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <font color='#ccff66'>25</font>% of your attack power, and stunning for <font color='#ccff66'>0.5</font> seconds."
+    	"item_rpc_aquasteel_bracers_ruby1"								"Increases Water Jet damage by @ruby_property1 and the stun duration by @ruby_property2"
+    	"item_rpc_aquasteel_bracers_emerald1"								"Fire a Water Jet at a random target within <font color='#ccff66'>500</font> range every @emerald_property1 seconds"
+    	"item_rpc_aquasteel_bracers_sapphire1"								"Increases armor by @sapphire_property1, and Water Jet damage by @sapphire_property2% of armor"
+    	"item_rpc_aquasteel_bracers_amethyst1"								"Enemies hit by [R] are hit by a Water Jet. Max @amethyst_property1 Jets per second from this effect"
+
+
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
@@ -13458,14 +13467,6 @@
 		"item_property_shadowflame_fist"						"Vacant Shade"
 		"property_shadowflame_fist_description"					"Mana is capped at <font color='#ccff66'>10</font>% of max. Base Ability Damage of @Ability2 is increased by <font color='#ccff66'>1200</font>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
-    	"item_rpc_aquasteel_bracers_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_aquasteel_bracers_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage equal to <font color='#ccff66'>8</font>x your attack power + <font color='#ccff66'>10</font>x your Armor, and stunning for <font color='#ccff66'>1.5</font> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
