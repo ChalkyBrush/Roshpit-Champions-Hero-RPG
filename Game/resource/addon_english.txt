@@ -12936,6 +12936,19 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"Templar's effect also applies to allies in a @sapphire_property1 radius"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"Increases the heal per tick by @amethyst_property1x Spirit"
 
+		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
+		"item_property_terrasic_stone"						"Magma Break"
+		 "property_terrasic_stone_description"				"Every <font color='#ccff66'>12</font> seconds, gain a Magma Break stack. Each stack removes the cooldown on @Ability1. Max <font color='#ccff66'>2</font> stacks."
+
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Break"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
+
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
+		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Break stacks by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
 		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
@@ -12980,20 +12993,7 @@
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
 		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <font color='#ccff66'>50</font>% evasion and <font color='#ccff66'>100</font> movespeed."
 		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
-		
-
-		
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
-		"item_rpc_terrasic_stone_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_terrasic_stone_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_terrasic_stone_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_terrasic_stone_plate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Post-Mitigation damage is increased by <font color='#ccff66'>200</font>% against stunned targets."
-		 
-		 
+			 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
 		"item_rpc_water_mage_robes_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_water_mage_robes_emerald1"								"blah blah @emerald_property1 gem"

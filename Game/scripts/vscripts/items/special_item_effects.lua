@@ -5943,16 +5943,25 @@ function ice_floe_think(event)
 	end
 end
 
-function tattered_novice_stack_increase(event)
+function terrasic_stone_plate_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if target:HasModifier("modifier_tattered_novice_stack") then
-		local newStacks = math.min(target:GetModifierStackCount("modifier_tattered_novice_stack", caster) + 1, ITEM_RPC_TATTERED_NOVICE_ARMOR_MAX_STACKS)
-		target:SetModifierStackCount("modifier_tattered_novice_stack", caster, newStacks)
-	else
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tattered_novice_stack", {})
-		target:SetModifierStackCount("modifier_tattered_novice_stack", caster, 1)
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	local stack_generation_interval = ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_EMERALD)
+	if ability.interval >= stack_generation_interval then
+		local max_stacks = ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_AMETHYST)
+		if target:HasModifier("modifier_terrasic_magma_break_stacks") then
+			local newStacks = math.min(target:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster) + 1, max_stacks)
+			target:SetModifierStackCount("modifier_terrasic_magma_break_stacks", caster, newStacks)
+		else
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_terrasic_magma_break_stacks", {})
+			target:SetModifierStackCount("modifier_terrasic_magma_break_stacks", caster, 1)
+		end
+		ability.interval = 0
 	end
 end
 

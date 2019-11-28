@@ -1489,7 +1489,7 @@ end
 function rare_centaur_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.FireTemple.CentaurBossDie", caster)
-	RPCItems:RollTerrasicStonePlate(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_terrasic_stone_plate")
 end
 
 function conflag_carapace_think(event)

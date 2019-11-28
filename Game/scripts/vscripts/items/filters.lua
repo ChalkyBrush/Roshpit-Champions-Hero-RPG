@@ -922,13 +922,13 @@ function Filters:ApplyQskills(caster)
 
         ability:StartCooldown(baseCd)
     end
-    if caster:HasModifier("modifier_tattered_novice_stack") then
+    if caster:HasModifier("modifier_terrasic_magma_break_stacks") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        local currentStack = caster:GetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit)
+        local currentStack = caster:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster.InventoryUnit)
         if currentStack > 1 then
-            caster:SetModifierStackCount("modifier_tattered_novice_stack", caster.InventoryUnit, currentStack - 1)
+            caster:SetModifierStackCount("modifier_terrasic_magma_break_stacks", caster.InventoryUnit, currentStack - 1)
         else
-            caster:RemoveModifierByName("modifier_tattered_novice_stack")
+            caster:RemoveModifierByName("modifier_terrasic_magma_break_stacks")
         end
         ability:EndCooldown()
     end
@@ -1578,6 +1578,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_mana_relic_damage_boost") then
             damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
+        end
+        if attacker:HasModifier("modifier_terrasic_stone_plate") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_SAPPHIRE)/100
         end
         if attacker:HasModifier("modifier_plate_of_the_watcher1") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY2)/100

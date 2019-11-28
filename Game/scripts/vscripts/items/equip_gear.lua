@@ -686,6 +686,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_GEM_RUBY, hero, "spirit", RPC_GEAR_SLOT_BODY)
 		end		
+	elseif item:GetAbilityName() == "item_rpc_terrasic_stone_plate" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY1, hero, "strength", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY2, hero, "armor", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY2, hero, "armor_pierce", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY3, hero, "element_fire", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY3, hero, "element_earth", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 
