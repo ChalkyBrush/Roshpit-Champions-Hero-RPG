@@ -652,6 +652,16 @@
 		"DOTA_Tooltip_modifier_infernal_prison_nearby"	"Immolation"
 		"DOTA_Tooltip_modifier_infernal_prison_ruby"	"Immolation (Ruby)"
 
+		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
+
+		"item_property_twilight_vestments"			"Shimmering Scales"
+		"property_twilight_vestments_description"	"When a single damage instance deals more than <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% of your max health, you are healed for <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% of the damage instance after <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> seconds."
+
+		"item_rpc_twilight_vestments_ruby1"									"Reduces the threshold to activate the heal by @ruby_property1% of Max Health"
+		"item_rpc_twilight_vestments_emerald1"								"Increases the Heal Amount by an additional @emerald_property1% of the damage instance"
+		"item_rpc_twilight_vestments_sapphire1"								"Pure Damage taken heals an additional @sapphire_property1% of the damage instance"
+		"item_rpc_twilight_vestments_amethyst1"								"Increases Spirit by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
 		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
@@ -661,15 +671,6 @@
 		"item_property_vampiric_breastplate"		"Vampiric Core"
 		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
 		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
-		"item_rpc_twilight_vestments_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_twilight_vestments_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"When a single damage instance deals more than <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% of your max health, you are healed for <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% of the damage instance after <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"

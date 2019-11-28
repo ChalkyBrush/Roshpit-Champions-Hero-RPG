@@ -2874,19 +2874,7 @@ end
 function twilight_damage_taken(event)
 	local target = event.unit
 	local damageTaken = event.damage_taken
-	if damageTaken > target:GetMaxHealth() * ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD/100 then
-		EmitSoundOn("Grizzly.AllyHeal", target)
-		local healAmount = math.ceil(damageTaken * ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT/100)
-		Timers:CreateTimer(ITEM_RPC_TWILIGHT_VESTMENTS_DELAY, function()
-			Filters:ApplyHeal(target, target, healAmount, true)
-			local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
-			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-			Timers:CreateTimer(1, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-		end)
-	end
+
 end
 
 function blackfeather_init(event)

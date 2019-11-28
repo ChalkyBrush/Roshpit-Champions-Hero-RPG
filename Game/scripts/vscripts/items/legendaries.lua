@@ -1660,44 +1660,6 @@ function RPCItems:RollPowerRangerGloves(item_level)
     return item
 end
 
-function RPCItems:RollTwilightVestments(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "twilight"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_twilight_vestments", "#BCD8E6", 1, "#property_twilight_vestments_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.floor(value * 1.5)
-    local luck = RandomInt(1, 10)
-    if luck <= 4 then
-        propertyName = "rune_r_1"
-    elseif luck <= 7 then
-        propertyName = "rune_r_2"
-    elseif luck <= 9 then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 / 2)
-        propertyName = "rune_r_3"
-    else
-        if GameState:GetDifficultyFactor() > 2 then
-            item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(12, 0, 0, 0, 0)
-            propertyName = "rune_r_4"
-        else
-            propertyName = "rune_r_1"
-        end
-    end
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollBodyProperty3(item, 0)
-    RPCItems:RollBodyProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-
 function RPCItems:RollWaterMageRobes(item_level)
     local item = RPCItems:CreateVariant("item_rpc_water_mage_robes", "immortal", "Water Mage Robes", "body", true, "Slot: Body")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4644,6 +4606,28 @@ function RPCItems:RollInfernalPrison(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollTwilightVestments(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_twilight_vestments", "immortal", "Twilight Vestments", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_twilight_vestments"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_twilight_vestments", "#BCD8E6", 1, "#property_twilight_vestments_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 --FEET
 

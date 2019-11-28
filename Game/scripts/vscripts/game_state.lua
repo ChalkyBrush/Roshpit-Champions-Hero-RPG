@@ -3013,7 +3013,9 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT
 		end
 	end
-
+	if victim:HasModifier("modifier_twilight_vestments") and applyEffects then
+		Filters:TwilightVestments(victim, filterTable["damage"], damagetype)
+	end
 	if victim:HasModifier("modifier_canyon_boss_ai") then
 		if applyEffects then
 			filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])

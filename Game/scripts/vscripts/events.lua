@@ -211,6 +211,9 @@ function GameMode:OnNPCSpawned(keys)
 end
 
 function GameMode:CorrectRespawn(npc)
+	if npc:IsRealHero() then
+		npc:ReequipAllGear()
+	end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR

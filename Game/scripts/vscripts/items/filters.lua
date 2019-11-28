@@ -5332,3 +5332,28 @@ function Filters:SacredTrialActivate(caster)
         caster:SetModifierStackCount("modifier_sacred_trials_attack_power", caster.InventoryUnit, trials_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_AMETHYST))
     end
 end
+
+function Filters:TwilightVestments(hero, damage, damagetype)
+    local twilight_vest = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local threshold = (ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD - twilight_vest:GetFinalGemPropertyValue("ruby", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_RUBY))/100
+    print("----")
+    print(damage)
+    print(hero:GetMaxHealth() * threshold)
+    if damage > hero:GetMaxHealth() * threshold then
+        EmitSoundOn("RPCItems.TwilightVestments.Heal", hero)
+        local heal_pct = (ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT + twilight_vest:GetFinalGemPropertyValue("emerald", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_EMERALD))
+        if damagetype == DAMAGE_TYPE_PURE then
+            heal_pct = heal_pct + twilight_vest:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_SAPPHIRE)
+        end
+        local healAmount = math.ceil(damage * heal_pct/100)
+        Timers:CreateTimer(ITEM_RPC_TWILIGHT_VESTMENTS_DELAY, function()
+            Filters:ApplyHeal(hero, hero, healAmount, true, true)
+            local particleName = "particles/roshpit/twilight_vestment_heal.vpcf"
+            local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, hero)
+            ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+            Timers:CreateTimer(1, function()
+                ParticleManager:DestroyParticle(pfx, false)
+            end)
+        end)
+    end
+end
