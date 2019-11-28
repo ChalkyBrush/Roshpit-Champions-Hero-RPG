@@ -345,16 +345,18 @@
 		"item_rpc_energizing_quest_gear_amethyst1"							"blah blah @amethyst_property1 gem"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
-		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_windsteel_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
+		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"				"Windsteel Armor"
 		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%, скорость передвижения увеличена на <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>. Длится <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> сек. Перезаряжается <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> сек."
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 50%. Скорость передвижения увеличена на 100."
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Перезарядка Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
+		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
 		
 		
 		

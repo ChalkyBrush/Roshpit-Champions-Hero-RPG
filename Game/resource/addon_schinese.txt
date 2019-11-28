@@ -12685,16 +12685,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"猎风铠甲"
-		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_windsteel_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_windsteel_armor"				"狂风守护"
-		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<font color='#ccff66'>50</font>% 闪避和<font color='#ccff66'>100</font>点移动速度，持续 <font color='#ccff66'>8</font> 秒。冷却时间 <font color='#ccff66'>5</font> 秒。"
-		"DOTA_Tooltip_modifier_windsteel_effect"	"狂风守护"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<font color='#ccff66'>100</font>点移动速度。"
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"狂风守护冷却中"
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <font color='#ccff66'>50</font>% evasion. Lasts <font color='#ccff66'>8</font> seconds. <font color='#ccff66'>6</font> second cooldown."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <font color='#ccff66'>50</font>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
 		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <font color='#ccff66'>900</font> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"野性板甲"

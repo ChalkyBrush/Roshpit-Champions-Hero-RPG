@@ -2220,6 +2220,9 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + amount
 		agi_bonus = agi_bonus - amount
 	end
+	if hero:HasModifier("modifier_windsteel_effect") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WINDSTEEL_ARMOR_GEM_EMERALD)
+	end
 	if hero:HasModifier("modifier_sea_giant_spirit") then
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
 	end

@@ -1118,11 +1118,13 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_windsteel_armor") then
         if not caster:HasModifier("modifier_windsteel_cooldown") then
-            local stackCount = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_effect", {duration = ITEM_RPC_WINDSTEEL_ARMOR_DURATION})
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_stat_bonuses", {duration = ITEM_RPC_WINDSTEEL_ARMOR_DURATION})
-            caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_cooldown", {duration = ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN})
-            caster:SetModifierStackCount("modifier_windsteel_effect", caster.body, stackCount)
+            local windsteel = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
+            local stackCount = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel() + windsteel:GetFinalGemPropertyValue("ruby", ITEM_RPC_WINDSTEEL_ARMOR_GEM_RUBY)
+            local cooldown = ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN - windsteel:GetFinalGemPropertyValue("sapphire", ITEM_RPC_WINDSTEEL_ARMOR_GEM_SAPPHIRE)
+            windsteel:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_effect", {duration = ITEM_RPC_WINDSTEEL_ARMOR_DURATION})
+            windsteel:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_stat_bonuses", {duration = ITEM_RPC_WINDSTEEL_ARMOR_DURATION})
+            windsteel:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_windsteel_cooldown", {duration = cooldown})
+            caster:SetModifierStackCount("modifier_windsteel_effect", windsteel, stackCount)
             EmitSoundOn("Item.WindSteel", caster)
         end
     end

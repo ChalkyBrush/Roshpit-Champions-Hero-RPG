@@ -2986,19 +2986,6 @@ function wraith_phase_back(event)
 	caster:RemoveNoDraw()
 end
 
-function windsteel_take_damage(event)
-	local target = event.unit
-	--print("WINDSTEEL HIT")
-	local stackCount = target:GetModifierStackCount("modifier_windsteel_effect", target.body)
-	if stackCount > 1 then
-		target:SetModifierStackCount("modifier_windsteel_effect", target.body, stackCount - 1)
-	else
-		target:RemoveModifierByName("modifier_windsteel_effect")
-	end
-	local damageTaken = event.damage
-	target:Heal(damageTaken, target)
-end
-
 function april_fools_cast(event)
 	local target = event.caster
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Gyrocopter.ART_Barrage.Launch", target)
@@ -8245,4 +8232,111 @@ function vermillion_dream_robe_think(event)
 			hero:RemoveModifierByName("modifier_vermillion_dream_amethyst")
 		end
 	end
+end
+
+function windsteel_shield_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local fv = hero:GetForwardVector()
+		local speed = 1300
+		local wind_range = ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS
+		EmitSoundOn("RPCItems.Windsteel.AmethystWind", hero)
+		for i = 1, 8, 1 do
+			local wind_fv = WallPhysics:rotateVector(fv, 2 * math.pi * i / 8)
+			local info =
+			{
+				Ability = ability,
+				EffectName = "particles/items/hurricane_vest_projectile.vpcf",
+				vSpawnOrigin = hero:GetAbsOrigin() + Vector(0, 0, 60),
+				fDistance = wind_range,
+				fStartRadius = 130,
+				fEndRadius = 130,
+				Source = caster,
+				StartPosition = "attach_attack1",
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				fExpireTime = GameRules:GetGameTime() + 5.0,
+				bDeleteOnHit = false,
+				vVelocity = wind_fv * Vector(1, 1, 0) * speed,
+				bProvidesVision = false,
+			}
+			projectile = ProjectileManager:CreateLinearProjectile(info)
+		end	
+	end
+end
+
+function windsteel_amethyst_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local target = event.target
+	local tornado_duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_WINDSTEEL_ARMOR_GEM_AMETHYST)
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_windsteel_amethyst_tornado", {duration = tornado_duration})
+	if target.windsteel_tornado_pfx then
+		ParticleManager:DestroyParticle(target.windsteel_tornado_pfx, false)
+	end
+	target.windsteel_tornado_pfx = ParticleManager:CreateParticle("particles/items_fx/cyclone.vpcf", PATTACH_ABSORIGIN, target)
+	ParticleManager:SetParticleControl(target.windsteel_tornado_pfx, 0, target:GetAbsOrigin())
+end
+
+function windsteel_amethyst_tornado_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	if not target.ocean_tempest_lift_speed then
+		target.ocean_tempest_lift_speed = 3
+	end
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if not target.jumpLock then
+		if distanceFromGround < 240 then
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed + 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))
+		else
+			target.ocean_tempest_lift_speed = target.ocean_tempest_lift_speed - 0.4
+			target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0,0,target.ocean_tempest_lift_speed))		
+		end
+	end
+end
+
+function windsteel_amethyst_tornado_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	target.ocean_tempest_lift_speed = nil
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_windsteel_amethyst_falling", {duration = 3})
+	ParticleManager:DestroyParticle(target.windsteel_tornado_pfx, false)
+	target.windsteel_tornado_pfx = nil
+end
+
+function windsteel_amethyst_falling_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	local newFV = WallPhysics:rotateVector(target:GetForwardVector(), 2*math.pi/20)
+	target:SetForwardVector(newFV)
+	local distanceFromGround = target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target)
+	if distanceFromGround > 10 then
+		target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0,0,30))
+	else
+		target:RemoveModifierByName("modifier_windsteel_amethyst_falling")
+	end
+end
+
+function windsteel_amethyst_falling_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 end
