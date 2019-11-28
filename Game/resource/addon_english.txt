@@ -13048,6 +13048,17 @@
     	"item_rpc_aquasteel_bracers_sapphire1"								"Increases armor by @sapphire_property1, and Water Jet damage by @sapphire_property2% of armor"
     	"item_rpc_aquasteel_bracers_amethyst1"								"Enemies hit by [R] are hit by a Water Jet. Max @amethyst_property1 Jets per second from this effect"
 
+    	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
+
+		"item_property_autumnrock_bracer"						"Fissure"
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <font color='#ccff66'>0.8</font> second delay. The fissure stuns for <font color='#ccff66'>1</font> seconds and deals <font color='#ccff66'>3</font>x your Strength as Magical damage. Max <font color='#ccff66'>6</font> procs per second."
+
+    	"item_rpc_autumnrock_bracer_ruby1"								"Increases Strength by @ruby_property1 and Fissure proc chance by @ruby_property2%"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Fissure damage by @emerald_property1 and the stun duration by @emerald_property2"
+    	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
+    	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <font color='#ccff66'>500</font> range"
+
+
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
@@ -13405,18 +13416,7 @@
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Losing movespeed and taking additional damage with each stack."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"Increased movespeed and dealing additional damage with each attack."
-
-		 
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
-    	"item_rpc_autumnrock_bracer_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_autumnrock_bracer_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_autumnrock_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_autumnrock_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source. The fissure stuns for <font color='#ccff66'>2</font> seconds and deals <font color='#ccff66'>200</font>x your Strength as Magical damage.<br>All damage dealt directly by items is enhanced by <font color='#ccff66'>0.1</font>% for each <font color='#ccff66'>100</font> points of current health."
-		 
+ 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
     	"item_rpc_malachite_shade_bracer_ruby1"							"blah blah @ruby_property1 gem"

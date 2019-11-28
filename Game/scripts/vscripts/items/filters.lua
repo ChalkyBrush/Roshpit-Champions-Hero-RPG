@@ -180,9 +180,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         mult = mult + ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR)
     end
 
-    if caster:HasModifier("modifier_autumnrock_bracer") then
-        mult = mult + ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_AMP_PER_HP_PCT/100 * (caster:GetHealth() / ITEM_RPC_AUTUMNROCK_BRACER_ITEM_DAMAGE_HP_DIVISOR)
-    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
@@ -1036,6 +1033,9 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_bluestar_armor") then
         Filters:BluestarCast(caster)
+    end
+    if caster:HasModifier("modifier_autumnrock_bracer") then
+        Filters:AutumnRockWCast(caster)
     end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("sapphire") > 0 then
@@ -5451,4 +5451,37 @@ function Filters:AquaSteelWaterJet(caster, ability, target)
         Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
         Filters:ApplyStun(caster, stun_duration, target)
     end)
+end
+
+function Filters:AutumnRockWCast(caster)
+    local bracer = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    if bracer:GetGemValue("amethyst") > 0 then
+        local proc = Filters:GetProc(caster, bracer:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AUTUMNROCK_BRACER_GEM_AMETHYST))
+        if proc then
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            if #enemies > 0 then
+                Filters:AutumnrockExplosion(caster, bracer, enemies[1]:GetAbsOrigin(), ITEM_RPC_AUTUMNROCK_BRACER_EXP_AOE)
+            end
+        end
+    end
+end
+
+function Filters:AutumnrockExplosion(caster, ability, position, explosionAOE)
+    local particleName = "particles/econ/items/centaur/centaur_ti6/centaur_ti6_warstomp.vpcf"
+    local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(particle1, 0, position)
+    ParticleManager:SetParticleControl(particle1, 1, Vector(explosionAOE, 5, explosionAOE * 2))
+    Timers:CreateTimer(4, function()
+        ParticleManager:DestroyParticle(particle1, false)
+    end)
+    local damage = caster:GetStrength() * ITEM_RPC_AUTUMNROCK_BRACER_DMG_PER_STR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD1)
+    local stun_duration = ITEM_RPC_AUTUMNROCK_BRACER_STUN_DUR + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AUTUMNROCK_BRACER_GEM_EMERALD2)
+    EmitSoundOnLocationWithCaster(position, "Item.AutumnMage.Quake", caster)
+    local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    if #enemies > 0 then
+        for _, enemy in pairs(enemies) do
+            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+            Filters:ApplyStun(caster, 2, enemy)
+        end
+    end
 end

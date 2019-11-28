@@ -652,6 +652,7 @@ function autumn_mage_boss_die(event)
 			end
 		end)
 	end)
+
 	for i = 1, #Redfall.spawnPortalTable, 1 do
 		ParticleManager:DestroyParticle(Redfall.spawnPortalTable[i], false)
 	end
@@ -696,6 +697,10 @@ function autumn_mage_boss_die(event)
 			end)
 		end
 	end)
+	local luck = RandomInt(1, 4)
+	if luck == 1 then
+		RPCItems:RollAndDropUniqueItem(unit, "item_rpc_autumnrock_bracer")
+	end
 end
 
 function autumn_mage_boss_think(event)

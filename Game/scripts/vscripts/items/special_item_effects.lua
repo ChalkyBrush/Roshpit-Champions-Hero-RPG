@@ -3846,27 +3846,6 @@ function eye_of_seasons_think(event)
 	target:SetModifierStackCount("modifier_eye_of_seasons_stats", caster, stats)
 end
 
-function autumnrock_bracer_take_damage(event)
-	local hero = event.unit
-	local ability = event.ability
-	if target == event.attacker then
-		return false
-	end
-	local proc = Filters:GetProc(hero, ITEM_RPC_AUTUMNROCK_BRACER_CHANCE)
-	if proc then
-		local attacker = event.attacker
-		local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
-		local fv = (attacker:GetAbsOrigin() * Vector(1, 1, 0) - hero:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
-		local startPosition = hero:GetAbsOrigin()
-		for i = 1, math.floor(length), 1 do
-			Timers:CreateTimer(0.8 * (i - 1), function()
-				local position = startPosition + fv * i * 260
-				autumn_mage_boss_explosion(hero, position, damage, ITEM_RPC_AUTUMNROCK_BRACER_EXP_AOE, ability)
-			end)
-		end
-	end
-end
-
 function autumn_mage_boss_explosion(caster, position, damage, explosionAOE, ability)
 	local particleName = "particles/econ/items/centaur/centaur_ti6/centaur_ti6_warstomp.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
@@ -8344,4 +8323,30 @@ function aquasteel_think(event)
 			ability.interval = 0		
 		end
 	end
+end
+
+function autumnrock_bracer_take_damage(event)
+	local hero = event.unit
+	local ability = event.ability
+	if target == event.attacker then
+		return false
+	end
+	local limitKey = hero:GetPlayerOwnerID() .. '_autumnrock_procs'
+	Util.Common:LimitPerTime(ITEM_RPC_AUTUMNROCK_BRACER_MAX_PROCS_PER_SEC, 1, limitKey, function()
+		local chance = ITEM_RPC_AUTUMNROCK_BRACER_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2)
+		local proc = Filters:GetProc(hero, chance)
+		if proc then
+			local delay = ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1)
+			local attacker = event.attacker
+			local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
+			local fv = (attacker:GetAbsOrigin() * Vector(1, 1, 0) - hero:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
+			local startPosition = hero:GetAbsOrigin()
+			for i = 1, math.floor(length), 1 do
+				Timers:CreateTimer(delay * (i - 1), function()
+					local position = startPosition + fv * i * 260
+					Filters:AutumnrockExplosion(hero, ability, position, ITEM_RPC_AUTUMNROCK_BRACER_EXP_AOE)
+				end)
+			end
+		end
+	end)
 end
