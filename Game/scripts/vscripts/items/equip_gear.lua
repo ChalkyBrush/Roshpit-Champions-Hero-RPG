@@ -694,6 +694,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY3, hero, "element_fire", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_RUBY3, hero, "element_earth", RPC_GEAR_SLOT_BODY)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_the_infernal_prison" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_THE_INFERNAL_PRISON_GEM_SAPPHIRE, hero, "armor", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_THE_INFERNAL_PRISON_GEM_SAPPHIRE, hero, "magic_armor", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 

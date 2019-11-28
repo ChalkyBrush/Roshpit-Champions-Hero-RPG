@@ -4011,20 +4011,37 @@ function init_wind_deity(event)
 	ability.targetsHit = 0
 end
 
-function infernal_prison_attacker_think(event)
+function infernal_prison_dot_think(event)
 	local ability = event.ability
 	local target = event.target
-	local caster = event.caster.hero
-	local damage = caster:GetPhysicalArmorValue(false) * 50
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local hero = event.caster.hero
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_THE_INFERNAL_PRISON_DAMAGE_ATK_PWR_PCT/100) + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_THE_INFERNAL_PRISON_GEM_AMETHYST)
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
-function infernal_prison_nearby_think(event)
+function infernal_prison_nearby_start(event)
 	local ability = event.ability
 	local target = event.target
 	local caster = event.caster.hero
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_infernal_prison_emerald", {})
+		target:SetModifierStackCount("modifier_infernal_prison_emerald", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_THE_INFERNAL_PRISON_GEM_EMERALD))
+	end
+end
+
+function infernal_prison_attacked(event)
+	local ability = event.ability
+	local target = event.target
+	local caster = event.caster
+	local attacker = event.attacker
+	if ability:GetGemValue("ruby") > 0 then
+		local duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_THE_INFERNAL_PRISON_GEM_RUBY)
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_infernal_prison_ruby", {duration = duration})
+		if ability:GetGemValue("emerald") > 0 then
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_infernal_prison_emerald_ruby", {duration = duration})
+			attacker:SetModifierStackCount("modifier_infernal_prison_emerald_ruby", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_THE_INFERNAL_PRISON_GEM_EMERALD))
+		end
+	end
 end
 
 function skulldigger_think(event)
@@ -5950,10 +5967,14 @@ function terrasic_stone_plate_think(event)
 	if not ability.interval then
 		ability.interval = 0
 	end
+	local max_stacks = ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_AMETHYST)
 	ability.interval = ability.interval + 1
+	if target:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster) == max_stacks then
+		ability.interval = 0
+	end
 	local stack_generation_interval = ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_EMERALD)
 	if ability.interval >= stack_generation_interval then
-		local max_stacks = ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_AMETHYST)
+		
 		if target:HasModifier("modifier_terrasic_magma_break_stacks") then
 			local newStacks = math.min(target:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster) + 1, max_stacks)
 			target:SetModifierStackCount("modifier_terrasic_magma_break_stacks", caster, newStacks)

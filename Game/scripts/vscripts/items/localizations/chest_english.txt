@@ -629,16 +629,28 @@
 		"item_rpc_templar_light_seers_robe_amethyst1"			"Increases the heal per tick by @amethyst_property1x Spirit"
 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
-		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Every <% ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL %> seconds, gain a Magma Break stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS %> stacks."
+		"item_property_terrasic_stone"						"Magma Breaker"
+		 "property_terrasic_stone_description"				"Every <% ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL %> seconds, gain a Magma Breaker stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS %> stacks."
 
-		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Break"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Breaker"
 		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
 
 		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
 		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
 		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
-		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Break stacks by @amethyst_property1"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Breaker stacks by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
+		"item_property_infernal_prison"				"Immolation"
+		"property_infernal_prison_description"		"Nearby enemies within <% ITEM_RPC_THE_INFERNAL_PRISON_RADIUS %> take of <% ITEM_RPC_THE_INFERNAL_PRISON_DAMAGE_ATK_PWR_PCT %>% attack power as magic damage every <% ITEM_RPC_THE_INFERNAL_PRISON_BURN_INTERVAL %> seconds."
+
+		"item_rpc_the_infernal_prison_ruby1"								"Enemies who attack you are engulfed in an additional Immolation that lasts @ruby_property1 seconds"
+		"item_rpc_the_infernal_prison_emerald1"								"Immolation slows enemy attack speed by @emerald_property1"
+		"item_rpc_the_infernal_prison_sapphire1"								"Increases Armor and Magic Armor by @sapphire_property1"
+		"item_rpc_the_infernal_prison_amethyst1"								"Increases Immolation damage by @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_infernal_prison_nearby"	"Immolation"
+		"DOTA_Tooltip_modifier_infernal_prison_ruby"	"Immolation (Ruby)"
 
 
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
@@ -649,14 +661,6 @@
 		"item_property_vampiric_breastplate"		"Vampiric Core"
 		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
-		"item_rpc_the_infernal_prison_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_the_infernal_prison_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_the_infernal_prison_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_the_infernal_prison_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_infernal_prison"				"Immolation"
-		"property_infernal_prison_description"		"Enemies who attack you are engulfed in flames, losing 110 attack speed and taking 50x your armor as magic damage every 0.5 seconds. Nearby enemies lose 260 attack speed and take<br>100% attack power as magic damage every 0.5 seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
