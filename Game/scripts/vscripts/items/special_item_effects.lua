@@ -8179,3 +8179,11 @@ function tattered_novice_enemy_death(event)
 		end
 	end
 end
+
+function vampiric_breastplate_init(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_vampiric_breastplate_aura", {})
+end

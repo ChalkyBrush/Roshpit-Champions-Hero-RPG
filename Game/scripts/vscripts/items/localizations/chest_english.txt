@@ -664,12 +664,17 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
-		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
+
 		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
+		"property_varmpiric_breastplate_description" "Regular attacks heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_ATTACK_HEAL_PCT %>% of the final attack damage."
+
+		"DOTA_Tooltip_modifier_vampiric_breastplate_aura_effect"	"Vampiric Aura"
+		"DOTA_Tooltip_modifier_vampiric_breastplate_aura_effect_Description"	"Attacks have lifesteal"
+
+		"item_rpc_vampiric_breastplate_ruby1"							"Allies in a <% ITEM_RPC_VAMPIRIC_BREASTPLATE_AURA_RADIUS %> radius gain @ruby_property1% of the Attack Lifesteal effect"
+		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
+		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
+		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
 		
 		
 		

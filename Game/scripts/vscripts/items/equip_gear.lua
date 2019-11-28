@@ -703,6 +703,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_BODY)
 		end			
+	elseif item:GetAbilityName() == "item_rpc_vampiric_breastplate" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_AMETHYST1, hero, "attack_speed", RPC_GEAR_SLOT_BODY)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_AMETHYST2, hero, "attack_damage", RPC_GEAR_SLOT_BODY)
+		end		
 	end
 end
 
@@ -726,22 +731,24 @@ function RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 end
 
 function CDOTA_BaseNPC_Hero:ReequipAllGear()
-	if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false)
-	end
-	if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
-	end
-	if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	if self.equipped_gear then
+		if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+		end
+		if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+		end
+		if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+		end
+		if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+		end
+		if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+		end
+		if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+		end
 	end
 end

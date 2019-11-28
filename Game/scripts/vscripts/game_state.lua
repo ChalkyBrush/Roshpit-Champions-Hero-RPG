@@ -2084,6 +2084,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"], filterTable["entindex_inflictor_const"])
 	end
 
+
 	if applyEffects then
 		if victim:HasModifier("modifier_dungeon_thinker_creep") then
 			victim.aggro = true
@@ -2098,6 +2099,14 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	--building epoch dmg before other multiplers
+    if attacker:HasModifier("modifier_vampiric_breastplate") then
+        Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate")
+    end
+    if attacker:HasModifier("modifier_vampiric_breastplate_aura_effect") then
+    	if not attacker:HasModifier("modifier_vampiric_breastplate_aura") then
+    		Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack","modifier_vampiric_breastplate_aura_effect")
+    	end
+    end
 	if victim:HasModifier("modifier_epoch_arcana_root") then
 		local modifier = victim:FindModifierByName("modifier_epoch_arcana_root")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2147,14 +2156,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		-- local original_damage = filterTable["damage"] --Post reduction
-		-- local inflictor = filterTable["entindex_inflictor_const"]
-		-- local damage = original_damage
-		-- filterTable["damage"] = damage
-		-- if attacker:IsHero() then
-		-- local primaryAttibute = Filters:GetPrimaryAttributeMultiple(attacker, 1)
-		-- filterTable["damage"] = filterTable["damage"]*(1+((primaryAttibute/16)/100))
-		-- end
 		if attacker:HasModifier("modifier_tempest_falcon_ring") then
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
 		end

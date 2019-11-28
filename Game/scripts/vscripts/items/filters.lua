@@ -1596,11 +1596,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + ARKIMUS_Q4_ADD_DMG_PCT/100
             end
         end
-        if attacker:HasModifier("modifier_vampiric_breastplate") then
-            if not ignore_effects then
-                Filters:VampiricBreastplate(attacker, damage)
-            end
-        end
+
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
                 damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetStrength())
@@ -1843,6 +1839,9 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
+    if attacker:HasModifier("modifier_vampiric_breastplate") then
+        Filters:VampiricBreastplate(attacker, damage, "q_ability", "modifier_vampiric_breastplate")
+    end
     if attacker:HasModifier("modifier_armor_of_violet_guard") then
         Filters:VioletGuardArmorHit(victim, attacker, damage)
     end
@@ -2966,18 +2965,36 @@ function Filters:SecretTempleQ(caster)
     end
 end
 
-function Filters:VampiricBreastplate(caster, damage)
-    local heal = math.max(math.floor(damage * ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL/100), 0)
-    Filters:ApplyHeal(caster, caster, heal, true)
-    if not caster:HasModifier("modifier_vampiric_particle") then
-        caster.body:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_vampiric_particle", {duration = 1})
+function Filters:VampiricBreastplate(vampire, damage, vamp_type, vamp_modifier)
+    local vampiric_inventory_unit = vampire:FindModifierByName(vamp_modifier):GetCaster()
+    local vampiric_owner = vampiric_inventory_unit.hero
+    local vampiric_breastplate = vampiric_owner.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local lifesteal_percent = 0
+    if vamp_type == "attack" then
+        lifesteal_percent = (ITEM_RPC_VAMPIRIC_BREASTPLATE_ATTACK_HEAL_PCT + vampiric_breastplate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_SAPPHIRE))/100
+        if vampiric_owner ~= vampire then
+            lifesteal_percent = lifesteal_percent*(vampiric_breastplate:GetFinalGemPropertyValue("ruby", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_RUBY)/100)
+        end
+    elseif vamp_type == "q_ability" then
+        if vampiric_breastplate:GetGemValue("emerald") > 0 then
+            lifesteal_percent = (vampiric_breastplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_EMERALD))/100
+        else
+            return false
+        end
+    end
+    local heal = math.max(math.floor(damage * lifesteal_percent), 0)
+
+    Filters:ApplyHeal(vampire, vampire, heal, true, true)
+    local limitKey = vampire:GetEntityIndex() .. '_vampiric'
+    Util.Common:LimitPerTime(2, 1, limitKey, function()      
         local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
-        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-        ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, vampire)
+        ParticleManager:SetParticleControlEnt(pfx, 0, vampire, PATTACH_POINT_FOLLOW, "attach_hitloc", vampire:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(pfx, 1, vampire, PATTACH_POINT_FOLLOW, "attach_hitloc", vampire:GetAbsOrigin(), true)
         Timers:CreateTimer(1, function()
             ParticleManager:DestroyParticle(pfx, false)
         end)
-    end
+    end)
 end
 
 function Filters:SpiritGlove(caster)
