@@ -12983,15 +12983,18 @@
 		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
 		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
 		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
+
+		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
+		"item_property_vermillion_dream_robes"					"Luminous Expanse"
+		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>500</font>."
 		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
-		"item_rpc_energizing_quest_gear_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_energizing_quest_gear_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_energizing_quest_gear_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_energizing_quest_gear_amethyst1"							"blah blah @amethyst_property1 gem"
-		
+		"item_rpc_vermillion_dream_robes_ruby1"							"Increases cast range by an additional @ruby_property1"
+		"item_rpc_vermillion_dream_robes_emerald1"							"Increase all bonuses from gear by @emerald_property1%"
+		"item_rpc_vermillion_dream_robes_sapphire1"							"Increase Base Ability damage by @sapphire_property1% and gain @sapphire_property2 distance forward vision"
+		"item_rpc_vermillion_dream_robes_amethyst1"							"As long as there are no enemies within <font color='#ccff66'>750</font> range, gain @amethyst_property1 Spell Pierce"
+
+		"DOTA_Tooltip_modifier_vermillion_dream_amethyst"		"Luminous Expanse (Amethyst)"
+		"DOTA_Tooltip_modifier_vermillion_dream_amethyst_Description"	"Gaining Spell Pierce as long as no enemies are nearby"
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
 		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
@@ -13013,21 +13016,6 @@
 		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <font color='#ccff66'>7</font>x your attack damage and <font color='#ccff66'>30</font>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <font color='#ccff66'>50</font>%, and while slowed they take <font color='#ccff66'>100</font>% increased Post-Mitigation damage from the caster."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
 		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
-		 
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
-		"item_rpc_vermillion_dream_robes_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vermillion_dream_robes_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <font color='#ccff66'>900</font>."
-		
-		
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
 		"item_rpc_steelbark_guard_ruby1"									"No Effect"
@@ -13037,6 +13025,14 @@
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
+
+				
+		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
+		"item_rpc_energizing_quest_gear_ruby1"							"No effect"
+		"item_rpc_energizing_quest_gear_emerald1"							"No effect"
+		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
+		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
+		
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"

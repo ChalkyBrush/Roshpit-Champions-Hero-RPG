@@ -2901,7 +2901,7 @@ function loki_the_mad_die(event)
 	EmitSoundOn("Redfall.LokiTheMad.Death", caster)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:VermillionDreamRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_vermillion_dream_robes")
 	end
 end
 

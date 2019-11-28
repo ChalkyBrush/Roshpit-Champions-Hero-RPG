@@ -237,6 +237,9 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
 			end	
 		end
+		if hero:HasModifier("modifier_vermillion_dream_robes") then
+			rune_bonus = rune_bonus * (1 + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100)
+		end
 		hero.runes_bonus_table[rune_name] = rune_bonus
 	end
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
@@ -707,7 +710,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_AMETHYST1, hero, "attack_speed", RPC_GEAR_SLOT_BODY)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VAMPIRIC_BREASTPLATE_GEM_AMETHYST2, hero, "attack_damage", RPC_GEAR_SLOT_BODY)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_SAPPHIRE1, hero, "base_ability", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 

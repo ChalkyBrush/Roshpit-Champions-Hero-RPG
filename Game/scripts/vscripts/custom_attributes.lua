@@ -2044,6 +2044,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local coat = modifier:GetAbility()
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*coat:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLSLINGER_COAT_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_vermillion_dream_amethyst") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_AMETHYST)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

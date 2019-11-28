@@ -12879,7 +12879,7 @@
 		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"夜光"
-		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <font color='#ccff66'>900</font> 。"
+		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <font color='#ccff66'>500</font> 。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"远古风之甲"

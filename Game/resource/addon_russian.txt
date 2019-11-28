@@ -12724,7 +12724,7 @@
 		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>900</font>"
+		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>500</font>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"

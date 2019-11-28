@@ -2099,13 +2099,17 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	--building epoch dmg before other multiplers
-    if attacker:HasModifier("modifier_vampiric_breastplate") then
-        Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate")
+    if attacker:HasModifier("modifier_vampiric_breastplate") and applyEffects then
+    	if not filterTable.entindex_inflictor_const then
+        	Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate")
+        end
     end
-    if attacker:HasModifier("modifier_vampiric_breastplate_aura_effect") then
-    	if not attacker:HasModifier("modifier_vampiric_breastplate_aura") then
-    		Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack","modifier_vampiric_breastplate_aura_effect")
-    	end
+    if attacker:HasModifier("modifier_vampiric_breastplate_aura_effect") and applyEffects then
+    	if not filterTable.entindex_inflictor_const then
+	    	if not attacker:HasModifier("modifier_vampiric_breastplate_aura") then
+	    		Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate_aura_effect")
+	    	end
+	    end
     end
 	if victim:HasModifier("modifier_epoch_arcana_root") then
 		local modifier = victim:FindModifierByName("modifier_epoch_arcana_root")

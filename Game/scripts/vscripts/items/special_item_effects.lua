@@ -8187,3 +8187,78 @@ function vampiric_breastplate_init(event)
 
 	ability:ApplyDataDrivenModifier(caster, hero, "modifier_vampiric_breastplate_aura", {})
 end
+
+function vermillion_dream_init(event)
+	local caster = event.caster
+	local hero = caster.hero
+	hero:AddNewModifier(caster, nil, 'modifier_vermillion_dream_lua', nil)
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
+end
+
+function vermillion_dream_end(event)
+	local caster = event.caster
+	local hero = caster.hero
+	hero:RemoveModifierByName('modifier_vermillion_dream_lua')
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
+	hero:RemoveModifierByName("modifier_vermillion_dream_amethyst")
+end
+
+function vermillion_dream_robe_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		local distance = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_SAPPHIRE2)
+		local vision_node_radius = 400
+		local node_count = distance / (vision_node_radius/2)
+		for i = 1, node_count, 1 do
+			local vision_position = hero:GetAbsOrigin() + hero:GetForwardVector() * i * (vision_node_radius/2)
+			AddFOWViewer(hero:GetTeamNumber(), vision_position, vision_node_radius, 1, true)
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_VERMILLION_DREAM_ROBES_AMETHYST_ENEMY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local enemies_nearby = false
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				if not enemy.dummy then
+					enemies_nearby = true
+					break
+				end
+			end
+		end
+		if not enemies_nearby then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_vermillion_dream_amethyst", {})
+		else
+			hero:RemoveModifierByName("modifier_vermillion_dream_amethyst")
+		end
+	end
+end
