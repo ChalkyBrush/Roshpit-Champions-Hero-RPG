@@ -13085,12 +13085,14 @@
     	"item_rpc_bladeforge_gauntlet_amethyst1"								"Bleeding enemies lose @amethyst_property1 health regen and bleed duration is increased by @amethyst_property2"
 
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
-		"item_rpc_blue_rain_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_blue_rain_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_blue_rain"								"Rain Lance"
-		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>15</font>% chance on attack to create massive wave of water that damages enemies in a line in front of you for <font color='#ccff66'>75</font>x your total attack power."
+		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>50</font>% chance on attack to create massive wave of water that damages enemies in a line of <font color='#ccff66'>1000</font> range in front of you for <font color='#ccff66'>8</font>% of your attack power. Max <font color='#ccff66'>3</font> procs per second"
+
+		"item_rpc_blue_rain_gauntlet_ruby1"								"Increases Item Damage by @ruby_property1% and All Attributes by @ruby_property2"
+		"item_rpc_blue_rain_gauntlet_emerald1"								"Increases Rain Lance proc chance by @emerald_property1% and max procs per second by @emerald_property2"
+		"item_rpc_blue_rain_gauntlet_sapphire1"								"Increases Rain Lance damage by an additional @sapphire_property1% of Attack Power"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <font color='#ccff66'>9</font> Rain Lances in all directions that deal @amethyst_property1% damage"
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"

@@ -2904,7 +2904,7 @@ function water_temple_spirit_boss_die_begin(event)
 
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollBlueRainGauntlet(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_blue_rain_gauntlet")
 		elseif luck == 2 then
 			RPCItems:RollAquastoneRing(bossOrigin)
 		elseif luck == 3 then

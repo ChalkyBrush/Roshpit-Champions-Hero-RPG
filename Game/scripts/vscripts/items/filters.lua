@@ -1277,6 +1277,9 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_guard_of_feronia") then
         Filters:ApplyFeronia(caster, BASE_ABILITY_R, false)
     end
+    if caster:HasModifier("modifier_blue_rain_gauntlet") then
+        Filters:BlueRainRCast(caster)
+    end
     if caster:HasModifier("modifier_carbuncles_helm_of_reflection") then
         Filters:CarbuncleApply(caster, caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CARBUNCLE_SAPPHIRE), false)
     end
@@ -5484,4 +5487,45 @@ function Filters:AutumnrockExplosion(caster, ability, position, explosionAOE)
             Filters:ApplyStun(caster, 2, enemy)
         end
     end
+end
+
+function Filters:BlueRainRCast(caster)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    if ability:GetGemValue("amethyst") > 0 then
+        local damage_mult = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_AMETHYST)/100
+        local fv = caster:GetForwardVector()
+        EmitSoundOn("RPCItem.BlueRain", caster)
+        for i = 1, ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT, 1 do
+            local endFV = WallPhysics:rotateVector(fv, 2*math.pi*i/ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT)
+            Filters:BlueRainLance(caster, ability, endFV, damage_mult)
+        end
+    end
+end
+
+function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ((ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_SAPPHIRE))/100)
+    damage = damage*damage_mult
+    local range = ITEM_RPC_BLUE_RAIN_GAUNTLET_RANGE
+    local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin() + endFV * range, caster, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
+    if #enemies > 0 then
+        --print("ENEMIES??")
+        for _, enemy in pairs(enemies) do
+            if not enemy.dummy then
+                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+            end
+        end
+    end
+    dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+    dummy:AddAbility("dummy_unit")
+    dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+    dummy:SetForwardVector(endFV)
+    local particleName = "particles/roshpit/items/blue_rain_gauntlet.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, dummy)
+    ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin() + endFV * range)
+    ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin() + endFV * range)
+    Timers:CreateTimer(2, function()
+        UTIL_Remove(dummy)
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
 end

@@ -734,7 +734,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD1, hero, "armor_pierce", RPC_GEAR_SLOT_GLOVES)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_EMERALD2, hero, "attack_damage", RPC_GEAR_SLOT_GLOVES)
-		end			
+		end		
+	elseif item:GetAbilityName() == "item_rpc_blue_rain_gauntlet" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY1, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "strength", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "agility", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

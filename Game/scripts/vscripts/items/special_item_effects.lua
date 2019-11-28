@@ -4785,32 +4785,17 @@ function blue_rain_attack_land(event)
 	local caster = attacker
 	local target = event.target
 
-	local proc = Filters:GetProc(caster, ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE)
+	local proc_chance = ITEM_RPC_BLUE_RAIN_GAUNTLET_CHANCE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD1)
+	local max_procs_per_second = ITEM_RPC_BLUE_RAIN_GAUNTLET_MAX_PROCS_PER_SEC + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_EMERALD2)
+	local limitKey = caster:GetPlayerOwnerID() .. '_blue_rain_procs'
+	
+	local proc = Filters:GetProc(caster, proc_chance)
 	if proc then
-		local position = target:GetAbsOrigin()
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BLUE_RAIN_GAUNTLET_DMG_PER_ATT
-		local endFV = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-		local range = 1000
-		--print(caster:GetAbsOrigin())
-		--print(caster:GetAbsOrigin()+endFV*range)
-		local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin() + endFV * range, caster, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
-		if #enemies > 0 then
-			--print("ENEMIES??")
-			for _, enemy in pairs(enemies) do
-				if not enemy.dummy then
-					Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_ICE)
-				end
-			end
-		end
-		local particleName = "particles/econ/items/monkey_king/ti7_weapon/mk_ti7_immortal_strike.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, caster)
-		ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin() + endFV * range)
-		ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin() + endFV * range)
-		Timers:CreateTimer(4, function()
-			ParticleManager:DestroyParticle(pfx, false)
+		Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
+			local endFV = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+			EmitSoundOn("RPCItem.BlueRain", target)
+			Filters:BlueRainLance(caster, ability, endFV, 1)
 		end)
-		EmitSoundOn("RPCItem.BlueRain", target)
 	end
 end
 
