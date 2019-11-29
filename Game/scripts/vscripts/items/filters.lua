@@ -3319,7 +3319,7 @@ function Filters:ScourgeKnight(caster)
         archer.dieTime = SCOURGE_KNIGHT_ARCHER_DURATION
         archer:AddAbility("ability_die_after_time_generic"):SetLevel(1)
         archer:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
-        archer:AdjustSummon(caster, true, 1, WOLFIR_DRUID_ATTACK_POWER_MULT, 1, 1, 1, 1)
+        archer:AdjustSummon(caster, true, 1, SCOURGE_KNIGHT_ATTACK_MULT, 1, 1, 1, 1)
         archer:SetMaxHPandHealToFull(SCOURGE_KNIGHT_HITS_TO_KILL)
         archer:SetModelScale(0.85)
         table.insert(scourge_helm.skeleton_table, archer)

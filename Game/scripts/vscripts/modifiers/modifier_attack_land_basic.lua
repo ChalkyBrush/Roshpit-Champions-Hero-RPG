@@ -109,6 +109,10 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, flood_robe, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 			return false
+		elseif parent:HasModifier("modifier_boneguard_skeleton") then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+			return false
 		end
 		if parent:HasModifier("modifier_direwolf_bulwark") then
 			local direwolf = parent:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()

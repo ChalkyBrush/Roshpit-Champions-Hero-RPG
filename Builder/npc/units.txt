@@ -11449,7 +11449,7 @@
         "AttackDamageMax"   "45"
         "AttackRate"    "1"
         "AttackAnimationPoint"  "0.27"
-        "AttackAcquisitionRange"    "99999"
+        "AttackAcquisitionRange"    "0"
         "AttackRange"   "100"
         "ProjectileSpeed"   "900"
         "BountyGoldMin" "8"

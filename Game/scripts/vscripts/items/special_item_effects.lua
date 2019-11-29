@@ -73,39 +73,6 @@ function shadow_armlet_take_damage(event)
 	end
 end
 
-function boneguard_attack_land(event)
-	local target = event.target
-	local ability = event.ability
-	local attacker = event.attacker
-	local proc = Filters:GetProc(attacker, 15)
-	if not ability.skeletonLimit then
-		ability.skeletonLimit = 0
-	end
-	if proc then
-		if ability.skeletonLimit <= 4 then
-			ability.skeletonLimit = ability.skeletonLimit + 1
-			local skeleton = CreateUnitByName("basic_skeleton", target:GetAbsOrigin(), true, nil, nil, attacker:GetTeamNumber())
-			skeleton.summonAbility = ability
-			skeleton.owner = attacker:GetPlayerOwnerID()
-			skeleton:SetOwner(attacker)
-
-			local skeleHealth = 8400
-			skeleHealth = Filters:AdjustItemDamage(attacker, skeleHealth, nil)
-			skeleton:SetMaxHealth(skeleHealth)
-			skeleton:SetBaseMaxHealth(skeleHealth)
-			skeleton:SetHealth(skeleHealth)
-			skeleton:Heal(skeleHealth, skeleton)
-
-			skeleton:SetControllableByPlayer(attacker:GetPlayerID(), true)
-			skeleton:AddAbility("ability_die_after_time_raise_dead"):SetLevel(1)
-			local summonAbil = skeleton:AddAbility("ability_summoned_unit")
-			summonAbil:SetLevel(1)
-			summonAbil:ApplyDataDrivenModifier(skeleton, skeleton, "modifier_summoned_unit_damage_increase", {duration = 30})
-			skeleton:SetModifierStackCount("modifier_summoned_unit_damage_increase", summonAbil, 70)
-		end
-	end
-end
-
 function midas_attack_land(event)
 	local caster = event.attacker
 	local runeUnit = event.caster
@@ -8351,4 +8318,89 @@ end
 
 function bladeforge_bleed_end(event)
 	local target = target
+end
+
+function boneguard_attack_land(event)
+	local target = event.target
+	local ability = event.ability
+	local attacker = event.attacker
+	local caster = event.caster
+	local proc_chance = ITEM_RPC_BONEGUARD_GAUNTLETS_SPAWN_CHANCE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST1)
+	local proc = Filters:GetProc(attacker, proc_chance)
+	if not ability.skeleton_table then
+		ability.skeleton_table = {}
+	end
+	local new_skele_table = {}
+	for i = 1, #ability.skeleton_table, 1 do
+		if ability.skeleton_table[i] and IsValidEntity(ability.skeleton_table[i]) and ability.skeleton_table[i]:IsAlive() then
+			table.insert(new_skele_table, ability.skeleton_table[i])
+		end
+	end
+	local max_skeletons = ITEM_RPC_BONEGUARD_GAUNTLETS_MAX_SKELETONS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_EMERALD)
+	ability.skeleton_table = new_skele_table
+	if proc then
+		if #ability.skeleton_table < max_skeletons then
+			local skeleton = CreateUnitByName("basic_skeleton", target:GetAbsOrigin(), true, nil, nil, attacker:GetTeamNumber())
+			skeleton.owner = attacker:GetPlayerOwnerID()
+			skeleton:SetOwner(attacker)
+			skeleton.hero = attacker
+			skeleton:SetControllableByPlayer(attacker:GetPlayerOwnerID(), true)
+			local ai_ability = skeleton:AddAbility("bone_claw_skeleton_toggle_ai")
+			ai_ability:SetLevel(1)
+			ai_ability:ToggleAbility()
+
+	        skeleton.dieTime = ITEM_RPC_BONEGUARD_GAUNTLETS_SKELETON_LIFE_TIMER + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE1)
+	        skeleton:AddAbility("ability_die_after_time_generic"):SetLevel(1)
+	        local damage_mult = ITEM_RPC_BONEGUARD_GAUNTLETS_ATTACK_POWER + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_RUBY)
+	        skeleton:AdjustSummon(attacker, true, ITEM_RPC_BONEGUARD_GAUNTLETS_HEALTH_MULT, ITEM_RPC_BONEGUARD_GAUNTLETS_ATTACK_POWER, 1, 1, 1, 1)
+	        if ability:GetGemValue("sapphire") > 0 then
+	        	local new_max_health = skeleton:GetMaxHealth() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_SAPPHIRE2)
+	        	skeleton:SetMaxHPandHealToFull(new_max_health)
+	        end
+	        skeleton:SetModelScale(0.85)
+	        skeleton:SetOriginalModel("models/items/wraith_king/wk_ti8_creep/wk_ti8_creep.vmdl")
+	        skeleton:SetModel("models/items/wraith_king/wk_ti8_creep/wk_ti8_creep.vmdl")
+	        table.insert(ability.skeleton_table, skeleton)
+	        Timers:CreateTimer(0.1, function()
+	        	StartAnimation(skeleton, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 0.8})
+	            EmitSoundOn("RPCItems.Boneguard.Spawn", skeleton)
+	        end)
+	        CustomAbilities:QuickAttachParticle("particles/roshpit/items/scourge_knight_ambient.vpcf", skeleton, 1)
+	        ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_boneguard_skeleton", {})
+	        if ability:GetGemValue("amethyst") > 0 then
+	        	ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_boneguard_attack_speed", {})
+	        	skeleton:SetModifierStackCount("modifier_boneguard_attack_speed", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BONEGUARD_GAUNTLETS_GEM_AMETHYST2))
+	        end
+		end
+	end
+end
+
+function bone_claw_skeleton_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(900)
+end
+
+function bone_claw_skeleton_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function bone_claw_skeleton_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
 end

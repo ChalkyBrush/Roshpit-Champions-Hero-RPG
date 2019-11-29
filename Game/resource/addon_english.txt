@@ -13087,13 +13087,25 @@
 		"DOTA_Tooltip_ability_item_rpc_blue_rain_gauntlet"								"Blue Rain Gauntlet"
 
 		"item_property_blue_rain"								"Rain Lance"
-		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>50</font>% chance on attack to create massive wave of water that damages enemies in a line of <font color='#ccff66'>1000</font> range in front of you for <font color='#ccff66'>8</font>% of your attack power. Max <font color='#ccff66'>3</font> procs per second"
+		"property_blue_rain_description"						"Attacks cannot miss. <font color='#ccff66'>50</font>% chance on attack to create massive wave of water that damages enemies in a line of <font color='#ccff66'>1000</font> range in front of you for <font color='#ccff66'>20</font>% of your attack power. Max <font color='#ccff66'>3</font> procs per second"
 
 		"item_rpc_blue_rain_gauntlet_ruby1"								"Increases Item Damage by @ruby_property1% and All Attributes by @ruby_property2"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"Increases Rain Lance proc chance by @emerald_property1% and max procs per second by @emerald_property2"
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"Increases Rain Lance damage by an additional @sapphire_property1% of Attack Power"
 		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <font color='#ccff66'>9</font> Rain Lances in all directions that deal @amethyst_property1% damage"
 
+    	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
+
+		"item_property_boneguard"				"Raise Dead"
+		"property_boneguard_description"		"<font color='#ccff66'>15</font>% chance on attack to summon a skeleton warrior to fight by your side for <font color='#ccff66'>20</font> seconds. Skeletons have <font color='#ccff66'>0.25</font>x their master's max health and <font color='#ccff66'>0.3</font>x of their master's attack power. Max <font color='#ccff66'>5</font> skeletons."
+
+		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai"				"Claw of the Dead AI"
+		"DOTA_Tooltip_ability_bone_claw_skeleton_toggle_ai_Description"	"Toggle to activate default behavior"
+
+    	"item_rpc_boneguard_gauntlets_ruby1"								"Increases skeleton attack power by an additional @ruby_property1% of their master's attack power"
+    	"item_rpc_boneguard_gauntlets_emerald1"								"Increases Max Skeletons by @emerald_property1"
+    	"item_rpc_boneguard_gauntlets_sapphire1"								"Increases Skeleton life duration by @sapphire_property1 seconds and their max health by an additional @sapphire_property2"
+    	"item_rpc_boneguard_gauntlets_amethyst1"								"Increase Skeleton spawn chance on attack by an additional @amethyst_property1% and skeleton attack speed by @amethyst_property2"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13133,15 +13145,6 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Slot: Hands"
 		"item_property_shadow_armlet"			"Shadow Step"
 		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to instantly heal for the amount of the damage instance."
-		
-    	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
-    	"item_rpc_boneguard_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_boneguard_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_boneguard_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_boneguard_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets_Description"					"Slot: Hands"
-		"item_property_boneguard"				"Raise Dead"
-		"property_boneguard_description"		"15% chance on attack to summon a skeleton warrior to fight by your side for 20 seconds. Max 5 skeletons."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
