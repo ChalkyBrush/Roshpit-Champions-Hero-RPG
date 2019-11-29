@@ -1024,6 +1024,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local bladeforge_gauntlet = bladeforge_modifier:GetAbility()
 		armor_modify = armor_modify + bladeforge_gauntlet:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY)*bladeforge_modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1537,6 +1542,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local robes = unit:FindModifierByName("modifier_water_mage_slow"):GetAbility()
 		magic_armor_modify = magic_armor_modify + robes:GetFinalGemPropertyValue("ruby", ITEM_RPC_WATER_MAGE_ROBES_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1781,6 +1790,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + crusher_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD)*modifier:GetStackCount()
+	end
+
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()

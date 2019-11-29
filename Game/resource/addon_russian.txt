@@ -13343,7 +13343,7 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Каждые <font color='#ccff66'>0.2</font> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%. Максимум зарядов: <font color='#ccff66'>92</font>."
+		"property_lobster_claw_Description"									"Каждые <font color='#ccff66'>0.2</font> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%. Максимум зарядов: <font color='#ccff66'>50</font>."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%%"
 		

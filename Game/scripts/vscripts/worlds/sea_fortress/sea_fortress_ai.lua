@@ -266,7 +266,7 @@ function seafortress_unit_die(event)
 	if luck2 == 1 then
 		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_armor_of_atlantis")
 	elseif luck2 == 2 then
-		RPCItems:RollChitinousLobsterClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_chitinous_lobster_claw")
 	end
 	local paragonAdjust = 0
 	if caster.paragon then

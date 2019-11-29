@@ -730,26 +730,6 @@ function RPCItems:RollScarecrowGloves(item_level)
     return item
 end
 
-function RPCItems:RollChitinousLobsterClaw(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_chitinous_lobster_claw", "immortal", "Chitinous Lobster Claw", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "lobster"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_lobster_claw", "#C97360", 1, "#property_lobster_claw_Description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 9, 0, 0, item.newItemTable.rarity, false, maxFactor * 9)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollDarkEmissaryGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dark_emissary_glove", "immortal", "Dark Emissary Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4667,6 +4647,32 @@ function RPCItems:RollBuzukisFinger(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollChitinousLobsterClaw(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_chitinous_lobster_claw", "immortal", "Chitinous Lobster Claw", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_chitinous_lobster_claw"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_lobster_claw", "#C97360", 1, "#property_lobster_claw_Description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor_pierce", 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

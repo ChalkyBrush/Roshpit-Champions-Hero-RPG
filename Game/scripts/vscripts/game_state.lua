@@ -1812,7 +1812,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = 1 - stacks * ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK
 		damage = damage * reduction
 		if shouldConsumeShields then
-			local newStacks = stacks - 1
+			local newStacks = math.max(stacks - 1, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_AMETHYST))
 			if newStacks > 0 then
 				victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
 			else

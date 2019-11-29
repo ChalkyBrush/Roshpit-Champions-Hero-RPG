@@ -76,6 +76,20 @@
 		"item_rpc_buzukis_finger_sapphire1"				"Increases the wearer's Item Damage by @sapphire_property1%"
 		"item_rpc_buzukis_finger_amethyst1"				"The wearer gains the Energy Beam on attack effect, which deals @amethyst_property1% of attack power"
 
+		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
+
+		"property_lobster_claw"												"Chitinous Skin"
+		"property_lobster_claw_Description"									"Every <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %> seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Each instance of damage taken will remove 1 stack. Max <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> stacks."
+
+
+		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
+		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Each stack reduces damage taken by <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
+
+		"item_rpc_chitinous_lobster_claw_ruby1"					"Increases maximum Chitinous Skin stacks by @ruby_property1"
+		"item_rpc_chitinous_lobster_claw_emerald1"					"Each chitinous skin stack also increases Armor Pierce by @emerald_property1"
+		"item_rpc_chitinous_lobster_claw_sapphire1"					"Each chitinous skin stack also increases Armor and Magic Armor by @sapphire_property1"
+		"item_rpc_chitinous_lobster_claw_amethyst1"					"Cannot fall below @amethyst_property1 chitinous skin stacks"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -468,17 +482,6 @@
 		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_depth_demon_claw"												"Metamorphose"
 		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by x<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
-		"item_rpc_chitinous_lobster_claw_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_chitinous_lobster_claw_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Every <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_STACK_RATE %> seconds, gain a stack of Chitinous Skin. Each stack reduces incoming damage taken by <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%. Each instance of damage taken will remove 1 stack. Max <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS %> stacks."
-		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
-		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Each stack reduces damage taken by <% ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK * 100 %>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	

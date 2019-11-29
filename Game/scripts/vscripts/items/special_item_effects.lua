@@ -4895,8 +4895,9 @@ function lobster_claw_think(event)
 	local target = event.target
 	local ability = event.ability
 
+	local max_stacks = ITEM_RPC_CHITINOUS_LOBSTER_CLAW_MAX_STACKS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_RUBY)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_chitinous_skin_stack", {})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_chitinous_skin_stack", caster) + 1, event.max_stacks)
+	local newStacks = math.min(target:GetModifierStackCount("modifier_chitinous_skin_stack", caster) + 1, max_stacks)
 	target:SetModifierStackCount("modifier_chitinous_skin_stack", caster, newStacks)
 end
 

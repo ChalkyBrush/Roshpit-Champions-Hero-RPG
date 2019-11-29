@@ -13511,7 +13511,7 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"壳质硬皮"
-		"property_lobster_claw_Description"									"每 <font color='#ccff66'>0.2</font>秒，获得一层壳质硬皮buff，每层buff伤害减免<font color='#ccff66'>1</font>%%。最大 <font color='#ccff66'>92</font> 层。"
+		"property_lobster_claw_Description"									"每 <font color='#ccff66'>0.2</font>秒，获得一层壳质硬皮buff，每层buff伤害减免<font color='#ccff66'>1</font>%%。最大 <font color='#ccff66'>50</font> 层。"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"壳质硬皮"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"每层提供伤害减免 <font color='#ccff66'>1</font>%%"
 		
