@@ -13084,7 +13084,7 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <font color='#ccff66'>3</font>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
+		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <font color='#ccff66'>4</font>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получит увеличенный урон от лазера"
 		

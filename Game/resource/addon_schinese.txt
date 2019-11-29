@@ -13255,7 +13255,7 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cytopian_laser"				"激光"
-		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 <font color='#ccff66'>3</font>x 玩家攻击力乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 <font color='#ccff66'>10</font> 层。"
+		"property_cytopian_laser_description"		"施放 @Ability2 的同时向附近的所有敌人发射激光，造成 <font color='#ccff66'>4</font>x 玩家攻击力乘以 @Ability2 等级数的魔法伤害。激光每次击中敌人，都增加100%的伤害，最高叠加 <font color='#ccff66'>10</font> 层。"
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"激光"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"受到激光的伤害增加"
 		

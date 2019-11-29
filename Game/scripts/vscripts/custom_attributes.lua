@@ -1798,6 +1798,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		armor_pierce_modify = armor_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
 	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		armor_pierce_modify = armor_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2077,6 +2082,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
 		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		spell_pierce_modify = spell_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

@@ -13155,6 +13155,18 @@
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Dealing reduced damage to linked hero"
 
+    	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
+
+		"item_property_cytopian_laser"				"Cytopian Laser"
+		"property_cytopian_laser_description"		"Casting @Ability2 fires lasers at all surrounding enemies in <font color='#ccff66'>650</font> range, dealing <font color='#ccff66'>4</font>% of your attack power. Each successive hit deals <font color='#ccff66'>20</font>% increased damage. Stacks last for <font color='#ccff66'>4</font> seconds and can reach a max of <font color='#ccff66'>10</font> stacks."
+		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
+		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
+
+    	"item_rpc_cytopian_laser_glove_ruby1"							"Each successive stack deals an additional @ruby_property1% more damage"
+    	"item_rpc_cytopian_laser_glove_emerald1"							"Increases max laser stacks by @emerald_property1"
+    	"item_rpc_cytopian_laser_glove_sapphire1"							"Increases base Laser damage by @sapphire_property1 and mana regen by @sapphire_property2"
+    	"item_rpc_cytopian_laser_glove_amethyst1"							"Each laser stack reduces Armor Pierce and Spell Pierce by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13313,17 +13325,6 @@
     	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mountain_vambraces"			"Craggy Shock"
 		"property_mountain_vambraces_description"	"Your attacks have a <font color='#ccff66'>15</font>% chance to stun enemies in a small area around the target for <font color='#ccff66'>2</font> seconds, dealing <font color='#ccff66'>1500</font>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Strength."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"
-    	"item_rpc_cytopian_laser_glove_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_cytopian_laser_glove_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"Casting @Ability2 also fires lasers at all surrounding enemies, dealing <font color='#ccff66'>3</font>x your attack damage times @Ability2 level as Magical damage. Each successive hit deals 100% increased damage. Max <font color='#ccff66'>10</font> stacks."
-		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
-		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Taking increased damage from lasers"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"

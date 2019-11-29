@@ -3380,28 +3380,31 @@ end
 function Filters:CytopianLaser(caster)
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_CYTOPIAN_LASER_GLOVE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local abilityLevel = caster:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-    local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * abilityLevel * ITEM_RPC_CYTOPIAN_LASER_GLOVE_DMG_PER_ATT
+    local baseDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (ITEM_RPC_CYTOPIAN_LASER_GLOVE_DMG_PER_ATT/100)
     if #enemies > 0 then
-        local ability = caster.handItem
+        local ability = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
         EmitSoundOn("Hero_Tinker.Attack", enemies[1])
         for _, enemy in pairs(enemies) do
-            local damage = baseDamage
+            local damage = baseDamage + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_SAPPHIRE1)
             local currentStacks = enemy:GetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit)
-            damage = damage + damage * currentStacks
+            local successive_damage = (ITEM_RPC_CYTOPIAN_LASER_GLOVE_STACK_INCREASE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_RUBY))/100
+            damage = damage * (1 + successive_damage*currentStacks)
 
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_TIME, RPC_ELEMENT_LIGHTNING)
             local particleName = "particles/units/heroes/hero_tinker/tinker_laser.vpcf"
             local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
             ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 100))
-            ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() + Vector(0, 0, 100), true)
-            ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 100), true)
-            ParticleManager:SetParticleControlEnt(pfx, 9, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin() + Vector(0, 0, 100), true)
+            ParticleManager:SetParticleControlEnt(pfx, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() + Vector(0, 0, 100), true)
+            ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin() + Vector(0, 0, 100), true)
+            ParticleManager:SetParticleControlEnt(pfx, 9, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin() + Vector(0, 0, 100), true)
             Timers:CreateTimer(0.8, function()
                 ParticleManager:DestroyParticle(pfx, false)
             end)
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = 4})
-            local newStacks = math.min(currentStacks + 1, ITEM_RPC_CYTOPIAN_LASER_GLOVE_MAX_STACKS)
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_cytopian_stacks", {duration = ITEM_RPC_CYTOPIAN_LASER_GLOVE_STACKING_DURATION})
+            local max_stacks = ITEM_RPC_CYTOPIAN_LASER_GLOVE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_EMERALD)
+            local newStacks = math.min(currentStacks + 1, max_stacks)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
+            enemy:CalculateAndSaveRoshpitAttributes()
         end
     end
 end

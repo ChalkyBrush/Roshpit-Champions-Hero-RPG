@@ -1257,28 +1257,6 @@ function RPCItems:RollDemonfireGauntlet(item_level)
     return item
 end
 
-function RPCItems:RollCytopianLaserGloves(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_cytopian_laser_glove", "immortal", "Cytopian Laser Gloves", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 260, 620, 0, 0, item.newItemTable.rarity, false, maxFactor * 600)
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "cytopian_laser"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cytopian_laser", "#85CEED", 1, "#property_cytopian_laser_description")
-
-    local value, suffixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 9)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "mana_regen"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_mana_regen", "#649FA3", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollGoldbreakerGauntlet(item_level)
     local item = RPCItems:CreateVariant("item_rpc_goldbreaker_gauntlet", "immortal", "Goldshatter Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4657,11 +4635,39 @@ function RPCItems:RollClawOfTheEtherealRevenant(item_level)
     local rune_type = RPCItems:RollRuneType({"w"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollCytopianLaserGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_cytopian_laser_glove", "immortal", "Cytopian Laser Gloves", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_cytopian_laser"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cytopian_laser", "#85CEED", 1, "#property_cytopian_laser_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_time", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spell_pierce", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "mana_regen", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8746,7 +8752,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun", "item_rpc_seraphic_soulvest", "item_rpc_skyforge_flurry_plate", "item_rpc_sorcerers_regalia", "item_rpc_space_tech_vest",
         "item_rpc_spellslinger_coat", "item_rpc_staggering_knight_crusher_armor", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_vampiric_breastplate", "item_rpc_windsteel_armor"}
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
-        itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth"}
+        itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove"}
     end
     return itemsList
 end
