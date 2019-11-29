@@ -491,14 +491,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
-		"item_rpc_buzukis_finger_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_buzukis_finger_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на <% ITEM_RPC_BUZUKIS_FINGER_POST_MITI %>% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере <% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится <% ITEM_RPC_BUZUKIS_FINGER_DURATION %> секунд."
+		"item_property_buzuki_finger"								"Power Up!"
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units have <% ITEM_RPC_BUZUKIS_FINGER_ATTACK_POWER %>% increased Attack Power and their attacks create an energy beam that deals <% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% of their attack power. The damage is attributed to the original caster. Buff lasts <% ITEM_RPC_BUZUKIS_FINGER_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
-		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Увеличивает пост-резистный урон и наносит дополнительный чистый урон при атаках"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased attack power and dealing additional Pure damage on attacks"
+
+		"item_rpc_buzukis_finger_ruby1"				"Power Up! Increases movespeed and attack speed by @ruby_property1"
+		"item_rpc_buzukis_finger_emerald1"				"Increases the Energy Beam damage by @emerald_property1%"
+		"item_rpc_buzukis_finger_sapphire1"				"Increases the wearer's Item Damage by @sapphire_property1%"
+		"item_rpc_buzukis_finger_amethyst1"				"The wearer gains the Energy Beam on attack effect, which deals @amethyst_property1% of attack power"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"

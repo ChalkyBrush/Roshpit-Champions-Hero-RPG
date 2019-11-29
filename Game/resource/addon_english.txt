@@ -13107,6 +13107,17 @@
     	"item_rpc_boneguard_gauntlets_sapphire1"								"Increases Skeleton life duration by @sapphire_property1 seconds and their max health by an additional @sapphire_property2"
     	"item_rpc_boneguard_gauntlets_amethyst1"								"Increase Skeleton spawn chance on attack by an additional @amethyst_property1% and skeleton attack speed by @amethyst_property2"
 
+		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
+		"item_property_buzuki_finger"								"Power Up!"
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units have <font color='#ccff66'>150</font>% increased Attack Power and their attacks create an energy beam that deals <font color='#ccff66'>10</font>% of their attack power. The damage is attributed to the original caster. Buff lasts <font color='#ccff66'>30</font> seconds."
+		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased attack power and dealing additional Pure damage on attacks"
+
+		"item_rpc_buzukis_finger_ruby1"				"Power Up! Increases movespeed and attack speed by @ruby_property1"
+		"item_rpc_buzukis_finger_emerald1"				"Increases the Energy Beam damage by @emerald_property1%"
+		"item_rpc_buzukis_finger_sapphire1"				"Increases the wearer's Item Damage by @sapphire_property1%"
+		"item_rpc_buzukis_finger_amethyst1"				"The wearer gains the Energy Beam on attack effect, which deals @amethyst_property1% of attack power"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13534,15 +13545,7 @@
 		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targeted abilities are cast on the attacked unit or its position. @Ability2 will be cast even if you lack the mana to cast it, but it will not occur if you are silenced or if the ability is on cooldown."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
-		"item_rpc_buzukis_finger_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_buzukis_finger_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units deal <font color='#ccff66'>500</font>% increased Post-Mitigation damage and their attacks create an energy beam that deals <font color='#ccff66'>100</font>% of attack damage. The damage is attributed to the original caster. Buff lasts <font color='#ccff66'>30</font> seconds."
-		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
-		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased post-mitigation damage and dealing additional Pure damage on attacks"
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"

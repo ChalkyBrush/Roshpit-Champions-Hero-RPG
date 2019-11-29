@@ -743,6 +743,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BLUE_RAIN_GAUNTLET_GEM_RUBY2, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_buzukis_finger" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BUZUKIS_FINGER_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

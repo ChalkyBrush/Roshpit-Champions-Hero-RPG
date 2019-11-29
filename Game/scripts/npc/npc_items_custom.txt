@@ -46670,6 +46670,158 @@
 		}
 	}
 
+	"item_rpc_buzukis_finger"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/buzukis_finger"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"9"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_two"			"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"24 48 72 96 120"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"10 20 30 40 50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"12 24 36 48 60"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"2 4 6 8 10"
+			}
+		}
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"precache"
+		{
+			"particle"  "particles/roshpit/winterblight/drain_blue_life_drain.vpcf"
+			"particle"	"particles/roshpit/winterblight/blue_finger.vpcf"
+			"particle"	"particles/roshpit/items/buzukis_finger_buff.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_buzukis_finger"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"buzuki_buff_attack_land"
+					}
+				}
+			}
+			"modifier_buzukis_finger_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"winterblight/buzuki_passive"
+				"EffectName"	"particles/roshpit/items/buzukis_finger_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_buzuki_finger_lua"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"buzuki_buff_attack_land"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
+				}
+			}
+			"modifier_buzuki_powering_up"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/roshpit/winterblight/drain_blue_life_drain.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"attach_attack1"
+						}
+
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_buzuki_ms_and_as"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_buzuki_ms_and_as"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1" 
+				}
+			}
+		}
+	}
+
 	"item_rpc_boneguard_gauntlets"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -49255,138 +49407,6 @@
 			"modifier_swiftspike_bad"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_buzukis_finger"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"winterblight/buzukis_finger"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"9"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_two"			"15"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"precache"
-		{
-			"particle"  "particles/roshpit/winterblight/drain_blue_life_drain.vpcf"
-			"particle"	"particles/roshpit/winterblight/blue_finger.vpcf"
-			"particle"	"particles/roshpit/items/buzukis_finger_buff.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_buzukis_finger"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_buzukis_finger_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"winterblight/buzuki_passive"
-				"EffectName"	"particles/roshpit/items/buzukis_finger_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_buzuki_finger_lua"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"buzuki_buff_attack_land"
-					}
-				}
-			}
-			"modifier_buzuki_powering_up"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"	"TARGET"
-						"EffectName"	"particles/roshpit/winterblight/drain_blue_life_drain.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_hitloc"
-							"CASTER"	"attach_attack1"
-						}
-
-					}
-				}
 			}
 		}
 	}

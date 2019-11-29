@@ -4607,14 +4607,19 @@ function Filters:DarkEmissary(caster)
 end
 
 function Filters:BuzukisFinger(caster)
+    local finger = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
     local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_BUZUKIS_FINGER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
     if #allies > 0 then
         for _, ally in pairs(allies) do
             ally:RemoveModifierByName("modifier_buzuki_powering_up")
             EmitSoundOn("RPCItems.BuzukiFinger.Powerup", ally)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
-            caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_buzuki_powering_up", {duration = 2.5})
-            ally:AddNewModifier(caster.InventoryUnit, caster.handItem, "modifier_buzuki_finger_lua", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
+            finger:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzukis_finger_buff", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
+            finger:ApplyDataDrivenModifier(caster, ally, "modifier_buzuki_powering_up", {duration = 2.5})
+            ally:AddNewModifier(caster.InventoryUnit, finger, "modifier_buzuki_finger_lua", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
+            if finger:GetGemValue("ruby") > 0 then
+                finger:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_buzuki_ms_and_as", {duration = ITEM_RPC_BUZUKIS_FINGER_DURATION})
+                ally:SetModifierStackCount("modifier_buzuki_ms_and_as", caster.InventoryUnit, finger:GetFinalGemPropertyValue("ruby", ITEM_RPC_BUZUKIS_FINGER_GEM_RUBY))
+            end
         end
     end
 end

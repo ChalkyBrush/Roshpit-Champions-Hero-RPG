@@ -483,14 +483,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"布祖克的手指"
-		"item_rpc_buzukis_finger_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_buzukis_finger_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_buzuki_finger"								"赐予你力量！"
-		"property_buzuki_finger_description"						"释放 @Ability2 可以给周围的非英雄单位提供增益效果，提高它们<% ITEM_RPC_BUZUKIS_FINGER_POST_MITI %>%的税后伤害，同时它们的普攻可以附加一道<% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>%攻击力伤害的能量光束。伤害来源为英雄。Buff持续<% ITEM_RPC_BUZUKIS_FINGER_DURATION %>s。"
-		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"赐予你力量!"
-		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"提高税后伤害并造成额外的纯粹打击伤害"
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units have <% ITEM_RPC_BUZUKIS_FINGER_ATTACK_POWER %>% increased Attack Power and their attacks create an energy beam that deals <% ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT %>% of their attack power. The damage is attributed to the original caster. Buff lasts <% ITEM_RPC_BUZUKIS_FINGER_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"赐予你力量！"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased attack power and dealing additional Pure damage on attacks"
+
+		"item_rpc_buzukis_finger_ruby1"				"Power Up! Increases movespeed and attack speed by @ruby_property1"
+		"item_rpc_buzukis_finger_emerald1"				"Increases the Energy Beam damage by @emerald_property1%"
+		"item_rpc_buzukis_finger_sapphire1"				"Increases the wearer's Item Damage by @sapphire_property1%"
+		"item_rpc_buzukis_finger_amethyst1"				"The wearer gains the Energy Beam on attack effect, which deals @amethyst_property1% of attack power"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"迅捷钉刺护腕"

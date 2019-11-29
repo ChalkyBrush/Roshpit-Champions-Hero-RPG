@@ -5825,7 +5825,16 @@ function buzuki_buff_attack_land(event)
 	local ability = event.ability
 	local hero = caster.hero
 	EmitSoundOn("RPCItems.BuzukiFinger.BeamHit", target)
+
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(event.attacker)*ITEM_RPC_BUZUKIS_FINGER_MODIFIER_ATTACK_PCT/100
+	if event.attacker == hero then
+		if ability:GetGemValue("amethyst") > 0 then
+			damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BUZUKIS_FINGER_GEM_AMETHYST)/100)
+		else
+			return false
+		end
+	end
+	damage = damage * (1 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BUZUKIS_FINGER_GEM_EMERALD)/100)
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_ICE, RPC_ELEMENT_DEMON)
 
 	local particle1 = ParticleManager:CreateParticle("particles/roshpit/winterblight/blue_finger.vpcf", PATTACH_CUSTOMORIGIN, target)
