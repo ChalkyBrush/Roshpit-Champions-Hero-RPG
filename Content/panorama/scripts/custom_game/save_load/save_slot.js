@@ -10,14 +10,17 @@ if ($.GetContextPanel().currentLevel < heroLevel){
 	$.GetContextPanel().confirm = 0
 }
 function InitializeSaveSlot(){
+	$.Msg("InitializeSaveSlot heroName")
 	$.Msg(heroName)
 	if (heroName == "empty"){
+		$.Msg("InitializeSaveSlot case 1")
 		if (unlocked == 1){
 			$('#slot_portrait').SetImage( "file://{images}/custom_game/ui/empty_slot.jpg")
 			$('#slot_label_level').style.visibility = "collapse"
 			$('#level_container').style.visibility = "collapse"
 		}
 		else{
+			$.Msg("InitializeSaveSlot case 2")
 			$('#slot_portrait').SetImage( "file://{images}/custom_game/ui/empty_slot.jpg")
 			$('#slot_label_level').style.visibility = "collapse"
 			$('#level_container').style.visibility = "collapse"	
@@ -25,6 +28,7 @@ function InitializeSaveSlot(){
 			$('#slot_overlay').AddClass("overlay_out");	
 		}
 	}else{
+		$.Msg("InitializeSaveSlot case 3")
 		$('#slot_portrait').SetImage( "file://{images}/heroes/" + heroName + ".png")
 		$('#slot_label').text = $.Localize(heroName)
 		$('#slot_label_level').text = "Lv "+heroLevel
@@ -33,6 +37,7 @@ function InitializeSaveSlot(){
 		}
 	}
 	if (heroSlot > 0){
+		$.Msg("InitializeSaveSlot case 4")
 		if (heroSlot == slot){
 
 		}else{
@@ -43,9 +48,13 @@ function InitializeSaveSlot(){
 }
 
 function SaveInSlot(){
+	$.Msg("[SaveInSlot]")
+	$.Msg("SAVE IN heroSlot: "+heroSlot)
 	$.Msg("SAVE IN SLOT: "+slot)
 	$.Msg(heroLevel)
 	$.Msg(heroName)
+	$.Msg("[SaveInSlot]")
+
 	if ($.GetContextPanel().currentLevel == 1){
 		if (!(heroName=="empty")){
 			$.GetContextPanel().saveMenuLabel.text=$.Localize('#saveload_cant_save_level_1')
@@ -61,9 +70,13 @@ function SaveInSlot(){
 		$.GetContextPanel().saveMenuLabel.AddClass("warning_label")
 		Game.EmitSound("General.Ping")
 	}else{
-		$.Msg("ACTUAL SAVE")
+		$.Msg("ACTUAL SAVE slot " + slot)
+		$.Msg("ACTUAL SAVE heroSlot " + heroSlot)
+		$.Msg("ACTUAL SAVE unlocked " + unlocked)
 		if (heroSlot == 0 || heroSlot == slot){
+			$.Msg("11 ACTUAL SAVE")
 			if ((GameUI.CustomUIConfig().oracleSave.state == 0) && unlocked == 1){
+				$.Msg("22 ACTUAL SAVE")
 				GameUI.CustomUIConfig().oracleSave.state = 1
 				GameUI.CustomUIConfig().oracleSave.AddClass('button_inactive')
 				GameUI.CustomUIConfig().oracleSave.RemoveClass('main_menu_button')					
@@ -72,10 +85,12 @@ function SaveInSlot(){
 				GameEvents.SendCustomGameEventToServer( "save_slot", {playerID: playerID, heroIndex: heroIndex, slot: slot});
 				DisableLoading()
 			}else{
+				$.Msg("33 ACTUAL SAVE")
 				Game.EmitSound("General.Cancel")
 			}
 		}
 		else{
+			$.Msg("44 ACTUAL SAVE")
 			Game.EmitSound("General.Cancel")
 		}
 	}

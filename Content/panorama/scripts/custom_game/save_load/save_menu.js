@@ -51,7 +51,7 @@ function getPosition(str, m, i) {
 function SaveCharactersLoaded(msg){
 	var result = msg.result
 	var premium = msg.premium
-	$.Msg(result)
+	// $.Msg(result)
 	$('#save_container').RemoveAndDeleteChildren();
 	$('#save_container2').RemoveAndDeleteChildren();
 	$('#save_container_premium1').RemoveAndDeleteChildren();
@@ -85,7 +85,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.saveMenuLabel = $('#save_menu_title')
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel = $('#save_container2')
@@ -99,7 +99,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.saveMenuLabel = $('#save_menu_title')
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel1 = $('#save_container_premium1')
@@ -112,7 +112,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel2 = $('#save_container_premium2')
@@ -125,7 +125,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel3 = $('#save_container_premium3')
@@ -138,7 +138,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel4 = $('#save_container_premium4')
@@ -151,7 +151,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel5 = $('#save_container_premium5')
@@ -164,7 +164,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel6 = $('#save_container_premium6')
@@ -177,7 +177,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 	var parentPanel7 = $('#save_container_premium7')
@@ -190,7 +190,7 @@ function SaveCharactersLoaded(msg){
 		newChildPanel.heroLevel = result.characters[i].level
 		newChildPanel.heroSlot = msg.heroSlot
 		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/save_load/save_slot.xml", false, false );	
-		var playerID = Game.GetLocalPlayerID();
+		
 		
 	}
 }

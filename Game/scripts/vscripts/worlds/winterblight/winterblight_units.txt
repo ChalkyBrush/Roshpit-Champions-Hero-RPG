@@ -9472,7 +9472,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "winterblight_raxxus_passive"
         "Ability2"              "normal_steadfast"
-        "Ability3"              "ursa_overpower"
+        "Ability3"              "ursa_overpower_no_head_attachment"
         "Ability4"              "winterblight_damage_sap"
         "Ability5"              "dungeon_creep"  
         "Creature"
@@ -9517,7 +9517,7 @@
             {
                 "Ability1"                
                 {
-                    "Name"                "ursa_overpower"
+                    "Name"                "ursa_overpower_no_head_attachment"
                 }             
             }
         }

@@ -4,6 +4,19 @@ if CustomAbilities == nil then
 	CustomAbilities = class({})
 end
 
+function modifier_npc_enrage_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability:IsFullyCastable() then
+		local newOrder = {
+			UnitIndex = caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			AbilityIndex = ability:entindex(),
+		}
+		ExecuteOrderFromTable(newOrder)
+	end
+end
+
 function CustomAbilities:AstralArcanaCloudMove(event)
 	local caster = event.caster
 	local ability = event.ability

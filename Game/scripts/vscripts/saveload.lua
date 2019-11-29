@@ -98,12 +98,16 @@ function SaveLoad:GetPlayerCharacters(msg)
 			end
 			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
-			SaveLoad:GetCharacterDataFromJSON(resultTable)
+			resultTable = SaveLoad:GetCharacterDataFromJSON(resultTable)
 			local premium = 0
 			if GameState:GetPlayerPremiumStatus(playerID) then
 				premium = 1
 			end
-			if saveOrLoad == "save" then
+
+			-- local playerCharactersCustomNetTableName = "CharactersData".."_"..tostring(playerID)
+			-- SaveLoad:UpdatePlayerCharactersData(playerCharactersCustomNetTableName, resultTable)
+
+			if saveOrLoad == "save" then				
 				CustomGameEventManager:Send_ServerToPlayer(player, "save_characters_loaded", {result = resultTable, message = "collapse", heroSlot = hero.saveSlot, premium = premium, currentLevel = GameState:GetHeroByPlayerID(playerID):GetLevel()})
 			else
 				CustomGameEventManager:Send_ServerToPlayer(player, "load_characters_loaded", {result = resultTable, message = "collapse", premium = premium})
@@ -133,6 +137,7 @@ function SaveLoad:GetCharacterDataFromJSON(resultTable)
 			characters[i].heroName = "empty"
 		end
 	end
+	resultTable = {}
 	resultTable.characters = characters
 
 	return resultTable
@@ -155,12 +160,26 @@ function SaveLoad:GetAllowSaving()
 end
 
 function SaveLoad:SaveCharacter(msg)
+	print("[SaveLoad:SaveCharacter] start")
 	local playerID = msg.playerID
 	local slot = msg.slot
 	local hero = EntIndexToHScript(msg.heroIndex)
-	hero.saveSlot = slot
-	local developer = Convars:GetBool("developer")
 	local player = PlayerResource:GetPlayer(playerID)
+
+	-- Updating hero save slot only once in game. Updating it for new character.
+	if not hero.saveSlot or hero.saveSlot == 0 then
+		print("[SaveLoad:SaveCharacter] Saving new hero.")
+		hero.saveSlot = slot
+	end
+	if slot ~= hero.saveSlot then
+		local messageToShow = "You're trying to save in wrong slot, correct slot is "..tostring(hero.saveSlot)
+		Notifications:Top(player, {text = messageToShow, duration = 5.0})
+		print("[SaveLoad:SaveCharacter] "..messageToShow)
+		CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {})
+		return
+	end
+
+	local developer = Convars:GetBool("developer")
 	local cheats = Convars:GetBool("sv_cheats")
 	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(playerID))
 	local current_rune_points = player_stats.runePoints
@@ -228,6 +247,12 @@ function SaveLoad:SaveCharacter(msg)
 				local resultTable = JSON:decode(result.Body)
 				-- SaveLoad:GetCharacterDataFromJSON(resultTable)
 				CustomGameEventManager:Send_ServerToPlayer(player, "recentlySaved", {})
+				if not resultTable then
+					local messageToShow = "Save failed."
+					Notifications:Top(player, {text = messageToShow, duration = 5.0})
+					print("[SaveLoad:SaveCharacter] "..messageToShow)
+					return
+				end
 				local premium = 0
 				if GameState:GetPlayerPremiumStatus(playerID) then
 					premium = 1
@@ -1170,7 +1195,11 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		-- hero:AddExperience(results.current_xp, 0, false, false)
 		-- end)
 		hero.roshpitID = results.id
-		hero.saveSlot = results.save_slot
+
+		-- Updating hero save slot only once in game. Updating it for new character.
+		if not hero.saveSlot or hero.saveSlot == 0 then
+			hero.saveSlot = results.save_slot
+		end
 
 		hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.rune_a_a)
 		hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.rune_a_b)

@@ -8008,6 +8008,21 @@
 
 		"Modifiers"
 		{
+			"modifier_npc_enrage_thinker"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"ThinkInterval"  "5.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"custom_abilities.lua"
+						"Function"		"modifier_npc_enrage_thinker"
+					}
+				}
+			}
+
 			"modifier_enrage_buff_datadriven"
 			{
 				"Duration"					"5"

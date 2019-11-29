@@ -62,7 +62,7 @@ function SaveButton(msg){
 
 function recentlySaved(msg){
 	var j = 1
-	var saveCooldown = 120
+	var saveCooldown = 10
 	$.Msg("anything?")
 	for (i = 1; i < saveCooldown; i++) {
 	 	$.Schedule(1*i, function(){

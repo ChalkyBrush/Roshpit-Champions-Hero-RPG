@@ -38274,7 +38274,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "ursa_overpower"
+        "Ability1"          "ursa_overpower_no_head_attachment"
         "Ability2"          "ursa_fury_swipes"
         "Ability3"          "dungeon_creep"
         "Creature"
@@ -38319,7 +38319,7 @@
             {
                 "Ability1"                
                 {
-                    "Name"                "ursa_overpower"
+                    "Name"                "ursa_overpower_no_head_attachment"
                 }             
             }
         }
@@ -38378,7 +38378,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "ursa_overpower"
+        "Ability1"          "ursa_overpower_no_head_attachment"
         "Ability2"          "ursa_fury_swipes"
         "Ability3"          "dungeon_creep"
         "Creature"
@@ -38423,7 +38423,7 @@
             {
                 "Ability1"                
                 {
-                    "Name"                "ursa_overpower"
+                    "Name"                "ursa_overpower_no_head_attachment"
                 }             
             }
         }
@@ -40420,7 +40420,7 @@
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "arena_ursa_thunder_clap"
-        "Ability2"              "ursa_overpower"
+        "Ability2"              "ursa_overpower_no_head_attachment"
         "Ability3"              "creature_pure_strike"
         "Ability4"              "arena_ursa_major_passive"
         "Creature"
@@ -40464,7 +40464,7 @@
             {
                 "Ability1"                
                 {
-                    "Name"                "ursa_overpower"
+                    "Name"                "ursa_overpower_no_head_attachment"
                 }             
             }
         }
@@ -40692,7 +40692,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"              "ursa_overpower"
+        "Ability1"              "ursa_overpower_no_head_attachment"
         "Ability2"              "use_ability_1_no_target_ai"
         "Creature"
         {
@@ -69562,7 +69562,7 @@
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Ability1"              "arena_ursa_thunder_clap"
         "Ability2"              "use_ability_1_no_target_ai"
-        "Ability3"              "ursa_overpower"
+        "Ability3"              "ursa_overpower_no_head_attachment"
         "Ability4"              "seafortress_ancient_ursan_passive"
         "Ability5"              "mega_steadfast"
         "Ability6"              "dungeon_creep"
@@ -69608,7 +69608,7 @@
             {
                 "Ability1"                
                 {
-                    "Name"                "ursa_overpower"
+                    "Name"                "ursa_overpower_no_head_attachment"
                 }             
             }
         }
