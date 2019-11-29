@@ -8466,3 +8466,18 @@ function bone_claw_skeleton_think(event)
 		end
 	end
 end
+
+function dark_emissary_emerald_end(event)
+	local target = event.target
+	ParticleManager:DestroyParticle(target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(target.pfx)
+	UTIL_Remove(target)
+end
+
+function dark_emissary_emerald_damage(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	Filters:ApplyItemDamage(target, hero, ability.emerald_damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+end

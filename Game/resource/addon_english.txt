@@ -13167,6 +13167,18 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"Increases base Laser damage by @sapphire_property1 and mana regen by @sapphire_property2"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"Each laser stack reduces Armor Pierce and Spell Pierce by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
+
+		"property_dark_emissary"												"Spectral Mist"
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals <font color='#ccff66'>25</font>% of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds."
+		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
+		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
+
+		"item_rpc_dark_emissary_glove_ruby1"						"Increases Spectral Mist damage by @ruby_property1 and Spell Pierce by @ruby_property2"
+		"item_rpc_dark_emissary_glove_emerald1"						"Spectral Mist creates an additional patch of fog that lingers for @emerald_property1 seconds, and enemies within take @emerald_property2% of the initial damage every <font color='#ccff66'>0.5</font> seconds"
+		"item_rpc_dark_emissary_glove_sapphire1"						"Increases <font color=\"#9ACCD1\">Ghost</font> Elemental Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_amethyst1"						"Spectral Mist applies invisibility for @amethyst_property1 seconds. Attacking or casting a spell breaks this invisibilty. Spell Pierce is increased by @amethyst_property2 while invisible by any means."
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13529,18 +13541,7 @@
 		"property_depth_demon_claw"												"Metamorphose"
 		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by x<font color='#ccff66'>0.3</font>."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
-		"item_rpc_dark_emissary_glove_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dark_emissary_glove_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dark_emissary_glove_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dark_emissary_glove_amethyst1"						"blah blah @amethyst_property1 gem"
-		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that x<font color='#ccff66'>240</font> of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds. Applies invisibility for <font color='#ccff66'>2</font> seconds. Invisibility from this effect has a <font color='#ccff66'>8</font> second cooldown."
-		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Invisible"
-		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"

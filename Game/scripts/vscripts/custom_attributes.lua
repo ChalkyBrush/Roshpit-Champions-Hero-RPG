@@ -2088,6 +2088,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local cytopian_glove = cytopian_modifier:GetAbility()
 		spell_pierce_modify = spell_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_dark_emissary_glove") then
+		if unit:IsInvisible() then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2)
+		end
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

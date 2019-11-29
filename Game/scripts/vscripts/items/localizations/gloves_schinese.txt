@@ -461,16 +461,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"暗黑使者手套"	
-		"item_rpc_dark_emissary_glove_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dark_emissary_glove_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dark_emissary_glove_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dark_emissary_glove_amethyst1"						"blah blah @amethyst_property1 gem"
 		"property_dark_emissary"												"彩虹迷雾"
-		"property_dark_emissary_Description"									"施放 @Ability1 将制造一团毒雾，在<% ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS %>码范围内缠绕敌人并造成 <% ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_MULT %> x玩家攻击力 的伤害。随后隐身<% ITEM_RPC_DARK_EMISSARY_GLOVE_ROOT_DURATION %>秒。隐身效果具有<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_CD %>秒的冷却时间"
-		"DOTA_Tooltip_modifier_dark_emissary_invis"								"彩虹迷雾"
-		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"隐形"
-		"DOTA_Tooltip_modifier_dark_emissary_root"								"彩虹迷雾"
-		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"被缠绕"
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals <% ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_ATK_POWER_PCT %>% of your attack power to enemies in a <% ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS %> radius, and roots them for <% ITEM_RPC_DARK_EMISSARY_GLOVE_ROOT_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
+		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
+
+		"item_rpc_dark_emissary_glove_ruby1"						"Increases Spectral Mist damage by @ruby_property1 and Spell Pierce by @ruby_property2"
+		"item_rpc_dark_emissary_glove_emerald1"						"Spectral Mist creates an additional patch of fog that lingers for @emerald_property1 seconds, and enemies within take @emerald_property2% of the initial damage every <% ITEM_RPC_DARK_EMISSARY_GLOVE_EMERALD_DOT_INTERVAL %> seconds"
+		"item_rpc_dark_emissary_glove_sapphire1"						"Increases <font color=\"#9ACCD1\">Ghost</font> Elemental Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_amethyst1"						"Spectral Mist applies invisibility for @amethyst_property1 seconds. Attacking or casting a spell breaks this invisibilty. Spell Pierce is increased by @amethyst_property2 while invisible by any means."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"能量鞭笞手套"

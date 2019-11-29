@@ -1,3 +1,197 @@
+	"item_rpc_dark_emissary_glove"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"seafortress/dark_emissary_glove" //"power_ranger_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_GHOST %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY1 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY2 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD2 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_SAPPHIRE %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST1 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2 %>"
+			}
+		}
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/dark_emissary_activate_magical.vpcf"
+			"particle"	"particles/neutral_fx/prowler_shaman_shamanistic_ward.vpcf"
+			"particle"	"particles/status_fx/status_effect_ghost.vpcf"
+			"particle"	"particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf"
+			"particle"	"particles/roshpit/items/dark_emissary_emerald_cloud.vpcf"
+			"particle"	"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dark_emissary_glove"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_invisibility_datadriven"
+			{
+				"IsHidden"	"1"
+				"TextureName"	"seafortress/dark_emissary_ability"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPC.DeathWhisper.Invis"
+						"Target"		"CASTER"
+					}
+
+					"RemoveModifier"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+						"ModifierName"	"modifier_persistent_invisibility"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisibility_datadriven"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_persistent_invisibility"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisibility_datadriven"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_persistent_invisibility"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_dark_emissary_root"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/neutral_fx/prowler_shaman_shamanistic_ward.vpcf"
+				"EffectAttachType"		"attach_origin"
+				"TextureName"	"seafortress/dark_emissary_ability"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+            "modifier_dark_emissary_emerald_thinker"
+            {
+                "Aura"                  "modifier_dark_emissary_emerald_effect"
+                "Aura_Radius"           "<% ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS %>"
+                "Aura_Teams"            "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Aura_Types"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+                "Aura_Flags"            "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                "OnDestroy"
+                {
+                	"RunScript"
+                	{
+                        "ScriptFile"    "items/special_item_effects.lua"
+                        "Function"      "dark_emissary_emerald_end"
+                        "target"		"TARGET"
+                	}
+                }
+            }
+
+            "modifier_dark_emissary_emerald_effect"
+            {
+                "IsDebuff"      "1"
+                "IsStunDebuff"      "1"
+                "ThinkInterval" "<% ITEM_RPC_DARK_EMISSARY_GLOVE_EMERALD_DOT_INTERVAL %>"
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "%movespeed_loss"
+                    "MODIFIER_PROPERTY_MISS_PERCENTAGE"             "%miss_chance"
+                }
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "items/special_item_effects.lua"
+                        "Function"      "dark_emissary_emerald_damage"
+                        "target"        "TARGET"
+                    }
+                }
+            }
+		}
+	}
+
 	"item_rpc_cytopian_laser_glove"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2925,125 +3119,6 @@
 			"modifier_swiftspike_bad"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_dark_emissary_glove"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"seafortress/dark_emissary_glove" //"power_ranger_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_MULT %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"			"13"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_DURATION %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"		"<% ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_CD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD %>"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_SAPPHIRE %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST %>"
-			}
-		}
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"precache"
-		{
-			"particle"  "particles/act_2/blob_launch_impact.vpcf"
-			"particle"	"particles/neutral_fx/prowler_shaman_shamanistic_ward.vpcf"
-			"particle"	"particles/status_fx/status_effect_ghost.vpcf"
-			"particle"	"particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_dark_emissary_glove"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_dark_emissary_invise_delay"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"  "1"
-				"IsStunDebuff"  "1"
-				"TextureName"	"itemicons/dark_emissary_cd"
-			}
-			"modifier_dark_emissary_invis"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"seafortress/dark_emissary_ability"
-				"StatusEffectName" 		"particles/status_fx/status_effect_ghost.vpcf"
-				"StatusEffectPriority"  "20"
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_dark_emissary_root"
-			{
-				"IsHidden"	"0"
-				"EffectName"	"particles/neutral_fx/prowler_shaman_shamanistic_ward.vpcf"
-				"EffectAttachType"		"attach_origin"
-				"TextureName"	"seafortress/dark_emissary_ability"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
 			}
 		}
 	}

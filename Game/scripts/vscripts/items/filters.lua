@@ -4600,20 +4600,43 @@ function Filters:ArkimusGlyph5a(victim, damage)
 end
 
 function Filters:DarkEmissary(caster)
-    CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact.vpcf", caster, 4)
+    local emissary_glove = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    -- CustomAbilities:QuickAttachParticle("particles/act_2/blob_launch_impact.vpcf", caster, 4)
+    local pfx2 = ParticleManager:CreateParticle("particles/roshpit/items/dark_emissary_activate_magical.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx2, 0, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(pfx2, 2, Vector(20, 140, 120))
+    Timers:CreateTimer(3.5, function()
+        ParticleManager:DestroyParticle(pfx2, false)
+    end)
     EmitSoundOn("RPCItem.DarkEmissary.Activate", caster)
-    if not caster:HasModifier('modifier_dark_emissary_invise_delay') then
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invis", {duration = ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_DURATION})
-        caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_dark_emissary_invise_delay", {duration = ITEM_RPC_DARK_EMISSARY_GLOVE_INVIS_CD})
-    end
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_MULT
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_DARK_EMISSARY_GLOVE_DAMAGE_ATK_POWER_PCT/100 + emissary_glove:GetFinalGemPropertyValue("ruby", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_RUBY1)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
-            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, caster.handItem, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
-            caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = ITEM_RPC_DARK_EMISSARY_GLOVE_ROOT_DURATION})
+            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, emissary_glove, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
+            emissary_glove:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_dark_emissary_root", {duration = ITEM_RPC_DARK_EMISSARY_GLOVE_ROOT_DURATION})
             CustomAbilities:QuickAttachParticle("particles/roshpit/duskbringer/ghostfire_blast_e3.vpcf", enemy, 0.5)
         end
+    end
+    if emissary_glove:GetGemValue("amethyst") > 0 then
+        if not caster:HasModifier("modifier_invisibility_datadriven") then
+            local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 2)
+            ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+        end
+        local invis_duration = emissary_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST1)
+        emissary_glove:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = invis_duration})
+        caster:AddNewModifier(caster, emissary_glove, "modifier_persistent_invisibility", {duration = invis_duration})
+    end
+    if emissary_glove:GetGemValue("emerald") > 0 then
+        local dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
+        dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+        dummy.hero = caster
+        emissary_glove.emerald_damage = damage * emissary_glove:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD2)/100
+        local duration = emissary_glove:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD1)
+        emissary_glove:ApplyDataDrivenModifier(caster.InventoryUnit, dummy, "modifier_dark_emissary_emerald_thinker", {duration = duration})
+        dummy.pfx = ParticleManager:CreateParticle("particles/roshpit/items/dark_emissary_emerald_cloud.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(dummy.pfx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80))
+        ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS+200, 1, ITEM_RPC_DARK_EMISSARY_GLOVE_RADIUS/2))
     end
 end
 

@@ -182,7 +182,7 @@ function seafortress_unit_die(event)
 			end)
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
-				RPCItems:RollDarkEmissaryGlove(caster:GetAbsOrigin())
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dark_emissary_glove")
 			end
 		elseif caster.deathCode == 9 then
 			EmitSoundOn("Seafortress.DeepShadow.Die", caster)

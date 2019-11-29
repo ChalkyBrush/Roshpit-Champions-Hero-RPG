@@ -2189,6 +2189,9 @@ function GameState:FilterDamage(filterTable)
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
 		end
+		if victim:IsMagicImmune() then
+			return false
+		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 
 
