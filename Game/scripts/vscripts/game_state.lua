@@ -2656,17 +2656,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	end
-	if victim:HasModifier("modifier_ethereal_revenant_link") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		if victim.revenantData then
-			if victim.revenantData[1] == attacker:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_AMP
-			end
-		end
-	end
 	if attacker:HasModifier("modifier_ethereal_revenant_link") then
 		if attacker.revenantData then
 			if attacker.revenantData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT)/100
+				local total_reduction = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST2)
+				filterTable["damage"] = filterTable["damage"] * (100-total_reduction)/100
 			end
 		end
 	end

@@ -1706,10 +1706,12 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_claws_of_the_ethereal_revenant") then
             if not ignore_effects then
-                local proc = Filters:GetProc(attacker, ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_CHANCE)
+                local proc_chance = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_CHANCE + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY1)
+                local proc = Filters:GetProc(attacker, proc_chance)
                 if proc then
+                    local link_duration = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST1)
                     Timers:CreateTimer(0.05, function()
-                        attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION})
+                        attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_ethereal_revenant_link", {duration = link_duration})
                     end)
                 end
             end

@@ -1326,42 +1326,6 @@ function RPCItems:RollGoldbreakerGauntlet(item_level)
     return item
 end
 
-function RPCItems:RollClawOfTheEtherealRevenant(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_claws_of_the_ethereal_revenant", "immortal", "Claws of the Ethereal Revenant", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "ethereal_revenant"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ethereal_revenant", "#90DFF5", 1, "#property_ethereal_revenant_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(1, 4 + (GameState:GetDifficultyFactor() * 3))
-    if luck <= 3 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_w_1"
-    elseif luck <= 6 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_w_2"
-    elseif luck <= 9 then
-        value = math.floor(value * 1)
-        propertyName = "rune_w_3"
-    elseif luck == 10 then
-        value = math.floor(value * 0.7)
-        propertyName = "rune_w_4"
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollEnergyWhipGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_energy_whip_glove", "immortal", "Energy Whip Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4676,6 +4640,28 @@ function RPCItems:RollClawOfAzinoth(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollClawOfTheEtherealRevenant(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_claws_of_the_ethereal_revenant", "immortal", "Claws of the Ethereal Revenant", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_claws_of_the_ethereal_revenant"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ethereal_revenant", "#90DFF5", 1, "#property_ethereal_revenant_description")
+
+    local rune_type = RPCItems:RollRuneType({"w"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

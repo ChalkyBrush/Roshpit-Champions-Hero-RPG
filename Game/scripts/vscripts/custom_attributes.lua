@@ -1794,6 +1794,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD)*modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		armor_pierce_modify = armor_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2069,6 +2073,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_vermillion_dream_amethyst") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		spell_pierce_modify = spell_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

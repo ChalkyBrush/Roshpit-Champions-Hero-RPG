@@ -762,6 +762,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_GLOVES)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_GLOVES)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_claws_of_the_ethereal_revenant" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD2, hero, "armor_pierce", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD2, hero, "spell_pierce", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

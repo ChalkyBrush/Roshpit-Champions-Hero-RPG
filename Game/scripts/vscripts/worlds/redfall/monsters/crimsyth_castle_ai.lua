@@ -3924,7 +3924,7 @@ end
 function ethereal_revenant_die(event)
 	local caster = event.caster
 	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		RPCItems:RollClawOfTheEtherealRevenant(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_claws_of_the_ethereal_revenant")
 	end
 	EmitSoundOn("Redfall.EtherealRevenant.Death", caster)
 

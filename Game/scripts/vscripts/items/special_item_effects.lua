@@ -4273,6 +4273,44 @@ function cobalt_serenity_think(event)
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
 end
 
+function revenant_claw_start(event)
+	local ability = event.ability
+	if not ability.pfxTable then
+		ability.pfxTable = {}
+	end
+end
+
+function revenant_claw_end(event)
+	local ability = event.ability
+	for i = 1, #ability.pfxTable, 1 do
+		if not IsValidEntity(ability.pfxTable[i][3]) then
+			ParticleManager:DestroyParticle(ability.pfxTable[i][2], false)
+		else
+			if ability.pfxTable[i][3]:HasModifier("modifier_ethereal_revenant_link") then
+				ability.pfxTable[i][3]:RemoveModifierByName("modifier_ethereal_revenant_link")
+				ParticleManager:DestroyParticle(ability.pfxTable[i][2], false)
+			else
+				ParticleManager:DestroyParticle(ability.pfxTable[i][2], false)
+			end
+		end
+	end
+end
+
+function ethereal_revenant_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_SAPPHIRE))
+		if proc then
+			local link_duration = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST1)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_ethereal_revenant_link", {duration = link_duration})
+		end
+	end
+	ethereal_update_atk_power(hero, ability)
+end
+
 function ethereal_revenant_start(event)
 	local target = event.target
 	local ability = event.ability
@@ -4287,6 +4325,7 @@ function ethereal_revenant_start(event)
 		ability.pfxTable = {}
 	end
 	table.insert(ability.pfxTable, target.revenantData)
+	ethereal_update_atk_power(hero, ability)
 end
 
 function ethereal_revenant_think(event)
@@ -4310,6 +4349,7 @@ function ethereal_revenant_think(event)
 		end
 	end
 	ability.pfxTable = newpfxTable
+	ethereal_update_atk_power(hero, ability)
 end
 
 function ethereal_revenant_end(event)
@@ -4321,6 +4361,18 @@ function ethereal_revenant_end(event)
 
 	ParticleManager:DestroyParticle(target.revenantData[2], false)
 	target.revenantData = nil
+	ethereal_update_atk_power(hero, ability)
+end
+
+function ethereal_update_atk_power(caster, ability)
+	if ability:GetGemValue("ruby") > 0 then
+		if #ability.pfxTable > 0 then
+			ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ethereal_revenant_link_attack_power", {})
+			caster:SetModifierStackCount("modifier_ethereal_revenant_link_attack_power", caster.InventoryUnit, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_RUBY2)*#ability.pfxTable)
+		else
+			caster:RemoveModifierByName("modifier_ethereal_revenant_link_attack_power")
+		end
+	end
 end
 
 function crimson_skull_cap_kill(event)

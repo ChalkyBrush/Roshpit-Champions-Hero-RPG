@@ -13445,7 +13445,7 @@
     	"item_rpc_claws_of_the_ethereal_revenant_sapphire1"					"blah blah @sapphire_property1 gem"
     	"item_rpc_claws_of_the_ethereal_revenant_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_ethereal_revenant"						"返回链接"
-		"property_ethereal_revenant_description"				"被 @Ability2 击中的敌人有 <font color='#ccff66'>11</font>% 的机率被一束电链接。链接的敌人对玩家造成的伤害减少 <font color='#ccff66'>90</font>% ，同时玩家对连接的敌人造成的伤害增加，变为 <font color='#ccff66'>3</font>x。链接持续 <font color='#ccff66'>6</font> 秒。"
+		"property_ethereal_revenant_description"				"被 @Ability2 击中的敌人有 <font color='#ccff66'>11</font>% 的机率被一束电链接。链接的敌人对玩家造成的伤害减少 <font color='#ccff66'>50</font>% ，同时玩家对连接的敌人造成的伤害增加，变为 <font color='#ccff66'>3</font>x。链接持续 <font color='#ccff66'>6</font> 秒。"
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"返回链接"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"增加受到的伤害并减少对链接创建者造成的伤害"

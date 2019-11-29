@@ -100,6 +100,20 @@
     	"item_rpc_claw_of_azinoth_sapphire1"									"Increases the damage debuff by @sapphire_property1% and increases Base Ability Damage and Item Damage by @sapphire_property2%"
     	"item_rpc_claw_of_azinoth_amethyst1"									"Reduces Spirit by @amethyst_property1, and increases Strength, Agility and Intelligence by @amethyst_property2"
 
+    	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
+
+		"item_property_ethereal_revenant"						"Revenant Link"
+		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_CHANCE %>% chance to be linked by a beam of electricity. Linked enemies deal <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT %>% reduced damage to you. Lasts <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION %> seconds. "
+
+    	"item_rpc_claws_of_the_ethereal_revenant_ruby1"					"Increases the link chance by @ruby_property1%, and each linked enemy increases attack power by @ruby_property2%"
+    	"item_rpc_claws_of_the_ethereal_revenant_emerald1"					"Each linked enemy increases Armor Pierce and Spell Pierce by @emerald_property1. Passively increases Armor Pierce and Spell Pierce by @emerald_property2"
+    	"item_rpc_claws_of_the_ethereal_revenant_sapphire1"					"Attacking an enemy has a @sapphire_property1% chance to create a link"
+    	"item_rpc_claws_of_the_ethereal_revenant_amethyst1"					"Increases link duration by @amethyst_property1 seconds and the damage reduction from linked enemies by an additional @amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
+		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Dealing reduced damage to linked hero"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -423,18 +437,7 @@
 		"property_skulldigger_description"					"Gain Wraithfire stacks each <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %> seconds. When attacked, launch a Wraithfire Blast at the target that deals <% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>x your attack damage on impact and stuns enemies in a small area for <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %> seconds. Max <% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %> stacks."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraithfire Blast at the attacker"
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_claws_of_the_ethereal_revenant"					"Claw of the Ethereal Revenant"
-    	"item_rpc_claws_of_the_ethereal_revenant_ruby1"					"blah blah @ruby_property1 gem"
-    	"item_rpc_claws_of_the_ethereal_revenant_emerald1"					"blah blah @emerald_property1 gem"
-    	"item_rpc_claws_of_the_ethereal_revenant_sapphire1"					"blah blah @sapphire_property1 gem"
-    	"item_rpc_claws_of_the_ethereal_revenant_amethyst1"					"blah blah @amethyst_property1 gem"
-		"item_property_ethereal_revenant"						"Revenant Link"
-		"property_ethereal_revenant_description"				"Enemies hit by @Ability2 have a <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_CHANCE %>% chance to be linked by a beam of electricity. Linked enemies deal <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT %>% reduced damage to you and you deal <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_AMP %>x increased damage to them. Lasts <% ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DURATION %> seconds."
-
-		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
-		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Taking increased damage while dealing reduced damage to linked hero"
+		
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
