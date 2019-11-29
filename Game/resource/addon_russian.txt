@@ -12975,7 +12975,7 @@
     	"item_rpc_claw_of_azinoth_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Слот: Наручи"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <font color='#ccff66'>50</font>%"
+		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <font color='#ccff66'>100</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"

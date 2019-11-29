@@ -1585,8 +1585,9 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 		end
 		damage = damage + damage * (damage_increase/100) * stacks
 	end
-	if victim:HasModifier("modifier_hand_azinoth") then
-		damage = damage * (100 + ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP)/100
+	if victim:HasModifier("modifier_claw_of_azinoth") then
+		local total_azinoth = ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP - victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY) + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1)
+		damage = damage * (100 + total_azinoth)/100
 	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()

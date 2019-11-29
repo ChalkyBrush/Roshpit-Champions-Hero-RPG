@@ -747,6 +747,21 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BUZUKIS_FINGER_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_claw_of_azinoth" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_q_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_q_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_q_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_w_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_w_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_w_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_e_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_e_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_e_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_r_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_CLAW_OF_AZINOTH_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

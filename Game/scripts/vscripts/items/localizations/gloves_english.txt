@@ -90,6 +90,16 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"Each chitinous skin stack also increases Armor and Magic Armor by @sapphire_property1"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"Cannot fall below @amethyst_property1 chitinous skin stacks"
 
+    	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
+
+		"item_property_azinoth"						"Scourge of Azinoth"
+		"property_azinoth_description"				"Increases all damage taken by <% ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP %>%."
+
+    	"item_rpc_claw_of_azinoth_ruby1"									"Reduces the damage debuff by @ruby_property1%"
+    	"item_rpc_claw_of_azinoth_emerald1"									"Increases all runes T1-T3 runes by @emerald_property1"
+    	"item_rpc_claw_of_azinoth_sapphire1"									"Increases the damage debuff by @sapphire_property1% and increases Base Ability Damage and Item Damage by @sapphire_property2%"
+    	"item_rpc_claw_of_azinoth_amethyst1"									"Reduces Spirit by @amethyst_property1, and increases Strength, Agility and Intelligence by @amethyst_property2"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -147,16 +157,6 @@
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
 		"item_property_proud_gloves"										"<RAINBOW>Prismatic Pride</RAINBOW>"//a.k.a. queer hands for the straight man
 		"property_proud_gloves_description"									"<RAINBOW>The element of your autoattack is changed from Normal to match your single highest elemental damage bonus, and it now deals Magical damage instead of Physical. Additionally, those damage instances are multiplied by your Item Damage bonus, but are not considered instances of Item Damage.</RAINBOW>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth"									"Claw of Azinoth"
-    	"item_rpc_claw_of_azinoth_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_claw_of_azinoth_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_claw_of_azinoth_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_claw_of_azinoth_amethyst1"									"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Slot: Hands"
-		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Applies -<% ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP %>% damage reduction, increasing all damage taken."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"

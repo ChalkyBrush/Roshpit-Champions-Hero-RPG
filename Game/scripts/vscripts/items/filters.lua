@@ -210,6 +210,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:IsHero() then
         mult = mult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_head_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_weapon_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_hands_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_feet_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_body_item_damage", 1) + CustomAttributes:AddStatsBonusFromStacks(caster, nil, "modifier_amulet_item_damage", 1))
     end
+    if caster:HasModifier("modifier_claw_of_azinoth") then
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2)/100
+    end
     if caster:HasModifier("modifier_space_tech_buff_invisible") then
         mult = mult + 0.01 * caster:GetModifierStackCount("modifier_space_tech_buff_invisible", caster.InventoryUnit)
     end
@@ -1523,6 +1526,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_claw_of_azinoth") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2)/100
         end
         if attacker:HasModifier("modifier_space_tech_buff_invisible") then
             damageMult = damageMult + 0.01 * attacker:GetModifierStackCount("modifier_space_tech_buff_invisible", attacker.InventoryUnit)

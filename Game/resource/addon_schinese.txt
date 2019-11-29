@@ -13146,7 +13146,7 @@
     	"item_rpc_claw_of_azinoth_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"部位：手"
 		"item_property_azinoth"						"埃辛诺斯的诅咒"
-		"property_azinoth_description"				"所有玩家受到的伤害提高 <font color='#ccff66'>50</font>% 。"
+		"property_azinoth_description"				"所有玩家受到的伤害提高 <font color='#ccff66'>100</font>% 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"纯净护腕"

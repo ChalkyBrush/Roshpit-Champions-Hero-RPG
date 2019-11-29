@@ -9570,24 +9570,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_hand_azinoth"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
+
 			"modifier_divine_purity"
 			{
 				"Passive"	"0"

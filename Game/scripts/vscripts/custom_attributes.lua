@@ -2560,6 +2560,12 @@ function CustomAttributes:SetAttributes(hero)
 			end
 		end
 	end
+	if hero:HasModifier("modifier_claw_of_azinoth") then
+		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		int_bonus = int_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		spr_bonus = spr_bonus - hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST1)
+	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_agi", 1)
