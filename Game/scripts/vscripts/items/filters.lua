@@ -4629,9 +4629,14 @@ function Filters:DarkEmissary(caster)
         caster:AddNewModifier(caster, emissary_glove, "modifier_persistent_invisibility", {duration = invis_duration})
     end
     if emissary_glove:GetGemValue("emerald") > 0 then
+        if emissary_glove.dummy and IsValidEntity(emissary_glove.dummy) then
+            emissary_glove.dummy:RemoveModifierByName("modifier_dark_emissary_emerald_thinker")
+            emissary_glove.dummy = nil
+        end
         local dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
         dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
         dummy.hero = caster
+        emissary_glove.dummy = dummy
         emissary_glove.emerald_damage = damage * emissary_glove:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD2)/100
         local duration = emissary_glove:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_EMERALD1)
         emissary_glove:ApplyDataDrivenModifier(caster.InventoryUnit, dummy, "modifier_dark_emissary_emerald_thinker", {duration = duration})

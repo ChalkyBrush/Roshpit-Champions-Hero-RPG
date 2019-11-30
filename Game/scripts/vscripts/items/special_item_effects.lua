@@ -8487,9 +8487,11 @@ end
 
 function dark_emissary_emerald_end(event)
 	local target = event.target
+	local ability = event.ability
 	ParticleManager:DestroyParticle(target.pfx, false)
 	ParticleManager:ReleaseParticleIndex(target.pfx)
 	UTIL_Remove(target)
+	ability.dummy = nil
 end
 
 function dark_emissary_emerald_damage(event)
