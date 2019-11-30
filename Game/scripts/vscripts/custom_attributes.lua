@@ -105,7 +105,7 @@ function CDOTA_BaseNPC_Hero:GetStrength()
 	end
 	local strength = hero.strength_custom + hero.str_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		strength = item.newItemTable.property1
 	end
 	return math.max(tonumber(strength), 0)
@@ -119,7 +119,7 @@ function CDOTA_BaseNPC_Hero:GetAgility()
 	end
 	local agility = hero.agility_custom + hero.agi_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		agility = item.newItemTable.property1
 	end
 	return math.max(tonumber(agility), 0)
@@ -133,7 +133,7 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 	end
 	local intelligence = hero.intellect_custom + hero.int_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		intelligence = item.newItemTable.property1
 	end
 	return math.max(tonumber(intelligence), 0)
@@ -147,7 +147,7 @@ function CDOTA_BaseNPC_Hero:GetSpirit()
 	end
 	local spirit = hero.spirit_custom + hero.spirit_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		spirit = item.newItemTable.property1
 	end
 	return math.max(tonumber(spirit), 0)

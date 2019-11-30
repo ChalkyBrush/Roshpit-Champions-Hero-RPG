@@ -4630,7 +4630,22 @@ function Winterblight:TiamatBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollDiamondClawsOfTiamat(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			local min_claws_level = 20
+			if GameState:GetDifficultyFactor() == 2 then
+				min_claws_level = 40
+			elseif GameState:GetDifficultyFactor() == 3 then
+				min_claws_level = 60
+				if Winterblight.Stones == 1 then
+					min_claws_level = 65
+				elseif Winterblight.Stones == 2 then
+					min_claws_level = 70
+				elseif Winterblight.Stones == 3 then
+					min_claws_level = 75
+				end
+			end
+			local min_claws_level_bonus = Winterblight.TiamatBossLevel
+			local tiamat_claws_level = math.min(min_claws_level + min_claws_level_bonus, 120)
+			RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_claws_level, "item_rpc_diamond_claws_of_tiamat")
 		end
 	end)
 	Timers:CreateTimer(4, function()

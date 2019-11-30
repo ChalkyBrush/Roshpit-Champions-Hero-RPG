@@ -538,38 +538,6 @@ function RPCItems:RollSwiftspikeBracer(item_level)
     return item
 end
 
-function RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
-    local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
-    local tiamat_roll, suffix = RPCItems:RollAttribute(300, 8 + boss_level, 16 + boss_level*4, 0, 0, item.newItemTable.rarity, false, boss_level*400)
-    tiamat_roll = math.min(tiamat_roll, 18000)
-    item.newItemTable.property1 = tiamat_roll
-    item.newItemTable.property1name = "tiamat"
-    RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
-
-    local value = RandomInt(boss_level * 300, boss_level * 1500)
-    value = math.min(value, 140000)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "attack_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 2, math.floor(boss_level/2) + 4, 0, 0, item.newItemTable.rarity, false, boss_level*30)
-    value = math.min(value, 1000)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "base_ability"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_base_ability", "#7AB4CC", 3)
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 1, boss_level+3, 0, 1, item.newItemTable.rarity, false, boss_level * 20)
-    value = math.min(value, 900)
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = "all_elements"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#property_all_elements", "#BED5E5", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollDivinePurityGauntlets(item_level)
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
@@ -4710,6 +4678,29 @@ function RPCItems:RollDepthDemonClaw(item_level)
     return item
 end
 
+function RPCItems:RollDiamondClawsOfTiamat(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_diamond_claws_of_tiamat", "immortal", "Diamond Claws of Tiamat", "hands", true, "Slot: Hands")
+    tiamat_roll = RPCItems:RollGearAttributeValue(item_level, nil, nil, 4)
+    item.newItemTable.property1 = tiamat_roll
+    item.newItemTable.property1name = "!immortal!_modifier_diamond_claws_of_tiamat"
+    RPCItems:SetPropertyValuesSpecial(item, tiamat_roll, "#item_property_tiamat_claw", "#FAFAFF", 1, "#property_tiamat_claw_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 0.75)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 0.75)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 0.75)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8618,7 +8609,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_puzzlers_locket" then
         newItem = RPCItems:RollPuzzlersLocket(item_level)
     elseif itemName == "item_rpc_diamond_claws_of_tiamat" then
-        newItem = RPCItems:RollDiamondClawsOfTiamat(deathLocation, 1)
+        newItem = RPCItems:RollDiamondClawsOfTiamat(item_level)
     elseif itemName == "item_rpc_galvanized_razor_band" then
         newItem = RPCItems:RollGalvanizedRazorBand(item_level)
     elseif itemName == "item_rpc_goldbreaker_gauntlet" then

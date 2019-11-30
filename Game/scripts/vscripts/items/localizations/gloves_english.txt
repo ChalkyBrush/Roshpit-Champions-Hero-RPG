@@ -162,6 +162,16 @@
 		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield"	"Depth Demon Shield (Amethyst)"
 		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield_Description"	"Each stack blocks damage"
 
+		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
+
+		"item_property_tiamat_claw"							"Unyielding Vanity"
+		"property_tiamat_claw_description"					"While equipped, all attributes are fixed at this property's value and cannot be changed by any other means."
+
+		"item_rpc_diamond_claws_of_tiamat_ruby1"			"Increases [Q4] Rune by @ruby_property1"
+		"item_rpc_diamond_claws_of_tiamat_emerald1"			"Increases [E4] Rune by @emerald_property1"
+		"item_rpc_diamond_claws_of_tiamat_sapphire1"			"Increases [W4] Rune by @sapphire_property1"
+		"item_rpc_diamond_claws_of_tiamat_amethyst1"			"Increases [R4] Rune by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -527,13 +537,6 @@
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <% ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * 100 %>%."
 		
-		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
-		"item_rpc_diamond_claws_of_tiamat_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_diamond_claws_of_tiamat_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_diamond_claws_of_tiamat_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_diamond_claws_of_tiamat_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_tiamat_claw"							"Unyielding Vanity"
-		"property_tiamat_claw_description"					"While equipped, all attributes are fixed at this property's value and cannot be changed by any other means."
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
 		"item_rpc_goldbreaker_gauntlet_ruby1"			"blah blah @ruby_property1 gem"
