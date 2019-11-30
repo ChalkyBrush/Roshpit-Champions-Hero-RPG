@@ -46266,7 +46266,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"500 1000 1500 200 2500"
+				"amethyst1"			"500 1000 1500 2000 2500"
 			}
 		}
 		"precache"
