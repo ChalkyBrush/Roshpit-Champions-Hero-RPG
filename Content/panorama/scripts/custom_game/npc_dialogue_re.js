@@ -165,6 +165,10 @@ function GetItemDataForCurator(msg)
 		var property4data = [itemValues.property4color, tooltip, property4localized, itemValues.property4special, property4special, itemValues.property4]
 		$.Msg(property4data)
 	}
+
+    if (itemValues.rarity == "immortal"){
+        $.Msg("IMMORTAL CURATE")
+    }
 	
     Game.EmitSound("RPC.Curate")
     BigChanges()

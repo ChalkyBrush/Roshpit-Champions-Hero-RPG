@@ -160,7 +160,7 @@
 
 #curator_main_container{
 
-	height:690px;
+	height:720px;
 	width:380px;
 	horizontal-align:center;
 	flow-children:right;
@@ -219,5 +219,5 @@
 #curate_tip1{
 	color:#DDDDDD;
 	padding:10px;
-	height:130px;
+
 }

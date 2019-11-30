@@ -413,14 +413,18 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		end
 		if item.newItemTable.socket1 then
 			url = url.."&socket1"..gearSlot.."="..item.newItemTable.socket1
-			url = url.."&socket1value"..gearSlot.."="..item.newItemTable.socket1value
+			if item.newItemTable.socket1value then
+				url = url.."&socket1value"..gearSlot.."="..item.newItemTable.socket1value
+			end
 		else
 			url = url.."&socket1"..gearSlot.."=".."none"
 			url = url.."&socket1value"..gearSlot.."="..0
 		end
 		if item.newItemTable.socket2 then
 			url = url.."&socket2"..gearSlot.."="..item.newItemTable.socket2
-			url = url.."&socket2value"..gearSlot.."="..item.newItemTable.socket2value
+			if item.newItemTable.socket2value then
+				url = url.."&socket2value"..gearSlot.."="..item.newItemTable.socket2value
+			end
 		else
 			url = url.."&socket2"..gearSlot.."=".."none"
 			url = url.."&socket2value"..gearSlot.."="..0
