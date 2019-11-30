@@ -4902,13 +4902,26 @@ end
 
 function demonfire_attack_land(event)
 	local caster = event.caster
-	local target = event.attacker
+	local hero = event.attacker
 	local ability = event.ability
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_demonfire_stack", {duration = ITEM_RPC_DEMONFIRE_GAUNTLET_STACK_DURATION})
-	local newStacks = math.min(target:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS)
-	target:SetModifierStackCount("modifier_demonfire_stack", caster, newStacks)
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_demonfire_stack", {duration = ITEM_RPC_DEMONFIRE_GAUNTLET_STACK_DURATION})
+	local max_stacks = ITEM_RPC_DEMONFIRE_GAUNTLET_STACKS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_AMETHYST)
+	local newStacks = math.min(hero:GetModifierStackCount("modifier_demonfire_stack", caster) + 1, max_stacks)
+	hero:SetModifierStackCount("modifier_demonfire_stack", caster, newStacks)
 	ability.stacks = newStacks
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_demonfire_ruby_attack_damage", {duration = ITEM_RPC_DEMONFIRE_GAUNTLET_STACK_DURATION})
+		local damage_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY1)*ability.stacks
+		hero:SetModifierStackCount("modifier_demonfire_ruby_attack_damage", caster, damage_stacks)
+	end
+	if ability:GetGemValue("sapphire") > 0 and ability.stacks > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_SAPPHIRE))
+		if proc then
+			EmitSoundOnLocationWithCaster(hero:GetAbsOrigin(), "RPCItem.Demonfire", hero)
+			demonfire_beam(event.target, hero, ability)
+		end
+	end
 end
 
 function demonfire_end(event)
@@ -4916,30 +4929,35 @@ function demonfire_end(event)
 	local target = event.target
 	local ability = event.ability
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_DEMONFIRE_GAUNTLET_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	local maxTargets = ITEM_RPC_DEMONFIRE_GAUNTLET_NUMBER_ENEMIES
+	local maxTargets = ITEM_RPC_DEMONFIRE_GAUNTLET_NUMBER_ENEMIES + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD1)
 	local currentTargets = 0
-	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target) * ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK
+	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(target) * (ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK/100) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD2)*ability.stacks
 	if #enemies > 0 then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.Demonfire", target)
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
-
-			local dagon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_lion/lion_spell_finger_of_death.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-			ParticleManager:SetParticleControlEnt(dagon_particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-			ParticleManager:SetParticleControlEnt(dagon_particle, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), false)
-			local particle_effect_intensity = 700
-			ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
-			Timers:CreateTimer(2.0, function()
-				ParticleManager:DestroyParticle(dagon_particle, false)
-				ParticleManager:ReleaseParticleIndex(dagon_particle)
-			end)
-
+			demonfire_beam(enemy, target, ability)
 			currentTargets = currentTargets + 1
 			if currentTargets == maxTargets then
 				break
 			end
 		end
 	end
+	ability.stacks = 0
+end
+
+function demonfire_beam(enemy, hero, ability)
+	local damage = ability.stacks * OverflowProtectedGetAverageTrueAttackDamage(hero) * (ITEM_RPC_DEMONFIRE_GAUNTLET_DAMAGE_PER_ATTACK_PER_STACK/100) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_EMERALD2)*ability.stacks
+	Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+
+	local dagon_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_lion/lion_spell_finger_of_death.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
+	ParticleManager:SetParticleControlEnt(dagon_particle, 0, hero, PATTACH_POINT_FOLLOW, "attach_attack1", hero:GetAbsOrigin(), false)
+	ParticleManager:SetParticleControlEnt(dagon_particle, 1, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), false)
+	local particle_effect_intensity = 700
+	ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity, particle_effect_intensity, particle_effect_intensity))
+	Timers:CreateTimer(2.0, function()
+		ParticleManager:DestroyParticle(dagon_particle, false)
+		ParticleManager:ReleaseParticleIndex(dagon_particle)
+	end)
 end
 
 function lobster_claw_think(event)

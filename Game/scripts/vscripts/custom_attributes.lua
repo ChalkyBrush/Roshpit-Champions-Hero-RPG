@@ -2093,6 +2093,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2)
 		end
 	end
+	if unit:HasModifier("modifier_demonfire_stack") then
+		local demonfire_modifier = unit:FindModifierByName("modifier_demonfire_stack")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2)*demonfire_modifier:GetStackCount()
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

@@ -13315,9 +13315,9 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <font color='#ccff66'>30</font>%. Когда заряды развеются, <font color='#ccff66'>4</font> ближайших врага в радиусе <font color='#ccff66'>1000</font> получат урон, равный x<font color='#ccff66'>1</font> урона героя, умноженного на количество зарядов. Максимум зарядов: <font color='#ccff66'>25</font>."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <font color='#ccff66'>3</font>%. Когда заряды развеются, <font color='#ccff66'>3</font> ближайших врага в радиусе <font color='#ccff66'>1000</font> получат урон, равный x<font color='#ccff66'>10</font> урона героя, умноженного на количество зарядов. Максимум зарядов: <font color='#ccff66'>25</font>."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <font color='#ccff66'>30</font>%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <font color='#ccff66'>3</font>%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"

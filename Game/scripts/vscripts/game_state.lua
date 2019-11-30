@@ -2280,21 +2280,6 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * 0.5
 		end
 	end
-	if victim:HasModifier("tanari_mountain_specter_ai") then
-		local reduc = 0.1
-		if GameState:GetDifficultyFactor() == 2 then
-			reduc = 0.9
-		elseif GameState:GetDifficultyFactor() == 3 then
-			reduc = 0.996
-		end
-		if victim.mainBoss then
-			filterTable["damage"] = filterTable["damage"] / 25
-		end
-		filterTable["damage"] = filterTable["damage"] * (1 - reduc)
-	end
-	if attacker:HasModifier("tanari_mountain_specter_ai") then
-		filterTable["damage"] = filterTable["damage"] * 1.2
-	end
 	if victim:HasModifier("modifier_water_jailer_passive") then
 		local abil = victim:FindModifierByName("modifier_water_jailer_passive"):GetAbility()
 		local reduc = abil:GetSpecialValueFor("damage_block")/100
