@@ -508,10 +508,10 @@ function OnDragEnter(a, draggedPanel) {
     if (!(rarity === 5)) {
         return true;
     }
-    if (!(itemValues.socket1 === undefined) && !(itemValues.socket1 == "open")){
-        $('#item_image').AddClass("hightlight_red");
-        return true
-    }
+    // if (!(itemValues.socket1 === undefined) && !(itemValues.socket1 == "open")){
+    //     $('#item_image').AddClass("hightlight_red");
+    //     return true
+    // }
     // highlight this panel as a drop target
     $('#item_image').AddClass("item_highlight");
     Game.EmitSound("Item.DropRecipeWorld");
@@ -530,9 +530,9 @@ function OnDragDrop(panelId, draggedPanel) {
     if (itemValues.slot === "weapon") {
         return false;
     }
-    if (!(itemValues.socket1 === undefined) && !(itemValues.socket1 == "open")){
-        return false
-    }
+    // if (!(itemValues.socket1 === undefined) && !(itemValues.socket1 == "open")){
+    //     return false
+    // }
     if (draggedPanel.fromInventory && rarity === 5) {
         var playerID = Game.GetLocalPlayerID();
         var heroIndex = Players.GetPlayerHeroEntityIndex(playerID);
