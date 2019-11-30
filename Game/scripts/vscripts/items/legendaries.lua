@@ -711,23 +711,6 @@ function RPCItems:RollScarecrowGloves(item_level)
     return item
 end
 
-function RPCItems:RollDepthDemonClaw(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_depth_demon_claw", "immortal", "Depth Demon Claw", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "depth_demon"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_depth_demon_claw", "#634F87", 1, "#property_depth_demon_claw_Description")
-
-    Elements:RollElementAttribute(item, RPC_ELEMENT_DEMON, 2.4, 2, 27, 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollGlovesOfSweepingWind(item_level)
     local item = RPCItems:CreateVariant("item_rpc_gloves_of_sweeping_wind", "immortal", "Sweeping Wind Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4673,7 +4656,7 @@ function RPCItems:RollDemonfireGauntlet(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_demonfire_gauntlet"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_demonfire", "#8C1C1C", 1, "#property_demonfire_description")
 
-    local luck = RandomInt(1, 4)
+    local luck = RandomInt(1, 5)
     if luck == 1 then
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_demon", 1.5)
     elseif luck == 2 then
@@ -4692,6 +4675,36 @@ function RPCItems:RollDemonfireGauntlet(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollDepthDemonClaw(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_depth_demon_claw", "immortal", "Depth Demon Claw", "hands", true, "Slot: Hands")
+    local maxFactor = RPCItems:GetMaxFactor()
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_depth_demon_claw"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_depth_demon_claw", "#634F87", 1, "#property_depth_demon_claw_Description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_demon", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 45, tier2 = 90, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

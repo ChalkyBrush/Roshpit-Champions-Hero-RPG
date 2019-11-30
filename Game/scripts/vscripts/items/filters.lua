@@ -77,9 +77,6 @@ end
 function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_type, item, element1, element2)
     local damageData = attacker._damage_data or {}
 
-    if attacker:HasModifier("modifier_depth_demon_claw") then
-        damage = damage * ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION
-    end
     if damageData.skipItemDamageEffectsApply then
         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
         return
@@ -726,6 +723,10 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
         Filters:InpsirationRing(caster, slot)
+    end
+    if caster:HasModifier("modifier_depth_demon_claw_sapphire") then
+        local mana_drain = caster:GetMaxMana()*(caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3))/100
+        caster:ReduceMana(mana_drain)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)

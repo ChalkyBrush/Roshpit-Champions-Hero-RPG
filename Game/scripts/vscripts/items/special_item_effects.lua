@@ -8499,3 +8499,80 @@ function dark_emissary_emerald_damage(event)
 	local ability = event.ability
 	Filters:ApplyItemDamage(target, hero, ability.emerald_damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_GHOST, RPC_ELEMENT_NONE)
 end
+
+function depth_demon_claw_init(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+
+	if ability:GetGemValue("ruby") > 0 then
+		local attack_power_boost = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY1)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_ruby", {})
+		hero:SetModifierStackCount("modifier_depth_demon_claw_ruby", caster, attack_power_boost)
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local regen_stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD1)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_emerald_health_regen", {})
+		hero:SetModifierStackCount("modifier_depth_demon_claw_emerald_health_regen", caster, regen_stacks)
+
+		local mana_regen_stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_EMERALD2)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_emerald_mana_regen", {})
+		hero:SetModifierStackCount("modifier_depth_demon_claw_emerald_mana_regen", caster, mana_regen_stacks)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_sapphire", {})
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_amethyst", {})
+	end
+end
+
+function depth_demon_ruby_attack_land(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+
+	local health_drain = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_RUBY2)/100)
+	local new_health = math.max(hero:GetHealth() - health_drain, 1)
+	hero:SetHealth(new_health)
+end
+
+function depth_demon_claw_sapphire_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local base_damage_bonus = hero:GetMana()*(ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE1))
+	if base_damage_bonus > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sapphire_base_attack_damage", {})
+		hero:SetModifierStackCount("modifier_sapphire_base_attack_damage", caster, base_damage_bonus)
+	else
+		hero:RemoveModifierByName("modifier_sapphire_base_attack_damage")
+	end
+end
+
+function depth_demon_sapphire_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local mana_drain = hero:GetMaxMana()*(ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE2))/100
+	hero:ReduceMana(mana_drain)
+end
+
+function depth_demon_amethyst_take_damage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local attacker = event.attacker
+	if attacker ~= hero then
+		if not hero:HasModifier("modifier_depth_demon_claw_amethyst_shield") then
+			local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_AMETHYST))
+			if proc then
+				local stacks = ITEM_RPC_DEPTH_DEMON_CLAW_AMETHYST_SHIELD_STACKS
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_depth_demon_claw_amethyst_shield", {duration = 60})
+				hero:SetModifierStackCount("modifier_depth_demon_claw_amethyst_shield", caster, stacks)
+			end
+		end
+	end
+end

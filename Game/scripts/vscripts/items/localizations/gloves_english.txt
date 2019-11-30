@@ -149,6 +149,19 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"When you attack an enemy, there is a @sapphire_property1% chance to trigger the Demon Flame nuke at the target without consuming any stacks"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"Increases the maximum number of Demon Flame stacks by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
+
+		"property_depth_demon_claw"												"Metamorphose"
+		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage."
+
+		"item_rpc_depth_demon_claw_ruby1"			"Increases attack power by @ruby_property1%, but attacks drain @ruby_property2% of max health. The health drain does not break shields and cannot be lethal"
+		"item_rpc_depth_demon_claw_emerald1"			"Reduces Health Regen @emerald_property1 and increases Mana Regen by @emerald_property2"
+		"item_rpc_depth_demon_claw_sapphire1"			"Each point of current mana increases base attack damage by @sapphire_property1, and attacking drains @sapphire_property2% of your mana and casting a spell drains @sapphire_property3% of your mana"
+		"item_rpc_depth_demon_claw_amethyst1"			"@amethyst_property1% chance on taking damage to gain a shield that absorbs <% ITEM_RPC_DEPTH_DEMON_CLAW_AMETHYST_SHIELD_STACKS %> instances of damage."
+
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield"	"Depth Demon Shield (Amethyst)"
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield_Description"	"Each stack blocks damage"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -492,16 +505,7 @@
 		"item_property_heavy_echo"						"Reactive Grip"
 		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <% ITEM_RPC_HEAVY_ECHO_GAUNTLET_REPEATS %> times."
 
-		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
-		"item_rpc_depth_demon_claw_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_depth_demon_claw_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_depth_demon_claw_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
-		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage. Damage dealt by <font color=\"#E4AE33\">ABILITY AUGMENT</font> effects is reduced by x<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %>."
-		
-
-		
+				
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
 		"item_rpc_energy_whip_glove_ruby1"	"blah blah @ruby_property1 gem"

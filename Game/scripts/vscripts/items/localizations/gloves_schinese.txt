@@ -441,12 +441,15 @@
 		"property_heavy_echo_description"				"每一次基础技能伤害和物品伤害都将额外打击敌人两次。"
 
 		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"深海恶魔利爪"	
-		"item_rpc_depth_demon_claw_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_depth_demon_claw_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_depth_demon_claw_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_depth_demon_claw"												"变质"
-		"property_depth_demon_claw_Description"									"为玩家的所有伤害附加一个 <font color=\"#5B648C\">恶魔</font> 元素。降低不计算物品伤害的装备 x<% ITEM_RPC_DEPTH_DEMON_CLAW_AUGMENT_REDUCTION %> 的伤害。（不计算物品伤害的装备只有 火神头，水神头，光明守卫，恶魔头，和霜灼护手）"
+
+		"item_rpc_depth_demon_claw_ruby1"			"Increases attack power by @ruby_property1%, but attacks drain @ruby_property2% of max health. The health drain does not break shields and cannot be lethal"
+		"item_rpc_depth_demon_claw_emerald1"			"Reduces Health Regen and increases Mana Regen by @emerald_property1"
+		"item_rpc_depth_demon_claw_sapphire1"			"Each point of current mana increases base attack damage by @sapphire_property1, and attacking drains @sapphire_property2% of your mana and casting a spell drains @sapphire_property3% of your mana"
+		"item_rpc_depth_demon_claw_amethyst1"			"@amethyst_property1% chance on taking damage to gain a shield that absorbs <% ITEM_RPC_DEPTH_DEMON_CLAW_AMETHYST_SHIELD_STACKS %> instances of damage. While active, the shield increases Spirit by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield"	"Depth Demon Shield (Amethyst)"
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield_Description"	"Each stack blocks damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"龙虾钳"	

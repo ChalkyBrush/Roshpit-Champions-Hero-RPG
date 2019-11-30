@@ -3946,9 +3946,9 @@ function dark_spirit_die(caster)
 		Seafortress:RemoveBlockers(4, "SeaBlocker6", Vector(14784, 2880), 800)
 		Seafortress:FirstPirateRoom()
 	end
-	local luck = RandomInt(1, 30)
+	local luck = RandomInt(1, 30-GameState:GetPlayerPremiumStatusCount()*2)
 	if luck == 1 then
-		RPCItems:RollDepthDemonClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_depth_demon_claw")
 	end
 end
 
