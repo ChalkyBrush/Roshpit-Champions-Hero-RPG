@@ -8047,7 +8047,7 @@ end
 function tattered_novice_init(event)
 	local caster = event.caster
 	local hero = caster.hero
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, true)
 	hero:SetStatsForLevel()
 	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
 		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
@@ -8069,7 +8069,7 @@ end
 function tattered_novice_end(event)
 	local caster = event.caster
 	local hero = caster.hero
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, true)
 	hero:SetStatsForLevel()
 
 	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then

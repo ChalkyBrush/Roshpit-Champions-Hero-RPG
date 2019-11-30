@@ -17,8 +17,8 @@ Runes.RUNE_POINTS_PER_LEVEL = 3
 
 Runes.AllRunesTable = {"q_1", "q_2", "q_3", "q_4", "w_1", "w_2", "w_3", "w_4", "e_1", "e_2", "e_3", "e_4", "r_1", "r_2", "r_3", "r_4"}
 
-function Runes:UpdateHeroSkillAndRunePoints(hero)
-	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+function Runes:UpdateHeroSkillAndRunePoints(hero, bDebit)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, bDebit)
 	local player = hero:GetPlayerOwner()
 	local PlayerID = hero:GetPlayerOwnerID()
 	if points then
@@ -34,7 +34,7 @@ function CDOTABaseAbility:GetBaseRuneLevel()
 	return self.rune_level
 end
 
-function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, bDebit)
 	local number_of_rune_points_hero_should_have = (hero:GetLevel()-1)*Runes.RUNE_POINTS_PER_LEVEL + Runes.STARTING_RUNE_POINTS
 	if hero:HasModifier("modifier_tattered_novice_armor") then
 		number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have + math.floor(hero:GetLevel()/ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS)*ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
@@ -51,7 +51,7 @@ function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	rune_points_spent = rune_points_spent + t4_total*Runes.COST_TO_LEVEL_T4
 
 	number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have - rune_points_spent
-	if number_of_rune_points_hero_should_have < 0 then
+	if number_of_rune_points_hero_should_have < 0 and bDebit then
 		Runes:RandomlyRemoveRuneLevels(hero, number_of_rune_points_hero_should_have*-1)
 		return false
 	end
@@ -109,7 +109,7 @@ function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
 			end
 		end	
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, true)
 end
 
 function Runes:SetRuneUnitModifiersForUI(hero)
@@ -337,7 +337,7 @@ function Runes:LevelUpRune(keys)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Runes:ResetRuneBonuses(hero, slotName)

@@ -1083,8 +1083,8 @@ end
 		hero:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.ability3level)
 		hero:GetAbilityByIndex(DOTA_R_SLOT):SetLevel(results.ability4level)
 
-		Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 
+		Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	end
 
 	function SaveLoad:ApplyAllRunes(hero, playerID)
@@ -1655,6 +1655,7 @@ end
 		url = url.."&change=1"
 		url = url.."&keyIndex="..msg.keyIndex
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		print(url)
 		if SaveLoad:GetAllowSaving() then
 			local itemEntity = EntIndexToHScript(itemIndex)
 			hero:TakeItem(itemEntity)
@@ -1735,6 +1736,20 @@ end
 			key.newItemTable.consumable = true
 			RPCItems:ItemUpdateCustomNetTables(key)
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
+		elseif keyIndex == 12 then
+			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		elseif keyIndex == 13 then
+			local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 		end
 	end
 

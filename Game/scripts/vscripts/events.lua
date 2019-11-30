@@ -978,7 +978,7 @@ end
 function Events:HeroLevelUp(player, hero, level)
 	hero:SetAbilityPoints(0)
 
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	local skill_points = 0
 	if level%5 == 0 then
 		skill_points = 1
@@ -1257,7 +1257,7 @@ function Events:ChangeRuneState(msg)
 		end
 		Events:TutorialServerEvent(unit, "2_1", 2)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(unit)
+	Runes:UpdateHeroSkillAndRunePoints(unit, false)
 end
 
 function Events:LevelUpRune(keys)
@@ -1275,7 +1275,7 @@ function Events:LevelUpRuneMax(keys)
 	local hero = player:GetAssignedHero()
 	local bAllow = true
 
-	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
 	local current_rune_points = points.rune_points
 	local current_skill_points = points.ability_points
 
@@ -1297,7 +1297,7 @@ function Events:LevelUpRuneMax(keys)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:LevelUpAbility(keys)
@@ -1307,7 +1307,7 @@ function Events:LevelUpAbility(keys)
 	local unit = EntIndexToHScript(keys.unit)
 	local hero = player:GetAssignedHero()
 
-	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
 	local current_rune_points = points.rune_points
 	local current_skill_points = points.ability_points
 	
@@ -1321,11 +1321,11 @@ function Events:LevelUpAbility(keys)
 		local newLevel = ability:GetLevel() + 1
 		ability:SetLevel(newLevel)
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
-		Runes:UpdateHeroSkillAndRunePoints(hero)
+		Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
