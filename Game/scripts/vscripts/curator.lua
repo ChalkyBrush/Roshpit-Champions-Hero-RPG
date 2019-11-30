@@ -493,7 +493,35 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertySpecialLocalized4="..property4specialLocalized
 	url = url.."&propertyValue4="..property4value
 
+	if msg.gem_data then
+		url = url.."&ruby1="..Curator:urlencode(msg.gem_data.ruby["0"])
+		url = url.."&ruby2="..Curator:urlencode(msg.gem_data.ruby["1"])
+		url = url.."&ruby3="..Curator:urlencode(msg.gem_data.ruby["2"])
+		url = url.."&ruby4="..Curator:urlencode(msg.gem_data.ruby["3"])
+		url = url.."&ruby5="..Curator:urlencode(msg.gem_data.ruby["4"])
+
+		url = url.."&sapphire1="..Curator:urlencode(msg.gem_data.sapphire["0"])
+		url = url.."&sapphire2="..Curator:urlencode(msg.gem_data.sapphire["1"])
+		url = url.."&sapphire3="..Curator:urlencode(msg.gem_data.sapphire["2"])
+		url = url.."&sapphire4="..Curator:urlencode(msg.gem_data.sapphire["3"])
+		url = url.."&sapphire5="..Curator:urlencode(msg.gem_data.sapphire["4"])
+
+		url = url.."&emerald1="..Curator:urlencode(msg.gem_data.emerald["0"])
+		url = url.."&emerald2="..Curator:urlencode(msg.gem_data.emerald["1"])
+		url = url.."&emerald3="..Curator:urlencode(msg.gem_data.emerald["2"])
+		url = url.."&emerald4="..Curator:urlencode(msg.gem_data.emerald["3"])
+		url = url.."&emerald5="..Curator:urlencode(msg.gem_data.emerald["4"])
+
+		url = url.."&amethyst1="..Curator:urlencode(msg.gem_data.amethyst["0"])
+		url = url.."&amethyst2="..Curator:urlencode(msg.gem_data.amethyst["1"])
+		url = url.."&amethyst3="..Curator:urlencode(msg.gem_data.amethyst["2"])
+		url = url.."&amethyst4="..Curator:urlencode(msg.gem_data.amethyst["3"])
+		url = url.."&amethyst5="..Curator:urlencode(msg.gem_data.amethyst["4"])
+	end
+
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+	print("CURATE")
+	print(url)
 	----print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then

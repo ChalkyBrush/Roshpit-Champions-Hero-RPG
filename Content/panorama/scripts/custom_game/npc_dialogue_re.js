@@ -166,18 +166,50 @@ function GetItemDataForCurator(msg)
 		$.Msg(property4data)
 	}
 
-    if (itemValues.rarity == "immortal"){
-        $.Msg("IMMORTAL CURATE")
+    var gem_data = {}
+    if (itemValues.rarity == "immortal" && language == "english"){
+        ruby1 = substituteGemDescriptions("", "ruby", 1, item, 5)
+        ruby2 = substituteGemDescriptions("", "ruby", 2, item, 5)
+        ruby3 = substituteGemDescriptions("", "ruby", 3, item, 5)
+        ruby4 = substituteGemDescriptions("", "ruby", 4, item, 5)
+        ruby5 = substituteGemDescriptions("", "ruby", 5, item, 5)
+        gem_data["ruby"] = [ruby1, ruby2, ruby3, ruby4, ruby5]
+
+        sapphire1 = substituteGemDescriptions("", "sapphire", 1, item, 5)
+        sapphire2 = substituteGemDescriptions("", "sapphire", 2, item, 5)
+        sapphire3 = substituteGemDescriptions("", "sapphire", 3, item, 5)
+        sapphire4 = substituteGemDescriptions("", "sapphire", 4, item, 5)
+        sapphire5 = substituteGemDescriptions("", "sapphire", 5, item, 5)
+        gem_data["sapphire"] = [sapphire1, sapphire2, sapphire3, sapphire4, sapphire5]
+
+        emerald1 = substituteGemDescriptions("", "emerald", 1, item, 5)
+        emerald2 = substituteGemDescriptions("", "emerald", 2, item, 5)
+        emerald3 = substituteGemDescriptions("", "emerald", 3, item, 5)
+        emerald4 = substituteGemDescriptions("", "emerald", 4, item, 5)
+        emerald5 = substituteGemDescriptions("", "emerald", 5, item, 5)
+        gem_data["emerald"] = [emerald1, emerald2, emerald3, emerald4, emerald5]
+
+        amethyst1 = substituteGemDescriptions("", "amethyst", 1, item, 5)
+        amethyst2 = substituteGemDescriptions("", "amethyst", 2, item, 5)
+        amethyst3 = substituteGemDescriptions("", "amethyst", 3, item, 5)
+        amethyst4 = substituteGemDescriptions("", "amethyst", 4, item, 5)
+        amethyst5 = substituteGemDescriptions("", "amethyst", 5, item, 5)
+        gem_data["amethyst"] = [amethyst1, amethyst2, amethyst3, amethyst4, amethyst5]
     }
 	
     Game.EmitSound("RPC.Curate")
     BigChanges()
-    GameEvents.SendCustomGameEventToServer( "curator_client", {item: item, language: language, localizedName: localizedName, itemTexture: itemTexture, property1: property1data, property2: property2data, property3: property3data, property4: property4data, playerID: Game.GetLocalPlayerID()} );
+    GameEvents.SendCustomGameEventToServer( "curator_client", {item: item, language: language, localizedName: localizedName, itemTexture: itemTexture, property1: property1data, property2: property2data, property3: property3data, property4: property4data, playerID: Game.GetLocalPlayerID(), gem_data: gem_data} );
 
 }
 
 function BigChanges(){
     $.Msg("BIG CHANGE")
+}
+
+function getGemDataForItem(itemName, gem){
+
+
 }
 
 
