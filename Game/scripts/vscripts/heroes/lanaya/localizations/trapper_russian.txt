@@ -76,10 +76,8 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Enhanced Munitions"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая бомба имеет шанс сохранить часть заряда и взорваться через <% TRAPPER_W3_DELAY %> сек. Каждый взрыв наносит <%TRAPPER_W3_DMG_PROC * 100 %>% урона от предыдущего. Шанс выше 100% означает несколько взрывов. Дополнительно увеличивает урон от [W2]."
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая бомба имеет шанс сохранить часть заряда и взорваться через <% TRAPPER_W3_DELAY %> сек. Каждый взрыв наносит <%TRAPPER_W3_DMG_PROC * 100 %>% урона от предыдущего. Шанс выше 100% означает несколько взрывов."
     	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Шанс мультивзрыва"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"Усиление урона [W2]"
         "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
@@ -221,7 +219,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "[T3-1] Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, и добавляет <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <% TRAPPER_GLYPH_3_1_SHIELDS %> порциями урона. Урон от бомб обновляет контузию."
+        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, и добавляет <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> бомбы за каст."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"

@@ -319,7 +319,7 @@
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"Каждый заряд полностью поглощает любой входящий урон"
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"[T5-1] Glyph of Animal Acoustics"
-		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки (Q) @Ability1 на <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> сек."
+		"item_rpc_djanghor_glyph_5_1_description" 				"Снижает время перезарядки @Ability1 на <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"[T6-1] Glyph of Forest Blessing"
 		"item_rpc_djanghor_glyph_6_1_description" 				"Снимает случайный негативный эффект каждые <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> сек. Способности перемещения Battle Charge и Legendary Charge применяют руну [E3] при касте."
