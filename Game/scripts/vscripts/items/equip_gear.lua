@@ -107,6 +107,9 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 			hero.gear_bonuses[gear_slot][key] = nil
 		end
 	end
+	if not hero.gear_bonuses then
+		hero.gear_bonuses = {}
+	end
 	hero.gear_bonuses[gear_slot] = {}
 end
 

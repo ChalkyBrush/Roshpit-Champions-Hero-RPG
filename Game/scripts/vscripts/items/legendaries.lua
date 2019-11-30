@@ -185,7 +185,7 @@ function RPCItems:CreateVariantWithMin(variantName, rarityName, itemNameText, sl
     item.newItemTable.consumable = nil
     item.newItemTable.minLevel = minLevel
     item.newItemTable.gear_slot = RPCItems:getGearSlot(slot)
-    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity))
+    RPCItems:SetTableValues(item, itemNameText, item.newItemTable.consumable, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, prefix, suffix, RPCItems:GetRarityFactor(item.newItemTable.rarity))
 
     return item
 end

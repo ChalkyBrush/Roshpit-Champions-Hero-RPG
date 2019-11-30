@@ -311,6 +311,20 @@ Weapons.AttributeBaseRolls["element_nature"] = 0.3
 Weapons.AttributeBaseRolls["element_undead"] = 0.3
 Weapons.AttributeBaseRolls["element_dragon"] = 0.3
 
+function Weapons:SetupBasicWeapon(rarity, item_level, required_hero, max_level, item_variant, current_level, current_xp)
+	local itemName = ""
+	local internalName = required_hero
+	local maxLevel = max_level
+	local item_slot = RPC_GEAR_SLOT_WEAPON
+	local weaponName = item_variant
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", required_hero, maxLevel, item_level)
+	-- weapon.newItemTable.minLevel = item_level
+	weapon.newItemTable.xp = current_xp
+	weapon.newItemTable.level = current_level
+	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
+	return weapon
+end
+
 function Weapons:RollWeapon(rarity, item_level, hero_name)
 	whichHero = hero_name
 	if not hero_name then
@@ -401,7 +415,6 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	local prefix = ""
 	item.newItemTable.item_slot = slot
 	item.newItemTable.gear = gear
-	item.newItemTable.hasRunePoints = true
 	item.newItemTable.xp = 0
 	item.newItemTable.level = 1
 	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
