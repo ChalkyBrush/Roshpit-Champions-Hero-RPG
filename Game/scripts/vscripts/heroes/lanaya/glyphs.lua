@@ -62,6 +62,7 @@ function t51_think(event)
             damage = wAbility:GetSpecialValueFor('damage'),
             stun_duration = wAbility:GetSpecialValueFor('stun_duration'),
             radius = wAbility:GetSpecialValueFor('radius'),
+			number_of_bombs = wAbility:GetSpecialValueFor('number_of_bombs'),
             target_points = target_points
         }
         if caster:HasModifier('modifier_trapper_arcana1') then

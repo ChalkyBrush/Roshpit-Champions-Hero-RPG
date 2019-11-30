@@ -294,7 +294,7 @@
 		"champion_league_challenger_10_dialogue_higher"				"Моя армия смерти уважает твою силу."
 
 		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire"		"Wraithfire Missile"
-		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Выпускает сжигающий плоть заряд, который оглушает и наносит уронпри попадании."
+		"DOTA_Tooltip_ability_arena_challenger_10_wraithfire_Description"	"Выпускает сжигающий плоть заряд, который оглушает и наносит урон при попадании."
 		"DOTA_Tooltip_ability_arena_challenger_10_passive"					"Gravelord"
 		"DOTA_Tooltip_ability_arena_challenger_10_passive_Description"		"Призывает армию нежити."
 

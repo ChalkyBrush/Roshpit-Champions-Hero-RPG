@@ -246,7 +246,7 @@ function create_specter_projectile(spellOrigin, forward, caster, ability)
 	local info =
 	{
 		Ability = ability,
-		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
+		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
 		vSpawnOrigin = spellOrigin,
 		fDistance = 1650,
 		fStartRadius = 120,
@@ -280,7 +280,7 @@ function specter_projectile_hit(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	EmitSoundOn(sound, target)
-	local damage = Events:GetDifficultyScaledDamage(1000, 3000, 26000)
+	local damage = Events:GetDifficultyScaledDamage(1000, 1000, 1000)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end

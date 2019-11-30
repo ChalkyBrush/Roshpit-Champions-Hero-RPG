@@ -37,6 +37,8 @@
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_Description"				"Добавляет урон к @Ability1 на основе атрибутов героя. Даёт шанс на повторное прочтение @Ability1 с задержкой в 0.9 секунды. Значение выше 100% гарантирует многократное прочтение."
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_one"				"Шанс повторного прочтения (Q) Hydro Pump"
     	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix"						"%"
+		"DOTA_Tooltip_ability_hydroxis_rune_q_4_property_two"				"Усиление урона от атрибутов"
+    	"DOTA_Tooltip_ability_hydroxis_rune_q_4_suffix_two"					"x от суммы"
 		
 		"DOTA_Tooltip_ability_hydroxis_water_blade"									"Water Bomb"
     	"DOTA_Tooltip_ability_hydroxis_water_blade_Description"						"Стихия: <font color=\"#3894FF\">Вода</font><br>Hydroxis выпускает из своего оружия поток воды в указанную точку. Враги, задетые умением сильно замедляются."	

@@ -195,7 +195,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W1_DAMAGE_PERCENT %>s"
+				"property_one"			"<% RED_GENERAL_W1_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
@@ -222,7 +222,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 			"02"
@@ -299,7 +299,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_W4_AMPLIFY_PERCENT * 10 %>"
 			}
 		}
 		"Modifiers"

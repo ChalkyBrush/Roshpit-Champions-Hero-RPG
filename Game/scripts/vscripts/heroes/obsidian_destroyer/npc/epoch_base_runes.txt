@@ -75,7 +75,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EPOCH_Q3_TIMES_MANA_DRAINED %>"
 			}
 			"02"

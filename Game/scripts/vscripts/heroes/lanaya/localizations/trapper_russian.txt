@@ -76,10 +76,8 @@
     	"DOTA_Tooltip_ability_trapper_rune_w_2_suffix"				""
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_3"						"[W3] Enhanced Munitions"
-    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая бомба имеет шанс сохранить часть заряда и взорваться через <% TRAPPER_W3_DELAY %> сек. Каждый взрыв наносит <%TRAPPER_W3_DMG_PROC * 100 %>% урона от предыдущего. Шанс выше 100% означает несколько взрывов. Дополнительно увеличивает урон от [W2]."
+    	"DOTA_Tooltip_ability_trapper_rune_w_3_Description"			"Каждая бомба имеет шанс сохранить часть заряда и взорваться через <% TRAPPER_W3_DELAY %> сек. Каждый взрыв наносит <%TRAPPER_W3_DMG_PROC * 100 %>% урона от предыдущего. Шанс выше 100% означает несколько взрывов."
     	"DOTA_Tooltip_ability_trapper_rune_w_3_property_one"		"Шанс мультивзрыва"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
-        "DOTA_Tooltip_ability_trapper_rune_w_3_property_two"		"Усиление урона [W2]"
         "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] Explosives Expert"
@@ -117,8 +115,8 @@
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix_two"			""
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_4"                     "[E4] Element of Surprise"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "Пока Trapper невидима, показатели её Пробития Брони и Пробития Магичекой Брони увеличены."
-        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Пробития Брони и Маг. Брони"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "Пока Trapper невидима, показатели её Пробития Брони и Пробития Магичеcкой Защиты увеличены."
+        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "Пробития Брони и Маг. Защиты"
         "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_vanish_paralyze"						"Paralyzing Dust"
@@ -221,7 +219,7 @@
         "item_rpc_trapper_glyph_2_1_description"                "Пока герой находится в облаке после прочтения (E) Vanish, каждые 0.1 секунды восстанавливается @glyph_property1% здоровья от максимума."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_1"       "[T3-1] Glyph of Tinkering"
-        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, и добавляет <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> бомбы за каст. Противники, задетые взрывом, будут контужены и не смогут нанести урон по Trapper следующими <% TRAPPER_GLYPH_3_1_SHIELDS %> порциями урона. Урон от бомб обновляет контузию."
+        "item_rpc_trapper_glyph_3_1_description"                "Увеличивает радиус @Ability2 на <% TRAPPER_GLYPH_3_1_ADD_RADIUS %>, и добавляет <% TRAPPER_GLYPH_3_1_ADD_BOMBS %> бомбы за каст."
 
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1"				"Crippling Poison"
 		"DOTA_Tooltip_modifier_poison_trap_glyph_3_1_Description"	"Базовый урон снижен"
@@ -241,22 +239,22 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "[T5-a] Glyph of Blueprints"
         "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% больше урона. Poison Trap увеличивает максимальные заряды яда до <% TRAPPER_GLYPH_5_A_POISON_STACKS %>. Net Trap имеет <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x увеличенную длительность связывания. Torrent Trap требует <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %> секунд для обнаружения цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] (T1-2) Glyph of the Pyre Lord"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] увеличен на <% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>%."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "[T2-2] (T2-2) Glyph of Talons"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "[T2-2] Glyph of Talons"
         "item_rpc_trapper_glyph_2_2_description"                "Урон от Psi Blades наносится и основной цели."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "[T3-2] (T3-2) Glyph of Disorientation"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "[T3-2] Glyph of Disorientation"
         "item_rpc_trapper_glyph_3_2_description"                "Противники, получившие урон от @Ability1 снижают исходящий от них урон на @glyph_property1% в течение <% TRAPPER_T32_DURATION %> сек."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "[T4-2] (T4-2) Glyph of the Orchid"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "[T4-2] Glyph of the Orchid"
         "item_rpc_trapper_glyph_4_2_description"                "Враги, на которых действует эффект (Q) Net Trap в дополнение к обездвиживанию получают безмолвие и обезоруживание."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "[T5-2] (T5-2) Glyph of the Prowler"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "[T5-2] Glyph of the Prowler"
         "item_rpc_trapper_glyph_5_2_description"                "Увеличивает максимальное количество зарядов [R2] на @glyph_property1."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "[T6-2] (T6-2) Glyph of Hair Trigger"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "[T6-2] Glyph of Hair Trigger"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] (T7-2) Glyph of Killer Instinct"

@@ -17,7 +17,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] Amplifier"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"Враги, задетые @Ability1, потеряют часть Магической Защиты. Длительность - 7 секунд."
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"Снижение Магической Защиты"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"Amplifier"
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
