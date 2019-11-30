@@ -1217,60 +1217,6 @@ function RPCItems:RollGoldbreakerGauntlet(item_level)
     return item
 end
 
-function RPCItems:RollEnergyWhipGlove(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_energy_whip_glove", "immortal", "Energy Whip Glove", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "energy_whip"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_energy_whip", "#4986b2", 1, "#property_energy_whip_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(1, 4 + (GameState:GetDifficultyFactor() * 2))
-    if luck <= 3 then
-        value = math.floor(value * 1.2)
-        propertyName = "rune_w_1"
-    elseif luck <= 6 then
-        value = math.floor(value * 1.2)
-        propertyName = "rune_w_2"
-    elseif luck <= 9 then
-        value = math.floor(value * 0.8)
-        propertyName = "rune_w_3"
-    elseif luck == 10 then
-        value = math.min(math.floor(value * 0.3), 10)
-        propertyName = "rune_w_4"
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    local luck = RandomInt(1, 4 + (GameState:GetDifficultyFactor() * 2))
-    if luck <= 3 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_w_1"
-    elseif luck <= 6 then
-        value = math.floor(value * 1.3)
-        propertyName = "rune_w_2"
-    elseif luck <= 9 then
-        value = math.floor(value * 0.9)
-        propertyName = "rune_w_3"
-    elseif luck == 10 then
-        value = math.min(math.floor(value * 0.5), 15)
-        propertyName = "rune_w_4"
-    end
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollStormclothBracer(item_level)
     local item = RPCItems:CreateVariant("item_rpc_stormcloth_bracer", "immortal", "Stormcloth Bracers", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4693,6 +4639,29 @@ function RPCItems:RollDiamondClawsOfTiamat(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 0.75)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "all_elements", 0.75)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEnergyWhipGlove(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_energy_whip_glove", "immortal", "Energy Whip Glove", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_energy_whip_glove"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_energy_whip", "#4986b2", 1, "#property_energy_whip_description")
+
+    local rune_type = RPCItems:RollRuneType({"w"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)

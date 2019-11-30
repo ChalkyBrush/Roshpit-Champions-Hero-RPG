@@ -13209,10 +13209,19 @@
 		"item_property_tiamat_claw"							"Unyielding Vanity"
 		"property_tiamat_claw_description"					"While equipped, all attributes are fixed at this property's value and cannot be changed by any other means."
 
-		"item_rpc_diamond_claws_of_tiamat_ruby1"			"Increases [Q4] Rune by @ruby_property1"
-		"item_rpc_diamond_claws_of_tiamat_emerald1"			"Increases [E4] Rune by @emerald_property1"
-		"item_rpc_diamond_claws_of_tiamat_sapphire1"			"Increases [W4] Rune by @sapphire_property1"
-		"item_rpc_diamond_claws_of_tiamat_amethyst1"			"Increases [R4] Rune by @amethyst_property1"
+		"item_rpc_diamond_claws_of_tiamat_ruby1"			"Increases Rune [Q4] by @ruby_property1"
+		"item_rpc_diamond_claws_of_tiamat_emerald1"			"Increases Rune [E4] by @emerald_property1"
+		"item_rpc_diamond_claws_of_tiamat_sapphire1"			"Increases Rune [W4] by @sapphire_property1"
+		"item_rpc_diamond_claws_of_tiamat_amethyst1"			"Increases Rune [R4] by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
+
+		"item_property_energy_whip"							"Spell Lash"
+		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targeted abilities are cast on the attacked unit or its position. @Ability2 will be cast even if you lack the mana to cast it, but it will not occur if you are silenced or if the ability is on cooldown."
+		"item_rpc_energy_whip_glove_ruby1"	"Increases Rune [W1] by @ruby_property1"
+		"item_rpc_energy_whip_glove_emerald1"	"Increases Rune [W3] by @emerald_property1"
+		"item_rpc_energy_whip_glove_sapphire1"	"Increases Rune [W2] by @sapphire_property1"
+		"item_rpc_energy_whip_glove_amethyst1"	"Increases Rune [W4] by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13557,19 +13566,6 @@
 		"item_property_heavy_echo"						"Reactive Grip"
 		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <font color='#ccff66'>2</font> times."
 
-				
-		
-		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
-		"item_rpc_energy_whip_glove_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_energy_whip_glove_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_energy_whip_glove_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_energy_whip_glove_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_energy_whip"							"Spell Lash"
-		"property_energy_whip_description"					"Landing an attack on an enemy also immediately casts @Ability2 if it is not on cooldown. Targeted abilities are cast on the attacked unit or its position. @Ability2 will be cast even if you lack the mana to cast it, but it will not occur if you are silenced or if the ability is on cooldown."
-		
-		
-
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_rpc_swiftspike_bracer_ruby1"			"blah blah @ruby_property1 gem"

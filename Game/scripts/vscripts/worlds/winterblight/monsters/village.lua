@@ -41,7 +41,7 @@ function winterblight_unit_die(event)
 	if unit:GetUnitName() == "winterblight_source_assembly" then
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
-			RPCItems:RollEnergyWhipGlove(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_energy_whip_glove")
 		end
 	end
 end
