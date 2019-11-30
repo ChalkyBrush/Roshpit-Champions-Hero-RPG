@@ -8625,7 +8625,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     if item.isLuaItem then
         newItem = item:CreateLuaItem(item_level)
     else
-        newItem = RPCItems:RollImmortalByName(item_level)
+        newItem = RPCItems:RollImmortalByName(item:GetAbilityName(), item_level)
     end
     --print(newItem)
     if newItem then
@@ -8699,6 +8699,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
             newItem.newItemTable.property4tooltip = oldItemProperties.property4tooltip
             newItem.newItemTable.property4special = oldItemProperties.property4special
         end
+        newItem.newItemTable.base_armor = oldItemProperties.base_armor
+        newItem.newItemTable.base_magic_armor = oldItemProperties.base_magic_armor
         RPCItems:ItemUpdateCustomNetTables(newItem)
 
         if item then

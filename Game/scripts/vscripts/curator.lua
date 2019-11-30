@@ -519,6 +519,13 @@ function Curator:FinishGettingClientData(msg)
 		url = url.."&amethyst5="..Curator:urlencode(msg.gem_data.amethyst["4"])
 	end
 
+	if item.newItemTable.base_magic_armor then
+		url = url.."&base_magic_armor="..item.newItemTable.base_magic_armor
+	end
+	if item.newItemTable.base_armor then
+		url = url.."&base_armor="..item.newItemTable.base_armor
+	end
+
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	print("CURATE")
 	print(url)
