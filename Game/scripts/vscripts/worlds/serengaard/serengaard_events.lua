@@ -24,13 +24,13 @@ function wave_unit_die(event)
 			maxRoll = 4
 		end
 		local deathLocation = event.unit:GetAbsOrigin()
-		local luck = RandomInt(2 + GameState:GetPlayerPremiumStatusCount(), 7200)
+		local luck = RandomInt(2 + GameState:GetPlayerPremiumStatusCount()*500, 7200)
 		if luck == 3000 then
 			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_swamp_doctors_tribal_mask")
 		elseif luck == 2999 then
 			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_radiant_ruins_leather")
 		elseif luck == 2998 then
-			RPCItems:RollTwilightVestments(deathLocation)
+			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_twilight_vestments")
 		elseif luck == 2997 then
 			RPCItems:RollPhoenixEmblem(deathLocation)
 		elseif luck == 2996 then

@@ -2172,10 +2172,10 @@ function tri_boss_death_sequence(event)
 				end
 			end
 			local pos = caster:GetAbsOrigin()
-			Timers:CreateTimer(5, function()
+			Timers:CreateTimer(4, function()
 				local luck = RandomInt(1, 7 - GameState:GetPlayerPremiumStatusCount())
 				if luck == 1 then
-					RPCItems:RollBuzukisFinger(pos)
+					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_buzukis_finger")
 				end
 			end)
 		elseif caster:GetUnitName() == "winterblight_azertia" then

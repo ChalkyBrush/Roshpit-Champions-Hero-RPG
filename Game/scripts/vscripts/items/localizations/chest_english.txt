@@ -554,150 +554,180 @@
 		"item_rpc_sorcerers_regalia_amethyst1"								"Increases Spirit by @amethyst_property1% of Intelligence"
 
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"While channeling @Ability4, a gravitic field disrupts the space around you. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>%. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. Additionally, while channeling @Ability4, gain <% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>% Bonus Attack damage every <% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %> seconds. These stacks are lost when beginning to channel the spell again."
-		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased attack damage."
 
-		
+		"item_property_space_tech"					"Gravity Bend"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <% ITEM_RPC_SPACE_TECH_VEST_RADIUS %> radius. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. "
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <% ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION %> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"Spellslinger's Coat"
-		"item_rpc_spellslinger_coat_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_spellslinger_coat_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
 		"property_spellslinger_coat_description"	"@Ability2 restores <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% of its mana cost on use and its Base Ability Damage is increased by <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
-		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "Heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% of all damage dealt by @Ability1."
-		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
-		"item_rpc_stormshield_cloak_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_stormshield_cloak_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Reduces all Physical damage taken by <% ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION * 100 %>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
-		"item_rpc_the_infernal_prison_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_the_infernal_prison_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_the_infernal_prison_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_the_infernal_prison_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_infernal_prison"				"Immolation"
-		"property_infernal_prison_description"		"Enemies who attack you are engulfed in flames, losing 110 attack speed and taking 50x your armor as magic damage every 0.5 seconds. Nearby enemies lose 260 attack speed and take<br>100% attack power as magic damage every 0.5 seconds."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
-		"item_rpc_twilight_vestments_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_twilight_vestments_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"When a single damage instance deals more than <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% of your max health, you are healed for <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% of the damage instance after <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> seconds."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
-		"item_rpc_energizing_quest_gear_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_energizing_quest_gear_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_energizing_quest_gear_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_energizing_quest_gear_amethyst1"							"blah blah @amethyst_property1 gem"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
-		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_windsteel_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level, increases evasion by <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% and increases movespeed by <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
-		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack. Also gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion and <% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %> movespeed."
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
-		
 
+		"item_rpc_spellslinger_coat_ruby1"								"Casting [Q] has a @ruby_property1% chance to refresh its cooldown"
+		"item_rpc_spellslinger_coat_emerald1"								"Casting [W] adds @emerald_property1 Spell Pierce for <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_DURATION %> seconds, stacking up to <% ITEM_RPC_SPELLSLINGER_COAT_EMERALD_MAX_STACKS %> times"
+		"item_rpc_spellslinger_coat_sapphire1"								"Increases Mana Regen by @sapphire_property1"
+		"item_rpc_spellslinger_coat_amethyst1"								"When an enemy damages you, @amethyst_property1% chance to immediately cast [W] with no mana cost, cooldown or cast point. Max <% ITEM_RPC_SPELLSLINGER_COAT_MAX_AMETHYST_PROCS_PER_SECOND %> procs per second."
 		
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
-		"item_rpc_terrasic_stone_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_terrasic_stone_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_terrasic_stone_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_terrasic_stone_plate_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Post-Mitigation damage is increased by <% ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI %>% against stunned targets."
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
-		"item_rpc_water_mage_robes_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_water_mage_robes_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing the sum of <% ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG %>x your attack damage and <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%, and while slowed they take <% ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP %>% increased Post-Mitigation damage from the caster."
-		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
-		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
-		 
-		 
-		 
+		"DOTA_Tooltip_modifier_spellslinger_emerald"			"Spellslinger (Emerald)"
+		"DOTA_Tooltip_modifier_spellslinger_emerald_Description"	"Increased Spell Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"Staggering Knight Crusher Armor"
-		"item_rpc_staggering_knight_crusher_armor_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
+
 		"item_property_knight_crusher"						"Overpower"
 		"property_knight_crusher_description"				"Increases the duration of all your basic stuns by <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%, and stun durations are considered <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>% shorter when added to an enemy's stun immunity counter."
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
-		"item_rpc_vermillion_dream_robes_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vermillion_dream_robes_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <% ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE %>."
-			
+		"item_rpc_staggering_knight_crusher_armor_ruby1"					"When you stun an enemy, reduce their Armor by @ruby_property1 for the duration of the stun"
+		"item_rpc_staggering_knight_crusher_armor_emerald1"					"When you stun an enemy, gain @emerald_property1 Armor Pierce for the duration of the stun"
+		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"Enemies who attack you have a <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_SAPPHIRE_CHANCE %>% chance to be stunned for @sapphire_property1 seconds. Passively increases armor by @sapphire_property2"
+		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"Enemies who cast an ability within a <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_AMETHYST_RADIUS %> radius of you are stunned for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_knight_crusher_armor_loss"		"Overpower (Ruby)"
+		"DOTA_Tooltip_modifier_knight_crusher_armor_loss_Description"	"Reduced Armor"
+
+		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce"		"Overpower (Emerald)"
+		"DOTA_Tooltip_modifier_knight_crusher_armor_pierce_Description"	"Increased Armor Pierce"
+
+		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
+
+		"item_property_stormshield"					"Iron Shields"
+		"property_stormshield_description"			"3 shields encircle you, each one reducing all Physical damage taken by <% ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION * 100 %>%. After being attacked <% ITEM_RPC_STORMSHIELD_CLOAK_ATTACKS_TO_BREAK %> times an Iron Shield breaks, but it will return after <% ITEM_RPC_STORMSHIELD_CLOAK_RESTORE_TIME %> seconds."
+
+		"DOTA_Tooltip_modifier_stormshield_active_shields"	"Active Iron Shields"
+
+		"item_rpc_stormshield_cloak_ruby1"								"Each active Iron Shield increases Armor by @ruby_property1"
+		"item_rpc_stormshield_cloak_emerald1"								"Reduces Iron Shield replenish time by @emerald_property1 seconds"
+		"item_rpc_stormshield_cloak_sapphire1"								"When an Iron Shield is destroyed, deal damage in a <% ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS %> radius based on @sapphire_property1 x your Armor and stun for @sapphire_property2 seconds"
+		"item_rpc_stormshield_cloak_amethyst1"								"Adds @amethyst_property1 maximum Iron Shields"
+
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS %> levels, gain an extra <% ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS %> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <% ITEM_RPC_TATTERED_NOVICE_ARMOR_RUBY_RADIUS %> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
+
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"Templar Light Seer's Robe"	
-		"item_rpc_templar_light_seers_robe_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_templar_light_seers_robe_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
+
 		"property_light_seer"												"Light of Delphi"
 		"property_light_seer_Description"									"Heal <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% of max health every <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %> seconds while channeling @Ability4. Each tick additionally grants a shield stack which absorbs a single instance of damage. Max <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_MAX_STACKS %> stacks. After channeling is finished, one shield stack fades every second."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Each stack absorbs an instance of damage"
+
+		"item_rpc_templar_light_seers_robe_ruby1"			"Increases Strength and Spirit by @ruby_property1"
+		"item_rpc_templar_light_seers_robe_emerald1"			"Increases the maximum shield stacks by @emerald_property1"
+		"item_rpc_templar_light_seers_robe_sapphire1"			"Templar's effect also applies to allies in a @sapphire_property1 radius"
+		"item_rpc_templar_light_seers_robe_amethyst1"			"Increases the heal per tick by @amethyst_property1x Spirit"
+
+		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
+		"item_property_terrasic_stone"						"Magma Breaker"
+		 "property_terrasic_stone_description"				"Every <% ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL %> seconds, gain a Magma Breaker stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS %> stacks."
+
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Breaker"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
+
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
+		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Breaker stacks by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"The Infernal Prison"
+		"item_property_infernal_prison"				"Immolation"
+		"property_infernal_prison_description"		"Nearby enemies within <% ITEM_RPC_THE_INFERNAL_PRISON_RADIUS %> take of <% ITEM_RPC_THE_INFERNAL_PRISON_DAMAGE_ATK_PWR_PCT %>% attack power as magic damage every <% ITEM_RPC_THE_INFERNAL_PRISON_BURN_INTERVAL %> seconds."
+
+		"item_rpc_the_infernal_prison_ruby1"								"Enemies who attack you are engulfed in an additional Immolation that lasts @ruby_property1 seconds"
+		"item_rpc_the_infernal_prison_emerald1"								"Immolation slows enemy attack speed by @emerald_property1"
+		"item_rpc_the_infernal_prison_sapphire1"								"Increases Armor and Magic Armor by @sapphire_property1"
+		"item_rpc_the_infernal_prison_amethyst1"								"Increases Immolation damage by @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_infernal_prison_nearby"	"Immolation"
+		"DOTA_Tooltip_modifier_infernal_prison_ruby"	"Immolation (Ruby)"
+
+		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"Twilight Vestments"
+
+		"item_property_twilight_vestments"			"Shimmering Scales"
+		"property_twilight_vestments_description"	"When a single damage instance deals more than <% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% of your max health, you are healed for <% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>% of the damage instance after <% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %> seconds."
+
+		"item_rpc_twilight_vestments_ruby1"									"Reduces the threshold to activate the heal by @ruby_property1% of Max Health"
+		"item_rpc_twilight_vestments_emerald1"								"Increases the Heal Amount by an additional @emerald_property1% of the damage instance"
+		"item_rpc_twilight_vestments_sapphire1"								"Pure Damage taken heals an additional @sapphire_property1% of the damage instance"
+		"item_rpc_twilight_vestments_amethyst1"								"Increases Spirit by @amethyst_property1"
+
+
+		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
+
+		"item_property_vampiric_breastplate"		"Vampiric Core"
+		"property_varmpiric_breastplate_description" "Regular attacks heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_ATTACK_HEAL_PCT %>% of the final attack damage."
+
+		"DOTA_Tooltip_modifier_vampiric_breastplate_aura_effect"	"Vampiric Aura"
+		"DOTA_Tooltip_modifier_vampiric_breastplate_aura_effect_Description"	"Attacks have lifesteal"
+
+		"item_rpc_vampiric_breastplate_ruby1"							"Allies in a <% ITEM_RPC_VAMPIRIC_BREASTPLATE_AURA_RADIUS %> radius gain @ruby_property1% of the Attack Lifesteal effect"
+		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
+		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
+		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
+
+		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"Vermillion Dream Robes"
+		"item_property_vermillion_dream_robes"					"Luminous Expanse"
+		"property_vermillion_dream_robes_description"			"Increases the cast range of your base abilities by <% ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE %>."
 		
+		"item_rpc_vermillion_dream_robes_ruby1"							"Increases cast range by an additional @ruby_property1"
+		"item_rpc_vermillion_dream_robes_emerald1"							"Increase all Rune Bonuses from gear by @emerald_property1%"
+		"item_rpc_vermillion_dream_robes_sapphire1"							"Increase Base Ability damage by @sapphire_property1% and gain @sapphire_property2 distance forward vision"
+		"item_rpc_vermillion_dream_robes_amethyst1"							"As long as there are no enemies within <% ITEM_RPC_VERMILLION_DREAM_ROBES_AMETHYST_ENEMY_RADIUS %> range, gain @amethyst_property1 Spell Pierce"
+
+		"DOTA_Tooltip_modifier_vermillion_dream_amethyst"		"Luminous Expanse (Amethyst)"
+		"DOTA_Tooltip_modifier_vermillion_dream_amethyst_Description"	"Gaining Spell Pierce as long as no enemies are nearby"
+
+		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
+
+		"item_property_watermage"							"Wave Burst"
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%."
+		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
+
+		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
+		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		
-		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %> seconds gain a Resolution stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TATTERED_NOVICE_ARMOR_MAX_STACKS %> stacks."
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q Ability has no cooldown"
+		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"				"Windsteel Armor"
+		"item_property_windsteel_armor"				"Fluttering Guard"
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
+		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
+			 
+
 
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"Steelbark Guard"
-		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_steelbark_guard_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_steelbark_guard_amethyst1"									"blah blah @amethyst_property1 gem"
+		"item_rpc_steelbark_guard_ruby1"									"No Effect"
+		"item_rpc_steelbark_guard_emerald1"									"No Effect"
+		"item_rpc_steelbark_guard_sapphire1"									"No Effect"
+		"item_rpc_steelbark_guard_amethyst1"									"No Effect"
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"Slot: Body"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"While below 40% max health, gain 100 health regen and 40 bonus Armor."
+
+				
+		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
+		"item_rpc_energizing_quest_gear_ruby1"							"No effect"
+		"item_rpc_energizing_quest_gear_emerald1"							"No effect"
+		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
+		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
+		

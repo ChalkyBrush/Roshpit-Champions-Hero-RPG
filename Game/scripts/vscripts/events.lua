@@ -211,6 +211,9 @@ function GameMode:OnNPCSpawned(keys)
 end
 
 function GameMode:CorrectRespawn(npc)
+	if npc:IsRealHero() then
+		npc:ReequipAllGear()
+	end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR
@@ -980,7 +983,11 @@ function Events:HeroLevelUp(player, hero, level)
 	if level%5 == 0 then
 		skill_points = 1
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = Runes.RUNE_POINTS_PER_LEVEL})
+	local rune_point_popup = Runes.RUNE_POINTS_PER_LEVEL
+	if hero:HasModifier("modifier_tattered_novice_armor") and level%ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS == 0 then
+		rune_point_popup = rune_point_popup + ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+	end
+	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = rune_point_popup})
 	if level % 40 == 0 then
 		Stars:StarEventPlayer("power_up", hero)
 	end

@@ -109,7 +109,7 @@ function Weapons:InitialWeapon(hero, item_variant, itemName)
 		RPCItems:SetPropertyValues(item, Weapons.STARTING_ATTACK_DMG, "item_attack_damage", RPCItems.PROPERTY_COLORS["attack_damage"], 1)
 	end
 	RPCItems:SetBaseItemValues(item, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, 1, item_slot)
-	hero:EquipItem(item)
+	hero:EquipItem(item, false)
 end
 
 function Weapons:ValidateGear(hero)
@@ -268,7 +268,7 @@ function Weapons:LevelUpWeapon(hero, weapon)
 		Stars:StarEventPlayer("weapon", hero)
 	end
 	EmitGlobalSound("ui.treasure_reveal")
-	hero:EquipItem(weapon)
+	hero:EquipItem(weapon, false)
 	-- CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = weapon:GetEntityIndex(), heroId = hero:GetClassname(), playerId = hero:GetPlayerOwnerID(), pickup = "weapon", rarity = weapon.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(weapon.newItemTable.rarity)})
 end
 

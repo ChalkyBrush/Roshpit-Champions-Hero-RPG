@@ -1467,8 +1467,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
         end
     )
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		if victim:HasModifier("modifier_stormshield_cloak") then
-			damage = damage * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION
+		if victim:HasModifier("modifier_stormshield_active_shields") then
+			local shields_count = victim:GetModifierStackCount("modifier_stormshield_active_shields", victim.InventoryUnit)
+			damage = damage * (1 - (shields_count * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION))
 		end
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
@@ -1578,10 +1579,15 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 	local damage = BASE_VALUE_FOR_CALCULATE
 	if victim:HasModifier("modifier_berserker_gloves_buff_visible") then
 		local stacks = victim:GetModifierStackCount("modifier_berserker_gloves_buff_visible", victim.InventoryUnit)
-		damage = damage + damage * ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE/100 * stacks
+		local damage_increase = ITEM_RPC_BERSERKER_GLOVES_DAMAGE_RECEIVED_INCREASE
+		if victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			damage_increase = victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERSERKER_GLOVES_GEM_EMERALD)
+		end
+		damage = damage + damage * (damage_increase/100) * stacks
 	end
-	if victim:HasModifier("modifier_hand_azinoth") then
-		damage = damage * (100 + ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP)/100
+	if victim:HasModifier("modifier_claw_of_azinoth") then
+		local total_azinoth = ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP - victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY) + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1)
+		damage = damage * (100 + total_azinoth)/100
 	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
@@ -1807,7 +1813,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = 1 - stacks * ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK
 		damage = damage * reduction
 		if shouldConsumeShields then
-			local newStacks = stacks - 1
+			local newStacks = math.max(stacks - 1, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_AMETHYST))
 			if newStacks > 0 then
 				victim:SetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit, newStacks)
 			else
@@ -2083,6 +2089,7 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damagetype, filterTable["damage"], filterTable["entindex_inflictor_const"])
 	end
 
+
 	if applyEffects then
 		if victim:HasModifier("modifier_dungeon_thinker_creep") then
 			victim.aggro = true
@@ -2097,6 +2104,18 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	--building epoch dmg before other multiplers
+    if attacker:HasModifier("modifier_vampiric_breastplate") and applyEffects then
+    	if not filterTable.entindex_inflictor_const then
+        	Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate")
+        end
+    end
+    if attacker:HasModifier("modifier_vampiric_breastplate_aura_effect") and applyEffects then
+    	if not filterTable.entindex_inflictor_const then
+	    	if not attacker:HasModifier("modifier_vampiric_breastplate_aura") then
+	    		Filters:VampiricBreastplate(attacker, filterTable["damage"], "attack", "modifier_vampiric_breastplate_aura_effect")
+	    	end
+	    end
+    end
 	if victim:HasModifier("modifier_epoch_arcana_root") then
 		local modifier = victim:FindModifierByName("modifier_epoch_arcana_root")
 		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
@@ -2146,14 +2165,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		-- local original_damage = filterTable["damage"] --Post reduction
-		-- local inflictor = filterTable["entindex_inflictor_const"]
-		-- local damage = original_damage
-		-- filterTable["damage"] = damage
-		-- if attacker:IsHero() then
-		-- local primaryAttibute = Filters:GetPrimaryAttributeMultiple(attacker, 1)
-		-- filterTable["damage"] = filterTable["damage"]*(1+((primaryAttibute/16)/100))
-		-- end
 		if attacker:HasModifier("modifier_tempest_falcon_ring") then
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
 		end
@@ -2177,6 +2188,9 @@ function GameState:FilterDamage(filterTable)
 			Timers:CreateTimer(0.05, function()
 				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
 			end)
+		end
+		if victim:IsMagicImmune() then
+			return false
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 
@@ -2236,19 +2250,10 @@ function GameState:FilterDamage(filterTable)
 		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
 	end
 
-	if victim:HasModifier("modifier_water_mage_slow") then
-		modifier = victim:FindModifierByName("modifier_water_mage_slow")
-		if modifier:GetCaster():GetEntityIndex() == attacker:GetEntityIndex() then
-			mult = mult + ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP/100
-		end
-	end
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
 		if victim:HasModifier("modifier_arkimus_immortal_weapon_3") then
 			filterTable["damage"] = filterTable["damage"] * (100-ARKIMUS_IMMORTAL_WEAPON_3_W3_DAMAGE_REDUCTION)/100
 		end
-	end
-	if attacker:HasModifier("modifier_buzukis_finger_buff") then
-		mult = mult + ITEM_RPC_BUZUKIS_FINGER_POST_MITI/100
 	end
 	if attacker:HasModifier("modifier_earthshock_damage_reduce") then
 		local modifierCaster = attacker:FindModifierByName("modifier_earthshock_damage_reduce"):GetCaster()
@@ -2264,12 +2269,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modifier_terrasic_stone_plate") then
-		if victim:IsStunned() or victim:HasModifier("modifier_knockback") or victim:IsFakeStunned() then
-			mult = mult + ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI/100
-		end
-	end
-
 	if attacker:HasModifier("modfier_razor_band_stacks") then
 		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
 		local stacks = modifier:GetStackCount()
@@ -2280,21 +2279,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
 			filterTable["damage"] = filterTable["damage"] * 0.5
 		end
-	end
-	if victim:HasModifier("tanari_mountain_specter_ai") then
-		local reduc = 0.1
-		if GameState:GetDifficultyFactor() == 2 then
-			reduc = 0.9
-		elseif GameState:GetDifficultyFactor() == 3 then
-			reduc = 0.996
-		end
-		if victim.mainBoss then
-			filterTable["damage"] = filterTable["damage"] / 25
-		end
-		filterTable["damage"] = filterTable["damage"] * (1 - reduc)
-	end
-	if attacker:HasModifier("tanari_mountain_specter_ai") then
-		filterTable["damage"] = filterTable["damage"] * 1.2
 	end
 	if victim:HasModifier("modifier_water_jailer_passive") then
 		local abil = victim:FindModifierByName("modifier_water_jailer_passive"):GetAbility()
@@ -2488,7 +2472,7 @@ function GameState:FilterDamage(filterTable)
 		if filterTable["damage"] > 0 then
 			filterTable["damage"] = 0
 			local shieldCaster = victim:FindModifierByName("modifier_light_seer_shield"):GetCaster()
-			CustomAbilities:HitShieldGeneric(victim, attacker, victim.InventoryUnit, "modifier_light_seer_shield")
+			CustomAbilities:HitShieldGeneric(victim, attacker, shieldCaster.InventoryUnit, "modifier_light_seer_shield")
 		end
 	end
 	if victim:HasModifier("modifier_djanghor_4_1_shield") then
@@ -2660,17 +2644,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	end
-	if victim:HasModifier("modifier_ethereal_revenant_link") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		if victim.revenantData then
-			if victim.revenantData[1] == attacker:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_AMP
-			end
-		end
-	end
 	if attacker:HasModifier("modifier_ethereal_revenant_link") then
 		if attacker.revenantData then
 			if attacker.revenantData[1] == victim:GetEntityIndex() then
-				filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT)/100
+				local total_reduction = ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_DAMAGE_REDUCTION_PCT + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_AMETHYST2)
+				filterTable["damage"] = filterTable["damage"] * (100-total_reduction)/100
 			end
 		end
 	end
@@ -3018,7 +2996,9 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT
 		end
 	end
-
+	if victim:HasModifier("modifier_twilight_vestments") and applyEffects then
+		Filters:TwilightVestments(victim, filterTable["damage"], damagetype)
+	end
 	if victim:HasModifier("modifier_canyon_boss_ai") then
 		if applyEffects then
 			filterTable["damage"] = Redfall:CanyonBossTakeDamage(victim, filterTable["damage"])

@@ -458,10 +458,10 @@ RPCItems.AttributesRolls[2]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SP
 RPCItems.AttributesRolls[3]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[3]["spirit"] * 3.5
 RPCItems.AttributesRolls[4]["magic_armor"] = CustomAttributes.MAGIC_ARMOR_PER_SPIRIT * RPCItems.AttributesRolls[4]["spirit"] * 3.5
 
-RPCItems.AttributesRolls[1]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 3
-RPCItems.AttributesRolls[2]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 3
-RPCItems.AttributesRolls[3]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 3
-RPCItems.AttributesRolls[4]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 3
+RPCItems.AttributesRolls[1]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2
+RPCItems.AttributesRolls[2]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2
+RPCItems.AttributesRolls[3]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2
+RPCItems.AttributesRolls[4]["attack_damage"] = CustomAttributes.ATK_DMG_PER_PRIMARY * 2
 
 RPCItems.AttributesRolls[1]["item_damage"] = RPCItems.AttributesRolls[1]["base_ability"]
 RPCItems.AttributesRolls[2]["item_damage"] = RPCItems.AttributesRolls[2]["base_ability"]

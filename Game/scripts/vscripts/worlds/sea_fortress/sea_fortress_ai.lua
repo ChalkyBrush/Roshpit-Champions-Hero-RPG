@@ -182,7 +182,7 @@ function seafortress_unit_die(event)
 			end)
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
-				RPCItems:RollDarkEmissaryGlove(caster:GetAbsOrigin())
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dark_emissary_glove")
 			end
 		elseif caster.deathCode == 9 then
 			EmitSoundOn("Seafortress.DeepShadow.Die", caster)
@@ -266,7 +266,7 @@ function seafortress_unit_die(event)
 	if luck2 == 1 then
 		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_armor_of_atlantis")
 	elseif luck2 == 2 then
-		RPCItems:RollChitinousLobsterClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_chitinous_lobster_claw")
 	end
 	local paragonAdjust = 0
 	if caster.paragon then
@@ -3946,9 +3946,9 @@ function dark_spirit_die(caster)
 		Seafortress:RemoveBlockers(4, "SeaBlocker6", Vector(14784, 2880), 800)
 		Seafortress:FirstPirateRoom()
 	end
-	local luck = RandomInt(1, 30)
+	local luck = RandomInt(1, 30-GameState:GetPlayerPremiumStatusCount()*2)
 	if luck == 1 then
-		RPCItems:RollDepthDemonClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_depth_demon_claw")
 	end
 end
 
@@ -5926,7 +5926,7 @@ function saltwater_demon_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollLightSeersRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(unit, "item_rpc_templar_light_seers_robe")
 	end
 end
 

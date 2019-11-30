@@ -22796,10 +22796,7 @@
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_friend.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_beam_enemy.vpcf"
-			"particle"					"particles/units/heroes/hero_phoenix/phoenix_sunray_debuff.vpcf"
+			"particle"					"particles/roshpit/flamewaker/heat_wave.vpcf"
 			"particle"					"particles/econ/courier/courier_roshan_lava/courier_roshan_lava_ground.vpcf"
 			"particle"					"particles/status_fx/status_effect_huskar_lifebreak.vpcf"
 			"model"						"models/heroes/dragon_knight/dragon_knight_dragon.vmdl"
@@ -97349,24 +97346,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_hand_azinoth"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
+
 			"modifier_divine_purity"
 			{
 				"Passive"	"0"
@@ -140970,6 +140950,89 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"thorok_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"bone_claw_skeleton_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/ekkan_summon_skeleton"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_off"
 					}
 				}
 			}

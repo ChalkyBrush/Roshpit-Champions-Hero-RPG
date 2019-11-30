@@ -2901,7 +2901,7 @@ function loki_the_mad_die(event)
 	EmitSoundOn("Redfall.LokiTheMad.Death", caster)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:VermillionDreamRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_vermillion_dream_robes")
 	end
 end
 
@@ -3924,7 +3924,7 @@ end
 function ethereal_revenant_die(event)
 	local caster = event.caster
 	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		RPCItems:RollClawOfTheEtherealRevenant(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_claws_of_the_ethereal_revenant")
 	end
 	EmitSoundOn("Redfall.EtherealRevenant.Death", caster)
 

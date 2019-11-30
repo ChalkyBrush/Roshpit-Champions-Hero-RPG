@@ -105,7 +105,7 @@ function CDOTA_BaseNPC_Hero:GetStrength()
 	end
 	local strength = hero.strength_custom + hero.str_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		strength = item.newItemTable.property1
 	end
 	return math.max(tonumber(strength), 0)
@@ -119,7 +119,7 @@ function CDOTA_BaseNPC_Hero:GetAgility()
 	end
 	local agility = hero.agility_custom + hero.agi_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		agility = item.newItemTable.property1
 	end
 	return math.max(tonumber(agility), 0)
@@ -133,7 +133,7 @@ function CDOTA_BaseNPC_Hero:GetIntellect()
 	end
 	local intelligence = hero.intellect_custom + hero.int_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		intelligence = item.newItemTable.property1
 	end
 	return math.max(tonumber(intelligence), 0)
@@ -147,7 +147,7 @@ function CDOTA_BaseNPC_Hero:GetSpirit()
 	end
 	local spirit = hero.spirit_custom + hero.spirit_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		spirit = item.newItemTable.property1
 	end
 	return math.max(tonumber(spirit), 0)
@@ -438,28 +438,44 @@ end
 function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
-	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
+	local strength_per_level = hero:GetKeyValue("RoshpitStrengthGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		strength_per_level = strength_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	strength = strength + self:GetLevel()*strength_per_level
 	hero.strength_custom = math.floor(strength)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	local hero = self
 	local agility = hero:GetKeyValue("RoshpitAgility", nil)
-	agility = agility + self:GetLevel()*hero:GetKeyValue("RoshpitAgilityGain", nil)
+	local agility_per_level = hero:GetKeyValue("RoshpitAgilityGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		agility_per_level = agility_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	agility = agility + self:GetLevel()*agility_per_level
 	hero.agility_custom = math.floor(agility)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	local hero = self
 	local intellect = hero:GetKeyValue("RoshpitIntelligence", nil)
-	intellect = intellect + self:GetLevel()*hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	local intelligence_per_level = hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		intelligence_per_level = intelligence_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	intellect = intellect + self:GetLevel()*intelligence_per_level
 	hero.intellect_custom = math.floor(intellect)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 	local hero = self
 	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
-	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
+	local spirit_per_level = hero:GetKeyValue("RoshpitSpiritGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		spirit_per_level = spirit_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	spirit = spirit + self:GetLevel()*spirit_per_level
 	hero.spirit_custom = math.floor(spirit)
 end
 
@@ -527,6 +543,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:IsRealHero() then
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
 		armor = armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			armor = armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
 	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseArmorBonus', { MODIFIER_ROSHPIT_BASE_ARMOR_BONUS }, { }, 
 		function(result, data)
@@ -992,6 +1011,24 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		armor_modify = armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_RUBY))
 	end
+	if unit:HasModifier("modifier_knight_crusher_armor_loss") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_loss"):GetAbility()
+		armor_modify = armor_modify + crusher_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_stormshield_active_shields") then
+		local shields_count = unit:GetModifierStackCount("modifier_stormshield_active_shields", unit.InventoryUnit)
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STORMSHIELD_CLOAK_GEM_RUBY)*shields_count
+	end
+	if unit:HasModifier("modifier_bladeforge_armor_debuff") then
+		local bladeforge_modifier = unit:FindModifierByName("modifier_bladeforge_armor_debuff")
+		local bladeforge_gauntlet = bladeforge_modifier:GetAbility()
+		armor_modify = armor_modify + bladeforge_gauntlet:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY)*bladeforge_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1081,6 +1118,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:IsRealHero() then
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
 		magic_armor = magic_armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_magic_armor", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
 	end
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
@@ -1498,6 +1538,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
 		magic_armor_modify = magic_armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
 	end
+	if unit:HasModifier("modifier_water_mage_slow") then
+		local robes = unit:FindModifierByName("modifier_water_mage_slow"):GetAbility()
+		magic_armor_modify = magic_armor_modify + robes:GetFinalGemPropertyValue("ruby", ITEM_RPC_WATER_MAGE_ROBES_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1558,6 +1606,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:IsRealHero() then
 		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
 		armor_pierce = armor_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor_pierce", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			armor_pierce = armor_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
 	end
 
 	local armor_pierce_modify = 0
@@ -1735,6 +1786,23 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
 		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_knight_crusher_armor_pierce") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + crusher_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		armor_pierce_modify = armor_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		armor_pierce_modify = armor_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -1772,6 +1840,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
 		spell_pierce = spell_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_spell_pierce", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
 	end
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
 		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
@@ -2000,6 +2071,32 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sorcerers_regalia") then
 		spell_pierce_modify = spell_pierce_modify + (unit:GetIntellect() + unit:GetSpirit())*ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR
 	end
+	if unit:HasModifier("modifier_spellslinger_emerald") then
+		local modifier = unit:FindModifierByName("modifier_spellslinger_emerald")
+		local coat = modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*coat:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLSLINGER_COAT_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_vermillion_dream_amethyst") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		spell_pierce_modify = spell_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_dark_emissary_glove") then
+		if unit:IsInvisible() then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2)
+		end
+	end
+	if unit:HasModifier("modifier_demonfire_stack") then
+		local demonfire_modifier = unit:FindModifierByName("modifier_demonfire_stack")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2)*demonfire_modifier:GetStackCount()
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2168,6 +2265,9 @@ function CustomAttributes:SetAttributes(hero)
 		local amount = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SEA_GIANTS_PLATE_GEM_EMERALD)
 		str_bonus = str_bonus + amount
 		agi_bonus = agi_bonus - amount
+	end
+	if hero:HasModifier("modifier_windsteel_effect") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WINDSTEEL_ARMOR_GEM_EMERALD)
 	end
 	if hero:HasModifier("modifier_sea_giant_spirit") then
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
@@ -2486,6 +2586,12 @@ function CustomAttributes:SetAttributes(hero)
 				agi_bonus = agi_bonus + (radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
 			end
 		end
+	end
+	if hero:HasModifier("modifier_claw_of_azinoth") then
+		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		int_bonus = int_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		spr_bonus = spr_bonus - hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST1)
 	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)

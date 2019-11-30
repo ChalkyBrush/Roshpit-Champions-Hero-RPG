@@ -279,7 +279,7 @@ function CastNewHeatwave(event)
     -- else
     EmitSoundOn("Flamewaker.HeatWaveCast", caster)
     EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
-    local particleName = "particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
+    local particleName = "particles/roshpit/flamewaker/heat_wave.vpcf"
     local particleVector = caster:GetAbsOrigin() - (caster:GetForwardVector() * 90)
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true)

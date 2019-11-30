@@ -76,9 +76,7 @@ function rune_w_3(caster, ability, fv)
 
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("w", 3)
 	runeAbility.totalLevel = totalLevel
 	runeAbility.origCaster = caster
 	runeAbility.damageAmp = ability.damageAmp

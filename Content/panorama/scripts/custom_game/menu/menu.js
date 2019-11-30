@@ -135,6 +135,8 @@ function CorrectDotaUI(){
 	GameUI.ManaRegenLabel = parent.FindChildTraverse("ManaRegenLabel")
 
 	GameUI.MovespeedLabel = parent.FindChildTraverse("MoveSpeedLabelBase")
+	GameUI.AbilityTooltip = parent.FindChildTraverse("DOTAAbilityTooltip")
+	
 	// while(parent.id !="hud"){
 	// 	parent = parent.GetParent();
 	// }

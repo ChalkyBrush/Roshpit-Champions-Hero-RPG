@@ -12295,7 +12295,7 @@
 		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"Spellslinger"
-		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит <font color='#ccff66'>35</font>% от затраченной маны и будет наносить на <font color='#ccff66'>100</font>% больше урона."
+		"property_spellslinger_coat_description"	"(W) @Ability2 восстановит <font color='#ccff66'>35</font>% от затраченной маны и будет наносить на <font color='#ccff66'>120</font>% больше урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"Doomplate"
@@ -12357,12 +12357,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"Vampiric Breastplate"
-		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
+
 		"item_property_vampiric_breastplate"		"Vampiric Core"
-		"property_varmpiric_breastplate_description" "<font color='#ccff66'>30</font>% вампиризм от (Q) @Ability1"
+		"property_varmpiric_breastplate_description" "Regular attacks heal for <font color='#ccff66'>15</font>% of the final attack damage."
+
+		"item_rpc_vampiric_breastplate_ruby1"							"Allies in a <font color='#ccff66'>900</font> radius gain @ruby_property1% of the Attack Lifesteal effect"
+		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
+		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
+		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"Vestments of the Dark Arts"
@@ -12398,14 +12400,20 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"Space Tech Vest"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_space_tech"					"Gravity Bend"
-		"property_space_tech_description"			"Во время прочтения (R) @Ability4 все ближайшие противники теряют 160 скорости атаки и 50% скорости передвижения. Эффект замедления длится 7 секунд. Дополнительно увеличивает урон героя на 35% каждые 0.3 секунды."
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <font color='#ccff66'>800</font> radius. All surrounding enemies have their attack speed slowed by <font color='#ccff66'>40</font>, and movespeed slowed by <font color='#ccff66'>40</font> with each pulse, stacking up to <font color='#ccff66'>5</font> times. The slow effects stick for <font color='#ccff66'>8</font> seconds after leaving the disruption field. "
 		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Доп. урон."
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <font color='#ccff66'>10</font> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <font color='#ccff66'>5</font> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"Stormshield Cloak"
@@ -12414,7 +12422,7 @@
 		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"Storm Shield"
-		"property_stormshield_description"			"Уменьшает весь получаемый физический урон на <font color='#ccff66'>50</font>%"
+		"property_stormshield_description"			"Уменьшает весь получаемый физический урон на <font color='#ccff66'>15</font>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"Gilded Soul Cage"
@@ -12504,7 +12512,7 @@
 		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_twilight_vestments"			"Shimmering Scales"
-		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше <font color='#ccff66'>20</font>% здоровья, через <font color='#ccff66'>0.05</font> секунды вы будете исцелены на <font color='#ccff66'>75</font>% от полученного урона."
+		"property_twilight_vestments_description"	"Если единичный урон наносит вам больше <font color='#ccff66'>10</font>% здоровья, через <font color='#ccff66'>0.05</font> секунды вы будете исцелены на <font color='#ccff66'>35</font>% от полученного урона."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"Energizing Quest Gear"
@@ -12514,16 +12522,18 @@
 		"item_rpc_energizing_quest_gear_amethyst1"							"blah blah @amethyst_property1 gem"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"Windsteel Armor"
-		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_windsteel_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
+		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"				"Windsteel Armor"
 		"item_property_windsteel_armor"				"Fluttering Guard"
-		"property_windsteel_armor_description"		"Прочтение способности (W) @Ability2 наделит героя щитом, поглощающим любой получаемый урон. Количество зарядов щита равно уровню способности героя. Пока щит активен, уклонение выше на <font color='#ccff66'>50</font>%, скорость передвижения увеличена на <font color='#ccff66'>100</font>. Длится <font color='#ccff66'>8</font> сек. Перезаряжается <font color='#ccff66'>5</font> сек."
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <font color='#ccff66'>50</font>% evasion. Lasts <font color='#ccff66'>8</font> seconds. <font color='#ccff66'>6</font> second cooldown."
 		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Поглощает любой полученный урон за каждый заряд щита. Уклонение повышено на 50%. Скорость передвижения увеличена на 100."
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Перезарядка Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <font color='#ccff66'>50</font>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
+		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <font color='#ccff66'>900</font> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
 		
 		
 		
@@ -12588,23 +12598,29 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"Terrasic Stone Plate"
-		"item_rpc_terrasic_stone_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_terrasic_stone_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_terrasic_stone_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_terrasic_stone_plate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_terrasic_stone"						"Magma Break"
-		 "property_terrasic_stone_description"				"Весь наносимый пост-резистный урон по оглушенным целям увеличен на <font color='#ccff66'>200</font>%."
+		 "property_terrasic_stone_description"				"Every <font color='#ccff66'>12</font> seconds, gain a Magma Break stack. Each stack removes the cooldown on @Ability1. Max <font color='#ccff66'>2</font> stacks."
+
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Break"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
+
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
+		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Break stacks by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"Water Mage Robes"
-		"item_rpc_water_mage_robes_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_water_mage_robes_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_watermage"							"Wave Burst"
-		"property_watermage_description"					"Во время прочтения (R) @Ability4, во все стороны от героя будет выпущен мощный поток воды, наносящий магический урон за каждую волну, который равен сумме <font color='#ccff66'>7</font>х урона героя и <font color='#ccff66'>30</font>x Интеллекта. Дополнительно замедляет врагов на <font color='#ccff66'>50</font>% и увеличивает Пост-Резистный урон по противникам, попавшим под волну на <font color='#ccff66'>100</font>%."
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing <font color='#ccff66'>4</font>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <font color='#ccff66'>35</font>%."
 		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
-		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Скорость передвижения снижена"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
+
+		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
+		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"Golden War Plate"
 
@@ -12712,7 +12728,7 @@
 		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"Luminous Expanse"
-		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>900</font>"
+		"property_vermillion_dream_robes_description"			"Увеличивает дальность применения базовых умений на <font color='#ccff66'>500</font>"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
@@ -12770,7 +12786,7 @@
 		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"Light of Delphi"
-		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на <font color='#ccff66'>20</font>% от макс. здоровья каждые <font color='#ccff66'>0.15</font> секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
+		"property_light_seer_Description"									"Во время прочтения (R) @Ability4 герой исцеляется на <font color='#ccff66'>5</font>% от макс. здоровья каждые <font color='#ccff66'>0.2</font> секунды. С каждым тиком герой получает заряды щита, способного полностью поглотить любой урон. Накопленные заряды исчезают по одному каждую секунду."
 		"DOTA_Tooltip_modifier_light_seer_shield"							"Delphi Shield"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"Каждый заряд полностью поглощает любой входящий урон"
 		
@@ -12813,15 +12829,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"Resolution"
-		"property_tattered_novice_armor_description"				"Каждые <font color='#ccff66'>12</font> сек, герой получает заряд этого предмета. Каждый заряд позволяет применять (Q) @Ability1 без перезарядки. Максимум <font color='#ccff66'>2</font> заряда(ов)."
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"Resolution"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Умение (Q) применяется без перезарядки"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <font color='#ccff66'>5</font> levels, gain an extra <font color='#ccff66'>3</font> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <font color='#ccff66'>1000</font> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"Robe of the Erudite Teacher"
 
@@ -12871,7 +12884,7 @@
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blue_rain_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blue_rain"								"Rain Lance"
-		"property_blue_rain_description"						"Атаки никогда не промахиваются. С <font color='#ccff66'>15</font>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <font color='#ccff66'>75</font>x от урона героя."
+		"property_blue_rain_description"						"Атаки никогда не промахиваются. С <font color='#ccff66'>50</font>% шансом при атаке появится волна воды, которая нанесёт урон по линии в размере <font color='#ccff66'>20</font>x от урона героя."
 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
@@ -12905,15 +12918,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_berserker_gloves"								"Berserker Gloves"
-    	"item_rpc_berserker_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_berserker_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_berserker_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_berserker_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_berserker_gloves_Description"					"Слот: Наручи"
+
 		"item_property_berserker"				"Berserker Rage"
-		"property_berserker_rage_description"	"Каждая успешная атака по одной цели даёт заряд. Каждый заряд увеличивает урон владельца предмета на число, равное <font color='#ccff66'>200</font>, умноженное на уровень героя и скорость атаки на <font color='#ccff66'>30</font>. Время действия эффекта: <font color='#ccff66'>12</font> сек. Дополнительно, каждый заряд увеличивает входящий урон из всех источников на <font color='#ccff66'>5</font>%.<br>Смена цели снимает <font color='#ccff66'>25</font>% накопленных зарядов."
+		"property_berserker_rage_description"	"Landing an attack increases your attack power by <font color='#ccff66'>8</font>% and increases attack speed by <font color='#ccff66'>25</font> for <font color='#ccff66'>12</font> seconds. Each stack makes you take <font color='#ccff66'>5</font>% extra damage from all sources.<br>Switching targets removes <font color='#ccff66'>50</font>% of your stacks. Max <font color='#ccff66'>20</font> stacks."
 		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible"				"Berserker Rage"
-		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Урон и скорость атаки увеличены. Входящий урон увеличен."
+		"DOTA_Tooltip_modifier_berserker_gloves_buff_visible_Description"	"Increased attack damage and attack speed, and taking additional damage."
+
+    	"item_rpc_berserker_gloves_ruby1"								"Only @ruby_property1% stack loss upon switching targets"
+    	"item_rpc_berserker_gloves_emerald1"								"Reduces the increased damage taken vulnerability to @emerald_property1% per stack"
+    	"item_rpc_berserker_gloves_sapphire1"								"Each Berserker Rage stack increases Base Attack Damage by @sapphire_property1"
+    	"item_rpc_berserker_gloves_amethyst1"								"Increases max Berserker Rage Stacks by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
@@ -12961,7 +12975,7 @@
     	"item_rpc_claw_of_azinoth_amethyst1"									"blah blah @amethyst_property1 gem"
     	"DOTA_Tooltip_ability_item_rpc_claw_of_azinoth_Description"						"Слот: Наручи"
 		"item_property_azinoth"						"Scourge of Azinoth"
-		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <font color='#ccff66'>50</font>%"
+		"property_azinoth_description"				"Получаемый урон от всех источников увеличен на <font color='#ccff66'>100</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
@@ -13070,7 +13084,7 @@
     	"item_rpc_cytopian_laser_glove_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_cytopian_laser_glove_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cytopian_laser"				"Cytopian Laser"
-		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <font color='#ccff66'>3</font>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
+		"property_cytopian_laser_description"		"С каждым прочтением (W) @Ability2 в ближайших задетых умением врагов будет выпущен лазерный луч, который нанесёт магический урон, равный <font color='#ccff66'>4</font>x силе атаки, умноженного на уровень умения (W) @Ability2. С каждым попаданием урон лазера усиливается на 100%. Максимум @special_property2 усилений."
 		"DOTA_Tooltip_modifier_cytopian_stacks"		"Cytopian Laser"
 		"DOTA_Tooltip_modifier_cytopian_stacks_Description"	"Получит увеличенный урон от лазера"
 		
@@ -13226,12 +13240,14 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_autumnrock_bracer"								"Autumnrock Bracer"
-    	"item_rpc_autumnrock_bracer_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_autumnrock_bracer_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_autumnrock_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_autumnrock_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_autumnrock_bracer"						"Fissure"
-		 "property_autumnrock_bracer_description"				"При получении урона есть <font color='#ccff66'>10</font>% шанс, что в сторону атакующего будет направлен мощный разлом.<br>Разлом оглушает все задетые цели на <font color='#ccff66'>2</font> секунды<br>и наносит им магический урон в размере <font color='#ccff66'>200</font>x от показателя Силы героя.<br>Весь напрямую наносимый предметами урон увеличивается на <font color='#ccff66'>0.1</font>% за каждые <font color='#ccff66'>100</font> очков текущего здоровья."
+		 "property_autumnrock_bracer_description"				"<font color='#ccff66'>10</font>% chance when taking damage to create an explosive fissure towards the damage source, travelling on a <font color='#ccff66'>0.8</font> second delay. The fissure stuns for <font color='#ccff66'>1</font> seconds and deals <font color='#ccff66'>3</font>x your Strength as Magical damage. Max <font color='#ccff66'>6</font> procs per second."
+
+    	"item_rpc_autumnrock_bracer_ruby1"								"Increases Strength by @ruby_property1 and Fissure proc chance by @ruby_property2%"
+    	"item_rpc_autumnrock_bracer_emerald1"								"Increases Fissure damage by @emerald_property1 and the stun duration by @emerald_property2"
+    	"item_rpc_autumnrock_bracer_sapphire1"								"Reduces Fissure travel delay by @sapphire_property1 seconds and increases Item Damage by @sapphire_property2%"
+    	"item_rpc_autumnrock_bracer_amethyst1"								"Casting [W] has a @amethyst_property1% chance to create a fissure beneath the nearest enemy within <font color='#ccff66'>500</font> range"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
@@ -13260,7 +13276,7 @@
     	"item_rpc_claws_of_the_ethereal_revenant_sapphire1"					"blah blah @sapphire_property1 gem"
     	"item_rpc_claws_of_the_ethereal_revenant_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_ethereal_revenant"						"Revenant Link"
-		"property_ethereal_revenant_description"				"Поражённые умением (W) @Ability2 враги с <font color='#ccff66'>11</font>% шансом будут связаны электрической дугой. Связанные враги наносят герою на <font color='#ccff66'>90</font>% меньше урона, а получаемый ими урон увеличен в <font color='#ccff66'>3</font> раза. Эффект длится <font color='#ccff66'>6</font> сек."
+		"property_ethereal_revenant_description"				"Поражённые умением (W) @Ability2 враги с <font color='#ccff66'>11</font>% шансом будут связаны электрической дугой. Связанные враги наносят герою на <font color='#ccff66'>50</font>% меньше урона, а получаемый ими урон увеличен в <font color='#ccff66'>3</font> раза. Эффект длится <font color='#ccff66'>6</font> сек."
 
 		"DOTA_Tooltip_modifier_ethereal_revenant_link"			"Revenant Link"
 		"DOTA_Tooltip_modifier_ethereal_revenant_link_Description"	"Получает увеличенный урон, наносит уменьшенный урон создавшему связь герою."
@@ -13285,12 +13301,12 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
-    	"item_rpc_aquasteel_bracers_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_aquasteel_bracers_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_aquasteel_bracers_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_aquasteel_bracers_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_aquasteel"								"Waterburst"
-		"property_aquasteel_description"						"С <font color='#ccff66'>20</font>% шансом при получении урона в сторону атакующего отправится поток воды, который нанесёт урон, равный <font color='#ccff66'>8</font>x урона героя + <font color='#ccff66'>10</font>x брони, и оглушающий врагов на <font color='#ccff66'>1.5</font> сек."
+		"item_property_aquasteel"								"Water Jet"
+		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <font color='#ccff66'>25</font>% of your attack power, and stunning for <font color='#ccff66'>0.5</font> seconds."
+    	"item_rpc_aquasteel_bracers_ruby1"								"Increases Water Jet damage by @ruby_property1 and the stun duration by @ruby_property2"
+    	"item_rpc_aquasteel_bracers_emerald1"								"Fire a Water Jet at a random target within <font color='#ccff66'>500</font> range every @emerald_property1 seconds"
+    	"item_rpc_aquasteel_bracers_sapphire1"								"Increases armor by @sapphire_property1, and Water Jet damage by @sapphire_property2% of armor"
+    	"item_rpc_aquasteel_bracers_amethyst1"								"Enemies hit by [R] are hit by a Water Jet. Max @amethyst_property1 Jets per second from this effect"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demonfire_gauntlet"								"Demonfire Gauntlet"
@@ -13299,9 +13315,9 @@
     	"item_rpc_demonfire_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_demonfire_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_demonfire"								"Demon Flame"
-		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <font color='#ccff66'>30</font>%. Когда заряды развеются, <font color='#ccff66'>4</font> ближайших врага в радиусе <font color='#ccff66'>1000</font> получат урон, равный x<font color='#ccff66'>1</font> урона героя, умноженного на количество зарядов. Максимум зарядов: <font color='#ccff66'>25</font>."
+		"property_demonfire_description"						"При успешной атаке герой получает заряды этого предмета. Каждый заряд увеличивает урон от всех Элементов на <font color='#ccff66'>3</font>%. Когда заряды развеются, <font color='#ccff66'>3</font> ближайших врага в радиусе <font color='#ccff66'>1000</font> получат урон, равный x<font color='#ccff66'>10</font> урона героя, умноженного на количество зарядов. Максимум зарядов: <font color='#ccff66'>25</font>."
 		"DOTA_Tooltip_modifier_demonfire_stack"					"Demon Flame"
-		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <font color='#ccff66'>30</font>%%"
+		"DOTA_Tooltip_modifier_demonfire_stack_Description"		"Каждый заряд увеличивает стихийный урон на <font color='#ccff66'>3</font>%%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
@@ -13312,13 +13328,16 @@
 		"item_property_heavy_echo"						"Reactive Grip"
 		"property_heavy_echo_description"				"Весь наносимый предметами урон, а так же базовый урон способностей наносится еще <font color='#ccff66'>2</font> раза."
 
-		"DOTA_Tooltip_ability_item_rpc_depth_demon_claw"			"Depth Demon Claw"	
-		"item_rpc_depth_demon_claw_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_depth_demon_claw_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_depth_demon_claw_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_depth_demon_claw_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_depth_demon_claw"												"Metamorphose"
-		"property_depth_demon_claw_Description"									"У всего стихийного урона, вторая стихия заменяется на стихию <font color=\"#5B648C\">Демона</font>. Урон от свойства <font color=\"#E4AE33\">АУГМЕНТАЦИЯ</font> снижается на x<font color='#ccff66'>0.3</font>."
+		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage."
+
+		"item_rpc_depth_demon_claw_ruby1"			"Increases attack power by @ruby_property1%, but attacks drain @ruby_property2% of max health. The health drain does not break shields and cannot be lethal"
+		"item_rpc_depth_demon_claw_emerald1"			"Reduces Health Regen and increases Mana Regen by @emerald_property1"
+		"item_rpc_depth_demon_claw_sapphire1"			"Each point of current mana increases base attack damage by @sapphire_property1, and attacking drains @sapphire_property2% of your mana and casting a spell drains @sapphire_property3% of your mana"
+		"item_rpc_depth_demon_claw_amethyst1"			"@amethyst_property1% chance on taking damage to gain a shield that absorbs <font color='#ccff66'>2</font> instances of damage. While active, the shield increases Spirit by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield"	"Depth Demon Shield (Amethyst)"
+		"DOTA_Tooltip_modifier_depth_demon_claw_amethyst_shield_Description"	"Each stack blocks damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_chitinous_lobster_claw"					"Chitinous Lobster Claw"	
@@ -13327,22 +13346,22 @@
 		"item_rpc_chitinous_lobster_claw_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_chitinous_lobster_claw_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_lobster_claw"												"Chitinous Skin"
-		"property_lobster_claw_Description"									"Каждые <font color='#ccff66'>0.2</font> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%. Максимум зарядов: <font color='#ccff66'>92</font>."
+		"property_lobster_claw_Description"									"Каждые <font color='#ccff66'>0.2</font> секунды герой получает заряд щита. Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%. Максимум зарядов: <font color='#ccff66'>50</font>."
 		"DOTA_Tooltip_modifier_chitinous_skin_stack"						"Chitinous Skin"
 		"DOTA_Tooltip_modifier_chitinous_skin_stack_Description"			"Каждый заряд снижает входящий урон на <font color='#ccff66'>1</font>%%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_emissary_glove"						"Dark Emissary Glove"	
-		"item_rpc_dark_emissary_glove_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_dark_emissary_glove_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_dark_emissary_glove_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_dark_emissary_glove_amethyst1"						"blah blah @amethyst_property1 gem"
+
 		"property_dark_emissary"												"Spectral Mist"
-		"property_dark_emissary_Description"									"Прочтение @Ability1 образует призрачное облако, наносящее <font color='#ccff66'>240</font>x от общей атаки в радиусе <font color='#ccff66'>400</font> , обездвиживает врагов на <font color='#ccff66'>5</font> секунд. Дает невидимость на <font color='#ccff66'>2</font> с. Невидимость имеет <font color='#ccff66'>8</font> секунд перезарядки."
-		"DOTA_Tooltip_modifier_dark_emissary_invis"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_invis_Description"					"Невидим"
+		"property_dark_emissary_Description"									"Casting @Ability1 creates a paranormal fog bank that deals <font color='#ccff66'>25</font>% of your attack power to enemies in a <font color='#ccff66'>400</font> radius, and roots them for <font color='#ccff66'>5</font> seconds."
 		"DOTA_Tooltip_modifier_dark_emissary_root"								"Spectral Mist"
-		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Обездвижен"
+		"DOTA_Tooltip_modifier_dark_emissary_root_Description"					"Rooted"
+
+		"item_rpc_dark_emissary_glove_ruby1"						"Increases Spectral Mist damage by @ruby_property1 and Spell Pierce by @ruby_property2"
+		"item_rpc_dark_emissary_glove_emerald1"						"Spectral Mist creates an additional patch of fog that lingers for @emerald_property1 seconds, and enemies within take @emerald_property2% of the initial damage every <font color='#ccff66'>0.5</font> seconds"
+		"item_rpc_dark_emissary_glove_sapphire1"						"Increases <font color=\"#9ACCD1\">Ghost</font> Elemental Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_dark_emissary_glove_amethyst1"						"Spectral Mist applies invisibility for @amethyst_property1 seconds. Attacking or casting a spell breaks this invisibilty. Spell Pierce is increased by @amethyst_property2 while invisible by any means."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energy_whip_glove"	"Energy Whip Glove"
@@ -13355,14 +13374,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_buzukis_finger"				"Buzuki's Finger"
-		"item_rpc_buzukis_finger_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_buzukis_finger_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_buzukis_finger_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_buzukis_finger_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_buzuki_finger"								"Power Up"
-		"property_buzuki_finger_description"						"С прочтением (W) @Ability2, герой усиляет всех юнитов, не являющихся героями. Усиленные юниты наносят на <font color='#ccff66'>500</font>% увеличенный пост-резистный урон, а их атаки производят энергетический луч, наносящий урон в размере <font color='#ccff66'>100</font>% от урона героя. Бонус к урону заимствуется от героя, активировавшего его. Эффект длится <font color='#ccff66'>30</font> секунд."
+		"item_property_buzuki_finger"								"Power Up!"
+		"property_buzuki_finger_description"						"Casting @Ability2 buffs all nearby non-hero units. Buffed units have <font color='#ccff66'>150</font>% increased Attack Power and their attacks create an energy beam that deals <font color='#ccff66'>10</font>% of their attack power. The damage is attributed to the original caster. Buff lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_buzukis_finger_buff"					"Power Up!"
-		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Увеличивает пост-резистный урон и наносит дополнительный чистый урон при атаках"
+		"DOTA_Tooltip_modifier_buzukis_finger_buff_Description"		"Increased attack power and dealing additional Pure damage on attacks"
+
+		"item_rpc_buzukis_finger_ruby1"				"Power Up! Increases movespeed and attack speed by @ruby_property1"
+		"item_rpc_buzukis_finger_emerald1"				"Increases the Energy Beam damage by @emerald_property1%"
+		"item_rpc_buzukis_finger_sapphire1"				"Increases the wearer's Item Damage by @sapphire_property1%"
+		"item_rpc_buzukis_finger_amethyst1"				"The wearer gains the Energy Beam on attack effect, which deals @amethyst_property1% of attack power"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"

@@ -176,12 +176,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"吸血鬼胸甲"
-		"item_rpc_vampiric_breastplate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_vampiric_breastplate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_vampiric_breastplate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_vampiric_breastplate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vampiric_breastplate"		"吸血鬼之心"
-		"property_varmpiric_breastplate_description" "@Ability1 拥有 <% ITEM_RPC_VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% 吸血。"
+		"property_varmpiric_breastplate_description" "Regular attacks heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_ATTACK_HEAL_PCT %>% of the final attack damage."
+
+		"item_rpc_vampiric_breastplate_ruby1"							"Allies in a <% ITEM_RPC_VAMPIRIC_BREASTPLATE_AURA_RADIUS %> radius gain @ruby_property1% of the Attack Lifesteal effect"
+		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
+		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
+		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"黑魔法外套"
@@ -217,14 +218,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"宇航服"
-		"item_rpc_space_tech_vest_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_space_tech_vest_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_space_tech_vest_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_space_tech_vest_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_space_tech"					"重力扭曲"
-		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>，移动速度减少<% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %>%，持续<% ITEM_RPC_SPACE_TECH_VEST_DURATION %>秒。同时每<% ITEM_RPC_SPACE_TECH_VEST_GAIN_INTERVAL %>秒增加<% ITEM_RPC_SPACE_TECH_VEST_BONUS_ATTACK_DMG_PER_STACK %>%的攻击力。"
-		"DOTA_Tooltip_modifier_space_tech_buff"					"重力扭曲"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"攻击力提高"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <% ITEM_RPC_SPACE_TECH_VEST_RADIUS %> radius. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. "
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <% ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION %> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"风暴披风"
@@ -331,16 +337,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"猎风铠甲"
-		"item_rpc_windsteel_armor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_windsteel_armor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_windsteel_armor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_windsteel_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_windsteel_armor"				"狂风守护"
-		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% 闪避和<% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>点移动速度，持续 <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> 秒。冷却时间 <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> 秒。"
-		"DOTA_Tooltip_modifier_windsteel_effect"	"狂风守护"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<% ITEM_RPC_WINDSTEEL_ARMOR_MOVESPEED %>点移动速度。"
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"狂风守护冷却中"
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
 		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"野性板甲"
@@ -404,23 +411,28 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"熔岩板甲"
-		"item_rpc_terrasic_stone_plate_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_terrasic_stone_plate_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_terrasic_stone_plate_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_terrasic_stone_plate_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_terrasic_stone"						"岩浆喷涌"
-		 "property_terrasic_stone_description"				"对眩晕的目标造成 <% ITEM_RPC_TERRASIC_STONE_PLATE_POST_MITI %>% 的伤害加深。（计算在敌人减伤之后）"
+		 "property_terrasic_stone_description"				"Every <% ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL %> seconds, gain a Magma Break stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS %> stacks."
+
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Break"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
+
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
+		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Break stacks by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"水法师长袍"
-		"item_rpc_water_mage_robes_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_water_mage_robes_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_water_mage_robes_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_water_mage_robes_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_watermage"							"高压水泵"
-		"property_watermage_description"					"当你引导 @Ability4 时，朝360度喷射水浪，每股水浪造成<% ITEM_RPC_WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%。被减速的敌人受到来自施法者的伤害将加深 <% ITEM_RPC_WATER_MAGE_ROBES_POST_MITI_AMP %>% （计算在敌人减伤之后）"
-		"DOTA_Tooltip_modifier_water_mage_slow"			"高压水泵"
-		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"移动速度降低"
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%."
+		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
+
+		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
+		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"黄金战甲"
@@ -621,16 +633,13 @@
 		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<% ITEM_RPC_CAPTAINS_VEST_Q1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 W1/2/3/4符文提高智力<% ITEM_RPC_CAPTAINS_VEST_W1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 E1/2/3/4符文提高敏捷<% ITEM_RPC_CAPTAINS_VEST_E1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 R1/2/3/4符文提高全属性<% ITEM_RPC_CAPTAINS_VEST_R1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"
-		"item_rpc_tattered_novice_armor_ruby1"		"blah blah @ruby_property1 gem"
-		"item_rpc_tattered_novice_armor_emerald1"		"blah blah @emerald_property1 gem"
-		"item_rpc_tattered_novice_armor_sapphire1"		"blah blah @sapphire_property1 gem"
-		"item_rpc_tattered_novice_armor_amethyst1"		"blah blah @amethyst_property1 gem"
-		"item_property_tattered_novice_armor"						"初心者的决意"
-		"property_tattered_novice_armor_description"				"每 <% ITEM_RPC_TATTERED_NOVICE_ARMOR_INTERVAL %> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <% ITEM_RPC_TATTERED_NOVICE_ARMOR_MAX_STACKS %> 层。"
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS %> levels, gain an extra <% ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS %> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <% ITEM_RPC_TATTERED_NOVICE_ARMOR_RUBY_RADIUS %> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"博学尊师长袍"
 		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"blah blah @ruby_property1 gem"
