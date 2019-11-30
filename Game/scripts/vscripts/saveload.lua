@@ -542,7 +542,7 @@ function SaveLoad:LoadCharacter(msg)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
 		for i = 1, 6, 1 do
-			Timers:CreateTimer(0.5 + (0.5 * i), function()
+			Timers:CreateTimer((0.1 * i), function()
 				SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
 			end)
 		end
