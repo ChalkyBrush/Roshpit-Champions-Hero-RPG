@@ -4526,7 +4526,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"75"
+				"property_one"			"50"
 			}
 		}
 	}

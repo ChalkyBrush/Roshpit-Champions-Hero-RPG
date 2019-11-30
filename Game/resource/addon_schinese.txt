@@ -2869,7 +2869,7 @@
 		"item_rpc_astral_glyph_1_1_description" 				"@Ability2不再造成伤害，但是向周围放出大量的箭。并且 [W1]的持续时间X2。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_2_1"		"[T2-1] 天空雕文"
-		"item_rpc_astral_glyph_2_1_description" 				"凤凰的基础攻击力提高 <font color='#ccff66'>3</font>x ，并降低其目标的移动速度 <font color='#ccff66'>100</font>"
+		"item_rpc_astral_glyph_2_1_description" 				"凤凰的基础攻击力提高 <font color='#ccff66'>2</font>x ，并降低其目标的移动速度 <font color='#ccff66'>100</font>"
 
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow"			"凤凰减速"
 		"DOTA_Tooltip_modifier_astral_glyph_2_1_slow_Description"	"移动速度降低"
@@ -2887,7 +2887,7 @@
 		"item_rpc_astral_glyph_6_1_description" 				"攻击时攻击分裂，最多可以攻击 @glyph_property1 个额外的单位。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"[T7-1] 银星雕文"
-		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 <font color='#ccff66'>10</font>x 伤害。"
+		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 <font color='#ccff66'>2</font>x 伤害。"
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"银星"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% 闪避"
@@ -3495,7 +3495,7 @@
         "item_rpc_axe_glyph_3_2_description"                "在与 BOSS 战斗时，狂暴之怒每次攻击将叠加 <font color='#ccff66'>4</font> 层。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_4_2"       "[T4-2] 红色龙卷雕文"
-        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <font color='#ccff66'>75</font>%。"
+        "item_rpc_axe_glyph_4_2_description"                "释放 @Ability3 的旋转过程中，减伤 <font color='#ccff66'>50</font>%。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_5_2"       "[T5-2] 牛仔雕文"
         "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <font color='#ccff66'>9</font> 秒内，@Ability2 的伤害将提高 <font color='#ccff66'>200</font>% 。"
@@ -6552,7 +6552,7 @@
 		"item_rpc_epoch_glyph_2_1_description" 				"时空球移动距离提高 <font color='#ccff66'>60</font>% 并且速度提高 <font color='#ccff66'>60</font>%。额外地，[E1] 时光扭曲持续时间提高一倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] 裂隙雕文"
-		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <font color='#ccff66'>200</font>% 当前魔法值 乘以技能等级的额外的伤害。"
+		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <font color='#ccff66'>10</font>% 当前魔法值 乘以技能等级的额外的伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] 世纪雕文"
 		"item_rpc_epoch_glyph_4_1_description" 				"攻击不在消耗 [W3] 智慧穷尽 buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
@@ -6564,7 +6564,7 @@
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] 凝结雕文"
-		"item_rpc_epoch_glyph_6_1_description" 				"受时空锁和空间连接影响的敌人基础攻击力降低 <font color='#ccff66'>80</font>%，同时 [Q2] 的效果 X<font color='#ccff66'>10</font>。"
+		"item_rpc_epoch_glyph_6_1_description" 				"受时空锁和空间连接影响的敌人基础攻击力降低 <font color='#ccff66'>80</font>%，同时 [Q2] 的效果 X<font color='#ccff66'>2</font>。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"凝结"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"攻击力降低"

@@ -12767,7 +12767,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1s"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -12794,7 +12794,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
+				"var_type"				"FIELD_INTEGER"
 				"property_one"			"-10"
 			}
 			"02"
@@ -12871,7 +12871,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"0.1"
 			}
 		}
 		"Modifiers"
@@ -28120,7 +28120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"55"
 			}
 			"02"
 			{
@@ -37007,7 +37007,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -37186,7 +37186,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_two"				"4"
+				"property_two"				"12"
 			}
 			"03"
 			{
@@ -51542,8 +51542,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0.01"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -55108,7 +55108,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"7"
 			}
 		}
 	}
@@ -57259,7 +57259,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"11"
 			}
 			"02"
 			{
@@ -57446,7 +57446,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -57517,7 +57517,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -119700,7 +119700,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1000 5000 35000"
+		"AbilityDamage"					"3000"
 
 
 		// Precache
@@ -119724,7 +119724,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 35000"
+				"damage"				"3000"
 			}
 			"02"
 			{
@@ -120126,7 +120126,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"1000 4000 35000"
+				"damage"					"1000 4000 7000"
 			}
 			"03"
 			{
@@ -120439,7 +120439,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800 2500 25000"
+		"AbilityDamage"					"800 2500 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -120616,7 +120616,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1000 3000 30000"
+		"AbilityDamage"					"1000 3000 10000"
 
 
 		// Precache
@@ -120640,7 +120640,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 3000 30000"
+				"damage"				"1000 3000 10000"
 			}
 			"02"
 			{
@@ -120783,7 +120783,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1000 3000 26000"
+		"AbilityDamage"					"1000 3000 5000"
 
 
 		// Precache
@@ -120807,7 +120807,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 3000 26000"
+				"damage"				"1000 3000 5000"
 			}
 			"02"
 			{
@@ -121016,7 +121016,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800 2500 25000"
+		"AbilityDamage"					"800 2500 8000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -121381,12 +121381,12 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 6000 50000"
+				"damage"			"2000 6000 10000"
 			}
 			"11"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"2000 6000 50000"
+				"damage_scepter"	"2000 6000 10000"
 			}
 			"12"
 			{
@@ -121625,7 +121625,7 @@
 
         // Damage.
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityDamage"                 "2000 8000 60000"
+        "AbilityDamage"                 "2000 8000 12000"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -121745,7 +121745,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"main_damage"			"50000.0"
+				"main_damage"			"20000.0"
 				"levelkey"				"exortlevel"
 			}
 			"09"
@@ -121756,7 +121756,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_dps"				"5000.0"
+				"burn_dps"				"2000.0"
 				"levelkey"				"exortlevel"
 			}
 		}

@@ -1803,6 +1803,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local cytopian_glove = cytopian_modifier:GetAbility()
 		armor_pierce_modify = armor_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_arena_crowd_buff") then
+		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
+		armor_pierce_modify = armor_pierce_modify + stacks*50
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2096,6 +2100,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_demonfire_stack") then
 		local demonfire_modifier = unit:FindModifierByName("modifier_demonfire_stack")
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2)*demonfire_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_arena_crowd_buff") then
+		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
+		spell_pierce_modify = spell_pierce_modify + stacks*50
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
