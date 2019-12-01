@@ -299,7 +299,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W4_AMPLIFY_PERCENT * 10 %>"
+				"property_one"			"<% RED_GENERAL_W4_AMPLIFY_PERCENT %>"
 			}
 		}
 		"Modifiers"
