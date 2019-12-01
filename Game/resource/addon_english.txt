@@ -13223,6 +13223,19 @@
 		"item_rpc_energy_whip_glove_sapphire1"	"Increases Rune [W2] by @sapphire_property1"
 		"item_rpc_energy_whip_glove_amethyst1"	"Increases Rune [W4] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
+		"item_property_eternal_essence"				"Absorption"
+		"property_eternal_essence_description"		"<font color='#ccff66'>20</font>% of your biggest heal gets added to attack damage. The attack damage boost lasts <font color='#ccff66'>30</font> seconds and is only overwritten and refreshed if you receive a bigger heal than the heal that activated it. Damage bonus is capped at <font color='#ccff66'>3</font>x your Spirit"
+
+		"DOTA_Tooltip_modifier_eternal_essence_gauntlet_buff"		"Absorption"
+		"DOTA_Tooltip_modifier_eternal_essence_gauntlet_buff_Description"	"Gaining attack power based on the largest heal received"
+
+    	"item_rpc_eternal_essence_gauntlet_ruby1"						"Slaying an enemy heals you for @ruby_property1% of their max health"
+    	"item_rpc_eternal_essence_gauntlet_emerald1"						"Increases all heals received by @emerald_property1%"
+    	"item_rpc_eternal_essence_gauntlet_sapphire1"						"Increases the maximum attack damage bonus by an additional @sapphire_property1x your Spirit"
+    	"item_rpc_eternal_essence_gauntlet_amethyst1"						"Increases Spirit by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13399,14 +13412,7 @@
 		"item_property_grand_arcanist"				"Master of Magic"
 		"property_grand_arcanist_description"		"Increases Base Ability Damage by <font color='#ccff66'>0.3</font>% for every 10 points of Intelligence."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"Eternal Essence Gauntlet"
-    	"item_rpc_eternal_essence_gauntlet_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_eternal_essence_gauntlet_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_eternal_essence_gauntlet_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_eternal_essence_gauntlet_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_eternal_essence"				"Absorption"
-		"property_eternal_essence_description"		"Slaying an enemy heals you for 4% of their max health."
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"

@@ -801,6 +801,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ENERGY_WHIP_GLOVE_GEM_AMETHYST, hero, "rune_w_4", RPC_GEAR_SLOT_GLOVES)
 		end			
+	elseif item:GetAbilityName() == "item_rpc_eternal_essence_gauntlet" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		end			
 	end
 end
 

@@ -66,16 +66,17 @@ function Tanari:Debug()
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_armor_of_atlantis")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_eternal_essence_gauntlet")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_energy_whip_glove")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_eternal_essence_gauntlet")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
+    -- Curator:CurateALLHeroes()
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
     -- body = Gems:AddSocket(body)
     -- body = Gems:AddSocket(body)

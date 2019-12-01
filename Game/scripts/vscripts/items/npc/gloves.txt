@@ -1,3 +1,112 @@
+	"item_rpc_eternal_essence_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/eternal_essence_gauntlet" //"eternal_essence_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_oracle/eternal_gauntlet_heal.vpcf"
+			"particle"  "particles/roshpit/items/eternal_essence_buff_apply_heal.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_eternal_essence_gauntlet"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_essence_kill"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_eternal_essence_gauntlet_buff"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_eternal_essence_gauntlet_buff"
+			{	
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/eternal_essence_buff"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_eternal_essence_attack_power"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"eternal_essence_end"
+					}
+				}
+			}
+			"modifier_eternal_essence_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_energy_whip_glove"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2231,84 +2340,6 @@
 		}
 	}
 
-	"item_rpc_eternal_essence_gauntlet"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/eternal_essence_gauntlet" //"eternal_essence_gauntlet"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_eternal_essence"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"lifesteal_land_hand"
-						"attack_damage"	"%attack_damage"
-					}
-				}
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"eternal_essence_kill"
-					}
-				}
-			}
-		}
-	}
 	"item_rpc_far_seers_enchanted_gloves"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

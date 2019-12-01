@@ -48,12 +48,24 @@ function Curator:CurateBasicWeapons(hero)
 	local heroName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 	for j = 1, #weaponsSuffixTable, 1 do
 		Timers:CreateTimer(j, function()
-			local weapon = Curator:RollBasicWeapon(heroName, weaponsSuffixTable[j])
+			local weapon = Weapons:RollWeapon(rarity, item_level, hero_name)
 			--print(weapon:GetAbilityName())
 			Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
 		end)
 	end
 
+end
+
+function Curator:CurateBasicWeaponsAgain(hero)
+	local playerID = hero:GetPlayerOwnerID()
+	for i = 2, 5, 1 do
+		for j = 1, 30, 1 do
+			Timers:CreateTimer(j*0.4, function()
+				local weapon = Weapons:RollWeapon(i, 50, hero:GetUnitName())
+				Curator:GetItemInfoFromClientAndSendToWeb(weapon, playerID)
+			end)
+		end
+	end
 end
 
 function Curator:CurateBasicEquipment(playerID)
@@ -493,7 +505,7 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertySpecialLocalized4="..property4specialLocalized
 	url = url.."&propertyValue4="..property4value
 
-	if msg.gem_data then
+	if msg.gem_data.ruby then
 		url = url.."&ruby1="..Curator:urlencode(msg.gem_data.ruby["0"])
 		url = url.."&ruby2="..Curator:urlencode(msg.gem_data.ruby["1"])
 		url = url.."&ruby3="..Curator:urlencode(msg.gem_data.ruby["2"])
@@ -886,9 +898,9 @@ end
 
 function Curator:FullCurateHero(hero)
 	Curator:CurateHero(hero:GetPlayerOwnerID())
-	-- Timers:CreateTimer(5, function()
-	-- Curator:CurateBasicWeapons(hero)
-	-- end)
+	Timers:CreateTimer(5, function()
+		Curator:CurateBasicWeaponsAgain(hero)
+	end)
 	Timers:CreateTimer(10, function()
 		local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 		local columns = Glyphs:GetAvailableColumnCount(internalName)

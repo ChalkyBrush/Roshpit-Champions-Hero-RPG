@@ -2285,20 +2285,26 @@ function eternal_essence_kill(event)
 	local hero = event.attacker
 	local ability = event.ability
 	local caster = event.caster
-	local heal = dyingUnit:GetMaxHealth() * 0.04
-	local particleName = "particles/units/heroes/hero_oracle/eternal_gauntlet_heal.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, hero)
-	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+	if ability:GetGemValue("ruby") > 0 then
+		local heal = dyingUnit:GetMaxHealth() * (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_RUBY)/100)
+		local particleName = "particles/units/heroes/hero_oracle/eternal_gauntlet_heal.vpcf"
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, hero)
+		ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
 
-	Timers:CreateTimer(1.0, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	Timers:CreateTimer(0.05, function()
-		Filters:ApplyHeal(hero, hero, heal, true)
-	end)
+		Timers:CreateTimer(1.0, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+
+		Filters:ApplyHeal(hero, hero, heal, true, true)
+	end
+
 end
 
-function eternal_essence_projectile_hit(event)
+function eternal_essence_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	ability.last_heal = 0
 end
 
 function hermit_spike_damage_taken(event)

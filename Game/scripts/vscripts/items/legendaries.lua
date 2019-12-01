@@ -892,34 +892,6 @@ function RPCItems:RollPhoenixGloves(item_level)
     return item
 end
 
-function RPCItems:RollEternalEssenceGauntlet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_eternal_essence_gauntlet", "immortal", "Eternal Essence Gauntlet", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "eternal_essence"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_essence", "#51C9AF", 1, "#property_eternal_essence_description")
-
-    local value = 0
-    local luck = RandomInt(1, 6)
-    if luck > 5 then
-        value = RandomInt(10, 15)
-    elseif luck > 4 then
-        value = RandomInt(8, 12)
-    else
-        value = RandomInt(5, 10)
-    end
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "lifesteal"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_lifesteal", "#B1E3B9", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSpiritGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_spirit_glove", "immortal", "Spirit Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4669,6 +4641,29 @@ function RPCItems:RollEnergyWhipGlove(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollEternalEssenceGauntlet(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_eternal_essence_gauntlet", "immortal", "Eternal Essence Gauntlet", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_eternal_essence_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_eternal_essence", "#51C9AF", 1, "#property_eternal_essence_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level,2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 -- BOOTS
 
@@ -8751,7 +8746,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun", "item_rpc_seraphic_soulvest", "item_rpc_skyforge_flurry_plate", "item_rpc_sorcerers_regalia", "item_rpc_space_tech_vest",
         "item_rpc_spellslinger_coat", "item_rpc_staggering_knight_crusher_armor", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_vampiric_breastplate", "item_rpc_windsteel_armor"}
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
-        itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove"}
+        itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet"}
     end
     return itemsList
 end

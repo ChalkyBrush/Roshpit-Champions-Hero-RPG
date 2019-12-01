@@ -600,6 +600,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
         healAmount = math.min(healAmount, target:GetMaxHealth())
     end
     healAmount = math.floor(healAmount)
+    if target:HasModifier("modifier_eternal_essence_gauntlet") then
+        healAmount = Filters:EternalEssenceGauntlet(target, healAmount)
+    end
     target:Heal(healAmount, caster)
     if doPopUp and healAmount > 0 then
         PopupHealing(target, healAmount)
@@ -5573,4 +5576,26 @@ function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
         UTIL_Remove(dummy)
         ParticleManager:DestroyParticle(pfx, false)
     end)
+end
+
+function Filters:EternalEssenceGauntlet(hero, healAmount)
+    local eternal_essence_gauntlet = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    healAmount = healAmount * (1 + eternal_essence_gauntlet:GetFinalGemPropertyValue("emerald", ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_EMERALD)/100)
+
+
+    if not eternal_essence_gauntlet.last_heal then
+        eternal_essence_gauntlet.last_heal = 0
+    end
+    local heal_to_consider_for_eternal_essence_gauntlet = math.min(healAmount, hero:GetMaxHealth() - hero:GetHealth())
+    print(eternal_essence_gauntlet.last_heal)
+    if heal_to_consider_for_eternal_essence_gauntlet > eternal_essence_gauntlet.last_heal then
+        eternal_essence_gauntlet.last_heal = heal_to_consider_for_eternal_essence_gauntlet
+        local attack_power_cap = hero:GetSpirit()*(ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_SPIRIT_CAP + eternal_essence_gauntlet:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE))
+        local attack_power_bonus = math.min(heal_to_consider_for_eternal_essence_gauntlet*(ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_HEAL_TO_DMG_PCT/100), attack_power_cap)
+        eternal_essence_gauntlet:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_eternal_essence_gauntlet_buff", {duration = ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_DMG_DURATION})
+        eternal_essence_gauntlet:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_eternal_essence_attack_power", {duration = ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_DMG_DURATION})
+        hero:SetModifierStackCount("modifier_eternal_essence_attack_power", hero.InventoryUnit, attack_power_bonus)
+        CustomAbilities:QuickAttachParticle("particles/roshpit/items/eternal_essence_buff_apply_heal.vpcf", hero, 3)
+    end
+    return healAmount
 end
