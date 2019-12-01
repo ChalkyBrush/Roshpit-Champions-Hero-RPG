@@ -222,6 +222,53 @@
 		"item_rpc_gauntlet_of_champions_sapphire1" "Increases Rune [W2] by @sapphire_property1"
 		"item_rpc_gauntlet_of_champions_amethyst1" "Increases Rune [W4] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
+		"item_property_divine_purity"				"Divine Purity"
+		"property_divine_purity_description"		"Your basic attacks deal <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION %>% reduced damage. Attacks' primary element is now <font color=\"#F6FFB5\">Holy</font> and deals Pure damage."
+    	"item_rpc_gauntlet_of_divine_purity_ruby1"						"Increases Armor and Magic armor by @ruby_property1"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Increases <font color=\"#F6FFB5\">Holy</font> elemental damage by @emerald_property1%"
+    	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"Increases Base Attack Damage by @sapphire_property1"
+    	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"Your attacks heal you for @amethyst_property1% of your max health"
+
+     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
+
+		"item_property_forgotten_ghost"					"Afterburn"
+		 "property_forgotten_ghost_description"				"All debuffs that you apply on enemies last <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT %>% longer."
+
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Base Ability Damage by @ruby_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"Increases all debuff durations that you apply on enemies by a flat @emerald_property1 seconds"
+    	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"When you apply any debuff on an enemy, they have their Magic Armor reduced by @sapphire_property1 for <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT %>% of the debuff's duration"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Item Damage by @amethyst_property1%"
+
+      	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
+
+		"item_property_sweeping_wind"						"Sweeping Winds"
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_RADIUS %> radius take <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
+		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
+
+    	"item_rpc_gloves_of_sweeping_wind_ruby1"							"@ruby_property1% chance to not lose a stack when attacking"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Increases <font color=\"#7AE2A7\">Wind</font> Elemental damage by @emerald_property1%"
+    	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"Casting [W] has a @sapphire_property1% chance to add a Sweeping Wind stack"
+    	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"Increases Sweeping wind's damage by @amethyst_property1 and increases Base Attack Damage by @amethyst_property2"
+
+		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
+
+		"item_property_gold_breaker"							"Abjuration"
+		"property_gold_breaker_description"					"Your attacks instantly remove Spell Immunity effects on your target, and also apply the Abjuration debuff to them for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted. When Magic Immunity is broken, the victim takes <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DMG_ATTACK_PCT %>% of your attack power as damage"
+
+		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Abjuration"
+		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to become Spell Immune will instead stun for the same duration"
+
+		"item_rpc_goldbreaker_gauntlet_ruby1"			"Your attacks have a @ruby_property1% chance to apply Magic Immunity on enemies for @ruby_property2 seconds"
+		"item_rpc_goldbreaker_gauntlet_emerald1"			"[R] ability applies Abjuration for @emerald_property1 seconds. When you break an enemy's magic immunity deal @emerald_property2 additional damage"
+		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property2 and have @sapphire_property1% chance to apply Abjuration on enemies damaged by [W] for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds"
+		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE %> have a @amethyst_property1% chance every <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_THINK_INTERVAL %> seconds to gain magic immunity for @amethyst_property2 seconds."
+
+
+
+		 
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -279,16 +326,6 @@
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
 		"item_property_proud_gloves"										"<RAINBOW>Prismatic Pride</RAINBOW>"//a.k.a. queer hands for the straight man
 		"property_proud_gloves_description"									"<RAINBOW>The element of your autoattack is changed from Normal to match your single highest elemental damage bonus, and it now deals Magical damage instead of Physical. Additionally, those damage instances are multiplied by your Item Damage bonus, but are not considered instances of Item Damage.</RAINBOW>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
-    	"item_rpc_gauntlet_of_divine_purity_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Slot: Hands"
-		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Your autoattacks now deal <% ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER %>x Pure Normal/<font color=\"#F6FFB5\">Holy</font> damage, instead of 1x Normal damage."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
@@ -429,18 +466,7 @@
     	"item_rpc_ironbound_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
-    	"item_rpc_gloves_of_sweeping_wind_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_BONUS_DAMAGE_PER_STACK_PCT %>% bonus attack damage, and all nearby enemies within <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_RADIUS %> radius take <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT %>% of your attack damage as magic each second. Attacking consumes a stack. Max <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_MAX_STACKS %> stacks. Lasts <% ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION %> seconds."
-		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
-		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
-		 
+
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
     	"item_rpc_halcyon_soul_glove_ruby1"								"blah blah @ruby_property1 gem"
@@ -456,15 +482,6 @@
     	"item_rpc_greensand_copper_gauntlets_emerald1"						"blah blah @emerald_property1 gem"
     	"item_rpc_greensand_copper_gauntlets_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_greensand_copper_gauntlets_amethyst1"						"blah blah @amethyst_property1 gem"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
-    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"blah blah @ruby_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"blah blah @emerald_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"blah blah @sapphire_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"blah blah @amethyst_property1 gem"
-		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"All of your Damage Over Time effects deal <% ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DOT_MULT * 100 %>% increased damage."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
@@ -547,15 +564,3 @@
 		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <% ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * 100 %>%."
-		
-
-		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
-		"item_rpc_goldbreaker_gauntlet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_goldbreaker_gauntlet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_goldbreaker_gauntlet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_goldbreaker_gauntlet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_gold_breaker"							"Touch of Abjuration"
-		"property_gold_breaker_description"					"Your attacks disrupt Spell Immunity effects on enemy units, instantly removing them from your target, and also applying the Abjuration debuff to them for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted."
-
-		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Abjuration"
-		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to become Spell Immune will instead stun for the same duration"

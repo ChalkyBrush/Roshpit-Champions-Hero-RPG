@@ -8589,3 +8589,13 @@ function far_seer_effect_end(event)
 	local ability = event.ability
 	ability.last_damage = 0
 end
+
+function divine_purity_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("amethyst") > 0 then
+		local healAmount = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_AMETHYST)/100)
+		Filters:ApplyHeal(hero, hero, healAmount, true, true)
+	end
+end

@@ -1404,9 +1404,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     end
 
     if slot == BASE_AUTO_ATTACK then
-        if attacker:HasModifier("modifier_divine_purity") then
-            damage = damage * ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_MULTIPLIER
-            element2 = RPC_ELEMENT_HOLY
+        if attacker:HasModifier("modifier_gauntlet_of_divine_purity") then
+            damage = damage * (1 - ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_DMG_REDUCTION/100)
+            element1 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
         if attacker:HasModifier("modifier_hand_proud_gloves") then

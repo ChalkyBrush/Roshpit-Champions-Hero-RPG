@@ -12979,13 +12979,12 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity"						"Gauntlet of Divine Purity"
-    	"item_rpc_gauntlet_of_divine_purity_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_gauntlet_of_divine_purity_Description"			"Слот: Наручи"
 		"item_property_divine_purity"				"Divine Purity"
-		"property_divine_purity_description"		"Базовые атаки получают элемент <font color=\"#F6FFB5\">Света</font> и наносят x<font color='#ccff66'>20</font> Чистого урона. <font color=\"#E4AE33\">Не является уроном предметов.</font>"
+		"property_divine_purity_description"		"Your basic attacks deal <font color='#ccff66'>50</font>% reduced damage. Attacks' primary element is now <font color=\"#F6FFB5\">Holy</font> and deals Pure damage."
+    	"item_rpc_gauntlet_of_divine_purity_ruby1"						"Increases Armor and Magic armor by @ruby_property1"
+    	"item_rpc_gauntlet_of_divine_purity_emerald1"						"Increases <font color=\"#F6FFB5\">Holy</font> elemental damage by @emerald_property1%"
+    	"item_rpc_gauntlet_of_divine_purity_sapphire1"						"Increases Base Attack Damage by @sapphire_property1"
+    	"item_rpc_gauntlet_of_divine_purity_amethyst1"						"Your attacks heal you for @amethyst_property1% of your max health"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"

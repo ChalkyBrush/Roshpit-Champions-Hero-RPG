@@ -538,35 +538,6 @@ function RPCItems:RollSwiftspikeBracer(item_level)
     return item
 end
 
-function RPCItems:RollDivinePurityGauntlets(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "divine_purity"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_divine_purity", "#A8D3ED", 1, "#property_divine_purity_description")
-
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_HOLY, 2.8, 2, 30, 2)
-    else
-        local armorRoll = RandomInt(maxFactor * 4, maxFactor * 8) + 5
-        item.newItemTable.property2 = armorRoll
-        item.newItemTable.property2name = "armor"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-    end
-
-    local magicResistRoll = RandomInt(20, 30)
-    item.newItemTable.property3 = magicResistRoll
-    item.newItemTable.property3name = "magic_resist"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_magic_resist", "#AC47DE", 3)
-
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollMarauderGloves(item_level)
     local item = RPCItems:CreateVariant("item_rpc_marauder_gloves", "immortal", "Marauder Gloves", "hands", true, "Slot: Hands")
     item.newItemTable.property1 = 1
@@ -4676,6 +4647,39 @@ function RPCItems:RollFrostburnGauntlets(item_level)
     return item
 end
 
+function RPCItems:RollDivinePurityGauntlets(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_divine_purity", "immortal", "Gauntlets of Divine Purity", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_gauntlet_of_divine_purity"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_divine_purity", "#A8D3ED", 1, "#property_divine_purity_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_holy", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
+    end
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "magic_armor", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollChampionsGearGauntlet(item_level)
     local item_slot = RPC_GEAR_SLOT_GLOVES
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -8754,7 +8758,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spellslinger_coat", "item_rpc_staggering_knight_crusher_armor", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_vampiric_breastplate", "item_rpc_windsteel_armor"}
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
-        "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets"}
+        "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity"}
     end
     return itemsList
 end
