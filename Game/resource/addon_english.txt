@@ -13259,6 +13259,10 @@
     	"item_rpc_frostburn_gauntlets_sapphire1"								"Increases [W] Base Ability damage by @sapphire_property1% and mana regen by @sapphire_property2"
     	"item_rpc_frostburn_gauntlets_amethyst1"								"Increases Frostburn damage by an additional @amethyst_property1% of the triggering damage and increases the movement slow effect by @amethyst_property2"
 
+		"item_rpc_gauntlet_of_champions_ruby1"	"Increases Rune [W1] by @ruby_property1"
+		"item_rpc_gauntlet_of_champions_emerald1"	"Increases Rune [W3] by @emerald_property1"
+		"item_rpc_gauntlet_of_champions_sapphire1" "Increases Rune [W2] by @sapphire_property1"
+		"item_rpc_gauntlet_of_champions_amethyst1" "Increases Rune [W4] by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
