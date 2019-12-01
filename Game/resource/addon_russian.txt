@@ -13059,14 +13059,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
-    	"item_rpc_frostburn_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_frostburn_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Скорость передвижения врагов, задетых умением (W) @Ability2 снижается на <font color='#ccff66'>100</font> на <font color='#ccff66'>4</font> секунды. Дополнительно, с <font color='#ccff66'>20</font>% шансом, пораженный умением (W) @Ability2 враг окажется в центре ледяного взрыва, который наносит полный урон способности в небольшой области вокруг."
+		"property_frostburn_gauntlets_description"	"Enemies hit by @Ability2 have a <font color='#ccff66'>15</font>% chance to trigger a frost nova that deals <font color='#ccff66'>15</font>% of the original damage in a <font color='#ccff66'>240</font> radius. Enemies hit by the nova have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>3</font> procs per second."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
-		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Замедлен"
+		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
+
+		"item_rpc_frostburn_gauntlets_ruby1"								"Increases the Frostburn AOE by @ruby_property1 and increases Frostburn damage by @ruby_property2"
+    	"item_rpc_frostburn_gauntlets_emerald1"								"Increases the proc chance by an additional @emerald_property1 and procs per second by @emerald_property2"
+    	"item_rpc_frostburn_gauntlets_sapphire1"								"Increases [W] Base Ability damage by @sapphire_property1% and mana regen by @sapphire_property2"
+    	"item_rpc_frostburn_gauntlets_amethyst1"								"Increases Frostburn damage by an additional @amethyst_property1% of the triggering damage and increases the movement slow effect by @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"

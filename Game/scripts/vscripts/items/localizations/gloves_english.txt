@@ -205,6 +205,18 @@
     	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"Increases Intelligence by @sapphire_property1"
     	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"Increases the damage cap by an additional @amethyst_property1x your Intelligence"
 
+    	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
+
+		"item_property_frostburn_gauntlets"			"Frostburn"
+		"property_frostburn_gauntlets_description"	"Enemies hit by @Ability2 have a <% ITEM_RPC_FROSTBURN_GAUNTLET_PROC_CHANCE %>% chance to trigger a frost nova that deals <% ITEM_RPC_FROSTBURN_GAUNTLET_DAMAGE_PCT %>% of the original damage in a <% ITEM_RPC_FROSTBURN_GAUNTLET_AOE %> radius. Enemies hit by the nova have their movement speed slowed by <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %> for <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR %> seconds. Max <% ITEM_RPC_FROSTBURN_GAUNTLET_MAX_PROCS_PER_SECOND %> procs per second."
+		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
+		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
+
+		"item_rpc_frostburn_gauntlets_ruby1"								"Increases the Frostburn AOE by @ruby_property1 and increases Frostburn damage by @ruby_property2"
+    	"item_rpc_frostburn_gauntlets_emerald1"								"Increases the proc chance by an additional @emerald_property1 and procs per second by @emerald_property2"
+    	"item_rpc_frostburn_gauntlets_sapphire1"								"Increases [W] Base Ability damage by @sapphire_property1% and mana regen by @sapphire_property2"
+    	"item_rpc_frostburn_gauntlets_amethyst1"								"Increases Frostburn damage by an additional @amethyst_property1% of the triggering damage and increases the movement slow effect by @amethyst_property2"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -344,16 +356,7 @@
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"
-    	"item_rpc_frostburn_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_frostburn_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_frostburn_gauntlets"			"Frostburn"
-		"property_frostburn_gauntlets_description"	"<font color=\"#E4AE33\">ABILITY AUGMENT:</font> Enemies hit by @Ability2 have their movement speed slowed by <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW %> for <% ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR %> seconds. Additionally, @Ability2's damage instances have a <% ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE %>% chance to be converted into a frigid gust instead, dealing the ability's damage in a small area around the target."
-		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"Frostburn"
-		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"

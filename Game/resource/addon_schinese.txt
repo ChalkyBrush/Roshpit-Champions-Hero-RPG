@@ -13230,14 +13230,15 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"霜灼护手"
-    	"item_rpc_frostburn_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_frostburn_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_frostburn_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_frostburn_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_frostburn_gauntlets"			"霜灼"
-		"property_frostburn_gauntlets_description"	"被 @Ability2 击中的敌人移动速度减少 <font color='#ccff66'>100</font>，并且有 <font color='#ccff66'>20</font>% 的几率在小范围内制造一次 2X @Ability2 伤害的纯粹伤害。此装备不享受装备加成效果。"
+		"property_frostburn_gauntlets_description"	"Enemies hit by @Ability2 have a <font color='#ccff66'>15</font>% chance to trigger a frost nova that deals <font color='#ccff66'>15</font>% of the original damage in a <font color='#ccff66'>240</font> radius. Enemies hit by the nova have their movement speed slowed by <font color='#ccff66'>100</font> for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>3</font> procs per second."
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow"	"霜灼"
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"被减速"
+
+		"item_rpc_frostburn_gauntlets_ruby1"								"Increases the Frostburn AOE by @ruby_property1 and increases Frostburn damage by @ruby_property2"
+    	"item_rpc_frostburn_gauntlets_emerald1"								"Increases the proc chance by an additional @emerald_property1 and procs per second by @emerald_property2"
+    	"item_rpc_frostburn_gauntlets_sapphire1"								"Increases [W] Base Ability damage by @sapphire_property1% and mana regen by @sapphire_property2"
+    	"item_rpc_frostburn_gauntlets_amethyst1"								"Increases Frostburn damage by an additional @amethyst_property1% of the triggering damage and increases the movement slow effect by @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"云山臂铠"

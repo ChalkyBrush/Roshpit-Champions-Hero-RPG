@@ -1384,6 +1384,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_water_deity_crown") and slot == BASE_ABILITY_R then
             Filters:WaterDeity(attacker, victim, damage)
         end
+        if attacker:HasModifier("modifier_frostburn_gauntlets") and slot == BASE_ABILITY_W then
+            Filters:FrostburnGauntlet(attacker, victim, damage)
+        end
     end
 
     local damageData = attacker._damage_data or {}
@@ -1655,6 +1658,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_W then
         if attacker:HasModifier("modifier_magistrates_hood") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MAGISTRATE_AMETHYST)/100
+        end
+        if attacker:HasModifier("modifier_frostburn_gauntlets") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE1)/100
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + (attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_SAPPHIRE2))/100
@@ -3049,30 +3055,41 @@ function Filters:SpiritGlove(caster)
     end
 end
 
-function Filters:FrostburnGauntlet(attacker, victim, damage)--attacker, victim, damage
-    local proc = Filters:GetProc(attacker, ITEM_RPC_FROSTBURN_GAUNTLETS_CHANCE)
-    CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_frostburn_gauntlets_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
-    if proc then
-        local icePoint = victim:GetAbsOrigin()
-        local radius = ITEM_RPC_FROSTBURN_GAUNTLETS_EXPLOSION_RADIUS
-        EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", attacker)
-        local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-        local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, attacker)
-        ParticleManager:SetParticleControl(pfx, 0, icePoint)
-        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
-        Timers:CreateTimer(2.5, function()
-            ParticleManager:DestroyParticle(pfx, false)
-        end)
-        local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        if #enemies > 0 then
-            for _, enemy in pairs(enemies) do
-                attacker.frostburnItem:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
-                Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+function Filters:FrostburnGauntlet(attacker, victim, damage)
+    local frostburn_gauntlets = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local proc_chance = ITEM_RPC_FROSTBURN_GAUNTLET_PROC_CHANCE + frostburn_gauntlets:GetFinalGemPropertyValue("emerald", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD1)
+    local proc = Filters:GetProc(attacker, proc_chance)
+    local max_procs_per_second = ITEM_RPC_FROSTBURN_GAUNTLET_MAX_PROCS_PER_SECOND + frostburn_gauntlets:GetFinalGemPropertyValue("emerald", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_EMERALD2)
+    local limitKey = attacker:GetPlayerOwnerID() .. '_frostburn_gauntlets'
+    Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
+        local damage = damage*((ITEM_RPC_FROSTBURN_GAUNTLET_DAMAGE_PCT + frostburn_gauntlets:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST1))/100) + frostburn_gauntlets:GetFinalGemPropertyValue("ruby", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY2)
+        CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_flee.vpcf", victim, 3)
+        if proc then
+            local icePoint = victim:GetAbsOrigin()
+            local radius = ITEM_RPC_FROSTBURN_GAUNTLET_AOE + frostburn_gauntlets:GetFinalGemPropertyValue("ruby", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_RUBY1)
+            EmitSoundOnLocationWithCaster(icePoint, "hero_Crystal.freezingField.explosion", attacker)
+            local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+            local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, attacker)
+            ParticleManager:SetParticleControl(pfx, 0, icePoint)
+            ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+            Timers:CreateTimer(2.5, function()
+                ParticleManager:DestroyParticle(pfx, false)
+            end)
+            local additional_slow = frostburn_gauntlets:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_AMETHYST2)
+            local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            if #enemies > 0 then
+                for _, enemy in pairs(enemies) do
+                    frostburn_gauntlets:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_gauntlets_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
+                    Filters:ApplyItemDamageBasedOnAbility(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+                    if additional_slow > 0 then
+                        frostburn_gauntlets:ApplyDataDrivenModifier(attacker, enemy, "modifier_frostburn_additional_slow", {duration = ITEM_RPC_FROSTBURN_GAUNTLETS_MS_SLOW_DUR})
+                        enemy:SetModifierStackCount("modifier_frostburn_additional_slow", attacker, additional_slow)
+                    end
+                end
             end
+            return true
         end
-        return true
-    end
+    end)
 end
 
 function Filters:GetPrimaryAttributeMultiple(hero, multiple)
