@@ -13235,6 +13235,18 @@
     	"item_rpc_eternal_essence_gauntlet_sapphire1"						"Increases the maximum attack damage bonus by an additional @sapphire_property1x your Spirit"
     	"item_rpc_eternal_essence_gauntlet_amethyst1"						"Increases Spirit by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
+
+		"item_property_farseer_glove"				"Spell Strike"
+		"property_farseer_description"				"Increases your Base Attack damage by <font color='#ccff66'>10</font>% of the last instance of Magical Damage that you dealt. Lasts <font color='#ccff66'>15</font> seconds and is only refreshed if you deal a higher instance of magical damage than the damage of the current buff. Damage bonus is capped at <font color='#ccff66'>3</font>x your intelligence."
+		"DOTA_Tooltip_modifier_far_seer_effect_visible"				"Spell Strike"
+		"DOTA_Tooltip_modifier_far_seer_effect_visible_Description"	"Attack Damage was Increased by last instance of Magic Damage"
+
+    	"item_rpc_far_seers_enchanted_gloves_ruby1"						"Increases the buff duration by @ruby_property1 seconds and increases Spell Pierce by @ruby_property2"
+    	"item_rpc_far_seers_enchanted_gloves_emerald1"						"Increases the damage cap by @emerald_property1x your Agility"
+    	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"Increases Intelligence by @sapphire_property1"
+    	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"Increases the damage cap by an additional @amethyst_property1x your Intelligence"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13423,16 +13435,6 @@
 		"item_property_silverspring_glove"			"Silverspring"
 		"property_silverspring_description"			"Your base attack damage is increased by x<font color='#ccff66'>10</font> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
-    	"item_rpc_far_seers_enchanted_gloves_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_farseer_glove"				"Spell Strike"
-		"property_farseer_description"				"Increases your Base Attack damage by <font color='#ccff66'>1</font>% of the last instance of pre-mitigation Magical Damage that you dealt. Lasts <font color='#ccff66'>15</font> seconds and does not stack. Damage bonus is capped at <font color='#ccff66'>50</font>x primary attribute."
-		"DOTA_Tooltip_modifier_far_seer_effect"				"Spell Strike"
-		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"Attack Damage was Increased by last instance of Magic Damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		

@@ -3670,30 +3670,21 @@ function Filters:DefilerHit(attacker, victim)
 end
 
 function Filters:FarSeerGloves(attacker, damage, inflictor)
-    local ability = attacker.handItem
-    -- if inflictor then
-    --     local abilityName = EntIndexToHScript(inflictor):GetAbilityName()
-    --     if abilityName == "item_rpc_omega_ruby" or abilityName == "item_rpc_warlord_glyph_7_1" then
-    --         return false
-    --     end
-    -- end
-    attacker.handItem:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect", {duration = ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION})
-    local maximum = 0
-    local primeAttribute = attacker:GetRoshpitPrimaryAttribute()
-    if primeAttribute == 0 then
-        maximum = attacker:GetStrength() * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP
-    elseif primeAttribute == 1 then
-        maximum = attacker:GetAgility() * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP
-    elseif primeAttribute == 2 then
-        maximum = attacker:GetIntellect() * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP
+    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    if not ability.last_damage then
+        ability.last_damage = 0
     end
-    local stacks = math.min(math.floor(damage * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRE_MITI_MAGIC_BASE), maximum)
-
-    modifier = attacker:FindModifierByName("modifier_far_seer_effect")
-    ----print("FarSeerGloves "..modifier:GetStackCount())
-    local oldStacks = modifier:GetStackCount()
-    stacks = math.max (stacks, oldStacks)
-    attacker:SetModifierStackCount("modifier_far_seer_effect", attacker.handItem, stacks)
+    if damage > ability.last_damage then
+        ability.last_damage = damage
+        local duration = ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_RUBY1)
+        attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_effect_visible", {duration = duration})
+        attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_far_seer_attack_damage", {duration = duration})
+        
+        local maximum = attacker:GetIntellect()*(ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_INT_CAP + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_AMETHYST)) + attacker:GetAgility()*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_EMERALD)
+        local attack_power_bonus = math.min(math.floor(damage * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_MAGIC_DMG_TO_ATK_PCT/100), maximum)
+        print("FAR SEER: "..attack_power_bonus)
+        attacker:SetModifierStackCount("modifier_far_seer_attack_damage", attacker.InventoryUnit, attack_power_bonus)
+    end
 end
 
 function Filters:EmeraldDouliHit(victim, damage)

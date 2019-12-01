@@ -8584,3 +8584,8 @@ function depth_demon_amethyst_take_damage(event)
 		end
 	end
 end
+
+function far_seer_effect_end(event)
+	local ability = event.ability
+	ability.last_damage = 0
+end

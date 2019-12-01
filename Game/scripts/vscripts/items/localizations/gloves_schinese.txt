@@ -254,14 +254,15 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"先知手套"
-    	"item_rpc_far_seers_enchanted_gloves_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_farseer_glove"				"法能"
-		"property_farseer_description"				"根据你最近造成的魔法伤害（不计算减伤）的 <% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRE_MITI_MAGIC_BASE * 100 %>% 提高你的基础攻击力。持续<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION %>秒，不叠加。上限为<% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_PRIMARY_ATT_CAP %>x主属性。"
-		"DOTA_Tooltip_modifier_far_seer_effect"				"法能"
-		"DOTA_Tooltip_modifier_far_seer_effect_Description"	"根据最近造成的魔法伤害提高基础攻击力"
+		"property_farseer_description"				"Increases your Base Attack damage by <% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_MAGIC_DMG_TO_ATK_PCT %>% of the last instance of Magical Damage that you dealt. Lasts <% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_DURATION %> seconds and is only refreshed if you deal a higher instance of magical damage than the damage of the current buff. Damage bonus is capped at <% ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_INT_CAP %>x your intelligence."
+		"DOTA_Tooltip_modifier_far_seer_effect_visible"				"Spell Strike"
+		"DOTA_Tooltip_modifier_far_seer_effect_visible_Description"	"Attack Damage was Increased by last instance of Magic Damage"
+
+    	"item_rpc_far_seers_enchanted_gloves_ruby1"						"Increases the buff duration by @ruby_property1 seconds and increases Spell Pierce by @ruby_property2"
+    	"item_rpc_far_seers_enchanted_gloves_emerald1"						"Increases the damage cap by @emerald_property1x your Agility"
+    	"item_rpc_far_seers_enchanted_gloves_sapphire1"						"Increases Intelligence by @sapphire_property1"
+    	"item_rpc_far_seers_enchanted_gloves_amethyst1"						"Increases the damage cap by an additional @amethyst_property1x your Intelligence"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"皇家护腕"		
