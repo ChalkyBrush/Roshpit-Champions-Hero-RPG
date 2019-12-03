@@ -4,17 +4,18 @@ if CustomAbilities == nil then
 	CustomAbilities = class({})
 end
 
-function modifier_npc_enrage_thinker(event)
-	local caster = event.caster
+function npc_ability_ursa_earthshock(event)
+	print("npc_ability_ursa_earthshock")
 	local ability = event.ability
-	if ability:IsFullyCastable() then
-		local newOrder = {
-			UnitIndex = caster:entindex(),
-			OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-			AbilityIndex = ability:entindex(),
-		}
-		ExecuteOrderFromTable(newOrder)
+	local caster = event.caster
+	local radius = ability:GetSpecialValueFor("shock_radius")
+	local abilityDamage = ability:GetAbilityDamage()
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	for i=1,#enemies do
+		ApplyDamage({victim = enemies[i], attacker = caster, damage = abilityDamage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 	end
+
+	--EmitSoundOn("Hero_Ursa.Overpower", caster)
 end
 
 function CustomAbilities:AstralArcanaCloudMove(event)
