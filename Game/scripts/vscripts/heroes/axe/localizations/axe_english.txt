@@ -271,7 +271,7 @@
         "item_rpc_axe_glyph_5_2_description"                "For <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> seconds after successfully casting @Ability4, the damage of @Ability2 is increased by <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] to <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, but decreases the chance of generating a stack to just <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% per rune level instead of <% RED_GENERAL_E4_PROC_CHANCE %>%."
+        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] by another <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION * 100 %>%, but decreases the chance of generating a stack to just <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% per rune level instead of <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>."

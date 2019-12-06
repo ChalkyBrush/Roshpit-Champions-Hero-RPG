@@ -266,7 +266,7 @@
 			"modifier_epoch_rune_e_1"
 			{
 				"Passive"	"0"
-				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_e_1.vpcf"
+				"EffectName"		"particles/units/heroes/hero_phantom_assassin/epoch_rune_a_c.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
@@ -295,24 +295,29 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"<% EPOCH_E2_ORBS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_one_max"			"<% EPOCH_E2_ORBS_MAX %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"130"
+				"property_two"			"<% EPOCH_E2_DMG %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"property_two_base"		"<% EPOCH_E2_DMG_BASE %>"
 			}
 			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"3"
+			}
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"6"

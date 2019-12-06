@@ -310,9 +310,9 @@
 		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
 		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Вождь бросает топор во врага."
 		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
-		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Каждый процент потерянного здоровья увеличивает магическое сопротивление на 1%."
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Каждый процент потерянного здоровья увеличивает магическую защиту на 200."
 		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
-		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Сопротивление к магии увеличено."
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Магическая защита увеличена."
 		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
 		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Вождь ускоряет свою атаку и передвижение."
 		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"БОНУС СКОРОСТИ АТАКИ:"
@@ -832,7 +832,8 @@
 		
 		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
 		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
-		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Изгнанный легион защищает своего командира. Весь урон снижен на 98%."
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Изгнанный легион защищает своего командира. Весь входящий урон по командиру снижен."
+		"DOTA_Tooltip_ability_arena_descent_impervious_damage_block" "% СНИЖЕНИЕ УРОНА:"
 		
 		
 		"DOTA_Tooltip_ability_doom_custom"				"Doom"

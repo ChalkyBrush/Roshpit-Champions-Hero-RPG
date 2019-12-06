@@ -3925,6 +3925,7 @@ function Winterblight:SpawnTriBoss(bossName)
 	ability:ApplyDataDrivenModifier(stone, stone, "modifier_azalea_triple_boss_frozen", {})
 	if Winterblight.Stones >= 1 then
 		stone:RemoveAbility("normal_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
 		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 end
@@ -5033,6 +5034,7 @@ function Winterblight:SpawnGigaIceRevenant(position, fv)
 	-- stone.dominion = true
 	if Winterblight.Stones >= 1 then
 		stone:RemoveAbility("normal_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
 		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	Events:ColorWearablesAndBase(stone, Vector(150, 255, 145))

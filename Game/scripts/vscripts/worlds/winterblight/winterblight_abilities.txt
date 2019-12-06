@@ -501,7 +501,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 90 150"
+				"damage"			"30 120 600"
 			}
 			"03"
 			{
@@ -2326,7 +2326,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stacks"			"1 2 4"
+				"stacks"			"1 1 2"
 			}
 		}
 		"Modifiers"
@@ -2408,7 +2408,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"60 200 80000"
+				"damage"			"60 200 800"
 			}
 			"02"
 			{
@@ -3369,7 +3369,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1 4 70"
+				"damage"			"1 2 3"
 			}
 		}
 		"Modifiers"
@@ -4459,7 +4459,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3000 50000 1000000"
+				"damage"			"150 750 1500"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -5078,7 +5078,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_per_mana"			"0.1 2.0 50.0"
+				"damage_per_mana"			"0.1 2.0 5.0"
 			}
 			"02"
 			{
@@ -5202,7 +5202,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"4000 100000 1200000"
+				"damage"			"800 1500 6000"
 			}
 		}
 		"Modifiers"
@@ -6401,7 +6401,7 @@
 		
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"500 2200 12000"
+		"AbilityDamage"					"500 2200 6000"
 		
 		// Special
 		//-------------------------------------------------------
@@ -6435,7 +6435,7 @@
 			"06"
 			{	
 				"var_type"				"FIELD_FLOAT"
-				"dot_damage"			"50 500 35000"
+				"dot_damage"			"50 200 800"
 			}
 			"07"
 			{	
@@ -7084,7 +7084,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_slow"			"-60 -240 -600"
+				"as_slow"			"-60 -240 -400"
 			}
 			"04"
 			{
@@ -7599,7 +7599,7 @@
 		"AbilityTextureName"			"winterblight/ice_orb"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
+		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
@@ -7623,7 +7623,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-100 -500 -1200"
+				"as_loss"			"-100 -200 -400"
 			}
 			"02"
 			{
@@ -7633,7 +7633,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"90 280 1250"
+				"damage"			"90 280 700"
 			}
 		}
 
@@ -8700,7 +8700,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"180 700 8000"
+				"nova_damage"			"180 700 4000"
 			}
 		}
 		"Modifiers"
@@ -9356,7 +9356,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 50000 500000"
+				"damage"			"1000 4000 10000"
 			}
 		}
 		"Modifiers"

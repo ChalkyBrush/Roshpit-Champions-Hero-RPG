@@ -1748,7 +1748,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_axe_rune_e_4_shield") then
 		damage = damage * (1 - AXE_E4_REDUCTION)
 		if victim:HasModifier("modifier_axe_glyph_6_2") then
-			damage = damage * 0.5
+			damage = damage * (1 - RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION)
 		end
 		if shouldConsumeShields then
 			Filters:HitAxeCCShield(victim, attacker)
@@ -1877,7 +1877,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_luna_armor") then
-		damage = damage * 0.001
+		damage = damage * 0.01
 		if shouldConsumeShields then
 			CustomAbilities:HitLunaShield(victim, attacker)
 		end
@@ -1954,26 +1954,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_triboss_powered_up_single") then
 		local difficultyReduc = {0.7, 0.1, 0.01}
-		local stonesReduce = {0.5, 0.05, 0.01}
-		local stoneReduce = 1
-		if Winterblight.Stones > 0 then
-			stoneReduce = stonesReduce[Winterblight.Stones]
-			if GameState:GetDifficultyFactor() == 1 then
-				stoneReduce = math.max(stoneReduce, 0.1)
-			elseif GameState:GetDifficultyFactor() == 2 then
-				stoneReduce = math.max(stoneReduce, 0.01)
-			end
-		end
-		damage = damage * difficultyReduc[GameState:GetDifficultyFactor()] * stoneReduce
-	end
-	if victim:HasModifier("modifier_Winterblight_unit") then
-		if Winterblight.Stones == 1 then
-			damage = damage * 0.01
-		elseif Winterblight.Stones == 2 then
-			damage = damage * 0.001
-		elseif Winterblight.Stones == 3 then
-			damage = damage * 0.00001
-		end
+		damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]
 	end
 	return damage / BASE_VALUE_FOR_CALCULATE
 end
@@ -2358,7 +2339,10 @@ function GameState:FilterDamage(filterTable)
 			else
 				StartAnimation(victim, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.1})
 			end
+			local localKey = 'modifier_azalea_dragoon_passive_sound'
+			Util.Common:LimitPerTimeAndPlace(1, 0.5, victim:GetAbsOrigin(), 700, localKey, function()
 			EmitSoundOn("Winterblight.Dragoon.Block", victim)
+			end)			
 			if not passive.particleLock then
 				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/dragoon_block.vpcf", victim, 1)
 				passive.particleLock = true

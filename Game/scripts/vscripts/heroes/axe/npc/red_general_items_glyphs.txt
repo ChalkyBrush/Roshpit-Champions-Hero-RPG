@@ -554,7 +554,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Attributes"		"RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT"
+				"Attributes"		"RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION"
 			}
 		}
 		"AbilitySpecial"
@@ -562,7 +562,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION * 100 %>"
 			}
 			"02"
 			{

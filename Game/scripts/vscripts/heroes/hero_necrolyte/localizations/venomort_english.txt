@@ -301,7 +301,7 @@
 		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will deal @glyph_property2x damage."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
-		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from 1.5 seconds to @glyph_property1 seconds."
+		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from <% VENOMORT_E4_DURATION %> seconds to @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"[T5-2] Glyph of Necropotence"
 		"item_rpc_venomort_glyph_5_2_description" 				"Increases the maximum range of @Ability2 by @glyph_property1%."

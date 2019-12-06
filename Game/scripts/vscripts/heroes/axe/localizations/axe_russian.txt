@@ -262,7 +262,7 @@
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> секунд урон умения (W) @Ability2 будет увеличен на <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] до <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%, но снижает шанс получения щита до <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% за каждое очко руны, вместо <% RED_GENERAL_E4_PROC_CHANCE %>%."
+        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] на <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION * 100 %>, но снижает шанс получения щита до <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% за каждое очко руны, вместо <% RED_GENERAL_E4_PROC_CHANCE %>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %>, а количество получаемых зарядов увеличено до <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %>. Половина зарядов активна постоянно."

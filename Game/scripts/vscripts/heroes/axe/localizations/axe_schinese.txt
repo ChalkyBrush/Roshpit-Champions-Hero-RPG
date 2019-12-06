@@ -281,7 +281,7 @@
         "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_DURATION %> 秒内，@Ability2 的伤害将提高 <% RED_GENERAL_GLYPH_5_2_AMPLIFY_PERCENT %>% 。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] 减伤雕文"
-        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION_PERCENT %>%，但是获得层数的概率降低至每级符文 <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% ，而不再是 <% RED_GENERAL_E4_PROC_CHANCE %>% 每级。"
+        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <% RED_GENERAL_GLYPH_6_2_DAMAGE_REDUCTION * 100 %>%，但是获得层数的概率降低至每级符文 <% RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT %>% ，而不再是 <% RED_GENERAL_E4_PROC_CHANCE %>% 每级。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] 发狂雕文"
         "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 <% RED_GENERAL_GLYPH_7_2_MAX_STACKS_COUNT %> 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 <% RED_GENERAL_GLYPH_7_2_AMP_STACKS_PER_ATTACK %> 层。"
