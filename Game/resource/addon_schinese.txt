@@ -13355,7 +13355,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"狂风"
-		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>100</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>150</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
+		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>16</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>15</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"狂风"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"每层提高攻击力并对附近敌人造成持续伤害"
 		 

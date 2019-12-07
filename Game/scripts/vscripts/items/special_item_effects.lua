@@ -3335,20 +3335,14 @@ function sweeping_winds_attack(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = event.ability
-	local currentStacks = attacker:GetModifierStackCount("modifier_sweeping_wind_stackable", caster)
-	local newStacks = currentStacks - 1
-	if newStacks == 0 then
-		attacker:RemoveModifierByName("modifier_sweeping_wind_stackable")
-	else
-		attacker:SetModifierStackCount("modifier_sweeping_wind_stackable", caster.InventoryUnit, newStacks)
-		if not ability.windParticle then
-			local particleName = "particles/items2_fx/sweeping_winds_2.vpcf"
-			ability.windParticle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
-			ParticleManager:SetParticleControlEnt(ability.windParticle, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
-		end
-		ParticleManager:SetParticleControl(ability.windParticle, 3, Vector(newStacks * 50, newStacks * 50, newStacks * 50))
+	local stack_reduction = -1
+	local ruby_dont_lose_stack_proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_RUBY))
+	if ruby_dont_lose_stack_proc then
+		stack_reduction = 0
 	end
-
+	if stack_reduction ~= 0 then
+		Filters:SweepingWindsStackChange(attacker, ability, stack_reduction)
+	end
 end
 
 function sweeping_winds_glove_end(event)
@@ -3366,10 +3360,11 @@ end
 function sweeping_winds_think(event)
 	local target = event.target
 	local caster = event.caster
+	local ability = event.ability
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GLOVES_OF_SWEEPING_WIND_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local currentStacks = target:GetModifierStackCount("modifier_sweeping_wind_stackable", caster)
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ITEM_RPC_GLOVES_OF_SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT/1000 * currentStacks
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ITEM_RPC_GLOVES_OF_SWEEPING_WIND_ATT_POWER_TO_DAMAGE_PCT/100 * currentStacks + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST1)
 		for _, enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", enemy, 0.8)
 			Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)

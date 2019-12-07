@@ -1061,6 +1061,13 @@ function Filters:ApplyWskills(caster)
             end
         end
     end
+    if caster:HasModifier("modifier_gloves_of_sweeping_wind") then
+        local glove = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+        local proc = Filters:GetProc(caster, glove:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_SAPPHIRE))
+        if proc then
+            Filters:SweepingWindsStackChange(caster, glove, 1)
+        end
+    end
     if caster:HasModifier("modifier_buzukis_finger") then
         Filters:BuzukisFinger(caster)
     end
@@ -1216,7 +1223,7 @@ function Filters:ApplyEskills(caster)
         Filters:PureWaters(caster)
     end
     if caster:HasModifier("modifier_gloves_of_sweeping_wind") then
-        Filters:SweepingWindStack(caster)
+        Filters:SweepingWindsStackChange(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], 1)
     end
     if caster:HasModifier("modifier_moon_techs") then
         Filters:MoonTechRunners(caster)
@@ -2533,6 +2540,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + SEPHYR_W4_WIND_AMP_PCT/100 * w_4_level
                 end
             end
+        end
+        if attacker:HasModifier("modifier_sweeping_wind_stackable") then
+            mult = mult + (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_EMERALD)/100)*attacker:GetModifierStackCount("modifier_sweeping_wind_stackable", attacker.InventoryUnit)
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_wind", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_wind", 1))/100
     end
@@ -3990,20 +4000,6 @@ function Filters:PureWaters(caster)
         projectile = ProjectileManager:CreateLinearProjectile(info)
         EmitSoundOn("Items.PureWaters", caster)
     end
-end
-
-function Filters:SweepingWindStack(caster)
-    local particleName = "particles/items2_fx/sweeping_winds_2.vpcf"
-    caster.handItem:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sweeping_wind_stackable", {duration = 12})
-    local currentStacks = caster:GetModifierStackCount("modifier_sweeping_wind_stackable", caster.InventoryUnit)
-    local newStacks = math.min(currentStacks + 1, 5)
-    caster:SetModifierStackCount("modifier_sweeping_wind_stackable", caster.InventoryUnit, newStacks)
-    if not caster.handItem.windParticle then
-        caster.handItem.windParticle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-        ParticleManager:SetParticleControlEnt(caster.handItem.windParticle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-        StartSoundEvent("Items.SweepingWind", caster)
-    end
-    ParticleManager:SetParticleControl(caster.handItem.windParticle, 3, Vector(newStacks * 50, newStacks * 50, newStacks * 50))
 end
 
 function Filters:ShatterArcaneShell(victim, attacker)
@@ -5606,4 +5602,27 @@ function Filters:EternalEssenceGauntlet(hero, healAmount)
         CustomAbilities:QuickAttachParticle("particles/roshpit/items/eternal_essence_buff_apply_heal.vpcf", hero, 3)
     end
     return healAmount
+end
+
+function Filters:SweepingWindsStackChange(caster, ability, stack_change)
+    local currentStacks = caster:GetModifierStackCount("modifier_sweeping_wind_stackable", caster.InventoryUnit)
+    local newStacks = math.min(currentStacks + stack_change, ITEM_RPC_GLOVES_OF_SWEEPING_WIND_MAX_STACKS)
+    if newStacks == 0 then
+        caster:RemoveModifierByName("modifier_sweeping_wind_stackable")
+    else
+        local particleName = "particles/items2_fx/sweeping_winds_2.vpcf"
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sweeping_wind_stackable", {duration = ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION})
+        caster:SetModifierStackCount("modifier_sweeping_wind_stackable", caster.InventoryUnit, newStacks)
+        if not ability.windParticle then
+            ability.windParticle = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControlEnt(ability.windParticle, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+            StartSoundEvent("Items.SweepingWind", caster)
+        end
+        ParticleManager:SetParticleControl(ability.windParticle, 3, Vector(newStacks * 50, newStacks * 50, newStacks * 50))
+        if ability:GetGemValue("amethyst") > 0 then
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sweeping_wind_stack_base_attack_damage", {duration = ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION})
+            local damage_stacks = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST2)*newStacks
+            caster:SetModifierStackCount("modifier_sweeping_wind_stack_base_attack_damage", caster.InventoryUnit, damage_stacks)
+        end
+    end
 end

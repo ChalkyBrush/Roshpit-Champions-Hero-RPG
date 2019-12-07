@@ -13285,14 +13285,14 @@
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>100</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>150</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>16</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>15</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 
     	"item_rpc_gloves_of_sweeping_wind_ruby1"							"@ruby_property1% chance to not lose a stack when attacking"
-    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Increases <font color=\"#7AE2A7\">Wind</font> Elemental damage by @emerald_property1%"
+    	"item_rpc_gloves_of_sweeping_wind_emerald1"							"Each Sweeping Wind stack increases <font color=\"#7AE2A7\">Wind</font> Elemental damage by @emerald_property1%"
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"Casting [W] has a @sapphire_property1% chance to add a Sweeping Wind stack"
-    	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"Increases Sweeping wind's damage by @amethyst_property1 and increases Base Attack Damage by @amethyst_property2"
+    	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"Increases Sweeping wind's damage by @amethyst_property1 and each Sweeping Wind stack increases Base Attack Damage by @amethyst_property2"
 
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
 

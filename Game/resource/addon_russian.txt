@@ -13187,7 +13187,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <font color='#ccff66'>100</font>%, а все ближайшие противники в радиусе <font color='#ccff66'>400</font> будут ежесекундно получать магический урон в размере <font color='#ccff66'>150</font>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <font color='#ccff66'>5</font> зарядов. Длительность <font color='#ccff66'>30</font> секунд."
+		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <font color='#ccff66'>16</font>%, а все ближайшие противники в радиусе <font color='#ccff66'>400</font> будут ежесекундно получать магический урон в размере <font color='#ccff66'>15</font>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <font color='#ccff66'>5</font> зарядов. Длительность <font color='#ccff66'>30</font> секунд."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд дарует увеличение базового урона, а ближайшие враги получают ежесекундный урон."
 		 

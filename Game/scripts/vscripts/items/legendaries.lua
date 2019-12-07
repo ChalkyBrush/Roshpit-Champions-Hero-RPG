@@ -650,24 +650,6 @@ function RPCItems:RollScarecrowGloves(item_level)
     return item
 end
 
-function RPCItems:RollGlovesOfSweepingWind(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_gloves_of_sweeping_wind", "immortal", "Sweeping Wind Glove", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "sweeping_wind"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sweeping_wind", "#A9D4C5", 1, "#property_sweeping_wind_description")
-
-    Elements:RollElementAttribute(item, RPC_ELEMENT_WIND, 2.8, 2, 30, 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollLivingGauntlet(item_level)
     local item = RPCItems:CreateVariant("item_rpc_living_gauntlet", "immortal", "Living Gauntlet", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4683,6 +4665,41 @@ function RPCItems:RollGloveOfTheForgottenGhost(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollGlovesOfSweepingWind(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_gloves_of_sweeping_wind", "immortal", "Sweeping Wind Glove", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_gloves_of_sweeping_wind"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_sweeping_wind", "#A9D4C5", 1, "#property_sweeping_wind_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_wind", 2.0)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    end
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

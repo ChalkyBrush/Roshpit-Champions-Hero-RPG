@@ -1199,7 +1199,7 @@ function wind_temple_boss_die_begin(event)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollGlovesOfSweepingWind(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_gloves_of_sweeping_wind")
 		end
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
