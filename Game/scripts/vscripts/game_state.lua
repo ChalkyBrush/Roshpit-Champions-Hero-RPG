@@ -572,10 +572,14 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
    -- entindex_caster_const           	= 606 (number)
    -- name_const                      	= "modifier_name" (string)
 	local target = EntIndexToHScript(modifierGainedTable["entindex_parent_const"])
+	local caster = nil
+	if modifierGainedTable["entindex_caster_const"] then
+		caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+	end
 	if target:IsRealHero() and target.spirit_custom and modifierGainedTable["entindex_caster_const"] then
 		-- handle spirit status resist
-		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		local duration_modifier = target:GetSpirit()*CustomAttributes.STATUS_RESIST_PER_SPIRIT
+
 		if target:HasModifier("modifier_centaur_horns") then
 			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
 				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
@@ -606,14 +610,16 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
 			end
 		end
+
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
-			if duration_modifier > 100 then
+			if duration_modifier >= 100 then
 				return false
 			else
 				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 			end
 		end
 	end
+
 	if target:HasModifier("modifier_death_whisper_debuff") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
@@ -670,6 +676,21 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				EmitSoundOn("Items.GuardianStone.Trigger", target)
 			end
 		end			
+	end
+	if caster and caster:HasModifier("modifier_glove_of_the_forgotten_ghost") then
+		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+			if modifierGainedTable["duration"] > 0 then
+				modifierGainedTable["duration"] = modifierGainedTable["duration"] + caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_EMERALD)
+			end
+			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1 + ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT/100)
+			if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
+				local magic_res_duration = modifierGainedTable["duration"] * (ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT/100)
+				print("LOS MAGIC RESIST FOR "..magic_res_duration)
+				print(modifierGainedTable["name_const"])
+				print("----")
+				caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_glove_of_forgotten_ghost_magic_armor_sapphire", {duration = magic_res_duration})
+			end
+		end
 	end
    return true
 end

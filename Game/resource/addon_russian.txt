@@ -13208,13 +13208,15 @@
     	"item_rpc_greensand_copper_gauntlets_amethyst1"						"blah blah @amethyst_property1 gem"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
-    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"blah blah @ruby_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"blah blah @emerald_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"blah blah @sapphire_property1 gem"
-    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"blah blah @amethyst_property1 gem"
+     	"DOTA_Tooltip_ability_item_rpc_glove_of_the_forgotten_ghost"					"Glove of the Forgotten Ghost"
+
 		"item_property_forgotten_ghost"					"Afterburn"
-		 "property_forgotten_ghost_description"				"Все дебаффы, наносящие урон со временем усилены на <font color='#ccff66'>240</font>%."
+		 "property_forgotten_ghost_description"				"All debuffs that you apply on enemies last <font color='#ccff66'>35</font>% longer."
+
+    	"item_rpc_glove_of_the_forgotten_ghost_ruby1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Base Ability Damage by @ruby_property1%"
+    	"item_rpc_glove_of_the_forgotten_ghost_emerald1"					"Increases all base debuff durations that you apply on enemies by a flat @emerald_property1 seconds"
+    	"item_rpc_glove_of_the_forgotten_ghost_sapphire1"					"When you apply any debuff on an enemy, they have their Magic Armor reduced by @sapphire_property1 for <font color='#ccff66'>100</font>% of the debuff's duration"
+    	"item_rpc_glove_of_the_forgotten_ghost_amethyst1"					"Increases <font color=\"#9ACCD1\">Ghost</font> elemental damage and Item Damage by @amethyst_property1%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"

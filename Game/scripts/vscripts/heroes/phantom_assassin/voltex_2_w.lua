@@ -67,7 +67,7 @@ function voltex_static_hit(event)
 	local currentStacks = target:GetModifierStackCount("modifier_zapped", caster)
 
 	if currentStacks <= 6 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_zapped", {duration = 5})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_zapped", {duration = 0.4})
 		target:SetModifierStackCount("modifier_zapped", caster, currentStacks + 1)
 		local modifierKnockback =
 		{

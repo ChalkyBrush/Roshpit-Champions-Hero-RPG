@@ -833,6 +833,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_EMERALD, hero, "element_holy", RPC_GEAR_SLOT_GLOVES)
 		elseif socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GAUNTLET_OF_DIVINE_PURITY_GEM_SAPPHIRE, hero, "attack_damage", RPC_GEAR_SLOT_GLOVES)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_glove_of_the_forgotten_ghost" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_RUBY, hero, "element_ghost", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_RUBY, hero, "base_ability", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_AMETHYST, hero, "element_ghost", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
 		end			
 	end
 end

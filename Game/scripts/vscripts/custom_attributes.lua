@@ -1546,6 +1546,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
 	end
+	if unit:HasModifier("modifier_glove_of_forgotten_ghost_magic_armor_sapphire") then
+		local glove = unit:FindModifierByName("modifier_glove_of_forgotten_ghost_magic_armor_sapphire"):GetAbility()
+		magic_armor_modify = magic_armor_modify + glove:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_SAPPHIRE)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
