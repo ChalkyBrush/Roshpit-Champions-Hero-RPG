@@ -2486,7 +2486,7 @@
         "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1000</font> around her. These attacks deal damage based on the Ranger's total attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1200</font> around her. These attacks deal damage based on the Ranger's total attack power."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
@@ -3096,7 +3096,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
 	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>65</font>%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>40</font>%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -3258,7 +3258,7 @@
         "item_rpc_axe_glyph_5_2_description"                "For <font color='#ccff66'>9</font> seconds after successfully casting @Ability4, the damage of @Ability2 is increased by <font color='#ccff66'>200</font>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] to <font color='#ccff66'>80</font>%, but decreases the chance of generating a stack to just <font color='#ccff66'>75</font>% per rune level instead of <font color='#ccff66'>150</font>%."
+        "item_rpc_axe_glyph_6_2_description"                "Increases the damage reduction from stacks of [E4] by another <font color='#ccff66'>40</font>%, but decreases the chance of generating a stack to just <font color='#ccff66'>75</font>% per rune level instead of <font color='#ccff66'>150</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Maximum stack count of [Q2] is increased to <font color='#ccff66'>50</font>, and you always have half stacks. While @Ability1 is active, number of stacks gained per attack is multiplied by <font color='#ccff66'>2</font>."
@@ -6268,14 +6268,14 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"Unit walking - max movement speed - 100% physical evasion."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Distortion Rift"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting @Ability3 also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by @Ability1 or [Q1]."
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting @Ability3 also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by @Ability1 or [Q1]. Maximum amount of orbs is <font color='#ccff66'>20</font>."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Orbs Fired"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Damage per Orb"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time's Eye"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to @Ability3, gain multiple attack projectiles and <font color='#ccff66'>80</font>% bonus attack damage for 6 seconds."
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"After teleporting to @Ability3, gain multiple attack projectiles and <font color='#ccff66'>50</font>% bonus attack damage for 6 seconds."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Max Targets"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
@@ -6381,10 +6381,11 @@
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
 
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Distorted Time"
 		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels <font color='#ccff66'>60</font>% farther and <font color='#ccff66'>60</font>% faster. Additionally, the duration of [E1] is doubled."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on <font color='#ccff66'>10</font>% of current mana times the ability's level."
+		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2 deals additional damage based on <font color='#ccff66'>2</font>% of current mana times the ability's level."
 
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Ages"
@@ -6701,7 +6702,7 @@
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] Glyph of Blue Flame"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <font color='#ccff66'>0.1</font>x of the sum of all your attributes. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font> for <font color='#ccff66'>3</font> seconds."
+		"item_rpc_flamewaker_glyph_4_1_description" 			"@Ability2 deals additional damage equal to <font color='#ccff66'>0.04</font>x of the sum of all your attributes. This damage bonus is multiplied by @Ability2's level. Also slows targets' Movespeed and Attack Speed by <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font> for <font color='#ccff66'>3</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] Glyph of Charred Hearts"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"Increases the duration of [R2] by <font color='#ccff66'>1.5</font>x."
@@ -7022,7 +7023,7 @@
 		"item_rpc_hydroxis_glyph_4_1_description" 				"Flood Slide damage increased <font color='#ccff66'>3</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"[T5-1] Glyph of Vapor"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <font color='#ccff66'>15</font>% chance for Crescent Wave to deal an additional Water damage instance equal to <font color='#ccff66'>4</font>% of attack power as magic damage."
+		"item_rpc_hydroxis_glyph_5_1_description" 				"Attacks have a <font color='#ccff66'>15</font>% chance for Crescent Wave to deal an additional Water damage instance equal to <font color='#ccff66'>20</font>% of attack power as magic damage."
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"[T6-1] Glyph of Submergence"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"Removes the cast time of Ocean Quake, and increases the radius of Drowning Pool by <font color='#ccff66'>200</font>."
@@ -11181,7 +11182,7 @@
 		"item_rpc_venomort_glyph_3_2_description" 				"Each time Venomort's current health dips below another @glyph_property1% threshold of his maximum, his next application of [E2] will deal @glyph_property2x damage."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_4_2"		"[T4-2] Glyph of Malingering"
-		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from 1.5 seconds to @glyph_property1 seconds."
+		"item_rpc_venomort_glyph_4_2_description" 				"Increases the duration of [E4] stacks from <font color='#ccff66'>3</font> seconds to @glyph_property1 seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_2"		"[T5-2] Glyph of Necropotence"
 		"item_rpc_venomort_glyph_5_2_description" 				"Increases the maximum range of @Ability2 by @glyph_property1%."
@@ -15270,7 +15271,7 @@
 		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
 		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 200 magic armor for each percent of lost HP."
 		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
-		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Resist increased."
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Armor increased."
 		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
 		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Warlord powers himself up, increasing movement and attack speed."
 		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"BONUS ATTACK SPEED:"
@@ -15805,7 +15806,8 @@
 		
 		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
 		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
-		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. Damage taken reduced by 98%."
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. All damage taken by Commander is reduced."
+		"DOTA_Tooltip_ability_arena_descent_impervious_damage_block" "% DAMAGE REDUCTION:"
 		
 		
 		"DOTA_Tooltip_ability_doom_custom"				"Doom"
@@ -20228,7 +20230,7 @@
 		"DOTA_Tooltip_ability_winterblight_luna_blessing_bonus_damage"		"BONUS DAMAGE:"
 
 		"DOTA_Tooltip_ability_luna_taskmaster_shield"				"Moon Shield"
-		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 99.9%. Lose 1 charge each time damage is taken."
+		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 99% until shield is broken. Lose 1 charge each time damage is taken."
 		"DOTA_Tooltip_ability_luna_taskmaster_shield_charges"		"STARTING CHARGES:"
 
 		"DOTA_Tooltip_modifier_luna_armor"						"Moon Shield"
@@ -20659,6 +20661,7 @@
 		"DOTA_Tooltip_ability_stalacorr_ice_blast_damage"		"DAMAGE:"
 
 		"DOTA_Tooltip_modifier_triboss_powered_up_multiple"	"Power Up!"
+		"DOTA_Tooltip_modifier_triboss_powered_up_multiple_Description"	"Affected unit has increased attack damage, attack speed, movement speed, Armor and Magical armor."
 
 		"winterblight_snowball_kid"								"Snowball Kid"
 		"winterblight_snowcrab_eggs"							"Snowcrab Eggs"

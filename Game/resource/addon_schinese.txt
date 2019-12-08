@@ -3501,7 +3501,7 @@
         "item_rpc_axe_glyph_5_2_description"                "在成功施放 @Ability4 后的 <font color='#ccff66'>9</font> 秒内，@Ability2 的伤害将提高 <font color='#ccff66'>200</font>% 。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] 减伤雕文"
-        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <font color='#ccff66'>80</font>%，但是获得层数的概率降低至每级符文 <font color='#ccff66'>75</font>% ，而不再是 <font color='#ccff66'>150</font>% 每级。"
+        "item_rpc_axe_glyph_6_2_description"                "[E4]旋风守护 的减伤护盾，提高减伤至 <font color='#ccff66'>40</font>%，但是获得层数的概率降低至每级符文 <font color='#ccff66'>75</font>% ，而不再是 <font color='#ccff66'>150</font>% 每级。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] 发狂雕文"
         "item_rpc_axe_glyph_7_2_description"                "将狂暴之怒的最大层数提高至 <font color='#ccff66'>50</font> 层，并且你将一直拥有一半的层数。当骷髅锤开启时，每次攻击将叠加 <font color='#ccff66'>2</font> 层。"
@@ -6552,7 +6552,7 @@
 		"item_rpc_epoch_glyph_2_1_description" 				"时空球移动距离提高 <font color='#ccff66'>60</font>% 并且速度提高 <font color='#ccff66'>60</font>%。额外地，[E1] 时光扭曲持续时间提高一倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] 裂隙雕文"
-		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <font color='#ccff66'>10</font>% 当前魔法值 乘以技能等级的额外的伤害。"
+		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <font color='#ccff66'>2</font>% 当前魔法值 乘以技能等级的额外的伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] 世纪雕文"
 		"item_rpc_epoch_glyph_4_1_description" 				"攻击不在消耗 [W3] 智慧穷尽 buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
@@ -6862,7 +6862,7 @@
 		"item_rpc_flamewaker_glyph_3_1_description" 			"[W1]造成伤害的同时会对目标附加[W3] 。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_4_1"	"[T4-1] 蓝焰雕文"
-		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <font color='#ccff66'>0.1</font>x 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font>。"
+		"item_rpc_flamewaker_glyph_4_1_description" 			"第二脉搏造成额外伤害，额外伤害为 <font color='#ccff66'>0.04</font>x 的攻击力。所造成的额外伤害还将乘以第二脉搏的等级数。同时减少敌人攻击和移动速度 <font color='#ccff66'>120</font>/<font color='#ccff66'>120</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_5_1"	"[T5-1] 灼热之心雕文"
 		"item_rpc_flamewaker_glyph_5_1_description" 			"增加[R2]的持续时间<font color='#ccff66'>1.5</font>倍。"
@@ -7171,7 +7171,7 @@
 		"item_rpc_hydroxis_glyph_4_1_description" 				"洪水滑动伤害增加 <font color='#ccff66'>3</font>x。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_5_1"		"[T5-1] 水汽雕文"
-		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <font color='#ccff66'>15</font>% 机率触发新月波造成 <font color='#ccff66'>0.04</font>x 攻击力的魔法伤害。"
+		"item_rpc_hydroxis_glyph_5_1_description" 				"攻击拥有 <font color='#ccff66'>15</font>% 机率触发新月波造成 <font color='#ccff66'>0.2</font>x 攻击力的魔法伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_hydroxis_glyph_6_1"		"[T6-1] 淹沒雕文"
 		"item_rpc_hydroxis_glyph_6_1_description" 				"增加斃命水池的半径 <font color='#ccff66'>200</font>。大招不再需要持续施法"
