@@ -1026,53 +1026,6 @@ function RPCItems:RollRoyalWristguards(item_level)
     return item
 end
 
-function RPCItems:RollGoldbreakerGauntlet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_goldbreaker_gauntlet", "immortal", "Goldshatter Gauntlet", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 260, 620, 0, 0, item.newItemTable.rarity, false, maxFactor * 600)
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "gold_breaker"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_breaker", "#fff42b", 1, "#property_gold_breaker_description")
-
-    local luck = RandomInt(1, 3)
-    if luck < 3 then
-        value, nameLevel = RPCItems:RollAttribute(0, 10, 30, 0, 0, item.newItemTable.rarity, false, maxFactor * 22)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    else
-        item.newItemTable.hasRunePoints = true
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property2 = math.floor(value * 1.5)
-        local luck = RandomInt(1, 10)
-        if luck <= 4 then
-            propertyName = "rune_r_1"
-        elseif luck <= 7 then
-            propertyName = "rune_r_2"
-        elseif luck <= 9 then
-            item.newItemTable.property2 = math.ceil(item.newItemTable.property2 / 2)
-            propertyName = "rune_r_3"
-        else
-            if GameState:GetDifficultyFactor() > 2 then
-                item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(10, 0, 0, 0, 0)
-                propertyName = "rune_r_4"
-            else
-                propertyName = "rune_r_1"
-            end
-        end
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollStormclothBracer(item_level)
     local item = RPCItems:CreateVariant("item_rpc_stormcloth_bracer", "immortal", "Stormcloth Bracers", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4700,6 +4653,45 @@ function RPCItems:RollGlovesOfSweepingWind(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollGoldbreakerGauntlet(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_goldbreaker_gauntlet", "immortal", "Goldshatter Gauntlet", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_goldbreaker_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gold_breaker", "#fff42b", 1, "#property_gold_breaker_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 1.5)
+    elseif luck == 2 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    end
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "spirit", 1.5)
+    elseif luck == 2 then
+        local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 45, tier2 = 90, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item

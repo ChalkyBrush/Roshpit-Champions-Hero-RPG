@@ -13187,7 +13187,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <font color='#ccff66'>16</font>%, а все ближайшие противники в радиусе <font color='#ccff66'>400</font> будут ежесекундно получать магический урон в размере <font color='#ccff66'>15</font>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <font color='#ccff66'>5</font> зарядов. Длительность <font color='#ccff66'>30</font> секунд."
+		"property_sweeping_wind_description"				"При прочтении способности (Е) @Ability3, герой получит заряд способности предмета. Каждый заряд увеличивает Бонусный урон героя на <font color='#ccff66'>15</font>%, а все ближайшие противники в радиусе <font color='#ccff66'>400</font> будут ежесекундно получать магический урон в размере <font color='#ccff66'>15</font>%  от силы атаки героя. Каждая базовая атака поглощает 1 заряд. Максимум <font color='#ccff66'>5</font> зарядов. Длительность <font color='#ccff66'>30</font> секунд."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Каждый заряд дарует увеличение базового урона, а ближайшие враги получают ежесекундный урон."
 		 
@@ -13947,10 +13947,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"Прочтение @Ability4 даёт <font color='#ccff66'>800</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>200</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения. Атаки могут разделиться и поразить до <font color='#ccff66'>2</font> дополнительных целей. Длительность эффекта составляет <font color='#ccff66'>80</font>% от перезарядки @Ability4."
+		"property_super_ascendency_description"		"Прочтение @Ability4 даёт <font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>180</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения. Атаки могут разделиться и поразить до <font color='#ccff66'>2</font> дополнительных целей. Длительность эффекта составляет <font color='#ccff66'>80</font>% от перезарядки @Ability4."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>200</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>180</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Атаки дополнительно поражают +@ruby_property1 цели"
 		"item_rpc_super_ascendency_mask_emerald1"	"Каждая атака во время действия эффекта Super Ascension снизит текущую перезарядку [R] на @emerald_property1 сек"

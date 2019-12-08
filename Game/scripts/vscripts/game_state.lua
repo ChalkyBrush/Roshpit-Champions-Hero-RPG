@@ -658,10 +658,12 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		local modifierName = modifierGainedTable["name_const"]
 		local magic_immune_names = Filters:GetMagicImmuneModifierNames()
 		if WallPhysics:DoesTableHaveValue(magic_immune_names, modifierName) then
-			local hero = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
+			local inventory_unit = target:FindModifierByName("modifier_goldbreaker_effect"):GetCaster()
+			local hero = inventory_unit.hero
 			CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/antimage_manavoid_ti_5_gold.vpcf", target, 3)
 			Filters:ApplyStun(hero, modifierGainedTable["duration"], target)
 			EmitSoundOn("RPC.MagicImmuneBreakTarget", target)
+			Filters:GoldbreakerMagicImmuneBreak(hero, target)
 			return false
 		end
 	elseif target:HasModifier("modifier_guadian_stone") then

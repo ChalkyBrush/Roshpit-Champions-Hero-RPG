@@ -6153,8 +6153,39 @@ function goldbreaker_attack_land(event)
 	local caster = event.caster
 	local target = event.target
 	local attacker = event.attacker
-	Filters:MagicImmuneBreak(attacker, target)
-	ability:ApplyDataDrivenModifier(attacker, target, "modifier_goldbreaker_effect", {duration = ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION})
+	local magic_break = Filters:MagicImmuneBreak(attacker, target)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_goldbreaker_effect", {duration = ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION})
+	if magic_break then
+		Filters:GoldbreakerMagicImmuneBreak(attacker, target)
+	end
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY1))
+		if proc then
+			local immune_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_RUBY2)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_black_King_bar_immunity", {duration = immune_duration})
+		end
+	end
+end
+
+function goldbreaker_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local hero = caster.hero
+	print("THINK")
+	if ability:GetGemValue("amethyst") > 0 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				local proc_chance = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST1)
+				local proc = Filters:GetProc(hero, proc_chance)
+				if proc then
+					local magic_immune_duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST2)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_black_King_bar_immunity", {duration = magic_immune_duration})
+				end
+			end
+		end
+	end	
 end
 
 function knight_hawk_think(event)

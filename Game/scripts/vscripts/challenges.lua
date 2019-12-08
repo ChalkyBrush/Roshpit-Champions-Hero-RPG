@@ -106,7 +106,7 @@ function Challenges:FinalReroll(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local minLevel = itemProperties.minLevel
-	minLevel = math.max(math.min(minLevel, 100), 1)
+	minLevel = math.max(math.min(minLevel, 120), 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
 	Events.reroll = true
 	local newItem = nil

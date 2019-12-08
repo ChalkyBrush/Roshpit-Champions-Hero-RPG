@@ -13285,7 +13285,7 @@
       	"DOTA_Tooltip_ability_item_rpc_gloves_of_sweeping_wind"							"Gloves of Sweeping Winds"
 
 		"item_property_sweeping_wind"						"Sweeping Winds"
-		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>16</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>15</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
+		"property_sweeping_wind_description"				"When you cast @Ability3, gain a stack. Each stack grants <font color='#ccff66'>15</font>% bonus attack damage, and all nearby enemies within <font color='#ccff66'>400</font> radius take <font color='#ccff66'>15</font>% of your attack damage as magic each second. Attacking consumes a stack. Max <font color='#ccff66'>5</font> stacks. Lasts <font color='#ccff66'>30</font> seconds."
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"Sweeping Winds"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"Each stack provides bonus attack damage and damages nearby enemies."
 
@@ -13297,15 +13297,15 @@
 		"DOTA_Tooltip_ability_item_rpc_goldbreaker_gauntlet"			"Goldbreaker Gauntlet"
 
 		"item_property_gold_breaker"							"Abjuration"
-		"property_gold_breaker_description"					"Your attacks instantly remove Spell Immunity effects on your target, and also apply the Abjuration debuff to them for <font color='#ccff66'>7</font> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted. When Magic Immunity is broken, the victim takes <font color='#ccff66'>0</font>% of your attack power as damage"
+		"property_gold_breaker_description"					"Your attacks instantly remove Spell Immunity effects on your target, and also apply the Abjuration debuff to them for <font color='#ccff66'>7</font> seconds. Affected targets who gain Spell Immunity have that effect instantly purged are instead stunned for the same duration that effect would have lasted. When Magic Immunity is broken, the victim takes <font color='#ccff66'>10</font>% of your attack power as damage"
 
 		"DOTA_Tooltip_modifier_goldbreaker_effect"			"Abjuration"
 		"DOTA_Tooltip_modifier_goldbreaker_effect_Description"	"Attempting to become Spell Immune will instead stun for the same duration"
 
 		"item_rpc_goldbreaker_gauntlet_ruby1"			"Your attacks have a @ruby_property1% chance to apply Magic Immunity on enemies for @ruby_property2 seconds"
 		"item_rpc_goldbreaker_gauntlet_emerald1"			"[R] ability applies Abjuration for @emerald_property1 seconds. When you break an enemy's magic immunity deal @emerald_property2 additional damage"
-		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property2 and have @sapphire_property1% chance to apply Abjuration on enemies damaged by [W] for <font color='#ccff66'>7</font> seconds"
-		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <font color='#ccff66'>0</font> have a @amethyst_property1% chance every <font color='#ccff66'>0</font> seconds to gain magic immunity for @amethyst_property2 seconds."
+		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property1 and have @sapphire_property2% chance to apply Abjuration on enemies damaged by [W] for <font color='#ccff66'>7</font> seconds"
+		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <font color='#ccff66'>600</font> range have a @amethyst_property1% chance every <font color='#ccff66'>1</font> seconds to gain magic immunity for @amethyst_property2 seconds."
 
 
 
@@ -14134,10 +14134,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"

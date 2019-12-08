@@ -357,6 +357,9 @@ function Filters:MagicImmuneBreak(attacker, target)
             ParticleManager:DestroyParticle(pfx, false)
         end)
         CustomAbilities:QuickAttachParticle("particles/roshpit/magic_immune_break_basher_cast.vpcf", target, 3)
+        return true
+    else
+        return false
     end
 end
 
@@ -1592,8 +1595,10 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 end
             end
         end
+        if attacker:HasModifier("modifier_goldbreaker_gauntlet") then
+            Filters:GoldbreakerAbilityHit(attacker, slot, victim)
+        end
     end
-
     if slot == BASE_ABILITY_Q then
         if not ignore_effects then
             if attacker:HasModifier("modifier_cap_of_wild_nature1") or attacker:HasModifier("modifier_cap_of_wild_nature2") then
@@ -5623,6 +5628,28 @@ function Filters:SweepingWindsStackChange(caster, ability, stack_change)
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_sweeping_wind_stack_base_attack_damage", {duration = ITEM_RPC_GLOVES_OF_SWEEPING_WIND_DURATION})
             local damage_stacks = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GLOVES_OF_SWEEPING_WIND_GEM_AMETHYST2)*newStacks
             caster:SetModifierStackCount("modifier_sweeping_wind_stack_base_attack_damage", caster.InventoryUnit, damage_stacks)
+        end
+    end
+end
+
+function Filters:GoldbreakerMagicImmuneBreak(hero, target)
+    local gauntlet = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * (ITEM_RPC_GOLDBREAKER_GAUNTLET_DMG_ATTACK_PCT/100) + gauntlet:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD2)
+    Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PURE, gauntlet, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+end
+
+function Filters:GoldbreakerAbilityHit(caster, slot, target)
+    if slot == BASE_ABILITY_W then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
+            local proc = Filters:GetProc(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE2))
+            if proc then
+                caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_goldbreaker_effect", {duration = ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION})
+            end
+        end
+    elseif slot == BASE_ABILITY_R then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+            local emerald_duration = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD1)
+            caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_goldbreaker_effect", {duration = emerald_duration})
         end
     end
 end

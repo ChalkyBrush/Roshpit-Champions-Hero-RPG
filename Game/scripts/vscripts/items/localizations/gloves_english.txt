@@ -262,8 +262,8 @@
 
 		"item_rpc_goldbreaker_gauntlet_ruby1"			"Your attacks have a @ruby_property1% chance to apply Magic Immunity on enemies for @ruby_property2 seconds"
 		"item_rpc_goldbreaker_gauntlet_emerald1"			"[R] ability applies Abjuration for @emerald_property1 seconds. When you break an enemy's magic immunity deal @emerald_property2 additional damage"
-		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property2 and have @sapphire_property1% chance to apply Abjuration on enemies damaged by [W] for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds"
-		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE %> have a @amethyst_property1% chance every <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_THINK_INTERVAL %> seconds to gain magic immunity for @amethyst_property2 seconds."
+		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property1 and have @sapphire_property2% chance to apply Abjuration on enemies damaged by [W] for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds"
+		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE %> range have a @amethyst_property1% chance every <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_THINK_INTERVAL %> seconds to gain magic immunity for @amethyst_property2 seconds."
 
 
 

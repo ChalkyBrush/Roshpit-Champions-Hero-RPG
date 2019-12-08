@@ -13355,7 +13355,7 @@
     	"item_rpc_gloves_of_sweeping_wind_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_gloves_of_sweeping_wind_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_sweeping_wind"						"狂风"
-		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>16</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>15</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
+		"property_sweeping_wind_description"				"当你施放 @Ability3 时，获得一层buff，最高<font color='#ccff66'>5</font>层。每层buff提高 <font color='#ccff66'>15</font>% 攻击力，且附近所有敌人每秒受到 <font color='#ccff66'>15</font>% 攻击力的魔法伤害。每次攻击消耗一层buff。buff持续时间<font color='#ccff66'>30</font>秒。"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable"	"狂风"
 		"DOTA_Tooltip_modifier_sweeping_wind_stackable_Description"	"每层提高攻击力并对附近敌人造成持续伤害"
 		 
@@ -13746,10 +13746,10 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>800</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>200</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
