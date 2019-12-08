@@ -876,43 +876,6 @@ function RPCItems:RollGreensandCopperGauntlets(item_level)
     return item
 end
 
-function RPCItems:RollGravekeepersGauntlet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_gravekeepers_gauntlet", "immortal", "Gravekeeper's Gauntlet", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "gravekeeper"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gravekeeper_gauntlet", "#94EBFF", 1, "#property_gravekeeper_gauntlet_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 3, 12, 0, 0, item.newItemTable.rarity, false, math.ceil(maxFactor / 2.2))
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "base_ability"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 1.5)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = math.ceil(value * 1.5)
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        propertyName = "rune_w_1"
-    elseif luck == 2 then
-        propertyName = "rune_w_2"
-    elseif luck == 3 then
-        propertyName = "rune_w_3"
-    end
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollSpiritualEmpowermentGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_spiritual_empowerment_glove", "immortal", "Spiritual Empowerment Glove", "hands", true, "Slot: Hands")
@@ -4733,17 +4696,46 @@ function RPCItems:RollChampionsGearGauntlet(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_gauntlet_of_champions", "immortal", "champions_gear", "hands", true, "Slot: Hands")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_w_4", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+
+    return item
+end
+
+function RPCItems:RollGravekeepersGauntlet(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_gravekeepers_gauntlet", "immortal", "Gravekeeper's Gauntlet", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_gravekeepers_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gravekeeper_gauntlet", "#94EBFF", 1, "#property_gravekeeper_gauntlet_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "base_ability", 1.5)
+    elseif luck == 2 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    end
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"w"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)

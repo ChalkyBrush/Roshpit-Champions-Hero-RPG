@@ -4294,7 +4294,7 @@ function Filters:ShipyardVeilQHit(attacker, victim)
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_shipyard_veil_shield", {})
         local newStacks = math.min(maxStacks, attacker:GetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit) + 1)
         attacker:SetModifierStackCount("modifier_shipyard_veil_shield", attacker.InventoryUnit, newStacks)
-        local cooldown = SHIPYARD_SHIELD_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", SHIPYARD_VEIL_SAPPHIRE)
+        local cooldown = math.max(SHIPYARD_SHIELD_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", SHIPYARD_VEIL_SAPPHIRE), 0.1)
         Timers:CreateTimer(cooldown, function()
             ability.lock = false
         end)
@@ -5220,7 +5220,7 @@ function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
         local new_stacks = hero:GetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster) + stacks_count
         ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_sunlight", {})
         hero:SetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster, new_stacks)
-        local stacks_for_flare = ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD)
+        local stacks_for_flare = math.max(ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD), 1)
         if new_stacks >= ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS then
             ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
             hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")

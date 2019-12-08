@@ -1814,6 +1814,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
 		armor_pierce_modify = armor_pierce_modify + stacks*50
 	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_buff"):GetStackCount()
+		armor_pierce_modify = armor_pierce_modify + stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
+		armor_pierce_modify = armor_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2117,6 +2125,14 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_grasp_of_elder") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRASP_OF_ELDER_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_buff"):GetStackCount()
+		spell_pierce_modify = spell_pierce_modify + stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
+		spell_pierce_modify = spell_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

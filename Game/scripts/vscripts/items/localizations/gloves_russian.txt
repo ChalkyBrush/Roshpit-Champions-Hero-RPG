@@ -351,16 +351,12 @@
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Каждый заряд увеличивает базовый урон способностей на %property_one%%%."
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"Gravekeeper's Gauntlet"
-    	"item_rpc_gravekeepers_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_gravekeeper_gauntlet"				"Gravekeeper"
-		"property_gravekeeper_gauntlet_description"		"Успешно атакуя одну и ту же цель, герой наносит по ней на <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PRE_MITI_DAMAGE_AMP_PER_STACK * 100 %>% больше урона и снижает её скорость передвижения на <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>. Складывается неограниченное количество раз. Смена цели полностью сбрасывает эффект."
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack steals <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES %> Armor Pierce and Spell Pierce and reduces the enemy's by the same amount. Changing attack targets removes all existing stacks. Up to <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC %> stacks can be applied per second, and can reach maximum stacks of <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_TOTAL %>. Gravekeeper targets are debuffed for <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION %> seconds, or <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS %> seconds on bosses."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Теряет скорость передвижения и получает увеличенный урон с каждым зарядом."
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Stolen Armor Pierce and Spell Pierce."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"Увеличивает скорость передвижения и наносит дополнительный урон по одной и той же цели."
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"Increased Armor Pierce and Spell Pierce."
 
 		 
 		 

@@ -3498,7 +3498,7 @@ function ultra_striker_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		RPCItems:RollGravekeepersGauntlet(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_gravekeepers_gauntlet")
 	end
 end
 

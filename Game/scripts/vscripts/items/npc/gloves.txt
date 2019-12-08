@@ -1,3 +1,167 @@
+	"item_rpc_gravekeepers_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/gravekeepers_gauntlet" //"gravekeepers_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_AMETHYST %>"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_gravekeepers_gauntlet"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gravekeeper_attack"
+					}
+				}
+			}
+			"modifier_gravekeeper_gauntlet_buff"
+			{
+				"TextureName"	"visage_gravekeepers_cloak"
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+						"EffectAttachType"  "attach_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gravekeeper_self_amethyst"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gravekeeper_gauntlet_target"
+			{
+				"TextureName"	"visage_gravekeepers_cloak"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
+						"EffectAttachType"  "attach_origin"
+						"Target"            "TARGET"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gravekeeper_target_amethyst"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gravekeeper_self_amethyst"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 		"1"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"1"
+				}
+			}
+			"modifier_gravekeeper_target_amethyst"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 		"-1"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"-1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_grasp_of_elder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -3043,132 +3207,6 @@
 		}
 	}
 
-	"item_rpc_gravekeepers_gauntlet"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/gravekeepers_gauntlet" //"gravekeepers_gauntlet"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_AMETHYST %>"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_gravekeepers_gauntlet"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"gravekeeper_attack"
-					}
-				}
-			}
-			"modifier_gravekeeper_gauntlet_buff"
-			{
-				"TextureName"	"visage_gravekeepers_cloak"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
-						"EffectAttachType"  "attach_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>"
-				}
-			}
-			"modifier_gravekeeper_gauntlet_target"
-			{
-				"TextureName"	"visage_gravekeepers_cloak"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/items/gravekeeper_gauntlet_tgt.vpcf"
-						"EffectAttachType"  "attach_origin"
-						"Target"            "TARGET"
-						"ControlPointEntities"
-						{
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-							"TARGET"	"attach_origin"
-						}
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MOVESPEED_DRAIN %>"
-				}
-			}
-		}
-	}
 	"item_rpc_greensand_copper_gauntlets"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

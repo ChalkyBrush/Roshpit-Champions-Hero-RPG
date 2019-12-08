@@ -13400,17 +13400,12 @@
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"每层buff使你得基础技能伤害增加 %property_one%%% "
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"守墓者手套"
-    	"item_rpc_gravekeepers_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_gravekeepers_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_gravekeeper_gauntlet"				"守墓者"
-		"property_gravekeeper_gauntlet_description"		"连续对同一目标进行攻击，每攻击一次会使该目标获得一层debuff。每层debuff使该单位受到的伤害增加 <font color='#ccff66'>10</font>%，并且吸取该目标 <font color='#ccff66'>3</font>点移动速度。转移攻击目标该效果重置。"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"守墓者的目标"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"每次攻击都会叠加伤害并且令目标失去移动速度"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"守墓者"
-		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"增加移动速度并且每次攻击造成叠加伤害"
-
+		"property_gravekeeper_gauntlet_description"		"Successive attacks on the same target sap its vitality while empowering you. Each stack steals <font color='#ccff66'>100</font> Armor Pierce and Spell Pierce and reduces the enemy's by the same amount. Changing attack targets removes all existing stacks. Up to <font color='#ccff66'>4</font> stacks can be applied per second, and can reach maximum stacks of <font color='#ccff66'>100</font>. Gravekeeper targets are debuffed for <font color='#ccff66'>12</font> seconds, or <font color='#ccff66'>6</font> seconds on bosses."
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"Grave Target"
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"Stolen Armor Pierce and Spell Pierce."
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"Gravekeeper"
+		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff_Description"	"Increased Armor Pierce and Spell Pierce."
 		 
 		 
 		 

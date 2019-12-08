@@ -2335,19 +2335,7 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_gravekeeper_gauntlet_buff") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		local stacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", attacker.InventoryUnit)
-		filterTable["damage"] = filterTable["damage"] * (1 + (stacks * ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PRE_MITI_DAMAGE_AMP_PER_STACK))
-	end
 
-	if victim:HasModifier("modifier_firelord_ability_ai") then
-		if GameState:GetDifficultyFactor() == 3 then
-			filterTable["damage"] = filterTable["damage"] * 0.2
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.3
-			end
-		end
-	end
 	if victim:HasModifier("modifier_guard_of_grithault") then
 		filterTable["damage"] = Filters:GrithaultDamage(victim, filterTable["damage"])
 	end

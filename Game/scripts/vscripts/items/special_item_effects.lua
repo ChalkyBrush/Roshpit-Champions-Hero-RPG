@@ -1566,7 +1566,7 @@ function stormshield_cloak_attacked(event)
 		ability.attacks_taken = ability.attacks_taken + 1
 		if ability.attacks_taken >= ITEM_RPC_STORMSHIELD_CLOAK_ATTACKS_TO_BREAK then
 			ability.attacks_taken = 0
-			local regen_time = ITEM_RPC_STORMSHIELD_CLOAK_RESTORE_TIME - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_STORMSHIELD_CLOAK_GEM_EMERALD)
+			local regen_time = math.max(ITEM_RPC_STORMSHIELD_CLOAK_RESTORE_TIME - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_STORMSHIELD_CLOAK_GEM_EMERALD), 0.1)
 			for i = 1, #ability.shieldTable, 1 do
 				if not ability.shieldTable[i]:HasModifier("modifier_stormshield_inactive") then
 					ability:ApplyDataDrivenModifier(hero.InventoryUnit, ability.shieldTable[i], "modifier_stormshield_inactive", {duration = regen_time})
@@ -3689,25 +3689,56 @@ function gravekeeper_attack(event)
 		ability.targetIndex = target:GetEntityIndex()
 		EmitSoundOn("Item.GraveKeeper", target)
 	end
+	local duration = ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION
+	if target:GetEnemyTier() >= ENEMY_TYPE_BOSS then
+		duration = ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS
+	end
+	local stack_gain = 1
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_SAPPHIRE))
+		if proc then
+			stack_gain = stack_gain + 1
+		end
+	end
 	if ability.targetIndex == target:GetEntityIndex() then
+		local max_stacks_per_sec = ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_EMERALD)
 		local limitKey = caster:GetPlayerOwnerID() .. '_gravekeeper_gauntlet'
-		Util.Common:LimitPerTime(ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC, 1, limitKey, function()
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
-			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
-			local newTargetStacks = target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + 1
+		Util.Common:LimitPerTime(max_stacks_per_sec, 1, limitKey, function()
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = duration})
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = duration})
+			local newTargetStacks = math.min(target:GetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster) + stack_gain, ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_TOTAL)
 			target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, newTargetStacks)
-			local newAttackerStacks = attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + 1
+			local newAttackerStacks = math.min(attacker:GetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster) + stack_gain, ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_TOTAL)
 			attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, newAttackerStacks)
+			ability.gravekeeper_stacks = newAttackerStacks
+			gravekeeper_update_amethyst(attacker, target, ability, ability.gravekeeper_stacks, duration)
 		end)
 	else
-		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_target")
+		local transfer_stacks = math.max(ability.gravekeeper_stacks*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_RUBY)/100), stack_gain)
+		local oldTarget = EntIndexToHScript(ability.targetIndex)
+		if oldTarget and IsValidEntity(oldTarget) then
+			oldTarget:RemoveModifierByName("modifier_gravekeeper_gauntlet_target")
+		end
 		attacker:RemoveModifierByName("modifier_gravekeeper_gauntlet_buff")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = 9})
-		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = 9})
-		target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, 1)
-		attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, 1)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_gravekeeper_gauntlet_target", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_gravekeeper_gauntlet_buff", {duration = duration})
+		target:SetModifierStackCount("modifier_gravekeeper_gauntlet_target", caster, transfer_stacks)
+		attacker:SetModifierStackCount("modifier_gravekeeper_gauntlet_buff", caster, transfer_stacks)
 		EmitSoundOn("Item.GraveKeeper", target)
 		ability.targetIndex = target:GetEntityIndex()
+		ability.gravekeeper_stacks = transfer_stacks
+		gravekeeper_update_amethyst(attacker, target, ability, ability.gravekeeper_stacks, duration)
+	end
+	target:CalculateAndSaveRoshpitAttributes()
+end
+
+function gravekeeper_update_amethyst(hero, target, ability, stacks, duration)
+	if ability:GetGemValue("amethyst") > 0 then
+		local speed_stacks = stacks*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRAVEKEEPERS_GAUNTLET_GEM_AMETHYST)
+		ability:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_gravekeeper_self_amethyst", {duration = duration})
+		ability:ApplyDataDrivenModifier(hero.InventoryUnit, target, "modifier_gravekeeper_target_amethyst", {duration = duration})
+		hero:SetModifierStackCount("modifier_gravekeeper_self_amethyst", hero.InventoryUnit, speed_stacks)
+		target:SetModifierStackCount("modifier_gravekeeper_target_amethyst", hero.InventoryUnit, speed_stacks)
 	end
 end
 
@@ -5866,7 +5897,7 @@ function terrasic_stone_plate_think(event)
 	if target:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster) == max_stacks then
 		ability.interval = 0
 	end
-	local stack_generation_interval = ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_EMERALD)
+	local stack_generation_interval = math.max(ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_EMERALD), 1)
 	if ability.interval >= stack_generation_interval then
 		
 		if target:HasModifier("modifier_terrasic_magma_break_stacks") then
@@ -6416,7 +6447,7 @@ function erudite_teacher_robes_think(event)
 	local caster = event.caster
 	local hero = event.target
 	if ability.apprentice_abilities_table and ability.apprentice_death_time then
-		local respawn_time = 10 - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_GEM_EMERALD)
+		local respawn_time = math.max(10 - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_GEM_EMERALD), 1)
 		if GameRules:GetGameTime() - ability.apprentice_death_time > respawn_time then
 			local abilities_table = ability.apprentice_abilities_table
 
@@ -7280,7 +7311,7 @@ function wraith_crown_think(event)
 	local ability = event.ability
 	local hero = event.target
 
-	local mana_drain_pct = WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT - ability:GetFinalGemPropertyValue("ruby", WRAITH_CROWN_RUBY)
+	local mana_drain_pct = math.max(WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT - ability:GetFinalGemPropertyValue("ruby", WRAITH_CROWN_RUBY), 0)
 	local mana_drain = hero:GetMaxMana()*(mana_drain_pct/100)
 	hero:ReduceMana(mana_drain)
 end
@@ -8359,7 +8390,7 @@ function autumnrock_bracer_take_damage(event)
 		local chance = ITEM_RPC_AUTUMNROCK_BRACER_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2)
 		local proc = Filters:GetProc(hero, chance)
 		if proc then
-			local delay = ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1)
+			local delay = math.max(ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1), 0.1)
 			local attacker = event.attacker
 			local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
 			local fv = (attacker:GetAbsOrigin() * Vector(1, 1, 0) - hero:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
