@@ -2184,6 +2184,7 @@ function zealot_wave_hit(event)
 			target_ability:StartCooldown(cd)
 		end
 	end
+	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 end
 
 function coldseer_wave_start(event)

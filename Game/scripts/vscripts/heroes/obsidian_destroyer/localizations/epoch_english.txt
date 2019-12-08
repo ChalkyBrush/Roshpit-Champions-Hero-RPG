@@ -100,7 +100,7 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"Unit walking - max movement speed - 100% physical evasion."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Distortion Rift"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting @Ability3 also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by @Ability1 or [Q1]."
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Casting @Ability3 also fires damaging Time Orbs in a cone in front of Epoch Guardian. Time Orbs deal double damage to units affected by @Ability1 or [Q1]. Maximum amount of orbs is <% EPOCH_E2_ORBS_MAX %>."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Orbs Fired"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Damage per Orb"
@@ -213,6 +213,7 @@
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Taking Additional Damage from All Sources"
 
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Distorted Time"
 		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3 travels <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% farther and <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% faster. Additionally, the duration of [E1] is doubled."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Cracking"

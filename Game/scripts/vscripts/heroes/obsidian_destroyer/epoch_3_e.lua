@@ -280,14 +280,17 @@ function epoch_e_2(caster, ability)
 		local forwardVector = caster:GetForwardVector()
 		local numOrbs = e_2_level * EPOCH_E2_ORBS
 		ability.e_2_damage = e_2_level * EPOCH_E2_DMG + EPOCH_E2_DMG_BASE
-		if numOrbs > 36 then
-			numOrbs = 36
+		if numOrbs > EPOCH_E2_ORBS_MAX then
+			numOrbs = EPOCH_E2_ORBS_MAX
 		end
 		for i = 0, numOrbs, 1 do
-			local rotatedVector = rotateVector(forwardVector, (math.pi / 30) * i)
+			if (i % 2 == 0) then
+			local rotatedVector = rotateVector(forwardVector, (math.pi / 10) * i)
 			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
-			local rotatedVector = rotateVector(forwardVector, (math.pi / 30) * i *- 1)
+			else
+			local rotatedVector = rotateVector(forwardVector, (math.pi / 10) * i *- 1)
 			epoch_e_2_projectile(caster, ability, caster:GetAbsOrigin(), rotatedVector)
+			end
 		end
 	end
 end

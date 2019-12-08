@@ -229,7 +229,7 @@ function starfall_initiate(event)
   ability.remainingStars = ability.maxStars % 40
   ability.star_damage = ability.r_1_level * ASTRAL_RANGER_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
-    ability.star_damage = ability.star_damage * 10
+    ability.star_damage = ability.star_damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ability:GetChannelTime()})
   end
   ability.extraTargetsStruck = 0

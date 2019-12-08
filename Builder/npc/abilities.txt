@@ -28556,7 +28556,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 3000 15000"
+				"damage"			"500 1500 7500"
 			}
 		}
 		"OnSpellStart"
@@ -31924,7 +31924,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"3000"
+		"AbilityDamage"					"3500"
 
 
 		// Precache
@@ -31948,7 +31948,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000"
+				"damage"				"3500"
 			}
 			"02"
 			{
@@ -32173,7 +32173,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_damage_attack"			"500 2000 18000"
+				"magic_damage_attack"			"500 2000 8000"
 			}
 			"02"
 			{
@@ -32257,7 +32257,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"300 1000 9000"
+				"damage"					"300 1000 4000"
 			}
 			"02"
 			{
@@ -32554,7 +32554,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss_per_stack"		"-500"
+				"armor_loss_per_stack"		"-200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -32840,7 +32840,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1000 3000 10000"
+		"AbilityDamage"					"3000"
 
 
 		// Precache
@@ -32864,7 +32864,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 3000 10000"
+				"damage"				"3000"
 			}
 			"02"
 			{
@@ -38035,7 +38035,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"-98"
+				"damage_block"			"-80"
 			}
 		}
 		"Modifiers"
@@ -64896,7 +64896,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100000"
+				"damage"			"10000"
 			}
 		}
 		"Modifiers"
