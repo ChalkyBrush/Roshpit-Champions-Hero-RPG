@@ -845,6 +845,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_goldbreaker_gauntlet" then
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_SAPPHIRE1, hero, "attack_damage", RPC_GEAR_SLOT_GLOVES)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_grand_arcanist_wraps" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY1, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY2, hero, "mana_regen", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_RUBY3, hero, "spell_pierce", RPC_GEAR_SLOT_GLOVES)
 		end			
 	end
 end

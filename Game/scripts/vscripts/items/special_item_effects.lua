@@ -1957,17 +1957,6 @@ function wolf_enter_end(event)
 	wolf:MoveToPositionAggressive(wolf:GetAbsOrigin() + wolf.fv * 600)
 end
 
-function grand_arcanist_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local stacks = math.floor(target:GetIntellect() / 10)
-	if not target:HasModifier("modifier_grand_arcanist_damage") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_grand_arcanist_damage", {})
-	end
-	target:SetModifierStackCount("modifier_grand_arcanist_damage", ability, stacks)
-end
-
 function devotion_think(event)
 	local hero = event.target
 	local caster = event.caster
@@ -6172,9 +6161,8 @@ function goldbreaker_thinker(event)
 	local caster = event.caster
 	local target = event.target
 	local hero = caster.hero
-	print("THINK")
 	if ability:GetGemValue("amethyst") > 0 then
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				local proc_chance = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_AMETHYST1)

@@ -265,9 +265,16 @@
 		"item_rpc_goldbreaker_gauntlet_sapphire1"			"Increase Base Attack Damage by @sapphire_property1 and have @sapphire_property2% chance to apply Abjuration on enemies damaged by [W] for <% ITEM_RPC_GOLDBREAKER_GAUNTLET_DEBUFF_DURATION %> seconds"
 		"item_rpc_goldbreaker_gauntlet_amethyst1"			"Enemies within <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_RANGE %> range have a @amethyst_property1% chance every <% ITEM_RPC_GOLDBREAKER_GAUNTLET_AMETHYST_THINK_INTERVAL %> seconds to gain magic immunity for @amethyst_property2 seconds."
 
+    	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
+		"item_property_grand_arcanist"				"Master of Magic"
+		"property_grand_arcanist_description"		"All attributes each increase Spell Pierce by <% ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR %>."
+
+    	"item_rpc_grand_arcanist_wraps_ruby1"							"Increases Intelligence by @ruby_property1, Mana Regen by @ruby_property2, and Spell Pierce by @ruby_property3"
+    	"item_rpc_grand_arcanist_wraps_emerald1"							"Each point of Intelligence increases Item Damage by @emerald_property1%"
+    	"item_rpc_grand_arcanist_wraps_sapphire1"							"Each point of Intelligence increases Base Ability Damage by @sapphire_property1%"
+    	"item_rpc_grand_arcanist_wraps_amethyst1"							"Each point of Intelligence increases all Elemental Damage by @amethyst_property1%"
 
 
-		 
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -417,14 +424,6 @@
 		"item_property_power_ranger"				"Megaforce"
 		"property_power_ranger_description"			"Increases attack damage by <% ITEM_RPC_POWER_RANGER_GLOVES_BONUS_DAMAGE %>%. All Post-Mitigation Physical damage is enhanced by <% ITEM_RPC_POWER_RANGER_GLOVES_PHYS_POST_MITI %>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"Wraps of the Grand Arcanist"
-    	"item_rpc_grand_arcanist_wraps_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_grand_arcanist"				"Master of Magic"
-		"property_grand_arcanist_description"		"Increases Base Ability Damage by <%ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * 100 * 10 %>% for every 10 points of Intelligence."
 		
 	
 		

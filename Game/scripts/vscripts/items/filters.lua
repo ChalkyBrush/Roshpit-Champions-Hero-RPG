@@ -176,7 +176,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_mountain_vambraces") then
         mult = mult + ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR)
     end
-
+    if caster:HasModifier("modifier_grand_arcanist") then
+        mult = mult + (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD)/100) * caster:GetIntellect()
+    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
@@ -1472,7 +1474,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + ITEM_RPC_EYE_OF_AVERNUS_BAD/100
         end
         if attacker:HasModifier("modifier_grand_arcanist") then
-            damageMult = damageMult + ITEM_RPC_GRAND_ARCANIST_WRAPS_BAD_PER_INT * attacker:GetIntellect()
+            damageMult = damageMult + (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_SAPPHIRE)/100) * attacker:GetIntellect()
         end
         if attacker:HasModifier("modifier_direwolf_bulwark_effect") then
             damageMult = damageMult + ITEM_RPC_DIREWOLF_BULWARK_BAD/100 * attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit)
@@ -1998,6 +2000,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
             mult = mult + stacks * ITEM_RPC_DEMONFIRE_GAUNTLET_ELEMENTAL_AMP_PCT/100
+        end
+        if attacker:HasModifier("modifier_grand_arcanist") then
+            mult = mult + (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_AMETHYST)/100) * attacker:GetIntellect()
         end
         if bIsRealDamage then
             if attacker:HasModifier("modifier_ice_avatar") then

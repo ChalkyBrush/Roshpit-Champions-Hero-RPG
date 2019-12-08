@@ -1086,10 +1086,10 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 
 	-- MAIN PART BELOW
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min((255 + armor_pierce)/(255 + victim:GetRoshpitArmor()), 2)
+		local mult = math.min((255 + armor_pierce)/(255 + victim:GetRoshpitArmor()), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), 2)
+		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		return damage
@@ -2108,6 +2108,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_arena_crowd_buff") then
 		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
 		spell_pierce_modify = spell_pierce_modify + stacks*50
+	end
+	if unit:HasModifier("modifier_grand_arcanist") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -3172,4 +3175,8 @@ function CDOTA_BaseNPC:GetBaseAbilityAmpForSlot(slot)
 	else
 		return 0
 	end
+end
+
+function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
+	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end

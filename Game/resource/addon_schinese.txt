@@ -13269,12 +13269,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"奥术师包裹"
-    	"item_rpc_grand_arcanist_wraps_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_grand_arcanist_wraps_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_grand_arcanist"				"魔法大师"
-		"property_grand_arcanist_description"		"每10点智力值提高基础技能伤害 <font color='#ccff66'>0.3</font>%。"
+		"property_grand_arcanist_description"		"All attributes each increase Spell Pierce by <font color='#ccff66'>2</font>."
+		
+    	"item_rpc_grand_arcanist_wraps_ruby1"							"Increases Intelligence by @ruby_property1, Mana Regen by @ruby_property2, and Spell Pierce by @ruby_property3"
+    	"item_rpc_grand_arcanist_wraps_emerald1"							"Each point of Intelligence increases Item Damage by @emerald_property1%"
+    	"item_rpc_grand_arcanist_wraps_sapphire1"							"Each point of Intelligence increases Base Ability Damage by @sapphire_property1%"
+    	"item_rpc_grand_arcanist_wraps_amethyst1"							"Each point of Intelligence increases all Elemental Damage by @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_eternal_essence_gauntlet"						"不灭精华手套"
