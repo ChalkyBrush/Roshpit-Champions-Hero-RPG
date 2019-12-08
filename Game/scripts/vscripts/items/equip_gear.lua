@@ -51,7 +51,7 @@ function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup)
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	CustomGameEventManager:Send_ServerToAllClients("update_runes", {})
-
+	item.wearer = hero
 
 
 	if gear_slot == RPC_GEAR_SLOT_WEAPON and item.newItemTable.rarity == "immortal" then
@@ -77,6 +77,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 		item:StartCooldown(3)
 	end
 	hero.equipped_gear[slot] = nil
+	item.wearer = nil
 	Events:TutorialServerEvent(hero, "3_2", 0)
 end
 
@@ -865,7 +866,7 @@ function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_ta
 	local gem_value = item:GetGemValue(gem_name)
 	if gem_value > 0 then
 		DeepPrintTable(value_table)
-		local property_value = value_table[gem_value]
+		local property_value = item:GetFinalGemPropertyValue(gem_name, value_table)
 		if property_value > 0 then
 			RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
 		end

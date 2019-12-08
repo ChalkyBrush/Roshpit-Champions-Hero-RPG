@@ -13340,6 +13340,15 @@
     	"item_rpc_gravekeepers_gauntlet_sapphire1"							"Grants a @sapphire_property1% chance to add an additional stack on attack"
     	"item_rpc_gravekeepers_gauntlet_amethyst1"							"Gravekeeper additionally steals @amethyst_property1 movespeed and attack speed per stack"
 
+    	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
+    	"item_property_greensand_copper_gauntlets"										"Burnished Lustre" 
+    	"property_greensand_copper_gauntlets_description"								"Any gems socketed into these gloves enhance all other gems of the same type"
+
+    	"item_rpc_greensand_copper_gauntlets_ruby1"						"All <font color=\"#f02929\">Ruby</font> gems in other gear are enhanced by @ruby_property1%"
+    	"item_rpc_greensand_copper_gauntlets_emerald1"						"All <font color=\"#36d63b\">Emerald</font> gems in other gear are enhanced by @emerald_property1%"
+    	"item_rpc_greensand_copper_gauntlets_sapphire1"						"All <font color=\"#388af5\">Sapphire</font> gems in other gear are enhanced by @sapphire_property1%"
+    	"item_rpc_greensand_copper_gauntlets_amethyst1"						"All <font color=\"#c744b8\">Amethyst</font> gems in other gear are enhanced by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13529,12 +13538,6 @@
 		"item_property_halcyon_soul"						"Tempered Balance"
 		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <font color='#ccff66'>5</font>. Additionally, all basic stat bonuses are amplified by <font color='#ccff66'>50</font>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"
-    	"item_rpc_greensand_copper_gauntlets_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_greensand_copper_gauntlets_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_greensand_copper_gauntlets_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_greensand_copper_gauntlets_amethyst1"						"blah blah @amethyst_property1 gem"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"

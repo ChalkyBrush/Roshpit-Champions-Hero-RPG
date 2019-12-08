@@ -523,5 +523,12 @@ function CDOTABaseAbility:GetFinalGemPropertyValue(gem_type, value_table)
 	if gem_level > 0 then
 		final_value = value_table[gem_level]
 	end
+	print("GEM VALUE: "..final_value)
+	if item.wearer and item.wearer:HasModifier("modifier_greensand_copper_gauntlets") then
+		if item:GetGemValue(gem_type) > 0 and item:GetAbilityName() ~= "item_rpc_greensand_copper_gauntlets" then
+			final_value = final_value * (1 + item.wearer.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue(gem_type, ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE)/100)
+		end
+		print("GEM VALUE GREENSAND ADJUST: "..final_value)
+	end
 	return final_value
 end

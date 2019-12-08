@@ -8657,3 +8657,43 @@ function grasp_of_elder_think(event)
 		Filters:ApplyHeal(hero, hero, healAmount, true, true)
 	end
 end
+
+function greensand_init(event)
+	local caster = event.caster
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
+end
+
+function greensand_end(event)
+	local caster = event.caster
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	end
+	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	end
+end

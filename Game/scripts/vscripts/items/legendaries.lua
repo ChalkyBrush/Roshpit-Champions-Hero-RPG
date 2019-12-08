@@ -853,29 +853,6 @@ function RPCItems:RollHalcyonSoulGlove(item_level)
     return item
 end
 
-function RPCItems:RollGreensandCopperGauntlets(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_greensand_copper_gauntlets", "immortal", "Greensand Copper Gauntlets", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property1 = math.floor(value * 2.2)
-    item.newItemTable.property1name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-
-    local value, nameLevel = RPCItems:RollAttribute(100, 2, 12, 0, 0, item.newItemTable.rarity, false, math.ceil(maxFactor / 2))
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "base_ability"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_base_ability", "#7AB4CC", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 
 function RPCItems:RollSpiritualEmpowermentGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_spiritual_empowerment_glove", "immortal", "Spiritual Empowerment Glove", "hands", true, "Slot: Hands")
@@ -4732,6 +4709,27 @@ function RPCItems:RollGravekeepersGauntlet(item_level)
     RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollGreensandCopperGauntlets(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_greensand_copper_gauntlets", "immortal", "Greensand Copper Gauntlets", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_greensand_copper_gauntlets"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_greensand_copper_gauntlets", "#A87732", 1, "#property_greensand_copper_gauntlets_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.75)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    Gems:AddSocket(item)
+    Gems:AddSocket(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
@@ -8797,7 +8795,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spellslinger_coat", "item_rpc_staggering_knight_crusher_armor", "item_rpc_stormshield_cloak", "item_rpc_the_infernal_prison", "item_rpc_vampiric_breastplate", "item_rpc_windsteel_armor"}
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
-        "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder"}
+        "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder",
+        "item_rpc_greensand_copper_gauntlets"}
     end
     return itemsList
 end
