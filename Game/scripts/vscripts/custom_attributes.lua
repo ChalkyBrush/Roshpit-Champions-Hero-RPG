@@ -1550,6 +1550,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local glove = unit:FindModifierByName("modifier_glove_of_forgotten_ghost_magic_armor_sapphire"):GetAbility()
 		magic_armor_modify = magic_armor_modify + glove:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_grasp_of_elder") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRASP_OF_ELDER_GEM_EMERALD)*unit:GetMana()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -2111,6 +2114,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_grand_arcanist") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR
+	end
+	if unit:HasModifier("modifier_grasp_of_elder") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRASP_OF_ELDER_GEM_AMETHYST)*unit:GetSpirit()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -2914,6 +2920,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_omnimace_cosmic_buff" and hero:HasModifier("modifier_omnimace_cosmic_buff") then
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
 		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a") * hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
+	end
+	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
 	return flatHealthBonus
 end

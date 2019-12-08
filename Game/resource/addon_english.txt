@@ -13316,7 +13316,15 @@
     	"item_rpc_grand_arcanist_wraps_sapphire1"							"Each point of Intelligence increases Base Ability Damage by @sapphire_property1%"
     	"item_rpc_grand_arcanist_wraps_amethyst1"							"Each point of Intelligence increases all Elemental Damage by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"Grasp of the Elders"
 
+		"item_property_elder_grasp"					"Sage's Grace"
+		"property_elder_grasp_description"			"Restore <font color='#ccff66'>25</font>% of max health every <font color='#ccff66'>1</font> seconds while there are no enemies within <font color='#ccff66'>1000</font> distance"
+
+		"item_rpc_grasp_of_elder_ruby1"									"Each point of Spirit increases Max Health by @ruby_property1"
+		"item_rpc_grasp_of_elder_emerald1"									"Each point of current mana increaes Magic Armor by @emerald_property1"
+		"item_rpc_grasp_of_elder_sapphire1"									"Increases Spirit by @sapphire_property1, and @sapphire_property2% of all healing received also restores mana"
+		"item_rpc_grasp_of_elder_amethyst1"									"Each point of Spirit increases Spell Pierce by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13330,16 +13338,6 @@
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"
 
 
-		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"Grasp of the Elders"
-		"item_rpc_grasp_of_elder_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_grasp_of_elder_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_grasp_of_elder_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_grasp_of_elder_amethyst1"									"blah blah @amethyst_property1 gem"
-		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"Slot: Hands"
-		"item_property_elder_grasp"					"Healing Prayer"
-		"property_elder_grasp_description"			"When you cast any spell, heal yourself and all allies in a <font color='#ccff66'>500</font> radius for <font color='#ccff66'>10</font>% of their maximum Health. Any overheal is converted into a temporary shield, up to a limit of <font color='#ccff66'>3</font>x the ally's maximum Health"
-		"DOTA_Tooltip_modifier_grasp_of_elder_shield"		"Healing Prayer"
-		"DOTA_Tooltip_modifier_grasp_of_elder_shield_Description"	"Absorbing incoming damage"
 		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
 		"item_rpc_magebane_gloves_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_magebane_gloves_emerald1"									"blah blah @emerald_property1 gem"

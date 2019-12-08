@@ -2614,9 +2614,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_twig_of_the_enlightened_shield") then
 		filterTable["damage"] = Filters:TwigTakeDamage(filterTable["damage"], victim)
 	end
-	if victim:HasModifier("modifier_grasp_of_elder_shield") then
-		filterTable["damage"] = Filters:ElderGraspTakeDamage(filterTable["damage"], victim)
-	end
 	if victim:HasModifier("modifier_phoenix_boss_passive") then
 		if filterTable["damage"] > (victim:GetMaxHealth() * 0.02) then
 			filterTable["damage"] = victim:GetMaxHealth() * 0.02

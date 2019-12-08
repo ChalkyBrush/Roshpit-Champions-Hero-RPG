@@ -608,6 +608,13 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
     if target:HasModifier("modifier_eternal_essence_gauntlet") then
         healAmount = Filters:EternalEssenceGauntlet(target, healAmount)
     end
+    if target:HasModifier("modifier_grasp_of_elder") then
+        local manaRestore = (target.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE2)/100)*healAmount
+        if manaRestore > 0 then
+            target:GiveMana(manaRestore)
+            PopupMana(target, manaRestore)
+        end
+    end
     target:Heal(healAmount, caster)
     if doPopUp and healAmount > 0 then
         PopupHealing(target, healAmount)
@@ -782,23 +789,6 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:HasModifier("modifier_crimsyth_elite_greaves") then
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
         caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION})
-    end
-    if caster:HasModifier("modifier_grasp_of_elder") then
-        local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_GRASP_OF_ELDER_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-        for _, ally in pairs(allies) do
-            local healAmount = ally:GetMaxHealth() * ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT
-            local shieldAmount = math.max(healAmount + ally:GetHealth() - ally:GetMaxHealth(), 0)
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", ally, 3)
-            Filters:ApplyHeal(caster, ally, healAmount)
-            if shieldAmount > 0 then
-                caster.handItem:ApplyDataDrivenModifier(caster, ally, "modifier_grasp_of_elder_shield", {})
-                if not ally.elder_grasp_shield then
-                    ally.elder_grasp_shield = 0
-                end
-                ally.elder_grasp_shield = math.min(ally.elder_grasp_shield + shieldAmount, ITEM_RPC_GRASP_OF_ELDER_SHIELD_PER_HP * ally:GetMaxHealth())
-                ally.elder_grasp_max_shield = ally.elder_grasp_shield
-            end
-        end
     end
     if caster:HasModifier("modifier_chains_of_orthok") then
         if slot == BASE_ABILITY_Q then

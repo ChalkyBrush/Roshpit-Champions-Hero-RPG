@@ -8613,3 +8613,16 @@ function divine_purity_attack_land(event)
 		Filters:ApplyHeal(hero, hero, healAmount, true, true)
 	end
 end
+
+function grasp_of_elder_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local radius = ITEM_RPC_GRASP_OF_ELDER_SEARCH_RANGE
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies == 0 then
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/white_mage_healheal.vpcf", hero, 3)
+		local healAmount = hero:GetMaxHealth()*(ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT/100)
+		Filters:ApplyHeal(hero, hero, healAmount, true, true)
+	end
+end

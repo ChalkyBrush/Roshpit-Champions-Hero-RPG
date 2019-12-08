@@ -17,13 +17,15 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"长老护腕"
-		"item_rpc_grasp_of_elder_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_grasp_of_elder_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_grasp_of_elder_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_grasp_of_elder_amethyst1"									"blah blah @amethyst_property1 gem"
-		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder_Description"						"部位：手"
-		"item_property_elder_grasp"					"长者智慧"
-		"property_elder_grasp_description"			"当你施放任意技能时，回复<% ITEM_RPC_GRASP_OF_ELDER_RADIUS %>范围内所有盟友<% ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT * 100%>% 最大生命值的血量。任何过度治疗将转化成临时护盾，护盾最大值为目标最大生命值的<% ITEM_RPC_GRASP_OF_ELDER_SHIELD_PER_HP %>倍"
+
+		"item_property_elder_grasp"					"Sage's Grace"
+		"property_elder_grasp_description"			"Restore <% ITEM_RPC_GRASP_OF_ELDER_HEAL_PCT %>% of max health every <% ITEM_RPC_GRASP_OF_ELDER_HEAL_INTERVAL %> seconds while there are no enemies within <% ITEM_RPC_GRASP_OF_ELDER_SEARCH_RANGE %> distance"
+
+		"item_rpc_grasp_of_elder_ruby1"									"Each point of Spirit increases Max Health by @ruby_property1"
+		"item_rpc_grasp_of_elder_emerald1"									"Each point of current mana increaes Magic Armor by @emerald_property1"
+		"item_rpc_grasp_of_elder_sapphire1"									"Increases Spirit by @sapphire_property1, and @sapphire_property2% of all healing received also restores mana"
+		"item_rpc_grasp_of_elder_amethyst1"									"Each point of Spirit increases Spell Pierce by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"巫师灾星"
 		"item_rpc_magebane_gloves_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_magebane_gloves_emerald1"									"blah blah @emerald_property1 gem"
