@@ -120448,7 +120448,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"800 2500 9000"
+		"AbilityDamage"					"800 2000 7500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -120462,11 +120462,27 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"shock_radius"				"385"
+				"LinkedSpecialBonus"		"special_bonus_unique_ursa_5"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"-25 -35 -45 -55"
+				"movement_slow"				"-10 -25 -40 -55"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hop_distance"					"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"hop_duration"		"0.05"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hop_height"		"0"
 			}
 		}
 	}
