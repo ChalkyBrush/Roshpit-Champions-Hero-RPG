@@ -546,6 +546,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		if unit:HasModifier("modifier_tattered_novice_armor") then
 			armor = armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
 		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			armor = armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseArmorBonus', { MODIFIER_ROSHPIT_BASE_ARMOR_BONUS }, { }, 
 		function(result, data)
@@ -1121,6 +1124,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		if unit:HasModifier("modifier_tattered_novice_armor") then
 			magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
 		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
@@ -1616,6 +1622,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		if unit:HasModifier("modifier_tattered_novice_armor") then
 			armor_pierce = armor_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
 		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			armor_pierce = armor_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
 
 	local armor_pierce_modify = 0
@@ -1861,6 +1870,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce = spell_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_spell_pierce", 1)
 		if unit:HasModifier("modifier_tattered_novice_armor") then
 			spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
 	if unit:HasModifier("item_rpc_dark_arts_vestments") then
@@ -2811,9 +2823,9 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	local halcyon = 1
-	if hero:HasModifier("modifier_halcyon_soul_glove") then
-		halcyon = 1 + ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
-	end
+	-- if hero:HasModifier("modifier_halcyon_soul_glove") then
+	-- 	halcyon = 1 + ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
+	-- end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
 	else
@@ -2876,9 +2888,7 @@ end
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local flatHealthBonus = 100 --Each hero starts with 100 hp, this is important so that its multiplied with helm of mountain giant for example
 	flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR
-	if excludedModifier ~= "modifier_halcyon_soul_glove" and hero:HasModifier("modifier_halcyon_soul_glove") then
-		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
-	end
+
 	if excludedModifier ~= "modifier_head_max_health" and hero:HasModifier("modifier_head_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_head_max_health", 1)
 	end
@@ -3028,9 +3038,6 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 		tableData.pure_post_mit = 100
 	end
 	tableData.item_damage = (Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000) - 100
-	if unit:HasModifier("modifier_halcyon_soul_glove") then
-		tableData.halcyon = 1
-	end
 	if unit.paragon then
 		tableData.paragon = 1
 	end

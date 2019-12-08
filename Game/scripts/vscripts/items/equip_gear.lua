@@ -856,6 +856,27 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_grasp_of_elder" then
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GRASP_OF_ELDER_GEM_SAPPHIRE1, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_halcyon_soul_glove" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD, hero, "rune_q_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD, hero, "rune_w_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD, hero, "rune_e_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_SAPPHIRE, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_q_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_w_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_e_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_r_1", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_q_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_w_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_e_2", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_AMETHYST, hero, "rune_r_2", RPC_GEAR_SLOT_GLOVES)
 		end			
 	end
 end

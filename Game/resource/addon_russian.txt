@@ -13195,12 +13195,13 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
-    	"item_rpc_halcyon_soul_glove_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_halcyon_soul_glove_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_halcyon_soul_glove_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_halcyon_soul_glove_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"Каждое очко атрибутов увеличивает базовый урон на @special_property1. Дополнительно увеличивает бонусы от всех атрибутов на <font color='#ccff66'>50</font>%."
+		 "property_halcyon_soul_description"				"All attributes increase Armor / Magic Armor / Armor Pierce / Spell Pierce by <font color='#ccff66'>0.5</font>"
+
+    	"item_rpc_halcyon_soul_glove_ruby1"								"Each point of your primary attribute further increases Base Attack Damage by @ruby_property1"
+    	"item_rpc_halcyon_soul_glove_emerald1"								"Increases all T3 runes by @emerald_property1"
+    	"item_rpc_halcyon_soul_glove_sapphire1"								"Increases All Attributes by @sapphire_property1"
+    	"item_rpc_halcyon_soul_glove_amethyst1"								"Increases all T1 and T2 runes by @amethyst_property1"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"Greensand Copper Gauntlets"

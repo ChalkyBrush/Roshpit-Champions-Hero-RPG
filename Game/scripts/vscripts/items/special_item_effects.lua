@@ -3487,10 +3487,14 @@ end
 function halcyon_glove_think(event)
 	local caster = event.caster
 	local target = event.target
+	local hero = caster.hero
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_halcyon_soul_glove_effect", {})
-	local stacks = target:GetStrength() + target:GetAgility() + target:GetIntellect()
-	target:SetModifierStackCount("modifier_halcyon_soul_glove_effect", caster, stacks)
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_halcyon_soul_glove_effect", {})
+		local multiple = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HALCYON_SOUL_GLOVE_GEM_RUBY)
+		local stacks = Filters:GetPrimaryAttributeMultiple(hero, multiple)
+		hero:SetModifierStackCount("modifier_halcyon_soul_glove_effect", caster, stacks)
+	end
 end
 
 function nightmare_rider_attackland(event)

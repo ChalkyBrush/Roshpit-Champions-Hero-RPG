@@ -306,6 +306,15 @@
     	"item_rpc_greensand_copper_gauntlets_sapphire1"						"All <font color=\"#388af5\">Sapphire</font> gems in other gear are enhanced by @sapphire_property1%"
     	"item_rpc_greensand_copper_gauntlets_amethyst1"						"All <font color=\"#c744b8\">Amethyst</font> gems in other gear are enhanced by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
+		"item_property_halcyon_soul"						"Tempered Balance"
+		 "property_halcyon_soul_description"				"All attributes increase Armor / Magic Armor / Armor Pierce / Spell Pierce by <% ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR %>"
+
+    	"item_rpc_halcyon_soul_glove_ruby1"								"Each point of your primary attribute further increases Base Attack Damage by @ruby_property1"
+    	"item_rpc_halcyon_soul_glove_emerald1"								"Increases all T3 runes by @emerald_property1"
+    	"item_rpc_halcyon_soul_glove_sapphire1"								"Increases All Attributes by @sapphire_property1"
+    	"item_rpc_halcyon_soul_glove_amethyst1"								"Increases all T1 and T2 runes by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -486,14 +495,6 @@
 		"item_property_ironbound_gloves"					"Ironfist"
 		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor."
 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"Halcyon Soul Glove"
-    	"item_rpc_halcyon_soul_glove_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_halcyon_soul_glove_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_halcyon_soul_glove_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_halcyon_soul_glove_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_halcyon_soul"						"Tempered Balance"
-		 "property_halcyon_soul_description"				"All attributes further increase base attack damage by <% ITEM_RPC_HALCYON_SOUL_GLOVE_BASE_DAMAGE_PER_ATT %>. Additionally, all basic stat bonuses are amplified by <% ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS * 100 %>%. This includes health and health regen for Strength, attack speed and Armor for Agility, and max mana and mana regen for Intelligence."
 		 
 		 
 		 

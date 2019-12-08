@@ -13364,12 +13364,13 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_halcyon_soul_glove"								"安魂手套"
-    	"item_rpc_halcyon_soul_glove_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_halcyon_soul_glove_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_halcyon_soul_glove_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_halcyon_soul_glove_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_halcyon_soul"						"平衡"
-		 "property_halcyon_soul_description"				"每点全属性提高 <font color='#ccff66'>5</font> 点基础攻击力。同时，所有属性的加成效果都被放大 <font color='#ccff66'>50</font>%。（力量值获得更多血量上限，敏捷值获得更多护甲，智力值获得更多魔法值）"
+		 "property_halcyon_soul_description"				"All attributes increase Armor / Magic Armor / Armor Pierce / Spell Pierce by <font color='#ccff66'>0.5</font>"
+
+    	"item_rpc_halcyon_soul_glove_ruby1"								"Each point of your primary attribute further increases Base Attack Damage by @ruby_property1"
+    	"item_rpc_halcyon_soul_glove_emerald1"								"Increases all T3 runes by @emerald_property1"
+    	"item_rpc_halcyon_soul_glove_sapphire1"								"Increases All Attributes by @sapphire_property1"
+    	"item_rpc_halcyon_soul_glove_amethyst1"								"Increases all T1 and T2 runes by @amethyst_property1"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"绿砂铜护手"
