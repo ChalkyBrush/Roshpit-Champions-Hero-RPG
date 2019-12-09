@@ -1916,7 +1916,21 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     end
     local instances = 1
     if attacker:HasModifier("modifier_heavy_echo_gauntlet") then
-        instances = instances + ITEM_RPC_HEAVY_ECHO_GAUNTLET_REPEATS
+        if type(slot) == "table" and slot:GetAbilityName() == "auto_attack_damage_ability" then
+            instances = 1
+        else
+            instances = instances + ITEM_RPC_HEAVY_ECHO_GAUNTLET_REPEATS
+            if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("ruby") > 0 then
+                local proc = Filters:GetProc(attacker, attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_RUBY))
+                if proc then
+                    instances = instances + 1
+                end
+            end
+            if attacker:HasModifier("modifier_heavy_echo_extra_echo") then
+                instances = instances + 1
+                attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_heavy_echo_remove_extra_echo", {duration = 0.03})
+            end
+        end
     end
     if attacker:HasModifier("shadow_deity_passive") then
         local e_2_level = attacker:GetRuneValue("e", 2)
@@ -1929,7 +1943,6 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     if damageData.skipItemDamageEffectsApply then
         instances = 1
     end
-
     if slot == BASE_NONE then
         instances = 1
     end

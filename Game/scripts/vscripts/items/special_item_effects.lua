@@ -8706,3 +8706,36 @@ function greensand_end(event)
 		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
 	end
 end
+
+function heavy_echo_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("amethyst") > 0 then
+		if not ability.interval then
+			ability.interval = 0
+		end
+		ability.interval = ability.interval + 1
+		if ability.interval*0.1 >= ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_AMETHYST) then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_heavy_echo_extra_echo", {})
+			ability.interval = 0
+		end
+	end
+end
+
+function heavy_echo_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("sapphire") > 0 then
+		if not hero:HasModifier("modifier_heavy_echo_sapphire_cooldown") then
+			local cooldown = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_SAPPHIRE)
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_heavy_echo_sapphire_cooldown", {duration = cooldown})
+			Timers:CreateTimer(0.1, function()
+				StartAnimation(hero, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 3.2})
+				Filters:PerformAttackSpecial(hero, target, true, true, true, false, true, false, false)
+			end)
+		end
+	end
+end

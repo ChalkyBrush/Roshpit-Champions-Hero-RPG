@@ -883,6 +883,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST1, hero, "attack_speed", RPC_GEAR_SLOT_GLOVES)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_HAND_OF_MIDAS_GEM_AMETHYST2, hero, "attack_damage", RPC_GEAR_SLOT_GLOVES)
 		end			
+	elseif item:GetAbilityName() == "item_rpc_heavy_echo_gauntlet" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_EMERALD, hero, "base_ability", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

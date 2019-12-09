@@ -13368,6 +13368,19 @@
     	"item_rpc_hand_of_midas_sapphire1"									"Increases Midas Touch radius by @sapphire_property1 and damage by @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
 
+    	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
+
+		"item_property_heavy_echo"						"Reactive Grip"
+		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <font color='#ccff66'>1</font> time."
+
+    	"item_rpc_heavy_echo_gauntlet_ruby1"								"Adds a @ruby_property1% chance to perform an additional echo from Base Ability Damage or Item Damage"
+    	"item_rpc_heavy_echo_gauntlet_emerald1"								"Increases Item Damage and Base Ability Damage by @emerald_property1%"
+    	"item_rpc_heavy_echo_gauntlet_sapphire1"								"Landing an attack immediately performs another. @sapphire_property1 second cooldown"
+    	"item_rpc_heavy_echo_gauntlet_amethyst1"								"Every @amethyst_property1 seconds, gain an Echo buff which makes your next set of damage of Item Damage or Base Ability Damage perform an additional echo"
+
+    	"DOTA_Tooltip_modifier_heavy_echo_extra_echo"	"Echo Gauntlet (Amethyst)"
+    	"DOTA_Tooltip_modifier_heavy_echo_extra_echo_Description"	"Next set of damage instances will perform an additional echo"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13591,17 +13604,6 @@
     	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_shadowflame_fist"						"Vacant Shade"
 		"property_shadowflame_fist_description"					"Mana is capped at <font color='#ccff66'>10</font>% of max. Base Ability Damage of @Ability2 is increased by <font color='#ccff66'>1200</font>%."
-		
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_heavy_echo_gauntlet"								"Heavy Echo Gauntlet"
-    	"item_rpc_heavy_echo_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_heavy_echo_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_heavy_echo_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_heavy_echo_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"All instances of Item Damage and Base Ability Damage strike the target an additional <font color='#ccff66'>2</font> times."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"

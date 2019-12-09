@@ -13330,7 +13330,7 @@
     	"item_rpc_heavy_echo_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_heavy_echo_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_heavy_echo"						"Reactive Grip"
-		"property_heavy_echo_description"				"Весь наносимый предметами урон, а так же базовый урон способностей наносится еще <font color='#ccff66'>2</font> раза."
+		"property_heavy_echo_description"				"Весь наносимый предметами урон, а так же базовый урон способностей наносится еще <font color='#ccff66'>1</font> раза."
 
 		"property_depth_demon_claw"												"Metamorphose"
 		"property_depth_demon_claw_Description"									"All Elemental damage has its secondary element converted into <font color=\"#5B648C\">Demon</font> damage."
