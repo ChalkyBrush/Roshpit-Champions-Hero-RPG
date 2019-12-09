@@ -3716,7 +3716,7 @@ function chest_transforming_think(event)
 			Events:AdjustDeathXP(wozxak)
 			wozxak:SetModelScale(2.4)
 		elseif code == 17 then
-			RPCItems:RollHandOfMidas(position)
+			RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_hand_of_midas")
 		end
 		caster:RemoveModifierByName("modifier_chest_transforming")
 		Timers:CreateTimer(0.05, function()

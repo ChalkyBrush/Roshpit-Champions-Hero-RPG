@@ -315,6 +315,16 @@
     	"item_rpc_halcyon_soul_glove_sapphire1"								"Increases All Attributes by @sapphire_property1"
     	"item_rpc_halcyon_soul_glove_amethyst1"								"Increases all T1 and T2 runes by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
+
+		"item_property_hand_of_midas"				"Midas Touch"
+		"property_hand_of_midas_description"		"<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% chance on atack to deal <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>% of your attack damage in a <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %> radius area around the target and turn them all to solid gold, freezing for <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> seconds. Max 1 freeze every <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> seconds."
+
+    	"item_rpc_hand_of_midas_ruby1"									"Increases Midas Touch proc chance by @ruby_property1%"
+    	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
+    	"item_rpc_hand_of_midas_sapphire1"									"Increases Midas Touch radius by @sapphire_property1 and damage by @sapphire_property2"
+    	"item_rpc_hand_of_midas_amethyst1"									"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -374,15 +384,6 @@
 		"property_marauder_description"				"Your Physical damage ignores enemies' positive Armor."
 		"DOTA_Tooltip_modifier_hand_marauder_effect" 			"Marauder"
 		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "You shouldn't be seeing this in the course of normal gameplay"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
-    	"item_rpc_hand_of_midas_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_hand_of_midas_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_hand_of_midas_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_hand_of_midas_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% chance on atack to deal <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x your attack damage as Pure in an <% ITEM_RPC_HAND_OF_MIDAS_RADIUS %> radius area around the target and turn all enemies to solid gold, freezing them for <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %> seconds. Max 1 freeze every <% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %> seconds."
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"

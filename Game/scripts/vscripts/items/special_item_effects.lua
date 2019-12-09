@@ -78,26 +78,31 @@ function midas_attack_land(event)
 	local runeUnit = event.caster
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, ITEM_RPC_HAND_OF_MIDAS_CHANCE)
+	local proc_chance = ITEM_RPC_HAND_OF_MIDAS_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HAND_OF_MIDAS_GEM_RUBY)
+	local proc = Filters:GetProc(caster, proc_chance)
 	if proc then
 		local position = target:GetAbsOrigin()
-		local radius = ITEM_RPC_HAND_OF_MIDAS_RADIUS
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT
+		local freeze_duration = ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_HAND_OF_MIDAS_GEM_EMERALD)
+		local radius = ITEM_RPC_HAND_OF_MIDAS_RADIUS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE1)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT/100) + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HAND_OF_MIDAS_GEM_SAPPHIRE2)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 				if not enemy:HasModifier("modifier_midas_freeze_immune") then
-					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION})
+					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze", {duration = freeze_duration})
 					ability:ApplyDataDrivenModifier(runeUnit, enemy, "modifier_midas_freeze_immune", {duration = ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD})
 				end
 			end
 		end
 		local particleName = "particles/econ/items/luna/luna_lucent_ti5_gold/luna_lucent_beam_impact_ti_5_gold.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
+		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 4, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 5, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(pfx, false)
