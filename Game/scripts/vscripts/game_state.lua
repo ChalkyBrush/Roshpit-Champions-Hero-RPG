@@ -2179,6 +2179,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_power_ranger") then
 			mult = mult + ITEM_RPC_POWER_RANGER_GLOVES_PHYS_POST_MITI/100
 		end
+
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_alarana_ice_freeze") then
@@ -2728,7 +2729,14 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 		end
 	end
-
+	if victim:HasModifier("modifier_ironbound_gloves") and applyEffects and damagetype == DAMAGE_TYPE_PHYSICAL then
+		local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_IRONBOUND_GLOVES_GEM_EMERALD))
+		if proc then
+			print("BLOCK:"..filterTable["damage"])
+			PopupDamageBlock2(victim, math.floor(filterTable["damage"]))
+			damage = 0
+		end
+	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			victim:Heal(filterTable["damage"], victim)

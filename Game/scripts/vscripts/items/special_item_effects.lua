@@ -3173,7 +3173,8 @@ function ironbound_think(event)
 	local target = event.target
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ironbound_effect", {})
-	target:SetModifierStackCount("modifier_ironbound_effect", ability, target:GetPhysicalArmorValue(false))
+	local atk_dmg_stacks = target:GetRoshpitArmor()*ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR
+	target:SetModifierStackCount("modifier_ironbound_effect", ability, atk_dmg_stacks)
 end
 
 function mordiggus_attack(event)

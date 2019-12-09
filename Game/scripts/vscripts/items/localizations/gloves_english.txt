@@ -338,6 +338,25 @@
     	"DOTA_Tooltip_modifier_heavy_echo_extra_echo"	"Echo Gauntlet (Amethyst)"
     	"DOTA_Tooltip_modifier_heavy_echo_extra_echo_Description"	"Next set of damage instances will perform an additional echo"
 
+    	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
+
+		"item_property_ironbound_gloves"					"Ironfist"
+		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor. Reduces Attack Speed by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACKSPEED_LOSS %>."
+
+    	"item_rpc_ironbound_gloves_ruby1"								"Increases all <font color=\"#DDDDDD\">Normal</font> damage by @ruby_property1%"
+    	"item_rpc_ironbound_gloves_emerald1"								"@emerald_property1% chance to fully block physical damage"
+    	"item_rpc_ironbound_gloves_sapphire1"								"Agility, Intelligence and Spirit increase Armor by @sapphire_property1"
+    	"item_rpc_ironbound_gloves_amethyst1"								"Each point of Strength increases Armor Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
+		"item_property_proud_gloves"										"Kaleidoscope"
+		"property_proud_gloves_description"									"<RAINBOW>Your basic attacks become Magical and have a random Element.</RAINBOW>"
+
+    	"item_rpc_kappa_pride_gloves_ruby1"								"Increases all Elemental Damage by @ruby_property1%"
+    	"item_rpc_kappa_pride_gloves_emerald1"								"Dealing an instances of Elemental Damage has a @emerald_property1% chance to apply a buff that makes your next attack have that same element"
+    	"item_rpc_kappa_pride_gloves_sapphire1"								"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_CHANCE %>% chance on attack to gain a fabulous buff that increases attack speed by @sapphire_property1 and attack damage by @sapphir_property2% for <% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION %> seconds"
+    	"item_rpc_kappa_pride_gloves_amethyst1"								"@amethyst_property1% chance for your attack's element to be your element with the highest elemental damage"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -375,16 +394,6 @@
     	"item_rpc_scorched_gauntlets_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% of your attack power + <% ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR %> seconds, and creating another fire zone."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
-    	"item_rpc_kappa_pride_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_kappa_pride_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_kappa_pride_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_kappa_pride_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves_Description"					"Slot: Hands"
-		"item_property_proud_gloves"										"<RAINBOW>Prismatic Pride</RAINBOW>"//a.k.a. queer hands for the straight man
-		"property_proud_gloves_description"									"<RAINBOW>The element of your autoattack is changed from Normal to match your single highest elemental damage bonus, and it now deals Magical damage instead of Physical. Additionally, those damage instances are multiplied by your Item Damage bonus, but are not considered instances of Item Damage.</RAINBOW>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
@@ -500,14 +509,6 @@
 		"item_property_mordiggus"							"Blood Bane"
 		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
-    	"item_rpc_ironbound_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_ironbound_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_ironbound_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_ironbound_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_ironbound_gloves"					"Ironfist"
-		"property_ironbound_gloves_description"				"Your base attack damage is increased by <% ITEM_RPC_IRONBOUND_GLOVES_ATTACK_PER_ARMOR %>x your total Armor."
 
 		 
 		 

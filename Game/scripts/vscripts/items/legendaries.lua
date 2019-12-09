@@ -649,27 +649,6 @@ function RPCItems:RollMordiggusGauntlet(item_level)
     return item
 end
 
-function RPCItems:RollIronboundGloves(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_ironbound_gloves", "immortal", "Ironbound Gloves", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "ironbound"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ironbound_gloves", "#CFD2D4", 1, "#property_ironbound_gloves_description")
-
-    local maxFactor = RPCItems:GetMaxFactor()
-    local value = RandomInt(maxFactor * 2, maxFactor * 4) * GameState:GetDifficultyFactor()
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_armor", "#D1D1D1", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollShadowflameFist(item_level)
     local item = RPCItems:CreateVariant("item_rpc_shadowflame_fist", "immortal", "Shadowflame Fist", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4731,6 +4710,26 @@ function RPCItems:RollHeavyEchoGauntlet(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollIronboundGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ironbound_gloves", "immortal", "Ironbound Gloves", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_ironbound_gloves"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ironbound_gloves", "#CFD2D4", 1, "#property_ironbound_gloves_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
@@ -8799,7 +8798,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
         "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder",
-        "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet"}
+        "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves"}
     end
     return itemsList
 end

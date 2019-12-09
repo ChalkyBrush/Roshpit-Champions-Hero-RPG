@@ -1031,7 +1031,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
 	end
-
+	if unit:HasModifier("modifier_ironbound_gloves") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_IRONBOUND_GLOVES_GEM_SAPPHIRE)*(unit:GetAgility() + unit:GetIntellect() + unit:GetSpirit())
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1830,6 +1832,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
 		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
 		armor_pierce_modify = armor_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_ironbound_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRONBOUND_GLOVES_GEM_AMETHYST)*(unit:GetStrength())
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
