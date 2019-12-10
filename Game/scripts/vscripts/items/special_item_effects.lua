@@ -725,8 +725,23 @@ function living_gauntlet_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetMana() <= target:GetMaxMana() * ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD/100 then
+	local mana_threshold_pct = ITEM_RPC_LIVING_GAUNTLET_MANA_THRESHOLD/100 + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE1)/100
+	local health_threshold_special = false
+	if ability:GetGemValue("ruby") > 0 then
+		if target:GetHealth() < target:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_LIVING_GAUNTLET_GEM_RUBY)/100) then
+			health_threshold_special = true
+		end
+	end
+	if target:GetMana() <= target:GetMaxMana() * mana_threshold_pct or health_threshold_special then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_living_gauntlet_effect", {})
+		local health_regen_pct_total = ITEM_RPC_LIVING_GAUNTLET_HP_REGEN_PCT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_LIVING_GAUNTLET_GEM_EMERALD)
+		local health_regen_pct_stacks = health_regen_pct_total/0.1
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_living_gauntlet_pct_hp_regen", {})
+		target:SetModifierStackCount("modifier_living_gauntlet_pct_hp_regen", caster, health_regen_pct_stacks)
+		if ability:GetGemValue("amethyst") > 0 then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_living_gauntlet_hp_regen_flat", {})
+			target:SetModifierStackCount("modifier_living_gauntlet_hp_regen_flat", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST2))
+		end
 	else
 		target:RemoveModifierByName("modifier_living_gauntlet_effect")
 	end

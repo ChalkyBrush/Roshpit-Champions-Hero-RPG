@@ -1802,7 +1802,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
-		damage = damage * (100-ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION)/100
+		local damage_reduction = ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST1)
+		damage = damage * (100-damage_reduction)/100
 	end
 
 	if victim:HasModifier("modifier_red_october_boots") then

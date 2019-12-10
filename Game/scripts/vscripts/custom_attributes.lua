@@ -1034,6 +1034,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_ironbound_gloves") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_IRONBOUND_GLOVES_GEM_SAPPHIRE)*(unit:GetAgility() + unit:GetIntellect() + unit:GetSpirit())
 	end
+	if unit:HasModifier("modifier_living_gauntlet_effect") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
+	end
+
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1560,6 +1564,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_grasp_of_elder") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRASP_OF_ELDER_GEM_EMERALD)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_living_gauntlet_effect") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE

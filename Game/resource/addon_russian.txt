@@ -13024,9 +13024,9 @@
     	"item_rpc_living_gauntlet_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_living_gauntlet_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_living_gauntlet"				"Nourishment"
-		"property_living_gauntlet_description"		"Когда запас маны опускается ниже <font color='#ccff66'>25</font>% от максимума, весь получаемый героем урон сокращается на <font color='#ccff66'>50</font>%, а регенерация здоровья увеличивается на <font color='#ccff66'>1</font>% от максимума."
+		"property_living_gauntlet_description"		"Когда запас маны опускается ниже <font color='#ccff66'>25</font>% от максимума, весь получаемый героем урон сокращается на <font color='#ccff66'>40</font>%, а регенерация здоровья увеличивается на <font color='#ccff66'>3</font>% от максимума."
 		"DOTA_Tooltip_modifier_living_gauntlet_effect"	"Nourishment"
-		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на <font color='#ccff66'>50</font>%%, регенерация здоровья увеличена на <font color='#ccff66'>1</font>%%."
+		"DOTA_Tooltip_modifier_living_gauntlet_effect_Description"	"Весь получаемый урон сокращается на <font color='#ccff66'>40</font>%%, регенерация здоровья увеличена на <font color='#ccff66'>3</font>%%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
