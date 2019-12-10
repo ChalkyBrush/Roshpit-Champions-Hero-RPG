@@ -373,6 +373,11 @@
     	"item_rpc_living_gauntlet_sapphire1"									"Increases Nourishment's Mana threshold by @sapphire_property1% and Nourishment increases Armor and Magic Armor by @sapphire_property2"
     	"item_rpc_living_gauntlet_amethyst1"									"Increases Nourishment's damage reduction by @amethyst_property1% and Nourishment has a flat Health Regen component of @amethyst_property2"
 
+		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
+		"item_rpc_magebane_gloves_ruby1"									"Increases all T1 runes by @ruby_property1"
+		"item_rpc_magebane_gloves_emerald1"									"Increases all T2 runes by @emerald_property1"
+		"item_rpc_magebane_gloves_sapphire1"									"Increases all T1 runes by @sapphire_property1"
+		"item_rpc_magebane_gloves_amethyst1"									"Increases all T2 runes by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -384,15 +389,6 @@
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"
-
-
-		"DOTA_Tooltip_ability_item_rpc_magebane_gloves"									"Magebane Gloves"
-		"item_rpc_magebane_gloves_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_magebane_gloves_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_magebane_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_magebane_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_magebane_gloves_Description"						"Slot: Hands"
-		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
     	"item_rpc_shadow_armlet_ruby1"									"blah blah @ruby_property1 gem"

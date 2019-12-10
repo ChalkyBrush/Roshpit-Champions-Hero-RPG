@@ -301,28 +301,6 @@ function RPCItems:RollBadgeOfHonor(hero)
     RPCItems:GiveItemToHero(hero, item)
 end
 
-function RPCItems:RollMageBaneGloves(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_magebane_gloves", "immortal", "Magebane Gloves", "hands", true, "Slot: Hands")
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 2)
-    item.newItemTable.property1 = value
-    item.newItemTable.property1name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 2)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollMagebaneRuneProperty()
     local luck = RandomInt(0, 905)
     local luck2 = RandomInt(1, 100)
@@ -4752,6 +4730,27 @@ function RPCItems:RollLivingGauntlet(item_level)
     return item
 end
 
+function RPCItems:RollMageBaneGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_magebane_gloves", "immortal", "Magebane Gloves", "hands", true, "Slot: Hands")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 2)
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8814,7 +8813,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_GLOVES then
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
         "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder",
-        "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_kappa_pride_gloves", "item_rpc_living_gauntlet"}
+        "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_kappa_pride_gloves", "item_rpc_living_gauntlet",
+        "item_rpc_magebane_gloves"}
     end
     return itemsList
 end
