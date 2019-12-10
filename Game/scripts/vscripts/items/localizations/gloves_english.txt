@@ -398,6 +398,16 @@
     	"item_rpc_marauder_gloves_sapphire1"									"Your physical damage ignores @sapphire_property1% of enemies' armor"
     	"item_rpc_marauder_gloves_amethyst1"									"Increaeses Movement Speed and Attack Speed by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
+
+		"item_property_master_gloves"				"Master's Teachings"
+		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% ITEM_RPC_MASTER_GLOVES_BAD %>%"
+
+    	"item_rpc_master_gloves_ruby1"									"Increases Rune [R1] by @ruby_property1"
+    	"item_rpc_master_gloves_emerald1"									"Increases Rune [R3] by @emerald_property1"
+    	"item_rpc_master_gloves_sapphire1"									"Increases Rune [R2] by @sapphire_property1"
+    	"item_rpc_master_gloves_amethyst1"									"Increases Rune [R4] by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -438,18 +448,7 @@
     	"item_rpc_scarecrow_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_scarecrow"					"Replenishing Mind"
 		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% ITEM_RPC_SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
-    	"item_rpc_master_gloves_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_master_gloves_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_master_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_master_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_master_gloves"				"Master's Teachings"
-		"property_master_gloves_description"		"Base Ability Damage of @Ability4 increased by <% ITEM_RPC_MASTER_GLOVES_BAD %>%"
-		
-		
+			
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
     	"item_rpc_phoenix_gloves_ruby1"									"blah blah @ruby_property1 gem"
     	"item_rpc_phoenix_gloves_emerald1"									"blah blah @emerald_property1 gem"
