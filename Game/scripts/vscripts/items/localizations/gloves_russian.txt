@@ -191,12 +191,14 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
-    	"item_rpc_mountain_vambraces_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_mountain_vambraces_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_mountain_vambraces_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Ваши атаки с <% ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE %>% шансом оглушат противников в небольшой зоне действия на <% ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION %> секунды и нанесут магический урон в размере <% ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>х вашей Силы.<br>Весь урон, напрямую наносимый предметами увеличен на <% ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR %>% за каждые <% ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR %> очков Силы."
+		"property_mountain_vambraces_description"	"Your attacks have a <% ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE %>% chance to stun enemies in a <% ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_RADIUS %> area around the target for <% ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION %> seconds, dealing <% ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR %>x your Strength as Physical Damage."
+
+		"item_rpc_mountain_vambraces_ruby1"									"Increases Strength by @ruby_property1 and Item Damage by @ruby_property2%"
+    	"item_rpc_mountain_vambraces_emerald1"								"Increases Craggy Shock damage by @emerald_property1 and the proc chance on attack by an additional @emerald_property2%"
+    	"item_rpc_mountain_vambraces_sapphire1"								"When an enemy damages you, they are hit with a Craggy Shock. @sapphire_property1 second cooldown per enemy"
+    	"item_rpc_mountain_vambraces_amethyst1"								"Enemies hit by [Q] have a @amethyst_property1% chance to trigger a Craggy Shock, and Craggy Shock damage is increased by @amethyst_property2x spirit"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cytopian_laser_glove"							"Cytopian Laser Glove"

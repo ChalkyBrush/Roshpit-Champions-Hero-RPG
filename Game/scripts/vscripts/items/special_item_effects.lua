@@ -1813,28 +1813,25 @@ function mountain_vambrace_attack(event)
 	local caster = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local proc = Filters:GetProc(caster, ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE)
+	local chance = ITEM_RPC_MOUNTAIN_VAMBRACES_CHANCE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD2)
+	local proc = Filters:GetProc(caster, chance)
 	if proc then
-		EmitSoundOn("Hero_Sven.StormBoltImpact", target)
-		local radius = ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_RADIUS
-		local damage = caster:GetStrength() * ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		if #enemies > 0 then
-			for _, enemy in pairs(enemies) do
-				Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
-				Filters:ApplyStun(caster, ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION, enemy)
+		Filters:MountainVambrace(caster, target, ability)
+	end
+end
+
+function mountain_vambrace_take_damage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local attacker = event.attacker
+	if IsValidEntity(attacker) and attacker:IsAlive() then
+		if ability:GetGemValue("sapphire") > 0 then
+			if not attacker:HasModifier("modifier_mountain_vambrace_immunity") then
+				Filters:MountainVambrace(hero, attacker, ability)
+				ability:ApplyDataDrivenModifier(caster, attacker, "modifier_mountain_vambrace_immunity", {duration = ability:GetGemValue("sapphire", ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_SAPPHIRE)})
 			end
 		end
-		local particleName = "particles/units/heroes/hero_sven/mountain_vambraces_storm_bolt_projectile_explosion.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-		Timers:CreateTimer(1.5, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
-
 	end
 end
 

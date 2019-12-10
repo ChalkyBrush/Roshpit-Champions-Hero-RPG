@@ -13461,6 +13461,17 @@
     	"item_rpc_mordiggus_gauntlet_sapphire1"								"Restore mana equal to @sapphire_property1% of health drained by Blood Bane"
     	"item_rpc_mordiggus_gauntlet_amethyst1"								"Health drain from Blood Bane can't reduce health below @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
+
+		"item_property_mountain_vambraces"			"Craggy Shock"
+		"property_mountain_vambraces_description"	"Your attacks have a <font color='#ccff66'>15</font>% chance to stun enemies in a <font color='#ccff66'>290</font> area around the target for <font color='#ccff66'>2</font> seconds, dealing <font color='#ccff66'>4</font>x your Strength as Physical Damage."
+
+		"item_rpc_mountain_vambraces_ruby1"									"Increases Strength by @ruby_property1 and Item Damage by @ruby_property2%"
+    	"item_rpc_mountain_vambraces_emerald1"								"Increases Craggy Shock damage by @emerald_property1 and the proc chance on attack by an additional @emerald_property2%"
+    	"item_rpc_mountain_vambraces_sapphire1"								"When an enemy damages you, they are hit with a Craggy Shock. @sapphire_property1 second cooldown per enemy"
+    	"item_rpc_mountain_vambraces_amethyst1"								"Enemies hit by [Q] have a @amethyst_property1% chance to trigger a Craggy Shock, and Craggy Shock damage is increased by @amethyst_property2x spirit"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13523,14 +13534,6 @@
 		
 	
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mountain_vambraces"								"Mountain Vambraces"
-    	"item_rpc_mountain_vambraces_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_mountain_vambraces_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_mountain_vambraces_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_mountain_vambraces_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_mountain_vambraces"			"Craggy Shock"
-		"property_mountain_vambraces_description"	"Your attacks have a <font color='#ccff66'>15</font>% chance to stun enemies in a small area around the target for <font color='#ccff66'>2</font> seconds, dealing <font color='#ccff66'>1500</font>x your Strength as Magical damage.<br>All damage dealt directly by items is increased by <font color='#ccff66'>0.3</font>% for each <font color='#ccff66'>10</font> points of Strength."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"

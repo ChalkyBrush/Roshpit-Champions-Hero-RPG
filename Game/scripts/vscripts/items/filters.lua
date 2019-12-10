@@ -173,9 +173,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         mult = mult + ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_DIVISOR)
     end
-    if caster:HasModifier("modifier_mountain_vambraces") then
-        mult = mult + ITEM_RPC_MOUNTAIN_VAMBRACES_ITEM_AMP_PER_STR/100 * (caster:GetStrength() / ITEM_RPC_MOUNTAIN_VAMBRACES_STR_DIVISOR)
-    end
     if caster:HasModifier("modifier_grand_arcanist") then
         mult = mult + (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD)/100) * caster:GetIntellect()
     end
@@ -1891,6 +1888,13 @@ function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
     end
     if attacker:HasModifier("modifier_armor_of_violet_guard") then
         Filters:VioletGuardArmorHit(victim, attacker, damage)
+    end
+    if attacker:HasModifier("modifier_mountain_vambraces") then
+        local vambrace = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+        local proc = Filters:GetProc(attacker, vambrace:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST1))
+        if proc then
+            Filters:MountainVambrace(attacker, victim, vambrace)
+        end
     end
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 0)
 end
@@ -5699,4 +5703,26 @@ function Filters:MordiggusEvent(hero, event_type)
             PopupMana(hero, manaRestore)        
         end
     end
+end
+
+function Filters:MountainVambrace(hero, target, ability)
+    EmitSoundOn("Hero_Sven.StormBoltImpact", target)
+    local radius = ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_RADIUS
+    local damage = hero:GetStrength() * ITEM_RPC_MOUNTAIN_VAMBRACES_DAMAGE_PER_STR + ability:GetGemValue("emerald", ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_EMERALD1) + ability:GetGemValue("amethyst", ITEM_RPC_MOUNTAIN_VAMBRACES_GEM_AMETHYST2)*hero:GetSpirit()
+    local enemies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    if #enemies > 0 then
+        for _, enemy in pairs(enemies) do
+            Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_EARTH)
+            Filters:ApplyStun(hero, ITEM_RPC_MOUNTAIN_VAMBRACES_STUN_DURATION, enemy)
+        end
+    end
+    local particleName = "particles/units/heroes/hero_sven/mountain_vambraces_storm_bolt_projectile_explosion.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+    ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
 end
