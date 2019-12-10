@@ -1862,6 +1862,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_marauder_gloves") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MARAUDER_GLOVES_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_mordiggus_gauntlet") then
+		armor_pierce_modify = armor_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2179,6 +2182,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
 		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
 		spell_pierce_modify = spell_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_mordiggus_gauntlet") then
+		spell_pierce_modify = spell_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

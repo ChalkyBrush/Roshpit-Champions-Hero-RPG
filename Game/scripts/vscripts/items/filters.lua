@@ -763,20 +763,7 @@ function Filters:CastSkillArguments(slot, caster)
         end
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
-        local beginningHealth = caster:GetHealth()
-        if beginningHealth > caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100 then
-            local newHealth = math.max(caster:GetHealth() - caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100, caster:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT / 100)
-            caster:SetHealth(newHealth)
-            CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", caster, 0.7)
-            if caster:HasModifier("modifier_wraith_hunters_steel_helm") then
-                local damageTaken = math.max(beginningHealth - newHealth, 1)
-                local eventTable = {}
-                eventTable.unit = caster
-                eventTable.attack_damage = damageTaken
-                eventTable.ability = caster.headItem
-                wraith_hunter_take_damage(eventTable)
-            end
-        end
+        Filters:MordiggusEvent(caster, "cast")
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
         local newStack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit) - 1
@@ -5675,6 +5662,41 @@ function Filters:GoldbreakerAbilityHit(caster, slot, target)
         if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
             local emerald_duration = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLDBREAKER_GAUNTLET_GEM_EMERALD1)
             caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_goldbreaker_effect", {duration = emerald_duration})
+        end
+    end
+end
+
+function Filters:MordiggusEvent(hero, event_type)
+    local mordiggus = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local beginningHealth = hero:GetHealth()
+    local minHealth = 1
+    local drain = 0
+    if event_type == "attack" then
+        drain = hero:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK / 100
+    elseif event_type == "cast" then
+        drain = hero:GetMaxHealth() * ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL / 100
+    end
+    if mordiggus:GetGemValue("emerald") > 0 then
+        drain = drain * (1 - mordiggus:GetFinalGemPropertyValue("emerald", ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_EMERALD)/100)
+    end
+
+    if mordiggus:GetGemValue("amethyst") > 0 then
+        minHealth = hero:GetMaxHealth() * (mordiggus:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_AMETHYST)/100)
+    end
+
+    local newHealth = math.max(hero:GetHealth() - drain, minHealth)
+    local actual_amount_drained = hero:GetHealth() - newHealth
+    if newHealth < hero:GetHealth() then
+        hero:SetHealth(newHealth)
+        CustomAbilities:QuickAttachParticle("particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodbath_eztzhok_ember.vpcf", hero, 0.7)
+    else
+        actual_amount_drained = 0
+    end
+    if mordiggus:GetGemValue("sapphire") > 0 then
+        local manaRestore = math.ceil(actual_amount_drained*(mordiggus:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MORDIGGUS_GAUNTLET_GEM_SAPPHIRE)/100))
+        if manaRestore > 0 then
+            hero:GiveMana(manaRestore)
+            PopupMana(hero, manaRestore)        
         end
     end
 end

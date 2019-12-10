@@ -279,12 +279,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"食尸鬼王臂章"
-    	"item_rpc_mordiggus_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mordiggus"							"血气灾星"
-		"property_mordiggus_description"					"增加所有税后伤害 <% ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% 根据每失去百分比的血量. 每次施法吸取 <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% 的最大生命值, 并且每次攻击吸取 <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% 的最大生命值. 生命值汲取效果不会使你的生命值低于最大生命值的 <% ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
+		"property_mordiggus_description"					"Each missing point of missing health increases Armor Pierce and Spell Pierce by <% ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING %>. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Self damage from Blood Bane cannot be lethal."
+
+    	"item_rpc_mordiggus_gauntlet_ruby1"								"Increases Max Health by @ruby_property1"
+    	"item_rpc_mordiggus_gauntlet_emerald1"								"Reduce all HP lost from Blood Bane by @emerald_property1%"
+    	"item_rpc_mordiggus_gauntlet_sapphire1"								"Restore mana equal to @sapphire_property1% of health drained by Blood Bane"
+    	"item_rpc_mordiggus_gauntlet_amethyst1"								"Health drain from Blood Bane can't reduce health below @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"钢铁手套"

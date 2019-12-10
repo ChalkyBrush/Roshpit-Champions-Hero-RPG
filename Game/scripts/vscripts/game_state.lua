@@ -2249,9 +2249,6 @@ function GameState:FilterDamage(filterTable)
 	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
 		mult = mult + ITEM_RPC_ABLECORE_GREAVES_POST_MITI/100
 	end
-	if attacker:HasModifier("modifier_mordiggus_gauntlet") then
-		mult = mult + (1 - attacker:GetHealth() / attacker:GetMaxHealth()) * ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING
-	end
 
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
 		if victim:HasModifier("modifier_arkimus_immortal_weapon_3") then

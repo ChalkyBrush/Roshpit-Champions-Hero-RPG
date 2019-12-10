@@ -13166,12 +13166,14 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
-    	"item_rpc_mordiggus_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Увеличивает пост-резистный урон на <font color='#ccff66'>6</font>% за каждый отсутствующий процент здоровья. Произнесение заклинаний отнимает у героя <font color='#ccff66'>20</font>% здоровья от максимума, каждая атака отнимает у героя <font color='#ccff66'>7</font>% здоровья от максимума. Отнятие здоровья перестает работать, если здоровье героя ниже <font color='#ccff66'>30</font>%."
+		"property_mordiggus_description"					"Each missing point of missing health increases Armor Pierce and Spell Pierce by <font color='#ccff66'>0.15</font>. Each spell cast drains <font color='#ccff66'>15</font>% of max life, and each attack drains <font color='#ccff66'>5</font>% of max life. Self damage from Blood Bane cannot be lethal."
+
+    	"item_rpc_mordiggus_gauntlet_ruby1"								"Increases Max Health by @ruby_property1"
+    	"item_rpc_mordiggus_gauntlet_emerald1"								"Reduce all HP lost from Blood Bane by @emerald_property1%"
+    	"item_rpc_mordiggus_gauntlet_sapphire1"								"Restore mana equal to @sapphire_property1% of health drained by Blood Bane"
+    	"item_rpc_mordiggus_gauntlet_amethyst1"								"Health drain from Blood Bane can't reduce health below @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_ironbound_gloves"								"Ironbound Gloves"
