@@ -1037,6 +1037,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_living_gauntlet_effect") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
 	end
+	if unit:HasModifier("modifier_malachite_shade_bracer") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_RUBY)*unit:GetHealthRegen()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1567,6 +1570,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_living_gauntlet_effect") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_malachite_shade_bracer") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_SAPPHIRE)*(unit:GetBaseManaRegen() + unit:GetBonusManaRegen())
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE

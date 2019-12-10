@@ -3907,10 +3907,12 @@ function malachite_shade_bracer_think(event)
 	local target = event.target
 	local ability = event.ability
 
-	local regenStacks = math.ceil(target:GetAgility() * 0.15)
-	local damageStacks = target:GetHealthRegen() + target:GetBaseManaRegen() + target:GetBonusManaRegen ()
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_malachite_shade_regen", {})
-	target:SetModifierStackCount("modifier_malachite_shade_regen", caster, regenStacks)
+	local regenStacks = math.ceil(target:GetAgility() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_EMERALD)) + math.ceil(target:GetSpirit() * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_AMETHYST))
+	local damageStacks = (target:GetHealthRegen() + target:GetBaseManaRegen() + target:GetBonusManaRegen())*(ITEM_RPC_MALACHITE_SHADE_BRACER_BASE_ATTACK_FROM_HEALTH_AND_MANA_REGEN/100)
+	if regenStacks > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_malachite_shade_regen", {})
+		target:SetModifierStackCount("modifier_malachite_shade_regen", caster, regenStacks)
+	end
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_malachite_shade_damage", {})
 	target:SetModifierStackCount("modifier_malachite_shade_damage", caster, damageStacks)

@@ -13422,6 +13422,16 @@
 		"item_rpc_magebane_gloves_sapphire1"									"Increases all T1 runes by @sapphire_property1"
 		"item_rpc_magebane_gloves_amethyst1"									"Increases all T2 runes by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
+		"item_property_malachite_shade"						"Verdant Flow"
+		"property_malachite_shade_description"					"Base Attack damage is increased by <font color='#ccff66'>20</font>% of your health regen and mana regen."
+
+    	"item_rpc_malachite_shade_bracer_ruby1"							"Each point of Health Regen increases Armor by @ruby_property1"
+    	"item_rpc_malachite_shade_bracer_emerald1"							"Each point of Agility increases Mana regen and Health regen by @emerald_property1"
+    	"item_rpc_malachite_shade_bracer_sapphire1"							"Each point of Mana Regen increases Magic Armor by @sapphire_property1"
+    	"item_rpc_malachite_shade_bracer_amethyst1"							"Each point of Spirit increases Mana regen and Health regen by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13569,17 +13579,7 @@
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		
- 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"Malachite Shade Bracer"
-    	"item_rpc_malachite_shade_bracer_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_malachite_shade_bracer_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_malachite_shade_bracer_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_malachite_shade_bracer_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_malachite_shade"						"Verdant Flow"
-		 "property_malachite_shade_description"					"Mana regen and health regen are both increased by 15% of your Agility. Base Attack damage is increased by 100% of your health regen and mana regen."
-		 
-		 
+	 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
     	"item_rpc_skulldigger_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
     	"item_rpc_skulldigger_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
