@@ -524,30 +524,6 @@ function RPCItems:RollSilverspringGloves(item_level)
     return item
 end
 
-function RPCItems:RollMordiggusGauntlet(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_mordiggus_gauntlet", "immortal", "Mordiggus Gauntlet", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "mordiggus"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mordiggus", "#B84874", 1, "#property_mordiggus_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 340) * GameState:GetDifficultyFactor()
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_DEMON, 2.5, 1, 25, 3)
-    else
-        RPCItems:RollHandProperty3(item, 0)
-    end
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollShadowflameFist(item_level)
     local item = RPCItems:CreateVariant("item_rpc_shadowflame_fist", "immortal", "Shadowflame Fist", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4738,6 +4714,32 @@ function RPCItems:RollMasterGloves(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollMordiggusGauntlet(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_mordiggus_gauntlet", "immortal", "Mordiggus Gauntlet", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_mordiggus_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_mordiggus", "#B84874", 1, "#property_mordiggus_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 1.75)
+
+    local luck = RandomInt(1,3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_demon", 1.75)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8801,7 +8803,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
         "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder",
         "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_kappa_pride_gloves", "item_rpc_living_gauntlet",
-        "item_rpc_magebane_gloves", "item_rpc_malachite_shade_bracer", "item_rpc_marauder_gloves", "item_rpc_master_gloves"}
+        "item_rpc_magebane_gloves", "item_rpc_malachite_shade_bracer", "item_rpc_marauder_gloves", "item_rpc_master_gloves", "item_rpc_mordiggus_gauntlet"}
     end
     return itemsList
 end

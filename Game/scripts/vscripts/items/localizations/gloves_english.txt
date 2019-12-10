@@ -408,6 +408,16 @@
     	"item_rpc_master_gloves_sapphire1"									"Increases Rune [R2] by @sapphire_property1"
     	"item_rpc_master_gloves_amethyst1"									"Increases Rune [R4] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
+
+		"item_property_mordiggus"							"Blood Bane"
+		"property_mordiggus_description"					"Each missing point of missing health increases Armor Pierce and Spell Pierce by <% ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING %>. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Self damage from Blood Bane cannot be lethal."
+
+    	"item_rpc_mordiggus_gauntlet_ruby1"								"Increases Max Health by @ruby_property1"
+    	"item_rpc_mordiggus_gauntlet_emerald1"								"Reduce all HP lost from Blood Bane by @emerald_property1%"
+    	"item_rpc_mordiggus_gauntlet_sapphire1"								"Restore mana equal to @sapphire_property1% of health drained by Blood Bane"
+    	"item_rpc_mordiggus_gauntlet_amethyst1"								"Health drain from Blood Bane can't reduce health below @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -511,20 +521,7 @@
 		"property_royal_wrist_description"						"On taking damage, gain a stack of <% ITEM_RPC_ROYAL_WRISTGUARDS_BONUS_DMG_PCT %>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <% ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD %>% per stack, but all of these stacks are removed when casting it. Stacks up to <% ITEM_RPC_ROYAL_WRISTGUARDS_CHARGE_CAP %> times."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
-    	"item_rpc_mordiggus_gauntlet_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_mordiggus_gauntlet_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Increases all Post-Mitigation damage dealt by <% ITEM_RPC_MORDIGGUS_GAUNTLET_POSTMIT_PCT_PER_HP_PCT_MISSING %>% for each missing percent of health. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Health drain can't reduce health below <% ITEM_RPC_MORDIGGUS_GAUNTLET_MIN_HP_PCT %>%."
-		
 
-		 
-		 
-		 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
     	"item_rpc_spiritual_empowerment_glove_ruby1"						"blah blah @ruby_property1 gem"
     	"item_rpc_spiritual_empowerment_glove_emerald1"						"blah blah @emerald_property1 gem"
