@@ -2,6 +2,7 @@ LinkLuaModifier("modifier_super_ascendency_lua", "modifiers/modifier_super_ascen
 LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_silent_templar_sapphire", "modifiers/modifier_silent_templar_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_iron_colossus_lua", "modifiers/modifier_iron_colossus_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lua", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -8739,4 +8740,29 @@ function heavy_echo_attack_land(event)
 			end)
 		end
 	end
+end
+
+function kappa_pride_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_CHANCE)
+		if proc then
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_leshrac/leshrac_disco_tnt.vpcf", hero, 5)
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_kappa_pride_sapphire", {duration = ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION})
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_kappa_pride_sapphire_as", {duration = ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION})
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_kappa_pride_sapphire_atk_dmg_pct", {duration = ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION})
+			hero:SetModifierStackCount("modifier_kappa_pride_sapphire_as", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE1))
+			hero:SetModifierStackCount("modifier_kappa_pride_sapphire_atk_dmg_pct", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_SAPPHIRE2))
+		end
+	end
+end
+
+function kappa_pride_init(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	hero:AddNewModifier(hero, ability, "modifier_proud_gloves_lua", {})
 end

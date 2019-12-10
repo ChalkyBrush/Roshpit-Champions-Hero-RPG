@@ -1411,20 +1411,38 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             element1 = RPC_ELEMENT_HOLY
             damage_type = DAMAGE_TYPE_PURE
         end
-        if attacker:HasModifier("modifier_hand_proud_gloves") then
-            damage = Filters:AdjustItemDamage(attacker, damage, victim)
-            local highestElement = 1
-            local highestElementAmp = 100
-            local elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
-            for i,v in ipairs(elements) do
-                if v > highestElementAmp then
-                    highestElement = i
-                    highestElementAmp = v
+        if attacker:HasModifier("modifier_kappa_pride_gloves") then
+            local kappa_element = RandomInt(RPC_ELEMENT_FIRE, RPC_ELEMENT_DRAGON)
+            if attacker:HasModifier("modifier_kappa_pride_special_element") then
+                kappa_element = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES].force_element
+                attacker:RemoveModifierByName("modifier_kappa_pride_special_element")
+            end
+            if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("amethyst") > 0 then
+                local proc = Filters:GetProc(attacker, attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_AMETHYST))
+                if proc then
+                    local highestElement = 1
+                    local highestElementAmp = 0
+                    local elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
+                    for i,v in ipairs(elements) do
+                        if v > highestElementAmp then
+                            highestElement = i
+                            highestElementAmp = v
+                        end
+                    end
+                    kappa_element = highestElement
                 end
             end
-            element1 = highestElement
+            element1 = kappa_element
             element2 = RPC_ELEMENT_NONE
             damage_type = DAMAGE_TYPE_MAGICAL
+        end
+    else
+        if attacker:HasModifier("modifier_kappa_pride_gloves") and attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+            local proc = Filters:GetProc(attacker, attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_KAPPA_PRIDE_GLOVES_GEM_EMERALD))
+            if proc then
+                attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES].force_element = element1
+                attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_kappa_pride_special_element", {})
+            end
         end
     end
 
@@ -1438,7 +1456,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
     end
-
     if Util.BaseType:IsAbilityBaseType(slot) then
         Util.Modifier:SimpleEvent(attacker, 'GetRoshpitBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS }, { }, 
             function(result, data)

@@ -8867,3 +8867,67 @@ Env.LavaHit
         }
     }
 }
+
+"RPCItems.KappaPride.Attack"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/gyrocopter/art_barrage_fire.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.79000"  }
+                    "pitch_rand_min"    {   "value"     "-0.2000"  }
+                    "pitch_rand_max"    {   "value"     "0.20000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.KappaPride.Sapphire"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/leshrac/taunt_party_on.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.99000"  }
+                    "pitch_rand_min"    {   "value"     "-0.0000"  }
+                    "pitch_rand_max"    {   "value"     "0.00000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

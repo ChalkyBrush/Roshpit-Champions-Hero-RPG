@@ -353,9 +353,15 @@
 		"property_proud_gloves_description"									"<RAINBOW>Your basic attacks become Magical and have a random Element.</RAINBOW>"
 
     	"item_rpc_kappa_pride_gloves_ruby1"								"Increases all Elemental Damage by @ruby_property1%"
-    	"item_rpc_kappa_pride_gloves_emerald1"								"Dealing an instances of Elemental Damage has a @emerald_property1% chance to apply a buff that makes your next attack have that same element"
-    	"item_rpc_kappa_pride_gloves_sapphire1"								"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_CHANCE %>% chance on attack to gain a fabulous buff that increases attack speed by @sapphire_property1 and attack damage by @sapphir_property2% for <% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION %> seconds"
+    	"item_rpc_kappa_pride_gloves_emerald1"								"Dealing an instance of Elemental Damage that is not from a basic attack has a @emerald_property1% chance to apply a buff that makes your next attack have that same element"
+    	"item_rpc_kappa_pride_gloves_sapphire1"								"<% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_CHANCE %>% chance on attack to gain a fabulous buff that increases attack speed by @sapphire_property1 and attack damage by @sapphire_property2% for <% ITEM_RPC_KAPPA_PRIDE_GLOVES_SAPPHIRE_DURATION %> seconds"
     	"item_rpc_kappa_pride_gloves_amethyst1"								"@amethyst_property1% chance for your attack's element to be your element with the highest elemental damage"
+
+    	"DOTA_Tooltip_modifier_kappa_pride_special_element"					"Kaleidoscope (Emerald)"
+    	"DOTA_Tooltip_modifier_kappa_pride_special_element_Description"		"Your next attack will have the same element as the element that applied this buff"
+
+    	"DOTA_Tooltip_modifier_kappa_pride_sapphire"						"Kaleidoscope (Sapphire)"
+    	"DOTA_Tooltip_modifier_kappa_pride_sapphire_Description"			"A fantastic buff that increases attack speed and attack damage"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
