@@ -1080,7 +1080,8 @@ end
 function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage, ability_index)
 	local armor_pierce = attacker:GetRoshpitArmorPierce()
 	local spell_pierce = attacker:GetRoshpitSpellPierce()
-
+	local armor = victim:GetRoshpitArmor()
+	local magic_armor = victim:GetRoshpitMagicArmor()
 	-- SPECIFIC ADJUSTMENTS BELOW
 	-- if ability_index then
 	-- 	local ability = EntIndexToHScript(ability_index)
@@ -1097,11 +1098,20 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 	-- end
 
 	-- MAIN PART BELOW
+	local max_physical_mult = RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR
+	if attacker:HasModifier("modifier_marauder_gloves") then
+		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then 
+			max_physical_mult = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD)
+		end
+		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
+			armor = armor * (1 - (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MARAUDER_GLOVES_GEM_SAPPHIRE)/100))
+		end
+	end
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min((255 + armor_pierce)/(255 + victim:GetRoshpitArmor()), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+		local mult = math.min((255 + armor_pierce)/(255 + armor), max_physical_mult)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+		local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		return damage
@@ -1849,6 +1859,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_ironbound_gloves") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRONBOUND_GLOVES_GEM_AMETHYST)*(unit:GetStrength())
 	end
+	if unit:HasModifier("modifier_marauder_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MARAUDER_GLOVES_GEM_RUBY)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -1857,7 +1870,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce_modify = armor_pierce_modify + warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
 	end
 
-	-- FINAL STEP: HOOD OF BLACK MAGE
+	-- FINAL STEP: HOOD OF BLACK MAGE | HAND OF MARAUDER
+	if unit:HasModifier("modifier_marauder_gloves") then
+		armor_pierce_modify = armor_pierce_modify + (armor_pierce + armor_pierce_modify)*(ITEM_RPC_MARAUDER_GLOVES_ARMOR_PIERCE_PCT/100)
+	end
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		armor_pierce_modify = armor_pierce_modify - (armor_pierce + armor_pierce_modify)*(HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY/100)

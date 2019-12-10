@@ -388,6 +388,15 @@
     	"item_rpc_malachite_shade_bracer_sapphire1"							"Each point of Mana Regen increases Magic Armor by @sapphire_property1"
     	"item_rpc_malachite_shade_bracer_amethyst1"							"Each point of Spirit increases Mana regen and Health regen by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
+
+		"item_property_marauder"					"Hand of Marauder"
+		"property_marauder_description"				"Increases Armor Pierce by <% ITEM_RPC_MARAUDER_GLOVES_ARMOR_PIERCE_PCT %>%."
+
+    	"item_rpc_marauder_gloves_ruby1"									"Increase Armor Pierce by @ruby_property1x your Movement Speed"
+    	"item_rpc_marauder_gloves_emerald1"									"Your maximum physical damage multiplier when Armor Pierce exceeds armor is increased to @emerald_property1"
+    	"item_rpc_marauder_gloves_sapphire1"									"Your physical damage ignores @sapphire_property1% of enemies' armor"
+    	"item_rpc_marauder_gloves_amethyst1"									"Increaeses Movement Speed and Attack Speed by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -419,16 +428,7 @@
 		"property_scorched_gauntlet_description_2"	"<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% of your attack power + <% ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR %> seconds, and creating another fire zone."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
-    	"item_rpc_marauder_gloves_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_marauder_gloves_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_marauder_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_marauder_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_marauder_gloves_Description"						"Slot: Hands"
-		"item_property_marauder"					"Hand of Marauder"
-		"property_marauder_description"				"Your Physical damage ignores enemies' positive Armor."
-		"DOTA_Tooltip_modifier_hand_marauder_effect" 			"Marauder"
-		"DOTA_Tooltip_modifier_hand_marauder_effect_description" "You shouldn't be seeing this in the course of normal gameplay"
+
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"

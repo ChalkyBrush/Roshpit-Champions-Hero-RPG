@@ -2028,9 +2028,6 @@ function GameState:FilterDamage(filterTable)
 	local abs = math.abs
 	if filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		local armor = victim:GetRoshpitArmor()
-		if attacker:HasModifier("modifier_hand_marauder") and armor >= 0 then
-			armor = 0
-		end
 		if attacker:GetUnitName() == "paladin_disciple" then
 			local damage = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(attacker.paladin) * PALADIN_GLYPH_5_2_ATTACK_MULT)
 			filterTable["damage"] = damage
