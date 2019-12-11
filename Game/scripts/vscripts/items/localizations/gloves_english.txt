@@ -514,6 +514,17 @@
     	"item_rpc_skulldigger_gauntlet_sapphire1"							"Wraith Blasts deal @sapphire_property1% of their damage in the blast radius and Wraith Blast damage is increased by @sapphire_property2"
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"Landing an attack has a @amethyst_property1% chance to add an Exhumation stack, and each stack increases Base Attack Damage by @amehthyst_property2"
 
+
+    	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
+		 "item_property_spellfire"								"Spellfire"
+		 "property_spellfire_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
+
+    	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %> second delay"
+    	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"
+    	"item_rpc_spellfire_gloves_sapphire1"								"Increases all T3 runes by @sapphire_property1"
+    	"item_rpc_spellfire_gloves_amethyst1"								"[R] finishes channeling when there is still @amethyst_property1 seconds remaining"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -551,15 +562,6 @@
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
 		
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
-    	"item_rpc_spellfire_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_spellfire_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"

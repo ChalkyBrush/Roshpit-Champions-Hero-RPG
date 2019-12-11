@@ -5616,11 +5616,6 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"80"
-			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
@@ -5659,7 +5654,7 @@
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "<% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>"
 				}
 			}
 		}
