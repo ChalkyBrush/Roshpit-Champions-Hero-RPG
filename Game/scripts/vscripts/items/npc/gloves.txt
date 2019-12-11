@@ -73,7 +73,22 @@
 				{
 					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisibility_datadriven"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisibility_datadriven"
+						"Target" 		"TARGET"
+					}
+				}
 				"OnDestroy"
 				{
 					"FireSound"
