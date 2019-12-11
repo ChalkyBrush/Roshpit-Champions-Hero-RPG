@@ -3067,14 +3067,24 @@ function cascade_aura(event)
 end
 
 function royal_wristguard_take_damage(event)
-	local target = event.unit
 	local ability = event.ability
 	local caster = event.caster
+	local hero = caster.hero
+end
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_royal_wristguards_stack_effect", {duration = ITEM_RPC_ROYAL_WRISTGUARDS_STACK_DURATION})
-	local current_stack = target:GetModifierStackCount("modifier_royal_wristguards_stack_effect", ability)
-	local newStack = math.min(current_stack + 1, ITEM_RPC_ROYAL_WRISTGUARDS_CHARGE_CAP)
-	target:SetModifierStackCount("modifier_royal_wristguards_stack_effect", ability, newStack)
+function royal_wristguard_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+        local new_stacks = hero:GetModifierStackCount("modifier_royal_wristguards_stack_effect", hero.InventoryUnit) - ITEM_RPC_ROYAL_WRISTGUARDS_SAPPHIRE_STACK_LOSS
+        if new_stacks > 0 then
+            hero:SetModifierStackCount("modifier_royal_wristguards_stack_effect", hero.InventoryUnit, new_stacks)
+        else
+            hero:RemoveModifierByName("modifier_royal_wristguards_stack_effect")
+        end		
+	end
 end
 
 function old_wisdom_spell_cast(event)

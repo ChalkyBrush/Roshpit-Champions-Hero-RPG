@@ -13486,6 +13486,19 @@
     	"item_rpc_power_ranger_gloves_sapphire1"								"Increases Spell Pierce @sapphire_property1"
     	"item_rpc_power_ranger_gloves_amethyst1"								"Increases Magic Armor @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
+		"item_property_royal_wrist"								"Commanding Steel"
+		"property_royal_wrist_description"						"On taking damage, gain a stack of <font color='#ccff66'>5</font>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <font color='#ccff66'>20</font>% per stack, but all of these stacks are removed when casting it. Stacks up to <font color='#ccff66'>20</font> times."
+
+		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
+		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and [Q] ability damage."
+
+    	"item_rpc_royal_wristguards_ruby1"								"Increases max Commanding Steel stacks by @ruby_property1"
+    	"item_rpc_royal_wristguards_emerald1"								"Casting [Q] only removes @emerald_property1% of Commanding Steel stacks"
+    	"item_rpc_royal_wristguards_sapphire1"								"Each Commanding Steel stack adds @sapphire_property1 Base Attack Damage, but attacking removes <font color='#ccff66'>1</font> stack"
+    	"item_rpc_royal_wristguards_amethyst1"								"Each Commanding Steel stack increases Item Damage by @amethyst_property1%"
+
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -13549,16 +13562,6 @@
 		"property_silverspring_description"			"Your base attack damage is increased by x<font color='#ccff66'>10</font> of your health regen stat. Can't increase your base attack damage above 500 million."
 		
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_royal_wristguards"								"Royal Wristguards"		
-    	"item_rpc_royal_wristguards_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_royal_wristguards_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_royal_wristguards_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_royal_wristguards_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"On taking damage, gain a stack of <font color='#ccff66'>20</font>% bonus attack damage. Base Ability Damage of @Ability1 is increased by <font color='#ccff66'>20</font>% per stack, but all of these stacks are removed when casting it. Stacks up to <font color='#ccff66'>80</font> times."
-		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
-		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Increased attack and Q ability damage."
 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
     	"item_rpc_spiritual_empowerment_glove_ruby1"						"blah blah @ruby_property1 gem"

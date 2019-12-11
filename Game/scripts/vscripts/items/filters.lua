@@ -167,6 +167,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_auriun_glyph_2_1") then
         mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
     end
+    if caster:HasModifier("modifier_royal_wristguards_stack_effect") then
+        mult = mult + (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROYAL_WRISTGUARDS_GEM_AMETHYST)/100)*caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.InventoryUnit)
+    end
     if caster:HasModifier("modifier_excavators_focus_cap") then
         mult = mult + caster:GetBaseAbilityAmpForSlot("average_of_all_slots")/100
     end
@@ -935,13 +938,19 @@ function Filters:ApplyQskills(caster)
         Filters:ApplyFeronia(caster, BASE_ABILITY_Q, false)
     end
     if caster:HasModifier("modifier_royal_wristguards") then
-        local current_stack = caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.handItem)
-        local qAbility = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        qAbility.royalStacks = current_stack
-        if not caster:HasModifier("modifier_royal_wristguards_stack_effect") then
-            qAbility.royalStacks = 0
+        local current_stack = caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.InventoryUnit)
+        local stack_removal = current_stack
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+            stack_removal = current_stack * (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROYAL_WRISTGUARDS_GEM_EMERALD)/100)
         end
-        caster:RemoveModifierByName("modifier_royal_wristguards_stack_effect")
+        Timers:CreateTimer(0.1, function()
+            local new_stacks = caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.InventoryUnit) - stack_removal
+            if new_stacks > 0 then
+                caster:SetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.InventoryUnit, new_stacks)
+            else
+                caster:RemoveModifierByName("modifier_royal_wristguards_stack_effect")
+            end
+        end)
     end
     if caster:HasModifier("modifier_nightmare_rider") then
         Filters:NightmareRider(caster)
@@ -1654,12 +1663,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + SPIRIT_WARRIOR_IMMORTAL_WEAPON_1_Q_DAMAGE_AMP_PCT/100
         end
         if attacker:HasModifier("modifier_royal_wristguards_stack_effect") then
-            local qAbility = attacker:GetAbilityByIndex(DOTA_Q_SLOT)
-            local current_stack = qAbility.royalStacks
-            if not qAbility.royalStacks then
-                current_stack = 1
-            end
-            damageMult = damageMult + 0.2 * current_stack
+            local current_stack = attacker:GetModifierStackCount("modifier_royal_wristguards_stack_effect", attacker.InventoryUnit)
+            damageMult = damageMult + (ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD/100) * current_stack
         end
         damage = damage * (1 + damageMult)
         if not ignore_effects then
@@ -5730,4 +5735,19 @@ function Filters:MountainVambrace(hero, target, ability)
     Timers:CreateTimer(1.5, function()
         ParticleManager:DestroyParticle(pfx, false)
     end)
+end
+
+function Filters:RoyalWristguardTakeDamage(caster, hero, ability, damage)
+    if damage >= 1 then
+        ability:ApplyDataDrivenModifier(caster, hero, "modifier_royal_wristguards_stack_effect", {duration = ITEM_RPC_ROYAL_WRISTGUARDS_STACK_DURATION})
+        local current_stack = hero:GetModifierStackCount("modifier_royal_wristguards_stack_effect", hero.InventoryUnit)
+        local newStack = math.min(current_stack + 1, ITEM_RPC_ROYAL_WRISTGUARDS_CHARGE_CAP + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROYAL_WRISTGUARDS_GEM_RUBY))
+        hero:SetModifierStackCount("modifier_royal_wristguards_stack_effect", hero.InventoryUnit, newStack)
+
+        if ability:GetGemValue("sapphire") > 0 then
+            local damage_stacks = newStack * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROYAL_WRISTGUARDS_GEM_SAPPHIRE)
+            ability:ApplyDataDrivenModifier(caster, hero, "modifier_royal_wristguards_sapphire", {duration = ITEM_RPC_ROYAL_WRISTGUARDS_STACK_DURATION})
+            hero:SetModifierStackCount("modifier_royal_wristguards_sapphire", caster, damage_stacks)
+        end
+    end
 end

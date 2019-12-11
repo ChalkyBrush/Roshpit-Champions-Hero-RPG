@@ -13161,7 +13161,7 @@
     	"item_rpc_royal_wristguards_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_royal_wristguards_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_royal_wrist"								"Commanding Steel"
-		"property_royal_wrist_description"						"Каждый раз, получая урон, герой получает заряд. Каждый заряд увеличивает Бонусный Урон атаки героя на <font color='#ccff66'>20</font>%, Базовый Урон Способности (Q) @Ability1 на <font color='#ccff66'>20</font>%. Заряды накапливаются до <font color='#ccff66'>80</font> раз, но полностью теряются после прочтения (Q) @Ability1."
+		"property_royal_wrist_description"						"Каждый раз, получая урон, герой получает заряд. Каждый заряд увеличивает Бонусный Урон атаки героя на <font color='#ccff66'>5</font>%, Базовый Урон Способности (Q) @Ability1 на <font color='#ccff66'>20</font>%. Заряды накапливаются до <font color='#ccff66'>20</font> раз, но полностью теряются после прочтения (Q) @Ability1."
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect"	"Commanding Steel"
 		"DOTA_Tooltip_modifier_royal_wristguards_stack_effect_Description" "Основной урон и базовый урон умения Q увеличен."
 		
