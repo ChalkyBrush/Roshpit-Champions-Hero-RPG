@@ -484,6 +484,25 @@
     	"item_rpc_shadow_armlet_sapphire1"									"While invisible from Shadow Step, increase Health Regen by @sapphire_property1% of Max Health and increase the invisible duration by @sapphire_property2 seconds"
     	"item_rpc_shadow_armlet_amethyst1"									"Gain @amethyst_property1 Spell Pierce and Armor Pierce while invisible from Shadow Step"
 
+    	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
+		"item_property_shadowflame_fist"						"Vacant Shade"
+		"property_shadowflame_fist_description"					"Mana is capped at <% ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP %>% of max. Base Ability Damage of @Ability2 is increased by <% ITEM_RPC_SHADOWFLAME_FIST_W_BAD %>%."
+
+    	"item_rpc_shadowflame_fist_ruby1"								"blah blah @ruby_property1 gem"
+    	"item_rpc_shadowflame_fist_emerald1"								"blah blah @emerald_property1 gem"
+    	"item_rpc_shadowflame_fist_sapphire1"								"Mana is capped at @sapphire_property1% of max, and Base Ability Damage of [W] is increased by @sapphire_property2"
+    	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
+
+    	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
+
+		"item_property_silverspring_glove"			"Silverspring"
+		"property_silverspring_description"			"Your base attack damage is increased by <% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %>% of your health regen stat."
+
+    	"item_rpc_silverspring_gloves_ruby1"								"Each point of Agility increases Health Regen by @ruby_property1"
+    	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <% ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_RADIUS %> radius puddle of water that increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_amethyst1"								"Increases Health Regen by @amethyst_property1x your movement speed"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
@@ -509,16 +528,6 @@
 		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL %>x your Intelligence every <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second."
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
-    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your base attack damage is increased by x<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %> of your health regen stat. Can't increase your base attack damage above 500 million."
-		
 		
 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
@@ -551,15 +560,6 @@
     	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		 "item_property_spellfire"								"Spellfire"
 		 "property_spellfire_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
-    	"item_rpc_shadowflame_fist_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_shadowflame_fist_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at <% ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP %>% of max. Base Ability Damage of @Ability2 is increased by <% ITEM_RPC_SHADOWFLAME_FIST_W_BAD %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
