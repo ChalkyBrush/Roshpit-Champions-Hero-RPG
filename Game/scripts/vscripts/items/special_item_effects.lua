@@ -4895,11 +4895,89 @@ function blue_rain_attack_land(event)
 	end
 end
 
-function shadowflame_fist_think(event)
-	local target = event.target
-	if target:GetMana() > target:GetMaxMana() * ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP/100 then
-		target:SetMana(target:GetMaxMana() * ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP/100)
+function shadowflame_fist_think(event)	
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_shadowflame_fist_base_attack", {})
+		local attack_damage = (hero:GetMaxMana() - hero:GetMana()) * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SHADOWFLAME_FIST_GEM_EMERALD)
+		hero:SetModifierStackCount("modifier_shadowflame_fist_base_attack", caster, attack_damage)
 	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local cap_percentage = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE1)
+		if hero:GetMana() > hero:GetMaxMana() * cap_percentage/100 then
+			hero:SetMana(hero:GetMaxMana() * cap_percentage/100)
+		end
+	end
+end
+
+function shadowflame_fist_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if not ability.flames_table then
+		ability.flames_table = {}
+	end
+	local target = event.target
+
+	local max_flames = ITEM_RPC_SHADOWFLAME_FIST_MAX_FLAMES + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST1)
+	
+	local create_flame = true
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, 120, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #allies > 0 then
+		for _, ally in pairs(allies) do
+			if ally:HasModifier("modifier_shadowflame_thinker") then
+				create_flame = false
+			end
+		end
+	end
+	if create_flame then
+		local fireThinker = CreateUnitByName("npc_dummy_unit", target:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+		fireThinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+		fireThinker:SetDayTimeVisionRange(100)
+		fireThinker:SetNightTimeVisionRange(100)
+
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/items/shadowflame_fist.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, fireThinker:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
+		fireThinker.pfx = pfx
+		table.insert(ability.flames_table, fireThinker)	
+
+		ability:ApplyDataDrivenModifier(caster, fireThinker, "modifier_shadowflame_thinker", {duration = ITEM_RPC_SHADOWFLAME_FIST_ROOT_DURATION})
+		if #ability.flames_table > max_flames then
+			ability.flames_table[1]:RemoveModifierByName("modifier_shadowflame_thinker")
+		end
+		reindex_shadowflame_table(ability)
+	end
+end
+
+function reindex_shadowflame_table(ability)
+	local new_flame_table = {}
+	for i = 1, #ability.flames_table, 1 do
+		if ability.flames_table[i] and IsValidEntity(ability.flames_table[i]) and ability.flames_table[i]:HasModifier("modifier_shadowflame_thinker") then
+			table.insert(new_flame_table, ability.flames_table[i])
+		end
+	end
+	ability.flames_table = new_flame_table
+end
+
+function shadowflame_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+	reindex_shadowflame_table(ability)
+end
+
+function inside_shadowflame_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_SHADOWFLAME_FIST_ATK_DMG_PCT/100) + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST2)
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_FIRE)
 end
 
 function flamethrower_init(event)

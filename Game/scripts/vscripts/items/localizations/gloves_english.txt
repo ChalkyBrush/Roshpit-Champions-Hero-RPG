@@ -486,11 +486,11 @@
 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
 		"item_property_shadowflame_fist"						"Shadowflame"
-		"property_shadowflame_fist_description"					"Attacking an enemy creates a small flame beneath the enemy that roots them for <% ITEM_RPC_SHADOWFLAME_FIST_ROOT_DURATION %> seconds. Enemies standing in a Shadowflame take <% ITEM_RPC_SHADOWFLAME_FIST_ATK_DMG_PCT %>% of attack power every <% ITEM_RPC_SHADOWFLAME_FIST_DMG_INTERVAL %> seconds. Max <% ITEM_RPC_SHADOWFLAME_FIST_MAX_FLAMES %> concurrent flames."
+		"property_shadowflame_fist_description"					"Attacking an enemy creates a small flame beneath the enemy that lasts for <% ITEM_RPC_SHADOWFLAME_FIST_ROOT_DURATION %> seconds and immobilizes enemies who touch it. Enemies standing in a Shadowflame take <% ITEM_RPC_SHADOWFLAME_FIST_ATK_DMG_PCT %>% of attack power every <% ITEM_RPC_SHADOWFLAME_FIST_DMG_INTERVAL %> seconds. Max <% ITEM_RPC_SHADOWFLAME_FIST_MAX_FLAMES %> concurrent flames."
 
     	"item_rpc_shadowflame_fist_ruby1"								"Increases Base Ability and Item Damage by @ruby_property1% for each 1% of missing mana"
     	"item_rpc_shadowflame_fist_emerald1"								"Each point of Missing Mana increases Base Attack Damage by @emerald_property1"
-    	"item_rpc_shadowflame_fist_sapphire1"								"Mana is capped at @sapphire_property1% of max, and Base Ability Damage of [W] is increased by @sapphire_property2"
+    	"item_rpc_shadowflame_fist_sapphire1"								"Mana is capped at @sapphire_property1% of max, and Base Ability Damage of [W] is increased by @sapphire_property2%"
     	"item_rpc_shadowflame_fist_amethyst1"								"Increases the maximum number of concurrent flames by @amethyst_property1 and the interval damage is increased by @amethyst_property2"
 
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
@@ -558,7 +558,7 @@
 		"item_rpc_stormcloth_bracer_ruby1"								"Reduces Stormbolt cooldown by @ruby_property1 seconds"
 		"item_rpc_stormcloth_bracer_emerald1"								"Enemies stunned by Stormbolt also take damage based on @emerald_property1% of attack power"
 		"item_rpc_stormcloth_bracer_sapphire1"								"When landing from Stormbolt, gain @sapphire_property1% increased Attack Power for <% ITEM_RPC_STORMCLOTH_BRACER_SAPPHIRE_DURATION %> seconds"
-		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage.
+		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage."
 
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 

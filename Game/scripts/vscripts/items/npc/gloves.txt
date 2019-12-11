@@ -107,17 +107,22 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/shadowflame_fist.vpcf"
+		}
+		"AbilityUnitTargetType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
+				"element_one"			"<% RPC_ELEMENT_SHADOW %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1200"
+				"element_two"			"<% RPC_ELEMENT_FIRE %>"
 			}
 			"03"
 			{
@@ -132,12 +137,22 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE1 %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST %>"
+				"sapphire2"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST1 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_SHADOWFLAME_FIST_GEM_AMETHYST2 %>"
 			}
 		}
 		"OnSpellStart"
@@ -165,6 +180,68 @@
 						"Function"		"shadowflame_fist_think"
 						"target"		"TARGET"
 					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_shadowflame_fist_base_attack"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"shadowflame_fist_attack_land"
+					}
+				}
+			}
+			"modifier_shadowflame_thinker"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_shadowflame_in_fire"
+				"Aura_Radius"   	"80"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"shadowflame_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_shadowflame_in_fire"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "<% ITEM_RPC_SHADOWFLAME_FIST_DMG_INTERVAL %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"inside_shadowflame_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_shadowflame_fist_base_attack"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 		}

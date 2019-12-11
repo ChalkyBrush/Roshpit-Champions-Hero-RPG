@@ -13520,98 +13520,98 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font>."
+		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font>. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
     	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=\"#7F4F84\">Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
     	"item_rpc_shadow_armlet_sapphire1"									"While invisible from Shadow Step, increase Health Regen by @sapphire_property1% of Max Health and increase the invisible duration by @sapphire_property2 seconds"
     	"item_rpc_shadow_armlet_amethyst1"									"Gain @amethyst_property1 Spell Pierce and Armor Pierce while invisible from Shadow Step"
 
+    	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
+		"item_property_shadowflame_fist"						"Shadowflame"
+		"property_shadowflame_fist_description"					"Attacking an enemy creates a small flame beneath the enemy that lasts for <font color='#ccff66'>6</font> seconds and immobilizes enemies who touch it. Enemies standing in a Shadowflame take <font color='#ccff66'>20</font>% of attack power every <font color='#ccff66'>0.5</font> seconds. Max <font color='#ccff66'>7</font> concurrent flames."
+
+    	"item_rpc_shadowflame_fist_ruby1"								"Increases Base Ability and Item Damage by @ruby_property1% for each 1% of missing mana"
+    	"item_rpc_shadowflame_fist_emerald1"								"Each point of Missing Mana increases Base Attack Damage by @emerald_property1"
+    	"item_rpc_shadowflame_fist_sapphire1"								"Mana is capped at @sapphire_property1% of max, and Base Ability Damage of [W] is increased by @sapphire_property2%"
+    	"item_rpc_shadowflame_fist_amethyst1"								"Increases the maximum number of concurrent flames by @amethyst_property1 and the interval damage is increased by @amethyst_property2"
+
+    	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
+
+		"item_property_silverspring_glove"			"Silverspring"
+		"property_silverspring_description"			"Doubles your health regen"
+
+    	"item_rpc_silverspring_gloves_ruby1"								"Increases Health Regen by @ruby_property1x your current Movement Speed"
+    	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <font color='#ccff66'>0</font> radius puddle of water that increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_amethyst1"								"Each point of Health Regen increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
+
+		"item_property_skulldigger"						"Exhumation"
+		"property_skulldigger_description"					"Gain Exhumation stacks each <font color='#ccff66'>1.2</font> seconds. When attacked, launch a Wraith Blast at the target that deals <font color='#ccff66'>75</font>% of your attack damage on impact and stuns enemies in a <font color='#ccff66'>0</font> radius for <font color='#ccff66'>0.9</font> seconds. Max <font color='#ccff66'>9</font> stacks."
+		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
+		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraith Blast at the attacker"
+    	"item_rpc_skulldigger_gauntlet_ruby1"							"Increase Max Exhumation stacks by @ruby_property1"
+    	"item_rpc_skulldigger_gauntlet_emerald1"							"Automatically emit a Wraith Blast at a random target within <font color='#ccff66'>0</font> every @emerald_property1 seconds"
+    	"item_rpc_skulldigger_gauntlet_sapphire1"							"Wraith Blasts deal @sapphire_property1% of their damage in the blast radius and Wraith Blast damage is increased by @sapphire_property2"
+    	"item_rpc_skulldigger_gauntlet_amethyst1"							"Landing an attack has a @amethyst_property1% chance to add an Exhumation stack, and each stack increases Base Attack Damage by @amehthyst_property2"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
+		 "item_property_spellfire"								"Spellfire"
+		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>80</font>%."
+
+    	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <font color='#ccff66'>0</font> second delay"
+    	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"
+    	"item_rpc_spellfire_gloves_sapphire1"								"Increases all T3 runes by @sapphire_property1"
+    	"item_rpc_spellfire_gloves_amethyst1"								"[R] finishes channeling when there is still @amethyst_property1 seconds remaining"
+
+    	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
+
+		"item_property_spirit_glove"				"Spirit Touch" 
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <font color='#ccff66'>7</font>x your Spirit every <font color='#ccff66'>1</font> second for <font color='#ccff66'>12</font> seconds."
+		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <font color='#ccff66'>1</font> second."
+
+    	"item_rpc_spirit_glove_ruby1"									"Casting [E] applies a @ruby_property1 second Spirit Touch, and the heal is increased by @ruby_property2"
+    	"item_rpc_spirit_glove_emerald1"									"Each point of Spirit increases Spell Pierce by @emerald_property1"
+    	"item_rpc_spirit_glove_sapphire1"									"Each heal from Spirit Touch increases attack damage by @sapphire_property1%, stacking up to <font color='#ccff66'>0</font> times"
+    	"item_rpc_spirit_glove_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Base Attack Damage by @amethyst_property2"
+
+    	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
+ 
+		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
+		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <font color='#ccff66'>10</font> stacks."
+		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
+		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
+
+   		"item_rpc_spiritual_empowerment_glove_ruby1"						"Each Spiritual Empowerment stack also increases Item Damage by @ruby_property1% and Attack Power by @ruby_property2%"
+    	"item_rpc_spiritual_empowerment_glove_emerald1"						"Increaes maximum Spiritual Empowerment stacks by @emerald_property1"
+    	"item_rpc_spiritual_empowerment_glove_sapphire1"						"Each Spiritual Empowerment stack increases Armor Pierce and Spell Pierce by @sapphire_property1"
+    	"item_rpc_spiritual_empowerment_glove_amethyst1"						"Each Spiritual Empowerment stack increases Spirit by @amethyst_property1, and there is a @amethyst_property2% chance when casting a spell to not consume a stack"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
-		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_stormcloth"					"Stormbolt"
 		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <font color='#ccff66'>900</font> radius for <font color='#ccff66'>1.5</font> seconds. This effect has a <font color='#ccff66'>6</font> second cooldown."
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"
-		
+		"item_rpc_stormcloth_bracer_ruby1"								"Reduces Stormbolt cooldown by @ruby_property1 seconds"
+		"item_rpc_stormcloth_bracer_emerald1"								"Enemies stunned by Stormbolt also take damage based on @emerald_property1% of attack power"
+		"item_rpc_stormcloth_bracer_sapphire1"								"When landing from Stormbolt, gain @sapphire_property1% increased Attack Power for <font color='#ccff66'>0</font> seconds"
+		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage."
 
-		
-		
-
-		
-    	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
-    	"item_rpc_spirit_glove_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_spirit_glove_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_spirit_glove_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_spirit_glove_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <font color='#ccff66'>7</font>x your Intelligence every <font color='#ccff66'>1</font> second for <font color='#ccff66'>12</font> seconds."
-		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <font color='#ccff66'>1</font> second."
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
-    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Your base attack damage is increased by x<font color='#ccff66'>10</font> of your health regen stat. Can't increase your base attack damage above 500 million."
-		
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
-    	"item_rpc_spiritual_empowerment_glove_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>6</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>80</font>% Base Ability Damage. Casting a spell consumes a stack. Max <font color='#ccff66'>10</font> stacks."
-		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
-		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
-		
-	 
-    	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
-    	"item_rpc_skulldigger_gauntlet_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_skulldigger_gauntlet_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Gain Wraithfire stacks each <font color='#ccff66'>1.2</font> seconds. When attacked, launch a Wraithfire Blast at the target that deals <font color='#ccff66'>75</font>x your attack damage on impact and stuns enemies in a small area for <font color='#ccff66'>0.9</font> seconds. Max <font color='#ccff66'>9</font> stacks."
-		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
-		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraithfire Blast at the attacker"
-		
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
-    	"item_rpc_spellfire_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_spellfire_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>80</font>%."
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
-    	"item_rpc_shadowflame_fist_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_shadowflame_fist_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Mana is capped at <font color='#ccff66'>10</font>% of max. Base Ability Damage of @Ability2 is increased by <font color='#ccff66'>1200</font>%."
-
-		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
-		"item_rpc_swiftspike_bracer_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_swiftspike_bracer_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_swiftspike_bracer_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
+
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <font color='#ccff66'>1</font>%."
+
+		"item_rpc_swiftspike_bracer_ruby1"			"Each point of movement speed increases Base Attack Damage by @ruby_property1"
+		"item_rpc_swiftspike_bracer_emerald1"			"Increases Agility by @emerald_property1, and each point of movement speed increases Item Damage by @emerald_property2%"
+		"item_rpc_swiftspike_bracer_sapphire1"			"Increases Max Movement Speed by @sapphire_property1"
+		"item_rpc_swiftspike_bracer_amethyst1"			"Increases Movement Speed by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"

@@ -51,13 +51,14 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
-    	"item_rpc_shadow_armlet_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_shadow_armlet_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_shadow_armlet_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_shadow_armlet_amethyst1"									"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_shadow_armlet_Description"						"Слот: Наручи"
+
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_HEAL_CHANCE %>% шанс перевести полученный урон в лечение."
+		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %>. Attacking or casting removes the invisibility."
+
+    	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
+    	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=\"#7F4F84\">Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
+    	"item_rpc_shadow_armlet_sapphire1"									"While invisible from Shadow Step, increase Health Regen by @sapphire_property1% of Max Health and increase the invisible duration by @sapphire_property2 seconds"
+    	"item_rpc_shadow_armlet_amethyst1"									"Gain @amethyst_property1 Spell Pierce and Armor Pierce while invisible from Shadow Step"
 		
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Boneguard Gauntlets"
     	"item_rpc_boneguard_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
@@ -419,12 +420,13 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"Shadowflame Fist"
-    	"item_rpc_shadowflame_fist_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_shadowflame_fist_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_shadowflame_fist_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_shadowflame_fist_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_shadowflame_fist"						"Vacant Shade"
-		"property_shadowflame_fist_description"					"Значение маны не может быть выше <% ITEM_RPC_SHADOWFLAME_FIST_MANA_CAP %>% от максимума. Базовый Урон Способности (W) @Ability2 увеличен на <% ITEM_RPC_SHADOWFLAME_FIST_W_BAD %>%."
+		"item_property_shadowflame_fist"						"Shadowflame"
+		"property_shadowflame_fist_description"					"Attacking an enemy creates a small flame beneath the enemy that lasts for <% ITEM_RPC_SHADOWFLAME_FIST_ROOT_DURATION %> seconds and immobilizes enemies who touch it. Enemies standing in a Shadowflame take <% ITEM_RPC_SHADOWFLAME_FIST_ATK_DMG_PCT %>% of attack power every <% ITEM_RPC_SHADOWFLAME_FIST_DMG_INTERVAL %> seconds. Max <% ITEM_RPC_SHADOWFLAME_FIST_MAX_FLAMES %> concurrent flames."
+
+    	"item_rpc_shadowflame_fist_ruby1"								"Increases Base Ability and Item Damage by @ruby_property1% for each 1% of missing mana"
+    	"item_rpc_shadowflame_fist_emerald1"								"Each point of Missing Mana increases Base Attack Damage by @emerald_property1"
+    	"item_rpc_shadowflame_fist_sapphire1"								"Mana is capped at @sapphire_property1% of max, and Base Ability Damage of [W] is increased by @sapphire_property2%"
+    	"item_rpc_shadowflame_fist_amethyst1"								"Increases the maximum number of concurrent flames by @amethyst_property1 and the interval damage is increased by @amethyst_property2"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
