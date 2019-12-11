@@ -536,37 +536,30 @@
     	"item_rpc_spirit_glove_sapphire1"									"Each heal from Spirit Touch increases attack damage by @sapphire_property1%, stacking up to <% ITEM_RPC_SPIRIT_GLOVE_SAPPHIRE_STACKS %> times"
     	"item_rpc_spirit_glove_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Base Attack Damage by @amethyst_property2"
 
+    	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
+ 
+		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
+		"property_spiritual_empowerment_description"		"Every <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_TICKRATE %> seconds, gain a stack of Spiritual Empowerment. Each stack adds <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_BAD %>% Base Ability Damage. Casting a spell consumes a stack. Max <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
+		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
+
+   		"item_rpc_spiritual_empowerment_glove_ruby1"						"Each Spiritual Empowerment stack also increases Item Damage by @ruby_property1% and Attack Power by @ruby_property2%"
+    	"item_rpc_spiritual_empowerment_glove_emerald1"						"Increaes maximum Spiritual Empowerment stacks by @emerald_property1"
+    	"item_rpc_spiritual_empowerment_glove_sapphire1"						"Each Spiritual Empowerment stack increases Armor Pierce and Spell Pierce by @sapphire_property1"
+    	"item_rpc_spiritual_empowerment_glove_amethyst1"						"Each Spiritual Empowerment stack increases Spirit by @amethyst_property1, and there is a @amethyst_property2% chance when casting a spell to not consume a stack"
+
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
-		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_stormcloth_bracer_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_stormcloth"					"Stormbolt"
 		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <% ITEM_RPC_STORMCLOTH_BRACER_STUN_AOE %> radius for <% ITEM_RPC_STORMCLOTH_BRACER_STUN_DUR %> seconds. This effect has a <% ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN %> second cooldown."
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
 		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"
-		
+		"item_rpc_stormcloth_bracer_ruby1"								"Reduces Stormbolt cooldown by @ruby_property1 seconds"
+		"item_rpc_stormcloth_bracer_emerald1"								"Enemies stunned by Stormbolt also take damage based on @emerald_property1% of attack power"
+		"item_rpc_stormcloth_bracer_sapphire1"								"When landing from Stormbolt, gain @sapphire_property1% increased Attack Power for <% ITEM_RPC_STORMCLOTH_BRACER_SAPPHIRE_DURATION %> seconds"
+		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage.
 
-		
-		
-
-		
-
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
-    	"item_rpc_spiritual_empowerment_glove_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_spiritual_empowerment_glove_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
-		"property_spiritual_empowerment_description"		"Every <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_TICKRATE %> seconds, gain a stack of Spiritual Empowerment. Each stack adds <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_BAD %>% Base Ability Damage. Casting a spell consumes a stack. Max <% ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_MAX_STACKS %> stacks."
-		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
-		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
-		
-
-		
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 		"item_rpc_swiftspike_bracer_ruby1"			"blah blah @ruby_property1 gem"
 		"item_rpc_swiftspike_bracer_emerald1"			"blah blah @emerald_property1 gem"
