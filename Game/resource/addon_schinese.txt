@@ -13210,13 +13210,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"凤凰手套"
-    	"item_rpc_phoenix_gloves_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_phoenix_gloves_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_phoenix_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_phoenix_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_gloves"				"永生" 
-		"property_phoenix_gloves_description"		"每失去1点生命值提高 <font color='#ccff66'>0.15</font> 点生命值回复速度。当前的每1点生命值提高基础攻击力 <font color='#ccff66'>0</font> 点。"
-		
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> health regen for each missing point of health."
+
+    	"item_rpc_phoenix_gloves_ruby1"									"Increases Attack Speed by @ruby_property1 and makes your basic attacks have <font color=\"#EF4126\">Fire</font> element"
+    	"item_rpc_phoenix_gloves_emerald1"									"Increases Agility by @emerald_property1 and each point of Agility increases Max Health by @emerald_property2"
+    	"item_rpc_phoenix_gloves_sapphire1"									"Gain @sapphire_property1 Base Attack Damage for each current point of health"
+    	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"灵魂手套"
     	"item_rpc_spirit_glove_ruby1"									"blah blah @ruby_property1 gem"
@@ -13263,12 +13263,10 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"金刚护手"
-    	"item_rpc_power_ranger_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_power_ranger_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_power_ranger"				"雷电神兵"
-		"property_power_ranger_description"			"提高<font color='#ccff66'>250</font>% 基础攻击力。敌人所受到的物理伤害加深<font color='#ccff66'>200</font>%。（计算在敌人减伤之后）"
+    	"item_rpc_power_ranger_gloves_ruby1"								"Increases Armor by @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Increases Armor Pierce by @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases Spell Pierce @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases Magic Armor @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_grand_arcanist_wraps"							"奥术师包裹"

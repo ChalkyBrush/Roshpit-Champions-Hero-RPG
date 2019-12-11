@@ -13480,6 +13480,11 @@
     	"item_rpc_phoenix_gloves_sapphire1"									"Gain @sapphire_property1 Base Attack Damage for each current point of health"
     	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
 
+    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
+    	"item_rpc_power_ranger_gloves_ruby1"								"Increases Armor by @ruby_property1"
+    	"item_rpc_power_ranger_gloves_emerald1"								"Increases Armor Pierce by @emerald_property1"
+    	"item_rpc_power_ranger_gloves_sapphire1"								"Increases Spell Pierce @sapphire_property1"
+    	"item_rpc_power_ranger_gloves_amethyst1"								"Increases Magic Armor @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13534,22 +13539,7 @@
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <font color='#ccff66'>1</font> second."
 		
-	
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Ranger Glove"
-    	"item_rpc_power_ranger_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_power_ranger_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_power_ranger_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_power_ranger_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_power_ranger"				"Megaforce"
-		"property_power_ranger_description"			"Increases attack damage by <font color='#ccff66'>250</font>%. All Post-Mitigation Physical damage is enhanced by <font color='#ccff66'>200</font>%."
-		
-		
-	
-		
-		
+
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
     	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
     	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"

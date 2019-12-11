@@ -653,36 +653,6 @@ function RPCItems:RollStormclothBracer(item_level)
     return item
 end
 
-function RPCItems:RollPowerRangerGloves(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_power_ranger_gloves", "immortal", "Power Ranger Gloves", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 50, 100, 0, 0, item.newItemTable.rarity, false, maxFactor * 120)
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "power_ranger"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_power_ranger", "#FF4545", 1, "#property_power_ranger_description")
-
-    value, nameLevel = RPCItems:RollAttribute(0, 7, 27, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-
-    value, nameLevel = RPCItems:RollAttribute(0, 7, 27, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "agility"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_agility", "#2EB82E", 3)
-
-    value, nameLevel = RPCItems:RollAttribute(0, 7, 27, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = "intelligence"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_intelligence", "#33CCFF", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 --HATS
 
 function RPCItems:RollAutumnSleeperMask(item_level)
@@ -4740,6 +4710,24 @@ function RPCItems:RollPhoenixGloves(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollPowerRangerGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_power_ranger_gloves", "immortal", "Power Ranger Gloves", "hands", true, "Slot: Hands")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "strength", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "spirit", 2)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -8808,7 +8796,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_berserker_gloves", "item_rpc_bladeforge_gauntlet", "item_rpc_boneguard_gauntlets", "item_rpc_claw_of_azinoth", "item_rpc_cytopian_laser_glove", "item_rpc_eternal_essence_gauntlet",
         "item_rpc_far_seers_enchanted_gloves", "item_rpc_frostburn_gauntlets", "item_rpc_gauntlet_of_divine_purity", "item_rpc_glove_of_the_forgotten_ghost", "item_rpc_grand_arcanist_wraps", "item_rpc_grasp_of_elder",
         "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_kappa_pride_gloves", "item_rpc_living_gauntlet",
-        "item_rpc_magebane_gloves", "item_rpc_malachite_shade_bracer", "item_rpc_marauder_gloves", "item_rpc_master_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_mountain_vambraces", "item_rpc_phoenix_gloves"}
+        "item_rpc_magebane_gloves", "item_rpc_malachite_shade_bracer", "item_rpc_marauder_gloves", "item_rpc_master_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_mountain_vambraces", "item_rpc_phoenix_gloves",
+        "item_rpc_power_ranger_gloves"}
     end
     return itemsList
 end
