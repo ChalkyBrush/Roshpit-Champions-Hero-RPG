@@ -2886,6 +2886,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_royal_wristguards") then
 		Filters:RoyalWristguardTakeDamage(victim.InventoryUnit, victim, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES], filterTable["damage"])
 	end
+	if victim:HasModifier("modifier_shadow_armlet") then
+		Filters:ShadowArmletTakeDamage(victim, filterTable["damage"])
+	end
 
 	--DUSKBRINGER
 

@@ -1865,6 +1865,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_mordiggus_gauntlet") then
 		armor_pierce_modify = armor_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
 	end
+	if unit:HasModifier("modifier_shadowstep_invis") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2188,6 +2191,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_mordiggus_gauntlet") then
 		spell_pierce_modify = spell_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
+	end
+	if unit:HasModifier("modifier_shadowstep_invis") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

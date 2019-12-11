@@ -5754,3 +5754,34 @@ function Filters:RoyalWristguardTakeDamage(caster, hero, ability, damage)
         end
     end
 end
+
+function Filters:ShadowArmletTakeDamage(hero, damage)
+    local caster = hero.InventoryUnit
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local proc = Filters:GetProc(hero, ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE)
+    if proc then
+        if not hero:HasModifier("modifier_invisibility_datadriven") then
+            local invis_duration = ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE2)
+            local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", hero, 2)
+            ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+            ability:ApplyDataDrivenModifier(caster, hero, "modifier_invisibility_datadriven", {duration = invis_duration})
+            hero:AddNewModifier(hero, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+            if ability:GetGemValue("sapphire") > 0 then
+                ability:ApplyDataDrivenModifier(caster, hero, "modifier_shadow_armlet_sapphire", {duration = invis_duration})
+                local health_regen_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOW_ARMLET_GEM_SAPPHIRE1)/0.1
+                hero:SetModifierStackCount("modifier_shadow_armlet_sapphire", caster, health_regen_stacks)
+            end
+            if ability:GetGemValue("amethyst") > 0 then
+                ability:ApplyDataDrivenModifier(caster, hero, "modifier_shadowstep_invis", {duration = invis_duration})
+            end
+        end
+    end
+    if ability:GetGemValue("ruby") > 0 then
+        local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SHADOW_ARMLET_GEM_RUBY))
+        if proc then
+            local heal = math.ceil(damage)
+            Filters:ApplyHeal(hero, hero, heal, true, true)
+            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_huskar/call_of_shadow.vpcf", hero, 0.5)
+        end
+    end
+end
