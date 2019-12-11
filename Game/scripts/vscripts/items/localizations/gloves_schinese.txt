@@ -67,13 +67,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"								"火焰护腕"
-    	"item_rpc_scorched_gauntlets_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_scorched_gauntlets_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_scorched_gauntlets_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_scorched_gauntlets_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_scorched_gauntlet_2"			"炎狱"
-		"property_scorched_gauntlet_description_2"	"攻击时有<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>%几率产生一片焦土，每秒对范围内所有敌人造成 <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% 攻击力+ <% ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG %>x 护甲值的持续伤害。同时在目标周围随机方位产生一团火焰<br>在范围内造成 <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL %>% 攻击力的伤害、 <br>眩晕敌人 <% ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR %> 秒并且留下一片新的焦土。"
-		
+		"property_scorched_gauntlet_description"	"<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a <% ITEM_RPC_SCORCHED_GAUNTLETS_FLAME_RADIUS %> radius fire zone which deals damage every second to enemies standing within based on <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% of your attack power."
+
+    	"item_rpc_scorched_gauntlets_ruby1"							"When Scorched Earth procs, a stray fireball jumps loose from the victim in a random direction, dealing @ruby_property1% of your attack power to enemies in an area upon landing, stunning those affected for @ruby_property2 seconds, and creating another fire zone."
+    	"item_rpc_scorched_gauntlets_emerald1"							"Increases Armor by @emerald_property1 and Scorched Earth damage is increased by @emerald_property2x armor"
+    	"item_rpc_scorched_gauntlets_sapphire1"							"Increases Scorched Earth proc chance by @sapphire_property1% and increases its damage per tick by @sapphire_property2"
+    	"item_rpc_scorched_gauntlets_amethyst1"							"Increases Base Attack Damage by @amethyst_property1, and when attacked there is a @amethyst_property2% chance to proc Scorched Earth beneath the attacker"
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"                              "荣耀护手"
     	"item_rpc_kappa_pride_gloves_ruby1"                              "blah blah @ruby_property1 gem"

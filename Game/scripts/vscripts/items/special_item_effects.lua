@@ -112,18 +112,37 @@ function midas_attack_land(event)
 	end
 end
 
+function scorch_take_damage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("amethyst") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_AMETHYST2))
+		if proc then
+			local eventTable = {}
+			eventTable.attacker = hero
+			eventTable.target = event.attacker
+			eventTable.ability = ability
+			eventTable.caster = caster
+			eventTable.guarantee_proc = true
+			scorch_attack_land(eventTable)
+		end
+	end
+end
+
 function scorch_attack_land(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = event.attacker
 	local caster = event.caster
-	local proc = Filters:GetProc(caster, ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE)
-	if proc then
+	local proc_chance = ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE1)
+	local proc = Filters:GetProc(caster, proc_chance)
+	if proc or event.guarantee_proc then
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "RPCItem.HighFlameStart", attacker)
 		ability.attacker = attacker
 
 		CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_hand_scorched_earth_thinker", {})
-		if ability:GetAbilityName() == "item_rpc_scorched_gauntlets_2" then
+		if ability:GetGemValue("ruby") > 0 then
 			HighFlameThrow(attacker, ability, target)
 		end
 	end
@@ -133,8 +152,10 @@ function scorched_earth_damage(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = ability.attacker
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG / 100 + ability.attacker:GetPhysicalArmorValue(false) * ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(ability.attacker) * ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG / 100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_EMERALD2)*attacker:GetRoshpitArmor() + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_SAPPHIRE2)
 	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/pudge/pudge_arcana/fire/pudge_arcana_dismember_burst_fire_b.vpcf", target, 2)
+	ParticleManager:SetParticleControl(pfx, 3, target:GetAbsOrigin())
 end
 
 function HighFlameThrow(caster, ability, victim)
@@ -155,11 +176,11 @@ function HighFlameThrow(caster, ability, victim)
 	flare:SetRenderColor(240, 110, 20)
 	flare:SetModelScale(0.05)
 	flare.fv = adjustedFV
-	flare.stun_duration = ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR
+	flare.stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY2)
 	flare.liftVelocity = 60 + zDifferential / 20
 	flare.forwardVelocity = forwardVelocity
 	flare.interval = 0
-	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL/100
+	flare.damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SCORCHED_GAUNTLETS_GEM_RUBY1)/100
 	flare.origCaster = caster
 	flare.origAbility = ability
 
@@ -222,7 +243,7 @@ function highFlameImpact(caster, ability, position, damage)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyItemDamage(enemy, caster.origCaster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-			Filters:ApplyStun(caster.origCaster, 1.6, enemy)
+			Filters:ApplyStun(caster.origCaster, caster.stun_duration, enemy)
 		end
 	end
 

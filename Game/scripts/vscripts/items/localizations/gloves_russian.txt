@@ -70,12 +70,13 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_scorched_gauntlets"							"Gauntlet of the High Flame"
-    	"item_rpc_scorched_gauntlets_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_scorched_gauntlets_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_scorched_gauntlets_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_scorched_gauntlets_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_scorched_gauntlet_2"			"Scorched Earth"
-		"property_scorched_gauntlet_description_2"	"С <% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% шансом при атаке оставляет пламенный след, который ежесекундно наносит урон всем юнитам, попавшим в область действия, равный <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% урона героя + <% ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG %>x значения его брони. Бушующее пламя скачет в случайном направлении от атакуемой цели и наносит урон, равный <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL %>% от урона героя в небольшой области и оглушает задетые цели на <% ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR %> сек, дополнительно поджигая землю под ними."
+		"item_property_scorched_gauntlet"			"Scorched Earth"
+		"property_scorched_gauntlet_description"	"<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a <% ITEM_RPC_SCORCHED_GAUNTLETS_FLAME_RADIUS %> radius fire zone which deals damage every second to enemies standing within based on <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% of your attack power."
+
+    	"item_rpc_scorched_gauntlets_ruby1"							"When Scorched Earth procs, a stray fireball jumps loose from the victim in a random direction, dealing @ruby_property1% of your attack power to enemies in an area upon landing, stunning those affected for @ruby_property2 seconds, and creating another fire zone."
+    	"item_rpc_scorched_gauntlets_emerald1"							"Increases Armor by @emerald_property1 and Scorched Earth damage is increased by @emerald_property2x armor"
+    	"item_rpc_scorched_gauntlets_sapphire1"							"Increases Scorched Earth proc chance by @sapphire_property1% and increases its damage per tick by @sapphire_property2"
+    	"item_rpc_scorched_gauntlets_amethyst1"							"Increases Base Attack Damage by @amethyst_property1, and when attacked there is a @amethyst_property2% chance to proc Scorched Earth beneath the attacker"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_kappa_pride_gloves"								"Proud Gloves"
