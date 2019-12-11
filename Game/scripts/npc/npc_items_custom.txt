@@ -46641,6 +46641,121 @@
 		}
 	}
 
+	"item_rpc_phoenix_gloves"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/phoenix_gloves" // "phoenix_gloves"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"35 70 105 140 175"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"20 40 60 80 100"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"0.6 1.2 1.8 2.4 3.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"0.01 0.02 0.03 0.04 0.05"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"20 40 60 80 100"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"0.6 1.2 1.8 2.4 3.0"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_phoenix_gloves"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"phoenix_gloves_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_phoenix_gloves_attack_damage"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_phoenix_gloves_effect"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_phoenix_gloves_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
+				}
+			}
+			"modifier_phoenix_gloves_attack_damage"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_mountain_vambraces"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -51468,121 +51583,6 @@
 			"modifier_swiftspike_bad"
 			{
 				"IsHidden"	"1"
-			}
-		}
-	}
-
-	"item_rpc_phoenix_gloves"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/phoenix_gloves" // "phoenix_gloves"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_one"			"0.15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_phoenix_gloves"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  	"0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"phoenix_gloves_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_phoenix_gloves_attack_damage"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_phoenix_gloves_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_phoenix_gloves_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
-				}
-			}
-			"modifier_phoenix_gloves_attack_damage"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
 			}
 		}
 	}

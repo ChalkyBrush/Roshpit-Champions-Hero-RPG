@@ -2959,6 +2959,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_tyrius_health" and hero:HasModifier("modifier_tyrius_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_health", 1)
 	end
+	if excludedModifier ~= "modifier_phoenix_gloves" and hero:HasModifier("modifier_phoenix_gloves") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD2)*hero:GetAgility() + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST2)*hero:GetSpirit()
+	end
 	if excludedModifier ~= "modifier_guard_of_grithault" and hero:HasModifier("modifier_guard_of_grithault") then
 		local grithault = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
 		if grithault:GetGemValue("amethyst") > 0 then

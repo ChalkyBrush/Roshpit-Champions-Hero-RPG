@@ -755,10 +755,12 @@ function phoenix_gloves_think(event)
 	if not target:HasModifier("modifier_phoenix_gloves_effect") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_effect", {})
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_attack_damage", {})
-	local damageStacks = target:GetHealth() * ITEM_RPC_PHOENIX_GLOVES_ATT_DMG_PER_HP
-	target:SetModifierStackCount("modifier_phoenix_gloves_attack_damage", ability, damageStacks)
 	target:SetModifierStackCount("modifier_phoenix_gloves_effect", ability, stacks)
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_phoenix_gloves_attack_damage", {})
+		local damageStacks = target:GetHealth() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PHOENIX_GLOVES_GEM_SAPPHIRE)
+		target:SetModifierStackCount("modifier_phoenix_gloves_attack_damage", ability, damageStacks)
+	end
 end
 
 function violet_boot_impact(event)

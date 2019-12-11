@@ -13471,6 +13471,15 @@
     	"item_rpc_mountain_vambraces_sapphire1"								"When an enemy damages you, they are hit with a Craggy Shock. @sapphire_property1 second cooldown per enemy"
     	"item_rpc_mountain_vambraces_amethyst1"								"Enemies hit by [Q] have a @amethyst_property1% chance to trigger a Craggy Shock, and Craggy Shock damage is increased by @amethyst_property2x spirit"
 
+    	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
+		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
+		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> health regen for each missing point of health."
+
+    	"item_rpc_phoenix_gloves_ruby1"									"Increases Attack Speed by @ruby_property1 and makes your basic attacks have <font color=\"#EF4126\">Fire</font> element"
+    	"item_rpc_phoenix_gloves_emerald1"									"Increases Agility by @emerald_property1 and each point of Agility increases Max Health by @emerald_property2"
+    	"item_rpc_phoenix_gloves_sapphire1"									"Gain @sapphire_property1 Base Attack Damage for each current point of health"
+    	"item_rpc_phoenix_gloves_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Max Health by @amethyst_property2"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -13513,13 +13522,6 @@
 		"item_property_scarecrow"					"Replenishing Mind"
 		"property_scarecrow_description"			"Each point of Intelligence additionally grants <font color='#ccff66'>0.5</font> mana regen."
 			
-    	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
-    	"item_rpc_phoenix_gloves_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_phoenix_gloves_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_phoenix_gloves_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_phoenix_gloves_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
-		"property_phoenix_gloves_description"		"Gain <font color='#ccff66'>0.15</font> health regen for each missing point of health. Gain <font color='#ccff66'>1</font> base attack damage for each current point of health."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
