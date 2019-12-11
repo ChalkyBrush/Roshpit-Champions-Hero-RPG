@@ -690,6 +690,17 @@ function scarecrow_gloves_think(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_scarecrow_gloves_effect", {})
 	end
 	target:SetModifierStackCount("modifier_scarecrow_gloves_effect", ability, stacks)
+
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_scarecrow_gloves_emerald", {})
+		local attack_speed_stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SCARECROW_GLOVES_GEM_EMERALD)*target:GetIntellect()
+		target:SetModifierStackCount("modifier_scarecrow_gloves_emerald", caster, attack_speed_stacks)
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_scarecrow_gloves_amethyst", {})
+		local attack_damage_stacks = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SCARECROW_GLOVES_GEM_AMETHYST)*target:GetMana()
+		target:SetModifierStackCount("modifier_scarecrow_gloves_amethyst", caster, attack_damage_stacks)
+	end
 end
 
 function legion_think(event)

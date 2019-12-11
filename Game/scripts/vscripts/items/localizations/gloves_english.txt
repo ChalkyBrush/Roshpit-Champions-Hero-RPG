@@ -455,6 +455,16 @@
     	"item_rpc_royal_wristguards_sapphire1"								"Each Commanding Steel stack adds @sapphire_property1 Base Attack Damage, but attacking removes <% ITEM_RPC_ROYAL_WRISTGUARDS_SAPPHIRE_STACK_LOSS %> stack"
     	"item_rpc_royal_wristguards_amethyst1"								"Each Commanding Steel stack increases Item Damage by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
+
+		"item_property_scarecrow"					"Replenishing Mind"
+		"property_scarecrow_description"			"Each point of Intelligence grants <% ITEM_RPC_SCARECROW_GLOVES_MPREGEN_PER_INT %> additional mana regen."
+
+    	"item_rpc_scarecrow_gloves_ruby1"								"Each point of Intelligence increases Base Ability Damage by @ruby_property1%"
+    	"item_rpc_scarecrow_gloves_emerald1"								"Each point of Intelligence increases Attack Speed by @emerald_property1"
+    	"item_rpc_scarecrow_gloves_sapphire1"								"Increases Intelligence by @sapphire_property1 and each point of Intelligence increases Spell Pierce by an additional @sapphire_property2"
+    	"item_rpc_scarecrow_gloves_amethyst1"								"Each point of Current Mana increases Base Attack Damage by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 		"item_rpc_stormcloth_bracer_ruby1"								"blah blah @ruby_property1 gem"
@@ -485,19 +495,7 @@
 		"item_property_scorched_gauntlet_2"			"Scorched Earth"
 		"property_scorched_gauntlet_description_2"	"<% ITEM_RPC_SCORCHED_GAUNTLETS_CHANCE %>% chance on attack to roast the earth at your target's feet, leaving a large fire zone which deals damage every second to all units in its radius equal to <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG %>% of your attack power + <% ITEM_RPC_SCORCHED_GAUNTLETS_ARMOR_TO_DMG %>x your Armor. A stray fireball jumps loose from the victim in a random direction, dealing <% ITEM_RPC_SCORCHED_GAUNTLETS_ATTACK_TO_DMG_FIREBALL %>% of your attack power to enemies in an area upon landing, stunning those affected for <% ITEM_RPC_SCORCHED_GAUNTLETS_STUN_DUR %> seconds, and creating another fire zone."
 		
-		
 
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"Scarecrow Gloves"
-    	"item_rpc_scarecrow_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_scarecrow_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_scarecrow_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_scarecrow_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Each point of Intelligence additionally grants <% ITEM_RPC_SCARECROW_GLOVES_MPREGEN_PER_INT %> mana regen."
-			
-		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
     	"item_rpc_spirit_glove_ruby1"									"blah blah @ruby_property1 gem"

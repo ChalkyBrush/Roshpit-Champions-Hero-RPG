@@ -1918,6 +1918,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
 	end
+	if unit:HasModifier("modifier_scarecrow_gloves") then
+		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE2)*unit:GetIntellect()
+	end
 	local spell_pierce_modify = 0
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitSpellPierceBonus', { MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS }, { }, 
 		function(result, data)

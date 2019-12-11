@@ -13015,7 +13015,7 @@
     	"item_rpc_scarecrow_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_scarecrow_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_scarecrow"					"Replenishing Mind"
-		"property_scarecrow_description"			"Каждое очко Интеллекта дает дополнительно <font color='#ccff66'>0.5</font> регенерации маны"
+		"property_scarecrow_description"			"Каждое очко Интеллекта дает дополнительно <font color='#ccff66'>1</font> регенерации маны"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_living_gauntlet"									"Living Gauntlet"
