@@ -561,9 +561,11 @@
 		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage.
 
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
-		"item_rpc_swiftspike_bracer_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_swiftspike_bracer_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_swiftspike_bracer_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
+
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
 		"property_swiftspike_bracer_description"					"Each point of current movespeed increases Base Ability Damage by <% ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * 100 %>%."
+
+		"item_rpc_swiftspike_bracer_ruby1"			"Each point of movement speed increases Base Attack Damage by @ruby_property1"
+		"item_rpc_swiftspike_bracer_emerald1"			"Each point of movement speed increases Item Damage by @emerald_property1%"
+		"item_rpc_swiftspike_bracer_sapphire1"			"Increases Max Movement Speed by @sapphire_property1"
+		"item_rpc_swiftspike_bracer_amethyst1"			"Increases Movement Speed by @amethyst_property1%"
