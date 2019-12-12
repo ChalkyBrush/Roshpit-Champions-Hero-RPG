@@ -3170,6 +3170,7 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
 	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
 	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
 function CDOTA_BaseNPC:GetActualMovespeed()

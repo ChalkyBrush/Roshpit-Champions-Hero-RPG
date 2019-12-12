@@ -13411,7 +13411,7 @@
 		"item_rpc_swiftspike_bracer_sapphire1"			"blah blah @sapphire_property1 gem"
 		"item_rpc_swiftspike_bracer_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_swiftspike_bracer"							"Sonic Overflow"
-		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на <font color='#ccff66'>1</font>%"
+		"property_swiftspike_bracer_description"					"Каждое очко текущей скорости передвижения увеличивает Базовый Урон Способностей на <font color='#ccff66'>25</font>%"
 		
 		"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"Diamond Claws of Tiamat"
 		"item_rpc_diamond_claws_of_tiamat_ruby1"			"blah blah @ruby_property1 gem"

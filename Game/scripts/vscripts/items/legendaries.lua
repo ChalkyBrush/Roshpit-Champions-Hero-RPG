@@ -351,32 +351,6 @@ function RPCItems:RollMagebaneRuneProperty()
 end
 
 
-function RPCItems:RollSwiftspikeBracer(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_swiftspike_bracer", "immortal", "Swiftspike Bracer", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "swiftspike"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swiftspike_bracer", "#3F74A8", 1, "#property_swiftspike_bracer_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.ceil(value * 1.75)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local maxFactor = RPCItems:GetMaxFactor()
-    local value = RPCItems:GetLogarithmicVarianceValue(math.ceil(maxFactor / 2.5), 0, 0, 0, 0)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "movespeed"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_movespeed", "#B02020", 3)
-
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-
 --HATS
 
 function RPCItems:RollAutumnSleeperMask(item_level)
@@ -4743,6 +4717,30 @@ function RPCItems:RollStormclothBracer(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollSwiftspikeBracer(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_swiftspike_bracer", "immortal", "Swiftspike Bracer", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_swiftspike_bracer"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swiftspike_bracer", "#3F74A8", 1, "#property_swiftspike_bracer_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "movespeed", 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)

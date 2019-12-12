@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_knight_hawk_lua", "modifiers/modifier_knight_hawk_lua"
 LinkLuaModifier("modifier_silent_templar_sapphire", "modifiers/modifier_silent_templar_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_iron_colossus_lua", "modifiers/modifier_iron_colossus_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_sapphire", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -6093,6 +6094,25 @@ function swiftspike_think(event)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
 	end
 	hero:SetModifierStackCount("modifier_swiftspike_bad", caster, movespeedActual)
+	if ability:GetGemValue("ruby") > 0 then
+		if not hero:HasModifier("modifier_swiftspike_atk_damage") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_atk_damage", {})
+		end
+		local atk_damage_stacks = movespeedActual*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
+		hero:SetModifierStackCount("modifier_swiftspike_atk_damage", caster, atk_damage_stacks)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		if not hero:HasModifier("modifier_swiftspike_sapphire") then
+			hero:AddNewModifier(hero, ability, "modifier_swiftspike_sapphire", {})
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		if not hero:HasModifier("modifier_swiftspike_ms_pct") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_ms_pct", {})
+		end
+		local ms_pct_amethyst = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST)
+		hero:SetModifierStackCount("modifier_swiftspike_ms_pct", caster, ms_pct_amethyst)
+	end
 end
 
 function orthok_attack_land(event)

@@ -27,7 +27,7 @@ function winterblight_unit_die(event)
 		if luck == 1 then
 			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_helm_of_the_mountain_giant")
 		elseif luck == 2 then
-			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_swiftspike_bracer")
 		elseif luck == 3 then
 			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_tattered_novice_armor")
 		elseif luck == 4 then

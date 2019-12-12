@@ -184,6 +184,13 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
         end
     end
+    if caster:HasModifier("modifier_swiftspike_bad") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+            local current_stack = caster:GetModifierStackCount("modifier_swiftspike_bad", caster.InventoryUnit)
+            local item_damage_per_ms = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD2)
+            damageMult = damageMult + (item_damage_per_ms/100) * current_stack
+        end
+    end
     if caster:HasModifier("modifier_rpc_steamboots") then
         mult = mult + ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE/100 * (caster:GetAgility() / ITEM_RPC_STEAMBOOTS_AGI_DIVISOR)
     end
@@ -1555,7 +1562,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_swiftspike_bad") then
             local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
-            damageMult = damageMult + ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS * current_stack
+            damageMult = damageMult + (ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS/100) * current_stack
         end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))

@@ -986,6 +986,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST1, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_swiftspike_bracer" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD1, hero, "agility", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 
