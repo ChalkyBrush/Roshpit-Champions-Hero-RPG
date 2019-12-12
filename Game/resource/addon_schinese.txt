@@ -11994,7 +11994,7 @@
     	"item_rpc_admiral_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_admiral_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_admiral_boots"				"海上霸主"
-		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>500</font>%。"
+		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>250</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"

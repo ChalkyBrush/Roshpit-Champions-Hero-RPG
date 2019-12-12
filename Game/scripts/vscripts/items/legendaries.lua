@@ -4762,6 +4762,30 @@ function RPCItems:RollAblecoreGreaves(item_level)
     return item
 end
 
+function RPCItems:RollAdmiralBoot(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_admiral_boots", "immortal", "Admiral's Boots", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_admiral_boots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_admiral_boots", "#A66829", 1, "#property_admiral_boots_description")
+
+
+    local rune_type = RPCItems:RollRuneType({"e"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    local rune_type = RPCItems:RollRuneType({"e"}, {tier2 = 50, tier3 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.5)
+
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
@@ -5950,43 +5974,6 @@ function RPCItems:RollSwampWaders(item_level)
 
     RPCItems:RollFootProperty4(item, 0)
 
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollAdmiralBoot(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_admiral_boots", "immortal", "Admiral's Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "admiral"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_admiral_boots", "#A66829", 1, "#property_admiral_boots_description")
-
-    item.newItemTable.hasRunePoints = true
-    if maxFactor < 40 then
-        value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.newItemTable.rarity, false, maxFactor / 3 + 4)
-        item.newItemTable.property2 = WallPhysics:round(value, 0)
-        item.newItemTable.property2name = "rune_e_1"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-        value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.newItemTable.rarity, false, maxFactor / 3 + 4)
-        item.newItemTable.property3 = WallPhysics:round(value, 0)
-        item.newItemTable.property3name = "rune_e_2"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.newItemTable.rarity, false, maxFactor / 3 + 4)
-        item.newItemTable.property2 = WallPhysics:round(value, 0)
-        item.newItemTable.property2name = "rune_e_2"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-        value, nameLevel = RPCItems:RollAttribute(0, 1, 2, 0, 0, item.newItemTable.rarity, false, maxFactor / 3 + 4)
-        item.newItemTable.property3 = WallPhysics:round(value, 0)
-        item.newItemTable.property3name = "rune_e_3"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
     RPCItems:DropItem(item, position)
@@ -8766,7 +8753,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_power_ranger_gloves", "item_rpc_royal_wristguards", "item_rpc_scarecrow_gloves", "item_rpc_scorched_gauntlets", "item_rpc_shadow_armlet", "item_rpc_shadowflame_fist", "item_rpc_silverspring_gloves",
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
-        itemsList = {"item_rpc_ablecore_greaves"}
+        itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots"}
     end
     return itemsList
 end

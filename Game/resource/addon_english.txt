@@ -11861,6 +11861,16 @@
     	"item_rpc_ablecore_greaves_sapphire1"								"Increases the movespeed threshold to activate Slugfoot by @sapphire_property1 movespeed"
     	"item_rpc_ablecore_greaves_amethyst1"								"Slugfoot buff also increases Attack Power by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
+		"item_property_admiral_boots"				"Sea Commander"
+		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>250</font>%"
+
+    	"item_rpc_admiral_boots_ruby1"									"Increases Rune [E1] by @ruby_property1"
+    	"item_rpc_admiral_boots_emerald1"									"Increases Rune [E3] by @emerald_property1"
+    	"item_rpc_admiral_boots_sapphire1"									"Increases Rune [E2] by @sapphire_property1"
+    	"item_rpc_admiral_boots_amethyst1"									"Increases Rune [E4] by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -11972,16 +11982,6 @@
 		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
 		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
 		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
-    	"item_rpc_admiral_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_admiral_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_admiral_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_admiral_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>500</font>%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
