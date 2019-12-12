@@ -13568,9 +13568,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>80</font>%."
+		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>60</font>%."
 
-    	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <font color='#ccff66'>0</font> second delay"
+    	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <font color='#ccff66'>0.5</font> second delay"
     	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"
     	"item_rpc_spellfire_gloves_sapphire1"								"Increases all T3 runes by @sapphire_property1"
     	"item_rpc_spellfire_gloves_amethyst1"								"[R] finishes channeling when there is still @amethyst_property1 seconds remaining"

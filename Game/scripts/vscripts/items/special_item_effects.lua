@@ -8895,3 +8895,20 @@ function kappa_pride_init(event)
 	local ability = event.ability
 	hero:AddNewModifier(hero, ability, "modifier_proud_gloves_lua", {})
 end
+
+function spellfire_channeling_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local ulti = hero:GetAbilityByIndex(DOTA_R_SLOT)
+	local remaining_time_to_trigger = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPELLFIRE_GLOVES_GEM_AMETHYST)
+	local channel_time_remaining = (ulti:GetChannelTime() + (ulti:GetChannelStartTime() - GameRules:GetGameTime()))
+	if (ulti:IsChanneling()) and (channel_time_remaining <= remaining_time_to_trigger) then
+        ulti:OnChannelFinish(false)
+        Timers:CreateTimer(0.03, function()
+            ulti:EndChannel(true)
+            Filters:EndRChannel(hero)
+        end)
+        hero:RemoveModifierByName("modifier_spellfire_gloves_channeling_think")
+	end
+end

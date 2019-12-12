@@ -2273,7 +2273,7 @@ end
 function Redfall:FinalBossDrops(boss)
   local luck = RandomInt(1, 8 - GameState:GetPlayerPremiumStatusCount())
   if luck == 1 then
-    -- RPCItems:RollSpellfireGloves(position, Events.SpiritRealm)
+    RPCItems:RollAndDropUniqueItem(boss, "item_rpc_spellfire_gloves")
   elseif luck == 2 then
     RPCItems:RollAndDropUniqueItem(boss, "item_rpc_hood_of_lords")
   end

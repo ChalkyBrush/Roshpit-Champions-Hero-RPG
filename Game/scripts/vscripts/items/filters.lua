@@ -739,6 +739,9 @@ function Filters:CastSkillArguments(slot, caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
 
     end
+    if caster:HasModifier("modifier_spellfire_gloves") then
+        Filters:SpellfireAbilityCast(caster, slot)
+    end
     if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
         Filters:InpsirationRing(caster, slot)
     end
@@ -824,6 +827,11 @@ function Filters:BeginRChannel(caster)
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime()
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drain_pct = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST)
         caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = ability:GetChannelTime()})
+    end
+    if caster:HasModifier("modifier_spellfire_gloves") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("amethyst") > 0 then
+            caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_spellfire_gloves_channeling_think", {duration = ability:GetChannelTime()})
+        end
     end
     if caster:HasModifier("modifier_space_tech_vest") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
@@ -969,7 +977,7 @@ function Filters:ApplyQskills(caster)
     end
     local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
     if ability.castPointSave then
-        ability:SetOverrideCastPoint(ability.castPointSave)
+        ability:SetOverrideCastPoint(ability:GetKeyValue("AbilityCastPoint", false))
         ability.castPointSave = nil
     end
     if caster:HasModifier("modifier_sorceress_immortal_weapon_2") then
@@ -1138,7 +1146,7 @@ function Filters:ApplyWskills(caster)
     end
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     if ability.castPointSave then
-        ability:SetOverrideCastPoint(ability.castPointSave)
+        ability:SetOverrideCastPoint(ability:GetKeyValue("AbilityCastPoint", false))
         ability.castPointSave = nil
     end
     local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
@@ -1228,7 +1236,10 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_wind_deity_crown") then
         caster:RemoveModifierByName("modifier_wind_deity_damage_buff")
     end
-
+    if ability.castPointSave then
+        ability:SetOverrideCastPoint(ability:GetKeyValue("AbilityCastPoint", false))
+        ability.castPointSave = nil
+    end
 end
 
 function Filters:ApplyRskills(caster)
@@ -5879,5 +5890,95 @@ function Filters:IncrementSkullDiggerStacks(caster, ability, hero)
     if ability:GetGemValue("amethyst") > 0 then
         local damage_stacks = hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST2)
         hero:ApplyModifierAndSetStacks(ability, caster, "modifier_skulldigger_amethyst_damage", damage_stacks, 0)
+    end
+end
+
+function Filters:SpellfireAbilityCast(caster, slot)
+    local spellfire_gloves = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local ability = nil
+    if slot == 1 then
+        ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+    elseif slot == 2 then
+        ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+    elseif slot == 3 then
+        ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
+    end
+    local ruby_proc = Filters:GetProc(caster, spellfire_gloves:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY))
+    if spellfire_gloves:GetGemValue("ruby") > 0 and ability and ruby_proc then
+        local continue = true
+        if caster:HasModifier("modifier_spellfire_ruby_block") then
+            continue = false
+            caster:RemoveModifierByName("modifier_spellfire_ruby_block")
+        end
+        Timers:CreateTimer(ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY, function()
+            if continue then
+                spellfire_gloves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_spellfire_ruby_block", {duration = 0.3})
+                ability:EndCooldown()
+                if ability:IsFullyCastable() then
+                    local manaRestore = ability:GetManaCost(ability:GetLevel())
+                    caster:GiveMana(manaRestore)
+                    local castPointSave = ability:GetCastPoint()
+                    if slot == 1 then
+                        ability.castPointSave = caster.castPointQ
+                    elseif slot == 2 then
+                        ability.castPointSave = caster.castPointW
+                    elseif slot == 3 then
+                        ability.castPointSave = caster.castPointE
+                    end
+                    ability:SetOverrideCastPoint(0)
+                    local behavior = ability:GetBehavior()
+                    --print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
+                    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
+                        local order =
+                        {
+                            UnitIndex = caster:entindex(),
+                            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+                            AbilityIndex = ability:entindex(),
+                            Queue = true
+                        }
+                        caster:Stop()
+                        ExecuteOrderFromTable(order)
+                    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
+                        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability:GetCastRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+                        if #enemies > 0 then
+                            local order = {
+                                UnitIndex = caster:entindex(),
+                                OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+                                TargetIndex = enemies[1]:entindex(),
+                                AbilityIndex = ability:entindex(),
+                                Queue = true
+                            }
+                            caster:Stop()
+                            ExecuteOrderFromTable(order)
+                        else
+                            if ability.castPointSave then
+                                ability:SetOverrideCastPoint(ability.castPointSave)
+                                ability.castPointSave = nil
+                                caster:RemoveModifierByName("modifier_spellfire_ruby_block")
+                            end
+                        end
+                    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
+                        local order =
+                        {
+                            UnitIndex = caster:entindex(),
+                            OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+                            AbilityIndex = ability:entindex(),
+                            Position = caster:GetAbsOrigin() + caster:GetForwardVector()*ability:GetCastRange(),
+                            Queue = true
+                        }
+                        caster:Stop()
+                        ExecuteOrderFromTable(order)
+                    end
+                end
+            end
+        end)
+    end
+    if slot == 4 then
+        ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+    end
+    if spellfire_gloves:GetGemValue("emerald") > 0 and ability then
+        local percentageReduction = spellfire_gloves:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD)/100
+        print(percentageReduction)
+        Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
     end
 end

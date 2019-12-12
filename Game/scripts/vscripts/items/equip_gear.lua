@@ -974,7 +974,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SHADOW_ARMLET_GEM_EMERALD, hero, "element_shadow", RPC_GEAR_SLOT_GLOVES)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SHADOW_ARMLET_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_GLOVES)
-		end			
+		end	
+	elseif item:GetAbilityName() == "item_rpc_spellfire_gloves" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE, hero, "rune_q_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE, hero, "rune_w_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE, hero, "rune_e_3", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SPELLFIRE_GLOVES_GEM_SAPPHIRE, hero, "rune_r_3", RPC_GEAR_SLOT_GLOVES)
+		end		
 	end
 end
 

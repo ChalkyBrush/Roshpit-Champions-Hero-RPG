@@ -13462,7 +13462,7 @@
     	"item_rpc_spellfire_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_spellfire_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 <font color='#ccff66'>80</font>%。该装备符文重铸有上限，上限为21 。"
+		 "property_spellfire_description"						"施法速率提高 <font color='#ccff66'>60</font>%。该装备符文重铸有上限，上限为21 。"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"

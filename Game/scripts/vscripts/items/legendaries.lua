@@ -4724,6 +4724,27 @@ function RPCItems:RollSkulldiggerGloves(item_level)
     return item
 end
 
+function RPCItems:RollSpellfireGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_spellfire_gloves", "immortal", "Spellfire Gloves", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_spellfire_gloves"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellfire", "#FFA62B", 1, "#property_spellfire_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 -- BOOTS
 
@@ -7916,45 +7937,6 @@ function RPCItems:RollEyeOfAvernus(item_level)
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
     end
 
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollSpellfireGloves(deathLocation, spiritRealm)
-    local item = RPCItems:CreateVariant("item_rpc_spellfire_gloves", "immortal", "Spellfire Gloves", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "spellfire"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellfire", "#FFA62B", 1, "#property_spellfire_description")
-
-    item.newItemTable.hasRunePoints = true
-
-    local tier = 3
-    if GameState:GetDifficultyFactor() > 1 then
-        local luck = RandomInt(1, 5 - GameState:GetDifficultyFactor())
-        if luck == 1 then
-            tier = 4
-        end
-    end
-    local letters = {'q','w','e','r'}
-    local letter = letters[RandomInt(1,4)]
-    local runeName = 'rune_' .. letter .. '_' .. tier
-    local bonus = 0
-    if spiritRealm then
-        bonus = 8
-    end
-    if tier == 3 then
-        bonus = bonus + 8
-    end
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(14 + bonus, 0, 0, 0, 0)
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
     RPCItems:DropItem(item, position)

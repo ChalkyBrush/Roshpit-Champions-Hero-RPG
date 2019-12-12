@@ -18,7 +18,11 @@ function jinbo_phase(event)
 		--print(colorVector)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/dreghor/jinbo_precast.vpcf", caster, 3)
 		ParticleManager:SetParticleControl(pfx, 8, colorVector)
-		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_MK_STRIKE, rate = 1.4})
+		local rate = 1.4
+		if caster:HasModifier("modifier_spellfire_gloves") then
+			rate = 2.8
+		end
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_MK_STRIKE, rate = rate})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.JinBo.HeavySwing", caster)
 	end
 end
