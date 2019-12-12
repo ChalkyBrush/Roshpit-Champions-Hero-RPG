@@ -1035,6 +1035,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_autumnrock_bracer") then
         Filters:AutumnRockWCast(caster)
     end
+    if caster:HasModifier("modifier_silverspring_gloves") then
+        Filters:SilverspringWCast(caster)
+    end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
@@ -5789,5 +5792,26 @@ function Filters:ShadowArmletTakeDamage(hero, damage)
             Filters:ApplyHeal(hero, hero, heal, true, true)
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_huskar/call_of_shadow.vpcf", hero, 0.5)
         end
+    end
+end
+
+function Filters:SilverspringWCast(caster)
+    local silverspring_gloves = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    if silverspring_gloves:GetGemValue("sapphire") > 0 then
+        if silverspring_gloves.puddle and IsValidEntity(silverspring_gloves.puddle) then
+            silverspring_gloves.puddle:RemoveModifierByName("modifier_silverspring_puddle")
+        end
+        local puddle_thinker = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+        puddle_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+        puddle_thinker:SetDayTimeVisionRange(500)
+        puddle_thinker:SetNightTimeVisionRange(500)
+
+        local pfx = ParticleManager:CreateParticle("particles/roshpit/items/silverspring_puddle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(pfx, 0, puddle_thinker:GetAbsOrigin())
+        puddle_thinker.pfx = pfx
+
+        silverspring_gloves:ApplyDataDrivenModifier(caster, puddle_thinker, "modifier_silverspring_puddle", {duration = ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_DURATION})
+        silverspring_gloves.puddle = puddle_thinker
     end
 end

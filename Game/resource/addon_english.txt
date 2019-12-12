@@ -13539,12 +13539,15 @@
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
 
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Doubles your health regen"
+		"property_silverspring_description"			"Doubles your health regen."
 
     	"item_rpc_silverspring_gloves_ruby1"								"Increases Health Regen by @ruby_property1x your current Movement Speed"
     	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
-    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <font color='#ccff66'>0</font> radius puddle of water that increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <font color='#ccff66'>575</font> radius puddle of water that lasts for <font color='#ccff66'>30</font> seconds which increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
     	"item_rpc_silverspring_gloves_amethyst1"								"Each point of Health Regen increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle"							"Silverspring Puddle (Sapphire)"
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle_Description"				"Increased Health Regen"
 
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 

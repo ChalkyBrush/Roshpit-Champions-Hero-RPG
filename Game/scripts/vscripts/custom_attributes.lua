@@ -1868,6 +1868,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_shadowstep_invis") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
 	end
+	if unit:HasModifier("modifier_silverspring_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST)*unit:GetHealthRegen()
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2194,6 +2197,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_shadowstep_invis") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_silverspring_gloves") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST)*unit:GetHealthRegen()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

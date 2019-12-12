@@ -13141,7 +13141,7 @@
     	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Увеличивает урон на x<font color='#ccff66'>30</font> от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
+		"property_silverspring_description"			"Увеличивает урон на x<font color='#ccff66'>0</font> от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"

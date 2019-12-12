@@ -3066,15 +3066,41 @@ function egg_end(event)
 end
 
 function silverspring_think(event)
-	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local currentStacks = target:GetModifierStackCount("modifier_silverspring_effect", ability)
-	local stacks = target:GetHealthRegen()*(ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN/100)
-	if not target:HasModifier("modifier_silverspring_effect") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_silverspring_effect", {})
+	local hero = caster.hero
+
+	local ruby_regen_stacks = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SILVERSPRING_GLOVES_GEM_RUBY)
+	local emerald_regen_stacks = math.floor(hero:GetAttackSpeed()*100)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SILVERSPRING_GLOVES_GEM_EMERALD)
+	local gem_stacks = ruby_regen_stacks + emerald_regen_stacks
+	if gem_stacks > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_silverspring_gem_health_regen", {})
+		hero:SetModifierStackCount("modifier_silverspring_gem_health_regen", caster, gem_stacks)
 	end
-	target:SetModifierStackCount("modifier_silverspring_effect", ability, stacks)
+
+
+	local currentStacks = hero:GetModifierStackCount("modifier_silverspring_effect", ability)
+	local stacks = hero:GetHealthRegen() - currentStacks
+	if not hero:HasModifier("modifier_silverspring_effect") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_silverspring_effect", {})
+	end
+	hero:SetModifierStackCount("modifier_silverspring_effect", ability, stacks)
+end
+
+function silverspring_puddle_start(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	local stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SILVERSPRING_GLOVES_GEM_SAPPHIRE)/0.1
+	target:ApplyModifierAndSetStacks(ability, caster, "modifier_silverspring_in_puddle_health_regen", stacks, 0)
+end
+
+function silverspring_puddle_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
 end
 
 function cascade_hat_think(event)

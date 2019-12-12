@@ -1022,3 +1022,11 @@ function CDOTA_BaseNPC:ApplyAndIncrementStack(ability, caster, modifier_name, in
 	self:SetModifierStackCount(modifier_name, caster, new_stacks)
 end
 
+function CDOTA_BaseNPC:ApplyModifierAndSetStacks(ability, caster, modifier_name, stacks, duration)
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {})
+	end
+	self:SetModifierStackCount(modifier_name, caster, stacks)
+end

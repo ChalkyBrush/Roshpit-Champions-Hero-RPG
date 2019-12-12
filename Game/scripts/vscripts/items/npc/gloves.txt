@@ -17,6 +17,10 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/silverspring_puddle.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -73,6 +77,11 @@
 						"ModifierName"	"modifier_silverspring_effect"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_silverspring_gem_health_regen"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_silverspring_effect"
@@ -82,7 +91,66 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
+				}
+			}
+			"modifier_silverspring_gem_health_regen"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
+				}				
+			}
+			"modifier_silverspring_puddle"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_silverspring_in_puddle"
+				"Aura_Radius"   	"<% ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_RADIUS %>"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"silverspring_puddle_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_silverspring_in_puddle"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_silverspring_in_puddle_health_regen"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"silverspring_puddle_start"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_silverspring_in_puddle_health_regen"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
 				}
 			}
 		}
