@@ -1871,6 +1871,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_silverspring_gloves") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST)*unit:GetHealthRegen()
 	end
+	if unit:HasModifier("modifier_spiritual_empowerment_stack") then
+		local modifier = unit:FindModifierByName("modifier_spiritual_empowerment_stack")
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2203,6 +2207,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_spirit_glove") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPIRIT_GLOVE_GEM_EMERALD)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_spiritual_empowerment_stack") then
+		local modifier = unit:FindModifierByName("modifier_spiritual_empowerment_stack")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE)*modifier:GetStackCount()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -2693,6 +2701,9 @@ function CustomAttributes:SetAttributes(hero)
 				agi_bonus = agi_bonus + (radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
 			end
 		end
+	end
+	if hero:HasModifier("modifier_spiritual_empowerment_stack") then
+		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1)
 	end
 	if hero:HasModifier("modifier_claw_of_azinoth") then
 		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)

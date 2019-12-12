@@ -3698,8 +3698,13 @@ function spiritual_empowerment_think(event)
 	local ability = event.ability
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_spiritual_empowerment_stack", {})
 	local newStack = target:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster) + 1
-	newStack = math.min(newStack, ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_MAX_STACKS)
+	local max_stacks = ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_MAX_STACKS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_EMERALD)
+	if newStack <= max_stacks then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/base/monkey_king_arcana_spring_cast_spiral.vpcf", target, 2)
+	end
+	newStack = math.min(newStack, max_stacks)
 	target:SetModifierStackCount("modifier_spiritual_empowerment_stack", caster, newStack)
+	Filters:SpiritualEmpowermentStackUpdate(target)
 end
 
 function trials_attack(event)

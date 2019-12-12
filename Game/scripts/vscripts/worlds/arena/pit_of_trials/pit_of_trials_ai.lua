@@ -3490,7 +3490,7 @@ function rakash_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1,5)
 	if luck == 1 then
-		RPCItems:RollSpiritualEmpowermentGlove(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_spiritual_empowerment_glove")
 	end
 end
 

@@ -196,7 +196,10 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_blue_divinex_amulet") then
         mult = mult + ITEM_RPC_BLUE_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_BLUE_DIVINEX_AMULET_INT_DIVISOR)
     end
-
+    if caster:HasModifier("modifier_spiritual_empowerment_stack") then
+        local current_stack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit)
+        mult = mult + current_stack * caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY1)/100
+    end
     if caster:HasModifier("modifier_raven_idol") then
         local multIncrease = (1 - caster:GetHealth() / caster:GetMaxHealth()) * ITEM_RPC_RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
         mult = mult + multIncrease
@@ -772,12 +775,20 @@ function Filters:CastSkillArguments(slot, caster)
         Filters:MordiggusEvent(caster, "cast")
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
-        local newStack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit) - 1
+        local stack_loss = 1
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("amethyst") > 0 then
+            local proc = Filters:GetProc(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST2))
+            if proc then
+                stack_loss = 0
+            end
+        end
+        local newStack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit) - stack_loss
         if newStack == 0 then
             caster:RemoveModifierByName("modifier_spiritual_empowerment_stack")
         else
             caster:SetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit, newStack)
         end
+        Filters:SpiritualEmpowermentStackUpdate(caster)
     end
     if caster:HasModifier("modifier_crimsyth_elite_greaves") then
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
@@ -1599,7 +1610,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_spiritual_empowerment_stack") then
             local current_stack = attacker:GetModifierStackCount("modifier_spiritual_empowerment_stack", attacker.InventoryUnit)
-            damageMult = damageMult + (current_stack + 1) * ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_BAD/100
+            damageMult = damageMult + current_stack * ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_BAD/100
         end
         if attacker:HasModifier("modifier_ability_potion_1") then
             damageMult = damageMult + 0.3
@@ -5999,5 +6010,16 @@ function Filters:SpellfireAbilityCast(caster, slot)
         local percentageReduction = spellfire_gloves:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD)/100
         print(percentageReduction)
         Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
+    end
+end
+
+function Filters:SpiritualEmpowermentStackUpdate(hero)
+    local caster = hero.InventoryUnit
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+    local stacks = hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster)
+    if ability:GetGemValue("ruby") > 0 then
+        local attack_power_stacks = (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY2)/0.1)*stacks
+        ability:ApplyDataDrivenModifier(caster, hero, "modifier_spiritual_empowerment_ruby_attack_power", {})
+        hero:SetModifierStackCount("modifier_spiritual_empowerment_ruby_attack_power", caster, attack_power_stacks)
     end
 end
