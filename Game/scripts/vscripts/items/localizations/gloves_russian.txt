@@ -255,12 +255,17 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
-    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Увеличивает урон на x<% ITEM_RPC_SILVERSPRING_GLOVES_BASE_DMG_PER_REGEN %> от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
+		"property_silverspring_description"			"Doubles your health regen."
+
+    	"item_rpc_silverspring_gloves_ruby1"								"Increases Health Regen by @ruby_property1x your current Movement Speed"
+    	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <% ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_RADIUS %> radius puddle of water that lasts for <% ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_DURATION %> seconds which increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_amethyst1"								"Each point of Health Regen increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle"							"Silverspring Puddle (Sapphire)"
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle_Description"				"Increased Health Regen"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"

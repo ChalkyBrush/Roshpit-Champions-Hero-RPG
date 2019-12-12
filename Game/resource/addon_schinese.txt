@@ -13303,12 +13303,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"银泉手套"
-    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_silverspring_glove"			"银泉"
-		"property_silverspring_description"			"提高玩家基础攻击力，提高值为 <font color='#ccff66'>0</font>% 的生命回复速度。"
+		"property_silverspring_description"			"Doubles your health regen."
+
+    	"item_rpc_silverspring_gloves_ruby1"								"Increases Health Regen by @ruby_property1x your current Movement Speed"
+    	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <font color='#ccff66'>575</font> radius puddle of water that lasts for <font color='#ccff66'>30</font> seconds which increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_amethyst1"								"Each point of Health Regen increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle"							"Silverspring Puddle (Sapphire)"
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle_Description"				"Increased Health Regen"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"先知手套"
@@ -13435,7 +13439,7 @@
     	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skulldigger"						"冥火"
-		"property_skulldigger_description"					"每 <font color='#ccff66'>1.2</font> 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 <font color='#ccff66'>75</font>x 攻击力的伤害并造成AOE眩晕效果，持续 <font color='#ccff66'>0.9</font> 秒。最高 <font color='#ccff66'>9</font> 层冥火。"
+		"property_skulldigger_description"					"每 <font color='#ccff66'>1.2</font> 秒增加一层冥火。当你受到伤害时，施放一股冥火对目标造成 <font color='#ccff66'>60</font>x 攻击力的伤害并造成AOE眩晕效果，持续 <font color='#ccff66'>0.8</font> 秒。最高 <font color='#ccff66'>8</font> 层冥火。"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"冥火"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"当受到伤害, 施放一股冥火对攻击者造成伤害。"
 		 

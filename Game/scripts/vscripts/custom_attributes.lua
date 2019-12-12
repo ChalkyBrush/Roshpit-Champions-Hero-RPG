@@ -2983,6 +2983,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 			flatHealthBonus = flatHealthBonus + hero:GetSpirit()*grithault:GetFinalGemPropertyValue("amethyst", GRITHAULT_AMETHYST)
 		end
 	end
+	if excludedModifier ~= "modifier_skulldigger_hellfire_stacks" and hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1)*hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", hero.InventoryUnit)
+	end
 	if excludedModifier ~= "modifier_sea_giant_health_bonus" and hero:HasModifier("modifier_sea_giant_health_bonus") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_sea_giant_health_bonus", 1)
 	end

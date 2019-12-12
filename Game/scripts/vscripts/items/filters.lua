@@ -1689,6 +1689,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_frostburn_gauntlets") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FROSTBURN_GAUNTLETS_GEM_SAPPHIRE1)/100
         end
+        if attacker:HasModifier("modifier_skulldigger_hellfire_stacks") then
+            if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
+                Filters:SkulldiggerWraithBlast(attacker.InventoryUnit, attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES], attacker, victim)
+            end
+        end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + (attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_SAPPHIRE2))/100
         end
@@ -5813,5 +5818,66 @@ function Filters:SilverspringWCast(caster)
 
         silverspring_gloves:ApplyDataDrivenModifier(caster, puddle_thinker, "modifier_silverspring_puddle", {duration = ITEM_RPC_SILVERSPRING_GLOVES_SAPPHIRE_DURATION})
         silverspring_gloves.puddle = puddle_thinker
+    end
+end
+
+function Filters:SkulldiggerWraithBlast(caster, ability, hero, target)
+    if not hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
+        return false
+    end
+    local currentStacks = hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)
+    local stack_loss = 1
+    if ability:GetGemValue("emerald") > 0 then
+        local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD1))
+        if proc then
+            stack_loss = 0
+        end
+    end
+    local newStacks = currentStacks - stack_loss
+    if newStacks == 0 then
+        hero:RemoveModifierByName("modifier_skulldigger_hellfire_stacks")
+    else
+        hero:SetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster, newStacks)
+    end
+    EmitSoundOn("RoshpitItem.SkulldiggerLaunch", hero)
+    local info =
+    {
+        Target = target,
+        Source = hero,
+        Ability = ability,
+        EffectName = "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf",
+        StartPosition = "attach_hitloc",
+        bDrawsOnMinimap = false,
+        bDodgeable = false,
+        bIsAttack = false,
+        bVisibleToEnemies = true,
+        bReplaceExisting = false,
+        flExpireTime = GameRules:GetGameTime() + 4,
+        bProvidesVision = true,
+        iVisionRadius = 0,
+        iMoveSpeed = 1000,
+    iVisionTeamNumber = caster:GetTeamNumber()}
+    projectile = ProjectileManager:CreateTrackingProjectile(info)
+
+    if ability:GetGemValue("amethyst") > 0 then
+        local damage_stacks = hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST2)
+        if damage_stacks > 0 then
+            hero:ApplyModifierAndSetStacks(ability, caster, "modifier_skulldigger_amethyst_damage", damage_stacks, 0)
+        end
+    end
+end
+
+function Filters:IncrementSkullDiggerStacks(caster, ability, hero)
+    local currentStacks = hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)
+    if currentStacks == 0 then
+        ability:ApplyDataDrivenModifier(caster, hero, "modifier_skulldigger_hellfire_stacks", {})
+    end
+    local maxStacks = ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_SAPPHIRE)
+    local newStacks = math.min(currentStacks + 1, maxStacks)
+    hero:SetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster, newStacks)
+
+    if ability:GetGemValue("amethyst") > 0 then
+        local damage_stacks = hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST2)
+        hero:ApplyModifierAndSetStacks(ability, caster, "modifier_skulldigger_amethyst_damage", damage_stacks, 0)
     end
 end

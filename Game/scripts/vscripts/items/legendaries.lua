@@ -376,58 +376,6 @@ function RPCItems:RollSwiftspikeBracer(item_level)
     return item
 end
 
-function RPCItems:RollSkulldiggerGloves(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_skulldigger_gauntlet", "immortal", "Skulldigger Gauntlet", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "skulldigger_v2"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_skulldigger", "#90E8E7", 1, "#property_skulldigger_description")
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        local maxFactor = RPCItems:GetMaxFactor()
-        local healthRoll, pref = RPCItems:RollAttribute(300, 300, 800, 1, 1, item.newItemTable.rarity, false, maxFactor * 600)
-        item.newItemTable.property2 = healthRoll
-        item.newItemTable.property2name = "max_health"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-    elseif luck == 2 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 4, 3, 40, 2)
-    elseif luck == 3 then
-        item.newItemTable.hasRunePoints = true
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property2 = math.ceil(value * 2.0)
-        local luck = RandomInt(1, 2)
-        if luck == 1 then
-            propertyName = "rune_q_1"
-        elseif luck == 2 then
-            propertyName = "rune_q_2"
-        end
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-    end
-    if type(item.newItemTable.property3) == "number" then
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-    end
-    if type(item.newItemTable.property4) == "number" then
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSpiritGlove(item_level)
     local item = RPCItems:CreateVariant("item_rpc_spirit_glove", "immortal", "Spirit Glove", "hands", true, "Slot: Hands")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -4746,6 +4694,36 @@ function RPCItems:RollSilverspringGloves(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollSkulldiggerGloves(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_skulldigger_gauntlet", "immortal", "Skulldigger Gauntlet", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_skulldigger_gauntlet"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_skulldigger", "#90E8E7", 1, "#property_skulldigger_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_undead", 1.5)
+    elseif luck == 3 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.75)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 -- BOOTS
 

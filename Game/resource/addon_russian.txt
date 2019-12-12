@@ -13136,12 +13136,17 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_silverspring_gloves"								"Silverspring Gloves"
-    	"item_rpc_silverspring_gloves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_silverspring_gloves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_silverspring_gloves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_silverspring_gloves_amethyst1"								"blah blah @amethyst_property1 gem"
+
 		"item_property_silverspring_glove"			"Silverspring"
-		"property_silverspring_description"			"Увеличивает урон на x<font color='#ccff66'>0</font> от значения регенерации здоровья. Максимальный бонус урона равен 500 миллионам."
+		"property_silverspring_description"			"Doubles your health regen."
+
+    	"item_rpc_silverspring_gloves_ruby1"								"Increases Health Regen by @ruby_property1x your current Movement Speed"
+    	"item_rpc_silverspring_gloves_emerald1"								"Increases Health Regen by @emerald_property1x your attack speed"
+    	"item_rpc_silverspring_gloves_sapphire1"								"Casting [W] creates a <font color='#ccff66'>575</font> radius puddle of water that lasts for <font color='#ccff66'>30</font> seconds which increases health regen of any allies standing within by @sapphire_property1% of max health. Only 1 puddle can be active at a time"
+    	"item_rpc_silverspring_gloves_amethyst1"								"Each point of Health Regen increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle"							"Silverspring Puddle (Sapphire)"
+    	"DOTA_Tooltip_modifier_silverspring_in_puddle_Description"				"Increased Health Regen"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_far_seers_enchanted_gloves"						"Far Seer's Enchanted Gloves"
@@ -13274,7 +13279,7 @@
     	"item_rpc_skulldigger_gauntlet_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_skulldigger"						"Wraithfire"
-		"property_skulldigger_description"					"Каждые <font color='#ccff66'>1.2</font> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <font color='#ccff66'>75</font>x общего урона героя<br>и оглушает всех врагов в небольшой области на <font color='#ccff66'>0.9</font> сек.<br>Максимум зарядов: <font color='#ccff66'>9</font>."
+		"property_skulldigger_description"					"Каждые <font color='#ccff66'>1.2</font> сек. герой получает заряд этого предмета.<br>При получении героем урона, в сторону атакующего будет выпущен спектральный шар,<br>который при столкновении с целью наносит урон в размере <font color='#ccff66'>60</font>x общего урона героя<br>и оглушает всех врагов в небольшой области на <font color='#ccff66'>0.8</font> сек.<br>Максимум зарядов: <font color='#ccff66'>8</font>."
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"При получении урона будет израсходован заряд, отправляя в сторону атакующего поток энергии."
 		 

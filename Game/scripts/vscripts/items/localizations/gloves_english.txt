@@ -506,16 +506,21 @@
     	"DOTA_Tooltip_modifier_silverspring_in_puddle"							"Silverspring Puddle (Sapphire)"
     	"DOTA_Tooltip_modifier_silverspring_in_puddle_Description"				"Increased Health Regen"
 
+
     	"DOTA_Tooltip_ability_item_rpc_skulldigger_gauntlet"							"Skulldigger Gauntlet"
 
 		"item_property_skulldigger"						"Exhumation"
-		"property_skulldigger_description"					"Gain Exhumation stacks each <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %> seconds. When attacked, launch a Wraith Blast at the target that deals <% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>% of your attack damage on impact and stuns enemies in a <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_RADIUS %> radius for <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %> seconds. Max <% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %> stacks."
-		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Wraithfire"
+		"property_skulldigger_description"					"Gain Exhumation stacks each <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STACK_RATE %> seconds. When attacked, consume an Exhumation stack and launch a Wraith Blast at the target that deals <% ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE %>% of your attack damage on impact and stuns enemies in a <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_RADIUS %> radius for <% ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION %> seconds. Max <% ITEM_RPC_SKULLDIGGER_GAUNTLET_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks"	"Exhumation"
 		"DOTA_Tooltip_modifier_skulldigger_hellfire_stacks_Description"	"When taking damage, launch a Wraith Blast at the attacker"
-    	"item_rpc_skulldigger_gauntlet_ruby1"							"Increase Max Exhumation stacks by @ruby_property1"
-    	"item_rpc_skulldigger_gauntlet_emerald1"							"Automatically emit a Wraith Blast at a random target within <% ITEM_RPC_SKULLDIGGER_GAUNTLET_EMERALD_RADIUS %> every @emerald_property1 seconds"
-    	"item_rpc_skulldigger_gauntlet_sapphire1"							"Wraith Blasts deal @sapphire_property1% of their damage in the blast radius and Wraith Blast damage is increased by @sapphire_property2"
-    	"item_rpc_skulldigger_gauntlet_amethyst1"							"Landing an attack has a @amethyst_property1% chance to add an Exhumation stack, and each stack increases Base Attack Damage by @amehthyst_property2"
+
+    	"item_rpc_skulldigger_gauntlet_ruby1"							"Each exhumation stack increases Max Health by @ruby_property1, and Wraith Blast damage is increased by @ruby_property2"
+    	"item_rpc_skulldigger_gauntlet_emerald1"							"@emerald_property1% chance to not consume an Exhumation stack when firing a Wraith Blast, and increases Wraith Blast stun duration by @emerald_property2 seconds"
+    	"item_rpc_skulldigger_gauntlet_sapphire1"							"Increase Max Exhumation stacks by @sapphire_property1, and enemies hit by [W] are targeted by a Wraith Blast"
+    	"item_rpc_skulldigger_gauntlet_amethyst1"							"Landing an attack has a @amethyst_property1% chance to add an Exhumation stack, and each stack increases Base Attack Damage by @amethyst_property2"
+
+
+
 
 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	

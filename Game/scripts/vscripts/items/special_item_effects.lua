@@ -4017,66 +4017,46 @@ end
 
 function skulldigger_think(event)
 	local ability = event.ability
-	local target = event.target
+	local hero = event.target
 	local caster = event.caster
-	local currentStacks = target:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)
-	if currentStacks == 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_skulldigger_hellfire_stacks", {})
+	ability.hero = hero
+	Filters:IncrementSkullDiggerStacks(caster, ability, hero)
+end
+
+function skulldigger_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_AMETHYST1))
+		if proc then
+			Filters:IncrementSkullDiggerStacks(caster, ability, hero)
+		end
 	end
-	local maxStacks = event.max_stacks
-	local newStacks = math.min(currentStacks + 1, maxStacks)
-	target:SetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster, newStacks)
 end
 
 function hellfire_stack_take_damage(event)
 	local ability = event.ability
-	local target = event.unit
 	local caster = event.caster
+	local hero = caster.hero
 	local attacker = event.attacker
-	if target == attacker then
+	if hero == attacker then
 		return false
 	end
-	ability.caster = target
-	local currentStacks = target:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster)
-	local newStacks = currentStacks - 1
-	if newStacks == 0 then
-		target:RemoveModifierByName("modifier_skulldigger_hellfire_stacks")
-	else
-		target:SetModifierStackCount("modifier_skulldigger_hellfire_stacks", caster, newStacks)
-	end
-	EmitSoundOn("RoshpitItem.SkulldiggerLaunch", target)
-	local info =
-	{
-		Target = attacker,
-		Source = target,
-		Ability = ability,
-		EffectName = "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf",
-		StartPosition = "attach_hitloc",
-		bDrawsOnMinimap = false,
-		bDodgeable = false,
-		bIsAttack = false,
-		bVisibleToEnemies = true,
-		bReplaceExisting = false,
-		flExpireTime = GameRules:GetGameTime() + 4,
-		bProvidesVision = true,
-		iVisionRadius = 0,
-		iMoveSpeed = 1000,
-	iVisionTeamNumber = caster:GetTeamNumber()}
-	projectile = ProjectileManager:CreateTrackingProjectile(info)
+	Filters:SkulldiggerWraithBlast(caster, ability, hero, attacker)
 end
 
 function skulldigger_hellfire_hit(event)
 	local target = event.target
 
 	local ability = event.ability
-	local caster = ability.caster
-	local stun_duration = event.stun_duration
-	local attack_mult = event.attack_mult
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
+	local caster = ability.hero
+	local stun_duration = ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_EMERALD2)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (ITEM_RPC_SKULLDIGGER_GAUNTLET_ATTACK_POWER_TO_DAMAGE/100) + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY2)
 
 	EmitSoundOn("RoshpitItem.SkulldiggerImpact", target)
 
-	local radius = 240
+	local radius = ITEM_RPC_SKULLDIGGER_GAUNTLET_STUN_RADIUS
 	local particleNameS = "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
 	local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
 	ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
@@ -4090,7 +4070,7 @@ function skulldigger_hellfire_hit(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:ApplyStun(caster, stun_duration, enemy)
-			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)
+			Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_GHOST)
 		end
 	end
 end
