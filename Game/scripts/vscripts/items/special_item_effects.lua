@@ -3649,18 +3649,25 @@ function mana_relic_think(event)
 end
 
 function ablecore_greaves_think(event)
-	local caster = event.target
-	local movespeed = caster:GetBaseMoveSpeed()
-	local movespeedModifier = caster:GetMoveSpeedModifier(movespeed, false)
-	if movespeedModifier <= ITEM_RPC_ABLECORE_GREAVES_MS_REQ then
-		event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {})
+	local hero = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local movespeed = hero:GetActualMovespeed()
+	local threshold = ITEM_RPC_ABLECORE_GREAVES_MS_REQ + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ABLECORE_GREAVES_GEM_SAPPHIRE)
+	if movespeed <= threshold then
+		event.ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_greaves_effect", {})
+		print("apply")
+		if ability:GetGemValue("amethyst") > 0 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_attack_power", {})
+			hero:SetModifierStackCount("modifier_ablecore_attack_power", castear, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ABLECORE_GREAVES_GEM_AMETHYST))
+		end
 	else
-		if caster:HasModifier("modifier_ablecore_greaves_effect") then
-			if caster:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 then
-				event.ability:ApplyDataDrivenModifier(event.caster, caster, "modifier_ablecore_greaves_effect", {duration = ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION})
+		if hero:HasModifier("modifier_ablecore_greaves_effect") then
+			if hero:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 and ability:GetGemValue("ruby") > 0  then
+				event.ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_greaves_effect", {duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY2)})
 			end
 		else
-			caster:RemoveModifierByName("modifier_ablecore_greaves_effect")
+			hero:RemoveModifierByName("modifier_ablecore_greaves_effect")
 		end
 	end
 end

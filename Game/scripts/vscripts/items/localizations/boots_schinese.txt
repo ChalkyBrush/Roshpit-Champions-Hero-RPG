@@ -249,14 +249,15 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"格里夫斯"
-    	"item_rpc_ablecore_greaves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_ablecore_greaves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_ablecore_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_ablecore_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_ablecore_greaves"					"龟速"
-		"property_ablecore_greaves_description"			"当移动速度低于或者等于<% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>，受到的伤害减少<% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%。当移动速度高于<% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>时，此buff仍持续<% ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION %>秒。"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"龟速"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"受到的伤害减少<% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%并且伤害输出增加<% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%"
+        "property_ablecore_greaves_description"         "While movespeed is less than or equal to <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>% and Base Ability Damage damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_BAD %>%."
+        "DOTA_Tooltip_modifier_ablecore_greaves_effect" "Slugfoot"
+        "DOTA_Tooltip_modifier_ablecore_greaves_effect_Description" "Incoming damage reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%% and Base Ability Damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_BAD %>%%"
+
+        "item_rpc_ablecore_greaves_ruby1"                               "Increases the damage reduction of Slugfoot by an additional @ruby_property1%, and the buff sticks for @ruby_property2 seconds if your movespeed moves back above the movespeed threshold."
+        "item_rpc_ablecore_greaves_emerald1"                                "Slugfoot buff increases Item Damage by @emerald_property1% and Armor Pierce and Spell Pierce by @emerald_property2"
+        "item_rpc_ablecore_greaves_sapphire1"                               "Increases the movespeed threshold to activate Slugfoot by @sapphire_property1 movespeed"
+        "item_rpc_ablecore_greaves_amethyst1"                               "Slugfoot buff also increases Attack Power by @amethyst_property1%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"巨型猎人的复原鞋子"

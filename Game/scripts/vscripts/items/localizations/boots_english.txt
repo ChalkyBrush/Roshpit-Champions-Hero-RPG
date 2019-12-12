@@ -1,3 +1,15 @@
+    	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
+
+		"item_property_ablecore_greaves"					"Slugfoot"
+		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>% and Base Ability Damage damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_BAD %>%."
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
+		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%% and Base Ability Damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_BAD %>%%"
+
+    	"item_rpc_ablecore_greaves_ruby1"								"Increases the damage reduction of Slugfoot by an additional @ruby_property1%, and the buff sticks for @ruby_property2 seconds if your movespeed moves back above the movespeed threshold."
+    	"item_rpc_ablecore_greaves_emerald1"								"Slugfoot buff increases Item Damage by @emerald_property1% and Armor Pierce and Spell Pierce by @emerald_property2"
+    	"item_rpc_ablecore_greaves_sapphire1"								"Increases the movespeed threshold to activate Slugfoot by @sapphire_property1 movespeed"
+    	"item_rpc_ablecore_greaves_amethyst1"								"Slugfoot buff also increases Attack Power by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -246,16 +258,7 @@
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_ablecore_greaves"								"Ablecore Greaves"
-    	"item_rpc_ablecore_greaves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_ablecore_greaves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_ablecore_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_ablecore_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_ablecore_greaves"					"Slugfoot"
-		"property_ablecore_greaves_description"			"While movespeed is less than or equal to <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>, incoming damage is reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>% and outgoing Post-Mitigation damage is increased by <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%. The buff sticks for <% ITEM_RPC_ABLECORE_GREAVES_STICKY_DURATION %> seconds if your movespeed moves back above <% ITEM_RPC_ABLECORE_GREAVES_MS_REQ %>."
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect"	"Slugfoot"
-		"DOTA_Tooltip_modifier_ablecore_greaves_effect_Description"	"Incoming damage reduced by <% ITEM_RPC_ABLECORE_GREAVES_DMG_RED %>%% and outgoing damage increased by <% ITEM_RPC_ABLECORE_GREAVES_POST_MITI %>%%"
+		
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"

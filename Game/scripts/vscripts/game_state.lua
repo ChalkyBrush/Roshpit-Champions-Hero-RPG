@@ -1635,7 +1635,8 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - modifier:GetDamageReduction())
 	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
-		damage = damage * (100-ITEM_RPC_ABLECORE_GREAVES_DMG_RED)/100
+		local reduction = ITEM_RPC_ABLECORE_GREAVES_DMG_RED + victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1)
+		damage = damage * (100-reduction)/100
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
 		damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
@@ -2242,10 +2243,6 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_draghor_shapeshift_hawk_lua") then
 			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "intellect") * DJANGHOR_BIRD_PURE_MAG_BLOCK, 0)
 		end
-	end
-
-	if attacker:HasModifier("modifier_ablecore_greaves_effect") then
-		mult = mult + ITEM_RPC_ABLECORE_GREAVES_POST_MITI/100
 	end
 
 	if victim:HasModifier("modifier_arkimus_c_b_sprinting") then
