@@ -2577,7 +2577,7 @@ function ice_queen_die(event)
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollAlaranaIceBoot(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_alaranas_ice_boot")
 	end
 	Tanari:SpawnSpiritMountain()
 end

@@ -2179,9 +2179,6 @@ function GameState:FilterDamage(filterTable)
 
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
-		if attacker:HasModifier("modifier_alarana_ice_freeze") then
-			mult = mult + ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI/100
-		end
 		if attacker:HasModifier("modifier_far_seers_gloves") and applyEffects then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
@@ -3078,9 +3075,9 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_alarana_ice_freeze") then
-		victim.foot.alaranaIce = victim.foot.alaranaIce - filterTable["damage"]
+		victim.equipped_gear[RPC_GEAR_SLOT_BOOTS].alaranaIce = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS].alaranaIce - filterTable["damage"]
 		filterTable["damage"] = 0
-		if victim.foot.alaranaIce <= 0 then
+		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS].alaranaIce <= 0 then
 			victim:RemoveModifierByName("modifier_alarana_ice_freeze")
 			Filters:AlaranaFrostNova(victim)
 		end

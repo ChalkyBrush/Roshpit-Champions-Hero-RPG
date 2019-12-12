@@ -2218,6 +2218,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_ablecore_greaves_effect") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
 	end
+	if unit:HasModifier("modifier_alarana_ice_freeze") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_SAPPHIRE)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

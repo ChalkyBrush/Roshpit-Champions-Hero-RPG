@@ -11994,7 +11994,7 @@
     	"item_rpc_admiral_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_admiral_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_admiral_boots"				"海上霸主"
-		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>250</font>%。"
+		"property_admiral_boots_description"		"提高 @Ability3 伤害<font color='#ccff66'>225</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
@@ -12221,15 +12221,15 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"安拉罗娜的冰靴"
-    	"item_rpc_alaranas_ice_boot_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_alaranas_ice_boot_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_alarana"								"冰之盾"
-		 "property_alarana_description"							"施放 @Ability4 后将把玩家包裹在冰盾中。冰盾状态下玩家被缠绕，但是伤害减免 100% 并且在 <font color='#ccff66'>8</font> 秒内魔法伤害提高 <font color='#ccff66'>75</font>% 。如果在护盾状态下受到的总伤害超过 <font color='#ccff66'>4</font>x 玩家最大生命值，冰盾会被打破。冰盾破碎时，缠绕周围所有敌人并且对敌人造成 <font color='#ccff66'>100</font>x 玩家最大生命值的伤害。"
+         "property_alarana_description"                         "Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% for <font color='#ccff66'>8</font> seconds. If total damage blocked exceeds <font color='#ccff66'>100</font>% your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <font color='#ccff66'>1</font>x your Max Health."
 		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"冰之盾"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"冰霜新星"
 		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"被缠绕"
+        "item_rpc_alaranas_ice_boot_ruby1"                              "Increases Max Health by @ruby_property1 and Intelligence by @ruby_property2"
+        "item_rpc_alaranas_ice_boot_emerald1"                               "You can activate Ice Block for @emerald_property1 seconds by casting [Q]"
+        "item_rpc_alaranas_ice_boot_sapphire1"                              "While encased in ice, increase Spell Pierce by @sapphire_property1"
+        "item_rpc_alaranas_ice_boot_amethyst1"                              "Gain Health Regen equal to @amethyst_property1% of max health while in Ice Block"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"翡翠速度赛跑者"

@@ -11863,12 +11863,25 @@
 
     	"DOTA_Tooltip_ability_item_rpc_admiral_boots"									"Admiral's Boots"
 		"item_property_admiral_boots"				"Sea Commander"
-		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>250</font>%"
+		"property_admiral_boots_description"		"Increases the damage of @Ability3 by <font color='#ccff66'>225</font>%"
 
     	"item_rpc_admiral_boots_ruby1"									"Increases Rune [E1] by @ruby_property1"
     	"item_rpc_admiral_boots_emerald1"									"Increases Rune [E3] by @emerald_property1"
     	"item_rpc_admiral_boots_sapphire1"									"Increases Rune [E2] by @sapphire_property1"
     	"item_rpc_admiral_boots_amethyst1"									"Increases Rune [E4] by @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
+
+		"item_property_alarana"								"Ice Block"
+		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% for <font color='#ccff66'>8</font> seconds. If total damage blocked exceeds <font color='#ccff66'>100</font>% your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <font color='#ccff66'>1</font>x your Max Health."
+		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
+		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
+		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
+
+    	"item_rpc_alaranas_ice_boot_ruby1"								"Increases Max Health by @ruby_property1 and Intelligence by @ruby_property2"
+    	"item_rpc_alaranas_ice_boot_emerald1"								"You can activate Ice Block for @emerald_property1 seconds by casting [Q]"
+    	"item_rpc_alaranas_ice_boot_sapphire1"								"While encased in ice, increase Spell Pierce by @sapphire_property1"
+    	"item_rpc_alaranas_ice_boot_amethyst1"								"Gain Health Regen equal to @amethyst_property1% of max health while in Ice Block"
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -12196,17 +12209,6 @@
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
 		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
-    	"item_rpc_alaranas_ice_boot_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_alaranas_ice_boot_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% and increasing Post-Mitigation Magical damage dealt by <font color='#ccff66'>75</font>% for <font color='#ccff66'>8</font> seconds. If total damage blocked exceeds <font color='#ccff66'>4</font>x your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <font color='#ccff66'>100</font>x your Max Health."
-		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
-		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
-		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Rooted"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"

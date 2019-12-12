@@ -4773,15 +4773,41 @@ function RPCItems:RollAdmiralBoot(item_level)
 
 
     local rune_type = RPCItems:RollRuneType({"e"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
 
     local rune_type = RPCItems:RollRuneType({"e"}, {tier2 = 50, tier3 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 2)
 
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
     RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollAlaranaIceBoot(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_alaranas_ice_boot", "immortal", "Alarana's Ice Boot", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_alaranas_ice_boot"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_alarana", "#AFECFF", 1, "#property_alarana_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_ice", 2)
+    else
+        local rune_type = RPCItems:RollRuneType({"e"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4837,40 +4863,6 @@ function RPCItems:RollCrystallineSlippers(item_level)
     item.newItemTable.property2name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollAlaranaIceBoot(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_alaranas_ice_boot", "immortal", "Alarana's Ice Boot", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "alarana"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_alarana", "#AFECFF", 1, "#property_alarana_description")
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        RPCItems:RollFootProperty2(item, 0)
-    elseif luck == 2 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_ICE, 2.4, 1, 20, 2)
-    else
-        local luck = RandomInt(1, 6)
-        item.newItemTable.hasRunePoints = true
-        if luck == 1 then
-            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-            item.newItemTable.property2 = math.floor(value * 1.0)
-            item.newItemTable.property2name = "rune_e_3"
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-        else
-            local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-            item.newItemTable.property2 = math.floor(value * 1.4)
-            item.newItemTable.property2name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-        end
-    end
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)

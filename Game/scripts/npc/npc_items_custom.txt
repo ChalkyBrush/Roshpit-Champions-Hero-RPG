@@ -35023,6 +35023,146 @@
 	//LEGEND WEAPONS
 
 
+	"item_rpc_alaranas_ice_boot"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/alaranas_ice_boot" //"dunetread_boots"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"		"9"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"500 1000 1500 2000 2500"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"20 40 60 80 100"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"0.7 1.4 2.1 2.8 3.5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"1000 2000 3000 4000 5000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"1.0 2.0 3.0 4.0 5.0"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_medusa/ice_shatter.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_alaranas_ice_boot"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_alarana_ice_freeze"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_alarana_ice_freeze"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"winter_wyvern_cold_embrace"
+				"Passive"	"0"
+				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"OnDestroy"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_medusa/ice_shatter.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_alarana_ice_freeze_amethyst_hp_regen"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_alarana_frost_nova"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"crystal_maiden_crystal_nova"
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_alarana_ice_freeze_amethyst_hp_regen"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_admiral_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -37334,139 +37474,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-	}
-	"item_rpc_alaranas_ice_boot"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/alaranas_ice_boot" //"dunetread_boots"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"100"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_four"		"75"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"element_one"		"9"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
-			"particle"	"particles/units/heroes/hero_medusa/ice_shatter.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_alaranas_ice_boot"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_alarana_ice_freeze"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"winter_wyvern_cold_embrace"
-				"Passive"	"0"
-				"EffectName"	"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE" "-200"
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
-				}
-				"OnDestroy"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_medusa/ice_shatter.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-			}
-			"modifier_alarana_frost_nova"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"crystal_maiden_crystal_nova"
-				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
 			}
 		}
 	}

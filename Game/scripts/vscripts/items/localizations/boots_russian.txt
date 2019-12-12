@@ -346,16 +346,18 @@
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp перезаряжается"
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"								"Alarana's Ice Boots"
-    	"item_rpc_alaranas_ice_boot_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_alaranas_ice_boot_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_alaranas_ice_boot_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_alaranas_ice_boot_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_alarana"								"Ice Block"
-		 "property_alarana_description"							"После прочтения (R) @Ability4 герой будет скован обездвиживающим льдом. Весь получаемый урон снижается на 100%, а весь магический пост-резистный урон увеличивается на <% ITEM_RPC_ALARANAS_ICE_BOOT_MAGIC_POST_MITI %>% на <% ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION %> сек. Если входящий урон превысит <% ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>-кратный запас максимального здоровья, лед расколется. Если это произойдёт, все ближайшие враги будут обездвижены и получат урон, равный <% ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP %>x вашего макс. здоровья."
-		 "DOTA_Tooltip_modifier_alarana_ice_freeze"				"Ice Block"
-		 "DOTA_Tooltip_modifier_alarana_frost_nova"				"Frost Nova"
-		 "DOTA_Tooltip_modifier_alarana_frost_nova_Description"	"Обездвижен"
+        "DOTA_Tooltip_ability_item_rpc_alaranas_ice_boot"                               "Alarana's Ice Boots"
+
+        "item_property_alarana"                             "Ice Block"
+         "property_alarana_description"                         "Casting @Ability4 encases you in ice, rooting you and reducing all damage taken by 100% for <% ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION %> seconds. If total damage blocked exceeds <% ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP %>% your Max Health, the shield shatters, rooting all nearby enemies and dealing damage equal to <% ITEM_RPC_ALARANAS_ICE_BOOT_EXPLOSION_DAMAGE_OF_MAX_HP %>x your Max Health."
+         "DOTA_Tooltip_modifier_alarana_ice_freeze"             "Ice Block"
+         "DOTA_Tooltip_modifier_alarana_frost_nova"             "Frost Nova"
+         "DOTA_Tooltip_modifier_alarana_frost_nova_Description" "Rooted"
+
+        "item_rpc_alaranas_ice_boot_ruby1"                              "Increases Max Health by @ruby_property1 and Intelligence by @ruby_property2"
+        "item_rpc_alaranas_ice_boot_emerald1"                               "You can activate Ice Block for @emerald_property1 seconds by casting [Q]"
+        "item_rpc_alaranas_ice_boot_sapphire1"                              "While encased in ice, increase Spell Pierce by @sapphire_property1"
+        "item_rpc_alaranas_ice_boot_amethyst1"                              "Gain Health Regen equal to @amethyst_property1% of max health while in Ice Block"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"

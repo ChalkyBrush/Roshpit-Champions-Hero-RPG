@@ -932,6 +932,11 @@ function Filters:ApplyQskills(caster)
         local percentageReduction = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE/100
         Filters:ReduceCDByPercentage(caster, q_ability, percentageReduction)
     end
+    if caster:HasModifier("modifier_alaranas_ice_boot") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
+            Filters:AlaranaInit(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_EMERALD))
+        end
+    end
     if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
@@ -1343,9 +1348,7 @@ function Filters:ApplyRskills(caster)
         Filters:SilentTemplar(caster)
     end
     if caster:HasModifier("modifier_alaranas_ice_boot") then
-        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.AlaranaIce", caster.InventoryUnit)
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze", {duration = ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION})
-        caster.foot.alaranaIce = caster:GetMaxHealth() * ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP
+        Filters:AlaranaInit(caster, ITEM_RPC_ALARANAS_ICE_BOOT_ICE_ENCASE_DURATION)
     end
     if caster:HasModifier("modifier_brazen_kabuto") then
         if caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
@@ -4645,7 +4648,7 @@ function Filters:AlaranaFrostNova(caster)
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
             Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, caster.foot, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
-            caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_alarana_frost_nova", {duration = freezeDuration})
+            caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_alarana_frost_nova", {duration = freezeDuration})
         end
     end
 end
@@ -6034,5 +6037,16 @@ function Filters:SpiritualEmpowermentStackUpdate(hero)
         local attack_power_stacks = (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY2)/0.1)*stacks
         ability:ApplyDataDrivenModifier(caster, hero, "modifier_spiritual_empowerment_ruby_attack_power", {})
         hero:SetModifierStackCount("modifier_spiritual_empowerment_ruby_attack_power", caster, attack_power_stacks)
+    end
+end
+
+function Filters:AlaranaInit(caster, duration)
+    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "RPCItem.AlaranaIce", caster.InventoryUnit)
+    caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze", {duration = duration})
+    caster.equipped_gear[RPC_GEAR_SLOT_BOOTS].alaranaIce = caster:GetMaxHealth() * (ITEM_RPC_ALARANAS_ICE_BOOT_DAMAGE_BLOCK_THRESHOLD_OF_MAX_HP/100)
+    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+        caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze_amethyst_hp_regen", {duration = duration})
+        local health_regen_stacks = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_AMETHYST)/0.1
+        caster:SetModifierStackCount("modifier_alarana_ice_freeze_amethyst_hp_regen", caster.InventoryUnit, health_regen_stacks)
     end
 end
