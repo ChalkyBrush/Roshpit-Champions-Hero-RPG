@@ -520,9 +520,6 @@
     	"item_rpc_skulldigger_gauntlet_amethyst1"							"Landing an attack has a @amethyst_property1% chance to add an Exhumation stack, and each stack increases Base Attack Damage by @amethyst_property2"
 
 
-
-
-
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire"								"Spellfire"
 		 "property_spellfire_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
@@ -535,7 +532,7 @@
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
 
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and all nearby allies equal to <% ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL %>x your Spirit every <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> seconds."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and allies within <% ITEM_RPC_SPIRIT_GLOVE_RADIUS %> range equal to <% ITEM_RPC_SPIRIT_GLOVE_SPR_TO_HEAL %>x your Spirit every <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
 		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second."
 
@@ -543,6 +540,9 @@
     	"item_rpc_spirit_glove_emerald1"									"Each point of Spirit increases Spell Pierce by @emerald_property1"
     	"item_rpc_spirit_glove_sapphire1"									"Each heal from Spirit Touch increases attack damage by @sapphire_property1%, stacking up to <% ITEM_RPC_SPIRIT_GLOVE_SAPPHIRE_STACKS %> times"
     	"item_rpc_spirit_glove_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Base Attack Damage by @amethyst_property2"
+
+    	"DOTA_Tooltip_modifier_spirit_glove_stacking_attack_power"		"Spirit Touch (Sapphire)"
+    	"DOTA_Tooltip_modifier_spirit_glove_stacking_attack_power_Description"	"Increased Attack Power"
 
     	"DOTA_Tooltip_ability_item_rpc_spiritual_empowerment_glove"						"Spiritual Empowerment Glove"
  

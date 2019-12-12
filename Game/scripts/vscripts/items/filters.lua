@@ -1233,6 +1233,11 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_guard_of_feronia") then
         Filters:ApplyFeronia(caster, BASE_ABILITY_E, false)
     end
+    if caster:HasModifier("modifier_spirit_glove") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("ruby") > 0 then
+            Filters:SpiritGlove(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY1))
+        end
+    end
     if caster:HasModifier("modifier_wind_deity_crown") then
         caster:RemoveModifierByName("modifier_wind_deity_damage_buff")
     end
@@ -1276,7 +1281,7 @@ function Filters:ApplyRskills(caster)
         Filters:SeraphicVest(caster, BASE_ABILITY_R)
     end
     if caster:HasModifier("modifier_spirit_glove") then
-        Filters:SpiritGlove(caster)
+        Filters:SpiritGlove(caster, ITEM_RPC_SPIRIT_GLOVE_DURATION)
     end
     if caster:HasModifier("modifier_super_ascendency_mask") then
         Filters:AscensionTrigger(caster)
@@ -3105,22 +3110,36 @@ function Filters:VampiricBreastplate(vampire, damage, vamp_type, vamp_modifier)
     end)
 end
 
-function Filters:SpiritGlove(caster)
+function Filters:SpiritGlove(caster, duration)
     local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_SPIRIT_GLOVE_RADIUS, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-    local healAmount = math.ceil(caster:GetIntellect() * ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL)
-    local spiritGlove = caster.spiritGlove
+    local healAmount = math.ceil(caster:GetSpirit() * ITEM_RPC_SPIRIT_GLOVE_SPR_TO_HEAL) + caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRIT_GLOVE_GEM_RUBY2)
+    local spiritGlove = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
     spiritGlove.healAmount = healAmount
     if #allies > 0 then
         for _, ally in pairs(allies) do
-            local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
-            local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
-            ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
-            Timers:CreateTimer(1.5, function()
-                ParticleManager:DestroyParticle(pfx, false)
-            end)
-            Filters:ApplyHeal(caster, ally, healAmount, true)
-            spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_effect", {duration = ITEM_RPC_SPIRIT_GLOVE_DURATION})
+            Filters:SpiritGloveHeal(caster, ally, spiritGlove)
+            spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_effect", {duration = duration})
         end
+    end
+end
+
+function Filters:SpiritGloveHeal(caster, ally, spiritGlove)
+    local particleName = "particles/roshpit/items/spirit_glove_heal.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
+    ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    local healAmount = spiritGlove.healAmount
+    Filters:ApplyHeal(caster, ally, healAmount, true, true)
+    if spiritGlove:GetGemValue("sapphire") > 0 then
+        spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_stacking_attack_power", {duration = ITEM_RPC_SPIRIT_GLOVE_DURATION})
+        local new_stacks = math.min(ally:GetModifierStackCount("modifier_spirit_glove_stacking_attack_power", caster.InventoryUnit) + 1, ITEM_RPC_SPIRIT_GLOVE_SAPPHIRE_STACKS)
+        ally:SetModifierStackCount("modifier_spirit_glove_stacking_attack_power", caster.InventoryUnit, new_stacks)
+
+        spiritGlove:ApplyDataDrivenModifier(caster.InventoryUnit, ally, "modifier_spirit_glove_stacking_attack_power_invisible", {duration = ITEM_RPC_SPIRIT_GLOVE_DURATION})
+        local attack_power_stacks = new_stacks * spiritGlove:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPIRIT_GLOVE_GEM_SAPPHIRE)
+        ally:SetModifierStackCount("modifier_spirit_glove_stacking_attack_power_invisible", caster.InventoryUnit, attack_power_stacks)
     end
 end
 

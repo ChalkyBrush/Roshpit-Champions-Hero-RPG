@@ -170,14 +170,19 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_spirit_glove"									"Spirit Glove"
-    	"item_rpc_spirit_glove_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_spirit_glove_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_spirit_glove_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_spirit_glove_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_spirit_glove"				"Spirit Touch" 
-		"property_spirit_glove_description"			"Успешное прочтение (R) @Ability4 восстановит здоровье себе и ближайшим союзникам в размере <% ITEM_RPC_SPIRIT_GLOVE_INT_TO_HEAL %>x вашего Интеллекта в течении <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> секунд. Интервал восстановления здоровья <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
+		"property_spirit_glove_description"			"A successful cast of @Ability4 restores health to yourself and allies within <% ITEM_RPC_SPIRIT_GLOVE_RADIUS %> range equal to <% ITEM_RPC_SPIRIT_GLOVE_SPR_TO_HEAL %>x your Spirit every <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second for <% ITEM_RPC_SPIRIT_GLOVE_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_spirit_glove_effect"	"Spirit Touch"
-		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Здоровье восстанавливается раз в <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> сек."
+		"DOTA_Tooltip_modifier_spirit_glove_effect_Description"	"Restoring health each <% ITEM_RPC_SPIRIT_GLOVE_HEAL_INTERVAL %> second."
+
+    	"item_rpc_spirit_glove_ruby1"									"Casting [E] applies a @ruby_property1 second Spirit Touch, and the heal is increased by @ruby_property2"
+    	"item_rpc_spirit_glove_emerald1"									"Each point of Spirit increases Spell Pierce by @emerald_property1"
+    	"item_rpc_spirit_glove_sapphire1"									"Each heal from Spirit Touch increases attack damage by @sapphire_property1%, stacking up to <% ITEM_RPC_SPIRIT_GLOVE_SAPPHIRE_STACKS %> times"
+    	"item_rpc_spirit_glove_amethyst1"									"Increases Spirit by @amethyst_property1, and each point of Spirit increases Base Attack Damage by @amethyst_property2"
+
+    	"DOTA_Tooltip_modifier_spirit_glove_stacking_attack_power"		"Spirit Touch (Sapphire)"
+    	"DOTA_Tooltip_modifier_spirit_glove_stacking_attack_power_Description"	"Increased Attack Power"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_frostburn_gauntlets"								"Frostburn Gauntlets"

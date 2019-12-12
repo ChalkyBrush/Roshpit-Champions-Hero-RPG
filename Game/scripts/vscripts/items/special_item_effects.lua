@@ -2640,20 +2640,21 @@ function ruinfall_skull_sandstorm_end(event)
 	target:RemoveModifierByName("modifier_invisible")
 end
 
+function spirit_glove_wearer_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local attack_damage = hero:GetSpirit()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST2)
+		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_spirit_glove_amethyst_attack_damage", attack_damage, 0)
+	end
+end
+
 function spirit_glove_think(event)
 	local spiritGlove = event.ability
 	local caster = event.caster
 	local ally = event.target
-	local healAmount = spiritGlove.healAmount
-
-	local particleName = "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
-	ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
-	Timers:CreateTimer(1.5, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-
-	Filters:ApplyHeal(caster, ally, healAmount, true)
+	Filters:SpiritGloveHeal(caster.hero, ally, spiritGlove)
 end
 
 function ruby_attack(event)
