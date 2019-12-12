@@ -467,7 +467,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
-        if caster:GetHealth() <= caster:GetMaxHealth() * ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT / 100 then
+        if Filters:IsAtBloodstoneThreshold(caster) then
             abilityCooldown = ITEM_RPC_BLOODSTONE_BOOTS_E_CD
         end
     end
@@ -6048,5 +6048,14 @@ function Filters:AlaranaInit(caster, duration)
         caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze_amethyst_hp_regen", {duration = duration})
         local health_regen_stacks = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_AMETHYST)/0.1
         caster:SetModifierStackCount("modifier_alarana_ice_freeze_amethyst_hp_regen", caster.InventoryUnit, health_regen_stacks)
+    end
+end
+
+function Filters:IsAtBloodstoneThreshold(caster)
+    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+    if caster:GetHealth() <= caster:GetMaxHealth() * (threshold / 100) then
+        return true
+    else
+        return false
     end
 end

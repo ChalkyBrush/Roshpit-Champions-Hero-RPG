@@ -11895,6 +11895,15 @@
     	"item_rpc_arcanys_slipper_sapphire1"									"Increases Max Mana by @sapphire_property1"
     	"item_rpc_arcanys_slipper_amethyst1"									"Increases Intelligence by @amethyst_property1 and <font color=\"#E1A2E8\">Arcane</font> Elemental Damage by @amethyst_property2%"
 
+    	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
+
+		"item_property_bloodstone_boots"						"Vital Mobility"
+		 "property_bloodstone_boots_description"				"While below <font color='#ccff66'>35</font>% health, @Ability3 has a <font color='#ccff66'>1</font>-second cooldown."
+
+    	"item_rpc_bloodstone_boots_ruby1"								"Increases the health threshold to activate Vital Mobility by an additional @ruby_property1% of max health"
+    	"item_rpc_bloodstone_boots_emerald1"								"While below the health threshold, reduce all damage taken by @emerald_property1%"
+    	"item_rpc_bloodstone_boots_sapphire1"								"Each missing point of health increases Armor Pierce and Spell Pierce by @sapphire_property1"
+    	"item_rpc_bloodstone_boots_amethyst1"								"While below the health threshold, gain @amethyst_property1 movespeed and @amethyst_property2 max movespeed"
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12191,14 +12200,6 @@
 		"item_property_boots_of_great_fortune"					"Additional Luck"
 		 "property_boots_of_great_fortune_description"			"Adds a flat <font color='#ccff66'>10</font>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
 		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
-    	"item_rpc_bloodstone_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_bloodstone_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_bloodstone_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_bloodstone_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below <font color='#ccff66'>35</font>% health, @Ability3 has a <font color='#ccff66'>1</font>-second cooldown."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"

@@ -1644,6 +1644,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
 	end
+	if victim:HasModifier("modifier_bloodstone_boots") then
+		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
+			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD)/100))
+		end
+	end
 	if victim:HasModifier("modifier_inside_swamp_doctor") then
 		local ability = victim:FindModifierByName("modifier_inside_swamp_doctor"):GetAbility()
 		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)

@@ -3479,7 +3479,7 @@ function perdition_die(event)
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollBloodstoneBoots(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_bloodstone_boots")
 	end
 end
 

@@ -4842,6 +4842,26 @@ function RPCItems:RollArcanysSlipper(item_level)
     return item
 end
 
+function RPCItems:RollBloodstoneBoots(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_bloodstone_boots", "immortal", "Bloodstone Boots", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_bloodstone_boots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bloodstone_boots", "#E2371D", 1, "#property_bloodstone_boots_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -5682,26 +5702,6 @@ function RPCItems:RollIronTreadsOfDestruction(item_level)
         item.newItemTable.property2name = "rune_r_4"
         RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
     end
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollBloodstoneBoots(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_bloodstone_boots", "immortal", "Bloodstone Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "bloodstone"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bloodstone_boots", "#E2371D", 1, "#property_bloodstone_boots_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 220, 600, 1, 1, item.newItemTable.rarity, false, maxFactor * 400)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)

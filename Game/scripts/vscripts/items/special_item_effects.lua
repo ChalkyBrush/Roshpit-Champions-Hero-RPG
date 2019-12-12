@@ -4,6 +4,8 @@ LinkLuaModifier("modifier_silent_templar_sapphire", "modifiers/modifier_silent_t
 LinkLuaModifier("modifier_iron_colossus_lua", "modifiers/modifier_iron_colossus_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_sapphire", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
+
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -9013,4 +9015,17 @@ function stormcloth_amethyst_projectile_hit(event)
 	EmitSoundOn("Paragon.LightningHit", target)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STORMCLOTH_BRACER_GEM_AMETHYST)/100
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+end
+
+function bloodstone_boot_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		if Filters:IsAtBloodstoneThreshold(hero) then
+			hero:AddNewModifier(caster, ability, "modifier_bloodstone_boot_amethyst", {})
+		else
+			hero:RemoveModifierByName("modifier_bloodstone_boot_amethyst")
+		end
+	end
 end

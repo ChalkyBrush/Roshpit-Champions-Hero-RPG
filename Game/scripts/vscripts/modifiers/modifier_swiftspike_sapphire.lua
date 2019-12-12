@@ -20,5 +20,5 @@ end
 
 
 function modifier_swiftspike_sapphire:IsHidden()
-    return false
+    return true
 end

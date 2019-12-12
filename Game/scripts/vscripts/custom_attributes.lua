@@ -1878,6 +1878,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_ablecore_greaves_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
 	end
+	if unit:HasModifier("modifier_bloodstone_boots") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2224,6 +2227,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_arcanys_slipper_buff") then
 		local modifier = unit:FindModifierByName("modifier_arcanys_slipper_buff")
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_bloodstone_boots") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
