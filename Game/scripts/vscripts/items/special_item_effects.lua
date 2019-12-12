@@ -2183,13 +2183,23 @@ function arcanys_slipper_think(event)
 	if target:GetMana() <= manaDrain then
 		manaDrain = target:GetMana()
 	end
-	local damageIncrease = manaDrain * ITEM_RPC_ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN
+	local damageIncrease = manaDrain * ITEM_RPC_ARCANYS_SLIPPER_BASE_ATTACK_FOR_MANA_DRAIN/100
 	target:ReduceMana(manaDrain)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_arcanys_slipper_buff", {duration = ITEM_RPC_ARCANYS_SLIPPER_BUFF_DURATION})
 	local currentStacks = target:GetModifierStackCount("modifier_arcanys_slipper_buff", caster)
 	target:SetModifierStackCount("modifier_arcanys_slipper_buff", caster, damageIncrease + currentStacks)
 	EmitSoundOn("Item.ArcanysSlipper", target)
 
+	if ability:GetGemValue("ruby") > 0 then
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/arcanys_ruby.vpcf", target:GetAbsOrigin()+Vector(0,0,60), 1)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANYS_SLIPPER_GEM_RUBY)/100
+		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_ARCANYS_SLIPPER_RUBY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+			end
+		end
+	end
 end
 
 function onu_attack_land(event)

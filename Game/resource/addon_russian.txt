@@ -11868,7 +11868,7 @@
     	"item_rpc_arcanys_slipper_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_arcanys_slipper_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"После прочтения способности (E) @Ability3 за <font color='#ccff66'>1.2</font> секунды происходят три энергетических взрыва. Каждый взрыв выжигает <font color='#ccff66'>10</font> от макс. запаса маны и добавляет герою Базовый Урон атаки в размере <font color='#ccff66'>10</font>х выжженой маны."
+		"property_arcanys_slipper_description"		"После прочтения способности (E) @Ability3 за <font color='#ccff66'>3</font> секунды происходят три энергетических взрыва. Каждый взрыв выжигает <font color='#ccff66'>15</font> от макс. запаса маны и добавляет герою Базовый Урон атаки в размере <font color='#ccff66'>15</font>х выжженой маны."
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Базовый урон увеличен"
 		

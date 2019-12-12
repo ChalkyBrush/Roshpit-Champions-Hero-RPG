@@ -1005,6 +1005,13 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_RUBY2, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_arcanys_slipper" then	
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARCANYS_SLIPPER_GEM_SAPPHIRE, hero, "max_mana", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST1, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST2, hero, "element_arcane", RPC_GEAR_SLOT_BOOTS)
+		end	
 	end
 end
 

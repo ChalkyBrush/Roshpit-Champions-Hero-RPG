@@ -12024,7 +12024,7 @@
     	"item_rpc_arcanys_slipper_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_arcanys_slipper_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arcanys_slipper"				"奥术冲击"
-		"property_arcanys_slipper_description"		"施放 @Ability3 后，在<font color='#ccff66'>1.2</font>秒内释放<font color='#ccff66'>3</font>股奥术能量。每股能量汲取你 <font color='#ccff66'>10</font>% 的最大魔法值，并提高 <font color='#ccff66'>10</font>x 倍所汲取魔法值的基础攻击力。"
+		"property_arcanys_slipper_description"		"施放 @Ability3 后，在<font color='#ccff66'>3</font>秒内释放<font color='#ccff66'>3</font>股奥术能量。每股能量汲取你 <font color='#ccff66'>15</font>% 的最大魔法值，并提高 <font color='#ccff66'>15</font>x 倍所汲取魔法值的基础攻击力。"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"奥术冲击"
 		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"攻击力提高"
 		

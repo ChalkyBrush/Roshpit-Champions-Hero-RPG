@@ -1240,8 +1240,8 @@ function Filters:ApplyEskills(caster)
     end
     if caster:HasModifier("modifier_arcanys_slipper") then
         Timers:CreateTimer(0.45, function()
-            caster.arcanys:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_arcanys_slipper_effect", {duration = 1.25})
             caster:RemoveModifierByName("modifier_arcanys_slipper_buff")
+            caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_arcanys_slipper_effect", {duration = ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION})
         end)
     end
     if caster:HasModifier("modifier_redrock_footwear") then

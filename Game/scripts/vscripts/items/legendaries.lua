@@ -4813,6 +4813,35 @@ function RPCItems:RollAlaranaIceBoot(item_level)
     return item
 end
 
+function RPCItems:RollArcanysSlipper(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_arcanys_slipper", "immortal", "Arcanys Slippers", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_arcanys_slipper"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcanys_slipper", "#C23CCF", 1, "#property_arcanys_slipper_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_arcane", 2)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_mana", 2)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -5912,31 +5941,6 @@ function RPCItems:RollCrusaderBoots(item_level)
 		item.newItemTable.property2name = propertyName
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	end
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollArcanysSlipper(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_arcanys_slipper", "immortal", "Arcanys Slippers", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "arcanys"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcanys_slipper", "#C23CCF", 1, "#property_arcanys_slipper_description")
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        local value, nameLevel = RPCItems:RollAttribute(0, 9, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 2.6, 2, 27, 2)
-    end
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
@@ -8745,7 +8749,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_power_ranger_gloves", "item_rpc_royal_wristguards", "item_rpc_scarecrow_gloves", "item_rpc_scorched_gauntlets", "item_rpc_shadow_armlet", "item_rpc_shadowflame_fist", "item_rpc_silverspring_gloves",
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
-        itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots"}
+        itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper"}
     end
     return itemsList
 end

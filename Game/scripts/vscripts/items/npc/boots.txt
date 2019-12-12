@@ -1,3 +1,110 @@
+	"item_rpc_arcanys_slipper"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/arcanys_slipper" //"arcanys slipper"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_ARCANE %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_RUBY %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_SAPPHIRE %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST2 %>"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_arcanys_slipper"
+			{
+				"IsPurgable"		"0"
+				"Passive" 			"0"
+				"IsHidden" 			"1"
+				"IsBuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+
+			"modifier_arcanys_slipper_effect"
+			{
+				"IsBuff"				"1"
+				"IsHidden"				"1"
+				"IsPurgable"			"0"
+				"ThinkInterval"  "<% ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ITEM_RPC_ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"arcanys_slipper_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_arcanys_slipper_buff"
+			{
+				"IsBuff"				"1"
+				"IsHidden"				"0"
+				"TextureName"			"itemicons/arcanys_slipper"
+				"EffectName"			"particles/roshpit/items/arcanys_buff.vpcf"
+				"EffectAttachType"		"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_alaranas_ice_boot"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2449,112 +2556,6 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-		}
-	}
-
-	"item_rpc_arcanys_slipper"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/arcanys_slipper" //"arcanys slipper"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"		"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_SAPPHIRE %>"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST %>"
-			}
-		}
-		"precache"
-		{
-			"particle"  "particles/econ/courier/courier_dolfrat_and_roshinante/arcanys_poof.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arcanys_slipper"
-			{
-				"IsPurgable"		"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-
-			"modifier_arcanys_slipper_effect"
-			{
-				"IsBuff"				"1"
-				"IsHidden"				"1"
-				"IsPurgable"			"0"
-				"ThinkInterval"  "<% ITEM_RPC_ARCANYS_SLIPPER_EXPLOSIONS_DURATION / ITEM_RPC_ARCANYS_SLIPPER_NUMBER_OF_EXPLOSIONS %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"arcanys_slipper_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_arcanys_slipper_buff"
-			{
-				"IsBuff"				"1"
-				"IsHidden"				"0"
-				"TextureName"			"itemicons/arcanys_slipper"
-				"EffectName"			"particles/roshpit/items/arcanys_buff.vpcf"
-				"EffectAttachType"		"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
 			}
 		}
 	}

@@ -11883,6 +11883,18 @@
     	"item_rpc_alaranas_ice_boot_sapphire1"								"While encased in ice, increase Spell Pierce by @sapphire_property1"
     	"item_rpc_alaranas_ice_boot_amethyst1"								"Gain Health Regen equal to @amethyst_property1% of max health while in Ice Block"
 
+    	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
+
+		"item_property_arcanys_slipper"				"Arcane Rush"
+		"property_arcanys_slipper_description"		"After casting @Ability3, release <font color='#ccff66'>3</font> poofs of arcane energy over <font color='#ccff66'>3</font> seconds. Each explosion drains <font color='#ccff66'>15</font>% of your max mana and adds base attack damage equal to <font color='#ccff66'>15</font>% of the mana drained."
+		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
+		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Increased Attack Damage"
+
+    	"item_rpc_arcanys_slipper_ruby1"									"Each poof deals damage based on @ruby_property1% of attack power in a <font color='#ccff66'>500</font> radius"
+    	"item_rpc_arcanys_slipper_emerald1"									"Each point of attack damage gained from Arcane Rush also increases Spell Pierce by @emerald_property1"
+    	"item_rpc_arcanys_slipper_sapphire1"									"Increases Max Mana by @sapphire_property1"
+    	"item_rpc_arcanys_slipper_amethyst1"									"Increases Intelligence by @amethyst_property1 and <font color=\"#E1A2E8\">Arcane</font> Elemental Damage by @amethyst_property2%"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12016,17 +12028,6 @@
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_arcanys_slipper"									"Arcanys Slippers"
-    	"item_rpc_arcanys_slipper_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_arcanys_slipper_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_arcanys_slipper_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_arcanys_slipper_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_arcanys_slipper"				"Arcane Rush"
-		"property_arcanys_slipper_description"		"After casting @Ability3, release <font color='#ccff66'>3</font> poofs of arcane energy over <font color='#ccff66'>1.2</font> seconds. Each explosion drains <font color='#ccff66'>10</font>% of your max mana and adds base attack damage equal to <font color='#ccff66'>10</font>x the mana drained."
-		"DOTA_Tooltip_modifier_arcanys_slipper_buff"	"Arcane Rush"
-		"DOTA_Tooltip_modifier_arcanys_slipper_buff_Description"	"Increased Attack Damage"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
