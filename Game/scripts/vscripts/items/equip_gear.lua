@@ -1012,6 +1012,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST1, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANYS_SLIPPER_GEM_AMETHYST2, hero, "element_arcane", RPC_GEAR_SLOT_BOOTS)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_blue_dragon_greaves" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST, hero, "element_dragon", RPC_GEAR_SLOT_BOOTS)
+		end			
 	end
 end
 

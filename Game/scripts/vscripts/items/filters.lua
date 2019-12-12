@@ -1218,6 +1218,11 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
     end
+    if caster:HasModifier("modifier_blue_dragon_greaves") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
+            Filters:ApplyBlueDragonGreavesBuff(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1))
+        end
+    end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         Filters:EternalFrost(caster)
     end
@@ -6057,5 +6062,28 @@ function Filters:IsAtBloodstoneThreshold(caster)
         return true
     else
         return false
+    end
+end
+
+function Filters:ApplyBlueDragonGreavesBuff(caster, base_duration)
+    print("BLUE DRAGON")
+    local dragon_effect = caster:FindModifierByName("modifier_blue_dragon_greaves_effect")
+    if dragon_effect and dragon_effect:GetRemainingTime() > base_duration then
+        return false
+    end
+    local dragon_greaves = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    local buff_duration = base_duration * (1 + dragon_greaves:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE1)/100)
+    
+    dragon_greaves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_blue_dragon_greaves_effect", {duration = buff_duration})
+    EmitSoundOn("Items.BlueDragonGreaves", caster)
+    if dragon_greaves:GetGemValue("ruby") > 0 then
+        dragon_greaves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_blue_dragon_greaves_base_attack", {duration = buff_duration})
+        local atk_dmg_stacks = dragon_greaves:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY2)
+        caster:SetModifierStackCount("modifier_blue_dragon_greaves_base_attack", caster.InventoryUnit, atk_dmg_stacks)
+    end
+    if dragon_greaves:GetGemValue("sapphire") > 0 then
+        dragon_greaves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_blue_dragon_greaves_as", {duration = buff_duration})
+        local as_stacks = dragon_greaves:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE2)
+        caster:SetModifierStackCount("modifier_blue_dragon_greaves_as", caster.InventoryUnit, as_stacks)
     end
 end

@@ -635,14 +635,14 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/weapons/hero/monkey_king/strike_cast01.vsnd"
+                              "value0"        "sounds/weapons/hero/jakiro/dual_breath_ti8.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.81000"  }
-                    "pitch_rand_min"    {   "value"     "-0.05000"  }
-                    "pitch_rand_max"    {   "value"     "0.050000"  }
-                    "pitch"             {   "value"     "1.380000"  }
-                    "soundlevel"        {   "value"     "80.00000" }
+                    "volume"            {   "value"     "1.21000"  }
+                    "pitch_rand_min"    {   "value"     "-0.02000"  }
+                    "pitch_rand_max"    {   "value"     "0.020000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

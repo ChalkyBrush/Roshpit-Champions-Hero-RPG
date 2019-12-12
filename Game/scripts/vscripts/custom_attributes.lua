@@ -2724,6 +2724,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_spiritual_empowerment_stack") then
 		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1)
 	end
+	if hero:HasModifier("modifier_blue_dragon_greaves_effect") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
+		spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
+	end
 	if hero:HasModifier("modifier_claw_of_azinoth") then
 		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
 		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
