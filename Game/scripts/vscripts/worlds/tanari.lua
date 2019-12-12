@@ -66,12 +66,12 @@ function Tanari:Debug()
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_spiritual_empowerment_glove")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_stormcloth_bracer")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_spiritual_empowerment_glove")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_crown_of_ruby_dragon")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
@@ -94,7 +94,6 @@ function Tanari:Debug()
     -- Glyphs:DebugRollHeroGlyphs("omniro", Vector(-4928, 2048))
     -- -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
     -- -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
-    -- local gloves = RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
     -- Gems:AddSocket(gloves)
 
     -- Gems:SetSocket(gloves, 1, "ruby", 5)

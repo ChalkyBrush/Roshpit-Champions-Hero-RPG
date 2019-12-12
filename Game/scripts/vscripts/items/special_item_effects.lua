@@ -6127,6 +6127,7 @@ end
 function stormcloth_think(event)
 	local hero = event.target
 	local ability = event.ability
+	local caster = event.caster
 	if not ability.fall_speed then
 		ability.sound = false
 		ability.fall_speed = 50
@@ -6147,6 +6148,7 @@ function stormcloth_think(event)
 			ability.sound = true
 		end
 	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_STORMCLOTH_BRACER_GEM_EMERALD)/100)
 	if hero:GetAbsOrigin().z < GetGroundHeight(hero:GetAbsOrigin(), hero) + ability.fall_speed then
 		hero:RemoveModifierByName("modifier_stormcloth_falling")
 		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1.2})
@@ -6161,9 +6163,17 @@ function stormcloth_think(event)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					Filters:ApplyStun(hero, ITEM_RPC_STORMCLOTH_BRACER_STUN_DUR, enemy)
+					if damage > 0 then
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
+					end
 				end
 			end
 		end)
+		if ability:GetGemValue("sapphire") > 0 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_stormcloth_sapphire_visible", {duration = ITEM_RPC_STORMCLOTH_BRACER_SAPPHIRE_DURATION})
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_stormcloth_sapphire_invisible", {duration = ITEM_RPC_STORMCLOTH_BRACER_SAPPHIRE_DURATION})
+			hero:SetModifierStackCount("modifier_stormcloth_sapphire_invisible", caster, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STORMCLOTH_BRACER_GEM_SAPPHIRE))
+		end
 	end
 end
 
@@ -8917,4 +8927,53 @@ function spellfire_channeling_think(event)
         end)
         hero:RemoveModifierByName("modifier_spellfire_gloves_channeling_think")
 	end
+end
+
+function hero_town_portal_channeling_think(event)
+	local hero = event.caster
+	if hero:HasModifier("modifier_stormcloth_bracer") then
+		local ability = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		if ability:GetGemValue("amethyst") > 0 then
+			for i = 1, 2, 1 do
+				local fv = RandomVector(1)
+				local projectileParticle = "particles/econ/items/zeus/lightning_weapon_fx/linear_electric_immortal_lightning.vpcf"
+				local projectileOrigin = hero:GetAbsOrigin() + fv * 10
+				local start_radius = 90
+				local end_radius = 90
+				local range = 1000
+				local speed = 400 + RandomInt(0, 250)
+				local info =
+				{
+					Ability = ability,
+					EffectName = projectileParticle,
+					vSpawnOrigin = projectileOrigin + Vector(0, 0, 60),
+					fDistance = range,
+					fStartRadius = start_radius,
+					fEndRadius = end_radius,
+					Source = hero,
+					StartPosition = "attach_attack1",
+					bHasFrontalCone = true,
+					bReplaceExisting = false,
+					iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+					iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+					iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					fExpireTime = GameRules:GetGameTime() + 5.0,
+					bDeleteOnHit = false,
+					vVelocity = fv * speed,
+					bProvidesVision = false,
+				}
+				projectile = ProjectileManager:CreateLinearProjectile(info)
+			end		
+		end
+	end
+end
+
+function stormcloth_amethyst_projectile_hit(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster
+	local target = event.target
+	EmitSoundOn("Paragon.LightningHit", target)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STORMCLOTH_BRACER_GEM_AMETHYST)/100
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
 end

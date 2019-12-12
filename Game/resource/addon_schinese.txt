@@ -13069,7 +13069,7 @@
 		"item_rpc_stormcloth_bracer_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_stormcloth_bracer_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormcloth"					"雷神降临"
-		"property_stormcloth_description"			"右键点击任意友方单位，你就能立即传送到其身边。降临时眩晕附近<font color='#ccff66'>900</font>范围的敌人<font color='#ccff66'>1.5</font>秒。这个传送效果有<font color='#ccff66'>6</font>秒的冷却时间"
+		"property_stormcloth_description"			"右键点击任意友方单位，你就能立即传送到其身边。降临时眩晕附近<font color='#ccff66'>900</font>范围的敌人<font color='#ccff66'>1.5</font>秒。这个传送效果有<font color='#ccff66'>10</font>秒的冷却时间"
 
 
 		"DOTA_Tooltip_ability_item_rpc_grasp_of_elder"									"长老护腕"

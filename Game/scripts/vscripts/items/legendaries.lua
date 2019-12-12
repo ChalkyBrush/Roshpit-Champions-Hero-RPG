@@ -377,32 +377,6 @@ function RPCItems:RollSwiftspikeBracer(item_level)
 end
 
 
-function RPCItems:RollStormclothBracer(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_stormcloth_bracer", "immortal", "Stormcloth Bracers", "hands", true, "Slot: Hands")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 160, 420, 0, 0, item.newItemTable.rarity, false, maxFactor * 400)
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "stormcloth"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcloth", "#85CEED", 1, "#property_stormcloth_description")
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        value, nameLevel = RPCItems:RollAttribute(0, 4, 16, 0, 0, item.newItemTable.rarity, false, maxFactor * 15)
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_LIGHTNING, 2.6, 2, 26, 2)
-    end
-
-    RPCItems:RollHandProperty3(item, 0)
-    RPCItems:RollHandProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 --HATS
 
 function RPCItems:RollAutumnSleeperMask(item_level)
@@ -4742,6 +4716,33 @@ function RPCItems:RollSpiritualEmpowermentGlove(item_level)
     return item
 end
 
+function RPCItems:RollStormclothBracer(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_stormcloth_bracer", "immortal", "Stormcloth Bracers", "hands", true, "Slot: Hands")
+
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_stormcloth_bracer"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcloth", "#85CEED", 1, "#property_stormcloth_description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 1.5)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_lightning", 1.5)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 1.5)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- BOOTS
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -8768,7 +8769,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_greensand_copper_gauntlets", "item_rpc_halcyon_soul_glove", "item_rpc_heavy_echo_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_kappa_pride_gloves", "item_rpc_living_gauntlet",
         "item_rpc_magebane_gloves", "item_rpc_malachite_shade_bracer", "item_rpc_marauder_gloves", "item_rpc_master_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_mountain_vambraces", "item_rpc_phoenix_gloves",
         "item_rpc_power_ranger_gloves", "item_rpc_royal_wristguards", "item_rpc_scarecrow_gloves", "item_rpc_scorched_gauntlets", "item_rpc_shadow_armlet", "item_rpc_shadowflame_fist", "item_rpc_silverspring_gloves",
-        "item_rpc_spirit_glove"}
+        "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     end
     return itemsList
 end

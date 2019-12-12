@@ -903,11 +903,12 @@ function GameState:OrderFilter(orderTable)
 							end
 						end
 						if targetUnit then
+							local cooldown = ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN - unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STORMCLOTH_BRACER_GEM_RUBY)
 							StartAnimation(unit, {duration = 0.6, activity = ACT_DOTA_VERSUS, rate = 5.0})
 							local itemAbility = unit:FindModifierByName('modifier_stormcloth_bracer'):GetAbility()
 							CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/stormcloth_start.vpcf", unit:GetAbsOrigin(), 3)
 
-							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = ITEM_RPC_STORMCLOTH_BRACER_COOLDOWN})
+							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_bracer_cooldown", {duration = cooldown})
 							itemAbility:ApplyDataDrivenModifier(unit, unit, "modifier_stormcloth_falling", {duration = 1})
 							local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, unit)
 							ParticleManager:SetParticleControl(pfx, 0, unit:GetAbsOrigin())

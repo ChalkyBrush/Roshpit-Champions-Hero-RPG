@@ -13602,14 +13602,15 @@
 		"DOTA_Tooltip_ability_item_rpc_stormcloth_bracer"								"Stormbolt Bracer"
 
 		"item_property_stormcloth"					"Stormbolt"
-		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <font color='#ccff66'>900</font> radius for <font color='#ccff66'>1.5</font> seconds. This effect has a <font color='#ccff66'>6</font> second cooldown."
-		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Bolt of the Storm cooldown"
-		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown_Description"	"Bolt of the Storm recharging"
-		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"				"Stormcloth Cooldown"
+		"property_stormcloth_description"			"When you click on or near a friendly combat unit anywhere on the map, you will teleport to it, arriving with a thunderclap that stuns all enemies in a <font color='#ccff66'>900</font> radius for <font color='#ccff66'>1.5</font> seconds. This effect has a <font color='#ccff66'>10</font> second cooldown."
+		"DOTA_Tooltip_modifier_stormcloth_bracer_cooldown"			"Stormbolt Cooldown"
 		"item_rpc_stormcloth_bracer_ruby1"								"Reduces Stormbolt cooldown by @ruby_property1 seconds"
 		"item_rpc_stormcloth_bracer_emerald1"								"Enemies stunned by Stormbolt also take damage based on @emerald_property1% of attack power"
-		"item_rpc_stormcloth_bracer_sapphire1"								"When landing from Stormbolt, gain @sapphire_property1% increased Attack Power for <font color='#ccff66'>0</font> seconds"
+		"item_rpc_stormcloth_bracer_sapphire1"								"When landing from Stormbolt, gain @sapphire_property1% increased Attack Power for <font color='#ccff66'>10</font> seconds"
 		"item_rpc_stormcloth_bracer_amethyst1"								"While channeling your Town Portal, release sparks in all directions that deal @amethyst_property1% of Attack Power as damage."
+
+		"DOTA_Tooltip_modifier_stormcloth_sapphire_visible"			"Stormbolt (Sapphire)"
+		"DOTA_Tooltip_modifier_stormcloth_sapphire_visible_Description"	"Increased Attack Power"
 
 		"DOTA_Tooltip_ability_item_rpc_swiftspike_bracer"			"Swiftspike Bracer"
 

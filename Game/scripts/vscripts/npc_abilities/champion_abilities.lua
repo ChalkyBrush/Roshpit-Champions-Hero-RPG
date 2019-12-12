@@ -149,7 +149,7 @@ function electric_projectile_hit(event)
 	local target = event.target
 	local caster = event.caster
 	local damage = caster:GetAttackDamage() / 4
-	local sound = "Hero_Zuus.ArcLightning.Target"
+	local sound = "Paragon.LightningHit"
 	EmitSoundOn(sound, target)
 	PopupDamage(target, damage)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})

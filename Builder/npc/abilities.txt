@@ -30964,6 +30964,15 @@
                 		"damage"        "%attack_damage"
                 	}
                 }
+                "ThinkInterval"  "0.1"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"items/special_item_effects.lua"
+                		"Function"		"hero_town_portal_channeling_think"
+                	}
+                }
 	        }
 
 
