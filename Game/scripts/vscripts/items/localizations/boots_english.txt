@@ -119,6 +119,16 @@
     	"item_rpc_boots_of_pure_waters_sapphire1"							"Restore @sapphire_property1% of your max mana when you trigger a Clear Wave, and increases their range by @sapphire_property2"
     	"item_rpc_boots_of_pure_waters_amethyst1"							"Casting [Q] fires @amethyst_property1 Clear Waves forward. Shares the same trigger limit as the base effect."
 
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
+
+		"item_property_violet_boot"					"Violet Light"
+		"property_violet_boot_description"			"Reduces cooldown of @Ability4 by <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT %>%."
+
+    	"item_rpc_boots_of_the_violet_guard_ruby1"						"Increases movespeed @ruby_property1 and attack speed by @ruby_property2"
+		"item_rpc_boots_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_boots_of_the_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_boots_of_the_violet_guard_amethyst1"							"Increases [R] Base Ability Damage by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -145,14 +155,6 @@
 		"item_property_dunetread"					"Dunewalker"
 		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
-    	"item_rpc_boots_of_the_violet_guard_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_the_violet_guard_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_the_violet_guard_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_the_violet_guard_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"When you cast @Ability3, fire 3 Violet Projectiles behind you that deal 20x your Agility to each target struck. Deals 60x damage to Paragon enemies. Can only trigger once every second."
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
     	"item_rpc_guardian_greaves_ruby1"								"blah blah @ruby_property1 gem"

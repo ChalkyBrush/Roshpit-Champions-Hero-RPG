@@ -1039,6 +1039,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_boots_of_the_violet_guard" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY1, hero, "movespeed", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY2, hero, "attack_speed", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_BOOTS)
+		end		
 	end
 end
 

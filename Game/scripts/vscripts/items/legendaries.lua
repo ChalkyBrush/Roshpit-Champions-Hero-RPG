@@ -4990,6 +4990,26 @@ function RPCItems:RollBootsOfPureWaters(item_level)
     return item
 end
 
+function RPCItems:RollVioletTreads(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_boots_of_the_violet_guard", "immortal", "Boots of the Violet Guard", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_violet_boots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_boot", "#A337E6", 1, "#property_violet_boot_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2.0)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -5217,26 +5237,6 @@ function RPCItems:RollNeptunesWaterGliders(item_level)
     item.newItemTable.property2 = math.floor(value)
     item.newItemTable.property2name = runeName
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollVioletTreads(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_boots_of_the_violet_guard", "immortal", "Boots of the Violet Guard", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "violet_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_boot", "#A337E6", 1, "#property_violet_boot_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 7, 13, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "agility"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
 
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
@@ -8738,7 +8738,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_power_ranger_gloves", "item_rpc_royal_wristguards", "item_rpc_scarecrow_gloves", "item_rpc_scorched_gauntlets", "item_rpc_shadow_armlet", "item_rpc_shadowflame_fist", "item_rpc_silverspring_gloves",
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
-        itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom"}
+        itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard"}
     end
     return itemsList
 end

@@ -1215,9 +1215,7 @@ function Filters:ApplyEskills(caster)
     local ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceECooldown(caster, ability, baseCd, false)
-    if caster:HasModifier("modifier_violet_boots") then
-        Filters:VioletBoot(caster)
-    end
+
     if caster:HasModifier("modifier_sonic_boots") then
         Filters:SonicBoot(caster)
     end
@@ -1307,6 +1305,11 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_plate_of_the_watcher4") then
         Filters:WatcherCast(caster, BASE_ABILITY_R)
+    end
+    if caster:HasModifier("modifier_violet_boots") then
+        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+        local percentageReduction = ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT/100
+        Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
     end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
@@ -1881,6 +1884,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
+        end
+        if attacker:HasModifier("modifier_violet_boots") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST)/100
         end
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
