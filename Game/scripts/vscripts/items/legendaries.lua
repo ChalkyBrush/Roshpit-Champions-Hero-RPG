@@ -5059,6 +5059,33 @@ function RPCItems:RollCrusaderBoots(item_level)
     return item
 end
 
+function RPCItems:RollCrystallineSlippers(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_crystalline_slippers", "immortal", "Crystalline Slippers", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "crystalline"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_crystalline", "#99E8E0", 1, "#property_crystalline_Description")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- break
 
 function RPCItems:RollDunetreadBoots(item_level)
@@ -5083,27 +5110,6 @@ function RPCItems:RollEmeraldSpeedRunners(item_level)
     item.newItemTable.property1 = 1
     item.newItemTable.property1name = "emerald_speed"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_speed", "#3EC18A", 1, "#property_emerald_speed_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.floor(value * 1.3)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollCrystallineSlippers(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_crystalline_slippers", "immortal", "Crystalline Slippers", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "crystalline"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_crystalline", "#99E8E0", 1, "#property_crystalline_Description")
 
     item.newItemTable.hasRunePoints = true
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()

@@ -149,9 +149,16 @@
     	"item_rpc_crusader_boots_sapphire1"									"Increases Devotion Aura's radius by @sapphire_property1 and further increases Armor by @sapphire_property2"
     	"item_rpc_crusader_boots_amethyst1"									"Increases Spirit by @amethyst_property1 and Devotion Aura increases Magic Armor by @amethyst_property2% of Spirit"
 
-
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
+
+		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
+		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
+		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
+		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
+		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
+		"property_crystalline"												"Crystal Root"
+		"property_crystalline_Description"									"Enemies who are rooted deal <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x pre-mitigation damage from you."
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -423,15 +430,6 @@
 		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_oceanrunner"												"Alacrity"
 		"property_oceanrunner_Description"									"Increases Base Ability damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>% for every <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR %> points of Agility."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x pre-mitigation damage from you."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
