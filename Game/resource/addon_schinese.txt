@@ -12198,7 +12198,7 @@
     	"item_rpc_boots_of_great_fortune_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_great_fortune_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_boots_of_great_fortune"					"幸运"
-		 "property_boots_of_great_fortune_description"			"增加装备效果的触发机率 <font color='#ccff66'>10</font>% 。 （加法，并且最优先计算）"
+		 "property_boots_of_great_fortune_description"			"增加装备效果的触发机率 <font color='#ccff66'>7.5</font>% 。 （加法，并且最优先计算）"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"血石之靴"

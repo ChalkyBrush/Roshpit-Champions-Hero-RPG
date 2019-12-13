@@ -628,6 +628,12 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 					target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_ashara_ruby_effect", {duration = original_duration})
 				end
 			end
+			if target:HasModifier("modifier_boots_of_great_fortune") and target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
+				local proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_RUBY))
+				if proc then
+					return false
+				end
+			end
 		end
 	end
 	local friendly_duration_modifier = 0

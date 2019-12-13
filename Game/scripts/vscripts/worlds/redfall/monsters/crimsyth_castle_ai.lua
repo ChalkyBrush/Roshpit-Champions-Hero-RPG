@@ -3585,7 +3585,7 @@ function chest_transforming_think(event)
 		if Redfall.Castle.FortuneChestsOpened == 15 then
 			if caster.index == Redfall.Castle.FortuneChestBoss then
 			else
-				RPCItems:RollBootsOfGreatFortune(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_boots_of_great_fortune")
 				caster:RemoveModifierByName("modifier_chest_transforming")
 				Timers:CreateTimer(0.05, function()
 					UTIL_Remove(caster)

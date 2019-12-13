@@ -298,14 +298,18 @@ end
 function Filters:GetProc(caster, percentageChance)
     local luck = RandomInt(1, 100)
     if caster:HasModifier("modifier_boots_of_great_fortune") then
-        percentageChance = percentageChance + ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE
+        percentageChance = percentageChance + ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_AMETHYST)
     end
     if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
         percentageChance = math.ceil(percentageChance * (100+ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP)/100)
     end
     if caster:HasModifier("modifier_astral_rune_r_4_invisible") then
-        local chanceModifier = 1 + 0.01 * caster:GetModifierStackCount("modifier_astral_rune_r_4_invisible", Events.GameMaster)
+        local chanceModifier = 1 + (ASTRAL_RANGER_R4_PROC_CHANCE_INCREASE * caster:GetModifierStackCount("modifier_astral_rune_r_4_invisible", Events.GameMaster))
         percentageChance = math.ceil(percentageChance * chanceModifier)
+    end
+    if caster:HasModifier("modifier_boots_of_great_fortune_sapphire_effect") then
+        luck = 0
+        caster:RemoveModifierByName("modifier_boots_of_great_fortune_sapphire_effect")
     end
 
     if luck <= percentageChance then

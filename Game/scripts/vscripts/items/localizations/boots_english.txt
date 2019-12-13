@@ -81,6 +81,19 @@
 		"item_rpc_boots_of_champions_sapphire1" "Increases Rune [E2] by @sapphire_property1"
 		"item_rpc_boots_of_champions_amethyst1" "Increases Rune [E4] by @amethyst_property1"
 
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
+
+		"item_property_boots_of_great_fortune"					"Lucky Odds"
+		 "property_boots_of_great_fortune_description"			"Adds a flat <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
+
+    	"item_rpc_boots_of_great_fortune_ruby1"							"Grants a @ruby_property1% chance for debuffs applied on you by enemies to not apply at all"
+    	"item_rpc_boots_of_great_fortune_emerald1"							"Every <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_EMERALD_CHECK_INTERVAL %> seconds there is a @emerald_property1% chance to gain magic immunity for <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_EMERALD_DURATION %> seconds"
+    	"item_rpc_boots_of_great_fortune_sapphire1"							"Every @sapphire_property1 seconds, gain a buff that makes your next proc chance <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_SAPPHIRE_CHANCE %>%"
+    	"item_rpc_boots_of_great_fortune_amethyst1"							"Increases the flat luck chance by an additional @amethyst_property1%"
+
+    	"DOTA_Tooltip_modifier_boots_of_great_fortune_sapphire_effect"	"Lucky Odds (Sapphire)"
+    	"DOTA_Tooltip_modifier_boots_of_great_fortune_sapphire_effect_Description"	"Your next proc chance is <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_SAPPHIRE_CHANCE %>%%"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -348,16 +361,6 @@
     	"item_rpc_harvester_boots_emerald1"									"blah blah @emerald_property1 gem"
     	"item_rpc_harvester_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_harvester_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"Boots of Great Fortune"
-    	"item_rpc_boots_of_great_fortune_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_great_fortune_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_great_fortune_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_great_fortune_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_boots_of_great_fortune"					"Additional Luck"
-		 "property_boots_of_great_fortune_description"			"Adds a flat <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_CHANCE_INCREASE %>% chance on your items to proc their special effects. Only affects items that already have chance-based activation."
-		 
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"

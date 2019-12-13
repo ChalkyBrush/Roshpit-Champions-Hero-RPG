@@ -9027,3 +9027,43 @@ function bloodstone_boot_thinker(event)
 		end
 	end
 end
+
+function boots_of_great_fortune_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_boots_of_great_fortune_sapphire_thinker", {})
+	end
+end
+
+function boots_of_great_fortune_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_EMERALD))
+		if proc then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_black_King_bar_immunity", {duration = ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_EMERALD_DURATION})
+		end
+	end
+end
+
+function boots_of_great_fortune_sapphire_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") == 0 then
+		return false
+	end
+	if not ability.sapphire_interval then
+		ability.sapphire_interval = 0
+	end
+	if not hero:HasModifier("modifier_boots_of_great_fortune_sapphire_effect") then
+		ability.sapphire_interval = ability.sapphire_interval + 1
+	end
+	if ability.sapphire_interval >= ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_SAPPHIRE) then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_boots_of_great_fortune_sapphire_effect", {})
+		ability.sapphire_interval = 0
+	end
+end
