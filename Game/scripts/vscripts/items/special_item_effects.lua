@@ -3165,8 +3165,8 @@ function old_wisdom_spell_cast(event)
 	--print(executedAbility:GetAbilityName())
 	--print(ability.lastUsedAbilityName)
 	if executedAbility:GetAbilityName() == ability.lastUsedAbilityName then
-		--print("REMOVE??")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN})
+		local old_wisdom_cooldown = ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_RUBY)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_boots_of_old_wisdom_cooldown", {duration = old_wisdom_cooldown})
 		target:RemoveModifierByName("modifier_boots_of_old_wisdom_active")
 	end
 	ability.lastUsedAbilityName = executedAbility:GetAbilityName()
@@ -3181,11 +3181,40 @@ function old_wisdom_think(event)
 	else
 		target:RemoveModifierByName("modifier_boots_of_old_wisdom_active")
 	end
+	if ability:GetGemValue("sapphire") > 0 then
+		if not target:HasModifier("modifier_old_wisdom_sapphire_thinker") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_old_wisdom_sapphire_thinker", {})
+		end
+	end
+end
+
+function wisdom_sapphire_thinker(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local current_stacks = hero:GetModifierStackCount("modifier_old_wisdom_sapphire_stacks", caster)
+	local new_stacks = current_stacks + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE1)
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_old_wisdom_sapphire_stacks", {})
+	hero:SetModifierStackCount("modifier_old_wisdom_sapphire_stacks", caster, new_stacks)
+	if new_stacks >= ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_SAPPHIRE2) then
+		hero:RemoveModifierByName("modifier_old_wisdom_sapphire_stacks")
+	end
 end
 
 function old_wisdom_active_particle(event)
 	local target = event.target
 	CustomAbilities:QuickAttachParticle("particles/econ/items/doom/doom_f2p_death_effect/boots_of_old_wisdom.vpcf", target, 0.9)
+end
+
+function active_old_wisdom_destroy(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_old_wisdom_amethyst_inactive", {})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_old_wisdom_amethyst_inactive_mana_regen", {})
+		hero:SetModifierStackCount("modifier_old_wisdom_amethyst_inactive_mana_regen", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST2))
+	end
 end
 
 function mageplate_think(event)

@@ -1040,6 +1040,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_malachite_shade_bracer") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_RUBY)*unit:GetHealthRegen()
 	end
+	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1594,6 +1597,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
+	end
+	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
 	end
 
 	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR
@@ -2230,6 +2236,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_bloodstone_boots") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
+	end
+	if unit:HasModifier("modifier_old_wisdom_sapphire_stacks") then
+		local modifier = unit:FindModifierByName("modifier_old_wisdom_sapphire_stacks")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

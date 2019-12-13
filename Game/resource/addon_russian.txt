@@ -11942,7 +11942,7 @@
     	"item_rpc_boots_of_old_wisdom_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_old_wisdom_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Увеличивает базовый урон способностей на <font color='#ccff66'>650</font>%. При прочтении одной и той же способности два раза подряд эффект пропадает на <font color='#ccff66'>12</font> секунд."
+		"property_old_wisdom_description"						"Увеличивает базовый урон способностей на <font color='#ccff66'>200</font>%. При прочтении одной и той же способности два раза подряд эффект пропадает на <font color='#ccff66'>10</font> секунд."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Вы использовали одно умение дважды, эффект усиления убран."
 		

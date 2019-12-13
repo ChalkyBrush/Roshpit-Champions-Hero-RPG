@@ -94,6 +94,21 @@
     	"DOTA_Tooltip_modifier_boots_of_great_fortune_sapphire_effect"	"Lucky Odds (Sapphire)"
     	"DOTA_Tooltip_modifier_boots_of_great_fortune_sapphire_effect_Description"	"Your next proc chance is <% ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_SAPPHIRE_CHANCE %>%%"
 
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
+
+		"item_property_old_wisdom"								"Spell Variance"
+		"property_old_wisdom_description"						"Increases Base Ability Damage by <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD %>%. Using the same ability twice in a row removes this effect for <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN %> seconds."
+		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
+		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
+
+    	"item_rpc_boots_of_old_wisdom_ruby1"								"Reduces Spell Variance refresh time by @ruby_property1 seconds"
+    	"item_rpc_boots_of_old_wisdom_emerald1"								"Increases Agility and Intelligence by @emerald_property1"
+    	"item_rpc_boots_of_old_wisdom_sapphire1"								"Build up @sapphire_property1 Spell Pierce every <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_SAPPHIRE_INTERVAL %> seconds. When you reach @sapphire_property2 bonus Spell Pierce, this effect resets at 0"
+    	"item_rpc_boots_of_old_wisdom_amethyst1"								"While Spell Variance is inactive gain @amethyst_property1 Armor and Magic Armor, and @amethyst_property2 Mana Regen"
+
+    	"DOTA_Tooltip_modifier_old_wisdom_sapphire_stacks"				"Old Wisdom (Sapphire)"
+    	"DOTA_Tooltip_modifier_old_wisdom_sapphire_stacks_Description"	"Gaining Spell Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -280,16 +295,6 @@
 		"item_property_resplendent_rubber"					"Grounding"
 		"property_resplendent_rubber_description"			"Reduces all damage taken by <% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION %>%."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
-    	"item_rpc_boots_of_old_wisdom_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_old_wisdom_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_old_wisdom_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_old_wisdom_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability Damage by <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD %>%. Using the same ability twice in a row removes this effect for <% ITEM_RPC_BOOTS_OF_OLD_WISDOM_COOLDOWN %> seconds."
-		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
-		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
