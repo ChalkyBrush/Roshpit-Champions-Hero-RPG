@@ -170,6 +170,16 @@
         "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
         "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
+
+        "item_property_emerald_speed"                           "Stable Pace"
+        "property_emerald_speed_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
+
+        "item_rpc_emerald_speed_runners_ruby1"                          "Increases minimum movespeed by @ruby_property1"
+        "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
+        "item_rpc_emerald_speed_runners_sapphire1"                          "While rooted, issuing a Move Order will teleport you to the target position. Max distance of @sapphire_property1, and @sapphire_property2 second cooldown"
+        "item_rpc_emerald_speed_runners_amethyst1"                          "[E] cooldown can never be more than @amethyst_property1 seconds"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -395,16 +405,6 @@
 		"item_property_temporal_warp"						"Time Warp"
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-		 
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-    	"item_rpc_emerald_speed_runners_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_emerald_speed_runners_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
