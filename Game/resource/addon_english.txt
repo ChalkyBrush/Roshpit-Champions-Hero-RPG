@@ -11927,6 +11927,11 @@
     	"item_rpc_boots_of_ashara_sapphire1"									"Increases all [E] runes by @sapphire_property1"
     	"item_rpc_boots_of_ashara_amethyst1"									"Reduces all Pure Damage taken by @amethyst_property1%"
 
+		"item_rpc_boots_of_champions_ruby1"	"Increases Rune [E1] by @ruby_property1"
+		"item_rpc_boots_of_champions_emerald1"	"Increases Rune [E3] by @emerald_property1"
+		"item_rpc_boots_of_champions_sapphire1" "Increases Rune [E2] by @sapphire_property1"
+		"item_rpc_boots_of_champions_amethyst1" "Increases Rune [E4] by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"

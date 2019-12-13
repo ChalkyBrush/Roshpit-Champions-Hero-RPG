@@ -4912,6 +4912,24 @@ function RPCItems:RollBootsOfAshara(item_level)
     return item
 end
 
+function RPCItems:RollChampionsGearBoots(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_boots_of_champions", "immortal", "champions_gear", "feet", true, "Slot: Boots")
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_e_4", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -7991,27 +8009,6 @@ function RPCItems:RollWhiteMageHat(item_level)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 3.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollChampionsGearBoots(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_boots_of_champions", "immortal", "champions_gear", "feet", true, "Slot: Boots")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.hasRunePoints = true
-
-    local runeName = "rune_e_4"
-    local runeValue = RPCItems:GetLogarithmicVarianceValue(20, 0, 0, 0, 0)
-    item.newItemTable.property1name = runeName
-    item.newItemTable.property1 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-
-    RPCItems:RollFootProperty2(item, 0)
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
     return item
 end
 
