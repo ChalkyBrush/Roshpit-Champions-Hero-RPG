@@ -1647,6 +1647,9 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 		local total_azinoth = ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP - victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY) + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1)
 		damage = damage * (100 + total_azinoth)/100
 	end
+	if victim:HasModifier("modifier_crystalline_slippers") then
+		damage = damage * (100 + ITEM_RPC_CRYSTALLINE_SLIPPERS_RESIST_LOSS)/100
+	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
 		local buffAbility = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetAbility()
@@ -1677,6 +1680,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
+	end
+	if victim:HasModifier("modifier_crystalline_slippers") and victim:IsRooted() then
+		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE)/100)
 	end
 	if victim:HasModifier("modifier_bloodstone_boots") then
 		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
@@ -2790,11 +2796,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
 
-	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP
-		end
-	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
 		filterTable["damage"] = filterTable["damage"] * 0.1
 	end
@@ -3211,11 +3212,6 @@ function GameState:FilterDamage(filterTable)
 	local increaseIncoming = GameState:IncomingDamageIncrease(victim, attacker, true, damagetype)
 	filterTable["damage"] = filterTable["damage"] * increaseIncoming
 
-	if victim:HasModifier("modifier_crystalline_slippers") then
-		if attacker:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED)/100
-		end
-	end
 	-- wEIRD MONSTERS
 	if victim:HasModifier("modifier_mystery_summon_passive") then
 		filterTable["damage"] = 0

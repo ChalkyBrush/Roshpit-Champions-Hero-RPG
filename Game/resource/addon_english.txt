@@ -12004,13 +12004,51 @@
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
 
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal <font color='#ccff66'>80</font>% reduced damage to you, and take <font color='#ccff66'>5</font>x pre-mitigation damage from you."
+        "property_crystalline"                                              "Glass Dancer"
+        "property_crystalline_Description"                                  "Increases all damage taken by <font color='#ccff66'>100</font>% and increases Item Damage and Base Ability Damage by <font color='#ccff66'>175</font>%."
 
+		"item_rpc_crystalline_slippers_ruby1"				"Reduces Armor by @ruby_property1 and increases Armor Pierce by @ruby_property2"
+		"item_rpc_crystalline_slippers_emerald1"				"Gain @emerald_property1% evasion while in motion, and gain @emerald_property2% increased Attack Power while standing still"
+		"item_rpc_crystalline_slippers_sapphire1"				"Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <font color='#ccff66'>1.25</font> seconds"
+		"item_rpc_crystalline_slippers_amethyst1"				"Reduces Magic Armor by @amethyst_property1 and increases Spell Pierce by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_crystalline_sapphire_root"		"Glass Dancer (Sapphire)"
+		"DOTA_Tooltip_modifier_crystalline_sapphire_root_Description"	"Rooted"
+
+		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
+		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Increased Evasion while in motion"
+
+        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
+        "item_property_dunetread"                   "Dunewalker"
+        "property_dunetread_description"            "Reduces the cooldown of @Ability3 by <font color='#ccff66'>2</font> seconds."
+
+        "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
+        "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
+        "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
+        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
+
+        "item_property_emerald_speed"                           "Stable Pace"
+        "property_emerald_speed_description"                    "Movespeed can not fall below <font color='#ccff66'>600</font>"
+
+        "item_rpc_emerald_speed_runners_ruby1"                          "Increases minimum movespeed by @ruby_property1"
+        "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
+        "item_rpc_emerald_speed_runners_sapphire1"                          "While rooted, issuing a Move Order will teleport you to the target position. Clamped distance of @sapphire_property1, and @sapphire_property2 second cooldown"
+        "item_rpc_emerald_speed_runners_amethyst1"                          "[E] cooldown can never be more than @amethyst_property1 seconds"
+
+        "DOTA_Tooltip_ability_item_rpc_falcon_boots"                                    "Falcon Boots"
+
+        "item_property_falcon_boot"                 "Falcon Swoop"
+        "property_falcon_boot_description"          "5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for <font color='#ccff66'>0</font> seconds."
+
+        "item_rpc_falcon_boots_ruby1"                                       "Each point of current movespeed increases Base Attack Damage by @ruby_property1"
+        "item_rpc_falcon_boots_emerald1"                                    "Increases Agility and Intelligence by @emerald_property1"
+        "item_rpc_falcon_boots_sapphire1"                                   "Increases Attack Speed by @sapphire_property1 and increases the Freeze Duration of Falcon Swoop by @sapphire_property2 seconds"
+        "item_rpc_falcon_boots_amethyst1"                                   "Increases falcon fly speed by @amethyst_property1 and enemies take @amethyst_property2% of your Attack Power as damage upon landing"
+
+        "DOTA_Tooltip_modifier_falcon_freeze"       "Falcon Swoop"
+        "DOTA_Tooltip_modifier_falcon_freeze_Description"   "Frozen"
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12029,14 +12067,6 @@
 		"item_property_sange"						"Combat Mastery S"
 		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <font color='#ccff66'>25</font> and your Max Mana by <font color='#ccff66'>5</font>."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
-		"item_rpc_dunetread_boots_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_dunetread_boots_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_dunetread_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_dunetread_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by <font color='#ccff66'>2</font> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
@@ -12104,17 +12134,6 @@
 		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25%, and maximum movespeed by @special_property1 for 8 seconds. Additionally removes unit collision."
 		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
 		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
-    	"item_rpc_falcon_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_falcon_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_falcon_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_falcon_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_falcon_boot"					"Falcon Swoop"
-		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
-		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
-		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
@@ -12244,16 +12263,6 @@
 		"item_property_temporal_warp"						"Time Warp"
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-		 
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-    	"item_rpc_emerald_speed_runners_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_emerald_speed_runners_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below <font color='#ccff66'>600</font>"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
@@ -14391,12 +14400,14 @@
 		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <font color='#ccff66'>35</font>% of max health."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
-		"item_rpc_never_ring_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_never_ring_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_never_ring_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_never_ring_amethyst1"										"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Slot: Trinket"
+		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
+		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
+		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores you mana by @amethyst_property1% of the burned health."
+		"item_property_neverlord_soul_ring"												"Soul Conversion"
+		"property_neverlord_soul_ring_description"											"Converts <font color='#ccff66'>30</font>% of max health to max mana."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"

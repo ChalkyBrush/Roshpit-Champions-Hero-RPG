@@ -12275,7 +12275,7 @@
 		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
 		"property_crystalline"												"水晶缠绕"
-		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <font color='#ccff66'>80</font>%，并且受到 <font color='#ccff66'>5</font>x 来自玩家的伤害（税前）。"
+		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <font color='#ccff66'>0</font>%，并且受到 <font color='#ccff66'>0</font>x 来自玩家的伤害（税前）。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"
@@ -14103,12 +14103,14 @@
 		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<font color='#ccff66'>35</font>%。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_never_ring"										"灵魂戒指"
-		"item_rpc_never_ring_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_never_ring_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_never_ring_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_never_ring_amethyst1"										"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"部位：饰品"
+		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
+		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
+		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores you mana by @amethyst_property1% of the burned health."
+		"item_property_neverlord_soul_ring"												"Soul Conversion"
+		"property_neverlord_soul_ring_description"											"Converts <font color='#ccff66'>30</font>% of max health to max mana."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"獠牙戒指"

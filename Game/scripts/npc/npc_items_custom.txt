@@ -35013,37 +35013,47 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/crystalline_emerald_motion.vpcf"
+			"particle"	"particles/roshpit/items/crystalline_root_pnt.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"80"
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"600 1200 1800 2400 3000"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"5"
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"600 1200 1800 2400 3000"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
+				"emerald1"			"16 32 48 64 80"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
+				"emerald2"			"16 32 48 64 80"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
+				"sapphire1"			"20 40 60 80 100"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
+				"amethyst1"			"600 1200 1800 2400 3000"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"600 1200 1800 2400 3000"
 			}
 		}
 		"OnSpellStart"
@@ -35061,6 +35071,57 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"crystalline_slippers_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_slippers_emerald"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_emerald_immobile"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_emerald_in_motion"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_crystalline_sapphire_root"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/items/crystalline_root_pnt.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_crystalline_emerald_in_motion"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/items/crystalline_emerald_motion.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_crystalline_emerald_immobile"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
 			}
 		}
 	}
@@ -60859,12 +60920,13 @@
 			}
 		}
 	}
-	"item_rpc_never_ring"
+	"item_rpc_neverlord_soul_ring"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/trinket/neverlord_soul_ring.lua"
 		"AbilityTextureName"	"rpc/rpc_never_ring"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -60883,17 +60945,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"5 10 15 20 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
+				"sapphire1"			"0.01 0.02 0.03 0.04 0.05"
 			}
 			"04"
 			{

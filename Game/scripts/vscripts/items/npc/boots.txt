@@ -17,27 +17,32 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/crystalline_emerald_motion.vpcf"
+			"particle"	"particles/roshpit/items/crystalline_root_pnt.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"80"
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1 %>"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"5"
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2 %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY %>"
+				"emerald1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD %>"
+				"emerald2"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD2 %>"
 			}
 			"05"
 			{
@@ -47,7 +52,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST %>"
+				"amethyst1"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST2 %>"
 			}
 		}
 		"OnSpellStart"
@@ -65,6 +75,57 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"crystalline_slippers_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_slippers_emerald"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_emerald_immobile"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_crystalline_emerald_in_motion"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_crystalline_sapphire_root"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/items/crystalline_root_pnt.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_crystalline_emerald_in_motion"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/items/crystalline_emerald_motion.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_crystalline_emerald_immobile"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
 			}
 		}
 	}

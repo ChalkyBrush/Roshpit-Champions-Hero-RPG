@@ -167,6 +167,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_auriun_glyph_2_1") then
         mult = mult + AURIUN_GLYPH_2_1_ITEM_DAMAGE/100
     end
+    if caster:HasModifier("modifier_crystalline_slippers") then
+        mult = mult + ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP/100
+    end
     if caster:HasModifier("modifier_royal_wristguards_stack_effect") then
         mult = mult + (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROYAL_WRISTGUARDS_GEM_AMETHYST)/100)*caster:GetModifierStackCount("modifier_royal_wristguards_stack_effect", caster.InventoryUnit)
     end
@@ -1075,6 +1078,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_bluestar_armor") then
         Filters:BluestarCast(caster)
     end
+    if caster:HasModifier("modifier_crystalline_slippers") then
+        Filters:CrystallineWCast(caster)
+    end
     if caster:HasModifier("modifier_autumnrock_bracer") then
         Filters:AutumnRockWCast(caster)
     end
@@ -1613,6 +1619,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_crystalline_slippers") then
+            damageMult = damageMult + ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SHADOWFLAME_FIST_GEM_RUBY) * (((attacker:GetMaxMana() - attacker:GetMana()) / attacker:GetMaxMana()))
@@ -6155,5 +6164,12 @@ function Filters:ApplyBlueDragonGreavesBuff(caster, base_duration)
         dragon_greaves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_blue_dragon_greaves_as", {duration = buff_duration})
         local as_stacks = dragon_greaves:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_SAPPHIRE2)
         caster:SetModifierStackCount("modifier_blue_dragon_greaves_as", caster.InventoryUnit, as_stacks)
+    end
+end
+
+function Filters:CrystallineWCast(caster)
+    local slippers = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if slippers:GetGemValue("sapphire") > 0 then
+        slippers:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crystalline_sapphire_root", {duration = ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION})
     end
 end

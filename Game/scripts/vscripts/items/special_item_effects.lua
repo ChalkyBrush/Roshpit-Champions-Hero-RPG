@@ -6,6 +6,8 @@ LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lu
 LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
+
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -9114,5 +9116,31 @@ function boots_of_great_fortune_sapphire_thinker(event)
 	if ability.sapphire_interval >= ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_GREAT_FORTUNE_GEM_SAPPHIRE) then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_boots_of_great_fortune_sapphire_effect", {})
 		ability.sapphire_interval = 0
+	end
+end
+
+function crystalline_slippers_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		if not hero:HasModifier("modifier_crystalline_slippers_emerald") then
+			hero:AddNewModifier(caster, ability, "modifier_crystalline_slippers_emerald", {})
+		end
+		if not ability.lastPos then
+			ability.lastPos = hero:GetAbsOrigin()
+		end
+		local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+		if distance < 3 then
+			ability.immobile = true
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_crystalline_emerald_immobile", {})
+			hero:SetModifierStackCount("modifier_crystalline_emerald_immobile", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD2))
+			hero:RemoveModifierByName("modifier_crystalline_emerald_in_motion")
+		else
+			ability.immobile = false
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_crystalline_emerald_in_motion", {})
+			hero:RemoveModifierByName("modifier_crystalline_emerald_immobile")
+		end
+		ability.lastPos = hero:GetAbsOrigin()
 	end
 end

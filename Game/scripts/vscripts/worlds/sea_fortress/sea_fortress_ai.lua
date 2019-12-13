@@ -4622,7 +4622,7 @@ function naga_summoner_die(caster)
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollCrystallineSlippers(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crystalline_slippers")
 	end
 	Timers:CreateTimer(2, function()
 		local wall = Entities:FindByNameNearest("SeaDoor1", Vector(-713, 6848, 96 + Seafortress.ZFLOAT), 900)
