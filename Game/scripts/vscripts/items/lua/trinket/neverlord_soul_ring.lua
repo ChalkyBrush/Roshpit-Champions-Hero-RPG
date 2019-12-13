@@ -95,7 +95,7 @@ function modifierClass:GetRoshpitSpellPierceBonus()
 end
 function modifierClass:OnCastWAbility()
     local hero = self:GetParent()
-    local healthBurned = hero:GetMaxHealth() * ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT / 100
+    local healthBurned = math.min(hero:GetMaxHealth() * ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT / 100, hero:GetHealth() - 1)
     local manaRestored = healthBurned * self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST) / 100
     hero:GiveMana(manaRestored)
     hero:SetHealth(hero:GetHealth() - healthBurned)
