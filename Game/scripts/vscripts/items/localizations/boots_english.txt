@@ -177,9 +177,21 @@
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Increases minimum movespeed by @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
-        "item_rpc_emerald_speed_runners_sapphire1"                          "While rooted, issuing a Move Order will teleport you to the target position. Max distance of @sapphire_property1, and @sapphire_property2 second cooldown"
+        "item_rpc_emerald_speed_runners_sapphire1"                          "While rooted, issuing a Move Order will teleport you to the target position. Clamped distance of @sapphire_property1, and @sapphire_property2 second cooldown"
         "item_rpc_emerald_speed_runners_amethyst1"                          "[E] cooldown can never be more than @amethyst_property1 seconds"
 
+        "DOTA_Tooltip_ability_item_rpc_falcon_boots"                                    "Falcon Boots"
+
+        "item_property_falcon_boot"                 "Falcon Swoop"
+        "property_falcon_boot_description"          "5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for <% ITEM_RPC_FALCON_BOOTS_FREEZE_DURATION %> seconds."
+
+        "item_rpc_falcon_boots_ruby1"                                       "Each point of current movespeed increases Base Attack Damage by @ruby_property1"
+        "item_rpc_falcon_boots_emerald1"                                    "Increases Agility and Intelligence by @emerald_property1"
+        "item_rpc_falcon_boots_sapphire1"                                   "Increases Attack Speed by @sapphire_property1 and increases the Freeze Duration of Falcon Swoop by @sapphire_property2 seconds"
+        "item_rpc_falcon_boots_amethyst1"                                   "Increases falcon fly speed by @amethyst_property1 and enemies take @amethyst_property2% of your Attack Power as damage upon landing"
+
+        "DOTA_Tooltip_modifier_falcon_freeze"       "Falcon Swoop"
+        "DOTA_Tooltip_modifier_falcon_freeze_Description"   "Frozen"
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -265,17 +277,6 @@
 		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25%, and maximum movespeed by @special_property1 for 8 seconds. Additionally removes unit collision."
 		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
 		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
-    	"item_rpc_falcon_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_falcon_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_falcon_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_falcon_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_falcon_boot"					"Falcon Swoop"
-		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
-		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
-		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
