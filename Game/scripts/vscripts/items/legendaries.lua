@@ -4979,7 +4979,12 @@ function RPCItems:RollBootsOfPureWaters(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_boots_of_pure_waters"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_pure_waters", "#2679BD", 1, "#property_pure_waters_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2.0)
+    local luck = RandomInt(1,3)
+    if luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2.0)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_water", 1.5)
+    end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
