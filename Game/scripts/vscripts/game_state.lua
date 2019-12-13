@@ -1551,6 +1551,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_boots_of_ashara") then
 			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST)/100))
 		end
+		if victim:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_SAPPHIRE)/100))
+		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_draghor_shapeshift_bear_lua") then

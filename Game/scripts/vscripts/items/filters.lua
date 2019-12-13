@@ -806,7 +806,7 @@ function Filters:CastSkillArguments(slot, caster)
     end
     if caster:HasModifier("modifier_crimsyth_elite_greaves") then
         caster:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
-        caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION})
+        caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crimsyth_elite_greaves_magic_shield", {duration = ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION})
     end
     if caster:HasModifier("modifier_chains_of_orthok") then
         if slot == BASE_ABILITY_Q then

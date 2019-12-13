@@ -1550,7 +1550,7 @@ function Redfall:ShipyardBossDeath(caster, ability)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollCrimsythEliteGreavesLV1(caster:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crimsyth_elite_greaves_lv1")
 		end
 	end)
 	caster:BossDrops(14)

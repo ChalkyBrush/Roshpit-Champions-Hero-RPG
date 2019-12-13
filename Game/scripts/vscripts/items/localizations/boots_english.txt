@@ -129,6 +129,18 @@
 		"item_rpc_boots_of_the_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_boots_of_the_violet_guard_amethyst1"							"Increases [R] Base Ability Damage by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
+		"item_property_crimsyth_elite"						"Crimsyth Guard"
+		 "property_crimsyth_elite_description"				"Increases Armor by <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>x your hero level. Upon casting an ability, lose the armor and gain <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %> Magic Armor for each Hero Level for <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION %> seconds."
+    	"item_rpc_crimsyth_elite_greaves_lv1_ruby1"						"The Armor portion of Crimsyth Guard maintains @ruby_property1% of its Armor while deactivated"
+    	"item_rpc_crimsyth_elite_greaves_lv1_emerald1"						"While the Armor is active, gain @emerald_property1 Armor Pierce. While the Magic Armor is active, gain @emerald_property2 Spell Pierce"
+    	"item_rpc_crimsyth_elite_greaves_lv1_sapphire1"						"While the Magic Armor is active, reduce all Pure damage taken by @sapphire_property1%"
+    	"item_rpc_crimsyth_elite_greaves_lv1_amethyst1"						"The Magic Armor portion of Crimsyth Guard maintains @amethyst_property1% of its Magic Armor while deactivated"
+
+    	"DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crymsyth Guard (Physical)"
+    	"DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crymsyth Guard (Magic)"
+
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -355,14 +367,7 @@
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
 		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
-    	"item_rpc_crimsyth_elite_greaves_lv1_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_crimsyth_elite_greaves_lv1_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_crimsyth_elite_greaves_lv1_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_crimsyth_elite_greaves_lv1_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_crimsyth_elite_3"						"Crimsyth Elite"
-		 "property_crimsyth_elite_3_description"				"Increases Armor by <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR %>x your hero level. Upon casting an ability, lose the armor and gain a <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE %> Magic Resistance shield for <% ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_DURATION %> seconds."
+
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"

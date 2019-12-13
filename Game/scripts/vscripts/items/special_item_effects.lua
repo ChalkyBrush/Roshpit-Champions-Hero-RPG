@@ -4168,7 +4168,6 @@ function crimsyth_elite_greaves_think(event)
 		target:RemoveModifierByName("modifier_crimsyth_elite_greaves_armor")
 	else
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_crimsyth_elite_greaves_armor", {})
-		target:SetModifierStackCount("modifier_crimsyth_elite_greaves_armor", caster, target:GetLevel())
 	end
 end
 

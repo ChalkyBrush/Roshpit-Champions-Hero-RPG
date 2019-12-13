@@ -5010,6 +5010,29 @@ function RPCItems:RollVioletTreads(item_level)
     return item
 end
 
+function RPCItems:RollCrimsythEliteGreavesLV1(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_crimsyth_elite_greaves_lv1", "immortal", "Crimsyth Elite Greaves LV1", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_crimsyth_elite_greaves"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite", "#DD2727", 1, "#property_crimsyth_elite_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.00)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.00)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+-- break
+
 function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
     local maxFactor = RPCItems:GetMaxFactor()
@@ -5364,43 +5387,6 @@ function RPCItems:RollHarvesterBoots(item_level)
 
     item.pickedUp = true
 
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollCrimsythEliteGreavesLV1(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_crimsyth_elite_greaves_lv1", "immortal", "Crimsyth Elite Greaves LV1", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "crimsyth_elite"
-    --RPCItems:SetPropertyValuesSpecial(item, 0, "#item_property_crimsyth_elite_1", "#DD2727",  1, "#property_crimsyth_elite_1_description")
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite_3", "#DD2727", 1, "#property_crimsyth_elite_3_description")
-
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property2 = math.floor(value * 1.35)
-		item.newItemTable.property2name = propertyName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-
-    --pre patch lv values
-    if type(item.newItemTable.property2) == "number" then
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-        item.newItemTable.property2 = math.ceil(item.newItemTable.property2 * 1.1)
-    end
-    if type(item.newItemTable.property3) == "number" then
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-        item.newItemTable.property3 = math.ceil(item.newItemTable.property3 * 1.1)
-    end
-    if type(item.newItemTable.property4) == "number" then
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-        item.newItemTable.property4 = math.ceil(item.newItemTable.property4 * 1.1)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
     RPCItems:DropItem(item, position)
     return item
 end

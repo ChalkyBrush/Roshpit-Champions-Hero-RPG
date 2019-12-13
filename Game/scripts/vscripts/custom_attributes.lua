@@ -1043,7 +1043,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
 	end
-
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		armor_modify = armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR*unit:GetLevel()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		armor_modify = armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_RUBY)/100)
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1587,6 +1592,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_malachite_shade_bracer") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_SAPPHIRE)*(unit:GetBaseManaRegen() + unit:GetBonusManaRegen())
 	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		magic_armor_modify = magic_armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE*unit:GetLevel()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		magic_armor_modify = magic_armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_AMETHYST)/100)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1886,6 +1897,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_bloodstone_boots") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2240,6 +2254,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_old_wisdom_sapphire_stacks") then
 		local modifier = unit:FindModifierByName("modifier_old_wisdom_sapphire_stacks")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD2)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
