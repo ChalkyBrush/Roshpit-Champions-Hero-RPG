@@ -140,6 +140,19 @@
     	"DOTA_Tooltip_modifier_crimsyth_elite_greaves_armor"	"Crymsyth Guard (Physical)"
     	"DOTA_Tooltip_modifier_crimsyth_elite_greaves_magic_shield"	"Crymsyth Guard (Magic)"
 
+    	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
+		"item_property_crusader_boots"				"Devotion Aura"
+		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes or regular units equal to <% ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% of your Strength."
+
+    	"item_rpc_crusader_boots_ruby1"									"Increases Strength by @ruby_property1 and each point of Strength increases Base Attack Damage by @ruby_property2"
+    	"item_rpc_crusader_boots_emerald1"									"Devotion Aura also reduces all pure damage taken by @emerald_property1%"
+    	"item_rpc_crusader_boots_sapphire1"									"Increases Devotion Aura's radius by @sapphire_property1 and further increases Armor by @sapphire_property2"
+    	"item_rpc_crusader_boots_amethyst1"									"Increases Spirit by @amethyst_property1 and Devotion Aura increases Magic Armor by @amethyst_property2% of Spirit"
+
+
+		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura"
+		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -253,18 +266,6 @@
     	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"Deep Earthen Grip"
 		"property_rooted_feet_description"			"While standing still you have <% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>x Armor, <% ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP %>x health regen, and take <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"Crusader Boots"
-    	"item_rpc_crusader_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_crusader_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_crusader_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_crusader_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_crusader_boots"				"Devotion Aura"
-		"property_crusader_boots_description"		"Gives Armor to you and nearby allied heroes equal to <% ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT %>% of your Strength."
-
-		"DOTA_Tooltip_modifier_devotion_aura_buff"  "Devotion Aura Effect"
-		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"

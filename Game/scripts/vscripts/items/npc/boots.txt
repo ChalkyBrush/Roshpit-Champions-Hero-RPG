@@ -1,3 +1,134 @@
+	"item_rpc_crusader_boots"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/crusader_boots"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"  "particles/items_fx/devotion_aura.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY1 %>"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY2 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_EMERALD %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_devotion_aura"
+			{
+				"EffectName"		"particles/items_fx/devotion_aura.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"IsPurgable"			"0"
+				"Passive" 			"0"
+				"IsHidden" 			"1"
+				"IsBuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"devotion_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_devotion_aura_base_attack_damage"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+
+			"modifier_devotion_aura_buff"
+			{
+				"IsBuff"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"EffectName"			"particles/items_fx/devotion_aura_ring.vpcf"
+				"EffectAttachType"		"attach_origin"
+			}
+			"modifier_devotion_aura_hidden_countdown"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_devotion_aura_buff"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_devotion_aura_base_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_crimsyth_elite_greaves_lv1"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -1869,91 +2000,6 @@
 		}
 	}
 
-	"item_rpc_crusader_boots"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/crusader_boots"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_devotion_aura"
-			{
-				"EffectName"		"particles/items_fx/devotion_aura.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"devotion_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-
-			"modifier_devotion_aura_buff"
-			{
-				"IsBuff"				"1"
-				"IsHidden"				"1"
-				"IsPurgable"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
-			}
-		}
-	}
 	"item_rpc_dunetread_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

@@ -12012,7 +12012,7 @@
     	"item_rpc_crusader_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_crusader_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_crusader_boots"				"忠诚光环"
-		"property_crusader_boots_description"		"提升你及附近友军的护甲，提升值为你力量值的<font color='#ccff66'>10</font>%。"
+		"property_crusader_boots_description"		"提升你及附近友军的护甲，提升值为你力量值的<font color='#ccff66'>120</font>%。"
 
 		"DOTA_Tooltip_modifier_devotion_aura_buff"  "忠诚光环"
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"获得额外护甲值"

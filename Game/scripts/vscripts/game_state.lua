@@ -1554,6 +1554,11 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		if victim:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
 			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_SAPPHIRE)/100))
 		end
+		if victim:HasModifier("modifier_devotion_aura_buff") then
+			local devotion_caster = victim:FindModifierByName("modifier_devotion_aura_buff"):GetCaster()
+			local devotion_hero = devotion_caster.hero
+			damage = damage * (1 - devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRUSADER_BOOTS_GEM_EMERALD)/100)
+		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_draghor_shapeshift_bear_lua") then

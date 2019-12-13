@@ -1049,6 +1049,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
 		armor_modify = armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_RUBY)/100)
 	end
+	if unit:HasModifier("modifier_devotion_aura_buff") then
+		local devotion_caster = unit:FindModifierByName("modifier_devotion_aura_buff"):GetCaster()
+		local devotion_hero = devotion_caster.hero
+		local devotion_base = devotion_hero:GetStrength()*(ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
+		local devotion_sapphire = devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2)
+		armor_modify = armor_modify + devotion_base + devotion_sapphire
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1597,6 +1604,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
 		magic_armor_modify = magic_armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_AMETHYST)/100)
+	end
+	if unit:HasModifier("modifier_devotion_aura_buff") then
+		local devotion_caster = unit:FindModifierByName("modifier_devotion_aura_buff"):GetCaster()
+		local devotion_hero = devotion_caster.hero
+		magic_armor_modify = magic_armor_modify + devotion_hero:GetSpirit()*(devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2)/100)
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE

@@ -2016,13 +2016,18 @@ function devotion_think(event)
 	local hero = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local stacks = math.floor(hero:GetStrength() * ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_CRUSADER_BOOTS_AURA_RANGE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	local radius = ITEM_RPC_CRUSADER_BOOTS_AURA_RANGE + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE1)
+	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for _, ally in pairs(allies) do
-			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_buff", {duration = 1.5})
-			ally:SetModifierStackCount("modifier_devotion_aura_buff", ability, stacks)
+			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_buff", {})
+			ability:ApplyDataDrivenModifier(caster, ally, "modifier_devotion_aura_hidden_countdown", {duration = 1})
 		end
+	end
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_devotion_aura_base_attack_damage", {})
+		local damage_stacks = math.floor(hero:GetStrength()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY2 ))
+		hero:SetModifierStackCount("modifier_devotion_aura_base_attack_damage", caster, damage_stacks)
 	end
 end
 
