@@ -2953,10 +2953,6 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local strength = hero:GetStrength()
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
-	local halcyon = 1
-	-- if hero:HasModifier("modifier_halcyon_soul_glove") then
-	-- 	halcyon = 1 + ITEM_RPC_HALCYON_SOUL_GLOVE_BONUS
-	-- end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
 	else
@@ -2981,29 +2977,38 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * halcyon)
+	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR)
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI * halcyon)
+	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI)
 
 	if not hero:HasModifier("modifier_agility_movespeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_movespeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_movespeed", caster, agility * CustomAttributes.MOVESPEED_PER_AGI * halcyon)
-
+	hero:SetModifierStackCount("modifier_agility_movespeed", caster, agility * CustomAttributes.MOVESPEED_PER_AGI)
+	
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence * CustomAttributes.MANA_PER_INT * halcyon)
+	local manaStacks = CustomAttributes:GetMaxMana(hero)
+	if not hero:GetModifierStackCount("modifier_int_mana", caster) == healthStacks then
+		local manaPercentFreeze = hero:GetMana() / hero:GetMaxMana()
+		Timers:CreateTimer(0.03, function()
+			if hero:IsAlive() then
+				hero:SetMana(math.max(hero:GetMaxMana() * manaPercentFreeze, 1))
+			end
+		end)
+	end
+	hero:SetModifierStackCount("modifier_int_mana", caster, manaStacks)
 
 	if not hero:HasModifier("modifier_int_mana_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence * CustomAttributes.MANA_REGEN_PER_INT * halcyon)
+	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence * CustomAttributes.MANA_REGEN_PER_INT)
 
-	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY * halcyon)
+	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY)
 	if not hero:HasModifier("modifier_primary_attribute_damage") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_primary_attribute_damage", {})
 	end
@@ -3013,7 +3018,10 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 end
 
 function CustomAttributes:GetMaxHealth(hero, excludedModifier)
-	return CustomAttributes:GetBaseHealth(hero, excludedModifier) * CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier) - 100 --100 hp base hp, base hp cant be changed with Code thats why its substracted again
+	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
+	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
+	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
+	return baseHealth * healthMultiplier - 100 
 end
 
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)
@@ -3087,6 +3095,11 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
+	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
+		function(result, data)
+			flatHealthBonus = flatHealthBonus + result
+		end
+	)	
 	return flatHealthBonus
 end
 
@@ -3098,9 +3111,63 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		percentHealthMultiplier = percentHealthMultiplier + CONJUROR_ARCANA_Q2_PERCENT_HEALTH / 100 * hero:GetRuneValue("q", 2)
 	end
+
+	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 
+		function(result, data)
+			percentHealthMultiplier = percentHealthMultiplier + result
+		end
+	)	
+
 	return percentHealthMultiplier
 end
 
+function CustomAttributes:GetMaxMana(hero, excludedModifier)
+	--100 mp base mp, base mp cant be changed with Code thats why its substracted again
+	local baseMana = CustomAttributes:GetBaseMana(hero, excludedModifier)
+	local manaMultiplier = CustomAttributes:GetPercentManaMutliplier(hero, excludedModifier)
+	return baseMana * manaMultiplier - 100 
+end
+
+function CustomAttributes:GetBaseMana(hero, excludedModifier)
+	local flatManaBonus = 100 --Each hero starts with 100 hp, this is important so that its multiplied with helm of mountain giant for example
+	flatManaBonus = flatManaBonus + hero:GetIntellect() * CustomAttributes.MANA_PER_INT
+
+	if excludedModifier ~= "modifier_head_max_mana" and hero:HasModifier("modifier_head_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_head_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_hands_max_mana" and hero:HasModifier("modifier_hands_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hands_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_feet_max_mana" and hero:HasModifier("modifier_feet_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_feet_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_body_max_mana" and hero:HasModifier("modifier_body_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_trinket_max_mana" and hero:HasModifier("modifier_trinket_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_weapon_max_mana" and hero:HasModifier("modifier_weapon_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_mana", 1)
+	end
+	Util.Modifier:SimpleEvent(hero, 'GetFlatManaBonus', { MODIFIER_ROSHPIT_FLAT_MANA_BONUS }, { }, 
+		function(result, data)
+			flatManaBonus = flatManaBonus + result
+		end
+	)	
+	return flatManaBonus
+end
+	
+function CustomAttributes:GetPercentManaMutliplier(hero, excludedModifier)
+	local percentManaMultiplier = 1
+	Util.Modifier:SimpleEvent(hero, 'GetPercentManaBonus', { MODIFIER_ROSHPIT_PERCENT_MANA_BONUS }, { }, 
+		function(result, data)
+			percentManaMultiplier = percentManaMultiplier + result
+		end
+	)	
+
+	return percentManaMultiplier
+end
 function CustomAttributes:ActivateStatsTooltip(msg)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then return end
 	local unit = EntIndexToHScript(msg.queryunit)
@@ -3155,7 +3222,6 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	end
 	tableData.elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
 
-	tableData.halcyon = 0
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
