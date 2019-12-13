@@ -37,12 +37,14 @@
 		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% of max health."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_never_ring"										"Soul Ring"
-		"item_rpc_never_ring_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_never_ring_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_never_ring_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_never_ring_amethyst1"										"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"Slot: Trinket"
+		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
+		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
+		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% of your max health and restores you mana by @amethyst_property1% of the burned health."
+		"item_property_neverlord_soul_ring"												"Soul Conversion"
+		"property_neverlord_soul_ring_description"											"Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"

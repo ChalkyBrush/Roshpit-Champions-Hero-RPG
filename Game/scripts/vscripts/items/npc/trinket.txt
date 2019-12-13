@@ -1214,12 +1214,13 @@
 			}
 		}
 	}
-	"item_rpc_never_ring"
+	"item_rpc_neverlord_soul_ring"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/trinket/neverlord_soul_ring.lua"
 		"AbilityTextureName"	"rpc/rpc_never_ring"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -1238,22 +1239,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_NEVER_RING_GEM_RUBY %>"
+				"ruby1"				"<% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_RUBY %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_NEVER_RING_GEM_EMERALD %>"
+				"emerald1"			"<% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_EMERALD %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_NEVER_RING_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_SAPPHIRE %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_NEVER_RING_GEM_AMETHYST %>"
+				"amethyst1"			"<% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST %>"
 			}
 		}
 		"OnSpellStart"

@@ -17,36 +17,6 @@ function RPCItems:RollRuneType(letters, tiersTable)
     return rune_roll
 end
 
-function RPCItems:RollNeverlordRing(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_never_ring", "immortal", "Neverlord Soul Ring", "amulet", true, "Slot: Trinket")
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 1.5)
-    item.newItemTable.property1 = value
-    item.newItemTable.property1name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "rune", "#7DFF12", 1)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 1.5)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 1.5)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    value = math.floor(value * 1.5)
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 function RPCItems:RollSandTombOrb(xpBounty, deathLocation, rarity, isShop, type, hero)
     local itemVariant = "item_rpc_sand_tomb_orb"
     local item = RPCItems:CreateItem(itemVariant, nil, nil)
@@ -8423,8 +8393,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollBloodstoneBoots(item_level)
     elseif itemName == "item_rpc_igneous_canine_helm" then
         newItem = RPCItems:RollIgneousCanineHelm(item_level)
-    elseif itemName == "item_rpc_never_ring" then
-        newItem = RPCItems:RollNeverlordRing(item_level)
     elseif itemName == "item_rpc_barons_storm_armor" then
         newItem = RPCItems:RollBaronsStormArmor(item_level)
     elseif itemName == "item_rpc_serengaard_sun_crystal" then
@@ -8772,7 +8740,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_wind_deity_crown", "item_rpc_water_deity_crown", "item_rpc_fire_deity_crown", "item_rpc_skulldigger_gauntlet_lv1", "item_rpc_shipyard_veil_lv1", "item_rpc_crimsyth_elite_greaves_lv1",
         "item_rpc_harvester_boots", "item_rpc_fortunes_talisman_of_truth", "item_rpc_vermillion_dream_robes", "item_rpc_boots_of_great_fortune", "item_rpc_cobalt_serenity_ring",
         "item_rpc_emerald_nullification_ring", "item_rpc_garnet_warfare_ring", "item_rpc_claws_of_the_ethereal_revenant", "item_rpc_crimson_skull_cap", "item_rpc_hood_of_lords",
-        "item_rpc_spellfire_gloves", "item_rpc_bloodstone_boots", "item_rpc_igneous_canine_helm", "item_rpc_never_ring", "item_rpc_barons_storm_armor", "item_rpc_serengaard_sun_crystal",
+        "item_rpc_spellfire_gloves", "item_rpc_bloodstone_boots", "item_rpc_igneous_canine_helm", "item_rpc_barons_storm_armor", "item_rpc_serengaard_sun_crystal",
         "item_rpc_temporal_warp_boots", "item_rpc_aqua_lily", "item_rpc_fire_blossom", "item_rpc_wind_orchid", "item_rpc_ankh_of_the_ancients", "item_rpc_alaranas_ice_boot",
         "item_rpc_ancient_tanari_wind_armor", "item_rpc_blue_rain_gauntlet", "item_rpc_shadowflame_fist", "item_rpc_blazing_fury_armor", "item_rpc_aquastone_ring", "item_rpc_burning_spirit_helmet",
         "item_rpc_aquasteel_bracers", "item_rpc_demonfire_gauntlet", "item_rpc_emerald_speed_runners", "item_rpc_outland_stone_cuirass", "item_rpc_world_trees_flower_cache", "item_rpc_red_october_boots",
