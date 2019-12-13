@@ -161,6 +161,14 @@
 		"item_rpc_crystalline_slippers_sapphire1"				"Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <% ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION %> seconds"
 		"item_rpc_crystalline_slippers_amethyst1"				"Reduces Magic Armor by @ruby_property1 and increases Spell Pierce by @ruby_property2"
 
+        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
+        "item_property_dunetread"                   "Dunewalker"
+        "property_dunetread_description"            "Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
+
+        "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
+        "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
+        "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
+        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor by @amethyst_property1"
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -180,14 +188,6 @@
 		"item_property_sange"						"Combat Mastery S"
 		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %> and your Max Mana by <% ITEM_RPC_SANGE_BOOTS_MP_PER_AGI %>."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
-		"item_rpc_dunetread_boots_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_dunetread_boots_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_dunetread_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_dunetread_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
