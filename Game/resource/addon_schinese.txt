@@ -12078,9 +12078,9 @@
     	"item_rpc_blue_dragon_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_blue_dragon_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_dragon_greaves"				"龙舞"
-		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1600</font>码，获得 <font color='#ccff66'>65</font>% 闪避并提高 <font color='#ccff66'>85</font>% 的攻击力，持续<font color='#ccff66'>7</font>秒。"
+		"property_dragon_greaves_description"		"每移动<font color='#ccff66'>1600</font>码，获得 <font color='#ccff66'>60</font>% 闪避并提高 <font color='#ccff66'>85</font>% 的攻击力，持续<font color='#ccff66'>7</font>秒。"
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"龙舞"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>65</font>%% 闪避并提高 <font color='#ccff66'>85</font>%% 的攻击力"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>60</font>%% 闪避并提高 <font color='#ccff66'>85</font>%% 的攻击力"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"橡胶靴"
@@ -12157,13 +12157,13 @@
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
-    	"item_rpc_boots_of_ashara_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_ashara_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的<font color='#ccff66'>50</font>%时，@Ability3的基础技能伤害增加 <font color='#ccff66'>20</font>X"
-		 
+         "property_boots_of_ashara_description"                 "Increases Status Resistance by <font color='#ccff66'>30</font>%"
+
+        "item_rpc_boots_of_ashara_ruby1"                                    "When a debuff is applied to you by an enemy, gain a buff that increases movespeed and max movespeed by @ruby_property1. The buff has the same duration as the debuff before reductions."
+        "item_rpc_boots_of_ashara_emerald1"                                 "Increases the duration of all friendly buffs you apply by @emerald_property1%"
+        "item_rpc_boots_of_ashara_sapphire1"                                    "Increases all [E] runes by @sapphire_property1"
+        "item_rpc_boots_of_ashara_amethyst1"                                    "Reduces all Pure Damage taken by @amethyst_property1%"
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"
     	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"

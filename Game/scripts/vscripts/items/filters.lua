@@ -1826,9 +1826,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ITEM_RPC_ADMIRAL_BOOTS_BAD_E/100
         end
-        if attacker:HasModifier("modifier_boots_of_ashara") and attacker:GetHealth() / attacker:GetMaxHealth() <= ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD/100 then
-            damageMult = damageMult + ITEM_RPC_BOOTS_OF_ASHARA_BAD_E
-        end
         if attacker:HasModifier("modifier_plate_of_the_watcher3") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD2)/100
         end

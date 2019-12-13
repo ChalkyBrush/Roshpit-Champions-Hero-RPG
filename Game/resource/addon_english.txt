@@ -11908,9 +11908,9 @@
     	"DOTA_Tooltip_ability_item_rpc_blue_dragon_greaves"								"Blue Dragon Greaves"
 
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"For every <font color='#ccff66'>1600</font> units of distance moved, gain <font color='#ccff66'>65</font>% evasion and <font color='#ccff66'>85</font>% bonus attack damage for <font color='#ccff66'>7</font> seconds."
+		"property_dragon_greaves_description"		"For every <font color='#ccff66'>1600</font> units of distance moved, gain <font color='#ccff66'>60</font>% evasion and <font color='#ccff66'>85</font>% bonus attack damage for <font color='#ccff66'>7</font> seconds."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>65</font>%% evasion and <font color='#ccff66'>85</font>%% increased attack damage"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>60</font>%% evasion and <font color='#ccff66'>85</font>%% increased attack damage"
 
     	"item_rpc_blue_dragon_greaves_ruby1"								"Casting [E] applies Dragon Dance for @ruby_property1 seconds and Dragon Dance adds @ruby_property2 Base Attack Damage"
     	"item_rpc_blue_dragon_greaves_emerald1"								"Dragon Dance increases Agility and Spirit by @emerald_property1"
@@ -11918,12 +11918,14 @@
     	"item_rpc_blue_dragon_greaves_amethyst1"								"Increases <font color=\"#3289C7\">Dragon</font> Elemental Damage and Item Damage by @amethyst_property1%"
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
-    	"item_rpc_boots_of_ashara_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_ashara_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 gains <font color='#ccff66'>20</font>x increased Base Ability Damage while health is less than or equal to <font color='#ccff66'>50</font>%"
+		 "property_boots_of_ashara_description"					"Increases Status Resistance by <font color='#ccff66'>30</font>%"
+
+    	"item_rpc_boots_of_ashara_ruby1"									"When a debuff is applied to you by an enemy, gain a buff that increases movespeed and max movespeed by @ruby_property1. The buff has the same duration as the debuff before reductions."
+    	"item_rpc_boots_of_ashara_emerald1"									"Increases the duration of all friendly buffs you apply by @emerald_property1%"
+    	"item_rpc_boots_of_ashara_sapphire1"									"Increases all [E] runes by @sapphire_property1"
+    	"item_rpc_boots_of_ashara_amethyst1"									"Reduces all Pure Damage taken by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"

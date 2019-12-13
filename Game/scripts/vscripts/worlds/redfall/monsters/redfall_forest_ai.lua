@@ -1460,7 +1460,7 @@ function redfall_ashara_die(event)
 		end
 		local luck = RandomInt(1, GameState:GetDifficultyFactor())
 		if luck == 1 then
-			RPCItems:RollBootsOfAshara(position)
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_boots_of_ashara")
 		end
 	end
 end

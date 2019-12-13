@@ -1016,7 +1016,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_AMETHYST, hero, "element_dragon", RPC_GEAR_SLOT_BOOTS)
-		end			
+		end	
+	elseif item:GetAbilityName() == "item_rpc_boots_of_ashara" then	
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE, hero, "rune_e_1", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE, hero, "rune_e_2", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE, hero, "rune_e_3", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_ASHARA_GEM_SAPPHIRE, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
+		end		
 	end
 end
 

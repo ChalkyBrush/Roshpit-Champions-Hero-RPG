@@ -4898,7 +4898,7 @@ function RPCItems:RollBootsOfAshara(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_boots_of_ashara", "immortal", "Boots of Ashara", "feet", true, "Slot: Feet")
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "ashara"
+    item.newItemTable.property1name = "!immortal!_modifier_boots_of_ashara"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_boots_of_ashara", "#E6C149", 1, "#property_boots_of_ashara_description")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})

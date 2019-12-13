@@ -282,13 +282,13 @@
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
-    	"item_rpc_boots_of_ashara_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_ashara_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
 		 "item_property_boots_of_ashara"						"秋叶魅力"
-		 "property_boots_of_ashara_description"					"当你的当前生命值低于或等于最大生命值的<% ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD %>%时，@Ability3的基础技能伤害增加 <% ITEM_RPC_BOOTS_OF_ASHARA_BAD_E %>X"
-		 
+         "property_boots_of_ashara_description"                 "Increases Status Resistance by <% ITEM_RPC_BOOTS_OF_ASHARA_STATUS_RESIST %>%"
+
+        "item_rpc_boots_of_ashara_ruby1"                                    "When a debuff is applied to you by an enemy, gain a buff that increases movespeed and max movespeed by @ruby_property1. The buff has the same duration as the debuff before reductions."
+        "item_rpc_boots_of_ashara_emerald1"                                 "Increases the duration of all friendly buffs you apply by @emerald_property1%"
+        "item_rpc_boots_of_ashara_sapphire1"                                    "Increases all [E] runes by @sapphire_property1"
+        "item_rpc_boots_of_ashara_amethyst1"                                    "Reduces all Pure Damage taken by @amethyst_property1%"
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"砂流之鞋"
     	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"

@@ -576,6 +576,8 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 	if modifierGainedTable["entindex_caster_const"] then
 		caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 	end
+	local original_duration = modifierGainedTable["duration"]
+
 	if target:IsRealHero() and target.spirit_custom and modifierGainedTable["entindex_caster_const"] then
 		-- handle spirit status resist
 		local duration_modifier = target:GetSpirit()*CustomAttributes.STATUS_RESIST_PER_SPIRIT
@@ -598,6 +600,9 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 			duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CENTAUR_HORNS_AMETHYST)
 		end
+		if target:HasModifier("modifier_boots_of_ashara") then
+			duration_modifier = duration_modifier + ITEM_RPC_BOOTS_OF_ASHARA_STATUS_RESIST
+		end
 		if target:HasModifier("modifier_outland_stone_cuirass") then
 			if target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
 				if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
@@ -617,9 +622,18 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			else
 				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
 			end
+			if target:HasModifier("modifier_boots_of_ashara") then
+				if target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
+					target:AddNewModifier(target.InventoryUnit, target.equipped_gear[RPC_GEAR_SLOT_BOOTS], "modifier_boots_of_ashara_ruby", {duration = original_duration})
+					target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_ashara_ruby_effect", {duration = original_duration})
+				end
+			end
 		end
 	end
-
+	local friendly_duration_modifier = 0
+	if caster and caster:HasModifier("modifier_boots_of_ashara") then
+		friendly_duration_modifier = friendly_duration_modifier + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BOOTS_OF_ASHARA_GEM_EMERALD)
+	end
 	if target:HasModifier("modifier_death_whisper_debuff") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
@@ -694,7 +708,10 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 		end
 	end
-   return true
+	if caster and target and (target:GetTeamNumber() == caster:GetTeamNumber()) and modifierGainedTable["duration"] > 0 then
+		modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1+(friendly_duration_modifier/100))
+	end
+    return true
 end
 
 function GameState:AbilityTuningValueFilter(abilityTuneTable)
@@ -1524,6 +1541,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 		end
 		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
 			damage = (1 - ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE) * damage
+		end
+		if victim:HasModifier("modifier_boots_of_ashara") then
+			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST)/100))
 		end
 	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL or damagetype == DAMAGE_TYPE_PURE then

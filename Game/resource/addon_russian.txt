@@ -11922,9 +11922,9 @@
     	"item_rpc_blue_dragon_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_blue_dragon_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_dragon_greaves"				"Dragon Dance"
-		"property_dragon_greaves_description"		"Каждые пройденные <font color='#ccff66'>1600</font> юнитов, герой получает <font color='#ccff66'>65</font>% бонус к уклонению и увеличивает урон на <font color='#ccff66'>85</font>% на <font color='#ccff66'>7</font> секунд."
+		"property_dragon_greaves_description"		"Каждые пройденные <font color='#ccff66'>1600</font> юнитов, герой получает <font color='#ccff66'>60</font>% бонус к уклонению и увеличивает урон на <font color='#ccff66'>85</font>% на <font color='#ccff66'>7</font> секунд."
 		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect"	"Dragon Dance"
-		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>65</font>%% уклонение <font color='#ccff66'>85</font>%% доп. урон"
+		"DOTA_Tooltip_modifier_blue_dragon_greaves_effect_Description" "<font color='#ccff66'>60</font>%% уклонение <font color='#ccff66'>85</font>%% доп. урон"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
@@ -12001,13 +12001,15 @@
 		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <font color='#ccff66'>5</font> и лимит скорости на <font color='#ccff66'>5</font>"
 		 
 		 	 
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
-    	"item_rpc_boots_of_ashara_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_ashara_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
-		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 наносит <font color='#ccff66'>20</font>x увеличенный Базовый Урон Способности, если здоровье ниже или равно <font color='#ccff66'>50</font>%."
+        "DOTA_Tooltip_ability_item_rpc_boots_of_ashara"                                 "Boots of Ashara"
+
+         "item_property_boots_of_ashara"                        "Autumnwood Charm"
+         "property_boots_of_ashara_description"                 "Increases Status Resistance by <font color='#ccff66'>30</font>%"
+
+        "item_rpc_boots_of_ashara_ruby1"                                    "When a debuff is applied to you by an enemy, gain a buff that increases movespeed and max movespeed by @ruby_property1. The buff has the same duration as the debuff before reductions."
+        "item_rpc_boots_of_ashara_emerald1"                                 "Increases the duration of all friendly buffs you apply by @emerald_property1%"
+        "item_rpc_boots_of_ashara_sapphire1"                                    "Increases all [E] runes by @sapphire_property1"
+        "item_rpc_boots_of_ashara_amethyst1"                                    "Reduces all Pure Damage taken by @amethyst_property1%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"

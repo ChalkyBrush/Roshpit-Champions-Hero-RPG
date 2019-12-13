@@ -282,13 +282,15 @@
 		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> и лимит скорости на <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>"
 		 
 		 	 
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Boots of Ashara"
-    	"item_rpc_boots_of_ashara_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_ashara_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_ashara_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_ashara_amethyst1"									"blah blah @amethyst_property1 gem"
-		 "item_property_boots_of_ashara"						"Autumnwood Charm"
-		 "property_boots_of_ashara_description"					"@Ability3 наносит <% ITEM_RPC_BOOTS_OF_ASHARA_BAD_E %>x увеличенный Базовый Урон Способности, если здоровье ниже или равно <% ITEM_RPC_BOOTS_OF_ASHARA_HP_THRESHOLD %>%."
+        "DOTA_Tooltip_ability_item_rpc_boots_of_ashara"                                 "Boots of Ashara"
+
+         "item_property_boots_of_ashara"                        "Autumnwood Charm"
+         "property_boots_of_ashara_description"                 "Increases Status Resistance by <% ITEM_RPC_BOOTS_OF_ASHARA_STATUS_RESIST %>%"
+
+        "item_rpc_boots_of_ashara_ruby1"                                    "When a debuff is applied to you by an enemy, gain a buff that increases movespeed and max movespeed by @ruby_property1. The buff has the same duration as the debuff before reductions."
+        "item_rpc_boots_of_ashara_emerald1"                                 "Increases the duration of all friendly buffs you apply by @emerald_property1%"
+        "item_rpc_boots_of_ashara_sapphire1"                                    "Increases all [E] runes by @sapphire_property1"
+        "item_rpc_boots_of_ashara_amethyst1"                                    "Reduces all Pure Damage taken by @amethyst_property1%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"

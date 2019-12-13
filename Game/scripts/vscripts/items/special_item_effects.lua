@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_iron_colossus_lua", "modifiers/modifier_iron_colossus_
 LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
