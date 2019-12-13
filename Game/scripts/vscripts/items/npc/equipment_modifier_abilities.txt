@@ -44,10 +44,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_head_armor"
 			{
@@ -394,10 +390,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_weapon_armor"
 			{
@@ -750,10 +742,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_hands_armor"
 			{
@@ -1100,10 +1088,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_feet_armor"
 			{
@@ -1450,10 +1434,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_body_armor"
 			{
@@ -1800,10 +1780,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_amulet_armor"
 			{
