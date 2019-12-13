@@ -153,12 +153,14 @@
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
 
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x pre-mitigation damage from you."
+        "property_crystalline"                                              "Glass Dancer"
+        "property_crystalline_Description"                                  "Increases all damage taken by <% ITEM_RPC_CRYSTALLINE_SLIPPERS_RESIST_LOSS %>% and increases Item Damage and Base Ability Damage by <% ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP %>%."
+
+		"item_rpc_crystalline_slippers_ruby1"				"Reduces Armor by @ruby_property1 and increases Armor Pierce by @ruby_property2"
+		"item_rpc_crystalline_slippers_emerald1"				"Gain @emerald_property1% evasion while in motion, and gain @emerald_property% increased Attack Power while standing still"
+		"item_rpc_crystalline_slippers_sapphire1"				"Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <% ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION %> seconds"
+		"item_rpc_crystalline_slippers_amethyst1"				"Reduces Magic Armor by @ruby_property1 and increases Spell Pierce by @ruby_property2"
+
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
