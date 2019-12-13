@@ -11948,7 +11948,7 @@
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
 
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability Damage by <font color='#ccff66'>200</font>%. Using the same ability twice in a row removes this effect for <font color='#ccff66'>10</font> seconds."
+		"property_old_wisdom_description"						"Increases Base Ability Damage by <font color='#ccff66'>200</font>%. Using the same ability twice in a row removes this effect for <font color='#ccff66'>0.5</font> seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 
@@ -11959,6 +11959,16 @@
 
     	"DOTA_Tooltip_modifier_old_wisdom_sapphire_stacks"				"Old Wisdom (Sapphire)"
     	"DOTA_Tooltip_modifier_old_wisdom_sapphire_stacks_Description"	"Gaining Spell Pierce"
+
+    	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
+
+		"item_property_pure_waters"							"Clear Waves"
+		"property_pure_waters_description"					"When you cast @Ability3, launch a trail of water that deals <font color='#ccff66'>1</font>x your Intelligence as Pure damage to enemies in its patch. Enemies hit by Clear Waves are slowed by <font color='#ccff66'>30</font>% for <font color='#ccff66'>4</font> seconds.<br>Can only trigger once every <font color='#ccff66'>1</font> second."
+
+    	"item_rpc_boots_of_pure_waters_ruby1"							"Increases the Wave's Damage by @ruby_property1% of Attack Power, and attacks have a @ruby_property2% chance to trigger a Clear Wave with no cooldown"
+    	"item_rpc_boots_of_pure_waters_emerald1"							"Increases Wave travel speed by @emerald_property1 and its damage by @emerald_property2"
+    	"item_rpc_boots_of_pure_waters_sapphire1"							"Restore @sapphire_property1% of your max mana when you trigger a Clear Wave, and increases their range by @sapphire_property2"
+    	"item_rpc_boots_of_pure_waters_amethyst1"							"Casting [Q] fires @amethyst_property1 Clear Waves forward. Shares the same trigger limit as the base effect."
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12147,14 +12157,6 @@
 		"property_resplendent_rubber_description"			"Reduces all damage taken by <font color='#ccff66'>75</font>%."
 		
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"Boots of Pure Waters"
-    	"item_rpc_boots_of_pure_waters_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_pure_waters_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_pure_waters_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_pure_waters_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"When you cast @Ability3, restore <font color='#ccff66'>4</font>% of your max mana and launch a trail of water that deals the greater of <font color='#ccff66'>10</font>x your attack damage or <font color='#ccff66'>80</font>x your Intelligence as Pure damage. Also slows movespeed of targets struck by <font color='#ccff66'>30</font>% for <font color='#ccff66'>4</font> seconds.<br>Can only trigger once every <font color='#ccff66'>1</font> second."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"

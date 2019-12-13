@@ -923,6 +923,11 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_spellslinger_coat") then
         Filters:SpellslingerCoatQ(caster)
     end
+    if caster:HasModifier("modifier_boots_of_pure_waters") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+            Filters:PureWaters(caster, "q")
+        end
+    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         local depth_crest = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         local chance = depth_crest:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_CREST_ARMOR_GEM_SAPPHIRE)
@@ -1257,7 +1262,7 @@ function Filters:ApplyEskills(caster)
         Filters:RedrockFootwear(caster)
     end
     if caster:HasModifier("modifier_boots_of_pure_waters") then
-        Filters:PureWaters(caster)
+        Filters:PureWaters(caster, "e")
     end
     if caster:HasModifier("modifier_gloves_of_sweeping_wind") then
         Filters:SweepingWindsStackChange(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], 1)
@@ -4074,42 +4079,100 @@ function Filters:ElderGraspTakeDamage(damage, victim)
     return damage
 end
 
-function Filters:PureWaters(caster)
-    if not caster:HasModifier("modifier_boots_of_pure_waters_cooldown") then
-
-        local fv = caster:GetForwardVector()
-        CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 3)
-        caster:GiveMana(caster:GetMaxMana() * ITEM_RPC_BOOTS_OF_PURE_WATERS_MANA_RESTORE_PCT/100)
-        local ability = caster.foot
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_boots_of_pure_waters_cooldown", {duration = ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION})
-        ability.caster = caster
-        local projectileParticle = "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
-        local start_radius = 190
-        local end_radius = 190
-        local range = 850
-        local speed = 700
-        local info =
-        {
-            Ability = ability,
-            EffectName = projectileParticle,
-            vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 80),
-            fDistance = range,
-            fStartRadius = start_radius,
-            fEndRadius = end_radius,
-            Source = caster,
-            StartPosition = "attach_origin",
-            bHasFrontalCone = true,
-            bReplaceExisting = false,
-            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-            iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            fExpireTime = GameRules:GetGameTime() + 4.0,
-            bDeleteOnHit = false,
-            vVelocity = fv * speed,
-            bProvidesVision = false,
-        }
-        projectile = ProjectileManager:CreateLinearProjectile(info)
-        EmitSoundOn("Items.PureWaters", caster)
+function Filters:PureWaters(caster, event_type)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    local allow = false
+    local wave_count = 1
+    if event_type == "attack" then
+        allow = true
+    elseif event_type == "q" then
+        if not caster:HasModifier("modifier_boots_of_pure_waters_cooldown") then
+            allow = true
+        end
+        wave_count = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_AMETHYST)
+    elseif event_type == "e" then
+        if not caster:HasModifier("modifier_boots_of_pure_waters_cooldown") then
+            allow = true
+        end
+    end
+    if allow then
+        local rotation_magnitude = 0
+        for i = 1, wave_count, 1 do
+            if wave_count == 2 then
+                if i == 1 then
+                    rotation_magnitude = 2
+                elseif i == 2 then
+                    rotation_magnitude = -2
+                end
+            elseif wave_count == 3 then
+                if i == 1 then
+                    rotation_magnitude = 2
+                elseif i == 2 then
+                    rotation_magnitude = 0
+                elseif i == 3 then
+                    rotation_magnitude = -2
+                end
+            elseif wave_count == 4 then
+                if i == 1 then
+                    rotation_magnitude = 1
+                elseif i == 2 then
+                    rotation_magnitude = 3
+                elseif i == 3 then
+                    rotation_magnitude = -1
+                elseif i == 4 then
+                    rotation_magnitude = -3
+                end
+            elseif wave_count > 4 then
+                if i == 1 then
+                    rotation_magnitude = 1
+                elseif i == 2 then
+                    rotation_magnitude = 3
+                elseif i == 3 then
+                    rotation_magnitude = 0
+                elseif i == 4 then
+                    rotation_magnitude = 3
+                elseif i == 5 then
+                    rotation_magnitude = -1
+                end
+            end
+            local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*rotation_magnitude/24)
+            if ability:GetGemValue("sapphire") > 0 then
+                CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 3)
+                caster:GiveMana(caster:GetMaxMana() * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE1)/100)
+            end
+            if event_type == "attack" then
+            else
+                ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_boots_of_pure_waters_cooldown", {duration = ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION})
+            end
+            ability.caster = caster
+            local projectileParticle = "particles/units/heroes/hero_morphling/morphling_waveform.vpcf"
+            local start_radius = 190
+            local end_radius = 190
+            local range = 900 + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_SAPPHIRE2)
+            local speed = 650 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD1)
+            local info =
+            {
+                Ability = ability,
+                EffectName = projectileParticle,
+                vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 80),
+                fDistance = range,
+                fStartRadius = start_radius,
+                fEndRadius = end_radius,
+                Source = caster,
+                StartPosition = "attach_origin",
+                bHasFrontalCone = true,
+                bReplaceExisting = false,
+                iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+                iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+                iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                fExpireTime = GameRules:GetGameTime() + 4.0,
+                bDeleteOnHit = false,
+                vVelocity = fv * speed,
+                bProvidesVision = false,
+            }
+            projectile = ProjectileManager:CreateLinearProjectile(info)
+            EmitSoundOn("Items.PureWaters", caster)
+        end
     end
 end
 

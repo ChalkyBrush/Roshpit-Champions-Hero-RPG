@@ -912,7 +912,7 @@ function water_emperor_die(event)
 	end)
 	local luck = RandomInt(1, 5)
 	if luck == 1 then
-		RPCItems:RollBootsOfPureWaters(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_boots_of_pure_waters")
 	end
 end
 

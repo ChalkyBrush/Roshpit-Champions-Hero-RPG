@@ -228,13 +228,15 @@
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Вы использовали одно умение дважды, эффект усиления убран."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"								"Boots of Pure Waters"
-    	"item_rpc_boots_of_pure_waters_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_pure_waters_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_pure_waters_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_pure_waters_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_pure_waters"							"Clear Waves"
-		"property_pure_waters_description"					"При прочтении способности (E) @Ability3, герой восполнит <% ITEM_RPC_BOOTS_OF_PURE_WATERS_MANA_RESTORE_PCT %>% маны и оставит водяной след, который нанесёт чистый урон в размере наибольшего значения из <% ITEM_RPC_BOOTS_OF_PURE_WATERS_ATTACK_TO_DMG %>х базового урона или <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG %> Интеллекта. Водяной след дополнительно замедляет врагов на <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW %>% на <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW_DURATION %> секунды.<br>Эффект срабатывает лишь раз в <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION %>сек."
+        "DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"                            "Boots of Pure Waters"
+
+        "item_property_pure_waters"                         "Clear Waves"
+        "property_pure_waters_description"                  "When you cast @Ability3, launch a trail of water that deals <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG %>x your Intelligence as Pure damage to enemies in its patch. Enemies hit by Clear Waves are slowed by <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW %>% for <% ITEM_RPC_BOOTS_OF_PURE_WATERS_SLOW_DURATION %> seconds.<br>Can only trigger once every <% ITEM_RPC_BOOTS_OF_PURE_WATERS_INTERVAL_RESTRICTION %> second."
+
+        "item_rpc_boots_of_pure_waters_ruby1"                           "Increases the Wave's Damage by @ruby_property1% of Attack Power, and attacks have a @ruby_property2% chance to trigger a Clear Wave with no cooldown"
+        "item_rpc_boots_of_pure_waters_emerald1"                            "Increases Wave travel speed by @emerald_property1 and its damage by @emerald_property2"
+        "item_rpc_boots_of_pure_waters_sapphire1"                           "Restore @sapphire_property1% of your max mana when you trigger a Clear Wave, and increases their range by @sapphire_property2"
+        "item_rpc_boots_of_pure_waters_amethyst1"                           "Casting [Q] fires @amethyst_property1 Clear Waves forward. Shares the same trigger limit as the base effect."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"

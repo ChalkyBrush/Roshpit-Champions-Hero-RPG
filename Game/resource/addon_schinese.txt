@@ -12098,18 +12098,19 @@
     	"item_rpc_boots_of_old_wisdom_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_boots_of_old_wisdom_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_old_wisdom"								"技能变异"
-		"property_old_wisdom_description"						"提高基础技能伤害 <font color='#ccff66'>200</font>% 。连续两次使用相同的技能将移除该效果<font color='#ccff66'>10</font>秒。"
+		"property_old_wisdom_description"						"提高基础技能伤害 <font color='#ccff66'>200</font>% 。连续两次使用相同的技能将移除该效果<font color='#ccff66'>0.5</font>秒。"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"技能变异冷却中"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"连续使用相同的技能"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_pure_waters"							"纯净水之靴"
-    	"item_rpc_boots_of_pure_waters_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_boots_of_pure_waters_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_boots_of_pure_waters_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_boots_of_pure_waters_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_pure_waters"							"纯净水"
-		"property_pure_waters_description"					"当你施放 @Ability3 时，回复 <font color='#ccff66'>4</font>% 的最大魔法值，喷出一股纯净水造成<font color='#ccff66'>10</font>x攻击力或<font color='#ccff66'>80</font>x智力值（取较大值）的纯粹伤害。同时降低敌人移动速度<font color='#ccff66'>30</font>%，持续<font color='#ccff66'>4</font>秒。<br>每一秒只能触发一次。"
+        "property_pure_waters_description"                  "When you cast @Ability3, launch a trail of water that deals <font color='#ccff66'>1</font>x your Intelligence as Pure damage to enemies in its patch. Enemies hit by Clear Waves are slowed by <font color='#ccff66'>30</font>% for <font color='#ccff66'>4</font> seconds.<br>Can only trigger once every <font color='#ccff66'>1</font> second."
+
+        "item_rpc_boots_of_pure_waters_ruby1"                           "Increases the Wave's Damage by @ruby_property1% of Attack Power, and attacks have a @ruby_property2% chance to trigger a Clear Wave with no cooldown"
+        "item_rpc_boots_of_pure_waters_emerald1"                            "Increases Wave travel speed by @emerald_property1 and its damage by @emerald_property2"
+        "item_rpc_boots_of_pure_waters_sapphire1"                           "Restore @sapphire_property1% of your max mana when you trigger a Clear Wave, and increases their range by @sapphire_property2"
+        "item_rpc_boots_of_pure_waters_amethyst1"                           "Casting [Q] fires @amethyst_property1 Clear Waves forward. Shares the same trigger limit as the base effect."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"熔岩靴"

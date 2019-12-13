@@ -3431,9 +3431,25 @@ function twig_shield_death(event)
 	end
 end
 
+function pure_waters_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	print("PURE WATER ATTACK")
+	if ability:GetGemValue("ruby") > 0 then
+		print("RUBY")
+		local proc_chance = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY2)
+		local proc = Filters:GetProc(hero, proc_chance)
+		if proc then
+			Filters:PureWaters(hero, "attack")
+		end
+	end
+end
+
 function pure_waters_impact(event)
+	local ability = event.ability
 	local caster = event.ability.caster
-	local damage = math.max(OverflowProtectedGetAverageTrueAttackDamage(caster) * ITEM_RPC_BOOTS_OF_PURE_WATERS_ATTACK_TO_DMG, caster:GetIntellect() * ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG)
+	local damage = caster:GetIntellect() * ITEM_RPC_BOOTS_OF_PURE_WATERS_INT_TO_DMG + OverflowProtectedGetAverageTrueAttackDamage(caster)*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY1)/100) + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_EMERALD2)
 	Filters:ApplyItemDamage(event.target, caster, damage, DAMAGE_TYPE_PURE, event.ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 end
 
