@@ -1244,6 +1244,9 @@ function Filters:ApplyEskills(caster)
             Filters:ApplyBlueDragonGreavesBuff(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1))
         end
     end
+    if caster:HasModifier("modifier_guardian_greaves") then
+        Filters:GuardianGreavesCast(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS])
+    end
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         Filters:EternalFrost(caster)
     end
@@ -6257,4 +6260,44 @@ function Filters:InitGravelFootEffect(caster, ability, hero, duration)
     print(ms_loss)
     ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_slow", {duration = duration})
     hero:SetModifierStackCount("modifier_gravelfoot_slow", caster, ms_loss)
+end
+
+function Filters:GuardianGreavesCast(hero, ability)
+    if not hero:HasModifier("modifier_guardian_greaves_cooldown") then
+        local healthRestore = hero:GetStrength() * ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_STRENGTH
+        local manaRestore = hero:GetIntellect() * ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_INTELLIGENCE
+        local particleName = "particles/items3_fx/warmage.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+        ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+        Timers:CreateTimer(3, function()
+            ParticleManager:DestroyParticle(pfx, false)
+        end)
+        EmitSoundOn("RoshpitItem.GuardianGreaves", hero)
+        local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_GUARDIAN_GREAVES_RADIUS , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+        if #allies > 0 then
+            for _, ally in pairs(allies) do
+                guardian_heal_ally(ally, healthRestore, manaRestore, ability, hero)
+            end
+        end
+        ability:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_guardian_greaves_cooldown", {duration = ITEM_RPC_GUARDIAN_GREAVES_COOLDOWN})
+    end
+
+end
+
+function guardian_heal_ally(ally, healthRestore, manaRestore, ability, hero)
+    local particleName = "particles/items3_fx/warmage_recipient.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
+    ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
+    Timers:CreateTimer(3, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
+    -- EmitSoundOn("Item.GuardianGreaves", ally)
+    Filters:ApplyHeal(hero, ally, healthRestore, true, true)
+    Timers:CreateTimer(0.1, function()
+        PopupMana(ally, manaRestore)
+    end)
+    ally:GiveMana(manaRestore)
+    if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("amethyst") > 0 then
+        ability:ApplyDataDrivenModifier(hero.InventoryUnit, ally, "modifier_guardian_greaves_shield", {duration = ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION})
+    end
 end

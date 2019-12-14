@@ -12094,6 +12094,17 @@
 		"item_rpc_gravelfoot_treads_sapphire1"	"While in Stone Form gain @sapphire_property1 Armor and Magic Armor"
 		"item_rpc_gravelfoot_treads_amethyst1"	"Castiing [E] activates Stone Form for @amethyst_property1 seconds"
 
+    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
+
+		"item_property_guardian_greaves"			"Guardian's Stride"
+		"property_guardien_greaves_description"		"Casting @Ability3 activates Guardian Greaves on yourself and allies within <font color='#ccff66'>800</font> range, healing for <font color='#ccff66'>3</font>x your Strength and restoring mana by <font color='#ccff66'>2</font>x your Intelligence. <font color='#ccff66'>1</font> second cooldown." 
+		"DOTA_Tooltip_modifier_guardian_greaves_shield"					"Guardian Greaves"
+
+    	"item_rpc_guardian_greaves_ruby1"								"Moving @ruby_property1 distance activates Guardian Greaves"
+    	"item_rpc_guardian_greaves_emerald1"								"Guardian Greaves applies a shield that increases Armor and Armor Pierce by @emerald_property1x your Agility for <font color='#ccff66'>10</font> seconds"
+    	"item_rpc_guardian_greaves_sapphire1"								"Increases Strength and Intelligence by @sapphire_property1"
+    	"item_rpc_guardian_greaves_amethyst1"								"Guardian Greaves applies a shield that increases Magic Armor and Spell Pierce by @amethyst_property1x your Spirit for <font color='#ccff66'>10</font> seconds"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12111,18 +12122,6 @@
     	"item_rpc_sange_boots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_sange"						"Combat Mastery S"
 		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <font color='#ccff66'>25</font> and your Max Mana by <font color='#ccff66'>5</font>."
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
-    	"item_rpc_guardian_greaves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_guardian_greaves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_guardian_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_guardian_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_guardian_greaves"			"Guardian's Stride"
-		"property_guardien_greaves_description"		"Every 2500 units of distance moved buffs you and nearby allied heroes. 5x your Strength is restored as health, 5x your Intelligence is restored as mana, and every 10 Agility adds 1 Armor for 4 seconds."
-		"DOTA_Tooltip_modifier_guardian_greaves_armor"					"Guardian Greaves"
-		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Increased Armor"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"

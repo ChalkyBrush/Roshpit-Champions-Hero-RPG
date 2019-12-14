@@ -1070,7 +1070,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY2, hero, "strength", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY2, hero, "spirit", RPC_GEAR_SLOT_BOOTS)
-		end				
+		end	
+	elseif item:GetAbilityName() == "item_rpc_guardian_greaves" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GUARDIAN_GREAVES_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GUARDIAN_GREAVES_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
+		end			
 	end
 end
 

@@ -898,64 +898,27 @@ end
 function guardian_greaves_think(event)
 	local target = event.target
 	local ability = event.ability
-	if not ability.lastPos then
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		if not ability.lastPos then
+			ability.lastPos = target:GetAbsOrigin()
+		end
+		if not ability.distanceMoved then
+			ability.distanceMoved = 0
+		end
+		ability.newPos = target:GetAbsOrigin()
+		ability.hero = target
+		local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
+		ability.distanceMoved = ability.distanceMoved + distance
+		local distance_threshold = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARDIAN_GREAVES_GEM_RUBY)
+		if ability.distanceMoved > distance_threshold then
+			Filters:GuardianGreavesCast(hero, ability)
+			ability.distanceMoved = ability.distanceMoved % distance_threshold
+		end
+
 		ability.lastPos = target:GetAbsOrigin()
 	end
-	if not ability.distanceMoved then
-		ability.distanceMoved = 0
-	end
-	ability.newPos = target:GetAbsOrigin()
-	ability.hero = target
-	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
-	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 2500 then
-		for i = 1, ability.distanceMoved / 2500, 1 do
-			guardian_greaves_heal(target, ability)
-			if i > 1 then
-				break
-			end
-		end
-		ability.distanceMoved = ability.distanceMoved % 2500
-	end
-
-	ability.lastPos = target:GetAbsOrigin()
-end
-
-function guardian_greaves_heal(hero, ability)
-	local healthRestore = hero:GetStrength() * 5
-	local manaRestore = hero:GetIntellect() * 5
-	local armorStacks = hero:GetAgility() / 10
-	local particleName = "particles/items3_fx/warmage.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
-	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	EmitSoundOn("RoshpitItem.GuardianGreaves", hero)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-	if #allies > 0 then
-		for _, ally in pairs(allies) do
-			guardian_heal_ally(ally, healthRestore, manaRestore, armorStacks, ability, hero)
-		end
-	end
-
-end
-
-function guardian_heal_ally(ally, healthRestore, manaRestore, armorStacks, ability, hero)
-	local particleName = "particles/items3_fx/warmage_recipient.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
-	ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	-- EmitSoundOn("Item.GuardianGreaves", ally)
-	Filters:ApplyHeal(hero, ally, healthRestore, true)
-	Timers:CreateTimer(0.1, function()
-		PopupMana(ally, manaRestore)
-	end)
-	ally:GiveMana(manaRestore)
-	ability:ApplyDataDrivenModifier(hero.InventoryUnit, ally, "modifier_guardian_greaves_armor", {duration = 4})
-	ally:SetModifierStackCount("modifier_guardian_greaves_armor", hero.InventoryUnit, armorStacks)
 end
 
 function tranquil_boots_think(event)

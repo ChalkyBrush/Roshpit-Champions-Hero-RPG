@@ -1075,6 +1075,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_gravelfoot_buff") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1644,6 +1650,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_gravelfoot_buff") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			magic_armor_modify = magic_armor_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -1955,6 +1967,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2318,6 +2336,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			spell_pierce_modify = spell_pierce_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
