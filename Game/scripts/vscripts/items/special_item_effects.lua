@@ -3739,8 +3739,37 @@ function giant_hunter_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	if target:IsStunned() or target:IsRooted() then
+	if target:IsRooted() and ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_RUBY)})
+	end
+	if target:IsStunned() then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION})
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval >= 5 then
+		ability.interval = 0
+		if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("sapphire") > 0 or ability:GetGemValue("amethyst") > 0 then
+			local big_boy_nearby = false
+			local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if enemy.paragon then
+						big_boy_nearby = true
+						break
+					end
+					if enemy:GetEnemyTier() >= ENEMY_TYPE_MINI_BOSS then
+						big_boy_nearby = true
+						break
+					end
+				end
+			end
+			if big_boy_nearby then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunter_boss_nearby", {duration = 1})
+			end
+		end
 	end
 end
 

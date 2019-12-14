@@ -2011,7 +2011,7 @@ function lies_boss_die(event)
 		end
 		local luck = RandomInt(1,4)
 		if luck == 1 then
-			RPCItems:RollGiantHunterBoots(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_giant_hunters_boots_of_resilience")
 		end
 	else
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.LiesBoss.IllusionDie", Arena.ArenaMaster)

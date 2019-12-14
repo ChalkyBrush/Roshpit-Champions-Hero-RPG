@@ -273,8 +273,6 @@
     	"DOTA_Tooltip_ability_item_rpc_boots"											"Boots"
     	"DOTA_Tooltip_ability_item_rpc_boots_Description"								"Slot: Feet"
 
-    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers"									"Ghost Slippers"
-    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers_Description"						"Slot: Feet"
 
     	"DOTA_Tooltip_ability_item_rpc_robe"											"Robe"
     	"DOTA_Tooltip_ability_item_rpc_robe_Description"								"Slot: Body"

@@ -214,6 +214,38 @@
     	"DOTA_Tooltip_modifier_fire_walkers_sapphire"		"Lava Path (Sapphire)"
     	"DOTA_Tooltip_modifier_fire_walkers_sapphire_Description"	"Taking burn damage on a <% ITEM_RPC_FIRE_WALKERS_INTERVAL %> second interval"
 
+    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers"									"Ghost Slippers"
+    	"item_property_ghost_slippers"													"Ghost Slippers"
+    	"property_ghost_slippers_description"											"No unit collision"
+
+        "item_rpc_ghost_slippers_ruby1"                                       "No Effect"
+        "item_rpc_ghost_slippers_emerald1"                                    "No Effect"
+        "item_rpc_ghost_slippers_sapphire1"                                   "No Effect"
+        "item_rpc_ghost_slippers_amethyst1"                                   "No Effect"
+
+    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
+		"item_property_giant_hunter_boot"					"Giant Hunter"
+		"property_giant_hunter_boot_description"			"When stunned, gain Spell Immunity for <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
+		
+    	"item_rpc_giant_hunters_boots_of_resilience_ruby1"				"Gain Spell Immunity for @ruby_property1 seconds when Rooted"
+    	"item_rpc_giant_hunters_boots_of_resilience_emerald1"				"Gain @emerald_property1 Armor Pierce if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+    	"item_rpc_giant_hunters_boots_of_resilience_sapphire1"				"Gain @sapphire_property1 Spell Pierce if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+    	"item_rpc_giant_hunters_boots_of_resilience_amethyst1"				"Gain @amethyst_property1 Armor and Magic Armor if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+
+		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
+
+		"item_property_gravelfoot"							"Gravelfoot"
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %> and damage taken by <% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%."
+		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
+		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
+
+		"item_rpc_gravelfoot_treads_ruby1"	"blah blah @ruby_property1 gem"
+		"item_rpc_gravelfoot_treads_emerald1"	"blah blah @emerald_property1 gem"
+		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
+		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
+
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -367,16 +399,6 @@
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
 		
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
-    	"item_rpc_giant_hunters_boots_of_resilience_ruby1"				"blah blah @ruby_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_emerald1"				"blah blah @emerald_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_sapphire1"				"blah blah @sapphire_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_giant_hunter_boot"					"Giant Hunter"
-		"property_giant_hunter_boot_description"			"When stunned or rooted, gain Spell Immunity for <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION %> seconds."
-		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
@@ -446,17 +468,7 @@
 		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_oceanrunner"												"Alacrity"
 		"property_oceanrunner_Description"									"Increases Base Ability damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>% for every <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR %> points of Agility."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
-		"item_rpc_gravelfoot_treads_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_gravelfoot_treads_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %> and damage taken by <% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%."
-		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
-		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
+	
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
