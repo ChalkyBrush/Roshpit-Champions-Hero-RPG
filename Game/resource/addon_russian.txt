@@ -12141,7 +12141,7 @@
 		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Очищает один негативный эффект с героя каждые <font color='#ccff66'>0.65</font> сек. В этот момент, герой на <font color='#ccff66'>3</font> сек. покроется каменной коркой, которая снизит скорость передвижения на <font color='#ccff66'>200</font> и сократит получаемый урон на <font color='#ccff66'>99.5</font>%."
+		"property_gravelfoot_description"					"Очищает один негативный эффект с героя каждые <font color='#ccff66'>0.75</font> сек. В этот момент, герой на <font color='#ccff66'>3</font> сек. покроется каменной коркой, которая снизит скорость передвижения на <font color='#ccff66'>250</font> и сократит получаемый урон на <font color='#ccff66'>60</font>%."
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Скорость передвижения снижена. Получаемый урон сокращен"
 		

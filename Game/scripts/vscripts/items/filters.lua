@@ -1231,6 +1231,11 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
     end
+    if caster:HasModifier("modifier_gravelfoot_treads") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+            Filters:InitGravelFootEffect(caster.InventoryUnit, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS], caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRAVELFOOT_TREADS_GEM_AMETHYST))
+        end
+    end
     if caster:HasModifier("modifier_dunetread_boots") then
         Filters:DunetreadECast(caster)
     end
@@ -6242,4 +6247,14 @@ function Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, position)
         -- end
         -- reindex_fire_walkers_table(ability)
     end
+end
+
+function Filters:InitGravelFootEffect(caster, ability, hero, duration)
+    EmitSoundOn("RPCItems.Gravelfoot.Dispel", hero)
+    local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", hero, 1.2)
+    ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = duration})
+    local ms_loss = ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAVELFOOT_TREADS_GEM_EMERALD)
+    print(ms_loss)
+    ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_slow", {duration = duration})
+    hero:SetModifierStackCount("modifier_gravelfoot_slow", caster, ms_loss)
 end

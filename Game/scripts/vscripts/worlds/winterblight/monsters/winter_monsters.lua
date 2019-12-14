@@ -2482,7 +2482,7 @@ function grand_slacorr_die(event)
 				end
 			end)
 		end
-		RPCItems:RollGravelfootTreads(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_gravelfoot_treads")
 	end)
 
 end

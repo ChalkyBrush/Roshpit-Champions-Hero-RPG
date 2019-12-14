@@ -6068,9 +6068,7 @@ function gravelfoot_think(event)
 	end
 
 	if procced then
-		EmitSoundOn("RPCItems.Gravelfoot.Dispel", caster)
-		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", caster, 1.2)
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION})
+		Filters:InitGravelFootEffect(caster, ability, hero, ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION)
 	end
 end
 

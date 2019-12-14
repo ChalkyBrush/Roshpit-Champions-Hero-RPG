@@ -22,39 +22,24 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"				"0.65"
+				"ruby1"				"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY1 %>"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY2 %>"
 			}
 			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"-200"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"property_four"				"99.5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_RUBY %>"
-			}
-			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"emerald1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_EMERALD %>"
 			}
-			"07"
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE %>"
 			}
-			"08"
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_GRAVELFOOT_TREADS_GEM_AMETHYST %>"
@@ -98,10 +83,6 @@
 				"TextureName"	"winterblight/stalacorr_passive"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
 				"StatusEffectPriority"  "120"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %>"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -110,6 +91,22 @@
 						"Function"		"gravelfoot_start"
 						"target"		"TARGET"
 					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gravelfoot_slow"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_gravelfoot_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
 				}
 			}
 		}

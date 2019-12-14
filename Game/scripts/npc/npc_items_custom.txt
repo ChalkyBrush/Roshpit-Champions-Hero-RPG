@@ -35018,42 +35018,27 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_one"				"0.65"
+				"ruby1"				"500 1000 1500 2000 2500"
 			}
 			"02"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"18 36 54 72 90"
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_three"	"-200"
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"25 50 75 100 125"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_four"				"99.5"
+				"sapphire1"			"600 1200 1800 2400 3000"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
+				"amethyst1"			"1 2 3 4 5"
 			}
 		}
 		"precache"
@@ -35077,7 +35062,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.65"
+				"ThinkInterval"  "0.75"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -35094,10 +35079,6 @@
 				"TextureName"	"winterblight/stalacorr_passive"
 				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
 				"StatusEffectPriority"  "120"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-200"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -35106,6 +35087,22 @@
 						"Function"		"gravelfoot_start"
 						"target"		"TARGET"
 					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_gravelfoot_slow"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_gravelfoot_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
 				}
 			}
 		}

@@ -5216,7 +5216,7 @@ function RPCItems:RollGravelfootTreads(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_gravelfoot_treads", "immortal", "Gravelfoot Treads", "feet", true, "Slot: Feet")
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "gravelfoot"
+    item.newItemTable.property1name = "!immortal!_modifier_gravelfoot_treads"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gravelfoot", "#8FC2C9", 1, "#property_gravelfoot_description")
 
     local luck = RandomInt(1, 2)

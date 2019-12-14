@@ -240,10 +240,10 @@
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
 
-		"item_rpc_gravelfoot_treads_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_gravelfoot_treads_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
+		"item_rpc_gravelfoot_treads_ruby1"	"Increases Max Health by @ruby_property1, and Strength and Spirit by @ruby_property2"
+		"item_rpc_gravelfoot_treads_emerald1"	"Reduces the movespeed loss while in Stone Form by @emerald_property1"
+		"item_rpc_gravelfoot_treads_sapphire1"	"While in Stone Form gain @sapphire_property1 Armor and Magic Armor"
+		"item_rpc_gravelfoot_treads_amethyst1"	"Castiing [E] activates Stone Form for @amethyst_property1 seconds"
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
