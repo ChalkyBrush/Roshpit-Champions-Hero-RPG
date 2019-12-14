@@ -1059,6 +1059,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		armor_modify = armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1)
 	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1619,9 +1622,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		magic_armor_modify = magic_armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1)
 	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
-	
+
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
@@ -1922,6 +1928,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		if unit:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownTimeRemaining() == 0 then
+			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DUNETREAD_BOOTS_GEM_EMERALD)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

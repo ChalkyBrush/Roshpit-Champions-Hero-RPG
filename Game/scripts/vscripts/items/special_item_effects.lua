@@ -7,6 +7,7 @@ LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_s
 LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dunetreads_sapphire", "modifiers/modifier_dunetreads_sapphire", LUA_MODIFIER_MOTION_NONE)
 
 
 require('items/constants/boots')
@@ -9143,4 +9144,14 @@ function crystalline_slippers_think(event)
 		end
 		ability.lastPos = hero:GetAbsOrigin()
 	end
+end
+
+function dunetreads_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		hero:AddNewModifier(caster, ability, "modifier_dunetreads_sapphire", {})
+	end
+	
 end

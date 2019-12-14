@@ -5068,7 +5068,7 @@ function RPCItems:RollDunetreadBoots(item_level)
     local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
 
     item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "dunetread"
+    item.newItemTable.property1name = "!immortal!_modifier_dunetread_boots"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dunetread", "#8A8546", 1, "#property_dunetread_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
@@ -8703,7 +8703,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
-        "item_rpc_crusader_boots"}
+        "item_rpc_crusader_boots", "item_rpc_dunetread_boots"}
     end
     return itemsList
 end

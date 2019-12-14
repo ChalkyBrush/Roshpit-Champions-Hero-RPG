@@ -12025,7 +12025,7 @@
         "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
         "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
         "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
-        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor by @amethyst_property1"
+        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 

@@ -1231,6 +1231,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
     end
+    if caster:HasModifier("modifier_dunetread_boots") then
+        Filters:DunetreadECast(caster)
+    end
     if caster:HasModifier("modifier_blue_dragon_greaves") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
             Filters:ApplyBlueDragonGreavesBuff(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1))
@@ -6171,5 +6174,16 @@ function Filters:CrystallineWCast(caster)
     local slippers = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
     if slippers:GetGemValue("sapphire") > 0 then
         slippers:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crystalline_sapphire_root", {duration = ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION})
+    end
+end
+
+function Filters:DunetreadECast(caster)
+    local dunetreads = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if dunetreads:GetGemValue("ruby") > 0 then
+        local proc = Filters:GetProc(caster, dunetreads:GetFinalGemPropertyValue("ruby", ITEM_RPC_DUNETREAD_BOOTS_GEM_RUBY))
+        if proc then
+            caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
+            CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_cast_water_spiral.vpcf", caster, 3)
+        end
     end
 end

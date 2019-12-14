@@ -12119,13 +12119,20 @@
 		"property_oceanrunner_Description"									"Увеличивает базовый урон способностей на <font color='#ccff66'>0.25</font>% за каждые <font color='#ccff66'>10</font> очков Ловкости."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Обездвиженные враги наносят на <font color='#ccff66'>0</font>% меньше урона владельцу предмета и получают от него увеличенный в <font color='#ccff66'>0</font> раз урон."
+        "DOTA_Tooltip_ability_item_rpc_crystalline_slippers"                "Crystalline Slippers"  
+        "property_crystalline"                                              "Glass Dancer"
+        "property_crystalline_Description"                                  "Increases all damage taken by <font color='#ccff66'>100</font>% and increases Item Damage and Base Ability Damage by <font color='#ccff66'>175</font>%."
+
+        "item_rpc_crystalline_slippers_ruby1"               "Reduces Armor by @ruby_property1 and increases Armor Pierce by @ruby_property2"
+        "item_rpc_crystalline_slippers_emerald1"                "Gain @emerald_property1% evasion while in motion, and gain @emerald_property2% increased Attack Power while standing still"
+        "item_rpc_crystalline_slippers_sapphire1"               "Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <font color='#ccff66'>1.25</font> seconds"
+        "item_rpc_crystalline_slippers_amethyst1"               "Reduces Magic Armor by @amethyst_property1 and increases Spell Pierce by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_crystalline_sapphire_root"       "Glass Dancer (Sapphire)"
+        "DOTA_Tooltip_modifier_crystalline_sapphire_root_Description"   "Rooted"
+
+        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion"   "Glass Dancer (Emerald)"
+        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"   "Increased Evasion while in motion"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
