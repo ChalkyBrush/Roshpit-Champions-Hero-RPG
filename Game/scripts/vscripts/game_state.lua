@@ -954,29 +954,36 @@ function GameState:OrderFilter(orderTable)
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				if unit.ice_floe_table.last_clicked then
-					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+					if unit:IsStunned() or unit:IsFrozen() or (unit:IsRooted() and unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") < 1) or unit:HasModifier("modifier_ice_floe_cooldown") then
 					else
-						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE) then
-							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
+						local max_distance = ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_RUBY)
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < max_distance) then
+							unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
 							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
-							unit.ice_floe_table.speed = 50
+							unit.ice_floe_table.speed = 50 * (1 + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD2)/100 + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE2)/100)
 							EmitSoundOn("RPCItems.IceFloeSlipper.Go", unit)
 							StartAnimation(unit, {duration = 1, activity = ACT_DOTA_VERSUS, rate = 2})
-							local pfxTest = ParticleManager:CreateParticle("particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path_b.vpcf", PATTACH_CUSTOMORIGIN, nil)
+							local pfxTest = ParticleManager:CreateParticle("particles/roshpit/items/ice_flow_slippers_b.vpcf", PATTACH_CUSTOMORIGIN, nil)
 							local moveFV = ((unit.ice_floe_table.last_position - unit:GetAbsOrigin()) * Vector(1, 1, 1)):Normalized()
 							local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), unit.ice_floe_table.last_position)
 							ParticleManager:SetParticleControl(pfxTest, 0, unit:GetAbsOrigin())
 							ParticleManager:SetParticleControl(pfxTest, 1, unit:GetAbsOrigin() + moveFV * distance)
-							ParticleManager:SetParticleControl(pfxTest, 2, Vector(1, 1, 1))
+							ParticleManager:SetParticleControl(pfxTest, 2, Vector(2, 2, 2))
 							ParticleManager:SetParticleControlEnt(pfxTest, 9, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 							Timers:CreateTimer(1.5, function()
 								ParticleManager:DestroyParticle(pfxTest, false)
 							end)
+							if unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+								unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_amethyst_shield", {duration = ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION})
+								unit:SetModifierStackCount("modifier_ice_floe_amethyst_shield", unit.InventoryUnit, unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_AMETHYST))
+							end
+							unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_cooldown", {duration = ITEM_RPC_ICE_FLOE_SLIPPERS_COOLDOWN})
+							
 						end
 					end
 				end
-				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+				if unit:IsStunned() or unit:IsFrozen() or (unit:IsRooted() and unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") < 1) or unit:HasModifier("modifier_ice_floe_cooldown") then
 				else
 					unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 					unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
@@ -2482,6 +2489,14 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 0
 			if applyEffects then
 				CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_sadist_shield")
+			end
+		end
+	end
+	if victim:HasModifier("modifier_ice_floe_amethyst_shield") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = 0
+			if applyEffects then
+				CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_ice_floe_amethyst_shield")
 			end
 		end
 	end

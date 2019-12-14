@@ -5243,7 +5243,7 @@ function Winterblight:AzaleaBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_ice_floe_slippers")
 		end
 	end)
 	Timers:CreateTimer(5, function()

@@ -12111,6 +12111,19 @@
     	"item_rpc_harvester_boots_sapphire1"									"Increases this item's Property 2 roll by @sapphire_property1%"
     	"item_rpc_harvester_boots_amethyst1"									"Increases this item's Property 4 roll by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
+
+		"item_property_ice_floe_slippers"					"Ice Floe"
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <font color='#ccff66'>1200</font>. This ability cannot be activated while stunned or rooted."
+
+		"item_rpc_ice_floe_slippers_ruby1"	"Removes the Rooted restriction and increases max travel distance by @ruby_property1"
+		"item_rpc_ice_floe_slippers_emerald1"	"Increaes [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
+		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=\"#87D9FF\">Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
+		"item_rpc_ice_floe_slippers_amethyst1"	"When Ice Floe is triggered, gain a shield that absorbs @amethyst_property1 instances of Magic and Pure Damage for <font color='#ccff66'>5</font> seconds."
+
+		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield"	"Ice Floe (Amethyst)"
+		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield_Description"	"Absorbing Magic and Pure damage"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12315,14 +12328,6 @@
 		"property_oceanrunner_Description"									"Increases Base Ability damage by <font color='#ccff66'>0.25</font>% for every <font color='#ccff66'>10</font> points of Agility."
 	
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
-		"item_rpc_ice_floe_slippers_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_ice_floe_slippers_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <font color='#ccff66'>1500</font>. This ability cannot be activated while stunned or rooted."
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
