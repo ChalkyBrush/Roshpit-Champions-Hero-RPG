@@ -1105,7 +1105,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE1, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST1, hero, "base_ability", RPC_GEAR_SLOT_BOOTS)
-		end				
+		end	
+	elseif item:GetAbilityName() == "item_rpc_moon_tech_runners" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_BOOTS)
+		end			
 	end
 end
 

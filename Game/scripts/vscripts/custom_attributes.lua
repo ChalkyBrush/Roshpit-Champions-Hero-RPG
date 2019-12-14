@@ -1656,6 +1656,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor_modify = magic_armor_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
 		end
 	end
+	if unit:HasModifier("moon_tech_aura") then
+		local modifier_ability = unit:FindModifierByName("moon_tech_aura"):GetAbility()
+		magic_armor_modify = magic_armor_modify + modifier_ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 

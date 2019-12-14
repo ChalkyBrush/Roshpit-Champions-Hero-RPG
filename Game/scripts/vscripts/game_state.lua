@@ -1174,6 +1174,38 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_moon_tech_runners") then
+			if not unit:HasModifier("modifier_moon_tech_emerald_cd") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+					if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
+					else
+						local ability = unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+						local valid_position = false
+						local order_position = Vector(orderTable.position_x, orderTable.position_y)
+						if ability.moon_tech_thinker_table then
+							for i = 1, #ability.moon_tech_thinker_table, 1 do
+								local distance = WallPhysics:GetDistance2d(ability.moon_tech_thinker_table[i]:GetAbsOrigin(), order_position)
+								if distance <= ITEM_RPC_MOON_TECH_RUNNERS_RADIUS then
+									valid_position = true
+									break
+								end
+							end
+						end
+						if IsValidEntity(ability) and ability:GetGemValue("emerald") > 0 and valid_position then
+							ability:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_moon_tech_emerald_cd", {duration = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MOON_TECH_RUNNERS_GEM_EMERALD)})
+							CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/blink_dagger_ti9_start.vpcf", unit, 3)
+							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), order_position, unit)
+							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
+							EmitSoundOn("RPCItems.MoonTechRunners.Emerald", unit)
+							Timers:CreateTimer(0.1, function()
+								CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/blink_dagger_ti9_end.vpcf", unit, 3)
+							end)
+						end
+					end
+				end
+			end
+		end
 		if unit:HasModifier("modifier_ice_sliding") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				unit.iceRightClickPos = Vector(orderTable.position_x, orderTable.position_y)

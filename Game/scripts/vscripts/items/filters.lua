@@ -1296,7 +1296,7 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_gloves_of_sweeping_wind") then
         Filters:SweepingWindsStackChange(caster, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], 1)
     end
-    if caster:HasModifier("modifier_moon_techs") then
+    if caster:HasModifier("modifier_moon_tech_runners") then
         Filters:MoonTechRunners(caster)
     end
     if caster:HasModifier("modifier_guard_of_feronia") then
@@ -2844,12 +2844,7 @@ function Filters:PostElementalDamage(victim, attacker, damage, damage_type, slot
     end
 end
 
-function Filters:MoonTechRunners(caster)
-    local ability = caster.foot
-    --print("MOOON TECH!")
-    --ability:ApplyDataDrivenThinker(caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-    CustomAbilities:QuickAttachThinker(ability, caster, caster:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-end
+
 
 
 function Filters:AvalanchePlate(caster)
@@ -6324,4 +6319,41 @@ function guardian_heal_ally(ally, healthRestore, manaRestore, ability, hero)
     if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("amethyst") > 0 then
         ability:ApplyDataDrivenModifier(hero.InventoryUnit, ally, "modifier_guardian_greaves_shield", {duration = ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION})
     end
+end
+
+function Filters:MoonTechRunners(caster)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    local hero = caster
+    local caster = hero.InventoryUnit
+    local position = hero:GetAbsOrigin()
+    local moon_tech_thinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, hero:GetTeamNumber())
+    moon_tech_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+    moon_tech_thinker:SetDayTimeVisionRange(ITEM_RPC_MOON_TECH_RUNNERS_RADIUS)
+    moon_tech_thinker:SetNightTimeVisionRange(ITEM_RPC_MOON_TECH_RUNNERS_RADIUS)
+
+    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/moon_techs.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, moon_tech_thinker:GetAbsOrigin())
+    ParticleManager:SetParticleControl(pfx, 1, Vector(500, 500, 500))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(255, 160, 160))
+    ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
+    moon_tech_thinker.pfx = pfx
+
+    local moon_tech_duration = ITEM_RPC_MOON_TECH_RUNNERS_DURATION
+    ability:ApplyDataDrivenModifier(caster, moon_tech_thinker, "modifier_moon_tech_thinker", {duration = moon_tech_duration})
+    if not ability.moon_tech_thinker_table then
+        ability.moon_tech_thinker_table = {}
+    end
+    table.insert(ability.moon_tech_thinker_table, moon_tech_thinker)
+    Filters:ReindexMoonTechThinkerTable(ability)
+end
+
+function Filters:ReindexMoonTechThinkerTable(ability)
+    local new_moon_thinker_table = {}
+    for i = 1, #ability.moon_tech_thinker_table, 1 do
+        if ability.moon_tech_thinker_table[i] and IsValidEntity(ability.moon_tech_thinker_table[i]) and ability.moon_tech_thinker_table[i]:HasModifier("modifier_moon_tech_thinker") then
+            table.insert(new_moon_thinker_table, ability.moon_tech_thinker_table[i])
+        end
+    end
+    ability.moon_tech_thinker_table = new_moon_thinker_table
 end

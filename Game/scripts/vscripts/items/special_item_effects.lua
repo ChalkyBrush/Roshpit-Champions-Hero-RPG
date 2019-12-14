@@ -1046,14 +1046,6 @@ function mana_striders_heal(hero)
 	PopupMana(hero, manaRestore)
 end
 
-function moon_tech_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local target = event.target
-	--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-	CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-end
-
 function falcon_boot_impact(event)
 	local target = event.target
 	local ability = event.ability
@@ -9218,4 +9210,42 @@ function inside_fire_walkers_think(event)
 		damage = damage * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRE_WALKERS_GEM_SAPPHIRE)/100
 	end
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+end
+
+function moon_tech_thinker_end(event)
+	local ability = event.ability
+	-- ParticleManager:DestroyParticle(event.target.pfx, false)
+	-- ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+	Filters:ReindexMoonTechThinkerTable(ability)
+end
+
+function enter_moon_tech_cloud(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+
+	if ability:GetGemValue("ruby") > 0 then
+		local as_loss = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY1)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_moon_tech_attackspeed_reduce", {})
+		target:SetModifierStackCount("modifier_moon_tech_attackspeed_reduce", caster, as_loss)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local miss_Chance = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE2)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_moon_tech_sapphire_chance_to_miss", {})
+		target:SetModifierStackCount("modifier_moon_tech_sapphire_chance_to_miss", caster, miss_Chance)
+		
+	end
+end
+
+function inside_moontech_cloud(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("ruby") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY2)/100)
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	end
 end
