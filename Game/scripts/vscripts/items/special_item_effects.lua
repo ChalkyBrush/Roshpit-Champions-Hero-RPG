@@ -993,6 +993,7 @@ end
 
 function mana_striders_think(event)
 	local target = event.target
+	local caster = event.caster
 	local ability = event.ability
 	if not ability.lastPos then
 		ability.lastPos = target:GetAbsOrigin()
@@ -1024,6 +1025,13 @@ function mana_striders_think(event)
 	end
 
 	ability.lastPos = target:GetAbsOrigin()
+
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_strider_ms", {})
+		local ms_bonus = math.floor((target:GetMana()/target:GetMaxMana())*100) * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MANA_STRIDERS_GEM_EMERALD2)
+		local ms_stacks = ms_bonus/0.1
+		target:SetModifierStackCount("modifier_mana_strider_ms", caster, ms_stacks)
+	end
 end
 
 function mana_striders_heal(hero)

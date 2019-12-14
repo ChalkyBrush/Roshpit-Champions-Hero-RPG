@@ -1097,6 +1097,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "amethyst", RPC_GEAR_SLOT_BOOTS)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_mana_striders" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_MANA_STRIDERS_GEM_EMERALD1, hero, "max_mana", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE1, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST1, hero, "base_ability", RPC_GEAR_SLOT_BOOTS)
 		end				
 	end
 end

@@ -12134,6 +12134,15 @@
 		"item_rpc_iron_treads_of_destruction_sapphire1"	"Increases all attributes by @sapphire_property1"
 		"item_rpc_iron_treads_of_destruction_amethyst1"	"Reduce [R] cooldown by @amethyst_property1%"
 
+    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
+		"item_property_mana_striders"				"Mana Stride"
+		"property_mana_striders_description"		"Restore <font color='#ccff66'>3</font>% of your max Mana for every <font color='#ccff66'>240</font> units moved."
+		
+    	"item_rpc_mana_striders_ruby1"									"Each point of current mana increases Spell Pierce by @ruby_property1"
+    	"item_rpc_mana_striders_emerald1"									"Increases Max Mana by @emerald_property1, and each 1% of current mana increases movespeed by @emerald_property2"
+    	"item_rpc_mana_striders_sapphire1"									"Increases Intelligence by @sapphire_property1, and casting [E] restores @sapphire_property2% of Max Mana"
+    	"item_rpc_mana_striders_amethyst1"									"Increases Base Ability Damage by @amethyst_property1% and casting an ability consumes @amethyst_property2% of max mana"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12170,14 +12179,6 @@
 		"item_property_yasha"						"Combat Mastery Y"	
 		"property_yasha_description"				"Increase attack speed by 1 for every <font color='#ccff66'>20</font> Strength. Sets Base Attack Time to <font color='#ccff66'>1.1</font> seconds."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
-    	"item_rpc_mana_striders_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_mana_striders_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_mana_striders_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_mana_striders_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_mana_striders"				"Mana Stride"
-		"property_mana_striders_description"		"Restore <font color='#ccff66'>3</font>% of your max Mana for every <font color='#ccff66'>240</font> units moved."
 		
 		
 		

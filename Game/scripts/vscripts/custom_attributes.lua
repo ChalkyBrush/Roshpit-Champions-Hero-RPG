@@ -2343,6 +2343,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
 		end
 	end
+	if unit:HasModifier("modifier_mana_striders") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MANA_STRIDERS_GEM_RUBY)*unit:GetMana()
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

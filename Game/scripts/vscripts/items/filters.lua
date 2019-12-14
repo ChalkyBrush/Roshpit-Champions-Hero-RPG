@@ -769,6 +769,12 @@ function Filters:CastSkillArguments(slot, caster)
         local mana_drain = caster:GetMaxMana()*(caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3))/100
         caster:ReduceMana(mana_drain)
     end
+    if caster:HasModifier("modifier_mana_striders") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+            local manaDrain = caster:GetMaxMana()*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_MANA_STRIDERS_GEM_AMETHYST2)/100
+            caster:ReduceMana(manaDrain)
+        end
+    end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
@@ -1227,6 +1233,14 @@ function Filters:ApplyEskills(caster)
     end
     if caster:HasModifier("modifier_plate_of_the_watcher3") then
         Filters:WatcherCast(caster, BASE_ABILITY_E)
+    end
+    if caster:HasModifier("modifier_mana_striders") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("sapphire") > 0 then
+            CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
+            local manaRestore = math.floor(caster:GetMaxMana()*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MANA_STRIDERS_GEM_SAPPHIRE2)/100)
+            caster:GiveMana(manaRestore)
+            PopupMana(caster, manaRestore)
+        end
     end
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
