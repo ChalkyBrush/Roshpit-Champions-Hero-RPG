@@ -1660,6 +1660,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier_ability = unit:FindModifierByName("moon_tech_aura"):GetAbility()
 		magic_armor_modify = magic_armor_modify + modifier_ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1)
 	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
 
@@ -2349,6 +2352,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_mana_striders") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MANA_STRIDERS_GEM_RUBY)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

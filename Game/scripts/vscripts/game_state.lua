@@ -761,11 +761,11 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
 				else
-					unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_neptune_gliding_new", {duration = 20})
-					unit.foot.slideSpeed = 8
-					unit.foot.movementPosition = Vector(orderTable.position_x, orderTable.position_y)
-					local movementForward = ((unit.foot.movementPosition - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-					unit.foot.movementForward = movementForward
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_neptune_gliding_new", {duration = 20})
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].slideSpeed = 8
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementPosition = Vector(orderTable.position_x, orderTable.position_y)
+					local movementForward = ((unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementPosition - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementForward = movementForward
 				end
 			end
 		end

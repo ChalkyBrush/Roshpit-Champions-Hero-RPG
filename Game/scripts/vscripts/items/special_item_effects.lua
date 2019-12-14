@@ -2473,6 +2473,11 @@ function neptune_think(event)
 	-- target:Stop()
 	-- end
 	ability.lastPos = target:GetAbsOrigin()
+	if ability:GetGemValue("ruby") > 0 then
+		local speed_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY)*target:GetIntellect()
+		ability:ApplyDataDrivenModifier(event.caster, target, "modifier_neptune_ruby_speed", {})
+		target:SetModifierStackCount("modifier_neptune_ruby_speed", event.caster, speed_stacks)
+	end
 end
 
 function neptune_gliding(event)
@@ -2575,12 +2580,25 @@ function neptune_gliding_think_new(event)
 	end
 end
 
+function neptunes_base_thinker(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local speed_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY)*hero:GetIntellect()
+		ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_neptune_ruby_speed", {})
+		hero:SetModifierStackCount("modifier_neptune_ruby_speed", event.caster, speed_stacks)
+	end
+end
+
 function gliding_end(event)
 	local target = event.target
 	local ability = event.ability
 	ability.lastPos = false
 	ability.blockCheck = 0
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+
+	ability.slideSpeed = 0
 end
 
 function ruinfall_skull_think(event)
@@ -9247,5 +9265,61 @@ function inside_moontech_cloud(event)
 	if ability:GetGemValue("ruby") > 0 then
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY2)/100)
 		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	end
+end
+
+function neptune_puddle_start(event)
+	local ability = event.ability
+	local target = event.target
+	if not ability then
+		return false
+	end
+	local caster = event.caster
+	local hero = caster.hero
+
+	if hero == ability.wearer then
+		local stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD1)
+		target:ApplyModifierAndSetStacks(ability, caster, "modifier_neptune_in_puddle_mana_regen", stacks, 0)
+	end
+end
+
+function neptune_puddle_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+end
+
+function neptune_blasting_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local newPos = hero:GetAbsOrigin() + ability.blast_direction*ability.forward_force + Vector(0,0,ability.blast_force)
+	local newPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPos, hero)
+	ability.blast_force = ability.blast_force - 1.5
+	hero:SetAbsOrigin(newPosition)
+
+	if hero:GetAbsOrigin().z - GetGroundHeight(hero:GetAbsOrigin(), hero) < 10 then
+		hero:RemoveModifierByName("modifier_neptune_sapphire_blasting")
+		FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+		local radius = ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_RADIUS
+        EmitSoundOn("RPCItems.Neptunes.SapphireImpact", hero)
+        local particleName = "particles/roshpit/items/depth_crest_armor.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+        ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin() + Vector(0, 0, 20))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+ 		Timers:CreateTimer(1.5, function()
+ 			ParticleManager:DestroyParticle(pfx, false)
+ 		end)
+ 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3)
+		local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE2)
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(hero, stun_duration, enemy)
+			end
+		end
 	end
 end

@@ -309,6 +309,16 @@
 
         "DOTA_Tooltip_modifier_moon_tech_emerald_cd"    "Moon Tech Runners (Emerald) Cooldown"
 
+        "DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"                          "Neptune's Water Gliders"
+
+        "item_property_neptune"                     "Puddle Drifter"
+        "property_neptune_description"              "Issuing a move order adds a slippery effect that makes you run faster and slide."
+
+        "item_rpc_neptunes_water_gliders_ruby1"                         "Each point of Intelligence increases Movespeed and Attack Speed by @ruby_property1"
+        "item_rpc_neptunes_water_gliders_emerald1"                          "Casting [E] creates a puddle of water with <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_EMERALD_RADIUS %> radius. While standing in the water, gain @emerald_property1 mana regen, and @emerald_property2 Spell Pierce and Magic Armor"
+        "item_rpc_neptunes_water_gliders_sapphire1"                         "Casting [W] creates a water torrent that launches you forward with a force of <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_JUMP_HEIGHT %>. The jump travels forward based on Puddle Drifter's glide speed. @sapphire_property1 second cooldown. Must be touching the ground to activate. When you land, stun enemies for @sapphire_property2 seconds and deal @sapphire_property3% of your attack power as damage in <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_RADIUS %> range"
+        "item_rpc_neptunes_water_gliders_amethyst1"                         "Increases All T3 runes by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -402,16 +412,7 @@
 		"item_property_pathfinder"					"Purifying Resonance"
 		"property_pathfinder_description"			"After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"
-    	"item_rpc_neptunes_water_gliders_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_neptunes_water_gliders_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_neptunes_water_gliders_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_neptunes_water_gliders_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_neptune"						"Puddle Drifter"
-		"property_neptune_description"				"Issuing a move order adds a slippery effect that makes you run faster and slide."
-		
-		
+
 		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
     	"item_rpc_resplendent_rubber_boots_ruby1"						"blah blah @ruby_property1 gem"

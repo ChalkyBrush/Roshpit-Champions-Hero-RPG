@@ -1111,6 +1111,13 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_MOON_TECH_RUNNERS_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_BOOTS)
 		end			
+	elseif item:GetAbilityName() == "item_rpc_neptunes_water_gliders" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST, hero, "rune_e_1", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST, hero, "rune_e_2", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST, hero, "rune_e_3", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_AMETHYST, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
+		end			
 	end
 end
 

@@ -1093,6 +1093,9 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_silverspring_gloves") then
         Filters:SilverspringWCast(caster)
     end
+    if caster:HasModifier("modifier_neptunes_water_gliders") then
+        Filters:NeptuneWCast(caster)
+    end
     if caster:HasModifier("modifier_outland_stone_cuirass") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf", caster, 4)
@@ -1241,6 +1244,9 @@ function Filters:ApplyEskills(caster)
             caster:GiveMana(manaRestore)
             PopupMana(caster, manaRestore)
         end
+    end
+    if caster:HasModifier("modifier_neptunes_water_gliders") then
+        Filters:NeptuneECast(caster)
     end
     if caster:HasModifier("modifier_falcon_boots") then
         Filters:FalconBoot(caster)
@@ -6356,4 +6362,47 @@ function Filters:ReindexMoonTechThinkerTable(ability)
         end
     end
     ability.moon_tech_thinker_table = new_moon_thinker_table
+end
+
+function Filters:NeptuneECast(caster)
+    local neptunes = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if neptunes:GetGemValue("emerald") > 0 then
+        if neptunes.puddle and IsValidEntity(neptunes.puddle) then
+            neptunes.puddle:RemoveModifierByName("modifier_neptune_puddle")
+        end
+        local puddle_thinker = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+        puddle_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+        puddle_thinker:SetDayTimeVisionRange(500)
+        puddle_thinker:SetNightTimeVisionRange(500)
+
+        local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_slardar/slardar_water_puddle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(pfx, 0, puddle_thinker:GetAbsOrigin())
+        puddle_thinker.pfx = pfx
+
+        neptunes:ApplyDataDrivenModifier(caster.InventoryUnit, puddle_thinker, "modifier_neptune_puddle", {duration = ITEM_RPC_NEPTUNES_WATER_GLIDERS_EMERALD_DURATION})
+        neptunes.puddle = puddle_thinker
+    end
+end
+
+function Filters:NeptuneWCast(caster)
+    local neptunes = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if neptunes:GetGemValue("sapphire") > 0 and Filters:IsTouchingGround(caster) then
+        if not caster:HasModifier("modifier_neptune_sapphire_blast_cd") then
+            local pfx = ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+            Timers:CreateTimer(2, function()
+                ParticleManager:DestroyParticle(pfx, false)
+            end)
+            local cooldown = neptunes:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE1)
+            if cooldown > 0 then
+                neptunes:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_neptune_sapphire_blast_cd", {duration = cooldown})
+            end
+            neptunes:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_neptune_sapphire_blasting", {duration = 5})
+            neptunes.blast_force = ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_JUMP_HEIGHT
+            neptunes.forward_force = neptunes.slideSpeed*4
+            neptunes.blast_direction = caster:GetForwardVector()
+            EmitSoundOn("RPCItems.Neptunes.SapphireBlast", caster)
+        end
+    end
 end
