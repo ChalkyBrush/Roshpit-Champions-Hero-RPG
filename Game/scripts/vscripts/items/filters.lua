@@ -1328,6 +1328,13 @@ function Filters:ApplyRskills(caster)
         local percentageReduction = ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT/100
         Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
     end
+    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
+        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+            local percentageReduction = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_AMETHYST)/100
+            Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
+        end
+    end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
     end
@@ -1909,6 +1916,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
+        end
+        if attacker:HasModifier("modifier_iron_treads_of_destruction") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_RUBY)/100
         end
         if attacker:HasModifier("modifier_violet_boots") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST)/100

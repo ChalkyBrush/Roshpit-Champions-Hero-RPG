@@ -1085,7 +1085,19 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE1, hero, "base_ability", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE1, hero, "element_ice", RPC_GEAR_SLOT_BOOTS)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_iron_treads_of_destruction" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_1", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_4", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "amethyst", RPC_GEAR_SLOT_BOOTS)
+		end				
 	end
 end
 

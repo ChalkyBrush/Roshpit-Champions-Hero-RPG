@@ -12124,6 +12124,16 @@
 		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield"	"Ice Floe (Amethyst)"
 		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield_Description"	"Absorbing Magic and Pure damage"
 
+		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
+
+		"item_property_iron_treads_of_destruction"					"Improved Initiative"
+		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+
+		"item_rpc_iron_treads_of_destruction_ruby1"	"Increases [R] Base Ability Damage by @ruby_property1%"
+		"item_rpc_iron_treads_of_destruction_emerald1"	"Increases all [R] runes by @emerald_property1"
+		"item_rpc_iron_treads_of_destruction_sapphire1"	"Increases all attributes by @sapphire_property1"
+		"item_rpc_iron_treads_of_destruction_amethyst1"	"Reduce [R] cooldown by @amethyst_property1%"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12328,15 +12338,6 @@
 		"property_oceanrunner_Description"									"Increases Base Ability damage by <font color='#ccff66'>0.25</font>% for every <font color='#ccff66'>10</font> points of Agility."
 	
 		
-	
-	
-		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
-		"item_rpc_iron_treads_of_destruction_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_iron_treads_of_destruction_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_iron_treads_of_destruction_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_iron_treads_of_destruction_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_iron_treads_of_destruction"					"Improved Initiative"
-		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
 
     	"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
     	"item_rpc_storm_pacer_sabatons_ruby1"        "blah blah @ruby_property1 gem"

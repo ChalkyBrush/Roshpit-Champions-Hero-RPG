@@ -5249,7 +5249,7 @@ function Winterblight:AzaleaBossDie(boss)
 	Timers:CreateTimer(5, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_iron_treads_of_destruction")
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
