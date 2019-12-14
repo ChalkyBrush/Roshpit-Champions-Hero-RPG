@@ -1127,7 +1127,7 @@ function falcon_boot_impact(event)
 		ParticleManager:DestroyParticle(pfx, false)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
-	ability:ApplyDataDrivenModifier(origCaster.InventoryUnit, target, "modifier_falcon_out", {duration = 2.5})
+	ability:ApplyDataDrivenModifier(origCaster.InventoryUnit, target, "modifier_falcon_out", {duration = ability.travel_delay + 0.25})
 	target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, 2000))
 end
 
