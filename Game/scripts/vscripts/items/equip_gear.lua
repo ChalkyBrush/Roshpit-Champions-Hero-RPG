@@ -156,6 +156,9 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 			property_value = property_value * (1 + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100)
 		end
 	end
+	if item:GetAbilityName() == "item_rpc_harvester_boots" then
+		property_value = RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+	end
 	-- 
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") or string.match(property_name, "!immortal!") then
@@ -1119,4 +1122,17 @@ function CDOTA_BaseNPC_Hero:ReequipAllGear()
 			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
 		end
 	end
+end
+
+function RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+	if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
+		property_value = property_value * (1 + item:GetFinalGemPropertyValue("ruby", ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY)/100)
+	elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
+		property_value = property_value * (1 + item:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE)/100)
+	elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
+		property_value = property_value * (1 + item:GetFinalGemPropertyValue("emerald", ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD)/100)
+	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
+		property_value = property_value * (1 + item:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST)/100)
+	end
+	return property_value
 end

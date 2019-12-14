@@ -256,6 +256,12 @@
     	"item_rpc_guardian_greaves_sapphire1"								"Increases Strength and Intelligence by @sapphire_property1"
     	"item_rpc_guardian_greaves_amethyst1"								"Guardian Greaves applies a shield that increases Magic Armor and Spell Pierce by @amethyst_property1x your Spirit for <% ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION %> seconds"
 
+    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
+    	"item_rpc_harvester_boots_ruby1"									"Increases this item's Property 1 roll by @ruby_property1%"
+    	"item_rpc_harvester_boots_emerald1"									"Increases this item's Property 3 roll by @emerald_property1%"
+    	"item_rpc_harvester_boots_sapphire1"									"Increases this item's Property 2 roll by @sapphire_property1%"
+    	"item_rpc_harvester_boots_amethyst1"									"Increases this item's Property 4 roll by @amethyst_property1%"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -421,16 +427,7 @@
 		 "property_sandstream_slippers_description"				"Every <% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS %> stacks."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
-		 
-
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
-    	"item_rpc_harvester_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_harvester_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_harvester_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_harvester_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		 
+ 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
     	"item_rpc_temporal_warp_boots_ruby1"								"blah blah @ruby_property1 gem"
