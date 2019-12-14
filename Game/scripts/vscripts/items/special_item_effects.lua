@@ -9155,3 +9155,18 @@ function dunetreads_init(event)
 	end
 	
 end
+
+function emerald_speedrunners_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
+		local max_cooldown = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_AMETHYST)
+		if e_ability:GetCooldownTimeRemaining() > max_cooldown then
+			e_ability:EndCooldown()
+			e_ability:StartCooldown(max_cooldown)
+		end
+	end
+
+end

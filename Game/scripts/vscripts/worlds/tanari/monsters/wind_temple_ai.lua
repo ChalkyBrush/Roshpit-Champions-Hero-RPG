@@ -2316,7 +2316,7 @@ function wind_temple_spirit_boss_die_begin(event)
 		if luck == 1 then
 			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ancient_tanari_wind_armor")
 		elseif luck == 2 then
-			RPCItems:RollEmeraldSpeedRunners(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_emerald_speed_runners")
 		end
 	end)
 	Timers:CreateTimer(4, function()

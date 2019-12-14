@@ -12239,7 +12239,7 @@
     	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>600</font> 。"
+		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>500</font> 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"腥红十月靴"

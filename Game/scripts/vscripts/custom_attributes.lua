@@ -122,6 +122,9 @@ function CDOTA_BaseNPC_Hero:GetAgility()
 		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		agility = item.newItemTable.property1
 	end
+	if self:HasModifier("modifier_emerald_speed_runners") then
+		agility = math.max(agility, self.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD2))
+	end
 	return math.max(tonumber(agility), 0)
 end
 

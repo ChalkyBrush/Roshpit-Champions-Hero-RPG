@@ -1129,18 +1129,38 @@ function GameState:OrderFilter(orderTable)
 							CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf", unit, 3)
 							local clampDistance = ability.q_4_level * AURIUN_ARCANA_1_Q4_TP_DISTANCE + AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE
 							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
-							--print("AHOLA1")
-							--print(Vector(orderTable.position_x, orderTable.position_y))
 							local teleportDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-							--print(teleportDirection)
-							--print(distance)
-							--print(teleportDirection*distance)
-							--print("ALOHA2")
+							
 							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), unit:GetAbsOrigin() + teleportDirection * distance, unit)
 							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
 							EmitSoundOn("Auriun.ShieldHit", unit)
 							Timers:CreateTimer(0.1, function()
 								CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_end_ti5.vpcf", unit, 3)
+							end)
+						end
+					end
+				end
+			end
+		end
+		if unit:HasModifier("modifier_emerald_speed_runners") then
+			if not unit:HasModifier("modifier_emerald_speedrunner_sapphire_cd") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION and unit:IsRooted() then
+					if unit:IsStunned() or unit:IsFrozen() then
+					else
+						local ability = unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+						if IsValidEntity(ability) and ability:GetGemValue("sapphire") > 0 then
+							ability:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_emerald_speedrunner_sapphire_cd", {duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE2)})
+							CustomAbilities:QuickAttachParticle("particles/econ/events/ti8/blink_dagger_ti8_start.vpcf", unit, 3)
+							local clampDistance = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE1)
+							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
+							local teleportDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), unit:GetAbsOrigin() + teleportDirection * distance, unit)
+							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
+							EmitSoundOn("RPCItems.EmeraldSpeedRunners.Sapphire", unit)
+							Timers:CreateTimer(0.1, function()
+								CustomAbilities:QuickAttachParticle("particles/econ/events/ti8/blink_dagger_ti8_end.vpcf", unit, 3)
 							end)
 						end
 					end
