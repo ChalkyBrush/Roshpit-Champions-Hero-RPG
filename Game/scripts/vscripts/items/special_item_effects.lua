@@ -1075,26 +1075,6 @@ function mana_striders_heal(hero)
 	PopupMana(hero, manaRestore)
 end
 
-function fire_walkers_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	ability.hero = event.target
-	ability.damage = ability.hero:GetIntellect() + ability.hero:GetAgility() + ability.hero:GetStrength()
-	--ability:ApplyDataDrivenThinker(caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
-	CustomAbilities:QuickAttachThinker(ability, caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
-end
-
-function fire_walker_damage(event)
-	local target = event.target
-	local caster = event.ability.hero
-	local ability = event.ability
-	if target.dummy then
-		return false
-	end
-	local damage = ability.damage
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-end
-
 function moon_tech_think(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -9181,4 +9161,63 @@ function falcon_boots_self_thinker(event)
 		local dmg_stacks = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FALCON_BOOTS_GEM_RUBY)
 		hero:SetModifierStackCount("modifier_falcon_ruby", caster, dmg_stacks)
 	end
+end
+
+function fire_walkers_base_think(event)	
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+
+	if not ability.lava_table then
+		ability.lava_table = {}
+	end
+	Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, hero:GetAbsOrigin())
+
+end
+
+
+
+function fire_walkers_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FIRE_WALKERS_GEM_RUBY1)
+		if proc then
+			Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, target:GetAbsOrigin())
+		end
+	end
+end
+
+function reindex_fire_walkers_table(ability)
+	-- local new_flame_table = {}
+	-- for i = 1, #ability.lava_table, 1 do
+	-- 	if ability.lava_table[i] and IsValidEntity(ability.lava_table[i]) and ability.lava_table[i]:HasModifier("modifier_fire_walkers_thinker") then
+	-- 		table.insert(new_flame_table, ability.lava_table[i])
+	-- 	end
+	-- end
+	-- ability.lava_table = new_flame_table
+end
+
+function fire_walkers_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+	-- reindex_fire_walkers_table(ability)
+end
+
+function inside_fire_walkers_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	local damage = hero:GetSumOfAllAttributes()*ITEM_RPC_FIRE_WALKERS_DAMAGE_X_SUM_ATTRIBUTES + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FIRE_WALKERS_GEM_EMERALD2)
+	if event.sapphire == 0 and ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_walkers_sapphire", {duration = ITEM_RPC_FIRE_WALKERS_SAPPHIRE_BURN_DURATION})
+	elseif event.sapphire == 1 then
+		damage = damage * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRE_WALKERS_GEM_SAPPHIRE)/100
+	end
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end

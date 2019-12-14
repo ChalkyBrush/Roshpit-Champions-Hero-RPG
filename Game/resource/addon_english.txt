@@ -12052,6 +12052,19 @@
         "DOTA_Tooltip_modifier_falcon_freeze"       "Falcon Swoop"
         "DOTA_Tooltip_modifier_falcon_freeze_Description"   "Frozen"
 
+    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
+
+		"item_property_fire_walkers"				"Lava Path"
+		"property_fire_walkers_description"			"Leaves puddles of burning fire as you move. The fire deals <font color='#ccff66'>2</font>x the sum of all of your attributes every <font color='#ccff66'>0.5</font> seconds to all enemies who come into contact. Flame puddles last for <font color='#ccff66'>5</font> seconds."
+
+    	"item_rpc_fire_walkers_ruby1"									"Attacking an enemy has a @ruby_property1% chance to create a Lava Path puddle beneath their feet, and enemies standing in Lava Path have @ruby_property2 reduced Armor"
+    	"item_rpc_fire_walkers_emerald1"									"Lava Path puddles last @emerald_property1 seconds longer and deal @emerald_property2 more damage"
+    	"item_rpc_fire_walkers_sapphire1"									"Enemies who step in a Lava Path puddle will ignite and additionally take @sapphire_property1% of Lava Path's damage every <font color='#ccff66'>0.5</font> seconds for <font color='#ccff66'>4</font> seconds"
+    	"item_rpc_fire_walkers_amethyst1"									"Enemies hit by [Q], [E] or [R] have a @amethyst_property1% chance to have a Lava Path puddle created beneath their feet"
+
+    	"DOTA_Tooltip_modifier_fire_walkers_sapphire"		"Lava Path (Sapphire)"
+    	"DOTA_Tooltip_modifier_fire_walkers_sapphire_Description"	"Taking burn damage on a <font color='#ccff66'>0.5</font> second interval"
+
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -12108,14 +12121,6 @@
 		"item_property_mana_striders"				"Mana Stride"
 		"property_mana_striders_description"		"Restore <font color='#ccff66'>3</font>% of your max Mana for every <font color='#ccff66'>240</font> units moved."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
-    	"item_rpc_fire_walkers_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_fire_walkers_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_fire_walkers_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_fire_walkers_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fire_walkers"				"Blazing Trail"
-		"property_fire_walkers_description"			"Leaves puddles of burning fire as you move. The fire deals the sum of all of your attributes every 0.5 seconds to all enemies who come into contact. Enemies standing in the blazing puddles take<br>600% increased <font color=\"#EF4126\">Fire</font> damage from all sources."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"

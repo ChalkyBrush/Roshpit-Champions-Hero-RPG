@@ -1537,6 +1537,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:IsRealHero() then
             damageMult = damageMult + attacker:GetSpirit()*(CustomAttributes.BAD_PER_SPIRIT/100)
         end
+        if attacker:HasModifier("modifier_fire_walkers") then
+            if not ignore_effects then
+                Filters:LavaWalkersBaseAbilityHitChance(attacker, victim, slot)
+            end
+        end
         if attacker:HasModifier("modifier_mask_of_mugato") and attacker:IsSilenced() then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MUGATO_SAPPHIRE2)/100
         end
@@ -2325,9 +2330,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local d_d_level = attacker:GetRuneValue("r", 4)
                 fireMult = fireMult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
-        end
-        if victim:HasModifier("fire_walker_aura") then
-            fireMult = fireMult + 6
         end
         if unitName == "npc_dota_hero_arc_warden" then
             if attacker:HasModifier("modifier_jex_arcana1") then
@@ -4686,6 +4688,7 @@ function Filters:IsFireBurning(target)
             target:HasModifier("modifier_jex_cipher_bolt_burn") or
             target:HasModifier("modifier_w_fire_fire_as_slow") or
             target:HasModifier("modifier_jex_e_fire_fire_burn") or
+            target:HasModifier("modifier_fire_walkers_sapphire") or
             target:HasModifier("modifier_cinderbark_burning") then
         return true
     else
@@ -6197,4 +6200,46 @@ function Filters:FalconProjectile(caster, fv, projectileOrigin, speed)
         bProvidesVision = false,
     }
     projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function Filters:LavaWalkersBaseAbilityHitChance(caster, victim, slot)
+    if slot == BASE_ABILITY_Q or slot == BASE_ABILITY_E or slot == BASE_ABILITY_R then
+        local proc = Filters:GetProc(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FIRE_WALKERS_GEM_AMETHYST))
+        if proc then
+            Filters:FireWalkersCreateLavaAtPoint(caster.InventoryUnit, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS], caster, victim:GetAbsOrigin())
+        end
+    end
+end
+
+function Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, position)
+    local create_lava = true
+    local allies = Entities:FindAllByClassnameWithin("npc_dota_base_additive", position, 40)
+    if #allies > 0 then
+        for _, ally in pairs(allies) do
+            if ally:HasModifier("modifier_fire_walkers_thinker") then
+                create_lava = false
+            end
+        end
+    end
+    if create_lava then
+        local lava_thinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, hero:GetTeamNumber())
+        lava_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+        lava_thinker:SetDayTimeVisionRange(0)
+        lava_thinker:SetNightTimeVisionRange(0)
+
+        local pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_roshan_lava/courier_roshan_lava.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(pfx, 0, lava_thinker:GetAbsOrigin())
+        ParticleManager:SetParticleControl(pfx, 1, Vector(110, 1, 1))
+        ParticleManager:SetParticleControl(pfx, 15, Vector(255, 160, 160))
+        ParticleManager:SetParticleControl(pfx, 16, Vector(1, 0, 0))
+        lava_thinker.pfx = pfx
+
+        local puddle_duration = ITEM_RPC_FIRE_WALKERS_DURATION + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FIRE_WALKERS_GEM_EMERALD1)
+        ability:ApplyDataDrivenModifier(caster, lava_thinker, "modifier_fire_walkers_thinker", {duration = puddle_duration})
+        -- if #ability.lava_table > max_flames then
+        --  ability.lava_table[1]:RemoveModifierByName("modifier_fire_walkers_thinker")
+        -- end
+        -- reindex_fire_walkers_table(ability)
+    end
 end
