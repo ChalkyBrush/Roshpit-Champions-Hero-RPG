@@ -5111,6 +5111,38 @@ function RPCItems:RollEmeraldSpeedRunners(item_level)
     return item
 end
 
+function RPCItems:RollFalconBoots(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_falcon_boots", "immortal", "Falcon Boots", "feet", true, "Slot: Feet")
+
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_falcon_boots"
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_falcon_boot", "#AACFE6", 1, "#property_falcon_boot_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 1.75)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 1.75)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 
@@ -5883,43 +5915,6 @@ function RPCItems:RollSonicBoots(item_level)
         item.newItemTable.property2 = value
         item.newItemTable.property2name = "movespeed"
         RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_movespeed", "#B02020", 2)
-	else
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property2 = math.min(math.floor(value * 1.75), 90)
-		item.newItemTable.property2name = propertyName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-	end
-
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollFalconBoots(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_falcon_boots", "immortal", "Falcon Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "falcon_boot"
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_falcon_boot", "#AACFE6", 1, "#property_falcon_boot_description")
-
-    local luck = RandomInt(1, 10)
-    if luck == 1 then
-        item.newItemTable.property2name = "ghost_walk"
-        item.newItemTable.property2 = 1
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_unit_walking", "#9B72C4", 2, "#property_unit_walking_description")
-	elseif luck == 2 then
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
-		item.newItemTable.property2 = math.ceil(value * 0.85)
-		item.newItemTable.property2name = runeName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	else
 		item.newItemTable.hasRunePoints = true
 		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
@@ -8713,7 +8708,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
-        "item_rpc_crusader_boots", "item_rpc_dunetread_boots"}
+        "item_rpc_crusader_boots", "item_rpc_dunetread_boots", "item_rpc_falcon_boots"}
     end
     return itemsList
 end

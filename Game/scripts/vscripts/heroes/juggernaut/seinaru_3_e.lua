@@ -227,9 +227,12 @@ function falling_end(event)
 		ability.particle = true
 		-- "modifier_falcon_boots"
 		if caster:HasModifier("modifier_falcon_boots") then
-
-			caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_freeze_self", {duration = 2.5})
-			Timers:CreateTimer(2.5, function()
+			local delay = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS].travel_delay
+			if not delay then
+				delay = 2.5
+			end
+			caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_freeze_self", {duration = delay})
+			Timers:CreateTimer(delay, function()
 				ability.e_1_unit_table = {}
 				for i = 1, #caster.foot.liftedTargetsTable, 1 do
 					if #ability.e_1_unit_table < (1 + ability.e_1_level) then

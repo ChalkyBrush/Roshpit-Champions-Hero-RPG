@@ -3324,84 +3324,6 @@ function Filters:SonicBoot(caster)
     caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_sonic', {duration = 7})
 end
 
-function Filters:FalconBoot(caster)
-    --print("falcon boot?")
-    if not caster:HasModifier("modifier_falcon_immune") then
-
-        local fv = caster:GetForwardVector()
-        local point = caster:GetAbsOrigin() + fv * 120
-        Filters:FalconProjectile(caster, fv, point)
-        Filters:FalconProjectile(caster, fv, point + WallPhysics:rotateVector(fv, math.pi / 2) * 90 - fv * 80)
-        Filters:FalconProjectile(caster, fv, point - WallPhysics:rotateVector(fv, math.pi / 2) * 90 - fv * 80)
-        Filters:FalconProjectile(caster, fv, point + WallPhysics:rotateVector(fv, math.pi / 2) * 180 - fv * 160)
-        Filters:FalconProjectile(caster, fv, point - WallPhysics:rotateVector(fv, math.pi / 2) * 180 - fv * 160)
-        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_SkywrathMage.ArcaneBolt.Cast", caster)
-        local ability = caster.foot
-        ability.liftedTargetsTable = {}
-        local transportLocation = caster:GetAbsOrigin() + fv * 1400
-        ability.transportLocation = transportLocation
-        local targetPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), transportLocation, caster)
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_immune", {duration = 2.3})
-        Timers:CreateTimer(2, function()
-            if ability.liftedTargetsTable then
-                for i = 1, #ability.liftedTargetsTable, 1 do
-                    local target = ability.liftedTargetsTable[i]
-                    FindClearSpaceForUnit(target, targetPosition + RandomVector(RandomInt(20, 100)), false)
-                end
-            end
-        end)
-        Timers:CreateTimer(2.25, function()
-            --print("TIME 2.25!")
-            if #ability.liftedTargetsTable > 0 then
-            end
-            --print(#ability.liftedTargetsTable)
-            for i = 1, #ability.liftedTargetsTable, 1 do
-                local target = ability.liftedTargetsTable[i]
-                target:RemoveModifierByName("modifier_falcon_out")
-                --print("CLEAR SPACE!!"..i)
-                if not target:HasModifier("modifier_falcon_immune") then
-                    Timers:CreateTimer(0.05, function()
-                        ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_falcon_freeze", {duration = 4})
-                    end)
-                end
-                ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_falcon_immune", {duration = 5})
-
-            end
-
-        end)
-    end
-end
-
-function Filters:FalconProjectile(caster, fv, projectileOrigin)
-    local projectileParticle = "particles/units/heroes/hero_skywrath_mage/falcon_boot_arcane_bolt.vpcf"
-
-    local start_radius = 120
-    local end_radius = 120
-    local range = 1400
-    local speed = 600
-    local info =
-    {
-        Ability = caster.foot,
-        EffectName = projectileParticle,
-        vSpawnOrigin = projectileOrigin + Vector(0, 0, 75),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = caster,
-        StartPosition = "attach_hitloc",
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 4.0,
-        bDeleteOnHit = false,
-        vVelocity = fv * speed,
-        bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info)
-end
-
 function Filters:EternalFrost(caster)
     local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
@@ -6186,4 +6108,93 @@ function Filters:DunetreadECast(caster)
             CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_cast_water_spiral.vpcf", caster, 3)
         end
     end
+end
+
+function Filters:FalconBoot(caster)
+    --print("falcon boot?")
+    if not caster:HasModifier("modifier_falcon_immune") then
+        local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+        ability.hero = caster
+        local fv = caster:GetForwardVector()
+        local point = caster:GetAbsOrigin() + fv * 120
+        local speed = 600 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST1)
+        Filters:FalconProjectile(caster, fv, point, speed)
+        Filters:FalconProjectile(caster, fv, point + WallPhysics:rotateVector(fv, math.pi / 2) * 90 - fv * 80, speed)
+        Filters:FalconProjectile(caster, fv, point - WallPhysics:rotateVector(fv, math.pi / 2) * 90 - fv * 80, speed)
+        Filters:FalconProjectile(caster, fv, point + WallPhysics:rotateVector(fv, math.pi / 2) * 180 - fv * 160, speed)
+        Filters:FalconProjectile(caster, fv, point - WallPhysics:rotateVector(fv, math.pi / 2) * 180 - fv * 160, speed)
+        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_SkywrathMage.ArcaneBolt.Cast", caster)
+        
+        ability.liftedTargetsTable = {}
+        local transportLocation = caster:GetAbsOrigin() + fv * 1400
+        ability.transportLocation = transportLocation
+        local travel_duration = 2.25
+        travel_duration = travel_duration * (1 - ability:GetGemValue("amethyst")/10)
+        ability.travel_delay = travel_duration
+        local targetPosition = WallPhysics:WallSearch(caster:GetAbsOrigin(), transportLocation, caster)
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_immune", {duration = travel_duration + 0.05})
+        Timers:CreateTimer(travel_duration - 0.25, function()
+            if ability.liftedTargetsTable then
+                for i = 1, #ability.liftedTargetsTable, 1 do
+                    local target = ability.liftedTargetsTable[i]
+                    FindClearSpaceForUnit(target, targetPosition + RandomVector(RandomInt(20, 100)), false)
+                    Filters:FalconAmethystDamage(caster, target)
+                end
+            end
+        end)
+        Timers:CreateTimer(travel_duration, function()
+            --print("TIME 2.25!")
+            if #ability.liftedTargetsTable > 0 then
+            end
+            --print(#ability.liftedTargetsTable)
+            for i = 1, #ability.liftedTargetsTable, 1 do
+                local target = ability.liftedTargetsTable[i]
+                target:RemoveModifierByName("modifier_falcon_out")
+                --print("CLEAR SPACE!!"..i)
+                if not target:HasModifier("modifier_falcon_immune") then
+                    local freeze_duration = ITEM_RPC_FALCON_BOOTS_FREEZE_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FALCON_BOOTS_GEM_SAPPHIRE2)
+                    Timers:CreateTimer(0.05, function()
+                        ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_falcon_freeze", {duration = freeze_duration})
+                    end)
+                end
+                ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_falcon_immune", {duration = 5})
+                
+            end
+
+        end)
+    end
+end
+
+function Filters:FalconAmethystDamage(caster, target)
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FALCON_BOOTS_GEM_AMETHYST2)/100
+    Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PURE, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS], RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+end
+
+function Filters:FalconProjectile(caster, fv, projectileOrigin, speed)
+    local projectileParticle = "particles/units/heroes/hero_skywrath_mage/falcon_boot_arcane_bolt.vpcf"
+
+    local start_radius = 120
+    local end_radius = 120
+    local range = 1400
+    local info =
+    {
+        Ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS],
+        EffectName = projectileParticle,
+        vSpawnOrigin = projectileOrigin + Vector(0, 0, 75),
+        fDistance = range,
+        fStartRadius = start_radius,
+        fEndRadius = end_radius,
+        Source = caster,
+        StartPosition = "attach_hitloc",
+        bHasFrontalCone = true,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        fExpireTime = GameRules:GetGameTime() + 4.0,
+        bDeleteOnHit = false,
+        vVelocity = fv * speed,
+        bProvidesVision = false,
+    }
+    projectile = ProjectileManager:CreateLinearProjectile(info)
 end

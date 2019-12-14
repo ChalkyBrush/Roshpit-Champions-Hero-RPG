@@ -12042,7 +12042,7 @@
         "DOTA_Tooltip_ability_item_rpc_falcon_boots"                                    "Falcon Boots"
 
         "item_property_falcon_boot"                 "Falcon Swoop"
-        "property_falcon_boot_description"          "5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for <font color='#ccff66'>0</font> seconds."
+        "property_falcon_boot_description"          "5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for <font color='#ccff66'>2</font> seconds."
 
         "item_rpc_falcon_boots_ruby1"                                       "Each point of current movespeed increases Base Attack Damage by @ruby_property1"
         "item_rpc_falcon_boots_emerald1"                                    "Increases Agility and Intelligence by @emerald_property1"

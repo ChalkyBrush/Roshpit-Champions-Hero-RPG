@@ -1111,7 +1111,8 @@ function falcon_boot_impact(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
 	end
-	if target.jumpLock then
+	if target.jumpLock or target.pushLock then
+		Filters:FalconAmethystDamage(event.ability.hero, target)
 		return false
 	end
 	local origCaster = event.ability.hero
@@ -9169,4 +9170,15 @@ function emerald_speedrunners_think(event)
 		end
 	end
 
+end
+
+function falcon_boots_self_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_falcon_ruby", {})
+		local dmg_stacks = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FALCON_BOOTS_GEM_RUBY)
+		hero:SetModifierStackCount("modifier_falcon_ruby", caster, dmg_stacks)
+	end
 end
