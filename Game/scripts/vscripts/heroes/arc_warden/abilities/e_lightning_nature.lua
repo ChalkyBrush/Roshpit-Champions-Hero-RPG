@@ -4,9 +4,16 @@ function jex_activate_thunder_blossom(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
+	if not ability.summons_table then
+		ability.summons_table = {}
+	end
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	local tech_level = onibi_get_total_tech_level(caster, "lightning", "nature", "E")
 	ability.tech_level = tech_level
+	if #ability.summons_table >= tech_level then
+		ability.summons_table[1]:ForceKill(false)
+		reindex_jex_lightning_nature_e_summons_table(ability)
+	end
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 
 	local shroom = CreateUnitByName("jex_thunder_blossom", point, false, caster, caster, caster:GetTeamNumber())
@@ -52,6 +59,21 @@ function jex_activate_thunder_blossom(event)
 	EmitSoundOn("Jex.Thundershroom.Spawn", shroom)
 	EmitSoundOn("Jex.Thundershroom.SpawnSpark", shroom)
 	Filters:CastSkillArguments(3, caster)
+	table.insert(ability.summons_table, shroom)
+end
+
+function reindex_jex_lightning_nature_e_summons_table(ability)
+	local new_summons_table = {}
+	for i = 1, #ability.summons_table, 1 do
+		if ability.summons_table[i] and IsValidEntity(ability.summons_table[i]) and ability.summons_table[i]:IsAlive() and ability.summons_table[i]:HasModifier("modifier_jex_thunder_blossom") then
+			table.insert(new_summons_table, ability.summons_table[i])
+		end
+	end
+	ability.summons_table = new_summons_table
+end
+
+function thunder_blossom_die(event)
+	reindex_jex_lightning_nature_e_summons_table(event.ability)
 end
 
 function jex_thunder_blossom_spawning(event)

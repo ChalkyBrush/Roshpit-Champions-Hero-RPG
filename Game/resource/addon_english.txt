@@ -7267,6 +7267,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_roshpit_attr_per_tech"	"<font color=\"#f4b942\">ARMORS/PIERCES AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_mult_per_tech"	"<font color=\"#f4b942\">ATTACK DAMAGE AS MULTIPLE OF JEX'S PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_per_tech"	"<font color=\"#f4b942\">ATTACK RANGE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_max_concurrent_per_tech"	"<font color=\"#f4b942\">MAX SUMMONS PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_health_mult"			"MAX HEALTH AS A MULTIPLE OF JEX'S:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"% LIGHTNING DAMAGE AS % OF BLOSSOM'S ATTACK POWER:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"BASE ATTACK RANGE:"
