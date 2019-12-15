@@ -89230,7 +89230,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_explode"		"400 15000 60000"
+				"damage_explode"		"200 600 2000"
 			}
 		}
 	}
@@ -89413,7 +89413,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 800 10000"
+				"damage"				"200 600 2000"
 			}
 			"04"
 			{
@@ -89428,7 +89428,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_explode"		"1200 30000 80000"
+				"damage_explode"		"200 600 2000"
 			}
 		}
 	}
