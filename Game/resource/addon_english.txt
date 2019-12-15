@@ -6513,7 +6513,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] Searing Heat"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Second Heartbeat also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Second Heartbeat also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds and can stack up to <font color='#ccff66'>40</font> times."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"Stacking Armor Reduction"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
 		
@@ -12236,7 +12236,7 @@
         "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
         "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
         "item_rpc_red_october_boots_sapphire1"                              "Increases Bellow of Ages damage by @sapphire_property1 and its radius by @sapphire_property2"
-        "item_rpc_red_october_boots_amethyst1"                              "Enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds, and increases [E1] and [E2] runes by @amethyst_property2."
+        "item_rpc_red_october_boots_amethyst1"                              "Increases [E1] and [E2] runes by @amethyst_property2, and enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds"
 
         "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
         "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"

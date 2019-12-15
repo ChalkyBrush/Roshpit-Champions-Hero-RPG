@@ -12243,14 +12243,19 @@
 		"item_property_emerald_speed"							"稳定步伐"
 		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>500</font> 。"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"腥红十月靴"
-    	"item_rpc_red_october_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_red_october_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_red_october"								"自然星火"
-		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <font color='#ccff66'>0</font>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
+        
+        "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
+
+        "item_property_red_october"                             "Bellow of Ages"
+        "property_red_october_description"                      "Enemies hit by @Ability3 have a <font color='#ccff66'>25</font>%  chance to trigger a swell of eternity in a <font color='#ccff66'>400</font> radius that deals <font color='#ccff66'>40</font>% of the ability's damage. Max <font color='#ccff66'>3</font> procs per second."
+
+        "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
+        "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
+        "item_rpc_red_october_boots_sapphire1"                              "Increases Bellow of Ages damage by @sapphire_property1 and its radius by @sapphire_property2"
+        "item_rpc_red_october_boots_amethyst1"                              "Enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds, and increases [E1] and [E2] runes by @amethyst_property2."
+
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"蒸汽长靴"

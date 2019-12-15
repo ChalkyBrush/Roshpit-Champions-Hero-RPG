@@ -375,13 +375,19 @@
 		"property_emerald_speed_description"					"Скорость передвижения не может опуститься ниже <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
-    	"item_rpc_red_october_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_red_october_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <% ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION %>%."
+        
+        "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
+
+        "item_property_red_october"                             "Bellow of Ages"
+        "property_red_october_description"                      "Enemies hit by @Ability3 have a <% ITEM_RPC_RED_OCTOBER_BOOTS_PROC_CHANCE %>%  chance to trigger a swell of eternity in a <% ITEM_RPC_RED_OCTOBER_BOOTS_RADIUS %> radius that deals <% ITEM_RPC_RED_OCTOBER_BOOTS_PROC_DAMAGE %>% of the ability's damage. Max <% ITEM_RPC_RED_OCTOBER_BOOTS_MAX_PROCS_PER_SECOND %> procs per second."
+
+        "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
+        "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
+        "item_rpc_red_october_boots_sapphire1"                              "Increases Bellow of Ages damage by @sapphire_property1 and its radius by @sapphire_property2"
+        "item_rpc_red_october_boots_amethyst1"                              "Enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds, and increases [E1] and [E2] runes by @amethyst_property2."
+
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
