@@ -389,7 +389,7 @@ function a_b_attack(event)
 						local additional_armorLoss = math.ceil(1.0 * w_3_level)
 						w_ability:ApplyDataDrivenModifier(caster, enemy, "modifier_searing_heat", {duration = 6})
 						local current_stack = enemy:GetModifierStackCount("modifier_searing_heat", w_ability)
-						local stacks = math.min(current_stack + additional_armorLoss, 10000)
+						local stacks = math.min(current_stack + additional_armorLoss, FLAMEWAKER_W3_STACK_LIMIT)
 						enemy:SetModifierStackCount("modifier_searing_heat", w_ability, stacks)
 					end
 				end

@@ -434,7 +434,7 @@ function serengaard_never_die(event)
 	EmitSoundOn("nevermore_nev_arc_death_12", caster)
 	local luck = RandomInt(1, 5)
 	if luck == 3 then
-		RPCItems:RollNeverlordRing(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_neverlord_soul_ring")
 	end
 	Serengaard:Mithril("neverlord", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_NEVERLORD)
 end

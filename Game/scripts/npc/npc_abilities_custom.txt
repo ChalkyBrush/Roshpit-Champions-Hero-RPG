@@ -4532,30 +4532,35 @@
 			}		
 			"05"
 			{
+				"var_type"				"FIELD_INTEGER"
+				"max_concurrent_per_tech"				"1"
+			}		
+			"06"
+			{
 				"var_type"				"FIELD_FLOAT"
 				"health_mult"				"0.1 0.15 0.2 0.25 0.3 0.35"
 			}	
-			"06"
+			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"damage_pct_atk_power"				"20"
 			}
-			"07"
+			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"attack_range_base"				"375"
 			}	
-			"08"
+			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"cast_range"				"900 1000 1100 1200 1300 1400 1500"
 			}	
-			"09"
+			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"q_4_blossom_magic_armor"			"150"
 			}
-			"10"
+			"11"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"w_4_damage_increase_pct"			"10"
@@ -4604,6 +4609,14 @@
 						"target"		"TARGET"
 						"damage_pct_atk_power"	"%damage_pct_atk_power"
 						"w_4_damage_increase_pct"	"%w_4_damage_increase_pct"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/e_lightning_nature.lua"
+						"Function"		"thunder_blossom_die"
 					}
 				}
 			}
@@ -23605,7 +23618,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-10"
+				"property_one"			"-3"
 			}
 		}
 	}
@@ -85933,10 +85946,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_head_armor"
 			{
@@ -86283,10 +86292,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_weapon_armor"
 			{
@@ -86639,10 +86644,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_hands_armor"
 			{
@@ -86989,10 +86990,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_feet_armor"
 			{
@@ -87339,10 +87336,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_body_armor"
 			{
@@ -87689,10 +87682,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "1"
-				}
 			}
 			"modifier_amulet_armor"
 			{
@@ -96957,10 +96946,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_helm_attack_damage"
 			{
@@ -97766,10 +97751,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_body_max_health"
 			{
@@ -98071,10 +98052,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_magic_resist"
 			{

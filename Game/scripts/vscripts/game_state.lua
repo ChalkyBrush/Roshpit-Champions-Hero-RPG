@@ -606,7 +606,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		if target:HasModifier("modifier_outland_stone_cuirass") then
 			if target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
 				if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
-					duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)/100
+					duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)
 				end
 			end
 		end
@@ -615,7 +615,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
 			end
 		end
-
+		if target:HasModifier("modifier_rooted_feet_immobile_active") then
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROOTED_FEET_GEM_AMETHYST)
+			end
+		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 			if duration_modifier >= 100 then
 				return false
@@ -761,11 +765,11 @@ function GameState:OrderFilter(orderTable)
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
 				else
-					unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_neptune_gliding_new", {duration = 20})
-					unit.foot.slideSpeed = 8
-					unit.foot.movementPosition = Vector(orderTable.position_x, orderTable.position_y)
-					local movementForward = ((unit.foot.movementPosition - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-					unit.foot.movementForward = movementForward
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_neptune_gliding_new", {duration = 20})
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].slideSpeed = 8
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementPosition = Vector(orderTable.position_x, orderTable.position_y)
+					local movementForward = ((unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementPosition - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+					unit.equipped_gear[RPC_GEAR_SLOT_BOOTS].movementForward = movementForward
 				end
 			end
 		end
@@ -782,9 +786,11 @@ function GameState:OrderFilter(orderTable)
 					print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
-						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION})
+						local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
+						unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = speed_duration})
+						
 						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS)
-						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
+						-- unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
 						EmitSoundOn("Items.PivotalSwift", unit)
 					end
 					unit:SetForwardVector(fv)
@@ -954,29 +960,36 @@ function GameState:OrderFilter(orderTable)
 			end
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				if unit.ice_floe_table.last_clicked then
-					if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+					if unit:IsStunned() or unit:IsFrozen() or (unit:IsRooted() and unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") < 1) or unit:HasModifier("modifier_ice_floe_cooldown") then
 					else
-						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE) then
-							unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
+						local max_distance = ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_RUBY)
+						if (GameRules:GetGameTime() - unit.ice_floe_table.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.ice_floe_table.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 200) and (WallPhysics:GetDistance2d(unit:GetAbsOrigin(), Vector(orderTable.position_x, orderTable.position_y)) < max_distance) then
+							unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_sliding", {duration = 2})
 							unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 							unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
-							unit.ice_floe_table.speed = 50
+							unit.ice_floe_table.speed = 50 * (1 + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_EMERALD2)/100 + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_SAPPHIRE2)/100)
 							EmitSoundOn("RPCItems.IceFloeSlipper.Go", unit)
 							StartAnimation(unit, {duration = 1, activity = ACT_DOTA_VERSUS, rate = 2})
-							local pfxTest = ParticleManager:CreateParticle("particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path_b.vpcf", PATTACH_CUSTOMORIGIN, nil)
+							local pfxTest = ParticleManager:CreateParticle("particles/roshpit/items/ice_flow_slippers_b.vpcf", PATTACH_CUSTOMORIGIN, nil)
 							local moveFV = ((unit.ice_floe_table.last_position - unit:GetAbsOrigin()) * Vector(1, 1, 1)):Normalized()
 							local distance = WallPhysics:GetDistance2d(unit:GetAbsOrigin(), unit.ice_floe_table.last_position)
 							ParticleManager:SetParticleControl(pfxTest, 0, unit:GetAbsOrigin())
 							ParticleManager:SetParticleControl(pfxTest, 1, unit:GetAbsOrigin() + moveFV * distance)
-							ParticleManager:SetParticleControl(pfxTest, 2, Vector(1, 1, 1))
+							ParticleManager:SetParticleControl(pfxTest, 2, Vector(2, 2, 2))
 							ParticleManager:SetParticleControlEnt(pfxTest, 9, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 							Timers:CreateTimer(1.5, function()
 								ParticleManager:DestroyParticle(pfxTest, false)
 							end)
+							if unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+								unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_amethyst_shield", {duration = ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION})
+								unit:SetModifierStackCount("modifier_ice_floe_amethyst_shield", unit.InventoryUnit, unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_FLOE_SLIPPERS_GEM_AMETHYST))
+							end
+							unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_ice_floe_cooldown", {duration = ITEM_RPC_ICE_FLOE_SLIPPERS_COOLDOWN})
+							
 						end
 					end
 				end
-				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() then
+				if unit:IsStunned() or unit:IsFrozen() or (unit:IsRooted() and unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") < 1) or unit:HasModifier("modifier_ice_floe_cooldown") then
 				else
 					unit.ice_floe_table.last_clicked = GameRules:GetGameTime()
 					unit.ice_floe_table.last_position = Vector(orderTable.position_x, orderTable.position_y)
@@ -1129,18 +1142,70 @@ function GameState:OrderFilter(orderTable)
 							CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf", unit, 3)
 							local clampDistance = ability.q_4_level * AURIUN_ARCANA_1_Q4_TP_DISTANCE + AURIUN_ARCANA_1_Q4_TP_DISTANCE_BASE
 							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
-							--print("AHOLA1")
-							--print(Vector(orderTable.position_x, orderTable.position_y))
 							local teleportDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-							--print(teleportDirection)
-							--print(distance)
-							--print(teleportDirection*distance)
-							--print("ALOHA2")
+							
 							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), unit:GetAbsOrigin() + teleportDirection * distance, unit)
 							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
 							EmitSoundOn("Auriun.ShieldHit", unit)
 							Timers:CreateTimer(0.1, function()
 								CustomAbilities:QuickAttachParticle("particles/econ/events/ti5/blink_dagger_end_ti5.vpcf", unit, 3)
+							end)
+						end
+					end
+				end
+			end
+		end
+		if unit:HasModifier("modifier_emerald_speed_runners") then
+			if not unit:HasModifier("modifier_emerald_speedrunner_sapphire_cd") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION and unit:IsRooted() then
+					if unit:IsStunned() or unit:IsFrozen() then
+					else
+						local ability = unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+						if IsValidEntity(ability) and ability:GetGemValue("sapphire") > 0 then
+							ability:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_emerald_speedrunner_sapphire_cd", {duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE2)})
+							CustomAbilities:QuickAttachParticle("particles/econ/events/ti8/blink_dagger_ti8_start.vpcf", unit, 3)
+							local clampDistance = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_SAPPHIRE1)
+							local distance = math.min(WallPhysics:GetDistance2d(Vector(orderTable.position_x, orderTable.position_y), unit:GetAbsOrigin()), clampDistance)
+							local teleportDirection = ((Vector(orderTable.position_x, orderTable.position_y) - unit:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), unit:GetAbsOrigin() + teleportDirection * distance, unit)
+							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
+							EmitSoundOn("RPCItems.EmeraldSpeedRunners.Sapphire", unit)
+							Timers:CreateTimer(0.1, function()
+								CustomAbilities:QuickAttachParticle("particles/econ/events/ti8/blink_dagger_ti8_end.vpcf", unit, 3)
+							end)
+						end
+					end
+				end
+			end
+		end
+		if unit:HasModifier("modifier_moon_tech_runners") then
+			if not unit:HasModifier("modifier_moon_tech_emerald_cd") then
+				if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+					if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
+					else
+						local ability = unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+						local valid_position = false
+						local order_position = Vector(orderTable.position_x, orderTable.position_y)
+						if ability.moon_tech_thinker_table then
+							for i = 1, #ability.moon_tech_thinker_table, 1 do
+								local distance = WallPhysics:GetDistance2d(ability.moon_tech_thinker_table[i]:GetAbsOrigin(), order_position)
+								if distance <= ITEM_RPC_MOON_TECH_RUNNERS_RADIUS then
+									valid_position = true
+									break
+								end
+							end
+						end
+						if IsValidEntity(ability) and ability:GetGemValue("emerald") > 0 and valid_position then
+							ability:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_moon_tech_emerald_cd", {duration = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MOON_TECH_RUNNERS_GEM_EMERALD)})
+							CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/blink_dagger_ti9_start.vpcf", unit, 3)
+							local position2 = WallPhysics:WallSearch(unit:GetAbsOrigin(), order_position, unit)
+							FindClearSpaceForUnit(unit, position2, false)
+							ProjectileManager:ProjectileDodge(unit)
+							EmitSoundOn("RPCItems.MoonTechRunners.Emerald", unit)
+							Timers:CreateTimer(0.1, function()
+								CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/blink_dagger_ti9_end.vpcf", unit, 3)
 							end)
 						end
 					end
@@ -1513,7 +1578,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
             damage = damage * (1 - result)
         end
     )
-	if damagetype == DAMAGE_TYPE_PHYSICAL then
+if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_active_shields") then
 			local shields_count = victim:GetModifierStackCount("modifier_stormshield_active_shields", victim.InventoryUnit)
 			damage = damage * (1 - (shields_count * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION))
@@ -1530,6 +1595,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_starseeker_passive") then
 			damage = 0
+		end
+		if victim:HasModifier("modifier_resplendent_rubber_boots") then
+			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
@@ -1647,6 +1715,9 @@ function GameState:IncomingDamageIncrease(victim, attacker, bReal, damagetype)
 		local total_azinoth = ITEM_RPC_CLAW_OF_AZINOTH_DAMAGE_AMP - victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CLAW_OF_AZINOTH_GEM_RUBY) + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE1)
 		damage = damage * (100 + total_azinoth)/100
 	end
+	if victim:HasModifier("modifier_crystalline_slippers") then
+		damage = damage * (100 + ITEM_RPC_CRYSTALLINE_SLIPPERS_RESIST_LOSS)/100
+	end
 	if victim:HasModifier("modifier_frostiok_damage_amp") then
 		local buffCaster = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetCaster()
 		local buffAbility = victim:FindModifierByName("modifier_frostiok_damage_amp"):GetAbility()
@@ -1672,11 +1743,22 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = ITEM_RPC_ABLECORE_GREAVES_DMG_RED + victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1)
 		damage = damage * (100-reduction)/100
 	end
-	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
+	if victim:HasModifier("modifier_pivotal_swiftboots") then
+		if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
+			local current_fv = victim:GetForwardVector()
+			local direction_of_enemy_from_wearer = ((attacker:GetAbsOrigin() - victim:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local angle_between = WallPhysics:angle_between_vectors(current_fv, direction_of_enemy_from_wearer)
+			if angle_between >= 180 - (ITEM_RPC_PIVOTAL_SWIFTBOOTS_EMERALD_ANGLE_DEGREES/2) and angle_between <= 180+ (ITEM_RPC_PIVOTAL_SWIFTBOOTS_EMERALD_ANGLE_DEGREES/2) then
+				damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_EMERALD ))/100
+			end
+		end
 	end
+
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
+	end
+	if victim:HasModifier("modifier_crystalline_slippers") and victim:IsRooted() then
+		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE)/100)
 	end
 	if victim:HasModifier("modifier_bloodstone_boots") then
 		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
@@ -1710,7 +1792,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_axe_glyph_1_1") then
 		damage = damage * (100-RED_GENERAL_GLYPH_1_1_DMG_REDUCTION_PCT)/100
 	end
-	if victim:HasModifier("modifier_redrock_footwear_damage_reduction") then
+	if victim:HasModifier("modifier_redrock_footwear_caster_visible") then
 		damage = damage * (100-ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT)/100
 	end
 	if victim:HasModifier("modifier_gravelfoot_buff") then
@@ -1788,7 +1870,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_possession_enemy_lock") then
 		damage = 0
 	end
-	if victim:HasModifier("modifier_rooted_feet_health_regen") then
+	if victim:HasModifier("modifier_rooted_feet_immobile_active") then
 		damage = damage * (100-ITEM_RPC_ROOTED_FEET_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_ice_scathe_q2_shield") then
@@ -1845,13 +1927,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
 		local damage_reduction = ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST1)
 		damage = damage * (100-damage_reduction)/100
-	end
-
-	if victim:HasModifier("modifier_red_october_boots") then
-		local EAbility = victim:GetAbilityByIndex(DOTA_E_SLOT)
-		if EAbility:GetCooldownTimeRemaining() > 0 then
-			damage = damage * (100-ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION)/100
-		end
 	end
 
 	if victim:HasModifier("modifier_world_tree_effect") then
@@ -2459,6 +2534,14 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+	if victim:HasModifier("modifier_ice_floe_amethyst_shield") then
+		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = 0
+			if applyEffects then
+				CustomAbilities:HitShieldGeneric(victim, attacker, victim, "modifier_ice_floe_amethyst_shield")
+			end
+		end
+	end
 	if victim:HasModifier("modifier_infused_mageplate_shield") then
 		filterTable["damage"] = 0
 		if applyEffects then
@@ -2790,11 +2873,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
 
-	if attacker:HasModifier("modifier_crystalline_slippers") and not damageData.ignoreMultipliers and not damageData.ignorePremitigation then
-		if victim:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP
-		end
-	end
 	if attacker:HasModifier("modifier_boss_illusion_ability_effect") then
 		filterTable["damage"] = filterTable["damage"] * 0.1
 	end
@@ -3211,11 +3289,6 @@ function GameState:FilterDamage(filterTable)
 	local increaseIncoming = GameState:IncomingDamageIncrease(victim, attacker, true, damagetype)
 	filterTable["damage"] = filterTable["damage"] * increaseIncoming
 
-	if victim:HasModifier("modifier_crystalline_slippers") then
-		if attacker:IsRooted() then
-			filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED)/100
-		end
-	end
 	-- wEIRD MONSTERS
 	if victim:HasModifier("modifier_mystery_summon_passive") then
 		filterTable["damage"] = 0

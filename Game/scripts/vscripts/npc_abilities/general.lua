@@ -695,7 +695,7 @@ function ms_thinker(event)
 
 	local modifier_emerald_speed_runners = unit:FindModifierByName("modifier_emerald_speed_runners")
 	if modifier_emerald_speed_runners then
-		local msValue = ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP
+		local msValue = ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY)
 		--print("modifier_emerald_speed_runners "..tostring(msValue))
 		max_ms = math.max(msValue, max_ms)
 		actual_movespeed = math.max(msValue, actual_movespeed)
@@ -705,10 +705,13 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + (max_ms)*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
+	end
+	if unit:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		max_ms = max_ms + ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS
 	end
 
-	if max_ms > 550 and actual_movespeed > 550 then
+	if (max_ms > 550 and actual_movespeed > 550) or (unit:HasModifier("modifier_emerald_speed_runners")) then
 		unit.master_move_speed = math.min(max_ms, actual_movespeed)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else

@@ -36,11 +36,12 @@ function second_heartbeat_damage(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_flamewaker_glyph_4_1_effect", {duration = FLAMEWAKER_GLYPH_4_1_SLOW_DURATION})
 	end
 	damage = damage * (1 + (FLAMEWAKER_W2_DAMAGE_BONUS_PCT/100) * ability.w_2_level)
-	if ability.w_3_level > 0 then
-		local additional_armorLoss = math.ceil(1.0 * ability.w_3_level)
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
+		local additional_armorLoss = math.ceil(1.0 * w_3_level)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_searing_heat", {duration = 6})
 		local current_stack = target:GetModifierStackCount("modifier_searing_heat", ability)
-		local stacks = math.min(current_stack + additional_armorLoss, 10000)
+		local stacks = math.min(current_stack + additional_armorLoss, FLAMEWAKER_W3_STACK_LIMIT * w_3_level)
 		target:SetModifierStackCount("modifier_searing_heat", ability, stacks)
 		target:CalculateAndSaveRoshpitAttributes()
 	end

@@ -153,12 +153,282 @@
 		"DOTA_Tooltip_modifier_devotion_aura_buff_Description"	"Gaining Armor"
 
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"Crystalline Slippers"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
-		"property_crystalline"												"Crystal Root"
-		"property_crystalline_Description"									"Enemies who are rooted deal <% ITEM_RPC_CRYSTALLINE_SLIPPERS_DAMAGE_REDUCTION_FROM_ROOTED %>% reduced damage to you, and take <% ITEM_RPC_CRYSTALLINE_SLIPPERS_PRE_MITI_AMP %>x pre-mitigation damage from you."
+        "property_crystalline"                                              "Glass Dancer"
+        "property_crystalline_Description"                                  "Increases all damage taken by <% ITEM_RPC_CRYSTALLINE_SLIPPERS_RESIST_LOSS %>% and increases Item Damage and Base Ability Damage by <% ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP %>%."
+
+		"item_rpc_crystalline_slippers_ruby1"				"Reduces Armor by @ruby_property1 and increases Armor Pierce by @ruby_property2"
+		"item_rpc_crystalline_slippers_emerald1"				"Gain @emerald_property1% evasion while in motion, and gain @emerald_property2% increased Attack Power while standing still"
+		"item_rpc_crystalline_slippers_sapphire1"				"Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <% ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION %> seconds"
+		"item_rpc_crystalline_slippers_amethyst1"				"Reduces Magic Armor by @amethyst_property1 and increases Spell Pierce by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_crystalline_sapphire_root"		"Glass Dancer (Sapphire)"
+		"DOTA_Tooltip_modifier_crystalline_sapphire_root_Description"	"Rooted"
+
+		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
+		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Increased Evasion while in motion"
+
+        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
+        "item_property_dunetread"                   "Dunewalker"
+        "property_dunetread_description"            "Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
+
+        "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
+        "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
+        "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
+        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
+
+        "item_property_emerald_speed"                           "Stable Pace"
+        "property_emerald_speed_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
+
+        "item_rpc_emerald_speed_runners_ruby1"                          "Increases Stable Pace minimum movespeed by an additional @ruby_property1"
+        "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
+        "item_rpc_emerald_speed_runners_sapphire1"                          "While rooted, issuing a Move Order will teleport you to the target position. Clamped distance of @sapphire_property1, and has a @sapphire_property2 second cooldown"
+        "item_rpc_emerald_speed_runners_amethyst1"                          "[E] cooldown can never be more than @amethyst_property1 seconds"
+
+        "DOTA_Tooltip_modifier_emerald_speedrunner_sapphire_cd"				"Stable Pace (Sapphire) Cooldown"
+
+        "DOTA_Tooltip_ability_item_rpc_falcon_boots"                                    "Falcon Boots"
+
+        "item_property_falcon_boot"                 "Falcon Swoop"
+        "property_falcon_boot_description"          "5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for <% ITEM_RPC_FALCON_BOOTS_FREEZE_DURATION %> seconds."
+
+        "item_rpc_falcon_boots_ruby1"                                       "Each point of current movespeed increases Base Attack Damage by @ruby_property1"
+        "item_rpc_falcon_boots_emerald1"                                    "Increases Agility and Intelligence by @emerald_property1"
+        "item_rpc_falcon_boots_sapphire1"                                   "Increases Attack Speed by @sapphire_property1 and increases the Freeze Duration of Falcon Swoop by @sapphire_property2 seconds"
+        "item_rpc_falcon_boots_amethyst1"                                   "Increases falcon fly speed by @amethyst_property1 and enemies take @amethyst_property2% of your Attack Power as damage upon landing"
+
+        "DOTA_Tooltip_modifier_falcon_freeze"       "Falcon Swoop"
+        "DOTA_Tooltip_modifier_falcon_freeze_Description"   "Frozen"
+
+    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
+
+		"item_property_fire_walkers"				"Lava Path"
+		"property_fire_walkers_description"			"Leaves puddles of burning fire as you move. The fire deals <% ITEM_RPC_FIRE_WALKERS_DAMAGE_X_SUM_ATTRIBUTES %>x the sum of all of your attributes every <% ITEM_RPC_FIRE_WALKERS_INTERVAL %> seconds to all enemies who come into contact. Flame puddles last for <% ITEM_RPC_FIRE_WALKERS_DURATION %> seconds."
+
+    	"item_rpc_fire_walkers_ruby1"									"Attacking an enemy has a @ruby_property1% chance to create a Lava Path puddle beneath their feet, and enemies standing in Lava Path have @ruby_property2 reduced Armor"
+    	"item_rpc_fire_walkers_emerald1"									"Lava Path puddles last @emerald_property1 seconds longer and deal @emerald_property2 more damage"
+    	"item_rpc_fire_walkers_sapphire1"									"Enemies who step in a Lava Path puddle will ignite and additionally take @sapphire_property1% of Lava Path's damage every <% ITEM_RPC_FIRE_WALKERS_INTERVAL %> seconds for <% ITEM_RPC_FIRE_WALKERS_SAPPHIRE_BURN_DURATION %> seconds"
+    	"item_rpc_fire_walkers_amethyst1"									"Enemies hit by [Q], [E] or [R] have a @amethyst_property1% chance to have a Lava Path puddle created beneath their feet"
+
+    	"DOTA_Tooltip_modifier_fire_walkers_sapphire"		"Lava Path (Sapphire)"
+    	"DOTA_Tooltip_modifier_fire_walkers_sapphire_Description"	"Taking burn damage on a <% ITEM_RPC_FIRE_WALKERS_INTERVAL %> second interval"
+
+    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers"									"Ghost Slippers"
+    	"item_property_ghost_slippers"													"Ghost Slippers"
+    	"property_ghost_slippers_description"											"No unit collision"
+
+        "item_rpc_ghost_slippers_ruby1"                                       "No Effect"
+        "item_rpc_ghost_slippers_emerald1"                                    "No Effect"
+        "item_rpc_ghost_slippers_sapphire1"                                   "No Effect"
+        "item_rpc_ghost_slippers_amethyst1"                                   "No Effect"
+
+    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
+		"item_property_giant_hunter_boot"					"Giant Hunter"
+		"property_giant_hunter_boot_description"			"When stunned, gain Spell Immunity for <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION %> seconds."
+		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
+		
+    	"item_rpc_giant_hunters_boots_of_resilience_ruby1"				"Gain Spell Immunity for @ruby_property1 seconds when Rooted"
+    	"item_rpc_giant_hunters_boots_of_resilience_emerald1"				"Gain @emerald_property1 Armor Pierce if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+    	"item_rpc_giant_hunters_boots_of_resilience_sapphire1"				"Gain @sapphire_property1 Spell Pierce if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+    	"item_rpc_giant_hunters_boots_of_resilience_amethyst1"				"Gain @amethyst_property1 Armor and Magic Armor if there is a Boss or Paragon enemy within <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS %> range"
+
+		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
+
+		"item_property_gravelfoot"							"Gravelfoot"
+		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %> and damage taken by <% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%."
+		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
+		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
+
+		"item_rpc_gravelfoot_treads_ruby1"	"Increases Max Health by @ruby_property1, and Strength and Spirit by @ruby_property2"
+		"item_rpc_gravelfoot_treads_emerald1"	"Reduces the movespeed loss while in Stone Form by @emerald_property1"
+		"item_rpc_gravelfoot_treads_sapphire1"	"While in Stone Form gain @sapphire_property1 Armor and Magic Armor"
+		"item_rpc_gravelfoot_treads_amethyst1"	"Castiing [E] activates Stone Form for @amethyst_property1 seconds"
+
+    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
+
+		"item_property_guardian_greaves"			"Guardian's Stride"
+		"property_guardien_greaves_description"		"Casting @Ability3 activates Guardian Greaves on yourself and allies within <% ITEM_RPC_GUARDIAN_GREAVES_RADIUS%> range, healing for <% ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_STRENGTH %>x your Strength and restoring mana by <% ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_INTELLIGENCE %>x your Intelligence. <% ITEM_RPC_GUARDIAN_GREAVES_COOLDOWN %> second cooldown." 
+		"DOTA_Tooltip_modifier_guardian_greaves_shield"					"Guardian Greaves"
+
+    	"item_rpc_guardian_greaves_ruby1"								"Moving @ruby_property1 distance activates Guardian Greaves"
+    	"item_rpc_guardian_greaves_emerald1"								"Guardian Greaves applies a shield that increases Armor and Armor Pierce by @emerald_property1x your Agility for <% ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION %> seconds"
+    	"item_rpc_guardian_greaves_sapphire1"								"Increases Strength and Intelligence by @sapphire_property1"
+    	"item_rpc_guardian_greaves_amethyst1"								"Guardian Greaves applies a shield that increases Magic Armor and Spell Pierce by @amethyst_property1x your Spirit for <% ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION %> seconds"
+
+    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
+    	"item_rpc_harvester_boots_ruby1"									"Increases this item's Property 1 roll by @ruby_property1%"
+    	"item_rpc_harvester_boots_emerald1"									"Increases this item's Property 3 roll by @emerald_property1%"
+    	"item_rpc_harvester_boots_sapphire1"									"Increases this item's Property 2 roll by @sapphire_property1%"
+    	"item_rpc_harvester_boots_amethyst1"									"Increases this item's Property 4 roll by @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
+
+		"item_property_ice_floe_slippers"					"Ice Floe"
+		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
+
+		"item_rpc_ice_floe_slippers_ruby1"	"Removes the Rooted restriction and increases max travel distance by @ruby_property1"
+		"item_rpc_ice_floe_slippers_emerald1"	"Increaes [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
+		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=\"#87D9FF\">Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
+		"item_rpc_ice_floe_slippers_amethyst1"	"When Ice Floe is triggered, gain a shield that absorbs @amethyst_property1 instances of Magic and Pure Damage for <% ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION %> seconds."
+
+		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield"	"Ice Floe (Amethyst)"
+		"DOTA_Tooltip_modifier_ice_floe_amethyst_shield_Description"	"Absorbing Magic and Pure damage"
+
+		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
+
+		"item_property_iron_treads_of_destruction"					"Improved Initiative"
+		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+
+		"item_rpc_iron_treads_of_destruction_ruby1"	"Increases [R] Base Ability Damage by @ruby_property1%"
+		"item_rpc_iron_treads_of_destruction_emerald1"	"Increases all [R] runes by @emerald_property1"
+		"item_rpc_iron_treads_of_destruction_sapphire1"	"Increases all attributes by @sapphire_property1"
+		"item_rpc_iron_treads_of_destruction_amethyst1"	"Reduce [R] cooldown by @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
+		"item_property_mana_striders"				"Mana Stride"
+		"property_mana_striders_description"		"Restore <% ITEM_RPC_MANA_STRIDERS_MANA_RESTORE_PCT %>% of your max Mana for every <% ITEM_RPC_MANA_STRIDERS_DISTANCE %> units moved."
+		
+    	"item_rpc_mana_striders_ruby1"									"Each point of current mana increases Spell Pierce by @ruby_property1"
+    	"item_rpc_mana_striders_emerald1"									"Increases Max Mana by @emerald_property1, and each 1% of current mana increases movespeed by @emerald_property2"
+    	"item_rpc_mana_striders_sapphire1"									"Increases Intelligence by @sapphire_property1, and casting [E] restores @sapphire_property2% of Max Mana"
+    	"item_rpc_mana_striders_amethyst1"									"Increases Base Ability Damage by @amethyst_property1% and casting an ability consumes @amethyst_property2% of max mana"
+    	
+    	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
+
+		"item_property_moon_techs"					"Moon Dust"
+		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon dust with <% ITEM_RPC_MOON_TECH_RUNNERS_RADIUS %> radius that reduces enemies' movespeed by <% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>%. Lasts <% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %> seconds."
+
+        "DOTA_Tooltip_moon_tech_aura"               "Moon Dust"
+        "DOTA_Tooltip_moon_tech_aura_Description"   "Reduced Movespeed" 
+
+    	"item_rpc_moon_tech_runners_ruby1"								"Enemies in the dust have @ruby_property1 reduced attack speed, and take @ruby_property2% of your attack power as damage every <% ITEM_RPC_MOON_TECH_RUNNERS_RUBY_INTERVAL %> seconds"
+    	"item_rpc_moon_tech_runners_emerald1"								"Issuing a move order within the Moon Dust cloud teleports you to that position and disjoints projectiles. @emerald_property1 second cooldown on the teleport."
+    	"item_rpc_moon_tech_runners_sapphire1"								"Enemies standing in Moon Dust have @sapphire_property1 reduced Magic Armor and @sapphire_property2% chance to miss with attacks"
+    	"item_rpc_moon_tech_runners_amethyst1"								"Increases Item Damage and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
+        "DOTA_Tooltip_modifier_moon_tech_emerald_cd"    "Moon Tech Runners (Emerald) Cooldown"
+
+        "DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"                          "Neptune's Water Gliders"
+
+        "item_property_neptune"                     "Puddle Drifter"
+        "property_neptune_description"              "Issuing a move order adds a slippery effect that makes you run faster and slide."
+
+        "item_rpc_neptunes_water_gliders_ruby1"                         "Each point of Intelligence increases Movespeed and Attack Speed by @ruby_property1"
+        "item_rpc_neptunes_water_gliders_emerald1"                          "Casting [E] creates a puddle of water with <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_EMERALD_RADIUS %> radius. While standing in the water, gain @emerald_property1 mana regen, and @emerald_property2 Spell Pierce and Magic Armor"
+        "item_rpc_neptunes_water_gliders_sapphire1"                         "Casting [W] creates a water torrent that launches you forward with a force of <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_JUMP_HEIGHT %>. The jump travels forward based on Puddle Drifter's glide speed. @sapphire_property1 second cooldown. Must be touching the ground to activate. When you land, stun enemies for @sapphire_property2 seconds and deal @sapphire_property3% of your attack power as damage in <% ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_RADIUS %> range"
+        "item_rpc_neptunes_water_gliders_amethyst1"                         "Increases All T3 runes by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
+        "property_oceanrunner"                                              "Oceanrunner"
+        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>%."
+
+        "item_rpc_oceanrunner_boots_ruby1"                  "Every <% ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE %> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
+        "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"
+        "item_rpc_oceanrunner_boots_sapphire1"                  "Each point of Agility increases Item Damage by @sapphire_property1%"
+        "item_rpc_oceanrunner_boots_amethyst1"                  "Gain @amethyst_property1% increased attack power while in motion"
+
+        "DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"                      "Pathfinder's Resonant Boots"
+
+        "item_property_pathfinder"                  "Purifying Resonance"
+        "property_pathfinder_description"           "After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
+
+        "DOTA_Tooltip_modifier_resonant_boots_active"                   "Purifying Resonance"
+        "DOTA_Tooltip_modifier_pathfinder_resonant_cooldown"            "Purifying Resonance Cooldown"
+
+        "item_rpc_pathfinders_resonant_boots_ruby1"                     "Reduces the delay of not taking damage to reactivate Purifying Resonance by @ruby_property1 seconds"
+        "item_rpc_pathfinders_resonant_boots_emerald1"                      "While Purifying Resonance is active, gain @emerald_property1 Armor Pierce and Spell Pierce"
+        "item_rpc_pathfinders_resonant_boots_sapphire1"                     "While Purifying Resonance is active, gain @sapphire_property1% increased Base Ability Damage"
+        "item_rpc_pathfinders_resonant_boots_amethyst1"                     "While Purifying Resonance is active, gain @amethyst_property1% increased Attack Power"
+
+        "DOTA_Tooltip_ability_item_rpc_pegasus_boots"   "Pegasus Boots"
+
+        "item_property_pegasus"                 "Aileron Sprint"
+        "property_pegasus_description"          "Max movespeed is increased by <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS %>."
+
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <% ITEM_RPC_PEGASUS_BOOTS_AMETHYST_THINK_INTERVAL %> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
+
+        "DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"  "Pivotal Swiftboots"
+
+        "item_property_pivotal"                 "Juke"
+        "property_pivotal_description"          "Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed by <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS %>, and gain <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS %> movespeed that gradually decays over 4 seconds. This effect has no cooldown."
+
+        "DOTA_Tooltip_modifier_pivotal_swift"   "Juke"
+        "DOTA_Tooltip_modifier_pivotal_swift_Description"   "Increased movespeed cap, with a decaying movespeed bonus"
+
+        "item_rpc_pivotal_swiftboots_ruby1" "Increases Juke's movespeed bonus by @ruby_property1 and the decay duration by @ruby_property2 seconds"
+        "item_rpc_pivotal_swiftboots_emerald1"  "Take @emerald_property1% reduced damage from behind (<% ITEM_RPC_PIVOTAL_SWIFTBOOTS_EMERALD_ANGLE_DEGREES%>° angle)"
+        "item_rpc_pivotal_swiftboots_sapphire1" "Increases [E1] and [E2] runes by @sapphire_property1"
+        "item_rpc_pivotal_swiftboots_amethyst1" "While Juke is active, gain Base Ability and Item Damage based on @amethyst_property1% of Juke's current movespeed bonus"
+
+        "DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "Redfall Runners"
+
+        "item_property_redfall_runners"                 "Adventurous Miler"
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_AGI_AND_SPR %> and Max Movespeed by <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_AGI_AND_SPR %>."
+        "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
+
+        "item_rpc_redfall_runners_ruby1"                                    "While at full health, gain an additional @ruby_property1 Movespeed and Max Movespeed"
+        "item_rpc_redfall_runners_emerald1"                                 "Each point of current Movespeed increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_redfall_runners_sapphire1"                                    "Each point of current Movespeed increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_redfall_runners_amethyst1"                                    "Increases Agility and Spirit by @amethyst_property1"
+
+        
+        "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
+
+        "item_property_red_october"                             "Bellow of Ages"
+        "property_red_october_description"                      "Enemies hit by @Ability3 have a <% ITEM_RPC_RED_OCTOBER_BOOTS_PROC_CHANCE %>%  chance to trigger a swell of eternity in a <% ITEM_RPC_RED_OCTOBER_BOOTS_RADIUS %> radius that deals <% ITEM_RPC_RED_OCTOBER_BOOTS_PROC_DAMAGE %>% of the ability's damage. Max <% ITEM_RPC_RED_OCTOBER_BOOTS_MAX_PROCS_PER_SECOND %> procs per second."
+
+        "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
+        "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
+        "item_rpc_red_october_boots_sapphire1"                              "Increases Bellow of Ages damage by @sapphire_property1 and its radius by @sapphire_property2"
+        "item_rpc_red_october_boots_amethyst1"                              "Increases [E1] and [E2] runes by @amethyst_property2, and enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds"
+
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
+
+        "DOTA_Tooltip_ability_item_rpc_redrock_footwear"                                "Redrock Footwear"
+
+        "item_property_redrock"                     "Fevering Footwork"
+        "property_redrock_description"              "When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. While the effect persists, damage taken is reduced by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>%. Each pulse increases Max Health by <% ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE %>%."
+
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect_Description"   "Taunted"
+
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible" "Fevering Footwork"
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible_Description" "Increased Max Health"
+
+        "item_rpc_redrock_footwear_ruby1"                               "Increases the Max Health Bonus per pulse by an additional @ruby_property1%"
+        "item_rpc_redrock_footwear_emerald1"                                "Taunted enemies have @emerald_property1 reduced Armor and Armor Pierce"
+        "item_rpc_redrock_footwear_sapphire1"                               "Each pulse increases Armor and Armor Pierce by @sapphire_property1"
+        "item_rpc_redrock_footwear_amethyst1"                               "Adds @amethyst_property1 additional pulses"  
+
+        "DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"                        "Resplendent Rubber Boots"
+        "item_property_resplendent_rubber"                  "Grounding"
+        "property_resplendent_rubber_description"           "Reduces all Magic Damage taken by <% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION %>%."
+        
+        "item_rpc_resplendent_rubber_boots_ruby1"                       "Increases rune [Q1] by @ruby_property1"
+        "item_rpc_resplendent_rubber_boots_emerald1"                        "Increases rune [E1] by @emerald_property1"
+        "item_rpc_resplendent_rubber_boots_sapphire1"                       "Increases rune [W1] by @sapphire_property1"
+        "item_rpc_resplendent_rubber_boots_amethyst1"                       "Increases rune [R1] by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_rooted_feet"                                     "Rooted Feet"
+
+        "item_property_rooted_feet"                 "Deep Earthen Grip"
+        "property_rooted_feet_description"          "While standing still you have <% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>x Armor and Magic Armor, <% ITEM_RPC_ROOTED_FEET_HP_REGEN_PCT %>% health regen, and take <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
+
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active" "Deep Earthen Grip"
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active_Description" "Increased defenses and Health Regen"
+
+        "item_rpc_rooted_feet_ruby1"                                        "Deep Earthen Grip sticks for @ruby_property1 seconds after moving"
+        "item_rpc_rooted_feet_emerald1"                                     "Increases the Health Regen while standing still by an additional @emerald_property1%"
+        "item_rpc_rooted_feet_sapphire1"                                        "Gain @sapphire_property1 Armor Pierce and Spell Pierce while Deep Earthen Grip is active"
+        "item_rpc_rooted_feet_amethyst1"                                        "Gain @amethyst_property1% Status Resistance while Deep Earthen Grip is active"
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -179,26 +449,6 @@
 		"property_sange_description"				"Each point of Agility additionally increases your Max Health by <% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %> and your Max Mana by <% ITEM_RPC_SANGE_BOOTS_MP_PER_AGI %>."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
-		"item_rpc_dunetread_boots_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_dunetread_boots_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_dunetread_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_dunetread_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_dunetread"					"Dunewalker"
-		"property_dunetread_description"			"Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
-    	"item_rpc_guardian_greaves_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_guardian_greaves_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_guardian_greaves_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_guardian_greaves_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_guardian_greaves"			"Guardian's Stride"
-		"property_guardien_greaves_description"		"Every 2500 units of distance moved buffs you and nearby allied heroes. 5x your Strength is restored as health, 5x your Intelligence is restored as mana, and every 10 Agility adds 1 Armor for 4 seconds."
-		"DOTA_Tooltip_modifier_guardian_greaves_armor"					"Guardian Greaves"
-		"DOTA_Tooltip_modifier_guardian_greaves_armor_Description"		"Increased Armor"
-		
-		
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
     	"item_rpc_tranquil_boots_emerald1"									"blah blah @emerald_property1 gem"
@@ -217,31 +467,7 @@
 		"property_yasha_description"				"Increase attack speed by 1 for every <% ITEM_RPC_YASHA_BOOTS_AS_PER_STR %> Strength. Sets Base Attack Time to <% ITEM_RPC_YASHA_BOOTS_BAT %> seconds."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
-    	"item_rpc_mana_striders_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_mana_striders_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_mana_striders_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_mana_striders_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_mana_striders"				"Mana Stride"
-		"property_mana_striders_description"		"Restore <% ITEM_RPC_MANA_STRIDERS_MANA_RESTORE_PCT %>% of your max Mana for every <% ITEM_RPC_MANA_STRIDERS_DISTANCE %> units moved."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_fire_walkers"									"Fire Walkers"
-    	"item_rpc_fire_walkers_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_fire_walkers_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_fire_walkers_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_fire_walkers_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fire_walkers"				"Blazing Trail"
-		"property_fire_walkers_description"			"Leaves puddles of burning fire as you move. The fire deals the sum of all of your attributes every 0.5 seconds to all enemies who come into contact. Enemies standing in the blazing puddles take<br>600% increased <font color=\"#EF4126\">Fire</font> damage from all sources."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"Moon Tech Runners"
-    	"item_rpc_moon_tech_runners_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_moon_tech_runners_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_moon_tech_runners_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_moon_tech_runners_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_moon_techs"					"Moon Dust"
-		"property_moon_techs_description"			"When casting @Ability3, create a cloud of moon dust that reduces enemies' movespeed by <% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>%. Enemies within the cloud also take 1% increased damage for each point of movespeed below the caster's. Lasts <% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %> seconds."
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
@@ -254,25 +480,7 @@
 		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
 		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"Falcon Boots"
-    	"item_rpc_falcon_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_falcon_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_falcon_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_falcon_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_falcon_boot"					"Falcon Swoop"
-		"property_falcon_boot_description"			"5 falcons move with your @Ability3 and collect enemies in their path. At the end of their flight, the falcons drop all enemies in a small space and freeze them for 4 seconds."
-		"DOTA_Tooltip_modifier_falcon_freeze"		"Falcon Swoop"
-		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"Frozen"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"Rooted Feet"
-    	"item_rpc_rooted_feet_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_rooted_feet_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_rooted_feet"					"Deep Earthen Grip"
-		"property_rooted_feet_description"			"While standing still you have <% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>x Armor, <% ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP %>x health regen, and take <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
+	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
@@ -290,45 +498,7 @@
 		"item_property_voyager"						"Voyager"
 		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <% ITEM_RPC_VOYAGER_BOOTS_E_RED %>% of their base cooldown."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
-    	"item_rpc_redrock_footwear_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_redrock_footwear_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. Also increases your current health by <% ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT %>% and reduces damage taken by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
-    	"item_rpc_pathfinders_resonant_boots_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_pathfinder"					"Purifying Resonance"
-		"property_pathfinder_description"			"After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_neptunes_water_gliders"							"Neptune's Water Gliders"
-    	"item_rpc_neptunes_water_gliders_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_neptunes_water_gliders_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_neptunes_water_gliders_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_neptunes_water_gliders_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_neptune"						"Puddle Drifter"
-		"property_neptune_description"				"Issuing a move order adds a slippery effect that makes you run faster and slide."
-		
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
-    	"item_rpc_resplendent_rubber_boots_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_resplendent_rubber_boots_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_resplendent_rubber_boots_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_resplendent_rubber_boots_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_resplendent_rubber"					"Grounding"
-		"property_resplendent_rubber_description"			"Reduces all damage taken by <% ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION %>%."
-		
-		
-		
+	
 		
     	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
     	"item_rpc_terrasic_lava_boots_ruby1"								"blah blah @ruby_property1 gem"
@@ -340,30 +510,7 @@
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
-		
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_giant_hunters_boots_of_resilience"				"Giant Hunter's Boots of Resilience"
-    	"item_rpc_giant_hunters_boots_of_resilience_ruby1"				"blah blah @ruby_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_emerald1"				"blah blah @emerald_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_sapphire1"				"blah blah @sapphire_property1 gem"
-    	"item_rpc_giant_hunters_boots_of_resilience_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_giant_hunter_boot"					"Giant Hunter"
-		"property_giant_hunter_boot_description"			"When stunned or rooted, gain Spell Immunity for <% ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION %> seconds."
-		"DOTA_Tooltip_modifier_giant_hunters_immunity"		"Giant Hunter Spell Immunity"
-		
-		 
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-    	"item_rpc_redfall_runners_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_redfall_runners_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_redfall_runners_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_redfall_runners_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_redfall_runners"					"Fight or Flight"
-		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
-		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Movespeed increased based on missing health"
-		 
-		 
+ 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
     	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"
@@ -374,16 +521,7 @@
 		 "property_sandstream_slippers_description"				"Every <% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS %> stacks."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
-		 
-
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"Harvester Boots"
-    	"item_rpc_harvester_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_harvester_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_harvester_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_harvester_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		 
+ 
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
     	"item_rpc_temporal_warp_boots_ruby1"								"blah blah @ruby_property1 gem"
@@ -393,25 +531,6 @@
 		"item_property_temporal_warp"						"Time Warp"
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-		 
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"							"Emerald Speed Runners"
-    	"item_rpc_emerald_speed_runners_ruby1"							"blah blah @ruby_property1 gem"
-    	"item_rpc_emerald_speed_runners_emerald1"							"blah blah @emerald_property1 gem"
-    	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
-    	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_emerald_speed"							"Unbreakable Stride"
-		"property_emerald_speed_description"					"Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"Red October Boots"
-    	"item_rpc_red_october_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_red_october_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"While @Ability3 is on cooldown, all damage taken is reduced by <% ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION %>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
@@ -423,42 +542,7 @@
 		"property_steamboots_description"				"Each <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> points of Agility increases item damage by <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%."
 		
 	
-		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
-		"item_rpc_oceanrunner_boots_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_oceanrunner_boots_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_oceanrunner_boots_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases Base Ability damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>% for every <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR %> points of Agility."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"Gravelfoot Treads"
-		"item_rpc_gravelfoot_treads_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_gravelfoot_treads_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_gravelfoot"							"Gravelfoot"
-		"property_gravelfoot_description"					"Cleanse an enemy debuff every <% ITEM_RPC_GRAVELFOOT_TREADS_DEBUFF_CLEANCE_INTERVAL %> seconds. When a debuff is cleansed, turn to frosty stone for <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION %> seconds, reducing movespeed by <% ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW %> and damage taken by <% ITEM_RPC_GRAVELFOOT_TREADS_DMG_REDUCTION %>%."
-		"DOTA_Tooltip_modifier_gravelfoot_buff"				"Gravelfoot"
-		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"Movespeed and damage taken are reduced"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_ice_floe_slippers"	"Ice Floe Slippers"
-		"item_rpc_ice_floe_slippers_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_ice_floe_slippers_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_ice_floe_slippers"					"Ice Floe"
-		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
-	
-	
-		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"Iron Treads of Destruction"
-		"item_rpc_iron_treads_of_destruction_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_iron_treads_of_destruction_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_iron_treads_of_destruction_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_iron_treads_of_destruction_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_iron_treads_of_destruction"					"Improved Initiative"
-		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
 
     	"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
     	"item_rpc_storm_pacer_sabatons_ruby1"        "blah blah @ruby_property1 gem"
@@ -468,21 +552,3 @@
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <% ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP %>x damage at close range, to <% ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP %>x damage at the edge. No other effects or modifiers can further increase this instance of damage, but it pierces Steadfast defenses, raising their damage truncation thresholds to <% ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD %>x the normal value (or <% ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD %>x for Mega Steadfast). Ring emission has a 1 second cooldown."
 
-		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"If your @Ability3 involves movement, it travels <% ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT %>% faster. Max movespeed is increased by <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT %>%."
-
-		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
-		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pivotal_swiftboots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pivotal_swiftboots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pivotal_swiftboots_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_pivotal"					"Juke"
-		"property_pivotal_description"			"Turning becomes immediate. When making a quick 180° turn, gain a burst of speed that increases max movement speed to <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS %>, and gain <% ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS %> movespeed that gradually decays over 4 seconds. This effect has no cooldown."
-
-		"DOTA_Tooltip_modifier_pivotal_swift"	"Juke"
-		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Increased movespeed cap, with a decaying movespeed bonus"

@@ -11998,12 +11998,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
-    	"item_rpc_rooted_feet_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_rooted_feet_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"根深蒂固"
-		"property_rooted_feet_description"			"当玩家静止不动时获得<font color='#ccff66'>2</font>倍的护甲值、<font color='#ccff66'>3</font>倍的生命回复速度和<font color='#ccff66'>50</font>%减伤。"
+        "property_rooted_feet_description"          "While standing still you have <font color='#ccff66'>2</font>x Armor and Magic Armor, <font color='#ccff66'>10</font>% health regen, and take <font color='#ccff66'>50</font>% reduced damage."
+
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active" "Deep Earthen Grip"
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active_Description" "Increased defenses and Health Regen"
+
+        "item_rpc_rooted_feet_ruby1"                                        "Deep Earthen Grip sticks for @ruby_property1 seconds after moving"
+        "item_rpc_rooted_feet_emerald1"                                     "Increases the Health Regen while standing still by an additional @emerald_property1%"
+        "item_rpc_rooted_feet_sapphire1"                                        "Gain @sapphire_property1 Armor Pierce and Spell Pierce while Deep Earthen Grip is active"
+        "item_rpc_rooted_feet_amethyst1"                                        "Gain @amethyst_property1% Status Resistance while Deep Earthen Grip is active"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"十字军之靴"
@@ -12046,12 +12050,21 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
-    	"item_rpc_redrock_footwear_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_redrock_footwear_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在<font color='#ccff66'>1.5</font>秒内释放<font color='#ccff66'>3</font>股心灵脉冲强制附近敌人攻击你，额外增加<font color='#ccff66'>200</font>%生命值和<font color='#ccff66'>50</font>%伤害减免，持续<font color='#ccff66'>5</font>秒。"
+
+        "property_redrock_description"              "When you cast @Ability3, release <font color='#ccff66'>3</font> pulses of psychoactive heat over <font color='#ccff66'>1.5</font> seconds that force all nearby enemies to attack you for <font color='#ccff66'>5</font> seconds. While the effect persists, damage taken is reduced by <font color='#ccff66'>50</font>%. Each pulse increases Max Health by <font color='#ccff66'>20</font>%."
+
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect_Description"   "Taunted"
+
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible" "Fevering Footwork"
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible_Description" "Increased Max Health"
+
+        "item_rpc_redrock_footwear_ruby1"                               "Increases the Max Health Bonus per pulse by an additional @ruby_property1%"
+        "item_rpc_redrock_footwear_emerald1"                                "Taunted enemies have @emerald_property1 reduced Armor and Armor Pierce"
+        "item_rpc_redrock_footwear_sapphire1"                               "Each pulse increases Armor and Armor Pierce by @sapphire_property1"
+        "item_rpc_redrock_footwear_amethyst1"                               "Adds @amethyst_property1 additional pulses"  
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"
@@ -12089,7 +12102,7 @@
     	"item_rpc_resplendent_rubber_boots_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_resplendent_rubber_boots_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_resplendent_rubber"					"接地"
-		"property_resplendent_rubber_description"			"减少受到的所有伤害<font color='#ccff66'>75</font>%。"
+		"property_resplendent_rubber_description"			"减少受到的所有伤害<font color='#ccff66'>50</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"古老智慧之鞋"
@@ -12147,14 +12160,16 @@
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
-    	"item_rpc_redfall_runners_ruby1"                                 "blah blah @ruby_property1 gem"
-    	"item_rpc_redfall_runners_emerald1"                                 "blah blah @emerald_property1 gem"
-    	"item_rpc_redfall_runners_sapphire1"                                 "blah blah @sapphire_property1 gem"
-    	"item_rpc_redfall_runners_amethyst1"                                 "blah blah @amethyst_property1 gem"
-        "item_property_redfall_runners"                 "嘎吱作响的叶子"
-        "property_redfall_runners_description"                  "每失去1%的血量增加 <font color='#ccff66'>5</font> 移速以及<font color='#ccff66'>5</font>移速上限."
-        "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
-         "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<font color='#ccff66'>5</font> 以及增加移速上限 <font color='#ccff66'>5</font> 根据每 %% 的丢失血量."
+
+        "item_property_redfall_runners"                 "Adventurous Miler"
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <font color='#ccff66'>0.15</font> and Max Movespeed by <font color='#ccff66'>0.15</font>."
+        "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
+
+        "item_rpc_redfall_runners_ruby1"                                    "While at full health, gain an additional @ruby_property1 Movespeed and Max Movespeed"
+        "item_rpc_redfall_runners_emerald1"                                 "Each point of current Movespeed increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_redfall_runners_sapphire1"                                    "Each point of current Movespeed increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_redfall_runners_amethyst1"                                    "Increases Agility and Spirit by @amethyst_property1"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
@@ -12239,16 +12254,21 @@
     	"item_rpc_emerald_speed_runners_sapphire1"							"blah blah @sapphire_property1 gem"
     	"item_rpc_emerald_speed_runners_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>600</font> 。"
+		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>500</font> 。"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_red_october_boots"								"腥红十月靴"
-    	"item_rpc_red_october_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_red_october_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_red_october"								"自然星火"
-		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <font color='#ccff66'>50</font>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
+        
+        "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
+
+        "item_property_red_october"                             "Bellow of Ages"
+        "property_red_october_description"                      "Enemies hit by @Ability3 have a <font color='#ccff66'>25</font>%  chance to trigger a swell of eternity in a <font color='#ccff66'>400</font> radius that deals <font color='#ccff66'>40</font>% of the ability's damage. Max <font color='#ccff66'>3</font> procs per second."
+
+        "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
+        "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
+        "item_rpc_red_october_boots_sapphire1"                              "Increases Bellow of Ages damage by @sapphire_property1 and its radius by @sapphire_property2"
+        "item_rpc_red_october_boots_amethyst1"                              "Enemies hit by Bellow of Ages are rooted for @amethyst_property1 seconds, and increases [E1] and [E2] runes by @amethyst_property2."
+
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
+        "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"蒸汽长靴"
@@ -12261,21 +12281,29 @@
 		
 	
 		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"深海靴"	
-		"item_rpc_oceanrunner_boots_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_oceanrunner_boots_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_oceanrunner_boots_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_oceanrunner"												"轻盈"
-		"property_oceanrunner_Description"									"每 <font color='#ccff66'>10</font> 点敏捷提高基础技能伤害<font color='#ccff66'>0.25</font>%"
+        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <font color='#ccff66'>0.15</font>%."
+
+        "item_rpc_oceanrunner_boots_ruby1"                  "Every <font color='#ccff66'>1000</font> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
+        "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"
+        "item_rpc_oceanrunner_boots_sapphire1"                  "Each point of Agility increases Item Damage by @sapphire_property1%"
+        "item_rpc_oceanrunner_boots_amethyst1"                  "Gain @amethyst_property1% increased attack power while in motion"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_crystalline_slippers"				"水晶鞋"	
-		"item_rpc_crystalline_slippers_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_crystalline_slippers_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_crystalline_slippers_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_crystalline_slippers_amethyst1"				"blah blah @amethyst_property1 gem"
 		"property_crystalline"												"水晶缠绕"
-		"property_crystalline_Description"									"被缠绕的敌人，对玩家造成的伤害减少 <font color='#ccff66'>80</font>%，并且受到 <font color='#ccff66'>5</font>x 来自玩家的伤害（税前）。"
+        "property_crystalline_Description"                                  "Increases all damage taken by <font color='#ccff66'>100</font>% and increases Item Damage and Base Ability Damage by <font color='#ccff66'>175</font>%."
+
+        "item_rpc_crystalline_slippers_ruby1"               "Reduces Armor by @ruby_property1 and increases Armor Pierce by @ruby_property2"
+        "item_rpc_crystalline_slippers_emerald1"                "Gain @emerald_property1% evasion while in motion, and gain @emerald_property2% increased Attack Power while standing still"
+        "item_rpc_crystalline_slippers_sapphire1"               "Reduce damage taken by @sapphire_property1% while rooted, and casting [W] roots you for <font color='#ccff66'>1.25</font> seconds"
+        "item_rpc_crystalline_slippers_amethyst1"               "Reduces Magic Armor by @amethyst_property1 and increases Spell Pierce by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_crystalline_sapphire_root"       "Glass Dancer (Sapphire)"
+        "DOTA_Tooltip_modifier_crystalline_sapphire_root_Description"   "Rooted"
+
+        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion"   "Glass Dancer (Emerald)"
+        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"   "Increased Evasion while in motion"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gravelfoot_treads"	"砾石足踏"
@@ -12284,7 +12312,7 @@
 		"item_rpc_gravelfoot_treads_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_gravelfoot_treads_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_gravelfoot"							"砾石之足"
-		"property_gravelfoot_description"					"每<font color='#ccff66'>0.65</font>秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态<font color='#ccff66'>3</font>秒，移动速度减少<font color='#ccff66'>200</font>，受到的伤害减少<font color='#ccff66'>99.5</font>%。"
+		"property_gravelfoot_description"					"每<font color='#ccff66'>0.75</font>秒净化一次敌人debuff效果。当debuff被净化时，自身变成霜冻石块形态<font color='#ccff66'>3</font>秒，移动速度减少<font color='#ccff66'>250</font>，受到的伤害减少<font color='#ccff66'>60</font>%。"
 		"DOTA_Tooltip_modifier_gravelfoot_buff"				"砾石之足"
 		"DOTA_Tooltip_modifier_gravelfoot_buff_Description"	"移速和受到的伤害降低"
 		
@@ -12295,7 +12323,7 @@
 		"item_rpc_ice_floe_slippers_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_ice_floe_slippers_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_ice_floe_slippers"					"浮冰"
-		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为<font color='#ccff66'>1500</font>码。当被晕眩或缠绕的时候不能激活滑行效果。"
+		"property_ice_floe_slippers_description"			"在同一目标地点连续发出两个移动指令，即可在冰上滑行。滑行的时候，你被缠绕且石化不受物理伤害。最大滑行距离为<font color='#ccff66'>1200</font>码。当被晕眩或缠绕的时候不能激活滑行效果。"
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"
@@ -12320,14 +12348,16 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"天马之靴"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
 
 		"item_property_pegasus"					"风跃"
+        "property_pegasus_description"          "Max movespeed is increased by <font color='#ccff66'>280</font>."
 
-		"property_pegasus_description"			"@Ability3 穿行速度增加 <font color='#ccff66'>100</font>% 。最大移动速度增加 <font color='#ccff66'>30</font>%。"
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <font color='#ccff66'>0.2</font> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
 
 
 
@@ -12339,7 +12369,7 @@
 
 		"item_property_pivotal"					"轴心爆发"
 
-		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<font color='#ccff66'>850</font>,并且获得 <font color='#ccff66'>400</font> 的移动速度加成，持续4秒。"
+		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<font color='#ccff66'>300</font>,并且获得 <font color='#ccff66'>400</font> 的移动速度加成，持续4秒。"
 
 
 
@@ -14103,12 +14133,14 @@
 		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<font color='#ccff66'>35</font>%。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_never_ring"										"灵魂戒指"
-		"item_rpc_never_ring_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_never_ring_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_never_ring_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_never_ring_amethyst1"										"blah blah @amethyst_property1 gem"
-    	"DOTA_Tooltip_ability_item_rpc_never_ring_Description"							"部位：饰品"
+		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
+		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
+		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
+		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores you mana by @amethyst_property1% of the burned health."
+		"item_property_neverlord_soul_ring"												"Soul Conversion"
+		"property_neverlord_soul_ring_description"											"Converts <font color='#ccff66'>30</font>% of max health to max mana."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"獠牙戒指"

@@ -424,7 +424,7 @@ function ancient_tree_main_think(event)
 				if luck == 1 then
 					RPCItems:RollWorldTreesFlowerCache(caster:GetAbsOrigin())
 				else
-					RPCItems:RollRedOctoberBoots(caster:GetAbsOrigin(), Events.SpiritRealm)
+					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_red_october_boots")
 				end
 			end)
 			caster:BossDrops(14)

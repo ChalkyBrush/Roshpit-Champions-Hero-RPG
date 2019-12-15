@@ -64,7 +64,7 @@
         "DOTA_Tooltip_ability_flamewaker_rune_w_2_suffix_two"                   "%"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_w_3"								"[W3] Searing Heat"
-    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Second Heartbeat also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_w_3_Description"					"Second Heartbeat also burns through enemies armor, leaving a stacking armor reduction debuff on targets. Lasts 6 seconds and can stack up to <% FLAMEWAKER_W3_STACK_LIMIT %> times."
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_property_one"					"Stacking Armor Reduction"
     	"DOTA_Tooltip_ability_flamewaker_rune_w_3_suffix"						""
 		

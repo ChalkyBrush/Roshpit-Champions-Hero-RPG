@@ -83,7 +83,6 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = DJANGHOR_R2_BONUS_HP
 CustomAttributes.OGTHUN_HEALTH = 10
-CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
@@ -121,6 +120,9 @@ function CDOTA_BaseNPC_Hero:GetAgility()
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
 		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		agility = item.newItemTable.property1
+	end
+	if self:HasModifier("modifier_emerald_speed_runners") then
+		agility = math.max(agility, self.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD2))
 	end
 	return math.max(tonumber(agility), 0)
 end
@@ -680,7 +682,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
 	end
 	if unit:HasModifier("modifier_dragonflame_shield") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
@@ -1056,6 +1058,37 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local devotion_sapphire = devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2)
 		armor_modify = armor_modify + devotion_base + devotion_sapphire
 	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		armor_modify = armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_fire_walkers_in_fire") then
+		local modifier_caster = unit:FindModifierByName("modifier_fire_walkers_in_fire"):GetCaster()
+		armor_modify = armor_modify + modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FIRE_WALKERS_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_gravelfoot_buff") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1073,6 +1106,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		end
 		armor_modify = armor_modify - (armor + armor_modify)*(penalty/100)
 	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_modify = armor_modify + (armor + armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
+
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1610,8 +1647,36 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local devotion_hero = devotion_caster.hero
 		magic_armor_modify = magic_armor_modify + devotion_hero:GetSpirit()*(devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2)/100)
 	end
+	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		magic_armor_modify = magic_armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_gravelfoot_buff") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			magic_armor_modify = magic_armor_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
+	end
+	if unit:HasModifier("moon_tech_aura") then
+		local modifier_ability = unit:FindModifierByName("moon_tech_aura"):GetAbility()
+		magic_armor_modify = magic_armor_modify + modifier_ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1)
+	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
+	end
 
-	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1621,9 +1686,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
 	end
-	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
-		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
 	end
+
 
 	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR
 
@@ -1913,7 +1979,38 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1)
 	end
-
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		if unit:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownTimeRemaining() == 0 then
+			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DUNETREAD_BOOTS_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
+	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
@@ -2269,6 +2366,30 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			spell_pierce_modify = spell_pierce_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
+	end
+	if unit:HasModifier("modifier_mana_striders") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MANA_STRIDERS_GEM_RUBY)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
@@ -3082,9 +3203,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_paladin_immortal_weapon_3_health" and hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
-	if excludedModifier ~= "modifier_redrock_footwear_health_increase" and hero:HasModifier("modifier_redrock_footwear_health_increase") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_redrock_footwear_health_increase", CustomAttributes.REDROCK_HEALTH)
-	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
 	end
@@ -3110,6 +3228,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		percentHealthMultiplier = percentHealthMultiplier + CONJUROR_ARCANA_Q2_PERCENT_HEALTH / 100 * hero:GetRuneValue("q", 2)
+	end
+	if excludedModifier ~= "modifier_redrock_footwear_caster_visible" and hero:HasModifier("modifier_redrock_footwear_caster_visible") then
+		percentHealthMultiplier = percentHealthMultiplier + (hero:GetModifierStackCount("modifier_redrock_footwear_caster_visible", hero.InventoryUnit)*(ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE+hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY))/100)
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 
@@ -3384,7 +3505,7 @@ function CustomAttributes:MSCap(unit)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KNIGHT_HAWK_RUBY)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + max_ms*(ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
 	end
 	return max_ms
 end

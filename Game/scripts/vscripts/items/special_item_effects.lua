@@ -6,6 +6,9 @@ LinkLuaModifier("modifier_proud_gloves_lua", "modifiers/modifier_proud_gloves_lu
 LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_dunetreads_sapphire", "modifiers/modifier_dunetreads_sapphire", LUA_MODIFIER_MOTION_NONE)
+
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -895,64 +898,27 @@ end
 function guardian_greaves_think(event)
 	local target = event.target
 	local ability = event.ability
-	if not ability.lastPos then
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		if not ability.lastPos then
+			ability.lastPos = target:GetAbsOrigin()
+		end
+		if not ability.distanceMoved then
+			ability.distanceMoved = 0
+		end
+		ability.newPos = target:GetAbsOrigin()
+		ability.hero = target
+		local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
+		ability.distanceMoved = ability.distanceMoved + distance
+		local distance_threshold = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARDIAN_GREAVES_GEM_RUBY)
+		if ability.distanceMoved > distance_threshold then
+			Filters:GuardianGreavesCast(hero, ability)
+			ability.distanceMoved = ability.distanceMoved % distance_threshold
+		end
+
 		ability.lastPos = target:GetAbsOrigin()
 	end
-	if not ability.distanceMoved then
-		ability.distanceMoved = 0
-	end
-	ability.newPos = target:GetAbsOrigin()
-	ability.hero = target
-	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
-	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 2500 then
-		for i = 1, ability.distanceMoved / 2500, 1 do
-			guardian_greaves_heal(target, ability)
-			if i > 1 then
-				break
-			end
-		end
-		ability.distanceMoved = ability.distanceMoved % 2500
-	end
-
-	ability.lastPos = target:GetAbsOrigin()
-end
-
-function guardian_greaves_heal(hero, ability)
-	local healthRestore = hero:GetStrength() * 5
-	local manaRestore = hero:GetIntellect() * 5
-	local armorStacks = hero:GetAgility() / 10
-	local particleName = "particles/items3_fx/warmage.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
-	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	EmitSoundOn("RoshpitItem.GuardianGreaves", hero)
-	local allies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-	if #allies > 0 then
-		for _, ally in pairs(allies) do
-			guardian_heal_ally(ally, healthRestore, manaRestore, armorStacks, ability, hero)
-		end
-	end
-
-end
-
-function guardian_heal_ally(ally, healthRestore, manaRestore, armorStacks, ability, hero)
-	local particleName = "particles/items3_fx/warmage_recipient.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, ally)
-	ParticleManager:SetParticleControlEnt(pfx, 0, ally, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", ally:GetAbsOrigin(), true)
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	-- EmitSoundOn("Item.GuardianGreaves", ally)
-	Filters:ApplyHeal(hero, ally, healthRestore, true)
-	Timers:CreateTimer(0.1, function()
-		PopupMana(ally, manaRestore)
-	end)
-	ally:GiveMana(manaRestore)
-	ability:ApplyDataDrivenModifier(hero.InventoryUnit, ally, "modifier_guardian_greaves_armor", {duration = 4})
-	ally:SetModifierStackCount("modifier_guardian_greaves_armor", hero.InventoryUnit, armorStacks)
 end
 
 function tranquil_boots_think(event)
@@ -1027,6 +993,7 @@ end
 
 function mana_striders_think(event)
 	local target = event.target
+	local caster = event.caster
 	local ability = event.ability
 	if not ability.lastPos then
 		ability.lastPos = target:GetAbsOrigin()
@@ -1058,6 +1025,13 @@ function mana_striders_think(event)
 	end
 
 	ability.lastPos = target:GetAbsOrigin()
+
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_strider_ms", {})
+		local ms_bonus = math.floor((target:GetMana()/target:GetMaxMana())*100) * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_MANA_STRIDERS_GEM_EMERALD2)
+		local ms_stacks = ms_bonus/0.1
+		target:SetModifierStackCount("modifier_mana_strider_ms", caster, ms_stacks)
+	end
 end
 
 function mana_striders_heal(hero)
@@ -1072,34 +1046,6 @@ function mana_striders_heal(hero)
 	PopupMana(hero, manaRestore)
 end
 
-function fire_walkers_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	ability.hero = event.target
-	ability.damage = ability.hero:GetIntellect() + ability.hero:GetAgility() + ability.hero:GetStrength()
-	--ability:ApplyDataDrivenThinker(caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
-	CustomAbilities:QuickAttachThinker(ability, caster, ability.hero:GetAbsOrigin(), "modifier_fire_walker_thinker", {})
-end
-
-function fire_walker_damage(event)
-	local target = event.target
-	local caster = event.ability.hero
-	local ability = event.ability
-	if target.dummy then
-		return false
-	end
-	local damage = ability.damage
-	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-end
-
-function moon_tech_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local target = event.target
-	--ability:ApplyDataDrivenThinker(caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-	CustomAbilities:QuickAttachThinker(ability, caster, target:GetAbsOrigin(), "modifier_moon_tech_thinker", {})
-end
-
 function falcon_boot_impact(event)
 	local target = event.target
 	local ability = event.ability
@@ -1108,7 +1054,8 @@ function falcon_boot_impact(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
 	end
-	if target.jumpLock then
+	if target.jumpLock or target.pushLock then
+		Filters:FalconAmethystDamage(event.ability.hero, target)
 		return false
 	end
 	local origCaster = event.ability.hero
@@ -1123,62 +1070,8 @@ function falcon_boot_impact(event)
 		ParticleManager:DestroyParticle(pfx, false)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
-	ability:ApplyDataDrivenModifier(origCaster.InventoryUnit, target, "modifier_falcon_out", {duration = 2.5})
+	ability:ApplyDataDrivenModifier(origCaster.InventoryUnit, target, "modifier_falcon_out", {duration = ability.travel_delay + 0.25})
 	target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, 2000))
-end
-
-function root_feet_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_health_regen", {})
-
-end
-
-function root_feet_move(event)
-	local target = event.unit
-	target:RemoveModifierByName("modifier_rooted_feet_health_regen")
-end
-
-function rooted_foot_created(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	Timers:CreateTimer(0.4, function()
-		--print("AFTER TIMER?")
-		if target:HasModifier("modifier_rooted_feet_applicator") then
-			--print("attach particle")
-			if not ability.pfx then
-				ability.pfx = ParticleManager:CreateParticle("particles/roshpit/items/rooted_feet.vpcf", PATTACH_ABSORIGIN, target)
-				ParticleManager:SetParticleControlEnt(ability.pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", target:GetAbsOrigin(), true)
-			end
-		end
-	end)
-end
-
-function rooted_foot_regen_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_applicator", {})
-	local currentStacks = target:GetModifierStackCount("modifier_rooted_feet_armor_portion", caster)
-	local armor = Filters:GetBaseBaseArmor(target) * (ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_armor_portion", {})
-	target:SetModifierStackCount("modifier_rooted_feet_armor_portion", caster, armor)
-	local currentRegenStacks = target:GetModifierStackCount("modifier_rooted_feet_regen_portion", caster)
-	local regen = (target:GetHealthRegen() - currentRegenStacks) * ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_regen_portion", {})
-	target:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, regen)
-end
-
-function rooted_foot_end(event)
-	local ability = event.ability
-	if ability.pfx then
-		event.target:RemoveModifierByName("modifier_rooted_feet_applicator")
-		ParticleManager:DestroyParticle(ability.pfx, false)
-	end
-	ability.pfx = false
 end
 
 function sapphire_lotus_think(event)
@@ -2448,7 +2341,6 @@ function pathfinder_think(event)
 			animation = true
 		end
 		if animation then
-			--print("PARTICLE???")
 			local particleName = "particles/frostivus_gameplay/wraith_king_heal.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -2458,6 +2350,25 @@ function pathfinder_think(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
+	end
+end
+
+function pathfinder_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local cd = ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_RUBY)
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_pathfinder_resonant_cooldown", {duration = cd})
+	hero:RemoveModifierByName("modifier_resonant_boots_active")
+end
+
+function resonant_pathfinder_on(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_resonant_boots_atk_power", {})
+		hero:SetModifierStackCount("modifier_resonant_boots_atk_power", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_AMETHYST))
 	end
 end
 
@@ -2526,6 +2437,11 @@ function neptune_think(event)
 	-- target:Stop()
 	-- end
 	ability.lastPos = target:GetAbsOrigin()
+	if ability:GetGemValue("ruby") > 0 then
+		local speed_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY)*target:GetIntellect()
+		ability:ApplyDataDrivenModifier(event.caster, target, "modifier_neptune_ruby_speed", {})
+		target:SetModifierStackCount("modifier_neptune_ruby_speed", event.caster, speed_stacks)
+	end
 end
 
 function neptune_gliding(event)
@@ -2628,12 +2544,25 @@ function neptune_gliding_think_new(event)
 	end
 end
 
+function neptunes_base_thinker(event)
+	local hero = event.caster.hero
+	local caster = event.caster
+	local ability = event.ability
+	if ability:GetGemValue("ruby") > 0 then
+		local speed_stacks = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_RUBY)*hero:GetIntellect()
+		ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_neptune_ruby_speed", {})
+		hero:SetModifierStackCount("modifier_neptune_ruby_speed", event.caster, speed_stacks)
+	end
+end
+
 function gliding_end(event)
 	local target = event.target
 	local ability = event.ability
 	ability.lastPos = false
 	ability.blockCheck = 0
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+
+	ability.slideSpeed = 0
 end
 
 function ruinfall_skull_think(event)
@@ -3755,8 +3684,37 @@ function giant_hunter_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	if target:IsStunned() or target:IsRooted() then
+	if target:IsRooted() and ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_RUBY)})
+	end
+	if target:IsStunned() then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunters_immunity", {duration = ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_IMMUNITY_DURATION})
+	end
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval >= 5 then
+		ability.interval = 0
+		if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("sapphire") > 0 or ability:GetGemValue("amethyst") > 0 then
+			local big_boy_nearby = false
+			local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_ENEMY_SEARCH_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if enemy.paragon then
+						big_boy_nearby = true
+						break
+					end
+					if enemy:GetEnemyTier() >= ENEMY_TYPE_MINI_BOSS then
+						big_boy_nearby = true
+						break
+					end
+				end
+			end
+			if big_boy_nearby then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_giant_hunter_boss_nearby", {duration = 1})
+			end
+		end
 	end
 end
 
@@ -6055,9 +6013,7 @@ function gravelfoot_think(event)
 	end
 
 	if procced then
-		EmitSoundOn("RPCItems.Gravelfoot.Dispel", caster)
-		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", caster, 1.2)
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION})
+		Filters:InitGravelFootEffect(caster, ability, hero, ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW_DURATION)
 	end
 end
 
@@ -6710,8 +6666,10 @@ function pivotal_swift_think(event)
 	local hero = event.target
 
 	if hero:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
 		local current_stacks = hero:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster)
-		local new_stacks = current_stacks - (ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS/(ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION*10))
+		local movespeed_bonus = ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY1)
+		local new_stacks = current_stacks - (movespeed_bonus/(speed_duration*10))
 		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
 		print(current_stacks)
 	end
@@ -9115,4 +9073,373 @@ function boots_of_great_fortune_sapphire_thinker(event)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_boots_of_great_fortune_sapphire_effect", {})
 		ability.sapphire_interval = 0
 	end
+end
+
+function crystalline_slippers_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		if not hero:HasModifier("modifier_crystalline_slippers_emerald") then
+			hero:AddNewModifier(caster, ability, "modifier_crystalline_slippers_emerald", {})
+		end
+		if not ability.lastPos then
+			ability.lastPos = hero:GetAbsOrigin()
+		end
+		local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+		if distance < 3 then
+			ability.immobile = true
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_crystalline_emerald_immobile", {})
+			hero:SetModifierStackCount("modifier_crystalline_emerald_immobile", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_EMERALD2))
+			hero:RemoveModifierByName("modifier_crystalline_emerald_in_motion")
+		else
+			ability.immobile = false
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_crystalline_emerald_in_motion", {})
+			hero:RemoveModifierByName("modifier_crystalline_emerald_immobile")
+		end
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+end
+
+function dunetreads_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		hero:AddNewModifier(caster, ability, "modifier_dunetreads_sapphire", {})
+	end
+	
+end
+
+function emerald_speedrunners_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
+		local max_cooldown = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_AMETHYST)
+		if e_ability:GetCooldownTimeRemaining() > max_cooldown then
+			e_ability:EndCooldown()
+			e_ability:StartCooldown(max_cooldown)
+		end
+	end
+
+end
+
+function falcon_boots_self_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_falcon_ruby", {})
+		local dmg_stacks = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FALCON_BOOTS_GEM_RUBY)
+		hero:SetModifierStackCount("modifier_falcon_ruby", caster, dmg_stacks)
+	end
+end
+
+function fire_walkers_base_think(event)	
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+
+	if not ability.lava_table then
+		ability.lava_table = {}
+	end
+	Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, hero:GetAbsOrigin())
+
+end
+
+
+
+function fire_walkers_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("ruby") > 0 then
+		local proc = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_FIRE_WALKERS_GEM_RUBY1)
+		if proc then
+			Filters:FireWalkersCreateLavaAtPoint(caster, ability, hero, target:GetAbsOrigin())
+		end
+	end
+end
+
+function reindex_fire_walkers_table(ability)
+	-- local new_flame_table = {}
+	-- for i = 1, #ability.lava_table, 1 do
+	-- 	if ability.lava_table[i] and IsValidEntity(ability.lava_table[i]) and ability.lava_table[i]:HasModifier("modifier_fire_walkers_thinker") then
+	-- 		table.insert(new_flame_table, ability.lava_table[i])
+	-- 	end
+	-- end
+	-- ability.lava_table = new_flame_table
+end
+
+function fire_walkers_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+	-- reindex_fire_walkers_table(ability)
+end
+
+function inside_fire_walkers_think(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	local damage = hero:GetSumOfAllAttributes()*ITEM_RPC_FIRE_WALKERS_DAMAGE_X_SUM_ATTRIBUTES + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FIRE_WALKERS_GEM_EMERALD2)
+	if event.sapphire == 0 and ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_walkers_sapphire", {duration = ITEM_RPC_FIRE_WALKERS_SAPPHIRE_BURN_DURATION})
+	elseif event.sapphire == 1 then
+		damage = damage * ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRE_WALKERS_GEM_SAPPHIRE)/100
+	end
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+end
+
+function moon_tech_thinker_end(event)
+	local ability = event.ability
+	-- ParticleManager:DestroyParticle(event.target.pfx, false)
+	-- ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+	Filters:ReindexMoonTechThinkerTable(ability)
+end
+
+function enter_moon_tech_cloud(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+
+	if ability:GetGemValue("ruby") > 0 then
+		local as_loss = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY1)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_moon_tech_attackspeed_reduce", {})
+		target:SetModifierStackCount("modifier_moon_tech_attackspeed_reduce", caster, as_loss)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		local miss_Chance = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE2)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_moon_tech_sapphire_chance_to_miss", {})
+		target:SetModifierStackCount("modifier_moon_tech_sapphire_chance_to_miss", caster, miss_Chance)
+		
+	end
+end
+
+function inside_moontech_cloud(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	if ability:GetGemValue("ruby") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_MOON_TECH_RUNNERS_GEM_RUBY2)/100)
+		Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+	end
+end
+
+function neptune_puddle_start(event)
+	local ability = event.ability
+	local target = event.target
+	if not ability then
+		return false
+	end
+	local caster = event.caster
+	local hero = caster.hero
+
+	if hero == ability.wearer then
+		local stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD1)
+		target:ApplyModifierAndSetStacks(ability, caster, "modifier_neptune_in_puddle_mana_regen", stacks, 0)
+	end
+end
+
+function neptune_puddle_thinker_end(event)
+	local ability = event.ability
+	ParticleManager:DestroyParticle(event.target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(event.target.pfx)
+	UTIL_Remove(event.target)
+end
+
+function neptune_blasting_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local newPos = hero:GetAbsOrigin() + ability.blast_direction*ability.forward_force + Vector(0,0,ability.blast_force)
+	local newPosition = WallPhysics:WallSearch(hero:GetAbsOrigin(), newPos, hero)
+	ability.blast_force = ability.blast_force - 1.5
+	hero:SetAbsOrigin(newPosition)
+
+	if hero:GetAbsOrigin().z - GetGroundHeight(hero:GetAbsOrigin(), hero) < 10 then
+		hero:RemoveModifierByName("modifier_neptune_sapphire_blasting")
+		FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+		local radius = ITEM_RPC_NEPTUNES_WATER_GLIDERS_SAPPHIRE_RADIUS
+        EmitSoundOn("RPCItems.Neptunes.SapphireImpact", hero)
+        local particleName = "particles/roshpit/items/depth_crest_armor.vpcf"
+        local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+        ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin() + Vector(0, 0, 20))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+ 		Timers:CreateTimer(1.5, function()
+ 			ParticleManager:DestroyParticle(pfx, false)
+ 		end)
+ 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3)/100
+		local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE2)
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
+				Filters:ApplyStun(hero, stun_duration, enemy)
+			end
+		end
+	end
+end
+
+function oceanrunner_think(event)
+	
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	if not ability.lastPos then
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+	if ability:GetGemValue("ruby") > 0 then
+
+		if not ability.distanceMoved then
+			ability.distanceMoved = 0
+		end
+		ability.newPos = hero:GetAbsOrigin()
+		ability.hero = target
+		local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
+		ability.distanceMoved = ability.distanceMoved + distance
+		if ability.distanceMoved > ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE then
+			if not ability.active then
+				-- StartSoundEvent("Hero_Leshrac.Diabolic_Edict_lp", target)
+			end
+			ability.active = true
+			for i = 1, ability.distanceMoved / ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE, 1 do
+				ocean_runner_ruby_squall(caster, ability, hero)
+			end
+			ability.distanceMoved = ability.distanceMoved % ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE
+		else
+			if distance < 20 then
+				ability.active = false
+			end
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), ability.lastPos)
+		if distance > 5 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_oceanrunner_atk_power", {})
+			hero:SetModifierStackCount("modifier_oceanrunner_atk_power", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_AMETHYST))
+		else
+			hero:RemoveModifierByName("modifier_oceanrunner_atk_power")
+		end
+	end
+
+
+	ability.lastPos = hero:GetAbsOrigin()
+end
+
+function ocean_runner_ruby_squall(caster, ability, hero)
+	local radius = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY3)
+    EmitSoundOn("RPCItems.Oceanrunners.Ruby", hero)
+    local particleName = "particles/roshpit/items/ocean_runner_squall.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+    ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin() + Vector(0, 0, 20))
+    ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY2)/100
+	local stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY1)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_WATER)
+			Filters:ApplyStun(hero, stun_duration, enemy)
+		end
+	end
+end
+
+function pegasus_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_pegasus_boots_emerald_ms_pct", {})
+		hero:SetModifierStackCount("modifier_pegasus_boots_emerald_ms_pct", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PEGASUS_BOOTS_GEM_EMERALD))
+	end
+end
+
+function pegasus_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		if not ability.lastPos then
+			ability.lastPos = hero:GetAbsOrigin()
+		end
+		local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+		if distance > 1 then
+			local atk_power_stacks = distance*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST1)/100)/0.1
+			atk_power_stacks = math.min(atk_power_stacks, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST2)/0.1)
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_pegasus_boots_amethyst_atk_power", {})
+			hero:SetModifierStackCount("modifier_pegasus_boots_amethyst_atk_power", caster, atk_power_stacks)
+		else
+			hero:RemoveModifierByName("modifier_pegasus_boots_amethyst_atk_power")
+		end
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+end
+
+function pegasus_dash_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	local obstruction = WallPhysics:FindNearestObstruction(position)
+	local pushSpeed = 55
+	-- pushSpeed = Filters:GetAdjustedESpeed(caster, pushSpeed, false)
+	local newPosition = position + ability.forwardVec * pushSpeed
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + ability.forwardVec * 72), caster)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
+end
+
+function pegasus_dash_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end
+
+function rooted_feet_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if not ability.lastPos then
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+	local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+	if distance < 1 then
+		rooted_feet_deep_grip_apply(ability, caster, hero, 0)
+	else
+		local earth_grip_modifier = hero:FindModifierByName("modifier_rooted_feet_regen_portion")
+		if earth_grip_modifier then
+			if earth_grip_modifier:GetRemainingTime() < 0 and ability:GetGemValue("ruby") > 0 then
+				rooted_feet_deep_grip_apply(ability, caster, hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROOTED_FEET_GEM_RUBY))
+			elseif earth_grip_modifier:GetRemainingTime() < 0 then
+				hero:RemoveModifierByName("modifier_rooted_feet_immobile_active")
+			end
+		end
+	end
+	ability.lastPos = hero:GetAbsOrigin()
+end
+
+function rooted_feet_deep_grip_apply(ability, caster, hero, duration)
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_immobile_active", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_regen_portion", {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_immobile_active", {})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_regen_portion", {})
+	end
+	local health_regen_stacks = (ITEM_RPC_ROOTED_FEET_HP_REGEN_PCT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROOTED_FEET_GEM_EMERALD))/0.1
+	hero:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, health_regen_stacks)
 end
