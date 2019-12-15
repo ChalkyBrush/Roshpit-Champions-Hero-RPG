@@ -9,12 +9,13 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"
-    	"item_rpc_sange_boots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_sange_boots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_sange_boots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_sange_boots_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_sange"						"战斗大师S"
-		"property_sange_description"				"每点敏捷值额外提高<% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %>点最大生命值,並且提高最大魔法值 <% ITEM_RPC_SANGE_BOOTS_MP_PER_AGI %>."
+        "property_sange_description"                "Each point of Agility increases your Max Health by <% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %> and your Armor by <% ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI %>."
+
+        "item_rpc_sange_boots_ruby1"                                        "Increases Strength by @ruby_property1"
+        "item_rpc_sange_boots_emerald1"                                     "Increases Agility by @emerald_property1"
+        "item_rpc_sange_boots_sapphire1"                                        "Increases Max Health by @sapphire_property1%"
+        "item_rpc_sange_boots_amethyst1"                                        "Each point of Agility increases Base Attack Damage by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"

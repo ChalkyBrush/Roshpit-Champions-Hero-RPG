@@ -968,17 +968,14 @@ function tranquil_boots_heal(hero)
 end
 
 function sange_boots_think(event)
-	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if not target:HasModifier("modifier_rpc_sange_buff") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_sange_buff", {})
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_sange_buff_mana", {})
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rpc_sange_sapphire", {})
+		local atk_damage = hero:GetAgility()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SANGE_BOOTS_GEM_AMETHYST) 
+		hero:SetModifierStackCount("modifier_rpc_sange_sapphire", caster, atk_damage)
 	end
-	local sangeStacks = math.min(target:GetAgility(), math.floor(10000000 / ITEM_RPC_SANGE_BOOTS_HP_PER_AGI))
-	local sangeManaStacks = target:GetAgility() * ITEM_RPC_SANGE_BOOTS_MP_PER_AGI
-	target:SetModifierStackCount("modifier_rpc_sange_buff", ability, sangeStacks)
-	target:SetModifierStackCount("modifier_rpc_sange_buff_mana", ability, sangeManaStacks)
 end
 
 function yasha_boots_think(event)

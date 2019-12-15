@@ -1089,6 +1089,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
 	end
+	if unit:HasModifier("modifier_rpc_sange_boots") then
+		armor_modify = armor_modify + ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI*unit:GetAgility()
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -3203,6 +3206,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_paladin_immortal_weapon_3_health" and hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
+	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
+		flatHealthBonus = flatHealthBonus + hero:GetAgility()*ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
+	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
 	end
@@ -3231,6 +3237,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_redrock_footwear_caster_visible" and hero:HasModifier("modifier_redrock_footwear_caster_visible") then
 		percentHealthMultiplier = percentHealthMultiplier + (hero:GetModifierStackCount("modifier_redrock_footwear_caster_visible", hero.InventoryUnit)*(ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE+hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY))/100)
+	end
+	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
+		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE)/100
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 

@@ -8,13 +8,15 @@
 		"property_slinger_boots_description"		"Каждые <% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %> секунды происходит атака на всех врагов позади героя. Учитываются все модификаторы атаки."
 
 
-    	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"Sange Boots"
-    	"item_rpc_sange_boots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_sange_boots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_sange_boots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_sange_boots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_sange"						"Combat Mastery S"
-		"property_sange_description"				"Каждое очко Ловкости увеличивает показатель здоровья на <% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %> и показатель маны на <% ITEM_RPC_SANGE_BOOTS_MP_PER_AGI %>."
+        "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"
+
+        "item_property_sange"                       "Combat Mastery S"
+        "property_sange_description"                "Each point of Agility increases your Max Health by <% ITEM_RPC_SANGE_BOOTS_HP_PER_AGI %> and your Armor by <% ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI %>."
+
+        "item_rpc_sange_boots_ruby1"                                        "Increases Strength by @ruby_property1"
+        "item_rpc_sange_boots_emerald1"                                     "Increases Agility by @emerald_property1"
+        "item_rpc_sange_boots_sapphire1"                                        "Increases Max Health by @sapphire_property1%"
+        "item_rpc_sange_boots_amethyst1"                                        "Each point of Agility increases Base Attack Damage by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"Dunetreads"
