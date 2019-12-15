@@ -42,7 +42,7 @@ function jex_activate_thunder_blossom(event)
 		ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_glyph_4_1_as", {})
 	end
 
-	shroom:AdjustSummon(caster, true, event.max_health_mult, attack_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult)
+	shroom:AdjustSummon(caster, true, event.health_mult, attack_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult, roshpit_attribute_mult)
 
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
