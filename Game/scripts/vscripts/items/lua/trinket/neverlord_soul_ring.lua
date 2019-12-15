@@ -101,4 +101,5 @@ function modifierClass:OnCastWAbility()
         hero:GiveMana(manaRestored)
         hero:SetHealth(hero:GetHealth() - healthBurned)
     end
+
 end
