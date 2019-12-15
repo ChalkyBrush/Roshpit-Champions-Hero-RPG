@@ -782,9 +782,11 @@ function GameState:OrderFilter(orderTable)
 					print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
-						unit.foot:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION})
+						local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
+						unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_pivotal_swiftboots_speed_decay", {duration = speed_duration})
+						
 						unit:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", unit.InventoryUnit, ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS)
-						unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
+						-- unit:AddNewModifier(unit, nil, 'modifier_pivotal_swift', {duration = 4})
 						EmitSoundOn("Items.PivotalSwift", unit)
 					end
 					unit:SetForwardVector(fv)
@@ -1733,6 +1735,16 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		local reduction = ITEM_RPC_ABLECORE_GREAVES_DMG_RED + victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1)
 		damage = damage * (100-reduction)/100
+	end
+	if victim:HasModifier("modifier_pivotal_swiftboots") then
+		if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
+			local current_fv = victim:GetForwardVector()
+			local direction_of_enemy_from_wearer = ((attacker:GetAbsOrigin() - victim:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local angle_between = WallPhysics:angle_between_vectors(current_fv, direction_of_enemy_from_wearer)
+			if angle_between >= 180 - (ITEM_RPC_PIVOTAL_SWIFTBOOTS_EMERALD_ANGLE_DEGREES/2) and angle_between <= 180+ (ITEM_RPC_PIVOTAL_SWIFTBOOTS_EMERALD_ANGLE_DEGREES/2) then
+				damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_EMERALD ))/100
+			end
+		end
 	end
 	if victim:HasModifier("modifier_resplendent_rubber_boots") then
 		damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100

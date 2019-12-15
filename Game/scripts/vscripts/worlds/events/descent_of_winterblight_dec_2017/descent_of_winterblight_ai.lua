@@ -735,7 +735,7 @@ function winterblight_boss_final_death_animation(caster)
 		elseif dead_boss == "descent_of_winterblight_torturok" then
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				RPCItems:RollPivotalSwiftboots(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_pivotal_swiftboots")
 			elseif immortal_luck == 2 then
 				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_goldbreaker_gauntlet")
 			end

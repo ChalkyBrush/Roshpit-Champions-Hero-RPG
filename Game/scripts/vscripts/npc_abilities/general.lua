@@ -707,6 +707,9 @@ function ms_thinker(event)
 	if unit:HasModifier("modifier_pegasus_boots") then
 		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
 	end
+	if unit:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		max_ms = max_ms + ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS
+	end
 
 	if (max_ms > 550 and actual_movespeed > 550) or (unit:HasModifier("modifier_emerald_speed_runners")) then
 		unit.master_move_speed = math.min(max_ms, actual_movespeed)

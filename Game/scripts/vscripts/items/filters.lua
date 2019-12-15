@@ -188,6 +188,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_ablecore_greaves_effect") then
         mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD1)/100
     end
+    if caster:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+        mult = mult + caster:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster.InventoryUnit)*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_AMETHYST)/10000
+    end
     if caster:HasModifier("modifier_depth_crest_armor") then
         if victim and victim:IsStunned() then
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
@@ -1674,6 +1677,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_crystalline_slippers") then
             damageMult = damageMult + ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP/100
+        end
+        if attacker:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+            damageMult = damageMult + attacker:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", attacker.InventoryUnit)*attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_AMETHYST)/10000
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SHADOWFLAME_FIST_GEM_RUBY) * (((attacker:GetMaxMana() - attacker:GetMana()) / attacker:GetMaxMana()))

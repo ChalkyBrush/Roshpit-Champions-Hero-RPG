@@ -453,13 +453,17 @@
         "item_property_storm_pacer_sabatons"                        "Storm Pacer"
         "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <% ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP %>x до <% ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP %>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <% ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD %>х / <% ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD %>х от изначального порога. Перезарядка 1 секунда."
 
-		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"@Ability3 становится <% ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT %>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS_AMP_PCT %>%."
+        "DOTA_Tooltip_ability_item_rpc_pegasus_boots"   "Pegasus Boots"
+
+        "item_property_pegasus"                 "Aileron Sprint"
+        "property_pegasus_description"          "Max movespeed is increased by <% ITEM_RPC_PEGASUS_BOOTS_MAX_MS %>."
+
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <% ITEM_RPC_PEGASUS_BOOTS_AMETHYST_THINK_INTERVAL %> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"

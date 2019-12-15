@@ -6720,8 +6720,10 @@ function pivotal_swift_think(event)
 	local hero = event.target
 
 	if hero:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
 		local current_stacks = hero:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster)
-		local new_stacks = current_stacks - (ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS/(ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION*10))
+		local movespeed_bonus = ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY1)
+		local new_stacks = current_stacks - (movespeed_bonus/(speed_duration*10))
 		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
 		print(current_stacks)
 	end

@@ -12328,14 +12328,16 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"天马之靴"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
 
 		"item_property_pegasus"					"风跃"
+        "property_pegasus_description"          "Max movespeed is increased by <font color='#ccff66'>280</font>."
 
-		"property_pegasus_description"			"@Ability3 穿行速度增加 <font color='#ccff66'>0</font>% 。最大移动速度增加 <font color='#ccff66'>0</font>%。"
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <font color='#ccff66'>0.2</font> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
 
 
 
@@ -12347,7 +12349,7 @@
 
 		"item_property_pivotal"					"轴心爆发"
 
-		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<font color='#ccff66'>850</font>,并且获得 <font color='#ccff66'>400</font> 的移动速度加成，持续4秒。"
+		"property_pivotal_description"			"转身速度加快。当你完成一次180°的转身后，获得一个buff，将你的最大移动速度增加至<font color='#ccff66'>300</font>,并且获得 <font color='#ccff66'>400</font> 的移动速度加成，持续4秒。"
 
 
 

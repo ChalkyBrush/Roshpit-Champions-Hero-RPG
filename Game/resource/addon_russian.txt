@@ -12172,13 +12172,17 @@
         "item_property_storm_pacer_sabatons"                        "Storm Pacer"
         "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <font color='#ccff66'>700</font>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <font color='#ccff66'>0.4</font>x до <font color='#ccff66'>4</font>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <font color='#ccff66'>10</font>х / <font color='#ccff66'>30</font>х от изначального порога. Перезарядка 1 секунда."
 
-		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"@Ability3 становится <font color='#ccff66'>0</font>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <font color='#ccff66'>0</font>%."
+        "DOTA_Tooltip_ability_item_rpc_pegasus_boots"   "Pegasus Boots"
+
+        "item_property_pegasus"                 "Aileron Sprint"
+        "property_pegasus_description"          "Max movespeed is increased by <font color='#ccff66'>280</font>."
+
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <font color='#ccff66'>0.2</font> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"
@@ -12186,7 +12190,7 @@
 		"item_rpc_pivotal_swiftboots_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_pivotal_swiftboots_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_pivotal"					"Pivot Burst"
-		"property_pivotal_description"			"Угловая скорость поворота становится максимальной. Быстрый поворот на 180° дает увеличивает лимит скорости передвижения на <font color='#ccff66'>850</font>, а скорость передвижения на <font color='#ccff66'>400</font> , бонус уменьшается постепенно в течение 4 секунд."
+		"property_pivotal_description"			"Угловая скорость поворота становится максимальной. Быстрый поворот на 180° дает увеличивает лимит скорости передвижения на <font color='#ccff66'>300</font>, а скорость передвижения на <font color='#ccff66'>400</font> , бонус уменьшается постепенно в течение 4 секунд."
 
 		"DOTA_Tooltip_modifier_pivotal_swift"	"Pivot Burst"
 		"DOTA_Tooltip_modifier_pivotal_swift_Description"	"Скорость передвижения и лимит скорости увеличены."
