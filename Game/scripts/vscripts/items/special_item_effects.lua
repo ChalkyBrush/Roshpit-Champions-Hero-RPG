@@ -2395,7 +2395,6 @@ function pathfinder_think(event)
 			animation = true
 		end
 		if animation then
-			--print("PARTICLE???")
 			local particleName = "particles/frostivus_gameplay/wraith_king_heal.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -2405,6 +2404,25 @@ function pathfinder_think(event)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 		end
+	end
+end
+
+function pathfinder_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local cd = ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_RUBY)
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_pathfinder_resonant_cooldown", {duration = cd})
+	hero:RemoveModifierByName("modifier_resonant_boots_active")
+end
+
+function resonant_pathfinder_on(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_resonant_boots_atk_power", {})
+		hero:SetModifierStackCount("modifier_resonant_boots_atk_power", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_AMETHYST))
 	end
 end
 

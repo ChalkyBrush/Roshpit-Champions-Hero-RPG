@@ -320,13 +320,26 @@
         "item_rpc_neptunes_water_gliders_amethyst1"                         "Increases All T3 runes by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
-        "property_oceanrunner"                                              "Alacrity"
+        "property_oceanrunner"                                              "Oceanrunner"
         "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>%."
 
         "item_rpc_oceanrunner_boots_ruby1"                  "Every <% ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE %> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
         "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"
         "item_rpc_oceanrunner_boots_sapphire1"                  "Each point of Agility increases Item Damage by @sapphire_property1%"
         "item_rpc_oceanrunner_boots_amethyst1"                  "Gain @amethyst_property1% increased attack power while in motion"
+
+        "DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"                      "Pathfinder's Resonant Boots"
+
+        "item_property_pathfinder"                  "Purifying Resonance"
+        "property_pathfinder_description"           "After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
+
+        "DOTA_Tooltip_modifier_resonant_boots_active"                   "Purifying Resonance"
+        "DOTA_Tooltip_modifier_pathfinder_resonant_cooldown"            "Purifying Resonance Cooldown"
+
+        "item_rpc_pathfinders_resonant_boots_ruby1"                     "Reduces the delay of not taking damage to reactivate Purifying Resonance by @ruby_property1 seconds"
+        "item_rpc_pathfinders_resonant_boots_emerald1"                      "While Purifying Resonance is active, gain @emerald_property1 Armor Pierce and Spell Pierce"
+        "item_rpc_pathfinders_resonant_boots_sapphire1"                     "While Purifying Resonance is active, gain @sapphire_property1% increased Base Ability Damage"
+        "item_rpc_pathfinders_resonant_boots_amethyst1"                     "While Purifying Resonance is active, gain @amethyst_property1% increased Attack Power"
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -412,14 +425,7 @@
 		"item_property_redrock"						"Fevering Footwork"
 		"property_redrock_description"				"When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. Also increases your current health by <% ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT %>% and reduces damage taken by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"Pathfinder's Resonant Boots"
-    	"item_rpc_pathfinders_resonant_boots_ruby1"						"blah blah @ruby_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_emerald1"						"blah blah @emerald_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_sapphire1"						"blah blah @sapphire_property1 gem"
-    	"item_rpc_pathfinders_resonant_boots_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_pathfinder"					"Purifying Resonance"
-		"property_pathfinder_description"			"After not taking damage for <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_DELAY %> seconds, restore <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_HP_RESTORE_PCT %>% of your max health and <% ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_MANA_RESTORE_PCT %>% of your max mana every second."
+	
 		
 
 		

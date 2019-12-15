@@ -1981,6 +1981,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
 		end
 	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2356,6 +2359,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
 	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
+
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

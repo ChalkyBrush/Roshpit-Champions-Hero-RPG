@@ -1602,6 +1602,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_oceanrunner_boots") then
             damageMult = damageMult + ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD/100 * (attacker:GetAgility())
         end
+        if attacker:HasModifier("modifier_resonant_boots_active") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_SAPPHIRE)/100
+        end
         if attacker:HasModifier("modifier_white_mage_hat2") then
             damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)
         end
