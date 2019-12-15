@@ -12335,7 +12335,7 @@
 
 		"item_property_pegasus"					"风跃"
 
-		"property_pegasus_description"			"@Ability3 穿行速度增加 <font color='#ccff66'>100</font>% 。最大移动速度增加 <font color='#ccff66'>30</font>%。"
+		"property_pegasus_description"			"@Ability3 穿行速度增加 <font color='#ccff66'>0</font>% 。最大移动速度增加 <font color='#ccff66'>0</font>%。"
 
 
 

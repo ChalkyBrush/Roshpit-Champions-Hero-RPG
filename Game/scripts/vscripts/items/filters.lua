@@ -346,7 +346,7 @@ function Filters:GetAdjustedESpeed(caster, speed, bDelay)
         if bDelay then
             speed = speed*0.5
         else
-            speed = speed + speed*(ITEM_RPC_PEGASUS_BOOTS_E_SPEED_PCT/100)
+            speed = speed + speed*(caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PEGASUS_BOOTS_GEM_RUBY)/100)
         end
     end
     return speed
@@ -1092,6 +1092,9 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_autumnrock_bracer") then
         Filters:AutumnRockWCast(caster)
+    end
+    if caster:HasModifier("modifier_pegasus_boots") then
+        Filters:PegasusWCast(caster)
     end
     if caster:HasModifier("modifier_silverspring_gloves") then
         Filters:SilverspringWCast(caster)
@@ -6409,6 +6412,25 @@ function Filters:NeptuneWCast(caster)
             neptunes.forward_force = neptunes.slideSpeed*4
             neptunes.blast_direction = caster:GetForwardVector()
             EmitSoundOn("RPCItems.Neptunes.SapphireBlast", caster)
+        end
+    end
+end
+
+function Filters:PegasusWCast(caster)
+    local pegasus_boots = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if pegasus_boots:GetGemValue("sapphire") > 0 then
+        if not caster:HasModifier("modifier_pegasus_wing_dash_cd") then
+            StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_FLAIL, rate = 1.0, translate="forcestaff_friendly"})
+            pegasus_boots.forwardVec = caster:GetForwardVector()
+
+            Timers:CreateTimer(0.1, function()
+                EmitSoundOn("RPCItems.PegasusBoots.SapphireDash", caster)
+            end)
+            local dash_duration = 0.35
+            caster:RemoveModifierByName("modifier_pegasus_wing_dash")
+            pegasus_boots:ApplyDataDrivenModifier(caster, caster, "modifier_pegasus_wing_dash", {duration = dash_duration})
+
+            pegasus_boots:ApplyDataDrivenModifier(caster, caster, "modifier_pegasus_wing_dash_cd", {duration = pegasus_boots:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PEGASUS_BOOTS_GEM_SAPPHIRE)})
         end
     end
 end

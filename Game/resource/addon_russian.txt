@@ -12178,7 +12178,7 @@
 		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
 		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"@Ability3 становится <font color='#ccff66'>100</font>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <font color='#ccff66'>30</font>%."
+		"property_pegasus_description"			"@Ability3 становится <font color='#ccff66'>0</font>% быстрее, если оно имеет компонент движения. Лимит скорости передвижения увеличен на <font color='#ccff66'>0</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"

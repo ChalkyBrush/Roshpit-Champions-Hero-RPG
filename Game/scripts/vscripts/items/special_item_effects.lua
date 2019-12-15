@@ -9409,3 +9409,54 @@ function ocean_runner_ruby_squall(caster, ability, hero)
 		end
 	end
 end
+
+function pegasus_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_pegasus_boots_emerald_ms_pct", {})
+		hero:SetModifierStackCount("modifier_pegasus_boots_emerald_ms_pct", caster, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PEGASUS_BOOTS_GEM_EMERALD))
+	end
+end
+
+function pegasus_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("amethyst") > 0 then
+		if not ability.lastPos then
+			ability.lastPos = hero:GetAbsOrigin()
+		end
+		local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+		if distance > 1 then
+			local atk_power_stacks = distance*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST1)/100)/0.1
+			atk_power_stacks = math.min(atk_power_stacks, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PEGASUS_BOOTS_GEM_AMETHYST2)/0.1)
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_pegasus_boots_amethyst_atk_power", {})
+			hero:SetModifierStackCount("modifier_pegasus_boots_amethyst_atk_power", caster, atk_power_stacks)
+		else
+			hero:RemoveModifierByName("modifier_pegasus_boots_amethyst_atk_power")
+		end
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+end
+
+function pegasus_dash_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	local obstruction = WallPhysics:FindNearestObstruction(position)
+	local pushSpeed = 55
+	-- pushSpeed = Filters:GetAdjustedESpeed(caster, pushSpeed, false)
+	local newPosition = position + ability.forwardVec * pushSpeed
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + ability.forwardVec * 72), caster)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
+end
+
+function pegasus_dash_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end

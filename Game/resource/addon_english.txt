@@ -12190,6 +12190,17 @@
         "item_rpc_pathfinders_resonant_boots_sapphire1"                     "While Purifying Resonance is active, gain @sapphire_property1% increased Base Ability Damage"
         "item_rpc_pathfinders_resonant_boots_amethyst1"                     "While Purifying Resonance is active, gain @amethyst_property1% increased Attack Power"
 
+        "DOTA_Tooltip_ability_item_rpc_pegasus_boots"   "Pegasus Boots"
+
+        "item_property_pegasus"                 "Aileron Sprint"
+        "property_pegasus_description"          "Max movespeed is increased by <font color='#ccff66'>280</font>."
+
+        "item_rpc_pegasus_boots_ruby1"  "If your [E] involves movement, it travels @ruby_property1% faster"
+        "item_rpc_pegasus_boots_emerald1"   "Increases movespeed by @emerald_property1%"
+        "item_rpc_pegasus_boots_sapphire1"  "Casting [W] performs a quick dash forward. @sapphire_property1 second cooldown"
+        "item_rpc_pegasus_boots_amethyst1"  "Increases Attack Power by @amethyst_property1% of distance travelled every <font color='#ccff66'>0.2</font> seconds. Maximum bonus of @amethyst_property2% attack power"
+
+        "DOTA_Tooltip_modifier_pegasus_wing_dash_cd"    "Aileron Sprint (Sapphire) Cooldown"
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12363,13 +12374,6 @@
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <font color='#ccff66'>0.4</font>x damage at close range, to <font color='#ccff66'>4</font>x damage at the edge. No other effects or modifiers can further increase this instance of damage, but it pierces Steadfast defenses, raising their damage truncation thresholds to <font color='#ccff66'>10</font>x the normal value (or <font color='#ccff66'>30</font>x for Mega Steadfast). Ring emission has a 1 second cooldown."
 
-		"DOTA_Tooltip_ability_item_rpc_pegasus_boots"	"Pegasus Boots"
-		"item_rpc_pegasus_boots_ruby1"	"blah blah @ruby_property1 gem"
-		"item_rpc_pegasus_boots_emerald1"	"blah blah @emerald_property1 gem"
-		"item_rpc_pegasus_boots_sapphire1"	"blah blah @sapphire_property1 gem"
-		"item_rpc_pegasus_boots_amethyst1"	"blah blah @amethyst_property1 gem"
-		"item_property_pegasus"					"Wing Jump"
-		"property_pegasus_description"			"If your @Ability3 involves movement, it travels <font color='#ccff66'>100</font>% faster. Max movespeed is increased by <font color='#ccff66'>30</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_pivotal_swiftboots"	"Pivotal Swiftboots"
 		"item_rpc_pivotal_swiftboots_ruby1"	"blah blah @ruby_property1 gem"
