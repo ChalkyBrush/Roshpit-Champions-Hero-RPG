@@ -179,6 +179,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_gem_of_eternal_frost") then
         mult = mult + ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_DIVISOR)
     end
+    if caster:HasModifier("modifier_oceanrunner_boots") then
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_SAPPHIRE)/100 * (caster:GetAgility())
+    end
     if caster:HasModifier("modifier_grand_arcanist") then
         mult = mult + (caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAND_ARCANIST_WRAPS_GEM_EMERALD)/100) * caster:GetIntellect()
     end
@@ -1597,7 +1600,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + ITEM_RPC_DIREWOLF_BULWARK_BAD/100 * attacker:GetModifierStackCount("modifier_direwolf_bulwark_effect", attacker.InventoryUnit)
         end
         if attacker:HasModifier("modifier_oceanrunner_boots") then
-            damageMult = damageMult + ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD/100 * (attacker:GetAgility() / ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR)
+            damageMult = damageMult + ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD/100 * (attacker:GetAgility())
         end
         if attacker:HasModifier("modifier_white_mage_hat2") then
             damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)

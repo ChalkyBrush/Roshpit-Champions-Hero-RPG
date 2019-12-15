@@ -391,13 +391,14 @@
 		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>% за каждые <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> очков Ловкости."
 		
 	
-		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
-		"item_rpc_oceanrunner_boots_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_oceanrunner_boots_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_oceanrunner_boots_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Увеличивает базовый урон способностей на <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>% за каждые <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_DIVISOR %> очков Ловкости."
+        "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
+        "property_oceanrunner"                                              "Alacrity"
+        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <% ITEM_RPC_OCEANRUNNER_BOOTS_AGI_TO_BAD %>%."
+
+        "item_rpc_oceanrunner_boots_ruby1"                  "Every <% ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE %> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
+        "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"
+        "item_rpc_oceanrunner_boots_sapphire1"                  "Each point of Agility increases Item Damage by @sapphire_property1%"
+        "item_rpc_oceanrunner_boots_amethyst1"                  "Gain @amethyst_property1% increased attack power while in motion"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_crystalline_slippers"                "Crystalline Slippers"  

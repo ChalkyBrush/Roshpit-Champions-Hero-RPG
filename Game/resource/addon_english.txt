@@ -12168,6 +12168,15 @@
         "item_rpc_neptunes_water_gliders_sapphire1"                         "Casting [W] creates a water torrent that launches you forward with a force of <font color='#ccff66'>30</font>. The jump travels forward based on Puddle Drifter's glide speed. @sapphire_property1 second cooldown. Must be touching the ground to activate. When you land, stun enemies for @sapphire_property2 seconds and deal @sapphire_property3% of your attack power as damage in <font color='#ccff66'>500</font> range"
         "item_rpc_neptunes_water_gliders_amethyst1"                         "Increases All T3 runes by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 
+        "property_oceanrunner"                                              "Alacrity"
+        "property_oceanrunner_Description"                                  "Each point of Agility increases Base Ability Damage by <font color='#ccff66'>0.15</font>%."
+
+        "item_rpc_oceanrunner_boots_ruby1"                  "Every <font color='#ccff66'>1000</font> distance travelled, unleash a quick ocean squall that stuns enemies for @ruby_property1 seconds and deals @ruby_property2% of attack power as damage in a @ruby_property3 radius"
+        "item_rpc_oceanrunner_boots_emerald1"                   "Increases Agility by @emerald_property1 and Movespeed by @emerald_property2"
+        "item_rpc_oceanrunner_boots_sapphire1"                  "Each point of Agility increases Item Damage by @sapphire_property1%"
+        "item_rpc_oceanrunner_boots_amethyst1"                  "Gain @amethyst_property1% increased attack power while in motion"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12337,14 +12346,6 @@
 		"item_property_steamboots"						"Steamboots"
 		"property_steamboots_description"				"Each <font color='#ccff66'>10</font> points of Agility increases item damage by <font color='#ccff66'>0.3</font>%."
 		
-	
-		"DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"					"Oceanrunner Boots"	
-		"item_rpc_oceanrunner_boots_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_oceanrunner_boots_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_oceanrunner_boots_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_oceanrunner_boots_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_oceanrunner"												"Alacrity"
-		"property_oceanrunner_Description"									"Increases Base Ability damage by <font color='#ccff66'>0.25</font>% for every <font color='#ccff66'>10</font> points of Agility."
 	
 		
 

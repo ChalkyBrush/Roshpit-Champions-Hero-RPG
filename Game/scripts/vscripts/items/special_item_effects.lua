@@ -9312,7 +9312,7 @@ function neptune_blasting_think(event)
  		Timers:CreateTimer(1.5, function()
  			ParticleManager:DestroyParticle(pfx, false)
  		end)
- 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3)
+ 		local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE3)/100
 		local stun_duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_SAPPHIRE2)
 		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -9320,6 +9320,74 @@ function neptune_blasting_think(event)
 				Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 				Filters:ApplyStun(hero, stun_duration, enemy)
 			end
+		end
+	end
+end
+
+function oceanrunner_think(event)
+	
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	if not ability.lastPos then
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+	if ability:GetGemValue("ruby") > 0 then
+
+		if not ability.distanceMoved then
+			ability.distanceMoved = 0
+		end
+		ability.newPos = hero:GetAbsOrigin()
+		ability.hero = target
+		local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
+		ability.distanceMoved = ability.distanceMoved + distance
+		if ability.distanceMoved > ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE then
+			if not ability.active then
+				-- StartSoundEvent("Hero_Leshrac.Diabolic_Edict_lp", target)
+			end
+			ability.active = true
+			for i = 1, ability.distanceMoved / ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE, 1 do
+				ocean_runner_ruby_squall(caster, ability, hero)
+			end
+			ability.distanceMoved = ability.distanceMoved % ITEM_RPC_OCEANRUNNER_BOOTS_RUBY_TRAVEL_DISTANCE
+		else
+			if distance < 20 then
+				ability.active = false
+			end
+		end
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local distance = WallPhysics:GetDistance(hero:GetAbsOrigin(), ability.lastPos)
+		if distance > 5 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_oceanrunner_atk_power", {})
+			hero:SetModifierStackCount("modifier_oceanrunner_atk_power", caster, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_AMETHYST))
+		else
+			hero:RemoveModifierByName("modifier_oceanrunner_atk_power")
+		end
+	end
+
+
+	ability.lastPos = hero:GetAbsOrigin()
+end
+
+function ocean_runner_ruby_squall(caster, ability, hero)
+	local radius = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY3)
+    EmitSoundOn("RPCItems.Oceanrunners.Ruby", hero)
+    local particleName = "particles/roshpit/items/ocean_runner_squall.vpcf"
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+    ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin() + Vector(0, 0, 20))
+    ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 1, 1))
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY2)/100
+	local stun_duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEANRUNNER_BOOTS_GEM_RUBY1)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_WIND, RPC_ELEMENT_WATER)
+			Filters:ApplyStun(hero, stun_duration, enemy)
 		end
 	end
 end

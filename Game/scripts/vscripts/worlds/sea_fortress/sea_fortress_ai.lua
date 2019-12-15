@@ -4811,7 +4811,7 @@ function centaur_master_die(caster)
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollOceanrunnerBoots(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_oceanrunner_boots")
 	end
 end
 
