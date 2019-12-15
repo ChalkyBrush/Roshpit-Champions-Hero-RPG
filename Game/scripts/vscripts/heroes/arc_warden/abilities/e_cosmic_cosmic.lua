@@ -27,7 +27,7 @@ function jex_cosmic_port_start(event)
     target = WallPhysics:WallSearch(casterOrigin, target, caster)
     local newPosition = target
     FindClearSpaceForUnit(caster, newPosition, false)
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     ProjectileManager:ProjectileDodge(caster)
 
     if caster:HasModifier("modifier_jex_warp_freecast") then

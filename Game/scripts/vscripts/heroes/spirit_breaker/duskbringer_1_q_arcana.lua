@@ -160,7 +160,7 @@ function duskbringer_terrorize_bomb_start(event)
 	end
 
 	EmitSoundOn("Duskbringer.Terrorize.Breath", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function terrorize_panic_think(event)

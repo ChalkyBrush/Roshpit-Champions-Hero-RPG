@@ -4,7 +4,7 @@ function bomb_throw_start(event)
     local caster = event.caster
     local ability = event.ability
     local target = event.target_points[1]
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
     local localKey = caster:GetEntityIndex() .. '_trapper_w_start'
     Util.Common:LimitPerTime(1, 1, localKey .. '_sound', function()
@@ -394,7 +394,7 @@ function bomb_throw_start_smoke(event)
     local caster = event.caster
     local ability = event.ability
     local target = event.target_points[1]
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
     local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
     local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
     bomb:SetOriginalModel("models/items/techies/bigshot/fx_bigshot_stasis.vmdl")
@@ -428,7 +428,7 @@ end
 --    local caster = event.caster
 --    local ability = event.ability
 --    local target = event.target_points[1]
---    -- Filters:CastSkillArguments(2, caster)
+--    -- Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 --    local fv = (target*Vector(1,1,0)-caster:GetAbsOrigin()*Vector(1,1,0)):Normalized()
 --    local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
 --    bomb:SetOriginalModel("models/items/techies/bigshot/bigshot_remotebomb.vmdl")

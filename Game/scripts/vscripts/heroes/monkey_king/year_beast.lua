@@ -53,7 +53,7 @@ function hawk_screech(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_howl_flat_b_b", {duration = howlDuration})
 		caster:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, q_2_level)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function hawk_screech_hit(event)
@@ -140,7 +140,7 @@ function rend_start(event)
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function rend_bleed_think(event)
@@ -282,7 +282,7 @@ function begin_bear_charge(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function bear_charge_thinking(event)
@@ -413,7 +413,7 @@ function wolf_sprint(event)
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function wolf_slide_think(event)
@@ -469,7 +469,7 @@ function yb_jump_start(event)
 	-- StartAnimation(caster, {duration=2.0, ACT_DOTA_MK_SPRING_SOAR, rate=1.0})
 	-- StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 	-- EmitSoundOn("Akrimus.Jump.VO", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

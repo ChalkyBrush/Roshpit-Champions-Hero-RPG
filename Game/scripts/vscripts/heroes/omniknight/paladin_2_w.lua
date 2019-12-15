@@ -66,7 +66,7 @@ function fireCone(args)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_justice_overwhelming", {duration = 0.5})
 		end)
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function knockback_interval(keys)

@@ -46,7 +46,7 @@ function begin_firestorm(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_firestorm_precast", {duration = 4.5})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sorceress_firestorm_channel", {duration = 4.5})
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local q_1_level = caster:GetRuneValue("q", 1)
 	if q_1_level > 0 then
 		if ability:GetCooldownTimeRemaining() > 0 then

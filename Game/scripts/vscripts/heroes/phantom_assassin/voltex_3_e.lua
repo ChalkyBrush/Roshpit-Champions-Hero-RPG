@@ -7,7 +7,7 @@ function voltex_azure_leap_onspellstart(event)
 	--ability.location = caster:GetOrigin() + caster:GetForwardVector()*Vector(400,400)
 	ability.jump_level = 0
 	EmitSoundOn("Voltex.ElectricJump.Grunt", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	voltex_rune_e_1(caster, ability)
 	voltex_rune_e_3(caster, ability)
 

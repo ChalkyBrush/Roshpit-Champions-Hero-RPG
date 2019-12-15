@@ -10,7 +10,7 @@ function begin_holy_blink(event)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)
 	ability.jump_level = 0
 	ability.explosions_fired = 0
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	caster.EFV = ability.forwardVector
 end
 

@@ -19,7 +19,7 @@ function begin_second_heartbeat(event)
 	-- caster:ReduceMana(ability:GetManaCost(ability:GetLevel())*2)
 	-- end
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.0})
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function create_gale(abilityLevel, caster, targetPoint, casterOrigin)

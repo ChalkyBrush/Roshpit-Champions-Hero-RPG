@@ -206,7 +206,7 @@ function slipfinn_jump_start(event)
 		--print("YO JUMPING DUDE")
 		caster.jumpPhase = caster.jumpPhase + 1
 		caster.jumpLock = true
-		Filters:CastSkillArguments(2, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	else
 		ability:RefundManaCost()
 	end

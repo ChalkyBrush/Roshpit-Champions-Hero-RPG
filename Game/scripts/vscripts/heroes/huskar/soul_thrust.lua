@@ -50,7 +50,7 @@ function cast_soul_thrust(event)
 		EmitSoundOnLocationWithCaster(centerPoint, "SpiritWarrior.DBExplosion", caster)
 	end
 	caster.soulthrustcomplete = true
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local glyphEffect = false
 	if caster:HasModifier("modifier_flametongue") and caster:HasModifier("modifier_spirit_warrior_glyph_2_1") then
 		glyphEffect = true

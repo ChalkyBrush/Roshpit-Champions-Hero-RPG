@@ -29,7 +29,7 @@ function dominion_bolt_fire(event)
 	caster.q_4_level = caster:GetRuneValue("q", 4)
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOn("Ekkan.Dominion.Launch", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function dominion_bolt_impact(event)

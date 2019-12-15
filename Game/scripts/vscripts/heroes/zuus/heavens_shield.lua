@@ -24,7 +24,7 @@ function heavens_shield_cast(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	if ability:GetAbilityName() == "heavens_shield" then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		immortal_weapon_3_effect(caster, ability)
 	end
 

@@ -56,7 +56,7 @@ function solarang_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
 	local target = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
 	if not ability.boomerangTable then
@@ -308,7 +308,7 @@ function lunarang_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
 	local target = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
 	if not ability.boomerangTable then

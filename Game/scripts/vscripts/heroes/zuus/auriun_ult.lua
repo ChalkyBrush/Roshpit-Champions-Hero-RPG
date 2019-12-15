@@ -59,7 +59,7 @@ function channel_succeed(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function channel_initialize(event)

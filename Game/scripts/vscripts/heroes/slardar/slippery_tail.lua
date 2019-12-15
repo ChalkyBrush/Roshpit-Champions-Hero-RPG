@@ -39,7 +39,7 @@ function slippery_tail_start(event)
 	ability.radians = 0
 	EmitSoundOn("Hydroxis.SlipStream.Start", caster)
 	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_RUN, rate = 1, translate = "sprint"})
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	-- caster:SetForwardVector(Vector(1,0))
 end
 

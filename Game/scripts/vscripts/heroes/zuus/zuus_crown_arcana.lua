@@ -31,7 +31,7 @@ function start_holy_arcana(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	EmitSoundOn("Auriun.HolyWrath", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	ability.q_4_level = q_4_level
 	if q_4_level > 0 then
@@ -109,7 +109,7 @@ function start_shadow_arcana(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(point, caster), "shadow_trap", {duration = 7})
 	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(point, caster), "shadow_trap", {duration = AURIUN_ARCANA_2_Q_DURATION})
 

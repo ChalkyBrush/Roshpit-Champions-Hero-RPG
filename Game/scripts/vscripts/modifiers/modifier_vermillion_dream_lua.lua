@@ -14,9 +14,6 @@ end
 function modifier_vermillion_dream_lua:GetModifierCastRangeBonus(params)
     local hero = self:GetParent()
     local range = ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
-    if hero:HasModifier("modifier_hood_of_lords_lua") then
-        range = range + HOOD_OF_LORDS_BONUS_RANGE
-    end
     if IsServer() then
         range = range + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_RUBY)
     end

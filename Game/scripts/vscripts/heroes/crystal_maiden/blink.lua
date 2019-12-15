@@ -17,7 +17,7 @@ function HideCaster(event)
   if not caster:HasModifier("modifier_sorceress_immortal_ice_avatar") and not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
     rune_e_2(event.caster, newPosition, event.ability)
   end
-  Filters:CastSkillArguments(3, event.caster)
+  Filters:CastSkillArguments(BASE_ABILITY_E, event.caster)
   ProjectileManager:ProjectileDodge(event.caster)
 end
 

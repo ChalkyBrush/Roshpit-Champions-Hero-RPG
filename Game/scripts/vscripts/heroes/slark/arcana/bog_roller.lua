@@ -25,7 +25,7 @@ function turn_toggle_on(event)
 				StartAnimation(caster, {duration = 99999, activity = ACT_DOTA_RUN, rate = 1})
 			end)
 			ProjectileManager:ProjectileDodge(caster)
-			Filters:CastSkillArguments(3, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 		end
 	end)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_bog_roller", {})

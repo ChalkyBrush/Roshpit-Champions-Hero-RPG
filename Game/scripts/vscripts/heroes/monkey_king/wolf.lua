@@ -39,7 +39,7 @@ function wolf_howl(event)
 	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 1.2)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 20), 1.2)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function wolf_sprint(event)
@@ -80,7 +80,7 @@ function wolf_sprint(event)
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function wolf_sprint_think(event)
@@ -178,7 +178,7 @@ function rend_start(event)
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function rend_bleed_think(event)

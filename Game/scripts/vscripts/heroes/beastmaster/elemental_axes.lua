@@ -48,7 +48,7 @@ function swingEarth(event)
 	StartAnimation(caster, {duration = animationDuration, activity = ACT_DOTA_CAST_ABILITY_1, rate = animationRate})
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_swinging", {duration = swingDuration})
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function rune_w_2(caster)

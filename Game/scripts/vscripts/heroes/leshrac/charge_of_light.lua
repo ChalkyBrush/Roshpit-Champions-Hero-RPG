@@ -34,7 +34,7 @@ function beginCharge(event)
 		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_RUN, rate = 1.5})
 	end)
 	EmitSoundOn("Hero_Terrorblade.Metamorphosis", caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 	if caster:HasModifier("modifier_bahamut_glyph_2_1") then
 		ability.wallPoint = caster:GetAbsOrigin() + ability.fv * 360

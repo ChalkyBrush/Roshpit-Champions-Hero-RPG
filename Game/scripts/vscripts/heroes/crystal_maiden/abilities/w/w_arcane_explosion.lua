@@ -26,7 +26,7 @@ function cast(event)
 
     ability.damage = damage
 
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
     StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.4})
     local radius = event.radius

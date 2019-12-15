@@ -35,7 +35,7 @@ function begin_slice(event)
 		end
 	end
 	slice_think(event)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

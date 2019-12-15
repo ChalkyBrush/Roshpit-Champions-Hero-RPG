@@ -33,7 +33,7 @@ function cast(event)
     local health = event.health
     local damage = event.damage
 	local armor_pierce = 0
-    Filters:CastSkillArguments(4, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
     local r4_level = caster:GetRuneValue("r", 4)
 

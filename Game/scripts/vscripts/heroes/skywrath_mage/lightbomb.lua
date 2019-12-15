@@ -189,7 +189,7 @@ function lightbomb_cast(event)
 			caster:SetModifierStackCount("modifier_lightbomb_freecast", caster, freeStacks + q_3_level*SEPHYR_Q3_STACKS)
 		end
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function sephyr_passive_think(event)

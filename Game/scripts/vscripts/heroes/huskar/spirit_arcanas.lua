@@ -64,7 +64,7 @@ function ancient_rain_start(event)
 	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_regen", {duration = duration})
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function ancient_rain_think(event)
@@ -112,7 +112,7 @@ function blazing_javelin_cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
 	local spellStartPoint = caster:GetAbsOrigin() + Vector(0, 0, 120) + perpVector * 80
@@ -297,7 +297,7 @@ function cast_ancient_spirit_elite(event)
 	-- end
 	-- end
 	ability.target = target
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_dashing", {duration = 3.4})
 	caster:RemoveModifierByName("modifier_spirit_warrior_glyph_effect")
 	ability.targetedSpirit = targetedSpirit

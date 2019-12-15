@@ -278,7 +278,7 @@ function backstab_channel_succeed(event)
 	end
 	EmitSoundOn("templar_assassin_temp_pain_03", caster)
 	StartAnimation(caster, {duration = 1.2, activity = ACT_DOTA_ATTACK, rate = 0.5})
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	local moveToPosition = target:GetAbsOrigin() - target:GetForwardVector() * 110
 	local casterFV = (target:GetAbsOrigin() * Vector(1, 1, 0) - moveToPosition * Vector(1, 1, 0)):Normalized() * Vector(1, 1, 0)
 	--print(casterFV)

@@ -105,7 +105,7 @@ function createWall(event)
 		-- UTIL_Remove(obstruction)
 		-- end
 	end)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if caster:HasModifier("modifier_bahamut_glyph_5_a") then
 		if not caster:HasModifier("modifier_bahamut_5_a_cooldown") then
 			ability:EndCooldown()

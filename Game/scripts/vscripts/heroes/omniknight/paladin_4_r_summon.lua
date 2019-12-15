@@ -53,7 +53,7 @@ function knights_disciple_cast(event)
 	if caster:HasModifier("modifier_paladin_immortal_weapon_2") then
 		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, summon, "modifier_disciple_cooldown_reduction", {})
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function disciple_think(event)

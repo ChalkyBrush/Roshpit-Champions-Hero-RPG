@@ -19,7 +19,7 @@ function begin_immolation(event)
 
 	StartAnimation(caster, {duration = 0.18, activity = ACT_DOTA_CAST_ALACRITY, rate = 2.4})
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_2")
 	local w_2_level = caster:GetRuneValue("w", 2)

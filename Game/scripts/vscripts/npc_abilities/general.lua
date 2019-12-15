@@ -801,9 +801,6 @@ function challenge_mob_ability_execute(event)
 		local currentCD = executedAbility:GetCooldownTimeRemaining()
 		executedAbility:EndCooldown()
 		local cd = currentCD*Challenges.MobCDReduction
-		if target:HasModifier("modifier_hood_of_lords_lua") then
-			cd = cd + 1
-		end
 		executedAbility:StartCooldown(cd)
 	end
 end

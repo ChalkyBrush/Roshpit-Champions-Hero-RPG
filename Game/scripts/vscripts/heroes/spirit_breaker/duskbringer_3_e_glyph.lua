@@ -40,7 +40,7 @@ function begin_manifestation(event)
 		end
 	end
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function manifestParticle(position, caster)

@@ -51,7 +51,7 @@ function jex_cast_portal(event)
 	end
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 	ability.e_4_level = caster:GetRuneValue("e", 4)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

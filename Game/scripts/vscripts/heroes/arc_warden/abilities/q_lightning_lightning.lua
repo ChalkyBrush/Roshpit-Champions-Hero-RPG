@@ -34,7 +34,7 @@ function jex_activate_q_lightning_lightning(event)
 	ability.enemy_index = 1
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_thunder_wrath_thinker", {duration = 0.6})
 	EmitSoundOn("Jex.Grunt", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 	local aoePFX = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(aoePFX, 0, caster:GetAbsOrigin())

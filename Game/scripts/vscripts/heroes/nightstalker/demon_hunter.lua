@@ -31,7 +31,7 @@ function demon_hunter_start(event)
 		caster:SetHealth(caster:GetMaxHealth() * healthPercent)
 	end)
 	caster:SetRangedProjectileName("particles/units/heroes/hero_nevermore/nevermore_base_attack.vpcf")
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function demon_hunter_end(event)

@@ -78,7 +78,7 @@ function red_general_ability_arcana2_w_stonewall_start(event)
 			end
 		end)
 	end)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
 		--print("IN HERE?")

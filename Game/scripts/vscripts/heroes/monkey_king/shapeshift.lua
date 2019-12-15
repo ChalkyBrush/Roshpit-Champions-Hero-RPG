@@ -247,7 +247,7 @@ function all_shift_after(caster)
 		monkeyForm:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_4_1_shield", {duration = DJANGHOR_GLYPH_4_1_DURATION})
 		caster:SetModifierStackCount("modifier_djanghor_4_1_shield", caster, DJANGHOR_GLYPH_4_1_SHIELD_STACKS)
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function monkey_form(event)

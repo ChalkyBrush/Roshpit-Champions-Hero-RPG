@@ -112,7 +112,7 @@ function begin_icewind_gale(event)
 			caster:SetModifierStackCount("modifier_icewind_shield", caster, shieldStacks)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function gale_speed_burst_think(event)

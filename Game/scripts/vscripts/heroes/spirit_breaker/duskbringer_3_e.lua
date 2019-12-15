@@ -34,7 +34,7 @@ function begin_specter_rush_two(event)
 	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_visible")
 	caster:RemoveModifierByName("modifier_duskbringer_rune_e_4_invisible")
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	
 
 end

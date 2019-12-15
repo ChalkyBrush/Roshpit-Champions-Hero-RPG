@@ -28,7 +28,7 @@ function jex_activate_q_nature_nature(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_oak_infusion_strength", {duration = duration})
 		caster:SetModifierStackCount("modifier_jex_oak_infusion_strength", caster, q_4_level)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function enemy_damage_jex_nature_nature_shield(event)

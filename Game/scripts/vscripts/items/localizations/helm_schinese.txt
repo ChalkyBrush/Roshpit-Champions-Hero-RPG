@@ -379,8 +379,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"城主的兜帽"
-		"item_property_lords"									"命令视域"
-		 "property_lords_description"							"技能冷却时间减少 <% HOOD_OF_LORDS_CD_RED %> 秒并且拥有 <% HOOD_OF_LORDS_BONUS_RANGE %> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。该装备的符文有重铸上限，重铸上限为24 。"
+		"item_property_hood_of_lords"									"命令视域"
+		 "property_hood_of_lords_description"							"技能冷却时间减少 <% HOOD_OF_LORDS_CD_RED %> 秒并且拥有 <% HOOD_OF_LORDS_BONUS_RANGE %> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。该装备的符文有重铸上限，重铸上限为24 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"烈焰犬头盔"

@@ -163,7 +163,7 @@ function earthshock_cast(event)
 		end
 	end
 	if not ability.procCast then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		ability.procCast = true
 	end
 	fire_earth_shock(point, caster, radius, ability, damage)

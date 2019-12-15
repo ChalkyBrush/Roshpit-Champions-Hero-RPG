@@ -84,7 +84,7 @@ function mach_punch_cast(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	if not event.cancelAnim then
 		if caster:HasModifier("modifier_zonik_glyph_3_1") then
 			local procs = Runes:Procs(ZHONIK_GLYPH_3_1_CHANCE_TO_PUNCH_TWICE / 10, 10, 1)

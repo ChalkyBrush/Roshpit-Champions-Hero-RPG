@@ -16,7 +16,7 @@ function jex_fire_fire_w_start(event)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_w_fire_fire_thinker", {})
 	EmitSoundOn("Jex.FireJuggler.Toss", caster)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	ability.damage = event.damage + (event.attack_damage_percent_added_per_tech / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * tech_level
 	ability.w_4_level = caster:GetRuneValue("w", 4)
 end

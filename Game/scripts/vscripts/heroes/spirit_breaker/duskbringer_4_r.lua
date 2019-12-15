@@ -19,7 +19,7 @@ function seven_visions_start(event)
 	caster:RemoveModifierByName("modifier_duskbringer_rune_r_3")
 	seven_visions_strike(caster, caster:GetAbsOrigin(), damage, ability)
 	caster:RemoveModifierByName("modifier_terrorize_animation")
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function seven_visions_think(event)

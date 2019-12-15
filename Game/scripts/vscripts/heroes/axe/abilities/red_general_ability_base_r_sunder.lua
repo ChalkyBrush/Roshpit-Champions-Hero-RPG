@@ -43,7 +43,7 @@ function red_general_ability_base_r_sunder_cast(event)
         damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
     end
 
-    Filters:CastSkillArguments(4, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
     local delay = Filters:GetDelayWithCastSpeed(caster, 0.35)
     local procsCount = 1

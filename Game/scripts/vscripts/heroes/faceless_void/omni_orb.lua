@@ -368,7 +368,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		end
 		CustomAbilities:QuickAttachParticle("particles/act_2/frostbitten_icicle.vpcf", caster, 3)
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	caster:RemoveModifierByName("modifier_burnout")
 end
 

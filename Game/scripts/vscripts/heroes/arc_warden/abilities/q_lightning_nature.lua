@@ -39,7 +39,7 @@ function jex_activate_charged_mushroom(event)
 	ability.max_chain_targets = max_chain_targets
 	EmitSoundOn("Jex.Thundershroom.Spawn", shroom)
 	EmitSoundOn("Jex.Thundershroom.SpawnSpark", shroom)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function jex_charged_mushroom_spawning(event)

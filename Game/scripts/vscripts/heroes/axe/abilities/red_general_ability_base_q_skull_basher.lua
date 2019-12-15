@@ -9,7 +9,7 @@ function red_general_ability_base_q_skull_basher(event)
 
 	ability.jump_level = 0
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 	Helper.initializeAbilityRunes(caster, 'axe', 'q')
 

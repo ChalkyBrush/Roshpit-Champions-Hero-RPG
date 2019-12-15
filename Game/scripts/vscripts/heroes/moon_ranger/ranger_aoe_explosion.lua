@@ -44,7 +44,7 @@ function begin_explosion(event)
   --   end)
   -- end
   rune_r_3(caster, ability)
-  Filters:CastSkillArguments(4, caster)
+  Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function ranger_aoe_explosion_damage(event)

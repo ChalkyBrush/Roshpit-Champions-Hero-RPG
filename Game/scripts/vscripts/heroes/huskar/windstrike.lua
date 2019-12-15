@@ -28,7 +28,7 @@ function windstrike_start(event)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "spirit_warrior")
 	caster.windstrikeStarted = true
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_windstrike_weapon", {duration = duration})
 	if target:GetEntityIndex() == caster:GetEntityIndex() and caster:HasModifier("modifier_spirit_warrior_glyph_6_1") then
 	else

@@ -119,6 +119,6 @@ function shot_of_apollo:OnChannelFinish(bInterrupted)
 			target:SetModifierStackCount("modifier_apollo_strikes", caster, shots)
 			ability.active = false
 		end
-		Filters:CastSkillArguments(2, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	end
 end

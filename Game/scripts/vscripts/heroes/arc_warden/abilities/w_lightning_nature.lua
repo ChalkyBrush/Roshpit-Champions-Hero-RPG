@@ -64,7 +64,7 @@ function jex_thunderleaf_throw(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function thunderleaf_impact(event)

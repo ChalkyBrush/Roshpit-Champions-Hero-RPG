@@ -24,7 +24,7 @@ function begin_bahamut_arcana_ult(event)
 		caster:SetModifierStackCount("modifier_leshrac_arcana_b_d_effect", caster, b_d_level)
 	end
 	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", caster, 5)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function break_channel(event)

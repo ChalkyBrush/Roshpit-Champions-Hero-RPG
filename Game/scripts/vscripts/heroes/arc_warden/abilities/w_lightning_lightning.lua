@@ -41,7 +41,7 @@ function jex_lightning_lightning_attack_land(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function jex_lightning_lightning_toggled_on(event)

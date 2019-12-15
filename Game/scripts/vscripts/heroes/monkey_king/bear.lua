@@ -34,7 +34,7 @@ function bear_roar(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
 		EmitSoundOn("Draghor.Bear.Regeneration", caster)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function bear_warstomp_pre(event)
@@ -80,7 +80,7 @@ function bear_warstomp(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function begin_bear_charge(event)
@@ -124,7 +124,7 @@ function begin_bear_charge(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function bear_charge_thinking(event)

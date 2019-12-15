@@ -70,7 +70,7 @@ function sunstrider_start(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Seinaru.Sunstrider.Launch", caster)
 	ability.point = target
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_sunstrider_in_air", {duration = travelTime})
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	if caster:HasModifier("modifier_sunstrider_freecast") then
 		ability:EndCooldown()
 		local newStacks = caster:GetModifierStackCount("modifier_sunstrider_freecast", caster) - 1

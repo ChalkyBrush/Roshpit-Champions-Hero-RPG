@@ -90,7 +90,7 @@ function VacuumStart(keys)
     ParticleManager:DestroyParticle(particle1, false)
   end)
   CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion.vpcf", caster:GetAbsOrigin(), 3)
-  Filters:CastSkillArguments(4, caster)
+  Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function epoch_r_1(caster, target_location, duration, ability)

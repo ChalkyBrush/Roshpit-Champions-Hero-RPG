@@ -82,7 +82,7 @@ function charons_claw_cast(event)
 		end)
 	end
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function claw_projectile_hit(event)

@@ -133,7 +133,7 @@ function red_general_ability_arcana1_r_successfullCast(event)
 	local stun_duration = event.stun_duration
 
 	-- EarthShatter.applyBuff(caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	WAmplify.applyBuff(caster)
 
 	local lastProcNumber = 0

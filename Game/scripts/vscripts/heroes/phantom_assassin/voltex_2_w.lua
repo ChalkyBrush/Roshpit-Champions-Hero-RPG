@@ -4,7 +4,7 @@ function voltex_static_onspellstart(event)
 	local caster = event.caster
 	local ability = event.ability
 	StartAnimation(caster, {duration = 0.25, activity = ACT_DOTA_CAST_ABILITY_2, rate = 2})
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	if caster:HasModifier("modifier_voltex_glyph_7_1") then
 		caster:SetMana(0)
 		ability:EndCooldown()

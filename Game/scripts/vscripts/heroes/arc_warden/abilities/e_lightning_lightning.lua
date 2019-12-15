@@ -18,7 +18,7 @@ function jex_lightning_lightning_e_start(event)
 	ability.point = point
 	EmitSoundOn("Jex.Grunt", caster)
 	EmitSoundOn("Jex.Jolt.Start", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 	local aoePFX = ParticleManager:CreateParticle("particles/units/heroes/hero_zeus/zeus_cloud.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(aoePFX, 0, caster:GetAbsOrigin())

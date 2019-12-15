@@ -81,7 +81,7 @@ function begin_deity(event)
 	summon:AdjustSummon(caster, true, health_mult, attack_mult, armor_mult, armor_mult, armor_mult, armor_mult)
 	common_aspect_effects(caster, ability, summon)
 	summon:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function deity_a_d_attack_land(event)

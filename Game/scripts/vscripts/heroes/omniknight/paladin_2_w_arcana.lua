@@ -72,7 +72,7 @@ function penance_start(event)
 	end
 	if castArgs then
 		if ability:GetAbilityName() == "paladin_penance" then
-			Filters:CastSkillArguments(2, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		end
 	end
 	if caster:HasModifier("modifier_paladin_glyph_4_2") then

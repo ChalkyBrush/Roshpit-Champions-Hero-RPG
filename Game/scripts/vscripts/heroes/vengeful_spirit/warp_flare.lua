@@ -33,7 +33,7 @@ function warp_flare_start(event)
 	end
 	if not ability.flareCount then
 		ability.flareCount = 0
-		Filters:CastSkillArguments(3, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	end
 	local pfx = nil
 	local particleName = "particles/roshpit/solunia/warp_flare_beam_beam_blade_golden.vpcf"

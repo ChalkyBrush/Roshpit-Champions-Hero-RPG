@@ -6,7 +6,7 @@ end
 function overload_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	local earthCharges = caster:GetModifierStackCount("modifier_warlord_earth_charge", caster)
 	local iceCharges = caster:GetModifierStackCount("modifier_warlord_ice_charge", caster)
 	local fireCharges = caster:GetModifierStackCount("modifier_warlord_fire_charge", caster)

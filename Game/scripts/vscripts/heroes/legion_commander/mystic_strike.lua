@@ -29,7 +29,7 @@ function begin_mystic_strike(event)
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_coreglow.vpcf", caster, 2)
         end
     end
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function rock_start(caster, ability, target_location)

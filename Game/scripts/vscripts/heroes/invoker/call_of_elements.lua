@@ -82,7 +82,7 @@ function begin_call(event)
 		applyCalls(ability, caster, earth, fire, shadow, caster, 0.8, growCount)
 		StartAnimation(caster, {duration = 0.75, activity = ACT_DOTA_CAST_TORNADO, rate = 1.0})
 		ability.growCount = growCount
-		Filters:CastSkillArguments(4, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	elseif caster:GetUnitName() == "conjuror_elemental_deity_summon" then
 		deity_call(event)
 	end

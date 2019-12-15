@@ -16,7 +16,7 @@ function jex_active_q_cosmic_nature_shield(event)
 
 	local invokePFX = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_invoker/invoker_death_end.vpcf", caster, 4)
 	ParticleManager:SetParticleControl(invokePFX, 1, Vector(60, 10, 150))
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 	ability.q_4_level = caster:GetRuneValue("q", 4)
 end

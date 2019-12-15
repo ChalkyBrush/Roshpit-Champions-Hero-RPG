@@ -36,7 +36,7 @@ function start_channel(event)
 				ability:ApplyDataDrivenModifier(caster, caster, enemyAura, {duration = 8})
 			end
 
-			Filters:CastSkillArguments(4, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		end
 	end)
 end

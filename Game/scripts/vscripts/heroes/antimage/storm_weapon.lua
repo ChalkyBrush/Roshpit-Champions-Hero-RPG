@@ -13,7 +13,7 @@ function storm_weapon_cast(event)
 			caster:ReduceMana(event.drain_mana)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	caster:RemoveModifierByName("modifier_burnout")
 	if not ability.pfx then
 

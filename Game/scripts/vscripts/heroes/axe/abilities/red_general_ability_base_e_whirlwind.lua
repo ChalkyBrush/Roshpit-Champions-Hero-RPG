@@ -27,7 +27,7 @@ function red_general_ability_base_q_whirlwind_start(event)
     ImmortalWeapon2.applyBuff(hero, 1.5)
     ability:ApplyDataDrivenModifier(hero, hero, "modifier_whirlwind_flying_portion", {duration = 4.0})
 
-    Filters:CastSkillArguments(3, hero)
+    Filters:CastSkillArguments(BASE_ABILITY_E, hero)
     local movespeedBase = hero:GetBaseMoveSpeed()
     local movespeed = hero:GetMoveSpeedModifier(movespeedBase, false)
     ability.forwardVelocity = math.max(movespeed / 21, 20)

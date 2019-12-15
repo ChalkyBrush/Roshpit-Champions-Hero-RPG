@@ -57,7 +57,7 @@ function begin_rockfall(event)
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	CustomAbilities:AddAndOrSwapSkill(caster, "mountain_protector_rockfall", "mountain_protector_volcanic_glissade", 2)
 	local glissadeAbility = caster:FindAbilityByName("mountain_protector_volcanic_glissade")
 	local c_c_level = caster:GetRuneValue("e", 3)
@@ -91,7 +91,7 @@ function volcanic_glissade(event)
 	end
 	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin() + Vector(0, 0, 90))
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local glyphFreeCast = false
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_1") then
 		local luck = RandomInt(1, 100)

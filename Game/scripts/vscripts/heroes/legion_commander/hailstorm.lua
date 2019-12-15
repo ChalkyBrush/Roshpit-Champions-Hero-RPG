@@ -24,7 +24,7 @@ function channel_complete(event)
 	local mainAOE = event.radius
 	local explosionAOE = 300
 	local damage = event.damage
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.1})
 	EmitSoundOn("MysticAssasin.FissureYell", caster)

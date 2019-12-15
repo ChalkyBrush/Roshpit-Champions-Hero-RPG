@@ -25,7 +25,7 @@ function cast(event)
         rotatedFV = WallPhysics:rotateVector(fv, -math.pi / 10)
         createProjectile(caster, rotatedFV, ability, SORCERESS_Q1_ICE_LANCE_PROJECTILE, casterOrigin, 120)
     end
-    Filters:CastSkillArguments(1, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 end
 

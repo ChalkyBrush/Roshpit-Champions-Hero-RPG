@@ -21,7 +21,7 @@ function field_start(event)
 	ability.e_3_level = caster:GetRuneValue("e", 3)
 	ability.e_4_level = caster:GetRuneValue("e", 4)
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function zhonik_dashing(event)

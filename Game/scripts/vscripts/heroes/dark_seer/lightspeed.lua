@@ -32,7 +32,7 @@ function lightspeed_cast(event)
 		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, e_1_level * ZHONIK_E1_MS + zonik_glyph_5_1_speed)
 	end
 	ability.e_3_level = caster:GetRuneValue("e", 3)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 	-- if caster:HasModifier("modifier_zonik_glyph_5_a") then
 	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_GLYPH_5_a_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
