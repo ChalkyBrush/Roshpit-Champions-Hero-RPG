@@ -1297,7 +1297,7 @@ function redfall_unit_die(event)
 		Redfall:DropAshTwig(event.unit:GetAbsOrigin())
 	end
 	if luck == 2 then
-		item_rpc_redfall_runners:CreateLuaItem(event.unit:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.unit, 'item_rpc_redfall_runners')
 	end
 	if luck == 3 then
 		RPCItems:RollFuchsiaRing(event.unit:GetAbsOrigin())

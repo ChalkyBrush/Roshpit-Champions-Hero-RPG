@@ -366,6 +366,18 @@
         "item_rpc_pivotal_swiftboots_sapphire1" "Increases [E1] and [E2] runes by @sapphire_property1"
         "item_rpc_pivotal_swiftboots_amethyst1" "While Juke is active, gain Base Ability and Item Damage based on @amethyst_property1% of Juke's current movespeed bonus"
 
+        "DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "Redfall Runners"
+
+        "item_property_redfall_runners"                 "Adventurous Miler"
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_AGI_AND_SPR %> and Max Movespeed by <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_AGI_AND_SPR %>."
+        "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
+
+        "item_rpc_redfall_runners_ruby1"                                    "While at full health, gain an additional @ruby_property1 Movespeed and Max Movespeed"
+        "item_rpc_redfall_runners_emerald1"                                 "Each point of current Movespeed increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_redfall_runners_sapphire1"                                    "Each point of current Movespeed increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_redfall_runners_amethyst1"                                    "Increases Agility and Spirit by @amethyst_property1"
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -475,20 +487,7 @@
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
 		 
-		
-		
-		 
-    	"DOTA_Tooltip_ability_item_rpc_redfall_runners"									"Redfall Runners"
-    	"item_rpc_redfall_runners_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_redfall_runners_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_redfall_runners_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_redfall_runners_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_redfall_runners"					"Fight or Flight"
-		"property_redfall_runners_description"				"Each % of missing health increases movement speed by <% ITEM_RPC_REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING %> and movement speed limit by <% ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING %>."
-		"DOTA_Tooltip_modifier_redfall_runners"		"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Movespeed increased based on missing health"
-		 
-		 
+ 
 		 
     	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
     	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"
