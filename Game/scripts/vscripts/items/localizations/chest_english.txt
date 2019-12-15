@@ -61,7 +61,7 @@
 		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
 		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
 		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
-		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increased by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"Baron's Storm Armor"
 
@@ -193,7 +193,7 @@
 		"item_rpc_empyreal_sunrise_robe_ruby1"					"Increases your lowest attribute by @ruby_property1"
 		"item_rpc_empyreal_sunrise_robe_emerald1"					"Increases your Attack Damage by @emerald_property1x your lowest attribute"
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"Increases your Spell Pierce by @sapphire_property1x your lowest attribute"
-		"item_rpc_empyreal_sunrise_robe_amethyst1"					"Increases your Magic Armor by @amethyst_property1 your lowest attribute"
+		"item_rpc_empyreal_sunrise_robe_amethyst1"					"Increases your Magic Armor by @amethyst_property1x your lowest attribute"
 
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
@@ -259,7 +259,7 @@
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield" "Shield of Dawn"
 		"DOTA_Tooltip_modifier_guard_of_feronia_shield_Description" "Reduces damage taken by <% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>%"
 
-		"item_rpc_guard_of_feronia_ruby1"								"Inreases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
+		"item_rpc_guard_of_feronia_ruby1"								"Increases the damage reduction of Shield of Dawn by an additional @ruby_property1%"
 		"item_rpc_guard_of_feronia_emerald1"								"Casting [Q] applies Shield of Dawn for @emerald_property1 seconds"
 		"item_rpc_guard_of_feronia_sapphire1"								"@sapphire_property1% chance on attack to remove Shield of Dawn and then reapply it for the remaining duration plus <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_DURATION_ADD %> seconds. Max <% ITEM_RPC_GUARD_OF_FERONIA_SAPPHIRE_MAX_PROCS_PER_SECOND %> procs per second"
 		"item_rpc_guard_of_feronia_amethyst1"								"When the Shield of Dawn expires, drop a star on all nearby enemies in a <% ITEM_RPC_GUARD_OF_FERONIA_AMETHYST_RADIUS %> radius that deals @amethyst_property1% of attack power. If only 1 enemy is nearby, drop <% ITEM_RPC_GUARD_OF_FERONIA_SINGLE_TARGET_STARS %> stars on it"
@@ -420,7 +420,7 @@
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"Robe of Flooding"
 
 		"item_property_flooding"					"Water Elemental"
-		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x its master's health and <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %> its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
+		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x its master's health and <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %>x its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
 		"water_elemental_flood_3"				"Water Elemental"
 
 		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
@@ -469,7 +469,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Primary attribute is always Agilit. Each point of Agilit increases attack damage by an additional <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI %>."
+		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI %>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
@@ -605,7 +605,7 @@
 
 		"item_rpc_stormshield_cloak_ruby1"								"Each active Iron Shield increases Armor by @ruby_property1"
 		"item_rpc_stormshield_cloak_emerald1"								"Reduces Iron Shield replenish time by @emerald_property1 seconds"
-		"item_rpc_stormshield_cloak_sapphire1"								"When an Iron Shield is destroyed, deal damage in a <% ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS %> radius based on @sapphire_property1 x your Armor and stun for @sapphire_property2 seconds"
+		"item_rpc_stormshield_cloak_sapphire1"								"When an Iron Shield is destroyed, deal damage in a <% ITEM_RPC_STORMSHIELD_CLOAK_SAPPHIRE_RADIUS %> radius based on @sapphire_property1x your Armor and stun for @sapphire_property2 seconds"
 		"item_rpc_stormshield_cloak_amethyst1"								"Adds @amethyst_property1 maximum Iron Shields"
 
 		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
