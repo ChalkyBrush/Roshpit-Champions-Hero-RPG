@@ -36,6 +36,17 @@ end
 function class:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1)
 end
+
+function modifierClass:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
+        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
+    })
+end
 function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
@@ -54,7 +65,7 @@ function modifierClass:GetRoshpitBaseAbilityDmgBonus(params)
     end
     local boots = self:GetAbility()
     if boots:GetGemValue("emerald") > 0 then
-        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD)*self:GetParent():GetActualMovespeed()
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
     else
         return 0
     end

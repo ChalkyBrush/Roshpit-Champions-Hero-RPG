@@ -683,7 +683,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
 	end
 	if unit:HasModifier("modifier_dragonflame_shield") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")

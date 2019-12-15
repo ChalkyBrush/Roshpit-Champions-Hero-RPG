@@ -53,7 +53,6 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_BASE_ARMOR_BONUS,
         MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY 
     })
-    self:StartIntervalThink(ARCANE_CASCADE_TICKRATE)
 end
 function modifierClass:DeclareFunctions()
     local funcs = {

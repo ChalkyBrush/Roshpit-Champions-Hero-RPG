@@ -265,7 +265,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_W3_ARMOR_SHRED %>"
+				"property_one"			"<% FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK %>"
 			}
 		}
 	}
