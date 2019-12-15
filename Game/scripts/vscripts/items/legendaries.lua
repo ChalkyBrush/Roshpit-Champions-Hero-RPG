@@ -5518,6 +5518,30 @@ function RPCItems:RollPivotalSwiftboots(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollEternalForestStriders(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_red_october_boots", "immortal", "Red October Boots", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_eternal_forest_striders"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_red_october", "#E87B7B", 1, "#property_red_october_description")
+
+    local rune_type = RPCItems:RollRuneType({"e"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "rune_e_4", 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- break
 
 
@@ -5731,46 +5755,6 @@ function RPCItems:RollTranquilBoots(item_level)
     RPCItems:DropItem(item, position)
     return item
 end
-
-function RPCItems:RollRedOctoberBoots(deathLocation, isSpirit)
-    local item = RPCItems:CreateVariant("item_rpc_red_october_boots", "immortal", "Red October Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "red_october"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_red_october", "#E87B7B", 1, "#property_red_october_description")
-
-    item.newItemTable.hasRunePoints = true
-    local runeName = "rune_e_4"
-    local runeValue = 0
-    if isSpirit then
-        runeValue = RPCItems:GetLogarithmicVarianceValue(14, 0, 0, 0, 0)
-    else
-        runeValue = RPCItems:GetLogarithmicVarianceValue(9, 0, 0, 0, 0)
-    end
-    item.newItemTable.property2name = runeName
-    item.newItemTable.property2 = runeValue
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        if isSpirit then
-            runeValue = RPCItems:GetLogarithmicVarianceValue(14, 0, 0, 0, 0)
-        else
-            runeValue = RPCItems:GetLogarithmicVarianceValue(9, 0, 0, 0, 0)
-        end
-        item.newItemTable.property3name = runeName
-        item.newItemTable.property3 = runeValue
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    else
-        RPCItems:RollFootProperty3(item, 0)
-    end
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
 
 
 function RPCItems:RollSandstreamSlippers(item_level)
@@ -8381,7 +8365,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_world_trees_flower_cache" then
         newItem = RPCItems:RollWorldTreesFlowerCache(item_level)
     elseif itemName == "item_rpc_red_october_boots" then
-        newItem = RPCItems:RollRedOctoberBoots(item_level)
+        newItem = RPCItems:RollEternalForestStriders(item_level)
     elseif itemName == "item_rpc_chitinous_lobster_claw" then
         newItem = RPCItems:RollChitinousLobsterClaw(item_level)
     elseif itemName == "item_rpc_crystalline_slippers" then

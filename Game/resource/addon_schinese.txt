@@ -12147,14 +12147,16 @@
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"                                 "落红流火的赛跑者"
-    	"item_rpc_redfall_runners_ruby1"                                 "blah blah @ruby_property1 gem"
-    	"item_rpc_redfall_runners_emerald1"                                 "blah blah @emerald_property1 gem"
-    	"item_rpc_redfall_runners_sapphire1"                                 "blah blah @sapphire_property1 gem"
-    	"item_rpc_redfall_runners_amethyst1"                                 "blah blah @amethyst_property1 gem"
-        "item_property_redfall_runners"                 "嘎吱作响的叶子"
-        "property_redfall_runners_description"                  "每失去1%的血量增加 <font color='#ccff66'>0</font> 移速以及<font color='#ccff66'>0</font>移速上限."
-        "DOTA_Tooltip_modifier_redfall_runners_buff"        "嘎吱作响的叶子"
-         "DOTA_Tooltip_modifier_redfall_runners_Description"    "增加移速I<font color='#ccff66'>0</font> 以及增加移速上限 <font color='#ccff66'>0</font> 根据每 %% 的丢失血量."
+
+        "item_property_redfall_runners"                 "Adventurous Miler"
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <font color='#ccff66'>0.15</font> and Max Movespeed by <font color='#ccff66'>0.15</font>."
+        "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
+
+        "item_rpc_redfall_runners_ruby1"                                    "While at full health, gain an additional @ruby_property1 Movespeed and Max Movespeed"
+        "item_rpc_redfall_runners_emerald1"                                 "Each point of current Movespeed increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_redfall_runners_sapphire1"                                    "Each point of current Movespeed increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_redfall_runners_amethyst1"                                    "Increases Agility and Spirit by @amethyst_property1"
 		 
 		 	 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_ashara"									"Ashara的鞋子"
@@ -12248,7 +12250,7 @@
     	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_red_october"								"自然星火"
-		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <font color='#ccff66'>50</font>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
+		"property_red_october_description"						"当 @Ability3 冷却时，伤害减免 <font color='#ccff66'>0</font>%。该装备符文有重铸上限，上限为15 。掉落上限为21 E4 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"蒸汽长靴"

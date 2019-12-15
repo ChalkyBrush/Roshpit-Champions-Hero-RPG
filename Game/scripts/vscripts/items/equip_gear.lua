@@ -1133,6 +1133,14 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_REDFALL_RUNNERS_GEM_AMETHYST, hero, "agility", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_REDFALL_RUNNERS_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_BOOTS)
 		end
+	elseif item:GetAbilityName() == "item_rpc_red_october_boots" then
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_EMERALD, hero, "rune_e_3", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_BOOTS)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST2, hero, "rune_e_1", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST2, hero, "rune_e_2", RPC_GEAR_SLOT_BOOTS)
+		end			
 	end
 end
 

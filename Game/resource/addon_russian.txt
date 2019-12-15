@@ -11993,14 +11993,16 @@
 		
 		 
     	"DOTA_Tooltip_ability_item_rpc_redfall_runners"			"Redfall Runners"
-    	"item_rpc_redfall_runners_ruby1"			"blah blah @ruby_property1 gem"
-    	"item_rpc_redfall_runners_emerald1"			"blah blah @emerald_property1 gem"
-    	"item_rpc_redfall_runners_sapphire1"			"blah blah @sapphire_property1 gem"
-    	"item_rpc_redfall_runners_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_redfall_runners"							"Crackling Leaves"
-		"property_redfall_runners_description"					"Каждый % отсутствующего здоровья увеличивает скорость перемещения на <font color='#ccff66'>0</font> и лимит скорости на <font color='#ccff66'>0</font>."
-		"DOTA_Tooltip_modifier_redfall_runners"					"Crackling Leaves"
-		 "DOTA_Tooltip_modifier_redfall_runners_Description"	"Каждый процент отсутствующего здоровья увеличивает скорость перемещения на <font color='#ccff66'>0</font> и лимит скорости на <font color='#ccff66'>0</font>"
+
+        "item_property_redfall_runners"                 "Adventurous Miler"
+        "property_redfall_runners_description"              "Each point of Agility and Spirit increases Movespeed by <font color='#ccff66'>0.15</font> and Max Movespeed by <font color='#ccff66'>0.15</font>."
+        "DOTA_Tooltip_modifier_redfall_runners"      "Adventurous Miler"
+         "DOTA_Tooltip_modifier_redfall_runners_Description"    "Movespeed increased based Agility and Spirit"
+
+        "item_rpc_redfall_runners_ruby1"                                    "While at full health, gain an additional @ruby_property1 Movespeed and Max Movespeed"
+        "item_rpc_redfall_runners_emerald1"                                 "Each point of current Movespeed increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_redfall_runners_sapphire1"                                    "Each point of current Movespeed increases Armor Pierce and Spell Pierce by @sapphire_property1"
+        "item_rpc_redfall_runners_amethyst1"                                    "Increases Agility and Spirit by @amethyst_property1"
 		 
 		 	 
         "DOTA_Tooltip_ability_item_rpc_boots_of_ashara"                                 "Boots of Ashara"
@@ -12098,7 +12100,7 @@
     	"item_rpc_red_october_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_red_october_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_red_october"								"Mobilus Shield"
-		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <font color='#ccff66'>50</font>%."
+		"property_red_october_description"						"Пока умение (E) @Ability3 перезаряжается, весь входящий урон снижается на <font color='#ccff66'>0</font>%."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"

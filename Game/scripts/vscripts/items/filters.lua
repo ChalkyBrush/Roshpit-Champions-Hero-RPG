@@ -1498,6 +1498,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_frostburn_gauntlets") and slot == BASE_ABILITY_W then
             Filters:FrostburnGauntlet(attacker, victim, damage)
         end
+        if attacker:HasModifier("modifier_eternal_forest_striders") and slot == BASE_ABILITY_E then
+            Filters:EternalForestStriders(attacker, victim, damage)
+        end
     end
 
     local damageData = attacker._damage_data or {}
@@ -4397,7 +4400,7 @@ end
 function Filters:FireDeity(attacker, victim, damage)
     local fire_crown = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
     local chance = FIRE_DEITY_CROWN_CHANCE + fire_crown:GetFinalGemPropertyValue("ruby", FIRE_DEITY_RUBY)
-    local proc = Filters:GetProc(attacker, FIRE_DEITY_CROWN_CHANCE)
+    local proc = Filters:GetProc(attacker, chance)
     if proc then
         damage = damage * FIRE_DEITY_CROWN_AMP/100 + fire_crown:GetFinalGemPropertyValue("emerald", FIRE_DEITY_EMERALD)
         local target = victim
@@ -6438,5 +6441,41 @@ function Filters:PegasusWCast(caster)
 
             pegasus_boots:ApplyDataDrivenModifier(caster, caster, "modifier_pegasus_wing_dash_cd", {duration = pegasus_boots:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PEGASUS_BOOTS_GEM_SAPPHIRE)})
         end
+    end
+end
+
+function Filters:EternalForestStriders(attacker, victim, damage)
+    local striders = attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    local chance = ITEM_RPC_RED_OCTOBER_BOOTS_PROC_CHANCE + striders:GetFinalGemPropertyValue("ruby", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY1)
+    local proc = Filters:GetProc(attacker, chance)
+    if proc then
+        damage = damage * ITEM_RPC_RED_OCTOBER_BOOTS_PROC_DAMAGE/100 + striders:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE1)
+        local target = victim
+        local radius = ITEM_RPC_RED_OCTOBER_BOOTS_RADIUS + striders:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_SAPPHIRE2)
+        local procs_per_second = ITEM_RPC_RED_OCTOBER_BOOTS_MAX_PROCS_PER_SECOND + striders:GetFinalGemPropertyValue("ruby", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_RUBY2)
+        local limitKey = attacker:GetPlayerOwnerID() .. '_eternal_forest_striders'
+        Util.Common:LimitPerTime(procs_per_second, 1, limitKey, function()
+            local particleNameS = "particles/roshpit/items/eternal_forest_striders.vpcf"
+            local particle2 = ParticleManager:CreateParticle(particleNameS, PATTACH_WORLDORIGIN, target)
+            ParticleManager:SetParticleControl(particle2, 0, target:GetAbsOrigin())
+            ParticleManager:SetParticleControl(particle2, 1, Vector(radius, 0, 0))
+            -- ParticleManager:SetParticleControl(particle2, 5, target:GetAbsOrigin())
+            Timers:CreateTimer(1.5, function()
+                ParticleManager:DestroyParticle(particle2, false)
+            end)
+
+            EmitSoundOn("RPCItems.EternalForest.Trigger", target)
+            local root_duration = striders:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_OCTOBER_BOOTS_GEM_AMETHYST1)
+            local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            if #enemies > 0 then
+                for _, enemy in pairs(enemies) do
+                    if root_duration > 0 then
+                        striders:ApplyDataDrivenModifier(attacker.InventoryUnit, enemy, "modifier_eternal_forest_strider_root", {duration = root_duration})
+                    end
+                    Filters:ApplyItemDamage(enemy, attacker, damage, DAMAGE_TYPE_MAGICAL, nil, RPC_ELEMENT_NATURE, RPC_ELEMENT_TIME)
+                end
+            end
+        end)
+        return true
     end
 end

@@ -1924,13 +1924,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-damage_reduction)/100
 	end
 
-	if victim:HasModifier("modifier_red_october_boots") then
-		local EAbility = victim:GetAbilityByIndex(DOTA_E_SLOT)
-		if EAbility:GetCooldownTimeRemaining() > 0 then
-			damage = damage * (100-ITEM_RPC_RED_OCTOBER_BOOTS_DMG_REDUCTION)/100
-		end
-	end
-
 	if victim:HasModifier("modifier_world_tree_effect") then
 		damage = damage * ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT/100
 	end
