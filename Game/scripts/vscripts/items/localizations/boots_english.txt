@@ -441,7 +441,7 @@
         "DOTA_Tooltip_modifier_sandstream_slippers_stack"      "Sandstream Stacks"
          "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"  "Removes the cooldown on E ability. Using E ability consumes a stack."
 
-        "item_rpc_sandstream_slippers_ruby1"                                "Enemies in the Sandstream have a @ruby_property1 reduced movespeed and @ruby_property2 reduced attack speed"
+        "item_rpc_sandstream_slippers_ruby1"                                "Enemies in the Sandstream have @ruby_property1 reduced movespeed and @ruby_property2 reduced attack speed"
         "item_rpc_sandstream_slippers_emerald1"                             "Gain @emerald_property1 movespeed and max movespeed while standing in the Sandstream"
         "item_rpc_sandstream_slippers_sapphire1"                                 "Every @sapphire_property1 seconds gain a Sandstream stack. Each stack removes the cooldown on [E]. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_SAPPHIRE_MAX_STACKS %> stacks."
         "item_rpc_sandstream_slippers_amethyst1"                                "Increases the maximimum number of concurrent Sandstreams by @amethyst_property1, Sandstream duration by @amethyst_property2 and Sandstream radius by @amethyst_property3. Multiple concurrent sandstreams cannot overlap."

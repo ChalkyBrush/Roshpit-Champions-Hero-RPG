@@ -12029,15 +12029,22 @@
         "item_rpc_boots_of_ashara_amethyst1"                                    "Reduces all Pure Damage taken by @amethyst_property1%"
 		 
 		 
-    	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
-    	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_sandstream_slippers_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Каждые <font color='#ccff66'>0</font> секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум <font color='#ccff66'>0</font> заряда."
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
+
+        "DOTA_Tooltip_ability_item_rpc_sandstream_slippers"                             "Sandstream Slippers"
+
+        "item_property_sandstream_slippers"                 "Sandstream"
+         "property_sandstream_slippers_description"             "Casting @Ability3 creates a <font color='#ccff66'>550</font> radius Sandstream that deals <font color='#ccff66'>15</font>% of your attack power as damage to enemies within every <font color='#ccff66'>0.5</font> seconds. Enemies in the Sandstream have a <font color='#ccff66'>30</font> chance to miss with attacks. Lasts <font color='#ccff66'>15</font> seconds."
+        
+        "DOTA_Tooltip_modifier_sandstream_in_sandstorm"         "Sandstream"
+        "DOTA_Tooltip_modifier_sandstream_in_sandstorm_Description" "Buffeted by a Sandstorm"
+
+        "DOTA_Tooltip_modifier_sandstream_slippers_stack"      "Sandstream Stacks"
+         "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"  "Removes the cooldown on E ability. Using E ability consumes a stack."
+
+        "item_rpc_sandstream_slippers_ruby1"                                "Enemies in the Sandstream have @ruby_property1 reduced movespeed and @ruby_property2 reduced attack speed"
+        "item_rpc_sandstream_slippers_emerald1"                             "Gain @emerald_property1 movespeed and max movespeed while standing in the Sandstream"
+        "item_rpc_sandstream_slippers_sapphire1"                                 "Every @sapphire_property1 seconds gain a Sandstream stack. Each stack removes the cooldown on [E]. Max <font color='#ccff66'>2</font> stacks."
+        "item_rpc_sandstream_slippers_amethyst1"                                "Increases the maximimum number of concurrent Sandstreams by @amethyst_property1, Sandstream duration by @amethyst_property2 and Sandstream radius by @amethyst_property3. Multiple concurrent sandstreams cannot overlap."
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_crimsyth_elite_greaves_lv1"						"Crimsyth Elite Greaves"
