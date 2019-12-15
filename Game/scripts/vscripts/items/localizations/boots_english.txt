@@ -430,6 +430,23 @@
         "item_rpc_rooted_feet_sapphire1"                                        "Gain @sapphire_property1 Armor Pierce and Spell Pierce while Deep Earthen Grip is active"
         "item_rpc_rooted_feet_amethyst1"                                        "Gain @amethyst_property1% Status Resistance while Deep Earthen Grip is active"
 
+        "DOTA_Tooltip_ability_item_rpc_sandstream_slippers"                             "Sandstream Slippers"
+
+        "item_property_sandstream_slippers"                 "Sandstream"
+         "property_sandstream_slippers_description"             "Casting @Ability3 creates a <% ITEM_RPC_SANDSTREAM_RADIUS %> radius Sandstream that deals <% ITEM_RPC_SANDSTREAM_DMG_PCT_ATK_POWER %>% of your attack power as damage to enemies within every <% ITEM_RPC_SANDSTREAM_DAMAGE_INTERVAL %> seconds. Enemies in the Sandstream have a <% ITEM_RPC_SANDSTREAM_SANDSTREAM_MISS_CHANCE %> chance to miss with attacks. Lasts <% ITEM_RPC_SANDSTREAM_SANDSTREAM_DURATION %> seconds."
+        
+        "DOTA_Tooltip_modifier_sandstream_in_sandstorm"         "Sandstream"
+        "DOTA_Tooltip_modifier_sandstream_in_sandstorm_Description" "Buffeted by a Sandstorm"
+
+        "DOTA_Tooltip_modifier_sandstream_slippers_stack"      "Sandstream Stacks"
+         "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"  "Removes the cooldown on E ability. Using E ability consumes a stack."
+
+        "item_rpc_sandstream_slippers_ruby1"                                "Enemies in the Sandstream have a @ruby_property1 reduced movespeed and @ruby_property2 reduced attack speed"
+        "item_rpc_sandstream_slippers_emerald1"                             "Gain @emerald_property1 movespeed and max movespeed while standing in the Sandstream"
+        "item_rpc_sandstream_slippers_sapphire1"                                 "Every @sapphire_property1 seconds gain a Sandstream stack. Each stack removes the cooldown on [E]. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_SAPPHIRE_MAX_STACKS %> stacks."
+        "item_rpc_sandstream_slippers_amethyst1"                                "Increases the maximimum number of concurrent Sandstreams by @amethyst_property1, Sandstream duration by @amethyst_property2 and Sandstream radius by @amethyst_property3. Multiple concurrent sandstreams cannot overlap."
+
+
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
 		"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -509,18 +526,6 @@
 		"property_terrasic_lava_description"				"Allows you to freely walk on lava. Touching lava increases attack damage by <% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>%, attack speed by <% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %> and attack range by <% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %> for <% ITEM_RPC_TERRASIC_LAVA_BOOTS_DURATION %> seconds."
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
-		 
- 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_sandstream_slippers"								"Sandstream Slippers"
-    	"item_rpc_sandstream_slippers_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_sandstream_slippers_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Every <% ITEM_RPC_SANDSTREAM_SLIPPERS_INTERVAL %> seconds gain a Sandstream stack. Each stack removes the cooldown on @Ability3. Max <% ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS %> stacks."
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
-		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Removes the cooldown on E ability. Using E ability consumes a stack."
  
 		 
     	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"

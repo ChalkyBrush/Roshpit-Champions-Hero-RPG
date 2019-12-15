@@ -12187,7 +12187,7 @@
     	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sandstream_slippers"					"流沙"
-		 "property_sandstream_slippers_description"				"每<font color='#ccff66'>12</font>秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多<font color='#ccff66'>2</font>层。"
+		 "property_sandstream_slippers_description"				"每<font color='#ccff66'>0</font>秒叠加一层流沙，每层流沙移除一次 @Ability3 的冷却时间，最多<font color='#ccff66'>0</font>层。"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"流沙叠加"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"移除E技能的冷却时间，使用E技能消耗一层流沙"
 		 

@@ -8,7 +8,7 @@ LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodst
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dunetreads_sapphire", "modifiers/modifier_dunetreads_sapphire", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_sandstream_slippers_emerald", "modifiers/modifier_sandstream_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -3972,19 +3972,6 @@ function mana_wall_think(event)
 		end
 		target:SetModifierStackCount("modifier_mystic_mana_wall_max_mana", caster, max_mana_stacks)
 	else
-	end
-end
-
-function sandstream_stack_increase(event)
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
-	if target:HasModifier("modifier_sandstream_slippers_stack") then
-		local newStacks = math.min(target:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, ITEM_RPC_SANDSTREAM_SLIPPERS_MAX_STACKS)
-		target:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, newStacks)
-	else
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_sandstream_slippers_stack", {})
-		target:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, 1)
 	end
 end
 
@@ -9442,4 +9429,86 @@ function rooted_feet_deep_grip_apply(ability, caster, hero, duration)
 	end
 	local health_regen_stacks = (ITEM_RPC_ROOTED_FEET_HP_REGEN_PCT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROOTED_FEET_GEM_EMERALD))/0.1
 	hero:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, health_regen_stacks)
+end
+
+function sandstream_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		if not ability.interval then
+			ability.interval = 0
+		end
+		local current_stacks = hero:GetModifierStackCount("modifier_sandstream_slippers_stack", caster)
+		if current_stacks < ITEM_RPC_SANDSTREAM_SLIPPERS_SAPPHIRE_MAX_STACKS then
+			ability.interval = ability.interval + 1
+		end
+		if ability.interval >= ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_SAPPHIRE) then
+			if hero:HasModifier("modifier_sandstream_slippers_stack") then
+				local newStacks = math.min(hero:GetModifierStackCount("modifier_sandstream_slippers_stack", caster) + 1, ITEM_RPC_SANDSTREAM_SLIPPERS_SAPPHIRE_MAX_STACKS)
+				hero:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, newStacks)
+			else
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_sandstream_slippers_stack", {})
+				hero:SetModifierStackCount("modifier_sandstream_slippers_stack", caster, 1)
+			end
+			ability.interval = 0
+		end
+	end
+end
+
+function sandstorm_thinker_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ITEM_RPC_SANDSTREAM_DMG_PCT_ATK_POWER/100
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, target.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local ms_loss = 0
+	local as_loss = 0
+	if ability:GetGemValue("ruby") > 0 then
+		ms_loss = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY1)
+		as_loss = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_RUBY2)
+	end
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sandstream_in_sandstorm", {})
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sandstream_in_sandstorm_checker", {duration = ITEM_RPC_SANDSTREAM_DAMAGE_INTERVAL + 0.1})
+			if ms_loss > 0 then
+				enemy:ApplyModifierAndSetStacks(ability, caster, "modifier_sandstream_ms_loss", ms_loss, 0)
+				enemy:ApplyModifierAndSetStacks(ability, caster, "modifier_sandstream_as_loss", as_loss, 0)
+			end
+		end
+	end
+
+	if ability:GetGemValue("emerald") > 0 then
+		local allies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, target.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		if #allies > 0 then
+			for _, ally in pairs(allies) do
+				if ally == hero then
+					hero:AddNewModifier(caster, ability, "modifier_sandstream_slippers_emerald", {duration = ITEM_RPC_SANDSTREAM_DAMAGE_INTERVAL + 0.1})
+				end
+			end
+		end
+	end
+end
+
+function sandstorm_thinker_end(event)
+	local ability = event.ability
+	local target = event.target
+	Filters:ReindexSandstreamsTable(ability)
+	ParticleManager:DestroyParticle(target.pfx, false)
+	ParticleManager:ReleaseParticleIndex(target.pfx)
+	StopSoundEvent("RPCItems.Sandstream.SandstormLP", target)
+	UTIL_Remove(target)
+end
+
+function sandstream_unequip(event)
+	local ability = event.ability
+	if ability.sandstorm_table then
+		for i = 1, #ability.sandstorm_table, 1 do
+			ability.sandstorm_table[i]:RemoveModifierByName("modifier_sandstream_sandstorm")
+		end
+	end
 end

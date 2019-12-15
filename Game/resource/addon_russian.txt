@@ -12035,7 +12035,7 @@
     	"item_rpc_sandstream_slippers_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_sandstream_slippers_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sandstream_slippers"					"Sandstream"
-		 "property_sandstream_slippers_description"				"Каждые <font color='#ccff66'>12</font> секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум <font color='#ccff66'>2</font> заряда."
+		 "property_sandstream_slippers_description"				"Каждые <font color='#ccff66'>0</font> секунд даёт герою заряд этого предмета. Каждый заряд убирает время перезарядки для (E) @Ability3. Максимум <font color='#ccff66'>0</font> заряда."
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack"		"Sandstream Stacks"
 		 "DOTA_Tooltip_modifier_sandstream_slippers_stack_Description"	"Убирает время перезарядки для умения (E). Прочтение способности (E) потратит заряд."
 		 

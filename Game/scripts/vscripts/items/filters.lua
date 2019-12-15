@@ -1246,6 +1246,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_plate_of_the_watcher3") then
         Filters:WatcherCast(caster, BASE_ABILITY_E)
     end
+    if caster:HasModifier("modifier_sandstream_slippers") then
+        Filters:SandstreamECast(caster)
+    end
     if caster:HasModifier("modifier_mana_striders") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
@@ -6480,4 +6483,52 @@ function Filters:EternalForestStriders(attacker, victim, damage)
         end)
         return true
     end
+end
+
+function Filters:SandstreamECast(caster)
+    local sandstreams = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if not sandstreams.sandstorm_table then
+        sandstreams.sandstorm_table = {}
+    end
+    local max_sandstreams = 1 + sandstreams:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST1)
+    if #sandstreams.sandstorm_table >= max_sandstreams then
+        sandstreams.sandstorm_table[1]:RemoveModifierByName("modifier_sandstream_sandstorm_thinker")
+    end
+    local radius = ITEM_RPC_SANDSTREAM_RADIUS + sandstreams:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST3)
+    local allies = Entities:FindAllByClassnameWithin("npc_dota_base_additive", caster:GetAbsOrigin(), radius)
+    if #allies > 0 then
+        for _, ally in pairs(allies) do
+            if ally:HasModifier("modifier_sandstream_sandstorm_thinker") then
+                ally:RemoveModifierByName("modifier_sandstream_sandstorm_thinker")
+            end
+        end
+    end
+    local sandstorm_thinker = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+    sandstorm_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+    
+    sandstorm_thinker:SetDayTimeVisionRange(radius)
+    sandstorm_thinker:SetNightTimeVisionRange(radius)
+
+    sandstorm_thinker.radius = radius
+    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, sandstorm_thinker:GetAbsOrigin())
+    ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+    EmitSoundOn("RPCItems.Sandstream.SandstormStart", sandstorm_thinker)
+    StartSoundEvent("RPCItems.Sandstream.SandstormLP", sandstorm_thinker)
+    sandstorm_thinker.pfx = pfx
+
+    local sandstorm_duration = ITEM_RPC_SANDSTREAM_SANDSTREAM_DURATION + sandstreams:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SANDSTREAM_SLIPPERS_GEM_AMETHYST2)
+    sandstreams:ApplyDataDrivenModifier(caster.InventoryUnit, sandstorm_thinker, "modifier_sandstream_sandstorm_thinker", {duration = sandstorm_duration})
+    table.insert(sandstreams.sandstorm_table, sandstorm_thinker)
+
+end
+
+function Filters:ReindexSandstreamsTable(ability)
+    local new_sandstorm_table = {}
+    for i = 1, #ability.sandstorm_table, 1 do
+        if ability.sandstorm_table[i] and IsValidEntity(ability.sandstorm_table[i]) and ability.sandstorm_table[i]:IsAlive() and ability.sandstorm_table[i]:HasModifier("modifier_sandstream_sandstorm_thinker") then
+            table.insert(new_sandstorm_table, ability.sandstorm_table[i])
+        end
+    end
+    ability.sandstorm_table = new_sandstorm_table
 end
