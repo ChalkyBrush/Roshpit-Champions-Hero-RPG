@@ -1106,6 +1106,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		end
 		armor_modify = armor_modify - (armor + armor_modify)*(penalty/100)
 	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_modify = armor_modify + (armor + armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
+
 
 	if armor_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
@@ -1672,7 +1676,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
 	end
 
-	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
@@ -1681,6 +1685,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
 	end
 
 
@@ -2000,6 +2007,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
 	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2378,7 +2388,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_resonant_boots_active") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
 	end
-
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then

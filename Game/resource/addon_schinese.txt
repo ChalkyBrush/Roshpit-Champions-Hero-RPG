@@ -11998,12 +11998,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
-    	"item_rpc_rooted_feet_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_rooted_feet_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"根深蒂固"
-		"property_rooted_feet_description"			"当玩家静止不动时获得<font color='#ccff66'>2</font>倍的护甲值、<font color='#ccff66'>3</font>倍的生命回复速度和<font color='#ccff66'>50</font>%减伤。"
+        "property_rooted_feet_description"          "While standing still you have <font color='#ccff66'>2</font>x Armor and Magic Armor, <font color='#ccff66'>10</font>% health regen, and take <font color='#ccff66'>50</font>% reduced damage."
+
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active" "Deep Earthen Grip"
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active_Description" "Increased defenses and Health Regen"
+
+        "item_rpc_rooted_feet_ruby1"                                        "Deep Earthen Grip sticks for @ruby_property1 seconds after moving"
+        "item_rpc_rooted_feet_emerald1"                                     "Increases the Health Regen while standing still by an additional @emerald_property1%"
+        "item_rpc_rooted_feet_sapphire1"                                        "Gain @sapphire_property1 Armor Pierce and Spell Pierce while Deep Earthen Grip is active"
+        "item_rpc_rooted_feet_amethyst1"                                        "Gain @amethyst_property1% Status Resistance while Deep Earthen Grip is active"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"十字军之靴"
@@ -12047,7 +12051,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
 		"item_property_redrock"						"灼热步伐"
-        
+
         "property_redrock_description"              "When you cast @Ability3, release <font color='#ccff66'>3</font> pulses of psychoactive heat over <font color='#ccff66'>1.5</font> seconds that force all nearby enemies to attack you for <font color='#ccff66'>5</font> seconds. While the effect persists, damage taken is reduced by <font color='#ccff66'>50</font>%. Each pulse increases Max Health by <font color='#ccff66'>20</font>%."
 
         "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
@@ -12098,7 +12102,7 @@
     	"item_rpc_resplendent_rubber_boots_sapphire1"						"blah blah @sapphire_property1 gem"
     	"item_rpc_resplendent_rubber_boots_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_resplendent_rubber"					"接地"
-		"property_resplendent_rubber_description"			"减少受到的所有伤害<font color='#ccff66'>75</font>%。"
+		"property_resplendent_rubber_description"			"减少受到的所有伤害<font color='#ccff66'>50</font>%。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"古老智慧之鞋"

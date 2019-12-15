@@ -606,7 +606,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		if target:HasModifier("modifier_outland_stone_cuirass") then
 			if target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
 				if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
-					duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)/100
+					duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_AMETHYST)
 				end
 			end
 		end
@@ -615,7 +615,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				duration_modifier = duration_modifier + ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST
 			end
 		end
-
+		if target:HasModifier("modifier_rooted_feet_immobile_active") then
+			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
+				duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ROOTED_FEET_GEM_AMETHYST)
+			end
+		end
 		if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 			if duration_modifier >= 100 then
 				return false
@@ -1574,7 +1578,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
             damage = damage * (1 - result)
         end
     )
-	if damagetype == DAMAGE_TYPE_PHYSICAL then
+if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_stormshield_active_shields") then
 			local shields_count = victim:GetModifierStackCount("modifier_stormshield_active_shields", victim.InventoryUnit)
 			damage = damage * (1 - (shields_count * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION))
@@ -1591,6 +1595,9 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		if victim:HasModifier("modifier_starseeker_passive") then
 			damage = 0
+		end
+		if victim:HasModifier("modifier_resplendent_rubber_boots") then
+			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
@@ -1746,9 +1753,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-	if victim:HasModifier("modifier_resplendent_rubber_boots") then
-		damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
-	end
+
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
 	end
@@ -1865,7 +1870,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_possession_enemy_lock") then
 		damage = 0
 	end
-	if victim:HasModifier("modifier_rooted_feet_health_regen") then
+	if victim:HasModifier("modifier_rooted_feet_immobile_active") then
 		damage = damage * (100-ITEM_RPC_ROOTED_FEET_DMG_REDUCTION)/100
 	end
 	if victim:HasModifier("modifier_ice_scathe_q2_shield") then

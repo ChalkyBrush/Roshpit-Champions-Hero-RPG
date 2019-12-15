@@ -1074,60 +1074,6 @@ function falcon_boot_impact(event)
 	target:SetAbsOrigin(target:GetAbsOrigin() - Vector(0, 0, 2000))
 end
 
-function root_feet_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_health_regen", {})
-
-end
-
-function root_feet_move(event)
-	local target = event.unit
-	target:RemoveModifierByName("modifier_rooted_feet_health_regen")
-end
-
-function rooted_foot_created(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	Timers:CreateTimer(0.4, function()
-		--print("AFTER TIMER?")
-		if target:HasModifier("modifier_rooted_feet_applicator") then
-			--print("attach particle")
-			if not ability.pfx then
-				ability.pfx = ParticleManager:CreateParticle("particles/roshpit/items/rooted_feet.vpcf", PATTACH_ABSORIGIN, target)
-				ParticleManager:SetParticleControlEnt(ability.pfx, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", target:GetAbsOrigin(), true)
-			end
-		end
-	end)
-end
-
-function rooted_foot_regen_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_applicator", {})
-	local currentStacks = target:GetModifierStackCount("modifier_rooted_feet_armor_portion", caster)
-	local armor = Filters:GetBaseBaseArmor(target) * (ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_armor_portion", {})
-	target:SetModifierStackCount("modifier_rooted_feet_armor_portion", caster, armor)
-	local currentRegenStacks = target:GetModifierStackCount("modifier_rooted_feet_regen_portion", caster)
-	local regen = (target:GetHealthRegen() - currentRegenStacks) * ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_rooted_feet_regen_portion", {})
-	target:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, regen)
-end
-
-function rooted_foot_end(event)
-	local ability = event.ability
-	if ability.pfx then
-		event.target:RemoveModifierByName("modifier_rooted_feet_applicator")
-		ParticleManager:DestroyParticle(ability.pfx, false)
-	end
-	ability.pfx = false
-end
-
 function sapphire_lotus_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -9461,4 +9407,39 @@ function pegasus_dash_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end
+
+function rooted_feet_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if not ability.lastPos then
+		ability.lastPos = hero:GetAbsOrigin()
+	end
+	local distance = WallPhysics:GetDistance2d(ability.lastPos, hero:GetAbsOrigin())
+	if distance < 1 then
+		rooted_feet_deep_grip_apply(ability, caster, hero, 0)
+	else
+		local earth_grip_modifier = hero:FindModifierByName("modifier_rooted_feet_regen_portion")
+		if earth_grip_modifier then
+			if earth_grip_modifier:GetRemainingTime() < 0 and ability:GetGemValue("ruby") > 0 then
+				rooted_feet_deep_grip_apply(ability, caster, hero, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ROOTED_FEET_GEM_RUBY))
+			elseif earth_grip_modifier:GetRemainingTime() < 0 then
+				hero:RemoveModifierByName("modifier_rooted_feet_immobile_active")
+			end
+		end
+	end
+	ability.lastPos = hero:GetAbsOrigin()
+end
+
+function rooted_feet_deep_grip_apply(ability, caster, hero, duration)
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_immobile_active", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_regen_portion", {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_immobile_active", {})
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rooted_feet_regen_portion", {})
+	end
+	local health_regen_stacks = (ITEM_RPC_ROOTED_FEET_HP_REGEN_PCT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ROOTED_FEET_GEM_EMERALD))/0.1
+	hero:SetModifierStackCount("modifier_rooted_feet_regen_portion", caster, health_regen_stacks)
 end

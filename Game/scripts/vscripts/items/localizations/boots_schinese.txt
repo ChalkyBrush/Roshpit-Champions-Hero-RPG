@@ -123,12 +123,16 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_rooted_feet"										"叶落归根"
-    	"item_rpc_rooted_feet_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_rooted_feet_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_rooted_feet_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_rooted_feet_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_rooted_feet"					"根深蒂固"
-		"property_rooted_feet_description"			"当玩家静止不动时获得<% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>倍的护甲值、<% ITEM_RPC_ROOTED_FEET_HP_REGEN_AMP %>倍的生命回复速度和<% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>%减伤。"
+        "property_rooted_feet_description"          "While standing still you have <% ITEM_RPC_ROOTED_FEET_ARMOR_AMP %>x Armor and Magic Armor, <% ITEM_RPC_ROOTED_FEET_HP_REGEN_PCT %>% health regen, and take <% ITEM_RPC_ROOTED_FEET_DMG_REDUCTION %>% reduced damage."
+
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active" "Deep Earthen Grip"
+        "DOTA_Tooltip_modifier_rooted_feet_immobile_active_Description" "Increased defenses and Health Regen"
+
+        "item_rpc_rooted_feet_ruby1"                                        "Deep Earthen Grip sticks for @ruby_property1 seconds after moving"
+        "item_rpc_rooted_feet_emerald1"                                     "Increases the Health Regen while standing still by an additional @emerald_property1%"
+        "item_rpc_rooted_feet_sapphire1"                                        "Gain @sapphire_property1 Armor Pierce and Spell Pierce while Deep Earthen Grip is active"
+        "item_rpc_rooted_feet_amethyst1"                                        "Gain @amethyst_property1% Status Resistance while Deep Earthen Grip is active"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crusader_boots"									"十字军之靴"
@@ -172,7 +176,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
 		"item_property_redrock"						"灼热步伐"
-        
+
         "property_redrock_description"              "When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. While the effect persists, damage taken is reduced by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>%. Each pulse increases Max Health by <% ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE %>%."
 
         "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
