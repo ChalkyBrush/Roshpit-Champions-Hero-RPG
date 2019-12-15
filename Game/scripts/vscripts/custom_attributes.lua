@@ -83,7 +83,6 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = DJANGHOR_R2_BONUS_HP
 CustomAttributes.OGTHUN_HEALTH = 10
-CustomAttributes.REDROCK_HEALTH = 10
 CustomAttributes.SANGE_HEALTH = ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
 CustomAttributes.SAPPHIRE_LOTUS_HEALTH = ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
@@ -1081,6 +1080,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
 		end
 	end
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1984,7 +1992,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_resonant_boots_active") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
 	end
-
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
@@ -3175,9 +3191,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_paladin_immortal_weapon_3_health" and hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
-	if excludedModifier ~= "modifier_redrock_footwear_health_increase" and hero:HasModifier("modifier_redrock_footwear_health_increase") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_redrock_footwear_health_increase", CustomAttributes.REDROCK_HEALTH)
-	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
 	end
@@ -3203,6 +3216,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		percentHealthMultiplier = percentHealthMultiplier + CONJUROR_ARCANA_Q2_PERCENT_HEALTH / 100 * hero:GetRuneValue("q", 2)
+	end
+	if excludedModifier ~= "modifier_redrock_footwear_caster_visible" and hero:HasModifier("modifier_redrock_footwear_caster_visible") then
+		percentHealthMultiplier = percentHealthMultiplier + (hero:GetModifierStackCount("modifier_redrock_footwear_caster_visible", hero.InventoryUnit)*(ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE+hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY))/100)
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 

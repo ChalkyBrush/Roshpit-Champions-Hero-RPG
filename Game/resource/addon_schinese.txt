@@ -12046,12 +12046,21 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"红岩战靴"
-    	"item_rpc_redrock_footwear_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_redrock_footwear_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_redrock"						"灼热步伐"
-		"property_redrock_description"				"施放 @Ability3 时，在<font color='#ccff66'>1.5</font>秒内释放<font color='#ccff66'>3</font>股心灵脉冲强制附近敌人攻击你，额外增加<font color='#ccff66'>200</font>%生命值和<font color='#ccff66'>50</font>%伤害减免，持续<font color='#ccff66'>5</font>秒。"
+        
+        "property_redrock_description"              "When you cast @Ability3, release <font color='#ccff66'>3</font> pulses of psychoactive heat over <font color='#ccff66'>1.5</font> seconds that force all nearby enemies to attack you for <font color='#ccff66'>5</font> seconds. While the effect persists, damage taken is reduced by <font color='#ccff66'>50</font>%. Each pulse increases Max Health by <font color='#ccff66'>20</font>%."
+
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect_Description"   "Taunted"
+
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible" "Fevering Footwork"
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible_Description" "Increased Max Health"
+
+        "item_rpc_redrock_footwear_ruby1"                               "Increases the Max Health Bonus per pulse by an additional @ruby_property1%"
+        "item_rpc_redrock_footwear_emerald1"                                "Taunted enemies have @emerald_property1 reduced Armor and Armor Pierce"
+        "item_rpc_redrock_footwear_sapphire1"                               "Each pulse increases Armor and Armor Pierce by @sapphire_property1"
+        "item_rpc_redrock_footwear_amethyst1"                               "Adds @amethyst_property1 additional pulses"  
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_pathfinders_resonant_boots"						"共鸣皮靴"

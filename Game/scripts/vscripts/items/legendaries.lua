@@ -5542,6 +5542,26 @@ function RPCItems:RollEternalForestStriders(item_level)
     return item
 end
 
+function RPCItems:RollRedrockFootwear(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_redrock_footwear", "immortal", "Redrock Footwear", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_redrock_footwear"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redrock", "#EB0E0E", 1, "#property_redrock_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- break
 
 
@@ -5568,22 +5588,6 @@ function RPCItems:RollVoyagerBoots(item_level)
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
 	end
 
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollRedrockFootwear(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_redrock_footwear", "immortal", "Redrock Footwear", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "redrock"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_redrock", "#EB0E0E", 1, "#property_redrock_description")
-
-    RPCItems:RollFootProperty2(item, 0)
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)

@@ -392,7 +392,21 @@
         "DOTA_Tooltip_modifier_eternal_forest_strider_root"         "Bellow of Ages (Amethyst)"
         "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
 
-        
+        "DOTA_Tooltip_ability_item_rpc_redrock_footwear"                                "Redrock Footwear"
+
+        "item_property_redrock"                     "Fevering Footwork"
+        "property_redrock_description"              "When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. While the effect persists, damage taken is reduced by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>%. Each pulse increases Max Health by <% ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE %>%."
+
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect"   "Redrock Fever"
+        "DOTA_Tooltip_modifier_redrock_footwear_taunt_effect_Description"   "Taunted"
+
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible" "Fevering Footwork"
+        "DOTA_Tooltip_modifier_redrock_footwear_caster_visible_Description" "Increased Max Health"
+
+        "item_rpc_redrock_footwear_ruby1"                               "Increases the Max Health Bonus per pulse by an additional @ruby_property1%"
+        "item_rpc_redrock_footwear_emerald1"                                "Taunted enemies have @emerald_property1 reduced Armor and Armor Pierce"
+        "item_rpc_redrock_footwear_sapphire1"                               "Each pulse increases Armor and Armor Pierce by @sapphire_property1"
+        "item_rpc_redrock_footwear_amethyst1"                               "Adds @amethyst_property1 additional pulses"  
 
 
 		"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
@@ -469,19 +483,7 @@
 		"item_property_voyager"						"Voyager"
 		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <% ITEM_RPC_VOYAGER_BOOTS_E_RED %>% of their base cooldown."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_redrock_footwear"								"Redrock Footwear"
-    	"item_rpc_redrock_footwear_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_redrock_footwear_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_redrock_footwear_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_redrock_footwear_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_redrock"						"Fevering Footwork"
-		"property_redrock_description"				"When you cast @Ability3, release <% ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES %> pulses of psychoactive heat over <% ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES %> seconds that force all nearby enemies to attack you for <% ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION %> seconds. Also increases your current health by <% ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT %>% and reduces damage taken by <% ITEM_RPC_REDROCK_FOOTWEAR_DAMAGE_REDUCTION_PCT %>% while the effect lasts."
-		
-	
-		
 
-		
     	"DOTA_Tooltip_ability_item_rpc_resplendent_rubber_boots"						"Resplendent Rubber Boots"
     	"item_rpc_resplendent_rubber_boots_ruby1"						"blah blah @ruby_property1 gem"
     	"item_rpc_resplendent_rubber_boots_emerald1"						"blah blah @emerald_property1 gem"

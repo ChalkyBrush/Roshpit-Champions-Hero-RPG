@@ -3651,9 +3651,15 @@ function Filters:TomeOfChaos(caster)
 end
 
 function Filters:RedrockFootwear(caster)
-    local ability = caster.redrock
-    for i = 0, ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES-1, 1 do
-        Timers:CreateTimer(0.2 + i * (ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES/ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES), function()
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    local pulses = ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_REDROCK_FOOTWEAR_GEM_AMETHYST)
+    -- "modifier_redrock_footwear_caster_visible"
+    local delay_between_pulse = ITEM_RPC_REDROCK_FOOTWEAR_DURATION_OF_PULSES/ITEM_RPC_REDROCK_FOOTWEAR_NUMBER_OF_PULSES
+    for i = 0, pulses-1, 1 do
+        Timers:CreateTimer(0.2 + i * (delay_between_pulse), function()
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redrock_footwear_caster_visible", {duration = ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION})
+            local new_stacks = math.min(caster:GetModifierStackCount("modifier_redrock_footwear_caster_visible", caster.InventoryUnit) + 1, pulses)
+            caster:SetModifierStackCount("modifier_redrock_footwear_caster_visible", caster.InventoryUnit, new_stacks)
             EmitSoundOn("RPCItem.RedrockFootwear", caster)
             local position = caster:GetAbsOrigin()
             local particleName = "particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
@@ -3664,15 +3670,11 @@ function Filters:RedrockFootwear(caster)
             Timers:CreateTimer(2, function()
                 ParticleManager:DestroyParticle(particle, false)
             end)
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redrock_footwear_damage_reduction", {duration = ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION})
-            local currentStacks = caster:GetModifierStackCount("modifier_redrock_footwear_health_increase", ability)
-            local healthStacks = CustomAttributes:GetBaseHealth(caster, "modifier_redrock_footwear_health_increase") * ITEM_RPC_REDROCK_FOOTWEAR_HP_INCREASE_PCT/100 / 10
-            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_redrock_footwear_health_increase", {duration = ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION})
-            caster:SetModifierStackCount("modifier_redrock_footwear_health_increase", ability, healthStacks)
             local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
                     if enemy:GetAttackCapability() == DOTA_UNIT_CAP_NO_ATTACK then
+                    elseif enemy.dummy then
                     else
                         ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_redrock_footwear_taunt_effect", {duration = ITEM_RPC_REDROCK_FOOTWEAR_TAUNT_DURATION})
                         enemy:MoveToTargetToAttack(caster)

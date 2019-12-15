@@ -34994,6 +34994,131 @@
 	//LEGEND WEAPONS
 
 
+	"item_rpc_redrock_footwear"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/redrock_footwear"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"1 2 3 4 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"-400 -800 -1200 -1600 -2000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"100 200 300 400 500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"1 1 1 1 2"
+			}
+		}
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_redrock_footwear"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_redrock_footwear_health_increase"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_redrock_footwear_damage_reduction"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_redrock_footwear_taunt_effect"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_redrock_footwear_caster_visible"
+			{
+				"IsHidden"	"0"
+				"TextureName"		"itemicons/redrock_footwear"
+			}
+			"modifier_redrock_footwear_taunt_effect"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+				"TextureName"		"itemicons/redrock_footwear"
+				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
+				"StatusEffectPriority"  "10"
+				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"redrock_end"
+						"target"		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_red_october_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -39230,123 +39355,6 @@
         }
     }
 
-
-	"item_rpc_redrock_footwear"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/redrock_footwear"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_faceless_void/redrock_timedialate.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_redrock_footwear"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_redrock_footwear_health_increase"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_redrock_footwear_damage_reduction"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_redrock_footwear_taunt_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_redrock_footwear_health_increase"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_redrock_footwear_damage_reduction"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			}
-			"modifier_redrock_footwear_taunt_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"		"itemicons/redrock_footwear"
-				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
-				"StatusEffectPriority"  "10"
-				"EffectName"		"particles/items2_fx/satanic_buff.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"redrock_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-	}
 	"item_rpc_resplendent_rubber_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
