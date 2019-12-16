@@ -1,6 +1,6 @@
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
-		"property_aquasteel_description"						"<% ITEM_RPC_AQUASTEEL_BRACERS_CHANCE %>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <% ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG %>% of your attack power, and stunning for <% ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR %> seconds."
+		"property_aquasteel_description"						"<% ITEM_RPC_AQUASTEEL_BRACERS_CHANCE %>% chance on taking damage to release a jet of water towards the attacker, dealing damage based on <% ITEM_RPC_AQUASTEEL_BRACERS_ATTACK_TO_DMG %>% of your attack power, and stunning for <% ITEM_RPC_AQUASTEEL_BRACERS_STUN_DUR %> seconds."
     	"item_rpc_aquasteel_bracers_ruby1"								"Increases Water Jet damage by @ruby_property1 and the stun duration by @ruby_property2"
     	"item_rpc_aquasteel_bracers_emerald1"								"Fire a Water Jet at a random target within <% ITEM_RPC_AQUASTEEL_BRACERS_EMERALD_RANGE %> range every @emerald_property1 seconds"
     	"item_rpc_aquasteel_bracers_sapphire1"								"Increases armor by @sapphire_property1, and Water Jet damage by @sapphire_property2% of armor"
