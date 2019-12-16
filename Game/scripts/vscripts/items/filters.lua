@@ -6576,42 +6576,41 @@ function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
     if not unit.temporal_warp_boots then
         unit.temporal_warp_boots = {}
     end
-    local fow_checker = CreateUnitByName("dummy_unit_vulnerable", Vector(orderTable.position_x, orderTable.position_y), true, nil, nil, DOTA_TEAM_NEUTRALS)
-    fow_checker:AddAbility("dummy_unit"):SetLevel(1)
-    local enemies = FindUnitsInRadius(unit:GetTeamNumber(), Vector(orderTable.position_x, orderTable.position_y), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-    local fow_visible = false
-    if #enemies > 0 then
-        fow_visible = true
-    end
-    UTIL_Remove(fow_checker)
     if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
         if unit.temporal_warp_boots.last_clicked then
             if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
             else
                 if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) and fow_visible then
-                    unit:Stop()
-                    if unit.temporal_warp_boots.pfx then
-                        ParticleManager:DestroyParticle(unit.temporal_warp_boots.pfx, false)
+                    local fow_checker = CreateUnitByName("dummy_unit_vulnerable", Vector(orderTable.position_x, orderTable.position_y), true, nil, nil, DOTA_TEAM_NEUTRALS)
+                    fow_checker:AddAbility("dummy_unit"):SetLevel(1)
+                    local enemies = FindUnitsInRadius(unit:GetTeamNumber(), Vector(orderTable.position_x, orderTable.position_y), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+                    local fow_visible = false
+                    if #enemies > 0 then
+                        fow_visible = true
                     end
+                    UTIL_Remove(fow_checker)   
+                    if fow_visible then                
+                        unit:Stop()
+                        if unit.temporal_warp_boots.pfx then
+                            ParticleManager:DestroyParticle(unit.temporal_warp_boots.pfx, false)
+                        end
 
-                    unit.temporal_warp_boots.last_clicked = GameRules:GetGameTime()
-                    unit.temporal_warp_boots.last_position = Vector(orderTable.position_x, orderTable.position_y)
-                    
-                    local channel_duration = ITEM_RPC_TEMPORAL_WARP_BOOTS_TELEPORT_TIME - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_SAPPHIRE)
-                    unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_channeling", {duration = channel_duration})
-                    unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_hidden_channel_checker", {duration = channel_duration + 0.1})
+                        unit.temporal_warp_boots.last_clicked = GameRules:GetGameTime()
+                        unit.temporal_warp_boots.last_position = Vector(orderTable.position_x, orderTable.position_y)
+                        
+                        local channel_duration = ITEM_RPC_TEMPORAL_WARP_BOOTS_TELEPORT_TIME - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_SAPPHIRE)
+                        unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_channeling", {duration = channel_duration})
+                        unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_hidden_channel_checker", {duration = channel_duration + 0.1})
 
-                    local teleportPosition = GetGroundPosition(unit.temporal_warp_boots.last_position, unit)
-                    unit.temporal_warp_boots.pfx = ParticleManager:CreateParticle("particles/econ/items/tinker/boots_of_travel/teleport_end_bots.vpcf", PATTACH_CUSTOMORIGIN, unit)
-                    ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 0, teleportPosition)
-                    ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 4, Vector(1,1,1))
-                    -- ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 5, teleportPosition)
-                    unit.temporal_warp_boots.teleportPosition = teleportPosition
-                    StartAnimation(unit, {duration = channel_duration, activity = ACT_DOTA_TELEPORT, rate = 1})   
-                    StartSoundEvent("RPCItems.TemporalWarpBoots.TeleportLP", unit)
-
-
-                    
+                        local teleportPosition = GetGroundPosition(unit.temporal_warp_boots.last_position, unit)
+                        unit.temporal_warp_boots.pfx = ParticleManager:CreateParticle("particles/econ/items/tinker/boots_of_travel/teleport_end_bots.vpcf", PATTACH_CUSTOMORIGIN, unit)
+                        ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 0, teleportPosition)
+                        ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 4, Vector(1,1,1))
+                        -- ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 5, teleportPosition)
+                        unit.temporal_warp_boots.teleportPosition = teleportPosition
+                        StartAnimation(unit, {duration = channel_duration, activity = ACT_DOTA_TELEPORT, rate = 1})   
+                        StartSoundEvent("RPCItems.TemporalWarpBoots.TeleportLP", unit)
+                    end
                 end
             end
         end
