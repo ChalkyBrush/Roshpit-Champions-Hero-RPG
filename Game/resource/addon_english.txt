@@ -12350,7 +12350,18 @@
         "item_rpc_storm_pacer_sabatons_sapphire1"        "Increases all elemental damage by @sapphire_property1%"
         "item_rpc_storm_pacer_sabatons_amethyst1"        "Reduces Corona cooldown by @amethyst_property1 seconds"
 
+        
+        "DOTA_Tooltip_ability_item_rpc_swamp_waders"                                    "Swamp Waders"
+        "item_property_swamp_waders"                                    "Sticky Feet"
+        "property_swamp_waders_description"                             "Reduces Movement Speed by <font color='#ccff66'>250</font> and travel speed of @Ability3 by <font color='#ccff66'>50</font>%. All buffs or debuffs applied to you last <font color='#ccff66'>100</font>% longer."
 
+        "item_rpc_swamp_waders_ruby1"                                   "Increase Armor and Magic Armor by @ruby_property1. This bonus is reduced by @ruby_property2 for each point of current movement speed"
+        "item_rpc_swamp_waders_emerald1"                                    "Create a <font color='#ccff66'>280</font> radius puddle of putrid gas every <font color='#ccff66'>180</font> distance travelled that slows enemies within by @emerald_property1% and deals @emerald_property2% of attack power as damage every <font color='#ccff66'>0.5</font> seconds. Poison clouds last for <font color='#ccff66'>12</font> seconds"
+        "item_rpc_swamp_waders_sapphire1"                                   "Increases the cooldown of [E] by <font color='#ccff66'>100</font>% and increases [E] Base Ability Damage by @sapphire_property1%"
+        "item_rpc_swamp_waders_amethyst1"                                   "Increase Armor Pierce and Spell Pierce by @amethyst_property1. This bonus is reduced by @amethyst_property2 for each point of current movement speed"
+
+        "DOTA_Tooltip_modifier_swamp_waders_emerald_in_poison_cloud"        "Swamp Waders (Emerald)"
+        "DOTA_Tooltip_modifier_swamp_waders_emerald_in_poison_cloud_Description"    "Taking damage with reduced movespeed"
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12370,12 +12381,6 @@
 		"property_yasha_description"				"Increase attack speed by 1 for every <font color='#ccff66'>20</font> Strength. Sets Base Attack Time to <font color='#ccff66'>1.1</font> seconds."
 		
 
-		
-    	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
-    	"item_rpc_swamp_waders_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_swamp_waders_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_swamp_waders_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_swamp_waders_amethyst1"									"blah blah @amethyst_property1 gem"
 		
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"

@@ -718,9 +718,13 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 		end
 	end
+	if target and target:HasModifier("modifier_swamp_waders") and modifierGainedTable["duration"] > 0 then
+		modifierGainedTable["duration"] = modifierGainedTable["duration"] * (1 + ITEM_RPC_SWAMP_WADERS_BUFF_DURATION_INCREASE/100)
+	end
 	if caster and target and (target:GetTeamNumber() == caster:GetTeamNumber()) and modifierGainedTable["duration"] > 0 then
 		modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1+(friendly_duration_modifier/100))
 	end
+
     return true
 end
 

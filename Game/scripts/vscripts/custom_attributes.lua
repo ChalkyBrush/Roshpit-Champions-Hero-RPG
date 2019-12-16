@@ -1092,6 +1092,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_rpc_sange_boots") then
 		armor_modify = armor_modify + ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI*unit:GetAgility()
 	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		armor_modify = armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
+	end
+
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -1681,6 +1685,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_rpc_steamboots") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
 	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		magic_armor_modify = magic_armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2016,6 +2023,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		armor_pierce_modify = armor_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
 	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2399,6 +2409,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_rpc_steamboots") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		spell_pierce_modify = spell_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

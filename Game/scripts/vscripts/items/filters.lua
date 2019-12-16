@@ -360,6 +360,9 @@ function Filters:GetAdjustedESpeed(caster, speed, bDelay)
             speed = speed + speed*(caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PEGASUS_BOOTS_GEM_RUBY)/100)
         end
     end
+    if caster:HasModifier("modifier_swamp_waders") then
+        speed = speed * (1 - ITEM_RPC_SWAMP_WADERS_E_TRAVEL_SPEED_LOSS/100)
+    end
     return speed
 end
 
@@ -1254,6 +1257,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_plate_of_the_watcher3") then
         Filters:WatcherCast(caster, BASE_ABILITY_E)
     end
+    if caster:HasModifier("modifier_swamp_waders") then
+        Filters:SwampWadersECast(caster)
+    end
     if caster:HasModifier("modifier_sandstream_slippers") then
         Filters:SandstreamECast(caster)
     end
@@ -1918,6 +1924,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_E then
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ITEM_RPC_ADMIRAL_BOOTS_BAD_E/100
+        end
+        if attacker:HasModifier("modifier_swamp_waders") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SWAMP_WADERS_GEM_SAPPHIRE)/100
         end
         if attacker:HasModifier("modifier_plate_of_the_watcher3") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD2)/100
@@ -6545,4 +6554,13 @@ function Filters:ReindexSandstreamsTable(ability)
         end
     end
     ability.sandstorm_table = new_sandstorm_table
+end
+
+function Filters:SwampWadersECast(caster)
+    local ability = Filters:SkillArgumentSlotToHeroAbility(caster, BASE_ABILITY_E)
+    local swamp_waders = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if swamp_waders:GetGemValue("sapphire") > 0 then
+        local percentage_increase = (ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE/100)*-1
+        Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
+    end
 end

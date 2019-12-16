@@ -728,7 +728,7 @@ function winterblight_boss_final_death_animation(caster)
 			end
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				item_rpc_storm_pacer_sabatons:CreateLuaItem(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_storm_pacer_sabatons")
 			elseif immortal_luck == 2 then
 				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_robe_of_the_erudite_teacher")
 			end
