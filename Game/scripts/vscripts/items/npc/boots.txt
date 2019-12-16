@@ -48,6 +48,7 @@
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/temporal_warp.vpcf"
+			"particle"	"particles/econ/items/tinker/boots_of_travel/teleport_end_bots.vpcf"
 		}
 		"OnSpellStart"
 		{
