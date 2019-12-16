@@ -12200,13 +12200,15 @@
 		"item_property_iron_treads_of_destruction"					"Dissolution"
 		"property_iron_treads_of_destruction_description"			"(R) @Ability4 не требует время на прочтение."
 		
-		"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
-		"item_rpc_storm_pacer_sabatons_ruby1"        "blah blah @ruby_property1 gem"
-		"item_rpc_storm_pacer_sabatons_emerald1"        "blah blah @emerald_property1 gem"
-		"item_rpc_storm_pacer_sabatons_sapphire1"        "blah blah @sapphire_property1 gem"
-		"item_rpc_storm_pacer_sabatons_amethyst1"        "blah blah @amethyst_property1 gem"
-        "item_property_storm_pacer_sabatons"                        "Storm Pacer"
-        "property_storm_pacer_sabatons_description"                 "При прочтении @Ability3 от персонажа высвобождается волна энергии (радиус <font color='#ccff66'>700</font>), нанося урон при прикосновении. Урон волны базируется на последнем пре-резистном уроне (до начала самой волны), усиливаясь по мере движения от <font color='#ccff66'>0.4</font>x до <font color='#ccff66'>4</font>x. Эффекты или модификаторы урона не могут повлиять на урон волны. Волна увеличивает порог урона по мобам со Стойкостью/Мега-Стойкостью до <font color='#ccff66'>10</font>х / <font color='#ccff66'>30</font>х от изначального порога. Перезарядка 1 секунда."
+        "DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
+
+        "item_property_storm_pacer_sabatons"                        "Static Corona"
+        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <font color='#ccff66'>70</font>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <font color='#ccff66'>4</font> second cooldown."
+
+        "item_rpc_storm_pacer_sabatons_ruby1"        "Increases the corona radius by @ruby_property1 and its damage by @ruby_property2"
+        "item_rpc_storm_pacer_sabatons_emerald1"        "Static Corona can deal up to @emerald_property1x increased damage at the edge of the ring, decreasing linearly toward the center"
+        "item_rpc_storm_pacer_sabatons_sapphire1"        "Increases all elemental damage by @sapphire_property1%"
+        "item_rpc_storm_pacer_sabatons_amethyst1"        "Reduces Corona cooldown by @amethyst_property1 seconds"
 
         "DOTA_Tooltip_ability_item_rpc_pegasus_boots"   "Pegasus Boots"
 

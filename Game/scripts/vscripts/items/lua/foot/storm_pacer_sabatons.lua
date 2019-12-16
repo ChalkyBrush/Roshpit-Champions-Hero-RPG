@@ -19,10 +19,17 @@ end
 function class:GetModifierName()
     return modifierName
 end
+function class:RollArmor(item_level)
+    RPCItems:GrantItemBaseArmor(self, item_level, 2)
+end
+function class:RollMagicArmor(item_level)
+    RPCItems:GrantItemBaseMagicArmor(self, item_level, 1.5)
+end
+
 function class:RollProperty1()
     self.newItemTable.property1 = 1
-    self.newItemTable.property1name = "storm_pacer_sabatons"
-    self:SetSpecialValue(self.newItemTable.property1name, "#8fd8f7")
+    self.newItemTable.property1name = "!immortal!_modifier_storm_pacer_sabatons"
+    self:SetSpecialValue("storm_pacer_sabatons", "#8fd8f7")
 end
 function modifierClass:OnCreated()
     if not IsServer() then
@@ -37,7 +44,7 @@ function modifierClass:OnCreated()
     self.elements = {}
 
     self.currentRadius = 0
-    self.maxRadius = ITEM_RPC_STORM_PACER_SABATONS_RADIUS
+    self.maxRadius = ITEM_RPC_STORM_PACER_SABATONS_RADIUS + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY1)
     self.radiusStep = ITEM_RPC_STORM_PACER_SABATONS_RADIUS/5
     self.thinkInterval = 0.1
 
@@ -50,7 +57,8 @@ function modifierClass:OnCastEAbility()
     if self.cooldownUntil > GameRules:GetGameTime() then
         return
     end
-    self.cooldownUntil = GameRules:GetGameTime() + ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN
+    local cooldown = math.max(ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN - ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STORM_PACER_SABATONS_GEM_AMETHYST), 0.1)
+    self.cooldownUntil = GameRules:GetGameTime() + cooldown
     self.retracing = false
     self.currentRadius = 0
     self.localKey = 'item_storm_pacer_sabatons_' .. ability:GetEntityIndex() .. '_' .. ability.uid
@@ -82,7 +90,7 @@ function modifierClass:PlayEffectsCast()
 end
 function modifierClass:OnIntervalThink()
     local caster = self:GetCaster()
-
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ITEM_RPC_STORM_PACER_SABATONS_DMG_ATK_POWER_PCT/100  + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY2)
     if self.retracing then
         self.currentRadius = math.max(self.currentRadius - self.radiusStep, 0)
         if self.currentRadius == 0 then
@@ -102,25 +110,27 @@ function modifierClass:OnIntervalThink()
     for _,enemy in pairs(enemies) do
         excluded_enemies[enemy:GetEntityIndex()] = true
     end
+    local element1 = self.elements[1]
+    local element2 = self.elements[2]
+    if not element1 then
+        element1 = RPC_ELEMENT_NORMAL
+    end
+    if not element2 then
+        element2 = RPC_ELEMENT_NONE
+    end
     enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self.currentRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for _,enemy in pairs(enemies) do
         if enemy[self.localKey] or excluded_enemies[enemy:GetEntityIndex()] then
         else
             enemy[self.localKey] = true
-            local distanceMult = (ITEM_RPC_STORM_PACER_SABATONS_MAX_AMP - ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP) * WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())/self.maxRadius
-            local mult = ITEM_RPC_STORM_PACER_SABATONS_MIN_AMP + distanceMult
-            Damage:Apply({
-                source = self:GetAbility(),
-                sourceType = BASE_NONE,
-                attacker = caster,
-                victim = enemy,
-                damage = mult * self.damage,
-                damageType = DAMAGE_TYPE_MAGICAL,
-                elements = self.elements,
-                ignoreMultipliers = true,
-                steadfastThresholdMult = ITEM_RPC_STORM_PACER_SABATONS_STEADFAST_THRESHOLD,
-                megaSteadfastThresholdMult = ITEM_RPC_STORM_PACER_SABATONS_MEGASTEADFAST_THRESHOLD,
-            })
+            local max_amp = 1
+            if self:GetAbility():GetGemValue("emerald") > 0 then
+                max_amp = self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_STORM_PACER_SABATONS_GEM_EMERALD)
+            end
+            local distanceMult = (max_amp - 1) * WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemy:GetAbsOrigin())/self.maxRadius
+            local mult = 1 + distanceMult
+            damage = damage * mult
+            Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability, element1, element2)
         end
     end
 end

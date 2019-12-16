@@ -12339,6 +12339,18 @@
         "item_rpc_steamboots_emerald1"                                      "Increases Agility by @emerald_property1 and Item Damage by @emerald_property2%"
         "item_rpc_steamboots_sapphire1"                                     "Each point of Agility increases Magic Armor and Spell Pierce by @sapphire_property1"
         "item_rpc_steamboots_amethyst1"                                     "Increases Runes [E1] and [E2] by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
+
+        "item_property_storm_pacer_sabatons"                        "Static Corona"
+        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <font color='#ccff66'>70</font>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <font color='#ccff66'>4</font> second cooldown."
+
+        "item_rpc_storm_pacer_sabatons_ruby1"        "Increases the corona radius by @ruby_property1 and its damage by @ruby_property2"
+        "item_rpc_storm_pacer_sabatons_emerald1"        "Static Corona can deal up to @emerald_property1x increased damage at the edge of the ring, decreasing linearly toward the center"
+        "item_rpc_storm_pacer_sabatons_sapphire1"        "Increases all elemental damage by @sapphire_property1%"
+        "item_rpc_storm_pacer_sabatons_amethyst1"        "Reduces Corona cooldown by @amethyst_property1 seconds"
+
+
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12395,20 +12407,6 @@
 		"item_property_temporal_warp"						"Time Warp"
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-		
-	
-		
-	
-		
-
-    	"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "Storm Pacer Sabatons"
-    	"item_rpc_storm_pacer_sabatons_ruby1"        "blah blah @ruby_property1 gem"
-    	"item_rpc_storm_pacer_sabatons_emerald1"        "blah blah @emerald_property1 gem"
-    	"item_rpc_storm_pacer_sabatons_sapphire1"        "blah blah @sapphire_property1 gem"
-    	"item_rpc_storm_pacer_sabatons_amethyst1"        "blah blah @amethyst_property1 gem"
-        "item_property_storm_pacer_sabatons"                        "Static Corona"
-        "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. The damage is based on the last pre-mitigation damage instance you dealt before activating this effect, and then the damage is modified by the target's distance from the center of the ring, scaling from <font color='#ccff66'>0.4</font>x damage at close range, to <font color='#ccff66'>4</font>x damage at the edge. No other effects or modifiers can further increase this instance of damage, but it pierces Steadfast defenses, raising their damage truncation thresholds to <font color='#ccff66'>10</font>x the normal value (or <font color='#ccff66'>30</font>x for Mega Steadfast). Ring emission has a 1 second cooldown."
-
 
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
