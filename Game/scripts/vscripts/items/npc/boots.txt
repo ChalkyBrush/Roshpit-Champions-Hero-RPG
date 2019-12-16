@@ -1,3 +1,93 @@
+	"item_rpc_terrasic_lava_boots"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/terrasic_lava_boots" //"terrasic_lava_boots"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rpc_terrasic_lava_boots"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"terrasic_lava_boots_think"
+					}
+				}
+			}
+			"modifier_rpc_terrasic_lava_boot_effect"
+			{
+				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"IsHidden"	"0"
+				"TextureName"	"itemicons/terrasic_lava_boots"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %>"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Item.TerrasicLavaBoot"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_temporal_warp_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -48,6 +138,7 @@
 		"precache"
 		{
 			"particle"  "particles/roshpit/items/temporal_warp.vpcf"
+			"particle"	"particles/econ/items/tinker/boots_of_travel/teleport_end_bots.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -5262,87 +5353,6 @@
 		}
 	}
 
-	"item_rpc_terrasic_lava_boots"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/terrasic_lava_boots" //"terrasic_lava_boots"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_rpc_terrasic_lava_boots"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_rpc_terrasic_lava_boot_effect"
-			{
-				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"IsHidden"	"0"
-				"TextureName"	"itemicons/terrasic_lava_boots"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_SPEED %>"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_DMG %>"
-				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"<% ITEM_RPC_TERRASIC_LAVA_BOOTS_BONUS_ATTACK_RANGE %>"
-				}
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Item.TerrasicLavaBoot"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-		}
-	}
 	"item_rpc_voyager_boots"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

@@ -2289,7 +2289,7 @@ function unit_on_platform_moving_end(event)
 			local ability = Events.GameMaster:FindAbilityByName("npc_abilities")
 			local hero = target
 			if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-				hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+				Filters:TerrasicLavaBootsTouchLava(hero)
 				return false
 			end
 			EmitSoundOn("Env.LavaHit", hero)
