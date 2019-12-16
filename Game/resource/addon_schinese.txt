@@ -11875,12 +11875,15 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"飞刀杂耍者之靴"
-    	"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_slinger_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_slinger_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_slinger_boot"				"飞刀杂耍者"
-		"property_slinger_boots_description"		"每<font color='#ccff66'>0.2</font>秒攻击在你背后的敌人一次，攻击继承全部攻击特效。"
+        "property_slinger_boots_description"        "Travelling <font color='#ccff66'>500</font> distance throws out <font color='#ccff66'>3</font> blades that will seek out enemies in <font color='#ccff66'>1000</font> range and deal <font color='#ccff66'>100</font>% of attack power when striking them. Blades can bounce up to <font color='#ccff66'>2</font> times and a maximum of <font color='#ccff66'>10</font> blades can be active at a time."
+
+        "DOTA_Tooltip_modifier_active_bladeslinger_blades"  "Active Bladeslinger"
+
+        "item_rpc_slinger_boots_ruby1"                                  "Adds a @ruby_property1% chance to sling an additional blade on each trigger"
+        "item_rpc_slinger_boots_emerald1"                                   "Blades can bounce an additional @emerald_property1 times and deal an extra @emerald_property2 damage"
+        "item_rpc_slinger_boots_sapphire1"                                  "Increases Base Attack Damage by @sapphire_property1 and increases Bladeslinger damage by an extra @sapphire_property2% of attack power"
+        "item_rpc_slinger_boots_amethyst1"                                  "Increases Armor Pierce by @amethyst_property1, and every @amethyst_property2 seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
 
     	"DOTA_Tooltip_ability_item_rpc_sange_boots"										"散华之鞋"

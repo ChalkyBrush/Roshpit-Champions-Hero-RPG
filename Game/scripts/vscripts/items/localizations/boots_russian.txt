@@ -1,11 +1,15 @@
 
-    	"DOTA_Tooltip_ability_item_rpc_slinger_boots"									"Bladeslinger Boots"
-    	"item_rpc_slinger_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_slinger_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_slinger_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_slinger_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_slinger_boot"				"Bladeslinger"
-		"property_slinger_boots_description"		"Каждые <% ITEM_RPC_SLINGER_BOOTS_ATT_INTERVAL %> секунды происходит атака на всех врагов позади героя. Учитываются все модификаторы атаки."
+        "DOTA_Tooltip_ability_item_rpc_slinger_boots"                                   "Bladeslinger Boots"
+
+        "item_property_slinger_boot"                "Bladeslinger"
+        "property_slinger_boots_description"        "Travelling <% ITEM_RPC_SLINGER_BOOTS_DISTANCE_TO_TRIGGER %> distance throws out <% ITEM_RPC_SLINGER_BOOTS_BLADES_THROWN %> blades that will seek out enemies in <% ITEM_RPC_SLINGERS_BOOTS_SEARCH_RANGE %> range and deal <% ITEM_RPC_SLINGER_BOOTS_DAMAGE_BLADE_PCT_ATK_POWER %>% of attack power when striking them. Blades can bounce up to <% ITEM_RPC_SLINGER_BOOTS_BOUNCE_COUNT %> times and a maximum of <% ITEM_RPC_SLINGER_BOOTS_MAX_ACTIVE_BLADES %> blades can be active at a time."
+
+        "DOTA_Tooltip_modifier_active_bladeslinger_blades"  "Active Bladeslinger"
+
+        "item_rpc_slinger_boots_ruby1"                                  "Adds a @ruby_property1% chance to sling an additional blade on each trigger"
+        "item_rpc_slinger_boots_emerald1"                                   "Blades can bounce an additional @emerald_property1 times and deal an extra @emerald_property2 damage"
+        "item_rpc_slinger_boots_sapphire1"                                  "Increases Base Attack Damage by @sapphire_property1 and increases Bladeslinger damage by an extra @sapphire_property2% of attack power"
+        "item_rpc_slinger_boots_amethyst1"                                  "Increases Armor Pierce by @amethyst_property1, and every @amethyst_property2 seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
 
         "DOTA_Tooltip_ability_item_rpc_sange_boots"                                     "Sange Boots"

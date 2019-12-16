@@ -328,6 +328,17 @@ function Filters:GetProc(caster, percentageChance)
     end
 end
 
+function Filters:GetProcCount(caster, chance)
+    local base_rolls = math.floor(chance/100)
+    local extra_roll = 0
+    if chance%100 ~= 0 then
+        if Filters:GetProc(caster, chance%100) then
+            extra_roll = 1
+        end
+    end
+    return base_rolls + extra_roll
+end
+
 function Filters:PerformAttackSpecial(caster, target, b1, b2, b3, b4, b5, b6, b7)
     local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
     if not caster:HasModifier("modifier_perform_attack_limiter") then

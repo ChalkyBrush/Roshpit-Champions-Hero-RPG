@@ -811,90 +811,6 @@ function violet_boot_impact(event)
 	Filters:ApplyItemDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 end
 
-function gunslinger_think(event)
-	local target = event.target
-	local ability = event.ability
-	if not ability.lastPos then
-		ability.lastPos = target:GetAbsOrigin()
-	end
-	if not ability.distanceMoved then
-		ability.distanceMoved = 0
-	end
-	ability.newPos = target:GetAbsOrigin()
-	ability.hero = target
-	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
-	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > 300 then
-		for i = 1, ability.distanceMoved / 300, 1 do
-			gunslingerProjectile(target, true, nil, nil, 0, nil)
-			if i > 3 then
-				break
-			end
-		end
-		ability.distanceMoved = ability.distanceMoved % 300
-	end
-
-	ability.lastPos = target:GetAbsOrigin()
-end
-
-function gunslingerProjectile(caster, bInitial, slingerAbility, enemies, enemyIndex, dummy)
-	if bInitial then
-		dummy = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
-		dummy.owner = caster:GetPlayerOwnerID()
-
-		slingerAbility = dummy:AddAbility("bladeslinger_boot_ability")
-		slingerAbility:SetLevel(1)
-		dummy:AddAbility("dummy_unit")
-		dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-		slingerAbility.enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		enemies = slingerAbility.enemies
-		slingerAbility.hero = caster
-	end
-	local source = enemies[enemyIndex]
-	if bInitial then
-		source = caster
-	end
-	if #enemies > enemyIndex then
-		local info =
-		{
-			Target = enemies[enemyIndex + 1],
-			Source = source,
-			Ability = slingerAbility,
-			EffectName = "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss.vpcf",
-			StartPosition = "attach_hitloc",
-			bDrawsOnMinimap = false,
-			bDodgeable = true,
-			bIsAttack = false,
-			bVisibleToEnemies = true,
-			bReplaceExisting = false,
-			flExpireTime = GameRules:GetGameTime() + 4,
-			bProvidesVision = true,
-			iVisionRadius = 0,
-			iMoveSpeed = 1100,
-		iVisionTeamNumber = caster:GetTeamNumber()}
-		projectile = ProjectileManager:CreateTrackingProjectile(info)
-	end
-	slingerAbility.enemyIndex = enemyIndex + 1
-	if enemyIndex == #enemies then
-		UTIL_Remove(dummy)
-	end
-end
-
-function gunslinger_impact(event)
-	local ability = event.ability
-	local caster = event.caster
-	local hero = ability.hero
-	local target = event.target
-	local damage = (hero:GetIntellect() + hero:GetStrength() + hero:GetAgility()) * 2
-	EmitSoundOn("Hero_BountyHunter.Shuriken.Impact", caster)
-	if ability.enemyIndex <= 4 then
-		gunslingerProjectile(hero, false, ability, ability.enemies, ability.enemyIndex + 1, caster)
-	else
-		UTIL_Remove(caster)
-	end
-	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, event.ability)
-end
-
 function guardian_greaves_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -4183,40 +4099,6 @@ function basilisk_plague_poison_start(event)
 	if ability:GetGemValue("ruby") > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_ruby_as_loss", {})
 		target:SetModifierStackCount("modifier_basilisk_plague_ruby_as_loss", caster, ability:GetFinalGemPropertyValue("ruby", BASILISK_PLAGUE_RUBY))
-	end
-end
-
-function blade_slinger_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	local hero = target
-	if hero:IsAlive() then
-		local lookupPoint = hero:GetAbsOrigin() - hero:GetForwardVector() * 120
-		local enemies_initial = FindUnitsInRadius(hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		local enemies = {}
-		for i = 1, #enemies_initial, 1 do
-			local check_enemy = enemies_initial[i]
-			if not check_enemy:HasModifier("modifier_possession_enemy_lock") then
-				if not check_enemy.dummy then
-					table.insert(enemies, check_enemy)
-				end
-			end
-		end
-		if #enemies > 0 then
-			local facingVector = ((enemies[1]:GetAbsOrigin() - hero:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-			local angle = WallPhysics:vectorToAngle(facingVector)
-			hero:SetAngles(0, angle, 0)
-			Timers:CreateTimer(0.42, function()
-				hero:SetAngles(0, 0, 0)
-			end)
-			StartAnimation(hero, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 3.2})
-			if not hero:IsStunned() and not hero:IsDisarmed() then
-				for _, enemy in pairs(enemies) do
-					Filters:PerformAttackSpecial(hero, enemy, true, true, true, false, true, false, false)
-				end
-			end
-		end
 	end
 end
 
@@ -9506,6 +9388,230 @@ function sandstream_unequip(event)
 	if ability.sandstorm_table then
 		for i = 1, #ability.sandstorm_table, 1 do
 			ability.sandstorm_table[i]:RemoveModifierByName("modifier_sandstream_sandstorm")
+		end
+	end
+end
+
+function gunslinger_think(event)
+	local target = event.target
+	local ability = event.ability
+	if not ability.lastPos then
+		ability.lastPos = target:GetAbsOrigin()
+	end
+	if not ability.distanceMoved then
+		ability.distanceMoved = 0
+	end
+	ability.newPos = target:GetAbsOrigin()
+	local distance = WallPhysics:GetDistance2d(ability.newPos, ability.lastPos)
+	ability.distanceMoved = ability.distanceMoved + distance
+	if ability.distanceMoved > ITEM_RPC_SLINGER_BOOTS_DISTANCE_TO_TRIGGER then
+		bladeslinger_trigger(event.caster, ability, target)
+		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_SLINGER_BOOTS_DISTANCE_TO_TRIGGER
+	end
+
+	ability.lastPos = target:GetAbsOrigin()
+end
+
+function bladeslinger_trigger(caster, ability, hero)
+
+
+	local vorpal_particle = "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss_bounce.vpcf"
+
+	local baseFV = hero:GetForwardVector()
+	local search_area = hero:GetAbsOrigin()
+	local search_radius = ITEM_RPC_SLINGERS_BOOTS_SEARCH_RANGE
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), search_area, nil, search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_bladeslinker_projectile_thinker", {})
+
+	if not ability.vorpals then
+		ability.vorpals = {}
+	end
+	local extra_ruby_throws = Filters:GetProcCount(caster, ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SLINGER_BOOTS_GEM_RUBY))
+	local total_max_blades = ITEM_RPC_SLINGER_BOOTS_MAX_ACTIVE_BLADES
+	local blades_this_throw = ITEM_RPC_SLINGER_BOOTS_BLADES_THROWN + extra_ruby_throws
+	local vorpals_for_this_throw = math.min(blades_this_throw, total_max_blades-#ability.vorpals)
+
+	for i = 1, vorpals_for_this_throw do
+		local vorpal = {}
+		local vorpal_distance = 400
+		local vorpal_fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/vorpals_for_this_throw)
+		local vorpal_target = hero:GetAbsOrigin()+vorpal_fv*vorpal_distance + Vector(0,0,160)
+		local vorpal_speed = 1000
+		local vorpal_origin = hero:GetAbsOrigin() + Vector(0,0,460)
+
+		local bounces = ITEM_RPC_SLINGER_BOOTS_BOUNCE_COUNT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD1)
+
+		vorpal.active = true
+		vorpal.speed = vorpal_speed
+		vorpal.position = vorpal_origin
+		vorpal.target = vorpal_target
+		vorpal.interval = 0
+		vorpal.damage = damage
+		vorpal.mana_restore = mana_restore
+
+		local pfx = ParticleManager:CreateParticle(vorpal_particle, PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin())
+		ParticleManager:SetParticleControl(pfx, 1, vorpal_target)
+		ParticleManager:SetParticleControl(pfx, 2, Vector(vorpal_speed, vorpal_speed, vorpal_speed))
+
+		-- ParticleManager:SetParticleControl(pfx, 5, Vector(300, 300, 300))
+		vorpal.pfx = pfx
+		vorpal.targets_hit = 0
+		vorpal.bounces = bounces
+		if #enemies > 0 then
+			local lock_target = enemies[RandomInt(1, #enemies)]
+			vorpal.lock_entity = lock_target
+		else
+			vorpal.lock_entity = nil
+		end
+		table.insert(ability.vorpals, vorpal)
+	end
+	if vorpals_for_this_throw > 0 then
+		EmitSoundOn("RPCItems.SlingerBoot.Throw", hero)
+	end
+	local counter_modifier_name = "modifier_active_bladeslinger_blades"
+	ability:ApplyDataDrivenModifier(caster, hero, counter_modifier_name, {})
+	hero:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
+end
+
+function bladeslinger_unequip(event)
+	local ability = event.ability
+	for i = 1, #ability.vorpals, 1 do
+		ParticleManager:DestroyParticle(ability.vorpals[i].pfx, false)
+		ParticleManager:ReleaseParticleIndex(ability.vorpals[i].pfx)	
+	end
+end
+
+function bladeslinger_projectile_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local new_vorpal_table = {}
+	local think_interval = 0.1
+	if not ability then
+
+		return false
+	end
+	if not IsValidEntity(ability) then
+
+		return false
+	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_SLINGER_BOOTS_DAMAGE_BLADE_PCT_ATK_POWER+ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SLINGER_BOOTS_GEM_SAPPHIRE2))/100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SLINGER_BOOTS_GEM_EMERALD2)
+	local element2 = RPC_ELEMENT_NORMAL
+	local damagetype = DAMAGE_TYPE_PHYSICAL
+	for i = 1, #ability.vorpals, 1 do
+		local vorpal = ability.vorpals[i]
+		if vorpal.active then
+			vorpal.speed = math.min(vorpal.speed + 70, 1300)
+			local direction = (vorpal.target - vorpal.position):Normalized()
+			vorpal.position = vorpal.position + vorpal.speed*think_interval*direction
+			vorpal.interval = vorpal.interval + 1
+
+			if vorpal.interval >= 4 then
+				if IsValidEntity(vorpal.lock_entity) and vorpal.lock_entity:IsAlive() then
+					vorpal.target = vorpal.lock_entity:GetAbsOrigin() + Vector(0,0,30)
+				end
+			end
+			if vorpal.interval >= 120 then
+				vorpal.active = false
+			end
+
+			local distance = WallPhysics:GetDistance2d(vorpal.position, vorpal.target)
+			
+			if distance <= (vorpal.speed*think_interval) then
+				-- CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf", vorpal.position, 3)
+				if vorpal.targets_hit < (vorpal.bounces - 1) then
+					vorpal.targets_hit = vorpal.targets_hit + 1
+					local nearby_enemies = FindUnitsInRadius(hero:GetTeamNumber(), vorpal.position, nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					local new_target = nil
+					if #nearby_enemies > 0 then
+						if IsValidEntity(vorpal.lock_entity) then
+							for _, enemy in pairs(nearby_enemies) do
+								if enemy:GetEntityIndex() ~= vorpal.lock_entity:GetEntityIndex() then
+									new_target = enemy
+									break
+								end
+								-- Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+							end
+						else
+							new_target = nearby_enemies[1]
+						end
+					end
+					if IsValidEntity(vorpal.lock_entity) then
+						EmitSoundOn("RPCItems.SlingerBoot.Impact", vorpal.lock_entity)
+						Filters:ApplyItemDamage(vorpal.lock_entity, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+					end
+					if IsValidEntity(new_target) then
+						vorpal.lock_entity = new_target
+						vorpal.target = vorpal.lock_entity:GetAbsOrigin()
+					else
+						vorpal.active = false
+					end
+
+				else
+					vorpal.active = false
+				end
+			end
+			if vorpal.active then
+				ParticleManager:SetParticleControl(vorpal.pfx, 1, vorpal.target)
+				ParticleManager:SetParticleControl(vorpal.pfx, 2, Vector(vorpal.speed, vorpal.speed, vorpal.speed))
+				table.insert(new_vorpal_table, vorpal)
+			else
+				ParticleManager:DestroyParticle(vorpal.pfx, false)
+				ParticleManager:ReleaseParticleIndex(vorpal.pfx)	
+			end			
+		end
+	end
+	ability.vorpals = new_vorpal_table
+
+	local counter_modifier_name = "modifier_active_bladeslinger_blades"
+	if #ability.vorpals > 0 then
+		hero:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
+	else
+		hero:RemoveModifierByName(counter_modifier_name)
+	end
+end
+
+function blade_slinger_sapphire_think(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local hero = target
+	if ability:GetGemValue("amethyst") > 0 then
+		if not ability.amethyst_interval then
+			ability.amethyst_interval = 0
+		end
+		ability.amethyst_interval = ability.amethyst_interval + 1
+		if ability.amethyst_interval >= ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SLINGER_BOOTS_GEM_AMETHYST2)/0.2 then
+			if hero:IsAlive() then
+				local lookupPoint = hero:GetAbsOrigin() - hero:GetForwardVector() * 120
+				local enemies_initial = FindUnitsInRadius(hero:GetTeamNumber(), lookupPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				local enemies = {}
+				for i = 1, #enemies_initial, 1 do
+					local check_enemy = enemies_initial[i]
+					if not check_enemy:HasModifier("modifier_possession_enemy_lock") then
+						if not check_enemy.dummy then
+							table.insert(enemies, check_enemy)
+						end
+					end
+				end
+				if #enemies > 0 then
+					local facingVector = ((enemies[1]:GetAbsOrigin() - hero:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+					local angle = WallPhysics:vectorToAngle(facingVector)
+					hero:SetAngles(0, angle, 0)
+					Timers:CreateTimer(0.42, function()
+						hero:SetAngles(0, 0, 0)
+					end)
+					StartAnimation(hero, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 3.2})
+					if not hero:IsStunned() and not hero:IsDisarmed() then
+						for _, enemy in pairs(enemies) do
+							Filters:PerformAttackSpecial(hero, enemy, true, true, true, false, true, false, false)
+						end
+					end
+				end
+			end
+			ability.amethyst_interval = 0
 		end
 	end
 end
