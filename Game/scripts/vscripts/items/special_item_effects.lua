@@ -9695,15 +9695,28 @@ function temporal_warp_boots_channeling_end(event)
 
 	local checker = hero:FindModifierByName("modifier_temporal_warp_boots_hidden_channel_checker")
 	if checker and checker:GetRemainingTime() <= 0.12 then
-		Events:LockCamera(hero)
-		FindClearSpaceForUnit(hero, hero.temporal_warp_boots.teleportPosition, false)
-		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportEnd", hero)
-		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
-		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
+		if hero:IsStunned() or hero:IsFrozen() or hero:IsRooted() then
+			EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
+		else
+			Events:LockCamera(hero)
+			FindClearSpaceForUnit(hero, hero.temporal_warp_boots.teleportPosition, false)
+			EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportEnd", hero)
+			StartAnimation(hero, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
+			EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
+		end
 	else
 		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
 	end
 	hero:RemoveModifierByName("modifier_temporal_warp_boots_hidden_channel_checker")
 	StopSoundEvent("RPCItems.TemporalWarpBoots.TeleportLP", hero)
 
+end
+
+function temporal_warp_boots_channeling_take_damage(event)
+	local hero = event.caster.hero
+	local damage = event.damage
+	local attacker = event.attacker
+	if damage >= 10 and attacker:GetTeamNumber() ~= hero:GetTeamNumber() then
+		hero:RemoveModifierByName("modifier_temporal_warp_boots_channeling")
+	end
 end

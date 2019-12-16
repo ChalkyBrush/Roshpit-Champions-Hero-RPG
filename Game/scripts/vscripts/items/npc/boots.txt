@@ -95,10 +95,11 @@
 				}
 				"OnTakeDamage"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_temporal_warp_boots_channeling"
-						"Target" 		"TARGET"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"temporal_warp_boots_channeling_take_damage"
+						"damage"		"%attack_damage"
 					}
 				}
 				"OnDestroy"
