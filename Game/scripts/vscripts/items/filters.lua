@@ -6621,3 +6621,7 @@ function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
         end
     end
 end
+
+function Filters:TerrasicLavaBootsTouchLava(hero)
+    hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+end

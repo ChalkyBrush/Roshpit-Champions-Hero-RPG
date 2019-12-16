@@ -9720,3 +9720,6 @@ function temporal_warp_boots_channeling_take_damage(event)
 		hero:RemoveModifierByName("modifier_temporal_warp_boots_channeling")
 	end
 end
+
+function terrasic_lava_boots_think(event)
+end

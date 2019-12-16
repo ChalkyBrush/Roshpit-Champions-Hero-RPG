@@ -9,7 +9,7 @@ function EnterLava(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -35,7 +35,7 @@ function Lava3(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -64,7 +64,7 @@ function Lava4(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -93,7 +93,7 @@ function Lava5(trigger)
 				return false
 			end
 			if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-				hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+				Filters:TerrasicLavaBootsTouchLava(hero)
 				return false
 			end
 			EmitSoundOn("Env.LavaHit", hero)
@@ -122,7 +122,7 @@ function Lava6(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
