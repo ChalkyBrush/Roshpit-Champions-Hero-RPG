@@ -955,4 +955,12 @@ function respawn_flag_succeed(event)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", flag, 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", flag, 4)
 	Events:TutorialServerEvent(caster, "1_2", 0)
+
+	if caster:HasModifier("modifier_temporal_warp_boots") then
+		if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+			local radius = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST1)
+			local duration = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST2)*60
+			AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), radius, duration, false)
+		end
+	end
 end

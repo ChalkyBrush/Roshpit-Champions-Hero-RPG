@@ -12362,6 +12362,18 @@
 
         "DOTA_Tooltip_modifier_swamp_waders_emerald_in_poison_cloud"        "Swamp Waders (Emerald)"
         "DOTA_Tooltip_modifier_swamp_waders_emerald_in_poison_cloud_Description"    "Taking damage with reduced movespeed"
+
+        "DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"                             "Temporal Warp Boots"
+
+        "item_property_temporal_warp"                       "Time Warp"
+        "property_temporal_warp_description"                "Double clicking on a revealed area on the map teleports you after a <font color='#ccff66'>3.5</font> seconds. Taking damage or performing an action interrupts the teleport."
+        "DOTA_Tooltip_modifier_temporal_warp_cooldown"      "Time Warp Cooldown"
+
+        "item_rpc_temporal_warp_boots_ruby1"                                "Casting [E] resets mana, health, position, and cooldowns (except [E]) to what they were @ruby_property1 seconds ago. <font color='#ccff66'>3.5</font> second cooldown."
+        "item_rpc_temporal_warp_boots_emerald1"                             "Increaes Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_temporal_warp_boots_sapphire1"                                "Reduces the channel time of Time Warp by @sapphire_property1 seconds"
+        "item_rpc_temporal_warp_boots_amethyst1"                                "When you plant your respawn flag, gain @amethyst_property1 vision of that area for @amethyst_property2 minutes"
+
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12403,16 +12415,7 @@
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
  
-		 
-    	"DOTA_Tooltip_ability_item_rpc_temporal_warp_boots"								"Temporal Warp Boots"
-    	"item_rpc_temporal_warp_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_temporal_warp_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_temporal_warp_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_temporal_warp_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_temporal_warp"						"Time Warp"
-		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
-		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
-
+		
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"

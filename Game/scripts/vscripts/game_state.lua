@@ -1000,6 +1000,9 @@ function GameState:OrderFilter(orderTable)
 				end
 			end
 		end
+		if unit:HasModifier("modifier_temporal_warp_boots") then
+			Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
+		end
 		if unit:HasModifier("modifier_slipfinn_bog_roller") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				local clicked_position = Vector(orderTable.position_x, orderTable.position_y)

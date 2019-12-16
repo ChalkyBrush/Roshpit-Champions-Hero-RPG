@@ -4717,25 +4717,28 @@ function temporal_warp_boots_think(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	if not ability.interval then
-		ability.interval = 0
-		ability.dataTable = {}
-	end
-	ability.interval = ability.interval + 1
-	local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining()}
-	if #ability.dataTable <= 40 then
-		table.insert(ability.dataTable, timeData)
-	else
-		ability.dataTable[ability.interval] = timeData
-	end
-	-- ability.mana = target:GetMana()
-	-- ability.health = target:GetHealth()
-	-- ability.position = target:GetAbsOrigin()
-	-- ability.cooldownA = target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining()
-	-- ability.cooldownB = target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining()
-	-- ability.cooldownD = target:GetAbilityByIndex(DOTA_D_SLOT):GetCooldownTimeRemaining()
-	if ability.interval == 40 then
-		ability.interval = 0
+	if ability:GetGemValue("ruby") > 0 then
+		local important_interval = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_RUBY)*10
+		if not ability.interval then
+			ability.interval = 0
+			ability.dataTable = {}
+		end
+		ability.interval = ability.interval + 1
+		local timeData = {target:GetMana(), target:GetHealth(), target:GetAbsOrigin(), target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining(), target:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownTimeRemaining()}
+		if #ability.dataTable <= important_interval then
+			table.insert(ability.dataTable, timeData)
+		else
+			ability.dataTable[ability.interval] = timeData
+		end
+		-- ability.mana = target:GetMana()
+		-- ability.health = target:GetHealth()
+		-- ability.position = target:GetAbsOrigin()
+		-- ability.cooldownA = target:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownTimeRemaining()
+		-- ability.cooldownB = target:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownTimeRemaining()
+		-- ability.cooldownD = target:GetAbilityByIndex(DOTA_D_SLOT):GetCooldownTimeRemaining()
+		if ability.interval == important_interval then
+			ability.interval = 0
+		end
 	end
 end
 
@@ -9681,4 +9684,26 @@ function swamp_waders_enter_poison_cloud(event)
 	local target = event.target
 	local slow_amount = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_SWAMP_WADERS_GEM_EMERALD1)
 	target:ApplyModifierAndSetStacks(ability, caster, "modifier_swamp_waders_emerald_poison_cloud_slow", slow_amount, 0)
+end
+
+function temporal_warp_boots_channeling_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	ParticleManager:DestroyParticle(hero.temporal_warp_boots.pfx, false)
+	hero.temporal_warp_boots.pfx = false
+
+	local checker = hero:FindModifierByName("modifier_temporal_warp_boots_hidden_channel_checker")
+	if checker and checker:GetRemainingTime() <= 0.12 then
+		Events:LockCamera(hero)
+		FindClearSpaceForUnit(hero, hero.temporal_warp_boots.teleportPosition, false)
+		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportEnd", hero)
+		StartAnimation(hero, {duration = 1, activity = ACT_DOTA_SPAWN, rate = 1})
+		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
+	else
+		EmitSoundOn("RPCItems.TemporalWarpBoots.TeleportFail", hero)
+	end
+	hero:RemoveModifierByName("modifier_temporal_warp_boots_hidden_channel_checker")
+	StopSoundEvent("RPCItems.TemporalWarpBoots.TeleportLP", hero)
+
 end

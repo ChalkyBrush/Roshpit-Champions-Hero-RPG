@@ -5719,7 +5719,12 @@ function RPCItems:RollSteamboots(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_rpc_steamboots"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_steamboots", "#4FD65A", 1, "#property_steamboots_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "item_damage", 1.75)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    end
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -5757,6 +5762,33 @@ function RPCItems:RollSwampWaders(item_level)
     return item
 end
 
+function RPCItems:RollTemporalWarpBoots(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_temporal_warp_boots", "immortal", "Temporal Warp Boots", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_temporal_warp_boots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_temporal_warp", "#A1F442", 1, "#property_temporal_warp_description")
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_time", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "item_damage", 3)
+    elseif luck == 3 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 
@@ -5851,46 +5883,6 @@ function RPCItems:RollTranquilBoots(item_level)
     return item
 end
 
-
-function RPCItems:RollTemporalWarpBoots(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_temporal_warp_boots", "immortal", "Temporal Warp Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "temporal_warp"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_temporal_warp", "#A1F442", 1, "#property_temporal_warp_description")
-    --print("TEMPORAL WARP BOOTS")
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        local evasionValue = RandomInt(12, 20)
-        item.newItemTable.property2 = evasionValue
-        item.newItemTable.property2name = "evasion"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_evasion", "#759C7C", 2)
-    else
-        Elements:RollElementAttribute(item, RPC_ELEMENT_TIME, 1.6, 2, 20, 2)
-    end
-	local luck = RandomInt(1, 26)
-	if luck < 9 then
-	item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		local runeName = "rune_"..RPCItems:GetRandomRuneLetter(1, 4) .. "_3"
-		item.newItemTable.property3 = math.ceil(value * 0.85)
-		item.newItemTable.property3name = runeName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-	elseif luck < 13 then
-		item.newItemTable.hasRunePoints = true
-		local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-		item.newItemTable.property3 = math.min(math.floor(value * 1.75), 90)
-		item.newItemTable.property3name = propertyName
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-	else
-    RPCItems:RollFootProperty3(item, 0)
-	end
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 --TRINKETS
 
@@ -8621,7 +8613,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
         "item_rpc_crusader_boots", "item_rpc_dunetread_boots", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
         "item_rpc_neptunes_water_gliders", "item_rpc_pathfinders_resonant_boots", "item_rpc_redrock_footwear", "item_rpc_resplendent_rubber_boots", "item_rpc_rooted_feet", "item_rpc_sandstream_slippers",
-        "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders"}
+        "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots"}
     end
     return itemsList
 end

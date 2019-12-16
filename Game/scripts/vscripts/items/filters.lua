@@ -4665,49 +4665,6 @@ function Filters:VioletGuardArmorHit(victim, attacker, damage)
     end
 end
 
-function Filters:TimeWarp(caster)
-    local ability = caster.foot
-    local timeItem = ability
-    if not caster:HasModifier("modifier_temporal_warp_cooldown") then
-        ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_temporal_warp_cooldown", {duration = 3.5})
-        EmitSoundOn("RPCItem.TimeWarp.Start", caster)
-        CustomAbilities:QuickAttachParticle("particles/roshpit/items/temporal_warp.vpcf", caster, 3)
-        Timers:CreateTimer(0.3, function()
-            CustomAbilities:QuickAttachParticle("particles/roshpit/items/temporal_warp.vpcf", caster, 3)
-        end)
-        local dataIndex = (ability.interval + 1) % 40
-        if dataIndex == 0 then
-            dataIndex = 1
-        end
-        local timeData = timeItem.dataTable[dataIndex]
-        Timers:CreateTimer(0.05, function()
-            if timeData then
-                caster:SetHealth(math.max(timeData[2], 1))
-                caster:SetMana(timeData[1])
-                caster:SetAbsOrigin(timeData[3])
-                local cd1 = Filters:GetCDNoHood(caster, timeData[4])
-                local cd2 = Filters:GetCDNoHood(caster, timeData[5])
-                local cd4 = Filters:GetCDNoHood(caster, timeData[6])
-                if cd1 > 0 then
-                    caster:GetAbilityByIndex(DOTA_Q_SLOT):StartCooldown(cd1)
-                else
-                    caster:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
-                end
-                if cd2 > 0 then
-                    caster:GetAbilityByIndex(DOTA_W_SLOT):StartCooldown(cd2)
-                else
-                    caster:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
-                end
-                if cd4 > 0 then
-                    caster:GetAbilityByIndex(DOTA_R_SLOT):StartCooldown(cd4)
-                else
-                    caster:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
-                end
-            end
-        end)
-    end
-end
-
 function Filters:BombThrow(caster)
     local bomb = caster.waterBomb
     if not bomb.thrown then
@@ -6562,5 +6519,106 @@ function Filters:SwampWadersECast(caster)
     if swamp_waders:GetGemValue("sapphire") > 0 then
         local percentage_increase = (ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE/100)*-1
         Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
+    end
+end
+
+function Filters:TimeWarp(caster)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+        if ability:GetGemValue("ruby") > 0 then
+        local timeItem = ability
+        if not caster:HasModifier("modifier_temporal_warp_cooldown") then
+            ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_temporal_warp_cooldown", {duration = ITEM_RPC_TEMPORAL_WARP_BOOTS_RUBY_COOLDOWN})
+            EmitSoundOn("RPCItem.TimeWarp.Start", caster)
+            CustomAbilities:QuickAttachParticle("particles/roshpit/items/temporal_warp.vpcf", caster, 3)
+            Timers:CreateTimer(0.3, function()
+                CustomAbilities:QuickAttachParticle("particles/roshpit/items/temporal_warp.vpcf", caster, 3)
+            end)
+            local dataIndex = (ability.interval + 1) % ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_RUBY)*10
+            if dataIndex == 0 then
+                dataIndex = 1
+            end
+            local timeData = timeItem.dataTable[dataIndex]
+            Timers:CreateTimer(0.05, function()
+                if timeData then
+                    caster:SetHealth(math.max(timeData[2], 1))
+                    caster:SetMana(timeData[1])
+                    caster:SetAbsOrigin(timeData[3])
+                    local cd1 = Filters:GetCDNoHood(caster, timeData[4])
+                    local cd2 = Filters:GetCDNoHood(caster, timeData[5])
+                    local cd4 = Filters:GetCDNoHood(caster, timeData[6])
+                    if cd1 > 0 then
+                        caster:GetAbilityByIndex(DOTA_Q_SLOT):StartCooldown(cd1)
+                    else
+                        caster:GetAbilityByIndex(DOTA_Q_SLOT):EndCooldown()
+                    end
+                    if cd2 > 0 then
+                        caster:GetAbilityByIndex(DOTA_W_SLOT):StartCooldown(cd2)
+                    else
+                        caster:GetAbilityByIndex(DOTA_W_SLOT):EndCooldown()
+                    end
+                    if cd4 > 0 then
+                        caster:GetAbilityByIndex(DOTA_R_SLOT):StartCooldown(cd4)
+                    else
+                        caster:GetAbilityByIndex(DOTA_R_SLOT):EndCooldown()
+                    end
+                end
+            end)
+        end
+    end
+end
+
+
+function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
+    if unit:HasModifier("modifier_temporal_warp_boots_channeling") then
+        unit:RemoveModifierByName("modifier_temporal_warp_boots_channeling")
+        return false
+    end
+    if not unit.temporal_warp_boots then
+        unit.temporal_warp_boots = {}
+    end
+    local fow_checker = CreateUnitByName("dummy_unit_vulnerable", Vector(orderTable.position_x, orderTable.position_y), true, nil, nil, DOTA_TEAM_NEUTRALS)
+    fow_checker:AddAbility("dummy_unit"):SetLevel(1)
+    local enemies = FindUnitsInRadius(unit:GetTeamNumber(), Vector(orderTable.position_x, orderTable.position_y), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+    local fow_visible = false
+    if #enemies > 0 then
+        fow_visible = true
+    end
+    UTIL_Remove(fow_checker)
+    if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+        if unit.temporal_warp_boots.last_clicked then
+            if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
+            else
+                if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) and fow_visible then
+                    unit:Stop()
+                    if unit.temporal_warp_boots.pfx then
+                        ParticleManager:DestroyParticle(unit.temporal_warp_boots.pfx, false)
+                    end
+
+                    unit.temporal_warp_boots.last_clicked = GameRules:GetGameTime()
+                    unit.temporal_warp_boots.last_position = Vector(orderTable.position_x, orderTable.position_y)
+                    
+                    local channel_duration = ITEM_RPC_TEMPORAL_WARP_BOOTS_TELEPORT_TIME - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_SAPPHIRE)
+                    unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_channeling", {duration = channel_duration})
+                    unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(unit.InventoryUnit, unit, "modifier_temporal_warp_boots_hidden_channel_checker", {duration = channel_duration + 0.1})
+
+                    local teleportPosition = GetGroundPosition(unit.temporal_warp_boots.last_position, unit)
+                    unit.temporal_warp_boots.pfx = ParticleManager:CreateParticle("particles/econ/items/tinker/boots_of_travel/teleport_end_bots.vpcf", PATTACH_CUSTOMORIGIN, unit)
+                    ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 0, teleportPosition)
+                    ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 4, Vector(1,1,1))
+                    -- ParticleManager:SetParticleControl(unit.temporal_warp_boots.pfx, 5, teleportPosition)
+                    unit.temporal_warp_boots.teleportPosition = teleportPosition
+                    StartAnimation(unit, {duration = channel_duration, activity = ACT_DOTA_TELEPORT, rate = 1})   
+                    StartSoundEvent("RPCItems.TemporalWarpBoots.TeleportLP", unit)
+
+
+                    
+                end
+            end
+        end
+        if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
+        else
+            unit.temporal_warp_boots.last_clicked = GameRules:GetGameTime()
+            unit.temporal_warp_boots.last_position = Vector(orderTable.position_x, orderTable.position_y)
+        end
     end
 end
