@@ -34,7 +34,7 @@ require('/items/constants/trinket')
 
 LinkLuaModifier("modifier_buzuki_finger_lua", "modifiers/modifier_buzuki_finger_lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pivotal_swift", "modifiers/modifier_pivotal_swift", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_sonic_boot_base", "modifiers/modifier_sonic_boot_base", LUA_MODIFIER_MOTION_NONE)
 
 function Filters:ApplyItemDamage(victim, attacker, damage, damage_type, item, element1, element2)
     local damageData = attacker._damage_data or {}
@@ -3386,9 +3386,15 @@ end
 
 function Filters:SonicBoot(caster)
     local inventoryUnit = caster.InventoryUnit
-    local ability = inventoryUnit.foot_item
-    ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_sonic_boots_effect", {duration = 7})
-    caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_sonic', {duration = 7})
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_sonic_boots_effect", {duration = ITEM_RPC_SONIC_BOOTS_DURATION})
+    caster:AddNewModifier(caster, nil, "modifier_sonic_boot_base", {duration = ITEM_RPC_SONIC_BOOTS_DURATION})
+    local as_stacks = ITEM_RPC_SONIC_BOOTS_ATTACK_SPEED + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SONIC_BOOTS_GEM_RUBY)
+    caster:ApplyModifierAndSetStacks(ability, caster.InventoryUnit, "modifier_sonic_boots_attack_speed", as_stacks, ITEM_RPC_SONIC_BOOTS_DURATION)
+    if ability:GetGemValue("amethyst") > 0 then
+        local atk_pct = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SONIC_BOOTS_GEM_AMETHYST)
+        caster:ApplyModifierAndSetStacks(ability, caster.InventoryUnit, "modifier_property_sonic_boots_damage", atk_pct, ITEM_RPC_SONIC_BOOTS_DURATION)
+    end
 end
 
 function Filters:EternalFrost(caster)

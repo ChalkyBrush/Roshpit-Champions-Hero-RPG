@@ -12318,6 +12318,18 @@
         "item_rpc_slinger_boots_sapphire1"                                  "Increases Base Attack Damage by @sapphire_property1 and increases Bladeslinger damage by an extra @sapphire_property2% of attack power"
         "item_rpc_slinger_boots_amethyst1"                                  "Increases Armor Pierce by @amethyst_property1, and every @amethyst_property2 seconds, immediately perform an attack with all of its procs on enemies in a 180 degree arc behind you."
 
+        "DOTA_Tooltip_ability_item_rpc_sonic_boots"                                     "Sonic Boots"
+
+        "item_property_sonic_boots"                 "Sonic Speed"
+        "property_sonic_boots_description"          "Casting @Ability3 increases attack speed by <font color='#ccff66'>240</font>, movespeed by <font color='#ccff66'>300</font>, maximum movespeed by <font color='#ccff66'>300</font> and removes Unit Collision for <font color='#ccff66'>8</font> seconds."
+        "DOTA_Tooltip_modifier_sonic_boots_effect"          "Sonic Speed"
+        "DOTA_Tooltip_modifier_sonic_boots_effect_Description"  "Increased attack speed, movespeed and max movespeed"
+
+        "item_rpc_sonic_boots_ruby1"                                        "Increases Sonic Attack Speed by an additional @ruby_property1"
+        "item_rpc_sonic_boots_emerald1"                                     "Increases Movespeed while in Sonic Speed by an additional @emerald_property1"
+        "item_rpc_sonic_boots_sapphire1"                                        "Increases Maximum Movespeed while in Sonic Speed by @sapphire_property1"
+        "item_rpc_sonic_boots_amethyst1"                                        "Increases Attack Power by @amethyst_property1% while In Sonic Speed"
+
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -12336,22 +12348,7 @@
 		"item_property_yasha"						"Combat Mastery Y"	
 		"property_yasha_description"				"Increase attack speed by 1 for every <font color='#ccff66'>20</font> Strength. Sets Base Attack Time to <font color='#ccff66'>1.1</font> seconds."
 		
-		
-	
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"Sonic Boots"
-    	"item_rpc_sonic_boots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_sonic_boots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_sonic_boots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_sonic_boots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_sonic_boots"					"Sonic Speed"
-		"property_sonic_boots_description"			"Casting @Ability3 increases attack speed by 200, movespeed by 25%, and maximum movespeed by @special_property1 for 8 seconds. Additionally removes unit collision."
-		"DOTA_Tooltip_modifier_sonic_boots_effect"			"Sonic Speed"
-		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"Increased attack speed, movespeed and max movespeed"
-		
-	
-		
+
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"Swamp Waders"
     	"item_rpc_swamp_waders_ruby1"									"blah blah @ruby_property1 gem"
