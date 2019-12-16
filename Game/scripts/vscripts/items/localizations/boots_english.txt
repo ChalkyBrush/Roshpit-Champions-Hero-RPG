@@ -533,7 +533,7 @@
 
         "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @ruby_property1%"
         "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <% ITEM_RPC_TERRASIC_LAVA_BOOTS_EMERALD_FLAME_RANGE %> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
-        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE %> summons a fireling with Magma Tread active. The fireling has <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_ATTACK_RANGE %> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION %> seconds."
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE %> distance summons a fireling with Magma Tread active. The fireling has <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_ATTACK_RANGE %> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION %> seconds."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"

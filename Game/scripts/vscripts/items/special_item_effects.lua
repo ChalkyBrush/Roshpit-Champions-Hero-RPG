@@ -9763,9 +9763,8 @@ function terrasic_lava_boots_fireling(caster, ability, hero)
 	fireling:SetControllableByPlayer(hero:GetPlayerID(), true)
 	fireling.dieTime = ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION
 	fireling:AddAbility("ability_die_after_time_generic"):SetLevel(1)
-
+	fireling.hero = hero
 	Events:smoothSizeChange(fireling, 0.01, 0.8, 30)
-	fireling.hero = caster
 	fireling:SetBaseMoveSpeed(400)
 	fireling:SetAcquisitionRange(3000)
 	local health_mult = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE1)/100
