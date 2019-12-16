@@ -1184,7 +1184,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_EMERALD, hero, "element_time", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
-		end				
+		end			
+	elseif item:GetAbilityName() == "item_rpc_terrasic_lava_boots" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY, hero, "element_fire", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_RUBY, hero, "item_damage", RPC_GEAR_SLOT_BOOTS)
+		end	
 	end
 end
 

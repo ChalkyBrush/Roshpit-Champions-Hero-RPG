@@ -12136,7 +12136,7 @@
     	"item_rpc_terrasic_lava_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_terrasic_lava_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_terrasic_lava"						"熔岩践踏"
-		"property_terrasic_lava_description"				"允许你在塔纳利丛林的岩浆上行走。接触岩浆后提高攻击力<font color='#ccff66'>100</font>% 和攻击距离<font color='#ccff66'>150</font>点，持续<font color='#ccff66'>7</font>秒。"
+		"property_terrasic_lava_description"				"允许你在塔纳利丛林的岩浆上行走。接触岩浆后提高攻击力<font color='#ccff66'>100</font>% 和攻击距离<font color='#ccff66'>0</font>点，持续<font color='#ccff66'>10</font>秒。"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"熔岩践踏"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"攻击力和攻击距离提高。"
 		 

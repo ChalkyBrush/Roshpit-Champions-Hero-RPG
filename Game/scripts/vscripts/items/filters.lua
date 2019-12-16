@@ -1263,6 +1263,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_sandstream_slippers") then
         Filters:SandstreamECast(caster)
     end
+    if caster:HasModifier("modifier_rpc_terrasic_lava_boots") then
+        Filters:TerrasicLavaBootsECast(caster)
+    end
     if caster:HasModifier("modifier_mana_striders") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
@@ -6623,5 +6626,59 @@ function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
 end
 
 function Filters:TerrasicLavaBootsTouchLava(hero)
-    hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+    hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = ITEM_RPC_TERRASIC_LAVA_BOOTS_DURATION})
+end
+
+function Filters:TerrasicLavaBootsECast(caster)
+    local terrasic_boots = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if terrasic_boots:GetGemValue("emerald") > 0 then
+        EmitSoundOn("RPCItems.TerrasicLavaBoots.EmeraldFire", caster)
+        local flame_count = terrasic_boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD1)
+        for i = 1, flame_count, 1 do
+            local rotation_mult = 0
+            if flame_count == 2 then
+                if i == 1 then 
+                    rotation_mult = -2
+                elseif i == 2 then
+                    rotation_mult = 2
+                end
+            elseif flame_count == 3 then
+                if i == 1 then 
+                    rotation_mult = -2
+                elseif i == 3 then
+                    rotation_mult = 2
+                end
+            end
+            local start_radius = 160
+            local end_radius = 280
+            local range = ITEM_RPC_TERRASIC_LAVA_BOOTS_EMERALD_FLAME_RANGE
+            local speed = 1000
+            local fv = WallPhysics:rotateVector(caster:GetForwardVector()*-1, 2*math.pi*rotation_mult/20)
+            local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+            local info =
+            {
+                Ability = terrasic_boots,
+                EffectName = projectileParticle,
+                vSpawnOrigin = caster:GetAbsOrigin(),
+                fDistance = range,
+                fStartRadius = start_radius,
+                fEndRadius = end_radius,
+                Source = caster,
+                StartPosition = "attach_origin",
+                bHasFrontalCone = true,
+                bReplaceExisting = false,
+                iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+                iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+                iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                fExpireTime = GameRules:GetGameTime() + 5.0,
+                bDeleteOnHit = false,
+                vVelocity = fv * speed,
+                bProvidesVision = false,
+            }
+            projectile = ProjectileManager:CreateLinearProjectile(info)
+        end
+    end
+    if terrasic_boots:GetGemValue("amethyst") > 0 then
+        terrasic_boots:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_rpc_terrasic_lava_boot_effect", {duration = terrasic_boots:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST)})
+    end
 end

@@ -1194,7 +1194,7 @@ function fire_temple_key_holder_die(event)
 	if GameState:GetDifficultyFactor() > 1 then
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollTerrasicLavaBoots(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_terrasic_lava_boots")
 		end
 	end
 end

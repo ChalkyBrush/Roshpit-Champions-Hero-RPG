@@ -98,6 +98,10 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_NATURE, RPC_ELEMENT_GHOST)
 			return false
+		elseif parent:GetUnitName() == "terrasic_lava_boots_fireling" then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+			return false
 		elseif parent:HasModifier("modifier_apprentice_ai") or parent:HasModifier("modifier_alien_armor_illusion") then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL,parent.hero.equipped_gear[RPC_GEAR_SLOT_BODY], RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)

@@ -11983,7 +11983,7 @@
     	"item_rpc_terrasic_lava_boots_sapphire1"								"blah blah @sapphire_property1 gem"
     	"item_rpc_terrasic_lava_boots_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_terrasic_lava"						"Magma Tread"
-		"property_terrasic_lava_description"				"Позволяет свободно перемещаться по лавовым озёрам в Джунглях Танари. Когда герой ступает на лаву, он получает бафф, усиливающий урон на <font color='#ccff66'>100</font>%, скорость атаки на <font color='#ccff66'>200</font>, а дальность атаки на <font color='#ccff66'>150</font> на <font color='#ccff66'>7</font> секунд."
+		"property_terrasic_lava_description"				"Позволяет свободно перемещаться по лавовым озёрам в Джунглях Танари. Когда герой ступает на лаву, он получает бафф, усиливающий урон на <font color='#ccff66'>100</font>%, скорость атаки на <font color='#ccff66'>200</font>, а дальность атаки на <font color='#ccff66'>0</font> на <font color='#ccff66'>10</font> секунд."
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
 		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Дальность атаки и урон увеличены."
 		 

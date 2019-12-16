@@ -12374,46 +12374,48 @@
         "item_rpc_temporal_warp_boots_sapphire1"                                "Reduces the channel time of Time Warp by @sapphire_property1 seconds"
         "item_rpc_temporal_warp_boots_amethyst1"                                "When you plant your respawn flag, gain @amethyst_property1 vision of that area for @amethyst_property2 minutes"
 
+        "DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"                             "Terrasic Lava Boots"
+
+        "item_property_terrasic_lava"                       "Magma Tread"
+        "property_terrasic_lava_description"                "Allows you to freely walk on lava. Touching lava increases Attack Power by <font color='#ccff66'>100</font>% and Attack Speed by <font color='#ccff66'>200</font> for <font color='#ccff66'>10</font> seconds."
+        "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"   "Magma Tread"
+        "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"   "Increased attack damage and attack range."
+
+        "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @ruby_property1%"
+        "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <font color='#ccff66'>600</font> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <font color='#ccff66'>10</font> seconds."
+        "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
-    	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_tranquil_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_tranquil_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_tranquil_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Heal <font color='#ccff66'>10</font>% of your max Health for every <font color='#ccff66'>200</font> units moved."
+        "item_property_tranquil_boots"              "Grove Roamer"  
+        "property_tranquil_boots_description"       "Heal <font color='#ccff66'>10</font>% of your max Health for every <font color='#ccff66'>200</font> units moved."
+
+    	"item_rpc_tranquil_boots_ruby1"									"Increases Max Health by @ruby_property1, and each 1% of current health increases Item Damage by @ruby_property2%"
+    	"item_rpc_tranquil_boots_emerald1"									"Gain @emerald_property1 Armor Pierce and Spell Pierce for each current point of health"
+    	"item_rpc_tranquil_boots_sapphire1"									"Increases Max Health by @sapphire_property1, and each 1% of current health increases Base Ability Damage by @sapphire_property2%"
+    	"item_rpc_tranquil_boots_amethyst1"									"Casting [E] summons a group of restorative wisps that restore @amethyst_property1% of max health every <font color='#ccff66'>0</font> seconds"
+
+
+        "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
+        "item_property_voyager"                     "Voyager"
+        "property_voyager_description"              "Every <font color='#ccff66'>0</font> distance travelled reduces the current cooldowns of all other Base Abilities by <font color='#ccff66'>0</font>% of their base cooldown time."
+        "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
+        "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
+        "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
+        "item_rpc_voyager_boots_amethyst1"                                  "Increases all Base Ability Cooldowns by @amethyst_property1%, and increases Base Ability Damage by @amethyst_property2%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
-    	"item_rpc_yasha_boots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_yasha_boots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_yasha_boots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_yasha_boots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Increase attack speed by 1 for every <font color='#ccff66'>20</font> Strength. Sets Base Attack Time to <font color='#ccff66'>1.1</font> seconds."
-		
+        "item_property_yasha"                       "Combat Mastery Y"  
+        "property_yasha_description"                "Each point of Strength increases your Attack Speed by <font color='#ccff66'>0</font> and your Armor Pierce by <font color='#ccff66'>0</font>."
+    	"item_rpc_yasha_boots_ruby1"										"Increases Strength by @ruby_property1"
+    	"item_rpc_yasha_boots_emerald1"										"Increases Agility by @emerald_property1"
+    	"item_rpc_yasha_boots_sapphire1"										"Increases Movespeed by @sapphire_property1"
+    	"item_rpc_yasha_boots_amethyst1"										"Each point of Strength increases Base Attack Damage by @amethyst_property1"
+    	
 
 		
-    	
-    	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
-    	"item_rpc_voyager_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_voyager_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_voyager_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_voyager_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"When you cast @Ability3, reduce the cooldowns of all other base abilities by <font color='#ccff66'>40</font>% of their base cooldown."
-		
-	
-		
-    	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
-    	"item_rpc_terrasic_lava_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_terrasic_lava_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_terrasic_lava_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_terrasic_lava_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_terrasic_lava"						"Magma Tread"
-		"property_terrasic_lava_description"				"Allows you to freely walk on lava. Touching lava increases attack damage by <font color='#ccff66'>100</font>%, attack speed by <font color='#ccff66'>200</font> and attack range by <font color='#ccff66'>150</font> for <font color='#ccff66'>7</font> seconds."
-		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
-		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Increased attack damage and attack range."
+
  
 		
 
@@ -12531,7 +12533,7 @@
 		"item_property_boreal_granite"						"Diametric Force"
 		"property_boreal_granite_description"				"When taking damage from an enemy, there is a <font color='#ccff66'>8</font>% chance to cast @Ability1 for free immediately if the damage source is within the ability's cast range. @Ability1's cooldown is refreshed when this occurs. Targeted abilities are cast at the attacker or their location, if they are within the cast range."
 		
-		"item_rpc_boreal_granite_vest_ruby1"			"Every 1 second gain a Boreal Granite stack up to 5 stacks. Each Boreal Granite stack increases the proc chance of Diametric Force by an additional @ruby_property1%"
+		"item_rpc_boreal_granite_vest_ruby1"			"Every 1 second gain a Boreal Granite stack up to 5 stacks. Each Boreal Granite stack increases the proc chance of Diametric Force by an additional @ruby_property1%. All stacks are lost on [Q] cast"
 		"item_rpc_boreal_granite_vest_emerald1"			"Increases Rune [Q1] and Rune [Q2] by @emerald_property1"
 		"item_rpc_boreal_granite_vest_sapphire1"		"Increases Rune [Q3] by @sapphire_property1"
 		"item_rpc_boreal_granite_vest_amethyst1"		"Increases [Q] Base Ability Damage by @amethyst_property1%"
@@ -12791,7 +12793,7 @@
 		"item_property_ocean_tempest"				"Tidal Windstorm"
 		"property_ocean_tempest_description"		"Drain <font color='#ccff66'>70</font>% of your max mana over the channel time of @Ability4. Each <font color='#ccff66'>10</font> mana drained adds a Tidal Storm Stack, and each stack increases Base Ability and Item damage by <font color='#ccff66'>0.2</font>%. Tempest stacks last for <font color='#ccff66'>90</font> seconds and are reset when casting @Ability4 again."
 		"item_rpc_ocean_tempest_pallium_ruby1"							"Gain @ruby_property1% bonus attack power for each Tidal Storm stack"
-		"item_rpc_ocean_tempest_pallium_emerald1"							"Enemies within <font color='#ccff66'>1200</font> range during [R] channel have a @emerald_property1% chance every 0.1 seconds to be thrown up into a tornado until the end of your channel. While in the tornado they are disabled but also can't take damage. When they land, they take damage based on @emerald_property2% of Tidal Storm stacks built up."
+		"item_rpc_ocean_tempest_pallium_emerald1"							"Enemies within <font color='#ccff66'>1200</font> range during [R] channel have a @emerald_property1% chance every 0.1 seconds to be thrown up into a tornado until the end of your channel. While in the tornado they are disabled but also can't take damage. When they land, they take damage based on @emerald_property2x the number of Tidal Storm stacks that were built up"
 		"item_rpc_ocean_tempest_pallium_sapphire1"							"Increases Water and Wind elemental damage by @sapphire_property1%"
 		"item_rpc_ocean_tempest_pallium_amethyst1"							"Increases the amount of mana drained over the course of [R] channel by an additional @amethyst_property1%"	
 

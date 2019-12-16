@@ -1743,7 +1743,7 @@ function wolfir_druid_channel(event)
 			ability.initial = false
 			EmitSoundOn("RPCItems.WolfSpiritSummon", wolf)
 		end
-		wolf:AdjustSummon(caster, true, WOLFIR_DRUID_HEALTH_PCT/100, SCOURGE_KNIGHT_ATTACK_MULT, 0, 0, SCOURGE_KNIGHT_PIERCE_MULT, SCOURGE_KNIGHT_PIERCE_MULT)
+		wolf:AdjustSummon(caster, true, WOLFIR_DRUID_HEALTH_PCT/100, WOLFIR_DRUID_ATTACK_POWER_MULT, 1, 1, 1, 1)
 
 		local splitEarthParticle = "particles/frostivus_herofx/hyper_state_intro_omnislash_ascension.vpcf"
 		local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, wolf)
@@ -9725,7 +9725,7 @@ function terrasic_lava_boots_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	if ability:GetGemValue("emerald") > 0 then
+	if ability:GetGemValue("sapphire") > 0 then
 		local ability = event.ability
 		if not ability.lastPos then
 			ability.lastPos = hero:GetAbsOrigin()
@@ -9736,11 +9736,44 @@ function terrasic_lava_boots_think(event)
 		ability.newPos = hero:GetAbsOrigin()
 		local distance = WallPhysics:GetDistance2d(ability.newPos, ability.lastPos)
 		ability.distanceMoved = ability.distanceMoved + distance
-		if ability.distanceMoved > ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE then
-			swamp_waders_poison_cloud(caster, ability, hero)
-			ability.distanceMoved = ability.distanceMoved % ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE
+		if ability.distanceMoved > ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE then
+			terrasic_lava_boots_fireling(caster, ability, hero)
+			ability.distanceMoved = ability.distanceMoved % ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE
 		end
 
 		ability.lastPos = hero:GetAbsOrigin()
 	end
+end
+
+function terrasic_lava_boots_emerald_flame_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = ability.wearer
+	local target = event.target
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_EMERALD2)/100
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+end
+
+function terrasic_lava_boots_fireling(caster, ability, hero)
+	local position = hero:GetAbsOrigin() + RandomVector(150)
+	local fireling = CreateUnitByName("terrasic_lava_boots_fireling", position, false, nil, nil, caster:GetTeamNumber())
+	fireling.owner = caster:GetPlayerOwnerID()
+	fireling.summoner = caster
+	fireling:SetOwner(caster)
+	fireling:SetControllableByPlayer(hero:GetPlayerID(), true)
+	fireling.dieTime = ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION
+	fireling:AddAbility("ability_die_after_time_generic"):SetLevel(1)
+
+	Events:smoothSizeChange(fireling, 0.01, 0.8, 30)
+	fireling.hero = caster
+	fireling:SetBaseMoveSpeed(400)
+	fireling:SetAcquisitionRange(3000)
+	local health_mult = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE1)/100
+	local attack_mult = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_SAPPHIRE2)/100
+	fireling:AdjustSummon(hero, true, health_mult, attack_mult, 1, 1, 1, 1)
+	ability:ApplyDataDrivenModifier(caster, fireling, "modifier_rpc_terrasic_lava_boot_effect", {})
+	CustomAbilities:QuickAttachParticle("particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf", fireling, 3)
+	EmitSoundOn("RPCItems.TerrasicLavaBoots.SapphireSummon", fireling)
+	local armor_break_level = math.min(3, ability:GetGemValue("sapphire"))
+	fireling:FindAbilityByName("armor_break"):SetLevel(armor_break_level)
 end
