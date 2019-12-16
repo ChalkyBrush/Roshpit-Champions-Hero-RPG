@@ -480,6 +480,15 @@
         "item_rpc_sonic_boots_sapphire1"                                        "Increases Maximum Movespeed while in Sonic Speed by @sapphire_property1"
         "item_rpc_sonic_boots_amethyst1"                                        "Increases Attack Power by @amethyst_property1% while In Sonic Speed"
 
+         "DOTA_Tooltip_ability_item_rpc_steamboots"                                      "Steamboots"
+
+        "item_property_steamboots"                      "Steamboots"
+        "property_steamboots_description"               "Increases Agility by <% ITEM_RPC_STEAMBOOTS_AGI_PER_LEVEL %>x your Hero Level."
+
+        "item_rpc_steamboots_ruby1"                                     "Increases all T3 runes by @ruby_property1"
+        "item_rpc_steamboots_emerald1"                                      "Increases Agility by @emerald_property1 and Item Damage by @emerald_property2%"
+        "item_rpc_steamboots_sapphire1"                                     "Each point of Agility increases Magic Armor and Spell Pierce by @sapphire_property1"
+        "item_rpc_steamboots_amethyst1"                                     "Increases Runes [E1] and [E2] by @amethyst_property1"
 	
     	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
     	"item_rpc_tranquil_boots_ruby1"									"blah blah @ruby_property1 gem"
@@ -537,14 +546,7 @@
 		"property_temporal_warp_description"				"Casting @Ability3 resets mana, health, position, and cooldowns (except @Ability3) to what they were 4 seconds ago."
 		"DOTA_Tooltip_modifier_temporal_warp_cooldown"		"Time Warp Cooldown"
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
-    	"item_rpc_steamboots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_steamboots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_steamboots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_steamboots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Each <% ITEM_RPC_STEAMBOOTS_AGI_DIVISOR %> points of Agility increases item damage by <% ITEM_RPC_STEAMBOOTS_AGI_TO_ITEM_DAMAGE %>%."
+	
 		
 	
 		

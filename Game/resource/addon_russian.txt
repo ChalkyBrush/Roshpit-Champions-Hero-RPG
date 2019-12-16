@@ -12135,13 +12135,15 @@
         "DOTA_Tooltip_modifier_eternal_forest_strider_root_Description" "Rooted"
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_steamboots"										"Steamboots"
-    	"item_rpc_steamboots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_steamboots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_steamboots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_steamboots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_steamboots"						"Steamboots"
-		"property_steamboots_description"				"Увеличивает урон, наносимый предметами на <font color='#ccff66'>0.3</font>% за каждые <font color='#ccff66'>10</font> очков Ловкости."
+         "DOTA_Tooltip_ability_item_rpc_steamboots"                                      "Steamboots"
+
+        "item_property_steamboots"                      "Steamboots"
+        "property_steamboots_description"               "Increases Agility by <font color='#ccff66'>6</font>x your Hero Level."
+
+        "item_rpc_steamboots_ruby1"                                     "Increases all T3 runes by @ruby_property1"
+        "item_rpc_steamboots_emerald1"                                      "Increases Agility by @emerald_property1 and Item Damage by @emerald_property2%"
+        "item_rpc_steamboots_sapphire1"                                     "Each point of Agility increases Magic Armor and Spell Pierce by @sapphire_property1"
+        "item_rpc_steamboots_amethyst1"                                     "Increases Runes [E1] and [E2] by @amethyst_property1"
 		
 	
         "DOTA_Tooltip_ability_item_rpc_oceanrunner_boots"                   "Oceanrunner Boots" 

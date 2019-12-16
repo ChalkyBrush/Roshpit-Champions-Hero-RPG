@@ -1678,6 +1678,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
 	end
+	if unit:HasModifier("modifier_rpc_steamboots") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2394,6 +2397,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_rpc_steamboots") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2981,6 +2987,9 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_flamewaker_weapon_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_flamewaker_weapon_agility", CustomAttributes.FLAMEWAKER_WEAPON_2_AGI)
+	end
+	if hero:HasModifier("modifier_rpc_steamboots") then
+		agi_bonus = agi_bonus + hero:GetLevel()*ITEM_RPC_STEAMBOOTS_AGI_PER_LEVEL
 	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
