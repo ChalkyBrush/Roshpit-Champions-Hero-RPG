@@ -9722,4 +9722,25 @@ function temporal_warp_boots_channeling_take_damage(event)
 end
 
 function terrasic_lava_boots_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("emerald") > 0 then
+		local ability = event.ability
+		if not ability.lastPos then
+			ability.lastPos = hero:GetAbsOrigin()
+		end
+		if not ability.distanceMoved then
+			ability.distanceMoved = 0
+		end
+		ability.newPos = hero:GetAbsOrigin()
+		local distance = WallPhysics:GetDistance2d(ability.newPos, ability.lastPos)
+		ability.distanceMoved = ability.distanceMoved + distance
+		if ability.distanceMoved > ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE then
+			swamp_waders_poison_cloud(caster, ability, hero)
+			ability.distanceMoved = ability.distanceMoved % ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE
+		end
+
+		ability.lastPos = hero:GetAbsOrigin()
+	end
 end
