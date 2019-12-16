@@ -33,12 +33,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-130"
+				"property_two"			"<% ASTRAL_RANGER_ARCANA1_Q2_ARMOR_LOSS %>"
 			}
 			"03"
 			{
@@ -66,7 +66,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q3_DAMAGE_BONUS %>"
 			}
 		}
 	}

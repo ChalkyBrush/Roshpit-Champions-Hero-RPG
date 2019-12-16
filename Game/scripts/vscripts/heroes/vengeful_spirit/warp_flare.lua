@@ -294,7 +294,7 @@ function rune_e_2_galaxy_nitro(caster, ability)
 				EmitSoundOnLocationWithCaster(vorpal.position, "Solunia.SolarGlow.Impact", caster)
 				local damageType = DAMAGE_TYPE_MAGICAL
 				if vorpal.type == "moon" then
-					damageType = DAMAGE_TYPE_PURE
+					damageType = DAMAGE_TYPE_PHYSICAL
 				end
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), vorpal.position, nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
@@ -337,7 +337,7 @@ function rune_e_2_galaxy_nitro(caster, ability)
 				EmitSoundOn("Solunia.SolarGlow.Impact", boomerang)
 				local damageType = DAMAGE_TYPE_MAGICAL
 				if caster:HasModifier("boomerang_passive_lunar") then
-					damageType = DAMAGE_TYPE_PURE
+					damageType = DAMAGE_TYPE_PHYSICAL
 				end
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), boomerang:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then

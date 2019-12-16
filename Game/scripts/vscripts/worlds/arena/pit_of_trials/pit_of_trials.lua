@@ -136,6 +136,9 @@ function Arena:OpenPit(pitLevel)
 			end
 		end)
 	end)
+    Timers:CreateTimer(4, function()
+      Challenges:ProcessPossibleSpawnEvent(Arena.PitLevel)
+    end)
 	CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 	CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Arena.PitIntro"})
 	Timers:CreateTimer(5, function()
@@ -2333,6 +2336,11 @@ function Arena:SpawnSpiritOfRakash(position, fv)
 	stone.itemLevel = 128
 	local ability = stone:FindAbilityByName("solos_burning_spear")
 	ability:ToggleAutoCast()
+	return stone
+end
+
+function Arena:SpawnCerberus(position, fv)
+	local stone = Arena:SpawnDungeonUnit("pit_of_trials_descent_cerberus", position, 2, 4, "Arena.Cerberus.Aggro", fv, false)
 	return stone
 end
 

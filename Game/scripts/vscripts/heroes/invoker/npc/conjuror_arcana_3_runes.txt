@@ -61,7 +61,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CONJUROR_ARCANA_Q2_PERCENT_HEALTH %>"
 			}
 		}
@@ -83,12 +83,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_Q3_EARTH_AMP_FOR_100_MAX_HEALTH %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT %>"
+				"property_one"			"<% CONJUROR_ARCANA_Q3_ATTACK_DMG_TO_EARTH_SHOCK_PCT %>"
 			}
 		}
 	}

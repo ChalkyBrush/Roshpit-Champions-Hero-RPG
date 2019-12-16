@@ -1,0 +1,132 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/gems.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gems/gemforger.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+	</scripts>
+	<snippets>
+		<snippet name="gemforger_main">
+			<Panel class="gemforger_main" hittest="false">
+				<Panel id="gemforger_bg" hittest="false"/>
+				
+				<Panel class="gemforger_mega_container">	
+					<Image id="gemforger_header" hittest="false">
+						<Panel id="gemforger_header_container" hittest="false">
+							<Panel id="gemforger_header_container_bg" hittest="false"></Panel>
+							<Label id="gemforger_header_title" text="gem_forger" hittest="false"/>
+						</Panel>
+					</Image>
+					<Panel id="gemforger_attach_contents">
+					</Panel>
+					<Panel id="gemforger_attach_contents_down">
+					</Panel>
+					<Button id="close_button">
+						<Label id="close_button_label" text="ui_close"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="gemforger_reward">
+			<Panel class="gemforger_reward_root" hittest="false">
+				<Button id="gemforger_reward_collect" class="gemforger_reward_active" hittest="true">
+					<Image id="gemforger_reward_image" hittest="false"/>
+					<Panel class="gemforger_reward_text_container" hittest="false">
+						<Label id="reward_available_label" text="gem_forger_reward_available" hittest="false"/>
+						<Label id="reward_amount_label" text="" hittest="false" html="true"/>
+					</Panel>
+					<Label id="reward_click" text="ui_click_to_collect" hittest="false" html="true"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="gemforger_start_button">
+			<Panel class="gemforger_start_button_root" hittest="false">
+				<Button id="gemforger_start_button_collect" class="gemforger_reward_active" hittest="true">
+					<Image id="gemforger_start_image" hittest="false"/>
+					<Label id="gem_forger_start_label" text="gem_forger_start" hittest="false" html="true"/>
+				</Button>
+			</Panel>
+		</snippet>
+	    <snippet name="forge_gems_start">
+	    	<Panel class="forge_gems_start_root" hittest="false">
+	    		<Label id="forge_gems_start_tip" hittest="false" text="gemforge_item_select_help"/>
+				<Panel id="forge_gems_item_attacher"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="forge_gems_item_fail">
+	    	<Panel class="forge_gem_fail_root">
+		    	<Label id="socket_item_name" hittest="false" text="none"/>
+				<Button id="item_tooltip_button" hittest="true"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+				<DOTAItemImage hittest="true" id="socket_item_fail"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+		    	<Label id="forge_gems_fail_tip" hittest="false" text="gemforge_item_cannot_be_forged"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="forge_gems_item_main">
+	    	<Panel class="forge_gem_main_root">
+		    	<Label id="socket_item_name_main" hittest="false" text="none"/>
+				<Button id="item_tooltip_button" hittest="true"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+				<DOTAItemImage hittest="true" id="socket_item_main"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()">
+					<Panel hittest="false" id="gems-small" class="invisible">
+						<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem1"/>
+						</Panel>
+						<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+							<Image class="placed-gem" id="placed-gem2"/>
+						</Panel>
+					</Panel>
+				</DOTAItemImage>
+				<Panel id="gemforging_main_socket_attacher">
+				</Panel>
+				<Panel id="gemforging_socket_tooltip">
+				</Panel>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="gemforging_main_socket_snippet_no_socket">
+	    	<Panel class="gemforging_main_no_socket_root">
+	    		<Label id="socket_name"/>
+	    		<Label id="no_socket_text" text="ui_no_socket"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="gemforging_main_socket_snippet">
+	    	<Panel class="gemforging_main_socket_root">
+	    		<Label id="socket_name"/>
+	    		<Label id="socket_summary_text" text="none"/>
+	    		<Panel id="socket_gems_attacher"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="socket_gems_list">
+	    	<Panel class="socket_gems_list_root">
+	    		<Panel class="socket_gems_list_row_background">
+	    		</Panel>
+	    		<Panel class="socket_gems_list_row">
+	    			<Panel id="socket_gems_list_row_attacher">
+	    			</Panel>
+	    		</Panel>
+
+	    	</Panel>
+	    </snippet>
+	    <snippet name="socket_gem">
+	    	<Panel class="socket_gem_root">
+	    		<Image id="socket_gem_image" hittest="false"/>
+	    		<Image id="socket_gem_overlay" hittest="false"/>
+	    	</Panel>
+	    </snippet>
+
+	</snippets>
+
+	<Panel class="gemforger_content" hittest="false">
+		<Panel id="gemforger_container" hittest="false">
+		</Panel>
+	</Panel>
+</root>

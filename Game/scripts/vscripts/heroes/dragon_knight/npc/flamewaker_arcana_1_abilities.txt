@@ -40,12 +40,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"50 90 120 200 300 440 600"
+				"strength_mult"	"1 2 3 4 5 6 7"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"		"3000 8000 30000 80000 160000 280000 600000"
+				"damage"		"120 240 360 480 600 720 840"
 			}
 			"04"
 			{
@@ -74,122 +74,126 @@
         		"strength_mult"	"%strength_mult"
 			}
 		}
-        "Modifiers"
-        {
-        	"modifier_flamewaker_arcana_passive"
-        	{
-        		"IsHidden"	"1"
-        		"Passive"	"1"
-        		"ThinkInterval"  "0.3"
-        		"OnIntervalThink"
-        		{
-					"RunScript"
-					{
-		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-		        		"Function"		"arcana_ability_think"
-					}
-        		}
-        		"OnDestroy"
-        		{
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        			"RemoveModifier"
-        			{
-        				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
-        				"Target" 		"TARGET"
-        			}
-        		}
-        	}
-        	"modifier_flamewaker_arcana_q_free_cast"
-        	{
-        		"IsHidden"	"0"
-        	}
-        	"modifier_flamewaker_arcana_a_a_effect"
-        	{
-        		"IsHidden"	"1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
-        		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
-        		}
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect"
-        	{
-        		"IsHidden"	"0"
-        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
-        		}
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect_stacking_visible"
-        	{
-        		"IsHidden" "0"
-        		"IsDebuff" "1"
-        		"IsStunDebuff" "1"
-        		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
-        	}
-        	"modifier_flamewaker_arcana_b_a_effect_stacking_invisible"
-        	{
-        		"IsHidden"	"1"
-        	}
-        	"modifier_flamewaker_arcana_d_a_effect"
-        	{
-        		"IsHidden"	"1"
-        		"OnCreated"
-        		{
-        			"AttachEffect"
-					{
-						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-						"ControlPointEntities"
-						{
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-							"CASTER"	"attach_origin"
-						}
-					}
-        		}
-        		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
-        		"Aura_Radius"   	"280"
-        		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-        		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-        	}
-        	"modifier_flamewaker_arcana_d_a_aura"
-        	{
-        		"IsHidden"	"0"
-        		"IsDebuff"	"1"
-        		"IsStunDebuff"	"1"
-        		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
-        		"OnCreated"
-        		{
-        			"RunScript"
-        			{
-        				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
-        				"Function"		"d_a_stun"
-        				"target"		"TARGET"
-        			}
-        		}
-        	}
-        	"modifier_flamewaker_arcana_d_a_immune"
-        	{
-        		"IsHidden"	"1"
-        	}
-        }
+                "Modifiers"
+                {
+                	"modifier_flamewaker_arcana_passive"
+                	{
+                		"IsHidden"	"1"
+                		"Passive"	"1"
+                		"ThinkInterval"  "0.3"
+                		"OnIntervalThink"
+                		{
+        					"RunScript"
+        					{
+        		        		"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+        		        		"Function"		"arcana_ability_think"
+        					}
+                		}
+                		"OnDestroy"
+                		{
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_a_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_d_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                			"RemoveModifier"
+                			{
+                				"ModifierName"	"modifier_flamewaker_arcana_b_a_effect"
+                				"Target" 		"TARGET"
+                			}
+                		}
+                	}
+                	"modifier_flamewaker_arcana_q_free_cast"
+                	{
+                		"IsHidden"	"0"
+                	}
+                	"modifier_flamewaker_arcana_a_a_effect"
+                	{
+                		"IsHidden"	"1"
+                		"Properties"
+                		{
+                			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% FLAMEWAKER_ARCANA_Q1_ARMOR_PER_STACK %>"
+                		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA_Q1_MANAREGEN_PER_STACK %>"
+                		}
+                	}
+                	"modifier_flamewaker_arcana_b_a_effect"
+                	{
+                		"IsHidden"	"0"
+                		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+                		"Properties"
+                		{
+                			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% FLAMEWAKER_ARCANA_Q2_MS %>"
+                		}
+                	}
+                	"modifier_flamewaker_arcana_d_a_effect"
+                	{
+                		"IsHidden"	"1"
+                		"OnCreated"
+                		{
+                			"AttachEffect"
+        					{
+        						"EffectName"        "particles/roshpit/flamewaker/flamewaker_arcana_d_arope_arcana.vpcf"
+        						"EffectAttachType"  "follow_origin"
+        						"Target"            "CASTER"
+        						"ControlPointEntities"
+        						{
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        							"CASTER"	"attach_origin"
+        						}
+        					}
+                		}
+                		"Aura"          	"modifier_flamewaker_arcana_d_a_aura"
+                		"Aura_Radius"   	"280"
+                		"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+                		"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                		"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+                	}
+                	"modifier_flamewaker_arcana_d_a_aura"
+                	{
+                		"IsHidden"	"0"
+                		"IsDebuff"	"1"
+                		"IsStunDebuff"	"1"
+                		"TextureName"	"flamewaker/flamewaker_d_a_arcana1"
+                		"OnCreated"
+                		{
+                			"RunScript"
+                			{
+                				"ScriptFile"	"heroes/dragon_knight/arcana_ability.lua"
+                				"Function"		"d_a_stun"
+                				"target"		"TARGET"
+                			}
+                                        "RunScript"
+                                        {
+                                                "ScriptFile"    "npc_abilities/general.lua"
+                                                "Function"              "utility_recalculate_roshpit_attributes"
+                                                "target"                "TARGET"
+                                        }
+                		}
+                                "OnDestroy"
+                                {
+                                        "RunScript"
+                                        {
+                                                "ScriptFile"    "npc_abilities/general.lua"
+                                                "Function"              "utility_recalculate_roshpit_attributes"
+                                                "target"                "TARGET"
+                                        }
+                                }
+                	}
+                	"modifier_flamewaker_arcana_d_a_immune"
+                	{
+                		"IsHidden"	"1"
+                	}
+                }
 	}
 

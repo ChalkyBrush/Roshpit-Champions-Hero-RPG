@@ -16,8 +16,8 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"减伤后伤害加深"
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
 
-    	"DOTA_Tooltip_modifier_lightbomb_postmit"								"放大"
-    	"DOTA_Tooltip_modifier_lightbomb_postmit_Description"					"加深所受到的来自希芙尔的伤害"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"放大"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"加深所受到的来自希芙尔的伤害"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] 明澈之火"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
@@ -177,31 +177,31 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"慌张雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_1_1"		"[T1-1] 慌张雕文"
 		"item_rpc_sephyr_glyph_1_1_description" 				"提高最大同时可存在的风精灵数量 @glyph_property1。"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"模糊风雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_2_1"		"[T2-1] 模糊风雕文"
 		"item_rpc_sephyr_glyph_2_1_description" 				"提高闪避 @glyph_property1%。"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"风神雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_3_1"		"[T3-1] 风神雕文"
 		"item_rpc_sephyr_glyph_3_1_description" 				"提高 @Ability4 范围 @glyph_property1。"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"风触雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_4_1"		"[T4-1] 风触雕文"
 		"item_rpc_sephyr_glyph_4_1_description" 				"提高 @Ability2 伤害距离 @glyph_property1。"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"盲风雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_1"		"[T5-1] 盲风雕文"
 		"item_rpc_sephyr_glyph_5_1_description" 				"@Ability1 冻结敌人 @glyph_property1 秒。基础技能的眩晕效果在冻结结束后才生效。"
 
 		"DOTA_Tooltip_modifier_lightbomb_freeze"				"盲风雕文"
 		"DOTA_Tooltip_modifier_lightbomb_freeze_Description"	"被冻结"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"风之圣"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_6_1"		"[T6-1] 风之圣"
 		"item_rpc_sephyr_glyph_6_1_description" 				"@glyph_property1% 概率闪避一次伤害。（所有伤害）"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"苍穹之力雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_7_1"		"[T7-1] 苍穹之力雕文"
 		"item_rpc_sephyr_glyph_7_1_description" 				"当离地面高度超过 @glyph_property1 码时，获得魔法免疫。"
 
-		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"神圣之风雕文"
+		"DOTA_Tooltip_ability_item_rpc_sephyr_glyph_5_a"		"[T5-a] 神圣之风雕文"
 		"item_rpc_sephyr_glyph_5_a_description" 				"@Ability4 中的伤害减免提高至 @glyph_property1%。"
 		
 		//Weapons

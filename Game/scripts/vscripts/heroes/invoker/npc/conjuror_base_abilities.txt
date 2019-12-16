@@ -20,7 +20,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"80 160 240 320 400 480 560"
 
 		// Special
 		//-------------------------------------------------------
@@ -29,17 +29,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"3000 10000 20000 50000 100000 150000 200000"
+				"aspect_health"				"500 1500 3000 5000 7500 10500 14000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"5 20 60 250 500 1500 2500"
+				"aspect_armor"				"50 150 250 450 650 950 1300"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"90"
+				"aspect_magic_armor"		"50 150 250 450 650 950 1300"
 			}
 		}
 
@@ -79,6 +79,8 @@
 				"ScriptFile"	"heroes/invoker/aspects.lua"
 				"Function"		"earth_aspect"
 				"aspect_health"	"%aspect_health"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
 			}
 		}
 		"Modifiers"
@@ -92,8 +94,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 			}
@@ -112,7 +112,7 @@
 				"EffectAttachType"  "follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1500"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% CONJUROR_Q3_HP_REGEN %>"
 				}
 				"OnCreated"
 				{
@@ -244,7 +244,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"80 160 240 320 400 480 560"
 
 		// Special
 		//-------------------------------------------------------
@@ -253,22 +253,32 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"1500 3000 7000 17000 40000 80000 140000"
+				"aspect_health"				"300 600 1200 2100 3300 4800 6600"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"200 400 1500 5000 20000 40000 70000"
+				"aspect_damage"				"50 120 190 260 330 400 470"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"5 50 100 300 600 1200 2000"
+				"aspect_armor"				"40 120 240 400 600 840 1120"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"80"
+				"aspect_magic_armor"		"40 120 240 400 600 840 1120"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor_pierce"		"50 100 200 350 550 800 1100"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_spell_pierce"		"100 200 350 550 800 1100 1450"
 			}
 		}
 
@@ -308,6 +318,10 @@
 				"ScriptFile"	"heroes/invoker/aspects.lua"
 				"Function"		"fire_aspect"
 				"aspect_health"	"%aspect_health"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
+				"armor_pierce"	"%aspect_armor_pierce"
+				"spell_pierce"	"%aspect_spell_pierce"
 			}
 		}
 		"Modifiers"
@@ -322,8 +336,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 
 				"OnAttackLanded"
@@ -423,7 +435,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 250 400 600 800 1000 1400"
+		"AbilityManaCost"				"80 160 240 320 400 480 560"
 
 		// Special
 		//-------------------------------------------------------
@@ -432,27 +444,37 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"1200 2500 5000 12000 30000 60000 100000"
+				"aspect_health"				"300 400 900 1900 3200 4400 5600"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_damage"				"90 200 600 2400 5500 20000 40000"
+				"aspect_damage"				"50 120 210 320 450 600 780"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_armor"				"5 50 100 300 600 1200 2000"
+				"aspect_armor"				"20 60 120 200 300 420 560"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_magic_resist"		"80"
+				"aspect_magic_resist"		"20 60 120 200 300 420 560"
 			}
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_attack_splits"		"4 5 6 7 8 9 10"
+				"aspect_attack_splits"		"2 3 4 5 6 7 8"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_armor_pierce"		"100 200 350 550 800 1100 1450"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aspect_spell_pierce"		"50 100 200 350 550 800 1100"
 			}
 		}
 
@@ -489,6 +511,10 @@
 				"ScriptFile"	"heroes/invoker/aspects.lua"
 				"Function"		"shadow_aspect"
 				"aspect_health"	"%aspect_health"
+				"armor"			"%aspect_armor"
+				"magic_armor"	"%aspect_magic_armor"
+				"armor_pierce"	"%aspect_armor_pierce"
+				"spell_pierce"	"%aspect_spell_pierce"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -513,8 +539,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "%aspect_health"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%aspect_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aspect_armor"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%aspect_magic_resist"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -565,7 +589,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "12"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_E3_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_conjuror_c_d_slow_effect"
@@ -575,8 +599,8 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-8"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-8"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-<% CONJUROR_R3_AS_REDUCTION %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% CONJUROR_R3_MS_REDUCTION %>"
 				}
 			}
 			"modifier_conjuror_glyph_5_a_summon"
@@ -642,10 +666,6 @@
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"
-				}
 			}
 			"modifier_earth_aspect_a_a_effect"
 			{
@@ -861,7 +881,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
 				}
 			}
 			"modifier_call_of_fire"
@@ -935,7 +954,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% CONJUROR_R2_BONUS_DMG_PCT %>"
 				}
 			}
 			"modifier_fire_aspect_b_d_range"
@@ -945,21 +964,16 @@
 				"EffectAttachType"	"origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "500"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% CONJUROR_R2_BONUS_ATTACK_RANGE %>"
 				}
 			}
 			"modifier_fire_aspect_b_d_armor_shred"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"EffectName"	"particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_ambient_esl.vpcf"
 				"EffectAttachType"	"origin"
 				"TextureName"	"ember_spirit_sleight_of_fist"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1000"
-				}
 			}
 			"modifier_shadow_aspect_c_d_slow_attack"
 			{
@@ -972,17 +986,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"100 200 400 800 2000 3000 4000"
+				"health_regen"			"20 40 60 80 100 120 140"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_resist"			"33 37 41 45 49 53 57"
+				"magic_armor"			"30 70 120 180 250 330 420"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"70 100 130 160 190 220 250"
+				"attack_speed"			"60 80 100 120 140 160 180"
 			}
 			"04"
 			{
@@ -992,12 +1006,12 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"260 900 4000 10000 20000 35000 55000"
+				"bonus_damage"			"30 90 160 240 330 430 540"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"20"
+				"duration"				"<% CONJUROR_R_DURATION_BASE %>"
 			}
 		}
 	}
@@ -1021,7 +1035,7 @@
 
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ALACRITY"
 
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"<% CONJUROR_Q_CAST_RANGE %>"
 		"AbilityCastPoint"				"0.45"
 		"AOERadius"						"%radius"
 
@@ -1038,7 +1052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"580 2800 6000 12000 25000 50000 125000"
+				"damage"				"70 140 210 280 350 420 490"
 			}
 			"02"
 			{
@@ -1114,7 +1128,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 300 600 1100 2000 4500 7500"
+		"AbilityManaCost"				"50 90 130 170 210 250 290"
 
 		// Special
 		//-------------------------------------------------------
@@ -1128,12 +1142,12 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"340 800 2000 5000 12000 30000 65000"
+				"damage"					"40 80 120 160 200 240 280"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_cost"					"120 300 600 1000 1500 2500 4500"
+				"mana_cost"					"50 90 130 170 210 250 290"
 			}
 		}
 
@@ -1203,7 +1217,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"250 2000 4000 15000 35000 70000 105000"
+				"damage"				"30 60 90 120 150 180 210"
 			}
 			"02"
 			{

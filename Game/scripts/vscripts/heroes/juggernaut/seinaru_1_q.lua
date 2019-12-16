@@ -29,6 +29,11 @@ function begin_kaze_gust(event)
 		caster:SetModifierStackCount("modifier_seinaru_q_2_speed", caster, q_2_level)
 	end
 	ability.q_3_level = caster:GetRuneValue("q", 3)
+	if ability.q_3_level > 0 then
+		local q_3_duration = Filters:GetAdjustedBuffDuration(caster,SEINARU_Q3_BUFF_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_q3_spell_and_armor_pierce", {duration = q_3_duration})
+		caster:SetModifierStackCount("modifier_seinaru_q3_spell_and_armor_pierce", caster, ability.q_3_level)
+	end
 	ability.damage = event.damage
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
@@ -104,10 +109,7 @@ function gust_impact(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})
 		target:SetModifierStackCount("modifier_seinaru_rune_q_2_slow", caster, ability.q_2_level)
 	end
-	if ability.q_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_3_postmitigation_take", {duration = blind_duration})
-		target:SetModifierStackCount("modifier_seinaru_rune_q_3_postmitigation_take", caster, ability.q_3_level)
-	end
+
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

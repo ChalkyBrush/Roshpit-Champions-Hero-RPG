@@ -682,7 +682,7 @@ function winterblight_boss_final_death_animation(caster)
 	if caster:GetUnitName() == "winterblight_cavern_gigarraun" then
 		gigarraun_death = true
 	end
-	local immortals = RandomInt(1, 4)
+	local immortals = RandomInt(2, 3)
 	local boss_level = caster.boss_level
 	Timers:CreateTimer(1.9, function()
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BossOut", caster)
@@ -702,7 +702,8 @@ function winterblight_boss_final_death_animation(caster)
 		end)
 		local position = caster:GetAbsOrigin()
 		ScreenShake(caster:GetAbsOrigin(), 800, 1.0, 1.0, 9000, 0, true)
-		UTIL_Remove(caster)
+		caster:BossDrops(immortals)
+		
 		if gigarraun_death then
 			Timers:CreateTimer(1, function()
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Gigarraun.Death", Events.GameMaster)
@@ -714,9 +715,7 @@ function winterblight_boss_final_death_animation(caster)
 				EmitSoundOnLocationWithCaster(position, "Winterblight.RealmBreaker.AfterDeath", Events.GameMaster)
 			end)
 		end
-		for i = 1, immortals, 1 do
-			RPCItems:RollItemtype(400, position, 5, 300)
-		end
+		
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
 			RPCItems:RollWinterblightSkullRing(position)
@@ -729,28 +728,28 @@ function winterblight_boss_final_death_animation(caster)
 			end
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				item_rpc_storm_pacer_sabatons:CreateLuaItem(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_storm_pacer_sabatons")
 			elseif immortal_luck == 2 then
-				RPCItems:RollRobesOfEruditeTeacher(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_robe_of_the_erudite_teacher")
 			end
 		elseif dead_boss == "descent_of_winterblight_torturok" then
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				RPCItems:RollPivotalSwiftboots(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_pivotal_swiftboots")
 			elseif immortal_luck == 2 then
-				RPCItems:RollGoldbreakerGauntlet(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_goldbreaker_gauntlet")
 			end
 		elseif dead_boss == "descent_of_winterblight_aertega" then
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				RPCItems:RollPegasusBoots(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_pegasus_boots")
 			elseif immortal_luck == 2 then
-				RPCItems:RollHelmOfKnightHawk(position, false)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_helm_of_the_knight_hawk")
 			end
 		elseif dead_boss == "winterblight_cavern_gigarraun" then
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then
-				RPCItems:NethergraspPalisade(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_nethergrasp_palisade")
 			elseif immortal_luck == 2 then
 				RPCItems:RollGalvanizedRazorBand(position, false)
 			end
@@ -759,12 +758,12 @@ function winterblight_boss_final_death_animation(caster)
 			local max_chance = math.max(2, 4 - GameState:GetPlayerPremiumStatusCount())
 			local immortal_luck = RandomInt(1, max_chance)
 			if immortal_luck == 1 then
-				RPCItems:RollAlienArmor(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_alien_armor")
 			end
 			local max_roll = math.max(1, 70-GameState:GetPlayerPremiumStatusCount()*2-boss_level*2)
 			local arcana_luck = RandomInt(1, max_roll)
 			if arcana_luck == 1 then
-				RPCItems:RollSoluniaArcana3(position)
+				RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_solunia_arcana3")
 			end
 			local another_skull_ring_chance = RandomInt(1, 2)
 			if another_skull_ring_chance == 1 then
@@ -776,7 +775,8 @@ function winterblight_boss_final_death_animation(caster)
 		end
 		local synth_count = math.floor(boss_level/15 + 1)
 		for j = 1, synth_count, 1 do
-			RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
+			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
 		end
+		UTIL_Remove(caster)
 	end)
 end

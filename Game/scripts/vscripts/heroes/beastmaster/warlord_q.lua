@@ -39,8 +39,6 @@ function warlord_ice_shell(event)
 	EmitSoundOn("Warlord.IceShell.Init", caster)
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_WILD_AXES_END, rate = 1.0})
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell", {duration = duration})
-	caster:SetModifierStackCount("modifier_warlord_ice_shell", caster, event.stacks)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell_pure", {duration = duration})
 	caster:SetModifierStackCount("modifier_warlord_ice_shell_pure", caster, event.stacks_pure)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/warlord/ice_shell_activate.vpcf", caster, 3)
@@ -51,7 +49,7 @@ function warlord_ice_shell(event)
 	if q_2_level > 0 then
 		local runeAbility = caster.runeUnit2:FindAbilityByName("warlord_rune_q_2")
 
-		local armorBonus = q_2_level * 0.09 * (Filters:GetBaseBaseArmor(caster))
+		local armorBonus = q_2_level * WARLORD_Q2_ARMOR
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_visible", {duration = duration})
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_warlord_rune_q_2_invisible", {duration = duration})
 		caster:SetModifierStackCount("modifier_warlord_rune_q_2_invisible", caster.runeUnit2, armorBonus)
@@ -59,7 +57,7 @@ function warlord_ice_shell(event)
 
 	local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "warlord")
 	if q_4_level > 0 then
-		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, 20, false)
+		local d_a_duration = Filters:GetAdjustedBuffDuration(caster, WARLORD_Q4_DUR_BASE, false)
 		local runeAbility = caster.runeUnit4:FindAbilityByName("warlord_rune_q_4")
 		runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_q_4_intelligence", {duration = d_a_duration})
 		caster:SetModifierStackCount("modifier_warlord_rune_q_4_intelligence", caster.runeUnit4, q_4_level)
@@ -68,7 +66,7 @@ end
 
 function warlord_flame_rush(event)
 	local caster = event.caster
-	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
+	local duration = WARLORD_Q3_DUR_BASE
 	Filters:CastSkillArguments(1, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
@@ -97,10 +95,12 @@ function warlord_c_a_attack(event)
 	local ability = event.ability
 	local caster = event.caster
 	local q_3_level = ability.q_3_level
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_visible", {duration = WARLORD_Q3_DUR_BASE})
 	local newStacks = target:GetModifierStackCount("modifier_warlord_rune_q_3_visible", caster) + 1
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_visible", caster, newStacks)
 
-	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = 12})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_warlord_rune_q_3_invisible", {duration = WARLORD_Q3_DUR_BASE})
 	target:SetModifierStackCount("modifier_warlord_rune_q_3_invisible", caster, newStacks * q_3_level)
+
+	target:CalculateAndSaveRoshpitAttributes()
 end

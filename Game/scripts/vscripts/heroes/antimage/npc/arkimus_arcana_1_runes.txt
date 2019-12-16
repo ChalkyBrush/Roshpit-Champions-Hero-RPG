@@ -30,7 +30,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_ARCANA1_Q2_POSTMIT * 100 %>"
+				"property_one"			"<% ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION %>"
 			}
 		}
 	}
@@ -69,12 +69,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA_Q4_AGI %>"
+				"property_one"			"<% ARKIMUS_ARCANA1_Q4_AGI %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"<% ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP %>"
 			}
 		}
 	}

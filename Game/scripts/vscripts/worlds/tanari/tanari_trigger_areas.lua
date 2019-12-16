@@ -9,7 +9,7 @@ function EnterLava(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -35,7 +35,7 @@ function Lava3(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -64,7 +64,7 @@ function Lava4(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -93,7 +93,7 @@ function Lava5(trigger)
 				return false
 			end
 			if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-				hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+				Filters:TerrasicLavaBootsTouchLava(hero)
 				return false
 			end
 			EmitSoundOn("Env.LavaHit", hero)
@@ -122,7 +122,7 @@ function Lava6(trigger)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -142,9 +142,9 @@ function lava_damage_think(event)
 	local attacker = Events.GameMaster
 	local damagePercentage = 0.03
 	if GameState:GetDifficultyFactor() == 2 then
-		damagePercentage = 0.04
+		damagePercentage = 0.20
 	elseif GameState:GetDifficultyFactor() == 3 then
-		damagePercentage = 0.05
+		damagePercentage = 0.30
 	end
 	local damage = target:GetMaxHealth() * damagePercentage
 	-- local damage = Events:GetDifficultyScaledDamage(300, 3000, 10000)
@@ -781,7 +781,9 @@ function use_spirit_stones(event)
 					Tanari:SpawnFireSpirit(Vector(9664, -15104), Vector(-1, 0))
 				end
 			end
-
+			Timers:CreateTimer(10, function()
+				Challenges:ProcessPossibleSpawnEvent(1)
+			end)
 		else
 			Notifications:Top(hero:GetPlayerOwnerID(), {text = "Must use in Tanari Encampment", duration = 3, style = {color = "red"}, continue = true})
 			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
@@ -953,4 +955,12 @@ function respawn_flag_succeed(event)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/meepo/meepo_colossal_crystal_chorus/meepo_divining_rod_poof_end.vpcf", flag, 3)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_arcana_water_channel_powertrails.vpcf", flag, 4)
 	Events:TutorialServerEvent(caster, "1_2", 0)
+
+	if caster:HasModifier("modifier_temporal_warp_boots") then
+		if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+			local radius = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST1)
+			local duration = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TEMPORAL_WARP_BOOTS_GEM_AMETHYST2)*60
+			AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), radius, duration, false)
+		end
+	end
 end

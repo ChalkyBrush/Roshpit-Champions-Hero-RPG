@@ -1,68 +1,130 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"当你引导完 @Ability4 后，向四面八方扩散一圈风暴伤害敌人并使他们减少攻击和移动速度<% HURRICANE_VEST_ATT_SPD_REDUCE %>/<% HURRICANE_VEST_MSP_REDUCE %>持续<% HURRICANE_VEST_SLOW_DUR %>秒。伤害公式为 <% HURRICANE_VEST_DMG_AMP %>*(英雄等级/120)*(<% HURRICANE_VEST_MAX_DISTANCE %>-施法者与敌人的距离)^<% HURRICANE_VEST_DMG_EXP_SCALE %>"
-		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
-		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风所牵引"
+		"property_hurricane_description"			"When you cast @Ability4, a hurricane of <% ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT %> whirlwinds travel outward from you in all directions, dealing damage based on <% ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT %>% of Attack Power"
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"Hurricane"
+		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"Buffeted by strong winds"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"Hurricane slow"
+		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow_Description"	"Slowed"
+
+		"item_rpc_hurricane_vest_ruby1"									"Increases the base number of whirlwinds by @ruby_property1"
+		"item_rpc_hurricane_vest_emerald1"									"Hurricane damage is increased by @emerald_property1x Agility"
+		"item_rpc_hurricane_vest_sapphire1"									"Tornados slow enemy attack speed and movespeed by @sapphire_property1 and Hurricane damage is increased by @sapphire_property2"
+		"item_rpc_hurricane_vest_amethyst1"									"Casting [E] releases @amethyst_property1 whirlwinds"
 
 
 		"DOTA_Tooltip_ability_item_rpc_barons_storm_armor"								"男爵风暴装甲"
 		"item_property_baron_storm"								"风暴链接"
-		"property_baron_storm_description"						"对伤害你的敌人释放电弧，造成<% BARON_STORM_DMG_PER_ATT %>x倍总攻击力的伤害，并弹射至附近最多<% BARON_STORM_MAX_TARGETS %>个敌人。被电击的敌人对玩家造成的伤害减少<% BARON_STORM_DMG_RESISTANCE * 100 %>%，持续<% BARON_STORM_DUR%>秒。电弧具有<% BARON_STORM_COOLDOWN %>秒的冷却时间"
-		"DOTA_Tooltip_modifier_baron_storm_link"				"风暴链接"
-		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"对所连接的目标造成的伤害减少"
+		"property_baron_storm_description"						"<% ITEM_RPC_BARONS_STORM_ARMOR_CHANCE %>% chance on taking damage to retaliate with a chain lightning, dealing <% ITEM_RPC_BARONS_STORM_ARMOR_DMG_PER_ATT %>% your total attack damage and chaining between other nearby enemies up to <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_TARGETS %> times. Maximum of <% ITEM_RPC_BARONS_STORM_ARMOR_MAX_PROCS_PER_SECOND %> procs per second." 
+		"DOTA_Tooltip_modifier_baron_storm_link"				"Storm Arc"
+		"DOTA_Tooltip_modifier_baron_storm_link_Description"	"Dealing reduced damage to caster."
+
+		"item_rpc_barons_storm_armor_ruby1"								"Increases the proc chance by @ruby_property1%"
+		"item_rpc_barons_storm_armor_emerald1"								"Increases max procs per second by @emerald_property1. Increases max chain bounces by @emerald_property2"
+		"item_rpc_barons_storm_armor_sapphire1"								"Enemies hit by the chain lightning are paralyzed for @sapphire_property1 seconds"
+		"item_rpc_barons_storm_armor_amethyst1"								"Increases the damage of Storm Arc by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard"									"钢铁护甲"
+		"item_rpc_steelbark_guard_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_steelbark_guard_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_steelbark_guard_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_steelbark_guard_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_steelbark_guard_Description"						"部位：身体"
 		"item_property_steelbark"			"Steelbark Protection"
 		"property_steelbark_description"	"当生命值低于40%时，护甲值增加40点，每秒生命值回复速度增加100点。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_robe_of_flooding"								"洪水法袍"
-		"item_property_flooding_3"					"水元素"
-		"property_flooding_description_3"			"当你引导完 @Ability4 后，召唤一个水元素，持续<% ROBE_OF_FLOODING_DURATION %>秒。水元素每次攻击将为你回复<% ROBE_OF_FLOODING_MANA_RESTORE_PCT %>%的最大魔法值。攻击造成<% ROBE_OF_FLOODING_AOE_INT_TO_DMG %>x你的智力值的AOE伤害。<br>水元素攻击同时产生一道波浪，波浪对碰撞到的敌人造成玩家一倍攻击力的魔法伤害。<br>所有水元素所造成的伤害都计算为 @Ability4 的基础技能伤害。"
-		
+		"item_property_flooding"					"水元素"
+		"property_flooding_description"			"When you finish casting @Ability4, summon a Water Elemental companion with <% ITEM_RPC_ROBE_OF_FLOODING_HEALTH_MULT %>x its master's health and <% ITEM_RPC_ROBE_OF_FLOODING_ATTACK_MULT %> its master's attack damage at the time of summoning. Only 1 elemental can be active at a time and all of its damage is attributed to its master."
+		"water_elemental_flood_3"				"Water Elemental"
+
+		"DOTA_Tooltip_ability_flood_water_elemental_ai"		"Water Elemental AI"
+		"DOTA_Tooltip_ability_flood_water_elemental_ai_Description"	"Toggle On for default behavior"	
+
+		"DOTA_Tooltip_ability_water_flood_nuke"	"Water Elemental Emerald"
+		"DOTA_Tooltip_ability_water_flood_nuke_Description"	"Throws a water projectile toward the target location that deals damage based on attack power."
+
+		"item_rpc_robe_of_flooding_ruby1"								"The Water Elemental's attacks deal @ruby_property1% of its damage in a <% ITEM_RPC_ROBE_OF_FLOODING_RUBY_AOE %> radius and slow all affected enemies' movespeed by @ruby_property2 for <% ITEM_RPC_ROBE_OF_FLOODING_RUBY_SLOW_DURATION %>"
+		"item_rpc_robe_of_flooding_emerald1"								"The Water Elemental has @emerald_property1 increased attack speed and a wave projectile ability that deals damage based on @emerald_property2% of its attack power."
+		"item_rpc_robe_of_flooding_sapphire1"								"Increases the Water Elemental's Max Health and Attack Damage by @sapphire_property1x its master's Intelligence."
+		"item_rpc_robe_of_flooding_amethyst1"								"The Water Elemental has @amethyst_property1 increased movespeed and restores @amethyst_property2% of its master's max mana when landing an attack"
 		
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"崩裂板甲"
 		"item_property_avalanche_2"					"山裂"
-		"property_avalanche_description_2"			"释放 @Ability4 技能后将在<% AVALANCHE_PLATE_AVALANCHE_RADIUS %>码范围内引发一场地震，每<% AVALANCHE_PLATE_AVALANCHE_INTERVAL %>秒造成 <% AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x 力量的伤害并晕眩敌人<% AVALANCHE_PLATE_STUN_DUR %>秒。当每个敌人被击中<% AVALANCHE_PLATE_ENEMY_HITS_THRESHOLD %>次时，将在<% AVALANCHE_PLATE_EARTHQUAKE_RADIUS %>码范围内引发一场更大的地震，<br>造成 <% AVALANCHE_PLATE_EARTHQUAKE_STR_TO_DMG %>x 力量的伤害并且眩晕敌人<% AVALANCHE_PLATE_EARTHQUAKE_STUN_DUR %>秒。<br>每<% AVALANCHE_PLATE_STR_DIVISOR %>点力量提高装备伤害 <% AVALANCHE_PLATE_ITEM_AMP_PER_STR %>%。该装备无法重铸。"
+		"property_avalanche_description"			"When you finish casting @Ability4, release a <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_RADIUS %>-radius avalanche which deals <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_STR_TO_DMG %>x your Strength every <% ITEM_RPC_AVALANCHE_PLATE_AVALANCHE_INTERVAL %> seconds. Struck enemies are stunned for <% ITEM_RPC_AVALANCHE_PLATE_STUN_DUR %> seconds. Lasts <% ITEM_RPC_AVALANCHE_PLATE_DURATION %> seconds."
+		
+		"item_rpc_avalanche_plate_ruby1"								"At the end of Avalanche's duration, create a large earthquake that deals @ruby_property1x Strength to enemies in a <% ITEM_RPC_AVALANCHE_PLATE_RUBY_EARTHQUAKE_RADIUS_MULT %>x radius that stuns them for @ruby_property2 seconds."
+		"item_rpc_avalanche_plate_emerald1"								"Increases Item Damage and <font color=\"#AF843D\">Earth</font> elemental damage by @emerald_property1%"
+		"item_rpc_avalanche_plate_sapphire1"								"Increases the avalanche's radius by @sapphire_property1 and increases strength by @sapphire_property2"
+		"item_rpc_avalanche_plate_amethyst1"								"Each damage instance of the base avalance is increaased by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"
-		"item_property_violet_guard_armor2"			"紫罗兰征服者"
-		"property_violet_guard_armor_description2"	"提高 @Ability1 伤害<% VIOLET_GUARD_ARMOR_BAD %>%。每<% VIOLET_GUARD_ARMOR_DAMAGE_TO_ARMOR_REDUCTION * 100 %>%点的 @Ability1 基础技能伤害降低所击中敌人的护甲值1点，持续<% VIOLET_GUARD_ARMOR_DURATION %>秒。不能将敌人的护甲值降低至0点以下。"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲值降低"
+		"item_property_violet_guard_armor"			"紫罗兰征服者"
+		"property_violet_guard_armor_description"	"Reduces cooldown of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE %>%"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
+
+		"item_rpc_armor_of_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> seconds."
+		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"
 		"item_property_seraphic_soulvest"			"天使之矛"
-		"property_seraphic_soulvest_description"	"每次施放 @Ability2 时将发射一支光矛，对1400码随机一个目标发射光矛。<br>光矛造成 @Ability2 技能等级*<% SERAPHIC_SOULVEST_ATTACK_TO_DMG %>%倍当前攻击力的伤害。"
+		"property_seraphic_soulvest_description"	"Every cast of @Ability2 also launches a Seraphic Lance from your chest armor at a random target in a <% ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH %> radius, dealing <% ITEM_RPC_SERAPHIC_SOULVEST_ALL_ATTRS_PCT %>% the sum of your attributes (Strength/Agility/Intelligence/Spirit) as Pure damage. @Ability2 costs an additional <% ITEM_RPC_SERAPHIC_SOULVEST_MANA_COST_PCT %>% of Max Mana."
+
+		"item_rpc_seraphic_soulvest_ruby1"								"Increases Seraphic Lance's travel speed by @ruby_property1 and all attributes by @ruby_property2"
+		"item_rpc_seraphic_soulvest_emerald1"								"Each cast of [W] has a @emerald_property1% chance to fire an additional Seraphic Lance"
+		"item_rpc_seraphic_soulvest_sapphire1"								"Seraphic Lances explode and deal @sapphire_property1% of their damage in a @sapphire_property2 radius on impact"
+		"item_rpc_seraphic_soulvest_amethyst1"								"Casting [R] fires @amethyst_property1 Seraphic Lances at random targets in <% ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH %> range. All lances will fire as long as at least 1 enemy is within range"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
+		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
+
 		"item_property_watcher_one"					"守望者 I"
-		"property_watcher_one_description"			"每次施放 @Ability1 有<% WATCHER_I_REFRESH_CHANCE %>%几率刷新 @Ability4 的冷却时间。"
+		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
 		"item_property_watcher_two"					"守望者 II"
-		"property_watcher_two_description"			"提高所有基础技能伤害<% WATCHER_II_BAD %>%。"
+		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
 		"item_property_watcher_three"				"守望者 III"
-		"property_watcher_three_description"		"提高 @Ability2 伤害35%。"
+		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
 		"item_property_watcher_four"				"守望者 IV"
-		"property_watcher_four_description"			"提高 @Ability4 伤害35%。"
+		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+
+		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
+		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"
+		"item_rpc_plate_of_the_watcher_sapphire1"							"Increases cooldown of [W] by an additional @sapphire_property1% and increases its Base Ability Damage by an additional  @sapphire_property2%"
+		"item_rpc_plate_of_the_watcher_amethyst1"							"Increases cooldown of [R] by an additional @amethyst_property1% and increases its Base Ability Damage by an additional @amethyst_property2%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sorcerers_regalia"								"巫师法袍"
 		"item_property_sorcerers_regalia"			"束缚"
-		"property_sorcerers_regalia_description"	"提高玩家所有的魔法输出<% SORCERERS_REGALIA_MAGIC_POST_MITI %>%。"
+		"property_sorcerers_regalia_description"	"Intelligence and Spirit both increase Spell Pierce by <% ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR %>."
+		
+		"item_rpc_sorcerers_regalia_ruby1"								"Increases all Tier 1 runes by @ruby_property1"
+		"item_rpc_sorcerers_regalia_emerald1"								"Increases all Tier 2 runes by @emerald_property1"
+		"item_rpc_sorcerers_regalia_sapphire1"								"Increases Intelligence by @sapphire_property1 and Spell Pierce by @sapphire_property2"
+		"item_rpc_sorcerers_regalia_amethyst1"								"Increases Spirit by @amethyst_property1% of Intelligence"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_spellslinger_coat"								"射咒者大衣"
+		"item_rpc_spellslinger_coat_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_spellslinger_coat_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_spellslinger_coat_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_spellslinger_coat_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_spellslinger_coat"			"射咒者"
-		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <% SPELLSLINGER_MANA_RESTORE %>% 该技能的耗蓝量，并且提高 @Ability2 基础技能伤害 <% SPELLSLINGER_BAD %>%。"
+		"property_spellslinger_coat_description"	"施放 @Ability2 回复 <% ITEM_RPC_SPELLSLINGER_COAT_MANA_RESTORE %>% 该技能的耗蓝量，并且提高 @Ability2 基础技能伤害 <% ITEM_RPC_SPELLSLINGER_COAT_BAD %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_doomplate"										"末日板甲"
+		"item_rpc_doomplate_ruby1"										"blah blah @ruby_property1 gem"
+		"item_rpc_doomplate_emerald1"										"blah blah @emerald_property1 gem"
+		"item_rpc_doomplate_sapphire1"										"blah blah @sapphire_property1 gem"
+		"item_rpc_doomplate_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_doomplate"					"末日"
 		"property_doomplate_description"			"施放 @Ability4 召唤末日使者。召唤的末日使者会对玩家施放末日，沉默并缴械玩家。随后用炎爆术攻击敌人，炎爆术造成末日使者一倍攻击力的魔法伤害。末日使者的攻击力为 @special_property1x 玩家的攻击力。<br> 召唤的末日使者将持续30秒，召唤技能有30秒的冷却时间。末日使者的护甲和血量与玩家的护甲和血量成正比。"
 		"doomplate_doom"							"末日"
@@ -73,124 +135,226 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ice_quill_carapace"								"冰刺甲"
 		"item_property_ice_quill"					"冰刺"
-		"property_ice_quill_description"			"每消耗 <% ICE_QUILL_MANA_THRESHOLD %> 点魔法，获得一层 冰刺 层数。当玩家释放技能或者使用物品时，将释放所有的 冰刺 层数，每 <% ICE_QUILL_INTERVAL %>秒 释放一次冰刺并消耗一层层数。每次释放冰刺 回复 <% ICE_QUILL_MANA_RESTORE_PCT %>% 的最大魔法值，并且在 <% ICE_QUILL_RADIUS %>码 范围内造成 <% ICE_QUILL_ATTACK_TO_DMG %>x 攻击力的 AOE 伤害。持续释放冰刺的过程中，将不会触发下一次冰刺释放。"
-		
+		"property_ice_quill_description"			"When you spend <% ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD %> mana, gain an Ice Quill stack. When you cast any ability or use an item, the stacks are released individually on <% ITEM_RPC_ICE_QUILL_CARAPACE_INTERVAL %>-second intervals, dealing <% ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG %>% of your attack power in a <% ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS %> radius with each burst. Maximum of <% ITEM_RPC_ICE_QUILL_CARAPACE_MAX_STACKS %> stacks and they will not trigger if a previous explosion of icicles is still resolving."
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack"	"Ice Quill"
+		"DOTA_Tooltip_modifier_ice_quill_carapace_stack_Description"	"Cast an ability to release."
+
+		"item_rpc_ice_quill_carapace_ruby1"								"Ice Quill will not trigger below @ruby_property1 stacks and Ice Quill Damage is increased by an additional @ruby_property2"
+		"item_rpc_ice_quill_carapace_emerald1"								"Increases maximum Ice Quill stacks by @emerald_property1 and Max Mana by @emerald_property2"
+		"item_rpc_ice_quill_carapace_sapphire1"								"Restore @sapphire_property1% of Max Mana with each burst of Ice Quills"
+		"item_rpc_ice_quill_carapace_amethyst1"								"Each stored up Ice Quill stack increases Spell Pierce by @amethyst_property1"
 		
 		"DOTA_Tooltip_ability_item_rpc_featherwhite_armor"								"白羽袍"
 		"item_property_featherwhite_armor"			"狮鹫牙"
-		"property_featherwhite_armor_description"	"一个狮鹫将一直跟随你，每秒为你和附近友军回复 <% FEATHERWHITE_HEAL_OF_MAX_HP %>% 最大生命值，并且在光环内玩家和友军所受到的魔法和纯粹伤害将被减免 <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%。狮鹫拥有高空视野。"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"狮鹫牙光环"
-		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"所受到的魔法和纯粹伤害减免 <% FEATHERWHITE_MAGIC_AND_PURE_REDUCTION %>%%"
+		"property_featherwhite_armor_description"	"Gain a permanent uncontrollable Gryffon companion who cannot be damaged. All allies within the Gryffon's radius of <% ITEM_RPC_FEATHERWHITE_ARMOR_RADIUS %> are healed by <% ITEM_RPC_FEATHERWHITE_ARMOR_HEAL_OF_MAX_HP %>% of their max health each <% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %> second interval. Gain flying vision within the aura radius."
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect"	"Featherwhite Aura"
+		"DOTA_Tooltip_modifier_ivory_gryffin_aura_effect_Description"	"Restoring Health"
+
+		"item_rpc_featherwhite_armor_ruby1"								"Allies within the Gryffon's aura take @ruby_property1% reduced Magic and Pure damage."
+		"item_rpc_featherwhite_armor_emerald1"								"Increases the Gryffon's radius by @emerald_property1"
+		"item_rpc_featherwhite_armor_sapphire1"								"Enemies within the healing area take Pure damage based on @sapphire_property1% of the total amount of health restored on that heal interval"
+		"item_rpc_featherwhite_armor_amethyst1"								"Increases the heal by an additional @amethyst_property1x its master's Spirit"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dragon_ceremony_vestments"						"龙仪外衣"
-		"item_property_dragon_ceremony"				"礼仪兽"
-		"property_dragon_ceremony_description"		"一个礼仪兽将一直跟随你，每<% DRAGON_CEREMONY_INTERVAL %>秒发动一次攻击，对最多<% DRAGON_CEREMONY_NUMBER_OF_ENEMIES %>个敌人造成<% DRAGON_CEREMONY_PRIMARY_ATT_TO_DMG %>倍主属性的伤害。"
+
+		"item_rpc_dragon_ceremony_vestments_ruby1"						"Summon an uncontrollable Red Whelpling ally that follows you around. The whelpling attacks @ruby_property1 enemies on a 1 second interval, dealing damage based on @ruby_property2x his master's Strength"
+		"item_rpc_dragon_ceremony_vestments_emerald1"						"Summon an uncontrollable Green Whelpling ally that follows you around. The whelpling attacks @emerald_property1 enemies on a 1 second interval, dealing damage based on @emerald_property2x his master's Agility"
+		"item_rpc_dragon_ceremony_vestments_sapphire1"						"Summon an uncontrollable Blue Whelpling ally that follows you around. The whelpling attacks @sapphire_property1 enemies on a 1 second interval, dealing damage based on @sapphire_property2x his master's Intelligence"
+		"item_rpc_dragon_ceremony_vestments_amethyst1"						"Summon an uncontrollable Purple Whelpling ally that follows you around. The whelpling attacks @amethyst_property1 enemies on a 1 second interval, dealing damage based on @amethyst_property2x his master's Spirit"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_armor_of_secret_temple"							"神秘寺庙袈裟"
+		"item_rpc_armor_of_secret_temple_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_armor_of_secret_temple_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_armor_of_secret_temple_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_armor_of_secret_temple_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_secret_temple"				"折射"
-		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡<% SECRET_TEMPLE_SHIELDS %>次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
+		"property_secret_temple_description"		"施放 @Ability4 后，获得护盾抵挡<% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS %>次伤害。当护盾存在时普通攻击造成2倍伤害。（可以理解为基础攻击力x2）"
 		"DOTA_Tooltip_modifier_secret_temple_refraction"				"折射"
 		"DOTA_Tooltip_modifier_secret_temple_refraction_description"	"抵挡伤害，普通攻击造成2倍伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_vampiric_breastplate"							"吸血鬼胸甲"
 		"item_property_vampiric_breastplate"		"吸血鬼之心"
-		"property_varmpiric_breastplate_description" "@Ability1 拥有 <% VAMPIRIC_BREASTPLATE_Q_LIFESTEAL %>% 吸血。"
+		"property_varmpiric_breastplate_description" "Regular attacks heal for <% ITEM_RPC_VAMPIRIC_BREASTPLATE_ATTACK_HEAL_PCT %>% of the final attack damage."
+
+		"item_rpc_vampiric_breastplate_ruby1"							"Allies in a <% ITEM_RPC_VAMPIRIC_BREASTPLATE_AURA_RADIUS %> radius gain @ruby_property1% of the Attack Lifesteal effect"
+		"item_rpc_vampiric_breastplate_emerald1"							"Your [Q] ability has @emerald_property1% lifesteal"
+		"item_rpc_vampiric_breastplate_sapphire1"							"Increases the attack lifesteal effect by an additional @sapphire_property1% of the final attack damage"
+		"item_rpc_vampiric_breastplate_amethyst1"							"Increases Attack Speed by @amethyst_property1 and Base Attack Damage by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_dark_arts_vestments"								"黑魔法外套"
+		"item_rpc_dark_arts_vestments_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_dark_arts_vestments_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_dark_arts_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_dark_arts_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_dark_arts"					"黑暗领域"
-		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 <% DARK_ARTS_INT_TO_AGI * 100 %>% 。"
+		"property_dark_arts_description"			"提高敏捷值，提高值为玩家智力值的 <% ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI * 100 %>% 。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_legion_vestments"								"军团大衣"
+		"item_rpc_legion_vestments_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_legion_vestments_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_legion_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_legion_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_legion_vestments"			"军团命令"
-		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值<% LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%。"
+		"property_legion_vestments_description"		"提高你的力量、敏捷和智力值<% ITEM_RPC_LEGION_VESTMENTS_ATTRIBUTE_INCREASE * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_nightmare_rider_mantle"							"梦魇骑士护肩"
 		"item_property_nightmare_rider"				"暗影融合"
-		"property_nightmare_rider_description"		"施放 @Ability1 后释放一股暗影波，降低附近所有敌人的移动速度<% NIGHTMARE_RIDER_SLOW %>%、当前护甲值<% NIGHTMARE_RIDER_ARMOR_REDUCTION %>%、同时加深敌人所受到受到的伤害 <% NIGHTMARE_RIDER_POST_MITIGATION_DEBUFF %>% （伤害加深计算在减伤之后），持续<% NIGHTMARE_RIDER_DEBUFF_DURATION %>秒。<br>每次攻击时获得一层buff，提高暗影融合的范围<% NIGHTMARE_RIDER_RADIUS_INCREASE %>码，可叠加。同时每层存在的buff将提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%。"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"夜魇层数"
-		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"每层提高暗影融合的范围100，并提高 <font color=\"#7F4F84\">暗</font> 元素伤害 <% NIGHTMARE_RIDER_ELEMENT_SHADOW_INCREASE %>%%。"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"暗影融合"
-		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"移动速度和护甲值降低，并且伤害加深提高。"
+		"property_nightmare_rider_description"		"Casting @Ability1 releases a burst of shadow that slows all nearby enemies' movespeed by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SLOW %>% and reduces their armor by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION %>% for <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_DEBUFF_DURATION %> seconds. Attacking builds Nightmare stacks which increase the radius by <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_RADIUS_INCREASE %> when triggered. Max <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks"	"Nightmare Stacks"
+		"DOTA_Tooltip_modifier_nightmare_rider_stacks_Description"	"Each stack increases the radius of Shadow Melt."
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible"	"Shadow Melt"
+		"DOTA_Tooltip_modifier_nightmare_rider_effect_visible_Description"	"Losing movespeed and Armor"
+
+		"item_rpc_nightmare_rider_mantle_ruby1"							"Enemies hit by Shadow Melt have their Magic Armor reduced by @ruby_property1% and take @ruby_property2 magic damage"
+		"item_rpc_nightmare_rider_mantle_emerald1"							"Casting [R] adds @emerald_property1 Nightmare Stacks and increases max Nightmare Stacks by @emerald_property2"
+		"item_rpc_nightmare_rider_mantle_sapphire1"							"3 Nightmare orbs encircle you and deal damage to a nearby target every <% ITEM_RPC_NIGHTMARE_RIDER_MANTLE_SAPPHIRE_INTERVAL %> seconds for @sapphire_property1% of your attack power"
+		"item_rpc_nightmare_rider_mantle_amethyst1"							"Each active Nightmare Stack increases <font color=\"#7F4F84\">Shadow</font> elemental damage by @amethyst_property1% and Base Ability Damage and Item damage by @amethyst_property2%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_space_tech_vest"									"宇航服"
 		"item_property_space_tech"					"重力扭曲"
-		"property_space_tech_description"			"当你引导 @Ability4 时，周围敌人的攻击速度减少<% SPACE_TECH_AS_SLOW %>，移动速度减少<% SPACE_TECH_MS_SLOW %>%，持续<% SPACE_TECH_DURATION %>秒。同时每<% SPACE_TECH_GAIN_INTERVAL %>秒增加<% SPACE_TECH_BONUS_ATTACK_DMG_PER_STACK %>%的攻击力。"
-		"DOTA_Tooltip_modifier_space_tech_buff"					"重力扭曲"
-		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"攻击力提高"
+		"property_space_tech_description"			"While channeling @Ability4, a gravitational field disrupts the space around you in a <% ITEM_RPC_SPACE_TECH_VEST_RADIUS %> radius. All surrounding enemies have their attack speed slowed by <% ITEM_RPC_SPACE_TECH_VEST_AS_SLOW %>, and movespeed slowed by <% ITEM_RPC_SPACE_TECH_VEST_MS_SLOW %> with each pulse, stacking up to <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> times. The slow effects stick for <% ITEM_RPC_SPACE_TECH_VEST_DURATION %> seconds after leaving the disruption field. "
+		"DOTA_Tooltip_modifier_space_tech_buff"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_buff_Description"		"Increased base ability and item damage."
+		"DOTA_Tooltip_modifier_space_tech_slow"					"Gravity Bend"
+		"DOTA_Tooltip_modifier_space_tech_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_space_tech_frozen"				"Space Tech Vest (Emerald)"
+		"DOTA_Tooltip_modifier_space_tech_frozen_Description"	"Timelocked"
+
+		"item_rpc_space_tech_vest_ruby1"									"While channeling [R], gain @ruby_property1% Base Ability Damage over the duration of the channel. This bonus lasts <% ITEM_RPC_SPACE_TECH_VEST_BUFF_DURATION %> seconds or is reset when beginning to channel the ability again."
+		"item_rpc_space_tech_vest_emerald1"									"Reduce the cooldown of [R] by @emerald_property1% over its channel time"
+		"item_rpc_space_tech_vest_sapphire1"									"When enemies reach <% ITEM_RPC_SPACE_TECH_VEST_MAX_SLOW_STACKS %> Gravity Bend stacks, they are frozen in time for @sapphire_property1 seconds."
+		"item_rpc_space_tech_vest_amethyst1"									"Increases <font color=\"#C25DFC\">Cosmic</font> elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stormshield_cloak"								"风暴披风"
+		"item_rpc_stormshield_cloak_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_stormshield_cloak_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_stormshield_cloak_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_stormshield_cloak_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_stormshield"					"风暴披风"
-		"property_stormshield_description"			"降低受到的所有物理伤害<% STORMSHIELD_PHYS_REDUCTION * 100 %>%。"
+		"property_stormshield_description"			"降低受到的所有物理伤害<% ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gilded_soul_cage"								"镀金魂甲"
 		"item_property_gilded_soul"					"汲取灵魂"
-		"property_gilded_soul_description"			"每杀死一个敌人为你和附近友军回复<% GILDED_SOUL_CAGE_HEAL_PCT %>%最大生命值的生命，并获得 <% GILDED_SOUL_CAGE_MAGIC_IMMUNITY_DURATION %> 秒的魔法免疫。每个汲取的灵魂将提高玩家 <% GILDED_SOUL_CAGE_BONUS_ATTACK_DAMAGE %>% 的攻击力，并且提高玩家所有 <font color=\"#F6FFB5\">圣</font> 元素伤害 <% GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>% ，持续8秒，最高叠加<% GILDED_SOUL_CAGE_MAX_STACKS %>层。每次持续时间结束时，只减少一层buff。"
-		"DOTA_Tooltip_modifier_gilded_soul_buff"				"镀金魂甲"
-		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"提高攻击力和圣元素伤害"
-		"DOTA_Tooltip_modifier_gilded_soul_immunity" "镀金魂甲魔法免疫"
+		"property_gilded_soul_description"			"Slain enemies' souls explode with light and heal you and nearby allies within <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_RADIUS %> range for <% ITEM_RPC_GILDED_SOUL_CAGE_HEAL_PCT %>% of their max health. Enemies who die within <% ITEM_RPC_GILDED_SOUL_RADIUS %> release their soul and have it collected by the Soul Cage. Each collected soul increases <font color=\"#F6FFB5\">Holy</font> elemental damage by <% ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP %>%. Can collect up to <% ITEM_RPC_GILDED_SOUL_CAGE_MAX_SOULS %> souls that last for <% ITEM_RPC_GILDED_SOUL_CAGE_SOUL_DURATION%> seconds. When the duration expires, only 1 soul is lost."
+		"DOTA_Tooltip_modifier_gilded_soul_buff"				"Gilded Soul Cage"
+		"DOTA_Tooltip_modifier_gilded_soul_buff_Description"	"Collected purified souls"
+		"DOTA_Tooltip_modifier_gilded_soul_immunity" "Gilded Soul Spell Immunity"
+
+		"item_rpc_gilded_soul_cage_ruby1"								"Each collected soul increases Attack Power by @ruby_property1%"
+		"item_rpc_gilded_soul_cage_emerald1"								"Elite enemies within <% ITEM_RPC_GILDED_SOUL_RADIUS %> range give up a portion of their soul every @emerald_property1 seconds, and Bosses give up a portion of their soul every @emerald_property2 seconds"
+		"item_rpc_gilded_soul_cage_sapphire1"								"Each collected soul increases Base Ability Damage and Item Damage by @sapphire_property1%"
+		"item_rpc_gilded_soul_cage_amethyst1"								"When a soul is collected, gain @amethyst_property1 seconds of magic immunity"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bluestar_armor"									"蓝星铠甲"
+		"item_rpc_bluestar_armor_ruby1"									"blah blah @ruby_property1 gem"
+		"item_rpc_bluestar_armor_emerald1"									"blah blah @emerald_property1 gem"
+		"item_rpc_bluestar_armor_sapphire1"									"blah blah @sapphire_property1 gem"
+		"item_rpc_bluestar_armor_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_bluestar_armor"				"魔法爆裂"
 		"property_bluestar_armor_description"		"当你消耗魔法时，回复所消耗魔法值的生命值并快速向前冲锋。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_hermits_spike_shell"								"隐士披风"
 		"item_property_hermit_spike_shell"			"飞舞羽毛"
-		"property_hermit_spike_shell_description"	"当玩家累计受到伤害达到 <% HERMIT_SPIKE_THRESHOLD %>% 最大生命值时，发射羽毛对周围所有敌人造成 <% HERMIT_SPIKE_DAMAGE_OF_DAMAGE_TAKEN %>倍 所受累计伤害值的物理伤害。"
+		"property_hermit_spike_shell_description"	"When you take a total of <% ITEM_RPC_HERMITS_SPIKE_SHELL_THRESHOLD %>% of your max health as damage, release quills that deal <% ITEM_RPC_HERMITS_SPIKE_SHELL_DAMAGE_PCT_ATTACK_POWER %>% of your Attack Power to all surrounding enemies. Can trigger a maximum of <% ITEM_RPC_HERMITS_SPIKE_SHELL_MAX_TRIGGERS_PER_DMG %> times at once."
 		
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills"	"Quill Spray"
+		"DOTA_Tooltip_modifier_hermit_spike_shell_quills_Description"	"Reduced Armor"
+
+		"item_rpc_hermits_spike_shell_ruby1"								"Increases Quill Spray damage by @ruby_property1% of Max Health"
+		"item_rpc_hermits_spike_shell_emerald1"								"When Quill Spray triggers, restore @emerald_property1% of max health"
+		"item_rpc_hermits_spike_shell_sapphire1"								"Each 1% of missing health increases Armor Pierce by @sapphire_property1"
+		"item_rpc_hermits_spike_shell_amethyst1"								"Quill Spray reduces enemy Armor by @amethyst_property1 for <% ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_DURATION %> seconds. Stacks up to <% ITEM_RPC_HERMITS_SPIKE_SHELL_AMETHYST_MAX_STACKS %> times"
 		
 		"DOTA_Tooltip_ability_item_rpc_the_infernal_prison"								"地狱牢笼"
+		"item_rpc_the_infernal_prison_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_the_infernal_prison_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_the_infernal_prison_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_the_infernal_prison_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_infernal_prison"				"自焚"
 		"property_infernal_prison_description"		"敌人攻击你时会被火焰吞没，失去110点攻击速度并且每0.5秒受到50x玩家护甲值的魔法伤害。附近的敌人失去260攻击速度并且<br>每0.5受到100%攻击力的魔法伤害。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
 		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"受到任何魔法或纯粹伤害提高玩家基础技能伤害和元素伤害 <% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %>% ，持续<% SOLAR_CAPE_DURATION %>秒。"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"所有基础技能伤害和元素伤害提高<% SOLAR_CAPE_BAD_AND_ELEMENTAL_AMP %%"
+		"property_enchanted_solar_description"		"Every <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> seconds, gain a Sunlight stack. Upon reaching <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> stacks, gain the Solar Flare buff for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> seconds. During Solar Flare, all cooldown are reduced by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %> and cast rate is increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Cannot gain Sunlight stacks during Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>%% reduced cooldowns and <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+
+		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
+		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
+		"item_rpc_enchanted_solar_cape_sapphire1"							"Increases Base Ability and Item Damage by @sapphire_property1% during Solar Flare"
+		"item_rpc_enchanted_solar_cape_amethyst1"							"Increases Spell Pierce and Magic Armor by @amethyst_property1 during Solar Flare"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_tempest_pallium"							"海洋风暴披肩"
 		"item_property_ocean_tempest"				"潮汐风暴"
-		"property_ocean_tempest_description"		"引导 @Ability4 时每秒汲取你<% OCEAN_TEMPEST_MANA_DRAIN_PER_SECOND %>% 最大魔法值，每汲取<% OCEAN_TEMPEST_MANA_DRAIN_THRESHOLD %>点魔法值，提高 @Ability4 的伤害<% OCEAN_TEMPEST_BAD_PER_MANA_THRESHOLD %>%。"
+		"property_ocean_tempest_description"		"Drain <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX %>% of your max mana over the channel time of @Ability4. Each <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR %> mana drained adds a Tidal Storm Stack, and each stack increases Base Ability and Item damage by <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_TIDE_STACK %>%. Tempest stacks last for <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION %> seconds and are reset when casting @Ability4 again."
+		"item_rpc_ocean_tempest_pallium_ruby1"							"Gain @ruby_property1% bonus attack power for each Tidal Storm stack"
+		"item_rpc_ocean_tempest_pallium_emerald1"							"Enemies within <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS %> range during [R] channel have a @emerald_property1% chance every 0.1 seconds to be thrown up into a tornado until the end of your channel. While in the tornado they are disabled but also can't take damage. When they land, they take damage based on @emerald_property2x of Tidal Storm stacks built up."
+		"item_rpc_ocean_tempest_pallium_sapphire1"							"Increases Water and Wind elemental damage by @sapphire_property1%"
+		"item_rpc_ocean_tempest_pallium_amethyst1"							"Increases the amount of mana drained over the course of [R] channel by an additional @amethyst_property1%"	
+
+		"DOTA_Tooltip_modifier_ocean_templest_tidal_storm_stacks"			"Tidal Storm Stacks"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_radiant_ruins_leather"							"天辉皮甲"
+		"item_rpc_radiant_ruins_leather_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_radiant_ruins_leather_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_radiant_ruins_leather_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_radiant_ruins_leather_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_radiant_ruins"				"耐久光环"
-		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度<% RADIANT_RUINS_LEATHER_AS %>点和移动速度<% RADIANT_RUINS_LEATHER_MS %>点。"
+		"property_radiant_ruins_description"		"提高你及附近所有友军的攻击速度<% ITEM_RPC_RADIANT_RUINS_LEATHER_AS %>点和移动速度<% ITEM_RPC_RADIANT_RUINS_LEATHER_MS %>点。"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff" "耐久光环"
 		"DOTA_Tooltip_modifier_radiant_leather_aura_buff_Description"	"攻击速度提高"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twilight_vestments"								"暮光大衣"
+		"item_rpc_twilight_vestments_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_twilight_vestments_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_twilight_vestments_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_twilight_vestments_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_twilight_vestments"			"金鳞开"
-		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的<% TWILIGHT_VESTMENT_HP_THRESHOLD %>% 时，<% TWILIGHT_VESTMENT_DELAY %>秒后你将回复一定量生命值，回复量为该次伤害值的<% TWILIGHT_VESTMENT_HEAL_PCT %>%。"
+		"property_twilight_vestments_description"	"当某个单次伤害超过你最大生命值的<% ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD %>% 时，<% ITEM_RPC_TWILIGHT_VESTMENTS_DELAY %>秒后你将回复一定量生命值，回复量为该次伤害值的<% ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_energizing_quest_gear"							"夜行衣"
+		"item_rpc_energizing_quest_gear_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_energizing_quest_gear_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_energizing_quest_gear_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_energizing_quest_gear_amethyst1"							"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_windsteel_armor"									"猎风铠甲"
 		"item_property_windsteel_armor"				"狂风守护"
-		"property_windsteel_armor_description"		"施放 @Ability2 可获得护盾抵挡该技能等级次数的伤害，并提高<% WINDSTEEL_EVASION %>% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度，持续 <% WINDSTEEL_DURATION %> 秒。冷却时间 <% WINDSTEEL_COOLDOWN %> 秒。"
-		"DOTA_Tooltip_modifier_windsteel_effect"	"狂风守护"
-		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"每层抵挡一次伤害。同时提高50% 闪避和<% WINDSTEEL_MOVESPEED %>点移动速度。"
-		"DOTA_Tooltip_modifier_windsteel_cooldown"	"狂风守护冷却中"
+		"property_windsteel_armor_description"		"Casting @Ability2 applies a shield that absorbs a number of damage instances equal to the Ability's level. While the shield is active, gain <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>% evasion. Lasts <% ITEM_RPC_WINDSTEEL_ARMOR_DURATION %> seconds. <% ITEM_RPC_WINDSTEEL_ARMOR_COOLDOWN %> second cooldown."
+		"DOTA_Tooltip_modifier_windsteel_effect"	"Fluttering Guard"
+		"DOTA_Tooltip_modifier_windsteel_effect_Description"	"Absorbing 1 damage instance for each stack and gaining <% ITEM_RPC_WINDSTEEL_ARMOR_EVASION %>%% Evasion."
+		"DOTA_Tooltip_modifier_windsteel_cooldown"	"Fluttering Guard Cooldown"
+
 		
+		"item_rpc_windsteel_armor_ruby1"									"Increases Fluttering Guard stacks by @ruby_property1"
+		"item_rpc_windsteel_armor_emerald1"									"While Fluttering Guard is active, gain @emerald_property1 Agility"
+		"item_rpc_windsteel_armor_sapphire1"									"Reduces Fluttering Guard Cooldown by @sapphire_property1 seconds"
+		"item_rpc_windsteel_armor_amethyst1"									"When Fluttering Guard expires or is destroyed, a burst of wind will toss enemies in a <% ITEM_RPC_WINDSTEEL_ARMOR_AMETHYST_RADIUS %> radius up into the air, disabling them for @amethyst_property1 seconds. While disabled by this effect, enemies are attack and magic immune."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_savage_plate_of_ogthun"							"野性板甲"
+		"item_rpc_savage_plate_of_ogthun_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_savage_plate_of_ogthun_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_savage_plate_of_ogthun_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_savage_plate_of_ogthun_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ogthun"						"野性"
 		"property_ogthun_description"				"每击杀1个敌人可以提高 40% 力量值的最大生命值和2% 的基础技能伤害，可叠加至100层。<br>每层持续时间9秒。"
 		"DOTA_Tooltip_modifier_ogthun_visible" 				"野性"
@@ -198,20 +362,38 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_skyforge_flurry_plate"							"熔炉板甲"
-		"item_property_skyforge"							"迷乱光环"
-		"property_skyforge_description"						"降低附近所有敌人的伤害输出 <% SKYFORGE_DMG_REDUCTION %>% 。"
+		"item_property_skyforge"							"Flurry Shield"
 		"DOTA_Tooltip_modifier_flurry_aura_debuff"				"迷乱光环"
-		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"伤害输出降低30%%"
+		"DOTA_Tooltip_modifier_flurry_aura_debuff_Description"	"Reduced Armor Pierce and Spell Pierce"
+		"property_skyforge_description"						"Every <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_SHIELD_INTERVAL %> seconds gain a shield that absorbs 1 instance of damage."
+
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield"			"Flurry Shield"
+		"DOTA_Tooltip_modifier_skyforge_flurry_shield_Description"	"Absorbs the next instance of damage"
+		
+		"item_rpc_skyforge_flurry_plate_ruby1"							"@ruby_property1% chance for Flurry Shield to persist after blocking damage"
+		"item_rpc_skyforge_flurry_plate_emerald1"							"Increases Agility by @emerald_property1% of Strength"
+		"item_rpc_skyforge_flurry_plate_sapphire1"							"Enemies in <% ITEM_RPC_SKYFORGE_FLURRY_PLATE_SAPPHIRE_RADIUS %> radius have their Armor Pierce and Spell Pierce reduced by @sapphire_property1"
+		"item_rpc_skyforge_flurry_plate_amethyst1"							"Each point of Spirit increases movespeed and attack speed by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_bladestorm_vest"									"剑刃风暴背心"
 		"item_property_bladestorm_vest"							"剑刃风暴"
-		"property_bladestorm_vest_description"					"攻击一个敌人<% BLADESTORM_NUMBER_OF_ATTACKS %>次获得1层剑刃风暴，每层剑刃风暴提高攻击力 <% BLADESTORM_BONUS_ATTACK_DMG %>%，并且使敌人受到的伤害加深 <% BLADESTORM_POST_MITI %>%。（计算在敌人减伤之后）<br>施放任意技能消耗1层。最高<% BLADESTORM_MAX_STACKS %>层。"
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"剑刃风暴"
-		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"提高攻击力和基础技能伤害"
+		"property_bladestorm_vest_description"					"Performing <% ITEM_RPC_BLADESTORM_VEST_NUMBER_OF_ATTACKS %> attacks adds a Bladestorm stack. Each Bladestorm stack increases Attack Damage by <% ITEM_RPC_BLADESTORM_VEST_BONUS_ATTACK_DMG %>%. Casting any spell consumes a stack. Maximum <% ITEM_RPC_BLADESTORM_VEST_MAX_STACKS %> stacks."
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff"			"Bladestorm"
+		"DOTA_Tooltip_modifier_bladestorm_vest_buff_Description"	"Gaining Attack Damage"
+		"DOTA_Tooltip_modifier_bladestorm_attack_stacking"		"Bladestorm Buildup"
+		
+		"item_rpc_bladestorm_vest_ruby1"									"It only takes @ruby_property1 attacks to acquire a Bladestorm stack"
+		"item_rpc_bladestorm_vest_emerald1"									"Each Bladestorm stack increases Base Ability Damage by @emerald_property1% and Armor Pierce by @emerald_property2"
+		"item_rpc_bladestorm_vest_sapphire1"									"Each Bladestorm stack increases Spell Pierce by @sapphire_property1 and Agility by @sapphire_property2"
+		"item_rpc_bladestorm_vest_amethyst1"									"@amethyst_property1% chance on casting a spell to not lose a Bladestorm stack"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_infused_mageplate"								"法师装甲"
+		"item_rpc_infused_mageplate_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_infused_mageplate_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_infused_mageplate_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_infused_mageplate_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_mageplate"								"装甲法师"
 		"property_mageplate_description"						"每10点智力值提高1点护甲值。所受到伤害的 5% 回复魔法值。每次受到伤害增加1层buff，提高基础技能伤害 5% 和 @special_property1x 英雄等级 的智力值，持续15秒。最高100层。"
 		"DOTA_Tooltip_modifier_infused_mageplate_stack"			"装甲法师"
@@ -220,142 +402,254 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_depth_crest_armor"								"绝顶披风"
 		"item_property_depth_crest"						"粉碎"
-		 "property_depth_crest_description"					"受到攻击时，有 <% DEPTH_CREST_ARMOR_CHANCE %>% 的概率眩晕周围的所有敌人，造成 <% DEPTH_CREST_ARMOR_STR_TO_DMG %>x 力量值 + <% DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x 护甲值的伤害。当敌人被眩晕时，每 <% DEPTH_CREST_ARMOR_STR_DIVISOR %> 点力量值提高装备伤害 <% DEPTH_CREST_ARMOR_ITEM_AMP %>%。"
+		 "property_depth_crest_description"					"<% ITEM_RPC_DEPTH_CREST_ARMOR_CHANCE %>% chance when attacked to stun all nearby enemies in <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_RADIUS %> radius for <% ITEM_RPC_DEPTH_CREST_ARMOR_STUN_DURATION %> seconds and deal damage based on <% ITEM_RPC_DEPTH_CREST_ARMOR_ARMOR_TO_DMG %>x your armor."
+
+		 "item_rpc_depth_crest_armor_ruby1"								"Increase Crush's damage by @ruby_property1x Strength and increases Crush's radius by @ruby_property2"
+		"item_rpc_depth_crest_armor_emerald1"								"Increases Crush's stun duration by @emerald_property1 seconds and increases Crush's radius by @emerald_property2"
+		"item_rpc_depth_crest_armor_sapphire1"								"@sapphire_property1% chance to trigger Crush when casting [Q]"
+		"item_rpc_depth_crest_armor_amethyst1"								"Increases Item Damage by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_terrasic_stone_plate"							"熔岩板甲"
 		"item_property_terrasic_stone"						"岩浆喷涌"
-		 "property_terrasic_stone_description"				"对眩晕的目标造成 <% TERRASIC_STONE_PLATE_POST_MITI %>% 的伤害加深。（计算在敌人减伤之后）"
+		 "property_terrasic_stone_description"				"Every <% ITEM_RPC_TERRASIC_STONE_PLATE_STACK_INTERVAL %> seconds, gain a Magma Break stack. Each stack removes the cooldown on @Ability1. Max <% ITEM_RPC_TERRASIC_STONE_PLATE_MAX_STACKS %> stacks."
+
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks"	"Magma Break"
+		"DOTA_Tooltip_modifier_terrasic_magma_break_stacks_Description"	"Removes cooldown of [Q]. Casting [Q] removes a stack."
+
+		"item_rpc_terrasic_stone_plate_ruby1"							"Increases Strength by @ruby_property1, Armor and Armor Pierce by @ruby_property2, and <font color=\"#EF4126\">Fire</font> and <font color=\"#AF843D\">Earth</font> elemental damage by @ruby_property3%"
+		"item_rpc_terrasic_stone_plate_emerald1"							"Reduces the stack generation interval by @emerald_property1"
+		"item_rpc_terrasic_stone_plate_sapphire1"							"Increases [Q] Base Ability damage by @sapphire_property1%"
+		"item_rpc_terrasic_stone_plate_amethyst1"							"Increases maximum Magma Break stacks by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_water_mage_robes"								"水法师长袍"
 		"item_property_watermage"							"高压水泵"
-		"property_watermage_description"					"当你引导 @Ability4 时，朝360度喷射水浪，每股水浪造成<% WATER_MAGE_ROBES_ATTACK_TO_DMG %>x攻击力或<% WATER_MAGE_ROBES_INT_TO_DMG %>x智力值（较大值）的魔法伤害。同时降低敌人移动速度<% WATER_MAGE_ROBES_MS_SLOW %>%。被减速的敌人受到来自施法者的伤害将加深 <% WATER_MAGE_ROBES_POST_MITI_AMP %>% （计算在敌人减伤之后）"
-		"DOTA_Tooltip_modifier_water_mage_slow"			"高压水泵"
-		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"移动速度降低"
+		"property_watermage_description"					"While channeling @Ability4, tidal energies throw violent waves of water in all directions around you, dealing <% ITEM_RPC_WATER_MAGE_ROBES_INT_TO_DMG %>x your Intelligence as magic damage per wave. Enemies struck have their movespeed slowed by <% ITEM_RPC_WATER_MAGE_ROBES_MS_SLOW %>%."
+		"DOTA_Tooltip_modifier_water_mage_slow"			"Wave Burst Slow"
+		"DOTA_Tooltip_modifier_water_mage_slow_Description"	"Reduced Movementspeed"
+
+		"item_rpc_water_mage_robes_ruby1"								"Drenched enemies have @ruby_property1 reduced Magic Armor"
+		"item_rpc_water_mage_robes_emerald1"								"Increases the damage of Wave Burst by @emerald_property1 and the wave travel speed by @emerald_property2"
+		"item_rpc_water_mage_robes_sapphire1"								"Increases all <font color=\"#3894FF\">Water</font> elemental damage by @sapphire_property1% and Spell Pierce by @sapphire_property2"
+		"item_rpc_water_mage_robes_amethyst1"								"Casting [W] has a @amethyst_property1% chance to fire a single wave burst forward"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_golden_war_plate"								"黄金战甲"
 		"item_property_gold_war_plate"						"英雄气概"
-		"property_gold_war_plate_description"				"提高造成的所有物理伤害 <% GOLDEN_WARPLATE_PHYS_POST_MITI_AMP %>%，同时降低造成的所有魔法伤害 <% GOLDEN_WARPLATE_MAGIC_OUTPUT_REDUCTION %>%。"
+		"property_gold_war_plate_description"				"Your Armor Pierce is increased by <% ITEM_RPC_GOLDEN_WAR_PLATE_ARMOR_TO_ARMOR_PIERCE %>% of your Armor."
+
+		"item_rpc_golden_war_plate_ruby1"								"Increases Strength by @ruby_property1"
+		"item_rpc_golden_war_plate_emerald1"								"Increases Armor by @emerald_property1"
+		"item_rpc_golden_war_plate_sapphire1"								"Increases Armor Pierce by an additional @sapphire_property1% of Armor"
+		"item_rpc_golden_war_plate_amethyst1"								"Reduces Spell Pierce and Increases Armor Pierce by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_gold_plate_of_leon"								"里昂的金色板甲"
+		"item_rpc_gold_plate_of_leon_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_gold_plate_of_leon_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_gold_plate_of_leon_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_gold_plate_of_leon_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_gold_plate_of_leon"						"无畏英雄"
-		"property_gold_plate_of_leon_description"				"提高你的主属性<% GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
+		"property_gold_plate_of_leon_description"				"提高你的主属性<% ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE %>%。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_staggering_knight_crusher_armor"					"骑士破坏之甲"
+		"item_rpc_staggering_knight_crusher_armor_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_staggering_knight_crusher_armor_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_staggering_knight_crusher_armor_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_staggering_knight_crusher_armor_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_knight_crusher"						"过载力量"
-		"property_knight_crusher_description"				"增加所有眩晕技能的眩晕时间 <% STAGGERING_KNIGHT_CRUSHER_STUN_DURATION_INCREASE %>%，当玩家受到多次连续眩晕时，所受到的眩晕时间减少<% STAGGERING_KNIGHT_CRUSHER_STUN_IMMUNITY_COUNTER_DECREASE %>%。"
+		"property_knight_crusher_description"				"增加所有眩晕技能的眩晕时间 <% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_DURATION_INCREASE %>%，当玩家受到多次连续眩晕时，所受到的眩晕时间减少<% ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_STUN_IMMUNITY_COUNTER_DECREASE %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"蓝宝石龙鳞铠甲"
+		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 <% SAPPHIRE_DRAGON_SCALE_ATTACK_PER_INT %> 攻击力和 <% SAPPHIRE_DRAGON_SCALE_ARMOR_PER_INT %> 护甲值。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <% ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_ATTACK_PER_INT %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
+		"item_rpc_ruby_dragon_scale_armor_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_ruby_dragon_scale_armor_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ruby_dragon_armor"					"红龙"
-		"property_ruby_dragon_armor_description"			"每点力量值增加 <% RUBY_DRAGON_SCALE_ATTACK_PER_STR %> 攻击力和 <% RUBY_DRAGON_SCALE_ARMOR_PER_STR %> 护甲值。"
+		"property_ruby_dragon_armor_description"			"每点力量值增加 <% ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_ATTACK_PER_STR %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"黄玉龙鳞铠甲"
+		"item_rpc_topaz_dragon_scale_armor_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_topaz_dragon_scale_armor_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 <% TOPAZ_DRAGON_SCALE_ATTACK_PER_AGI %> 攻击力和 <% TOPAZ_DRAGON_SCALE_ARMOR_PER_AGI %> 护甲值。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <% ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_ATTACK_PER_AGI %>。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"
+		"item_rpc_sacred_trials_armor_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_sacred_trials_armor_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_sacred_trials_armor_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_sacred_trials_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_sacred_trials"						"战争的审判"
-		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% 攻击力的魔法AOE伤害。"
+		"property_sacred_trials_description"				"施放 @Ability2 时，使玩家拥有一个buff，下一次的普通攻击将造成 <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>% 攻击力的魔法AOE伤害。"
 		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus"	"战争的审判"
-		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 <% SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% 的魔法AOE伤害"
+		"DOTA_Tooltip_modifier_sacred_trials_attack_bonus_Description"	"使你下次攻击造成 <% ITEM_RPC_SACRED_TRIALS_ARMOR_ATTACK_TO_DMG %>%% 的魔法AOE伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_heroic_conqueror_vestments"						"英勇征服者的法衣"
+		"item_rpc_heroic_conqueror_vestments_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_heroic_conqueror_vestments_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_heroic_conqueror_vestments_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_heroic_conqueror_vestments_amethyst1"						"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_guard_of_feronia"								"费奥南的守卫"
+		"item_rpc_guard_of_feronia_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_guard_of_feronia_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_guard_of_feronia_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_guard_of_feronia_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_guard_of_feronia"						"黎明之盾"
-		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_E %>秒的护盾，施放 @Ability4 创造一个持续<% GUARD_OF_FERONIA_SHIELD_DURATION_R %>秒的护盾，拥有护盾时<% GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>伤害减免。"
+		"property_guard_of_feronia_description"				"施放 @Ability3 创造一个持续<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_E %>秒的护盾，施放 @Ability4 创造一个持续<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DURATION_R %>秒的护盾，拥有护盾时<% ITEM_RPC_GUARD_OF_FERONIA_SHIELD_DAMAGE_REDUCTION %>伤害减免。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_mystic_mana_wall"								"神秘的魔法墙"
 		"item_property_mystic_mana_wall"						"魔法防御"
-		"property_mystic_mana_wall_description"				"所有魔法或纯粹的伤害减少<% MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>%，并且从魔法值减少而不是生命值。如果有足够的魔法值，每<% MYSTIC_MANA_WALL_MANA_TO_ARMOR %>点魔法值增加一点护甲。"
+		"property_mystic_mana_wall_description"				"All Magical and Pure damage taken is reduced by <% ITEM_RPC_MYSTIC_MANA_WALL_MAGIC_PURE_REDUCTION %>% and taken from mana instead of health, if there is enough mana. Every point of current mana points adds <% ITEM_RPC_MYSTIC_MANA_WALL_ARMOR_PER_MANA %> Armor."
+
+		"item_rpc_mystic_mana_wall_ruby1"								"Each point of Strength increases Max Mana by @ruby_property1"
+		"item_rpc_mystic_mana_wall_emerald1"								"Each point of Agility increases Max Mana by @emerald_property1"
+		"item_rpc_mystic_mana_wall_sapphire1"								"Reduces the Magic and Pure damage taken by an additional @sapphire_property1%"
+		"item_rpc_mystic_mana_wall_amethyst1"								"Each point of Spirit increases Max Mana by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_vermillion_dream_robes"							"硃砂色的梦幻长袍"
+		"item_rpc_vermillion_dream_robes_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_vermillion_dream_robes_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_vermillion_dream_robes_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_vermillion_dream_robes_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_vermillion_dream_robes"					"夜光"
-		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <% VERMILLION_DREAM_CAST_RANGE_INCREASE %> 。"
+		"property_vermillion_dream_robes_description"			"增加基础技能的施法范围 <% ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE %> 。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"远古风之甲"
+		"item_rpc_ancient_tanari_wind_armor_ruby1"						"blah blah @ruby_property1 gem"
+		"item_rpc_ancient_tanari_wind_armor_emerald1"						"blah blah @emerald_property1 gem"
+		"item_rpc_ancient_tanari_wind_armor_sapphire1"						"blah blah @sapphire_property1 gem"
+		"item_rpc_ancient_tanari_wind_armor_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_tanari_wind_armor"						"和风"
-		"property_tanari_wind_armor_description"				"<% ANCIENT_TANARI_WIND_RADIUS %>码范围内的敌人移动速度降低 <% ANCIENT_TANARI_WIND_MISS_CHANCE %>% ，攻击速度降低 <% ANCIENT_TANARI_WIND_MS_REDUCTION %> ，并且攻击有 <% ANCIENT_TANARI_WIND_MS_REDUCTION %>% 几率丢失。"
+		"property_tanari_wind_armor_description"				"<% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_WIND_RADIUS %>码范围内的敌人移动速度降低 <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MISS_CHANCE %>% ，攻击速度降低 <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %> ，并且攻击有 <% ITEM_RPC_ANCIENT_TANARI_WIND_ARMOR_MS_REDUCTION %>% 几率丢失。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_blazing_fury_armor"								"炽热狂怒盔甲"
+		"item_rpc_blazing_fury_armor_ruby1"								"blah blah @ruby_property1 gem"
+		"item_rpc_blazing_fury_armor_emerald1"								"blah blah @emerald_property1 gem"
+		"item_rpc_blazing_fury_armor_sapphire1"								"blah blah @sapphire_property1 gem"
+		"item_rpc_blazing_fury_armor_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blazing_fury_armor"						"炽炎之怒"
-		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 <% BLAZING_FURY_AGI_TO_STR_AND_INT %>% 的敏捷值。"
+		"property_blazing_fury_description"						"提高力量值和智力值，提高值为 <% ITEM_RPC_BLAZING_FURY_ARMOR_AGI_TO_STR_AND_INT %>% 的敏捷值。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_outland_stone_cuirass"							"外陆石之甲"
+		"item_rpc_outland_stone_cuirass_ruby1"							"blah blah @ruby_property1 gem"
+		"item_rpc_outland_stone_cuirass_emerald1"							"blah blah @emerald_property1 gem"
+		"item_rpc_outland_stone_cuirass_sapphire1"							"blah blah @sapphire_property1 gem"
+		"item_rpc_outland_stone_cuirass_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_outland_stone"							"爆破融合"
-		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 <% OUTLAND_STONE_BAD %>%，但是施法时会将自己眩晕 <% OUTLAND_STONE_SELF_STUN %> 秒。"
+		"property_outland_stone_description"					"提高 @Ability1 的基础技能伤害 <% ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD %>%，但是施法时会将自己眩晕 <% ITEM_RPC_OUTLAND_STONE_CUIRASS_SELF_STUN %> 秒。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_direwolf_bulwark"								"刻尔伯罗斯的垒甲"
-		"item_property_direwolf"						"地狱看门犬"
-		"property_direwolf_description"					"每 <% DIREWOLF_BULWARK_PRIMARY_ATT_DIVISOR %> 点主属性提高基础攻击力 <% DIREWOLF_BULWARK_BASE_ATTACK_DMG %>，护甲值 <% DIREWOLF_BULWARK_ARMOR %>，基础技能伤害 <% DIREWOLF_BULWARK_BAD %>%。该装备无法重铸。"
+		"item_property_direwolf"						"Crunch"
+		"property_direwolf_description"					"Your basic attacks deal extra damage equal to <% ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG %>% of the target's armor."
+
+		"item_rpc_direwolf_bulwark_ruby1"								"Enemy attacks against you have their damage reduced by @ruby_property1% of your Armor Pierce"
+		"item_rpc_direwolf_bulwark_emerald1"								"Increases Crunch's damage by an additional @emerald_property1% of the target's armor"
+		"item_rpc_direwolf_bulwark_sapphire1"								"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_direwolf_bulwark_amethyst1"								"Your attacks deal an additional instance of magical damage equal to @amethyst_property1% of the target's Magic Armor"
 		
 		
 		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"
-        "item_property_armor_of_atlantis"                                           "钢筋铁骨"
-        "property_armor_of_atlantis_Description"                                "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%."
-        "DOTA_Tooltip_modifier_armor_of_atlantis"                               "钢筋铁骨"
-        "DOTA_Tooltip_modifier_armor_of_atlantis_Description"                   "获得 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>%% 的伤害抗性根据每百分比丢失血量. 此次减伤不能高于 <% ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%%. 致死伤害减少至 <% ARMOR_OF_ATLANTIS_DMG_REDUCTION_LETHAL_BLOW_PCT %>%%."
+		"item_property_armor_of_atlantis"								"钢筋铁骨"
+		"property_armor_of_atlantis_Description"					"You gain <% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% damage reduction for every 1% of missing health. This damage reduction can't be higher than <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%."
+		"DOTA_Tooltip_modifier_armor_of_atlantis"					"Chasm Forge"
+		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"Gaining damage reduction based on missing health"
+
+		"item_rpc_armor_of_atlantis_ruby1"			"Increases the damage reduction per missing % of Max HP by an additional @ruby_property1%"
+		"item_rpc_armor_of_atlantis_emerald1"			"Damage instances that would kill you are reduced by @emerald_property1%"
+		"item_rpc_armor_of_atlantis_sapphire1"			"Gain @sapphire_property1 base attack damage for each point of missing health"
+		"item_rpc_armor_of_atlantis_amethyst1"			"Increases Max Health by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_templar_light_seers_robe"			"圣堂光之袍"	
+		"item_rpc_templar_light_seers_robe_ruby1"			"blah blah @ruby_property1 gem"
+		"item_rpc_templar_light_seers_robe_emerald1"			"blah blah @emerald_property1 gem"
+		"item_rpc_templar_light_seers_robe_sapphire1"			"blah blah @sapphire_property1 gem"
+		"item_rpc_templar_light_seers_robe_amethyst1"			"blah blah @amethyst_property1 gem"
 		"property_light_seer"												"德尔福之光"
-		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 <% TEMPLAR_LIGHT_SEER_TICKRATE %>秒治疗 <% TEMPLAR_LIGHT_SEER_HP_PCT_PER_TICK %>% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
+		"property_light_seer_Description"									"当吟唱 @Ability4 时，每 <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_TICKRATE %>秒治疗 <% ITEM_RPC_TEMPLAR_LIGHT_SEERS_ROBE_HP_PCT_PER_TICK %>% 的最大生命值。每次治疗都会额外获得一层护盾，吸收一次伤害。吟唱结束后，每秒都会减少一层护盾。"
 		"DOTA_Tooltip_modifier_light_seer_shield"							"德尔福之盾"
 		"DOTA_Tooltip_modifier_light_seer_shield_Description"				"每层护盾抵挡一次伤害"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"苍穹日出袍"	
+		"item_rpc_empyreal_sunrise_robe_ruby1"					"blah blah @ruby_property1 gem"
+		"item_rpc_empyreal_sunrise_robe_emerald1"					"blah blah @emerald_property1 gem"
+		"item_rpc_empyreal_sunrise_robe_sapphire1"					"blah blah @sapphire_property1 gem"
+		"item_rpc_empyreal_sunrise_robe_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_tropical_sunrise"												"散失觉醒"
-		"property_tropical_sunrise_Description"									"最低的属性值将提高 <% EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
+		"property_tropical_sunrise_Description"									"最低的属性值将提高 <% ITEM_RPC_EMPYREAL_SUNRISE_ROBE_LOWEST_ATT_AMP * 100 %>%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sea_giants_plate"					"海巨人之甲"	
 		"property_sea_giant_plate"												"刚毅泰坦"
-		"property_sea_giant_plate_Description"									"被眩晕时，伤害减免 <% SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED %>%。"
+		"property_sea_giant_plate_Description"									"Increases Status Resistance by <% ITEM_RPC_SEA_GIANTS_PLATE_STATUS_RESIST %>%."
+		
+		"item_rpc_sea_giants_plate_ruby1"					"Each point of Strength adds an additional @ruby_property1 Max Health"
+		"item_rpc_sea_giants_plate_emerald1"					"Increases Strength and reduces Agility by @emerald_property1"
+		"item_rpc_sea_giants_plate_sapphire1"					"On attack, <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_CHANCE %> chance to stun enemies in <% ITEM_RPC_SEA_GIANTS_PLATE_SAPPHIRE_RADIUS %> radius for @sapphire_property1 seconds and deal damage based on @sappire_property2x Strength"
+		"item_rpc_sea_giants_plate_amethyst1"					"Increases Spirit by @amethyst_property1% of Strength"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_boreal_granite_vest"	"北地花岗岩胸甲"
+		"item_rpc_boreal_granite_vest_ruby1"	"blah blah @ruby_property1 gem"
+		"item_rpc_boreal_granite_vest_emerald1"	"blah blah @emerald_property1 gem"
+		"item_rpc_boreal_granite_vest_sapphire1"	"blah blah @sapphire_property1 gem"
+		"item_rpc_boreal_granite_vest_amethyst1"	"blah blah @amethyst_property1 gem"
 		"item_property_boreal_granite"						"合抱之力"
-		"property_boreal_granite_description"				"受到一个敌人攻击时，有 <% BOREAL_GRANITE_VEST_CHANCE %>% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
+		"property_boreal_granite_description"				"受到一个敌人攻击时，有 <% ITEM_RPC_BOREAL_GRANITE_VEST_CHANCE %>% 的几率立刻释放 @Ability1 （需要敌人在施法距离之内）。 @Ability1的冷却时间会立刻重置。 技能的施法目标为攻击的目标或者位置。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_captains_vest"		"船长背心"
+		"item_rpc_captains_vest_ruby1"		"blah blah @ruby_property1 gem"
+		"item_rpc_captains_vest_emerald1"		"blah blah @emerald_property1 gem"
+		"item_rpc_captains_vest_sapphire1"		"blah blah @sapphire_property1 gem"
+		"item_rpc_captains_vest_amethyst1"		"blah blah @amethyst_property1 gem"
 		"item_property_captains_vest"						"坚定的决心"
-		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<% CAPTAINS_VEST_Q1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_Q4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 W1/2/3/4符文提高智力<% CAPTAINS_VEST_W1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_W4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 E1/2/3/4符文提高敏捷<% CAPTAINS_VEST_E1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_E4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 R1/2/3/4符文提高全属性<% CAPTAINS_VEST_R1 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R2 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R3 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% CAPTAINS_VEST_R4 * CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。"
+		"property_captains_vest_description"				"Q1/2/3/4符文提高力量<% ITEM_RPC_CAPTAINS_VEST_Q1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_Q4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 W1/2/3/4符文提高智力<% ITEM_RPC_CAPTAINS_VEST_W1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_W4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 E1/2/3/4符文提高敏捷<% ITEM_RPC_CAPTAINS_VEST_E1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_E4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。 R1/2/3/4符文提高全属性<% ITEM_RPC_CAPTAINS_VEST_R1 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R2 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R3 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>/<% ITEM_RPC_CAPTAINS_VEST_R4 * ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS %>。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"残破学徒装甲"
-		"item_property_tattered_novice_armor"						"初心者的决意"
-		"property_tattered_novice_armor_description"				"每 <% TATTERED_NOVICE_INTERVAL %> 秒获得一层决意. 每层决意可以移除一次 @Ability1 的冷却时间. 最高可叠加 <% TATTERED_NOVICE_MAX_STACKS %> 层。"
-	
-		"DOTA_Tooltip_modifier_tattered_novice_stack"				"初心者的决意"
-		"DOTA_Tooltip_modifier_tattered_novice_stack_Description"	"Q技能不进入冷却"
+		"DOTA_Tooltip_ability_item_rpc_tattered_novice_armor"		"Tattered Novice Armor"
+		"item_property_tattered_novice_armor"						"Questing Adventurer"
+		"property_tattered_novice_armor_description"				"Every <% ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS %> levels, gain an extra <% ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS %> Rune Points. The extra runepoints are added retroactively when equipped, and any bonus rune points are lost when unequipped."
+		"item_rpc_tattered_novice_armor_ruby1"		"Enemies who die within <% ITEM_RPC_TATTERED_NOVICE_ARMOR_RUBY_RADIUS %> range have a @ruby_property1% chance to drop an additional potion"
+		"item_rpc_tattered_novice_armor_emerald1"		"Increases Attribute gain per level by @emerald_property1%. Bonus attributes are retroactively applied if equipped past level 1, and are lost upon unequipping."
+		"item_rpc_tattered_novice_armor_sapphire1"		"Gain an extra @sapphire_property1 Armor/Magic Armor/Armor Pierce/Spell Pierce per level"
+		"item_rpc_tattered_novice_armor_amethyst1"		"Items that are mythical quality or lower increase stats by @amethyst_property1% more than its stated attribute values"
 
 		"DOTA_Tooltip_ability_item_rpc_robe_of_the_erudite_teacher"		"博学尊师长袍"
+		"item_rpc_robe_of_the_erudite_teacher_ruby1"		"blah blah @ruby_property1 gem"
+		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"blah blah @emerald_property1 gem"
+		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"blah blah @sapphire_property1 gem"
+		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"blah blah @amethyst_property1 gem"
 
 		"item_property_robe_of_the_erudite_teacher"						"拉比克学徒"
 
-		"property_robe_of_the_erudite_teacher_description"				"当你装备该装备时，一个拉比克学徒将会跟随着你。这个学徒能够学习敌人的技能，最多能学习3个。他的生命值为你的<% ERUDITE_TEACHER_HEALTH_MULT %>x ，攻击力为你的 <% ERUDITE_TEACHER_ATTACK_MULT %>x ，护甲为你的 <% ERUDITE_TEACHER_ARMOR_MULT %>x ，以及2000魔法值。如果学徒死亡了，他会在10秒后复活并且仍然具有死前拥有的技能，这个学徒造成的任何伤害均视为英雄的物品伤害。"
+		"property_robe_of_the_erudite_teacher_description"				"当你装备该装备时，一个拉比克学徒将会跟随着你。这个学徒能够学习敌人的技能，最多能学习3个。他的生命值为你的<% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_HEALTH_MULT %>x ，攻击力为你的 <% ITEM_RPC_ROBE_OF_THE_ERUDITE_TEACHER_ATTACK_MULT %>x ，以及2000魔法值。如果学徒死亡了，他会在10秒后复活并且仍然具有死前拥有的技能，这个学徒造成的任何伤害均视为英雄的物品伤害。"
 
 
 
@@ -384,18 +678,26 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"外星装甲"
+		"item_rpc_alien_armor_ruby1"		"blah blah @ruby_property1 gem"
+		"item_rpc_alien_armor_emerald1"		"blah blah @emerald_property1 gem"
+		"item_rpc_alien_armor_sapphire1"		"blah blah @sapphire_property1 gem"
+		"item_rpc_alien_armor_amethyst1"		"blah blah @amethyst_property1 gem"
 
 		"property_alien_armor"							"碳合"
 
-		"property_alien_armor_description"				"释放 @Ability4 后将会产生一个幻象，幻象具有额外<% ALIEN_ARMOR_ILLUSION_AS %> 攻击速度，并且视作物品伤害。这个幻象造成本体<% ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x 的伤害，承受伤害降低 <% ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% 并且持续 <% ALIEN_ARMOR_ILLUSION_DURATION %> 秒。如果装备持有者在幻象存在时死亡，只要这段时间内幻象存在，那么装备持有者将会在<% ALIEN_ARMOR_RESPAWN_DELAY %>秒后在幻象附近随机位置重生。"
+		"property_alien_armor_description"				"释放 @Ability4 后将会产生一个幻象，幻象具有额外 0 攻击速度，并且视作物品伤害。这个幻象造成本体<% ITEM_RPC_ALIEN_ARMOR_OUTGOING_DAMAGE_MULT%>x 的伤害，承受伤害降低 <% ITEM_RPC_ALIEN_ARMOR_INCOMING_DAMAGE_REDUCTION %>% 并且持续 <% ITEM_RPC_ALIEN_ARMOR_ILLUSION_DURATION %> 秒。如果装备持有者在幻象存在时死亡，只要这段时间内幻象存在，那么装备持有者将会在<% ITEM_RPC_ALIEN_ARMOR_RESPAWN_DELAY %>秒后在幻象附近随机位置重生。"
 
 
 
 		"DOTA_Tooltip_ability_item_rpc_nethergrasp_palisade"		"幽冥之握之甲"
+		"item_rpc_nethergrasp_palisade_ruby1"		"blah blah @ruby_property1 gem"
+		"item_rpc_nethergrasp_palisade_emerald1"		"blah blah @emerald_property1 gem"
+		"item_rpc_nethergrasp_palisade_sapphire1"		"blah blah @sapphire_property1 gem"
+		"item_rpc_nethergrasp_palisade_amethyst1"		"blah blah @amethyst_property1 gem"
 
 		"item_property_nethergrasp"							"彼世掌握"
 
-		"property_nethergrasp_description"				"对敌人发出攻击指令将会在目标周围产生一个彼世掌握。被抓取的敌人每 <% NETHERGRASP_ATTACK_INTERVAL %> 秒受到一次来自施法者的攻击，在施法者攻击距离以外的敌人将会被拉向彼世掌握的中心。最多可以同时连接<% NETHERGRASP_MAX_LINKS %>个敌人，但是攻击将会被所有敌人分摊。 产生连接的最大距离为 <% NETHERGRASP_LINK_RANGE %> ，并且如果施法者和敌人距离超出 <% NETHERGRASP_BREAK_DISTANCE %>.码时，链接将会断开。"
+		"property_nethergrasp_description"				"对敌人发出攻击指令将会在目标周围产生一个彼世掌握。被抓取的敌人每 <% ITEM_RPC_NETHERGRASP_PALISADE_ATTACK_INTERVAL %> 秒受到一次来自施法者的攻击，在施法者攻击距离以外的敌人将会被拉向彼世掌握的中心。最多可以同时连接<% ITEM_RPC_NETHERGRASP_PALISADE_MAX_LINKS %>个敌人，但是攻击将会被所有敌人分摊。 产生连接的最大距离为 <% ITEM_RPC_NETHERGRASP_PALISADE_LINK_RANGE %> ，并且如果施法者和敌人距离超出 <% ITEM_RPC_NETHERGRASP_PALISADE_BREAK_DISTANCE %>.码时，链接将会断开。"
 
 
 

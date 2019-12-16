@@ -24,7 +24,7 @@ function begin_fireball(event)
 		caster = caster.origCaster
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
-	ability.damage = q_1_level * 12000 + 5000 + OverflowProtectedGetAverageTrueAttackDamage(caster) * SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT/100 * q_1_level
+	ability.damage = q_1_level * SORCERESS_ARCANA2_Q1_BASE_DMG_PER_LEVEL + SORCERESS_ARCANA2_Q1_BASE_DMG + (OverflowProtectedGetAverageTrueAttackDamage(caster) * SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT/100 * q_1_level)
 	Filters:CastSkillArguments(1, caster)
 	ability.projectileFV = fv
 end
@@ -92,9 +92,9 @@ function fireball_hit(event)
 		local eventTable = {}
 		local caster = caster
 		local target = target
-		local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
-		local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel() - 1) + fireAbility.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
-		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, 0.2 * caster.q_3_level)
+		-- local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
+		-- local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel() - 1) + fireAbility.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
+		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, SORCERESS_ARCANA2_Q3_DAMAGE_PCT * caster.q_3_level)
 	end
 end
 

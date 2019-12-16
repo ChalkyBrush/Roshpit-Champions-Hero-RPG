@@ -394,13 +394,13 @@ function use_prizebox(event)
 		elseif item.newItemTable.property4name == "champions_gear" then
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
-				RPCItems:RollChampionsGearHelm(caster:GetAbsOrigin())
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_helm_of_champions")
 			elseif luck == 2 then
-				RPCItems:RollChampionsGearGauntlet(caster:GetAbsOrigin())
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_gauntlet_of_champions")
 			elseif luck == 3 then
-				RPCItems:RollChampionsGearMail(caster:GetAbsOrigin())
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_champions_mail")
 			elseif luck == 4 then
-				RPCItems:RollChampionsGearBoots(caster:GetAbsOrigin())
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_boots_of_champions")
 			end
 		else
 			for i = 1, item.newItemTable.property4, 1 do
@@ -415,17 +415,10 @@ function use_prizebox(event)
 end
 
 function rollArenaPrizeItem(deathLocation, rarity)
-	local luck = RandomInt(200, 500)
-	if luck >= 200 and luck < 265 then
-		RPCItems:RollHood(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 265 and luck < 330 then
-		RPCItems:RollHand(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 330 and luck < 395 then
-		RPCItems:RollFoot(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 395 and luck < 460 then
-		RPCItems:RollBody(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck <= 500 then
-		RPCItems:RollAmulet(0, deathLocation, rarity, false, 0, nil, 0)
+	local rarityFactor = RPCItems:GetRarityFactor(rarity)
+	local item = RPCItems:RollRandomItem(100, rarityFactor)
+	if item then
+		RPCItems:BasicDropItem(deathLocation, item)
 	end
 end
 

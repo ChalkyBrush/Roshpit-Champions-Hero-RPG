@@ -212,7 +212,8 @@ function hailstorm_enemy_aura_start(event)
 	local ability = event.ability
 	local caster = event.caster
 	if ability.r_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_hailstorm_enemy_amp", {})
-		target:SetModifierStackCount("modifier_hailstorm_enemy_amp", caster, ability.r_3_level)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hailstorm_armor_and_magic_armor_loss", {})
+		target:SetModifierStackCount("modifier_hailstorm_armor_and_magic_armor_loss", caster, ability.r_3_level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end

@@ -116,7 +116,7 @@ function passive_think(event)
 	local damage = event.damage
 	local baseMS = caster:GetBaseMoveSpeed()
 	local actualMS = caster:GetMoveSpeedModifier(baseMS, false)
-	damage = damage * actualMS
+	damage = damage + actualMS * ZHONIK_R_ARCANA_SPEED_MULT_TO_R_DAMAGE
 	if not ability.r_4_interval then
 		ability.r_4_interval = 0
 	end
@@ -140,7 +140,7 @@ function passive_think(event)
 							missle.exploded = true
 							ParticleManager:DestroyParticle(missle.pfx, false)
 
-							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
+							Filters:TakeArgumentsAndApplyDamage(missle.lockEnemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_TIME, RPC_ELEMENT_NONE)
 							Filters:ApplyStun(caster, 0.1, missle.lockEnemy)
 							local r_1_level = caster:GetRuneValue("r", 1)
 							if r_1_level > 0 then
@@ -172,11 +172,12 @@ function passive_think(event)
 							local r_3_level = caster:GetRuneValue("r", 3)
 							if r_3_level > 0 then
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_visible", {duration = 14})
-								local newStacks = missle.lockEnemy:GetModifierStackCount("modifier_tempo_flux_visible", caster) + 1
+								local newStacks = math.min(missle.lockEnemy:GetModifierStackCount("modifier_tempo_flux_visible", caster) + 1, ZHONIK_ARCANA2_R3_MAX_STACKS)
 								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_visible", caster, newStacks)
 
 								ability:ApplyDataDrivenModifier(caster, missle.lockEnemy, "modifier_tempo_flux_invisible", {duration = 14})
 								missle.lockEnemy:SetModifierStackCount("modifier_tempo_flux_invisible", caster, newStacks * r_3_level)
+								missle.lockEnemy:CalculateAndSaveRoshpitAttributes()
 							end
 							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 								if caster:HasAbility("tachyon_shell") then
@@ -205,7 +206,7 @@ function passive_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_agility", {})
 			caster:SetModifierStackCount("modifier_arcana_missles_d_d_agility", caster, d_d_level)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_arcana_missles_d_d_attack_power", {})
-			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level * 0.5 * caster:GetAgility())
+			caster:SetModifierStackCount("modifier_arcana_missles_d_d_attack_power", caster, d_d_level * ZHONIK_R4_ATTC_DMG_PER_AGI * caster:GetAgility())
 		else
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_agility")
 			caster:RemoveModifierByName("modifier_arcana_missles_d_d_attack_power")

@@ -33,7 +33,9 @@ function Precache(context)
   PrecacheResource("sound", "sounds/music/valve_dota_001/music/battle_02_end.vsnd", context)
   PrecacheResource("soundfile", "sounds/music/valve_dota_001/music/battle_02_end.vsnd", context)
 
-  PrecacheResource("model", "models/items/razor/razor_head_bindings/razor_head_bindings.vmdl", context)
+  PrecacheResource("model", "models/invisible_dummy.vmdl", context)
+
+  
 
   PrecacheResource("particle", "particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf", context)
@@ -55,6 +57,7 @@ function Precache(context)
   PrecacheUnitByNameSync("the_oracle", context)
   PrecacheUnitByNameSync("the_crusader", context)
   PrecacheUnitByNameSync("the_glyph_enchanter", context)
+  PrecacheUnitByNameSync("gem_forger", context)
   PrecacheUnitByNameSync("the_curator", context)
 
   -- PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_meepo.vsndevts", context)
@@ -103,6 +106,7 @@ function Precache(context)
   PrecacheResource("particle", "particles/roshpit/web/web_premium.vpcf", context)
   PrecacheResource("particle", "particles/econ/items/keeper_of_the_light/kotl_weapon_arcane_staff/keeper_base_attack_arcane_staff.vpcf", context)
   PrecacheResource("particle", "particles/status_fx/status_effect_huskar_lifebreak_blue_2.vpcf", context)
+  PrecacheResource("particle", "particles/units/heroes/hero_luna/luna_eclipse.vpcf", context)
 
   PrecacheResource("model", "models/props_teams/banner_radiant.vmdl", context)
   PrecacheResource("model", "models/props_winter/present.vmdl", context)

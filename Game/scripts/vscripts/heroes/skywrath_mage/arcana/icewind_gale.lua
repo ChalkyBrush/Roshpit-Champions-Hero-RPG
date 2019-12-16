@@ -20,14 +20,16 @@ function begin_icewind_gale(event)
 			caster.animLock = false
 		end)
 	end
-	local galeParticle = "particles/roshpit/sephyr/icewind_gale.vpcf"
-	local critParticle = "particles/roshpit/sephyr/icewind_crit.vpcf"
+	local galeParticle = "particles/roshpit/sephyr/arcana1/new_icewind_gale.vpcf"
+	local critParticle = "particles/roshpit/sephyr/arcana1/icewind_gale_crit.vpcf"
 	local range = SEPHYR_ARCANA_GALE_RANGE
 	local speed = SEPHYR_ARCANA_GALE_SPEED
 	local castAbility = ability
 	if caster:HasModifier("modifier_sephyr_glyph_4_1") then
 		range = SEPHYR_ARCANA_GALE_RANGE + SEPHYR_GLYPH_4_1_W_BONUS_RANGE
 		speed = SEPHYR_ARCANA_GALE_SPEED + SEPHYR_GLYPH_4_1_W_BONUS_PARTICLE_SPEED
+		critParticle = "particles/roshpit/sephyr/arcana1/icewind_gale_glyphed_crit.vpcf"
+		galeParticle = "particles/roshpit/sephyr/arcana1/glyphed_icewind_gale.vpcf"
 	end
 
 	local procChance = SEPHYR_ARCANA_GALE_CRIT_CHANCE
@@ -57,11 +59,22 @@ function begin_icewind_gale(event)
 		maxJ = 1
 	end
 	local perpFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
-	EmitSoundOn("Sephyr.IcewindGale", caster)
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Sephyr.IcewindGaleHighlight", caster)
+	-- EmitSoundOn("Sephyr.IcewindGale", caster)
+	if not ability.ice_highlight_sound then
+		ability.ice_highlight_sound = true
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Sephyr.IcewindGaleHighlight", caster)
+		Timers:CreateTimer(0.8, function()
+			ability.ice_highlight_sound = false
+		end)
+	end
 	for i = 0, 7, 1 do
+
 		for j = minJ, maxJ, 1 do
 			Timers:CreateTimer(i * 0.1, function()
+				if not caster:HasModifier("modifier_gale_sound_lock") then
+					EmitSoundOn("Sephyr.PiercingGaleIce", caster)
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_sound_lock", {duration = 0.1})
+				end	
 				local start_radius = 180
 				local end_radius = 280
 				local speed = speed
@@ -69,7 +82,7 @@ function begin_icewind_gale(event)
 				{
 					Ability = castAbility,
 					EffectName = galeParticle,
-					vSpawnOrigin = caster:GetAbsOrigin() + perpFV * 180 * j,
+					vSpawnOrigin = caster:GetAbsOrigin() + perpFV * 90 * j,
 					fDistance = range,
 					fStartRadius = start_radius,
 					fEndRadius = end_radius,

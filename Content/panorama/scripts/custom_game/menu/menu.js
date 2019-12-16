@@ -2,8 +2,7 @@
 var root= $.GetContextPanel()
 var m_difficulty = GetDifficultyFactor();
 var range_particle
-
-
+var _new_attributes_initialized = false
 
 function equipment_button(){
 	var equipmentPanel = GameUI.CustomUIConfig().equipmentParent
@@ -136,6 +135,8 @@ function CorrectDotaUI(){
 	GameUI.ManaRegenLabel = parent.FindChildTraverse("ManaRegenLabel")
 
 	GameUI.MovespeedLabel = parent.FindChildTraverse("MoveSpeedLabelBase")
+	GameUI.AbilityTooltip = parent.FindChildTraverse("DOTAAbilityTooltip")
+	
 	// while(parent.id !="hud"){
 	// 	parent = parent.GetParent();
 	// }
@@ -200,12 +201,35 @@ function CorrectDotaUI(){
 	parent.FindChildTraverse("PortraitBacker").style.marginLeft = '54px';
 	parent.FindChildTraverse("PortraitBackerColor").style.marginLeft = '54px';
 
+	// 4.0
+	parent.FindChildTraverse("Damage").style.height = "20px"
+	parent.FindChildTraverse("MoveSpeedLabelBase").style.marginBottom = "2px"
+	parent.FindChildTraverse("MoveSpeedIcon").style.marginTop = "0px"
+	parent.FindChildTraverse("MoveSpeed").style.height = "20px"
+	parent.FindChildTraverse("MoveSpeed").style.marginBottom = "4px"
+	parent.FindChildTraverse("DamageIcon").style.marginTop = "2px"
+	parent.FindChildTraverse("Armor").style.visibility = "collapse";
+	if (!(_new_attributes_initialized)){
+		_new_attributes_initialized = true
+		parent.FindChildTraverse('Strength').RemoveAndDeleteChildren(0)
+		parent.FindChildTraverse('Agility').RemoveAndDeleteChildren(0)
+		parent.FindChildTraverse('Intelligence').RemoveAndDeleteChildren(0)
+		var attr_panel = parent.FindChildTraverse('stragiint')
+		attr_panel.style.height = "94px"
+		attr_panel.style.width = "240px"
+		var attr_attacher = $.CreatePanel("Panel", attr_panel, "4-0-attributes")
+		attr_attacher.BLoadLayout( "file://{resources}/layout/custom_game/hero/hero_stats.xml", false, false ); 
+		GameUI.STATS_PANEL = attr_panel
+		// var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
+		// stats_tooltip_panel.style.marginLeft = "232px"
+	}
 	// parent.FindChildTraverse("HUDSkinPort").style.marginLeft = '54px';
 	// parent.FindChildTraverse("stats").FindChildTraverse('Aligner').BCreateChildren( '<panel id="stat_row_2"></panel>')
 	//TALENTS
 
 	// parent.FindChildTraverse("LevelLabel").style.visibility = 'collapse';
 	// parent.FindChildTraverse("LevelLabel").text = ""
+	GameUI.level_label = parent.FindChildTraverse("LevelLabel")
 	// var levelProgress = parent.FindChildTraverse("StatBranch").FindChildTraverse("StatLevelProgressBar_Left")
 	// $.Msg(levelProgress)
 	// levelProgress.style.width = "1px"
@@ -244,16 +268,16 @@ function CorrectDotaUI(){
 		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
 	});
 
-	// var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
-	// GameUI.StatsTooltipAttachment = stats_tooltip_panel
-	// stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
-	// 	$.Msg("NEW TOOLTIP?")
-	// 	GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
-	// 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
-	// });
-	// stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
-	// 	$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
-	// });
+	var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
+	GameUI.StatsTooltipAttachment = stats_tooltip_panel
+	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
+		$.Msg("NEW TOOLTIP?")
+		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
+		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
+	});
+	stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
+		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
+	});
 }
 
 function InitializeMenu(){

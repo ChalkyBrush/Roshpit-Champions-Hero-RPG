@@ -43,6 +43,8 @@ function DialogueThink(event)
 						curator(caster, units)
 					elseif caster.dialogueName == "crusader" then
 						crusader(caster, units)
+					elseif caster.dialogueName == "elder_rai" then
+						elder_rai(caster, units)
 					elseif caster.dialogueName == "glyph_enchanter" then
 						glyphShop(caster, units)
 					elseif caster.dialogueName == "witch_doctor" then
@@ -174,6 +176,8 @@ function DialogueThink(event)
 								basic_dialogue(caster, units, "#champion_league_challenger_1_dialogue", 8, 5, -10)
 							end
 						end
+					elseif caster.dialogueName == "gem_forger" then
+						gem_forger(caster, units)
 					end
 				end
 			end
@@ -269,6 +273,24 @@ function blacksmith(caster, units)
 	local speechSlot = findEmptyDialogSlot()
 	if speechSlot < 4 then
 		Quests:ShowDialogueText(units, caster, "#dialogue_blacksmith_three", time, false)
+		disableSpeech(caster, time, speechSlot)
+	end
+	for _, unit in ipairs(units) do
+		local player = unit:GetPlayerOwner()
+		if player then
+			local playerId = player:GetPlayerID()
+
+		end
+	end
+end
+
+function gem_forger(caster, units)
+	--MERCHANT_OPEN_SOUND_TABLE = {"secretshop_secretshop_welcome_04", "secretshop_secretshop_whatyoubuying_01", "secretshop_secretshop_whatyoubuying_02"}
+	--print("call how many")
+	local time = 5
+	local speechSlot = findEmptyDialogSlot()
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#gem_forger_fluff", time, false)
 		disableSpeech(caster, time, speechSlot)
 	end
 	for _, unit in ipairs(units) do
@@ -392,17 +414,18 @@ end
 function crusader(caster, units)
 	local time = 5
 	local speechSlot = findEmptyDialogSlot()
-	if GameRules:GetGameTime() > 5 then
-		Quests:ShowDialogueText(units, caster, "#dialogue_crusader_one", time, false)
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#dialogue_crusader_one", time, true)
 		disableSpeech(caster, time, speechSlot)
+	end
+end
 
-		for _, unit in ipairs(units) do
-			local player = unit:GetPlayerOwner()
-			if player then
-				local playerId = player:GetPlayerID()
-				Quests:OpenQuests(playerId)
-			end
-		end
+function elder_rai(caster, units)
+	local time = 5
+	local speechSlot = findEmptyDialogSlot()
+	if speechSlot < 4 then
+		Quests:ShowDialogueText(units, caster, "#dialogue_elder_rai_one", time, true)
+		disableSpeech(caster, time, speechSlot)
 	end
 end
 

@@ -146,7 +146,7 @@ function slippery_tail_think(event)
 				end
 				if enemy.pushLock or enemy.jumpLock then
 				else
-					caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_hydroxis_immortal_push", {duration = 0.1})
+					caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_hydroxis_immortal_push", {duration = 0.1})
 					enemy.pushFV = ability.fv
 				end
 			end

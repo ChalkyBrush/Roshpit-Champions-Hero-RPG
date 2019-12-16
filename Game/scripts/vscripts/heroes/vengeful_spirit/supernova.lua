@@ -161,10 +161,10 @@ function novaExplosion(event)
 	local stun_duration = event.stun_duration
 	local r_4_level = caster:GetRuneValue("r", 4)
 	if r_4_level > 0 then
-		damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * SOLUNIA_R4_ADD_DMG_PER_ATTR * r_4_level
+		damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * SOLUNIA_R4_ADD_DMG_PER_ATTR * r_4_level
 	end
 	if ability:GetAbilityName() == "solunia_eclipse" then
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		event.element = "lunar"
 	else
 		damageType = DAMAGE_TYPE_MAGICAL
@@ -230,13 +230,13 @@ function supernova_burn_think(event)
 		if dualBurn then
 			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	elseif ability:GetAbilityName() == "solunia_solar_alpha_spark" then
 		local damage = target.SoluniaBurnSolar
 		if dualBurn then
 			damage = damage + SOLUNIA_ARCANA_R2_DUAL_BURN_PCT/100 * ability.r_2_level * damage
 		end
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
+		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_FIRE, RPC_ELEMENT_ICE)
 	end
 end
 

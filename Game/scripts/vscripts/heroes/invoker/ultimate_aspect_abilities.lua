@@ -58,12 +58,12 @@ function drop_end(keys)
 		if caster.conjuror:HasAbility("earthquake") then
 			local quakeAbility = caster.conjuror:FindAbilityByName("earthquake")
 			local damage = quakeAbility:GetSpecialValueFor("damage")
-			fireQuake(location, caster.conjuror, 600, r_1_level * 0.1, damage, true, quakeAbility, 1 + 0.3 * r_1_level)
+			fireQuake(location, caster.conjuror, CONJUROR_R1_RADIUS, r_1_level * CONJUROR_R1_STUN, damage, true, quakeAbility, 1 + CONJUROR_R1_Q_AMP_PCT/100 * r_1_level)
 		elseif caster.conjuror:HasAbility("arcana_earth_shock") then
 			local shockAbility = caster.conjuror:FindAbilityByName("arcana_earth_shock")
 			local damage = shockAbility:GetSpecialValueFor("damage")
-			damage = damage * (1 + 0.3 * r_1_level)
-			fire_earth_shock(location, caster.conjuror, 600, shockAbility, damage, 0.1 * r_1_level)
+			damage = damage * (1 + CONJUROR_R1_Q_AMP_PCT/100 * r_1_level)
+			fire_earth_shock(location, caster.conjuror, CONJUROR_R1_RADIUS, shockAbility, damage, 0.1 * r_1_level)
 			-- fireQuake(location, caster.conjuror, 600, r_1_level*0.1, damage, true, shockAbility, 1 + 0.3*r_1_level)
 		end
 	end

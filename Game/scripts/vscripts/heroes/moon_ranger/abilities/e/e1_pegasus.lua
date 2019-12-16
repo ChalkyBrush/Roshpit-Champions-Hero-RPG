@@ -82,6 +82,7 @@ function projectileHit(event)
     ability:ApplyDataDrivenModifier(caster, target, "modifier_star_blink_root", {duration = duration})
     if duration > 0 then
         Helper.updateStackModifier(target, caster, ability, 'astral_rune_e_1', duration, ASTRAL_RANGER_E1_MAX_STACKS_COUNT, runesCount)
+        target:CalculateAndSaveRoshpitAttributes()
     end
 end
 

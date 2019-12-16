@@ -11,7 +11,7 @@ function bomb_throw_start(event)
         EmitSoundOn("Trapper.BombThrow", caster)
 
     end)
-    local bombsCount = TRAPPER_W_BOMBS_COUNT
+    local bombsCount = event.number_of_bombs
     if caster:HasModifier('modifier_trapper_glyph_3_1') then
         bombsCount = bombsCount + TRAPPER_GLYPH_3_1_ADD_BOMBS
     end
@@ -26,6 +26,11 @@ function bomb_throw_start(event)
     end
 end
 
+function bomb_throw_animation(event)
+    local caster = event.caster
+    StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.8})
+end
+
 function createBomb(event, caster, ability, fv)
     local bomb = CreateUnitByName("lanaya_explosive_bomb", caster:GetAbsOrigin(), false, caster, nil, caster:GetTeamNumber())
     bomb.phase = 1
@@ -38,8 +43,8 @@ function createBomb(event, caster, ability, fv)
     bomb.origCaster = caster
     bomb.origAbility = ability
     bomb.damage = event.damage
-    bomb.damage = bomb.damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * caster.w4_level * bomb.damage
     bomb.detonate = true
+    bomb:SetModelScale(0.8)
     if ability.total_bombs == nil then
         ability.total_bombs = 0
         ability.bombs = {}
@@ -352,9 +357,6 @@ function smoke_bomb_think(event)
                     local distance = WallPhysics:GetDistance(enemy:GetAbsOrigin(), position)
                     local damageBonusMult = 1 - (distance / radius)
                     damage = b_b_damage + b_b_damage * damageBonusMult * w_1_level * TRAPPER_W1_AMP_PERCENT / 100
-                    if origCaster.w3_level > 0 then
-                        damage = damage * (1 + origCaster.w3_level * TRAPPER_W3_AMP_INVISIBLE_W)
-                    end
                 end
                 Damage:Apply({
                     attacker = origCaster,
@@ -368,6 +370,9 @@ function smoke_bomb_think(event)
                     },
                     isDot = true,
                 })
+            end
+            if caster:HasModifier("modifier_trapper_glyph_3_2") then
+                enemy:MoveToPosition(enemy:GetAbsOrigin()+RandomVector(RandomInt(30, 180)))
             end
         end
     end
@@ -412,8 +417,7 @@ function bomb_throw_start_smoke(event)
     bomb.damage = event.damage
     bomb.w_1_level = caster.w1_level
     local w_2_level = caster.w2_level
-    bomb.w_2_damage = w_2_level * TRAPPER_W2_DAMAGE * caster:GetLevel()
-    bomb.w_2_damage = bomb.w_2_damage + TRAPPER_W4_AMPLIFY_PERCENT / 100 * (caster:GetIntellect() + caster:GetStrength() + caster:GetAgility()) / 10 * caster.w4_level * bomb.w_2_damage
+    bomb.w_2_damage = w_2_level * TRAPPER_W2_DAMAGE
 
     EmitSoundOn("Trapper.BombThrow", caster)
     bomb_start(bomb, ability, target, fv)

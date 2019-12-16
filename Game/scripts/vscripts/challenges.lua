@@ -60,7 +60,7 @@ function Challenges:ChiselItem(msg)
 	if Beacons.cheats then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 		hero:RemoveModifierByName("modifier_cant_equip")
-		Weapons:UnequipItem(hero, item, itemSlot)
+		hero:UnequipItem(item)
 	else
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
@@ -83,7 +83,7 @@ function Challenges:ChiselItem(msg)
 				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 				hero:RemoveModifierByName("modifier_cant_equip")
-				Weapons:UnequipItem(hero, item, itemSlot)
+				hero:UnequipItem(item)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
 			end
@@ -106,7 +106,7 @@ function Challenges:FinalReroll(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local minLevel = itemProperties.minLevel
-	minLevel = math.max(math.min(minLevel, 100), 1)
+	minLevel = math.max(math.min(minLevel, 120), 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
 	Events.reroll = true
 	local newItem = nil
@@ -133,6 +133,12 @@ function Challenges:FinalReroll(msg)
 		return false
 	end
 	if IsValidEntity(item) then
+		-- if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "open" then
+		-- 	return false
+		-- end
+		-- if item.newItemTable.socket2 and item.newItemTable.socket2 ~= "open" then
+		-- 	return false
+		-- end
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
 		if newItem then
 			if IsValidEntity(newItem) then
@@ -249,12 +255,68 @@ function Challenges:OpenBlacksmith(playerID)
 	end
 end
 
+function Challenges:SocketCutterInserted(msg)
+	local item = EntIndexToHScript(msg.itemIndex)
+	local player = PlayerResource:GetPlayer(msg.PlayerID)
+	if item:GetAbilityName() == "item_rpc_socket_cutter" then
+		CustomGameEventManager:Send_ServerToPlayer(player, "socket_cutter_inserted", {itemIndex = msg.itemIndex})
+	end
+end
+
+function Challenges:FinalSocket(msg)
+	local playerID = msg.PlayerID
+	local item = EntIndexToHScript(msg.socketingItem)
+	local cutter = EntIndexToHScript(msg.cutter)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	if Challenges:CheckIfHeroHasItemByItemIndex(hero, cutter:GetEntityIndex()) then
+		local cost = Gems:GetMithrilCostToAddSocket(item)
+		local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
+		if shards < cost then
+			return false
+		end
+		if Gems:CanItemBeSocketed(item) then
+			local amount = math.min(cost*-1, -1)
+			Challenges:ModifyMithril(amount, hero, "socket")
+			if IsValidEntity(cutter:GetContainer()) then
+				UTIL_Remove(cutter:GetContainer())
+			end
+			Gems:AddSocket(item)
+			EmitSoundOn("NPC.Blacksmith.AddSocket", hero)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
+			ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
+			Timers:CreateTimer(1.5, function()
+				EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
+			end)
+			UTIL_Remove(cutter)
+		end
+	end
+	CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
+end
+
 function Challenges:ChiselableGearClicked(msg)
 	local playerID = msg.playerID
 	local itemIndex = msg.itemIndex
 	local slot = msg.slot
 	local player = PlayerResource:GetPlayer(playerID)
-	CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex, slot = slot})
+	if tonumber(msg.chisel) == 1 then
+		CustomGameEventManager:Send_ServerToPlayer(player, "chiselable_gear_clicked", {itemIndex = itemIndex, slot = slot})
+	elseif tonumber(msg.socket) == 1 then
+		local item = EntIndexToHScript(itemIndex)
+		local validity = Gems:CanItemBeSocketed(item)
+		local error_message = "none"
+		local ok_message = "none"
+		local cost = 0
+		if not validity then
+			error_message = Gems:GetErrorMessageForSocketing(item)
+		else
+			local next_slot = Gems:NextSlotNumber(item)
+			ok_message = "next_socket_"..next_slot
+			cost = Gems:GetMithrilCostToAddSocket(item)
+		end
+
+		CustomGameEventManager:Send_ServerToPlayer(player, "socket_gear_clicked", {itemIndex = itemIndex, error_message = error_message, validity = validity, ok_message = ok_message, cost = cost})
+	end
 end
 
 function Challenges:CollectMithrilIncome(msg)

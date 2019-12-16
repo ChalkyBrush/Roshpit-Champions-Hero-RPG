@@ -484,7 +484,7 @@ function shipyard_gatekeeper_die(event)
 	EmitSoundOn("Redfall.ShipyardGatekeeper.Death", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollSkulldiggerGloves(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_skulldigger_gauntlet")
 	end
 	Redfall:SpawnShipyardFerry()
 end
@@ -781,7 +781,7 @@ end
 function soul_collector_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.ShipyardSoulCollector.Death", caster)
-	RPCItems:RollShipyardVeil1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_shipyard_veil_lv1")
 end
 
 function ShipyardBridgeTrigger(event)
@@ -1014,6 +1014,7 @@ function redfall_shipyard_boss_death_check(event)
 		if caster:GetHealth() < 50 then
 			caster.deathStart = true
 			Events:MainBossSlain(caster:GetUnitName())
+			Enemies:EnemySlain(caster, nil)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 			caster.deathStart = true

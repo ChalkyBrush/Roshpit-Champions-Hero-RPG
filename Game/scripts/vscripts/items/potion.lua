@@ -31,16 +31,18 @@ end
 function action(propertyName, propertyValue, caster)
 	if propertyName == "heal" then
 		heal(propertyValue, caster)
-	elseif propertyName == "strength" then
-		add_strength(propertyValue, caster)
-	elseif propertyName == "agility" then
-		add_agility(propertyValue, caster)
-	elseif propertyName == "intelligence" then
-		add_intelligence(propertyValue, caster)
+		if caster:HasModifier("modifier_neutral_glyph_4_3") then
+			local modifier = caster:FindModifierByName("modifier_neutral_glyph_4_3")
+			local ability = modifier:GetAbility()
+			caster:AddNewModifier(caster, ability, "modifier_neutral_glyph_4_3_heal", { healAmount = propertyValue, duration = ITEM_RPC_NEUTRAL_GLYPH_4_3_DURATION })
+		end
 	elseif propertyName == "mana_heal" then
 		restore_mana(propertyValue, caster)
-	elseif propertyName == "exp" then
-		add_exp(propertyValue, caster)
+		if caster:HasModifier("modifier_neutral_glyph_4_3") then
+			local modifier = caster:FindModifierByName("modifier_neutral_glyph_4_3")
+			local ability = modifier:GetAbility()
+			caster:AddNewModifier(caster, ability, "modifier_neutral_glyph_4_3_mana", { manaAmount = propertyValue, duration = ITEM_RPC_NEUTRAL_GLYPH_4_3_DURATION })
+		end
 	end
 end
 
@@ -95,25 +97,25 @@ function use_reanimation_stone(event)
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit2:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit3:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 	for t = 0, 3, 1 do
 		local ability = caster.runeUnit4:GetAbilityByIndex(t)
 		if ability then
-			ability:SetLevel(0)
+			ability.rune_level = 0
 		end
 	end
 
@@ -123,10 +125,8 @@ function use_reanimation_stone(event)
 			caster[letter .. tier .. '_level'] = 0
 		end
 	end
-	local runePoints = (caster:GetLevel() - 1) * 2 + 3
-	local abilityPoints = math.floor(caster:GetLevel() / 5)
-	CustomNetTables:SetTableValue("player_stats", tostring(caster:GetPlayerOwnerID()), {skillPoints = abilityPoints, runePoints = runePoints})
-	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "AbilityUp", {playerId = caster:GetPlayerOwnerID()})
+
+	Runes:UpdateHeroSkillAndRunePoints(caster)
 end
 
 function stackable_pickup(event)
@@ -184,4 +184,23 @@ end
 
 function use_arcana_cache(event)
 	RPCItems:UseArcanaCache(event.caster, event.ability)
+end
+
+function use_unrefined_gemstones(event)
+	Gems:UseUnrefinedGemstonesItem(event)
+end
+
+function use_exp_orb(event)
+	local amount = 0
+	local caster = event.caster
+	local item = event.ability
+	if event.level == 1 then
+		amount = RPC_EXP_ORB_1
+	elseif event.level == 2 then
+		amount = RPC_EXP_ORB_2
+	end
+	CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", caster, 3)
+	EmitSoundOn("RPCItems.ExpOrb", caster)
+	UTIL_Remove(item)
+	caster:AddExperience(amount, 0, false, true)
 end

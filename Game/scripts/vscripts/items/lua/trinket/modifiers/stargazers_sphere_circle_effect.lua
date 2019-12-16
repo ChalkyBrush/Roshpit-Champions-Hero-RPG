@@ -15,7 +15,7 @@ function modifierClass:OnCreated()
     self:SetSpecialTypes({
         MODIFIER_SPECIAL_TYPE_PREMITIGATION,
     })
-    self:StartIntervalThink(STARGAZERS_SPHERE_STARFALL_CD)
+    self:StartIntervalThink(ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD)
 end
 function modifierClass:PlayEffectsStarfall()
     local target = self:GetParent()
@@ -36,17 +36,17 @@ function modifierClass:OnIntervalThink()
         Damage:Apply({
             attacker = self:GetCaster(),
             victim = self:GetParent(),
-            damage = self.damage * STARGAZERS_SPHERE_STARFALL_DMG_AMP,
+            damage = self.damage * ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_AMP,
             damageType = DAMAGE_TYPE_PURE,
-            maxPremitigationDamage = self.damage * STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP,
+            maxPremitigationDamage = self.damage * ITEM_RPC_STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP,
             source = self:GetAbility(),
             sourceType = BASE_ITEM,
             elements = { RPC_ELEMENT_COSMOS },
             skipItemDamageEffectsApply = true,
             ignorePostmitigation = true,
             ignoreExtraPostmitigation = true,
-            steadfastThresholdMult = STARGAZERS_SPHERE_STEADFAST_THRESHOLD,
-            megaSteadfastThresholdMult = STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD,
+            steadfastThresholdMult = ITEM_RPC_STARGAZERS_SPHERE_STEADFAST_THRESHOLD,
+            megaSteadfastThresholdMult = ITEM_RPC_STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD,
         })
     end)
 end

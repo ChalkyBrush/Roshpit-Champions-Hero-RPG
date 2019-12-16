@@ -229,7 +229,7 @@ function starfall_initiate(event)
   ability.remainingStars = ability.maxStars % 40
   ability.star_damage = ability.r_1_level * ASTRAL_RANGER_R1_DAMAGE
   if caster:HasModifier("modifier_astral_glyph_7_1") then
-    ability.star_damage = ability.star_damage * 10
+    ability.star_damage = ability.star_damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_glyph_7_1_evasion_effect", {duration = ability:GetChannelTime()})
   end
   ability.extraTargetsStruck = 0
@@ -278,9 +278,6 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
   Timers:CreateTimer(0.6, function()
     for i = 1, hit_mult do
       if enemy:IsAlive() and ability.r_1_level > 0 then
-        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_visible", {duration = 7})
-        local newStacks = enemy:GetModifierStackCount("modifier_starfall_a_d_visible", caster)
-        enemy:SetModifierStackCount("modifier_starfall_a_d_visible", caster, newStacks + 1)
         Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
       end
       if caster:GetRuneValue("r", 2) > 0 then
@@ -289,7 +286,10 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
       -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
       -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
     end
-    EmitSoundOn("Ability.StarfallImpact", enemy)
+    local localKey = 'astral_ranger_r_1_sound'
+    Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
+        EmitSoundOn("Ability.StarfallImpact", enemy)
+    end)
   end)
 end
 
@@ -312,12 +312,15 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
         ParticleManager:DestroyParticle(pfx, true)
       end)
     end
-    EmitSoundOn("Astral.CelesialBurst.R2", target)
+    local localKey = 'astral_ranger_r_2_sound'
+    Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
+        EmitSoundOn("Astral.CelesialBurst.R2", target)
+    end)
     Timers:CreateTimer(0.1, function() target.r_2_quake_particle_lock = false end)
   end
   local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
   for _, enemy in pairs(enemies) do
-    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+    Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
     Filters:ApplyStun(caster, ASTRAL_RANGER_R2_STUN_DURATION, target)
   end
 end

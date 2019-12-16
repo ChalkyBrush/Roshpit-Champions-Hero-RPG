@@ -51,10 +51,7 @@ function knights_disciple_cast(event)
 		summon:FindAbilityByName("knights_disciple_purifying_spark"):SetHidden(true)
 	end
 	if caster:HasModifier("modifier_paladin_immortal_weapon_2") then
-		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, summon, "modifier_disciple_cooldown_reduction", {})
-	end
-	if caster:HasModifier("modifier_paladin_glyph_5_2") then
-		summon:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
+		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, summon, "modifier_disciple_cooldown_reduction", {})
 	end
 	Filters:CastSkillArguments(4, caster)
 end
@@ -70,6 +67,9 @@ function disciple_think(event)
 	if summon.casting then
 		summon.casting = false
 		return
+	end
+	if paladin:HasModifier("modifier_paladin_glyph_5_2") then
+		summon:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 	end
 	if distance > 2000 then
 		local movePosition = paladin:GetAbsOrigin() - paladin:GetForwardVector() * 400 + RandomVector(150)

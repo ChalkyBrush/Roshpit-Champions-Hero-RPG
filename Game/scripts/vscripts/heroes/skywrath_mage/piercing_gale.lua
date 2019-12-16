@@ -34,7 +34,7 @@ function begin_piercing_gale(event)
 		critParticle = "particles/roshpit/sephyr/gale/glyphed_crit.vpcf"
 	end
 	if ability.w_2_level > 0 then
-		local procChance = 20
+		local procChance = SEPHYR_W_CRIT_CHANCE
 		if caster:HasModifier("modifier_sephyr_immortal_weapon_1") then
 			procChance = procChance + SEPHYR_IMMORTAL_WEAPON_1_CRIT_CHANCE_INCREASE
 		end

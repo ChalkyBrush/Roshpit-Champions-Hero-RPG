@@ -796,34 +796,34 @@ function setPitSelection(sign, level, pitLevelAvailable, star, lockout)
 function GetPitModData(level)
 {
     var enemyAttackDamage = 0
-    var enemyResistance = 0
-    var paragonSpawnRate = 1
+    var enemyArmorsAndPierces = 0
+    var enemyHealth = 0
     if (level == 2){
-        enemyAttackDamage = 30
-        enemyResistance = 50
-        paragonSpawnRate = 1.25
+        enemyAttackDamage = 20
+        enemyArmorsAndPierces = 30
+        enemyHealth = 30
     }else if (level == 3){
-        enemyAttackDamage = 50
-        enemyResistance = 80
-        paragonSpawnRate = 1.43
+        enemyAttackDamage = 40
+        enemyArmorsAndPierces = 60
+        enemyHealth = 60
     }else if (level == 4){
-        enemyAttackDamage = 100
-        enemyResistance = 90
-        paragonSpawnRate = 1.66
+        enemyAttackDamage = 60
+        enemyArmorsAndPierces = 90
+        enemyHealth = 90
     }else if (level == 5){
-        enemyAttackDamage = 200
-        enemyResistance = 99.3
-        paragonSpawnRate = 2
+        enemyAttackDamage = 80
+        enemyArmorsAndPierces = 120
+        enemyHealth = 120
     }else if (level == 6){
-        enemyAttackDamage = 300
-        enemyResistance = 99.9
-        paragonSpawnRate = 2.25
+        enemyAttackDamage = 100
+        enemyArmorsAndPierces = 150
+        enemyHealth = 150
     }else if (level == 7){
-        enemyAttackDamage = 400
-        enemyResistance = 99.99
-        paragonSpawnRate = 2.5
+        enemyAttackDamage = 120
+        enemyArmorsAndPierces = 180
+        enemyHealth = 180
     }
-    return [enemyAttackDamage, enemyResistance, paragonSpawnRate]
+    return [enemyAttackDamage, enemyArmorsAndPierces, enemyHealth]
 }
 
 function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
@@ -837,10 +837,10 @@ function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
     var pitData = GetPitModData(starLevel)
     sign.FindChildTraverse('enemy_attack_damage_label').text = $.Localize('tooltip_pit_enemy_damage')+": "
     sign.FindChildTraverse('enemy_attack_damage_value').text = "+"+pitData[0]+"%"
-    sign.FindChildTraverse('enemy_resistance_label').text = $.Localize('tooltip_pit_enemy_resistance')+": "
-    sign.FindChildTraverse('enemy_resistance_value').text = pitData[1]+"%"
-    sign.FindChildTraverse('enemy_paragon_label').text = $.Localize('tooltip_pit_enemy_paragon')+": "
-    sign.FindChildTraverse('enemy_paragon_value').text = pitData[2]+"%"
+    sign.FindChildTraverse('enemy_resistance_label').text = $.Localize('tooltip_pit_enemy_armors_and_pierces')+": "
+    sign.FindChildTraverse('enemy_resistance_value').text = "+"+pitData[1]+"%"
+    sign.FindChildTraverse('enemy_paragon_label').text = $.Localize('tooltip_pit_enemy_health')+": "
+    sign.FindChildTraverse('enemy_paragon_value').text = "+"+pitData[2]+"%"
     sign.FindChildTraverse('enemy_name_text').text = $.Localize('tooltip_pit_of_trials') + " " + $.Localize("weapon_current_level") + " " + starLevel
     for (i = 1; i <= 7; i++) { 
         if (i <= starLevel){

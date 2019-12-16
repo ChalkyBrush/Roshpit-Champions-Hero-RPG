@@ -181,7 +181,7 @@ function ShredderUpgradeTrigger3(trigger)
 				--print("ROLL HARVESTER BOOTS")
 				hero.RedfallQuests[8].active = 2
 				hero.RedfallQuests[8].state = 1
-				local item = RPCItems:RollHarvesterBoots(hero:GetAbsOrigin())
+				local item = RPCItems:RollAndDropImmortalByLevel(hero:GetAbsOrigin(), GameState:GetDifficultyFactor()*32, "item_rpc_harvester_boots")
 				item.pickedUp = true
 				hero.shredder:SetModifierStackCount("modifier_shredder_lumber", hero.shredder, lumber - 100)
 			end

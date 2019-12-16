@@ -350,7 +350,7 @@ end
 function blighted_sapling_photosynthesis_think(event)
 	local caster = event.caster
 	local target = event.target
-	local manaSteal = math.floor(target:GetMaxMana()*0.05)
+	local manaSteal = math.floor(target:GetMaxMana()*0.04)
 	if caster:IsAlive() then
 		local heal = math.floor(math.min(manaSteal, target:GetMana()))
 		target:ReduceMana(manaSteal)

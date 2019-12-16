@@ -8,6 +8,14 @@
 		<include src="file://{resources}/scripts/custom_game/menu/menu.js" />
 		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 	</scripts>
+	<snippets>
+		<snippet name="spirit_attribute">
+			<Panel class="custom_attribute_root">
+				<Label id="SpiritLabel" class="StatLabel" hittest="false" text="20" />
+				<Panel id="SpiritIcon" class="StatIcon" hittest="false" />
+			</Panel>
+		</snippet>
+	</snippets>
 	<Panel class="main_menu" hittest="false">
 		<Panel id="main_menu_bg" hittest="false">
 			<Button class="main_menu_button" id="menu_button_equipment" hittest="true"

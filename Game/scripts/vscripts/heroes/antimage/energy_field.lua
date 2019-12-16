@@ -117,7 +117,7 @@ function energy_thinker(event)
 	local movement = ((dummy.pullPoint - dummy:GetAbsOrigin()):Normalized() * 0.03) * ability.velocity
 	movement = movement * Vector(1, 1, 0)
 	dummy:SetAbsOrigin(dummy:GetAbsOrigin() + movement)
-	local damage = event.damage + ability.r_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.02
+	local damage = event.damage + ability.r_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * ARKIMUS_R2_ATTACK_POWER_TO_R_PCT
 	if dummy.interval == 3 then
 		dummy.interval = 0
 		local newFV = WallPhysics:rotateVector(dummy.baseFV, 2 * math.pi / ability.rotationDelta)

@@ -81,7 +81,7 @@ function lavaGO(trigger, fv, zHeight)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = TERRASIC_LAVA_BOOTS_DURATION})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -408,7 +408,7 @@ function CastleSorceressTrigger(trigger)
 				local boss = BossIntroScene(allies)
 				sorceress.state = 3
 				if #allies > 0 then
-					Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
+					Dungeons:LockCameraToUnitForPlayers(boss, 3, allies)
 				end
 				local mode = GameRules:GetGameModeEntity()
 				mode:SetCameraDistanceOverride(2000)
@@ -494,7 +494,7 @@ function BossIntroScene(allies)
 		EmitSoundOn("Redfall.CastleBoss.IntroVO1", boss)
 	end)
 	Timers:CreateTimer(5.2, function()
-		Dungeons:LockCameraToUnitForPlayers(Redfall.CastleSorceress, 5, allies)
+		Dungeons:LockCameraToUnitForPlayers(Redfall.CastleSorceress, 3, allies)
 	end)
 	Timers:CreateTimer(6, function()
 		StartAnimation(Redfall.CastleSorceress, {duration = 2.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.9})
@@ -502,13 +502,13 @@ function BossIntroScene(allies)
 		Quests:ShowDialogueText(MAIN_HERO_TABLE, Redfall.CastleSorceress, "crimsyth_sorceress_dialogue_2", 6, false)
 	end)
 	Timers:CreateTimer(10.5, function()
-		Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
+		-- Dungeons:LockCameraToUnitForPlayers(boss, 5, allies)
 		StartAnimation(boss, {duration = 1.8, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.7})
 		Quests:ShowDialogueText(MAIN_HERO_TABLE, boss, "crimsyth_castle_boss_dialogue_2", 6, false)
 		EmitSoundOn("Redfall.CastleBoss.IntroVO2", boss)
 	end)
 	Timers:CreateTimer(15.6, function()
-		Dungeons:LockCameraToUnitForPlayers(Redfall.CastleSorceress, 3, allies)
+		-- Dungeons:LockCameraToUnitForPlayers(Redfall.CastleSorceress, 3, allies)
 		StartAnimation(Redfall.CastleSorceress, {duration = 1.5, activity = ACT_DOTA_ATTACK, rate = 0.7})
 		EmitSoundOn("Redfall.CastleSorceress.Laugh", Redfall.CastleSorceress)
 		Quests:ShowDialogueText(MAIN_HERO_TABLE, Redfall.CastleSorceress, "crimsyth_sorceress_dialogue_3", 6, false)
@@ -842,7 +842,7 @@ function sorceress_death(event)
 	end)
 	Timers:CreateTimer(18, function()
 		local boss = Redfall.CastleBossIntro
-		Dungeons:LockCameraToUnitForPlayers(Redfall.CastleBossIntro, 5, enemies)
+		-- Dungeons:LockCameraToUnitForPlayers(Redfall.CastleBossIntro, 5, enemies)
 		Timers:CreateTimer(0.5, function()
 			StartAnimation(Redfall.CastleBossIntro, {duration = 1.8, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.7})
 			EmitSoundOn("Redfall.CastleBoss.IntroVO2", Redfall.CastleBossIntro)
@@ -1970,7 +1970,7 @@ function sadist_death(event)
 	end
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollCrimsonSkullCap(caster:GetAbsOrigin(), false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crimson_skull_cap")
 	end
 	Redfall.Castle.DoomParticleTable = nil
 	Timers:CreateTimer(1.5, function()
@@ -2901,7 +2901,7 @@ function loki_the_mad_die(event)
 	EmitSoundOn("Redfall.LokiTheMad.Death", caster)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:VermillionDreamRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_vermillion_dream_robes")
 	end
 end
 
@@ -3479,7 +3479,7 @@ function perdition_die(event)
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollBloodstoneBoots(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_bloodstone_boots")
 	end
 end
 
@@ -3585,7 +3585,7 @@ function chest_transforming_think(event)
 		if Redfall.Castle.FortuneChestsOpened == 15 then
 			if caster.index == Redfall.Castle.FortuneChestBoss then
 			else
-				RPCItems:RollBootsOfGreatFortune(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_boots_of_great_fortune")
 				caster:RemoveModifierByName("modifier_chest_transforming")
 				Timers:CreateTimer(0.05, function()
 					UTIL_Remove(caster)
@@ -3716,7 +3716,7 @@ function chest_transforming_think(event)
 			Events:AdjustDeathXP(wozxak)
 			wozxak:SetModelScale(2.4)
 		elseif code == 17 then
-			RPCItems:RollHandOfMidas(position)
+			RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_hand_of_midas")
 		end
 		caster:RemoveModifierByName("modifier_chest_transforming")
 		Timers:CreateTimer(0.05, function()
@@ -3924,7 +3924,7 @@ end
 function ethereal_revenant_die(event)
 	local caster = event.caster
 	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		RPCItems:RollClawOfTheEtherealRevenant(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_claws_of_the_ethereal_revenant")
 	end
 	EmitSoundOn("Redfall.EtherealRevenant.Death", caster)
 
@@ -4678,11 +4678,7 @@ function castle_final_boss_death(caster, ability)
 		-- RPCItems:RollCrimsythEliteGreavesLV1(caster:GetAbsOrigin(), false)
 		-- end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(15)
 	Timers:CreateTimer(3, function()
 		local maxRoll = 250
 		if GameState:GetDifficultyFactor() == 3 then
@@ -4694,12 +4690,13 @@ function castle_final_boss_death(caster, ability)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollChernobogArcana1(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_chernobog_arcana1")
 		end
 	end)
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
+		Enemies:EnemySlain(caster, nil)
 		Events:MainBossSlain(caster:GetUnitName())
 		caster:RemoveModifierByName("modifier_dying_generic")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_cant_die_disabled", {duration = 20})
@@ -4707,7 +4704,7 @@ function castle_final_boss_death(caster, ability)
 			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 0.25})
 			EmitSoundOn("Redfall.FinalBoss.Death2", caster)
 			Timers:CreateTimer(0.5, function()
-				Redfall:FinalBossDrops(bossOrigin)
+				Redfall:FinalBossDrops(caster)
 				Redfall:CreateLavaBlast(bossOrigin + Vector(0, 0, 300))
 			end)
 			for i = 1, 120, 1 do
@@ -4738,7 +4735,7 @@ end
 function lava_behemoth_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.LavaBehemoth.Aggro", caster)
-	RPCItems:RollIgneousCanineHelm(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_igneous_canine_helm")
 end
 
 function lava_behemoth_take_damage(event)

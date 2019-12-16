@@ -29,9 +29,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] Frost Nova"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time. Enemies who are frozen by any means take increased post-mitigation damage from sorceress."
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"Frozen Post-Mitigation Damage Amp"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"Casting arcane explosion twice in succession releases a blood-freezing Frost Nova. Frozen enemies are rooted. 10 second cooldown. Your water elemental will cast this at the same time."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"Freeze Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix_two"				" seconds"
 		
@@ -48,9 +48,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_4"							"[Q4] Ice Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Sorceress' attributes increase the power of all <font color=\"#87D9FF\">Ice</font> damage."
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"% for each 10 points of attributes."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"Increases all <font color=\"#87D9FF\">Ice</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"Ice Damage"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"%"
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"Arcane Explosion"
@@ -70,12 +70,12 @@
     	"DOTA_Tooltip_modifier_arcane_shell_Description"					"Absorbs the next instance of damage and zaps the attacker."	
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_2"							"[W2] Amplify Magic"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"Enemies struck by Arcane Explosion and Arcane Shell take enhanced <font color=\"#E1A2E8\">Arcane</font> damage from all sources for 9 seconds. Stacks up to 5 times."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"Enemies struck by Arcane Explosion and Arcane Shell have reduced magic armor for 9 seconds. Stacks up to 5 times."
     	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Arcane Damage Amplify per Stack"
     	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					"%"
 
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2"							"Amplify Magic"
-    	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"Taking increased Arcane damage."	
+    	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"Reduced Magic Armor."	
 
 		"DOTA_Tooltip_ability_sorceress_rune_w_3"							"[W3] Arcane Intellect"
     	"DOTA_Tooltip_ability_sorceress_rune_w_3_Description"				"The sorceress and nearby allies gain bonus intelligence and increased mana regen."
@@ -95,9 +95,6 @@
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_property_one"				"Arcane Explosion Damage Increase"
     	"DOTA_Tooltip_ability_sorceress_rune_w_4_suffix"					"%"
 
-    	"DOTA_Tooltip_modifier_arcane_enchantment"							"Arcane Enchantment"
-    	"DOTA_Tooltip_modifier_arcane_enchantment_Description"				"Your Ice Lances and Fireballs are enhanced."
-
 		"DOTA_Tooltip_ability_sorceress_blink"							"Blink"
 		"DOTA_Tooltip_ability_sorceress_blink_Description"				"Teleports the Sorceress to the target position. 50% chance to refresh Ultimate's cooldown and go into a Clear Casting state. In Clear Cast your Ultimate is instant cast and has a 1 second cooldown, and deals amplified damage."
 		"DOTA_Tooltip_ability_sorceress_blink_Lore"						""
@@ -105,7 +102,7 @@
 		"DOTA_Tooltip_ability_sorceress_blink_amp"						"CLEAR CAST SPELL AMPLIFICATION:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_1"							"[E1] Flicker"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges - blink's cooldown does not activate. Free blinks do not gain Flicker Charges."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_1_Description"				"When you cast blink you gain Flicker charges. If you have 10 or more Flicker charges, ability will spend charges instead of going on cooldown. Free blinks do not gain Flicker Charges."
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_property_one"				"Charges gained on Blink"
     	"DOTA_Tooltip_ability_sorceress_rune_e_1_suffix"					""
 			
@@ -138,9 +135,9 @@
 		"DOTA_Tooltip_modifier_modifier_clear_cast_description"				"Ultimate is instant cast and has a 1 second cooldown."
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_4"							"[E4] Grand Elemental"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_4_Description"				"Your Water Elemental deals extra magic damage on attack based on Sorceress' attack damage. Also gives a chance for the elemental to have a multi-attack."
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_Description"				"Your Water Elemental deals extra magic damage on attack based on its attack damage. Also gives a chance for the elemental to have a multi-attack."
     	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_one"				"Elemental Magic Damage Bonus"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix"					"% for each 100 caster attack"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix"					"% of Elemental's Attack Damage"
     	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_two"				"Chance for Multi-Strike"
     	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix_two"				"%"
 
@@ -185,9 +182,9 @@
 
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_4"							"[R4] Fire Mastery"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Sorceress' attributes increase the power of all <font color=\"#EF4126\">Fire</font> damage."
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"% for each 10 points of attributes."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"Increases all <font color=\"#EF4126\">Fire</font> damage."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"Fire Amp"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_sorceress_arcana1"									"Glacial Vortex"
@@ -257,9 +254,9 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] Ring of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Enemies burning by any means take increased damage from sorceress. Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take <% SORCERESS_ARCANA2_Q2_AMP_IN_RING %>x of the runes postmitigation damage and have 180 reduced attack speed. <% SORCERESS_ARCANA2_Q2_COOLDOWN %> second cooldown."
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Burning Post-Mitigation Damage Amp"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"Casting arcane explosion twice in succession releases a a soul-burning Ring of Fire. Enemies affected by ring of fire take damage and have 180 reduced attack speed. <% SORCERESS_ARCANA2_Q2_COOLDOWN %> second cooldown."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"Damage"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"Burn Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix_two"				" seconds"
 
@@ -276,41 +273,39 @@
     	"DOTA_Tooltip_modifier_ring_of_fire_ready"								"Ring of Fire ready"
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2"						"[Q3] Cauterize"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_Description"				"20% chance for Sun Lance to explode in an area with Incineration's damage and burn enemies."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_Description"				"20% chance for Sun Lance to explode in an area and burn enemies."
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_one"				"Damage"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix"					"% of Incineration Damage"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix"					"% of Sun Lance"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_two"				"Burn Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_sun_lance_burn"									"Burning"
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2"						"[Q4] Avatar of Fire"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"Casting Incineration activates Avatar of Fire form for 12 seconds. During Avatar, all elemental damage is converted to <font color=\"#EF4126\">Fire</font> and all <font color=\"#EF4126\">Fire</font> damage is enhanced. Increases base damage of Incineration is increased by Intelligence."
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"Incineration Base Damage Increase"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"x Intelligence"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_two"			"Fire Damage Increase"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"Casting Incineration activates Avatar of Fire form for 12 seconds. During Avatar, all elemental damage is converted to <font color=\"#EF4126\">Fire</font> and all <font color=\"#EF4126\">Fire</font> damage is enhanced."
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"Fire Damage Increase"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_modifier_fire_avatar"  									"Avatar of Fire"
     	"DOTA_Tooltip_modifier_fire_avatar_Description"							"ALL Elemental damage becomes Fire element. Fire elemental damage increased."
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"Glyph of Freezing Winds"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_1"		"[T1-1] Glyph of Freezing Winds"
 		"item_rpc_sorceress_glyph_1_1_description" 				"@Ability1 deals <% SORCERESS_GLYPH_1_1_Q_DAMAGE_MULT %>x damage and slows movespeed and attack speed by an additional <% SORCERESS_GLYPH_1_1_MS_SLOW %>/<% SORCERESS_GLYPH_1_1_AS_SLOW %>."
 
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect"				"Freezing Winds"
 		"DOTA_Tooltip_modifier_sorceress_glyph_1_1_effect_Description"	"Additional Move and Attack slow from Blizzard"	
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"Glyph of Ice Shards"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_1"		"[T2-1] Glyph of Ice Shards"
 		"item_rpc_sorceress_glyph_2_1_description" 				"Ice Lance/Sun Lance fires <% SORCERESS_GLYPH_2_1_Q1_ADDITIONAL_PROJECTILES %> additional projectiles."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"Glyph of Fire Bolt"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_1"		"[T3-1] Glyph of Fire Bolt"
 		"item_rpc_sorceress_glyph_3_1_description" 				"Immediately launches <% SORCERESS_GLYPH_3_1_ADDITIONAL_FIREBALLS %> additional Fireballs after the initial cast."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"Glyph of Arcane Enhancement"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_1"		"[T4-1] Glyph of Arcane Enhancement"
 		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"Glyph of Arcane Torrent"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"[T5-1] Glyph of Arcane Torrent"
 		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range (<% SORCERESS_GLYPH_5_1_RADIUS %>) and deals damage equal to <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion damage. [W1] applies <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> shields instead of 3."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
@@ -321,34 +316,34 @@
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"Arcane Torrent"
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_1"		"Glyph of White Tempests"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_1"		"[T6-1] Glyph of White Tempests"
 		"item_rpc_sorceress_glyph_6_1_description" 				"@Ability1 does not require channeling."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"Glyph of Chaotic Magic"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_1"		"[T7-1] Glyph of Chaotic Magic"
 		"item_rpc_sorceress_glyph_7_1_description" 				"@Ability4 becomes chaotic, gaining <% SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER %>x damage."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"Glyph of Frostbite"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_a"		"[T5-a] Glyph of Frostbite"
 		"item_rpc_sorceress_glyph_5_a_description" 				"Ice Lance damage multiplier increased to <% SORCERESS_GLYPH_5_A_MULTIPLY %>x when enemies are Frozen."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"Glyph of Crystallization"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_1_2"		"[T1-2] Glyph of Crystallization"
 		"item_rpc_sorceress_glyph_1_2_description" 				"Water Elemental has a <% SORCERESS_GLYPH_1_2_CHANCE %>% chance to freeze enemies on attack for <% SORCERESS_GLYPH_1_2_DURATION %> second."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"Glyph of Razor Ice"
-		"item_rpc_sorceress_glyph_2_2_description" 				"Ice lance shatter chance increased to <% SORCERESS_GLYPH_2_2_CHANCE %>%, and base damage increased x<% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %>."
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_2_2"		"[T2-2] Glyph of Razor Ice"
+		"item_rpc_sorceress_glyph_2_2_description" 				"Ice lance shatter chance increased to <% SORCERESS_GLYPH_2_2_CHANCE %>%, and base damage increased <% SORCERESS_GLYPH_2_2_DAMAGE_AMPLIFY %>x."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"Glyph of Enlightened Magic"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_3_2"		"[T3-2] Glyph of Enlightened Magic"
 		"item_rpc_sorceress_glyph_3_2_description" 				"Arcane Intellect grants <% SORCERESS_GLYPH_3_2_BONUS_AMPLIFY %>x mana regen and intelligence."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"Glyph of Arcane Vibration"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_4_2"		"[T4-2] Glyph of Arcane Vibration"
 		"item_rpc_sorceress_glyph_4_2_description" 				"@Ability3 only consumes <% SORCERESS_GLYPH_4_2_STACKS_SPEND %> Flicker stacks and clearcast has 100% activation chance."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"Glyph of Softening"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_2"		"[T5-2] Glyph of Softening"
 		"item_rpc_sorceress_glyph_5_2_description" 				"Stun durations are considered <% SORCERESS_GLYPH_5_2_STUN_IMMUNITY_COUNTER_REDUCTION * 100 %>% shorter when added to creature stun immunity counter."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"Glyph of Scorching"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_6_2"		"[T6-2] Glyph of Scorching"
 		"item_rpc_sorceress_glyph_6_2_description" 				"Resistance Loss from [R3] is multiplied by <% SORCERESS_GLYPH_6_2_R3_MULT %>."
 
-		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"Glyph of Arcane Channelling"
+		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_7_2"		"[T7-2] Glyph of Arcane Channelling"
 		"item_rpc_sorceress_glyph_7_2_description" 				"Increases damage of @Ability2 x<% SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY %>, and costs an additional <% SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT %>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_book"	"Sorceress Glyph Book"

@@ -14,9 +14,9 @@ function begin_hydro_pump(event)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	local procs = Runes:Procs(q_4_level, HYDROXIS_Q4_MULTI_CAST_PCT, 1)
 	local damage = event.damage
-	damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * HYDROXIS_Q4_ADD_DMG_PER_ATTR * q_4_level
+	damage = damage + (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * HYDROXIS_Q4_ADD_DMG_PER_ATTR * q_4_level
 	local targetPoint = event.target_points[1]
-	local pumpDelay = 0.9
+	local pumpDelay = 0.7
 	if caster:HasModifier("modifier_hydroxis_immortal_weapon_3") then
 		pumpDelay = pumpDelay * (100-HYDROXIS_IMMORTAL_WEAPON_3_Q_DELAY_REDUCTION_PCT)/100
 	end

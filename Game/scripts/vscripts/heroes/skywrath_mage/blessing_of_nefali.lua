@@ -79,7 +79,7 @@ function nefali_aura_start_ally(event)
 	local a_d_level = caster:GetRuneValue("r", 1)
 	if a_d_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_nefali_aura_health_regen", {})
-		target:SetModifierStackCount("modifier_nefali_aura_health_regen", caster, a_d_level * caster:GetLevel())
+		target:SetModifierStackCount("modifier_nefali_aura_health_regen", caster, a_d_level)
 	end
 end
 

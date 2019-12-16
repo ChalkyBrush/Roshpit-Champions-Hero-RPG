@@ -89,14 +89,18 @@ function UpdateAbilityTree(){
 				$.Msg("WTF!?!")
 				if (skillPoints > 0){
 					$("#basic_skills_text_up").text = "+"+skillPoints
+					$("#basic_skills_text_up").RemoveClass("none")
 				}else{
 					$("#basic_skills_text_up").text = ""
+					$("#basic_skills_text_up").AddClass("none")
 				}
 				var runePoints = player_stats.runePoints
 				if (runePoints > 0){
 					$("#runes_text_up").text = "+"+runePoints
+					$("#runes_text_up").RemoveClass("none")
 				}else{
 					$("#runes_text_up").text = ""
+					$("#runes_text_up").AddClass("none")
 				}
 			}
 		}else{
@@ -123,6 +127,27 @@ function UpdateAbilityTree(){
 	}
 }
 
+function basic_skill_points_tooltip(){
+	var title = $.Localize("skill_points")
+	var tooltip = $.Localize("skill_points_help")
+	$.DispatchEvent("DOTAShowTitleTextTooltip", $('#basic_skills_text_up'), title, tooltip);
+}
+
+function basic_skill_points_tooltip_end(){
+	$.DispatchEvent( "DOTAHideTitleTextTooltip", $('#basic_skills_text_up'));
+}
+
+function rune_points_tooltip(){
+	var title = $.Localize("runic_points")
+	var tooltip = $.Localize("runic_points_help")
+	$.DispatchEvent("DOTAShowTitleTextTooltip", $('#runes_text_up'), title, tooltip);
+}
+
+function rune_points_tooltip_end(){
+	$.DispatchEvent( "DOTAHideTitleTextTooltip", $('#runes_text_up'));
+}
+
+
 function highlightButton()
 {
 	$("#character_button_image").src = "file://{images}/custom_game/ui/narrow_panel2_highlight.png"
@@ -137,10 +162,34 @@ function OpenCharacterPanel()
 {
 
 }
+
+function heroLevelUpAnimation(msg){
+	if (msg.skill_points > 0){
+		$('#ability_points_up').RemoveClass('invisible')
+		$('#ability_points_up').AddClass('ability_up_animate')
+		$('#ability_points_up').text = "+"+msg.skill_points
+		$.Schedule(1.45, function(){
+			$('#ability_points_up').AddClass('invisible')
+			$('#ability_points_up').RemoveClass('ability_up_animate')
+		});
+	}
+	if (msg.rune_points > 0){
+		$('#rune_points_up').RemoveClass('invisible')
+		$('#rune_points_up').AddClass('rune_up_animate')
+		$('#rune_points_up').text = "+"+msg.rune_points
+		$.Schedule(1.45, function(){
+			$('#rune_points_up').AddClass('invisible')
+			$('#rune_points_up').RemoveClass('rune_up_animate')
+		});
+	}
+}
+
 (function()
 {
 	GameEvents.Subscribe( "dota_player_update_selected_unit", UpdateAbilityTree );
 	GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityTree );
-	GameEvents.Subscribe( "AbilityUp", UpdateAbilityTree );
+	GameEvents.Subscribe( "update_abilities_and_runes_ui", UpdateAbilityTree );
+	GameEvents.Subscribe( "update_abilities_and_runes_ui", UpdateAbilityTree );
+	GameEvents.Subscribe( "hero_level_up", heroLevelUpAnimation);
 	UpdateAbilityTree();
 })();

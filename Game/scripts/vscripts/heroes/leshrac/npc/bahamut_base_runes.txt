@@ -15,26 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"<% BAHAMUT_Q1_MANA_PER_TICK / BAHAMUT_Q1_SELF_TICK_INTERVAL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1200"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_bahamut_a_a_mana_restore"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%property_one"
-				}
+				"property_two"			"<% BAHAMUT_Q1_MANAPOOL_MAX_STACKS * BAHAMUT_Q1_MANAPOOL_PER_STACK %>"
 			}
 		}
 	}
@@ -55,7 +41,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"<% BAHAMUT_Q2_ATTACK_RANGE %>"
 			}
 		}
 		"Modifiers"
@@ -68,7 +54,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%property_one"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "<% BAHAMUT_Q2_ATTACK_RANGE %>"
 				}
 			}
 		}
@@ -90,7 +76,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"<% BAHAMUT_Q3_MS_SLOW %>"
 			}
 		}
 	}
@@ -111,7 +97,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"365"
+				"property_one"			"<% BAHAMUT_Q4_INT_BONUS %>"
 			}
 		}
 		"Modifiers"
@@ -156,7 +142,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
 			}
 		}
@@ -170,7 +156,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT %>"
 				}
 			}
 		}
@@ -224,7 +210,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% BAHAMUT_W3_ATTACK_TO_DMG_PCT %>"
 			}
 			"04"
@@ -265,13 +251,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_W4_DMG_OF_MANA_PCT %>"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% BAHAMUT_W4_MANA_DRAIN_PCT %>"
+				"property_one"			"<% BAHAMUT_W4_ATT_PER_MANA %>"
 			}
 		}
 	}
@@ -307,14 +288,14 @@
 		"AbilityTextureName"	"luna_lucent_beam_alt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT %>"
+				"property_one"			"<% BAHAMUT_E2_DAMAGE %>"
 			}
 			"02"
 			{
@@ -387,7 +368,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"<% BAHAMUT_E4_HOLY_AMP * 100 %>"
 			}
 		}
 	}
@@ -455,7 +436,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% BAHAMUT_R2_POST_MITI_PCT %>"
+				"property_two"			"<% BAHAMUT_R2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -476,12 +457,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% BAHAMUT_R3_MS_SLOW %>"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"<% BAHAMUT_R3_AS_SLOW %>"
 			}
 		}
 	}
@@ -501,8 +482,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% BAHAMUT_R4_STATS_PER_TICK %>"
 			}
 		}
 		"Modifiers"
@@ -532,7 +513,7 @@
 						"Target" 		"TARGET"
 					}
 				}
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% BAHAMUT_R4_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

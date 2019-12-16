@@ -26,11 +26,8 @@ function zonik_passive_think(event)
 		else
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_b_d_regen", {})
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_b_d_mana_regen", {})
-			local movespeedBase = caster:GetBaseMoveSpeed()
-			local movespeed = caster:GetMoveSpeedModifier(movespeedBase, false)
-			local regenBonus = movespeed * r_2_level
-			caster:SetModifierStackCount("modifier_speedball_b_d_regen", caster, regenBonus * ZHONIK_R2_HEALTH_REGEN_PCT / 100)
-			caster:SetModifierStackCount("modifier_speedball_b_d_mana_regen", caster, regenBonus * ZHONIK_R2_MANA_REGEN_PCT / 100)
+			caster:SetModifierStackCount("modifier_speedball_b_d_regen", caster, r_2_level * ZHONIK_R2_HEALTH_REGEN)
+			caster:SetModifierStackCount("modifier_speedball_b_d_mana_regen", caster, r_2_level * ZHONIK_R2_MANA_REGEN)
 		end
 	else
 		caster:RemoveModifierByName("modifier_speedball_b_d_regen")
@@ -88,7 +85,7 @@ function speedball_thinking(event)
 	local movespeed = caster:GetBaseMoveSpeed()
 	local actualMovespeed = caster:GetMoveSpeedModifier(movespeed, false)
 
-	damage = damage * actualMovespeed * speed_mult
+	damage = damage + actualMovespeed * speed_mult
 	local stun_duration = event.stun_duration
 	if IsValidEntity(ability.speedTarget) then
 		if ability.speedTarget:IsAlive() then

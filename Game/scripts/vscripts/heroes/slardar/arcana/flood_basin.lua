@@ -186,7 +186,7 @@ function basin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local d_d_level = caster:GetRuneValue("r", 4)
-	if d_d_level > 0 then
+	if d_d_level > 0 and caster:HasModifier("modifier_flood_basin_aura_effect") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_basin_d_d", {})
 		caster:SetModifierStackCount("modifier_hydroxis_basin_d_d", caster, d_d_level)
 	else

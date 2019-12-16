@@ -74,7 +74,7 @@ function alpha_dash_think(event)
 		Timers:CreateTimer(1.2, function()
 			caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 		end)
-		ApplyDamage({victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+		ApplyDamage({victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability})
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")
@@ -106,6 +106,7 @@ function predator_passive_damage(event)
 	local modifier = caster:FindModifierByName("modifier_canyon_predator_effect")
 	if modifier then
 		modifier:IncrementStackCount()
+		caster:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
@@ -592,14 +593,17 @@ function autumn_mage_attack_hit(event)
 	local target = event.target
 	local ability = event.ability
 	local attacker = event.attacker
+	local key = target:GetEntityIndex() .. '_autumn_mage_attack_hit'
+	Util.Common:LimitPerTime(4, 1, key .. '_sound_particles',function()
 	CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_mage_starfall_attack.vpcf", target, 0.8)
 	EmitSoundOn("Redfall.AutumnMage.StarStart", target)
-	Timers:CreateTimer(0.6, function()
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf", target, 3)
-		EmitSoundOn("Redfall.FireballPassive", target)
-		ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
-		ability:ApplyDataDrivenModifier(attacker, target, "modifier_autumn_mage_debuff", {duration = 3})
+		Timers:CreateTimer(0.6, function()
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf", target, 3)
+			EmitSoundOn("Redfall.FireballPassive", target)
+			ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			ability:ApplyDataDrivenModifier(attacker, target, "modifier_autumn_mage_debuff", {duration = 3})
 
+		end)
 	end)
 end
 
@@ -649,10 +653,6 @@ function autumn_mage_boss_die(event)
 		end)
 	end)
 
-	local luck = RandomInt(1, 4)
-	if luck == 1 then
-		RPCItems:RollAutumnrockBracers(unit:GetAbsOrigin())
-	end
 	for i = 1, #Redfall.spawnPortalTable, 1 do
 		ParticleManager:DestroyParticle(Redfall.spawnPortalTable[i], false)
 	end
@@ -697,6 +697,10 @@ function autumn_mage_boss_die(event)
 			end)
 		end
 	end)
+	local luck = RandomInt(1, 4)
+	if luck == 1 then
+		RPCItems:RollAndDropUniqueItem(unit, "item_rpc_autumnrock_bracer")
+	end
 end
 
 function autumn_mage_boss_think(event)
@@ -925,10 +929,12 @@ function redfall_canyon_boss_death_check(event)
 				caster.deathStart = true
 				CanyonBossDeath(caster, ability)
 				Events:MainBossSlain(caster:GetUnitName())
+				Enemies:EnemySlain(caster, nil)
 			else
 				CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 				caster:ForceKill(false)
 				Events:MainBossSlain(caster:GetUnitName())
+				Enemies:EnemySlain(caster, nil)
 			end
 		end
 	end
@@ -955,14 +961,10 @@ function CanyonBossDeath(caster, ability)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollEyeOfSeasons(caster:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_eye_of_seasons")
 		end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(11)
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
@@ -1200,5 +1202,15 @@ end
 
 function redfall_canyon_feronia_die(event)
 	local unit = event.unit
-	RPCItems:RollGuardOfFeronia(unit:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(unit, "item_rpc_guard_of_feronia")
+end
+
+function ghost_mace_apply(event)
+	local target = event.target
+	local duration = event.debuff_duration
+	local ability = event.ability
+	local caster = event.caster
+	if target:IsHero() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_ghost_mace_health_regen_loss", {duration = duration})
+	end
 end

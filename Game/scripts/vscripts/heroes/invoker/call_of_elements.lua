@@ -90,8 +90,8 @@ function begin_call(event)
 end
 
 function applyCalls(ability, unit, earth, fire, shadow, caster, origScale, growCount)
-	local durationIncrease = ability.r_4_level * 0.6
-	local buffDuration = 20 + durationIncrease
+	local durationIncrease = ability.r_4_level * CONJUROR_R4_R_DUR_INCREASE
+	local buffDuration = CONJUROR_R_DURATION_BASE + durationIncrease
 	buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
 	ability:ApplyDataDrivenModifier(caster, unit, "modifier_call_of_elements", {duration = buffDuration})
 	if earth then
@@ -192,7 +192,7 @@ function applyCallsArcana(ability, unit, earth, fire, shadow, caster, origScale,
 		durationIncrease = d_d_level * 0.3
 	end
 	local buffDuration = 20 + durationIncrease
-	local procs = Runes:Procs(c_d_level, 5, 1) + 1
+	local procs = Runes:Procs(c_d_level, CONJUROR_ARCANA_R3_STACK_CHANCE, 1) + 1
 	buffDuration = Filters:GetAdjustedBuffDuration(caster, buffDuration, false)
 	ability:ApplyDataDrivenModifier(caster, unit, "modifier_call_of_elements", {duration = buffDuration})
 	unit:SetModifierStackCount("modifier_call_of_elements", caster, procs)

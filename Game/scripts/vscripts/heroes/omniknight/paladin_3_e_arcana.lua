@@ -114,14 +114,4 @@ function paladin_e_arcana2_thinker(event)
 	else
 		caster:RemoveModifierByName("modifier_paladin_b_c_attackpower")
 	end
-	local e_4_level = caster:GetRuneValue("e", 4)
-	if e_4_level > 0 then
-		local damageDealt = 1000
-		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-		local holyAmp = damageHOLY / damageDealt
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c_postmit", {})
-		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, holyAmp * PALADIN_ARCANA_E4_POSTMIT_PER_HOLY * e_4_level)
-	else
-		caster:RemoveModifierByName("modifier_paladin_d_c_postmit")
-	end
 end

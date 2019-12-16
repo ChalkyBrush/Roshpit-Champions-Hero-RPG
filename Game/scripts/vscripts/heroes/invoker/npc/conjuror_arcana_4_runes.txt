@@ -14,12 +14,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BLACK_RAZOR %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CONJUROR_ARCANA_E1_ATTACK_POWER_BONUS_PCT %>"
 			}
 			"03"
@@ -72,7 +72,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_E3_SHADOW_AMP %>"
+				"property_one"			"<% CONJUROR_ARCANA_E3_SHADOW_AMP * 100 %>"
 			}
 			"01"
 			{

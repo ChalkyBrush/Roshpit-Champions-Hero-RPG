@@ -65,24 +65,22 @@ function begin_deity(event)
 	local armor_mult = event.armor_mult
 	local health_mult = event.health_mult
 
-	local dmg = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
-	dmg = math.max(1, dmg)
-	dmg = math.min(dmg, 2000000000)
 
-	ability:ApplyDataDrivenModifier(caster, summon, "modifier_deity_green_damage", {duration = -1})
-	summon:SetModifierStackCount("modifier_deity_green_damage", ability, dmg)
+	-- ability:ApplyDataDrivenModifier(caster, summon, "modifier_deity_green_damage", {duration = -1})
+	-- summon:SetModifierStackCount("modifier_deity_green_damage", ability, dmg)
 
-	Filters:SetAttackDamage(summon, 1)
+	-- Filters:SetAttackDamage(summon, 1)
 	summon.elemental_deity = true
-	summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(false) * armor_mult)
-	local health = math.floor(caster:GetMaxHealth() * health_mult)
-	health = math.min(health, 250000000)
-	summon:SetMaxHealth(health)
-	summon:SetBaseMaxHealth(health)
-	summon:SetHealth(health)
-	summon:Heal(health, summon)
+	-- summon:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorValue(false) * armor_mult)
+	-- local health = math.floor(caster:GetMaxHealth() * health_mult)
+	-- health = math.min(health, 250000000)
+	-- summon:SetMaxHealth(health)
+	-- summon:SetBaseMaxHealth(health)
+	-- summon:SetHealth(health)
+	-- summon:Heal(health, summon)
+	summon:AdjustSummon(caster, true, health_mult, attack_mult, armor_mult, armor_mult, armor_mult, armor_mult)
 	common_aspect_effects(caster, ability, summon)
-	summon:AddAbility("normal_steadfast"):SetLevel(3)
+	summon:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	Filters:CastSkillArguments(4, caster)
 end
 
@@ -94,7 +92,7 @@ function deity_a_d_attack_land(event)
 	EmitSoundOn("Conjuror.Deity.Attack", attacker)
 
 	local fv = ((target:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	local damage = damage * 0.08 * attacker.r_1_level
+	local damage = damage * CONJUROR_ARCANA_R1_DAMAGE_SPLASH_PCT/100 * attacker.r_1_level
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_weapon/kunkka_spell_tidebringer_fxset.vpcf", attacker, 2)
 	local pfx = ParticleManager:CreateParticle("particle/roshpit/conjuror/deity_a_d.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + fv * 200, true)
@@ -126,8 +124,8 @@ function terra_blast_start(event)
 	local length = math.max(WallPhysics:GetDistance(caster:GetAbsOrigin() * Vector(1, 1, 0), point * Vector(1, 1, 0)) / 190, 1) + 2
 	local fv = (point * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local startPosition = caster:GetAbsOrigin()
-	local damage = caster.r_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.1
-	local stun_duration = caster.r_2_level * 0.05
+	local damage = caster.r_2_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * CONJUROR_ARCANA_R2_DAMAGE_PER_ATTACK_PCT/100
+	local stun_duration = caster.r_2_level * CONJUROR_ARCANA_R2_STUN
 	for i = 1, math.floor(length), 1 do
 		Timers:CreateTimer(0.1 * (i - 1), function()
 			local position = startPosition + fv * i * 200
@@ -159,6 +157,6 @@ function shadow_shield_start(event)
 	local caster = event.caster
 	local target = event.target
 	EmitSoundOn("Conjuror.Deity.ShadowShield", target)
-	local duration = caster.r_4_level * 0.3
+	local duration = caster.r_4_level * CONJUROR_ARCANA_R4_DURATION
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_deity_shadow_shield", {duration = duration})
 end

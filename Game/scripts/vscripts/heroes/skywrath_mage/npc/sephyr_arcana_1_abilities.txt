@@ -29,7 +29,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 100 140 240 440 1000 2000"
+		"AbilityManaCost"				"<% SEPHYR_ARCANA_W_MANA_COST %>"
 
 		// Special
 		//-------------------------------------------------------
@@ -38,7 +38,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"400 1000 2500 7000 21000 44000 90000"
+				"damage"					"<% SEPHYR_ARCANA_W_DAMAGE %>"
 			}
 			"02"
 			{
@@ -53,12 +53,12 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_mult"					"160 200 240 280 340 380 420"
+				"crit_mult"					"<% SEPHYR_ARCANA_W_CRIT_MULT %>"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"crit_chance"					"15"
+				"crit_chance"					"<% SEPHYR_ARCANA_GALE_CRIT_CHANCE %>"
 			}
 		}
 

@@ -362,7 +362,7 @@
 		"DOTA_Tooltip_modifier_boulderspine_living_ice_slowed_Description"	"Attack and Movespeed Slow"
 
 		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai"				"Deep Winter"
-		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"Attacks have a 10% chance to freeze their target for 4 seconds. Targets cannot die while frozen."
+		"DOTA_Tooltip_ability_boulderspine_lindworm_frost_ai_Description"	"Attacks have a 10% chance to freeze their target for 4 seconds. Targets cannot die while frozen. Wyrm will encase herself in ice if she feels danger."
 
 		"DOTA_Tooltip_modifier_lindworm_frost_effect"						"Frozen"
 		"DOTA_Tooltip_modifier_lindworm_frost_effect_Description"			"Can't be killed."
@@ -577,11 +577,11 @@
 		 "DOTA_Tooltip_ability_water_temple_boss_world_crush_Description"	"With the weight of the Earth, the King casts a huge Slithereen Crush."
 
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides"			"Rising Tides"
-		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 8, the target is blasted with deep waters and disabled."
+		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_Description"	"Each successive damage instance on the King adds a stack of Rising Tide. If the stack counter hits 15, the target is blasted with deep waters and disabled."
 		 "DOTA_Tooltip_ability_water_temple_boss_rising_tides_damage"	"DAMAGE:"
 
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect"					"Rising Tide"	
-		 "DOTA_Tooltip_amodifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 8 stacks, take damage and stun."
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect"					"Rising Tide"	
+		 "DOTA_Tooltip_modifier_rising_tides_stacking_effect_Description"		"Each time you damage King Kraethas, gain a stack. At 15 stacks, take damage and stun."
 
 		 "DOTA_Tooltip_modifier_whirlpool_effect"					"Whirlpool"
 		 "DOTA_Tooltip_modifier_whirlpool_effect_Description"		"Within the King's Reach"
@@ -1121,8 +1121,8 @@
 		"DOTA_Tooltip_ability_fire_temple_shadow_strike_damage"				"BONUS MAGIC DAMAGE:"
 
 		"DOTA_Tooltip_ability_normal_steadfast"							"Steadfast"
-		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_normal_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"Reduces all damage taken."
+		"DOTA_Tooltip_ability_normal_steadfast_damage_reduce"				"% DAMAGE REDUCTION:"
 
 		"DOTA_Tooltip_ability_fire_temple_frenzy"								"Frenzy"
 		"DOTA_Tooltip_ability_fire_temple_frenzy_Description"					"Each successive outgoing attack adds a stack that increases movespeed and attack speed."	
@@ -1366,10 +1366,10 @@
 		"DOTA_Tooltip_ability_tanari_ancient_hero_wind_god_evasion"			"EVASION:"
 
 		"DOTA_Tooltip_ability_ancient_god_steadfast"							"Ancient Steadfast"
-		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_ancient_god_steadfast_max_damage"					"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_ancient_god_steadfast_Description"				"Greatly reduces all damage taken."
+		"DOTA_Tooltip_ability_ancient_god_steadfast_damage_reduce"				"% DAMAGE REDUCTION:"
 		"DOTA_Tooltip_modifier_ancient_steadfast"								"Ancient Steadfast"
-		"DOTA_Tooltip_modifier_ancient_steadfast_Description"					"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_modifier_ancient_steadfast_Description"					"Reduced damage taken."
 
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave"					"Fire Wave"
 		"DOTA_Tooltip_ability_ancient_god_dragon_slave_Description"		"A burning dragon deals damage to enemies in a line."
@@ -1430,6 +1430,9 @@
 		 "boulderspine_obsidian_cave_beast"			"Cave Beast"
 		 "boulderspine_mud_golem"					"Mud Golem"
 		 "boulderspine_firebat"						"Hellbat"
+		 "DOTA_Tooltip_ability_boulderspine_fire_bat_ai"	"Flaming Saliva"
+		 "DOTA_Tooltip_ability_boulderspine_fire_bat_ai_Description"	"Applies damage over time from burn every 0.8 seconds."
+		"DOTA_Tooltip_ability_boulderspine_fire_bat_ai_damage"	"BURN DAMAGE:"
 
 		 "DOTA_Tooltip_ability_knockback_immunity"				"Knockback Immunity"
 		 "DOTA_Tooltip_ability_knockback_immunity_Description"	"Cannot be knocked back."

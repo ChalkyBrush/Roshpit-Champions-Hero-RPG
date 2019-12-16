@@ -16,7 +16,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% VENOMORT_ARCANA2_Q1_DAMAGE_PER_HERO_LVL %>"
+				"property_one"			"<% VENOMORT_ARCANA2_Q1_DAMAGE %>"
 			}
 			"02"
 			{

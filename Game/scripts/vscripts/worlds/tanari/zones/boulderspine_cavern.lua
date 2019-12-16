@@ -32,8 +32,8 @@ function Tanari:InitializeCave()
 		shroom.itemLevel = 32
 		shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 70))
 		shroom:SetRenderColor(60, 110, 110)
-		local ability = shroom:FindAbilityByName("grizzly_cave_shroom_ai")
-		ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_cave_shroom_ai", {})
+		local ability = shroom:FindAbilityByName("redfall_shroomling_ai")
+		ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_redfall_shroomling_ai", {})
 	end
 	EmitSoundOnLocationWithCaster(Vector(1920, 7104, 600), "Ambient.Tanari.CaveEntrance", Events.GameMaster)
 

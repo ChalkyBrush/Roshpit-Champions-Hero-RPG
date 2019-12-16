@@ -78,7 +78,8 @@ function heavens_shield_take_damage(event)
 		if event.attacker:GetEntityIndex() == target:GetEntityIndex() then
 			return false
 		end
-		local returnDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * (AURIUN_Q1_REFLECT_PCT_BASE + AURIUN_Q1_REFLECT_PCT * ability.q_1_level) / 100
+		local returnDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * (AURIUN_Q1_REFLECT_PCT * ability.q_1_level) / 100
+		returnDamage = returnDamage + AURIUN_Q1_REFLECT_BASE_DMG*ability.q_1_level
 		local victim = event.attacker
 		Filters:TakeArgumentsAndApplyDamage(victim, caster, returnDamage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		EmitSoundOn("Auriun.ShieldHit", target)
@@ -104,8 +105,8 @@ function heavens_shield_end(event)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_3_effect", {duration = secondWindDuration})
 			target:SetModifierStackCount("modifier_auriun_rune_q_3_effect", ability, q_3_level)
 			ability.q_3_level = q_3_level
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_3_thinker", {duration = secondWindDuration})
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_a_attack_power", {duration = secondWindDuration})
+			-- ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_rune_q_3_thinker", {duration = secondWindDuration})
+			-- ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_a_attack_power", {duration = secondWindDuration})
 		end
 	end
 end
@@ -114,14 +115,14 @@ function rune_q_3_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	if IsValidEntity(ability) then
-		local armor = target:GetPhysicalArmorValue(false)
-		local attackPowerStacks = AURIUN_Q3_BASE_DAMAGE_PER_ARMOR * ability.q_3_level * armor
-		if attackPowerStacks + target:GetAttackDamage() - target:GetModifierStackCount("modifier_auriun_c_a_attack_power", caster) > 2 ^ 31 then
-			attackPowerStacks = 2 ^ 31 - target:GetAttackDamage()
-		end
-		target:SetModifierStackCount("modifier_auriun_c_a_attack_power", caster, attackPowerStacks)
-	end
+	-- if IsValidEntity(ability) then
+	-- 	local armor = target:GetPhysicalArmorValue(false)
+	-- 	local attackPowerStacks = AURIUN_Q3_BASE_DAMAGE_PER_ARMOR * ability.q_3_level * armor
+	-- 	if attackPowerStacks + target:GetAttackDamage() - target:GetModifierStackCount("modifier_auriun_c_a_attack_power", caster) > 2 ^ 31 then
+	-- 		attackPowerStacks = 2 ^ 31 - target:GetAttackDamage()
+	-- 	end
+	-- 	target:SetModifierStackCount("modifier_auriun_c_a_attack_power", caster, attackPowerStacks)
+	-- end
 end
 
 function heavens_shield_think(event)

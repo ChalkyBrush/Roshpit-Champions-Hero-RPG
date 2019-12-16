@@ -52,32 +52,21 @@ function storm_weapon_strike(event)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_ti_5.vpcf", target, 3)
 	local damageMult = event.damage_mult
 	local damage = attack_damage * damageMult / 100
-	if caster:HasModifier("modifier_arkimus_immortal_weapon_1") then
-		damage = damage * ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
-	end
+
 	EmitSoundOn("Akrimus.StormWeaponImpact", target)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_explode_b_basher_cast.vpcf", enemy, 3)
-			if ability.w_2_level > 0 then
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_storm_weapon_b_b_visible", {duration = 9})
-				local stackGain = 1
-				if caster:HasModifier("modifier_arkimus_immortal_weapon_1") then
-					stackGain = stackGain * ARKIMUS_IMMORTAL_WEAPON_1_W2_STACK_GAIN_MULT
-				end
-				local newStacks = math.min(enemy:GetModifierStackCount("modifier_storm_weapon_b_b_visible", caster) + stackGain, 99)
-				enemy:SetModifierStackCount("modifier_storm_weapon_b_b_visible", caster, newStacks)
-				if not enemy.arkimus_b_b_pfx then
-					enemy.arkimus_b_b_pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_stackui.vpcf", PATTACH_OVERHEAD_FOLLOW, enemy)
-				end
-				ParticleManager:SetParticleControl(enemy.arkimus_b_b_pfx, 1, Vector(math.floor(newStacks / 10), newStacks % 10, newStacks))
-
-				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_storm_weapon_b_b_invisible", {duration = 9})
-				enemy:SetModifierStackCount("modifier_storm_weapon_b_b_invisible", caster, newStacks * ability.w_2_level)
-			end
 		end
+	end
+	local w_1_level = caster:GetRuneValue("w", 1)
+	if w_1_level > 0 then
+		local duration = Filters:GetAdjustedBuffDuration(caster, ARKIMUS_W1_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_damage_boost_a_a_visible", {duration = duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_damage_boost_a_a_invisible", {duration = duration})
+		caster:SetModifierStackCount("modifier_damage_boost_a_a_invisible", caster, w_1_level)
 	end
 	local w_4_level = caster:GetRuneValue("w", 4)
 	local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)

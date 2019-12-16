@@ -5,13 +5,6 @@ function CloseWitchDoctor(msg){
 	$('#witch_doctor_container').style.visibility = "collapse"
 
 	GameUI.CustomUIConfig().mainDialog = 0
-	if (msg!=0){
-		if (!(msg === undefined)){
-			if (msg.unlock == 1){
-				GameUI.CustomUIConfig().crusaderLock = 0
-			}
-		}
-	}
 	$('#final_combine_button_container').AddClass('invisible')
 	var playerID = Game.GetLocalPlayerID()
 	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
@@ -83,7 +76,7 @@ function OpenTanariWitchDoctor(){
 		$('#witch_doctor_container').style.width = "380px"
 		$('#witch_doctor_container').RemoveClass("invisible")
 		$('#witch_doctor_container').style.visibility = "visible"
-		GameUI.CustomUIConfig().mainDialog = 1
+		// GameUI.CustomUIConfig().mainDialog = 1
 
 		$('#witch_doctor_tooltip').text = $.Localize('#witch_doctor_tooltip')
 		$('#final_combine_button').RemoveClass("invisible")
@@ -128,7 +121,7 @@ function OpenSynthesisVessel(msg)
 		$('#close_witch_doctor').SetPanelEvent('onactivate', function CloseVessel(){
 			CloseSynthesisVessel(0)
 		})
-		GameUI.CustomUIConfig().mainDialog = 1
+		// GameUI.CustomUIConfig().mainDialog = 1
 		$.Msg("BIG PLAYER")	
 	}
 }
@@ -179,7 +172,7 @@ function OpenAltarOfIce(msg)
 		$('#close_witch_doctor').SetPanelEvent('onactivate', function CloseAltar(){
 			CloseAltarOfIce(0)
 		})
-		GameUI.CustomUIConfig().mainDialog = 1
+		// GameUI.CustomUIConfig().mainDialog = 1
 		$.Msg("BIG PLAYER")	
 	}
 }

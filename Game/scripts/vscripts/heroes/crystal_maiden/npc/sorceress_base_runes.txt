@@ -51,8 +51,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% SORCERESS_Q2_FROST_NOVA_DAMAGE %>"
 			}
 			"02"
 			{
@@ -114,7 +114,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.04"
+				"property_one"			"<% SORCERESS_Q4_ICE_AMP %>"
 			}
 		}
 	}
@@ -146,7 +146,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"<% SORCERESS_W1_DMG_INT_MULT %>"
 			}
 			"04"
 			{
@@ -425,7 +425,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_E4_AMPLIFY_PERCENT %>"
+				"property_one"			"<% SORCERESS_E4_DAMAGE_AS_PCT_OF_ELEMENTAL_ATK_POWER %>"
 			}
 			"02"
 			{
@@ -581,7 +581,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SORCERESS_R4_FIRE_AMP_PER_ATR_PCT %>"
+				"property_one"			"<% SORCERESS_R4_FIRE_AMP * 100 %>"
 			}
 		}
 	}

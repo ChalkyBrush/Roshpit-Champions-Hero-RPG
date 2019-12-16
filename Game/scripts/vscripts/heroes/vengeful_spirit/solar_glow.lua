@@ -117,7 +117,7 @@ function flareImpact(caster, ability)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	local element2 = RPC_ELEMENT_FIRE
 	if caster.typeName == "moon" then
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		element2 = RPC_ELEMENT_ICE
 	end
 	local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

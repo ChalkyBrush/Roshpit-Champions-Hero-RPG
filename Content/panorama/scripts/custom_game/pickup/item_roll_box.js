@@ -34,6 +34,8 @@ function InitializeRollBox(){
 	Root.AddClass("rollItemPosition"+rollSlot)
 	$('#roll-item-image').contextEntityIndex = item;
 	$('#roll-item-image').SetAttributeInt("item", item)
+
+	manageSockets(item)
 	// $('#need-button-label').text = $.Localize('#ui_need_roll')
 	// $('#greed-button-label').text = $.Localize('#ui_greed_roll')
 	// $('#pass-button-label').text = $.Localize('#ui_pass_roll')

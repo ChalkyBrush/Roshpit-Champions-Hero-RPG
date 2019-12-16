@@ -1,0 +1,86 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/challenges/elder_rai.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/challenges/elder_rai.js" />
+	</scripts>
+	<snippets>
+		<snippet name="elder_rai_main">
+			<Panel class="elder_rai" hittest="false">
+				<Panel id="elder_rai_bg" hittest="false"/>
+				
+				<Panel class="elder_rai_mega_container">
+					<Image id="elder_rai_header" hittest="false">
+						<Panel id="elder_rai_header_container" hittest="false">
+							<Panel id="elder_rai_header_container_bg" hittest="false"></Panel>
+							<Label id="elder_rai_header_title" text="elder_rai" hittest="false"/>
+						</Panel>
+					</Image>
+					<Panel id="elder_rai_attach_contents">
+					</Panel>
+					<Panel id="elder_rai_attach_2">
+					</Panel>
+					<Button id="close_button">
+						<Label id="close_button_label" text="ui_close"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="elder_rai_action">
+			<Panel class="elder_rai_action_root" hittest="true">
+				<Panel id="elder-rai-image-container">
+					<Image id="elder_rai_action_image"/>
+				</Panel>
+				<Label id="elder_rai_action_text"/>
+			</Panel>
+		</snippet>
+		<snippet name="elder_rai_exp_orb_purchase">
+			<Panel class="elder_rai_exp_orb_root" hittest="false">
+				<Image id="elder_rai_orb_image_preview"/>
+				<Label id="elder_rai_orb_image_title"/>
+				<Label id="elder_rai_orb_description" html="true"/>
+				<Panel class="exp-orb-cost-container">
+					<Label id="elder_rai_orb_mithril_cost_left"/>
+					<Panel class="cost_value_container">
+						<Image class="mithril_preview" src="file://{images}/custom_game/ui/mithril_shard.png"/>
+						<Label id="elder_rai_orb_mithril_cost_right"/>
+					</Panel>
+				</Panel>
+				<Panel class="exp-orb-cost-container">
+					<Label id="elder_rai_orb_your_mithril_left"/>
+					<Panel class="cost_value_container">
+						<Image class="mithril_preview" src="file://{images}/custom_game/ui/mithril_shard.png"/>
+						<Label id="elder_rai_orb_your_mithril_right"/>
+					</Panel>
+				</Panel>
+				<Button id="elder_rai_orb_final_purchase" hittest="true">
+					<Label id="final_elder_rai_orb_purchase_label" text="elder_rai_purchase_exp_orb"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="elder_rai_gemstone_refine">
+			<Panel class="elder_rai_exp_orb_root" hittest="false">
+				<Image id="elder_rai_orb_image_preview"/>
+				<Label id="elder_rai_orb_image_title"/>
+				<Label id="elder_rai_orb_description" html="true"/>
+				<Panel class="exp-orb-cost-container">
+					<Label id="elder_rai_orb_mithril_cost_left"/>
+					<Panel class="cost_value_container">
+						<Image class="mithril_preview" src="file://{images}/custom_game/ui/prismatic_gemstones.png"/>
+						<Label id="elder_rai_orb_mithril_cost_right"/>
+					</Panel>
+				</Panel>
+				<Button id="elder_rai_orb_final_purchase" hittest="true">
+					<Label id="final_elder_rai_orb_purchase_label" text="elder_rai_purchase_exp_orb"/>
+				</Button>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="elder_rai_content" hittest="false">
+		<Panel id="elder_rai_container" hittest="false">
+
+		</Panel>
+	</Panel>
+</root>

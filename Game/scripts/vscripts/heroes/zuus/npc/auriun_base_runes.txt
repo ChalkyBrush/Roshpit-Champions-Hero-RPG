@@ -16,12 +16,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_Q1_REFLECT_PCT %>"
+				"property_one"			"<% AURIUN_Q1_REFLECT_BASE_DMG %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% AURIUN_Q1_REFLECT_PCT_BASE %>"
+				"property_two"			"<% AURIUN_Q1_REFLECT_PCT %>"
 			}
 			"03"
 			{
@@ -73,12 +73,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_Q3_ARMOR_BONUS %>"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% AURIUN_Q3_BASE_DAMAGE_PER_ARMOR %>"
+				"property_one"			"<% AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS %>"
 			}
 		}
 		"Modifiers"
@@ -91,11 +86,6 @@
 
 				"EffectName"		"particles/units/heroes/hero_medusa/auriun_c_a.vpcf"
 				"EffectAttachType"	"attach_origin"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% AURIUN_Q3_ARMOR_BONUS %>"
-				}
 			}
 		}
 	}
@@ -116,7 +106,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_Q4_BAD %>"
+				"property_one"			"<% AURIUN_Q4_SPIRIT %>"
 			}
 		}
 		"Modifiers"
@@ -166,8 +156,8 @@
 			}
 			"05"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% AURIUN_W1_DMG_PER_LVL_PER_HERO_LVL_PER_INT %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% AURIUN_W1_DMG_PER_INT %>"
 			}
 		}
 	}
@@ -188,12 +178,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * 10 * 100 %>"
+				"property_one"			"<% AURIUN_W2_HEAL_SHADOW_HOLY_AMP * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% AURIUN_W2_HEAL_SHADOW_HOLY_PCT_PER_INT * 10 * 100 %>"
+				"property_two"			"<% AURIUN_W2_HEALING_AMP * 100 %>"
 			}
 		}
 	}
@@ -214,7 +204,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_W3_PART_OF_HEAL_PER_TICK / 100 %>"
+				"property_one"			"<% AURIUN_W3_PART_OF_HEAL_PER_TICK*100 %>"
 			}
 		}
 		"Modifiers"
@@ -316,8 +306,13 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_E1_MAGIC_PURE_POST_MITI %>"
+				"property_one"			"<% AURIUN_E1_SPELL_PIERCE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% AURIUN_E1_MAGIC_ARMOR %>"
+			}		
 		}
 		"Modifiers"
 		{

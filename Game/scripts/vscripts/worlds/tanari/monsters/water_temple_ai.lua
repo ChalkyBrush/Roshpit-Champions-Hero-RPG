@@ -23,7 +23,7 @@ function tanari_ancient_think(event)
 							local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 							for _, enemy in pairs(enemies) do
 								local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), enemy:GetAbsOrigin())
-								local damage = baseDamage * distance / 10
+								local damage = baseDamage * (1 + distance / 1000)
 								ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 								enemy:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.7})
 								EmitSoundOn("Tanari.Ancient.Quake", enemy)
@@ -291,6 +291,7 @@ end
 
 function WaterTempleChest1(trigger)
 	local chest = Tanari.WaterTemple.TempleChest1
+	chest:SetRoshpitLevel(25 + (GameState:GetDifficultyFactor()-1)*35)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
 	EmitSoundOn("ui.treasure_unlock.wav", chest)
@@ -299,8 +300,8 @@ function WaterTempleChest1(trigger)
 	Timers:CreateTimer(2.0, function()
 		for i = 0, RandomInt(7, 8 + GameState:GetPlayerPremiumStatusCount()), 1 do
 			EmitSoundOn("General.FemaleLevelUp", chest)
-			RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 		end
+		chest:ChestDrops(7)
 		local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, chest)
 		local origin = chest:GetAbsOrigin()
@@ -911,7 +912,7 @@ function water_emperor_die(event)
 	end)
 	local luck = RandomInt(1, 5)
 	if luck == 1 then
-		RPCItems:RollBootsOfPureWaters(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_boots_of_pure_waters")
 	end
 end
 
@@ -1452,7 +1453,7 @@ function water_temple_boss_take_damage(event)
 	local currentStacks = attacker:GetModifierStackCount("modifier_rising_tides_stacking_effect", caster)
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_rising_tides_stacking_effect", {duration = 5})
 	attacker:SetModifierStackCount("modifier_rising_tides_stacking_effect", caster, currentStacks + 1)
-	if currentStacks + 1 >= 12 then
+	if currentStacks + 1 >= 15 then
 		attacker:RemoveModifierByName("modifier_rising_tides_stacking_effect")
 		WallPhysics:Jump(attacker, Vector(1, 1), 0, 32, 32, 0.9)
 		attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 2.0})
@@ -1535,17 +1536,14 @@ function water_temple_boss_die_begin(event)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 3)
 		if luck == 3 then
-			RPCItems:RollDepthCrestArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_depth_crest_armor")
 		end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(13)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(8, function()
+		Enemies:EnemySlain(caster, nil)
 		Events:MainBossSlain(caster:GetUnitName())
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_water_temple_boss_dying")
@@ -1757,7 +1755,7 @@ end
 function rare_construct_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.RareWaterConstruct.Die", caster)
-	RPCItems:RollWaterMageRobes(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_water_mage_robes")
 end
 
 function flood_robe_upgrading_think(event)
@@ -2579,7 +2577,7 @@ function ice_queen_die(event)
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollAlaranaIceBoot(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_alaranas_ice_boot")
 	end
 	Tanari:SpawnSpiritMountain()
 end
@@ -2894,11 +2892,7 @@ function water_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(13)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		--print(itemName)
@@ -2910,11 +2904,11 @@ function water_temple_spirit_boss_die_begin(event)
 
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollBlueRainGauntlet(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_blue_rain_gauntlet")
 		elseif luck == 2 then
 			RPCItems:RollAquastoneRing(bossOrigin)
 		elseif luck == 3 then
-			RPCItems:RollAquasteelBracers(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_aquasteel_bracers")
 		end
 	end)
 	Timers:CreateTimer(4, function()
@@ -2925,10 +2919,11 @@ function water_temple_spirit_boss_die_begin(event)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollSpiritWarriorArcana1(bossOrigin)
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_spirit_warrior_arcana1")
 		end
 	end)
 	Timers:CreateTimer(8, function()
+		Enemies:EnemySlain(caster, nil)
 		Events:MainBossSlain(caster:GetUnitName())
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_wind_temple_boss_dying")

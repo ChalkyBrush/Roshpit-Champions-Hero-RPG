@@ -301,7 +301,6 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 				unit:SetOrigin(newPosition - forwardVector * propulsion)
 			end
-			CustomAbilities:HeroicLeapThink(unit)
 
 		end)
 	end
@@ -320,7 +319,6 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 				unit:SetOrigin(newPosition - forwardVector * propulsion)
 			end
-			CustomAbilities:HeroicLeapThink(unit)
 			if fallLoop > liftDuration then
 				unit:RemoveModifierByName("modifier_jumping")
 				FindClearSpaceForUnit(unit, currentPosition, false)
@@ -574,9 +572,9 @@ function WallPhysics:UnitLand(unit)
 				AbilityIndex = ravage:entindex(),
 			}
 			ExecuteOrderFromTable(newOrder)
-		elseif caster.jumpEnd == "sunder" then
+		elseif caster.jumpEnd == "red_general_ability_base_r_sunder" then
 			caster.jumpEnd = false
-			local ability = caster:FindAbilityByName("sunder")
+			local ability = caster:FindAbilityByName("red_general_ability_base_r_sunder")
 			local damage = ability:GetSpecialValueFor("main_damage")
 			local q_3_level = caster:GetRuneValue("q", 3)
 			local damageAmp = 0.5 + q_3_level * 0.1

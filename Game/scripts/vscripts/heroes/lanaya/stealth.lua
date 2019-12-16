@@ -289,19 +289,14 @@ function backstab_channel_succeed(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_backstab_flailing", {duration = 4})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_backstab_jumping", {duration = 0.7})
 	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "trapper")
-	ability.r_1_damage = math.floor(a_d_level * TRAPPER_R1_DMG_PCT_NEAREST/100 * damage)
+	ability.r_1_damage = math.floor(a_d_level * TRAPPER_R1_DAMAGE_PCT_OF_MAIN_DAMAGE * damage)
 	ability.main_target = target
 	ability.bSound = true
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOn("Hero_Pudge.Attack", caster)
 		WallPhysics:Jump(target, casterFV, 20, 2, 2, 1.2)
-		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
-		Timers:CreateTimer(2, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
+		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf"
+		CustomAbilities:QuickAttachParticle(particleName, target, 5)
 		EmitSoundOn("Trapper.BackstabStrike", target)
 		caster:RemoveModifierByName("modifier_trapper_stealth")
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
@@ -356,7 +351,7 @@ function trapper_a_d_projectile_strike(event)
 	local ability = event.ability
 	local damage = ability.r_1_damage
 	if ability.main_target == target then
-		damage = damage * TRAPPER_R1_DMG_TARGET_MORE_TIMES_BASE
+		damage = damage * TRAPPER_R1_DAMAGE_MULT_TO_MAIN_TARGET
 	end
 	Damage:Apply({
 		victim = target,
@@ -370,13 +365,13 @@ function trapper_a_d_projectile_strike(event)
 		}
 	})
 
-	local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
-	Timers:CreateTimer(2, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
+	-- local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+	-- local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+	-- ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "follow_origin", target:GetAbsOrigin(), true)
+	-- Timers:CreateTimer(2, function()
+	-- 	ParticleManager:DestroyParticle(pfx, false)
+	-- end)
 	PopupDamage(target, damage)
 	if ability.bSound then
 		ability.bSound = false

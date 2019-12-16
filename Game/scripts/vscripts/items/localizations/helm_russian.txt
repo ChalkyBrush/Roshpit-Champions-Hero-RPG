@@ -1,375 +1,697 @@
+		"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
+		"item_property_samurai_helmet"				"Critical Strike"
+		"property_samurai_helmet_description"		"Атаки героя имеют <% ADAMANTINE_SAMURAI_CHANCE %>% шанс нанести урон, увеличенный на <% ADAMANTINE_SAMURAI_CRIT %>%."
+
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"Увеличивает Силу на @ruby_property1"
+		"item_rpc_adamantine_samurai_helmet_emerald1" "Увеличивает Ловкость на @emerald_property1"
+		"item_rpc_adamantine_samurai_helmet_sapphire1"	"Увеличивает шанс критического удара на @sapphire_property1%"
+		"item_rpc_adamantine_samurai_helmet_amethyst1" "Увеличивает урон критического удара на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
+		"item_property_arcane_cascade_hat"				"Arcane Cascade"
+		"property_arcane_cascade_hat_description"		"Поглощает <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% от максимальной маны каждые <% ARCANE_CASCADE_TICKRATE %> сек. Все противники в радиусе <% ARCANE_CASCADE_RANGE %> получают <% ARCANE_CASCADE_DAMAGE %>x от поглощенной маны Магическим уроном."
+
+		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=\"#E1A2E8\">Тайны</font> на @ruby_property1%"
+		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"
+		"item_rpc_arcane_cascade_hat_sapphire1"	"Увеличивает поглощение маны дополнительно на @sapphire_property1%"
+		"item_rpc_arcane_cascade_hat_amethyst1" "Магическая защита противников под действием эффекта снижается на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
+		"item_property_autumn_sleeper"						"Wild Overgrowth"
+		 "property_autumn_sleeper_description"				"Противники на расстоянии в <% AUTUMN_SLEEPER_RADIUS %> от героя будут опутаны корнями на <% AUTUMN_SLEEPER_ROOT_DUR %> секунд (Оцепенение)."
+		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
+		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Оцепенение"
+
+		"item_rpc_autumn_sleeper_mask_ruby1"	"Произнесение [R] опутывает противников в радиусе <% AUTUMN_SLEEPER_RUBY_RADIUS %> на @ruby_property1 сек"
+		"item_rpc_autumn_sleeper_mask_emerald1" "Противники под эффектом Wild Overgrowth получают @emerald_property1% от силы атаки героя каждые <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> сек"
+		"item_rpc_autumn_sleeper_mask_sapphire1"	"Когда оцепенение от Wild Overgrowth заканчивается, освобожденные противники замедляют передвижение на <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> в течение @sapphire_property1 сек"
+		"item_rpc_autumn_sleeper_mask_amethyst1" "Противники под эффектом Wild Overgrowth имеют сниженную на @amethyst_property1 Броню"
+
+		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
+		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow_Description"	"Передвижение замедлено"
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"Basilisk Plague Helm"
 		"item_property_basilisk_plague"					"Depth Rot"
-		"property_basilisk_plague_description"				"Облако губительного газа окружает героя, попавшие в которое противники замедляются на <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% и снижают скорость атаки на <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Противники, находящиеся в газе более <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> секунд превращаются в камень на <% BASILISK_PLAGUE_STONE_FORM_DUR %> сек., будучи парализованными, но иммунными к любой магии, они получают <% BASILISK_PLAGUE_PHYSICAL_POSTMIT * 100%>% больше Физического пост-резистного урона."
-        "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
-		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Превращён в камень. Иммунитет к магии."
+		"property_basilisk_plague_description"				"Облако смрада окружает героя, замедляя передвижение противников в нем на <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>%, а скорость их атаки на <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Противники, стоящие в облаке дольше <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> сек. окаменеют на <% BASILISK_PLAGUE_STONE_FORM_DUR %> сек (Противники в это состоянии парализованы, но иммунны к заклинаниям."
+		
+		"item_rpc_basilisk_plague_helm_ruby1"	"Скорость атаки противников в облаке дополнительно замедляется на @ruby_property1"
+		"item_rpc_basilisk_plague_helm_emerald1" "Противники получают @emerald_property1 урон каждые <% BASILISK_PLAGUE_THINK_INTERVAL %> сек. при нахождении в облаке"
+		"item_rpc_basilisk_plague_helm_sapphire1"	"Увеличивает длительность окаменения на @sapphire_property1 сек"
+		"item_rpc_basilisk_plague_helm_amethyst1" "Окаменевшие противники теряют @amethyst_property1 Брони"
 
+
+        "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
+		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Обращен в камень. Иммунитет к заклинаниям, уязвим для Физического урона."
+
+		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect"	"Depth Rot"
+		"DOTA_Tooltip_modifier_basilisk_plague_helm_effect_Description"	"Замедлен"
+
+    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
+		"item_property_blackfeather"				"Spirit of the Stormcrow"	
+		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <% BLACKFEATHER_ATTACK_DAMAGE_MULT %>x силой атаки героя."
+
+		"item_rpc_blackfeather_crown_ruby1"	"Увеличивает Урон Атаки Ворона на @ruby_property1%"
+		"item_rpc_blackfeather_crown_emerald1" "Штормовой Ворон имеет @emerald_property1% шанс атаковать противника, который атакует его героя"
+		"item_rpc_blackfeather_crown_sapphire1"	"Штормовой Ворон понижает Броню цели атаки на @sapphire_property1 в течение <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %> сек"
+		"item_rpc_blackfeather_crown_amethyst1" "Увеличивает Скорость Атаки на @amethyst_property1"
+		
+		"twilight_crow_summon"		"Штормовой Ворон"
+
+    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
+		"item_property_glint_of_onu"				"Flicker Strike"
+		"property_glint_of_onu_description"			"Базовые атаки с шансом <% GLINT_OF_ONU_CHANCE %>% телепортируют героя с увеличенной до максимума скоростью атаки на <% GLINT_OF_ONU_BUFF_DUR %> сек. за спину цели. Телепортация сбрасывает летящие в героя снаряды атак."
+		
+		"item_rpc_blinded_glint_of_onu_ruby1"	"@ruby_property1% шанс на дополнительную атаку при срабатывании эффекта"
+		"item_rpc_blinded_glint_of_onu_emerald1" "Увеличивает Ловкость на @emerald_property1"
+		"item_rpc_blinded_glint_of_onu_sapphire1"	"Увеличивает шанс срабатывания на @sapphire_property1%"
+		"item_rpc_blinded_glint_of_onu_amethyst1" "Бафф скорости атаки также дает Бонусный Урон Атаки +@amethyst_property1%"
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"Brazen Kabuto of the Desert Realm"
 		"item_property_brazen_kabuto"				"Warrior's Rampart"
-		"property_brazen_kabuto_description"		"Пока произносится способность (R) @Ability4, герой полностью неуязвим. После прочтения накладывается <% KABUTO_SHIELD_RESISTANCE * 100 %>% снижение входящего урона на <% KABUTO_SHIELD_DUR %> сек."
+		"property_brazen_kabuto_description"		"100% поглощение урона во время заряда @Ability4."
 		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
-		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Иммунитет к магии и урону."
-		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
-        "DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Входящий урон снижен на <% KABUTO_SHIELD_RESISTANCE * 100 %>%."
-		
+		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Полное поглощение урона"
 
-		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
-		 "item_property_shipyard_veil_3"					"Soul Shield"
-		 "property_shipyard_veil_3_description"				"Каждый враг, задетый (Q) @Ability1 даст герою заряд щита, способного полностью поглощать урон. Максимум зарядов - <% SHIPYARD_VEIL_MAX_STACKS %>, минимальный интервал создания щитов <% SHIPYARD_SHIELD_COOLDOWN %>. Каждый заряд дополнительно увеличивает урон (Q) @Ability1 на <% SHIPYARD_VEIL_BAD_PER_STACK %>%. Враг, атаковавший героя во время активного щита будет ответно атакован черепом, который нанесёт магический урон в размере <% SHIPYARD_SHIELD_PRIMARY_ATT_AS_DMG %>x от основного атрибута героя."
+		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"Увеличивает Силу на @ruby_property1"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_emerald1" "Увеличивает Базовый Урон Способности [R] на @emerald_property1%"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_sapphire1"	"@sapphire_property1% шанс сбросить перезарядку [R] в начале заряда способности"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_amethyst1" "По окончании прочтения [R] даёт герою щит, снижающий получаемый урон на <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>% в течение @amethyst_property1 сек"
 
-		 
-		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
-		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Absorbing damage instances."
+		"DOTA_Tooltip_modifier_brazen_kabuto_shield"	"Warrior's Rampart"
+        "DOTA_Tooltip_modifier_brazen_kabuto_shield_Description"	"Снижение получаемого урона на <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>%%."
 
+    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
+		"item_property_burning_spirit"							"Flamethrower"
+		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% от урона атаки с высокой частотой."
 
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
-		 "item_property_lava_forge"							"Lava Blast"
-		 "property_lava_forge_description"					"При получении урона в сторону атакующего будет выпущен огненный шар, наносящий урон самой цели при попадании и соседним целям в небольшом радиусе в размере <% LAVA_FORGE_DMG_PER_ATT %>x базового урона + <% LAVA_FORGE_DMG_PER_AGI %>x Ловкости."
-		 
-		 
-    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage Hat"
-		"item_property_white_mage_hat_2"			"Curaga"
-		"property_white_mage_hat_2_description"		"Каждое прочтение (W) @Ability2 дополнительно восстановит здоровье вам и вашим союзникам в размере <% WHITE_MAGE_INT_TO_HEAL %>x вашего Интеллекта. Когда цели имеют полное здоровье, каждое следующее применение эффекта наделит их щитом, который способен поглотить урон. Сила щита зависит от силы лечения, но не более 100% от максимального здоровья цели.<br>Базовый Урон Способностей увеличивается на <% WHITE_MAGE_BAD_PER_INT %>% за каждые <% WHITE_MAGE_INT_DIVISOR %> очков Интеллекта."
-		"DOTA_Tooltip_modifier_white_mage_shield"	"White Mage Shield"
-		"DOTA_Tooltip_modifier_white_mage_shield_Description"	"Поглощение урона"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
-		"item_property_hyper_visor2"				"Hyper Lightning"
-		"property_hyper_visor2_description"			"С <% HYPER_VISOR_CHANCE %>% шансом вместе с вашими атаками во врага ударит молния, которая нанесет урон по области равный <% HYPER_VISOR_ATTACK_TO_DMG %>x от вашего урона. Снижает базовое время атаки <% HYPER_VISOR_BAT %> сек.<br>Весь урон, напрямую наносимый предметами увеличивается на <% HYPER_VISOR_AGI_TO_ITEM_AMP %>% за каждые <% HYPER_VISOR_AGI_DIVISOR %> очков Ловкости."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
-		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"При успешном прочтении (R) @Ability4 на поле боя будет призван рубиновый дракон на <% RUBY_DRAGON_DURATION %> сек. способный выдыхать огонь, наносящий урон, равный <% RUBY_DRAGON_IMPACT_DMG_PER_STR %>x вашей Силы и оставлять горение на целях в течение <% RUBY_DRAGON_TICK_DURATION %> сек. Каждый дебафф горения имеет собственную независимую длительность и урон."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
-		"item_property_centaur_horns"				"Rigidity"
-		"property_centaur_horns_description"		"Все получаемые оглушения длятся не более <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды. Любой получаемый урон не отнимет более <% CENTAUR_HORNS_DAMAGE_CAP %>% здоровья от максимума. Получение урона из любых источников, кроме самого шлема, отключает возможность восстанавливать здоровье на <% CENTAUR_HORNS_DEBUFF_DURATION %> секунды. Герой получает <% CENTAUR_HORNS_SELF_DMG %> ед. чистого урона каждые <% CENTAUR_HORNS_SELF_DMG_TICKRATE %> секунды."
-		"DOTA_Tooltip_modifier_centaur_horns_debuff"				"Rigidity"
-		"DOTA_Tooltip_modifier_centaur_horns_debuff_Description"	"Невозможно восстановить здоровье"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
-		"item_property_death_whisper"				"Death Whisper"
-		"property_death_whisper_description"		"Все враги, задетые способностью (Q) @Ability1 будут замедлены на <% DEATH_WHISPER_SLOW %> и получать на <% DEATH_WHISPER_DAMAGE_AMP_PCT %>% больше урона из всех источников в течение <% DEATH_WHISPER_DURATION %> секунд."
-		
+		"item_rpc_burning_spirit_helmet_ruby1"	"Увеличивает урон <font color=\"#EF4126\">Огня</font> на @ruby_property1%"
+		"item_rpc_burning_spirit_helmet_emerald1" "Урон потока пламени увеличивается на @emerald_property1"
+		"item_rpc_burning_spirit_helmet_sapphire1"	"Увеличивает все Атрибуты героя на @sapphire_property1"
+		"item_rpc_burning_spirit_helmet_amethyst1" "Каждое попадание пламени по противнику снизит текущую перезарядку [R] на @amethyst_property1 сек"	
+
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"С <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% шансом враг, атакующий вас будет связан в течение <% CAP_OF_WILD_NATURE_DURATION_ONE %> секунд и будет получать ежесекундный урон равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>х вашего основного атрибута."
+		"property_wild_nature_description"			"<% CAP_OF_WILD_NATURE_CHANCE_ONE %>% шанс опутать корнями атакующих героя противников на <% CAP_OF_WILD_NATURE_DURATION_ONE %> сек. Противники в корнях получают урон <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x от основного атрибута героя каждую секунду."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Задетые способностью (W) @Ability2 враги с <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% шансом будут обездвижены на <% CAP_OF_WILD_NATURE_DURATION_TWO %> сек. и будут получать ежесекундный урон, равный <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x вашего основного атрибута."
+		"property_wild_nature_two_description"		"Противники, задетые @Ability2, имеют <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% шанс быть опутаными корнями на <% CAP_OF_WILD_NATURE_DURATION_TWO %> сек. Противники в корнях получают урон <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x от основного атрибута героя каждую секунду."
+
+		"item_rpc_cap_of_wild_nature_ruby1"	"Увеличивает урон корней на @ruby_property1%"
+		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color=\"#69BC71\">Природы</font> на @emerald_property1%"
+		"item_rpc_cap_of_wild_nature_sapphire1"	"Противники, задетые [Q], будут с <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% шансом опутаны корнями на  @sapphire_property1 сек"
+		"item_rpc_cap_of_wild_nature_amethyst1" "Увеличивает Регенерацию Здоровья на @amethyst_property1"	
+
+    	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
+		"item_property_carbuncle"								"Ruby Shell"
+		"property_carbuncle_description"						"При прочтении @Ability2 даёт герою щит на <% CARBUNCLE_SHIELD_DURATION %> сек, который поглощает порцию Магического или Чистого урона, возвращает ее атакующему <font color=\"#EF4126\">Огненным</font>/<font color=\"#E1A2E8\">Тайным</font> уроном и отключается после этого. Перезарядка щита <% CARBUNCLE_SHIELD_COOLDOWN %> сек."
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
+		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Магический или Чистый урон будет возвращен атакующему"
+
+		"DOTA_Tooltip_modifier_carbuncle_cooldown"					"Ruby Shell Cooldown"
+
+		"item_rpc_carbuncles_helm_of_reflection_ruby1"	"Возвращаемый урон будет увеличен на @ruby_property1%"
+		"item_rpc_carbuncles_helm_of_reflection_emerald1" "@emerald_property1% шанс сохранить щит после поглощения и отражения порции урона, а также обновить его длительность"
+		"item_rpc_carbuncles_helm_of_reflection_sapphire1"	"Прочтение [R] применяет щит на @sapphire_property1 сек, вне зависимости от состояния перезарядки и не активируя её"
+		"item_rpc_carbuncles_helm_of_reflection_amethyst1" "Когда противнику наносится отраженный Ruby Shell урон, он оглушается на  @amethyst_property1 сек"	
+
+    	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"Sturdy Centaur Horns"	
+		"item_property_centaur_horns"				"Rigidity"
+		"property_centaur_horns_description"		"Эффекты Оглушения мгновенно сбрасываются."
+
+		"item_rpc_centaur_horns_ruby1"	"Увеличивает Силу на @ruby_property1"
+		"item_rpc_centaur_horns_emerald1" "Сброс Оглушения увеличивает скорость перемещения на @emerald_property1 в течение <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> сек"
+		"item_rpc_centaur_horns_sapphire1"	"Увеличивает Сопротивление Эффектам на @sapphire_property1%"
+		"item_rpc_centaur_horns_amethyst1" "Сброс Оглушения имеет @amethyst_property1% шанс также перезарядить способность [E]"
+		"DOTA_Tooltip_modifier_centaur_horns_haste"	"Centaur Horns (Emerald)"
+		"DOTA_Tooltip_modifier_centaur_horns_haste_Description"	"Увеличена скорость передвижения"
+
+		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
+		"item_property_chains_of_orthok"							"Binding Zeal"
+		"property_chains_of_orthok_description"						"Базовые атаки и прочтение способности @Ability2 добавляют <% ORTHOK_W_CAST_STACKS %> заряд. Прочтение @Ability1 и @Ability3 добавляют <% ORTHOK_Q_E_CAST_STACKS %> заряда. Прочтение @Ability4 добавляет <% ORTHOK_R_CAST_STACKS %> заряда. Каждый заряд предмета усиливает Базовый Урон Способностей на <% ORTHOK_STACK_BAD %>%. Каждый отдельный заряд имеет собственную длительность <% ORTHOK_STACK_DURATION %> сек."
+		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
+		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Базовый Урон Способностей увеличен"
+
+		"item_rpc_chains_of_orthok_ruby1"	"Каждый заряд Binding Zeal увеличивает Базовый Урон Атаки на @ruby_property1"
+		"item_rpc_chains_of_orthok_emerald1"	"Каждый заряд Binding Zeal увеличивает Пробития Брони и Магической Защиты на @emerald_property1"
+		"item_rpc_chains_of_orthok_sapphire1" "Каждый заряд Binding Zeal увеличивает Базовый Урон Способностей дополнительно на @sapphire_property1%"
+		"item_rpc_chains_of_orthok_amethyst1" "Каждый заряд Binding Zeal увеличивает Бонусный Урон Атаки на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
+		"item_property_umbral"						"Illusory Fog"
+		"property_umbral_description"				"Противники, задетые @Ability2 имеют <% CREST_OF_UMBRAL_SENTINEL_CHANCE_TO_MISS %>% шанс промахнуться при нанесении атаки. Эффект складывается до <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> раз. Длительность эффекта <% CREST_OF_UMBRAL_SENTINEL_DURATION %> сек."
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
+		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"<% CREST_OF_UMBRAL_SENTINEL_CHANCE_TO_MISS %>%% шанс промахнуться базовыми атаками."
+
+		"item_rpc_crest_of_the_umbral_sentinel_ruby1"	"Каждый заряд эффекта дополнительно снижает скорость атаки противников на @ruby_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_emerald1"	"Увеличивает показатель [W4] на @emerald_property1"
+		"item_rpc_crest_of_the_umbral_sentinel_sapphire1" "Каждый заряд эффекта дополнительно снижает силу атаки противников на @sapphire_property1%"
+		"item_rpc_crest_of_the_umbral_sentinel_amethyst1" "Увеличивает все Атрибуты героя на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
+		"item_property_crimson_skull_cap"						"Corpse Explosion"
+		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области в <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% от их показателя Здоровья."
+
+		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает урон от взрыва дополнительно на @ruby_property1% от показателя Здоровья убитого противника"
+		"item_rpc_crimson_skull_cap_emerald1"	"Увеличивает радиус взрыва на @emerald_property1"
+		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <% CRIMSON_SKULL_CAP_SAPPHIRE_COUNTDOWN_TIMER %> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
+		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон <font color=\"#5C776E\">Нежити</font> на @amethyst_property1"
+
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
+		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown_Description"	"Носитель взорвется по окончании таймера"
 		
-		
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
+		"item_property_ruby_dragon"					"Ruby Dragon"
+		"property_ruby_dragon_description"			"Герой получает Рубинового Дракона - компаньона со способностью Flame Breath (Огненное Дыхание). Дракон имеет <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>ХП за каждый уровень героя и <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> базового урона атаки за каждый уровень героя. Весь наносимый драконом урон учитывает героя как источник."
+
+		"ruby_dragon_3"							"Ruby Dragon"
+
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Включите для активации стандартной схемы поведения дракона"
+
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Выдыхает пламя в виде конуса. Урон зависит от силы атаки."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"УРОН x СИЛА АТАКИ:"
+
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"Увеличивает базовую атаку Рубинового Дракона на @ruby_property1 за уровень героя"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"Противники, пораженные Flame Breath дракона, загораются и получают урон @emerald_property1% от урона пламени каждые 0.5 сек, в течение <% RUBY_DRAGON_EMERALD_BURN_DURATION %> сек."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "Увеличивает Скорость Атаки и Скорость Передвижения Рубинового Дракона на @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "Базовые атаки Дракона наносят урон по области, в @amethyst_property1% от его силы атаки, радиус области <% RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE %>"
+
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
+		"item_property_lava_forge"							"Tephra Burst"
+		"property_lava_forge_description"					"При получении любого урона имеется шанс <% LAVA_FORGE_BASE_PROC_CHANCE %>% запустить огненный шар в сторону источника урона, который нанесет при попадании <% LAVA_FORGE_DMG_PER_ATT %>% урон от Силы Атаки героя при попадании по цели, а также в небольшом радиусе. Максимум может быть создано <% LAVA_FORGE_MAX_FIREBALLS %> огненных шаров каждые 3 секунды."
+
+		"item_rpc_crown_of_the_lava_forge_ruby1"	"Шанс срабатывания увеличен на @ruby_property1%"
+		"item_rpc_crown_of_the_lava_forge_emerald1"	"Увеличивает урон огненных шаров дополнительно на @emerald_property1% от Ловкости"
+		"item_rpc_crown_of_the_lava_forge_sapphire1" "Увеличивает Броню и Магическую Защиту героя на @sapphire_property1"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "Увеличивает урон <font color=\"#EF4126\">Огня</font> и <font color=\"#7AE2A7\">Ветра</font> на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
+		"item_property_roknar_emperor"				"Enduring Protection"
+		"property_roknar_emperor_description"		"При Оглушении или Отталкивании героя исцеляет его на <% ROKNAR_EMPEROR_HP_PCT %>% от максимального запаса Здоровья в течение <% ROKNAR_EMPEROR_TICKRATE %> сек."
+
+		"item_rpc_crown_of_the_roknar_emperor_ruby1"	"Получает @ruby_property1 Пробития Брони и Магической Защиты, пока Оглушен"
+		"item_rpc_crown_of_the_roknar_emperor_emerald1"	"Увеличивает лечение за тик на @emerald_property1% от максимального запаса Здоровья"
+		"item_rpc_crown_of_the_roknar_emperor_sapphire1" "Увеличивает Броню на @sapphire_property1"
+		"item_rpc_crown_of_the_roknar_emperor_amethyst1" "Снижает весь получаемый урон на @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
+		"property_shark_helmet"												"Shark Bite"
+		"property_shark_helmet_Description"									"При успешном нанесении <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> атак герой получает <% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>% бонусной атаки на <% DARK_REEF_SHARK_HELMET_ACTIVE_DURATION %> сек."
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
+		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"<% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> атак активируют усиление Бонусной Атаки"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
+		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Бонусный Урон Атаки заметно увеличен"
+
+		"item_rpc_dark_reef_shark_helmet_ruby1"	"Увеличивает Скорость Атаки на @ruby_property1"
+		"item_rpc_dark_reef_shark_helmet_emerald1"	"@emerald_property1% шанс на получение двух зарядов активации вместо одного при атаке"
+		"item_rpc_dark_reef_shark_helmet_sapphire1" "Увеличивает Пробитие Брони на @sapphire_property1"
+		"item_rpc_dark_reef_shark_helmet_amethyst1" "Увеличивает длительность эффекта Shark Bite (бонус атаки) на @amethyst_property1 сек"
+
+    	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"Death Whisper Helm"
+		"item_property_death_whisper"				"Death Whisper"
+		"property_death_whisper_description"		"Противники, задетые @Ability1 получают -<% DEATH_WHISPER_SLOW %> штраф к скорости перемещения и -<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% Сопротивления Эффектам на <% DEATH_WHISPER_DURATION %> сек."
+
+		"item_rpc_death_whisper_helm_ruby1"	"Увеличивает показатель рун T1 на @ruby_property1 (Q1, W1, E1, R1)"
+		"item_rpc_death_whisper_helm_emerald1"	"Увеличивает показатель рун T2 на @emerald_property1 (Q2, W2, E2, R2)"
+		"item_rpc_death_whisper_helm_sapphire1" "Прочтение [Q] применяет невидимость на @sapphire_property1 сек"
+		"item_rpc_death_whisper_helm_amethyst1" "Увеличивает урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
+
+		"DOTA_Tooltip_modifier_death_whisper_debuff"		"Death Whisper"
+		"DOTA_Tooltip_modifier_death_whisper_debuff_Description"	"Скорость перемещения и сопротивление эффектам снижены"
+
+    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
+		"item_property_demon"						"Underworld Tear"
+		"property_demon_description"				"Противники, задетые @Ability1 имеют <% DEMON_MASK_CHANCE %>% шанс выпустить демонический взрыв, с уроном в <% DEMON_MASK_AMP %>% от урона способности, в <% DEMON_MASK_AOE %> радиусе от задетой цели. Максимум <% DEMON_MASK_MAX_PROCS_PER_SEC %> срабатываний в секунду."
+
+
+		"item_rpc_demon_mask_ruby1"	"Урон взрыва увеличен на дополнительные @ruby_property1% от урона [Q]"
+		"item_rpc_demon_mask_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
+		"item_rpc_demon_mask_sapphire1" "Увеличивает шанс срабатывания Underworld Tear на @sapphire_property1%"
+		"item_rpc_demon_mask_amethyst1" "Увеличивает урон <font color=\"#5B648C\">Демона</font> на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
+		"item_property_emerald_douli"				"Mana Shield"
+		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% от всего урона будет нанесен по Мане героя. Каждая единица Маны может поглотить <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> единицы урона."		
+
+		"item_rpc_emerald_douli_ruby1"	"Увеличивает количество урона, наносимого по Мане героя дополнительно на @ruby_property1%"
+		"item_rpc_emerald_douli_emerald1"	"Каждая единица маны может поглотить дополнительно @emerald_property1 ед. урона"
+		"item_rpc_emerald_douli_sapphire1" "Увеличивает Регенерацию Маны на @sapphire_property1"
+		"item_rpc_emerald_douli_amethyst1" "Каждая единица отсутствующей Маны увеличивает Пробитие Магической Защиты на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
+		"item_property_excavator"							"Enhance Gear"
+		"property_excavator_description"					"Урон Предметов увеличен на среднее значение усиления Базового Урона всех Способностей."
+
+		"item_rpc_excavators_focus_cap_ruby1"	"Показатель [Q3] увеличен на @ruby_property1"
+		"item_rpc_excavators_focus_cap_emerald1"	"Показатель [W3] увеличен на @emerald_property1"
+		"item_rpc_excavators_focus_cap_sapphire1" "Показатель [E3] увеличен на @sapphire_property1"
+		"item_rpc_excavators_focus_cap_amethyst1" "Показатель [R3] увеличен на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
+		 "item_property_eye_of_seasons"						"Crimson Solstice"
+		 "property_eye_of_seasons_description"				"Увеличивает Силу и Ловкость на <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% от показателя Интеллекта."
+
+		"item_rpc_eye_of_seasons_ruby1"	"Сила и Ловкость также увеличиваются на @ruby_property1% от Духа"
+		"item_rpc_eye_of_seasons_emerald1"	"Показатель рун T1 увеличен на @emerald_property1 (Q1, W1, E1, R1)"
+		"item_rpc_eye_of_seasons_sapphire1" "Увеличивает Интеллект на @sapphire_property1"
+		"item_rpc_eye_of_seasons_amethyst1" "Показатель рун T2 увеличен на @amethyst_property1 (Q2, W2, E2, R2)"
+
+    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
+		"item_property_fire_deity"							"Wrath of Fire"
+		"property_fire_deity_description"					"Урон способности @Ability2 имеет шанс <% FIRE_DEITY_CROWN_CHANCE %>% вызвать взрыв силой <% FIRE_DEITY_CROWN_AMP %>% от урона способности и оглушить противников на <% FIRE_DEITY_CROWN_STUN_DURATION %> сек. в небольшом радиусе вокруг цели. Максимум <% FIRE_DEITY_MAX_PROCS_PER_SECOND %> срабатываний в секунду."
+
+		"item_rpc_fire_deity_crown_ruby1"	"Увеличивает шанс срабатывания на @ruby_property1%"
+		"item_rpc_fire_deity_crown_emerald1"	"Увеличивает урон взрыва на @emerald_property1"
+		"item_rpc_fire_deity_crown_sapphire1" "Увеличивает длительность оглушения на @sapphire_property1"
+		"item_rpc_fire_deity_crown_amethyst1" "Увеличивает лимит срабатываний в секунду на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
+		"property_frostmaw"											"Dominator"
+		"property_frostmaw_description"								"Убийство подходящего юнита возрождает его на стороне героя. Может быть подчинен только один юнит. Для уничтожения подчиненного юнита используйте приказ атаки."
+
+		"item_rpc_frostmaw_hunters_hood_ruby1"	"Подчиненные юниты имеют бонус @ruby_property1 Здоровья"
+		"item_rpc_frostmaw_hunters_hood_emerald1"	"Подчиненные юниты имеют @emerald_property1 увеличенные Пробития Брони и Магической Защиты"
+		"item_rpc_frostmaw_hunters_hood_sapphire1" "Увеличивает максимальное количество подчиненных юнитов на @sapphire_property1"
+		"item_rpc_frostmaw_hunters_hood_amethyst1" "Подчиненные юниты имеют @amethyst_property1 увеличенные Броню и Магическую Защиту"
+
+   		"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
+		"item_property_grithault"								"Pain Reversal"
+		"property_grithault_description"						"<% GRITHAULT_CHANCE %>% шанс при получении урона исцелиться на такое же значение."
+
+		"item_rpc_guard_of_grithault_ruby1"	"@ruby_property1% шанс при получении урона обрести щит, который поглотит <% GRITHAULT_RUBY_INSTANCE_BLOCK %> порций урона. Щит не тратится при срабатывании Pain Reversal."
+		"item_rpc_guard_of_grithault_emerald1"	"Увеличивает шанс срабатывания Pain Reversal на @emerald_property1%"
+		"item_rpc_guard_of_grithault_sapphire1" "Увеличивает Броню и Магическую Защиту на @sapphire_property1"
+		"item_rpc_guard_of_grithault_amethyst1" "Показатель Духа увеличивает Максимальное Здоровье на @amethyst_property1 за единицу"
+
+		"DOTA_Tooltip_modifier_grithault_shield"			"Grithault Shield (Ruby)"
+		"DOTA_Tooltip_modifier_grithault_shield_Description"	"Щит поглощает урон"
+
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
-		"item_property_luma"						"Moon Beams"
-		"property_luma_description"					 "<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Урон от умения (Q) @Ability1 с <% LUMA_BEAM_CHANCE %>% шансом может быть нанесен лунными лучами, которые наносят урон, равный <% LUMA_DAMAGE_AMP %>% от урона умения и даёт беспрепятственный обзор местности в месте над атакованной целью на <% LUMA_VISION_DURATION %> секунды. Этот предмет ограничивает ваш стихийный урон <font color=\"#C25DFC\">Космоса</font> на <% LUMA_ELEMENT_CAP %>%."
+		"item_property_luma"						"Lucent Beam"
+		"property_luma_description"					 "Противники, задетые @Ability1 имеют <% LUMA_BEAM_CHANCE %>% шанс быть пораженными лунным лучом, наносящим <% LUMA_DAMAGE_AMP %>% от урона способности и дающим область свободного обзора на <% LUMA_VISION_DURATION %> сек. Максимально <% LUMA_MAX_PROCS_PER_SECOND %> срабатываний в секунду."
+
+		"item_rpc_guard_of_luma_ruby1"	"Шанс срабатывания лучей увеличен на @ruby_property1%"
+		"item_rpc_guard_of_luma_emerald1"	"Максимум срабатываний в секунду увеличен на @emerald_property1"
+		"item_rpc_guard_of_luma_sapphire1" "Даёт герою @sapphire_property1 свободного обзора"
+		"item_rpc_guard_of_luma_amethyst1" "Увеличивает урон лучей на @amethyst_property1% от урона способности"
+
+		"item_rpc_helm_of_champions_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
+		"item_rpc_helm_of_champions_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
+		"item_rpc_helm_of_champions_sapphire1" "Увеличивает показатель руны [Q2] на @sapphire_property1"
+		"item_rpc_helm_of_champions_amethyst1" "Увеличивает показатель руны [Q4] на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
+		"item_property_knight_hawk" 								"Peregrine Flight"
+		"property_knight_hawk_description"						"Увеличивает лимит скорости перемещения на <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. При скорости выше 550 получаемый урон будет снижен на <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. Если скорость перемещения героя снижается на <% KNIGHT_HAWK_MS_THRESHOLD_FOR_SPEED_BURST %>, он получает временный бафф <% KNIGHT_HAWK_MS_GAIN %> ускорения на <% KNIGHT_HAWK_MS_BUFF_DURATION %> сек."
+
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Peregrine Flight"
+		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Скорость перемещения увеличена"
+
+		"item_rpc_helm_of_the_knight_hawk_ruby1"	"Лимит скорости перемещения дополнительно увеличен на @ruby_property1"
+		"item_rpc_helm_of_the_knight_hawk_emerald1"	"Получаемый урон на скорости выше 550 дополнительно сокращается на @emerald_property1%"
+		"item_rpc_helm_of_the_knight_hawk_sapphire1" "Порог скорости для получения баффа ускорения повышается на @sapphire_property1"
+		"item_rpc_helm_of_the_knight_hawk_amethyst1" "Бонусная скорость от баффа ускорения увеличивается на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
+		"item_property_mountain_giant" 								"Hulking"
+		"property_mountain_giant_description"						"Показатель максимального Здоровья увеличивается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. При Здоровье выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% от максимального сопротивление урону повышается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
+
+		"item_rpc_helm_of_the_mountain_giant_ruby1"	"Максимальное Здоровье дополнительно увеличено на @ruby_property1%"
+		"item_rpc_helm_of_the_mountain_giant_emerald1"	"Снижает порог для получения бонуса к сопротивлению урону на @emerald_property1% от максимального запаса здоровья"
+		"item_rpc_helm_of_the_mountain_giant_sapphire1" "Сопротивление урону от эффекта дополнительно повышается на @sapphire_property1%"
+		"item_rpc_helm_of_the_mountain_giant_amethyst1" "Каждая единица текущего Здоровья увеличивает Пробитие Брони на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
+		"item_property_helm_of_silent_templar"					"Silent Watch"
+		 "property_helm_of_silent_templar_description"			"Прочтение @Ability4 накладывает Безмолвие на героя на <% SILENT_TEMPLAR_DURATION %> сек. На это время скорость атаки героя увеличивается на <% SILENT_TEMPLAR_AS %>, а атаки наносят дополнительно <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% Магического урона."
+		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Безмолвие. +<% SILENT_TEMPLAR_AS %> скорости атаки, атаки наносят <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>%% Магического урона."
+
+		"item_rpc_helm_of_the_silent_templar_ruby1"	"Увеличивает длительность Silent Watch на @ruby_property1 сек"
+		"item_rpc_helm_of_the_silent_templar_emerald1"	"Увеличивает скорость атаки во время Silent Watch на дополнительные @emerald_property1"
+		"item_rpc_helm_of_the_silent_templar_sapphire1" "Увеличивает дальность атаки и скорость снарядов во время Silent Watch на @sapphire_property1"
+		"item_rpc_helm_of_the_silent_templar_amethyst1" "Во время Silent Watch герой теряет <% SILENT_TEMPLAR_AMETHYST_HEALTH_REGEN_LOSS%>% и получает @amethyst_property1% силы атаки"
+
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"Hood of the Chosen"	
+		"item_rpc_hood_of_chosen_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
+		"item_rpc_hood_of_chosen_emerald1"	"Увеличивает показатель руны [E1] на @emerald_property1"
+		"item_rpc_hood_of_chosen_sapphire1" "Увеличивает показатель руны [W1] на @sapphire_property1"
+		"item_rpc_hood_of_chosen_amethyst1" "Увеличивает показатель руны [R1] на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
+		"item_property_hood_of_defiler"					"Corruption"
+		"property_hood_of_defiler_description"                "Противники, задетые @Ability2, получают проклятье, которое снижает их Броню и Магическую Защиту на <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%. Складывается <% HOOD_OF_DEFILER_ARMOR_REDUCE_MAX_STACKS %> раз, длится <% HOOD_OF_DEFILER_DURATION %> секунд."
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня и Магическая Защита снижены на <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>%%."
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
+		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased Combat Capability"
+
+		"item_rpc_hood_of_defiler_ruby1"	"Каждый противник, пораженный [W], увеличивает Бонусную Атаку героя на @ruby_property1% за заряд. Максимум <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> зарядов, которые длятся <% HOOD_OF_DEFILER_DURATION %> сек."
+		"item_rpc_hood_of_defiler_emerald1"	"Каждый противник, пораженный [W], увеличивает Пробитие Брони героя @emerald_property1. Максимум <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> зарядов, которые длятся <% HOOD_OF_DEFILER_DURATION %> сек."
+		"item_rpc_hood_of_defiler_sapphire1" "Каждый противник, пораженный [W], увеличивает Базовую Атаку героя на @sapphire_property1. Максимум <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> зарядов, которые длятся <% HOOD_OF_DEFILER_DURATION %> сек."
+		"item_rpc_hood_of_defiler_amethyst1" "Каждый противник, пораженный [W], увеличивает Пробитие Магической Защиты на @amethyst_property1. Максимум <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> зарядов, которые длятся <% HOOD_OF_DEFILER_DURATION %> сек."
+
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
+		"item_property_lords"									"Commanding Sight"
+		"property_lords_description"							"Перезарядка способностей снижена на <% HOOD_OF_LORDS_CD_RED %> сек. Способности имеют <% HOOD_OF_LORDS_BONUS_RANGE %> дополнительной дальности каста и начинают прочтение до того как герой полностью развернется в выбранную точку."
 		
-		
-    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
-		"item_property_odin"						"Zantetsuken"
-		"property_odin_description"					"С <% ODIN_HELMET_CHANCE %>% шансом все атаки и способности могут умножить урон на <% ODIN_HELMET_MULT %>. Считается Пост-Резистным усилением, но является отдельным множителем."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_iron_colussus"									"Helm of the Iron Colossus"
-		"item_property_iron_colossus"				"Iron Colossus"	
-		"property_iron_colossus_description"		"Каждое очко Силы увеличивает базовую атаку на <% IRON_COLOSSUS_ATT_PER_STR %>, а броню на <% IRON_COLOSSUS_AMR_PER_STR %> и герой становится больше на 15%. Скорость атаки фиксируется на <% IRON_COLOSSUS_ATT_SPD %>, а радиус атаки на <% IRON_COLOSSUS_ATT_RNG %>. Стандартые атаки оглушают противников на 0.5 секунды, и наносят дополнительно <% IRON_COLOSSUS_DMG_PER_ATT %>x физическим уроном. @Ability2 стоит на 1000 маны больше."
-		"DOTA_Tooltip_modifier_iron_colossus"					"Iron Colossus"
-		"DOTA_Tooltip_modifier_iron_colossus_description"		"К атакам добавляется 50х физического урона, атаки оглушают врагов на 0.5 секунды. Скорость атаки заблокирована на значении 120. Урон и броня увеличены в зависимости от Силы героя."
-		
+		"item_rpc_hood_of_lords_ruby1"	"Увеличивает показатель руны [Q4] на @ruby_property1"
+		"item_rpc_hood_of_lords_emerald1"	"Увеличивает показатель руны [E4] на @emerald_property1"
+		"item_rpc_hood_of_lords_sapphire1" "Увеличивает показатель руны [W4] на @sapphire_property1"
+		"item_rpc_hood_of_lords_amethyst1" "Увеличивает показатель руны [R4] на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
+		"item_property_black_mage"							"Black Magic"
+		"property_black_mage_description"					"Увеличивает Пробитие Магической Брони на <% HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE %>%. Снижает Броню и Пробитие Брони на <% HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY %>%."
+
+		"item_rpc_hood_of_the_black_mage_ruby1"	"Уменьшает штраф снижения Брони на @ruby_property1%"
+		"item_rpc_hood_of_the_black_mage_emerald1"	"Понижает Урон Предметов, но усиливает Урон Способностей на @emerald_property1%"
+		"item_rpc_hood_of_the_black_mage_sapphire1" "Увеличивает Интеллект на @sapphire_property1"
+		"item_rpc_hood_of_the_black_mage_amethyst1" "Увеличивает Пробитие Магической Брони дополнительно на @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
+		"property_sea_oracle"												"Tideworn Strikes"
+		"property_sea_oracle_Description"									"Атаки снижают текущую Базовую Атаку противника на <% HOOD_OF_SEA_ORACLE_DMG_DEBUFF_PCT %>%. Складывается до <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> зарядов. До тех пор, пока цель с максимальным понижением жива, герой получает увеличение Пробитий Брони и Магической Защиты на <% HOOD_OF_SEA_ORACLE_BASE_PIERCES %>."
+		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
+		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Каждый заряд снижает Базовую Атаку. При <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> зарядах герой-носитель получит значительное усиление Пробитий."
+
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff"						"Tideworn"
+		"DOTA_Tooltip_modifier_sea_oracle_mega_buff_Description"			"Пробития Брони и Магической Защиты увеличены."
+
+		"item_rpc_hood_of_the_sea_oracle_ruby1"	"Цели атак дополнительно теряют @ruby_property1 Брони за заряд"
+		"item_rpc_hood_of_the_sea_oracle_emerald1"	"Увеличивает бонус Пробитий при живой цели с максимальными зарядами ещё на @emerald_property1"
+		"item_rpc_hood_of_the_sea_oracle_sapphire1" "Цели атак дополнительно теряют @sapphire_property1 Магической Защиты за заряд"
+		"item_rpc_hood_of_the_sea_oracle_amethyst1" "Даёт @amethyst_property1% шанс применить еще один заряд на цель при атаке"
+
+    	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
+		"item_property_hyper_visor"				"Hyper Lightning"
+		"property_hyper_visor_description"			"Герой получает <% HYPER_VISOR_CHANCE %>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <% HYPER_VISOR_AOE %> в <% HYPER_VISOR_ATTACK_TO_DMG %>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <% HYPER_VISOR_BAT %> сек."
+
+		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
+		"item_rpc_hyper_visor_emerald1"	"Увеличивает урон разряда молнии дополнительно на @emerald_property1x от Ловкости"
+		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% шанс при атаке вызвать цепную молнию, которая перепрыгивает до <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> раз и наносит @sapphire_property1% от урона разряда молнии Hyper Lightning"
+		"item_rpc_hyper_visor_amethyst1" "Увеличивает Урон Предметов на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
+		"item_property_igneous_canine"							"Lava Splash"
+		"property_igneous_canine_description"					"Прочтение @Ability2 оглушает ближайших противников на <% IGNEOUS_CANINE_STUN_DURATION %> сек. и оставляет лужу из лавы, замедляющую перемещение противников на <% IGNEOUS_CANINE_MOVESPEED_SLOW %>% и скорость их атак на <% IGNEOUS_CANINE_AS_SLOW %>. Лава наносит урон в <% IGNEOUS_CANINE_ATTACK_TO_DMG %>% от силы атаки героя каждые <% IGNEOUS_CANINE_LAVA_INTERVAL %> сек. Максимально <% IGNEOUS_CANINE_MAX_LAVA_POOLS %> одновременно существующих луж лавы."
+
+		"item_rpc_igneous_canine_helm_ruby1"	"Увеличивает урон лавы на @ruby_property1x от Силы героя"
+		"item_rpc_igneous_canine_helm_emerald1"	"Увеличивает число луж лавы на @emerald_property1"
+		"item_rpc_igneous_canine_helm_sapphire1" "Увеличивает длительность оглушения на @sapphire_property1"
+		"item_rpc_igneous_canine_helm_amethyst1" "Противники в луже лавы теряют @amethyst_property1 показателя Брони"
+
+    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"Helm of the Iron Colossus"
+		"item_property_helm_of_the_iron_colossus"				"Iron Colossus"	
+		"property_helm_of_the_iron_colossus_description"		"Увеличивает размер героя на <% IRON_COLOSSUS_MODEL_SCALE %>%. Каждая единица Силы героя увеличивает его урон на <% IRON_COLOSSUS_ATT_PER_STR %>, а Броню на <% IRON_COLOSSUS_AMR_PER_STR %>. Скорость атаки зафиксирована на <% IRON_COLOSSUS_ATT_SPD %>, а дальность атаки на <% IRON_COLOSSUS_ATT_RNG %>. Базовые Атаки оглушают цели на <% IRON_COLOSSUS_STUN_DURATION %> сек. и наносят <% IRON_COLOSSUS_DMG_PER_ATT %>x от силы атаки героя Физическим уроном. @Ability2 затрачивает на <% IRON_COLOSSUS_INCR_W_MANA_COST_PCT %>% больше Маны."
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"Iron Colossus"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"Атаки наносят дополнительный Физический урон, оглушают противников на <% IRON_COLOSSUS_STUN_DURATION %> секунды, скорость атаки зафиксирована на <% IRON_COLOSSUS_ATT_SPD %>, дальность атак на <% IRON_COLOSSUS_ATT_RNG %>. Размер модели героя увеличен. Сила дополнительно увеличивает урон Атаки и Броню."
+
+		"item_rpc_helm_of_the_iron_colossus_ruby1"	"Увеличивает Силу на @ruby_property1"
+		"item_rpc_helm_of_the_iron_colossus_emerald1"	"Увеличивает получение Брони за единицу Силы дополнительно на @emerald_property1"
+		"item_rpc_helm_of_the_iron_colossus_sapphire1" "Уменьшает затраты Маны на [W] на @sapphire_property1%"
+		"item_rpc_helm_of_the_iron_colossus_amethyst1" "Атаки наносят дополнительно @amethyst_property1x от показателя Атаки героя"
+
+		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
+		"item_property_magistrate"											"Artillery Magus"
+		"property_magistrate_description"								"Все порции Магического или Чистого урона наносят урон по всем целям в области <% MAGISTRATE_HOOD_AOE %>. Этот эффект работает только при активных зарядах, которые восстанавливаются каждые <% MAGISTRATE_HOOD_REPLENISH_TIME %> сек. Максимум зарядов <% MAGISTRATE_HOOD_MAX_CHARGES %>. Весь урон по области увеличивается на <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>% за каждого противника в области поражения."
+
+		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
+		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Все порции Магического или Чистого урона наносят урон по всем целям в области <% MAGISTRATE_HOOD_AOE %>, пока хватает активных зарядов."
+
+		"item_rpc_magistrates_hood_ruby1"	"Максимум зарядов увеличивается на @ruby_property1"
+		"item_rpc_magistrates_hood_emerald1"	"Множитель урона за противников в области поражения увеличивается дополнительно на @emerald_property1%"
+		"item_rpc_magistrates_hood_sapphire1" "Пробитие Магической Защиты увеличено на @sapphire_property1"
+		"item_rpc_magistrates_hood_amethyst1" "Увеличивает Базовый Урон Способности [W] на @amethyst_property1%"
+
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Прочтение любого заклинания накладывает безмолвие на <% MUGATO_SPELL_SILENCE_DUR %> секунды, нанесение атаки - на <% MUGATO_ATTACK_SILENCE_DUR %> секунды. Герой, находясь в безмолвии, увеличивает свой пост-резистный урон на <% MUGATO_POST_MITI_PCT %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
-		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Каждое использование (W) @Ability2 выпустит перед собой рой летучих мышей, который нанесёт магичский урон в размере <% SWAMP_WITCH_HAT_INT_TO_DMG %>x вашего Интеллекта. Враги, задетые волной также будут получать на <% SWAMP_WITCH_HAT_POST_MITI %>% больше пост-резистного урона на <% SWAMP_WITCH_HAT_DURATION %> секунд. Складывается до <% SWAMP_WITCH_HAT_MAX_STACKS %> раз."
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Пост-резистный урон увеличен на 15%% за каждый заряд."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
-		"item_property_trickster"					"Laughing Gas"
-		"property_trickster_description"			"Каждое использование (W) @Ability2 мгновенно переместит вас на расстояние <% TRICKSTER_MASK_RANGE %> юнитов в случайном направлении. Любой исходящий урон каждый раз умножается на случайное число от <% TRICKSTER_MASK_ALL_DMG_MULT_MIN %> до <% TRICKSTER_MASK_ALL_DMG_MULT_MAX %>. Дополнительно Базовый Урон Способности (W) @Ability2 умножается на случайное число от <% TRICKSTER_MASK_W_DMG_MULT_MIN %> до <% TRICKSTER_MASK_W_DMG_MULT_MAX %>. Модификаторы удачи влияют на шанс."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"Emerald Douli"
-		"item_property_emerald_douli"				"Mana Shield"
-		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% отнимается из маны вместо здоровья. 1 очко маны может поглотить <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> урона. Эффект не работает при показателе маны ниже <% EMERALD_DOULI_MANA_THRESHOLD_PCT %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
-		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждое очко Силы увеличивает здоровье на <% TYRIUS_HP_PER_STR %> и ману на <% TYRIUS_MANA_PER_STR %>."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"Стоимость маны для (W) @Ability2 выше на <% CERULEAN_HIGHGUARD_MANA_INCREASE %>%, при этом способность нанесёт на <% CERULEAN_HIGHGUARD_BAD %>% больше урона."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
-		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"После прочтения способности (R) @Ability4 атаки получат дополнительную дальность <% SUPER_ASCENDENCY_ATK_RANGE %> юнитов, урон атак увеличен на <% SUPER_ASCENDENCY_ATK_PCT %>%, скорость атаки увеличивается на <% SUPER_ASCENDENCY_ATK_SPD %>, а скорость передвижения увеличивается на <% SUPER_ASCENDENCY_MOVE_SPD %>. Атаки могут одновременно поразить до <% SUPER_ASCENDENCY_TARGETS %> целей, а каждое успешное попадание по врагу снижает время перезарядки (R) @Ability4 на <% SUPER_ASCENDENCY_CD_RED %> секунды. Эффект длится столько же, сколько занимает перезарядка @Ability4, либо как минимум <% SUPER_ASCENDENCY_MIN_DURATION %> секунд."
-		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Descrtiption"	"<% SUPER_ASCENDENCY_ATK_RANGE %> бонусной дальности атаки, <% SUPER_ASCENDENCY_ATK_PCT %>%% бонусного урона атаки, <% SUPER_ASCENDENCY_ATK_SPD %> скорости атаки и <% SUPER_ASCENDENCY_MOVE_SPD %> скорости передвижения. Мультишот по <% SUPER_ASCENDENCY_TARGETS %> целям. Каждая атака немного снижает оставшийся кулдаун способности R."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"Базовый урон (W) @Ability2 увеличивается на <% PHANTOM_SORCERER_BAD %>%, а время восстановления способности увеличивается на<% PHANTOM_SORCERER_CD_INCREASE %> секунды."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
-		"item_property_arcane_cascade"				"Arcane Cascade"
-		"property_arcane_cascade_description"		"Каждые <% ARCANE_CASCADE_TICKRATE %> секунды сжигается <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% макс. маны. Все враги в радиусе <% ARCANE_CASCADE_RANGE %>, попавшие под эффект, получат магический урон в размере <% ARCANE_CASCADE_DAMAGE %>х от выжженой маны и потеряют <% ARCANE_CASCADE_MAGIC_RESISTANCE_LOSS %>% магического сопротивления. Эффект слабее, если уровень героя ниже 120."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
-		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"С <% ADAMANTINE_SAMURAI_CHANCE %>% шансом ваши атаки нанесут на <% ADAMANTINE_SAMURAI_CRIT %>% больший урон. Увеличивает Базовый Урон атак на (уровень героя * <% ADAMANTINE_SAMURAI_BASE_ATTACK_PER_LVL %>)."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
-		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"После прочтения способности (R) @Ability4, призывает 5 недвижимых скелетов-лучников. Они имеют 15% от макс. здоровья героя и атаку, равную атаке героя."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
-		"item_property_undertaker"					"Death Strike"
-		"property_undertaker_description"			"Вместе с вашими базовыми атаками выпускается медленно двигающаяся призрачная рука, наносящая 30x вашего интеллекта магическим уроном."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
-		"item_property_eternal_night"				"Tranquilizer"
-		"property_eternal_night_description"		"Атакующие вас враги с 60% шансом уснут на 6 секунд. Любой урон мгновенно пробудит их ото сна. В первую секунду сна противник будет неуязвим."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
-		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"Во время произнесения (R) @Ability4 - призывает диких волков каждые 0.5 секунды. Волки приобретают 2х вашей базовой атаки, 25% от вашего макс. здоровья и 1x броню. Дикие волки живут 16 секунд. Каждый волк распространяет складывающуюся ауру 15% повышения урона."
-		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
-		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Урон увеличен от находящихся рядом волков"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"Blinded Glint of Onu"
-		"item_property_glint_of_onu"				"Flicker Strike"
-		"property_glint_of_onu_description"			"При атаке есть <% GLINT_OF_ONU_CHANCE %>% шанс телепортироваться за спину цели, получив при этом максимальную скорость атаки в течение <% GLINT_OF_ONU_BUFF_DUR %> секунды. При срабатывании эффекта герой мгновенно производит <% GLINT_OF_ONU_NUMBER_OF_BONUS_ATTACKS %> атаки."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"Crown of the Rok'nar Emperor"
-		"item_property_roknar_emperor"				"Enduring Protection"
-		"property_roknar_emperor_description"		"Во время оглушения или отталкивания, восстанавливает <% ROKNAR_EMPEROR_HP_PCT %>% от макс. здоровья каждые <% ROKNAR_EMPEROR_TICKRATE %> секунды."
-		
-		
+		"property_mugato_description" 				"Прочтение любого заклинания накладывает на героя Безмолвие длительностью <% MUGATO_SPELL_SILENCE_DUR %> сек, а базовые атаки накладывают Безмолвие на <% MUGATO_ATTACK_SILENCE_DUR %> сек. Герой под эффектом Безмолвия из любого источника получает бонус к Пробитиям Брони и Магической Защиты +<% MUGATO_PIERCES %>."
+
+		"item_rpc_mask_of_mugato_ruby1"	"В Безмолвии герой получает бонус @ruby_property1 ко всем Атрибутам"
+		"item_rpc_mask_of_mugato_emerald1"	"Увеличивает Пробития Брони и Магической Защиты в Безмолвии еще на @emerald_property1"
+		"item_rpc_mask_of_mugato_sapphire1" "В Безмолвии теряется @sapphire_property1 Маны в секунду, но даётся @sapphire_property2% бонус к Урону Способностей"
+		"item_rpc_mask_of_mugato_amethyst1" "В Безмолвии теряется @amethyst_property1 Маны в секунду, но даётся @amethyst_property2% бонус Урона Предметов"		
+
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"После прочтения (R) @Ability4 - на поле призывается Thorok на 10 секунд. Он заимствует параметры призвавшего его героя:  8x атаки, 4x здоровья и 1x брони. Если герой призовёт его, имея меньше 40% здоровья, Thorok получит 160 скорость атаки и 100 скорость передвижения."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
-		"item_property_blackfeather"				"Vesper of Crows"	
-		"property_blackfeather_description"			"Каждые 4 секунды призывает ворону, которая наносит 5х вашего урона и снижает броню цели на 40. Время жизни вороны 10 секунд."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_wraith_crown"					"Wraith Crown"
-		"item_property_wraith_crown"									"Wraithtide"					
-		"property_wraith_crown_description"								"Если показатель здоровья равен или ниже <% WRAITH_CROWN_HP_THRESHOLD_PCT %>% от максимума, прочтение @Ability1 даст <% WRAITH_CROWN_MAG_RES_PCT %>% магического сопротивления на <% WRAITH_CROWN_MAG_RES_DUR %> сек., прочтение @Ability2 сбросит летящие в персонажа снаряды (перезарядка <% WRAITH_CROWN_DISJOINT_CD %> сек.) и прочтение @Ability 3 даст <% WRAITH_CROWN_EVASION_PCT %>% уклонения на <% WRAITH_CROWN_EVASION_DUR %> сек."
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff"				"Magical Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_magic_res_buff_description"	"<% WRAITH_CROWN_MAG_RES_PCT %>%% сопротивление магии."
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff"				"Evasive Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_evasion_buff_description"	"<% WRAITH_CROWN_EVASION_PCT %>%% уклонение."
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff"			"Disjointing Blessing of the Wraith"
-		"DOTA_Tooltip_modifier_wraith_crown_disjoint_cooldown_debuff_description"	"Сброс летящих снарядов перезаряжается."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
-		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% DEMON_MASK_CHANCE %>% шансом, умение (Q) @Ability1 нанесет взрывной огненный урон, который нанесет <% DEMON_MASK_AMP %>x урона в большой области вокруг атакованной цели."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"Crest of the Umbral Sentinel"
-		"item_property_umbral"						"Illusory Fog"
-		"property_umbral_description"				"Враги, получившие урон от (W) @Ability2 теряют броню, равную <% CREST_OF_UMBRAL_SENTINEL_ARMOR_LOSS %>*уровень способности, а также увеличивает получаемый целью пост-резистный магический урон на <% CREST_OF_UMBRAL_SENTINEL_POST_MITI_MAGIC %>%*уровень способности. Складывается до <% CREST_OF_UMBRAL_SENTINEL_MAX_STACKS %> раз. Эффект длится <% CREST_OF_UMBRAL_SENTINEL_DURATION %> секунд."
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible" "Illusory Fog"
-		"DOTA_Tooltip_modifier_crest_of_the_umbral_sentinel_effect_visible_Description"	"Теряет %% базовой брони, получает больше магического урона"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_carbuncles_helm_of_reflection"					"Carbuncle's Helm of Reflection"
-		"item_property_carbuncle"								"Ruby Shell"
-		"property_carbuncle_description"						"Прочтение (E) @Ability3 наделит героя отражающим магическим щитом. Во время действия этого щита, герой не будет получать магического урона, вместо этого, он будет усилен в <% CARBUNCLE_DAMAGE_AMP %> раз и направлен обратно во врага, дополнительно оглушая его на <% CARBUNCLE_STUN_DUR %> сек. Длится <% CARBUNCLE_SHIELD_DUR_RELATIVE_PCT %>% от времени перезарядки умения (E) либо минимально <% CARBUNCLE_SHIELD_DUR_MIN %> секунду. Поражённые отраженным магическим уроном враги невосприимчивы к повторному воздействию этого эффекта в последующие <% CARBUNCLE_ENEMY_IMMUNITY_DURATION %> сек."
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect"	"Ruby Shell"
-		"DOTA_Tooltip_modifier_carbuncles_helm_of_reflection_effect_Description"	"Получаемый магический урон снижен до 0. Весь урон усиливается и отражается обратно во врага, дополнительно оглушая его."
+		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <% DESERT_NECROMANCER_LIFE_DURATION %> секунд. Он имеет <% THOROK_CASTER_ATTACK_DMG%>x силы атаки призывателя, <% THOROK_CASTER_HP %>x Здоровья призывателя, <% THOROK_CASTER_ARMORS_AND_PIERCES%>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <% THOROK_RAGE_CASTER_HP_THRESHOLD %>% ХП, приведет его в ярость, усиливая его скорость атаки на <% THOROK_RAGE_AS %> и скорость перемещения на <% THOROK_RAGE_MS %>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
+
+		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Увеличивает Здоровье Thorok'a на @ruby_property1x от Здоровья призывателя, а продолжительность жизни на @ruby_property2 сек."
+		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok имеет @emerald_property1% вампиризм, который также лечит и его призывателя"
+		"item_rpc_mask_of_the_desert_necromancer_sapphire1" "Thorok имеет @sapphire_property1% бонус Силы Атаки"
+		"item_rpc_mask_of_the_desert_necromancer_amethyst1" "Увеличивает Скорость Атаки Thorok'a на @amethyst_property1"	
+
+		"DOTA_Tooltip_ability_thorok_toggle_ai"		"Thorok AI"
+		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Активируйте для стандартной схемы поведения миньона."
+
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
+		"item_property_phantom_sorcerer"			"Phantom Gaze"
+		"property_phantom_sorcerer_description"		"@Ability2 получает <% PHANTOM_SORCERER_BAD %>% Базового Урона Способности, но <% PHANTOM_SORCERER_CD_INCREASE %> дополнительные секунды добавляются к перезарядке способности."
+
+		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Увеличивает [W] Базовый Урон Способности на @ruby_property1%, а штраф перезарядки на @ruby_property2 сек"
+		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Увеличивает показатель руны [W2] на @emerald_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "Увеличивает показатель руны [W1] на @sapphire_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_amethyst1" "Увеличивает показатель руны [W3] на @amethyst_property1"	
+
+    	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
+		"item_property_tyrius"						"Might of Tyrius"
+		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <% TYRIUS_HP_PER_STR %>, а Максимальную Ману на <% TYRIUS_MANA_PER_STR %>."
+
+		"item_rpc_mask_of_tyrius_ruby1"		"Увеличивает Максимальное Здоровье за единицу Силы дополнительно на @ruby_property1"
+		"item_rpc_mask_of_tyrius_emerald1"	"Увеличивает Базовую Атаку героя за единицу Силы на @emerald_property1"
+		"item_rpc_mask_of_tyrius_sapphire1" "Увеличивает Максимальное Здоровье за единицу Духа на @sapphire_property1"
+		"item_rpc_mask_of_tyrius_amethyst1" "Увеличивает Базовую Атаку героя за единицу Духа на @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
+		"item_rpc_ocean_helm_of_valdun_ruby1"	"Увеличивает показатель рун [Q3] и [W3] на @ruby_property1"
+		"item_rpc_ocean_helm_of_valdun_emerald1"	"Увеличивает показатель рун [E3] и [R3] на @emerald_property1"
+		"item_rpc_ocean_helm_of_valdun_sapphire1" "Увеличивает показатель рун [W3] и [E3] на @sapphire_property1"
+		"item_rpc_ocean_helm_of_valdun_amethyst1" "Увеличивает показатель рун [Q3] и [R3] на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"Odin Helmet"
+		"item_property_odin"						"Zantetsuken"
+		"property_odin_description"					"Все Предметы и Способности имеют шанс <% ODIN_HELMET_CHANCE %>% излучить поток энергии дальностью <% ODIN_BEAM_LENGTH %> в сторону цели. Поток энергии может нанести урон по противникам до 3 раз, <% ODIN_HELMET_PCT_DAMAGE %>% от урона Способности или Предмета."
+		"item_rpc_odin_helmet_ruby1"	"Шанс срабатывания увеличен на @ruby_property1%"
+		"item_rpc_odin_helmet_emerald1"	"Увеличивает дальность потока на @emerald_property1"
+		"item_rpc_odin_helmet_sapphire1" "Увеличивает урон Zantetsuken дополнительно на @sapphire_property1% от урона Способности или Предмета"
+		"item_rpc_odin_helmet_amethyst1" "Увеличивает Базовый Урон Способностей и Урон Предметов на @amethyst_property1%"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
+		"item_property_scourge_knight"				"Undead Command"
+		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <% SCOURGE_KNIGHT_ATTACK_MULT %>x от силы Атаки героя. Скелеты имеют длительность жизни <% SCOURGE_KNIGHT_ARCHER_DURATION %> секунд, либо умирают после получения <% SCOURGE_KNIGHT_HITS_TO_KILL %> ударов."
+
+		"item_rpc_scourge_knights_helm_ruby1"	"Скелеты-лучники получают 50% шанс появиться c Огненными стрелами, нанося урон от стрел по области @ruby_property1"
+		"item_rpc_scourge_knights_helm_emerald1"	"Скелеты-лучники получают 50% шанс появиться с Ядовитыми стрелами, нанося @emerald_property1% от силы Атаки героя-призывателя в течение <% SCOURGE_KNIGHT_EMERALD_DURATION %> сек"
+		"item_rpc_scourge_knights_helm_sapphire1" "Скелеты-лучники получают 50% шанс появиться с Морозными стрелами, которые замедляют скорость передвижения и атаки противников на @sapphire_property1 в течение <% SCOURGE_KNIGHT_SAPPHIRE_DURATION %> сек"
+		"item_rpc_scourge_knights_helm_amethyst1" "Скелеты-лучники получают 50% шанс появиться со Стрелами Тайной энергии, которые наносят @amethyst_property1% дополнительного урона"
+
+		"DOTA_Tooltip_modifier_scourge_knight_poison"	"Яд Undead Command"
+
+		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"Shipyard Veil"
+		 "item_property_shipyard_veil"					"Soul Shield"
+		 "property_shipyard_veil_description"			"Урон @Ability1, задевающий противников, применяет щит, который поглощает одну порцию урона. Максимум накапливается <% SHIPYARD_VEIL_MAX_STACKS %> зарядов щита, а интервал между получением зарядов щита равен <% SHIPYARD_SHIELD_COOLDOWN %>."
+		 
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"Soul Shield"
+		 "DOTA_Tooltip_modifier_shipyard_veil_shield_Description"			"Поглощает урон."
+
+		"item_rpc_shipyard_veil_lv1_ruby1"	"Каждый заряд щита Soul Shield увеличивает Базовый Урон Способностей на @ruby_property1%"
+		"item_rpc_shipyard_veil_lv1_emerald1"	"Противник, разбивший щит, будет атакован летающим черепом с @emerald_property1 урона"
+		"item_rpc_shipyard_veil_lv1_sapphire1" "Снижает интервал между получением щитов на @sapphire_property1"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "Увеличивает урон <font color=\"#9ACCD1\">Призрака</font> на @amethyst_property1%"
+
+    	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"Shroud of Eternal Night"
+		"item_property_eternal_night"				"Tranquilizer"
+		"property_eternal_night_description"		"Атакующие героя противники имеют шанс <% ETERNAL_NIGHT_SLEEP_CHANCE %>% заснуть на <% ETERNAL_NIGHT_SLEEP_DURATION %> сек. Любой урон пробудит их, но в первую <% ETERNAL_NIGHT_UNWAKEABLE_DURATION %> секунду сна юнит не может быть пробужден. Временный иммунитет к эффекту после пробуждения длится <% ETERNAL_NIGHT_SLEEP_IMMUNITY_DURATION %> сек."
+
+		"item_rpc_shroud_of_eternal_night_ruby1"	"Противники, задетые [W] имеют @ruby_property1% шанс заснуть"
+		"item_rpc_shroud_of_eternal_night_emerald1"	"Увеличивает длительность сна на @emerald_property1 сек"
+		"item_rpc_shroud_of_eternal_night_sapphire1" "Увеличивает длительность защиты от пробуждения на @sapphire_property1 сек"
+		"item_rpc_shroud_of_eternal_night_amethyst1" "Если поблизости в радиусе <% ETERNAL_NIGHT_AMETHYST_RADIUS %> есть @amethyst_property1 спящих противников, то носитель-герой становится невидимым."
 
 		
-    	"DOTA_Tooltip_ability_item_rpc_guard_of_grithault"								"Guard of Grithault"
-		"item_property_grithault"								"Pain Reversal"
-		"property_grithault_description"						"С 24% шансом любой полученный урон аннулируется, вместо этого герой будет исцелён на то же значение."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
-		"item_property_wraith_hunter"						"Wraith Hunter"
-		"property_wraith_hunter_description"				"Значение вашей маны становится равным 0, восстановление маны возможно только путём получения урона. <% WRAITH_HUNTER_DAMAGE_CONVERSION_PCT %>% от любого полученного урона восстановит вам ману. Каждое очко маны увеличивает базовый урон на <% WRAITH_HUNTER_BASE_ATTACK %>. Каждая атака тратит <% WRAITH_HUNTER_MANA_DRAIN_PCT %>% от макс. маны. Дополнительно увеличивает урон от (W) @Ability2 на <% WRAITH_HUNTER_W_BAD %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
-		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"				"Враги, задетые способностью (W) @Ability2 получат дебафф, который снижает значение их текущей брони на <% HOOD_OF_DEFILER_ARMOR_REDUCTION %>% и дополнительно увеличивает весь физический урон по ним на <% HOOD_OF_DEFILER_POST_MITI_PHYS %>% из всех источников.<br>Складывается до <% HOOD_OF_DEFILER_POST_MITI_MAX_STACKS %> раз и длится <% HOOD_OF_DEFILER_DURATION %> секунд.<br>Увеличивает урон героя на <% HOOD_OF_DEFILER_BONUS_ATTACK_DMG_PER_TARGET %>% за каждую успешную атаку,<br>складывается до <% HOOD_OF_DEFILER_MAX_STACKS_BONUS_DMG %> раз."
-		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
-		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня снижена, получаемый физический урон увеличен."
-		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
-		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Урон увеличен."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_excavators_focus_cap"							"Excavator's Focus Cap"
-		"item_property_excavator"							"Enhance Gear"
-		"property_excavator_description"					"Урон, напрямую наносимый надетыми предметами увеличен на 0.5% за каждые 10 очков Интеллекта."
-		
-		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
-		 "item_property_stormcrack2"						"Stormcrack"
-		 "property_stormcrack2_description"					"Когда герой оглушает противника, он дополнительно наносит магический урон в размере <% STORMCRACK_ATTACK_DAMAGE_MULT * 2 %>x своего общего урона + <% STORMCRACK_ATTR_DAMAGE_MULT * 2 %>x суммы всех атрибутов.<br>Увеличивает длительность всех оглушений на <% STORMCRACK_STUN_DURATION_AMP %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_the_black_mage"							"Hood of the Black Mage"
-		 "item_property_black_mage"							"Black Magic"
-		 "property_black_mage_description"					"Весь пост-резистный магический урон героя увеличен на <% BLACK_MAGE_MAGIC_POST_MITI %>%. Урон, наносимый предметами снижен на <% BLACK_MAGE_ITEM_DAMAGE_PENALTY %>%."
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_autumn_sleeper_mask"								"Autumn Sleeper Mask"
-		"item_property_autumn_sleeper"						"Wild Overgrowth"
-		 "property_autumn_sleeper_description"				"Враги, находящиеся в радиусе <% AUTUMN_SLEEPER_RADIUS %> будут обездвижены на <% AUTUMN_SLEEPER_ROOT_DUR %> секунды. Прочтение (R) @Ability4 обездвиживает всех врагов в радиусе <% AUTUMN_SLEEPER_RADIUS_R %> на <% AUTUMN_SLEEPER_ROOT_DUR_R %> секунды."
-		"DOTA_Tooltip_modifier_autumn_sleeper_root"		"Wild Overgrowth"
-		"DOTA_Tooltip_modifier_autumn_sleeper_root_Description"	"Обездвижен"
-		 
-		
-    	"DOTA_Tooltip_ability_item_rpc_eye_of_seasons"									"Eye of Seasons"
-		 "item_property_eye_of_seasons"						"Crimson Solstice"
-		 "property_eye_of_seasons_description"				"Увеличивает показатели Силы и Ловкости на <% EYE_OF_SEASONS_INT_TO_STR_AGI * 100 %>% от Интеллекта."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
-		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"После прочтения (R) @Ability4 герой будет обезмолвлен на <% SILENT_TEMPLAR_DURATION %> секунд. В это время, его скорость атаки увеличена на <% SILENT_TEMPLAR_AS %>, а к обычным атакам добавляется <% SILENT_TEMPLAR_ATTACK_TO_DAMAGE %>% магического урона."
-		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Обезмолвлен. +240 скорости атаки, атаки дополнительно наносят 600% магического урона."
-		 
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
-		"item_property_wind_deity"							"Wrath of Wind"
-		 "property_wind_deity_description"						"Герой незамедлительно атакует всех врагов, задетых умением (E) @Ability3<br>(Учитываются все модификаторы атаки, максимум <% WIND_DEITY_CROWN_ATTACK_LIMIT %> атак в <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> секунду).<br>За каждого задетого атаками врага герой получает <% WIND_DEITY_CROWN_BONUS_DMG %>% бонус к урону атаки,<br>который длится <% WIND_DEITY_CROWN_BONUS_DMG_DURATION %> секунд или до повторного прочтения (E) @Ability3."
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity"
-		 "DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Урон увеличен"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
-		 "item_property_water_deity"							"Wrath of Water"
-		 "property_water_deity_description"						"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> Весь урон от (R) @Ability4 теперь заменяется на священный каскад, который наносит <% WATER_DEITY_CROWN_DAMAGE_AMP %>% от урона способности и замедляет задетых врагов на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> секунд. Этот предмет ограничивает ваш стихийный урон <font color=\"#3894FF\">ВОДЫ</font> на <% WATER_DEITY_CROWN_ELEMENT_CAP %>%."
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
-		 "DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"60%% замедление, 100%% дополнительного чистого урона"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
-		"item_property_fire_deity"							"Wrath of Fire"
-		 "property_fire_deity_description"					"<font color=\"#E4AE33\">АУГМЕНТАЦИЯ:</font> С <% FIRE_DEITY_CROWN_CHANCE %>% шансом, наносимый умением (W) @Ability2 урон окажется пирокластическим взрывом, который нанесет урон, равный <% FIRE_DEITY_CROWN_AMP %>% от урона способности и окружит ближайших врагов на <% FIRE_DEITY_CROWN_STUN_DURATION %> секунды в небольшой области вокруг. Этот предмет ограничивает ваш стихийный бонус <font color=\"#EF4126\">Огня</font> на <% FIRE_DEITY_CROWN_ELEMENT_CAP %>%."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
-		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		 "property_crimson_skull_cap_description"				"Убитые враги взрываются, нанося окружающим противникам магический урон в размере <% CRIMSON_SKULL_CAP_HP_PCT_TO_DAMAGE %>% от максимального здоровья погибшей цели."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-		"item_property_lords"									"Commanding Sight"
-		 "property_lords_description"							"Время перезарядки всех умений снижено на <% HOOD_OF_LORDS_CD_RED %>  сек., а дальность их применения увеличена на <% HOOD_OF_LORDS_BONUS_RANGE %>. Умения применяются сразу, вне зависимости от того, смотрит ли герой в нужную сторону или нет."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
-		"item_property_igneous_canine"							"Lava Splash"
-		 "property_igneous_canine_description"					"Прочтение (W) @Ability2 оглушает всех ближайших врагов на (<% IGNEOUS_CANINE_STUN_DURATION %>* уровень умения) сек. и оставляет лавовый след, который замедляет врагов на <% IGNEOUS_CANINE_MOVESPEED_SLOW %> и снижает скорость атаки на <% IGNEOUS_CANINE_AS_SLOW %>. Все находящиеся в лаве враги каждые <% IGNEOUS_CANINE_LAVA_INTERVAL %> секунды получают <% IGNEOUS_CANINE_ATTACK_TO_DMG %>x урон героя."
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
-		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время прочтения (R) @Ability4 перед героем выпускается мощный поток огня, наносящий урон, равный <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% от урона героя за каждый тик. Каждый задетый пламенем враг сокращает текущее время перезарядки (R) @Ability4 на <% BURNING_SPIRIT_CD_RED %> сек."
-		
+		"item_property_stormcrack"						"Stormcrack"
+		"property_stormcrack_description"					"Оглушение противника нанесет ему дополнительный урон в <% STORMCRACK_ATTACK_DAMAGE_PCT %>% от силы Атаки героя Магическим типом урона. Максимум срабатываний в секунду <% STORMCRACK_MAX_PROCS_PER_SECOND %>."
+
+		"item_rpc_stormcrack_helm_ruby1"	"Увеличивает длительность всех эффектов Оглушения от героя на @ruby_property1%"
+		"item_rpc_stormcrack_helm_emerald1"	"Увеличивает число допустимых срабатываний в секунду на @emerald_property1"
+		"item_rpc_stormcrack_helm_sapphire1" "Оглушение дополнительно нанесет @sapphire_property1x урон от суммы Атрибутов героя"
+		"item_rpc_stormcrack_helm_amethyst1" "Увеличивает Дух героя на @amethyst_property1, а Базовый Урон Атаки на @amethyst_property2"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
+		"item_property_super_ascendency"			"Super Ascension"
+		"property_super_ascendency_description"		"Прочтение @Ability4 даёт <% SUPER_ASCENDENCY_ATK_RANGE %> больше дальности атаки, <% SUPER_ASCENDENCY_ATK_PCT %>% Бонусного Урона Атаки, <% SUPER_ASCENDENCY_ATK_SPD %> Скорости Атаки и <% SUPER_ASCENDENCY_MOVE_SPD %> Скорости Перемещения. Атаки могут разделиться и поразить до <% SUPER_ASCENDENCY_SPLIT_TARGETS_BASE %> дополнительных целей. Длительность эффекта составляет <% SUPER_ASCENDENCY_DURATION_PCT_OF_R %>% от перезарядки @Ability4."
+
+		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> больше дальности атаки, <% SUPER_ASCENDENCY_ATK_PCT %>% Бонусного Урона Атаки, <% SUPER_ASCENDENCY_ATK_SPD %> Скорости Атаки и <% SUPER_ASCENDENCY_MOVE_SPD %> Скорости Перемещения."
+
+		"item_rpc_super_ascendency_mask_ruby1"	"Атаки дополнительно поражают +@ruby_property1 цели"
+		"item_rpc_super_ascendency_mask_emerald1"	"Каждая атака во время действия эффекта Super Ascension снизит текущую перезарядку [R] на @emerald_property1 сек"
+		"item_rpc_super_ascendency_mask_sapphire1" "Получает @sapphire_property1 Базового Урона Атаки во время Super Ascension"
+		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension имеет минимальную длительность @amethyst_property1 сек"
 
 		"DOTA_Tooltip_ability_item_rpc_swamp_doctors_tribal_mask"						"Swamp Doctor's Tribal Mask"
 		"item_property_swamp_doctor"				"Voodoo Restoration"
-		"property_swamp_doctor_description"			"Лечит вас и ближайших союзников на 40% от суммы всех атрибутов каждые 0.5 секунды."
-		
-		
+		"property_swamp_doctor_description"			"Лечит себя и союзников в радиусе <% SWAMP_DOCTOR_BASE_RADIUS %> на <% SWAMP_DOCTOR_HEAL_PCT %>% от максимального Здоровья, тик лечения раз в <% SWAMP_DOCTOR_TICK_RATE %> сек."
+
+		"item_rpc_swamp_doctors_tribal_mask_ruby1"	"Герой и союзники под действием лечения от Voodoo Restoration имеют @ruby_property1%  дополнительного сопротивления урону"
+		"item_rpc_swamp_doctors_tribal_mask_emerald1"	"Увеличивает радиус эффекта Voodoo Restoration на @emerald_property1"
+		"item_rpc_swamp_doctors_tribal_mask_sapphire1" "Герой и союзники под действием лечения от Voodoo Restoration получают заряды, повышающие Пробитие Магической Зашиты на @sapphire_property1, максимум <% SWAMP_DOCTOR_SAPPHIRE_MAX_STACKS %> зарядов "
+		"item_rpc_swamp_doctors_tribal_mask_amethyst1" "Увеличивает показатель лечения на @amethyst_property1x от суммы Духа и Интеллекта"
+
+		"DOTA_Tooltip_modifier_swamp_doctor_sapphire"	"Swamp Doctor (Sapphire)"
+		"DOTA_Tooltip_modifier_swamp_doctor_sapphire_Description"	"Пробитие Магической Зашиты увеличено."
+
+    	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
+		"item_property_swamp_witch"					"Murky Wave"
+		"property_swamp_witch_description"			"Прочтение @Ability2 выпускает стаю летучих мышей впереди героя, которые наносят <% SWAMP_WITCH_HAT_INT_TO_DMG %>x урона от Интеллекта героя. Максимум 1 срабатывание раз в <% SWAMP_WITCH_COOLDOWN %> сек."
+
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Снижение Магической Защиты"
+
+		"item_rpc_swamp_witch_hat_ruby1"	"Противники, получившие урон от Murky Wave теряют @ruby_property1 Магической Защиты. Эффект складывается до <% SWAMP_WITCH_RUBY_MAX_STACKS %> раз и длится <% SWAMP_WITCH_RUBY_DURATION %> сек"
+		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave можно использовать раз в @emerald_property1 сек"
+		"item_rpc_swamp_witch_hat_sapphire1" "Противники, задетые Murky Wave, восстановят @sapphire_property1 Маны герою"
+		"item_rpc_swamp_witch_hat_amethyst1" "Увеличивает урон Murky Wave на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"Trickster's Mask"
+		"item_property_trickster"					"Laughing Scoundrel"
+		"property_trickster_description"            "Носитель получает невидимого компаньона, который при каждом прочтении @Ability2 будет перемещать героя в случайную точку в области его действия. Перемещение сбрасывает летящие в героя снаряды. Базовый радиус области действия <% TRICKSTER_BASE_RADIUS %>."
+
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai"	"Scoundrel AI"
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai_Description"	"Активируйте для стандартной схемы поведения миньона."
+
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown"	"Invisible Fade Time"
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown_Description"	"Может замаскироваться через некоторое время, если герой будет стоять неподвижно."
+
+		"item_rpc_tricksters_mask_ruby1"	"Увеличивает область действия на @ruby_property1"
+		"item_rpc_tricksters_mask_emerald1"	"Внутри области действия миньона герой получают бонус @emerald_property1 Ловкости"
+		"item_rpc_tricksters_mask_sapphire1" "Увеличивает скорость передвижения невидимого миньона на @sapphire_property1"
+		"item_rpc_tricksters_mask_amethyst1" "Если герой стоит неподвижно внутри области действия @amethyst_property1 секунд, он станет невидимым. Невидимость развеется при любом действии."
+
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"(Q) @Ability1 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (Q) @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
-		
+		"property_twisted_mask_of_ahnqhir_a_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
+
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_sapphire1" "Увеличивает показатель руны [Q2] на @sapphire_property1"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [Q4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"(W) @Ability2 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (W) @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> секунду."
-		
+		"property_twisted_mask_of_ahnqhir_b_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> сек."
+
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [W3] на @emerald_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_sapphire1" "Увеличивает показатель руны [W2] на @sapphire_property1"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [W4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"(E) @Ability3 применяется за 0.05 секунды (Время между кликом по способности и его применением с началом отсчёта перезарядки). Сокращает время перезарядки (E) @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
-		"property_all_elements"												"Бонус к урону всех стихий, %"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
-		"property_sea_oracle"												"Progenetic Srike"
-		"property_sea_oracle_Description"									"С каждой успешной атакой броня цели и её базовый урон снижаются на <% HOOD_OF_SEA_ORACLE_ARMOR_AND_DMG_DEBUFF_PCT %>%. Складывается до <% HOOD_OF_SEA_ORACLE_MAX_STACKS %> раз. Как только вражеский юнит наберёт максимальное количество зарядов - герой будет наносить ему увеличенный на <% HOOD_OF_SEA_ORACLE_POST_MITI %>% пост-резистный урон."
-		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Progenetic Strike Stacks"
-		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"С каждым зарядом броня и базовый урон снижаются. По достижении 15 зарядов, существо будет получать увеличенный пост-резистный урон от владельца предмета Hood of the Sea Oracle."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_dark_reef_shark_helmet"					"Dark Reef Shark Helmet"	
-		"property_shark_helmet"												"Shark Bite"
-		"property_shark_helmet_Description"									"Пассивно увеличивает бонусную силу Атаки на <% DARK_REEF_SHARK_HELMET_PASSIVE_BONUS %>%. Совершив <% DARK_REEF_SHARK_HELMET_NUMBER_OF_ATTACKS %> успешных атак, герой получит <% DARK_REEF_SHARK_HELMET_ACTIVE_BONUS %>% бонус к урону на <% DARK_REEF_SHARK_HELMET_ACTIVE_DURATION %> секунды."
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks"						"Shark Stacks"
-		"DOTA_Tooltip_modifier_dark_reef_shark_stacks_Description"			"После серии из 7 успешных атак герой получит бонус к урону на 1.5 секунды."
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect"						"Shark Bite"
-		"DOTA_Tooltip_modifier_dark_reef_shark_effect_Description"			"Получен огромный бонус к урону"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_frostmaw_hunters_hood"		"Frostmaw Hunter's Hood"
-		"property_frostmaw"											"Dominator"
-		"property_frostmaw_description"								"Убийство подчиняемого юнита заставляет его встать на вашу сторону. Одновременно можно контролировать только 1 юнита. Приказ атаковать, примененный на юнита убивает его."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
-		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Увеличивает максимальный запас здоровья на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. Когда уровень здоровья выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>%, герой получает на @special_property2% меньше урона."
-	
-	
-		"DOTA_Tooltip_ability_item_rpc_chains_of_orthok"			"Chains of Orthok"
-		"item_property_chains_of_orthok"							"Binding Zeal"
-		"property_chains_of_orthok_description"						"Атаки и активация умения (W) @Ability2 добавляют по 1 заряду этого предмета. Прочтение (Q) @Ability1 и (E) @Ability3 добавляет 5 зарядов. Прочтение (R) @Ability4 добавляет 12 зарядов. Каждый заряд увеличивает Базовый Урон Способностей на @special_property1%. Каждый заряд длится 10 секунд и имеет свой собственный таймер отсчета."
-		"DOTA_Tooltip_modifier_orthok_zeal"							"Zeal"
-		"DOTA_Tooltip_modifier_orthok_zeal_Description"				"Базовый Урон Способностей увеличен"
-		
-		"DOTA_Tooltip_ability_item_rpc_helm_of_the_knight_hawk"		"Helm of the Knight Hawk"
-		"item_property_knight_hawk" 								"Haste Blade"
-		"property_knight_hawk_description"						"Увеличивает лимит скорости передвижения на <% KNIGHT_HAWK_MAX_MOVESPEED_LIMIT %>. Если скорость выше 550, то входящий урон снижается <% KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX %>%. Если скорость передвижения падает ниже 300, герой получает <% KNIGHT_HAWK_MS_GAIN %> прибавку к скорости на <% KNIGHT_HAWK_MS_BUFF_DURATION %> сек."
+		"property_twisted_mask_of_ahnqhir_c_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed"				"Haste Blade"
-		"DOTA_Tooltip_modifier_knight_hawk_helm_speed_Description"	"Скорость увеличена"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [E1] на @ruby_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [E3] на @emerald_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_sapphire1" "Увеличивает показатель руны [E2] на @sapphire_property1"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [E4] на @amethyst_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
-		"item_property_magistrate"											"Spell Spreader"
-		"property_magistrate_description"								"Весь Магический и Чистый урон наносит урон по области <% MAGISTRATE_HOOD_AOE %> единиц. Эффект тратит заряды, максимальный запас которых <% MAGISTRATE_HOOD_MAX_CHARGES %>, время перезарядки <% MAGISTRATE_HOOD_REPLENISH_TIME %> сек. Весь урон по области увеличен на <% MAGISTRATE_HOOD_DAMAGE_AMP_PCT %>%."
+    	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
+		"item_property_undertaker"					"Death Strike"
+		"property_undertaker_description"			"Базовые атаки также выпускают медленно летящую призрачную руку, которая при попадании нанесет Магический урон, равный <% UNDERTAKER_DAMAGE_INT_MULT %>x от Интеллекта героя."
 
-		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Spell Spreader Charges"
-		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Весь Магический и Чистый урон наносит урон по области, если есть заряды предмета."
+		"item_rpc_undertakers_hood_ruby1"	"Каждая единица Интеллекта увеличивает Скорость Атаки героя на @ruby_property1"
+		"item_rpc_undertakers_hood_emerald1"	"Ускоряет призрачную руку на @emerald_property1"
+		"item_rpc_undertakers_hood_sapphire1" "Попадание призрачных рук снизит Магическую Защиту целей на @sapphire_property1 на <% UNDERTAKER_SAPPHIRE_DURATION %> сек, максимум <% UNDERTAKER_SAPPHIRE_MAX_STACKS %> зарядов"
+		"item_rpc_undertakers_hood_amethyst1" "Атаки имеют дополнительный @amethyst_property1% шанс выпустить еще одну призрачную руку"
+
+		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss"	"Death Strike"
+		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Снижение Магическую Защиты"
+
+    	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
+		"item_property_cerulean_highguard"			"Concentrated Mana"
+		"property_cerulean_highguard_description"	"@Ability2 стоит <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% больше Маны и получает <% CERULEAN_HIGHGUARD_BAD %>% усиленный Урон Способности."
+
+		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Увеличивает Максимальную Ману на @ruby_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Увеличивает Пробитие Магической Защиты на @emerald_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "Увеличивает Регенерацию Маны на @sapphire_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "Увеличивает Базовый Урон Способности [W] дополнительно на @amethyst_property1 и увеличивает затраты маны на @amethyst_property2"
+
+
+    	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
+		"item_property_water_deity"							"Wrath of Water"
+		"property_water_deity_description"						"@Ability4 наносит дополнительно <% WATER_DEITY_CROWN_DAMAGE_AMP %>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_PCT %>% на <% WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION %> сек. Максимум <% WATER_DEITY_CROWN_MAX_PROCS_PER_SECOND %> срабатываний в секунду."
+		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
+		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Скорость перемещения снижена"
+
+		"item_rpc_water_deity_crown_ruby1"	"Увеличивает урон <font color=\"#3894FF\">Воды</font> на @ruby_property1%"
+		"item_rpc_water_deity_crown_emerald1"	"Эффект замедления также снижает и скорость атак на @emerald_property1"
+		"item_rpc_water_deity_crown_sapphire1" "Увеличивает урон Wrath of Water на @sapphire_property1"
+		"item_rpc_water_deity_crown_amethyst1" "Увеличивает количество срабатываний в секунду на @amethyst_property1"
+
+    	"DOTA_Tooltip_ability_item_rpc_wind_deity_crown"								"Wind Deity Crown"
+		"item_property_wind_deity"							"Wrath of Wind"
+		"property_wind_deity_description"						"Мгновенно выпускает базовую атаку во всех противников, задетых @Ability3. Максимум <% WIND_DEITY_CROWN_ATTACK_LIMIT %> срабатываний в <% WIND_DEITY_CROWN_LIMIT_INTERVAL %> сек."
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff"					"Wind Deity (Amethyst)"
+		"DOTA_Tooltip_modifier_wind_deity_damage_buff_Description"		"Бонусный Урон Атаки увеличен"
+
+		"item_rpc_wind_deity_crown_ruby1"		"Увеличивает Ловкость на @ruby_property1"
+		"item_rpc_wind_deity_crown_emerald1"	"Увеличивает урон <font color=\"#7AE2A7\">Ветра</font> на @emerald_property1%"
+		"item_rpc_wind_deity_crown_sapphire1" 	"Увеличивает количество срабатываний на @sapphire_property1"
+		"item_rpc_wind_deity_crown_amethyst1" 	"Задетые противники увеличивают Бонусный Урон Атаки героя на @amethyst_property1% на <% WIND_DEITY_AMETHYST_DURATION %> сек, но эффект будет обнулен при прочтении [E]. Максимум <% WIND_DEITY_AMETHYST_MAX_STACKS %> зарядов эффекта."
+
+
+    	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"White Mage's Shroud"
+		"item_property_white_mage_hat"			"Curaga"
+		"property_white_mage_hat_description"		"@Ability2 восстанавливает Здоровье герою и его союзникам рядом <% WHITE_MAGE_INT_TO_HEAL %>x от показателя Интеллекта. Увеличивает затраты Маны на @Ability2 на <% WHITE_MAGE_EXTRA_MANA_COST_PCT_MAX %>% от Максимального Запаса Маны."
+		"DOTA_Tooltip_modifier_white_mage_hat"	"White Mage Shield"
+		"DOTA_Tooltip_modifier_white_mage_hat_Description"	"Поглощает часть урона"
+		
+		"item_rpc_white_mage_hat_ruby1"		"Увеличивает Регенерацию Здоровья на @ruby_property1% от Максимального Запаса Здоровья"
+		"item_rpc_white_mage_hat_emerald1"	"Увеличивает эффективность любого восстановления здоровья (кроме стандартной регенерации здоровья) на @emerald_property1%"
+		"item_rpc_white_mage_hat_sapphire1" 	"Лечение от эффекта наложит щит на героя или его союзника, если оно восстановит больше Максимального Запаса Здоровья. Ёмкость щита равна @sapphire_property1% от Максимального Запаса Здоровья цели."
+		"item_rpc_white_mage_hat_amethyst1" 	"Лечение от эффекта увеличивается на @amethyst1x от показателя Духа героя"	
+		
+    	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
+		"item_property_druids_spirt"				"Feral Spirits"
+		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <% WOLFIR_DRUID_ATTACK_POWER_MULT %>x от силы Атаки героя и <% WOLFIR_DRUID_HEALTH_PCT %>% от Запаса Здоровья героя. Дикие волки живут <% WOLFIR_DRUID_WOLF_LIFE_DURATION %> секунд и только <% WOLFIR_DRUID_MAX_WOLVES %> могут быть активны одновременно."
+		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
+		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Бонусный Урон Атаки от стаи увеличен"
+
+		"DOTA_Tooltip_ability_wolfir_druid_passive"	"Feral Spirit"
+		
+		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"Каждый волк усиливает Бонус Урона Атаки на @ruby_property1% всем ближайщим союзникам."
+		"item_rpc_wolfir_druids_spirit_helm_emerald1"	"Волки имеют бонус @emerald_property1 к скорости атаки. Каждый волк усиливает скорость атаки героя-призывателя на @emerald_property2"
+		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Базовый урон атаки призванных волков увеличивается на @sapphire_property1% от показателя Пробития Магической Защиты на момент призыва"
+		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Волки получают дополнительно @amethyst_property1 запаса Здоровья за каждую единицу Силы и Духа героя-призывателя"			
+		
+		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
+		"item_property_wraith_crown"							"Ethereal Form"					
+		"property_wraith_crown_description"						"Прочтение @Ability2 применяет Эфирную форму на героя на <% WRAITH_CROWN_ETHEREAL_DURATION %> сек. В Эфирной форме герой не может атаковать и не может быть атакован, Магическая Защита снижается до 0 и каждую секунду теряется <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% от максимальной Маны. Перезарядка <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> сек."
+
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"В Эфирной форме герой не может атаковать и не может быть атакован, Магическая Защита снижается до 0."
+
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Находится в другом измерении и неуязвим."
+
+		"item_rpc_wraith_crown_ruby1"		"Снижает потерю маны в Эфирной форме на @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"Продлевает Эфирную форму на @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"Увеличивает Пробитие Магической Защиты в Эфирной форме на @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"Прочтение [W] в Эфирной форме выбрасывает героя в другое измерение, делая неуязвимым и лишенным возможности действовать на @amethyst_property1 сек. Перезарядка Эфирной формы не осуществляется в другом измерении. Приказ передвижения до завершения эффекта возвращает героя."	
+		
+    	"DOTA_Tooltip_ability_item_rpc_wraith_hunters_steel_helm"						"Wraith Hunter's Steel Helm"
+		"item_property_wraith_hunter"						"Wraith Hunter"
+		"property_wraith_hunter_description"				"Пробитие Магической Защиты увеличено на <% WRAITH_HUNTER_ARMOR_PIERCE_TO_SPELL_PIERCE_PCT %>% от показателя Пробития Брони героя."
+
+		"item_rpc_wraith_hunters_steel_helm_ruby1"		"Магическая Защита увеличена на @ruby_property1% от показателя Брони."
+		"item_rpc_wraith_hunters_steel_helm_emerald1"	"Каждая единица Ловкости увеличивает Пробитие Магической Защиты на @emerald_property1"
+		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Увеличивает Пробитие Брони на @sapphire_property1"
+		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Каждая единица Духа увеличивает Пробитие Магической Защиты на @emerald_property1"	

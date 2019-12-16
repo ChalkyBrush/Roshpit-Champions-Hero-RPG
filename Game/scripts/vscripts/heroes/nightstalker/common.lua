@@ -9,9 +9,9 @@ for modifierPath, modifier in pairs(shadowsModifiers) do
 end
 function chenobog_make_right_cooldown(caster, ability, abilityLetter)
     local cooldownAmplify = 1
-    if abilityLetter == 'q' then
-        cooldownAmplify = 1/(1 + caster.q4_level * CHERNOBOG_Q4_CD_REDUCTION_TIMES)
-    end
+    -- if abilityLetter == 'q' then
+    --     cooldownAmplify = 1/(1 + caster.q4_level * CHERNOBOG_Q4_CD_REDUCTION_TIMES)
+    -- end
     Util.Ability:MakeRightCooldown(caster, ability, {
         cooldownAmplify = cooldownAmplify
     })
@@ -35,7 +35,7 @@ function init_shadows_values_for_ability(data)
 end
 
 function hasArcana2(caster)
-    return caster:HasAbility('chernobog_3_e_arcana2') or caster:HasAbility('chernobog_3_e_arcana2_swapped')
+    return caster:HasModifier("modifier_chernobog_arcana2")
 end
 
 function getShadowsDuration(caster, baseDuration)

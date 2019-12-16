@@ -39,12 +39,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"<% FLAMEWAKER_ARCANA_Q2_MS %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"3"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -89,20 +89,15 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1.5"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_max"		"90"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"1"
 			}
-			"05"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"

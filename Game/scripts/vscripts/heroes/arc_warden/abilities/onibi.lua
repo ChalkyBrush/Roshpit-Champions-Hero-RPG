@@ -321,7 +321,7 @@ function get_onibi_exp_table()
 	local starting_requirement = 20
 	for i = 1, ONIBI_ELEMENT_MAX_LEVEL, 1 do
 		local exp_value = starting_requirement + differential
-		differential = differential + 80 * i
+		differential = differential + 20 * i
 		table[i] = exp_value
 	end
 	return table

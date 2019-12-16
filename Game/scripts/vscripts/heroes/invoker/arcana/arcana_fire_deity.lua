@@ -48,12 +48,18 @@ function fire_deity(event)
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
 	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
-	aspectHealth = aspectHealth * (1 + q_1_level * 0.05)
+	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.fireAspect:SetMaxHealth(aspectHealth)
 		caster.fireAspect:SetBaseMaxHealth(aspectHealth)
 		caster.fireAspect:SetHealth(aspectHealth)
 		caster.fireAspect:Heal(aspectHealth, caster.fireAspect)
+		caster.fireAspect:SetRoshpitLevel(caster:GetLevel())
+		caster.fireAspect:SetBaseRoshpitArmor(event.armor)
+		caster.fireAspect:SetBaseRoshpitMagicArmor(event.magic_armor)
+		caster.fireAspect:SetBaseRoshpitArmorPierce(event.armor_pierce)
+		caster.fireAspect:SetBaseRoshpitSpellPierce(event.spell_pierce)
+		caster.fireAspect:CalculateAndSaveRoshpitAttributes()
 		common_aspect_effects(caster, ability, caster.fireAspect)
 	end)
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
@@ -309,7 +315,7 @@ function fire_deity_spell_impact(event)
 	local ability = event.ability
 	local target = event.target
 	local mult = caster.conjuror:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster.conjuror) * mult
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.damage_percentage
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -319,7 +325,7 @@ function conjuror_arcana2_passive_thinker(event)
 	local w_1_level = caster:GetRuneValue("w", 1)
 	if w_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_deity_attack_pct_w1", {})
-		local stacks = w_1_level * ((caster:GetIntellect() / 10) * CONJUROR_W1_ARCANA_ATTACK_PCT_FROM_INT)
+		local stacks = w_1_level * ((caster:GetIntellect() / 10) * CONJUROR_ARCANA_W1_ATTACK_PCT_FROM_INT)
 		caster:SetModifierStackCount("modifier_deity_attack_pct_w1", caster, stacks)
 	else
 		caster:RemoveModifierByName("modifier_deity_attack_pct_w1")

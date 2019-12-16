@@ -2,69 +2,146 @@ if Runes == nil then
 	Runes = class({})
 end
 
-function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID)
-	local heroName = hero:GetName()
-	if heroName == "npc_dota_hero_dragon_knight" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "flamewaker")
-	elseif heroName == "npc_dota_hero_phantom_assassin" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "voltex")
-	elseif heroName == "npc_dota_hero_necrolyte" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "venomort")
-	elseif heroName == "npc_dota_hero_axe" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "axe")
-	elseif heroName == "npc_dota_hero_drow_ranger" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "astral")
-	elseif heroName == "npc_dota_hero_obsidian_destroyer" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "epoch")
-	elseif heroName == "npc_dota_hero_omniknight" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "paladin")
-	elseif heroName == "npc_dota_hero_crystal_maiden" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "sorceress")
-	elseif heroName == "npc_dota_hero_invoker" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "conjuror")
-	elseif heroName == "npc_dota_hero_juggernaut" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "seinaru")
-	elseif heroName == "npc_dota_hero_beastmaster" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "warlord")
-	elseif heroName == "npc_dota_hero_leshrac" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "bahamut")
-	elseif heroName == "npc_dota_hero_spirit_breaker" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "duskbringer")
-	elseif heroName == "npc_dota_hero_zuus" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "auriun")
-	elseif heroName == "npc_dota_hero_templar_assassin" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "trapper")
-	elseif heroName == "npc_dota_hero_huskar" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "spirit_warrior")
-	elseif heroName == "npc_dota_hero_legion_commander" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "mountain_protector")
-	elseif heroName == "npc_dota_hero_night_stalker" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "chernobog")
-	elseif heroName == "npc_dota_hero_vengefulspirit" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "solunia")
-	elseif heroName == "npc_dota_hero_slardar" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "hydroxis")
-	elseif heroName == "npc_dota_hero_visage" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "ekkan")
-	elseif heroName == "npc_dota_hero_dark_seer" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "zonik")
-	elseif heroName == "npc_dota_hero_antimage" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "arkimus")
-	elseif heroName == "npc_dota_hero_monkey_king" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "djanghor")
-	elseif heroName == "npc_dota_hero_slark" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "slipfinn")
-	elseif heroName == "npc_dota_hero_skywrath_mage" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "sephyr")
-	elseif heroName == "npc_dota_hero_winter_wyvern" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "dinath")
-	elseif heroName == "npc_dota_hero_arc_warden" then
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, "jex")
-	else
-		local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
-		Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
-	end
+Runes.MAX_LEVEL_T1 = 40
+Runes.MAX_LEVEL_T2 = 40
+Runes.MAX_LEVEL_T3 = 20
+Runes.MAX_LEVEL_T4 = 10
 
+Runes.COST_TO_LEVEL_T1 = 1
+Runes.COST_TO_LEVEL_T2 = 1
+Runes.COST_TO_LEVEL_T3 = 2
+Runes.COST_TO_LEVEL_T4 = 4
+
+Runes.STARTING_RUNE_POINTS = 3
+Runes.RUNE_POINTS_PER_LEVEL = 3
+
+Runes.AllRunesTable = {"q_1", "q_2", "q_3", "q_4", "w_1", "w_2", "w_3", "w_4", "e_1", "e_2", "e_3", "e_4", "r_1", "r_2", "r_3", "r_4"}
+
+function Runes:UpdateHeroSkillAndRunePoints(hero, bDebit)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, bDebit)
+	local player = hero:GetPlayerOwner()
+	local PlayerID = hero:GetPlayerOwnerID()
+	if points then
+		Runes:SetRuneUnitModifiersForUI(hero)
+		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = points.ability_points, runePoints = points.rune_points})
+		Timers:CreateTimer(0.03, function()
+			CustomGameEventManager:Send_ServerToPlayer(player, "update_abilities_and_runes_ui", {playerId = PlayerID})
+		end)
+	end
+end
+
+function CDOTABaseAbility:GetBaseRuneLevel()
+	return self.rune_level
+end
+
+function Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, bDebit)
+	local number_of_rune_points_hero_should_have = (hero:GetLevel()-1)*Runes.RUNE_POINTS_PER_LEVEL + Runes.STARTING_RUNE_POINTS
+	if hero:HasModifier("modifier_tattered_novice_armor") then
+		number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have + math.floor(hero:GetLevel()/ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS)*ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+	end
+	local t1_total = hero:GetBaseRuneValue("q", 1) + hero:GetBaseRuneValue("w", 1) + hero:GetBaseRuneValue("e", 1) + hero:GetBaseRuneValue("r", 1)
+	local t2_total = hero:GetBaseRuneValue("q", 2) + hero:GetBaseRuneValue("w", 2) + hero:GetBaseRuneValue("e", 2) + hero:GetBaseRuneValue("r", 2)
+	local t3_total = hero:GetBaseRuneValue("q", 3) + hero:GetBaseRuneValue("w", 3) + hero:GetBaseRuneValue("e", 3) + hero:GetBaseRuneValue("r", 3)
+	local t4_total = hero:GetBaseRuneValue("q", 4) + hero:GetBaseRuneValue("w", 4) + hero:GetBaseRuneValue("e", 4) + hero:GetBaseRuneValue("r", 4)
+
+	local rune_points_spent = 0
+	rune_points_spent = rune_points_spent + t1_total*Runes.COST_TO_LEVEL_T1
+	rune_points_spent = rune_points_spent + t2_total*Runes.COST_TO_LEVEL_T2
+	rune_points_spent = rune_points_spent + t3_total*Runes.COST_TO_LEVEL_T3
+	rune_points_spent = rune_points_spent + t4_total*Runes.COST_TO_LEVEL_T4
+
+	number_of_rune_points_hero_should_have = number_of_rune_points_hero_should_have - rune_points_spent
+	if number_of_rune_points_hero_should_have < 0 and bDebit then
+		Runes:RandomlyRemoveRuneLevels(hero, number_of_rune_points_hero_should_have*-1)
+		return false
+	end
+	local ability_points_hero_should_have = math.floor(hero:GetLevel()/5)
+	local ability_points_spent = (hero:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_E_SLOT):GetLevel()-1) + (hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()-1)
+	ability_points_hero_should_have = ability_points_hero_should_have - ability_points_spent
+
+	local return_value = {}
+	return_value.rune_points = number_of_rune_points_hero_should_have
+	return_value.ability_points = ability_points_hero_should_have
+	return return_value
+end
+
+function Runes:RandomlyRemoveRuneLevels(hero, amount_to_remove)
+	amount_removed = 0
+	while amount_removed < amount_to_remove do
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = 1
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T1
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit2:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = 1
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T2
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit3:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = 1
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T3
+				end
+			end
+		end
+		for t = 0, 3, 1 do
+			local ability = hero.runeUnit4:GetAbilityByIndex(t)
+			if ability then
+				local amount_to_remove = 1
+				if ability.rune_level >= amount_to_remove then
+					ability.rune_level = ability.rune_level - amount_to_remove
+					amount_removed = amount_removed + amount_to_remove*Runes.COST_TO_LEVEL_T4
+				end
+			end
+		end	
+	end
+	Runes:UpdateHeroSkillAndRunePoints(hero, true)
+end
+
+function Runes:SetRuneUnitModifiersForUI(hero)
+	local game_master_ability = Events:GetGameMasterAbility()
+	local rune_units = {hero.runeUnit, hero.runeUnit2, hero.runeUnit3, hero.runeUnit4}
+	for i = 1, #rune_units, 1 do
+		local rune_unit = rune_units[i]
+		local q_stacks = rune_unit:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseRuneLevel()
+		local w_stacks = rune_unit:GetAbilityByIndex(DOTA_W_SLOT):GetBaseRuneLevel()
+		local e_stacks = rune_unit:GetAbilityByIndex(DOTA_E_SLOT):GetBaseRuneLevel()
+		local d_stacks = rune_unit:GetAbilityByIndex(DOTA_D_SLOT):GetBaseRuneLevel()
+
+		game_master_ability:ApplyDataDrivenModifier(Events.GameMaster, rune_unit, "modifier_rune_points_q", {})
+		rune_unit:SetModifierStackCount("modifier_rune_points_q", Events.GameMaster, q_stacks)
+
+		game_master_ability:ApplyDataDrivenModifier(Events.GameMaster, rune_unit, "modifier_rune_points_w", {})
+		rune_unit:SetModifierStackCount("modifier_rune_points_w", Events.GameMaster, w_stacks)
+
+		game_master_ability:ApplyDataDrivenModifier(Events.GameMaster, rune_unit, "modifier_rune_points_e", {})
+		rune_unit:SetModifierStackCount("modifier_rune_points_e", Events.GameMaster, e_stacks)
+
+		game_master_ability:ApplyDataDrivenModifier(Events.GameMaster, rune_unit, "modifier_rune_points_d", {})
+		rune_unit:SetModifierStackCount("modifier_rune_points_d", Events.GameMaster, d_stacks)
+	end
+end
+
+function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID)
+	local heroName = hero:GetUnitName()
+	local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
+	print(roshpit_name)
+	Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
+	print("COLECTED RUNES")
 	runeUnit:AddAbility("town_unit"):SetLevel(1)
 	runeUnit2:AddAbility("town_unit"):SetLevel(1)
 	runeUnit3:AddAbility("town_unit"):SetLevel(1)
@@ -77,10 +154,6 @@ function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, pl
 	runeUnit2.owner = playerID
 	runeUnit3.owner = playerID
 	runeUnit4.owner = playerID
-	setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
-	Runes:ResetRuneBonuses(hero, "amulet")
-	Runes:ResetRuneBonuses(hero, "hand")
-	Runes:ResetRuneBonuses(hero, "body")
 end
 
 function setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
@@ -211,127 +284,137 @@ function setRunesBonuses(runeUnit, runeUnit2, runeUnit3, runeUnit4)
 	runeUnit4.foot.r_4 = 0
 end
 
-function Runes:RunesOnRespawn(hero)
-	if hero:HasModifier("modifier_neutral_glyph_3_1") then
-		hero:AddNewModifier(hero, nil, 'modifier_movespeed_cap_glyph', nil)
+function Runes:GetMaxRuneLevel(rune_ability, hero)
+	if rune_ability:GetCaster() == hero.runeUnit then
+		return Runes.MAX_LEVEL_T1
+	elseif rune_ability:GetCaster() == hero.runeUnit2 then
+		return Runes.MAX_LEVEL_T2
+	elseif rune_ability:GetCaster() == hero.runeUnit3 then
+		return Runes.MAX_LEVEL_T3
+	elseif rune_ability:GetCaster() == hero.runeUnit4 then
+		return Runes.MAX_LEVEL_T4
 	end
-	local heroName = hero:GetName()
-	if heroName == "npc_dota_hero_crystal_maiden" then
-		-- local runeUnit = hero.runeUnit2
-		-- local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_2")
-		-- local abilityLevel = runeAbility:GetLevel()
-		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_2")
-		-- local totalLevel = abilityLevel + bonusLevel
-		-- if totalLevel > 0 then
-		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_frost_nova_up", {})
-		-- hero:RemoveModifierByName("modifier_frost_nova_down")
-		-- end
-		-- runeUnit = hero.runeUnit3
-		-- runeAbility = runeUnit:FindAbilityByName("sorceress_rune_r_3")
-		-- abilityLevel = runeAbility:GetLevel()
-		-- bonusLevel = Runes:GetTotalBonus(runeUnit, "r_3")
-		-- totalLevel = abilityLevel + bonusLevel
-		-- if totalLevel > 0 then
-		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_ring_of_fire_up", {})
-		-- hero:RemoveModifierByName("modifier_ring_of_fire_down")
-		-- end
+end
+
+function Runes:GetRuneCostPerLevel(rune_ability, hero)
+	if rune_ability:GetCaster() == hero.runeUnit then
+		return Runes.COST_TO_LEVEL_T1
+	elseif rune_ability:GetCaster() == hero.runeUnit2 then
+		return Runes.COST_TO_LEVEL_T2
+	elseif rune_ability:GetCaster() == hero.runeUnit3 then
+		return Runes.COST_TO_LEVEL_T3
+	elseif rune_ability:GetCaster() == hero.runeUnit4 then
+		return Runes.COST_TO_LEVEL_T4
 	end
-	if heroName == "npc_dota_hero_omniknight" then
-		-- local runeUnit = hero.runeUnit3
-		-- local runeAbility = runeUnit:FindAbilityByName("paladin_rune_q_3")
-		-- local abilityLevel = runeAbility:GetLevel()
-		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-		-- local totalLevel = abilityLevel + bonusLevel
-		-- if totalLevel > 0 then
-		-- runeAbility:ApplyDataDrivenModifier(runeUnit, hero, "modifier_paladin_rune_q_3", {})
-		-- hero:RemoveModifierByName("modifier_paladin_rune_q_3_cooling_down")
-		-- end
+end
+
+function Runes:LevelUpRune(keys)
+	local PlayerID = keys.playerID
+	local player = PlayerResource:GetPlayer(PlayerID)
+	local ability = EntIndexToHScript(keys.ability)
+	local unit = EntIndexToHScript(keys.unit)
+	--print("LEVELUP RUNE")
+	local hero = player:GetAssignedHero()
+	local current_points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local current_rune_points = current_points.rune_points
+	local current_skill_points = current_points.ability_points
+	local bAllow = true
+	if not unit:GetPlayerOwnerID() == PlayerID then
+		if unit:IsHero() then
+			bAllow = false
+		end
 	end
-	if heroName == "npc_dota_hero_juggernaut" then
-		-- if hero:HasAbility("odachi_rush") then
-		-- hero:SwapAbilities("seinaru_odachi_leap", "odachi_rush", true, false)
-		-- end
-		-- if hero:HasAbility("monk_ultima_blade_heal_alt") then
-		-- hero:SwapAbilities("monk_ultima_blade", "monk_ultima_blade_heal_alt", true, false)
-		-- end
+	--print(unit:GetPlayerOwnerID())
+	--print(PlayerID)
+	local max_rune_level = Runes:GetMaxRuneLevel(ability, hero)
+	local rune_point_cost = Runes:GetRuneCostPerLevel(ability, hero)
+	if current_rune_points >= rune_point_cost and ability.rune_level < max_rune_level and hero:IsAlive() and bAllow then
+		Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+		local newLevel = math.min(ability.rune_level + 1, max_rune_level)
+		ability.rune_level = newLevel
+		EmitSoundOnClient("ui.crafting_gem_applied", player)
+		Runes:apply_runes(ability, unit, PlayerID)
+	else
+		EmitSoundOnClient("General.Cancel", player)
 	end
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Runes:ResetRuneBonuses(hero, slotName)
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_1_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_2_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_3_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_4_"..slotName, {bonus = 0})
-	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_1_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_2_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_3_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_q_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_w_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_e_4_"..slotName, {bonus = 0})
+	-- CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_rune_r_4_"..slotName, {bonus = 0})
 end
 
 function Runes:GetTotalBonus(RuneUnit, rune)
-	if rune == "q_1" then
-		return RuneUnit.amulet.q_1 + RuneUnit.hand.q_1 + RuneUnit.body.q_1 + RuneUnit.head.q_1 + RuneUnit.weapon.q_1 + RuneUnit.foot.q_1
-	elseif rune == "w_1" then
-		return RuneUnit.amulet.w_1 + RuneUnit.hand.w_1 + RuneUnit.body.w_1 + RuneUnit.head.w_1 + RuneUnit.weapon.w_1 + RuneUnit.foot.w_1
-	elseif rune == "e_1" then
-		return RuneUnit.amulet.e_1 + RuneUnit.hand.e_1 + RuneUnit.body.e_1 + RuneUnit.head.e_1 + RuneUnit.weapon.e_1 + RuneUnit.foot.e_1
-	elseif rune == "r_1" then
-		return RuneUnit.amulet.r_1 + RuneUnit.hand.r_1 + RuneUnit.body.r_1 + RuneUnit.head.r_1 + RuneUnit.weapon.r_1 + RuneUnit.foot.r_1
-	elseif rune == "q_2" then
-		return RuneUnit.amulet.q_2 + RuneUnit.hand.q_2 + RuneUnit.body.q_2 + RuneUnit.head.q_2 + RuneUnit.weapon.q_2 + RuneUnit.foot.q_2
-	elseif rune == "w_2" then
-		return RuneUnit.amulet.w_2 + RuneUnit.hand.w_2 + RuneUnit.body.w_2 + RuneUnit.head.w_2 + RuneUnit.weapon.w_2 + RuneUnit.foot.w_2
-	elseif rune == "e_2" then
-		return RuneUnit.amulet.e_2 + RuneUnit.hand.e_2 + RuneUnit.body.e_2 + RuneUnit.head.e_2 + RuneUnit.weapon.e_2 + RuneUnit.foot.e_2
-	elseif rune == "r_2" then
-		return RuneUnit.amulet.r_2 + RuneUnit.hand.r_2 + RuneUnit.body.r_2 + RuneUnit.head.r_2 + RuneUnit.weapon.r_2 + RuneUnit.foot.r_2
-	elseif rune == "q_3" then
-		return RuneUnit.amulet.q_3 + RuneUnit.hand.q_3 + RuneUnit.body.q_3 + RuneUnit.head.q_3 + RuneUnit.weapon.q_3 + RuneUnit.foot.q_3
-	elseif rune == "w_3" then
-		return RuneUnit.amulet.w_3 + RuneUnit.hand.w_3 + RuneUnit.body.w_3 + RuneUnit.head.w_3 + RuneUnit.weapon.w_3 + RuneUnit.foot.w_3
-	elseif rune == "e_3" then
-		return RuneUnit.amulet.e_3 + RuneUnit.hand.e_3 + RuneUnit.body.e_3 + RuneUnit.head.e_3 + RuneUnit.weapon.e_3 + RuneUnit.foot.e_3
-	elseif rune == "r_3" then
-		return RuneUnit.amulet.r_3 + RuneUnit.hand.r_3 + RuneUnit.body.r_3 + RuneUnit.head.r_3 + RuneUnit.weapon.r_3 + RuneUnit.foot.r_3
-	elseif rune == "q_4" then
-		return RuneUnit.amulet.q_4 + RuneUnit.hand.q_4 + RuneUnit.body.q_4 + RuneUnit.head.q_4 + RuneUnit.weapon.q_4 + RuneUnit.foot.q_4
-	elseif rune == "w_4" then
-		return RuneUnit.amulet.w_4 + RuneUnit.hand.w_4 + RuneUnit.body.w_4 + RuneUnit.head.w_4 + RuneUnit.weapon.w_4 + RuneUnit.foot.w_4
-	elseif rune == "e_4" then
-		return RuneUnit.amulet.e_4 + RuneUnit.hand.e_4 + RuneUnit.body.e_4 + RuneUnit.head.e_4 + RuneUnit.weapon.e_4 + RuneUnit.foot.e_4
-	elseif rune == "r_4" then
-		return RuneUnit.amulet.r_4 + RuneUnit.hand.r_4 + RuneUnit.body.r_4 + RuneUnit.head.r_4 + RuneUnit.weapon.r_4 + RuneUnit.foot.r_4
-	end
+	
 end
 
 function Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, player, heroString)
-	runeUnit:AddAbility(heroString.."_rune_q_1")
-	runeUnit:AddAbility(heroString.."_rune_w_1")
-	runeUnit:AddAbility(heroString.."_rune_e_1")
-	runeUnit:AddAbility(heroString.."_rune_r_1")
+	local ability = runeUnit:AddAbility(heroString.."_rune_q_1")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit:AddAbility(heroString.."_rune_w_1")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit:AddAbility(heroString.."_rune_e_1")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit:AddAbility(heroString.."_rune_r_1")
+	ability:SetLevel(1)
+	ability.rune_level = 0
 
-	runeUnit2:AddAbility(heroString.."_rune_q_2")
-	runeUnit2:AddAbility(heroString.."_rune_w_2")
-	runeUnit2:AddAbility(heroString.."_rune_e_2")
-	runeUnit2:AddAbility(heroString.."_rune_r_2")
+	local ability = runeUnit2:AddAbility(heroString.."_rune_q_2")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit2:AddAbility(heroString.."_rune_w_2")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit2:AddAbility(heroString.."_rune_e_2")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit2:AddAbility(heroString.."_rune_r_2")
+	ability:SetLevel(1)
+	ability.rune_level = 0
 
-	runeUnit3:AddAbility(heroString.."_rune_q_3")
-	runeUnit3:AddAbility(heroString.."_rune_w_3")
-	runeUnit3:AddAbility(heroString.."_rune_e_3")
-	runeUnit3:AddAbility(heroString.."_rune_r_3")
+	local ability = runeUnit3:AddAbility(heroString.."_rune_q_3")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit3:AddAbility(heroString.."_rune_w_3")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit3:AddAbility(heroString.."_rune_e_3")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit3:AddAbility(heroString.."_rune_r_3")
+	ability:SetLevel(1)
+	ability.rune_level = 0
 
-	runeUnit4:AddAbility(heroString.."_rune_q_4")
-	runeUnit4:AddAbility(heroString.."_rune_w_4")
-	runeUnit4:AddAbility(heroString.."_rune_e_4")
-	runeUnit4:AddAbility(heroString.."_rune_r_4")
+	local ability = runeUnit4:AddAbility(heroString.."_rune_q_4")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit4:AddAbility(heroString.."_rune_w_4")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit4:AddAbility(heroString.."_rune_e_4")
+	ability:SetLevel(1)
+	ability.rune_level = 0
+	local ability = runeUnit4:AddAbility(heroString.."_rune_r_4")
+	ability:SetLevel(1)
+	ability.rune_level = 0
 end
 
 function Runes:Procs(runeLevel, chancePerLevel, mod)
@@ -342,6 +425,15 @@ function Runes:Procs(runeLevel, chancePerLevel, mod)
 		procs = procs + 1
 	end
 
+	return procs
+end
+
+function Runes:ProcsByTotalChance(totalChance)
+	local procs = math.floor(totalChance/100)
+	local lucky = RandomInt(0, 100)
+	if lucky < totalChance%100 then
+		procs = procs + 1
+	end
 	return procs
 end
 
@@ -362,19 +454,14 @@ function Runes:GetTotalRuneLevel(caster, tier, runeID, heroName)
 	local runeAbility = runeUnit:FindAbilityByName(heroName.."_rune_"..runeID)
 	if runeAbility then
 		if runeAbility:IsActivated() then
-			local abilityLevel = runeAbility:GetLevel()
-			if string.match(runeID, "arcana1") then
-				runeID = string.gsub(runeID, "_arcana1", "")
-			end
-			local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
+			local abilityLevel = runeAbility.rune_level
+			local bonusLevel = caster:GetRuneBonus(runeID)
 			local totalLevel = abilityLevel + bonusLevel
 			return totalLevel
 		else
 			return 0
 		end
 	else
-		-- local bonusLevel = Runes:GetTotalBonus(runeUnit, runeID)
-		-- return bonusLevel
 		return 0
 	end
 end
@@ -393,6 +480,99 @@ function Runes:GetRuneAbility(caster, tier, index)
 	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
 	local runeAbility = runeUnit:GetAbilityByIndex(index)
 	return runeAbility
+end
+
+function CDOTA_BaseNPC:GetRuneBonus(rune_identifier)
+	local hero = self
+	if hero.runes_bonus_table then
+		local rune_name = rune_identifier
+		if hero.runes_bonus_table[rune_name] then
+			return hero.runes_bonus_table[rune_name]
+		else
+			return 0
+		end
+	else
+		return 0
+	end
+end
+
+function CDOTA_BaseNPC:GetRuneValue(letter, tier)
+	local index = 0
+	if letter == "q" then
+		index = 0
+	elseif letter == "w" then
+		index = 1
+	elseif letter == "e" then
+		index = 2
+	elseif letter == "r" then
+		index = 3
+	end
+	local runeUnit = ""
+	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
+		self = self.origCaster
+	end
+	if tier == 1 then
+		runeUnit = self.runeUnit
+	elseif tier == 2 then
+		runeUnit = self.runeUnit2
+	elseif tier == 3 then
+		runeUnit = self.runeUnit3
+	elseif tier == 4 then
+		runeUnit = self.runeUnit4
+	end
+
+	local rune_level = 0
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	if runeUnit then
+		local runeAbility = runeUnit:GetAbilityByIndex(index)
+		if runeAbility then
+			if runeAbility:IsActivated() then
+				local abilityLevel = runeAbility.rune_level
+				local bonusLevel = self:GetRuneBonus(runeID)
+				local totalLevel = abilityLevel + bonusLevel
+				rune_level = totalLevel
+			end
+		end
+	end
+	return rune_level
+end
+
+function CDOTA_BaseNPC:GetBaseRuneValue(letter, tier)
+	local index = 0
+	if letter == "q" then
+		index = 0
+	elseif letter == "w" then
+		index = 1
+	elseif letter == "e" then
+		index = 2
+	elseif letter == "r" then
+		index = 3
+	end
+	local runeUnit = ""
+	if self:HasModifier("modifier_sorceress_immortal_ice_avatar") or self:HasModifier("modifier_sorceress_immortal_fire_avatar") then
+		self = self.origCaster
+	end
+	if tier == 1 then
+		runeUnit = self.runeUnit
+	elseif tier == 2 then
+		runeUnit = self.runeUnit2
+	elseif tier == 3 then
+		runeUnit = self.runeUnit3
+	elseif tier == 4 then
+		runeUnit = self.runeUnit4
+	end
+
+	local rune_level = 0
+	local runeID = Runes:ConvertTierAndIndexToRune(tier, index)
+	if runeUnit then
+		local runeAbility = runeUnit:GetAbilityByIndex(index)
+		if runeAbility then
+			if runeAbility.rune_level then
+				rune_level = runeAbility.rune_level
+			end
+		end
+	end
+	return rune_level
 end
 
 function Runes:GetRunePropertyValue(caster, tier, index, propertyName)
@@ -525,16 +705,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("flamewaker_rune_q_4")
 
 			local newRune = hero.runeUnit:AddAbility("flamewaker_rune_q_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit2:AddAbility("flamewaker_rune_q_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit3:AddAbility("flamewaker_rune_q_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit4:AddAbility("flamewaker_rune_q_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(0)
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_flamewaker_think")
@@ -559,16 +739,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("seinaru_rune_q_4")
 
 			local newRune = hero.runeUnit:AddAbility("seinaru_rune_q_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit2:AddAbility("seinaru_rune_q_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit3:AddAbility("seinaru_rune_q_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit4:AddAbility("seinaru_rune_q_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(0)
 		elseif index == 2 then
 			if hero:HasAbility("seinaru_spiral_leap") then
@@ -603,19 +783,20 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("bahamut_rune_r_4")
 
 			local newRune = hero.runeUnit:AddAbility("bahamut_rune_r_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit2:AddAbility("bahamut_rune_r_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit3:AddAbility("bahamut_rune_r_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit4:AddAbility("bahamut_rune_r_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(3)
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_bahamut_a_b_buff")
+			hero:RemoveModifierByName("modifier_bahamut_base_w_passive_thinker")
 			Runes:EasySwapArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			hero:RemoveModifierByName("modifiers_rune_w_2_modifier")
 		end
@@ -642,16 +823,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("astral_rune_q_4")
 
 			local newRune = hero.runeUnit:AddAbility("astral_rune_q_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("astral_rune_q_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("astral_rune_q_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("astral_rune_q_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			Runes:EasySwapArcanaSkills(hero, 1, "split_shot", "shot_of_apollo", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
@@ -680,16 +861,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("duskbringer_rune_w_4")
 
 			local newRune = hero.runeUnit:AddAbility("duskbringer_rune_w_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("duskbringer_rune_w_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("duskbringer_rune_w_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("duskbringer_rune_w_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_flail_passive")
@@ -715,16 +896,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("conjuror_rune_r_4")
 
 			local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(3)
 		elseif index == 2 then
 			if hero.fireAspect then
@@ -796,16 +977,16 @@ function Runes:EquipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("trapper_rune_w_4")
 
 			local newRune = hero.runeUnit:AddAbility("trapper_rune_w_1_arcana1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("trapper_rune_w_2_arcana1")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("trapper_rune_w_3_arcana1")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("trapper_rune_w_4_arcana1")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_huskar" then
@@ -924,9 +1105,9 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_think")
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_visible")
 			hero:RemoveModifierByName("modifier_axe_rune_r_4_invisible")
-			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "sunder", "axe_arcana_smash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "red_general_ability_base_r_sunder", "red_general_ability_arcana1_r_tectonic_sunder", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			Runes:EasySwapArcanaSkills(hero, 1, "backshock", "axe_stonewall_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 1, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then
@@ -1126,6 +1307,7 @@ function Runes:EquipArcana(hero, index)
 			end
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health")
 			hero:RemoveModifierByName("modifier_slipfinn_b_c_health_regen")
+			hero:RemoveModifierByName("modifier_slipfinn_shadow_rush_passive")
 			hero:RemoveAbility("slipfinn_shadow_warp")
 			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
@@ -1149,10 +1331,10 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 			hero:RemoveModifierByName(modifier:GetName())
 		end
 	end
-	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
+	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot).rune_level
 	hero:RemoveAbility(oldAbility)
 	local newAbility = hero:AddAbility(newAbility)
 	newAbility:SetLevel(abilityLevel)
@@ -1171,16 +1353,16 @@ function Runes:EasySwapArcanaSkills(hero, abilityIndex, oldAbility, newAbility, 
 	hero.runeUnit4:RemoveAbility(internalName.."_rune_"..letter.."_4")
 
 	local newRune = hero.runeUnit:AddAbility(internalName.."_rune_"..letter.."_1_"..rune_suffix)
-	newRune:SetLevel(runeLevel1)
+	newRune.rune_level = runeLevel1
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit2:AddAbility(internalName.."_rune_"..letter.."_2_"..rune_suffix)
-	newRune:SetLevel(runeLevel2)
+	newRune.rune_level = runeLevel2
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit3:AddAbility(internalName.."_rune_"..letter.."_3_"..rune_suffix)
-	newRune:SetLevel(runeLevel3)
+	newRune.rune_level = runeLevel3
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit4:AddAbility(internalName.."_rune_"..letter.."_4_"..rune_suffix)
-	newRune:SetLevel(runeLevel4)
+	newRune.rune_level = runeLevel4
 	newRune:SetAbilityIndex(abilitySlot)
 end
 
@@ -1191,10 +1373,10 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	if abilitySlot == DOTA_R_SLOT then
 		abilitySlot = 3
 	end
-	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot):GetLevel()
-	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot):GetLevel()
+	local runeLevel1 = hero.runeUnit:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel2 = hero.runeUnit2:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel3 = hero.runeUnit3:GetAbilityByIndex(abilitySlot).rune_level
+	local runeLevel4 = hero.runeUnit4:GetAbilityByIndex(abilitySlot).rune_level
 	local modifiers = hero:FindAllModifiers()
 	for _, modifier in pairs(modifiers) do
 		if modifier:GetAbility() == existingAbility and not WallPhysics:DoesTableHaveValue(keep_modifiers, modifier:GetName()) then
@@ -1221,16 +1403,16 @@ function Runes:EasyRevertArcanaSkills(hero, abilityIndex, origAbility, arcanaAbi
 	hero.runeUnit4:RemoveAbility(internalName.."_rune_"..letter.."_4_"..rune_suffix)
 
 	local newRune = hero.runeUnit:AddAbility(internalName.."_rune_"..letter.."_1")
-	newRune:SetLevel(runeLevel1)
+	newRune.rune_level = runeLevel1
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit2:AddAbility(internalName.."_rune_"..letter.."_2")
-	newRune:SetLevel(runeLevel2)
+	newRune.rune_level = runeLevel2
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit3:AddAbility(internalName.."_rune_"..letter.."_3")
-	newRune:SetLevel(runeLevel3)
+	newRune.rune_level = runeLevel3
 	newRune:SetAbilityIndex(abilitySlot)
 	local newRune = hero.runeUnit4:AddAbility(internalName.."_rune_"..letter.."_4")
-	newRune:SetLevel(runeLevel4)
+	newRune.rune_level = runeLevel4
 	newRune:SetAbilityIndex(abilitySlot)
 end
 
@@ -1257,16 +1439,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("flamewaker_rune_q_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("flamewaker_rune_q_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit2:AddAbility("flamewaker_rune_q_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit3:AddAbility("flamewaker_rune_q_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit4:AddAbility("flamewaker_rune_q_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(0)
 			hero:RemoveModifierByName("modifier_flamewaker_arcana_passive")
 		elseif index == 2 then
@@ -1292,16 +1474,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("seinaru_rune_q_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("seinaru_rune_q_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit2:AddAbility("seinaru_rune_q_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit3:AddAbility("seinaru_rune_q_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(0)
 			local newRune = hero.runeUnit4:AddAbility("seinaru_rune_q_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(0)
 			hero:RemoveModifierByName("modifier_seinaru_arcana_passive")
 		elseif index == 2 then
@@ -1327,16 +1509,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("bahamut_rune_r_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("bahamut_rune_r_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit2:AddAbility("bahamut_rune_r_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit3:AddAbility("bahamut_rune_r_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit4:AddAbility("bahamut_rune_r_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(3)
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, 1, "leshrac_nuke", "bahamut_arcana_orb", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
@@ -1363,16 +1545,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("astral_rune_q_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("astral_rune_q_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("astral_rune_q_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("astral_rune_q_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("astral_rune_q_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 
 			hero:RemoveModifierByName("modifier_astral_arcana_passive")
@@ -1402,16 +1584,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("duskbringer_rune_w_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("duskbringer_rune_w_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("duskbringer_rune_w_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("duskbringer_rune_w_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("duskbringer_rune_w_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_terrorize_passive")
@@ -1439,16 +1621,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("conjuror_rune_r_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("conjuror_rune_r_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit2:AddAbility("conjuror_rune_r_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit3:AddAbility("conjuror_rune_r_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(3)
 			local newRune = hero.runeUnit4:AddAbility("conjuror_rune_r_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(3)
 
 			if hero.deity then
@@ -1521,16 +1703,16 @@ function Runes:UnequipArcana(hero, index)
 			hero.runeUnit4:RemoveAbility("trapper_rune_w_4_arcana1")
 
 			local newRune = hero.runeUnit:AddAbility("trapper_rune_w_1")
-			newRune:SetLevel(runeLevel1)
+			newRune.rune_level = runeLevel1
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit2:AddAbility("trapper_rune_w_2")
-			newRune:SetLevel(runeLevel2)
+			newRune.rune_level = runeLevel2
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit3:AddAbility("trapper_rune_w_3")
-			newRune:SetLevel(runeLevel3)
+			newRune.rune_level = runeLevel3
 			newRune:SetAbilityIndex(abilityIndex)
 			local newRune = hero.runeUnit4:AddAbility("trapper_rune_w_4")
-			newRune:SetLevel(runeLevel4)
+			newRune.rune_level = runeLevel4
 			newRune:SetAbilityIndex(abilityIndex)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_huskar" then
@@ -1643,10 +1825,10 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_axe" then
 		hero:RemoveModifierByName("modifier_axe_arcana_passive")
 		if index == 1 then
-			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "sunder", "axe_arcana_smash", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "red_general_ability_base_r_sunder", "red_general_ability_arcana1_r_tectonic_sunder", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			hero:RemoveModifierByName("modifier_stonewall_passive")
-			Runes:EasyRevertArcanaSkills(hero, 1, "backshock", "axe_stonewall_ability", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, 1, "red_general_ability_base_w_backshock", "red_general_ability_arcana2_w_stonewall", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_beastmaster" then
 		if index == 1 then

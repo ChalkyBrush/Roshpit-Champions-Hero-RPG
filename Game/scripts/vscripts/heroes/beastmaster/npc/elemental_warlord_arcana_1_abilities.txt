@@ -239,7 +239,7 @@
 				"TextureName"	"warlord/warlord_rune_r_4_arcana1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% WARLORD_ARCANA1_R4_ATK_PER_FIRE_CHARGE %>"
 				}
 			}
 		}

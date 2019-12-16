@@ -60,7 +60,7 @@ function Weaponmodifiers:action(propertyName, propertyValue, hero, inventory_uni
 	local propertyBoost = 1
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyBoost = propertyBoost + BLACKSMITH_TABLE_ADD_STATS_PCT
+			propertyBoost = propertyBoost + ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT
 		end
 	end
 	if hero:HasModifier("modifier_paladin_glyph_2_2") then
@@ -204,7 +204,7 @@ function Weaponmodifiers:runeProperty(propertyName, propertyValue, hero)
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		if propertyValue > 1 then
-			propertyValue = math.ceil(propertyValue * (1 + BLACKSMITH_TABLE_ADD_STATS_PCT))
+			propertyValue = math.ceil(propertyValue * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT))
 		end
 	end
 	if hero:HasModifier("modifier_paladin_glyph_2_2") then

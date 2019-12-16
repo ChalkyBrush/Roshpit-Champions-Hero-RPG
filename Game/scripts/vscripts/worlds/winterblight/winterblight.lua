@@ -13,6 +13,8 @@ function Winterblight:Debug()
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
+    -- Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
+    Challenges:CheckSpawn()
   -- RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))
@@ -71,7 +73,7 @@ function Winterblight:InitCamp()
       Winterblight.ZFLOAT = 0
     
   Timers:CreateTimer(2, function()
-    -- Events:SpawnSuppliesDealer(Vector(-12928, -14336), Vector(0,-1))
+    Challenges:SpawnElderRai(Vector(-15940, -2552), Vector(1,0))
     -- Events:SpawnCurator(Vector(-15744, -15488), Vector(1,0.7))
   end)
   Events.TownPosition = Vector(-15197, -2924)
@@ -209,6 +211,10 @@ end
 function Winterblight:Debug2()
   Events.DifficultyFactor = 3
   Winterblight.Stones = 3
+  print("DEBUG2")
+  print(MAIN_HERO_TABLE[1].challenge_cleared)
+  -- Challenges:SetChallengeClears()
+  -- Challenges:RewardSequenceForHero(MAIN_HERO_TABLE[1])
   -- if not Winterblight.GuideBasePos then
   --   Winterblight.GuideBasePos = Winterblight.CavernGuide:GetAbsOrigin()
   -- end
@@ -705,6 +711,9 @@ function Winterblight:CrystalPlaced(msg)
     Winterblight.Stones = math.min(Winterblight.Stones + 1, 3)
     hero:TakeItem(stone)
     Winterblight.StonesPlacedTable[Winterblight.Stones] = stone:GetEntityIndex()
+    Timers:CreateTimer(4, function()
+      Challenges:ProcessPossibleSpawnEvent(Winterblight.Stones)
+    end)
     if Winterblight.Stones == 1 then
       local crystal = Entities:FindByNameNearest("WinterblightStones3", Vector(-14264, -6978, 56+Winterblight.ZFLOAT), 500)
       Winterblight:CrystalEnterAnimation(crystal)

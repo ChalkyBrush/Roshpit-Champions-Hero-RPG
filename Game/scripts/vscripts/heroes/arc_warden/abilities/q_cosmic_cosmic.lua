@@ -151,6 +151,7 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 						if caster:HasModifier("modifier_jex_glyph_6_1") then
 							Filters:MagicImmuneBreak(caster, enemy)
 						end
+						enemy:CalculateAndSaveRoshpitAttributes()
 					end
 				end
 				-- local allies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )

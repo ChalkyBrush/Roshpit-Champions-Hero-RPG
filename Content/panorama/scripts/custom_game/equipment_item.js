@@ -55,7 +55,46 @@ function EquipmentClick(slot)
 			return			
 		}
 
-		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot});
+		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, chisel: 1});
+	}
+	if (GameUI.CustomUIConfig().socket == 1){
+		var itemPanel = getSlot(slot)
+		var item = itemPanel.GetAttributeInt( "item", -1 );
+		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
+		if (!(Players.GetLocalPlayer() == ownerID)){
+			Game.EmitSound("General.Cancel")
+			$.Msg("YOU DONT MATCH PLAYER ID")
+			return			
+		}
+		if (item == -1){
+			Game.EmitSound("General.Cancel")
+			return
+		}
+		if (!(itemPanel.BHasClass('chiselable_gear'))){
+			Game.EmitSound("General.Cancel")
+			return			
+		}
+
+		GameEvents.SendCustomGameEventToServer( "clicked_chisel_gear", {playerID: Game.GetLocalPlayerID(), itemIndex: item, slot: slot, socket: 1});
+	}else if(GameUI.CustomUIConfig().gemforge == 1){
+		var itemPanel = getSlot(slot)
+		var item = itemPanel.GetAttributeInt( "item", -1 );
+		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
+		if (!(Players.GetLocalPlayer() == ownerID)){
+			Game.EmitSound("General.Cancel")
+			$.Msg("YOU DONT MATCH PLAYER ID")
+			return			
+		}
+		if (item == -1){
+			Game.EmitSound("General.Cancel")
+			return
+		}
+		if (!(itemPanel.BHasClass('chiselable_gear'))){
+			Game.EmitSound("General.Cancel")
+			return			
+		}
+
+		GameEvents.SendCustomGameEventToServer( "gems", {itemIndex: item, slot: slot, event_type: "item_up_for_forging"});		
 	}
 }
 
@@ -66,26 +105,32 @@ function UpdateItem()
 		if (i == 0){
 			var itemPanel = $("#helm_container");
 			var itemImage = $('#ItemImageHelm')
+			var gemsContainer = $('#gems_container0')
 		}
 		if (i == 1){
 			var itemPanel = $("#weapon_container");
 			var itemImage = $('#ItemImageWeapon')
+			var gemsContainer = $('#gems_container1')
 		}
 		if (i == 2){
 			var itemPanel = $("#glove_container");
 			var itemImage = $('#ItemImageGlove')
+			var gemsContainer = $('#gems_container2')
 		}
 		if (i == 3){
 			var itemPanel = $("#boot_container");
 			var itemImage = $('#ItemImageBoot')
+			var gemsContainer = $('#gems_container3')
 		}
 		if (i == 4){
 			var itemPanel = $("#armor_container");
 			var itemImage = $('#ItemImageArmor')
+			var gemsContainer = $('#gems_container4')
 		}
 		if (i == 5){
 			var itemPanel = $("#amulet_container");
 			var itemImage = $('#ItemImageAmulet')
+			var gemsContainer = $('#gems_container5')
 		}
 		var item = itemPanel.GetAttributeInt( "item", -1 );
 		var queryUnit = itemPanel.GetAttributeInt( "queryUnit", -1 );
@@ -98,12 +143,13 @@ function UpdateItem()
 
 
 		// $.Msg( $("#helm_container"));
-
+// 
 		itemImage.item_name = itemName;
 		itemImage.contextEntityIndex = item;
 		if (item == -1){
 			itemImage.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
 		}
+		manageSocketsEquipment(gemsContainer, item, i)
 	}
 
 	$.Schedule( 0.2, UpdateItem );

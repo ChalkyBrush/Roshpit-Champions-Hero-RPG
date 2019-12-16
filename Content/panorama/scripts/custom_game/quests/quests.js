@@ -196,9 +196,9 @@ function LoadButton(){
 
 (function()
 {
-	InitializeCrusader();
-	// CloseOracle();
-	GameEvents.Subscribe( "open_crusader", OpenCrusader );
-	GameEvents.Subscribe( "close_crusader", CloseCrusader);
-	GameEvents.Subscribe( "crusader_quests_loaded", CrusaderLoaded);
+	// InitializeCrusader();
+	// // CloseOracle();
+	// GameEvents.Subscribe( "open_crusader", OpenCrusader );
+	// GameEvents.Subscribe( "close_crusader", CloseCrusader);
+	// GameEvents.Subscribe( "crusader_quests_loaded", CrusaderLoaded);
 })();

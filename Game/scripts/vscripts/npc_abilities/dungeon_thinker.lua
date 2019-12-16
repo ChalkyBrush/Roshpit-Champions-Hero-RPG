@@ -2,7 +2,7 @@ function DungeonThink(event)
 	local caster = event.caster
 	local position = caster:GetAbsOrigin()
 	local ability = event.ability
-	caster:SetAbsOrigin(ability.position)
+	-- caster:SetAbsOrigin(ability.position)
 	local radius = 450
 	if caster.radius then
 		radius = caster.radius
@@ -1704,9 +1704,14 @@ function DungeonCreep(event)
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #units > 0 then
 			for i = 1, #units, 1 do
-				if not units[i]:HasModifier("modifier_trapper_stealth") then
+				if units[i]:HasModifier("modifier_trapper_stealth") or units[i]:IsInvisible() then
+				else
 					local heightDiff = units[i]:GetAbsOrigin().z - caster:GetAbsOrigin().z
-					if math.abs(heightDiff) > 200 then
+					local height_compare = 200
+					if caster.aggro_height_adjust then
+						height_compare = 200 + caster.aggro_height_adjust
+					end
+					if math.abs(heightDiff) > height_compare then
 					else
 						Dungeons:AggroUnit(caster)
 					end
@@ -1742,11 +1747,11 @@ end
 
 function DungeonCreepDeath(event)
 	local caster = event.caster
-	if caster.minDungeonDrops then
-		if caster.minDungeonDrops > 0 and caster.maxDungeonDrops > 0 then
-			Events:RollExtraItems(caster:GetDeathXP(), caster:GetAbsOrigin(), caster.minDungeonDrops, caster.maxDungeonDrops)
-		end
-	end
+	-- if caster.minDungeonDrops then
+	-- 	if caster.minDungeonDrops > 0 and caster.maxDungeonDrops > 0 then
+	-- 		Events:RollExtraItems(caster:GetDeathXP(), caster:GetAbsOrigin(), caster.minDungeonDrops, caster.maxDungeonDrops)
+	-- 	end
+	-- end
 end
 
 function findEmptyDialogSlot()

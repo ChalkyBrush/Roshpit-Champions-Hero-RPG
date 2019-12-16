@@ -33,7 +33,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"1200 6000 20000 34000 60000 150000 320000"
+				"damage"						"100 300 500 700 900 1100 1300"
 			}
 			"02"
 			{
@@ -177,11 +177,6 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% HYDROXIS_Q2_ARMOR %>"
-				}
 			}
 			"modifier_hydroxis_c_a_magic_resist_lost"
 			{
@@ -189,9 +184,23 @@
 				"IsStunDebuff"	"1"
 				"TextureName"		"hydroxis/hydroxis_q_3"
 				"TextureName"	"leshrac_lightning_storm"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-<% HYDROXIS_Q3_MAGIC_RESIST %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_hydroxis_d_c"
@@ -226,7 +235,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 300 700 1300 1800 2600 3800"
+		"AbilityManaCost"				"35 65 95 125 155 185 215"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -235,7 +244,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"800 3000 12000 48000 96000 144000 225000"
+				"damage"					"80 200 320 440 560 680 800"
 			}
 			"02"
 			{
@@ -752,10 +761,6 @@
 						"Function"		"EndAmplifyDamageParticle"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% HYDROXIS_R1_ARMOR_RED %>"
-				}
 			}
 			"modifier_hydroxis_b_d"
 			{
@@ -853,7 +858,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_damage"	"60 100 150 240 360 500 800"
+				"strength_damage"	"1 2 3 4 5 6 7"
 			}
 			"03"
 			{

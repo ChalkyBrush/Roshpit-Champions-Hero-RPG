@@ -51,13 +51,13 @@ function overload_start(event)
 			earthSound = "Warlord.Ulti.Earth2"
 		end
 		EmitSoundOn(earthSound, caster)
-		local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
-		if a_d_level > 0 then
+		local r_1_level = caster:GetRuneValue("r", 1)
+		if r_1_level > 0 then
 			local a_d_ability = caster.runeUnit:FindAbilityByName("warlord_rune_r_1")
 			local a_d_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 			a_d_ability:ApplyDataDrivenModifier(caster.runeUnit, caster, "modifier_warlord_rune_r_1", {duration = a_d_duration})
-			a_d_ability.heal = healAmount * 0.015 * a_d_level
-			a_d_ability.r_1_level = a_d_level
+			a_d_ability.heal = healAmount * WARLORD_R1_HEAL_PER_R_HEAL * r_1_level
+			a_d_ability.r_1_level = r_1_level
 			a_d_ability.earthCharges = earthCharges
 		end
 	end
@@ -90,6 +90,7 @@ function overload_start(event)
 				if b_d_level > 0 then
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_warlord_b_d_effect", {duration = 8})
 					enemy:SetModifierStackCount("modifier_warlord_b_d_effect", caster, b_d_level)
+					enemy:CalculateAndSaveRoshpitAttributes()
 				end
 			end
 		end
@@ -216,6 +217,7 @@ function warlord_a_d_think(event)
 	local target = event.target
 	local ability = event.ability
 	local heal = event.ability.heal
+	local r_1_level = event.ability.r_1_level
 	Filters:ApplyHeal(target, target, heal, true)
 	local particleName = "particles/roshpit/warlord/earth_ulti.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
@@ -224,22 +226,24 @@ function warlord_a_d_think(event)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	local aoeDamage = OverflowProtectedGetAverageTrueAttackDamage(target) * 0.03 * ability.earthCharges
+	local aoeDamage = WARLORD_R1_DMG_PER_CHARGE * ability.earthCharges * r_1_level
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		--print("WARLORD A_D")
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Warlord.ADAoeSound", caster)
-		for _, enemy in pairs(enemies) do
+		for _, enemy in pairs(enemies) do	
 			Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
-
-			local pfx2 = ParticleManager:CreateParticle("particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			ParticleManager:SetParticleControl(pfx2, 0, enemy:GetAbsOrigin())
-			ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
-			ParticleManager:SetParticleControl(pfx2, 2, Vector(200, 200, 200))
-			ParticleManager:SetParticleControl(pfx2, 3, Vector(200, 200, 200))
-			Timers:CreateTimer(2.5, function()
-				ParticleManager:DestroyParticle(pfx2, false)
-				ParticleManager:ReleaseParticleIndex(pfx2)
+			local key = 'warlord_r_1'
+			Util.Common:LimitPerTimeAndPlace(8, 1, target:GetAbsOrigin(), 1200, key, function()	
+				local pfx2 = ParticleManager:CreateParticle("particles/roshpit/elemental_warlord/earth_axe_throw_explode.vpcf", PATTACH_CUSTOMORIGIN, caster)
+				ParticleManager:SetParticleControl(pfx2, 0, enemy:GetAbsOrigin())
+				ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+				ParticleManager:SetParticleControl(pfx2, 2, Vector(200, 200, 200))
+				ParticleManager:SetParticleControl(pfx2, 3, Vector(200, 200, 200))
+				Timers:CreateTimer(2.5, function()
+					ParticleManager:DestroyParticle(pfx2, false)
+					ParticleManager:ReleaseParticleIndex(pfx2)
+				end)
 			end)
 		end
 	end

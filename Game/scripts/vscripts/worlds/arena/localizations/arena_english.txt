@@ -17,7 +17,8 @@
 
 		"arena_log_capacity"										"Log Capacity"
 		"arena_log_dps"												"DPS"
-		"arena_armor_title"											"Physical Armor"
+		"arena_armor_title"											"Armor"
+		"arena_magic_armor_title"									"Magic Armor"
 		"arena_update_dummy"										"Update Dummy"
 
 		"arena_fan_dialogue_one"									"I'm here to see my favorite fighter, Champion Varaphlas!"
@@ -310,9 +311,9 @@
 		"DOTA_Tooltip_ability_arena_wild_axes"						"Wild Axes"
 		"DOTA_Tooltip_ability_arena_wild_axes_Description"			"Warlord throws axes at the enemy"
 		"DOTA_Tooltip_ability_arena_war_rally"						"Wild Rally"
-		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 1 percent of magical resistance for each percent of lost HP."
+		"DOTA_Tooltip_ability_arena_war_rally_Description"			"Warlord gets 200 magic armor for each percent of lost HP."
 		"DOTA_Tooltip_modifier_war_rally_effect"					"War Rally"
-		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Resist increased."
+		"DOTA_Tooltip_modifier_war_rally_effect_Description"		"Magic Armor increased."
 		"DOTA_Tooltip_ability_arena_god_of_war"						"God of War"
 		"DOTA_Tooltip_ability_arena_god_of_war_Description"			"Warlord powers himself up, increasing movement and attack speed."
 		"DOTA_Tooltip_ability_arena_god_of_war_movespeed"			"BONUS ATTACK SPEED:"
@@ -432,9 +433,9 @@
 		"tooltip_open_pit"												"Open Pit"
 		"tooltip_pit_open"												"Pit Open"
 
-		"tooltip_pit_enemy_damage"										"Enemy Damage"
-		"tooltip_pit_enemy_resistance"									"Enemy Resistance"
-		"tooltip_pit_enemy_paragon"										"Paragon Spawn Rate"
+		"tooltip_pit_enemy_damage"										"Enemy Attack Damage"
+		"tooltip_pit_enemy_armors_and_pierces"							"Armors and Pierces"
+		"tooltip_pit_enemy_health"										"Enemy Health"
 
 		"DOTA_Tooltip_ability_arena_master_duelist_passive"					"Battle Haste"
 		"DOTA_Tooltip_ability_arena_master_duelist_passive_Description"		"When landing an attack, 30% chance to gain max attack speed for 1 second."
@@ -481,9 +482,9 @@
 		"arena_pit_conquest_priest_of_karzhun"							"Priest of Kar'zhun"
 
 		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield"			"Shield of Kar'zhun"
-		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Zaps enemies who damage the shield-bearer, and protect against magical attacks."
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_Description"	"Zaps enemies who damage the shield-bearer, and protects against magical attacks."
 		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_damage_return"	"DAMAGE RETURN % OF MAX HEALTH:"
-		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_arena_priest_of_karzhun_shield_magic_resist"	"MAGIC ARMOR:"
 
 		"arena_pit_conquest_helob"												"Helob"
 
@@ -509,9 +510,8 @@
 
 		"DOTA_Tooltip_modifier_karzhun_aura_stackable"					"Force Of Kar'zhun"
 
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Magic Shield"
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Provides passive Magic Resistance"
-		"DOTA_Tooltip_ability_arena_temple_explorer_passive_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive"			"Temple Explorer"
+		"DOTA_Tooltip_ability_arena_temple_explorer_passive_Description"	"Exploring the mysteries of conquest"
 		
 		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova"							"Poison Nova"
 		"DOTA_Tooltip_ability_arena_temple_expolorer_poison_nova_Description"				"A spreading ring of poison that does damage over time to enemy units around."
@@ -523,7 +523,6 @@
 		"DOTA_Tooltip_ability_arena_conquest_feedback_Description"	"Whenever nearby enemies' mana are reduced, shock them with pure damage based on the mana lost. Also provides passive magic resistance to the owner."
 
 		"DOTA_Tooltip_ability_arena_conquest_feedback_damage_per_mana"	   "DAMAGE PER MANA:"
-		"DOTA_Tooltip_ability_arena_conquest_feedback_magic_resist" 		"MAGIC RESIST:"
 
 		"DOTA_Tooltip_modifier_fairy_dragon_feedback"						"Feedback"
 		"DOTA_Tooltip_modifier_fairy_dragon_feedback_Description"			"Whenever your mana is reduced you will get shocked by mana reverb."
@@ -759,7 +758,7 @@
 		"arena_descent_boss"													"Pit Abomination"
 
 		"DOTA_Tooltip_modifier_steadfast"													"Steadfast"
-		"DOTA_Tooltip_modifier_steadfast_Description"										"Incoming damage is capped at a %% of max health"
+		"DOTA_Tooltip_modifier_steadfast_Description"										"All Damage taken is reduced."
 
 		"DOTA_Tooltip_ability_descent_boss_ai"								"Abomination"
 		"DOTA_Tooltip_ability_descent_boss_ai_Description"					"Forsaken monster of the depths"
@@ -849,7 +848,8 @@
 		
 		"arena_descent_exiled_spirit_big"							"Corrupted Commander"
 		"DOTA_Tooltip_ability_arena_descent_impervious"				"Impervious"
-		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. Damage taken reduced by 98%."
+		"DOTA_Tooltip_ability_arena_descent_impervious_Description"	"Exiled legion protects the Commander. All damage taken by Commander is reduced."
+		"DOTA_Tooltip_ability_arena_descent_impervious_damage_block" "% DAMAGE REDUCTION:"
 		
 		
 		"DOTA_Tooltip_ability_doom_custom"				"Doom"
@@ -886,3 +886,8 @@
 		"item_rpc_grimloks_soul_vessel_desc"						"Use anywhere in Sea Fortress to release the Beast Tyrant's ghost."
 
 		"pit_of_trials_secret_soul_ferrier"							"Soul Ferrier Grimlok"
+
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive"							"Crunch"
+		"DOTA_Tooltip_ability_pit_of_trials_cerberus_passive_Description"				"Attacks do extra damage based on target's armor"
+
+		"pit_of_trials_descent_cerberus"						"Cerberus"

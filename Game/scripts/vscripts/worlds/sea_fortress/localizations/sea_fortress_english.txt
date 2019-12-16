@@ -495,9 +495,8 @@
 		"DOTA_Tooltip_ability_seafortress_kray_wave_stun_duration"	"STUN DURATION:"
 
 		"DOTA_Tooltip_ability_seafortress_chitinous_skin"		"Chitinous Skin"
-		"DOTA_Tooltip_ability_seafortress_chitinous_skin_Description"	"Each second gain a stack of Chitinous Skin that increases armor and magic resist. Each instance of damage taken removes a stack."
-		"DOTA_Tooltip_ability_seafortress_chitinous_skin_armor"			"ARMOR PER STACK:"
-		"DOTA_Tooltip_ability_seafortress_chitinous_skin_magic_resistance"	"MAGIC RESIST PER STACK:"
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin_Description"	"Each second gain a stack of Chitinous Skin that increases armor and magic armor. Each instance of damage taken removes a stack."
+		"DOTA_Tooltip_ability_seafortress_chitinous_skin_armor_and_magic_armor"			"ARMOR AND MAGIC ARMOR PER STACK:"
 
 		"DOTA_Tooltip_ability_seafortress_poseidon_dash"		"Poseidon Dash"
 		"DOTA_Tooltip_ability_seafortress_poseidon_dash_Description"	"Quick movements confuse enemies."
@@ -512,8 +511,7 @@
 		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool"	"Conjure Whirlpool"
 		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_Description"	"Creates a whirlpool at the target location. Enemies trapped inside are pulled towards the center in a cyclonic force and lose armor and magic resist."
 		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_movespeed_percent"	"MOVESPEED LOSS %:"
-		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_armor_loss"			"ARMOR LOSS:"
-		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_magic_resist_loss"	"MAGIC RESIST LOSS:"
+		"DOTA_Tooltip_ability_seafortress_sea_prophet_whirlpool_armor_and_magic_armor_loss"			"ARMOR AND MAGIC ARMOR LOSS:"
 
 		"DOTA_Tooltip_modifier_sea_prophet_whirlpool_within"		"Whirlpool"
 		"DOTA_Tooltip_modifier_sea_prophet_whirlpool_within_Description"	"Reduced movespeed, armor, and magic resist."

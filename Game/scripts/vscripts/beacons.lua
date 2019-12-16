@@ -44,18 +44,18 @@ function Beacons:DEBUG()
 	-- Beacons:MakeBeacon(Vector(4884,-2944), "wave", "desertDesert")
 	-- Beacons:MinesInitiate()
 	-- Beacons:MakeBeacon(Vector(3136,4480), "wave", "minesMines")
-	SaveLoad.key1 = "a"
-	SaveLoad.key2 = "b"
-	Beacons.cheats = true
-	Dungeons.itemLevel = 0
-	RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)
-	RPCItems:RollWaterMageRobes(Vector(-14528, 14528))
+	-- SaveLoad.key1 = "a"
+	-- SaveLoad.key2 = "b"
+	-- Beacons.cheats = true
+	-- Dungeons.itemLevel = 0
+	-- RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)
+	-- RPCItems:RollWaterMageRobes(Vector(-14528, 14528))
 
 
-	local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
-	local drop = CreateItemOnPositionSync(Vector(-14528, 14528), item)
-	local position = Vector(-14528, 14528)
-	RPCItems:DropItem(item, Vector(-14528, 14528))
+	-- local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
+	-- local drop = CreateItemOnPositionSync(Vector(-14528, 14528), item)
+	-- local position = Vector(-14528, 14528)
+	-- RPCItems:DropItem(item, Vector(-14528, 14528))
 
 	-- for i = 0, 15, 1 do
 	-- Timers:CreateTimer(0.4*i, function()
@@ -330,51 +330,51 @@ function Beacons:CreateBeacons()
 end
 
 function Beacons:ActivatePortalsForKeys()
-	local shouldForest = false
-	local shouldDesert = false
-	local shouldMines = false
-	local difficulty = GameState:GetDifficultyFactor()
-	for i = 1, #MAIN_HERO_TABLE, 1 do
-		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-		local keyTable = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-		if keyTable.forest == 1 then
-			shouldForest = true
-		end
-		if keyTable.desert == 1 then
-			shouldDesert = true
-		end
-		if keyTable.mines == 1 then
-			shouldMines = true
-		end
-	end
-	if not Beacons.ForestPortal and shouldForest then
-		Beacons:CreatePortal(Vector(-13438, 12401), Vector(-7808, -5504), "forestTown", "particles/customgames/capturepoints/cp_allied_wood.vpcf", true)
-		Beacons:CreatePortal(Vector(-7808, -5504), Vector(-13438, 12401), "forestForest", "particles/customgames/capturepoints/cp_allied_wood.vpcf", true)
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-7808, -5504), 250, 99999, false)
-		Beacons.ForestPortal = true
-	end
-	if not Beacons.DesertPortal and shouldDesert then
-		Beacons:DesertInitiate()
-		Beacons.DesertPortal = true
-	end
-	if not Beacons.MinesPortal and shouldMines then
-		Beacons:MinesInitiate()
-		Beacons.MinesPortal = true
-	end
+	-- local shouldForest = false
+	-- local shouldDesert = false
+	-- local shouldMines = false
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 	local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 	local keyTable = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
+	-- 	if keyTable.forest == 1 then
+	-- 		shouldForest = true
+	-- 	end
+	-- 	if keyTable.desert == 1 then
+	-- 		shouldDesert = true
+	-- 	end
+	-- 	if keyTable.mines == 1 then
+	-- 		shouldMines = true
+	-- 	end
+	-- end
+	-- if not Beacons.ForestPortal and shouldForest then
+	-- 	Beacons:CreatePortal(Vector(-13438, 12401), Vector(-7808, -5504), "forestTown", "particles/customgames/capturepoints/cp_allied_wood.vpcf", true)
+	-- 	Beacons:CreatePortal(Vector(-7808, -5504), Vector(-13438, 12401), "forestForest", "particles/customgames/capturepoints/cp_allied_wood.vpcf", true)
+	-- 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-7808, -5504), 250, 99999, false)
+	-- 	Beacons.ForestPortal = true
+	-- end
+	-- if not Beacons.DesertPortal and shouldDesert then
+	-- 	Beacons:DesertInitiate()
+	-- 	Beacons.DesertPortal = true
+	-- end
+	-- if not Beacons.MinesPortal and shouldMines then
+	-- 	Beacons:MinesInitiate()
+	-- 	Beacons.MinesPortal = true
+	-- end
 
-	if shouldMines then
-		Events.portalPosition = Vector(3712, 1152)
-		Events.portal.teleportLocation = Events.portalPosition
-	elseif shouldDesert then
-		Events.portalPosition = Vector(1792, -2624)
-		Events.portal.teleportLocation = Events.portalPosition
-	elseif shouldForest then
-		Events.portalPosition = Vector(-7808, -5504)
-		Events.portal.teleportLocation = Events.portalPosition
-	else
-		Events.portalPosition = TOWN_RESPAWN_VECTOR
-		Events.portal.teleportLocation = Events.portalPosition
-	end
+	-- if shouldMines then
+	-- 	Events.portalPosition = Vector(3712, 1152)
+	-- 	Events.portal.teleportLocation = Events.portalPosition
+	-- elseif shouldDesert then
+	-- 	Events.portalPosition = Vector(1792, -2624)
+	-- 	Events.portal.teleportLocation = Events.portalPosition
+	-- elseif shouldForest then
+	-- 	Events.portalPosition = Vector(-7808, -5504)
+	-- 	Events.portal.teleportLocation = Events.portalPosition
+	-- else
+	-- 	Events.portalPosition = TOWN_RESPAWN_VECTOR
+	-- 	Events.portal.teleportLocation = Events.portalPosition
+	-- end
 end
 
 function Beacons:CreateParticle(particleName, particleVector, caster, destroyTime)

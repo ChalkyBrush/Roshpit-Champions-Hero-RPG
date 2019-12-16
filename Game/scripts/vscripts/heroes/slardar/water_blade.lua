@@ -29,16 +29,7 @@ function water_bomb_throw(caster, ability, target, damage, damageAmp)
 	end
 	local w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "hydroxis")
 	local manaAmp = 1
-	if w_4_level > 0 then
-		local manaDrain = caster:GetMaxMana() * HYDROXIS_W4_MANA_DRAIN_PCT/100
-		if caster:GetMana() < manaDrain then
-			manaDrain = caster:GetMana()
-		end
-		caster:ReduceMana(manaDrain)
-		manaAmp = (manaDrain / 100) * HYDROXIS_W4_DMG_PER_MANA_PCT/100 * w_4_level + 1
-	else
 
-	end
 	local startPosition = caster:GetAttachmentOrigin(2)
 	local zDifferential = target.z - startPosition.z
 	local baseFV = (target * Vector(1, 1, 0) - startPosition * Vector(1, 1, 0)):Normalized()

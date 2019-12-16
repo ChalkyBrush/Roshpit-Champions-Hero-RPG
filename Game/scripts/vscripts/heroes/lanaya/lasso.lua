@@ -76,7 +76,7 @@ function trapper_lasso_think(event)
 	target:SetAbsOrigin(newTargetPosition)
 	target.lassoLiftSpeed = target.lassoLiftSpeed - 2.4
 	if ability.w_3_level > 0 then
-		local damage = ability.w_3_level * travelDistance / 100 * TRAPPER_ARCANA1_W3_AGI_DAMAGE * caster:GetAgility()
+		local damage = ability.w_3_level * travelDistance / 100 * TRAPPER_ARCANA_W_W3_AGI_DAMAGE * caster:GetAgility()
 		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 	end
 	if not ability.lifting then

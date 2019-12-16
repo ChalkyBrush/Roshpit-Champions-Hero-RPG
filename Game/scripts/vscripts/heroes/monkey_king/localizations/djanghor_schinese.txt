@@ -298,37 +298,37 @@
 		
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"森林雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_1_1"		"[T1-1] 森林雕文"
 		"item_rpc_djanghor_glyph_1_1_description" 				"金箍棒的强力一击击中敌人将刷新筋斗云的冷却。"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"狩猎雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_2_1"		"[T2-1] 狩猎雕文"
 		"item_rpc_djanghor_glyph_2_1_description" 				"在狼形态下，攻击有 <% DJANGHOR_GLYPH_2_1_CHANCE %>% 的概率获得 +<% DJANGHOR_GLYPH_2_1_BONUS_DAMAGE_PCT %>% 的攻击力。变换为其他形态之后效果仍持续 <% DJANGHOR_GLYPH_2_1_EFFECT_LINGERING %>秒。"
 
 		"DOTA_Tooltip_modifier_glyph_2_critical"				"狼之利爪"
 		"DOTA_Tooltip_modifier_glyph_2_critical_Description"	"攻击有概率造成额外伤害。"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"模糊雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_3_1"		"[T3-1] 模糊雕文"
 		"item_rpc_djanghor_glyph_3_1_description" 				"狼形态下有 <% DJANGHOR_GLYPH_3_1_WOLF_EVASION %>% 概率闪避，孙悟空本体形态下有 <% DJANGHOR_GLYPH_3_1_MONKEY_EVASION %>% 概率闪避。"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"七十二变雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_4_1"		"[T4-1] 七十二变雕文"
 		"item_rpc_djanghor_glyph_4_1_description" 				"变身结束后获得 <% DJANGHOR_GLYPH_4_1_SHIELD_STACKS %> 层护盾，每层护盾吸收一次伤害。持续 <% DJANGHOR_GLYPH_4_1_DURATION %>秒。"
 
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield"				"七十二变护盾"
 		"DOTA_Tooltip_modifier_djanghor_4_1_shield_Description"	"每层护盾吸收一次伤害"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"动物学雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_1"		"[T5-1] 动物学雕文"
 		"item_rpc_djanghor_glyph_5_1_description" 				"减少 @Ability1 的冷却时间 <% DJANGHOR_GLYPH_5_1_Q_CD_RED %> 秒。"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"自然庇护雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_6_1"		"[T6-1] 自然庇护雕文"
 		"item_rpc_djanghor_glyph_6_1_description" 				"每 <% DJANGHOR_GLYPH_6_1_CLEANCE_INTERVAL %> 秒，清除一次来自于敌人的负面debuff。"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"抨击雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_7_1"		"[T7-1] 抨击雕文"
 		"item_rpc_djanghor_glyph_7_1_description" 				"在熊形态下，有 <% DJANGHOR_GLYPH_7_1_BASH_CHANCE %>% 的概率攻击眩晕敌人，并且所造成的伤害提高 <% DJANGHOR_GLYPH_7_1_BASH_BONUS_DAMAGE_PCT %>% 。眩晕持续 <% DJANGHOR_GLYPH_7_1_BASH_DURATION %> 秒。变换为其它形态后，buff仍持续 15 秒。 战争践踏将会和撕裂一样降低敌人的护甲。"
 
 		"DOTA_Tooltip_modifier_glyph_7_bash"					"抨击"
 		"DOTA_Tooltip_modifier_glyph_7_bash_Description"		"攻击时有概率眩晕敌人并造成额外伤害"
 
-		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"自然灾害雕文"
+		"DOTA_Tooltip_ability_item_rpc_djanghor_glyph_5_a"		"[T5-a] 自然灾害雕文"
 		"item_rpc_djanghor_glyph_5_a_description" 				"所有 <font color=\"#DDDDDD\">普通</font> 元素伤害都将拥有第二种元素类型，为 <font color=\"#69BC71\">自然</font>."
 		
 	

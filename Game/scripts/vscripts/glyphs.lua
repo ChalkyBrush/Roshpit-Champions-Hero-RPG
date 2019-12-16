@@ -196,7 +196,7 @@ function Glyphs:GetPlayerResources(playerID)
 		local resultTable = {}
 		--print( "GET response:\n" )
 		for k, v in pairs(result) do
-			--print( string.format( "%s : %s\n", k, v ) )
+			print( string.format( "%s : %s\n", k, v ) )
 		end
 		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
@@ -204,18 +204,21 @@ function Glyphs:GetPlayerResources(playerID)
 		local arcaneCrystals = resultTable.arcane_crystals
 		local enchanterTier = resultTable.glyph_enchanter_tier
 		local mithrilShards = resultTable.mithril_shards
+		local prismatic_gemstones = resultTable.prismatic_gemstones
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = arcaneCrystals})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-enchanter", {tier = enchanterTier})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = mithrilShards})
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = prismatic_gemstones})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-income", {available = resultTable.income_available})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-challenge", {completed = resultTable.challenge_completed})
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = arcaneCrystals, enchanter_tier = enchanterTier, player = playerID, mithril = mithrilShards})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = arcaneCrystals, enchanter_tier = enchanterTier, player = playerID, mithril = mithrilShards, gemstones = prismatic_gemstones})
 
 		local webPremTime = resultTable.web_premium
 		local premiumStatus = Glyphs:GetWebStatus(os:TimeStamp(webPremTime), os:ServerTimeToTable())
 		if premiumStatus then
 			CustomNetTables:SetTableValue("premium_pass", "web-"..tostring(playerID), {premium = 1})
 			CustomGameEventManager:Send_ServerToAllClients("update_premium", {playerID = playerID})
+			Challenges:CheckSpawn()
 		end
 	end)
 end
@@ -267,7 +270,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 
 	RPCItems:ItemUpdateCustomNetTables(item)
 	-- DeepPrintTable(item)
-	if dropIndex == 0 then
+	if dropIndex == 0 and deathLocation then
 		local drop = CreateItemOnPositionSync(deathLocation, item)
 		local position = deathLocation
 		RPCItems:DropItem(item, position)
@@ -277,7 +280,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 		item.pickedUp = true
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 	end
-
+	print(item:GetAbilityName())
 	return item
 end
 
@@ -389,7 +392,8 @@ function Glyphs:RollRandomGlyph(position)
 		rowItem = RandomInt(1, 3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	Glyphs:RollGlyphAll(glyphName, position, 0)
+	local glyph = Glyphs:RollGlyphAll(glyphName, position, -1)
+	return glyph
 end
 
 function Glyphs:RollRandomGlyphName()
@@ -408,7 +412,8 @@ function Glyphs:RollRandomGlyphBook(position)
 	local column = 2
 	local heroName = Glyphs:GetRandomHeronameForBook()
 	-- local bookName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..column
-	Glyphs:RollGlyphBook(position, heroName, tier, column)
+	local glyph = Glyphs:RollGlyphBook(position, heroName, tier, column)
+	return glyph
 end
 
 function Glyphs:RollRandomTier()
@@ -466,7 +471,12 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 		if glyph.glyphIndex > 0 then
 			glyph = EntIndexToHScript(glyph.glyphIndex)
 			local glyphModifierName = glyph.newItemTable.property1
-			glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			local glyphName = glyph.newItemTable.item_variant
+			if _G[glyphName] then
+				_G[glyphName]:AddSpecialModifiers(heroEntity)
+			else
+				glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			end
 		end
 	end
 end
@@ -711,7 +721,12 @@ function Glyphs:DebugRollHeroGlyphs(heroName, position)
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-			Glyphs:RollGlyphAll(variantName, position, 0)
+			if _G[variantName] then
+				newItem = _G[variantName]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(variantName, position, 0)
+			end
 		end
 	end
 
@@ -838,9 +853,12 @@ function Glyphs:RollGlyphBook(deathLocation, class, row, column)
 	item.newItemTable.property4 = 0
 	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF", 4)
-	local drop = CreateItemOnPositionSync(deathLocation, item)
-	local position = deathLocation
-	RPCItems:DropItem(item, position)
+	if deathLocation then
+		local drop = CreateItemOnPositionSync(deathLocation, item)
+		local position = deathLocation
+		RPCItems:DropItem(item, position)
+	end
+	return item
 end
 
 function Glyphs:CreateGlyphBook(itemName, row, column)

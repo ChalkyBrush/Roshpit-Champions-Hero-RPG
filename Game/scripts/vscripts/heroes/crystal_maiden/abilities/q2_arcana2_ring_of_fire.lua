@@ -10,10 +10,12 @@ local function cast(caster, ability, runesCount)
     end)
     EmitSoundOn("Sorceress.RingOfFire.Cast", caster)
     local radius = 550
+    local damage = SORCERESS_ARCANA2_Q2_DAMAGE*runesCount
     local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     local burn_duration = SORCERESS_Q2_BASE_DURATION + runesCount * 0.1
     if #enemies > 0 then
         for _, enemy in pairs(enemies) do
+            Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ring_of_fire_burn", {duration = burn_duration})
             enemy.ringOfFireBurn = 0
         end
@@ -24,7 +26,7 @@ local function cast(caster, ability, runesCount)
         local enemies2 = FindUnitsInRadius(caster:GetTeamNumber(), elementalOrigin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies2 > 0 then
             for _, enemy in pairs(enemies2) do
-                -- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+                Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
                 ability:ApplyDataDrivenModifier(caster, enemy, "modifier_ring_of_fire_burn", {duration = burn_duration})
                 enemy.ringOfFireBurn = 0
             end

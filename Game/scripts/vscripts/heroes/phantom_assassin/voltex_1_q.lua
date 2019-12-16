@@ -48,10 +48,12 @@ function voltex_overcharge_onattacklanded(keys)
         particleLimit = 16
     end
 
-    local q_4_level = hero:GetRuneValue("q", 4)
-    if q_4_level > 0 then
-        damage = damage + OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.15 * q_4_level
+    local q_3_level = hero:GetRuneValue("q", 3)
+    if q_3_level > 0 then
+        damage = damage + OverflowProtectedGetAverageTrueAttackDamage(attacker) * (VOLTEX_Q3_ATK_DAMAGE_ADDED_TO_Q/100) * q_3_level
     end
+    local q_4_level = hero:GetRuneValue("q", 4)
+    local q_4_duration = VOLTEX_Q4_PARALYZE_DURATION*q_4_level
 
     if not ability.particleCount then
         ability.particleCount = 0
@@ -82,9 +84,10 @@ function voltex_overcharge_onattacklanded(keys)
             end)
         end
         Filters:TakeArgumentsAndApplyDamage(unit, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
-
+        if q_4_duration > 0 then
+            ability:ApplyDataDrivenModifier(caster, unit, "modifier_voltex_q_4_paralyze", {duration = q_4_duration})
+        end
         targets_shocked = targets_shocked + 1
-        voltex_q_3(attacker, unit, hero)
     end
 end
 
@@ -104,20 +107,21 @@ function voltex_q_1(event)
 end
 
 function voltex_q_3(attacker, target, hero)
-    local q_3_level = hero:GetRuneValue("q", 3)
-    if q_3_level > 0 then
-        local q_3_ability = hero.runeUnit3:FindAbilityByName("voltex_rune_q_3")
-        q_3_ability:ApplyDataDrivenModifier(hero.runeUnit3, target, "modifier_voltex_rune_q_3", {duration = 6})
-        local current_stack = target:GetModifierStackCount("modifier_voltex_rune_q_3", q_3_ability)
-        local stacks = current_stack + q_3_level
-        if stacks > 2000 then
-            stacks = 2000
-        end
-        target:SetModifierStackCount("modifier_voltex_rune_q_3", q_3_ability, stacks)
-        local luck = RandomInt(1, 10)
-        if luck <= 3 then
-            local q3damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.5 * q_3_level
-            Filters:TakeArgumentsAndApplyDamage(target, hero, q3damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
-        end
-    end
+    --removed in 4.0
+    -- local q_3_level = hero:GetRuneValue("q", 3)
+    -- if q_3_level > 0 then
+    --     local q_3_ability = hero.runeUnit3:FindAbilityByName("voltex_rune_q_3")
+    --     q_3_ability:ApplyDataDrivenModifier(hero.runeUnit3, target, "modifier_voltex_rune_q_3", {duration = 6})
+    --     local current_stack = target:GetModifierStackCount("modifier_voltex_rune_q_3", q_3_ability)
+    --     local stacks = current_stack + q_3_level
+    --     if stacks > 2000 then
+    --         stacks = 2000
+    --     end
+    --     target:SetModifierStackCount("modifier_voltex_rune_q_3", q_3_ability, stacks)
+    --     local luck = RandomInt(1, 10)
+    --     if luck <= 3 then
+    --         local q3damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * 0.5 * q_3_level
+    --         Filters:TakeArgumentsAndApplyDamage(target, hero, q3damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
+    --     end
+    -- end
 end

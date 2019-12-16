@@ -94,6 +94,8 @@ function UpdateAbilityList()
 	GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
 	GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
 	GameEvents.Subscribe( "ability_tree_upgrade", UpdateAbilityList );
+	GameEvents.Subscribe( "update_abilities_and_runes_ui", UpdateAbilityList );
+	
 	UpdateAbilityList(); // initial update
 })();
 

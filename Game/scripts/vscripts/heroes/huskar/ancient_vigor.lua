@@ -89,8 +89,8 @@ function vigor_deal_damage(event)
 		Timers:CreateTimer(0.5, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, 5, false)
-		local trollBloodHeal = damage * 0.003 * r_1_level
+		local trollBloodDuration = Filters:GetAdjustedBuffDuration(caster, SPIRIT_WARRIOR_R1_DURATION, false)
+		local trollBloodHeal = damage * SPIRIT_WARRIOR_R1_LIFESTEAL_PCT/100 * r_1_level
 		if #ability.healInstances > 0 and ability.healInstances[#ability.healInstances].duration == trollBloodDuration then
 			ability.healInstances[#ability.healInstances].heal = ability.healInstances[#ability.healInstances].heal + trollBloodHeal / trollBloodDuration / 10
 		else

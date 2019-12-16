@@ -630,7 +630,7 @@ function Serengaard:NextWave()
 			Serengaard:SpawnWaveUnit("wraithguard_elite", SERENGAARD_SPAWN_POINTS[i], 3, 62, 9.0, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
-			Serengaard:SpawnWaveUnit("castle_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 11, 64, 1.5, false)
+			Serengaard:SpawnWaveUnit("serengaard_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 11, 64, 1.5, false)
 		end
 		StartMusic("Serengaard.Music.Wave.21_30", 110)
 	elseif Serengaard.wave == 24 then
@@ -645,7 +645,7 @@ function Serengaard:NextWave()
 			Serengaard:SpawnWaveUnit("wraithguard_elite", SERENGAARD_SPAWN_POINTS[i], 2, 62, 4.0, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
-			Serengaard:SpawnWaveUnit("castle_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 4, 54, 2.5, false)
+			Serengaard:SpawnWaveUnit("serengaard_skeleton_archer", SERENGAARD_SPAWN_POINTS[i], 4, 54, 2.5, false)
 		end
 		for i = 1, #SERENGAARD_SPAWN_POINTS, 1 do
 			Serengaard:SpawnWaveUnit("serengaard_gazbin_mercenary", SERENGAARD_SPAWN_POINTS[i], 2, 58, 1.9, false)
@@ -903,7 +903,6 @@ end
 
 function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, delay, bSound)
 	local baseSpawnPos = spawnPoint
-	local unit = false
 	for i = 0, quantity - 1, 1 do
 		Timers:CreateTimer(i * delay, function()
 			spawnPoint = Serengaard:AdjustSpawnPoint(baseSpawnPos)
@@ -915,14 +914,8 @@ function Serengaard:SpawnWaveUnit(unitName, spawnPoint, quantity, itemLevel, del
 				maxLuck = math.max(120 - Serengaard.InfiniteWaveCount, 85)
 			end
 			local luck = RandomInt(1, maxLuck)
-			if luck == 1 then
-				unit = Paragon:SpawnParagonPack(unitName, spawnPoint)
-			elseif luck == 2 then
-				unit = Paragon:SpawnParagonUnit(unitName, spawnPoint)
-			else
-				unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+			local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 
-			end
 			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
 				unit.dominion = true
 				unit.itemLevel = itemLevel
@@ -969,7 +962,7 @@ function Serengaard:AdjustUnit(unit)
 	unit.targetFindOrder = FIND_ANY_ORDER
 	unit.autoAbilityCD = 1
 
-	Events:AdjustDeathXP(unit)
+	-- Events:AdjustDeathXP(unit)
 	if GameState:GetDifficultyFactor() == 3 then
 		newHealth = unit:GetMaxHealth() * (1 + Serengaard.wave * 0.1)
 		newHealth = math.min(newHealth, (2 ^ 30) - 10)
@@ -1022,11 +1015,8 @@ function Serengaard:AdjustUnit(unit)
 		unit:SetDeathXP(bountyXP)
 	end
 	if Serengaard.InfiniteWaveCount then
-		local bountyXP = math.ceil(unit:GetDeathXP() + unit:GetDeathXP() * 0.05 * Serengaard.InfiniteWaveCount)
-		unit:SetDeathXP(bountyXP)
 		unit:SetRenderColor(120, 120, 120)
 		Events:ColorWearables(unit, Vector(120, 120, 120))
-		Events:AdjustBossPower(unit, Serengaard.InfiniteWaveCount, Serengaard.InfiniteWaveCount, false)
 		unit.itemLevel = 80 + Serengaard.InfiniteWaveCount * 3
 	end
 end
@@ -1096,7 +1086,7 @@ function Serengaard:SpawnTeleporter(position)
 end
 
 function Serengaard:UpdateTowers()
-	local maxValue = 250000000
+	local maxValue = 2500000
 	for i = 1, #Serengaard.SerengaardBarracksTable, 1 do
 		if IsValidEntity(Serengaard.SerengaardBarracksTable[i]) then
 			local tower = Serengaard.SerengaardBarracksTable[i]

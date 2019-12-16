@@ -5,7 +5,8 @@ function general_hero_think(event)
 	local strength = math.floor(target:GetStrength())
 	local agility = math.floor(target:GetAgility())
 	local intelligence = math.floor(target:GetIntellect())
-	local primaryAttribute = target:GetPrimaryAttribute()
+	local spirit = math.floor(target:GetSpirit())
+	local primaryAttribute = target:GetRoshpitPrimaryAttribute()
 	local healthRegen = target:GetHealthRegen()
 	local manaRegen = (target:GetBaseManaRegen() + target:GetBonusManaRegen())
 	-- magaRegen = manaRegen + (manaRegen*target:GetManaRegenMultiplier())/100
@@ -23,7 +24,12 @@ function general_hero_think(event)
 	-- 	end
 	-- end
 	-- problem with frozen heart is that health regen still exists as a value in background, and any numbers that interact with health regen still work
-	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat})
+
+	local armor = target:GetRoshpitArmor(amount)
+	local magic_armor = target:GetRoshpitMagicArmor(amount)
+	local armor_pierce = target:GetRoshpitArmorPierce(amount)
+	local spell_pierce = target:GetRoshpitSpellPierce(amount)
+	CustomNetTables:SetTableValue("hero_index", tostring(target:GetEntityIndex() .. "_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), spirit = tostring(spirit), primaryAttribute = tostring(primaryAttribute), healthRegen = tostring(healthRegen), manaRegen = tostring(manaRegen), movespeed = tostring(movespeed), tiamat = tiamat, armor = tostring(armor), magic_armor = tostring(magic_armor), spell_pierce = tostring(spell_pierce), armor_pierce = tostring(armor_pierce)})
 	for i = 0, 5, 1 do
 		local playerID = target:GetPlayerOwnerID()
 		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
@@ -51,6 +57,8 @@ function general_hero_think(event)
 			Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, target, "modifier_ms_thinker", {})
 		end
 	end
+	-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_roshpit_stats", {})
+	
 	-- CustomAttributes:CalcMovespeed(target)
 end
 
@@ -120,7 +128,7 @@ function crystal_moving_to_target(event)
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "collect_arcane", {gain = pickUpPlayer.crystalsPickedUp})
 				CustomGameEventManager:Send_ServerToPlayer(pickUpPlayer:GetPlayerOwner(), "update_resources_increment", {increment = pickUpPlayer.crystalsPickedUp, resource = "arcane"})
 				if pickUpPlayer:HasModifier("modifier_arcane_charm") then
-					local healPercent = (caster.quantity / 100) * ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE
+					local healPercent = (caster.quantity / 100) * ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE
 					Filters:ApplyHeal(pickUpPlayer, pickUpPlayer, pickUpPlayer:GetMaxHealth() * healPercent, true)
 					pickUpPlayer:GiveMana(pickUpPlayer:GetMaxMana() * healPercent)
 				end
@@ -687,7 +695,7 @@ function ms_thinker(event)
 
 	local modifier_emerald_speed_runners = unit:FindModifierByName("modifier_emerald_speed_runners")
 	if modifier_emerald_speed_runners then
-		local msValue = EMERALD_SPEED_MS_LOW_CAP
+		local msValue = ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY)
 		--print("modifier_emerald_speed_runners "..tostring(msValue))
 		max_ms = math.max(msValue, max_ms)
 		actual_movespeed = math.max(msValue, actual_movespeed)
@@ -697,10 +705,13 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + (max_ms)*(PEGASUS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
+	end
+	if unit:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
+		max_ms = max_ms + ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS
 	end
 
-	if max_ms > 550 and actual_movespeed > 550 then
+	if (max_ms > 550 and actual_movespeed > 550) or (unit:HasModifier("modifier_emerald_speed_runners")) then
 		unit.master_move_speed = math.min(max_ms, actual_movespeed)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
@@ -750,3 +761,54 @@ function ms_thinker(event)
 	-- end
 end
 
+function challenge_win_float_think(event)
+	local target = event.target
+	if not target.challenge_win_phase then
+		target.challenge_win_phase = 0
+	end
+	target.challenge_win_phase = target.challenge_win_phase + 1
+	local lift_force = 7
+	if target.challenge_win_phase > 20 then
+		lift_force = 5
+	end
+	if target.challenge_win_phase > 30 then
+		lift_force = 3
+	end
+	if target.challenge_win_phase > 40 then
+		lift_force = 1
+	end
+	if target.challenge_win_phase > 50 then
+		lift_force = 0
+	end
+	if target.challenge_win_phase > 150 then
+		lift_force = -15
+		if GetGroundHeight(target:GetAbsOrigin(), target) + 17 > target:GetAbsOrigin().z then
+			target:RemoveModifierByName("modifier_challenge_win_float")
+			target.challenge_win_phase = 0
+			StartAnimation(target, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1})
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+		end
+	end
+	target:SetAbsOrigin(target:GetAbsOrigin()+Vector(0,0,lift_force))
+end
+
+function challenge_mob_ability_execute(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.unit
+	if Challenges.MobCDReduction then
+		local executedAbility = event.event_ability
+		local currentCD = executedAbility:GetCooldownTimeRemaining()
+		executedAbility:EndCooldown()
+		local cd = currentCD*Challenges.MobCDReduction
+		if target:HasModifier("modifier_hood_of_lords_lua") then
+			cd = cd + 1
+		end
+		executedAbility:StartCooldown(cd)
+	end
+end
+
+function utility_recalculate_roshpit_attributes(event)
+	local target = event.target
+	target:CalculateAndSaveRoshpitAttributes()
+end
