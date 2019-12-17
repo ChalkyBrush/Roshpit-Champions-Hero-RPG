@@ -3820,7 +3820,7 @@ end
 function ice_shell(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("Seafortress.IceShell", caster)
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})

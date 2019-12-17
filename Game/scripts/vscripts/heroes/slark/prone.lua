@@ -20,7 +20,7 @@ function prone_start(event)
 			EmitSoundOn("Slipfinn.PoundWooshStart1", caster)
 		end
 		ability:StartCooldown(1.5)
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		local delay = 0.4
 		local animDur = 0.37
 		local animRate = 1.6

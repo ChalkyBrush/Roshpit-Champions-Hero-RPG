@@ -33,7 +33,7 @@ function chronosphere(keys)
 	rune_r_1(caster, target_point, ability, duration, vision_radius)
 	rune_r_2_level(caster, ability, target_point)
 	rune_r_3(caster, ability)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function rune_r_2_level(caster, ability, target_point)

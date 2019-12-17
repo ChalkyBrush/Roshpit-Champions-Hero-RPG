@@ -25,7 +25,7 @@ function earthquake_cast(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_free_quake", {duration = duration})
 	end
 	if not ability.procCast then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		ability.procCast = true
 	end
 	if caster.earthAspect then

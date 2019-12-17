@@ -25,7 +25,7 @@ function flame_wreck_start(event)
 	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_flame_wreck_thinker", {duration = fire_duration})
 	EmitSoundOn("Warlord.Cataclysm.VO", caster)
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.5})
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function flame_wreck_thinker(event)

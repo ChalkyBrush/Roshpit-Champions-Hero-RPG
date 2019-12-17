@@ -107,7 +107,7 @@ function missles_channel_end(event)
 			StopSoundEvent("Zonik.ArcanaMissles.ChannelLight", caster)
 		end
 	end)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function passive_think(event)

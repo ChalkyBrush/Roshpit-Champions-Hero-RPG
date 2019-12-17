@@ -35,7 +35,7 @@ function begin_genesis_orb(event)
 	end
 
 	EmitSoundOn("Epoch.GenesisOrb", caster)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function fireGenesisOrb(ability, origin, range, fv, speed, caster)

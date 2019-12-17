@@ -22,7 +22,7 @@ function arkimus_jump_start(event)
 	if not event.special then
 		StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1})
 		EmitSoundOn("Akrimus.Jump.VO", caster)
-		Filters:CastSkillArguments(3, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 		if caster:HasModifier("modifier_machinal_jump_freecast") then
 			ability:EndCooldown()
 			local newStacks = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster) - 1

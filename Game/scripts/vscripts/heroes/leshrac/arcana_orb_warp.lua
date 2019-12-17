@@ -41,7 +41,7 @@ function begin_lightning_dash(event)
 	Timers:CreateTimer(3, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 end
 

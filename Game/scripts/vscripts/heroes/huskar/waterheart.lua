@@ -30,7 +30,7 @@ function waterheart_start(event)
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster.waterheartStarted = true
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_waterheart_weapon", {duration = duration})
 end
 

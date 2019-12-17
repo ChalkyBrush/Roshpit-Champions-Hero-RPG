@@ -89,7 +89,7 @@ function channel_complete(event)
 		dummy.hardInterval = 0
 		table.insert(ability.energyTable, dummy)
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	calculate_a_d(caster, ability)
 end
 

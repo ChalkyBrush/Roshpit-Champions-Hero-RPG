@@ -44,7 +44,7 @@ function initialize_seraph_surge(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1})
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	ProjectileManager:ProjectileDodge(caster)
 end
 

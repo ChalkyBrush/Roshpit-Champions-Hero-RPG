@@ -40,7 +40,7 @@ function hawk_screech(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function hawk_screech_hit(event)
@@ -120,7 +120,7 @@ function tornado_start(event)
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	ability.w_3_level = caster:GetRuneValue("w", 3)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function tornado_hit(event)
@@ -168,7 +168,7 @@ function soar_start(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function soar_visual_end(event)

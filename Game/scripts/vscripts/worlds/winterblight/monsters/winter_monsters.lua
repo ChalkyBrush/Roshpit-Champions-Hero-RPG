@@ -588,7 +588,7 @@ function wb_volcanic_glissade(event)
 	end
 	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_tether.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin() + Vector(0, 0, 90))
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local glyphFreeCast = false
 	local luck = RandomInt(1, 5 - GameState:GetDifficultyFactor())
 	if luck == 1 then

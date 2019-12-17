@@ -20,7 +20,7 @@ function begin_crusader_comet(event)
 		e_3_duration = Filters:GetAdjustedBuffDuration(caster, e_3_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = e_3_duration})
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function jumping_think(event)

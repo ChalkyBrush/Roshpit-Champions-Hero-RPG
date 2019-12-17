@@ -143,7 +143,7 @@ function cast_raise_skeleton(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function reindexSkeleTable(ability)

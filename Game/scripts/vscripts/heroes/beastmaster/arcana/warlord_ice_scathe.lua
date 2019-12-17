@@ -23,7 +23,7 @@ function ice_scathe_start(event)
 	EmitSoundOnLocationWithCaster(point, "Warlord.IceScathe.Start", caster)
 
 	
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if caster:HasModifier("modifier_ice_scathe_freecast") then
 		ability:EndCooldown()
 		local stacks = caster:GetModifierStackCount("modifier_ice_scathe_freecast", caster)

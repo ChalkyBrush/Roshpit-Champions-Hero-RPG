@@ -53,7 +53,7 @@ function class:OnSpellStart()
 		caster:AddNewModifier(caster, ability, "modifier_paladin_q3_shield", {duration = immortalDuration})
 		caster:SetModifierStackCount("modifier_paladin_q3_shield", caster, 4)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function class:OnToggle()
@@ -76,7 +76,7 @@ function class:OnToggle()
 				caster:AddNewModifier(caster, ability, "modifier_paladin_q3_shield", {duration = immortalDuration})
 				caster:SetModifierStackCount("modifier_paladin_q3_shield", caster, 4)
 			end
-			Filters:CastSkillArguments(1, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		else
 			caster:RemoveModifierByName("modifier_paladin_q")
 			caster:RemoveModifierByName("modifier_paladin_q2_aura")

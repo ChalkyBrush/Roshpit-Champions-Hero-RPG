@@ -5,7 +5,7 @@ function turn_toggle_on(event)
 
 	arcana1_b_b_spin(caster, ability, 1)
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", caster, 2)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function turn_toggle_off(event)

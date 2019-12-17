@@ -34,7 +34,7 @@ function voltex_static_field_onchannelsucceeded(event)
 	end
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	voltex_rune_r_1(caster, ability)
 	voltex_rune_r_3(caster)
 end

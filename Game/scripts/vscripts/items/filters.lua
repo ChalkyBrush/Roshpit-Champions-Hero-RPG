@@ -261,9 +261,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
 end
 
 function Filters:GetAdjustedRange(caster, baseRange)
-    if caster:HasModifier("modifier_hood_of_lords_lua") then
-        baseRange = baseRange + HOOD_OF_LORDS_BONUS_RANGE
-    end
     if caster:HasModifier("modifier_vermillion_dream_lua") then
         baseRange = baseRange + ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
     end
@@ -418,9 +415,6 @@ end
 function Filters:ReduceCooldownAll(caster, ability, baseCD)
     local abilityCooldown = baseCD
     local CDreduce = 0
-    -- if caster:HasModifier("modifier_hood_of_lords_lua") then
-    --     CDreduce = CDreduce + 1
-    -- end
     local abilityCooldown = abilityCooldown - CDreduce
     if abilityCooldown > 0 then
         ability:EndCooldown()
@@ -432,9 +426,6 @@ end
 
 function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
     local abilityCooldown = ability:GetCooldownTimeRemaining()
-    if caster:HasModifier("modifier_hood_of_lords_lua") then
-        abilityCooldown = abilityCooldown + HOOD_OF_LORDS_CD_RED
-    end
     local abilityCooldown = abilityCooldown - CDreduce
     if abilityCooldown > 0 then
         ability:EndCooldown()
@@ -444,6 +435,36 @@ function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
     end
 end
 
+function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
+    local abilityCooldown = baseCD
+    local CDreduce = 0
+    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_Q_FLAT_CD_RED }, { }, 
+        function(result, data)
+            CDreduce = CDreduce + result
+        end
+    )
+    local abilityCooldown = abilityCooldown - CDreduce
+
+    --Percent based reduction here
+
+    ability:EndCooldown()
+    ability:StartCooldown(abilityCooldown)
+end
+function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
+    local abilityCooldown = baseCD
+    local CDreduce = 0
+    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_W_FLAT_CD_RED }, { }, 
+        function(result, data)
+            CDreduce = CDreduce + result
+        end
+    )
+    local abilityCooldown = abilityCooldown - CDreduce
+
+    --Percent based reduction here
+
+    ability:EndCooldown()
+    ability:StartCooldown(abilityCooldown)
+end
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CDreduce = 0
@@ -474,16 +495,8 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if caster:HasModifier("modifier_bear_silencer") then
         CDreduce = CDreduce - 30
     end
-    if bIncludeFlatCD then
-        -- if caster:HasModifier("modifier_hood_of_lords_lua") then
-        --     CDreduce = CDreduce + 1
-        -- end
-    end
     if caster:HasModifier("modifier_signus_charm") then
         CDreduce = CDreduce - baseCD
-    end
-    if caster:HasModifier("modifier_hood_of_lords_lua") then
-        CDreduce = CDreduce - HOOD_OF_LORDS_CD_RED
     end
     local abilityCooldown = abilityCooldown - CDreduce
 
@@ -498,23 +511,27 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if abilityCooldown < 0.1 then
         abilityCooldown = 0.1
     end
-    --Hood of Lords reduces CD after all the lua code. Its internal by Dota 2
-    if abilityCooldown < 1.1 and caster:HasModifier("modifier_hood_of_lords_lua") then
-        abilityCooldown = 1.1
-    end
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
 end
-
-function Filters:GetCDNoHood(caster, cd)
-    if cd < 1.5 then
-        if caster:HasModifier("modifier_hood_of_lords_lua") then
-            cd = cd + HOOD_OF_LORDS_CD_RED
+function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
+    local abilityCooldown = baseCD
+    local CDreduce = 0
+    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_R_FLAT_CD_RED }, { }, 
+        function(result, data)
+            CDreduce = CDreduce + result
         end
-    end
-    return cd
+    )
+    local abilityCooldown = abilityCooldown - CDreduce
+
+    --Percent based reduction here
+
+    ability:EndCooldown()
+    ability:StartCooldown(abilityCooldown)
+    print("new CD: "..abilityCooldown)
 end
+
 
 function Filters:GetRawBaseStat(statName, caster)
     local attribute = 0
@@ -869,6 +886,8 @@ function Filters:BeginRChannel(caster)
             Filters:EndRChannel(caster)
         end)
     end
+    local baseCd = ability:GetCooldownTimeRemaining()
+    Filters:ReduceRCooldown(caster, ability, baseCd, false)
     if caster:HasModifier("modifier_galaxy_orb") then
         caster.galaxy_orb:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_galaxy_orb_channel", {duration = 8.0})
     end
@@ -946,6 +965,10 @@ function Filters:EndRChannel(caster)
 end
 
 function Filters:ApplyQskills(caster)
+    local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+    local baseCd = ability:GetCooldownTimeRemaining()
+    Filters:ReduceQCooldown(caster, ability, baseCd, false)
+
     if caster:HasModifier("modifier_death_whisper_helm") then
         Filters:DeathWhisperSapphire(caster)
     end
@@ -1094,6 +1117,10 @@ function Filters:ApplyQskills(caster)
 end
 
 function Filters:ApplyWskills(caster)
+    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+    local baseCd = ability:GetCooldownTimeRemaining()
+    Filters:ReduceWCooldown(caster, ability, baseCd, false)
+
     if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
         local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
         local baseCd = ability:GetCooldownTimeRemaining()
@@ -1230,17 +1257,7 @@ function Filters:ApplyWskills(caster)
             local disableAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
             if IsValidEntity(disableAbility) then
                 local cd = 1
-                if caster:HasModifier("modifier_hood_of_lords_lua") then
-                    cd = 2
-                end
                 disableAbility:StartCooldown(cd)
-                -- Notifications:Top(caster:GetPlayerOwnerID(), {text = "Too Fast!", duration = 2, style = {color = "red"}, continue = true})
-                -- disableAbility:SetActivated(false)
-                -- Timers:CreateTimer(5, function()
-                --     if IsValidEntity(disableAbility) then
-                --         disableAbility:SetActivated(true)
-                --     end
-                -- end)
             end
         end
     else
@@ -3611,9 +3628,6 @@ function Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
         end
         local CDremaining = ability:GetCooldownTimeRemaining()
         local newCD = math.max(0, CDremaining - CDreduce)
-        if caster:HasModifier("modifier_hood_of_lords_lua") then
-            newCD = newCD + 1
-        end
         if newCD == 0 then
             ability:EndCooldown()
         else

@@ -47,7 +47,7 @@ function channel_complete(event)
 	end
 	ability.r_4_level = caster:GetRuneValue("r", 4)
 	EmitSoundOn("Arkimus.ArchonForm.Start", caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 end
 

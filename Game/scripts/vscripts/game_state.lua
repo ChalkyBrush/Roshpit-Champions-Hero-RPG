@@ -1126,7 +1126,7 @@ function GameState:OrderFilter(orderTable)
 								EmitSoundOn("Sephyr.PiercingGale.VO", unit)
 							end
 						end
-						Filters:CastSkillArguments(3, unit)
+						Filters:CastSkillArguments(BASE_ABILITY_E, unit)
 						-- if unit:HasAbility("sephyr_lightbomb") then
 						-- local lightbomb = unit:FindAbilityByName("sephyr_lightbomb")
 						-- lightbomb:SetActivated(false)

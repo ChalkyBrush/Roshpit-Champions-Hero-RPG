@@ -5,7 +5,7 @@ function toggle_on(event)
 	local ability = event.ability
 	local damage_mult = 12
 	local r4_level = caster:GetRuneValue("r", 4)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_movespeed_set", nil)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_arcana2_armor", nil)
 	StartSoundEvent("Venomort.ReaperToggle", caster)

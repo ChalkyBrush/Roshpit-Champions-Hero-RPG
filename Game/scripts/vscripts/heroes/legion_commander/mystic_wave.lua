@@ -5,7 +5,7 @@ function begin_mystic_wave(event)
 	local ability = event.ability
 	local target = event.target_points[1]
 	local range = event.range
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if caster:HasModifier("modifier_mountain_protector_glyph_1_1") then
 		local currentCD = ability:GetCooldownTimeRemaining()
 		ability:EndCooldown()

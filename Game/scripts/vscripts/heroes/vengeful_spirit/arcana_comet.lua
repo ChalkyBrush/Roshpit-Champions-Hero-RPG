@@ -41,7 +41,7 @@ function begin_arcana_comet(event)
 		EmitSoundOnLocationWithCaster(target, "Solunia.SolarGlow.Impact", caster)
 		flareImpact(caster, ability, damage, element2, damageType, target, event.stun_duration, event.sun_moon)
 	end)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if event.sun_moon == "sun" then
 		local freeCastStacks = caster:GetModifierStackCount("modifier_solar_comet_free_cast", caster)
 		local stackReduce = 1

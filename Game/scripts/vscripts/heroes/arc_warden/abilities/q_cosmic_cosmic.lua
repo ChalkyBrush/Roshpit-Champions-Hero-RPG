@@ -96,7 +96,7 @@ function jex_q_cosmic_cosmic_cast_targetted(event)
 	beam.length = WallPhysics:GetDistance2d(beam.position, beam.target)
 	beam.startPoint = caster:GetAbsOrigin()
 	table.insert(ability.beamTable, beam)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	-- StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_ATTACK, rate=1})
 	EmitSoundOn("Jex.CosmicLaser", caster)
 end

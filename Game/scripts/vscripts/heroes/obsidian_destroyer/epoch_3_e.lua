@@ -25,7 +25,7 @@ function onWarpFire(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_no_damage", nil)
 		end
 		epoch_e_2(caster, ability)
-		Filters:CastSkillArguments(3, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 		ability:EndCooldown()
 	else
 		jaunt(ability, caster)

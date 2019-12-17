@@ -134,7 +134,7 @@ function class:OnOrderAttack(data)
 
     self:Teleport(afterWallPosition)
     self:StartCooldown()
-    Filters:CastSkillArguments(3, self:GetCaster())
+    Filters:CastSkillArguments(BASE_ABILITY_E, self:GetCaster())
 
     Timers:CreateTimer(0.15, function()
         -- self:ApplyE3Debuff(enemy, nil)
@@ -161,7 +161,7 @@ function class:OnOrderMove(data)
     self:Teleport(newPosition)
     -- self:ApplyE3Debuff(nil, newPosition)
     self:StartCooldown()
-    Filters:CastSkillArguments(3, self:GetCaster())
+    Filters:CastSkillArguments(BASE_ABILITY_E, self:GetCaster())
 
 end
 function class:Teleport(position)

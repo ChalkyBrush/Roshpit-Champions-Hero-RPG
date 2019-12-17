@@ -87,7 +87,7 @@ function start_vorpal_blades(event)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, counter_modifier_name, {})
 	caster:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function vorpal_blades_thinking(event)

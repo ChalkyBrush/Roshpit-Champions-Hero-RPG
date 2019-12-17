@@ -18,7 +18,7 @@ function cast_ancient_spirit(event)
 		end
 	end
 	if targetedSpirit then
-		Filters:CastSkillArguments(3, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_dashing", {duration = 3.4})
 		caster:RemoveModifierByName("modifier_spirit_warrior_glyph_effect")
 		ability.targetedSpirit = targetedSpirit

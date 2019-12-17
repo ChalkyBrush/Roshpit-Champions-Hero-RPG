@@ -12,7 +12,7 @@ function tachyon_shield_cast(event)
 	local modifierDuration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_tachyon_shell", {duration = modifierDuration})
 	if not ability.bNoCast then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	end
 end
 

@@ -3,7 +3,7 @@ require('heroes/omniknight/paladin_constants')
 function cast_wings(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local duration = event.duration
 	local b_a_level = Runes:GetTotalRuneLevel(caster, 2, "b_a", "paladin")
 	ability.b_a_level = b_a_level

@@ -8,7 +8,7 @@ function trap_start(event)
 		Filters:ReduceCooldownGeneric(caster, ability, ability:GetCooldownTimeRemaining() * TRAPPER_IMMORTAL_WEAPON_3_CD_RED)
 	end
 	EmitSoundOn("Trapper.FulminatingPlacement", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if ability.current_traps == nil then
 		ability.current_traps = 0
 		ability.traps = {}
@@ -218,7 +218,7 @@ function trap_start_net(event)
 
 	trap.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "trapper")
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	-- Places the trap in the list and increments the total
 	ability.current_traps = ability.current_traps + 1
 	table.insert(ability.traps, trap)

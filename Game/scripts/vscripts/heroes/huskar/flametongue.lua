@@ -25,7 +25,7 @@ function flametongue_start(event)
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster.flametongueStarted = true
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_flametongue", {duration = duration})
 	if target:GetEntityIndex() == caster:GetEntityIndex() and caster:HasModifier("modifier_spirit_warrior_glyph_6_1") then
 	else

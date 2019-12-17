@@ -346,7 +346,7 @@ end
 function transfer_to_onibi(caster, ability)
 	if ability.harvested > 0 then
 		if not ability.casted then
-			Filters:CastSkillArguments(4, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 			ability.casted = true
 		end
 		local intensity = 1
@@ -392,7 +392,7 @@ function successfullCast(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not ability.casted then
-		-- Filters:CastSkillArguments(4, caster)
+		-- Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		ability.casted = true
 	end
 end

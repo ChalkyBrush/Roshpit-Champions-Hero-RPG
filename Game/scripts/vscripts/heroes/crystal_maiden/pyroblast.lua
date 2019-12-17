@@ -82,7 +82,7 @@ function begin_pyro(event)
 		bProvidesVision = false,
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 	local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "sorceress")
 	if c_d_level > 0 then

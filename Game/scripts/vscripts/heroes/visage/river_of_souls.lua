@@ -100,7 +100,7 @@ function river_of_souls_start(event)
 			UTIL_Remove(targetCorpse)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function SummonFamiliar(caster, ability, portalPosition, b_c_level)

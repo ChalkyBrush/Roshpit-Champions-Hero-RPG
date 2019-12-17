@@ -39,7 +39,7 @@ function jex_fire_fire_e:OnSpellStart()
 	end
 	onibi_ability = caster.onibi:FindAbilityByName("onibi_fire_1")
 	onibi_ability.w_4_level = caster:GetRuneValue("w", 4)
-	Filters:CastSkillArguments(3, caster)    
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)    
 end
 
 function jex_fire_fire_e:OnProjectileHit(target, vLocation)

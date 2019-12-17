@@ -54,7 +54,7 @@ function begin_dinath_dive(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_dive_attack_range", {duration = divingDuration})
 		caster:SetModifierStackCount("modifier_dinath_dive_attack_range", caster, c_c_level)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	if caster:HasModifier("modifier_drake_dive_freecast") then
 		caster:RemoveModifierByName("modifier_drake_dive_freecast")
 		ability:EndCooldown()

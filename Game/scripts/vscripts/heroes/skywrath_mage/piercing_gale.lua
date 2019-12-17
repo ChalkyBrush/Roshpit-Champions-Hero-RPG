@@ -116,7 +116,7 @@ function begin_piercing_gale(event)
 	end
 	ability.pushSpeed = 12
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gale_speed_burst", {duration = 0.8})
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function gale_speed_burst_think(event)

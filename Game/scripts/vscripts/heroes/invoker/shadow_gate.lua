@@ -56,7 +56,7 @@ function shadow_gate_cast(event)
 		ability:EndCooldown()
 		ability:StartCooldown(CONJUROR_GLYPH_3_1_E_CD_DURING_R)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	ProjectileManager:ProjectileDodge(caster)
 end
 

@@ -77,7 +77,7 @@ function cast_necrofusion(event)
     ability.w2_level = w2_level
     ability.w2_duration = w2_duration
 
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 end
 function projectile_hit(event)

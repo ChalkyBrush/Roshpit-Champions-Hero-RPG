@@ -25,7 +25,7 @@ function vigor_start(event)
 	Timers:CreateTimer(0.5, function()
 		StopSoundEvent("SpiritWarrior.AncientVigorChannel", caster)
 	end)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_vigor", {duration = duration})
 	-- local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "spirit_warrior")
 	-- if a_d_level > 0 then

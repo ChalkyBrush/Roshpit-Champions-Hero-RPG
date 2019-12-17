@@ -9,7 +9,7 @@ function jumpStart(event)
 	ability.liftVelocity = 70
 	ability.fallVelocity = 0
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local targetPoint = event.target_points[1]
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
@@ -63,7 +63,7 @@ function fireJumpStart(event)
 	ability.liftVelocity = 70
 	ability.fallVelocity = 0
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local targetPoint = event.target_points[1]
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
@@ -273,7 +273,7 @@ function iceSprintStart(event)
 	ability.interval = 0
 	StartAnimation(caster, {duration = event.duration, activity = ACT_DOTA_RUN, rate = 1.2, translate = "haste"})
 	-- rune_e_2(caster, ability)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills("ice", caster, ability)
 	end

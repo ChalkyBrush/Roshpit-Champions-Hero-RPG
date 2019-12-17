@@ -74,7 +74,7 @@ function spark_start(event)
 			energyField.rotationDelta = math.min(50, energyField.rotationDelta + 6)
 		end
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function zonis_damage(enemy, caster, damage, ability)

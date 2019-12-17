@@ -106,7 +106,7 @@ function jinbo_start(event)
 		end)
 
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function heavy_boulder_pushback(event)

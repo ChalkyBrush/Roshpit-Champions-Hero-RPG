@@ -77,7 +77,7 @@ function bubble_possess_start(event)
 		EmitSoundOn("Slipfinn.PossessStartMove.VO", caster)
 	end
 	EmitSoundOn("Slipfinn.Possess.MoveStart", caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function possession_moving_towards_think(event)

@@ -1,7 +1,7 @@
 function paladin_e_dash_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	caster:StartGesture(ACT_DOTA_CAST_ABILITY_1)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)

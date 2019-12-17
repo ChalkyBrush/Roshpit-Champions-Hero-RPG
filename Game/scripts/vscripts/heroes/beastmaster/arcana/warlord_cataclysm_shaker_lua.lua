@@ -68,5 +68,5 @@ function warlord_cataclysm_shaker:OnSpellStart()
 			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
 		end)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end

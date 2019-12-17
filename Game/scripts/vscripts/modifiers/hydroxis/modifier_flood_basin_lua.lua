@@ -17,9 +17,6 @@ function modifier_flood_basin_lua:GetModifierCastRangeBonus(params)
 		if hero:HasModifier("modifier_vermillion_dream_lua") then
 			range = range + 420
 		end
-		if hero:HasModifier("modifier_hood_of_lords_lua") then
-			range = range + 140
-		end
 	end
 	return range
 end

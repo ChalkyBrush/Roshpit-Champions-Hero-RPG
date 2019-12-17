@@ -58,7 +58,7 @@ function jex_activate_thunder_blossom(event)
 	ability.max_chain_targets = max_chain_targets
 	EmitSoundOn("Jex.Thundershroom.Spawn", shroom)
 	EmitSoundOn("Jex.Thundershroom.SpawnSpark", shroom)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	table.insert(ability.summons_table, shroom)
 end
 

@@ -34,7 +34,7 @@ function prepareAxeLaunch(event)
 	elseif element == "fire" then
 		launchAxe(ability, caster, "particles/_2units/heroes/hero_troll_warlord/warlord_range_axe_fire.vpcf", fv, casterOrigin, true, element)
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	if not event.bNoCast then
 		if caster:HasModifier("modifier_warlord_ice_sprint") or caster:HasModifier("modifier_warlord_jumping") or caster:HasModifier("modifier_warlord_jumping_fire") then
 		else

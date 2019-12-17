@@ -22,7 +22,7 @@ function arcana_zap_field_start(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_arcana1_q4", {duration = avatarDuration})
 		caster:SetModifierStackCount("modifier_arkimus_arcana1_q4", caster, q_4_level)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 function zap_field_modifier_start(event)
 	local caster = event.caster

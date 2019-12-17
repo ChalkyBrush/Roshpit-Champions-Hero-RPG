@@ -58,7 +58,7 @@ end
 function hyper_beam_finish_channel(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	fire_hyperbeam(caster, ability)
 end
 

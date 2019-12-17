@@ -23,7 +23,7 @@ function hikari_start(event)
 	if w_1_level > 0 then
 		a_b_effect(caster, ability, w_3_level)
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	hikari_heal(caster, caster:GetAbsOrigin(), ability, 1)
 
 	local w_2_level = caster:GetRuneValue("w", 2)

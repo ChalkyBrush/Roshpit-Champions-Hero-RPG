@@ -47,7 +47,7 @@ function beginBeam(event)
 	ParticleManager:SetParticleControl(ability.pfx2, 1, particleVector)
 	ability.interval = 0
 	EmitSoundOn("Hero_Invoker.DeafeningBlast", caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	local a_d_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "warlord")
 	local runeAbility = caster.runeUnit:FindAbilityByName("warlord_rune_r_1")
 	if a_d_level > 0 then

@@ -43,7 +43,7 @@ function shadow_warp_start(event)
 		local shadowRush = caster:FindAbilityByName("slipfinn_shadow_rush")
 		shadowRush:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_cloak", {duration = c_c_duration})
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function shadow_SizeChange(object, startSize, endSize, ticks)

@@ -74,7 +74,7 @@ function speedball_start(event)
 	ability.pfx = pfx
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "surge"})
 	-- caster:AddNoDraw()
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function speedball_thinking(event)

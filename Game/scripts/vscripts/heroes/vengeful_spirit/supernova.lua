@@ -187,7 +187,7 @@ function novaExplosion(event)
 		local glyph_duration = Filters:GetAdjustedBuffDuration(caster, SOLUNIA_GLYPH_6_1_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_glyph_6_1_ready", {duration = glyph_duration})
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function supernova_burn_think(event)

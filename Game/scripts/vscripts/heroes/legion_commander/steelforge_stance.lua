@@ -5,7 +5,7 @@ function energy_shield_create(event)
 	local ability = event.ability
 	local regen_percent = event.regen_percent
 	if not caster:HasModifier("modifier_energy_channel_no_cast_filter") then
-		Filters:CastSkillArguments(2, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_no_cast_filter", {duration = 0.5})
 	end
 
@@ -69,7 +69,7 @@ function energy_shield_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local mana_drain = event.mana_drain
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	caster:ReduceMana(mana_drain)
 	CustomAbilities:IceQuill(event)
 

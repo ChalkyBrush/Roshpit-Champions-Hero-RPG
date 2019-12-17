@@ -292,7 +292,7 @@ function CastNewHeatwave(event)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_heatwave_flying_portion", {duration = duration})
     caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_heat_wave', {duration = duration})
     ability.durationRemaining = duration
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_7_1") then
         ability.glyphed = true
         ability.pv = WallPhysics:rotateVector(ability.forward, math.pi / 2)
@@ -363,7 +363,7 @@ function phase_one_end(event)
     -- local phaseTwoDuration = math.max(ability.durationRemaining,0.03)
     -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_heatwave_phase_two", {duration = phaseTwoDuration})
     -- ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
-    -- Filters:CastSkillArguments(3, caster)
+    -- Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

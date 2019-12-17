@@ -74,7 +74,7 @@ function supercharge_start(event)
 			supercharge_enemy(caster, target, ability)
 		end
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function supercharge_buff_start(event)

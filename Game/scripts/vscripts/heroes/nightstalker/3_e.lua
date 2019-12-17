@@ -86,7 +86,7 @@ function class:OnToggle()
             self:SwapStatus()
             self:DoStatusThings()
 
-            Filters:CastSkillArguments(3, self:GetCaster())
+            Filters:CastSkillArguments(BASE_ABILITY_E, self:GetCaster())
     else
         self.toggledSpecial = false
     end

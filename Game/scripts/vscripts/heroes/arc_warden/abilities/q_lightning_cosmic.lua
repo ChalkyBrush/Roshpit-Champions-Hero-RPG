@@ -29,7 +29,7 @@ function jex_activate_q_lightning_cosmic(event)
 		caster:SetModifierStackCount("modifier_cosmic_shield_e_4", caster, e_4_level)
 	end
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function jex_lightning_cosmic_shield_hit(event)

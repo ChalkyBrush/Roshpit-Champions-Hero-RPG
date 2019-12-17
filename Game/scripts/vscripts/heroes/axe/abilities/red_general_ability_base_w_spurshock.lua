@@ -63,7 +63,7 @@ function red_general_ability_base_w_start(event)
 
 	red_general_rune_base_w_3_start(caster, abilityLevel)
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function red_general_ability_base_w_projectileHit(event)

@@ -19,7 +19,7 @@ function water_bomb_start(event)
 	local target = event.target_points[1]
 	local damage = event.damage
 	water_bomb_throw(caster, ability, target, event.damage, 1)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function water_bomb_throw(caster, ability, target, damage, damageAmp)

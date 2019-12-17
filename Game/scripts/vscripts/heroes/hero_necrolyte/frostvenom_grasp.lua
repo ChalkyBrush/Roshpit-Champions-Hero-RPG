@@ -79,7 +79,7 @@ function frostvenom_grasp_start(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function frostvenom_chill_think(event)

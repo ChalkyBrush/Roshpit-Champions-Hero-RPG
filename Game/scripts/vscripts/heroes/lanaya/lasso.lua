@@ -54,7 +54,7 @@ function trapper_lasso_start(event)
 	end
 	ability.w_3_level = caster:GetRuneValue("w", 3)
 	caster.w_4_arcana_level = caster:GetRuneValue("w", 4)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function trapper_lasso_think(event)
@@ -98,7 +98,7 @@ function trapper_poison_whip_start(event)
 	end
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	EmitSoundOn("Trapper.LassoCast", caster)
 	ability.w_1_level = caster:GetRuneValue("w", 1)
 	EmitSoundOn("Trapper.VenomwhipCast", caster)

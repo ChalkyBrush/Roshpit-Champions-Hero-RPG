@@ -62,7 +62,7 @@ function cast_fire_blast(event)
     if thinkerDuration and thinkerDuration > 0 then
         CustomAbilities:QuickAttachThinker(ability, caster, target_location, "modifier_vacuum_thinker_datadriven", {duration = thinkerDuration})
     end
-    Filters:CastSkillArguments(1, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_2_1") then
         ability:EndCooldown()
         ability:StartCooldown(FLAMEWAKER_GLYPH_2_1_Q_CD)

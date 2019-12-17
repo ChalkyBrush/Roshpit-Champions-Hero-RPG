@@ -5,7 +5,7 @@ function begin_ghost_hallow(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	EmitSoundOnLocationWithCaster(target, "Duskbringer.GhostHallow", caster)
 	--ability:ApplyDataDrivenThinker(caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})
 	CustomAbilities:QuickAttachThinker(ability, caster, GetGroundPosition(target, caster), "ghost_hallow", {duration = 6})

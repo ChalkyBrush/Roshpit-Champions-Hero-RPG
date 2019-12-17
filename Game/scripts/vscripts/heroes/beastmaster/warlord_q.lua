@@ -2,7 +2,7 @@ function warlord_stone_form(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	EmitSoundOn("Warlord.StoneFormBackground", caster)
@@ -33,7 +33,7 @@ end
 function warlord_ice_shell(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	EmitSoundOn("Warlord.IceShell.Init", caster)
@@ -67,7 +67,7 @@ end
 function warlord_flame_rush(event)
 	local caster = event.caster
 	local duration = WARLORD_Q3_DUR_BASE
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	-- EmitSoundOn("Warlord.StoneFormBackground", caster)

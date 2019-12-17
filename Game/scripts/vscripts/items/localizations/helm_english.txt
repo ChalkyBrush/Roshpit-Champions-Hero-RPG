@@ -353,8 +353,8 @@
 		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <% HOOD_OF_DEFILER_GEMS_MAX_STACKS %> stacks and lasts <% HOOD_OF_DEFILER_DURATION %> seconds."
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-		"item_property_lords"									"Commanding Sight"
-		"property_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
+		"item_property_hood_of_lords"									"Commanding Sight"
+		"property_hood_of_lords_description"							"Ability cooldowns are reduced by <% HOOD_OF_LORDS_CD_RED %> second and have <% HOOD_OF_LORDS_BONUS_RANGE %> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
 		
 		"item_rpc_hood_of_lords_ruby1"	"Increases [Q4] rune by @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"Increases [E4] rune by @emerald_property1"

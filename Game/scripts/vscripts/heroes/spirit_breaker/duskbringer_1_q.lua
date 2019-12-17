@@ -25,7 +25,7 @@ function whirling_flail_start(event)
 		ability:EndCooldown()
 		ability:StartCooldown(DUSKBRINGER_GLYPH_6_1_CD)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function whirling_flail_particle_create(event)

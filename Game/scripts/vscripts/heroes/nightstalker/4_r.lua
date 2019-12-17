@@ -2,6 +2,7 @@ require('/util')
 require('heroes/nightstalker/chernobog_constants')
 require('heroes/nightstalker/common')
 require('/npc_abilities/base_ability')
+require("heroes/util/channeling")
 
 local prefix = '4_r_'
 local modifiers = {
@@ -43,6 +44,7 @@ function class:GetCooldown(level)
 end
 function class:OnSpellStart()
     local caster = self:GetCaster()
+    beginChannel{ caster = caster }
     local casterOrigin = caster:GetAbsOrigin()
     if IsServer() then
         onCastR(caster)
@@ -53,6 +55,7 @@ function class:OnSpellStart()
     end
 end
 function class:OnChannelFinish(interrupted)
+    endChannel{ caster = self:GetCaster() }
     if IsServer() then
         if interrupted then
             self:OnChannelInterrupted()
@@ -65,6 +68,7 @@ function class:OnChannelFinish(interrupted)
     end
 end
 function class:OnChannelSucceeded()
+    endChannel{ caster = self:GetCaster() }
     self.lifting_up_per_tick = 0
     self.lifting_down_per_tick = 0
     self.radius = self:GetSpecialValueFor('radius') + CHERNOBOG_R4_RADIUS * self:GetCaster().r4_level
@@ -76,9 +80,10 @@ function class:OnChannelSucceeded()
     CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_antimage/antimage_manavoid.vpcf", caster, 4)
     EmitSoundOn("Chernobog.NightsProcessionChannelEnd", caster)
     self:Lifting()
-    Filters:CastSkillArguments(4, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 function class:OnChannelInterrupted()
+    endChannel{ caster = self:GetCaster() }
 end
 function class:Lifting()
     local caster = self:GetCaster()

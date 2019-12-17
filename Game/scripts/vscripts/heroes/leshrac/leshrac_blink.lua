@@ -18,7 +18,7 @@ function HideCaster(event)
 	--     ParticleManager:SetParticleControl( pfx, 0, position )
 	local newPosition = WallPhysics:WallSearch(position, event.caster.newPosition, caster)
 	AddFOWViewer(caster:GetTeamNumber(), newPosition, 250, 1.8, false)
-	Filters:CastSkillArguments(3, event.caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, event.caster)
 
 	local particle = "particles/econ/items/sven/sven_cyclopean_marauder/leshrac_grow_effect.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, event.caster)

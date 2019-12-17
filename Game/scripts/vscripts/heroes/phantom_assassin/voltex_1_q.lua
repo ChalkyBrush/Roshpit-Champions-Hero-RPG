@@ -3,7 +3,7 @@ require('heroes/phantom_assassin/voltex_constants')
 function voltex_overcharge_onspellstart(event)
     local caster = event.caster
     local ability = event.ability
-    Filters:CastSkillArguments(1, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
     local duration = VOLTEX_Q_BASE_DUR
     if caster:HasModifier("modifier_voltex_glyph_5_a") then
         duration = duration * ((100 + VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT) / 100)

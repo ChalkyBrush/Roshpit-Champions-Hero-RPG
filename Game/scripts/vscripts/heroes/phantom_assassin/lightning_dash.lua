@@ -26,7 +26,7 @@ function begin_lightning_dash(event)
 	if not ability.particles then
 		ability.particles = 0
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	if caster:HasModifier("modifier_lightning_dash_freecast") then
 		ability:EndCooldown()
 		local newStacks = caster:GetModifierStackCount("modifier_lightning_dash_freecast", caster) - 1

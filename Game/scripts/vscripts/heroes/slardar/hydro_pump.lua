@@ -126,7 +126,7 @@ function begin_hydro_pump(event)
 			end)
 		end
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function torrent_stun_think(event)

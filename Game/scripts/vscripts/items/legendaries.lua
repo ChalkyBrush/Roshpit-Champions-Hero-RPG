@@ -1130,27 +1130,6 @@ function RPCItems:RollHoodOfDefiler(item_level)
     return item
 end
 
-function RPCItems:RollHoodOfLords(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_hood_of_lords", "immortal", "Hood of Lords", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_hood_of_lords"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lords", "#FEFFC6", 1, "#property_lords_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollHoodOfBlackMage(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -8287,8 +8266,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollClawOfTheEtherealRevenant(item_level)
     elseif itemName == "item_rpc_crimson_skull_cap" then
         newItem = RPCItems:RollCrimsonSkullCap(item_level)
-    elseif itemName == "item_rpc_hood_of_lords" then
-        newItem = RPCItems:RollHoodOfLords(item_level)
     elseif itemName == "item_rpc_spellfire_gloves" then
         newItem = RPCItems:RollSpellfireGloves(item_level)
     elseif itemName == "item_rpc_bloodstone_boots" then

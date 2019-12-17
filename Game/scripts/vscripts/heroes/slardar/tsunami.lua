@@ -69,7 +69,7 @@ function channel_complete(event)
 				end
 			end
 
-			Filters:CastSkillArguments(4, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 			Timers:CreateTimer(6, function()
 				ParticleManager:DestroyParticle(pfx, false)
 			end)

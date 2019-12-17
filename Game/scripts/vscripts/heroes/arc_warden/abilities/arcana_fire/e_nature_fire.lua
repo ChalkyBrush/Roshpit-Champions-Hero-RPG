@@ -44,7 +44,7 @@ function jex_activate_cinderbark(event)
 
 	EmitSoundOn("Jex.Thundershroom.Spawn", shroom)
 	EmitSoundOn("Jex.Cinderbark.Summon", shroom)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
 		local cd = ability:GetCooldownTimeRemaining()
