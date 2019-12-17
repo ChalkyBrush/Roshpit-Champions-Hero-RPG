@@ -1009,10 +1009,10 @@
 		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 		
 		"redfall_equinox"												"Equinox"
 
