@@ -303,13 +303,18 @@
 		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>% за каждые <% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %> очков Силы."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% вашей маны и усилит Базовый Урон этой способности на <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %> на несколько секунд, если маны достаточно. Каждая базовая атака восстанавливает <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% маны. Каждое очко текущей маны увеличивает базовый урон героя на <% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>."
+        "DOTA_Tooltip_ability_item_rpc_antique_mana_relic"                              "Antique Mana Relic"
+
+        "item_property_antique_mana_relic"                  "Mana Storm"
+        "property_antique_mana_relic_description"           "Base Abilities drain <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana on cast and have <% ITEM_RPC_ANTIQUE_MANA_RELIC_BAD %>% increased Base Ability Damage. You are silenced while below <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"

@@ -792,6 +792,11 @@ function Filters:CastSkillArguments(slot, caster)
             caster:ReduceMana(manaDrain)
         end
     end
+    if caster:HasModifier("modifier_antique_mana_relic") then
+        local mana_drain = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
+        caster:ReduceMana(caster:GetMaxMana() * mana_drain/100)
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 2)
+    end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
@@ -995,13 +1000,6 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_plate_of_the_watcher1") then
         Filters:WatcherCast(caster, BASE_ABILITY_Q)
-    end
-    if caster:HasModifier("modifier_antique_mana_relic") then
-        if caster:GetMana() >= caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
-            caster:ReduceMana(caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100)
-            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION)
-        end
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
@@ -1701,6 +1699,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_gilded_soul_sapphire_bad") then
             damageMult = damageMult + attacker:FindModifierByName("modifier_gilded_soul_sapphire_bad"):GetStackCount()/100
         end
+        if attacker:HasModifier("modifier_antique_mana_relic") then
+            damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_BAD/100
+        end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
         end
@@ -1796,9 +1797,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + (ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_RUBY2))/100
-        end
-        if attacker:HasModifier("modifier_mana_relic_damage_boost") then
-            damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
         end
         if attacker:HasModifier("modifier_terrasic_stone_plate") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_SAPPHIRE)/100

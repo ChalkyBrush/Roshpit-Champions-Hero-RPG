@@ -301,12 +301,16 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"魔法风暴"
-		"property_antique_mana_relic_description"			"施放 @Ability1 汲取 <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% 的最大魔法值，并且提高该技能 <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %>% 的基础技能伤害。每次攻击回复 <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% 的魔法值。每<% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>点当前的魔法值提高1点基础攻击力。"
+        "property_antique_mana_relic_description"           "Base Abilities drain <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana on cast and have <% ITEM_RPC_ANTIQUE_MANA_RELIC_BAD %>% increased Base Ability Damage. You are silenced while below <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"

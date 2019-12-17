@@ -3485,27 +3485,7 @@ function leon_think(event)
 	end
 end
 
-function mana_relic_attack(event)
-	local attacker = event.attacker
-	CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
-	local manaRestore = attacker:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK/100
-	attacker:GiveMana(manaRestore)
-end
 
-function mana_relic_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	local damageBoost = target:GetMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA
-	if damageBoost > 0 then
-		if not target:HasModifier("modifier_mana_relic_attack_damage") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_relic_attack_damage", {})
-		end
-		target:SetModifierStackCount("modifier_mana_relic_attack_damage", caster, damageBoost)
-	else
-		target:RemoveModifierByName("modifier_mana_relic_attack_damage")
-	end
-end
 
 function ablecore_greaves_think(event)
 	local hero = event.target
@@ -9910,4 +9890,42 @@ function ankh_of_ancients_respawning_end(event)
     EmitSoundOn("AnkhOfAncients.Respawn", hero)
     FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
     CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn.vpcf", hero:GetAbsOrigin(), 3)
+end
+
+function mana_relic_attack(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	local caster = event.caster
+	if ability:GetGemValue("ruby") > 0 then
+		CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
+		local manaRestore = attacker:GetMaxMana() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_RUBY)/100
+		attacker:GiveMana(manaRestore)
+		PopupMana(attacker, manaRestore)
+	end
+end
+
+function mana_relic_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	local threshold = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
+
+	if hero:GetMana() < hero:GetMaxMana()*(threshold/100) then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mana_relic_silence", {})
+	else
+		hero:RemoveModifierByName("modifier_mana_relic_silence")
+	end
+
+	if ability:GetGemValue("emerald") > 0 then
+		local damageBoost = hero:GetMana() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_EMERALD)
+		if damageBoost > 0 then
+			if not hero:HasModifier("modifier_mana_relic_attack_damage") then
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_mana_relic_attack_damage", {})
+			end
+			hero:SetModifierStackCount("modifier_mana_relic_attack_damage", caster, damageBoost)
+		else
+			hero:RemoveModifierByName("modifier_mana_relic_attack_damage")
+		end
+	end
 end

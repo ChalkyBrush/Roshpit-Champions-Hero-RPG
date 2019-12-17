@@ -14468,6 +14468,19 @@
         "item_rpc_ankh_of_the_ancients_sapphire1"                           "Reduces the shield's cooldown by @sapphire_property1"
         "item_rpc_ankh_of_the_ancients_amethyst1"                           "Increases the shield's duration by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_antique_mana_relic"                              "Antique Mana Relic"
+
+        "item_property_antique_mana_relic"                  "Mana Storm"
+        "property_antique_mana_relic_description"           "Base Abilities drain <font color='#ccff66'>25</font>% of your max mana on cast and have <font color='#ccff66'>200</font>% increased Base Ability Damage. You are silenced while below <font color='#ccff66'>25</font>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -14753,14 +14766,6 @@
 		"item_property_firelock"							"Steady Flame"		
 		"property_firelock_description"					"Increases Post-Mitigation Physical damage by <font color='#ccff66'>0.3</font>% for every <font color='#ccff66'>10</font> points of Strength."
 		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"@Ability1 drains <font color='#ccff66'>50</font>% of your max mana to deal <font color='#ccff66'>400</font>% increased Base Ability Damage (if enough mana was available). Attacks restore <font color='#ccff66'>2.5</font>% of max mana. Each point of current mana adds <font color='#ccff66'>1</font> base attack damage."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
