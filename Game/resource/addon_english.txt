@@ -14445,6 +14445,16 @@
         "item_rpc_aeriths_tear_sapphire1"                                  "If there is at least 1 enemy within <font color='#ccff66'>400</font> range, gain @sapphire_property1 Spell Pierce"
         "item_rpc_aeriths_tear_amethyst1"                                   "Increases Spirit by @amethyst_property1"
 
+
+        "DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"                       "Ancient Tanari Waterstone"
+        "item_property_ancient_waterstone"                  "Water Goddess' Blessing"
+        "property_ancient_waterstone_description"           "Your Magic Armor also reduces Pure Damage taken. Enemy Spell Pierce counteracts this reduction."
+
+        "item_rpc_ancient_tanari_waterstone_ruby1"                      "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_ancient_tanari_waterstone_emerald1"                       "Each point of Intelligence grants @emerald_property1 Magic Armor"
+        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Increases Item and <font color=\"#3894FF\">Water</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Increases Spirit by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -14708,14 +14718,6 @@
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Absorbing Damage"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"Ancient Tanari Waterstone"
-		"item_rpc_ancient_tanari_waterstone_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_ancient_waterstone"					"Water Goddess' Blessing"
-		"property_ancient_waterstone_description"			"Damage dealt directly by items is increased by <font color='#ccff66'>900</font>%."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"

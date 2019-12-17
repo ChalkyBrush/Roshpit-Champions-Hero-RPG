@@ -1664,7 +1664,7 @@ end
 function rare_wrath_die(event)
 	local caster = event.caster
 	EmitSoundOn("morphling_mrph_death_06", caster)
-	RPCItems:RollAncientTanariWaterstone(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ancient_tanari_waterstone")
 end
 
 function rare_construct_think(event)

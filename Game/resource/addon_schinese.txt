@@ -14381,12 +14381,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_waterstone"						"水之石"
-		"item_rpc_ancient_tanari_waterstone_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_ancient_tanari_waterstone_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_ancient_waterstone"					"水之女神的祝福"
-		"property_ancient_waterstone_description"			"由装备造成的伤害提高 <font color='#ccff66'>900</font>%"
+        "property_ancient_waterstone_description"           "Your Magic Armor also reduces Pure Damage taken. Enemy Spell Pierce counteracts this reduction."
+
+        "item_rpc_ancient_tanari_waterstone_ruby1"                      "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_ancient_tanari_waterstone_emerald1"                       "Each point of Intelligence grants @emerald_property1 Magic Armor"
+        "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Increases Item and <font color=\"#3894FF\">Water</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Increases Spirit by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"

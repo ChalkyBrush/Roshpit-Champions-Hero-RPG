@@ -1209,6 +1209,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_aeriths_tear" then
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_AERITHS_TEAR_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_TRINKET)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_ancient_tanari_waterstone" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_RUBY2, hero, "max_mana", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_SAPPHIRE, hero, "element_water", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_TRINKET)
 		end			
 	end
 end

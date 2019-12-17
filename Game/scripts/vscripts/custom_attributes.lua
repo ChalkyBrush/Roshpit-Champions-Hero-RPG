@@ -1173,6 +1173,10 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 		local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_ancient_waterstone") then
+			local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+			return damage*mult
+		end
 		return damage
 	else
 		return damage
@@ -1695,6 +1699,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies and unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies > 0 then
 			magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AERITHS_TEAR_GEM_EMERALD)
 		end
+	end
+	if unit:HasModifier("modifier_ancient_waterstone") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_EMERALD)*unit:GetIntellect()
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET

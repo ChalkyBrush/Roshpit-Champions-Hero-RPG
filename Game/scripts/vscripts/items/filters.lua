@@ -147,9 +147,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + result
         end
     )
-    if caster:HasModifier("modifier_ancient_waterstone") then
-        mult = mult + ITEM_RPC_ANCIENT_TANARI_WATERSTONE_ITEM_DAMAGE_AMP/100
-    end
     if caster:HasModifier("modifier_ocean_templest_tidal_storm_stacks") then
         local stacks = caster:FindModifierByName("modifier_ocean_templest_tidal_storm_stacks"):GetStackCount()
         mult = mult + (ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_TIDE_STACK/100)*stacks
