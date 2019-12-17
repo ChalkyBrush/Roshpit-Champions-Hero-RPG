@@ -11776,7 +11776,7 @@
     	"item_rpc_tranquil_boots_sapphire1"									"blah blah @sapphire_property1 gem"
     	"item_rpc_tranquil_boots_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tranquil_boots"				"Grove Roamer"	
-		"property_tranquil_boots_description"		"Восстанавливает вам <font color='#ccff66'>10</font>% от макс. здоровья за каждые пройденные <font color='#ccff66'>200</font> юнитов."
+		"property_tranquil_boots_description"		"Восстанавливает вам <font color='#ccff66'>7</font>% от макс. здоровья за каждые пройденные <font color='#ccff66'>200</font> юнитов."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"

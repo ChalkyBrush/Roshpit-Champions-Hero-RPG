@@ -5816,6 +5816,35 @@ function RPCItems:RollTerrasicLavaBoots(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollTranquilBoots(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_tranquil_boots", "immortal", "Tranquil Boots", "feet", true, "Slot: Feet")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_tranquil_boots"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tranquil_boots", "#30E691", 1, "#property_tranquil_boots_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_nature", 1.5)
+    elseif luck == 2 or luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    elseif luck == 4 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    elseif luck == 5 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.75)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
+    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 
@@ -5863,22 +5892,6 @@ function RPCItems:RollYashaBoots(item_level)
     item.newItemTable.property2name = "strength"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
 
-    RPCItems:RollFootProperty3(item, 0)
-    RPCItems:RollFootProperty4(item, 0)
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollTranquilBoots(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_tranquil_boots", "immortal", "Tranquil Boots", "feet", true, "Slot: Feet")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "tranquil"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tranquil_boots", "#30E691", 1, "#property_tranquil_boots_description")
-
-    RPCItems:RollFootProperty2(item, 0)
     RPCItems:RollFootProperty3(item, 0)
     RPCItems:RollFootProperty4(item, 0)
     local drop = CreateItemOnPositionSync(deathLocation, item)
@@ -8617,7 +8630,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
         "item_rpc_crusader_boots", "item_rpc_dunetread_boots", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
         "item_rpc_neptunes_water_gliders", "item_rpc_pathfinders_resonant_boots", "item_rpc_redrock_footwear", "item_rpc_resplendent_rubber_boots", "item_rpc_rooted_feet", "item_rpc_sandstream_slippers",
-        "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots"}
+        "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots"}
     end
     return itemsList
 end

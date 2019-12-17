@@ -837,51 +837,9 @@ function guardian_greaves_think(event)
 	end
 end
 
-function tranquil_boots_think(event)
-	local target = event.target
-	local ability = event.ability
-	if not ability.lastPos then
-		ability.lastPos = target:GetAbsOrigin()
-	end
-	if not ability.distanceMoved then
-		ability.distanceMoved = 0
-	end
-	ability.newPos = target:GetAbsOrigin()
-	ability.hero = target
-	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
-	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > ITEM_RPC_TRANQUIL_BOOTS_DISTANCE then
-		if not ability.active then
-			StartSoundEvent("Hero_WitchDoctor.Voodoo_Restoration.Loop", target)
-		end
-		ability.active = true
-		for i = 1, ability.distanceMoved / ITEM_RPC_TRANQUIL_BOOTS_DISTANCE, 1 do
-			tranquil_boots_heal(target)
-			if i > 3 then
-				break
-			end
-		end
-		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_TRANQUIL_BOOTS_DISTANCE
-	else
-		if distance < 20 then
-			ability.active = false
-			StopSoundEvent("Hero_WitchDoctor.Voodoo_Restoration.Loop", target)
-		end
-	end
 
-	ability.lastPos = target:GetAbsOrigin()
-end
 
-function tranquil_boots_heal(hero)
-	local healthRestore = math.floor(hero:GetMaxHealth() * ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT/100)
-	local particleName = "particles/items2_fx/tranquil_boots.vpcf"
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
-	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
-	Timers:CreateTimer(1, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	Filters:ApplyHeal(hero, hero, healthRestore, true)
-end
+
 
 function sange_boots_think(event)
 	local ability = event.ability
@@ -9775,4 +9733,77 @@ function terrasic_lava_boots_fireling(caster, ability, hero)
 	EmitSoundOn("RPCItems.TerrasicLavaBoots.SapphireSummon", fireling)
 	local armor_break_level = math.min(3, ability:GetGemValue("sapphire"))
 	fireling:FindAbilityByName("armor_break"):SetLevel(armor_break_level)
+end
+
+function tranquil_boots_think(event)
+	local target = event.target
+	local ability = event.ability
+	if not ability.lastPos then
+		ability.lastPos = target:GetAbsOrigin()
+	end
+	if not ability.distanceMoved then
+		ability.distanceMoved = 0
+	end
+	ability.newPos = target:GetAbsOrigin()
+	ability.hero = target
+	local distance = WallPhysics:GetDistance(ability.newPos, ability.lastPos)
+	ability.distanceMoved = ability.distanceMoved + distance
+	if ability.distanceMoved > ITEM_RPC_TRANQUIL_BOOTS_DISTANCE then
+		if not ability.active then
+			-- StartSoundEvent("RPCItems.TranquilBoots.LP", target)
+		end
+		ability.active = true
+		for i = 1, ability.distanceMoved / ITEM_RPC_TRANQUIL_BOOTS_DISTANCE, 1 do
+			tranquil_boots_heal(target)
+			if i > 3 then
+				break
+			end
+		end
+		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_TRANQUIL_BOOTS_DISTANCE
+	else
+		if distance < 20 then
+			ability.active = false
+			-- StopSoundEvent("RPCItems.TranquilBoots.LP", target)
+		end
+	end
+	-- if distance > 20 then
+		-- if not ability.pfx then
+		-- 	ability.pfx = CustomAbilities:QuickAttachParticle("particles/items_fx/healing_flask.vpcf", target, 0)
+		-- end
+	-- else
+		-- if ability.pfx then
+		-- 	ParticleManager:DestroyParticle(ability.pfx, false)
+		-- 	ability.pfx = nil
+		-- end
+	-- end
+	ability.lastPos = target:GetAbsOrigin()
+end
+
+function tranquil_boots_heal(hero)
+	local healthRestore = math.floor(hero:GetMaxHealth() * ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT/100)
+	local particleName = "particles/items2_fx/tranquil_boots.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+	ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	Filters:ApplyHeal(hero, hero, healthRestore, true, true)
+end
+
+function tranquil_boots_amethyst_think(event)
+	local ability = event.ability
+	local hero = event.caster.hero
+
+	local healthRestore = math.floor(hero:GetMaxHealth() * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TRANQUIL_BOOTS_GEM_AMETHYST)/100)
+	Filters:ApplyHeal(hero, hero, healthRestore, true, true)
+end
+
+function tranquil_boots_amethyst_end(event)
+	local ability = event.ability
+	if ability.pfx_table then
+		for i = 1, #ability.pfx_table, 1 do
+			ParticleManager:DestroyParticle(ability.pfx_table[i], false)
+		end
+		ability.pfx_table = false
+	end
 end

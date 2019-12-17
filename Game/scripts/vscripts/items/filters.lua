@@ -241,6 +241,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         mult = mult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
     end
+    if caster:HasModifier("modifier_tranquil_boots") then
+        mult = mult + ((caster:GetHealth()/caster:GetMaxHealth())*100)*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY2)/100
+    end
     if casterName == "npc_dota_hero_spirit_breaker" and caster:HasAbility("whirling_flail") then
         local q_2_level = caster:GetRuneValue("q", 2)
         mult = mult + DUSKBRINGER_Q2_ITEM_PCT * q_2_level
@@ -1266,6 +1269,9 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_rpc_terrasic_lava_boots") then
         Filters:TerrasicLavaBootsECast(caster)
     end
+    if caster:HasModifier("modifier_tranquil_boots") then
+        Filters:TranquilBootsECast(caster)
+    end
     if caster:HasModifier("modifier_mana_striders") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("sapphire") > 0 then
             CustomAbilities:QuickAttachParticle("particles/items3_fx/mango_active.vpcf", caster, 1)
@@ -1697,6 +1703,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_tranquil_boots") then
+            damageMult = damageMult + ((attacker:GetHealth()/attacker:GetMaxHealth())*100)*attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2)/100
         end
         if attacker:HasModifier("modifier_crystalline_slippers") then
             damageMult = damageMult + ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP/100
@@ -6680,5 +6689,23 @@ function Filters:TerrasicLavaBootsECast(caster)
     end
     if terrasic_boots:GetGemValue("amethyst") > 0 then
         terrasic_boots:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_rpc_terrasic_lava_boot_effect", {duration = terrasic_boots:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TERRASIC_LAVA_BOOTS_GEM_AMETHYST)})
+    end
+end
+
+function Filters:TranquilBootsECast(caster)
+    local tranquils = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
+    if tranquils:GetGemValue("amethyst") > 0 then
+        tranquils:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tranquil_boots_amethyst", {duration = ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_DURATION})
+        if not tranquils.pfx_table then
+            tranquils.pfx_table = {}
+            for i = 1, tranquils:GetGemValue("amethyst"), 1 do
+                local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl2.vpcf", PATTACH_POINT_FOLLOW, caster)
+                ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 40), true)
+                ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 40), true)
+                ParticleManager:SetParticleControlEnt(pfx, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 40), true)
+                ParticleManager:SetParticleControlEnt(pfx, 2, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin() + Vector(0, 0, 40), true)
+                table.insert(tranquils.pfx_table, pfx)
+            end
+        end
     end
 end

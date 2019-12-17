@@ -535,16 +535,20 @@
         "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <% ITEM_RPC_TERRASIC_LAVA_BOOTS_EMERALD_FLAME_RANGE %> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
         "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DISTANCE %> distance summons a fireling with Magma Tread active. The fireling has <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_ATTACK_RANGE %> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <% ITEM_RPC_TERRASIC_LAVA_BOOTS_SAPPHIRE_DURATION %> seconds."
         "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
+
+        "terrasic_lava_boots_fireling"                                      "Fireling"
 	
-    	"DOTA_Tooltip_ability_item_rpc_tranquil_boots"									"Tranquil Boots"
+        "DOTA_Tooltip_ability_item_rpc_tranquil_boots"                                  "Tranquil Boots"
         "item_property_tranquil_boots"              "Grove Roamer"  
         "property_tranquil_boots_description"       "Heal <% ITEM_RPC_TRANQUIL_BOOTS_HP_HEAL_PCT %>% of your max Health for every <% ITEM_RPC_TRANQUIL_BOOTS_DISTANCE %> units moved."
 
-    	"item_rpc_tranquil_boots_ruby1"									"Increases Max Health by @ruby_property1, and each 1% of current health increases Item Damage by @ruby_property2%"
-    	"item_rpc_tranquil_boots_emerald1"									"Gain @emerald_property1 Armor Pierce and Spell Pierce for each current point of health"
-    	"item_rpc_tranquil_boots_sapphire1"									"Increases Max Health by @sapphire_property1, and each 1% of current health increases Base Ability Damage by @sapphire_property2%"
-    	"item_rpc_tranquil_boots_amethyst1"									"Casting [E] summons a group of restorative wisps that restore @amethyst_property1% of max health every <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> seconds"
+        "item_rpc_tranquil_boots_ruby1"                                 "Increases Max Health by @ruby_property1, and each 1% of current health increases Item Damage by @ruby_property2%"
+        "item_rpc_tranquil_boots_emerald1"                                  "Gain @emerald_property1 Magic Armor and Spell Pierce for each current point of health"
+        "item_rpc_tranquil_boots_sapphire1"                                 "Increases Max Health by @sapphire_property1, and each 1% of current health increases Base Ability Damage by @sapphire_property2%"
+        "item_rpc_tranquil_boots_amethyst1"                                 "Casting [E] summons a group of restorative wisps that heal @amethyst_property1% of max health every <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> seconds. Lasts <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_DURATION %> seconds"
 
+        "DOTA_Tooltip_modifier_tranquil_boots_amethyst" "Grove Roamer (Amethyst)"
+        "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Restoring health on <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> second intervals"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager"                     "Voyager"

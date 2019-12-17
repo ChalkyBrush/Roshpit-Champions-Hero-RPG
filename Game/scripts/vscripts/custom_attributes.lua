@@ -1688,6 +1688,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_swamp_waders") then
 		magic_armor_modify = magic_armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
 	end
+	if unit:HasModifier("modifier_tranquil_boots") then
+		magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2412,6 +2415,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_swamp_waders") then
 		spell_pierce_modify = spell_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
+	end
+	if unit:HasModifier("modifier_tranquil_boots") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
