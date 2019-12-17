@@ -35074,14 +35074,19 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 35000"
+		"AbilityDamage"					"1000 3000 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-
-
-
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000 3000 9000"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -35223,7 +35228,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"1000 4000 45000"
+				"shock_damage"				"1000 4000 15000"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
 			}
 			"04"
@@ -37009,7 +37014,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"25000"
+				"damage"			"8000"
 			}
 		}
 		"Modifiers"
