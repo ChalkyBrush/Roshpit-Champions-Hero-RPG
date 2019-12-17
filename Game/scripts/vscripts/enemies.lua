@@ -116,7 +116,12 @@ Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 60
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 80
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 100
 
-Enemies.GLOBAL_HEALTH_MULT = 1.5
+Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT = {}
+Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_NORMAL] = 1
+Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_ELITE] = 2
+Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_LEGEND] = 3
+
+Enemies.GLOBAL_HEALTH_MULT = 2
 
 Enemies.SPIRIT_REALM_CONSTANTS = {}
 Enemies.SPIRIT_REALM_CONSTANTS[0] = {}
@@ -247,7 +252,7 @@ function Enemies:InitializeEnemy(unit)
 	-- HP
 	local newHealth = (unit:GetMaxHealth()*Enemies.DIFFICULTY_HEALTH_MULT[difficulty][enemyTier] + Enemies.DIFFICULTY_HEALTH_FLAT[difficulty][enemyTier])*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["max_hp"]
 	if unit_level > 9 then
-		newHealth = newHealth*Enemies.GLOBAL_HEALTH_MULT
+		newHealth = newHealth*Enemies.GLOBAL_HEALTH_MULT*Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[difficulty]
 	end
 	newHealth = Enemies:AdjustAttributeForMapSpecial(unit, "health", newHealth)
 	newHealth = newHealth + newHealth * Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
