@@ -933,12 +933,12 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local hero = GameState:GetHeroByPlayerID(playerID)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
 			local gem_reward = hero.gem_reward
 			if not hero.gem_reward then
 				gem_reward = 0
 			end
 			if distance <= distance_cap then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_gemforger", {player=playerID, gem_reward = gem_reward} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
