@@ -304,7 +304,7 @@ Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 3
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 3
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 3
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 3
-Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 2
+Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 3
 
 Enemies.SERENGAARD_BUFFS_PER_WAVE = {}
 Enemies.SERENGAARD_BUFFS_PER_WAVE["attack_damage"] = 0.05
