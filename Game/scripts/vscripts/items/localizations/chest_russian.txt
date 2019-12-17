@@ -372,7 +372,7 @@
 		"item_property_ocean_tempest"				"Tidal Windstorm"
 		"property_ocean_tempest_description"		"Высасывает <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX %>% от максимальной маны во время заряда @Ability4. Каждые <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR %> высосанной маны дает один заряд предмета, который увеличивает Базовый Урон Способностей и Урон Предметов на <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_BAD_PER_TIDE_STACK %>%. Заряды длятся <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION %> секунд и сбрасываются, когда @Ability4 произнесена вновь."
 		"item_rpc_ocean_tempest_pallium_ruby1"							"Получает @ruby_property1% Бонусной Силы Атаки за каждый заряд предмета"
-		"item_rpc_ocean_tempest_pallium_emerald1"							"Противники в радиусе <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS %> во время заряда [R] имеют @emerald_property1% шанс каждые 0.1 секунды быть подброшенными в воздух до конца заряда способности. В воздухе противники не получают урон, но и не могут действовать. При приземлении они получат урон в @emerald_property2% от набранных зарядов предмета."
+		"item_rpc_ocean_tempest_pallium_emerald1"							"Противники в радиусе <% ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS %> во время заряда [R] имеют @emerald_property1% шанс каждые 0.1 секунды быть подброшенными в воздух до конца заряда способности. В воздухе противники не получают урон, но и не могут действовать. При приземлении они получат урон в @emerald_property2x от набранных зарядов предмета."
 		"item_rpc_ocean_tempest_pallium_sapphire1"							"Увеличивает стихийный урон Воды и Ветра на @sapphire_property1%"
 		"item_rpc_ocean_tempest_pallium_amethyst1"							"Увеличивает количество маны, поглощаемое во время заряда [R] дополнительно на @amethyst_property1%"	
 

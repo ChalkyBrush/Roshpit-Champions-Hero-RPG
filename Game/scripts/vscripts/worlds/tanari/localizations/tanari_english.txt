@@ -54,9 +54,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Tanari Spirit Stone"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Tanari Spirit Stones"
 
-		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% TANARI_MITHRIL_SPIRIT_REALM_MULT %>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% TANARI_MITHRIL_SPIRIT_REALM_MULT %>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% TANARI_MITHRIL_SPIRIT_REALM_MULT %>x mithril and 2x arcane crystal gain."
 
 		
 		"dialogue_witch_doctor"						"The Spirits of the Jungle surround me."
