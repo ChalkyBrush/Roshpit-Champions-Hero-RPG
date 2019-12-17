@@ -60,6 +60,11 @@ Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_B
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 4
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 4
 
+Enemies.DIFFICULTY_PIERCE_ADJUST = {}
+Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_NORMAL] = 1
+Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_ELITE] = 1
+Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_LEGEND] = 0.25
+
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL = {}
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 0
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_ELITE] = 10
@@ -230,10 +235,12 @@ function Enemies:InitializeEnemy(unit)
 
 	local newArmorPierce = (unit.roshpit_attributes.roshpit_armor_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newArmorPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_armor_pierce", newArmorPierce)
+	newArmorPierce = newArmorPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
 
 	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newSpellPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_spell_pierce", newSpellPierce)
+	newSpellPierce = newArmorPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 
