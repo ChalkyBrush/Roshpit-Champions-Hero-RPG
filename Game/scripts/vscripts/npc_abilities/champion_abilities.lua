@@ -18,7 +18,7 @@ function paragon_die(event)
 		end
 	end
 	if caster.solo then
-		Glyphs:DropArcaneCrystals(deathPosition, 0.85)
+		Glyphs:DropArcaneCrystals(deathPosition, caster.roshpit_attributes.enemy_tier, caster.roshpit_attributes.roshpit_level, 0.85)
 		paragon_loot_drop(deathPosition)
 	else
 		if caster.buddiesSlain == caster.packSize then
