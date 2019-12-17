@@ -14481,6 +14481,16 @@
         "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
         "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 
+		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
+
+		"item_property_aqua_lily"								"Water Bloom"
+		 "property_aqua_lily_description"						"Every point in [R4] increases Intelligence by <font color='#ccff66'>24</font>."
+
+		"item_rpc_aqua_lily_ruby1"										"Each point in Rune [R1] increases Intelligence by @ruby_property1"
+		"item_rpc_aqua_lily_emerald1"										"Each point in Rune [R2] increases Intelligence by @emerald_property1"
+		"item_rpc_aqua_lily_sapphire1"										"Increases Rune [R4] by @sapphire_property1"
+		"item_rpc_aqua_lily_amethyst1"										"Each point in Rune [R3] increases Intelligence by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -14850,15 +14860,6 @@
 		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"Wind Bloom"
 		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <font color='#ccff66'>300</font>."
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
-		"item_rpc_aqua_lily_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_aqua_lily_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_aqua_lily"								"Water Bloom"
-		 "property_aqua_lily_description"						"Every point in [R4] increases Intelligence by <font color='#ccff66'>300</font>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"

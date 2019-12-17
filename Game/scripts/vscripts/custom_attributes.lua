@@ -3010,7 +3010,7 @@ function CustomAttributes:SetAttributes(hero)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", 1)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)

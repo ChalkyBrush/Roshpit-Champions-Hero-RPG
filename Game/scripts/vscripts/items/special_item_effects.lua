@@ -4696,12 +4696,14 @@ function aqua_lily_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local r_4_level = target:GetRuneValue("r", 4)
-	if r_4_level > 0 then
+	local base_int_bonus = target:GetRuneValue("r", 4)*ITEM_RPC_AQUA_LILY_INT_PER_R4
+	local int_bonus_from_gems = target:GetRuneValue("r", 1)*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AQUA_LILY_GEM_RUBY) + target:GetRuneValue("r", 2)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AQUA_LILY_GEM_EMERALD) + target:GetRuneValue("r", 3)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AQUA_LILY_GEM_AMETHYST)
+	local total_int = base_int_bonus + int_bonus_from_gems
+	if total_int > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_aqua_lily_intelligence_bonus", {})
-		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, r_4_level)
+		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, total_int)
 	else
-		target:RemoveModifierByName("modifier_aqua_lily_intelligence_bonuss")
+		target:RemoveModifierByName("modifier_aqua_lily_intelligence_bonus")
 	end
 end
 
