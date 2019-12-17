@@ -2063,7 +2063,7 @@ function wind_demon_die(event)
 	end
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollAnkhOfAncients(event.caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.caster, "item_rpc_ankh_of_the_ancients")
 	end
 	Timers:CreateTimer(4, function()
 		Tanari:SpiritWindTempleBossRoom()

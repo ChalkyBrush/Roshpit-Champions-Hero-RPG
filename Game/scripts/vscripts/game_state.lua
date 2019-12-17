@@ -600,6 +600,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 			duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CENTAUR_HORNS_AMETHYST)
 		end
+		if target:HasModifier("modifier_ankh_of_ancients_shield") then
+			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
+				return false
+			end
+		end
 		if target:HasModifier("modifier_boots_of_ashara") then
 			duration_modifier = duration_modifier + ITEM_RPC_BOOTS_OF_ASHARA_STATUS_RESIST
 		end
@@ -3447,16 +3452,8 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
-				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION})
-				for i = 0, 3, 1 do
-					local abilityIndex = i
-					if i == 3 then
-						abilityIndex = DOTA_R_SLOT
-					end
-					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
-				end
 				rezzed = true
+				Filters:AnkhOfAncientsValidDeath(victim)
 			end
 		end
 		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then

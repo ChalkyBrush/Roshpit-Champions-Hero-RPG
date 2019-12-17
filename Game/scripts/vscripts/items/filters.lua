@@ -6742,3 +6742,26 @@ function Filters:VoyagerBootsAllCast(caster, slot)
         Filters:ReduceCDByPercentage(caster, cd_ability, percentage_increase)
     end
 end
+
+function Filters:AnkhOfAncientsValidDeath(hero)
+    local ankh = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+
+    -- for i = 0, 3, 1 do
+    --     local abilityIndex = i
+    --     if i == 3 then
+    --         abilityIndex = DOTA_R_SLOT
+    --     end
+    --     victim:GetAbilityByIndex(abilityIndex):EndCooldown()
+    -- end
+    
+    local respawn_delay = ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY - ankh:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_RUBY)
+    ankh:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_ankh_of_ancients_respawning", {duration = respawn_delay})
+    hero:AddNoDraw()
+    FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+    local particlePosition = hero:GetAbsOrigin()
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf", particlePosition, respawn_delay)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(respawn_delay, respawn_delay, respawn_delay))
+    ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
+    StartSoundEvent("AnkhOfAncients.Death", hero)
+end

@@ -5953,7 +5953,7 @@ function RPCItems:RollAnkhOfAncients(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_ankh_of_the_ancients", "immortal", "Ankh of the Ancients", "amulet", true, "Slot: Trinket")
-    item.newItemTable.property1name = "ankh_of_ancients"
+    item.newItemTable.property1name = "!immortal!_modifier_ankh_of_the_ancients"
     item.newItemTable.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ankh_of_ancients", "#AEF2E1", 1, "#property_ankh_of_ancients_description")
 

@@ -401,23 +401,7 @@ function monkey_paw_think(event)
 	local ability = event.ability
 	ApplyDamage({victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
 end
-function ankh_of_ancients_think(event)
-	local caster = event.target
-	local ability = event.ability
-	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN_MAX then
-		caster:RemoveModifierByName('modifier_ankh_of_the_ancients')
-	end
 
-	if caster:IsStunned() then
-		Filters:CleanseStuns(caster)
-	end
-end
-function ankh_of_ancients_end(event)
-	local caster = event.target
-	local ability = event.ability
-	local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
-	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN})
-end
 
 function wild_nature_struck(event)
 	local attacker = event.attacker
@@ -9887,4 +9871,43 @@ function aeriths_tear_thinker(event)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_aeriths_range_indicator", {})
 		end
 	end
+end
+
+function ankh_of_ancients_shield_think(event)
+	local caster = event.target
+	local ability = event.ability
+	local hero = caster
+	if GameRules:GetGameTime() - ability.ankh_apply_time > ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX then
+		caster:RemoveModifierByName("modifier_ankh_of_ancients_shield")
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local healthRestore = math.ceil(hero:GetMaxHealth() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_EMERALD)/100)
+		Filters:ApplyHeal(hero, hero, healthRestore, true, true)
+	end
+end
+function ankh_of_ancients_end(event)
+	local caster = event.target
+	local ability = event.ability
+	-- local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
+	-- caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN})
+end
+
+function ankh_of_ancients_respawning_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local ankh = ability
+	StopSoundEvent("AnkhOfAncients.Death", hero)
+    ability.ankh_apply_time = GameRules:GetGameTime()
+    local shield_duration = ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_AMETHYST)
+    local shield_cooldown = ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_SAPPHIRE)
+    ability:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_shield", {duration = shield_duration})
+    ankh:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_cooldown", {duration = shield_cooldown})
+    hero:RemoveNoDraw()
+    if ankh:GetGemValue("emerald") > 0 then
+    	ability:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_emerald_visual", {duration = shield_duration})
+    end
+    EmitSoundOn("AnkhOfAncients.Respawn", hero)
+    FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+    CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn.vpcf", hero:GetAbsOrigin(), 3)
 end
