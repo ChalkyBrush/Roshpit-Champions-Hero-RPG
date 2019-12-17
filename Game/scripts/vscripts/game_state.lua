@@ -1998,7 +1998,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - reduction)
 	end
 	if victim:HasModifier("modifier_ancient_tree_passive") then
-		damage = damage * 0.004
 		if victim:HasModifier("modifier_ancient_tree_round_2") then
 			damage = damage * 0.5
 		end
