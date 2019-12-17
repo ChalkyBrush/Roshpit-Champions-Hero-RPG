@@ -3527,7 +3527,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash祖父之斧"
 		"item_property_axe_immortal_weapon"								"身经百战"
-		"property_axe_immortal_weapon_description"						"减少所有受到的伤害<font color='#ccff66'>50</font>%"
+		"property_axe_immortal_weapon_description"						"减少所有受到的伤害<font color='#ccff66'>25</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "狂战士之斧"
         "item_property_axe_immortal_weapon2"                            "血之狂战士"
@@ -13801,10 +13801,10 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>%% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"

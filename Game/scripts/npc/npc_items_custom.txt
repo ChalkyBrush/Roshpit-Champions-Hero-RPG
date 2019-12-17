@@ -35144,7 +35144,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"6 12 18 24 30"
+				"sapphire1"			"5 10 15 20 25"
 			}
 			"04"
 			{
@@ -47790,7 +47790,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"20 40 60 80 100"
+				"sapphire1"			"20 35 50 65 80"
 			}
 			"04"
 			{
@@ -47844,7 +47844,7 @@
 				"TextureName"		"itemicons/tanari_wind_armor"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-80"
 				    "MODIFIER_PROPERTY_MISS_PERCENTAGE" 		"-20"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-65"
 				}
@@ -55897,9 +55897,9 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "180"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"180"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "60"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "90"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"90"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"500>"
 				}
 				"OnDestroy"

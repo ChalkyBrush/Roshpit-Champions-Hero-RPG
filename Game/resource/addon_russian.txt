@@ -3300,7 +3300,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
 		"item_property_axe_immortal_weapon"								"Combat Veteran"
-		"property_axe_immortal_weapon_description"						"Снижает весь получаемый урон на <font color='#ccff66'>50</font>%"
+		"property_axe_immortal_weapon_description"						"Снижает весь получаемый урон на <font color='#ccff66'>25</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
@@ -12249,7 +12249,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Противники в радиусе <font color='#ccff66'>420</font> теряют <font color='#ccff66'>65</font>% скорости перемещения, <font color='#ccff66'>100</font> скорости атаки и имеют <font color='#ccff66'>20</font>% шанс промаха."
+		"property_tanari_wind_armor_description"				"Противники в радиусе <font color='#ccff66'>420</font> теряют <font color='#ccff66'>65</font>% скорости перемещения, <font color='#ccff66'>80</font> скорости атаки и имеют <font color='#ccff66'>20</font>% шанс промаха."
 
 		"item_rpc_ancient_tanari_wind_armor_ruby1"						"Противники внутри радиуса ветра получают урон каждые 0.5 секунды в размере @ruby_property1x Ловкости и Интеллекта героя."
 		"item_rpc_ancient_tanari_wind_armor_emerald1"						"Увеличивает урон <font color=\"#7AE2A7\">Ветра</font> на @emerald_property1%"
@@ -12612,7 +12612,7 @@
 		"item_property_ocean_tempest"				"Tidal Windstorm"
 		"property_ocean_tempest_description"		"Высасывает <font color='#ccff66'>70</font>% от максимальной маны во время заряда @Ability4. Каждые <font color='#ccff66'>10</font> высосанной маны дает один заряд предмета, который увеличивает Базовый Урон Способностей и Урон Предметов на <font color='#ccff66'>0.2</font>%. Заряды длятся <font color='#ccff66'>90</font> секунд и сбрасываются, когда @Ability4 произнесена вновь."
 		"item_rpc_ocean_tempest_pallium_ruby1"							"Получает @ruby_property1% Бонусной Силы Атаки за каждый заряд предмета"
-		"item_rpc_ocean_tempest_pallium_emerald1"							"Противники в радиусе <font color='#ccff66'>1200</font> во время заряда [R] имеют @emerald_property1% шанс каждые 0.1 секунды быть подброшенными в воздух до конца заряда способности. В воздухе противники не получают урон, но и не могут действовать. При приземлении они получат урон в @emerald_property2% от набранных зарядов предмета."
+		"item_rpc_ocean_tempest_pallium_emerald1"							"Противники в радиусе <font color='#ccff66'>1200</font> во время заряда [R] имеют @emerald_property1% шанс каждые 0.1 секунды быть подброшенными в воздух до конца заряда способности. В воздухе противники не получают урон, но и не могут действовать. При приземлении они получат урон в @emerald_property2x от набранных зарядов предмета."
 		"item_rpc_ocean_tempest_pallium_sapphire1"							"Увеличивает стихийный урон Воды и Ветра на @sapphire_property1%"
 		"item_rpc_ocean_tempest_pallium_amethyst1"							"Увеличивает количество маны, поглощаемое во время заряда [R] дополнительно на @amethyst_property1%"	
 
@@ -12699,7 +12699,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>1</font>."
+		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Сила увеличивает Базовый Урон Атаки на @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Сила увеличивает Пробитие Брони на @emerald_property1"
@@ -12709,7 +12709,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>1</font>."
+		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Ловкость увеличивает Броню на @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Ловкость увеличивает Базовый Урон Атаки на @emerald_property1"
@@ -12719,7 +12719,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>1</font>."
+		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Интеллект увеличивает Броню на @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Интеллекть увеличивает Пробитие Брони на  @ruby_property1"
@@ -14055,10 +14055,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"Прочтение @Ability4 даёт <font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>180</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения. Атаки могут разделиться и поразить до <font color='#ccff66'>2</font> дополнительных целей. Длительность эффекта составляет <font color='#ccff66'>80</font>% от перезарядки @Ability4."
+		"property_super_ascendency_description"		"Прочтение @Ability4 даёт <font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>60</font>% Бонусного Урона Атаки, <font color='#ccff66'>90</font> Скорости Атаки и <font color='#ccff66'>90</font> Скорости Перемещения. Атаки могут разделиться и поразить до <font color='#ccff66'>2</font> дополнительных целей. Длительность эффекта составляет <font color='#ccff66'>80</font>% от перезарядки @Ability4."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>100</font>% Бонусного Урона Атаки, <font color='#ccff66'>180</font> Скорости Атаки и <font color='#ccff66'>180</font> Скорости Перемещения."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> больше дальности атаки, <font color='#ccff66'>60</font>% Бонусного Урона Атаки, <font color='#ccff66'>90</font> Скорости Атаки и <font color='#ccff66'>90</font> Скорости Перемещения."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Атаки дополнительно поражают +@ruby_property1 цели"
 		"item_rpc_super_ascendency_mask_emerald1"	"Каждая атака во время действия эффекта Super Ascension снизит текущую перезарядку [R] на @emerald_property1 сек"
@@ -16728,13 +16728,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font> раза, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_elite_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font>, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Рубин Осеннего Духа"
-		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки утроены, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
+		"item_redfall_spirit_ruby_legend_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font>, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."
 		
 		"redfall_equinox"												"Равноденствие"
 
@@ -17783,9 +17783,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Камни Духа Танари"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Камни Духа Танари"
 
-		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
-		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
-		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в 3 раза."
+		"item_tanari_spirit_stones_normal_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в <font color='#ccff66'>1.5</font> раза."
+		"item_tanari_spirit_stones_elite_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в <font color='#ccff66'>1.5</font> раза."
+		"item_tanari_spirit_stones_legend_desc"		"Использование: Позволяет войти в Царство духов в Джунглях Танари. <br><br>Прохождение в этом режиме увеличивает шанс появления Парагон-Монстров в 3 раза, <br>увеличивает урон и сопротивление монстров в 2 раза и <br>увеличивает шанс выпадения предмета редкости Immortal. <br>Получаемые Темные Кристаллы увеличены в 2 раза, а Мифрильные Осколки в <font color='#ccff66'>1.5</font> раза."
 
 		
 		"dialogue_witch_doctor"						"Духи Джунглей окружают меня."

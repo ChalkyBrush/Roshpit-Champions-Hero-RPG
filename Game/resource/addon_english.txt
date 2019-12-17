@@ -3298,7 +3298,7 @@
 	
 	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
 	"item_property_axe_immortal_weapon"								"Combat Veteran"
-	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>50</font>%"
+	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>25</font>%"
 
 	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
@@ -12430,7 +12430,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Enemies within <font color='#ccff66'>420</font> radius have their movespeed reduced by <font color='#ccff66'>65</font>%, their attack speed slowed by <font color='#ccff66'>100</font>, and have a <font color='#ccff66'>20</font>% miss chance."
+		"property_tanari_wind_armor_description"				"Enemies within <font color='#ccff66'>420</font> radius have their movespeed reduced by <font color='#ccff66'>65</font>%, their attack speed slowed by <font color='#ccff66'>80</font>, and have a <font color='#ccff66'>20</font>% miss chance."
 
 		"item_rpc_ancient_tanari_wind_armor_ruby1"						"Enemies within the Wind's radius take damage equal to @ruby_property1x your Agility and Intelligence every 0.5 seconds."
 		"item_rpc_ancient_tanari_wind_armor_emerald1"						"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
@@ -12880,7 +12880,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
@@ -12890,7 +12890,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
@@ -12900,7 +12900,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
@@ -14261,10 +14261,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>%% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
@@ -16994,13 +16994,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 		
 		"redfall_equinox"												"Equinox"
 
@@ -18087,9 +18087,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Tanari Spirit Stone"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Tanari Spirit Stones"
 
-		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 
 		
 		"dialogue_witch_doctor"						"The Spirits of the Jungle surround me."
