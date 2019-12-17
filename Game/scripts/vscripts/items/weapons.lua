@@ -170,7 +170,7 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 	end
 
 	if weapon.newItemTable.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] and weapon.newItemTable.level < weapon.newItemTable.maxLevel then
-		weapon.newItemTable.xp = exp - (Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] - weapon.newItemTable.xp)
+		weapon.newItemTable.xp = 0
 		weapon.newItemTable.xp = math.max(weapon.newItemTable.xp, 0)
 
 		weapon.newItemTable.level = math.min(weapon.newItemTable.level + 1, Weapons.MAX_WEAPON_LEVEL)
