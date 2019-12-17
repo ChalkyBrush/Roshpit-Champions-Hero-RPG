@@ -5948,6 +5948,25 @@ function RPCItems:RollAncientTanariWaterstone(item_level)
     return item
 end
 
+function RPCItems:RollAnkhOfAncients(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ankh_of_the_ancients", "immortal", "Ankh of the Ancients", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "ankh_of_ancients"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ankh_of_ancients", "#AEF2E1", 1, "#property_ankh_of_ancients_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "magic_armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
@@ -7023,38 +7042,7 @@ function RPCItems:RollFuchsiaRing(item_level)
     return item
 end
 
-function RPCItems:RollAnkhOfAncients(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_ankh_of_the_ancients", "immortal", "Ankh of the Ancients", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
 
-    item.newItemTable.property1name = "ankh_of_ancients"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ankh_of_ancients", "#AEF2E1", 1, "#property_ankh_of_ancients_description")
-
-    local magicResistRoll = math.ceil(RPCItems:GetLogarithmicVarianceValue(17, 0, 0, 0, 0))
-    item.newItemTable.property2 = magicResistRoll
-    item.newItemTable.property2name = "magic_resist"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_magic_resist", "#AC47DE", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollWorldTreesFlowerCache(item_level)
     local item = RPCItems:CreateVariant("item_rpc_world_trees_flower_cache", "immortal", "World Tree's Flower Cache", "amulet", true, "Slot: Trinket")
