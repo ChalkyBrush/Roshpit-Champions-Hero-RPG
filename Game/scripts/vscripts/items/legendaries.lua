@@ -5904,6 +5904,30 @@ end
 
 --TRINKETS
 
+function RPCItems:RollAerithsTear(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_aeriths_tear", "immortal", "Aerith's Tear", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_aeriths_tear"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aeriths_tear", "#3EDAE6", 1, "#property_aeriths_tear")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1.25)
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, rune_type, 1.25)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -6588,39 +6612,6 @@ function RPCItems:RollTomeOfChaos(item_level)
             item.newItemTable.property3name = propertyName
             RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
         end
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollAerithsTear(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_aeriths_tear", "immortal", "Aerith's Tear", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "aerith"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aeriths_tear", "#3EDAE6", 1, "#property_aeriths_tear")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 7, 9, 0, 0, item.newItemTable.rarity, false, maxFactor * 9)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
     end
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
@@ -8633,6 +8624,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_neptunes_water_gliders", "item_rpc_pathfinders_resonant_boots", "item_rpc_redrock_footwear", "item_rpc_resplendent_rubber_boots", "item_rpc_rooted_feet", "item_rpc_sandstream_slippers",
         "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots", "item_rpc_voyager_boots",
         "item_rpc_yasha_boots"}
+    elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
+        itemsList = {"item_rpc_aeriths_tear"}
     end
     return itemsList
 end

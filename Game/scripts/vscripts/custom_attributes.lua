@@ -1691,6 +1691,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_tranquil_boots") then
 		magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_aeriths_tear") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies and unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies > 0 then
+			magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AERITHS_TEAR_GEM_EMERALD)
+		end
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2421,6 +2426,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_tranquil_boots") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_aeriths_tear") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies and unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies > 0 then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AERITHS_TEAR_GEM_SAPPHIRE)
+		end
 	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE

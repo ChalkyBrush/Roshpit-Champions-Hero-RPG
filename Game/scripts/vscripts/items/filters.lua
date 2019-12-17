@@ -4020,9 +4020,13 @@ function Filters:ModifyBladestormVestSwordCount(attacker, numSwords, ability, ca
 end
 
 function Filters:AerithsTearTakeDamage(attacker, victim)
-    local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
-    if distance <= ITEM_RPC_AERITHS_TEAR_DISTANCE then
-        return true
+    if victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
+        local distance = CalcDistanceBetweenEntityOBB(attacker, victim)
+        if distance <= ITEM_RPC_AERITHS_TEAR_DISTANCE then
+            return true
+        else
+            return false
+        end
     else
         return false
     end

@@ -9867,3 +9867,24 @@ function voyager_boots_cd_reduce_base(caster, ability, hero)
 		end
 	end
 end
+
+function aeriths_tear_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	if hero:GetHealth() < hero:GetMaxHealth()*(ITEM_RPC_AERITHS_TEAR_HP_THRESHOLD/100) then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_aeriths_tear_active_effect", {})
+	else
+		hero:RemoveModifierByName("modifier_aeriths_tear_active_effect")
+	end
+	if ability:GetGemValue("emerald") > 0 or ability:GetGemValue("sapphire") > 0 then
+		local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_AERITHS_TEAR_DISTANCE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		ability.nearby_enemies = #enemies
+	end
+	if not hero:HasModifier("modifier_aeriths_range_indicator") then
+		if ability:GetGemValue("ruby") > 0 or ability:GetGemValue("emerald") > 0 or ability:GetGemValue("sapphire") > 0 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_aeriths_range_indicator", {})
+		end
+	end
+end

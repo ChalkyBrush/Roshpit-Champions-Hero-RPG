@@ -1,3 +1,15 @@
+        "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
+
+        "item_property_aeriths_tear"                            "Last Wish"
+        "property_aeriths_tear"                                 "While below <% ITEM_RPC_AERITHS_TEAR_HP_THRESHOLD %>% health, gain a regenerative blessing of life that grants <% ITEM_RPC_AERITHS_TEAR_HEALTH_REGEN_PCT %>% Health Regen and <% ITEM_RPC_AERITHS_TEAR_MANA_REGEN %> Mana Regen."
+
+        "DOTA_Tooltip_modifier_aeriths_tear_active_effect"		"Last Wish"
+        "DOTA_Tooltip_modifier_aeriths_tear_active_effect_Description"	"Increased Health and Mana Regen"
+
+        "item_rpc_aeriths_tear_ruby1"                                   "Reduces damage taken from enemies within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> distance by @ruby_property1%"
+        "item_rpc_aeriths_tear_emerald1"                                    "If there is at least 1 enemy within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> range, gain @emerald_property1 Magic Armor"
+        "item_rpc_aeriths_tear_sapphire1"                                  "If there is at least 1 enemy within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> range, gain @sapphire_property1 Spell Pierce"
+        "item_rpc_aeriths_tear_amethyst1"                                   "Increases Spirit by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
@@ -222,14 +234,6 @@
 		"item_property_volcano_orb"					"Fiery Core"
 		"property_volcano_orb_description"			"Increases Post-Mitigation Magical damage output <% ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT %>x. This effect multiplies with other Post-Mitigation buffs."
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
-		"item_rpc_aeriths_tear_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_aeriths_tear_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_aeriths_tear_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_aeriths_tear_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_aeriths_tear"							"Last Wish"
-		"property_aeriths_tear"									"Reduces damage taken from enemies within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> distance by <% ITEM_RPC_AERITHS_TEAR_DMG_REDUCTION %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"

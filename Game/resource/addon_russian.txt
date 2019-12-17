@@ -14452,13 +14452,15 @@
 		"property_volcano_orb_description"			"Увеличивает Пост-Резистный магический урон x<font color='#ccff66'>2.5</font>. Этот эффект работает отдельно от других усилений Пост-Резистного урона."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"Aerith's Tear"
-		"item_rpc_aeriths_tear_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_aeriths_tear_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_aeriths_tear_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_aeriths_tear_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_aeriths_tear"							"Last Wish"
-		"property_aeriths_tear"									"Снижает весь получаемый урон от врагов, находящихся на расстоянии до <font color='#ccff66'>400</font> на <font color='#ccff66'>90</font>%"
+        "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
+
+        "item_property_aeriths_tear"                            "Last Wish"
+        "property_aeriths_tear"                                 "While below <font color='#ccff66'>50</font>% health, gain a regenerative blessing of life that grants <font color='#ccff66'>10</font>% Health Regen and <font color='#ccff66'>100</font> Mana Regen."
+
+        "item_rpc_aeriths_tear_ruby1"                                   "Reduces damage taken from enemies within <font color='#ccff66'>400</font> distance by @ruby_property1%"
+        "item_rpc_aeriths_tear_emerald1"                                    "If there is at least 1 enemy within <font color='#ccff66'>400</font> range, gain @emerald_property1 Magic Armor"
+        "item_rpc_aeriths_tear_sapphire1"                                  "If there is at least 1 enemy within <font color='#ccff66'>400</font> range, gain @sapphire_property1 Spell Pierce"
+        "item_rpc_aeriths_tear_amethyst1"                                   "Increases Spirit by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
