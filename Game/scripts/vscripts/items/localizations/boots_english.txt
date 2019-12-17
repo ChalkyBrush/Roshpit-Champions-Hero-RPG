@@ -557,18 +557,14 @@
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
         "item_rpc_voyager_boots_amethyst1"                                  "Increases all Base Ability Cooldowns by @amethyst_property1%, and increases Base Ability Damage by @amethyst_property2%"
-		
-		
-    	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
+			
+        "DOTA_Tooltip_ability_item_rpc_yasha_boots"                                     "Yasha Boots"
         "item_property_yasha"                       "Combat Mastery Y"  
         "property_yasha_description"                "Each point of Strength increases your Attack Speed by <% ITEM_RPC_YASHA_BOOTS_ATK_SPD_PER_STR %> and your Armor Pierce by <% ITEM_RPC_YASHA_BOOTS_ARMOR_PIERCE_PER_STR %>."
-    	"item_rpc_yasha_boots_ruby1"										"Increases Strength by @ruby_property1"
-    	"item_rpc_yasha_boots_emerald1"										"Increases Agility by @emerald_property1"
-    	"item_rpc_yasha_boots_sapphire1"										"Increases Movespeed by @sapphire_property1"
-    	"item_rpc_yasha_boots_amethyst1"										"Each point of Strength increases Base Attack Damage by @amethyst_property1"
-    	
-
-		
+        "item_rpc_yasha_boots_ruby1"                                        "Increases Strength by @ruby_property1"
+        "item_rpc_yasha_boots_emerald1"                                     "Increases Agility by @emerald_property1"
+        "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
+        "item_rpc_yasha_boots_amethyst1"                                        "Each point of Strength increases Base Attack Damage by @amethyst_property1"
 
  
 		

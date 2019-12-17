@@ -855,13 +855,26 @@ function sange_boots_think(event)
 end
 
 function yasha_boots_think(event)
-	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if not target:HasModifier("modifier_rpc_yasha_buff") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_rpc_yasha_buff", {})
+	local hero = caster.hero
+	if not hero:HasModifier("modifier_rpc_yasha_buff") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rpc_yasha_buff", {})
 	end
-	target:SetModifierStackCount("modifier_rpc_yasha_buff", ability, target:GetStrength() / ITEM_RPC_YASHA_BOOTS_AS_PER_STR)
+	local as_stacks = hero:GetStrength()*ITEM_RPC_YASHA_BOOTS_ATK_SPD_PER_STR
+	hero:SetModifierStackCount("modifier_rpc_yasha_buff", ability, as_stacks)
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_rpc_yasha_amethyst", {})
+		local atk_damage = hero:GetStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_YASHA_BOOTS_GEM_AMETHYST) 
+		hero:SetModifierStackCount("modifier_rpc_yasha_amethyst", caster, atk_damage)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		if not hero:HasModifier("modifier_yasha_sapphire") then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_yasha_sapphire", {})
+			local ms_pct_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_YASHA_BOOTS_GEM_SAPPHIRE) 
+			hero:SetModifierStackCount("modifier_yasha_sapphire", ability, ms_pct_stacks)
+		end
+	end
 end
 
 function mana_striders_think(event)

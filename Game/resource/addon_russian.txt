@@ -11779,13 +11779,13 @@
 		"property_tranquil_boots_description"		"Восстанавливает вам <font color='#ccff66'>7</font>% от макс. здоровья за каждые пройденные <font color='#ccff66'>200</font> юнитов."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_yasha_boots"										"Yasha Boots"
-    	"item_rpc_yasha_boots_ruby1"										"blah blah @ruby_property1 gem"
-    	"item_rpc_yasha_boots_emerald1"										"blah blah @emerald_property1 gem"
-    	"item_rpc_yasha_boots_sapphire1"										"blah blah @sapphire_property1 gem"
-    	"item_rpc_yasha_boots_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_yasha"						"Combat Mastery Y"	
-		"property_yasha_description"				"Увеличивает скорость атаки на 1 за каждые <font color='#ccff66'>20</font> очков Силы. Устанавивает базовое время атаки на <font color='#ccff66'>1.1</font> сек."
+        "DOTA_Tooltip_ability_item_rpc_yasha_boots"                                     "Yasha Boots"
+        "item_property_yasha"                       "Combat Mastery Y"  
+        "property_yasha_description"                "Each point of Strength increases your Attack Speed by <font color='#ccff66'>0.5</font> and your Armor Pierce by <font color='#ccff66'>3</font>."
+        "item_rpc_yasha_boots_ruby1"                                        "Increases Strength by @ruby_property1"
+        "item_rpc_yasha_boots_emerald1"                                     "Increases Agility by @emerald_property1"
+        "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
+        "item_rpc_yasha_boots_amethyst1"                                        "Each point of Strength increases Base Attack Damage by @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mana_striders"									"Mana Striders"
@@ -11891,13 +11891,13 @@
     	"item_rpc_swamp_waders_amethyst1"									"blah blah @amethyst_property1 gem"
 		
     	
-    	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"Voyager Boots"
-    	"item_rpc_voyager_boots_ruby1"									"blah blah @ruby_property1 gem"
-    	"item_rpc_voyager_boots_emerald1"									"blah blah @emerald_property1 gem"
-    	"item_rpc_voyager_boots_sapphire1"									"blah blah @sapphire_property1 gem"
-    	"item_rpc_voyager_boots_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_voyager"						"Voyager"
-		"property_voyager_description"				"После применения (E) @Ability3 - Сокращает время перезарядки всех способностей на <font color='#ccff66'>0</font>%."
+        "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
+        "item_property_voyager"                     "Voyager"
+        "property_voyager_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all other Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time."
+        "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
+        "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
+        "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
+        "item_rpc_voyager_boots_amethyst1"                                  "Increases all Base Ability Cooldowns by @amethyst_property1%, and increases Base Ability Damage by @amethyst_property2%"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_redrock_footwear"                                "Redrock Footwear"
@@ -11977,15 +11977,19 @@
         "item_rpc_boots_of_pure_waters_amethyst1"                           "Casting [Q] fires @amethyst_property1 Clear Waves forward. Shares the same trigger limit as the base effect."
 		
 		
-    	"DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"								"Terrasic Lava Boots"
-    	"item_rpc_terrasic_lava_boots_ruby1"								"blah blah @ruby_property1 gem"
-    	"item_rpc_terrasic_lava_boots_emerald1"								"blah blah @emerald_property1 gem"
-    	"item_rpc_terrasic_lava_boots_sapphire1"								"blah blah @sapphire_property1 gem"
-    	"item_rpc_terrasic_lava_boots_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_terrasic_lava"						"Magma Tread"
-		"property_terrasic_lava_description"				"Позволяет свободно перемещаться по лавовым озёрам в Джунглях Танари. Когда герой ступает на лаву, он получает бафф, усиливающий урон на <font color='#ccff66'>100</font>%, скорость атаки на <font color='#ccff66'>200</font>, а дальность атаки на <font color='#ccff66'>0</font> на <font color='#ccff66'>10</font> секунд."
-		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"	"Magma Tread"
-		"DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"	"Дальность атаки и урон увеличены."
+        "DOTA_Tooltip_ability_item_rpc_terrasic_lava_boots"                             "Terrasic Lava Boots"
+
+        "item_property_terrasic_lava"                       "Magma Tread"
+        "property_terrasic_lava_description"                "Allows you to freely walk on lava. Touching lava increases Attack Power by <font color='#ccff66'>100</font>% and Attack Speed by <font color='#ccff66'>200</font> for <font color='#ccff66'>10</font> seconds."
+        "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect"   "Magma Tread"
+        "DOTA_Tooltip_modifier_rpc_terrasic_lava_boot_effect_Description"   "Increased attack damage and attack range."
+
+        "item_rpc_terrasic_lava_boots_ruby1"                                "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @ruby_property1%"
+        "item_rpc_terrasic_lava_boots_emerald1"                             "Casting [E] emits @emerald_property1 <font color='#ccff66'>600</font> range flames in a cone from your back, each dealing @emerald_property2% of attack power to impacted enemies"
+        "item_rpc_terrasic_lava_boots_sapphire1"                                "Travelling <font color='#ccff66'>2500</font> distance summons a fireling with Magma Tread active. The fireling has <font color='#ccff66'>600</font> attack range, @sapphire_property1% of your health, and @sapphire_property2% of your attack damage. Lasts <font color='#ccff66'>10</font> seconds."
+        "item_rpc_terrasic_lava_boots_amethyst1"                                "Casting [E] applies the Magma Tread buff for @amethyst_property1 seconds"
+
+        "terrasic_lava_boots_fireling"                                      "Fireling"
 		 
 		 
         "DOTA_Tooltip_ability_item_rpc_ablecore_greaves"                                "Ablecore Greaves"
