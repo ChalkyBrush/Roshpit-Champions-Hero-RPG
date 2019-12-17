@@ -3212,8 +3212,8 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_body_max_health" and hero:HasModifier("modifier_body_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_trinket_max_health" and hero:HasModifier("modifier_trinket_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_health", 1)
+	if excludedModifier ~= "modifier_amulet_max_health" and hero:HasModifier("modifier_amulet_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_amulet_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_weapon_max_health" and hero:HasModifier("modifier_weapon_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_health", 1)
@@ -3322,8 +3322,8 @@ function CustomAttributes:GetBaseMana(hero, excludedModifier)
 	if excludedModifier ~= "modifier_body_max_mana" and hero:HasModifier("modifier_body_max_mana") then
 		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_mana", 1)
 	end
-	if excludedModifier ~= "modifier_trinket_max_mana" and hero:HasModifier("modifier_trinket_max_mana") then
-		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_mana", 1)
+	if excludedModifier ~= "modifier_amulet_max_mana" and hero:HasModifier("modifier_amulet_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_amulet_max_mana", 1)
 	end
 	if excludedModifier ~= "modifier_weapon_max_mana" and hero:HasModifier("modifier_weapon_max_mana") then
 		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_mana", 1)
