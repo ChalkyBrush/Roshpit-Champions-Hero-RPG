@@ -814,6 +814,9 @@ function Filters:CastSkillArguments(slot, caster)
             Filters:ModifyBladestormVestSwordCount(caster, newStacks, caster.equipped_gear[RPC_GEAR_SLOT_BODY], caster.InventoryUnit, -1)
         end
     end
+    if caster:HasModifier("modifier_voyager_boots") then
+        Filters:VoyagerBootsAllCast(caster, slot)
+    end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         Filters:MordiggusEvent(caster, "cast")
     end
@@ -3588,16 +3591,15 @@ function Filters:CytopianLaser(caster)
 end
 
 function Filters:VoyagerBoots(caster)
-    local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-    Filters:ReduceCDByPercentage(caster, ability1, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
-    local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
-    Filters:ReduceCDByPercentage(caster, ability2, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
-    local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
-    Filters:ReduceCDByPercentage(caster, ability4, ITEM_RPC_VOYAGER_BOOTS_E_RED/100)
-    -- local blizzard = caster:FindAbilityByName("blizzard")
-    -- Filters:ReduceCDByPercentage(blizzard, 0.3)
-    -- local pyroblast = caster:FindAbilityByName("pyroblast")
-    -- Filters:ReduceCDByPercentage(pyroblast, 0.3)
+    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
+        local cd_reduce_percentage = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VOYAGER_BOOTS_GEM_RUBY)/100
+        local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+        Filters:ReduceCDByPercentage(caster, ability1, cd_reduce_percentage)
+        local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
+        Filters:ReduceCDByPercentage(caster, ability2, cd_reduce_percentage)
+        local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
+        Filters:ReduceCDByPercentage(caster, ability4, cd_reduce_percentage)
+    end
 end
 
 function Filters:GetSpecialAttackRangeModifiers()
@@ -6707,5 +6709,35 @@ function Filters:TranquilBootsECast(caster)
                 table.insert(tranquils.pfx_table, pfx)
             end
         end
+    end
+end
+
+function Filters:GetNumberOfSkillsOnCooldownVoyager(hero)
+    local count = 0
+    for i = 1, 4, 1 do
+        local cd_ability = Filters:SkillArgumentSlotToHeroAbility(hero, i)
+        if cd_ability:GetCooldownTimeRemaining() > 0 then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+function Filters:GetNumberOfSkillsNotOnCooldownVoyager(hero)
+    local count = 0
+    for i = 1, 4, 1 do
+        local cd_ability = Filters:SkillArgumentSlotToHeroAbility(hero, i)
+        if cd_ability:GetCooldownTimeRemaining() <= 0 then
+            count = count + 1
+        end
+    end
+    return count
+end
+
+function Filters:VoyagerBootsAllCast(caster, slot)
+    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
+        local cd_ability = Filters:SkillArgumentSlotToHeroAbility(caster, slot)
+        local percentage_increase = (caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1)/100)*-1
+        Filters:ReduceCDByPercentage(caster, cd_ability, percentage_increase)
     end
 end
