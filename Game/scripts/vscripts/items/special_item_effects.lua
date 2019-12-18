@@ -9942,3 +9942,13 @@ function mana_relic_think(event)
 		end
 	end
 end
+
+function divinex_init(event)
+	local hero = event.caster.hero
+	hero:SetStatsForLevel()
+end
+
+function divinex_end(event)
+	local hero = event.caster.hero
+	hero:SetStatsForLevel()
+end

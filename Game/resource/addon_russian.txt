@@ -14736,31 +14736,33 @@
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Поражает врагов падающими звездами при нанесении урона"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"Red Divinex Amulet"
-		"item_rpc_red_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_red_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_red_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_red_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_red_divinex"									"X-Strength"
-		"property_red_divinex_description"							"Значение Ловкости и Интеллекта не может быть выше 20. Значение Силы удвоено. Каждые <font color='#ccff66'>10</font> очков Силы увеличивают урон предметов на <font color='#ccff66'>0.07</font>%."
 
-		
-		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"Green Divinex Amulet"
-		"item_rpc_green_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_green_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_green_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_green_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_green_divinex"									"X-Agility"
-		"property_green_divinex_description"							"Значение Силы и Интеллекта не может быть выше 20. Значение Ловкости удвоено. Каждые <font color='#ccff66'>10</font> очков Ловкости увеличивают урон предметов на <font color='#ccff66'>0.07</font>%."
+        "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "Blue Divinex Amulet"
 
-		
-		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"Blue Divinex Amulet"
-		"item_rpc_blue_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_blue_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_blue_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_blue_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_blue_divinex"									"X-Intelligence"
-		"property_blue_divinex_description"							"Значение Силы и Ловкости не может быть выше 20. Значение Интеллекта удвоено. Кажыде <font color='#ccff66'>10</font> очков Интеллекта увеличивают урон предметов на <font color='#ccff66'>0.07</font>%."
+        "item_property_blue_divinex"                                    "X-Intelligence"
+        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is doubled."
+        "item_rpc_blue_divinex_amulet_ruby1"            "X-Intelligence only reduces your Strength to @ruby_property1"
+        "item_rpc_blue_divinex_amulet_emerald1"         "X-Intelligence only reduces your Agility to @emerald_property1"
+        "item_rpc_blue_divinex_amulet_sapphire1"            "Each point of Intelligence increases Item Damage by @sapphire_property1%"
+        "item_rpc_blue_divinex_amulet_amethyst1"            "Each point of Spirit increases Armor and Armor Pierce by @amethyst_property1"
+        
+        "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "Green Divinex Amulet"
+        "item_property_green_divinex"                                   "X-Agility"
+        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is doubled."
+
+        "item_rpc_green_divinex_amulet_ruby1"           "X-Agility only reduces your Strength to @ruby_property1"
+        "item_rpc_green_divinex_amulet_emerald1"            "Each point of Agility increases Item Damage by @emerald_property1%"
+        "item_rpc_green_divinex_amulet_sapphire1"           "X-Agility only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_green_divinex_amulet_amethyst1"           "Each point of Spirit increases Armor and Spell Pierce by @amethyst_property1"
+
+
+        "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "Red Divinex Amulet"
+        "item_property_red_divinex"                                 "X-Strength"
+        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is doubled."   
+        "item_rpc_red_divinex_amulet_ruby1"         "Each point of Strength increases Item Damage by @ruby_property1%"
+        "item_rpc_red_divinex_amulet_emerald1"          "X-Strength only reduces your Agility to @emerald_property1"
+        "item_rpc_red_divinex_amulet_sapphire1"         "X-Strength only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_red_divinex_amulet_amethyst1"         "Each point of Spirit increases Armor Pierce and Spell Pierce by @amethyst_property1"   
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
 		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"

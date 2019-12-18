@@ -445,6 +445,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 		strength_per_level = strength_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	strength = strength + self:GetLevel()*strength_per_level
+	if hero:HasModifier("modifier_green_divinex_amulet") then
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_RUBY)
+	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
+	end
 	hero.strength_custom = math.floor(strength)
 end
 
@@ -456,6 +461,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 		agility_per_level = agility_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	agility = agility + self:GetLevel()*agility_per_level
+	if hero:HasModifier("modifier_red_divinex_amulet") then
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RED_DIVINEX_AMULET_GEM_EMERALD)
+	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
+	end
 	hero.agility_custom = math.floor(agility)
 end
 
@@ -467,6 +477,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 		intelligence_per_level = intelligence_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	intellect = intellect + self:GetLevel()*intelligence_per_level
+	if hero:HasModifier("modifier_red_divinex_amulet") then
+		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
+	elseif hero:HasModifier("modifier_green_divinex_amulet") then
+		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
+	end
 	hero.intellect_custom = math.floor(intellect)
 end
 
@@ -1095,6 +1110,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_swamp_waders") then
 		armor_modify = armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
 	end
+	if unit:HasModifier("modifier_blue_divinex_amulet") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_green_divinex_amulet") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1706,6 +1727,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_arcane_charm") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_red_divinex_amulet") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_green_divinex_amulet") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2054,6 +2081,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_beryl_ring_of_intuition_emerald_armor_pierce") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_red_divinex_amulet") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_blue_divinex_amulet") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
@@ -3065,7 +3099,9 @@ function CustomAttributes:SetAttributes(hero)
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		str_bonus = str_bonus + stat_bonus
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RED_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
+		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
 		local stat_bonus = hero:GetBaseAgility()
@@ -3073,13 +3109,17 @@ function CustomAttributes:SetAttributes(hero)
 		modifier.stat_bonus = stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
 		str_bonus = 0
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_RUBY)
 		int_bonus = 0
+		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		local stat_bonus = hero:GetBaseIntellect()
 		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		int_bonus = int_bonus + stat_bonus
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
 		str_bonus = 0
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
 	end
 

@@ -204,13 +204,13 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         end
     end
     if caster:HasModifier("modifier_red_divinex_amulet") then
-        mult = mult + ITEM_RPC_RED_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetStrength() / ITEM_RPC_RED_DIVINEX_AMULET_STR_DIVISOR)
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RED_DIVINEX_AMULET_GEM_RUBY)/100 * (caster:GetStrength())
     end
     if caster:HasModifier("modifier_green_divinex_amulet") then
-        mult = mult + ITEM_RPC_GREEN_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetAgility() / ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_DIVISOR)
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_EMERALD)/100 * (caster:GetAgility())
     end
     if caster:HasModifier("modifier_blue_divinex_amulet") then
-        mult = mult + ITEM_RPC_BLUE_DIVINEX_AMULET_STR_TO_ITEM_DMG/100 * (caster:GetIntellect() / ITEM_RPC_BLUE_DIVINEX_AMULET_INT_DIVISOR)
+        mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_SAPPHIRE)/100 * (caster:GetIntellect())
     end
     if caster:HasModifier("modifier_spiritual_empowerment_stack") then
         local current_stack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit)

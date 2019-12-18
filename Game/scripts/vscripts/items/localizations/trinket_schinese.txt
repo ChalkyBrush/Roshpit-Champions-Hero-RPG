@@ -502,33 +502,33 @@
 		"property_stargazer_description"							"对任意地点发出攻击移动命令能创建一个有视野的观星者领域。领域拥有该物品增大视野属性范围的顺畅视野。在领域内部受到伤害的敌人将被一颗流星击中，造成等于在该领域持续时间内对敌人造成的最高伤害<% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 的纯粹伤害（不包括观星本身）。通过其他途径（元素和装备伤害等）提高的流星伤害不能超过触发流星的伤害的<% ITEM_RPC_STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 。流星伤害对坚定能提高其 <% ITEM_RPC_STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x 阈值 (<% ITEM_RPC_STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>x 对高级坚定). 敌人每 <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> 秒最多被流星打击一次.对领域发出攻击移动命令能使其立即崩溃，形成一颗陨石落下对范围内敌人造成<% ITEM_RPC_STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x 你的攻击力的伤害并眩晕敌人<% ITEM_RPC_STARGAZERS_SPHERE_METEOR_STUN_DUR %>秒。观星者领域的创建有<% ITEM_RPC_STARGAZERS_SPHERE_SPHERE_COOLDOWN %> 秒内置cd。"
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"红色占卜神符"
-		"item_rpc_red_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_red_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_red_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_red_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_red_divinex"									"我渴望力量！"
-		"property_red_divinex_description"							"敏捷和智力上限被限定为20。力量翻倍。每<% ITEM_RPC_RED_DIVINEX_AMULET_STR_DIVISOR %>点力量提高装备伤害 <% ITEM_RPC_RED_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
 
-		
-		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"绿色占卜神符"
-		"item_rpc_green_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_green_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_green_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_green_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_green_divinex"									"超强敏捷"
-		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每<% ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_DIVISOR %>点敏捷提高装备伤害 <% ITEM_RPC_GREEN_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
+        "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "蓝色占卜神符"
 
-		
-		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"蓝色占卜神符"
-		"item_rpc_blue_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_blue_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_blue_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_blue_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_blue_divinex"									"超强智力"
-		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每<% ITEM_RPC_BLUE_DIVINEX_AMULET_INT_DIVISOR %>点智力提高装备伤害 <% ITEM_RPC_BLUE_DIVINEX_AMULET_STR_TO_ITEM_DMG %>%."
+        "item_property_blue_divinex"                                    "X-Intelligence"
+        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is doubled."
+        "item_rpc_blue_divinex_amulet_ruby1"            "X-Intelligence only reduces your Strength to @ruby_property1"
+        "item_rpc_blue_divinex_amulet_emerald1"         "X-Intelligence only reduces your Agility to @emerald_property1"
+        "item_rpc_blue_divinex_amulet_sapphire1"            "Each point of Intelligence increases Item Damage by @sapphire_property1%"
+        "item_rpc_blue_divinex_amulet_amethyst1"            "Each point of Spirit increases Armor and Armor Pierce by @amethyst_property1"
+        
+        "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "绿色占卜神符"
+        "item_property_green_divinex"                                   "X-Agility"
+        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is doubled."
+
+        "item_rpc_green_divinex_amulet_ruby1"           "X-Agility only reduces your Strength to @ruby_property1"
+        "item_rpc_green_divinex_amulet_emerald1"            "Each point of Agility increases Item Damage by @emerald_property1%"
+        "item_rpc_green_divinex_amulet_sapphire1"           "X-Agility only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_green_divinex_amulet_amethyst1"           "Each point of Spirit increases Armor and Spell Pierce by @amethyst_property1"
+
+
+        "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "红色占卜神符"
+        "item_property_red_divinex"                                 "X-Strength"
+        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is doubled."   
+        "item_rpc_red_divinex_amulet_ruby1"         "Each point of Strength increases Item Damage by @ruby_property1%"
+        "item_rpc_red_divinex_amulet_emerald1"          "X-Strength only reduces your Agility to @emerald_property1"
+        "item_rpc_red_divinex_amulet_sapphire1"         "X-Strength only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_red_divinex_amulet_amethyst1"         "Each point of Spirit increases Armor Pierce and Spell Pierce by @amethyst_property1"   
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"解谜者吊坠"
 		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"
