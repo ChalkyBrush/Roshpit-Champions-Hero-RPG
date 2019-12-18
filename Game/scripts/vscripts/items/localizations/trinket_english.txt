@@ -128,6 +128,19 @@
 		"item_rpc_badge_of_honor_sapphire1"									"No Effect"
 		"item_rpc_badge_of_honor_amethyst1"									"No Effect"
 
+        "DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition"     "Beryl Ring of Intuition"
+
+        "item_property_beryl_ring_of_intuition"                     "Cycle of Respiration"
+        "property_beryl_ring_of_intuition_description"              "After casting all 4 of your base abilities, refresh all ability cooldowns. If @Ability4's base cooldown is greater than <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds, its cooldown can only be reduced to a minimum of <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds."
+
+        "item_rpc_beryl_ring_of_intuition_ruby1"    "When you activate Cycle of Respiration, restore @ruby_property1% of Max Health"
+        "item_rpc_beryl_ring_of_intuition_emerald1"     "Gain @emerald_property1 Armor Pierce for <% ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION %> seconds after activating Cycle of Respiration"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Increases Item and <font color=\"#F6FFB5\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_amethyst1"    "When you activate Cycle of Respiration, restore @amethyst_property1% of Max Mana"
+
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce_Description"	"Increased Armor Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -590,11 +603,3 @@
 		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"Silver Heart"
 		"property_guardian_stone_description"								"Debuffs applied to you by enemies have <% ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% reduced duration. When a debuff duration is reduced this way, heal <% ITEM_RPC_GUARDIAN_STONE_HEAL_PCT %>% of your max health."
-
-		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
-		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_emerald1" 	"blah blah @emerald_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
-		"item_property_beryl_ring_of_intuition"						"Cycle of Respiration"
-		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds, its cooldown can only be reduced to a minimum of <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds."

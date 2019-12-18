@@ -2051,6 +2051,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_azure_empire_visible") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AZURE_EMPIRE_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_beryl_ring_of_intuition_emerald_armor_pierce") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_EMERALD)
+	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()

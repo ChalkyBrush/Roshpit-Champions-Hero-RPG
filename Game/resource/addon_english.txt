@@ -14555,6 +14555,26 @@
         "item_rpc_azure_empire_sapphire1"                                   "Each active Hawk increases Spell Pierce by @sapphire_property1"
         "item_rpc_azure_empire_amethyst1"                                   "@amethyst_property1% chance when taking Pure or Magic damage for the Hawks to block it if any hawks are active"
 
+		
+		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		"item_rpc_badge_of_honor_ruby1"									"No Effect"
+		"item_rpc_badge_of_honor_emerald1"									"No Effect"
+		"item_rpc_badge_of_honor_sapphire1"									"No Effect"
+		"item_rpc_badge_of_honor_amethyst1"									"No Effect"
+
+        "DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition"     "Beryl Ring of Intuition"
+
+        "item_property_beryl_ring_of_intuition"                     "Cycle of Respiration"
+        "property_beryl_ring_of_intuition_description"              "After casting all 4 of your base abilities, refresh all ability cooldowns. If @Ability4's base cooldown is greater than <font color='#ccff66'>10</font> seconds, its cooldown can only be reduced to a minimum of <font color='#ccff66'>10</font> seconds."
+
+        "item_rpc_beryl_ring_of_intuition_ruby1"    "When you activate Cycle of Respiration, restore @ruby_property1% of Max Health"
+        "item_rpc_beryl_ring_of_intuition_emerald1"     "Gain @emerald_property1 Armor Pierce for <font color='#ccff66'>8</font> seconds after activating Cycle of Respiration"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Increases Item and <font color=\"#F6FFB5\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_amethyst1"    "When you activate Cycle of Respiration, restore @amethyst_property1% of Max Mana"
+
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce_Description"	"Increased Armor Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -14609,13 +14629,6 @@
 		"item_rpc_sand_tomb_orb_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_sand_tomb_orb_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
-		"item_rpc_badge_of_honor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_badge_of_honor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_badge_of_honor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_badge_of_honor_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
@@ -15024,14 +15037,6 @@
 		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"Silver Heart"
 		"property_guardian_stone_description"								"Debuffs applied to you by enemies have <font color='#ccff66'>75</font>% reduced duration. When a debuff duration is reduced this way, heal <font color='#ccff66'>20</font>% of your max health."
-
-		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
-		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_emerald1" 	"blah blah @emerald_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
-		"item_property_beryl_ring_of_intuition"						"Cycle of Respiration"
-		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <font color='#ccff66'>10</font> seconds, its cooldown can only be reduced to a minimum of <font color='#ccff66'>10</font> seconds."
 
 
 		//Tier 1

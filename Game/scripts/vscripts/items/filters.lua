@@ -5164,6 +5164,18 @@ function Filters:InpsirationRing(caster, skillIndex)
                     end
                 end
             end
+            if ring:GetGemValue("ruby") > 0 then
+                local heal = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_RUBY)/100
+                Filters:ApplyHeal(caster, caster, heal, true, true)
+            end
+            if ring:GetGemValue("amethyst") > 0 then
+                local manaRestore = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_AMETHYST)/100
+                caster:GiveMana(manaRestore)
+                PopupMana(caster, manaRestore)
+            end
+            if ring:GetGemValue("emerald") > 0 then
+                ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_beryl_ring_of_intuition_emerald_armor_pierce", {duration = ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION})
+            end
         end
         Timers:CreateTimer(2, function()
             ParticleManager:DestroyParticle(pfx, false)

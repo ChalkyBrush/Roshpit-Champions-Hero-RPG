@@ -6079,25 +6079,6 @@ function RPCItems:RollAuricRingOfInspiration(item_level)
     return item
 end
 
-function RPCItems:RollBadgeOfHonor(hero)
-    local item_slot = RPC_GEAR_SLOT_TRINKET
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-    local item = RPCItems:CreateVariant("item_rpc_badge_of_honor", "immortal", "Badge of Honor", "amulet", true, "Slot: Trinket")
-
-    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
-    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, attr_roll, 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "magic_armor", 1.5)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollAzureEmpire(item_level)
     local item_slot = RPC_GEAR_SLOT_TRINKET
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -6141,6 +6122,53 @@ function RPCItems:RollAzureEmpire(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollBadgeOfHonor(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    local item = RPCItems:CreateVariant("item_rpc_badge_of_honor", "immortal", "Badge of Honor", "amulet", true, "Slot: Trinket")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, attr_roll, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "magic_armor", 1.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollBerylRingOfIntuition(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    
+    local item = RPCItems:CreateVariant("item_rpc_beryl_ring_of_intuition", "immortal", "Beryl Ring of Intuition", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "!immortal!_modifier_beryl_ring_of_intuiton"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_beryl_ring_of_intuition", "#5cadff", 1, "#property_beryl_ring_of_intuition_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
@@ -6419,50 +6447,6 @@ function RPCItems:RollGuardianStone(item_level)
         item.newItemTable.property3 = value
         item.newItemTable.property3name = propertyName
         RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-
-
-function RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level)
-    local item = RPCItems:CreateVariant("item_rpc_beryl_ring_of_intuition", "immortal", "Beryl Ring of Intuition", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "beryl_intuition"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_beryl_ring_of_intuition", "#5cadff", 1, "#property_beryl_ring_of_intuition_description")
-
-    local max_attributes_roll = math.ceil(maxFactor*(math.min(boss_level/2, 16))) + 1000
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 10+boss_level/2, 0, 0, item.newItemTable.rarity, false, max_attributes_roll)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    local luck = RandomInt(1, 3)
-    if luck == 3 then
-        local value, nameLevel = RPCItems:RollAttribute(0, 6, 11, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = "all_attributes"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_all_attributes", "#FFFFFF", 3)
-    else
-        local tier, value, propertyName = RPCItems:RollSkillProperty()
-        if tier > 0 then
-            item.newItemTable.property3 = value
-            item.newItemTable.property3name = propertyName
-            RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-        end
     end
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
@@ -8345,7 +8329,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_nethergrasp_palisade" then
         newItem = RPCItems:NethergraspPalisade(item_level)
     elseif itemName == "item_rpc_beryl_ring_of_intuition" then
-        newItem = RPCItems:RollBerylRingOfIntuition(deathLocation, 1)
+        newItem = RPCItems:RollBerylRingOfIntuition(item_level)
     elseif itemName == "item_rpc_auric_ring_of_inspiration" then
         newItem = RPCItems:RollAuricRingOfInspiration(item_level)
     elseif itemName == "item_rpc_helm_of_the_knight_hawk" then
