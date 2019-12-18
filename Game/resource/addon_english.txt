@@ -3298,7 +3298,7 @@
 	
 	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash, Grandfather Axe"
 	"item_property_axe_immortal_weapon"								"Combat Veteran"
-	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>50</font>%"
+	"property_axe_immortal_weapon_description"						"Reduces all damage taken by <font color='#ccff66'>25</font>%"
 
 	"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "Red Battlefury"
         "item_property_axe_immortal_weapon2"                            "Frenzied Berserker"
@@ -12430,7 +12430,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_ancient_tanari_wind_armor"						"Ancient Tanari Wind Armor"
 		"item_property_tanari_wind_armor"						"Zephyr"
-		"property_tanari_wind_armor_description"				"Enemies within <font color='#ccff66'>420</font> radius have their movespeed reduced by <font color='#ccff66'>65</font>%, their attack speed slowed by <font color='#ccff66'>100</font>, and have a <font color='#ccff66'>20</font>% miss chance."
+		"property_tanari_wind_armor_description"				"Enemies within <font color='#ccff66'>420</font> radius have their movespeed reduced by <font color='#ccff66'>65</font>%, their attack speed slowed by <font color='#ccff66'>80</font>, and have a <font color='#ccff66'>20</font>% miss chance."
 
 		"item_rpc_ancient_tanari_wind_armor_ruby1"						"Enemies within the Wind's radius take damage equal to @ruby_property1x your Agility and Intelligence every 0.5 seconds."
 		"item_rpc_ancient_tanari_wind_armor_emerald1"						"Increases <font color=\"#7AE2A7\">Wind</font> elemental damage by @emerald_property1%"
@@ -12880,7 +12880,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
@@ -12890,7 +12890,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
@@ -12900,7 +12900,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>1</font>."
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
@@ -14261,10 +14261,10 @@
 
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"Super Ascendency Mask"
 		"item_property_super_ascendency"			"Super Ascension"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>%% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
@@ -14455,26 +14455,134 @@
         "item_rpc_ancient_tanari_waterstone_sapphire1"                      "Increases Item and <font color=\"#3894FF\">Water</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Increases Spirit by @amethyst_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"
+        "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
 
-		"item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"On taking a fatal blow, gain a shield for <font color='#ccff66'>4</font> seconds that reduces all damage taken by 100%, grants stun immunity, and refreshes all cooldowns. This effect's cooldown is equal to <font color='#ccff66'>6</font>x its duration, which cannot exceed <font color='#ccff66'>20</font> seconds."
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Immune to damage and stuns."
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh Cooldown"
+        "item_property_ankh_of_ancients"                        "Immortal Spirit"
+         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <font color='#ccff66'>4</font> and gain a shield for <font color='#ccff66'>4</font> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <font color='#ccff66'>24</font> second cooldown. The shield's duration can never exceed <font color='#ccff66'>12</font> seconds no matter how long it is extended."
+         "DOTA_Tooltip_modifier_ankh_of_ancients_shield"        "Immortal Spirit"
+         "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"    "Immune to damage and stuns."
+         "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"      "Ankh Cooldown"
 
-		"item_rpc_ankh_of_the_ancients_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ankh_of_the_ancients_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
+        "item_rpc_ankh_of_the_ancients_ruby1"                           "Reduces the respawn delay by @ruby_property1"
+        "item_rpc_ankh_of_the_ancients_emerald1"                            "Heal @emerald_property1% of max health every <font color='#ccff66'>0.1</font> seconds while the shield is active"
+        "item_rpc_ankh_of_the_ancients_sapphire1"                           "Reduces the shield's cooldown by @sapphire_property1"
+        "item_rpc_ankh_of_the_ancients_amethyst1"                           "Increases the shield's duration by @amethyst_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
-		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_blacksmiths_tablet"			"Refined Weaponry"
-		"property_blacksmiths_tablet_description"	"Your equipped weapon's bonuses (including runes) are increased by <font color='#ccff66'>65</font>%. Additionally increases XP granted to your weapon by <font color='#ccff66'>40</font>%."
+        "DOTA_Tooltip_ability_item_rpc_antique_mana_relic"                              "Antique Mana Relic"
+
+        "item_property_antique_mana_relic"                  "Mana Storm"
+        "property_antique_mana_relic_description"           "Base Abilities drain <font color='#ccff66'>25</font>% of your max mana on cast and have <font color='#ccff66'>200</font>% increased Base Ability Damage. You are silenced while below <font color='#ccff66'>25</font>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
+
+		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
+
+		"item_property_aqua_lily"								"Water Bloom"
+		 "property_aqua_lily_description"						"Every point in [R4] increases Intelligence by <font color='#ccff66'>24</font>."
+
+		"item_rpc_aqua_lily_ruby1"										"Each point in Rune [R1] increases Intelligence by @ruby_property1"
+		"item_rpc_aqua_lily_emerald1"										"Each point in Rune [R2] increases Intelligence by @emerald_property1"
+		"item_rpc_aqua_lily_sapphire1"										"Increases Rune [R4] by @sapphire_property1"
+		"item_rpc_aqua_lily_amethyst1"										"Each point in Rune [R3] increases Intelligence by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
+		"item_property_aquastone_ring"										"Platinum Augment"
+		"property_aquastone_ring_description"								"Each point in a Tier 4 rune increases Base Ability and Item Damage by <font color='#ccff66'>1.5</font>%."
+
+		"item_rpc_aquastone_ring_ruby1"									"Increases Rune [Q4] by @ruby_property1"
+		"item_rpc_aquastone_ring_emerald1"									"Increases Rune [E4] by @emerald_property1"
+		"item_rpc_aquastone_ring_sapphire1"									"Increases Rune [W4] by @sapphire_property1"
+		"item_rpc_aquastone_ring_amethyst1"									"Increases Rune [R4] by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
+
+		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
+		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <font color='#ccff66'>35</font>%."
+
+        "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases Base Ability and Item Damage by @emerald_property1"
+        "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "Increases All Attributes by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
+
+		"item_property_arcane_charm"					"Magic Magnet"
+		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <font color='#ccff66'>50</font>%. Collecting an Arcane Crystal instantly restores <font color='#ccff66'>10</font>/<font color='#ccff66'>20</font>/<font color='#ccff66'>50</font>/<font color='#ccff66'>100</font>% of max health and mana depending on the crystal's size."
+
+        "item_rpc_arcane_charm_ruby1"                                   "Each point of Intelligence increases Magic Armor by @ruby_property1"
+        "item_rpc_arcane_charm_emerald1"                                    "@emerald_property1% of your Magic Armor also increases Spell Pierce"
+        "item_rpc_arcane_charm_sapphire1"                                   "All Magic or Pure Damage taken immediately heals you for @sapphire_property1% of the damage taken"
+        "item_rpc_arcane_charm_amethyst1"                                   "Increases Item Damage and <font color=\"#E1A2E8\">Arcane</font> Elemental damage by @amethyst_property1%"
+		
+        "DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration"   "Auric Ring of Inspiration"
+
+        "item_property_auric_ring_of_inspiration"                       "Cycle of Divinity"
+        "property_auric_ring_of_inspiration_description"                "After casting all 4 of your base abilities gain <font color='#ccff66'>4</font> seconds of Spell Immunity."
+
+        "DOTA_Tooltip_modifier_auric_ring_bkb"                      "Divine Inspiration"
+        "DOTA_Tooltip_modifier_auric_ring_bkb_Description"          "Spell Immunity"
+
+        "item_rpc_auric_ring_of_inspiration_ruby1"  "Gain @ruby_property1 Spell Pierce while Divine Inspiration is active"
+        "item_rpc_auric_ring_of_inspiration_emerald1"   "Increases Item and <font color=\"#F6FFB5\">Holy</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_auric_ring_of_inspiration_sapphire1"  "Increases the Magic Immunity Duration by @sapphire_property1"
+        "item_rpc_auric_ring_of_inspiration_amethyst1"  "When you activate Divine Inspiration, restore @amethyst_property1% of Max Health"
+
+        "DOTA_Tooltip_ability_item_rpc_azure_empire"                                    "Pendant of the Azure Empire"
+
+        "item_property_azure_empire"                "Sky Magistrate"
+        "property_azure_empire_description"         "<font color='#ccff66'>3</font> azure hawks accompany you, absorbing <font color='#ccff66'>1</font> instance of Magical or Pure damage each. Hawks regenerate <font color='#ccff66'>3</font> seconds after absorbing a hit."
+        "item_property_azure_empire_silver"             "Silver Skies"
+        "property_azure_empire_silver_description"  "Each active hawk increases Base Ability Damage by <font color='#ccff66'>20</font>%"
+        "item_property_azure_empire_green"              "Jade Skies"
+        "property_azure_empire_green_description"   "Each active hawk increases Agility by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_red"                "Crimson Skies"
+        "property_azure_empire_red_description" "Each active hawk increases Strength by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_blue"               "Cerulean Skies"
+        "property_azure_empire_blue_description"    "Each active hawk increases Intelligence by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_purple"               "Violet Skies"
+        "property_azure_empire_purple_description"    "Each active hawk increases Spirit by <font color='#ccff66'>1</font>x your hero's level."
+        "DOTA_Tooltip_modifier_azure_empire_visible"    "Azure Empire"
+        "DOTA_Tooltip_modifier_azure_empire_visible_Description"    "Hawks absorbing Magical and Pure damage."
+
+        "item_rpc_azure_empire_ruby1"                                   "Reduces Hawk respawn time by @ruby_property1 seconds"
+        "item_rpc_azure_empire_emerald1"                                    "Each active Hawk increases Armor Pierce by @emerald_property1"
+        "item_rpc_azure_empire_sapphire1"                                   "Each active Hawk increases Spell Pierce by @sapphire_property1"
+        "item_rpc_azure_empire_amethyst1"                                   "@amethyst_property1% chance when taking Pure or Magic damage for the Hawks to block it if any hawks are active"
+
+		
+		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		"item_rpc_badge_of_honor_ruby1"									"No Effect"
+		"item_rpc_badge_of_honor_emerald1"									"No Effect"
+		"item_rpc_badge_of_honor_sapphire1"									"No Effect"
+		"item_rpc_badge_of_honor_amethyst1"									"No Effect"
+
+        "DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition"     "Beryl Ring of Intuition"
+
+        "item_property_beryl_ring_of_intuition"                     "Cycle of Respiration"
+        "property_beryl_ring_of_intuition_description"              "After casting all 4 of your base abilities, refresh all ability cooldowns. If @Ability4's base cooldown is greater than <font color='#ccff66'>10</font> seconds, its cooldown can only be reduced to a minimum of <font color='#ccff66'>10</font> seconds."
+
+        "item_rpc_beryl_ring_of_intuition_ruby1"    "When you activate Cycle of Respiration, restore @ruby_property1% of Max Health"
+        "item_rpc_beryl_ring_of_intuition_emerald1"     "Gain @emerald_property1 Armor Pierce for <font color='#ccff66'>8</font> seconds after activating Cycle of Respiration"
+        "item_rpc_beryl_ring_of_intuition_sapphire1"    "Increases Item and <font color=\"#F6FFB5\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_beryl_ring_of_intuition_amethyst1"    "When you activate Cycle of Respiration, restore @amethyst_property1% of Max Mana"
+
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
+        "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce_Description"	"Increased Armor Pierce"
+
+         "item_property_blacksmiths_tablet"          "Refined Weaponry"
+        "property_blacksmiths_tablet_description"   "Increases XP granted to your weapon by <font color='#ccff66'>50</font>%."      
+
+        "DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"                              "Blacksmith's Tablet"
+        "item_rpc_blacksmiths_tablet_ruby1"                             "Increases your Equipped Weapon's Property 1 bonus by @ruby_property1%"
+        "item_rpc_blacksmiths_tablet_emerald1"                              "Increases your Equipped Weapon's Property 3 bonus by @emerald_property1%"
+        "item_rpc_blacksmiths_tablet_sapphire1"                             "Increases your Equipped Weapon's Property 2 bonus by @sapphire_property1%"
+        "item_rpc_blacksmiths_tablet_amethyst1"                             "Increases your Equipped Weapon's Property 4 bonus by @amethyst_property1%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
@@ -14524,13 +14632,6 @@
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
-		"item_rpc_badge_of_honor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_badge_of_honor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_badge_of_honor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_badge_of_honor_amethyst1"									"blah blah @amethyst_property1 gem"
-		
-		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
 		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
 		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
@@ -14545,15 +14646,6 @@
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
 		"item_rpc_stone_of_gordon_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_stone_of_gordon_amethyst1"									"blah blah @amethyst_property1 gem"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
-		"item_rpc_arbor_dragonfly_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_arbor_dragonfly_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <font color='#ccff66'>30</font>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
@@ -14583,23 +14675,7 @@
 		"property_galaxy_orb_description"			"While channeling @Ability4, all enemies in a wide radius of <font color='#ccff66'>800</font> are slowly vacuumed toward you."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
-		"item_rpc_azure_empire_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_azure_empire_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_azure_empire_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_azure_empire_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_azure_empire"				"Sky Magistrate"
-		"property_azure_empire_description"			"<font color='#ccff66'>3</font> azure hawks accompany you, absorbing <font color='#ccff66'>1</font> instance of Magical or Pure damage each. Hawks regenerate <font color='#ccff66'>4</font> seconds after absorbing a hit."
-		"item_property_azure_empire_silver"				"Silver Skies"
-		"property_azure_empire_silver_description"	"Each active hawk increases Base Ability Damage by <font color='#ccff66'>40</font>%"
-		"item_property_azure_empire_green"				"Jade Skies"
-		"property_azure_empire_green_description"	"Each active hawk increases Agility by <font color='#ccff66'>25</font>x your hero's level."
-		"item_property_azure_empire_red"				"Crimson Skies"
-		"property_azure_empire_red_description"	"Each active hawk increases Strength by <font color='#ccff66'>25</font>x your hero's level."
-		"item_property_azure_empire_blue"				"Cerulean Skies"
-		"property_azure_empire_blue_description"	"Each active hawk increases Intelligence by <font color='#ccff66'>25</font>x your hero's level."
-		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
-		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Hawks absorbing Magical and Pure damage."
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
@@ -14754,14 +14830,6 @@
 		"property_firelock_description"					"Increases Post-Mitigation Physical damage by <font color='#ccff66'>0.3</font>% for every <font color='#ccff66'>10</font> points of Strength."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"@Ability1 drains <font color='#ccff66'>50</font>% of your max mana to deal <font color='#ccff66'>400</font>% increased Base Ability Damage (if enough mana was available). Attacks restore <font color='#ccff66'>2.5</font>% of max mana. Each point of current mana adds <font color='#ccff66'>1</font> base attack damage."
-		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
 		"item_rpc_epsilons_eyeglass_ruby1"								"blah blah @ruby_property1 gem"
@@ -14847,15 +14915,6 @@
 		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <font color='#ccff66'>300</font>."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"
-		"item_rpc_aqua_lily_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_aqua_lily_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_aqua_lily"								"Water Bloom"
-		 "property_aqua_lily_description"						"Every point in [R4] increases Intelligence by <font color='#ccff66'>300</font>."
-		 
-		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
 		"item_rpc_fire_blossom_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_fire_blossom_emerald1"									"blah blah @emerald_property1 gem"
@@ -14864,13 +14923,6 @@
 		"item_property_fire_blossom"							"Fire Bloom"
 		 "property_fire_blossom_description"					"Every point in [W4] increases Strength by <font color='#ccff66'>300</font>."
 		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
-		"item_rpc_aquastone_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_aquastone_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_aquastone_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_aquastone_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
 		"item_rpc_world_trees_flower_cache_ruby1"						"blah blah @ruby_property1 gem"
@@ -14883,14 +14935,7 @@
 		"DOTA_Tooltip_modifier_world_tree_effect"				"New Bloom"
 		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-Mitigation damage dealt and damage taken both increased by 200%%"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
-		"item_rpc_arcane_charm_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_arcane_charm_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_arcane_charm_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_arcane_charm_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_arcane_charm"					"Magic Magnet"
-		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <font color='#ccff66'>50</font>%. Collecting an Arcane Crystal instantly restores <font color='#ccff66'>10</font>/<font color='#ccff66'>20</font>/<font color='#ccff66'>50</font>/<font color='#ccff66'>100</font>% of max health and mana depending on the crystal's size."
+	
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
@@ -14993,25 +15038,6 @@
 		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"Silver Heart"
 		"property_guardian_stone_description"								"Debuffs applied to you by enemies have <font color='#ccff66'>75</font>% reduced duration. When a debuff duration is reduced this way, heal <font color='#ccff66'>20</font>% of your max health."
-
-		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"Beryl Ring of Intuition"
-		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_emerald1" 	"blah blah @emerald_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_sapphire1" 	"blah blah @sapphire_property1 gem"
-		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
-		"item_property_beryl_ring_of_intuition"						"Cycle of Respiration"
-		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <font color='#ccff66'>10</font> seconds, its cooldown can only be reduced to a minimum of <font color='#ccff66'>10</font> seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
-		"item_rpc_auric_ring_of_inspiration_ruby1" 	"blah blah @ruby_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_emerald1" 	"blah blah @emerald_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
-		"item_property_auric_ring_of_inspiration"						"Cycle of Divinity"
-		"property_auric_ring_of_inspiration_description"				"After casting all 4 of your base abilities, heal to full health and gain <font color='#ccff66'>6</font> seconds of Spell Immunity."
-
-		"DOTA_Tooltip_modifier_auric_ring_bkb"						"Divine Inspiration"
-		"DOTA_Tooltip_modifier_auric_ring_bkb_Description"			"Spell Immunity"
 
 
 		//Tier 1
@@ -16994,13 +17020,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 		
 		"redfall_equinox"												"Equinox"
 
@@ -18087,9 +18113,9 @@
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_elite"				"Tanari Spirit Stone"
 		"DOTA_Tooltip_ability_item_tanari_spirit_stones_legend"			"Tanari Spirit Stones"
 
-		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
-		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_normal_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_elite_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
+		"item_tanari_spirit_stones_legend_desc"		"Use: Enter the Spirit Realm in Tanari Jungle. Spirit realm has 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <font color='#ccff66'>1.5</font>x mithril and 2x arcane crystal gain."
 
 		
 		"dialogue_witch_doctor"						"The Spirits of the Jungle surround me."

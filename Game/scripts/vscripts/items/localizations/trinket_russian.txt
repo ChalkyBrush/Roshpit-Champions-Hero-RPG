@@ -5,7 +5,7 @@
 		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
-		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT * 100%>%. Дополнительно увеличивает получаемый оружием опыт на <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%."
+		"property_blacksmiths_tablet_description"	"Дополнительно увеличивает получаемый оружием опыт на <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
@@ -303,13 +303,18 @@
 		"property_firelock_description"					"Увеличивает Пост-Резистный физический урон на <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>% за каждые <% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %> очков Силы."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"Antique Mana Relic"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_antique_mana_relic"					"Mana Storm"
-		"property_antique_mana_relic_description"			"Прочтение способности (Q) @Ability1 выжжет <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% вашей маны и усилит Базовый Урон этой способности на <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %> на несколько секунд, если маны достаточно. Каждая базовая атака восстанавливает <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% маны. Каждое очко текущей маны увеличивает базовый урон героя на <% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>."
+        "DOTA_Tooltip_ability_item_rpc_antique_mana_relic"                              "Antique Mana Relic"
+
+        "item_property_antique_mana_relic"                  "Mana Storm"
+        "property_antique_mana_relic_description"           "Base Abilities drain <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana on cast and have <% ITEM_RPC_ANTIQUE_MANA_RELIC_BAD %>% increased Base Ability Damage. You are silenced while below <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
@@ -414,16 +419,18 @@
 		 "property_fire_blossom_description"					"Каждое очко руны [W4] увеличивает Силу на <% ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 %>."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"Ankh of the Ancients"
-		"item_rpc_ankh_of_the_ancients_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ankh_of_the_ancients_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_ankh_of_ancients"						"Immortal Spirit"
-		 "property_ankh_of_ancients_description"				"При получении смертельного урона, герой получает щит на <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %>  сек., который сокращает весь входящий урон на 100%, тем самым даёт иммунитет к оглушению. Дополнительно сбрасывает время перезарядки для всех умений. Перезаряжается в <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> раз(а) больше длительности щита. Максимальная длительность щита <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN_MAX %>."
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"Immortal Spirit"
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"Иммунитет к урону и оглушению"
-		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"Ankh перезаряжается"
+        "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
+
+        "item_property_ankh_of_ancients"                        "Immortal Spirit"
+         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> and gain a shield for <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> second cooldown. The shield's duration can never exceed <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %> seconds no matter how long it is extended."
+         "DOTA_Tooltip_modifier_ankh_of_ancients_shield"        "Immortal Spirit"
+         "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"    "Immune to damage and stuns."
+         "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"      "Ankh Cooldown"
+
+        "item_rpc_ankh_of_the_ancients_ruby1"                           "Reduces the respawn delay by @ruby_property1"
+        "item_rpc_ankh_of_the_ancients_emerald1"                            "Heal @emerald_property1% of max health every <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_EMERALD_INTERVAL %> seconds while the shield is active"
+        "item_rpc_ankh_of_the_ancients_sapphire1"                           "Reduces the shield's cooldown by @sapphire_property1"
+        "item_rpc_ankh_of_the_ancients_amethyst1"                           "Increases the shield's duration by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	

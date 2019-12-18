@@ -23639,7 +23639,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"40"
+				"property_one"			"5"
 			}
 		}
 		"Modifiers"
@@ -23652,7 +23652,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "40"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
 				}
 			}
 			"modifier_flamewaker_rune_w_4_cooldown"
@@ -45632,7 +45632,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.07"
 			}
 		}
 	}
@@ -47493,7 +47493,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -47783,7 +47783,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -47822,7 +47822,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"35"
+				"property_two"			"30"
 			}
 			"04"
 			{
@@ -122848,14 +122848,19 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 35000"
+		"AbilityDamage"					"1000 3000 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-
-
-
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000 3000 9000"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -122997,7 +123002,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"1000 4000 45000"
+				"shock_damage"				"1000 4000 15000"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
 			}
 			"04"
@@ -124783,7 +124788,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"25000"
+				"damage"			"8000"
 			}
 		}
 		"Modifiers"

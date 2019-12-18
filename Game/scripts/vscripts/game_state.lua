@@ -600,6 +600,11 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			end
 			duration_modifier = duration_modifier + target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CENTAUR_HORNS_AMETHYST)
 		end
+		if target:HasModifier("modifier_ankh_of_ancients_shield") then
+			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
+				return false
+			end
+		end
 		if target:HasModifier("modifier_boots_of_ashara") then
 			duration_modifier = duration_modifier + ITEM_RPC_BOOTS_OF_ASHARA_STATUS_RESIST
 		end
@@ -2328,7 +2333,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
 			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
-		if victim:HasModifier("modifier_azure_empire_visible") then
+		if victim:HasModifier("modifier_azure_empire_visible") and applyEffects then
 			if not Filters:HasDamageBlockShield(victim) then
 				if filterTable["damage"] > 0 then
 					filterTable["damage"] = 0
@@ -3351,6 +3356,13 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS
 		end
 	end
+	if victim:HasModifier("modifier_arcane_charm") and (damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE) and victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("sapphire") > 0 then
+		local damage_to_heal = filterTable["damage"]*(victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ARCANE_CHARM_GEM_SAPPHIRE))/100
+		Timers:CreateTimer(0.03, function()
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", victim, 1)
+			Filters:ApplyHeal(victim, victim, damage_to_heal, true, true)
+		end)
+	end
 
 	if victim:HasModifier("modifier_recently_respawned") then
 		filterTable["damage"] = 0
@@ -3447,16 +3459,8 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				victim.amulet.ankh_apply_time = GameRules:GetGameTime()
-				victim.amulet:ApplyDataDrivenModifier(victim, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION})
-				for i = 0, 3, 1 do
-					local abilityIndex = i
-					if i == 3 then
-						abilityIndex = DOTA_R_SLOT
-					end
-					victim:GetAbilityByIndex(abilityIndex):EndCooldown()
-				end
 				rezzed = true
+				Filters:AnkhOfAncientsValidDeath(victim)
 			end
 		end
 		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then

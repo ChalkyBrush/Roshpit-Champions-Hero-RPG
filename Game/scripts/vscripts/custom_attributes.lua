@@ -1703,6 +1703,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_ancient_waterstone") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_EMERALD)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_arcane_charm") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2044,6 +2047,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_rpc_yasha_boots") then
 		armor_pierce_modify = armor_pierce_modify + ITEM_RPC_YASHA_BOOTS_ARMOR_PIERCE_PER_STR*unit:GetStrength()
+	end
+	if unit:HasModifier("modifier_azure_empire_visible") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AZURE_EMPIRE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_beryl_ring_of_intuition_emerald_armor_pierce") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_EMERALD)
 	end
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2439,6 +2448,18 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AERITHS_TEAR_GEM_SAPPHIRE)
 		end
 	end
+	if unit:HasModifier("modifier_auric_ring_bkb") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_azure_empire_visible") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AZURE_EMPIRE_GEM_SAPPHIRE)
+	end
+
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_arcane_charm") then
+		local arcane_charm = unit:FindModifierByName("modifier_arcane_charm"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + unit:GetRoshpitMagicArmor()*((arcane_charm:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANE_CHARM_GEM_EMERALD))/100)
+	end
 
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
@@ -2446,6 +2467,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local spell_pierce_pct_bonus = HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", HOOD_OF_BLACK_MAGE_AMETHYST)
 		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(spell_pierce_pct_bonus/100)
 	end
+
+
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -2988,9 +3011,10 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 	end
 	if hero:HasModifier("modifier_azure_empire") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", CustomAttributes.AZURE_EMPIRE_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_agility", CustomAttributes.AZURE_EMPIRE_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", CustomAttributes.AZURE_EMPIRE_STATS)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", ITEM_RPC_AZURE_EMPIRE_RED_STR)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_agility", ITEM_RPC_AZURE_EMPIRE_GREEN_AGI)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", ITEM_RPC_AZURE_EMPIRE_BLUE_INT)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_spirit", ITEM_RPC_AZURE_EMPIRE_PURPLE_SPR)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
@@ -3010,7 +3034,7 @@ function CustomAttributes:SetAttributes(hero)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", 1)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)

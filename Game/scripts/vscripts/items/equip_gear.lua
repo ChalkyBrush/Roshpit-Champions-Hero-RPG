@@ -112,6 +112,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 		hero.gear_bonuses = {}
 	end
 	hero.gear_bonuses[gear_slot] = {}
+	hero:UpdateRuneBonusesFromGear()
 end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
@@ -150,14 +151,26 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	print("--RECORDING PROPERTY--")
 	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
 	-- TATTERED NOVICE ARMOR AMETHYST:
+	local property_bonus_mult = 0
 	if hero:HasModifier("modifier_tattered_novice_armor") then
 		if item.newItemTable.rarityFactor < RPC_ITEMS_RARITY_IMMORTAL then
 			novice_armor = hero:FindModifierByName("modifier_tattered_novice_armor"):GetAbility()
-			property_value = property_value * (1 + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100)
+			property_bonus_mult = property_bonus_mult + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100
 		end
 	end
 	if item:GetAbilityName() == "item_rpc_harvester_boots" then
-		property_value = RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+		property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForHarvester(hero, item, property_value, property_name)
+	end
+	if hero:HasModifier("modifier_blacksmiths_tablet") then
+		if item.newItemTable.gear_slot == RPC_GEAR_SLOT_WEAPON then
+			property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_value, property_name)
+		end
+	end
+	if hero:HasModifier("modifier_vermillion_dream_robes") or item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
+		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
+	end
+	if type(property_value) == "number" then
+		property_value = property_value + property_bonus_mult*property_value
 	end
 	-- 
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
@@ -244,12 +257,11 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
 			end	
 		end
-		if hero:HasModifier("modifier_vermillion_dream_robes") then
-			rune_bonus = rune_bonus * (1 + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100)
-		end
 		hero.runes_bonus_table[rune_name] = rune_bonus
 	end
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
+	local player = hero:GetPlayerOwner()
+	CustomGameEventManager:Send_ServerToPlayer(player, "update_abilities_and_runes_ui", {})
 end
 
 function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type, socket_value, gear_slot)
@@ -1219,6 +1231,57 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_TRINKET)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_antique_mana_relic" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_SAPPHIRE1, hero, "max_mana", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_SAPPHIRE2, hero, "mana_regen", RPC_GEAR_SLOT_TRINKET)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_aqua_lily" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_AQUA_LILY_GEM_SAPPHIRE, hero, "rune_r_4", RPC_GEAR_SLOT_TRINKET)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_aquastone_ring" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_AQUASTONE_RING_GEM_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_AQUASTONE_RING_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_AQUASTONE_RING_GEM_SAPPHIRE, hero, "rune_w_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_AQUASTONE_RING_GEM_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_TRINKET)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_arbor_dragonfly" then		
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ARBOR_DRAGONFLY_GEM_RUBY, hero, "rune_q_1", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ARBOR_DRAGONFLY_GEM_RUBY, hero, "rune_w_1", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ARBOR_DRAGONFLY_GEM_RUBY, hero, "rune_e_1", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ARBOR_DRAGONFLY_GEM_RUBY, hero, "rune_r_1", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARBOR_DRAGONFLY_GEM_EMERALD, hero, "base_ability", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARBOR_DRAGONFLY_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARBOR_DRAGONFLY_GEM_SAPPHIRE, hero, "rune_q_2", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARBOR_DRAGONFLY_GEM_SAPPHIRE, hero, "rune_w_2", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARBOR_DRAGONFLY_GEM_SAPPHIRE, hero, "rune_e_2", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARBOR_DRAGONFLY_GEM_SAPPHIRE, hero, "rune_r_2", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARBOR_DRAGONFLY_GEM_AMETHYST, hero, "all_attributes", RPC_GEAR_SLOT_TRINKET)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_arcane_charm" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANE_CHARM_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_ARCANE_CHARM_GEM_AMETHYST, hero, "element_arcane", RPC_GEAR_SLOT_TRINKET)
+		end		
+	elseif item:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then	
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_EMERALD, hero, "element_holy", RPC_GEAR_SLOT_TRINKET)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_SAPPHIRE, hero, "element_ice", RPC_GEAR_SLOT_TRINKET)
 		end			
 	end
 end
@@ -1265,15 +1328,48 @@ function CDOTA_BaseNPC_Hero:ReequipAllGear()
 	end
 end
 
-function RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+function RPCItems:AdjustPropertyValueForHarvester(hero, item, property_value, property_name)
+	local mult = 0
 	if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("ruby", ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY)/100)
+		mult = item:GetFinalGemPropertyValue("ruby", ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY)/100
 	elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE)/100)
+		mult = item:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE)/100
 	elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("emerald", ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD)/100)
+		mult = item:GetFinalGemPropertyValue("emerald", ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD)/100
 	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST)/100)
+		mult = item:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST)/100
 	end
-	return property_value
+	return mult
+end
+
+function RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_value, property_name)
+	local mult = 0
+	if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLACKSMITHS_TABLET_GEM_RUBY)/100
+	elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLACKSMITHS_TABLET_GEM_SAPPHIRE)/100
+	elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLACKSMITHS_TABLET_GEM_EMERALD)/100
+	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLACKSMITHS_TABLET_GEM_AMETHYST)/100
+	end
+	print("GREETME")
+	print(mult)
+	return mult
+end
+
+function RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "rune_q_1" or property_name == "rune_q_2" or property_name == "rune_q_3" or property_name == "rune_q_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" or property_name == "rune_w_3" or property_name == "rune_w_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" or property_name == "rune_e_3" or property_name == "rune_e_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" or property_name == "rune_r_3" or property_name == "rune_r_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	end
+	return mult
 end

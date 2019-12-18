@@ -5,7 +5,7 @@
 		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"精制武器"
-		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT * 100%>%。同时，玩家的武器升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
+		"property_blacksmiths_tablet_description"	"同时，玩家的武器升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
@@ -301,12 +301,16 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"魔法风暴"
-		"property_antique_mana_relic_description"			"施放 @Ability1 汲取 <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% 的最大魔法值，并且提高该技能 <% ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD %>% 的基础技能伤害。每次攻击回复 <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK %>% 的魔法值。每<% ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA %>点当前的魔法值提高1点基础攻击力。"
+        "property_antique_mana_relic_description"           "Base Abilities drain <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% of your max mana on cast and have <% ITEM_RPC_ANTIQUE_MANA_RELIC_BAD %>% increased Base Ability Damage. You are silenced while below <% ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN %>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
@@ -412,15 +416,17 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
-		"item_rpc_ankh_of_the_ancients_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ankh_of_the_ancients_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为<% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %>倍护盾持续时间。"
+         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> and gain a shield for <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> second cooldown. The shield's duration can never exceed <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %> seconds no matter how long it is extended."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"
+
+        "item_rpc_ankh_of_the_ancients_ruby1"                           "Reduces the respawn delay by @ruby_property1"
+        "item_rpc_ankh_of_the_ancients_emerald1"                            "Heal @emerald_property1% of max health every <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_EMERALD_INTERVAL %> seconds while the shield is active"
+        "item_rpc_ankh_of_the_ancients_sapphire1"                           "Reduces the shield's cooldown by @sapphire_property1"
+        "item_rpc_ankh_of_the_ancients_amethyst1"                           "Increases the shield's duration by @amethyst_property1"
+
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"波斯猫眼戒指"	

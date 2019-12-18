@@ -15,8 +15,10 @@ Weapons.MAX_WEAPON_LEVEL = 10
 Weapons.XP_PER_LEVEL_TABLE = {}
 Weapons.XP_PER_LEVEL_TABLE[1] = 1000
 for i = 2, Weapons.MAX_WEAPON_LEVEL, 1 do
-	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*3
+	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*4
 end
+
+Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS = 0.1
 
 function Weapons:weaponRedirect(hero)
 	local heroName = hero:GetName()
@@ -162,6 +164,9 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 	if not IsValidEntity(weapon) then
 		return false
 	end
+	if weapon.newItemTable.rarity == "immortal" then
+		exp = exp*Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS
+	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		exp = math.floor(exp * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP))
 	end
@@ -191,7 +196,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
 
-Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 50
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 40
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_1"] = 2
@@ -207,8 +212,8 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_3"] = 1
 Weapons.STAT_ADD_PER_LEVEL_TABLE["aspect_health"] = 200
 Weapons.STAT_ADD_PER_LEVEL_TABLE["base_ability"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
-Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 60
-Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 60
+Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 120
+Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 120
 Weapons.STAT_ADD_PER_LEVEL_TABLE["movespeed"] = 6
 
 Weapons.STAT_ADD_PER_LEVEL_TABLE["element_normal"] = 8

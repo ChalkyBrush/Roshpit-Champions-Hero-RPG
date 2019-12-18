@@ -193,6 +193,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
         end
     end
+    if caster:HasModifier("modifier_aquastone_ring") then
+        mult = mult + (caster:GetRuneValue("q", 4) + caster:GetRuneValue("w", 4) + caster:GetRuneValue("e", 4) + caster:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
+    end
     if caster:HasModifier("modifier_swiftspike_bad") then
         if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
             local current_stack = caster:GetModifierStackCount("modifier_swiftspike_bad", caster.InventoryUnit)
@@ -269,8 +272,8 @@ end
 
 function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
-        local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "auriun")
-        baseDuration = baseDuration + c_d_level * AURIUN_R3_BUFF_DUR_INCREASE
+        local r_3_level = caster:GetRuneValue("r", 3)
+        baseDuration = baseDuration + r_3_level * AURIUN_R3_BUFF_DUR_INCREASE
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
         baseDuration = baseDuration * (100+ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
@@ -586,7 +589,7 @@ function Filters:ApplyStun(caster, duration, target)
         if caster:GetTeamNumber() == target:GetTeamNumber() then
         else
             local helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
-            local limitKey = "_stormcrack"
+            local limitKey = caster:GetEntityIndex().."_stormcrack"
             local max_procs_per_second = STORMCRACK_MAX_PROCS_PER_SECOND + helm:GetFinalGemPropertyValue("emerald", STORMCRACK_EMERALD)
             Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
                 CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
@@ -809,6 +812,11 @@ function Filters:CastSkillArguments(slot, caster)
             caster:ReduceMana(manaDrain)
         end
     end
+    if caster:HasModifier("modifier_antique_mana_relic") then
+        local mana_drain = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
+        caster:ReduceMana(caster:GetMaxMana() * mana_drain/100)
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, 2)
+    end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
     if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
@@ -1018,13 +1026,6 @@ function Filters:ApplyQskills(caster)
     end
     if caster:HasModifier("modifier_plate_of_the_watcher1") then
         Filters:WatcherCast(caster, BASE_ABILITY_Q)
-    end
-    if caster:HasModifier("modifier_antique_mana_relic") then
-        if caster:GetMana() >= caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100 then
-            caster:ReduceMana(caster:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN/100)
-            caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_mana_relic_damage_boost", {duration = ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION})
-            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf", caster, ITEM_RPC_ANTIQUE_MANA_RELIC_BUFF_DURATION)
-        end
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
@@ -1718,8 +1719,14 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_gilded_soul_sapphire_bad") then
             damageMult = damageMult + attacker:FindModifierByName("modifier_gilded_soul_sapphire_bad"):GetStackCount()/100
         end
+        if attacker:HasModifier("modifier_antique_mana_relic") then
+            damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_BAD/100
+        end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_aquastone_ring") then
+            damageMult = damageMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
         end
         if attacker:HasModifier("modifier_tranquil_boots") then
             damageMult = damageMult + ((attacker:GetHealth()/attacker:GetMaxHealth())*100)*attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2)/100
@@ -1813,9 +1820,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_outland_stone_cuirass") then
             damageMult = damageMult + (ITEM_RPC_OUTLAND_STONE_CUIRASS_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_RUBY2))/100
-        end
-        if attacker:HasModifier("modifier_mana_relic_damage_boost") then
-            damageMult = damageMult + ITEM_RPC_ANTIQUE_MANA_RELIC_Q_BAD/100
         end
         if attacker:HasModifier("modifier_terrasic_stone_plate") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_SAPPHIRE)/100
@@ -4609,19 +4613,32 @@ function Filters:IgneousCanine(caster)
 end
 
 function Filters:AzureEmpire(victim, attacker)
+    local birdTable = victim.birdTable
+    if victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
+        local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AZURE_EMPIRE_GEM_AMETHYST))
+        if proc then
+            for i = 1, ITEM_RPC_AZURE_EMPIRE_NUMBER_OF_HAWKS, 1 do
+                if not birdTable[i]:HasModifier("modifier_azure_hawk_dead") then
+                    CustomAbilities:QuickAttachParticle("particles/roshpit/items/azure_hawk_impact.vpcf", birdTable[i], 1.5)
+                    break
+                end
+            end        
+            return 0
+        end
+    end
     local currentStacks = victim:GetModifierStackCount("modifier_azure_empire_visible", victim.InventoryUnit)
     if currentStacks > 1 then
         victim:SetModifierStackCount("modifier_azure_empire_visible", victim.InventoryUnit, currentStacks - 1)
     else
         victim:RemoveModifierByName("modifier_azure_empire_visible")
     end
-    local birdTable = victim.birdTable
     if birdTable then
         for i = 1, ITEM_RPC_AZURE_EMPIRE_NUMBER_OF_HAWKS, 1 do
             if not birdTable[i]:HasModifier("modifier_azure_hawk_dead") then
                 CustomAbilities:QuickAttachParticle("particles/roshpit/items/azure_hawk_impact.vpcf", birdTable[i], 1.5)
                 EmitSoundOn("RPCItem.AzureEmpireHit", birdTable[i])
-                victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = ITEM_RPC_AZURE_EMPIRE_HAWK_CD})
+                local respawn_time = ITEM_RPC_AZURE_EMPIRE_HAWK_CD - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_AZURE_EMPIRE_GEM_RUBY)
+                victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = respawn_time})
                 EndAnimation(birdTable[i])
                 StartAnimation(birdTable[i], {duration = 0.8, activity = ACT_DOTA_DIE, rate = 1.3})
                 ParticleManager:DestroyParticle(birdTable[i].pfx, false)
@@ -4636,6 +4653,7 @@ function Filters:AzureEmpire(victim, attacker)
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_red")
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_blue")
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_green")
+                    birdTable[i]:RemoveModifierByName("modifier_azure_hawk_purple")
                     birdTable[i]:AddNoDraw()
                 end)
                 break
@@ -5115,7 +5133,7 @@ function Filters:NetergraspPalisade(hero, target)
 end
 
 function Filters:InpsirationRing(caster, skillIndex)
-    local ring = caster.amulet
+    local ring = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]
     if not ring.abilities_cast then
         ring.abilities_cast = {false, false, false, false}
     end
@@ -5140,11 +5158,15 @@ function Filters:InpsirationRing(caster, skillIndex)
         ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
         -- ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
         ParticleManager:SetParticleControl(pfx, 5, Vector(1,1,1))
-        local heal = caster:GetMaxHealth()
-        Filters:ApplyHeal(caster, caster, heal, true, true)
+
 
         if ring:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then
-            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME})
+            local immunity_time = ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME + ring:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_SAPPHIRE)
+            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = immunity_time})
+            if ring:GetGemValue("amethyst") > 0 then
+                local heal = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_AMETHYST)/100
+                Filters:ApplyHeal(caster, caster, heal, true, true)
+            end
         elseif ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
             for i = 0, 8, 1 do
                 local ability = caster:GetAbilityByIndex(i)
@@ -5155,6 +5177,18 @@ function Filters:InpsirationRing(caster, skillIndex)
                         ability:StartCooldown(ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD)
                     end
                 end
+            end
+            if ring:GetGemValue("ruby") > 0 then
+                local heal = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_RUBY)/100
+                Filters:ApplyHeal(caster, caster, heal, true, true)
+            end
+            if ring:GetGemValue("amethyst") > 0 then
+                local manaRestore = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("ruby", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_AMETHYST)/100
+                caster:GiveMana(manaRestore)
+                PopupMana(caster, manaRestore)
+            end
+            if ring:GetGemValue("emerald") > 0 then
+                ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_beryl_ring_of_intuition_emerald_armor_pierce", {duration = ITEM_RPC_BERYL_RING_OF_INTUITION_EMERALD_DURATION})
             end
         end
         Timers:CreateTimer(2, function()
@@ -6755,4 +6789,27 @@ function Filters:VoyagerBootsAllCast(caster, slot)
         local percentage_increase = (caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1)/100)*-1
         Filters:ReduceCDByPercentage(caster, cd_ability, percentage_increase)
     end
+end
+
+function Filters:AnkhOfAncientsValidDeath(hero)
+    local ankh = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+
+    -- for i = 0, 3, 1 do
+    --     local abilityIndex = i
+    --     if i == 3 then
+    --         abilityIndex = DOTA_R_SLOT
+    --     end
+    --     victim:GetAbilityByIndex(abilityIndex):EndCooldown()
+    -- end
+    
+    local respawn_delay = ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY - ankh:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_RUBY)
+    ankh:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_ankh_of_ancients_respawning", {duration = respawn_delay})
+    hero:AddNoDraw()
+    FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+    local particlePosition = hero:GetAbsOrigin()
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf", particlePosition, respawn_delay)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(respawn_delay, respawn_delay, respawn_delay))
+    ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
+    StartSoundEvent("AnkhOfAncients.Death", hero)
 end

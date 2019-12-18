@@ -401,23 +401,7 @@ function monkey_paw_think(event)
 	local ability = event.ability
 	ApplyDamage({victim = caster, attacker = caster, damage = 1, damage_type = DAMAGE_TYPE_PURE})
 end
-function ankh_of_ancients_think(event)
-	local caster = event.target
-	local ability = event.ability
-	if GameRules:GetGameTime() - caster.amulet.ankh_apply_time > ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN_MAX then
-		caster:RemoveModifierByName('modifier_ankh_of_the_ancients')
-	end
 
-	if caster:IsStunned() then
-		Filters:CleanseStuns(caster)
-	end
-end
-function ankh_of_ancients_end(event)
-	local caster = event.target
-	local ability = event.ability
-	local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
-	caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN})
-end
 
 function wild_nature_struck(event)
 	local attacker = event.attacker
@@ -1046,23 +1030,27 @@ function azure_empire_init(event)
 		bird:SetModelScale(0.5)
 		table.insert(target.birdTable, bird)
 		ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_empire_buff", {})
-		if ability.newItemTable.property2name == "azure_silver" then
+		if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 			-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_silver", {})
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(180, 190, 255))
-		elseif ability.newItemTable.property2name == "azure_green" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 255, 80))
-		elseif ability.newItemTable.property2name == "azure_blue" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 80, 255))
-		elseif ability.newItemTable.property2name == "azure_red" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(255, 80, 80))
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
+			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(185, 80, 255))
 		end
 		bird.index = i
 		StartAnimation(bird, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
@@ -1099,6 +1087,7 @@ function azure_empire_end(event)
 	target:RemoveModifierByName("modifier_azure_empire_agility")
 	target:RemoveModifierByName("modifier_azure_empire_strength")
 	target:RemoveModifierByName("modifier_azure_empire_intelligence")
+	target:RemoveModifierByName("modifier_azure_empire_spirit")
 	for i = 1, #target.birdTable, 1 do
 		UTIL_Remove(target.birdTable[i])
 	end
@@ -1111,18 +1100,21 @@ function azure_think(event)
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_azure_empire_visible", caster)
 	local heroLevel = target:GetLevel()
-	if ability.newItemTable.property2name == "azure_silver" then
+	if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_base_ability", {})
 		target:SetModifierStackCount("modifier_azure_empire_base_ability", caster, stacks)
-	elseif ability.newItemTable.property2name == "azure_green" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_agility", {})
 		target:SetModifierStackCount("modifier_azure_empire_agility", caster, heroLevel * stacks)
-	elseif ability.newItemTable.property2name == "azure_red" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_strength", {})
 		target:SetModifierStackCount("modifier_azure_empire_strength", caster, heroLevel * stacks)
-	elseif ability.newItemTable.property2name == "azure_blue" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_intelligence", {})
 		target:SetModifierStackCount("modifier_azure_empire_intelligence", caster, heroLevel * stacks)
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_spirit", {})
+		target:SetModifierStackCount("modifier_azure_empire_spirit", caster, heroLevel * stacks)
 	end
 end
 
@@ -1148,25 +1140,31 @@ function azure_hawk_dead_end(event)
 	elseif bird.index == 3 then
 		bird:SetAbsOrigin(heroPosition - perpFv * 90)
 	end
-	if ability.property2name == "azure_silver" then
+	if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(180, 190, 255))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_silver", {})
-	elseif ability.property2name == "azure_green" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 255, 80))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_green", {})
-	elseif ability.property2name == "azure_blue" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 80, 255))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_blue", {})
-	elseif ability.property2name == "azure_red" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(255, 80, 80))
+		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_red", {})
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
+		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(185, 80, 255))
+		print("APPLY PURPLE BUFF?")
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_red", {})
 	end
 	local birdStacks = 0
@@ -3501,27 +3499,7 @@ function leon_think(event)
 	end
 end
 
-function mana_relic_attack(event)
-	local attacker = event.attacker
-	CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
-	local manaRestore = attacker:GetMaxMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_RESTORE_PER_ATTACK/100
-	attacker:GiveMana(manaRestore)
-end
 
-function mana_relic_think(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	local damageBoost = target:GetMana() * ITEM_RPC_ANTIQUE_MANA_RELIC_BASE_DAMAGE_PER_CURRENT_MANA
-	if damageBoost > 0 then
-		if not target:HasModifier("modifier_mana_relic_attack_damage") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_relic_attack_damage", {})
-		end
-		target:SetModifierStackCount("modifier_mana_relic_attack_damage", caster, damageBoost)
-	else
-		target:RemoveModifierByName("modifier_mana_relic_attack_damage")
-	end
-end
 
 function ablecore_greaves_think(event)
 	local hero = event.target
@@ -4732,12 +4710,14 @@ function aqua_lily_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local r_4_level = target:GetRuneValue("r", 4)
-	if r_4_level > 0 then
+	local base_int_bonus = target:GetRuneValue("r", 4)*ITEM_RPC_AQUA_LILY_INT_PER_R4
+	local int_bonus_from_gems = target:GetRuneValue("r", 1)*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AQUA_LILY_GEM_RUBY) + target:GetRuneValue("r", 2)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_AQUA_LILY_GEM_EMERALD) + target:GetRuneValue("r", 3)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AQUA_LILY_GEM_AMETHYST)
+	local total_int = base_int_bonus + int_bonus_from_gems
+	if total_int > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_aqua_lily_intelligence_bonus", {})
-		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, r_4_level)
+		target:SetModifierStackCount("modifier_aqua_lily_intelligence_bonus", caster, total_int)
 	else
-		target:RemoveModifierByName("modifier_aqua_lily_intelligence_bonuss")
+		target:RemoveModifierByName("modifier_aqua_lily_intelligence_bonus")
 	end
 end
 
@@ -5381,23 +5361,20 @@ function init_blacksmith_tablet(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	RPCItems:RecalculateStatsBasic(target)
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
 end
 
 function end_blacksmith_tablet(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local playerID = target:GetPlayerOwnerID()
-	Timers:CreateTimer(0.1, function()
-		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(1))
-		if itemEntity then
-			local item = EntIndexToHScript(itemEntity.itemIndex)
-			if IsValidEntity(item) then
-				RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
-			end
-		end
-	end)
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
 end
 
 function frostmaw_kill(event)
@@ -9885,6 +9862,83 @@ function aeriths_tear_thinker(event)
 	if not hero:HasModifier("modifier_aeriths_range_indicator") then
 		if ability:GetGemValue("ruby") > 0 or ability:GetGemValue("emerald") > 0 or ability:GetGemValue("sapphire") > 0 then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_aeriths_range_indicator", {})
+		end
+	end
+end
+
+function ankh_of_ancients_shield_think(event)
+	local caster = event.target
+	local ability = event.ability
+	local hero = caster
+	if GameRules:GetGameTime() - ability.ankh_apply_time > ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX then
+		caster:RemoveModifierByName("modifier_ankh_of_ancients_shield")
+	end
+	if ability:GetGemValue("emerald") > 0 then
+		local healthRestore = math.ceil(hero:GetMaxHealth() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_EMERALD)/100)
+		Filters:ApplyHeal(hero, hero, healthRestore, true, true)
+	end
+end
+function ankh_of_ancients_end(event)
+	local caster = event.target
+	local ability = event.ability
+	-- local ankh_duration = GameRules:GetGameTime() - caster.amulet.ankh_apply_time
+	-- caster.amulet:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ankh_of_ancients_cooldown", {duration = ankh_duration * ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN})
+end
+
+function ankh_of_ancients_respawning_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	local ankh = ability
+	StopSoundEvent("AnkhOfAncients.Death", hero)
+    ability.ankh_apply_time = GameRules:GetGameTime()
+    local shield_duration = ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_AMETHYST)
+    local shield_cooldown = ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ANKH_OF_THE_ANCIENTS_GEM_SAPPHIRE)
+    ability:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_shield", {duration = shield_duration})
+    ankh:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_cooldown", {duration = shield_cooldown})
+    hero:RemoveNoDraw()
+    if ankh:GetGemValue("emerald") > 0 then
+    	ability:ApplyDataDrivenModifier(caster, hero, "modifier_ankh_of_ancients_emerald_visual", {duration = shield_duration})
+    end
+    EmitSoundOn("AnkhOfAncients.Respawn", hero)
+    FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+    CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn.vpcf", hero:GetAbsOrigin(), 3)
+end
+
+function mana_relic_attack(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	local caster = event.caster
+	if ability:GetGemValue("ruby") > 0 then
+		CustomAbilities:QuickAttachParticle("particles/roshpit/items/antique_mana_relic_restore.vpcf", attacker, 1.5)
+		local manaRestore = attacker:GetMaxMana() * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_RUBY)/100
+		attacker:GiveMana(manaRestore)
+		PopupMana(attacker, manaRestore)
+	end
+end
+
+function mana_relic_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+
+	local threshold = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
+
+	if hero:GetMana() < hero:GetMaxMana()*(threshold/100) then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_mana_relic_silence", {})
+	else
+		hero:RemoveModifierByName("modifier_mana_relic_silence")
+	end
+
+	if ability:GetGemValue("emerald") > 0 then
+		local damageBoost = hero:GetMana() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_EMERALD)
+		if damageBoost > 0 then
+			if not hero:HasModifier("modifier_mana_relic_attack_damage") then
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_mana_relic_attack_damage", {})
+			end
+			hero:SetModifierStackCount("modifier_mana_relic_attack_damage", caster, damageBoost)
+		else
+			hero:RemoveModifierByName("modifier_mana_relic_attack_damage")
 		end
 	end
 end

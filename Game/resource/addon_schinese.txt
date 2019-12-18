@@ -3527,7 +3527,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_1"		"Rakash祖父之斧"
 		"item_property_axe_immortal_weapon"								"身经百战"
-		"property_axe_immortal_weapon_description"						"减少所有受到的伤害<font color='#ccff66'>50</font>%"
+		"property_axe_immortal_weapon_description"						"减少所有受到的伤害<font color='#ccff66'>25</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_axe_immortal_weapon_2"            "狂战士之斧"
         "item_property_axe_immortal_weapon2"                            "血之狂战士"
@@ -13801,10 +13801,10 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"After casting @Ability4, you gain <font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed. Attacks split and hit up to <font color='#ccff66'>2</font> extra targets. This buff's duration is equal to <font color='#ccff66'>80</font>% @Ability4's cooldown."
 
 		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>100</font>%% bonus attack damage, <font color='#ccff66'>180</font> attack speed, and <font color='#ccff66'>180</font> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<font color='#ccff66'>500</font> more attack range, <font color='#ccff66'>60</font>%% bonus attack damage, <font color='#ccff66'>90</font> attack speed, and <font color='#ccff66'>90</font> movespeed."
 
 		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
 		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
@@ -14116,7 +14116,7 @@
 		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"精制武器"
-		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 <font color='#ccff66'>65</font>%。同时，玩家的武器升级速度提高 <font color='#ccff66'>40</font>%。"
+		"property_blacksmiths_tablet_description"	"同时，玩家的武器升级速度提高 <font color='#ccff66'>50</font>%。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
@@ -14193,7 +14193,7 @@
 		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <font color='#ccff66'>30</font>%，包括雕文和符文技能。"
+		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <font color='#ccff66'>35</font>%，包括雕文和符文技能。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"
@@ -14229,15 +14229,15 @@
 		"item_rpc_azure_empire_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_azure_empire_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_azure_empire"				"天空法官"
-		"property_azure_empire_description"			"<font color='#ccff66'>3</font>只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 <font color='#ccff66'>4</font> 秒后重生"
+		"property_azure_empire_description"			"<font color='#ccff66'>3</font>只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 <font color='#ccff66'>3</font> 秒后重生"
 		"item_property_azure_empire_silver"				"银色天空"
-		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 <font color='#ccff66'>40</font>% 。"
+		"property_azure_empire_silver_description"	"每只存在的雄鹰提高玩家的基础技能伤害 <font color='#ccff66'>20</font>% 。"
 		"item_property_azure_empire_green"				"玉色天空"
-		"property_azure_empire_green_description"	"每只存在的雄鹰提高玩家的敏捷值 <font color='#ccff66'>25</font>x 当前英雄等级。"
+		"property_azure_empire_green_description"	"每只存在的雄鹰提高玩家的敏捷值 <font color='#ccff66'>1</font>x 当前英雄等级。"
 		"item_property_azure_empire_red"				"绯红天空"
-		"property_azure_empire_red_description"	"每只存在的雄鹰提高玩家的力量值 <font color='#ccff66'>25</font>x 当前英雄等级。"
+		"property_azure_empire_red_description"	"每只存在的雄鹰提高玩家的力量值 <font color='#ccff66'>1</font>x 当前英雄等级。"
 		"item_property_azure_empire_blue"				"蔚蓝天空"
-		"property_azure_empire_blue_description"	"每只存在的雄鹰提高玩家的智力值 <font color='#ccff66'>25</font>x 当前英雄等级。"
+		"property_azure_empire_blue_description"	"每只存在的雄鹰提高玩家的智力值 <font color='#ccff66'>1</font>x 当前英雄等级。"
 		"DOTA_Tooltip_modifier_azure_empire_visible"	"雄鹰帝国"
 		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"每只雄鹰吸收一次魔法或纯粹伤害"
 		
@@ -14412,12 +14412,16 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
-		"item_rpc_antique_mana_relic_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_antique_mana_relic_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_antique_mana_relic_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_antique_mana_relic_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_antique_mana_relic"					"魔法风暴"
-		"property_antique_mana_relic_description"			"施放 @Ability1 汲取 <font color='#ccff66'>50</font>% 的最大魔法值，并且提高该技能 <font color='#ccff66'>400</font>% 的基础技能伤害。每次攻击回复 <font color='#ccff66'>2.5</font>% 的魔法值。每<font color='#ccff66'>1</font>点当前的魔法值提高1点基础攻击力。"
+        "property_antique_mana_relic_description"           "Base Abilities drain <font color='#ccff66'>25</font>% of your max mana on cast and have <font color='#ccff66'>200</font>% increased Base Ability Damage. You are silenced while below <font color='#ccff66'>25</font>% mana."
+
+        "DOTA_Tooltip_modifier_mana_relic_silence"          "Mana Storm"
+        "DOTA_Tooltip_modifier_mana_relic_silence_Description"  "Silenced while below Mana Threshold"
+
+        "item_rpc_antique_mana_relic_ruby1"                             "Attacks restore @ruby_property1% of max mana."
+        "item_rpc_antique_mana_relic_emerald1"                              "Each point of current mana adds @emerald_property1 Base Attack Damage."
+        "item_rpc_antique_mana_relic_sapphire1"                             "Increases Max Mana by @sapphire_property1 and Mana Regen by @sapphire_property2"
+        "item_rpc_antique_mana_relic_amethyst1"                             "Reduces the Mana Drain and Silence threshold by @amethyst_property1% of Max Mana"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
@@ -14510,7 +14514,7 @@
 		"item_rpc_aqua_lily_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_aqua_lily_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_aqua_lily"							"水之花"
-		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 <font color='#ccff66'>300</font> 点智力值。"
+		 "property_aqua_lily_description"					"R4 每一点符文点数将提高 <font color='#ccff66'>24</font> 点智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"火玫瑰"
@@ -14523,15 +14527,17 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
-		"item_rpc_ankh_of_the_ancients_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ankh_of_the_ancients_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ankh_of_the_ancients_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ankh_of_the_ancients_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_ankh_of_ancients"						"不朽之灵"
-		 "property_ankh_of_ancients_description"				"当受到致命伤害时，获得一个护盾，护盾持续时间 <font color='#ccff66'>4</font> 秒。护盾将吸收 100% 的伤害，并且使拥有者免疫眩晕。冷却时间为<font color='#ccff66'>6</font>倍护盾持续时间。"
+         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <font color='#ccff66'>4</font> and gain a shield for <font color='#ccff66'>4</font> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <font color='#ccff66'>24</font> second cooldown. The shield's duration can never exceed <font color='#ccff66'>12</font> seconds no matter how long it is extended."
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield"		"不朽之灵"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"	"免疫伤害和眩晕"
 		 "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"		"远古护符冷却中"
+
+        "item_rpc_ankh_of_the_ancients_ruby1"                           "Reduces the respawn delay by @ruby_property1"
+        "item_rpc_ankh_of_the_ancients_emerald1"                            "Heal @emerald_property1% of max health every <font color='#ccff66'>0.1</font> seconds while the shield is active"
+        "item_rpc_ankh_of_the_ancients_sapphire1"                           "Reduces the shield's cooldown by @sapphire_property1"
+        "item_rpc_ankh_of_the_ancients_amethyst1"                           "Increases the shield's duration by @amethyst_property1"
+
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"波斯猫眼戒指"	
@@ -14676,7 +14682,7 @@
 		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
 		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_auric_ring_of_inspiration"						"振奋"
-		"property_auric_ring_of_inspiration_description"				"在释放完所有技能后，你的生命值将会被重置，并且获得<font color='#ccff66'>6</font> 秒的魔法免疫"
+		"property_auric_ring_of_inspiration_description"				"在释放完所有技能后，你的生命值将会被重置，并且获得<font color='#ccff66'>4</font> 秒的魔法免疫"
 
 		"DOTA_Tooltip_modifier_auric_ring_bkb"						"灵感"
 "DOTA_Tooltip_modifier_auric_ring_bkb_Description" "魔法免疫"
