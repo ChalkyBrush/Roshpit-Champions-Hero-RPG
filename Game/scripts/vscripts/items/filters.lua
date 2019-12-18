@@ -5105,7 +5105,7 @@ function Filters:NetergraspPalisade(hero, target)
 end
 
 function Filters:InpsirationRing(caster, skillIndex)
-    local ring = caster.amulet
+    local ring = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]
     if not ring.abilities_cast then
         ring.abilities_cast = {false, false, false, false}
     end
@@ -5130,11 +5130,15 @@ function Filters:InpsirationRing(caster, skillIndex)
         ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
         -- ParticleManager:SetParticleControlEnt(pfx, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
         ParticleManager:SetParticleControl(pfx, 5, Vector(1,1,1))
-        local heal = caster:GetMaxHealth()
-        Filters:ApplyHeal(caster, caster, heal, true, true)
+
 
         if ring:GetAbilityName() == "item_rpc_auric_ring_of_inspiration" then
-            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME})
+            local immunity_time = ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME + ring:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_SAPPHIRE)
+            ring:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_auric_ring_bkb", {duration = immunity_time})
+            if ring:GetGemValue("amethyst") > 0 then
+                local heal = caster:GetMaxHealth()*ring:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_AMETHYST)/100
+                Filters:ApplyHeal(caster, caster, heal, true, true)
+            end
         elseif ring:GetAbilityName() == "item_rpc_beryl_ring_of_intuition" then
             for i = 0, 8, 1 do
                 local ability = caster:GetAbilityByIndex(i)

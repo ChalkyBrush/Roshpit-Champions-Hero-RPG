@@ -86,6 +86,19 @@
         "item_rpc_arcane_charm_sapphire1"                                   "All Magic or Pure Damage taken immediately heals you for @sapphire_property1% of the damage taken"
         "item_rpc_arcane_charm_amethyst1"                                   "Increases Item Damage and <font color=\"#E1A2E8\">Arcane</font> Elemental damage by @amethyst_property1%"
 		
+        "DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration"   "Auric Ring of Inspiration"
+
+        "item_property_auric_ring_of_inspiration"                       "Cycle of Divinity"
+        "property_auric_ring_of_inspiration_description"                "After casting all 4 of your base abilities gain <% ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME %> seconds of Spell Immunity."
+
+        "DOTA_Tooltip_modifier_auric_ring_bkb"                      "Divine Inspiration"
+        "DOTA_Tooltip_modifier_auric_ring_bkb_Description"          "Spell Immunity"
+
+        "item_rpc_auric_ring_of_inspiration_ruby1"  "Gain @ruby_property1 Spell Pierce while Divine Inspiration is active"
+        "item_rpc_auric_ring_of_inspiration_emerald1"   "Increases Item and <font color=\"#F6FFB5\">Holy</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_auric_ring_of_inspiration_sapphire1"  "Increases the Magic Immunity Duration by @sapphire_property1"
+        "item_rpc_auric_ring_of_inspiration_amethyst1"  "When you activate Divine Inspiration, restore @amethyst_property1% of Max Health"
+
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
@@ -580,14 +593,3 @@
 		"item_rpc_beryl_ring_of_intuition_amethyst1" 	"blah blah @amethyst_property1 gem"
 		"item_property_beryl_ring_of_intuition"						"Cycle of Respiration"
 		"property_beryl_ring_of_intuition_description"				"After casting all 4 of your base abilities, heal to full health and refresh all ability cooldowns. If @Ability4's base cooldown is greater than <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds, its cooldown can only be reduced to a minimum of <% ITEM_RPC_BERYL_RING_OF_INTUITION_ULTIMATE_MIN_CD %> seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_auric_ring_of_inspiration" 	"Auric Ring of Inspiration"
-		"item_rpc_auric_ring_of_inspiration_ruby1" 	"blah blah @ruby_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_emerald1" 	"blah blah @emerald_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_sapphire1" 	"blah blah @sapphire_property1 gem"
-		"item_rpc_auric_ring_of_inspiration_amethyst1" 	"blah blah @amethyst_property1 gem"
-		"item_property_auric_ring_of_inspiration"						"Cycle of Divinity"
-		"property_auric_ring_of_inspiration_description"				"After casting all 4 of your base abilities, heal to full health and gain <% ITEM_RPC_AURIC_RING_OF_INSPIRATION_MAGIC_IMMUNITY_TIME %> seconds of Spell Immunity."
-
-		"DOTA_Tooltip_modifier_auric_ring_bkb"						"Divine Inspiration"
-		"DOTA_Tooltip_modifier_auric_ring_bkb_Description"			"Spell Immunity"

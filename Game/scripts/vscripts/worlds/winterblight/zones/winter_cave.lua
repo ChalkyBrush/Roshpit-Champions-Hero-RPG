@@ -4653,9 +4653,13 @@ function Winterblight:TiamatBossDie(boss)
 		if luck == 1 then
 			local type_roll = RandomInt(1, 2)
 			if type_roll == 1 then
-				RPCItems:RollBerylRingOfIntuition(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+				local min_ring_level = Winterblight.TiamatBossLevel
+				local tiamat_ring_level = math.min(min_claws_level + min_ring_level, 120)
+				RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_ring_level, "item_rpc_auric_ring_of_inspiration")
 			elseif type_roll == 2 then
-				RPCItems:RollAuricRingOfInspiration(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+				local min_ring_level = Winterblight.TiamatBossLevel
+				local tiamat_ring_level = math.min(min_claws_level + min_ring_level, 120)
+				RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_ring_level, "item_rpc_beryl_ring_of_intuition")
 			end
 		end
 	end)
