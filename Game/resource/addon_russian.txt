@@ -13883,8 +13883,8 @@
 		"item_rpc_hood_of_defiler_amethyst1" "Каждый противник, пораженный [W], увеличивает Пробитие Магической Защиты на @amethyst_property1. Максимум <font color='#ccff66'>60</font> зарядов, которые длятся <font color='#ccff66'>10</font> сек."
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-		"item_property_lords"									"Commanding Sight"
-		"property_lords_description"							"Перезарядка способностей снижена на <font color='#ccff66'>1</font> сек. Способности имеют <font color='#ccff66'>140</font> дополнительной дальности каста и начинают прочтение до того как герой полностью развернется в выбранную точку."
+		"item_property_hood_of_lords"									"Commanding Sight"
+		"property_hood_of_lords_description"							"Перезарядка способностей снижена на <font color='#ccff66'>1</font> сек. Способности имеют <font color='#ccff66'>140</font> дополнительной дальности каста и начинают прочтение до того как герой полностью развернется в выбранную точку."
 		
 		"item_rpc_hood_of_lords_ruby1"	"Увеличивает показатель руны [Q4] на @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"Увеличивает показатель руны [E4] на @emerald_property1"

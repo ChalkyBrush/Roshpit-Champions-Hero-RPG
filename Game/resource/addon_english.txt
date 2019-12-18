@@ -2699,7 +2699,7 @@
         "DOTA_Tooltip_ability_auriun_rune_q_1_suffix_two"       "% of Shield Bearer's Attack Power"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_2"						"[Q2] Heightened Protection"
-    	"DOTA_Tooltip_ability_auriun_rune_q_2_Description"			"Adds a chance on a receiving Heaven's Shield buff to gain extra stacks of damage block. Greater than 100% means you get multiple stacks."
+	"DOTA_Tooltip_ability_auriun_rune_q_2_Description"			"Adds a chance on a receiving Heaven's Shield buff to gain extra stacks of damage block. Greater than 100% means you get multiple stacks."
     	"DOTA_Tooltip_ability_auriun_rune_q_2_property_one"			"Stack Chance"
     	"DOTA_Tooltip_ability_auriun_rune_q_2_suffix"				"%"
 		
@@ -2825,7 +2825,7 @@
         "DOTA_Tooltip_ability_auriun_rune_r_1_suffix_two"           "% of attack power"
 		
 		"DOTA_Tooltip_ability_auriun_rune_r_2"						"[R2] Infusion of Light"
-    	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Values from gear other than rune bonuses are enhanced. Bonus is only calculated on gear equip and on respawn."
+    	"DOTA_Tooltip_ability_auriun_rune_r_2_Description"			"Stats from gear other than rune bonuses are enhanced."
     	"DOTA_Tooltip_ability_auriun_rune_r_2_property_one"			"Gear Value Enhance"
     	"DOTA_Tooltip_ability_auriun_rune_r_2_suffix"				"%"		
 
@@ -14089,8 +14089,8 @@
 		"item_rpc_hood_of_defiler_amethyst1" "Each enemy hit by [W] adds a stack of Corruption to the caster, increasing Spell Pierce by @amethyst_property1. Max <font color='#ccff66'>60</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
-		"item_property_lords"									"Commanding Sight"
-		"property_lords_description"							"Ability cooldowns are reduced by <font color='#ccff66'>1</font> second and have <font color='#ccff66'>140</font> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
+		"item_property_hood_of_lords"									"Commanding Sight"
+		"property_hood_of_lords_description"							"Ability cooldowns are reduced by <font color='#ccff66'>1</font> second and have <font color='#ccff66'>140</font> extra cast range. Abilities begin their cast time even before you fully turn to face the target."
 		
 		"item_rpc_hood_of_lords_ruby1"	"Increases [Q4] rune by @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"Increases [E4] rune by @emerald_property1"

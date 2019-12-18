@@ -169,6 +169,15 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_vermillion_dream_robes") or item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
 	end
+	if hero:GetUnitName() == "npc_dota_hero_zuus" and hero:HasAbility("auriun_ult") then
+		property_bonus_mult = property_bonus_mult + RPCItems:BonusMultForAuriun(hero, item, property_value, property_name)
+	end
+	if hero:GetUnitName() == "npc_dota_hero_winter_wyvern" and hero:HasAbility("dinath_dragon_dive") then
+		property_bonus_mult = property_bonus_mult + RPCItems:BonusMultForDinath(hero, item, property_value, property_name)
+	end
+	if hero:GetUnitName() == "npc_dota_hero_invoker" and hero:HasAbility("summon_shadow_deity") then
+		property_bonus_mult = property_bonus_mult + RPCItems:BonusMultForConjuror(hero, item, property_value, property_name)
+	end
 	if type(property_value) == "number" then
 		property_value = property_value + property_bonus_mult*property_value
 	end
@@ -1370,6 +1379,38 @@ function RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
 	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	end
+	return mult
+end
+
+function RPCItems:BonusMultForAuriun(hero, item, property_value, property_name)
+	local mult = hero:GetRuneValue("r", 2)*(AURIUN_R2_GEAR_VALUE_ENCH_PCT/100)
+	if property_name == "rune_q_1" or property_name == "rune_q_2" or property_name == "rune_q_3" or property_name == "rune_q_4" then
+		mult = 0
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" or property_name == "rune_w_3" or property_name == "rune_w_4" then
+		mult = 0
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" or property_name == "rune_e_3" or property_name == "rune_e_4" then
+		mult = 0
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" or property_name == "rune_r_3" or property_name == "rune_r_4" then
+		mult = 0
+	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
+		mult = 0
+	end
+	return mult
+end
+
+function RPCItems:BonusMultForDinath(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "attack_damage" then
+		mult = hero:GetRuneValue("e", 2)*DINATH_E2_GEAR_BASE_DAMAGE_AMP
+	end
+	return mult
+end
+
+function RPCItems:BonusMultForConjuror(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "agility" then
+		mult = hero:GetRuneValue("e", 3)*(CONJUROR_ARCANA_E3_AGILITY_GEAR_AMP/100)
 	end
 	return mult
 end
