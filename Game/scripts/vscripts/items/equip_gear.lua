@@ -151,14 +151,26 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	print("--RECORDING PROPERTY--")
 	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
 	-- TATTERED NOVICE ARMOR AMETHYST:
+	local property_bonus_mult = 0
 	if hero:HasModifier("modifier_tattered_novice_armor") then
 		if item.newItemTable.rarityFactor < RPC_ITEMS_RARITY_IMMORTAL then
 			novice_armor = hero:FindModifierByName("modifier_tattered_novice_armor"):GetAbility()
-			property_value = property_value * (1 + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100)
+			property_bonus_mult = property_bonus_mult + novice_armor:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_AMETHYST)/100
 		end
 	end
 	if item:GetAbilityName() == "item_rpc_harvester_boots" then
-		property_value = RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+		property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForHarvester(hero, item, property_value, property_name)
+	end
+	if hero:HasModifier("modifier_blacksmiths_tablet") then
+		if item.newItemTable.gear_slot == RPC_GEAR_SLOT_WEAPON then
+			property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_value, property_name)
+		end
+	end
+	if hero:HasModifier("modifier_vermillion_dream_robes") or item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
+		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
+	end
+	if type(property_value) == "number" then
+		property_value = property_value + property_bonus_mult*property_value
 	end
 	-- 
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
@@ -244,9 +256,6 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 			if hero:HasModifier(modifier_name) then
 				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
 			end	
-		end
-		if hero:HasModifier("modifier_vermillion_dream_robes") then
-			rune_bonus = rune_bonus * (1 + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100)
 		end
 		hero.runes_bonus_table[rune_name] = rune_bonus
 	end
@@ -1319,15 +1328,48 @@ function CDOTA_BaseNPC_Hero:ReequipAllGear()
 	end
 end
 
-function RPCItems:AdjustPropertyValueForHarvester(item, property_value, property_name)
+function RPCItems:AdjustPropertyValueForHarvester(hero, item, property_value, property_name)
+	local mult = 0
 	if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("ruby", ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY)/100)
+		mult = item:GetFinalGemPropertyValue("ruby", ITEM_RPC_HARVESTER_BOOTS_GEM_RUBY)/100
 	elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE)/100)
+		mult = item:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HARVESTER_BOOTS_GEM_SAPPHIRE)/100
 	elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("emerald", ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD)/100)
+		mult = item:GetFinalGemPropertyValue("emerald", ITEM_RPC_HARVESTER_BOOTS_GEM_EMERALD)/100
 	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
-		property_value = property_value * (1 + item:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST)/100)
+		mult = item:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HARVESTER_BOOTS_GEM_AMETHYST)/100
 	end
-	return property_value
+	return mult
+end
+
+function RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_value, property_name)
+	local mult = 0
+	if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLACKSMITHS_TABLET_GEM_RUBY)/100
+	elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLACKSMITHS_TABLET_GEM_SAPPHIRE)/100
+	elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLACKSMITHS_TABLET_GEM_EMERALD)/100
+	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLACKSMITHS_TABLET_GEM_AMETHYST)/100
+	end
+	print("GREETME")
+	print(mult)
+	return mult
+end
+
+function RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "rune_q_1" or property_name == "rune_q_2" or property_name == "rune_q_3" or property_name == "rune_q_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_w_1" or property_name == "rune_w_2" or property_name == "rune_w_3" or property_name == "rune_w_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_e_1" or property_name == "rune_e_2" or property_name == "rune_e_3" or property_name == "rune_e_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "rune_r_1" or property_name == "rune_r_2" or property_name == "rune_r_3" or property_name == "rune_r_4" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	elseif property_name == "all_t1_runes" or property_name == "all_t2_runes" or property_name == "all_t3_runes" or property_name == "all_t4_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_EMERALD)/100
+	end
+	return mult
 end

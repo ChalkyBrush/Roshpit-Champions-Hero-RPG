@@ -14233,7 +14233,7 @@
 		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"Refined Weaponry"
-		"property_blacksmiths_tablet_description"	"Бонусы оружия (включая руны) увеличиваются на <font color='#ccff66'>65</font>%. Дополнительно увеличивает получаемый оружием опыт на <font color='#ccff66'>40</font>%."
+		"property_blacksmiths_tablet_description"	"Дополнительно увеличивает получаемый оружием опыт на <font color='#ccff66'>50</font>%."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"

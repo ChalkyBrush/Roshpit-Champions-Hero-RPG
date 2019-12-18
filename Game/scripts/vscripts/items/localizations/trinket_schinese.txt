@@ -5,7 +5,7 @@
 		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_blacksmiths_tablet"			"精制武器"
-		"property_blacksmiths_tablet_description"	"武器属性和符文加成提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT * 100%>%。同时，玩家的武器升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
+		"property_blacksmiths_tablet_description"	"同时，玩家的武器升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"

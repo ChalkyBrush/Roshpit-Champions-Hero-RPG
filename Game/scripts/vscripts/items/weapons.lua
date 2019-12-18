@@ -15,8 +15,10 @@ Weapons.MAX_WEAPON_LEVEL = 10
 Weapons.XP_PER_LEVEL_TABLE = {}
 Weapons.XP_PER_LEVEL_TABLE[1] = 1000
 for i = 2, Weapons.MAX_WEAPON_LEVEL, 1 do
-	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*3
+	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*4
 end
+
+Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS = 0.1
 
 function Weapons:weaponRedirect(hero)
 	local heroName = hero:GetName()
@@ -161,6 +163,9 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 	end
 	if not IsValidEntity(weapon) then
 		return false
+	end
+	if weapon.newItemTable.rarity == "immortal" then
+		exp = exp*Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		exp = math.floor(exp * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP))

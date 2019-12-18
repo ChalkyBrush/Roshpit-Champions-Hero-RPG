@@ -141,13 +141,14 @@
         "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce"	"Cycle of Respiration (Emerald)"
         "DOTA_Tooltip_modifier_beryl_ring_of_intuition_emerald_armor_pierce_Description"	"Increased Armor Pierce"
 
-		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
-		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_blacksmiths_tablet_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_blacksmiths_tablet_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_blacksmiths_tablet"			"Refined Weaponry"
-		"property_blacksmiths_tablet_description"	"Your equipped weapon's bonuses (including runes) are increased by <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_STATS_PCT * 100%>%. Additionally increases XP granted to your weapon by <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%."
+         "item_property_blacksmiths_tablet"          "Refined Weaponry"
+        "property_blacksmiths_tablet_description"   "Increases XP granted to your weapon by <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%."      
+
+        "DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"                              "Blacksmith's Tablet"
+        "item_rpc_blacksmiths_tablet_ruby1"                             "Increases your Equipped Weapon's Property 1 bonus by @ruby_property1%"
+        "item_rpc_blacksmiths_tablet_emerald1"                              "Increases your Equipped Weapon's Property 3 bonus by @emerald_property1%"
+        "item_rpc_blacksmiths_tablet_sapphire1"                             "Increases your Equipped Weapon's Property 2 bonus by @sapphire_property1%"
+        "item_rpc_blacksmiths_tablet_amethyst1"                             "Increases your Equipped Weapon's Property 4 bonus by @amethyst_property1%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"

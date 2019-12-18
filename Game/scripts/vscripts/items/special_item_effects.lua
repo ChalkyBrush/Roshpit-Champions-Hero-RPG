@@ -5361,23 +5361,20 @@ function init_blacksmith_tablet(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	RPCItems:RecalculateStatsBasic(target)
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
 end
 
 function end_blacksmith_tablet(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	local playerID = target:GetPlayerOwnerID()
-	Timers:CreateTimer(0.1, function()
-		local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(1))
-		if itemEntity then
-			local item = EntIndexToHScript(itemEntity.itemIndex)
-			if IsValidEntity(item) then
-				RPCItems:EquipItem(1, hero, hero.InventoryUnit, item)
-			end
-		end
-	end)
+	local hero = caster.hero
+	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	end
 end
 
 function frostmaw_kill(event)
