@@ -1703,6 +1703,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_ancient_waterstone") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_EMERALD)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_arcane_charm") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2440,12 +2443,20 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		end
 	end
 
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_arcane_charm") then
+		local arcane_charm = unit:FindModifierByName("modifier_arcane_charm"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + unit:GetRoshpitMagicArmor()*((arcane_charm:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANE_CHARM_GEM_EMERALD))/100)
+	end
+
 	-- FINAL STEP: HOOD OF BLACK MAGE
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		local spell_pierce_pct_bonus = HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", HOOD_OF_BLACK_MAGE_AMETHYST)
 		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(spell_pierce_pct_bonus/100)
 	end
+
+
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")

@@ -6038,6 +6038,54 @@ function RPCItems:RollAquastoneRing(item_level)
     return item
 end
 
+
+function RPCItems:RollArborDragonfly(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+
+    local item = RPCItems:CreateVariant("item_rpc_arbor_dragonfly", "immortal", "Arbor Dragonfly", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_arbor_dragonfly"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arbor_dragonfly", "#B59B77", 1, "#property_arbor_dragonfly_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollArcaneCharm(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_arcane_charm", "immortal", "Arcane Charm", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_arcane_charm"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_charm", "#c75ce8", 1, "#property_arcane_charm_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_arcane", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -6078,52 +6126,6 @@ function RPCItems:RollWinterblightSkullRing(item_level)
     item.newItemTable.property4 = math.ceil(value * 1.1)
     item.newItemTable.property4name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollArcaneCharm(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_arcane_charm", "immortal", "Arcane Charm", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "arcane_charm"
-    local value = 1
-    item.newItemTable.property1 = value
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arcane_charm", "#c75ce8", 1, "#property_arcane_charm_description")
-    item.newItemTable.hasRunePoints = true
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 2.4, 2, 24, 2)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property2 = math.floor(value * 1.3)
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
-
-    local luck = RandomInt(1, 3)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 2.4, 2, 24, 3)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = math.floor(value * 1.3)
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local luck = RandomInt(1, 5)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_ARCANE, 3.5, 2, 35, 4)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property4 = math.floor(value * 1.8)
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
@@ -6299,38 +6301,6 @@ function RPCItems:RollSapphireLotus(item_level)
     return item
 end
 
-function RPCItems:RollArborDragonfly(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_arbor_dragonfly", "immortal", "Arbor Dragonfly", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "arbor"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_arbor_dragonfly", "#B59B77", 1, "#property_arbor_dragonfly_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 13, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 function RPCItems:RollTokenOfOceanis(deathLocation, bBossDrop)
     local item = RPCItems:CreateVariant("item_rpc_sparkling_token_of_oceanis", "immortal", "Sparkling Token of Oceanis", "amulet", true, "Slot: Trinket")
@@ -8571,7 +8541,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots", "item_rpc_voyager_boots",
         "item_rpc_yasha_boots"}
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
-        itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic"}
+        itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm"}
     end
     return itemsList
 end

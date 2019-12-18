@@ -3356,6 +3356,13 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS
 		end
 	end
+	if victim:HasModifier("modifier_arcane_charm") and (damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE) and victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("sapphire") > 0 then
+		local damage_to_heal = filterTable["damage"]*(victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ARCANE_CHARM_GEM_SAPPHIRE))/100
+		Timers:CreateTimer(0.03, function()
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/duskbringer_c_a_heal_heal_core.vpcf", victim, 1)
+			Filters:ApplyHeal(victim, victim, damage_to_heal, true, true)
+		end)
+	end
 
 	if victim:HasModifier("modifier_recently_respawned") then
 		filterTable["damage"] = 0

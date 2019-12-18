@@ -65,6 +65,26 @@
 		"item_rpc_aquastone_ring_emerald1"									"Increases Rune [E4] by @emerald_property1"
 		"item_rpc_aquastone_ring_sapphire1"									"Increases Rune [W4] by @sapphire_property1"
 		"item_rpc_aquastone_ring_amethyst1"									"Increases Rune [R4] by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
+
+		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
+		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
+
+        "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases Base Ability and Item Damage by @emerald_property1"
+        "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "Increases All Attributes by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
+
+		"item_property_arcane_charm"					"Magic Magnet"
+		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%. Collecting an Arcane Crystal instantly restores <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% of max health and mana depending on the crystal's size."
+
+        "item_rpc_arcane_charm_ruby1"                                   "Each point of Intelligence increases Magic Armor by @ruby_property1"
+        "item_rpc_arcane_charm_emerald1"                                    "@emerald_property1% of your Magic Armor also increases Spell Pierce"
+        "item_rpc_arcane_charm_sapphire1"                                   "All Magic or Pure Damage taken immediately heals you for @sapphire_property1% of the damage taken"
+        "item_rpc_arcane_charm_amethyst1"                                   "Increases Item Damage and <font color=\"#E1A2E8\">Arcane</font> Elemental damage by @amethyst_property1%"
 		
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
@@ -144,15 +164,6 @@
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
 		"item_rpc_stone_of_gordon_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_stone_of_gordon_amethyst1"									"blah blah @amethyst_property1 gem"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"Arbor Dragonfly"
-		"item_rpc_arbor_dragonfly_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_arbor_dragonfly_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_arbor_dragonfly"				"Misty Wood's Blessing"
-		"property_arbor_dragonfly_description"		"Increases the duration of all friendly buffs that you apply from abilities, runes and glyphs by <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
@@ -458,14 +469,7 @@
 		"DOTA_Tooltip_modifier_world_tree_effect"				"New Bloom"
 		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Post-Mitigation damage dealt and damage taken both increased by 200%%"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
-		"item_rpc_arcane_charm_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_arcane_charm_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_arcane_charm_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_arcane_charm_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_arcane_charm"					"Magic Magnet"
-		"property_arcane_charm_description"				"Increases Arcane Crystal pickup radius by <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_PICKUP_RADIUS_INC %>%. Collecting an Arcane Crystal instantly restores <% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_1 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_2 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_3 %>/<% ITEM_RPC_ARCANE_CHARM_CRYSTAL_HP_MANA_RESTORE_4 %>% of max health and mana depending on the crystal's size."
+	
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"

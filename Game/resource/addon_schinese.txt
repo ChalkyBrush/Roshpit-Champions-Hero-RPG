@@ -14193,7 +14193,7 @@
 		"item_rpc_arbor_dragonfly_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_arbor_dragonfly_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
-		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <font color='#ccff66'>30</font>%，包括雕文和符文技能。"
+		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <font color='#ccff66'>35</font>%，包括雕文和符文技能。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"

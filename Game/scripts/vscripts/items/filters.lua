@@ -275,8 +275,8 @@ end
 
 function Filters:GetAdjustedBuffDuration(caster, baseDuration, bItem)
     if caster:GetUnitName() == "npc_dota_hero_zuus" then
-        local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "auriun")
-        baseDuration = baseDuration + c_d_level * AURIUN_R3_BUFF_DUR_INCREASE
+        local r_3_level = caster:GetRuneValue("r", 3)
+        baseDuration = baseDuration + r_3_level * AURIUN_R3_BUFF_DUR_INCREASE
     end
     if caster:HasModifier("modifier_arbor_dragonfly") then
         baseDuration = baseDuration * (100+ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT)/100
@@ -572,7 +572,7 @@ function Filters:ApplyStun(caster, duration, target)
         if caster:GetTeamNumber() == target:GetTeamNumber() then
         else
             local helm = caster.equipped_gear[RPC_GEAR_SLOT_HEAD]
-            local limitKey = "_stormcrack"
+            local limitKey = caster:GetEntityIndex().."_stormcrack"
             local max_procs_per_second = STORMCRACK_MAX_PROCS_PER_SECOND + helm:GetFinalGemPropertyValue("emerald", STORMCRACK_EMERALD)
             Util.Common:LimitPerTime(max_procs_per_second, 1, limitKey, function()
                 CustomAbilities:QuickAttachParticle("particles/econ/items/sven/sven_warcry_ti5/sven_warcry_cast_arc_lightning.vpcf", target, 1.2)
