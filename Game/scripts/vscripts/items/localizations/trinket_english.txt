@@ -57,6 +57,16 @@
 		"item_rpc_aqua_lily_sapphire1"										"Increases Rune [R4] by @sapphire_property1"
 		"item_rpc_aqua_lily_amethyst1"										"Each point in Rune [R3] increases Intelligence by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
+		"item_property_aquastone_ring"										"Platinum Augment"
+		"property_aquastone_ring_description"								"Each point in a Tier 4 rune increases Base Ability and Item Damage by <% ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE %>%."
+
+		"item_rpc_aquastone_ring_ruby1"									"Increases Rune [Q4] by @ruby_property1"
+		"item_rpc_aquastone_ring_emerald1"									"Increases Rune [E4] by @emerald_property1"
+		"item_rpc_aquastone_ring_sapphire1"									"Increases Rune [W4] by @sapphire_property1"
+		"item_rpc_aquastone_ring_amethyst1"									"Increases Rune [R4] by @amethyst_property1"
+		
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -436,13 +446,6 @@
 		"item_property_fire_blossom"							"Fire Bloom"
 		 "property_fire_blossom_description"					"Every point in [W4] increases Strength by <% ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 %>."
 		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
-		"item_rpc_aquastone_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_aquastone_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_aquastone_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_aquastone_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
 		"item_rpc_world_trees_flower_cache_ruby1"						"blah blah @ruby_property1 gem"

@@ -193,6 +193,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
             mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
         end
     end
+    if caster:HasModifier("modifier_aquastone_ring") then
+        mult = mult + (caster:GetRuneValue("q", 4) + caster:GetRuneValue("w", 4) + caster:GetRuneValue("e", 4) + caster:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
+    end
     if caster:HasModifier("modifier_swiftspike_bad") then
         if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
             local current_stack = caster:GetModifierStackCount("modifier_swiftspike_bad", caster.InventoryUnit)
@@ -1704,6 +1707,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_aquastone_ring") then
+            damageMult = damageMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
         end
         if attacker:HasModifier("modifier_tranquil_boots") then
             damageMult = damageMult + ((attacker:GetHealth()/attacker:GetMaxHealth())*100)*attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2)/100

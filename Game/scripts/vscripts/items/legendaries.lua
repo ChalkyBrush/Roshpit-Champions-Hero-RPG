@@ -6016,6 +6016,28 @@ function RPCItems:RollAquaLily(item_level)
     return item
 end
 
+function RPCItems:RollAquastoneRing(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_aquastone_ring", "immortal", "Aquastone Ring", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_aquastone_ring"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_aquastone_ring", "#9FC2F9", 1, "#property_aquastone_ring_description")
+
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -6187,41 +6209,6 @@ function RPCItems:RollBlacksmithsTablet(item_level)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "attack_damage"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_bonus_attack_damage", "#343EC9", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollAquastoneRing(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_aquastone_ring", "immortal", "Aquastone Ring", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-    local luck = RandomInt(3, 10)
-    value = luck
-    item.newItemTable.property1name = "t4_runes"
-    item.newItemTable.property1 = value
-
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_t4_runes", "#7DFF12", 1)
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 10)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
     if tier > 0 then
