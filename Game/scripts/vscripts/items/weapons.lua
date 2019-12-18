@@ -196,7 +196,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
 Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
 
-Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 50
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 40
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
 Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_1"] = 2
@@ -212,8 +212,8 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_3"] = 1
 Weapons.STAT_ADD_PER_LEVEL_TABLE["aspect_health"] = 200
 Weapons.STAT_ADD_PER_LEVEL_TABLE["base_ability"] = 6
 Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
-Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 60
-Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 60
+Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 120
+Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 120
 Weapons.STAT_ADD_PER_LEVEL_TABLE["movespeed"] = 6
 
 Weapons.STAT_ADD_PER_LEVEL_TABLE["element_normal"] = 8
