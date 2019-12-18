@@ -434,7 +434,7 @@ function serengaard_never_die(event)
 	EmitSoundOn("nevermore_nev_arc_death_12", caster)
 	local luck = RandomInt(1, 5)
 	if luck == 3 then
-		RPCItems:RollNeverlordRing(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_neverlord_soul_ring")
 	end
 	Serengaard:Mithril("neverlord", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_NEVERLORD)
 end
@@ -749,7 +749,7 @@ function final_boss_die(event)
 	local luck = RandomInt(1, 4)
 	Serengaard:Mithril("razormore", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_DEMON)
 	if luck == 1 then
-		RPCItems:RollDemonMask(caster:GetAbsOrigin(), false, 15)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_demon_mask")
 	end
 end
 
@@ -830,7 +830,7 @@ function razor_boss_die(event)
 	local caster = event.caster
 	EmitSoundOn("Serengaard.RazorBoss.Die", caster)
 	if luck == 1 then
-		RPCItems:RollBaronsStormArmor(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_barons_storm_armor")
 	end
 	Serengaard:Mithril("baron", Serengaard.mainAncient:GetAbsOrigin(), SERENGAARD_MITHRIL_RAZORMORE)
 end

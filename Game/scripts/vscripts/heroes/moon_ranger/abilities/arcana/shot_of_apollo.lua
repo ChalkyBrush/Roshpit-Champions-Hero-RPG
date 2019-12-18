@@ -87,7 +87,7 @@ function beginCast(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_apollo_outgoing_shots", {})
 	caster:SetModifierStackCount("modifier_apollo_outgoing_shots", caster, shots)
 	ability:SetActivated(false)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function apollo_end(event)

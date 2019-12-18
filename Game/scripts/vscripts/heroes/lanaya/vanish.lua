@@ -35,7 +35,7 @@ function vanish_cast(event)
     Timers:CreateTimer(4, function()
         ParticleManager:DestroyParticle(particle1, false)
     end)
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     --    if caster:HasModifier("modifier_trapper_glyph_6_1") then
     --        detonateBombs(caster)
     --    end
@@ -74,7 +74,7 @@ function action_leap_cast(event)
     local animationTime = math.min(500 / distance, 1)
     EmitSoundOn("Trapper.ActionLeap"..RandomInt(1, 2), caster)
     StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = animationTime, translate = "meld"})
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function action_leap_jump(unit, forwardVector, distance, liftForce, propulsion, gravity, fallGravity)

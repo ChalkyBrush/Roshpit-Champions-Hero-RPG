@@ -2,7 +2,7 @@ function warlord_stone_form(event)
 	local caster = event.caster
 	local ability = event.ability
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	EmitSoundOn("Warlord.StoneFormBackground", caster)
@@ -33,14 +33,12 @@ end
 function warlord_ice_shell(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	EmitSoundOn("Warlord.IceShell.Init", caster)
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_WILD_AXES_END, rate = 1.0})
 	local duration = Filters:GetAdjustedBuffDuration(caster, event.duration, false)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell", {duration = duration})
-	caster:SetModifierStackCount("modifier_warlord_ice_shell", caster, event.stacks)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_ice_shell_pure", {duration = duration})
 	caster:SetModifierStackCount("modifier_warlord_ice_shell_pure", caster, event.stacks_pure)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/warlord/ice_shell_activate.vpcf", caster, 3)
@@ -69,7 +67,7 @@ end
 function warlord_flame_rush(event)
 	local caster = event.caster
 	local duration = WARLORD_Q3_DUR_BASE
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("beastmaster_beas_pain_0"..luck, caster)
 	-- EmitSoundOn("Warlord.StoneFormBackground", caster)

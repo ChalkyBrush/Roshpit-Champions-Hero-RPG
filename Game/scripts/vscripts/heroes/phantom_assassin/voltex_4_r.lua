@@ -34,7 +34,7 @@ function voltex_static_field_onchannelsucceeded(event)
 	end
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "voltex")
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	voltex_rune_r_1(caster, ability)
 	voltex_rune_r_3(caster)
 end
@@ -90,7 +90,7 @@ function voltex_static_field_spark_hit(event)
 	target:CalculateAndSaveRoshpitAttributes()
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	if caster:HasModifier("modifier_voltex_immortal_weapon_3") then
-		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION})
+		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_voltex_immortal_paralysis", {duration = VOLTEX_IMMORTAL_WEAPON_3_PARALYSIS_DURATION})
 	end
 end
 

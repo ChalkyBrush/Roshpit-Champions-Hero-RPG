@@ -265,7 +265,6 @@ function updateLineWarFoodCap(){
 DPS_TIMER_TIME = 7;
 magic_immune = false
 scientific_display = false
-steadfast = 0
 function InitDummmy(){
 	var parent = $('#pvp_container')
     var board = $.CreatePanel("Panel", parent, "dummy-box")
@@ -298,9 +297,10 @@ function InitDummmy(){
 	});	
 
     board.FindChildTraverse('target-dummy-button-update-dummy-stats').SetPanelEvent('onactivate', function DummyModArmor() {
-    	var armorInput = $.GetContextPanel().FindChildTraverse('armor-input').text
+		var armorInput = $.GetContextPanel().FindChildTraverse('armor-input').text
+		var magicArmorInput = $.GetContextPanel().FindChildTraverse('magic-armor-input').text
     	var attackInput = $.GetContextPanel().FindChildTraverse('attacks-input').text
-    	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, armor: armorInput, attack: attackInput, playerID: Players.GetLocalPlayer()} );
+    	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 1, armor: armorInput, magicArmor: magicArmorInput, attack: attackInput, playerID: Players.GetLocalPlayer()} );
 	});
 	
     board.FindChildTraverse("target-dummy-button-magic-immunity").SetPanelEvent('onactivate', function DummyModMagicImmune() {
@@ -309,36 +309,7 @@ function InitDummmy(){
 
     board.FindChildTraverse("target-dummy-button-toggle-dps-display").SetPanelEvent('onactivate', function DummyModToggleDpsDisplay() {
         toggle_dps_display_button(board)
-    });	
-
-    board.FindChildTraverse("target-dummy-steadfast1").SetPanelEvent('onactivate', function Steadfast() {
-    	steadfast_button(1, board)
-	});
-
-    board.FindChildTraverse("target-dummy-steadfast2").SetPanelEvent('onactivate', function Steadfast() {
-    	steadfast_button(2, board)
-	});		
-}
-
-function steadfast_button(tier, board)
-{
-	if (steadfast == 0){
-		steadfast = tier
-		board.FindChildTraverse("target-dummy-steadfast1").RemoveClass('dummy_steadfast_button_active')
-		board.FindChildTraverse("target-dummy-steadfast2").RemoveClass('dummy_steadfast_button_active')
-		board.FindChildTraverse("target-dummy-steadfast"+tier).AddClass('dummy_steadfast_button_active')
-	}else if(steadfast > 0){
-		if (steadfast == tier){
-			board.FindChildTraverse("target-dummy-steadfast1").RemoveClass('dummy_steadfast_button_active')
-			board.FindChildTraverse("target-dummy-steadfast2").RemoveClass('dummy_steadfast_button_active')
-		}else{
-			board.FindChildTraverse("target-dummy-steadfast1").RemoveClass('dummy_steadfast_button_active')
-			board.FindChildTraverse("target-dummy-steadfast2").RemoveClass('dummy_steadfast_button_active')
-			board.FindChildTraverse("target-dummy-steadfast"+tier).AddClass('dummy_steadfast_button_active')
-		}
-		steadfast = 0
-	}
-	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {dummy: 0, steadfast: tier, playerID: Players.GetLocalPlayer()} );
+    });		
 }
 
 function magic_immunity_button(board)

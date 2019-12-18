@@ -18,7 +18,7 @@ function paragon_die(event)
 		end
 	end
 	if caster.solo then
-		Glyphs:DropArcaneCrystals(deathPosition, 0.85)
+		Glyphs:DropArcaneCrystals(deathPosition, caster.roshpit_attributes.enemy_tier, caster.roshpit_attributes.roshpit_level, 0.85)
 		paragon_loot_drop(deathPosition)
 	else
 		if caster.buddiesSlain == caster.packSize then
@@ -34,12 +34,7 @@ function paragon_die(event)
 end
 
 function paragon_loot_drop(position)
-	local drops = RandomInt(2, 5)
-	for i = 1, drops, 1 do
-		Timers:CreateTimer(i * 0.3, function()
-			RPCItems:RollItemtype(300, position, 1, 0)
-		end)
-	end
+	return false
 end
 
 function fire_breathing_think(event)
@@ -82,17 +77,7 @@ end
 function fire_breathing_strike(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
-	if caster.solo then
-		damage = damage * 2
-	end
-	local divisor = 480
-	if GameState:GetDifficultyFactor() == 1 then
-		divisor = 60
-	elseif GameState:GetDifficultyFactor() == 2 then
-		divisor = 240
-	end
-	damage = damage / divisor
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)	
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end
@@ -163,8 +148,8 @@ end
 function electric_projectile_hit(event)
 	local target = event.target
 	local caster = event.caster
-	local damage = caster:GetAttackDamage() / 320
-	local sound = "Hero_Zuus.ArcLightning.Target"
+	local damage = caster:GetAttackDamage() / 4
+	local sound = "Paragon.LightningHit"
 	EmitSoundOn(sound, target)
 	PopupDamage(target, damage)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
@@ -174,14 +159,14 @@ function activate_great_wall(event)
 	local caster = event.caster
 	local baseArmor = caster:GetPhysicalArmorValue(false)
 
-	local armorMult = 3
+	local armorMult = 2
 	if GameState:GetDifficultyFactor() == 2 then
-		armorMult = 4
+		armorMult = 2
 	elseif GameState:GetDifficultyFactor() == 3 then
-		armorMult = 5
+		armorMult = 3
 	end
-	local newArmor = unit.roshpit_attributes.roshpit_armor*armorMult
-	unit:SetBaseRoshpitArmor(newArmor, false)
+	local newArmor = caster.roshpit_attributes.roshpit_armor*armorMult
+	caster:SetBaseRoshpitArmor(newArmor, false)
 end
 
 function activate_gargantuan(event)
@@ -226,16 +211,7 @@ function frost_nova_activate(event)
 	end)
 	local ability = event.ability
 	EmitSoundOn("Ability.FrostNova", caster)
-	local divisor = 500
-	if GameState:GetDifficultyFactor() == 1 then
-		divisor = 50
-	elseif GameState:GetDifficultyFactor() == 2 then
-		divisor = 300
-	end
-	local damage = caster:GetAttackDamage() / divisor
-	if caster.solo then
-		damage = damage * 2.5
-	end
+	local damage = caster:GetAttackDamage()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local freezeDuration = 2.5
 	if #enemies > 0 then

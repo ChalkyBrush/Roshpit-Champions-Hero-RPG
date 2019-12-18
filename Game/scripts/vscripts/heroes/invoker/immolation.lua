@@ -19,10 +19,10 @@ function begin_immolation(event)
 
 	StartAnimation(caster, {duration = 0.18, activity = ACT_DOTA_CAST_ALACRITY, rate = 2.4})
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_2")
-	local w_2_level = get_w_2_level(caster)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
 		local b_b_duration = Filters:GetAdjustedBuffDuration(caster, 12, false)
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_soul_sear_visible_friendly", {duration = b_b_duration})
@@ -96,7 +96,7 @@ function arc_hit(event)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	local runeUnit = caster.runeUnit2
 	local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_w_2")
-	local w_2_level = get_w_2_level(caster)
+	local w_2_level = caster:GetRuneValue("w", 2)
 	if w_2_level > 0 then
 		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_soul_sear_visible_enemy", {duration = 12})
 		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_soul_sear_debuff_effect", {duration = 12})

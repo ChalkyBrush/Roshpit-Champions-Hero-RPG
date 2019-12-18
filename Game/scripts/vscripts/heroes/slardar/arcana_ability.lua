@@ -5,7 +5,7 @@ function turn_toggle_on(event)
 
 	arcana1_b_b_spin(caster, ability, 1)
 	CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", caster, 2)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function turn_toggle_off(event)
@@ -97,6 +97,17 @@ function mist_start(event)
 end
 
 function mist_end(event)
+end
+
+function mist_enemy_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible", {})
+		target:SetModifierStackCount("modifier_hyroxis_mist_arcana_w_3_attack_speed_ms_loss_invisible", target, w_3_level)
+	end
 end
 
 function mist_active_think(event)

@@ -20,7 +20,7 @@ function jex_active_cosmic_surge(event)
 	ParticleManager:SetParticleControl(invokePFX, 1, Vector(60, 10, 150))
 	Events:ColorWearablesAndBase(caster, Vector(20, 0, 70))
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then

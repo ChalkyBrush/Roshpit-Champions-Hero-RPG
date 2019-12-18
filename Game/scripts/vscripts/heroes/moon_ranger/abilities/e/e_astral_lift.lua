@@ -74,7 +74,7 @@ function cast(event)
     pegasus.createPegasus(caster, ability, caster:GetAbsOrigin(), target, delay)
     astralShroud.cast(caster, ability)
 
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     Timers:CreateTimer(0.2, function()
         dustParticle(target, caster)
     end)

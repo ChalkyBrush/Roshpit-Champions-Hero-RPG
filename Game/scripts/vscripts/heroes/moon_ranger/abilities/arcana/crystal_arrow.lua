@@ -253,7 +253,7 @@ function fire_crystal_arrow(event)
 		caster:SetModifierStackCount("modifier_crystal_arrow_b_d", caster, b_d_level)
 	end
 	ability.r_4_level = caster:GetRuneValue("r", 4)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function arrows_thinking(event)

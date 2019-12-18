@@ -120,7 +120,7 @@ function shapeshift_start_cat(event)
 		caster:FindModifierByName("modifier_shapeshift_cat_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(1)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_AGILITY)
 	all_shift_after(caster)
 end
 
@@ -181,7 +181,7 @@ function shapeshift_start_bear(event)
 		caster:FindModifierByName("modifier_shapeshift_bear_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(0)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_STRENGTH)
 	all_shift_after(caster)
 end
 
@@ -233,7 +233,7 @@ function shapeshift_start_crow(event)
 		caster:FindModifierByName("modifier_shapeshift_crow_d_d"):SetDuration(-1, true)
 	end
 	caster:RemoveModifierByName("modifier_shapeshift_monkey_r1_thinker")
-	caster:SetPrimaryAttribute(2)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_INTELLIGENCE)
 	all_shift_after(caster)
 end
 
@@ -247,7 +247,7 @@ function all_shift_after(caster)
 		monkeyForm:ApplyDataDrivenModifier(caster, caster, "modifier_djanghor_4_1_shield", {duration = DJANGHOR_GLYPH_4_1_DURATION})
 		caster:SetModifierStackCount("modifier_djanghor_4_1_shield", caster, DJANGHOR_GLYPH_4_1_SHIELD_STACKS)
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function monkey_form(event)
@@ -414,7 +414,7 @@ function monkey_form(event)
 		end)
 
 	end)
-	caster:SetPrimaryAttribute(1)
+	caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_SPIRIT)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shapeshift_monkey_r1_thinker", {})
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.ShapeshiftOut.Sound", caster)
 
@@ -468,9 +468,9 @@ function general_shapeshift_think(event)
 		elseif event.index == 3 then
 			attribute = caster:GetIntellect()
 		elseif event.index == 4 then
-			attribute = caster:GetIntellect() + caster:GetAgility() + caster:GetStrength()
+			attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength() + caster:GetSpirit()))
 		elseif event.index == 5 then
-			attribute = math.ceil((caster:GetIntellect() + caster:GetAgility() + caster:GetStrength()) * 0.5)
+			attribute = caster:GetSpirit()
 		end
 		local attackBonus = attribute * a_d_level * DJANGHOR_R1_ATTACK_POWER_PER_STAT
 		if caster:HasModifier("modifier_shapeshift_year_beast") then

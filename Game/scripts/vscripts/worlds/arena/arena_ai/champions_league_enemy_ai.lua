@@ -58,7 +58,7 @@ function drill_spike_damage_dealt(event)
 	local caster = event.caster
 	local ability = event.ability
 	local damage = event.attack_damage
-	local damageTaken = damage * 20
+	local damageTaken = damage * 5
 	if Arena.BetweenBattles then
 		return false
 	end
@@ -128,7 +128,7 @@ function drill_spike_hit(event)
 		return false
 	end
 	local target = event.target
-	local damage = target:GetMaxHealth() * 0.08
+	local damage = target:GetMaxHealth() * 0.04
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_drill_spike_enemy", {duration = 10})
 	local currentStacks = target:GetModifierStackCount("modifier_drill_spike_enemy", caster)
@@ -246,7 +246,7 @@ function create_specter_projectile(spellOrigin, forward, caster, ability)
 	local info =
 	{
 		Ability = ability,
-		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_r_1_concoction_projectile.vpcf",
+		EffectName = "particles/units/heroes/hero_alchemist/epoch_rune_a_d_concoction_projectile.vpcf",
 		vSpawnOrigin = spellOrigin,
 		fDistance = 1650,
 		fStartRadius = 120,
@@ -280,7 +280,7 @@ function specter_projectile_hit(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	EmitSoundOn(sound, target)
-	local damage = Events:GetDifficultyScaledDamage(250, 22000, 95000)
+	local damage = Events:GetDifficultyScaledDamage(1000, 1000, 1000)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL})
 	PopupDamage(target, damage)
 end

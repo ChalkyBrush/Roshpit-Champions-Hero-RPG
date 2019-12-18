@@ -444,7 +444,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"200 500 900 1400 2000 2700 3500"
+				"aspect_health"				"300 400 900 1900 3200 4400 5600"
 			}
 			"02"
 			{

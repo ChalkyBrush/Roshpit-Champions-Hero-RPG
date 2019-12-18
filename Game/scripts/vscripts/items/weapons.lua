@@ -10,34 +10,15 @@ require('items/constants/gloves')
 require('items/constants/helm')
 require('items/constants/trinket')
 
+Weapons.MAX_WEAPON_LEVEL = 10
+
 Weapons.XP_PER_LEVEL_TABLE = {}
-Weapons.MAX_WEAPON_LEVEL = 50
-for i = 1, Weapons.MAX_WEAPON_LEVEL, 1 do
-	if i <= 5 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = i * 350
-	elseif i <= 10 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (i - 5) * 2500
-	elseif i <= 15 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (i - 10) * 4000
-	elseif i <= 20 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (i - 15) * 8000
-	elseif i <= 25 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (5 * 8000) + (i - 20) * 15000
-	elseif i <= 30 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (5 * 8000) + (5 * 15000) + (i - 25) * 25000
-	elseif i <= 35 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (5 * 8000) + (5 * 15000) + (5 * 25000) + (i - 30) * 35000
-	elseif i <= 40 then
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (5 * 8000) + (5 * 15000) + (5 * 25000) + (5 * 35000) + (i - 35) * 50000
-	else
-		Weapons.XP_PER_LEVEL_TABLE[i] = (350 * 5) + (5 * 2500) + (5 * 4000) + (5 * 8000) + (5 * 15000) + (5 * 25000) + (5 * 35000) + (5 * 50000) + (i - 40) * 80000
-	end
+Weapons.XP_PER_LEVEL_TABLE[1] = 1000
+for i = 2, Weapons.MAX_WEAPON_LEVEL, 1 do
+	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*4
 end
 
---debug
--- for i=1,50, 1 do
--- Weapons.XP_PER_LEVEL_TABLE[i] = 200
--- end
+Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS = 0.1
 
 function Weapons:weaponRedirect(hero)
 	local heroName = hero:GetName()
@@ -102,121 +83,35 @@ function Weapons:weaponRedirect(hero)
 	end
 end
 
+Weapons.STARTING_ATTACK_DMG = 10
+Weapons.STARTING_ASPECT_HEALTH = 50
+
 function Weapons:InitialWeapon(hero, item_variant, itemName)
 	print("[Weapons:InitialWeapon]")
-	local item = Weapons:CreateWeaponVariant(item_variant, "common", itemName, "weapon", true, "Slot: Weapon", hero:GetUnitName(), 20, 1)
+	local item = RPCItems:CreateItem(item_variant, nil, nil)
+	local item_slot = RPC_GEAR_SLOT_WEAPON
+	local rarity = RPC_ITEMS_RARITY_COMMON
+    item.newItemTable = {}
+    item.newItemTable.rarity = rarity
 	item.newItemTable.xp = 0
 	item.newItemTable.level = 1
-	item.newItemTable.maxLevel = 20
+	item.newItemTable.maxLevel = 2
 	item.newItemTable.requiredHero = hero:GetUnitName()
-	hero.weapon = item.newItemTable
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+    item.newItemTable.gear = true	
 	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
-	Weapons:SetWeaponTable(item)
+	-- Weapons:SetWeaponTable(item)
 	if item_variant == "item_rpc_conjuror_weapon_00" then
-		item.newItemTable.property1 = 50
+		item.newItemTable.property1 = Weapons.STARTING_ASPECT_HEALTH
 		item.newItemTable.property1name = "aspect_health"
-		RPCItems:SetPropertyValues(item, 50, "#item_aspect_health", "#343EC9", 1)
+		RPCItems:SetPropertyValues(item, Weapons.STARTING_ASPECT_HEALTH, "item_aspect_health", "#343EC9", 1)
 	else
-		RPCItems:SetPropertyValues(item, 10, "#item_bonus_attack_damage", "#343EC9", 1)
+		item.newItemTable.property1 = Weapons.STARTING_ATTACK_DMG
+		item.newItemTable.property1name = "attack_damage"
+		RPCItems:SetPropertyValues(item, Weapons.STARTING_ATTACK_DMG, "item_attack_damage", RPCItems.PROPERTY_COLORS["attack_damage"], 1)
 	end
-	RPCItems:ItemUpdateCustomNetTables(item)
-	Weapons:Equip(hero, item)
-end
-
-function Weapons:Equip(heroEntity, itemEntity)
-	print("[Weapons:Equip] itemEntity")
-	print(itemEntity)
-	local player = heroEntity:GetPlayerOwner()
-	local slot = RPCItems:getGearSlot(itemEntity.newItemTable.item_slot)
-	print(slot)
-	local oldGearTable = CustomNetTables:GetTableValue("equipment", tostring(player:GetPlayerID()) .. "-"..tostring(slot))
-	local oldGear = false
-	local playerID = heroEntity:GetPlayerID()
-	local heroId = heroEntity:GetClassname()
-	if itemEntity.newItemTable.requiredHero then
-		if itemEntity.newItemTable.requiredHero == heroEntity:GetUnitName() then
-		else
-			return false
-		end
-	end
-	CustomNetTables:SetTableValue("equipment", tostring(player:GetPlayerID()) .. "-"..tostring(slot), {itemIndex = itemEntity:GetEntityIndex()})
-	-- CustomGameEventManager:Send_ServerToPlayer(player, "InitializeEquipment", {item=itemEntity:GetEntityIndex()} )
-	heroEntity:TakeItem(itemEntity)
-	if IsValidEntity(itemEntity:GetContainer()) then
-		RPCItems:ItemUTIL_Remove(itemEntity:GetContainer())
-	end
-	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(player:GetPlayerID())
-	RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-	CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
-
-	if itemEntity.newItemTable.hasRunePoints then
-		itemEntity.newItemTable.translated = false
-		RPCItems:AmuletPickup(heroEntity, itemEntity)
-	end
-	print("SLOT: "..slot)
-	if slot == 1 then
-		if not itemEntity.newItemTable.xp and not itemEntity.newItemTable.level then
-			itemEntity.newItemTable.xp = 0
-			itemEntity.newItemTable.level = 1
-		end
-		print("SLOT = 1!!")
-		hero.weapon = itemEntity
-		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = itemEntity.newItemTable.xp, level = itemEntity.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level], maxLevel = itemEntity.newItemTable.maxLevel, requiredHero = itemEntity.newItemTable.requiredHero})
-
-		Weapons:SetWeaponTable(itemEntity)
-
-		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "weapon", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
-	else
-		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
-		EmitGlobalSound("ui.treasure_reveal")
-		EmitGlobalSound("ui.treasure_reveal")
-		EmitGlobalSound("ui.treasure_reveal")
-	end
-end
-
-function Weapons:SetWeaponTable(itemEntity)
-	if not itemEntity then
-		print("[Weapons:SetWeaponTable] itemEntity is null")
-		return
-	end
-	if not itemEntity.newItemTable then
-		print("[Weapons:SetWeaponTable] itemEntity.newItemTable is null")
-		itemEntity.newItemTable = {}
-	end
-	if not itemEntity.newItemTable.item_name then
-		itemEntity.newItemTable.item_name = itemEntity:GetAbilityName()
-	end
-	if itemEntity.newItemTable.xpNeeded and itemEntity.newItemTable.level then
-		itemEntity.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level]
-	end
-	RPCItems:ItemUpdateCustomNetTables(itemEntity)
-end
-
-function Weapons:UnequipItem(hero, item, slot)
-	if hero and item and slot then
-		print("[Weapons:UnequipItem] ok")
-	else
-		print("[Weapons:UnequipItem] missing parameters")
-	end
-
-	if item.isLuaItem then
-		item:RemoveSpecialModifiers(hero)
-	end
-	RPCItems:RemoveItemStats(slot, hero)
-
-	CustomNetTables:SetTableValue("equipment", tostring(hero:GetPlayerOwnerID()) .. "-"..tostring(slot), {itemIndex = -1})
-	if slot == 1 then
-		hero.weapon = nil
-	end
-	if IsValidEntity(item:GetContainer()) then
-		UTIL_Remove(item:GetContainer())
-	end
-	if Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
-	else
-		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-		CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
-		item:StartCooldown(3)
-	end
+	RPCItems:SetBaseItemValues(item, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, 1, item_slot)
+	hero:EquipItem(item, false)
 end
 
 function Weapons:ValidateGear(hero)
@@ -257,82 +152,93 @@ function Weapons:ValidateGear(hero)
 	end
 end
 
-function Weapons:UpdateWeaponXP(xpBounty)
-	for i = 1, #MAIN_HERO_TABLE, 1 do
-		Weapons:UpdateWeaponXPPerHero(i, xpBounty)
+function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
+	local hero = self
+	local weapon = nil
+	if hero.equipped_gear and hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+		weapon = hero.equipped_gear[RPC_GEAR_SLOT_WEAPON]
 	end
-	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {})
+	if not weapon then
+		return false
+	end
+	if not IsValidEntity(weapon) then
+		return false
+	end
+	if weapon.newItemTable.rarity == "immortal" then
+		exp = exp*Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS
+	end
+	if hero:HasModifier("modifier_blacksmiths_tablet") then
+		exp = math.floor(exp * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP))
+	end
+	if weapon.newItemTable.level < weapon.newItemTable.maxLevel then
+		weapon.newItemTable.xp = weapon.newItemTable.xp + exp
+	end
+
+	if weapon.newItemTable.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] and weapon.newItemTable.level < weapon.newItemTable.maxLevel then
+		weapon.newItemTable.xp = 0
+		weapon.newItemTable.xp = math.max(weapon.newItemTable.xp, 0)
+
+		weapon.newItemTable.level = math.min(weapon.newItemTable.level + 1, Weapons.MAX_WEAPON_LEVEL)
+		if weapon.newItemTable.xp > Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] then
+			weapon.newItemTable.xp = 0
+		end
+		Weapons:LevelUpWeapon(hero, weapon)
+		hero:ApplyGearBonusesByGearSlot(RPC_GEAR_SLOT_WEAPON)
+
+	end
+	RPCItems:ItemUpdateCustomNetTables(weapon)
 end
 
-function Weapons:UpdateWeaponXPPerHero(heroNumber, xpBounty)
-	if MAIN_HERO_TABLE[heroNumber]:IsAlive() then
-		local hero = MAIN_HERO_TABLE[heroNumber]
-		if not hero then
-			print("[UpdateWeaponXPPerHero] hero is null")
-			return
-		end
-		local weapon = hero.weapon
-		if not weapon then
-			print("[UpdateWeaponXPPerHero] weapon is null")
-			return
-		end
-		local itemProperties = CustomNetTables:GetTableValue("item_basics", tostring(weapon:GetEntityIndex()))
-		if not itemProperties then
-			print("[UpdateWeaponXPPerHero] no itemDescription")
-			return
-		else
-			if itemProperties.item_slot and itemProperties.item_slot == "weapon" then
-				-- print("[UpdateWeaponXPPerHero] alright its a weapon")
-			else
-				-- print("[UpdateWeaponXPPerHero] it is not a weapon")
-				Weapons:weaponRedirect(hero)
-				return
-			end
-		end
-		-- DeepPrintTable(weapon)
-		if not itemProperties.level or not itemProperties.maxLevel then
-			print("[UpdateWeaponXPPerHero] .level .maxLevel")
-			return
-		else
-			if itemProperties.level == itemProperties.maxLevel then
-				-- print("[UpdateWeaponXPPerHero] max level")
-				return
-			end
-		end
-		weapon.newItemTable = itemProperties
+Weapons.STAT_ADD_PER_LEVEL_TABLE = {}
+Weapons.STAT_ADD_PER_LEVEL_TABLE["strength"] = 15
+Weapons.STAT_ADD_PER_LEVEL_TABLE["agility"] = 15
+Weapons.STAT_ADD_PER_LEVEL_TABLE["intelligence"] = 15
+Weapons.STAT_ADD_PER_LEVEL_TABLE["spirit"] = 15
+Weapons.STAT_ADD_PER_LEVEL_TABLE["all_attributes"] = 4
 
-		if not IsValidEntity(weapon) then
-			return
-		end
-		local newBounty = xpBounty
-		if hero:HasModifier("modifier_blacksmiths_tablet") then
-			newBounty = math.floor(newBounty * (1 + BLACKSMITH_TABLE_ADD_WEAPON_EXP))
-		end
-		if weapon.newItemTable.rarity == "immortal" then
-			newBounty = math.ceil(newBounty / 500)
-		end
-		if weapon.newItemTable.level < weapon.newItemTable.maxLevel then
-			weapon.newItemTable.xp = weapon.newItemTable.xp + newBounty
-		end
+Weapons.STAT_ADD_PER_LEVEL_TABLE["attack_damage"] = 40
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_1"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_1"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_1"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_1"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_2"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_2"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_2"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_2"] = 2
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_q_3"] = 1
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_w_3"] = 1
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_e_3"] = 1
+Weapons.STAT_ADD_PER_LEVEL_TABLE["rune_r_3"] = 1
+Weapons.STAT_ADD_PER_LEVEL_TABLE["aspect_health"] = 200
+Weapons.STAT_ADD_PER_LEVEL_TABLE["base_ability"] = 6
+Weapons.STAT_ADD_PER_LEVEL_TABLE["item_damage"] = 6
+Weapons.STAT_ADD_PER_LEVEL_TABLE["armor_pierce"] = 120
+Weapons.STAT_ADD_PER_LEVEL_TABLE["spell_pierce"] = 120
+Weapons.STAT_ADD_PER_LEVEL_TABLE["movespeed"] = 6
 
-		if weapon.newItemTable.xp >= Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] and weapon.newItemTable.level < weapon.newItemTable.maxLevel then
-			weapon.newItemTable.xp = newBounty - (Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] - weapon.newItemTable.xp)
-			weapon.newItemTable.xp = math.max(weapon.newItemTable.xp, 0)
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_normal"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_fire"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_earth"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_lightning"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_poison"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_time"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_holy"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_cosmic"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_ice"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_arcane"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_shadow"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_wind"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_ghost"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_water"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_demon"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_nature"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_undead"] = 8
+Weapons.STAT_ADD_PER_LEVEL_TABLE["element_dragon"] = 8
 
-			weapon.newItemTable.level = math.min(weapon.newItemTable.level + 1, 50)
-			if weapon.newItemTable.xp > Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level] then
-				weapon.newItemTable.xp = 0
-			end
 
-			Weapons:LevelUpWeapon(hero, weapon)
-		end
 
-		Weapons:SetWeaponTable(weapon)
-		CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = weapon.newItemTable.xp, level = weapon.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level], maxLevel = weapon.newItemTable.maxLevel, requiredHero = weapon.newItemTable.requiredHero})
-	end
-end
 
-function Weapons:LevelUpWeapon(hero, weapon, doNotEquip)
+function Weapons:LevelUpWeapon(hero, weapon)
 	--DeepPrintTable(weapon)
 	if not weapon.newItemTable then
 		print("[Error] Weapons:LevelUpWeapon - newItemTable is null")
@@ -344,222 +250,160 @@ function Weapons:LevelUpWeapon(hero, weapon, doNotEquip)
 		end
 	end
 	if weapon.newItemTable.property1 and type(weapon.newItemTable.property1) == "number" then
-		if weapon.newItemTable.propertyName1 == "#item_bonus_attack_damage" then
-			weapon.newItemTable.property1 = weapon.newItemTable.property1 + math.ceil(weapon.newItemTable.property1 * 0.1)
-		else
-			weapon.newItemTable.property1 = weapon.newItemTable.property1 + math.ceil(weapon.newItemTable.property1 * 0.1)
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name] then
+			weapon.newItemTable.property1 = weapon.newItemTable.property1 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name]
 		end
 	end
 	if weapon.newItemTable.property2 and type(weapon.newItemTable.property2) == "number" then
-		if weapon.newItemTable.propertyName2 == "#item_bonus_attack_damage" then
-			weapon.newItemTable.property2 = weapon.newItemTable.property2 + math.ceil(weapon.newItemTable.property2 * 0.1)
-		else
-			weapon.newItemTable.property2 = weapon.newItemTable.property2 + math.ceil(weapon.newItemTable.property2 * 0.1)
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property2name] then
+			weapon.newItemTable.property2 = weapon.newItemTable.property2 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property2name]
 		end
 	end
 	if weapon.newItemTable.property3 and type(weapon.newItemTable.property3) == "number" then
-		if weapon.newItemTable.propertyName3 == "#item_bonus_attack_damage" then
-			weapon.newItemTable.property3 = weapon.newItemTable.property3 + math.ceil(weapon.newItemTable.property3 * 0.1)
-		else
-			weapon.newItemTable.property3 = weapon.newItemTable.property3 + 1
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property3name] then
+			weapon.newItemTable.property3 = weapon.newItemTable.property3 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property3name]
 		end
 	end
 	if weapon.newItemTable.property4 and type(weapon.newItemTable.property4) == "number" then
-		if weapon.newItemTable.propertyName4 == "#item_bonus_attack_damage" then
-			weapon.newItemTable.property4 = weapon.newItemTable.property4 + math.ceil(weapon.newItemTable.property4 * 0.1)
-		else
-			weapon.newItemTable.property4 = weapon.newItemTable.property4 + 1
+		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property4name] then
+			weapon.newItemTable.property4 = weapon.newItemTable.property4 + Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property4name]
 		end
 	end
-	if not doNotEquip then
-		Weapons:Equip(hero, weapon)
-		if weapon.newItemTable.rarity == "immortal" then
-			Stars:StarEventPlayer("weapon", hero)
-		end
+	if weapon.newItemTable.rarity == "immortal" then
+		Stars:StarEventPlayer("weapon", hero)
 	end
+	EmitGlobalSound("ui.treasure_reveal")
+	hero:EquipItem(weapon, false)
+	-- CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = weapon:GetEntityIndex(), heroId = hero:GetClassname(), playerId = hero:GetPlayerOwnerID(), pickup = "weapon", rarity = weapon.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(weapon.newItemTable.rarity)})
 end
 
 function Weapons:Debug()
 	Weapons:InitialSword(MAIN_HERO_TABLE[1])
 end
+Weapons.AttributeBaseRolls = {}
+Weapons.AttributeBaseRolls["all_attributes"] = 0.12
+Weapons.AttributeBaseRolls["strength"] = 0.5
+Weapons.AttributeBaseRolls["agility"] = 0.5
+Weapons.AttributeBaseRolls["spirit"] = 0.5
+Weapons.AttributeBaseRolls["intelligence"] = 0.5
+Weapons.AttributeBaseRolls["attack_damage"] = 2
+Weapons.AttributeBaseRolls["aspect_health"] = 10
+Weapons.AttributeBaseRolls["base_ability"] = CustomAttributes.BAD_PER_SPIRIT * Weapons.AttributeBaseRolls["spirit"] * 3.5
+Weapons.AttributeBaseRolls["item_damage"] = Weapons.AttributeBaseRolls["base_ability"]
+Weapons.AttributeBaseRolls["t1_rune"] = 0.16
+Weapons.AttributeBaseRolls["t2_rune"] = 0.16
+Weapons.AttributeBaseRolls["t3_rune"] = 0.08
+Weapons.AttributeBaseRolls["armor_pierce"] = 4
+Weapons.AttributeBaseRolls["spell_pierce"] = 4
+Weapons.AttributeBaseRolls["movespeed"] = CustomAttributes.MOVESPEED_PER_AGI * Weapons.AttributeBaseRolls["agility"] * 10
 
-function Weapons:RollWeapon(deathLocation)
+Weapons.AttributeBaseRolls["element_normal"] = 0.3
+Weapons.AttributeBaseRolls["element_fire"] = 0.3
+Weapons.AttributeBaseRolls["element_earth"] = 0.3
+Weapons.AttributeBaseRolls["element_lightning"] = 0.3
+Weapons.AttributeBaseRolls["element_poison"] = 0.3
+Weapons.AttributeBaseRolls["element_time"] = 0.3
+Weapons.AttributeBaseRolls["element_holy"] = 0.3
+Weapons.AttributeBaseRolls["element_cosmic"] = 0.3
+Weapons.AttributeBaseRolls["element_ice"] = 0.3
+Weapons.AttributeBaseRolls["element_arcane"] = 0.3
+Weapons.AttributeBaseRolls["element_shadow"] = 0.3
+Weapons.AttributeBaseRolls["element_wind"] = 0.3
+Weapons.AttributeBaseRolls["element_ghost"] = 0.3
+Weapons.AttributeBaseRolls["element_water"] = 0.3
+Weapons.AttributeBaseRolls["element_demon"] = 0.3
+Weapons.AttributeBaseRolls["element_nature"] = 0.3
+Weapons.AttributeBaseRolls["element_undead"] = 0.3
+Weapons.AttributeBaseRolls["element_dragon"] = 0.3
 
-	local maxFactor = RPCItems:GetMaxFactor()
-	local rarityRoll = RandomInt(1, 100 + RandomInt(1, maxFactor))
-	local rarity = ""
-	if rarityRoll <= 80 then
-		rarity = "uncommon"
-	elseif rarityRoll <= 160 then
-		rarity = "rare"
-	else
-		rarity = "mythical"
-	end
-	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "uncommon" or rarity == "rare" or rarity == "mythical") then
-		-- print("junk_loot_disabled weapon rarity: "..rarity)
-		return
-	end
+function Weapons:SetupBasicWeapon(rarity, item_level, required_hero, max_level, item_variant, current_level, current_xp)
 	local itemName = ""
-	local whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()
-	local internalName = HerosCustom:GetInternalHeroName(whichHero)
-
-	local rarityFactor = RPCItems:GetRarityFactor(rarity)
-	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
-
-	local mainAttrRoll = RandomInt(1, 3)
-	local propensity = (mainAttrRoll - 2) * 2
-
-	local specialProperty1 = RandomInt(1, #propensityTable)
-	local specialProperty2 = RandomInt(1, #propensityTable)
-	if rarityFactor >= 3 then
-		propensity = propensity + propensityTable[specialProperty1]
-	end
-	if rarityFactor >= 4 then
-		while specialProperty1 == specialProperty2 do
-			specialProperty2 = RandomInt(1, #propensityTable)
-		end
-		propensity = propensity + propensityTable[specialProperty2]
-	end
-	local digit2 = Weapons:GetDigit2(propensity, rarityFactor)
-	local weaponIndexString = tostring(rarityFactor - 2)
-
-	local weaponName = "item_rpc_"..internalName.."_weapon_"..tostring(weaponIndexString)..tostring(digit2)
-	print(weaponName)
-	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, Weapons:GetMaxWeaponLevel(), 0)
-
-	if internalName == "conjuror" then
-		local value = Weapons:GetDeviation(2000, 0)
-		weapon.newItemTable.property1 = value
-		weapon.newItemTable.property1name = "aspect_health"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_aspect_health", "#3D82CC", 1)
-	else
-		local value = Weapons:GetDeviation(100, 0)
-		weapon.newItemTable.property1 = value
-		weapon.newItemTable.property1name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_bonus_attack_damage", "#343EC9", 1)
-	end
-	if mainAttrRoll == 1 then
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "strength"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_strength", "#CC0000", 2)
-	elseif mainAttrRoll == 2 then
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-	else
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "intelligence"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-	end
-	if rarityFactor >= 3 then
-		local value = Weapons:GetDeviation(baseValueTable[specialProperty1], rarityFactor)
-		weapon.newItemTable.property3 = value
-		weapon.newItemTable.property3name = propertyTable[specialProperty1]
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, tooltipTable[specialProperty1], colorTable[specialProperty1], 3)
-	end
-	if rarityFactor >= 4 then
-		local value = Weapons:GetDeviation(baseValueTable[specialProperty2], rarityFactor)
-		weapon.newItemTable.property4 = value
-		weapon.newItemTable.property4name = propertyTable[specialProperty2]
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, tooltipTable[specialProperty2], colorTable[specialProperty2], 4)
-	end
-
-	local drop = CreateItemOnPositionSync(deathLocation, weapon)
-	local position = deathLocation
-	RPCItems:DropItem(weapon, position)
-
+	local internalName = required_hero
+	local maxLevel = max_level
+	local item_slot = RPC_GEAR_SLOT_WEAPON
+	local weaponName = item_variant
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", required_hero, maxLevel, item_level)
+	-- weapon.newItemTable.minLevel = item_level
+	weapon.newItemTable.xp = current_xp
+	weapon.newItemTable.level = current_level
+	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
+	return weapon
 end
 
-function Weapons:RollWeaponWithClass(deathLocation, whichHero)
-
-	local maxFactor = RPCItems:GetMaxFactor()
-	local rarityRoll = RandomInt(1, 100 + RandomInt(1, maxFactor))
-	local rarity = ""
-	if rarityRoll <= 80 then
-		rarity = "uncommon"
-	elseif rarityRoll <= 160 then
-		rarity = "rare"
-	else
-		rarity = "mythical"
+function Weapons:RollWeapon(rarity, item_level, hero_name)
+	whichHero = hero_name
+	if not hero_name then
+		whichHero = MAIN_HERO_TABLE[RandomInt(1, #MAIN_HERO_TABLE)]:GetUnitName()
 	end
-	if GameMode.VoteSystem.junk_loot_disabled and (rarity == "uncommon" or rarity == "rare" or rarity == "mythical") then
-		-- print("junk_loot_disabled weapon rarity: "..rarity)
-		return
-	end
-	local itemName = ""
 	local internalName = HerosCustom:GetInternalHeroName(whichHero)
-
-	local rarityFactor = RPCItems:GetRarityFactor(rarity)
-	local propertyTable, baseValueTable, propensityTable, tooltipTable, colorTable = HerosCustom:GetAvailableRunes(whichHero)
-
-	local mainAttrRoll = RandomInt(1, 3)
-	local propensity = (mainAttrRoll - 2) * 2
-
-	local specialProperty1 = RandomInt(1, #propensityTable)
-	local specialProperty2 = RandomInt(1, #propensityTable)
-	if rarityFactor >= 3 then
-		propensity = propensity + propensityTable[specialProperty1]
+	if rarity > RPC_ITEMS_RARITY_MYTHICAL then
+		return nil
 	end
-	if rarityFactor >= 4 then
-		while specialProperty1 == specialProperty2 do
-			specialProperty2 = RandomInt(1, #propensityTable)
+	if rarity == RPC_ITEMS_RARITY_COMMON then
+		return nil
+	end
+	-- "item_rpc_ekkan_weapon_01"
+	local item_variant = "item_rpc_"..internalName.."_weapon_"..Weapons:GetWeaponDigits(rarity)
+	local item = RPCItems:CreateItem(item_variant, nil, nil)
+	local item_slot = RPC_GEAR_SLOT_WEAPON
+    item.newItemTable = {}
+    item.newItemTable.rarity = rarity
+	item.newItemTable.xp = 0
+	item.newItemTable.level = 1
+	item.newItemTable.maxLevel = Weapons:GetMaxWeaponLevel(item_level)
+	item.newItemTable.requiredHero = whichHero
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+    item.newItemTable.gear = true	
+	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
+	-- Weapons:SetWeaponTable(item)
+	if internalName == "npc_dota_hero_invoker" then
+		item.newItemTable.property1 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls["aspect_health"])
+		item.newItemTable.property1name = "aspect_health"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_aspect_health", RPCItems.PROPERTY_COLORS["aspect_health"], 1)
+	else
+		item.newItemTable.property1 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls["attack_damage"])
+		item.newItemTable.property1name = "attack_damage"
+		RPCItems:SetPropertyValues(item, item.newItemTable.property1, "item_attack_damage", RPCItems.PROPERTY_COLORS["attack_damage"], 1)
+	end
+	if rarity >= RPC_ITEMS_RARITY_UNCOMMON then
+		local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+		if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+			item.newItemTable.property2 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property2name = RPCItems:TranslateRuneRoll(property)
+			RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
+		else
+			item.newItemTable.property2 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property2name = property
+			RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_"..property, RPCItems.PROPERTY_COLORS[property], 2)
 		end
-		propensity = propensity + propensityTable[specialProperty2]
-	end
-	local digit2 = Weapons:GetDigit2(propensity, rarityFactor)
-	local weaponIndexString = tostring(rarityFactor - 2)
 
-	local weaponName = "item_rpc_"..internalName.."_weapon_"..tostring(weaponIndexString)..tostring(digit2)
-	print(weaponName)
-	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, Weapons:GetMaxWeaponLevel(), 0)
-
-	if internalName == "conjuror" then
-		local value = Weapons:GetDeviation(2000, 0)
-		weapon.newItemTable.property1 = value
-		weapon.newItemTable.property1name = "aspect_health"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_aspect_health", "#3D82CC", 1)
-	else
-		local value = Weapons:GetDeviation(100, 0)
-		weapon.newItemTable.property1 = value
-		weapon.newItemTable.property1name = "attack_damage"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property1, "#item_bonus_attack_damage", "#343EC9", 1)
 	end
-	if mainAttrRoll == 1 then
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "strength"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_strength", "#CC0000", 2)
-	elseif mainAttrRoll == 2 then
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "agility"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-	else
-		local value = Weapons:GetDeviation(15, rarityFactor)
-		weapon.newItemTable.property2 = value
-		weapon.newItemTable.property2name = "intelligence"
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
+	if rarity >= RPC_ITEMS_RARITY_RARE then
+		local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+		if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+			item.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property3name = RPCItems:TranslateRuneRoll(property)
+			RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+		else
+			item.newItemTable.property3 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property3name = property
+			RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_"..property, RPCItems.PROPERTY_COLORS[property], 3)
+		end
 	end
-	if rarityFactor >= 3 then
-		local value = Weapons:GetDeviation(baseValueTable[specialProperty1], rarityFactor)
-		weapon.newItemTable.property3 = value
-		weapon.newItemTable.property3name = propertyTable[specialProperty1]
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property3, tooltipTable[specialProperty1], colorTable[specialProperty1], 3)
+	if rarity >= RPC_ITEMS_RARITY_MYTHICAL then
+		local property = RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON][RandomInt(1, #RPCItems.REGULAR_PROPERTIES[RPC_GEAR_SLOT_WEAPON])]
+		if property == "t1_rune" or property == "t2_rune" or property == "t3_rune" or property == "t4_rune" then
+			item.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property4name = RPCItems:TranslateRuneRoll(property)
+			RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+		else
+			item.newItemTable.property4 = RPCItems:RollGearAttributeValue(item_level, nil, nil, Weapons.AttributeBaseRolls[property])
+			item.newItemTable.property4name = property
+			RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_"..property, RPCItems.PROPERTY_COLORS[property], 4)
+		end
 	end
-	if rarityFactor >= 4 then
-		local value = Weapons:GetDeviation(baseValueTable[specialProperty2], rarityFactor)
-		weapon.newItemTable.property4 = value
-		weapon.newItemTable.property4name = propertyTable[specialProperty2]
-		RPCItems:SetPropertyValues(weapon, weapon.newItemTable.property4, tooltipTable[specialProperty2], colorTable[specialProperty2], 4)
-	end
-
-	local drop = CreateItemOnPositionSync(deathLocation, weapon)
-	local position = deathLocation
-	RPCItems:DropItem(weapon, position)
-
+	RPCItems:SetBaseItemValues(item, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)	
+	return item
 end
 
 function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot, gear, slotText, whichHero, maxLevel, minLevel)
@@ -576,15 +420,13 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	local prefix = ""
 	item.newItemTable.item_slot = slot
 	item.newItemTable.gear = gear
-	item.newItemTable.hasRunePoints = true
 	item.newItemTable.xp = 0
 	item.newItemTable.level = 1
 	item.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level]
 	item.newItemTable.minLevel = minLevel
 	item.newItemTable.maxLevel = maxLevel
 	item.newItemTable.requiredHero = whichHero
-
-	Weapons:SetWeaponTableValues(item, itemName, false, slotText, RPCItems:GetRarityColor(item.newItemTable.rarity), item.newItemTable.rarity, "", "", RPCItems:GetRarityFactor(item.newItemTable.rarity), slot)
+	item.newItemTable.itemDescription = slotText
 	return item
 end
 
@@ -620,22 +462,29 @@ function Weapons:SetWeaponTableValues(item, itemName, consumableBoolean, descrip
 	Weapons:SetWeaponTable(item)
 end
 
-function Weapons:GetMaxWeaponLevel()
-	local maxFactor = RPCItems:GetMaxFactor()
-	local maxLevel = 25
-	local RNG = RandomInt(1, 100)
-	maxLevel = maxLevel + math.floor(maxFactor / 6)
-	if RNG < 20 then
-		maxLevel = math.floor(maxLevel * (RandomInt(60, 100) / 100))
-	elseif RNG < 50 then
-		maxLevel = math.floor(maxLevel * (RandomInt(80, 100) / 100))
-	elseif RNG < 80 then
-		maxLevel = math.floor(maxLevel * (RandomInt(80, 120) / 100))
-	else
-		maxLevel = math.floor(maxLevel * (RandomInt(100, 135) / 100))
-	end
-	local maxLevel = math.min(maxLevel, Weapons.MAX_WEAPON_LEVEL)
+function Weapons:GetMaxWeaponLevel(item_level)
+	local maxLevel = RPCItems:RollGearAttributeValue(item_level, nil, nil, 0.2)
+	print("MAX LEVEL "..maxLevel)
+	maxLevel = math.min(maxLevel, Weapons.MAX_WEAPON_LEVEL)
+	maxLevel = math.max(maxLevel, 2)
+	print("MAX LEVEL AFTER MINS AND MAXES"..maxLevel)
+	print("------")
 	return maxLevel
+end
+
+function Weapons:GetWeaponDigits(rarityFactor)
+	if rarityFactor == 1 then
+		return "00"
+	elseif rarityFactor == 2 then
+		local luck = RandomInt(1, 3)
+		return "0"..luck
+	elseif rarityFactor == 3 then
+		local luck = RandomInt(1, 4)
+		return "1"..luck
+	elseif rarityFactor == 4 then
+		local luck = RandomInt(1, 5)
+		return "2"..luck
+	end
 end
 
 function Weapons:GetDigit2(propensity, rarityFactor)

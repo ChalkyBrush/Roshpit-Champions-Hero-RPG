@@ -17,7 +17,7 @@ function shadow_slam_start(event)
 	caster:RemoveModifierByName("modifier_terrorize_thinking")
 	caster:RemoveModifierByName("modifier_name_after_terrorize_falling")
 	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_TELEPORT_END, rate = 1.2})
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	ability.moveVector = ((newPosition - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	EmitSoundOn("Duskbringer.Arcana1.VO", caster)
 end

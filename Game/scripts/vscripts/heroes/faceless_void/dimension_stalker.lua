@@ -96,7 +96,7 @@ function fire_dimension_stalker(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_dimension_stalker_active", {duration = duration})
 	EmitSoundOn("Omniro.DimensionStalk.Success.VO", caster)
 	ability.enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function dimension_stalker_active_think(event)

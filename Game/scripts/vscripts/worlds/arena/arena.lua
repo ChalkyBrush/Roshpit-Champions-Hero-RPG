@@ -31,6 +31,8 @@ function Arena:Debug()
 	local drop = CreateItemOnPositionSync(Vector(-3136, -11200), item)
 	local position = Vector(-3136, -11200)
 	RPCItems:DropItem(item, Vector(-3136, -11200))
+	-- Arena.PitLevel = 5
+	-- Arena:SpawnCerberus(Vector(-3136, -11200), Vector(1,0))
 	--    MAIN_HERO_TABLE[1].ChampionsLeague = {}
 	--    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
 
@@ -926,10 +928,13 @@ function Arena:RollPrizeBoxProperty2(item, itemLevel)
 	if luck >= 10 then
 		qualities = "mythical"
 	end
-	if luck >= 25 then
+	if luck >= itemLevel-1 then
 		qualities = "immortal"
 	end
 	local quantity = math.min(RandomInt(1, itemLevel / 30), 2)
+	if qualities == "immortal" then
+		quantity = 1
+	end
 	item.newItemTable.property2 = quantity
 	item.newItemTable.property2name = qualities
 	RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 2)
@@ -941,7 +946,7 @@ function Arena:RollPrizeBoxProperty3(item, itemLevel)
 	if luck >= 30 then
 		qualities = "mythical"
 	end
-	if luck >= 69 then
+	if luck >= itemLevel-1 then
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 28 then
@@ -951,6 +956,9 @@ function Arena:RollPrizeBoxProperty3(item, itemLevel)
 		return
 	end
 	local quantity = math.min(RandomInt(1, itemLevel / 30), 3)
+	if qualities == "immortal" then
+		quantity = 1
+	end
 	item.newItemTable.property3 = quantity
 	item.newItemTable.property3name = qualities
 	RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 3)
@@ -962,7 +970,7 @@ function Arena:RollPrizeBoxProperty4(item, itemLevel)
 	if luck >= 30 then
 		qualities = "mythical"
 	end
-	if luck >= 82 then
+	if luck >= itemLevel-1 then
 		qualities = "immortal"
 	end
 	if luck >= 20 and luck <= 29 then
@@ -978,6 +986,9 @@ function Arena:RollPrizeBoxProperty4(item, itemLevel)
 		return
 	end
 	local quantity = math.min(RandomInt(1, itemLevel / 30), 5)
+	if qualities == "immortal" then
+		quantity = 1
+	end
 	item.newItemTable.property4 = quantity
 	item.newItemTable.property4name = qualities
 	RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#item_rarity_"..qualities, RPCItems:GetRarityColor(qualities), 4)

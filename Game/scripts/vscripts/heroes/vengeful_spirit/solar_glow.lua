@@ -59,7 +59,7 @@ function solar_glow_start(event)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
 	EmitSoundOn("Solunia.NitroInitialCast", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	glow_rune_q_1(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
 	if caster:HasModifier("modifier_solunia_glyph_6_1_ready") then
 		caster:RemoveModifierByName("modifier_solunia_glyph_6_1_ready")
@@ -117,7 +117,7 @@ function flareImpact(caster, ability)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	local element2 = RPC_ELEMENT_FIRE
 	if caster.typeName == "moon" then
-		damageType = DAMAGE_TYPE_PURE
+		damageType = DAMAGE_TYPE_PHYSICAL
 		element2 = RPC_ELEMENT_ICE
 	end
 	local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -260,7 +260,7 @@ function lunar_glow_start(event)
 		ParticleManager:ReleaseParticleIndex(pfx)
 	end)
 	EmitSoundOn("Solunia.NitroInitialCast", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	glow_rune_q_1(caster, ability, baseFV, WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()))
 	if caster:HasModifier("modifier_solunia_glyph_6_1_ready") then
 		caster:RemoveModifierByName("modifier_solunia_glyph_6_1_ready")

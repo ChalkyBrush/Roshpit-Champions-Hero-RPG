@@ -35,12 +35,13 @@ function spark_start(event)
 	ability.q_2_level = caster:GetRuneValue("q", 2)
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	ability.q_4_level = caster:GetRuneValue("q", 4)
-	local duration = ARKIMUS_Q_COIL_BASE_DURATION + ability.q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION
+	local duration = ARKIMUS_Q_COIL_BASE_DURATION + ARKIMUS_Q_COIL_BASE_DURATION *ability.q_4_level * ARKIMUS_Q4_COIL_ADD_DURATION_PCT
+	local zonal_net_duration = 1 + 1 * ARKIMUS_Q4_COIL_ADD_DURATION_PCT *ability.q_4_level
 	local loops = math.floor(duration * 10)
 	Timers:CreateTimer(0.1, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/arkimus/zonis_end.vpcf", caster, 3)
 		if ability.q_2_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_buff", {duration = 1})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonis_buff", {duration = zonal_net_duration})
 		end
 		for i = 1, loops, 1 do
 			Timers:CreateTimer(i * 0.1, function()
@@ -73,11 +74,10 @@ function spark_start(event)
 			energyField.rotationDelta = math.min(50, energyField.rotationDelta + 6)
 		end
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function zonis_damage(enemy, caster, damage, ability)
-	damage = damage + damage * ARKIMUS_Q4_ADD_DMG_PCT * ability.q_4_level
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_stun", {duration = 0.2})
 	Filters:ApplyStun(caster, ARKIMUS_Q_STUN, enemy)
 	Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_ARCANE, RPC_ELEMENT_LIGHTNING)
@@ -92,6 +92,7 @@ function zonis_damage(enemy, caster, damage, ability)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_zonis_c_a_magic_resist", {duration = ARKIMUS_Q3_DURATION})
 		enemy:SetModifierStackCount("modifier_zonis_c_a_magic_resist", caster, ability.q_3_level)
 	end
+	enemy:CalculateAndSaveRoshpitAttributes()
 end
 
 function zonis_think(event)

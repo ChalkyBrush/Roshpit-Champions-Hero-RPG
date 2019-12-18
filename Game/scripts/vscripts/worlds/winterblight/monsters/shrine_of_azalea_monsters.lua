@@ -2172,10 +2172,10 @@ function tri_boss_death_sequence(event)
 				end
 			end
 			local pos = caster:GetAbsOrigin()
-			Timers:CreateTimer(5, function()
+			Timers:CreateTimer(4, function()
 				local luck = RandomInt(1, 7 - GameState:GetPlayerPremiumStatusCount())
 				if luck == 1 then
-					RPCItems:RollBuzukisFinger(pos)
+					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_buzukis_finger")
 				end
 			end)
 		elseif caster:GetUnitName() == "winterblight_azertia" then
@@ -3774,12 +3774,8 @@ function orthok_min_health_thinker(event)
 					ParticleManager:DestroyParticle(pfx, false)
 				end)
 				local immortals = 2 + GameState:GetPlayerPremiumStatusCount()
-				RPCItems:RollChainsOfOrthok(icePoint)
-				for i = 1, immortals, 1 do
-					Timers:CreateTimer(i * 0.5, function()
-						RPCItems:RollItemtype(100, icePoint, 5, 100)
-					end)
-				end
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_chains_of_orthok")
+				caster:BossDrops(immortals)
 				UTIL_Remove(caster)
 			end)
 		end
@@ -3869,7 +3865,8 @@ function captain_reynar_thinking(event)
 						Timers:CreateTimer(2.5, function()
 							ParticleManager:DestroyParticle(pfx, false)
 						end)
-						RPCItems:RollCaptainsVest(icePoint)
+						local item_level = RPCItems:RollItemLevelFromUnit(20 + (GameState:GetDifficultyFactor()-1)*34)
+						RPCItems:RollAndDropImmortalByLevel(icePoint, item_level, "item_rpc_captains_vest")
 						UTIL_Remove(caster)
 					end)
 				end)

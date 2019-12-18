@@ -15,7 +15,7 @@ function turn_toggle_on(event)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red.vpcf", caster, 3)
 			EmitSoundOn("Flamewaker.Dragonfire.Fire", caster)
 			ability.flame = true
-			Filters:CastSkillArguments(2, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		end
 	end)
 	if not ability.soundLock then
@@ -102,7 +102,7 @@ function dragonflame_think(event)
 		end
 		ability.lastPos = caster:GetAbsOrigin()
 		if ability.interval % 5 == 0 then
-			Filters:CastSkillArguments(2, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		end
 		if ability.interval > 90 then
 			ability.interval = 0

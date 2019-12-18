@@ -357,26 +357,26 @@
 		"property_omniro_immortal_weapon3_description"                      "激活奥尼洛的 <font color=\"#3289C7\">龙</font> 元素。龙的全能权杖特效为施加一个增加元素伤害的buff。全能之球的特效为刷新所有其他元素的充能。"
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"连贯性雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] 连贯性雕文"
 		"item_rpc_omniro_glyph_1_1_description" 				"攻击时自动跳过没有充能的元素。 (除非所有元素都没有充能)。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"七彩之路雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"[T2-1] 七彩之路雕文"
 		"item_rpc_omniro_glyph_2_1_description" 				"增加@Ability3的长度@glyph_property1。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"平面潜行雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"[T3-1] 平面潜行雕文"
 		"item_rpc_omniro_glyph_3_1_description" 				"@Ability4 额外打击 @glyph_property1 次。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"电流雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"[T4-1] 电流雕文"
 		"item_rpc_omniro_glyph_4_1_description" 				"增加普通元素 @glyph_property1 级并且它的再充能时间加快 @glyph_property2% 。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"灵感雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"[T5-1] 灵感雕文"
 		"item_rpc_omniro_glyph_5_1_description" 				"符文等级最低的@glyph_property1 个符文获得额外 @glyph_property2 点充能 (不包括普通和龙元素)。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"削弱雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"[T6-1] 削弱雕文"
 		"item_rpc_omniro_glyph_6_1_description" 				"攻击一个敌人回复 @glyph_property1% 的当前元素的充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"元素特化雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"[T7-1] 元素特化雕文"
 		"item_rpc_omniro_glyph_7_1_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)增加 @glyph_property1 点充能。"
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"色度雕文"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] 色度雕文"
 		"item_rpc_omniro_glyph_5_a_description" 				"奥尼洛的最高等级的元素(不包括 <font color=\"#3289C7\">龙</font> 元素)伤害增加 <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% ，第二高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, 第三高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>%, 第四高的伤害增加 <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>%。"

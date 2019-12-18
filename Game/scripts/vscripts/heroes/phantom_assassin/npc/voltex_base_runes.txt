@@ -198,7 +198,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% VOLTEX_W3_DMG_PER_AGI %>"
 			}
 			"04"

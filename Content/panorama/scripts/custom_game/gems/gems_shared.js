@@ -88,20 +88,25 @@ function manageSockets(item)
 	}
 }
 
-function substituteGemDescriptions(description, gem, gem_level, item){
+function substituteGemDescriptions(description, gem, gem_level, item, rarityFactor){
 	var item_name = Abilities.GetAbilityName(item)
-	for (i = gem_level; i >= 1; i--) {
-		var test_tooltip = $.Localize(item_name+"_"+gem+i)
-		if (test_tooltip.indexOf(item_name) > -1){
-		}else{
-			description = $.Localize(item_name+"_"+gem+i)
-			break
+	if (rarityFactor < 5){
+		description = $.Localize("rpc_items_basic_"+gem)
+	}else{
+		for (i = gem_level; i >= 1; i--) {
+			var test_tooltip = $.Localize(item_name+"_"+gem+i)
+			if (test_tooltip.indexOf(item_name) > -1){
+			}else{
+				description = $.Localize(item_name+"_"+gem+i)
+				break
+			}
 		}
 	}
 	var substitution_color = get_gem_color(gem)
 	for (i = 1; i <= 5; i++) {
 		var value_name = gem+i
 		var value = Abilities.GetLevelSpecialValueFor( item, value_name, gem_level - 1 )
+		value = Math.round(value*100)/100
 		description = description.replace("@"+gem+"_property"+i, "<font color='"+substitution_color+"'>"+value+"</font>")
 	}
 	return description

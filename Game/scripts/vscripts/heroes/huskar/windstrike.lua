@@ -28,7 +28,7 @@ function windstrike_start(event)
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "spirit_warrior")
 	caster.windstrikeStarted = true
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_windstrike_weapon", {duration = duration})
 	if target:GetEntityIndex() == caster:GetEntityIndex() and caster:HasModifier("modifier_spirit_warrior_glyph_6_1") then
 	else
@@ -54,8 +54,5 @@ function windstrike_attack_land(event)
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/elder_titan/elder_titan_fissured_soul/elder_titan_fissured_soul_spirit_buff_endcap.vpcf", target, 1)
 	local damage = ability.q_3_level * SPIRIT_WARRIOR_Q3_DMG_PCT/100 * OverflowProtectedGetAverageTrueAttackDamage(attacker) * mult
-	if target:GetPhysicalArmorValue(false) > 0 then
-		damage = damage + damage * SPIRIT_WARRIOR_Q3_AMP_PER_ARMOR_PCT/100 * target:GetPhysicalArmorValue(false)
-	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_WIND, RPC_ELEMENT_NONE)
 end

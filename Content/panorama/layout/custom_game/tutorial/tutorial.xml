@@ -6,6 +6,20 @@
 		<include src="file://{resources}/scripts/custom_game/tutorial/tutorial.js" />
 	</scripts>
 	<snippets>
+		<snippet name="tutorial_exit_help">
+			<Panel class="tutorial_main" hittest="false">
+				<Panel id="tutorial_bg" hittest="false"/>
+				
+				<Panel class="tutorial_mega_container">	
+					<Label id="tutorial_help_title" html="true"/>
+					<Label id="tutorial_help_text" html="true"/>
+					<Image id="tutorial_help_image"/>
+					<Button id="close_button">
+						<Label id="close_button_label" text="ui_close"/>
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
 		<snippet name="tutorial_main">
 			<Panel class="tutorial_main" hittest="false">
 				<Panel id="tutorial_bg" hittest="false"/>

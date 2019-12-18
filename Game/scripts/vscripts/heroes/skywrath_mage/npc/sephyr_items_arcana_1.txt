@@ -21,9 +21,10 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-			"particle"	"particles/roshpit/sephyr/icewind_shield.vpcf"
- 			"particle"  "particles/roshpit/sephyr/icewind_gale.vpcf"
-			"particle"  "particles/roshpit/sephyr/icewind_crit.vpcf"
+			"particle" "particles/roshpit/sephyr/arcana1/new_icewind_gale.vpcf"
+			"particle" "particles/roshpit/sephyr/arcana1/icewind_gale_crit.vpcf"
+			"particle" "particles/roshpit/sephyr/arcana1/icewind_gale_glyphed_crit.vpcf"
+			"particle" "particles/roshpit/sephyr/arcana1/glyphed_icewind_gale.vpcf"
 		}
 		"OnSpellStart"
 		{

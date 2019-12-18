@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA_W_W1_POST_AMP_PERCENT %>"
+				"property_one"			"<% TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK %>"
 			}
 		}
 	}
@@ -84,7 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP_PER_ATTRIBUTE_PCT %>"
+				"property_one"			"<% TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * 100 %>"
 			}
 		}
 	}

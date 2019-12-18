@@ -182,7 +182,7 @@ function seafortress_unit_die(event)
 			end)
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
-				RPCItems:RollDarkEmissaryGlove(caster:GetAbsOrigin())
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dark_emissary_glove")
 			end
 		elseif caster.deathCode == 9 then
 			EmitSoundOn("Seafortress.DeepShadow.Die", caster)
@@ -264,9 +264,9 @@ function seafortress_unit_die(event)
 	local premiumCount = GameState:GetPlayerPremiumStatusCount()
 	local luck2 = RandomInt(1, 3000 - (500 * premiumCount))
 	if luck2 == 1 then
-		item_rpc_armor_of_atlantis:CreateLuaItem(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_armor_of_atlantis")
 	elseif luck2 == 2 then
-		RPCItems:RollChitinousLobsterClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_chitinous_lobster_claw")
 	end
 	local paragonAdjust = 0
 	if caster.paragon then
@@ -3820,7 +3820,7 @@ end
 function ice_shell(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	local luck = RandomInt(3, 5)
 	EmitSoundOn("Seafortress.IceShell", caster)
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
@@ -3946,9 +3946,9 @@ function dark_spirit_die(caster)
 		Seafortress:RemoveBlockers(4, "SeaBlocker6", Vector(14784, 2880), 800)
 		Seafortress:FirstPirateRoom()
 	end
-	local luck = RandomInt(1, 30)
+	local luck = RandomInt(1, 30-GameState:GetPlayerPremiumStatusCount()*2)
 	if luck == 1 then
-		RPCItems:RollDepthDemonClaw(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_depth_demon_claw")
 	end
 end
 
@@ -4622,7 +4622,7 @@ function naga_summoner_die(caster)
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollCrystallineSlippers(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crystalline_slippers")
 	end
 	Timers:CreateTimer(2, function()
 		local wall = Entities:FindByNameNearest("SeaDoor1", Vector(-713, 6848, 96 + Seafortress.ZFLOAT), 900)
@@ -4811,7 +4811,7 @@ function centaur_master_die(caster)
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollOceanrunnerBoots(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_oceanrunner_boots")
 	end
 end
 
@@ -5062,18 +5062,22 @@ function oracle_attack_land(event)
 		local intStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_int", caster)
 		local strStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_str", caster)
 		local agiStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_agi", caster)
+		local spiStacks = target:GetModifierStackCount("modifier_demon_farmer_aura_spi", caster)
 
 		local newIntStacks = target:GetIntellect() * 0.08
 		local newStrStacks = target:GetStrength() * 0.08
 		local newAgiStacks = target:GetAgility() * 0.08
+		local newSpiStacks = target:GetSpirit() * 0.08
 
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_int", {duration = 6})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_str", {duration = 6})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_agi", {duration = 6})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_demon_farmer_aura_spi", {duration = 6})
 
 		target:SetModifierStackCount("modifier_demon_farmer_aura_int", caster, intStacks + newIntStacks)
 		target:SetModifierStackCount("modifier_demon_farmer_aura_str", caster, strStacks + newStrStacks)
 		target:SetModifierStackCount("modifier_demon_farmer_aura_agi", caster, agiStacks + newAgiStacks)
+		target:SetModifierStackCount("modifier_demon_farmer_aura_spi", caster, spiStacks + newSpiStacks)
 	else
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -5175,9 +5179,7 @@ function oracle_buff_start(event)
 end
 
 function tri_boss_die(caster)
-	for i = 0, RandomInt(5, 7), 1 do
-		RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-	end
+	caster:BossDrops(7)
 	if not Seafortress.MainBossesSlain then
 		Seafortress.MainBossesSlain = 0
 	end
@@ -5185,21 +5187,21 @@ function tri_boss_die(caster)
 		Statistics.dispatch("sea_fortress:kill:siltbreaker");
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollDarkReefSharkHelmet(caster:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_dark_reef_shark_helmet")
 		end
 	elseif caster:GetUnitName() == "seafortress_oracle_of_the_sea" then
 		Statistics.dispatch("sea_fortress:kill:sea_oracle");
 		local luck = RandomInt(1, 9)
 		if luck == 1 then
-			RPCItems:RollEmpyrealSunriseRobe(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_empyreal_sunrise_robe")
 		elseif luck == 2 then
-			RPCItems:RollHoodOfTheSeaOracle(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_hood_of_the_sea_oracle")
 		end
 	elseif caster:GetUnitName() == "seafortress_boss_silver_sea_giant" then
 		Statistics.dispatch("sea_fortress:kill:sea_giant");
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollSeaGiantsPlate(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sea_giants_plate")
 		end
 	end
 	Timers:CreateTimer(0.2, function()
@@ -5207,7 +5209,7 @@ function tri_boss_die(caster)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollHydroxisArcana1(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_hydroxis_arcana1")
 		end
 	end)
 	Weapons:RollRandomLegendWeapon2(caster:GetAbsOrigin())
@@ -5439,11 +5441,7 @@ function sea_fortress_final_boss_think(event)
 			Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 
 		end)
-		for i = 1, 20, 1 do
-			Timers:CreateTimer(0.5 * i, function()
-				RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-			end)
-		end
+		caster:BossDrops(20)
 		Timers:CreateTimer(3, function()
 			for i = 0, 2, 1 do
 				Timers:CreateTimer(i, function()
@@ -5454,13 +5452,14 @@ function sea_fortress_final_boss_think(event)
 		Timers:CreateTimer(4, function()
 			local luck = RandomInt(1, 10)
 			if luck == 1 then
-				RPCItems:RollOceanHelmOfValdun(caster:GetAbsOrigin(), true)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ocean_helm_of_valdun")
 			elseif luck == 2 then
 				RPCItems:RollTokenOfOceanis(caster:GetAbsOrigin(), true)
 			end
 		end)
 		Timers:CreateTimer(2, function()
 			RPCItems:DropSynthesisVessel(caster:GetAbsOrigin())
+			Gems:DropSocketForger(caster:GetAbsOrigin())
 		end)
 		local randDelay = RandomInt(10, 50) / 10
 		local position = caster:GetAbsOrigin()
@@ -5468,7 +5467,7 @@ function sea_fortress_final_boss_think(event)
 			for i = 1, #GameState:GetPlayerPremiumStatusCount() + 1, 1 do
 				local luck = RandomInt(1, 50)
 				if luck == 1 then
-					RPCItems:RollRandomArcana(position)
+					RPCItems:RollRandomArcana(position, caster:GetRoshpitLevel())
 				end
 			end
 		end)
@@ -5913,11 +5912,11 @@ function ahn_khir_spirit_think(event)
 		Timers:CreateTimer(1.8, function()
 			EmitSoundOnLocationWithCaster(maskGroundPos, "Seafortress.Ahnqhir.MaskDrop", Events.GameMaster)
 			if luck == 1 then
-				RPCItems:RollTwistedMaskOfAhnqhirYellow(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_yellow_mask_of_ahnqhir")
 			elseif luck == 2 then
-				RPCItems:RollTwistedMaskOfAhnqhirPurple(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_purple_mask_of_ahnqhir")
 			elseif luck == 3 then
-				RPCItems:RollTwistedMaskOfAhnqhirBlue(maskGroundPos)
+				RPCItems:RollAndDropImmortalByLevel(maskGroundPos, 100, "item_rpc_twisted_blue_mask_of_ahnqhir")
 			end
 		end)
 	end
@@ -5927,7 +5926,7 @@ function saltwater_demon_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollLightSeersRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(unit, "item_rpc_templar_light_seers_robe")
 	end
 end
 
@@ -6038,7 +6037,7 @@ function shadow_of_bahamut_die(event)
 		drops = 3
 	end
 	for i = 1, drops, 1 do
-		RPCItems:RollBahamutArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_bahamut_arcana2")
 	end
 end
 
@@ -6276,7 +6275,7 @@ function dark_paladin_die(event)
 	EmitSoundOn("Seafortress.DarkPaladinDie", caster)
 	Seafortress.PaladinGolems = Seafortress.PaladinGolems + 1
 	if Seafortress.PaladinGolems == 4 then
-		RPCItems:RollPaladinArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_paladin_arcana2")
 	end
 end
 
@@ -6366,7 +6365,7 @@ end
 
 function ol_spiny_die(event)
 	local caster = event.caster
-	RPCItems:RollSlipfinnArcana1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_slipfinn_arcana1")
 	Events:smoothSizeChange(caster, 2.4, 0.03, 90)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", caster, 5)
 	EmitSoundOn("Seafortress.OlSpiny.Death", caster)
@@ -6653,6 +6652,7 @@ function beast_tyrant_die(event)
 	local caster = event.caster
 	ScreenShake(caster:GetAbsOrigin(), 500, 2, 2, 3000, 0, true)
 	EmitSoundOn("Seafortress.TyrantGhost.Die", caster)
+	local arcana_level = caster:GetRoshpitLevel()
 	Timers:CreateTimer(1.9, function()
 		local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 80
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
@@ -6688,7 +6688,7 @@ function beast_tyrant_die(event)
 						arcanas = 2
 					end
 					for i = 1, arcanas, 1 do
-						RPCItems:RollDuskbringerArcana2(position)
+						RPCItems:RollAndDropArcanaByLevel(position, arcana_level, "item_rpc_duskbringer_arcana2")
 					end
 				end)
 			end)

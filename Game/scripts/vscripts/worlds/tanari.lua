@@ -54,12 +54,53 @@ function Tanari:Debug()
     local position = Vector(-4928, 2048)
     RPCItems:DropItem(item, Vector(-4928, 2048))
 
-    Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
+    local item = RPCItems:RollRandomItem(5, 0)
+    RPCItems:BasicDropItem(Vector(-4928, 2048), item)
 
-    local helm = RPCItems:RollSamuraiHelmet(Vector(-4928, 2048), false)
-    Gems:AddSocket(helm)
-    Gems:AddSocket(helm)
-    Gems:SetSocket(helm, 1, "ruby", 1)
+
+    -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_aquastone_ring")
+    Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
+    RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
+
+    Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
+    Gems:DropSocketForger(Vector(-4928, 2048))
+    MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_blacksmiths_tablet")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_vermillion_dream_robes")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_tattered_novice_armor")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_harvester_boots")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_blacksmiths_tablet")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
+    local weapon = Weapons:RollWeapon(4, 80, nil)
+    RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), weapon)
+
+    -- Curator:CurateALLHeroes()
+    -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
+    -- body = Gems:AddSocket(body)
+    -- body = Gems:AddSocket(body)
+
+-- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), helm)
+    -- RPCItems:RollSonicBoots(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana1(Vector(-4928, 2048))
     -- RPCItems:RollDuskbringerArcana2(Vector(-4928, 2048))
     -- Glyphs:RollGlyphAll("item_rpc_duskbringer_glyph_7_1", Vector(-4928, 2048), 0)
@@ -71,13 +112,14 @@ function Tanari:Debug()
     -- Glyphs:DebugRollHeroGlyphs("omniro", Vector(-4928, 2048))
     -- -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
     -- -- RPCItems:RollArkimusArcana2(Vector(-4928, 2048))
-    local gloves = RPCItems:RollSkulldiggerGloves(Vector(-4928, 2048))
-    Gems:AddSocket(gloves)
+    -- Gems:AddSocket(gloves)
 
-    Gems:SetSocket(gloves, 1, "ruby", 5)
-    local slipper = RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
+    -- Gems:SetSocket(gloves, 1, "ruby", 5)
+    -- local slipper = RPCItems:RollIceFloeSlippers(Vector(-4928, 2048))
 
-    Gems:DropSocketForger(Vector(-4928, 2048))
+    
+
+    -- RPCItems:RollSoluniaArcana3(Vector(-4928, 2048))
     -- RPCItems:RollSlipfinnArcana1(Vector(-4928, 2048))
     -- RPCItems:RollAerithsTear(Vector(-4928, 2048))
 
@@ -453,7 +495,7 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF", 1, "#property_nobility_augmented_description")
 
     item.property2 = 150
-    local primaryAttribute = hero:GetPrimaryAttribute()
+    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
     if primaryAttribute == 0 then
         item.property2name = "strength"
         RPCItems:SetPropertyValues(item, item.property2, "#item_strength", "#CC0000", 2)
@@ -478,13 +520,21 @@ function Tanari:CreateAugmentedRingOfNobility(hero)
 end
 
 function Tanari:Debug2()
+    -- local hunter = Tanari:SpawnHeadhunter(MAIN_HERO_TABLE[1]:GetAbsOrigin())
+    -- local immo = RPCItems:RollRandomWorldImmortal(RPC_GEAR_SLOT_HEAD, 1)
+    -- Gems:AddSocket(immo)
+    -- Gems:AddSocket(immo)
+    -- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), immo)
     -- Stars:GetPlayerStars(MAIN_HERO_TABLE[1]:GetPlayerID())
     -- Stars:StarEventPlayer("power_up", MAIN_HERO_TABLE[1])
     -- Tanari.WindTemple = {}
     -- -- Tanari:SpiritWindTempleStart()
     -- -- Tanari:SpiritWindTempleRoom2()
     -- Tanari:SpiritWindTempleBossRoom()
-    Tanari:WitchDoctorCombine(MAIN_HERO_TABLE[1], 3)
+    -- Tanari:WitchDoctorCombine(MAIN_HERO_TABLE[1], 3)
+    -- Tanari:InitializeWindTemple()
+    -- local potion = RPCItems:RollRandomPotion(1)
+    -- RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), potion)
     -- Tanari:SpawnWaterSpirit(Vector(-9901, 16128), Vector(0,-1))
     -- Tanari:SpawnWaterSpiritRoom2()
     -- Tanari:SpiritWaterSection2()

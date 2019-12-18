@@ -64,7 +64,7 @@ function ancient_rain_start(event)
 	if ability.r_1_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_regen", {duration = duration})
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function ancient_rain_think(event)
@@ -82,15 +82,6 @@ function ancient_rain_think(event)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_LIGHTNING)
 			end
 		end
-	end
-	local armor_per_missing_health = event.armor_per_missing_health
-	local missingHealth = caster:GetHealth()
-	local armorBonus = math.floor(missingHealth * armor_per_missing_health / 200)
-	if armorBonus > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ancient_rain_armor", {})
-		caster:SetModifierStackCount("modifier_ancient_rain_armor", caster, armorBonus)
-	else
-		caster:RemoveModifierByName("modifier_ancient_rain_armor")
 	end
 end
 
@@ -121,7 +112,7 @@ function blazing_javelin_cast(event)
 	local caster = event.caster
 	local ability = event.ability
 	local point = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 	local perpVector = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 4)
 	local spellStartPoint = caster:GetAbsOrigin() + Vector(0, 0, 120) + perpVector * 80
@@ -144,13 +135,14 @@ function blazing_javelin_cast(event)
 			if i == procs then
 				ability:SetActivated(true)
 			end
-			local particle = "particles/econ/items/mirana/mirana_crescent_arrow/ruins_boss_linear.vpcf"
+			local particle = "particles/econ/items/mars/mars_ti9_immortal/mars_ti9_immortal_spear.vpcf"
 			local start_radius = 155
 			local end_radius = 155
 			local range = event.cast_range
 			local speed = 1200
 
-			EmitSoundOn("Hero_TrollWarlord.PreAttack", caster)
+			EmitSoundOn("SpiritWarrior.BlazingJavelin.ThrowBase", caster)
+			EmitSoundOn("SpiritWarrior.BlazingJavelin.ThrowBurn", caster)
 
 			local casterOrigin = caster:GetAbsOrigin()
 
@@ -305,7 +297,7 @@ function cast_ancient_spirit_elite(event)
 	-- end
 	-- end
 	ability.target = target
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_dashing", {duration = 3.4})
 	caster:RemoveModifierByName("modifier_spirit_warrior_glyph_effect")
 	ability.targetedSpirit = targetedSpirit

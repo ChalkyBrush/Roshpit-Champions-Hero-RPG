@@ -10,7 +10,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 
 		// Precache
 		//-------------------------------------------------------
@@ -28,7 +28,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"30 60 140 400 800 1400 2000"
+		"AbilityManaCost"				"10 30 80 220 400 600 800"
 
 		// Special
 		//-------------------------------------------------------
@@ -37,12 +37,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"30 60 90 120 150 180 210"
+				"damage_mult"			"<% DINATH_ARCANA_W_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"30 60 140 400 800 1400 2000"
+				"mana_cost"			"10 30 80 220 400 600 800"
 			}
 			"03"
 			{

@@ -1,5 +1,5 @@
 
-	"axe_arcana_smash"
+	"red_general_ability_arcana1_r_tectonic_sunder"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"BaseClass"	"ability_datadriven"
@@ -8,7 +8,7 @@
 		"AbilityCastPoint"	"0.0"
 		"AbilityCooldown"	"14.0"
 		"AbilityChannelTime"	"2.0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
 		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
@@ -48,8 +48,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"startChannel"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_startChannel"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -87,8 +87,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"successfullCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_successfullCast"
 				"target"		"POINT"
 				"forks"			"3"
 				"amp"			"1"
@@ -118,8 +118,8 @@
 
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/arcana1_r/r_tectonic_sunder.lua"
-				"Function"		"interruptCast"
+				"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+				"Function"		"red_general_ability_arcana1_r_interruptCast"
 				"target"		"POINT"
 			}
 
@@ -170,8 +170,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/axe/arcana_ability.lua"
-						"Function"		"axe_arcana_take_damage"
+						"ScriptFile"	"scripts/vscripts/heroes/axe/abilities/red_general_ability_arcana1_r_tectonic_sunder.lua"
+						"Function"		"red_general_ability_arcana1_r_take_damage"
 						"damage"		"%attack_damage"
 					}
 				}
@@ -186,7 +186,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% RED_GENERAL_ARCANA1_R2_BONUS_DAMAGE %>"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 			"modifier_prevent_turning_invisible"
@@ -200,13 +200,20 @@
 			"modifier_axe_rune_r_3_arcana1_invisible"
 			{
 			    "IsDebuff"  "1"
-			    "IsStunDebuff"  "1"
 				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_axe_rune_r_3_arcana1_visible"
 			{
 			    "IsDebuff"  "1"
-			    "IsStunDebuff"  "1"
 				"IsHidden"	"0"
 				"TextureName"	"axe/axe_rune_r_3_arcana1"
 			}
@@ -217,7 +224,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"600 1000 1400 1800 2200 2600 3000"
+				"attack_power_mult_percent"			"60 80 100 140 180 240 300"
 			}
 			"02"
 			{

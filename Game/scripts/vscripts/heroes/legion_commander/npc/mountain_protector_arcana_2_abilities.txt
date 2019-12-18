@@ -15,7 +15,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"5400 18000 45000 110000 240000 540000 900000"
+		"AbilityDamage"				"300 470 640 810 980 1150 1320"
 		"precache"
 		{
 
@@ -188,11 +188,19 @@
 					}
 				}
 			}
-			"modifier_hailstorm_enemy_amp"
+			"modifier_hailstorm_armor_and_magic_armor_loss"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_hailstorm_aura_effect"
 			{
@@ -284,8 +292,8 @@
 			}
 			"02"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_from_strength"	"100 150 200 250 300 350 400"
+				"var_type"	"FIELD_FLOAT"
+				"damage_from_strength"	"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
 			}
 			"03"
 			{

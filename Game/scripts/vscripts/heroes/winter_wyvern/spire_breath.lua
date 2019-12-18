@@ -21,7 +21,7 @@ function spire_toggle_on(event)
 	local speedStacks = w_3_level * DINATH_ARCANA_W3_MOVESPEED_BONUS
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function spire_toggle_off(event)
@@ -44,7 +44,7 @@ function spire_toggle_off(event)
 	local speedStacks = w_3_level * DINATH_ARCANA_W3_MOVESPEED_BONUS
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spire_breath_speed_burst", {duration = speedStacks * 0.03})
 	caster:SetModifierStackCount("modifier_spire_breath_speed_burst", caster, speedStacks)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function spire_on_mana_drain(event)
@@ -73,10 +73,10 @@ function spire_breath_attack_land(event)
 	end
 	local ability = event.ability
 	EmitSoundOn("Dinath.DragonAttack", target)
-	Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_DRAGON, RPC_ELEMENT_ICE)
+	Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_DRAGON, RPC_ELEMENT_ICE)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/dinath/breath_impact_manaburn_basher_ti_5_gold.vpcf", target, 1)
 	if attacker:HasModifier("modifier_dinath_immortal_weapon_2") then
-		local weapon = attacker.weapon
+		local weapon = attacker.equipped_gear[RPC_GEAR_SLOT_WEAPON]
 		weapon:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_vitali_shield", {duration = 10})
 	end
 	-- EmitSoundOn("Dinath.BreathImpact", target)

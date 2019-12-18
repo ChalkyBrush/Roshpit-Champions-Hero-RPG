@@ -8,13 +8,18 @@ function class:OnCreated()
     self:SetSpecialTypes({
         MODIFIER_SPECIAL_TYPE_EXTRA_POSTMITIGATION,
     })
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
 end
+
+function class:OnDestroy()
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
+end
+
 function class:IsDebuff()
     return true
 end
 function class:GetExtraPostmitigationAmplify(data)
-    local caster = self:GetCaster()
-    return caster.q1_level * CHERNOBOG_Q1_EXTRA_POSTMIT_PCT/100
+    return 0
 end
 function class:GetTexture()
     return 'chernobog/chernobog_rune_q_1'

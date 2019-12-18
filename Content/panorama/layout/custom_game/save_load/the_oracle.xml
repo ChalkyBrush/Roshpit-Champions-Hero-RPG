@@ -13,6 +13,7 @@
 				<Panel class="keys_row" id="keys_row1" hittest="true"/>
 				<Panel class="keys_row" id="keys_row2" hittest="true"/>
 				<Panel class="keys_row" id="keys_row3" hittest="true"/>
+				<Panel class="keys_row" id="keys_row4" hittest="true"/>
 <!-- 				<Panel class="keys_row" id="keys_row4" hittest="true"/> -->
 
 				<Label id="key_deposit_slot_text" text="key_deposit" hittest="false"/>

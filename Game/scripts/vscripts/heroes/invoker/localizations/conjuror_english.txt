@@ -80,11 +80,9 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"EXPLOSION RADIUS:"
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] Permanent Immolation"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies. Damage dealt by the aspect's immolation permanently increases his max health. Max 200 million health."
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"Your flame aspect deals constant damage to all nearby enemies."
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"DPS"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_two"				"Max Health Gained"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix_two"					"% of permanent immolation's damage"
 		
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation"				"Permanent Immolation"
 		"DOTA_Tooltip_ability_conjuror_fire_aspect_immolation_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Burns and deals damage to nearby enemies"
@@ -139,7 +137,7 @@
 		"DOTA_Tooltip_ability_shadow_gate_radius"							"RADIUS:"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_1"							"[E1] Soul of Shadow"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max 20 stacks and lasts 16 seconds."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_1_Description"				"When your Shadow Aspect lands an attack, Conjuror, Shadow Aspect and Fire aspect gain increased attack damage. Conjuror also gains additional agility. Max <% CONJUROR_E1_MAX_STACKS %> stacks and lasts 16 seconds."
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_one"				"Attack Damage Bonus Per Stack"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_property_two"				"Agility Bonus Per Stack"
@@ -156,7 +154,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_suffix_two"					"x Agility"
 		
 		"DOTA_Tooltip_ability_conjuror_rune_e_3"							"[E3] Dark Ranger"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Your Shadow Aspect's damage is increased by the total of your Strength, Agility, and Intelligence. Additionally increases shadow aspect attack range."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_Description"				"Your Shadow Aspect's damage is increased by the total of your Strength, Agility, Intelligence and Spirit. Additionally increases shadow aspect attack range."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_one"				"Stats added to Shadow Aspect damage"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_property_two"				"Aspect Attack Range"
@@ -284,7 +282,7 @@
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_health"			"HEALTH:"
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_damage"			"DAMAGE:"
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_fire_arcana_ability"							"Flame Laser"
     	"DOTA_Tooltip_ability_fire_arcana_ability_Description"				"Element: <font color=\"#EF4126\">Fire</font><br>A blazing superheated laser travels towards the target unit. If the target is an ally, the ally is healed and receives a buff that increases attack speed and deals pure fire damage on attack land. Enemies instead take pure fire damage. Any ally or enemy in the beam's path is also affected, not just the primary target."
@@ -338,7 +336,7 @@
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"HEALTH:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"Sandstorm"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"Element: <font color=\"#AF843D\">Earth</font><br>The Earth Deity stands in place and whips up a violent sand storm. Enemies in the sandstorm have their movement speed and attack slowed, and have a chance to miss with their attacks. Drains mana and deals damage every 0.25 seconds and toggles off if mana runs out."
@@ -409,7 +407,7 @@
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"HEALTH:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"ATTACK DAMAGE:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"MAGIC RESIST:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"MAGIC ARMOR:"
 
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"Cloak of Shadows"
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"An umbral wave cloaks the shadow aspect and his allies, giving them unbreakable invisibility."
@@ -448,7 +446,7 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
 
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] Prismatic Void"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"Increases <font color=\"#7F4F84\">Shadow</font> damage. All agility from rolls on Gear is enhanced."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"Increases <font color=\"#7F4F84\">Shadow</font> damage. All Agility from rolls on Gear is enhanced."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"Shadow Amplification"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"Agility Enhanced from Gear Rolls"
@@ -461,32 +459,32 @@
 
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"Glyph of Blazing Fire"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_1_1"		"[T1-1] Glyph of Blazing Fire"
 		"item_rpc_conjuror_glyph_1_1_description" 				"Your Fire Aspect has <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_AS %> extra attack speed and <% CONJUROR_GLYPH_1_1_FIRE_ASPECT_BONUS_ATTACK_DMG_PCT %>% increased attack damage."
 		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect"				"Glyph of Blazing Fire"
 		"DOTA_Tooltip_modifier_conjuror_glyph_1_1_effect_Description"	"Attack speed and bonus attack damage increased."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"Glyph of Conjuring"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_2_1"		"[T2-1] Glyph of Conjuring"
 		"item_rpc_conjuror_glyph_2_1_description" 				"Increases the Max Health of all Aspects by <% CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT %>%"
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"Glyph of Encroaching Shadow"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_3_1"		"[T3-1] Glyph of Encroaching Shadow"
 		"item_rpc_conjuror_glyph_3_1_description" 				"Shadow Gate has a <% CONJUROR_GLYPH_3_1_E_CD_DURING_R %> second cooldown while Call of Shadow is active."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"Glyph of Distant Shadows"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_4_1"		"[T4-1] Glyph of Distant Shadows"
 		"item_rpc_conjuror_glyph_4_1_description" 				"Increases the Attack Range of your Shadow Aspect by <% CONJUROR_GLYPH_4_1_SHADOW_ASPECT_BONUS_ATTACK_RANGE %>."
 		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect"		"Glyph of Distant Shadows"
 		"DOTA_Tooltip_modifier_conjuror_glyph_4_1_effect_Description"	"Attack range insreased."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"Glyph of Trembling Earth"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_1"		"[T5-1] Glyph of Trembling Earth"
 		"item_rpc_conjuror_glyph_5_1_description" 				"@Ability1 radius is increased by <% CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS %>, and the duration of free-casting is increased by <% CONJUROR_GLYPH_5_1_FREE_CAST_DURATION_INCREASE %> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"Glyph of Flamethrower"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_6_1"		"[T6-1] Glyph of Flamethrower"
 		"item_rpc_conjuror_glyph_6_1_description" 				"Your Fire Aspect spits a cone of fire every time he lands a critical hit, dealing <% CONJUROR_GLYPH_6_1_CRIT %>x the crit damage to all damaged targets."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"Glyph of Immortal Earth"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_7_1"		"[T7-1] Glyph of Immortal Earth"
 		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
 
-		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"Glyph of Summoning"
+		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"[T5-a] Glyph of Summoning"
 		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% for Conjuror and his Summons."
 		
 		//Weapons

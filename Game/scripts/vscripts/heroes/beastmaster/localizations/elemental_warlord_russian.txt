@@ -1,13 +1,13 @@
 		"tooltip_warlord_q_abilities"									"Stone Form, Ice Shell и Flame Rush"
 
     	"DOTA_Tooltip_modifier_warlord_earth_charge"					"Earth Charge"
-    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Каждый заряд Земли увеличивает урон стихии Земли на 6%. Все накопленные заряды Земли высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_earth_charge_Description"		"Каждый заряд Земли увеличивает урон стихии Земли на <% WARLORD_EARTH_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Земли высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_modifier_warlord_ice_charge"						"Ice Charge"
-    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Каждый заряд Льда увеличивает урон стихии Льда на 6%. Все накопленные заряды Льда высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_ice_charge_Description"			"Каждый заряд Льда увеличивает урон стихии Льда на <% WARLORD_ICE_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Льда высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_modifier_warlord_fire_charge"						"Fire Charge"
-    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Каждый заряд Огня увеличивает урон стихии Огня на 6%. Все накопленные заряды Огня высвобождаются при прочтении (R) Elemental Overload"
+    	"DOTA_Tooltip_modifier_warlord_fire_charge_Description"			"Каждый заряд Огня увеличивает урон стихии Огня на <% WARLORD_FIRE_CHARGE_ELEMENT_BONUS_PCT %>%%. Все накопленные заряды Огня высвобождаются при прочтении (R) Elemental Overload"
 
     	"DOTA_Tooltip_ability_warlord_stone_form"						"Stone Form"
     	"DOTA_Tooltip_ability_warlord_stone_form_Description"			"Кожа Elemental Warlord превращается в камень, снимая и отталкивая все отрицательные магические эффекты ценой пониженной скорости передвижения."
@@ -18,14 +18,10 @@
     	"DOTA_Tooltip_modifier_warlord_stone_form_Description"			"Невосприимчив к магии, скорость передвижения снижена"	
     	
     	"DOTA_Tooltip_ability_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает магический и чистый урон несколько раз."
+    	"DOTA_Tooltip_ability_warlord_ice_shell_Description"			"Elemental Warlord укрывает себя ледяным щитом, который полностью поглощает чистый урон несколько раз."
     	"DOTA_Tooltip_ability_warlord_ice_shell_duration"				"ДЛИТЕЛЬНОСТЬ:"
-    	"DOTA_Tooltip_ability_warlord_ice_shell_magic_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ МАГИЧЕСКОГО УРОНА:"
 		"DOTA_Tooltip_ability_warlord_ice_shell_pure_instances_absorbed"	"ЗАРЯДОВ ПОГЛОЩЕНИЯ ЧИСТОГО УРОНА:"
 		
-
-    	"DOTA_Tooltip_modifier_warlord_ice_shell"						"Ice Shell"
-    	"DOTA_Tooltip_modifier_warlord_ice_shell_Description"			"Поглощение магического урона"
 		"DOTA_Tooltip_modifier_warlord_ice_shell_pure"						"Ice Shell"
     	"DOTA_Tooltip_modifier_warlord_ice_shell_pure_Description"			"Поглощение чистого урона"
 
@@ -59,15 +55,15 @@
     	"DOTA_Tooltip_modifier_earth_buff_Description"			"Восстанавливает здоровье"
 
 		"DOTA_Tooltip_ability_warlord_rune_q_2"							"[Q2] Enchanted Ice"
-    	"DOTA_Tooltip_ability_warlord_rune_q_2_Description"				"Пока активен щит Льда, Elemental Warlord получает дополнительную броню, равную % от текущей брони героя, умноженного на время, в течении которого щит льда активен."
-    	"DOTA_Tooltip_ability_warlord_rune_q_2_property_one"			"Доп. броня"
-    	"DOTA_Tooltip_ability_warlord_rune_q_2_suffix"					"% от значения брони героя на момент активации"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_Description"				"Пока активен щит Льда, Elemental Warlord получает дополнительную броню."
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_property_one"			"Броня"
+    	"DOTA_Tooltip_ability_warlord_rune_q_2_suffix"					" на время действия щита"
 
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible"				"Enchanted Ice"
     	"DOTA_Tooltip_modifier_warlord_rune_q_2_visible_Description"	"Броня увеличена"
 		
 		"DOTA_Tooltip_ability_warlord_rune_q_3"							"[Q3] Wrath of Fire"
-    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели. Длительность - 12 секунд."
+    	"DOTA_Tooltip_ability_warlord_rune_q_3_Description"				"Атаки во время (Q) Flame Rush дополнительно накладывают на врагов складывающийся дебафф, который снижает броню цели. Длительность - <% WARLORD_Q3_DUR_BASE %> секунд."
     	"DOTA_Tooltip_ability_warlord_rune_q_3_property_one"			"Снижение брони"
     	"DOTA_Tooltip_ability_warlord_rune_q_3_suffix"					" за заряд"
 
@@ -127,11 +123,9 @@
     	"DOTA_Tooltip_ability_warlord_rune_w_1_suffix_two"				" сек."
 		
 		"DOTA_Tooltip_ability_warlord_rune_w_2"							"[W2] Frozen Steel"
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Враги, замедленные первым топором Льда, со вторым попаданием будут полностью заморожены и оглушены. Замороженные враги получают увеличенный физический и магический урон из всех источников. После оттаивания враги получают невосприимчивость к заморозке на 4 секунды."
+    	"DOTA_Tooltip_ability_warlord_rune_w_2_Description"				"Враги, замедленные первым топором Льда, со вторым попаданием будут полностью заморожены и оглушены. После оттаивания враги получают невосприимчивость к заморозке на 4 секунды."
     	"DOTA_Tooltip_ability_warlord_rune_w_2_property_one"			"Длительность заморозки"
     	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix"					""
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_property_two"			"Усиление физического и магического урона по замороженным врагам"
-    	"DOTA_Tooltip_ability_warlord_rune_w_2_suffix_two"				"%"
 
 		"DOTA_Tooltip_ability_warlord_rune_w_3"							"[W3] Fiery Warfare"
     	"DOTA_Tooltip_ability_warlord_rune_w_3_Description"				"Увеличивает радиус взрыва брошенного топора Огня, дополнительно добавляет % от урона героя к брошенному топору."
@@ -177,16 +171,14 @@
 		"DOTA_Tooltip_ability_elemental_overload_damage"					"УРОН/СЕК:" 
 
 		"DOTA_Tooltip_ability_warlord_rune_e_1"							"[E1] Rumbling Earth"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Позволяет герою накапливать больше зарядов Земли. Каждый активный заряд Земли увеличивает броню."
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Доп. зарядов Земли"
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_Description"				"Каждый заряд Земли обеспечивает дополнительную Магическую Защиту."
+    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_one"			"Магическая Защита"
     	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix"					""
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_property_two"			"Доп. брони за заряд Земли"
-    	"DOTA_Tooltip_ability_warlord_rune_e_1_suffix_two"				""
-
+		
 		"DOTA_Tooltip_ability_warlord_rune_e_2"							"[E2] Ice Floe"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Во время действия (E) Arctic Scrint герой восстанавливает ману каждые 0.1 секунды. Топоры, брошенные во время способности наносят увеличенный урон."
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_Description"				"Во время действия (E) Arctic Scrint герой восстанавливает ману каждые <% WARLORD_E2_INTERVAL_BASE %> секунды. Топоры, брошенные во время способности наносят увеличенный урон."
     	"DOTA_Tooltip_ability_warlord_rune_e_2_property_one"			"Восстановление маны"
-    	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" каждые 0.1 секунды"
+    	"DOTA_Tooltip_ability_warlord_rune_e_2_suffix"					" каждые <% WARLORD_E2_INTERVAL_BASE %> секунды"
 		"DOTA_Tooltip_ability_warlord_rune_e_2_property_two"            "Дополнительный урон"
         "DOTA_Tooltip_ability_warlord_rune_e_2_suffix_two"               "% во время Arctic Sprint"
 		
@@ -198,9 +190,9 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_3_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_warlord_rune_e_4"							"[E4] Elemental Thunder"
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Значения атрибутов Warlord увеличивают стихийный урон <font color=\"#EF4126\">Огня</font>,  <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font>."
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_Description"				"Пассивное увеличение усиления элементов <font color=\"#EF4126\">Огня</font>,  <font color=\"#AF843D\">Земли</font> и <font color=\"#87D9FF\">Льда</font>."
     	"DOTA_Tooltip_ability_warlord_rune_e_4_property_one"			"Увеличение стихийного урона Огня, Земли и Льда на "
-    	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"% за каждые 10 очков атрибутов."
+    	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
 		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на 90%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
@@ -216,19 +208,19 @@
 		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Входящий урон снижен на 90%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Каждую секунду в течении 8 секунд восстанавливает здоровье в размере % от значения регенерации здоровья на момент прочтения (R) Elemental Overload. Дополнительно на время действия в радиусе 1000 все ближайшие враги будут получать магический урон, равный урону героя."
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Каждую секунду в течении 8 секунд восстанавливает здоровье в размере % от значения регенерации здоровья на момент прочтения (R) Elemental Overload. Дополнительно на время действия в радиусе 1000 все ближайшие враги будут получать урон."
     	"DOTA_Tooltip_ability_warlord_rune_r_1_property_one"			"% от значения регенерации здоровья"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_warlord_rune_r_1_property_two"			"Урон по области"
-    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				"% от урона героя за заряд"
+    	"DOTA_Tooltip_ability_warlord_rune_r_1_suffix_two"				" за затраченный заряд Земли"
 
     	"DOTA_Tooltip_modifier_warlord_rune_r_1"						"Earthen Overload"
     	"DOTA_Tooltip_modifier_warlord_rune_r_1_Description"			"Ежесекундно восстанавливает здоровье и наносит урон ближайшим врагам"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_2"							"[R2] Crippling Ice"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"Враги, замороженные с помощью (R) Elemental Overload получают увеличенный пост-резистный урон от Elemental Warlord на 8 секунд."
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"Увеличение пост-резистного урона"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_Description"				"Враги, замороженные с помощью (R) Elemental Overload на 8 секунд потеряют часть Магической Брони."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_property_one"			"Снижение Магической Брони"
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_suffix"					""
 
     	"DOTA_Tooltip_modifier_warlord_b_d_effect"						"Crippling Ice"
     	"DOTA_Tooltip_modifier_warlord_b_d_effect_Description"			"Сопротивление магии уменьшено"	
@@ -339,9 +331,9 @@
         "DOTA_Tooltip_ability_warlord_flame_wreck_ms_cap"              "БОНУС ЛИМИТА СКОРОСТИ:"
 
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2"                     "[Q1] Mountain Breaker"
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Герой наносит усиленный пост-резистный урон по противникам, которые оглушены или заморожены."
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Пост-резистное усиление"
-        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              "% против оглушенных/замороженных"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_Description"         "Герой увеличивает значения Физического и Магического Пробития."
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_property_one"        "Усиление Пробитий"
+        "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <% WARLORD_ARCANA2_Q2_DAMAGE_REDUCTION_PCT %>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
@@ -364,44 +356,44 @@
         "DOTA_Tooltip_modifier_flame_wreck_q3_atk_power_Description"        "Бонусная атака и скорость атаки увеличена"
 
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2"                     "[Q4] Dragon Wrath"
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Пассивно увеличивает все атрибуты. Атрибуты увеличивают урон элемента<font color=\"#3289C7\">Дракон</font>."
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_Description"         "Пассивно увеличивает все атрибуты и урон элемента <font color=\"#3289C7\">Дракон</font>."
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_one"        "Бонус Атрибутов"
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix"              ""
         "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_property_two"        "Бонус урона элемента"
-        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "% за 10 очков атрибутов"
+        "DOTA_Tooltip_ability_warlord_rune_q_4_arcana2_suffix_two"          "%"
 
 
 
 		//Glyphs
 		
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"(T1) Glyph of Versatility"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_1_1"		"[T1-1] Glyph of Versatility"
 		"item_rpc_warlord_glyph_1_1_description" 				"(E) Earth Slam, Arctic Sprint, и Firedrop после прочтения меняют текущий элемент."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"(T2) Glyph of Chromatic Axes"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_2_1"		"[T2-1] Glyph of Chromatic Axes"
 		"item_rpc_warlord_glyph_2_1_description" 				"При успешной атаке, герой получает по 1 заряду Земли, Льда и Огня."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"(T3) Glyph of Roaming Stone"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_3_1"		"[T3-1] Glyph of Roaming Stone"
 		"item_rpc_warlord_glyph_3_1_description" 				"Убирает замедляющий эффект в (Q) Stoneform"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"(T4) Glyph of Ambush"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_4_1"		"[T4-1] Glyph of Ambush"
 		"item_rpc_warlord_glyph_4_1_description" 				"Попадая по врагу брошенным топором, герой прыгает к нему, нанося @glyph_property1 кратный критический урон. Перезаряжается @glyph_property2 сек."
 
 		"DOTA_Tooltip_modifier_beastmaster_glyph_4_1_cooldown"	"Ambush Cooldown"
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"(T5) Glyph of Savage Combat"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_1"		"[T5-1] Glyph of Savage Combat"
 		"item_rpc_warlord_glyph_5_1_description" 				"Каждый убитый враг увеличивает основной урон на <% WARLORD_GLYPH_5_1_BONUS_ATTACK_DMG_PER_KILL %>%, складывается до <% WARLORD_GLYPH_5_1_MAX_STACKS %> раз. Длится <% WARLORD_GLYPH_5_1_DURATION %> сек. Обновляется при убийстве."
 
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect"		"Savage Combat"
 		"DOTA_Tooltip_modifier_warlord_glyph_5_1_effect_Description"	"Убивая врагов, основной урон увеличивается."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"(T6) Glyph of Elemental Capacity"
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_6_1"		"[T6-1] Glyph of Elemental Capacity"
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <% WARLORD_GLYPH_6_1_ADDITIONAL_CHARGES %>."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"(T7) Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>."
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
+		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_PCT %>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <% WARLORD_GLYPH_7_1_MAGICAL_SPLASH_AOE %>. Считается Уроном Предметов."
 
-		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"(Immortal) Glyph of Thermogenesis"
-		"item_rpc_warlord_glyph_5_a_description" 				"При получении урона герой получает <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> зарядов Огня. Каждый заряд Льда увеличивает пост-резистный исходящий урон на <% WARLORD_GLYPH_5_A_POST_MITI_PER_ICE_CHARGE_PCT %>%."
+		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
+		"item_rpc_warlord_glyph_5_a_description" 				"Получаемый урон конвертируется в <% WARLORD_GLYPH_5_A_FIRE_CHARGES_PER_DMG_TAKEN %> Заряд(а) Огня. Каждый Заряд Льда увеличивает Пробитие Магической Брони на <% WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE %>."
 
 		//Weapons
 		"warlord_weapon_01"			"Mighty Axes"

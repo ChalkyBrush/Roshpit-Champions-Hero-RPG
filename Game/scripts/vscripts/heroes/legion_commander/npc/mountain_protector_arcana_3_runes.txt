@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E1_BAD_PER_MISSING_1000HP_PERCENT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP %>"
 			}
 		}
 	}
@@ -36,7 +36,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E2_STR_TO_ABILITIES_DAMAGE %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E2_STR %>"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E2_AGI %>"
 			}
 		}
 	}
@@ -78,7 +83,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E4_THRESHOLD_INCREASE_PERCENT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA3_E4_EXTRA_MAGIC_ARMOR_REDUCE_WHEN_HP_HIGHER %>"
 			}
 		}
 	}

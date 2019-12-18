@@ -18,7 +18,7 @@ function begin_genesis_orb(event)
 		end
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_rune_w_3_visible", {})
 		local currentStacks = caster:GetModifierStackCount("modifier_epoch_rune_w_3_visible", caster)
-		local newStacks = math.min(currentStacks + stackIncrease, 10)
+		local newStacks = math.min(currentStacks + stackIncrease, EPOCH_W3_MAX_STACKS)
 		caster:SetModifierStackCount("modifier_epoch_rune_w_3_visible", caster, newStacks)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_epoch_rune_w_3_invisible", {})
@@ -35,7 +35,7 @@ function begin_genesis_orb(event)
 	end
 
 	EmitSoundOn("Epoch.GenesisOrb", caster)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function fireGenesisOrb(ability, origin, range, fv, speed, caster)

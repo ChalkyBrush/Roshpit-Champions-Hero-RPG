@@ -22,22 +22,49 @@ end
 function class:HasRuneSlots()
     return true
 end
-function class:RollProperty1(maxFactor)
+function class:RollProperty1(item_level)
     self.newItemTable.property1 = 1
-    self.newItemTable.property1name = "armor_of_atlantis"
-    self:SetSpecialValue(self.newItemTable.property1name, "#478EC1")
+    self.newItemTable.property1name = "!immortal!_modifier_armor_of_atlantis"
+    self:SetSpecialValue("armor_of_atlantis", "#478EC1")
 end
-function class:RollProperty2(maxFactor)
-    local value, nameLevel = RPCItems:RollAttribute(0, 4, 16, 0, 0, self.newItemTable.rarity, false, maxFactor * 18)
-    self.newItemTable.property2 = value
-    self.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(self, self.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
+function class:RollProperty2(item_level)
+     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "all_attributes", 1)
+end
+
+function class:RollArmor(item_level)
+    RPCItems:GrantItemBaseArmor(self, item_level, 3)
+end
+function class:RollMagicArmor(item_level)
+    RPCItems:GrantItemBaseMagicArmor(self, item_level, 0)
+end
+
+function modifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+    }
+    return funcs
+end
+
+function modifierClass:GetModifierBaseAttack_BonusDamage()
+    local hero = self:GetCaster()
+    if IsServer() then
+        if self:GetAbility():GetGemValue("sapphire") > 0 then
+            local missing_health = hero:GetMaxHealth() - hero:GetHealth()
+            return missing_health* self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_SAPPHIRE)
+        else
+            return 0
+        end
+    end
 end
 
 function modifierClass:GetDamageReduction()
     local hero = self:GetCaster()
     local missingHealthPercent = math.floor((1 - hero:GetHealth() / hero:GetMaxHealth()) * 100)
-    return math.min(ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT * missingHealthPercent, ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
+    local damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT
+    if IsServer() then
+        damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_RUBY)
+    end
+    return math.min(damage_reduction_per_missing_health_pct * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
 end
 
 function modifierClass:IsHidden()

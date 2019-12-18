@@ -3,9 +3,12 @@ if Gems == nil then
 end
 
 Gems.BaseRewardDifficultyMult = {}
-Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 1
-Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 2
-Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 4
+Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 2
+Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 4
+Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 6
+
+Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
+Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}
 
 function Gems:GemForgerPossibleSpawnEvent(event_name)
 	if Gems.GemForgerSpawned then
@@ -18,7 +21,7 @@ function Gems:GemForgerPossibleSpawnEvent(event_name)
 				Gems.TanariGemForgerKills = 0
 			end
 			Gems.TanariGemForgerKills = Gems.TanariGemForgerKills + 1
-			local luck = RandomInt(1, 6 - Gems.TanariGemForgerKills)
+			local luck = RandomInt(1, 4 - Gems.TanariGemForgerKills)
 			if luck == 1 then
 				spawn_args = Gems:GetRewardAndSpawnPositionByEventName(event_name)
 			end
@@ -51,63 +54,63 @@ function Gems:GetRewardAndSpawnPositionByEventName(event_name)
 	local spawn_args = {}
 	if event_name == "wind_temple_boss" then
 		spawn_args["position"] = Vector(7520, 9024)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 6
 	elseif event_name == "water_temple_boss" then
 		spawn_args["position"] = Vector(-3834, 11554)
-		spawn_args["fv"] = Vector(Vector(0,-1))
+		spawn_args["fv"] = Vector(0,-1)
 		spawn_args["reward"] = 6
 	elseif event_name == "flame_worshipper_kolthun" then
 		spawn_args["position"] = Vector(6272, -8384)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 7	
 	elseif event_name == "fire_temple_spirit_boss" then
 		spawn_args["position"] = Vector(-15040, -3904)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 9		
 	elseif event_name == "water_temple_spirit_boss" then
 		spawn_args["position"] = Vector(14400, -2432)
-		spawn_args["fv"] = Vector(Vector(-1,1))
+		spawn_args["fv"] = Vector(-1,1)
 		spawn_args["reward"] = 9	
 	elseif event_name == "wind_temple_spirit_boss" then
 		spawn_args["position"] = Vector(11200, 2880)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 9	
 	elseif event_name == "tanari_ancient_hero" then
 		spawn_args["position"] = Vector(3520, -1856)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 12
 	elseif event_name == "redfall_crimsyth_castle_boss" then
 		spawn_args["position"] = Vector(-960, 4096)
-		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["fv"] = Vector(1,-1)
 		spawn_args["reward"] = 10
 	elseif event_name == "redfall_shipyard_boss" then
 		spawn_args["position"] = Vector(14606, 11392)
-		spawn_args["fv"] = Vector(Vector(0,-1))
+		spawn_args["fv"] = Vector(0,-1)
 		spawn_args["reward"] = 8
 	elseif event_name == "redfall_canyon_boss" then
 		spawn_args["position"] = Vector(-14874, 12864)
-		spawn_args["fv"] = Vector(Vector(1,0))
+		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 7
 	elseif event_name ==  "redfall_ancient_tree" then
 		spawn_args["position"] = Vector(-12736, -12288)
-		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["fv"] = Vector(1,-1)
 		spawn_args["reward"] = 12	
 	elseif event_name == "winterblight_cavern_boss_tiamat" then	
 		spawn_args["position"] = Vector(-8832, 6016)
-		spawn_args["fv"] = Vector(Vector(1,1))
+		spawn_args["fv"] = Vector(1,1)
 		spawn_args["reward"] = 12	
 	elseif event_name == "azalea_boss" then	
 		spawn_args["position"] = Vector(-640, -14336)
-		spawn_args["fv"] = Vector(Vector(1,-1))
+		spawn_args["fv"] = Vector(1,-1)
 		spawn_args["reward"] = 12	
 	elseif event_name == "arena_pit_of_trials_final_boss" then	
 		spawn_args["position"] = Vector(3904, -13248)
-		spawn_args["fv"] = Vector(Vector(0.3,-1))
+		spawn_args["fv"] = Vector(0.3,-1)
 		spawn_args["reward"] = 13	
 	elseif event_name == "seafortress_final_boss" then	
 		spawn_args["position"] = Vector(-12154, 11310)
-		spawn_args["fv"] = Vector(Vector(0.5,-0.5))
+		spawn_args["fv"] = Vector(0.5,-0.5)
 		spawn_args["reward"] = 14
 	end
 	return spawn_args
@@ -122,13 +125,17 @@ function Gems:AddSocket(item)
 			item.newItemTable.socket1 = "open"
 			item.newItemTable.socket1value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
-			return true
+			return item
 		elseif not item.newItemTable.socket2 then
 			item.newItemTable.socket2 = "open"
 			item.newItemTable.socket2value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
-			return true
+			return item
+		else
+			return item
 		end
+	else
+		return item
 	end
 end
 
@@ -151,7 +158,7 @@ function Gems:CanItemBeSocketed(item)
 	else
 		allowed = false
 	end
-	if item.newItemTable.rarity == "immortal" then
+	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
 		allowed = false
 	end
@@ -249,7 +256,12 @@ function Gems:DropSocketForger(position)
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	RPCItems:ItemUpdateCustomNetTables(item)
-	RPCItems:BasicDropItem(position, item)
+	if position then
+		RPCItems:BasicDropItem(position, item)
+		return item
+	else
+		return item
+	end
 end
 
 function Gems:PanoramaInput(msg)
@@ -342,7 +354,7 @@ function Gems:CanItemProceedToGemMenu(item)
 	else
 		allowed = false
 	end
-	if item.newItemTable.rarity == "immortal" then
+	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
 		allowed = false
 	end
@@ -364,15 +376,19 @@ function Gems:CanItemTakeGems(item)
 	end
 end
 
-function Gems:IsValidGemInput(item, socket_number, gem, gem_level)
-	return true
+function Gems:IsValidGemInput(item, socket_number, gem, gem_level, item)
+	if item.newItemTable.minLevel >= Gems.ITEM_MIN_LEVEL_PER_GEM[gem_level] then
+		return true
+	else
+		return false
+	end
 end
 
 function Gems:InsertGem(msg)
 	local item = EntIndexToHScript(msg.item)
 	local playerID = msg.PlayerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
-	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level) then
+	if Gems:CanItemTakeGems(item) and Gems:IsValidGemInput(item, msg.socket_number, msg.gem, msg.gem_level, item) then
 		if Gems:CanPlayerAffordGem(playerID, msg.socket_number, msg.gem, msg.gem_level, item) then
 			local cost = Gems:GetCostFromItem(msg.gem_level, item, msg.gem, msg.socket_number)
 			Gems:SetSocket(item, msg.socket_number, msg.gem, msg.gem_level, item)
@@ -386,6 +402,9 @@ function Gems:InsertGem(msg)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
 			Gems:ModifyPrismaticGemstones(playerID, cost, "forge_gem", "subtract")
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
+				hero:EquipItem(item, true)
+			end
 		end
 	end
 end
@@ -402,12 +421,12 @@ function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	if not current_level then
 		current_level = 0
 	end
-	local cost = Gems:GetGemCost(current_level, desired_level, gem)
+	local cost = Gems:GetGemCost(current_level, desired_level, gem, item.newItemTable.rarityFactor)
 	return cost
 end
 
-function Gems:GetGemCost(current_level, desired_level, gem)
-	gems_cost = {0, 30, 150, 750, 3750, 18750}
+function Gems:GetGemCost(current_level, desired_level, gem, item_rarity)
+	gems_cost = Gems.GEMS_COST
 	local cost = 0
 	if desired_level <= current_level then
 		cost = 0
@@ -415,6 +434,9 @@ function Gems:GetGemCost(current_level, desired_level, gem)
 		for i = current_level+1, desired_level, 1 do
 			cost = cost + gems_cost[i+1]
 		end
+	end
+	if item_rarity < RPC_ITEMS_RARITY_IMMORTAL then
+		cost = cost/5
 	end
 	return cost
 end
@@ -447,4 +469,64 @@ function Gems:UseUnrefinedGemstonesItem(event)
 	local caster = event.caster
 	local gemstones = event.ability
 	local gemstone_value = gemstones.newItemTable.property1
+end
+
+function CDOTABaseAbility:GetGemValue(gem_type)
+	local item = self
+	if not item.newItemTable then
+		return 0
+	end
+	local value = 0
+	if item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			value = item.newItemTable.socket1value
+		end
+	end
+	if item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			value = item.newItemTable.socket2value
+		end		
+	end
+	return value
+end
+
+function CDOTABaseAbility:GetGemValueFromSpecificSocket(gem_type, socket_number)
+	local item = self
+	local value = 0
+	if socket_number == 1 and item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			value = item.newItemTable.socket1value
+		end
+	end
+	if socket_number == 2 and item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			value = item.newItemTable.socket2value
+		end		
+	end
+	return value
+end
+
+function CDOTABaseAbility:GetFinalGemPropertyValue(gem_type, value_table)
+	local item = self
+	local final_value = 0
+	local gem_level = 0
+	if item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == gem_type then
+			gem_level = item.newItemTable.socket1value
+		end
+	end
+	if item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == gem_type then
+			gem_level = item.newItemTable.socket2value
+		end		
+	end
+	if gem_level > 0 then
+		final_value = value_table[gem_level]
+	end
+	if item.wearer and item.wearer:HasModifier("modifier_greensand_copper_gauntlets") then
+		if item:GetGemValue(gem_type) > 0 and item:GetAbilityName() ~= "item_rpc_greensand_copper_gauntlets" then
+			final_value = final_value * (1 + item.wearer.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue(gem_type, ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE)/100)
+		end
+	end
+	return final_value
 end

@@ -225,7 +225,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP %>"
+				"property_one"			"<% CONJUROR_Q4_EARTH_AND_FIRE_AMP * 100%>"
 			}
 		}
 	}
@@ -253,11 +253,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one_base"		"<% CONJUROR_W1_DMG_BASE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_W1_HEALTH_GAIN_PCT %>"
 			}
 			"04"
 			{
@@ -371,7 +366,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_W2_BONUS_DMG_PCT %>"
 			}
 			"01"
@@ -563,7 +558,7 @@
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CONJUROR_E2_ADDITIONAL_DAMAGE_PER_AGI %>"
 			}
 			"04"
@@ -700,7 +695,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-<% CONJUROR_R2_ARMOR_SHRED %>"
+				"property_two"			"<% CONJUROR_R2_ARMOR_SHRED %>"
 			}
 		}
 	}

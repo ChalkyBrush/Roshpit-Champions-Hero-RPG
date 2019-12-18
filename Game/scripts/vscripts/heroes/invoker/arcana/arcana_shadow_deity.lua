@@ -191,7 +191,7 @@ function dark_horizon_start(event)
 	end
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 	EmitSoundOn("Conjuror.DarkHorizon.Start", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	for i = 1, #allies, 1 do
 		local ally = allies[i]
 		if IsValidEntity(ally) then

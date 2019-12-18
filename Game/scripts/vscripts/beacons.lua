@@ -44,18 +44,18 @@ function Beacons:DEBUG()
 	-- Beacons:MakeBeacon(Vector(4884,-2944), "wave", "desertDesert")
 	-- Beacons:MinesInitiate()
 	-- Beacons:MakeBeacon(Vector(3136,4480), "wave", "minesMines")
-	SaveLoad.key1 = "a"
-	SaveLoad.key2 = "b"
-	Beacons.cheats = true
-	Dungeons.itemLevel = 0
-	RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)
-	RPCItems:RollWaterMageRobes(Vector(-14528, 14528))
+	-- SaveLoad.key1 = "a"
+	-- SaveLoad.key2 = "b"
+	-- Beacons.cheats = true
+	-- Dungeons.itemLevel = 0
+	-- RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)
+	-- RPCItems:RollWaterMageRobes(Vector(-14528, 14528))
 
 
-	local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
-	local drop = CreateItemOnPositionSync(Vector(-14528, 14528), item)
-	local position = Vector(-14528, 14528)
-	RPCItems:DropItem(item, Vector(-14528, 14528))
+	-- local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
+	-- local drop = CreateItemOnPositionSync(Vector(-14528, 14528), item)
+	-- local position = Vector(-14528, 14528)
+	-- RPCItems:DropItem(item, Vector(-14528, 14528))
 
 	-- for i = 0, 15, 1 do
 	-- Timers:CreateTimer(0.4*i, function()

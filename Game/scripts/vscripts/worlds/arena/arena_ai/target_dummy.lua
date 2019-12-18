@@ -17,7 +17,7 @@ function target_dummy_take_damage(event)
 			elseif event.attacker.dummy_lines_added > 8 then
 				event.attacker.dummy_lines_added = 0
 			end
-			if caster:HasModifier("modifier_steadfast") then
+			if caster:GetRoshpitArmor() >= 1000 then
 				if event.attacker:HasModifier("challen_postmit_buff") then
 					Events:TutorialServerEvent(event.attacker, "4_6", 1)
 				else

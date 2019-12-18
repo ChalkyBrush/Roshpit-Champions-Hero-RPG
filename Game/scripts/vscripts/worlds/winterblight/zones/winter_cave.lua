@@ -157,10 +157,10 @@ function Winterblight:ProcessChamberStart(msg)
 	Winterblight.CavernUnits[msg.chamber] = {}
 
 	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, hero, "modifier_winterblight_cavern_fighter", {})
-	hero.strength_custom = 20
-	hero.agility_custom = 20
-	hero.intellect_custom = 20
-	-- reset hero so rankings are fair w/o potions
+	-- hero.strength_custom = 20
+	-- hero.agility_custom = 20
+	-- hero.intellect_custom = 20
+	-- reset hero so rankings are fair w/o potions -- not needed in 4.0
 
 	StartAnimation(Winterblight.CavernGuide, {duration=4, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.6})
 	Timers:CreateTimer(1.0, function()
@@ -520,6 +520,7 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		end
 		table.insert(Winterblight.CavernUnits[chamber_index], unit)
 	end
+	Enemies:AdjustUnitForCavern(unit)
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)
@@ -3227,19 +3228,19 @@ function Winterblight:CavernEventWinItemDrop(level, position)
 	-- else
 	-- 	item_drops = RandomInt(1, 6)
 	-- end
-	item_drops = item_drops + RandomInt(0, 2)
-	if level >= 10 then
-		item_drops = item_drops + RandomInt(0, 2)
-	end
-	if level >= 20 then
-		item_drops = item_drops + RandomInt(1, 2)
-	end
-	if level >= 30 then
-		item_drops = item_drops + RandomInt(1, 2)
-	end
-	for i = 1, item_drops, 1 do
-		RPCItems:RollItemtype(400, position, 5, 300)
-	end
+	-- item_drops = item_drops + RandomInt(0, 2)
+	-- if level >= 10 then
+	-- 	item_drops = item_drops + RandomInt(0, 2)
+	-- end
+	-- if level >= 20 then
+	-- 	item_drops = item_drops + RandomInt(1, 2)
+	-- end
+	-- if level >= 30 then
+	-- 	item_drops = item_drops + RandomInt(1, 2)
+	-- end
+	-- for i = 1, item_drops, 1 do
+
+	-- end
 end
 
 function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
@@ -4613,17 +4614,13 @@ function Winterblight:TiamatBossDie(boss)
 	end)
 	EmitSoundOn("Winterblight.Tiamat.Die.VO", boss)
 	local position = boss:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 300)
-		end)
-	end
+	boss:BossDrops(17)
 	Timers:CreateTimer(1, function()
 		local max_roll = math.max(130 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.TiamatBossLevel)
 		max_roll = math.max(max_roll, 1)
 		local arcanaLuck = RandomInt(1, max_roll)
 		if arcanaLuck == 1 then
-			RPCItems:RollWarlordArcana2(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_warlord_arcana2")
 		end
 		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
 		if luck2 == 1 then
@@ -4633,7 +4630,22 @@ function Winterblight:TiamatBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollDiamondClawsOfTiamat(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+			local min_claws_level = 20
+			if GameState:GetDifficultyFactor() == 2 then
+				min_claws_level = 40
+			elseif GameState:GetDifficultyFactor() == 3 then
+				min_claws_level = 60
+				if Winterblight.Stones == 1 then
+					min_claws_level = 65
+				elseif Winterblight.Stones == 2 then
+					min_claws_level = 70
+				elseif Winterblight.Stones == 3 then
+					min_claws_level = 75
+				end
+			end
+			local min_claws_level_bonus = Winterblight.TiamatBossLevel
+			local tiamat_claws_level = math.min(min_claws_level + min_claws_level_bonus, 120)
+			RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_claws_level, "item_rpc_diamond_claws_of_tiamat")
 		end
 	end)
 	Timers:CreateTimer(4, function()
@@ -4641,16 +4653,20 @@ function Winterblight:TiamatBossDie(boss)
 		if luck == 1 then
 			local type_roll = RandomInt(1, 2)
 			if type_roll == 1 then
-				RPCItems:RollBerylRingOfIntuition(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+				local min_ring_level = Winterblight.TiamatBossLevel
+				local tiamat_ring_level = math.min(min_claws_level + min_ring_level, 120)
+				RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_ring_level, "item_rpc_auric_ring_of_inspiration")
 			elseif type_roll == 2 then
-				RPCItems:RollAuricRingOfInspiration(boss:GetAbsOrigin(), Winterblight.TiamatBossLevel)
+				local min_ring_level = Winterblight.TiamatBossLevel
+				local tiamat_ring_level = math.min(min_claws_level + min_ring_level, 120)
+				RPCItems:RollAndDropImmortalByLevel(boss:GetAbsOrigin(), tiamat_ring_level, "item_rpc_beryl_ring_of_intuition")
 			end
 		end
 	end)
 	Timers:CreateTimer(5, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollMagistratesHood(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_magistrates_hood")
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do

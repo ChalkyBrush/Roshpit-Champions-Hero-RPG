@@ -276,7 +276,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ASTRAL_RANGER_E3_ADD_DURATION %>"
+				"property_two"			"<% ASTRAL_RANGER_E3_MAGIC_ARMOR %>"
 			}
 		}
 	}
@@ -360,6 +360,7 @@
 		"AbilityTextureName"	"astral_ranger/astral_rune_r_2"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -404,9 +405,14 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"4"
+				"property_two"			"<% ASTRAL_RANGER_R3_FLAT_DAMAGE %>"
 			}
 			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
+			}
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"

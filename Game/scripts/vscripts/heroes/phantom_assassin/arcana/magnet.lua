@@ -56,7 +56,7 @@ function blazing_magnet_cast(event)
 		end)
 	end
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function send_magnet(index, startPoint, direction, range, caster, fv, ability)

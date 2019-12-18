@@ -25,7 +25,7 @@ function begin_fireball(event)
 	end
 	local q_1_level = caster:GetRuneValue("q", 1)
 	ability.damage = q_1_level * SORCERESS_ARCANA2_Q1_BASE_DMG_PER_LEVEL + SORCERESS_ARCANA2_Q1_BASE_DMG + (OverflowProtectedGetAverageTrueAttackDamage(caster) * SORCERESS_ARCANA2_Q1_ATT_TO_DMG_PCT/100 * q_1_level)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	ability.projectileFV = fv
 end
 

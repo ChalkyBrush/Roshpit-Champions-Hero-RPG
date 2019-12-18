@@ -82,9 +82,10 @@
 		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"ARMOR REDUCTION:"
 
 		"DOTA_Tooltip_ability_creature_acid_spray_yellow"				"Fulminating Poison"
-		"DOTA_Tooltip_ability_creature_acid_spray_Description"			"On death, explode and leave a pile of toxic venom."
-		"DOTA_Tooltip_ability_creature_acid_spray_damage"				"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_creature_acid_spray_armor_reduction"		"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow_Description"			"On death, explode and leave a pile of toxic venom."
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow_damage"				"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow_damage_explode"		"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_creature_acid_spray_yellow_armor_reduction"		"ARMOR REDUCTION:"
 
 		"serengaard_hook_flinger"										"Hook Slinger"
 

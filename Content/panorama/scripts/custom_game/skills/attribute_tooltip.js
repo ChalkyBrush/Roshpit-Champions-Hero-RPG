@@ -1,18 +1,18 @@
 HEALTH_PER_STR = 10
 HEALTH_REGEN_PER_STR = 0.5
-ARMOR_PER_STR = 1
+ARMOR_PER_STR = 2
 
 ATTACKSPEED_PER_AGI = 0.3
 MOVESPEED_PER_AGI = 0.1
-ARMOR_PIERCE_PER_AGI = 1
+ARMOR_PIERCE_PER_AGI = 2
 
 MANA_PER_INT = 5
 MANA_REGEN_PER_INT = 0.5
-SPELL_PIERCE_PER_INT = 1
+SPELL_PIERCE_PER_INT = 2
 
 STATUS_RESIST_PER_SPIRIT = 0.01
 BASE_ABILITY_DAMAGE_PER_SPIRIT = 0.1
-MAGIC_ARMOR_PER_SPIRIT = 1
+MAGIC_ARMOR_PER_SPIRIT = 2
 
 ATK_DMG_PER_PRIMARY = 1
 
@@ -29,10 +29,6 @@ function initializeTooltip(func){
 	}else{
 		$('#paragon-skull').AddClass('invisible')
 	}
-	var halcyonMult = 1
-	if (GameUI.StatQueryData.halcyon == 1){
-		halcyonMult = 1.5
-	}
 	$('#tooltip_title').text = "<font color='"+nameColor+"'>"+$.Localize(name)+"</font>"
 	$('#tooltip_level').text = "Lv "+level
 	if (Entities.IsHero( queryUnit )){
@@ -48,9 +44,9 @@ function initializeTooltip(func){
 		$('#attribute_value_int').text = numberWithCommas(heroAttributes.intelligence)
 		$('#attribute_value_spr').text = numberWithCommas(heroAttributes.spirit)
 
-		var healthBonus = heroAttributes.strength*HEALTH_PER_STR*halcyonMult
-		var healthRegenBonus = parseInt(heroAttributes.strength*HEALTH_REGEN_PER_STR*halcyonMult)
-		var armorBonus = parseInt(heroAttributes.strength*ARMOR_PER_STR*halcyonMult)
+		var healthBonus = heroAttributes.strength*HEALTH_PER_STR
+		var healthRegenBonus = parseInt(heroAttributes.strength*HEALTH_REGEN_PER_STR)
+		var armorBonus = parseInt(heroAttributes.strength*ARMOR_PER_STR)
 		$('#attribute_given_bonus_str_1_left').text = "<font color='#FFFFFF'>HP</font>"
 		$('#attribute_given_bonus_str_1_right').text = "+"+numberWithCommas(healthBonus)
 
@@ -60,9 +56,9 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_str_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor')+"</font>"
 		$('#attribute_given_bonus_str_3_right').text = "+"+numberWithCommas(armorBonus)
 
-		var atkspdBonus = parseInt(heroAttributes.agility*ATTACKSPEED_PER_AGI*halcyonMult)
-		var movespeedBonus = parseInt(heroAttributes.agility*MOVESPEED_PER_AGI*halcyonMult)
-		var armorPierceBonus = parseInt(heroAttributes.agility*ARMOR_PIERCE_PER_AGI*halcyonMult)
+		var atkspdBonus = parseInt(heroAttributes.agility*ATTACKSPEED_PER_AGI)
+		var movespeedBonus = parseInt(heroAttributes.agility*MOVESPEED_PER_AGI)
+		var armorPierceBonus = parseInt(heroAttributes.agility*ARMOR_PIERCE_PER_AGI)
 
 		$('#attribute_given_bonus_agi_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_attack_speed')+"</font>"
 		$('#attribute_given_bonus_agi_1_right').text = "+"+numberWithCommas(atkspdBonus)
@@ -73,9 +69,9 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_agi_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_armor_pierce')+"</font>"
 		$('#attribute_given_bonus_agi_3_right').text = "+"+numberWithCommas(armorPierceBonus)
 
-		var manaBonus = parseInt(heroAttributes.intelligence*MANA_PER_INT*halcyonMult)
-		var manaRegenBonus = parseInt(heroAttributes.intelligence*MANA_REGEN_PER_INT*halcyonMult)
-		var spellPierceBonus = parseInt(heroAttributes.intelligence*SPELL_PIERCE_PER_INT*halcyonMult)
+		var manaBonus = parseInt(heroAttributes.intelligence*MANA_PER_INT)
+		var manaRegenBonus = parseInt(heroAttributes.intelligence*MANA_REGEN_PER_INT)
+		var spellPierceBonus = parseInt(heroAttributes.intelligence*SPELL_PIERCE_PER_INT)
 
 		$('#attribute_given_bonus_int_1_left').text = "<font color='#FFFFFF'>"+"Mana"+"</font>"
 		$('#attribute_given_bonus_int_1_right').text = "+"+numberWithCommas(manaBonus)
@@ -86,9 +82,9 @@ function initializeTooltip(func){
 		$('#attribute_given_bonus_int_3_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_spell_pierce')+"</font>"
 		$('#attribute_given_bonus_int_3_right').text = "+"+numberWithCommas(spellPierceBonus)
 
-		var statusResistBonus = heroAttributes.spirit*STATUS_RESIST_PER_SPIRIT*halcyonMult
-		var base_ability_damage = parseInt(heroAttributes.spirit*BASE_ABILITY_DAMAGE_PER_SPIRIT*halcyonMult)
-		var magicArmorBonus = parseInt(heroAttributes.spirit*MAGIC_ARMOR_PER_SPIRIT*halcyonMult)
+		var statusResistBonus = Math.round(heroAttributes.spirit*STATUS_RESIST_PER_SPIRIT*100)/100
+		var base_ability_damage = parseInt(heroAttributes.spirit*BASE_ABILITY_DAMAGE_PER_SPIRIT)
+		var magicArmorBonus = parseInt(heroAttributes.spirit*MAGIC_ARMOR_PER_SPIRIT)
 		$('#attribute_given_bonus_spr_1_left').text = "<font color='#FFFFFF'>"+$.Localize('#item_status_resist')+"</font>"
 		$('#attribute_given_bonus_spr_1_right').text = "+"+statusResistBonus+"%"
 
@@ -100,7 +96,7 @@ function initializeTooltip(func){
 
 		var primaryAttribute = parseInt(heroAttributes.primaryAttribute)
 		if (primaryAttribute == 0){
-			var atkBonus = parseInt(heroAttributes.strength*ATK_DMG_PER_PRIMARY*halcyonMult)
+			var atkBonus = parseInt(heroAttributes.strength*ATK_DMG_PER_PRIMARY)
 			$('#attribute_given_bonus_str_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_str_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_strength').AddClass('primary_attribute')
@@ -114,7 +110,7 @@ function initializeTooltip(func){
 			$('#attribute_given_bonus_spr_4_left').text = ""
 			$('#attribute_given_bonus_spr_4_right').text = ""
 		}else if(primaryAttribute == 1){
-			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY*halcyonMult)
+			var atkBonus = parseInt(heroAttributes.agility*ATK_DMG_PER_PRIMARY)
 			$('#attribute_given_bonus_agi_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_agi_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_agility').AddClass('primary_attribute')	
@@ -126,7 +122,7 @@ function initializeTooltip(func){
 			$('#attribute_given_bonus_spr_4_left').text = ""
 			$('#attribute_given_bonus_spr_4_right').text = ""	
 		}else if(primaryAttribute == 2){
-			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY*halcyonMult)
+			var atkBonus = parseInt(heroAttributes.intelligence*ATK_DMG_PER_PRIMARY)
 			$('#attribute_given_bonus_int_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
 			$('#attribute_given_bonus_int_4_right').text = "+"+numberWithCommas(atkBonus)
 			$('#attribute_image_int').AddClass('primary_attribute')	
@@ -137,6 +133,18 @@ function initializeTooltip(func){
 			$('#attribute_given_bonus_str_4_right').text = ""
 			$('#attribute_given_bonus_spr_4_left').text = ""
 			$('#attribute_given_bonus_spr_4_right').text = ""	
+		}else if(primaryAttribute == 3){
+			var atkBonus = parseInt(heroAttributes.spirit*ATK_DMG_PER_PRIMARY)
+			$('#attribute_given_bonus_spr_4_left').text = "<font color='#FFFFFF'>"+$.Localize('#ui_attack_damage')+"</font>"
+			$('#attribute_given_bonus_spr_4_right').text = "+"+numberWithCommas(atkBonus)
+			$('#attribute_image_spr').AddClass('primary_attribute')	
+			$('#attribute_given_bonus_agi_4_left').text = ""
+			$('#attribute_given_bonus_agi_4_right').text = ""
+
+			$('#attribute_given_bonus_str_4_left').text = ""
+			$('#attribute_given_bonus_str_4_right').text = ""
+			$('#attribute_given_bonus_int_4_left').text = ""
+			$('#attribute_given_bonus_int_4_right').text = ""	
 		}
 	}
 
@@ -185,14 +193,14 @@ function initializeTooltip(func){
 	$('#base_ability_title_r').text = "R"
 	$('#base_ability_value_r').text = parseInt(GameUI.StatQueryData.rAmp)/1 + "%"
 
-	$('#post_mit_phys_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
-	$('#post_mit_phys_damage_value').text = parseInt(GameUI.StatQueryData.phys_post_mit)/1 + "%"
+	// $('#post_mit_phys_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
+	// $('#post_mit_phys_damage_value').text = parseInt(GameUI.StatQueryData.phys_post_mit)/1 + "%"
 
-	$('#post_mit_magic_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
-	$('#post_mit_magic_damage_value').text = parseInt(GameUI.StatQueryData.magic_post_mit)/1 + "%"
+	// $('#post_mit_magic_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
+	// $('#post_mit_magic_damage_value').text = parseInt(GameUI.StatQueryData.magic_post_mit)/1 + "%"
 
-	$('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
-	$('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
+	// $('#post_mit_pure_damage_title').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
+	// $('#post_mit_pure_damage_value').text = parseInt(GameUI.StatQueryData.pure_post_mit)/1 + "%"
 
 	$('#item_damage_title').text = $.Localize("#ui_item")
 	$('#item_damage_value').text = parseInt(GameUI.StatQueryData.item_damage)/1 + "%"
@@ -200,9 +208,9 @@ function initializeTooltip(func){
 
 	$('#attack_defense_title_def').text = $.Localize("#ui_defense").toUpperCase()
 	$('#def_1_left').text = $.Localize("#item_armor")
-    var physArmor = GameUI.StatQueryData.base_roshpit_armor
-	$('#def_1_right').text = numberWithCommas(physArmor)
-	var bonusArmor = parseInt(GameUI.StatQueryData.roshpit_armor - GameUI.StatQueryData.base_roshpit_armor)
+    var baseArmor = GameUI.StatQueryData.roshpit_base_armor
+	$('#def_1_right').text = numberWithCommas(baseArmor)
+	var bonusArmor = GameUI.StatQueryData.roshpit_bonus_armor
 	$('#def_2_left').text = $.Localize("#ui_bonus_armor")
 	if (bonusArmor >= 0){
 		$('#def_2_right').text = "<font color='#68ff23'>+"+numberWithCommas(bonusArmor)+"</font>"
@@ -211,7 +219,7 @@ function initializeTooltip(func){
 	}
 
 	$('#def_3_left').text = $.Localize("#ui_physical_reduction")
-	var totalArmor = physArmor + bonusArmor
+	var totalArmor = baseArmor + bonusArmor
 	var resist = 1 - (255 / (255 + totalArmor))
 	resist = (parseInt(resist*10000))/100
 	$('#def_3_right').text = resist+"%"
@@ -261,17 +269,36 @@ function initializeTooltip(func){
 		board.FindChildTraverse('element_title'+i).SetImage("file://{images}/custom_game/ui/elements/element"+i+".png")
 		board.FindChildTraverse('element_value'+i).text = Math.round(GameUI.StatQueryData.elements[i])+"%"
 	}
-	
+	//movement
+	$('#attack_defense_subtitle_movement').text = $.Localize("ui_movement")
+	$('#move_1_left').text = $.Localize("ui_base_movement_speed")
+	$('#move_2_left').text = $.Localize("ui_bonus_movement_speed")
+	$('#move_3_left').text = $.Localize("ui_max_movement_speed")
+
+	$('#move_1_right').text = GameUI.StatQueryData.movespeed
+	if (GameUI.StatQueryData.movespeed_bonus >= 0){
+		$('#move_2_right').text = "<font color='#68ff23'>+"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	}else{
+		$('#move_2_right').text = "<font color='#ff0000'>"+GameUI.StatQueryData.movespeed_bonus+"</font>"
+	}
+	$('#move_3_right').text = GameUI.StatQueryData.max_ms
+
 	// HANDLE NON HERO
 	if (Entities.IsHero( queryUnit )){
 		$('#attributes_main_container').RemoveClass('invisible')
 		$('#base_ability_container').RemoveClass('invisible')
+		$('#bad-splitter').RemoveClass('invisible')
 		$('#attack_defense_subtitle_base_ability').RemoveClass('invisible')
 		$('#elements_container').RemoveClass('invisible')
+		$('#post_mit_and_item_damage_container').RemoveClass('invisible')
+		$('#post_mit_and_item_damage_title').RemoveClass('invisible')
 	}else{
 		$('#attributes_main_container').AddClass('invisible')
 		$('#base_ability_container').AddClass('invisible')
+		$('#bad-splitter').AddClass('invisible')
 		$('#attack_defense_subtitle_base_ability').AddClass('invisible')
+		$('#post_mit_and_item_damage_container').AddClass('invisible')
+		$('#post_mit_and_item_damage_title').AddClass('invisible')
 		// $('#elements_container').AddClass('invisible')
 	}
 	$.Schedule(0.3, function(){

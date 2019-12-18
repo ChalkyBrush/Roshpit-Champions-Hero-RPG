@@ -1443,11 +1443,7 @@ function fire_temple_boss_die(caster, ability)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 	end)
 	local casterOrigin = caster:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
-		end)
-	end
+	caster:BossDrops(10)
 	Timers:CreateTimer(4, function()
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
@@ -1493,7 +1489,7 @@ end
 function rare_centaur_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.FireTemple.CentaurBossDie", caster)
-	RPCItems:RollTerrasicStonePlate(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_terrasic_stone_plate")
 end
 
 function conflag_carapace_think(event)
@@ -1567,7 +1563,7 @@ end
 function lava_forge_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.FireTemple.LavaforgeDie", caster)
-	RPCItems:RollLavaForgeCrown(caster:GetAbsOrigin(), false)
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crown_of_the_lava_forge")
 end
 
 function fire_spirit_thinking(event)
@@ -2293,7 +2289,7 @@ function unit_on_platform_moving_end(event)
 			local ability = Events.GameMaster:FindAbilityByName("npc_abilities")
 			local hero = target
 			if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-				hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = 7})
+				Filters:TerrasicLavaBootsTouchLava(hero)
 				return false
 			end
 			EmitSoundOn("Env.LavaHit", hero)
@@ -2714,11 +2710,7 @@ function fire_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(14)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		--print(itemName)
@@ -2730,11 +2722,11 @@ function fire_temple_spirit_boss_die_begin(event)
 
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollBlazingFuryArmor(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_blazing_fury_armor")
 		elseif luck == 2 then
-			RPCItems:RollDemonfireGauntlet(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_demonfire_gauntlet")
 		elseif luck == 3 then
-			RPCItems:RollBurningSpiritHelmet(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_burning_spirit_helmet")
 		end
 	end)
 	Timers:CreateTimer(4, function()
@@ -2745,7 +2737,7 @@ function fire_temple_spirit_boss_die_begin(event)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollSpiritWarriorArcana2(bossOrigin)
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_spirit_warrior_arcana2")
 		end
 	end)
 	Timers:CreateTimer(8, function()

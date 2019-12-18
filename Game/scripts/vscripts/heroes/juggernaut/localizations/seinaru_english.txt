@@ -31,7 +31,7 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_q_2_slow_Description"		"Movespeed slowed"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_3"							"[Q3] Tailwind"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Casting @Ability1 inreases Seinaru's Armor Pierce and Spell Pierce for <% SEINARU_Q3_BUFF_DURATION %> seconds based on his movespeed."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_3_Description"				"Casting @Ability1 increases Seinaru's Armor Pierce and Spell Pierce for <% SEINARU_Q3_BUFF_DURATION %> seconds based on his movespeed."
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_property_one"			"Armor Pierce and Spell Pierce"
     	"DOTA_Tooltip_ability_seinaru_rune_q_3_suffix"					" per movespeed"
 
@@ -52,11 +52,11 @@
     	"Tooltip_seinaru_w"											"Hands of Hikari & Circle of Wind"
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] Circle of Wind"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that damages, slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"Range"
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					""
         "DOTA_Tooltip_ability_seinaru_rune_w_1_property_two"            "Damage"
-        "DOTA_Tooltip_ability_seinaru_rune_w_1_suffix_two"                  ""
+        "DOTA_Tooltip_ability_seinaru_rune_w_1_suffix_two"              ""
 
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] Typhoon"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				"Casting <font color='#CCFF66'>Hands of Hikari</font> has a <% SEINARU_W2_CHANCE %>% chance to release a rending Typhoon that damages enemies and lowers magic armor for <% SEINARU_W2_MAGIC_ARMOR_LOSS_DURATION %> seconds."
@@ -111,7 +111,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				""
 
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"Gorudo"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"Seinaru transmutes his body into living gold, rendering him immune to spells and increasing attack damage based on Agility. On the end of cast deals x<% SEINARU_R_CAST_END_HIT_MULT %> of Seinaru's damage to enemies nearby."
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"DURATION:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"AGILITY TO ATTACK DAMAGE:"
 
@@ -141,6 +141,8 @@
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_Description"			"Each of Seinaru's attacks during @Ability4 deal additional Pure damage."
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_property_one"			"Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix"				"% of attack power"
+		"DOTA_Tooltip_ability_seinaru_rune_r_3_property_two"			"Base Damage"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_3_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect"				"Chi Strike"
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"Attacks deal additional Pure damage"
@@ -235,28 +237,28 @@
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"Glyph of Bladethirst"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"[T1-1] Glyph of Bladethirst"
 		"item_rpc_seinaru_glyph_1_1_description" 				"Grants @glyph_property1% lifesteal. Any overheal from this effect applies as a [W3] shield, up to the rune's maximum capacity based on Agility."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"Glyph of the Windstrider"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_2_1"		"[T2-1] Glyph of the Windstrider"
 		"item_rpc_seinaru_glyph_2_1_description" 				"Every point in [Q2] increases movespeed cap by <% SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2 %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"Glyph of Resonance"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_3_1"		"[T3-1] Glyph of Resonance"
 		"item_rpc_seinaru_glyph_3_1_description" 				"[R3] deals damage and applies [R1] to all other enemies in a <% SEINARU_GLYPH3_R3_RADIUS %> radius around the primary target."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"Glyph of Yin"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"[T4-1] Glyph of Yin"
 		"item_rpc_seinaru_glyph_4_1_description" 				"Increases movespeed by <% SEINARU_GLYPH_4_1_MS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"Glyph of Bushido"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"[T5-1] Glyph of Bushido"
 		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] deals <% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x damage against enemies blinded by @Ability1."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"Glyph of Honor"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"[T6-1] Glyph of Honor"
 		"item_rpc_seinaru_glyph_6_1_description" 				"[R2] reduces incoming damage by <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% instead of <% SEINARU_R2_DMG_RED * 100%>%"
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"Glyph of the Ogre"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"[T7-1] Glyph of the Ogre"
 		"item_rpc_seinaru_glyph_7_1_description" 				"Seinaru's Strength increases Armor Pierce and Magic Armor by <% SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR %>."
 
-		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"Glyph of the Arena"
+		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"[T5-a] Glyph of the Arena"
 		"item_rpc_seinaru_glyph_5_a_description" 				"[R2]s now move with Seinaru."
 
 		//Weapons

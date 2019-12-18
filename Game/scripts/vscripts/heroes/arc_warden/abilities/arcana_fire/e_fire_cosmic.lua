@@ -38,7 +38,7 @@ function cipher_bolt_start(event)
 	local range = WallPhysics:GetDistance2d(ability.point, caster:GetAbsOrigin())
 
    	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", caster:GetAbsOrigin(), 3)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	Filters:ReduceCooldownGeneric(caster, ability, event.cooldown_reduction_per_tech * tech_level)
 	ability.w_4_level = caster:GetRuneValue("w", 4)
 

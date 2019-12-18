@@ -39,7 +39,7 @@ function channel_complete(event)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 	ability.r_2_level = caster:GetRuneValue("r", 2)
 	if ability.r_2_level > 0 then
-		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
+		local stats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()
 		local manaRegen = stats * ARKIMUS_ARCANA_R_R2_MANA_REGEN_PER_ATTRIBUTE_PCT/100 * ability.r_2_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_archone_b_d_mana_regen", {duration = duration})
 		caster:SetModifierStackCount("modifier_archone_b_d_mana_regen", caster, manaRegen)
@@ -47,7 +47,7 @@ function channel_complete(event)
 	end
 	ability.r_4_level = caster:GetRuneValue("r", 4)
 	EmitSoundOn("Arkimus.ArchonForm.Start", caster)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 end
 
@@ -136,7 +136,7 @@ function a_d_field_thinker_think(event)
 		for _, enemy in pairs(enemies) do
 			-- if enemy.dummy then
 			-- else
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, dividedDamage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 			-- end
 		end
 	end

@@ -79,7 +79,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -102,7 +102,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "15 35 55 75 95 115 135"
+				"damage"			    "<% VENOMORT_Q_DAMAGE %>"
 			}
 			"04"
 			{
@@ -692,6 +692,19 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_viper_invulnerable"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"dazzle_shadow_wave"
+				"StatusEffectName" 		"particles/status_fx/status_effect_blademail.vpcf"
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 
 		"AbilitySpecial"
@@ -699,12 +712,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "50 100 150 200 250 300 350"
+				"damage"			    "80 150 320 500 700 850 1000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health"			    "100 240 380 520 660 800 940"
+				"health"			    "340 500 700 900 1200 1500 2500"
 			}
 			"03"
 			{

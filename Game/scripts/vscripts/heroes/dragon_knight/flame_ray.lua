@@ -279,7 +279,7 @@ function CastNewHeatwave(event)
     -- else
     EmitSoundOn("Flamewaker.HeatWaveCast", caster)
     EmitSoundOn("Hero_Phoenix.SunRay.Loop", caster)
-    local particleName = "particles/units/heroes/hero_phoenix/phoenix_sunray.vpcf"
+    local particleName = "particles/roshpit/flamewaker/heat_wave.vpcf"
     local particleVector = caster:GetAbsOrigin() - (caster:GetForwardVector() * 90)
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", particleVector, true)
@@ -292,7 +292,7 @@ function CastNewHeatwave(event)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_heatwave_flying_portion", {duration = duration})
     caster:AddNewModifier(caster, nil, 'modifier_movespeed_cap_heat_wave', {duration = duration})
     ability.durationRemaining = duration
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_7_1") then
         ability.glyphed = true
         ability.pv = WallPhysics:rotateVector(ability.forward, math.pi / 2)
@@ -305,7 +305,7 @@ function CastNewHeatwave(event)
     flamewaker_rune_e_4(caster, ability)
 
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_2") then
-        caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
+        caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_flamewaker_weapon_agility", {duration = duration})
     end
     -- end
 end
@@ -363,7 +363,7 @@ function phase_one_end(event)
     -- local phaseTwoDuration = math.max(ability.durationRemaining,0.03)
     -- ability:ApplyDataDrivenModifier(caster, caster, "modifier_heatwave_phase_two", {duration = phaseTwoDuration})
     -- ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
-    -- Filters:CastSkillArguments(3, caster)
+    -- Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

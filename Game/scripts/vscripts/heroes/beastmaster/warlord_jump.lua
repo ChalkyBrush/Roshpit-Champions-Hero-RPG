@@ -9,7 +9,7 @@ function jumpStart(event)
 	ability.liftVelocity = 70
 	ability.fallVelocity = 0
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local targetPoint = event.target_points[1]
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
@@ -63,7 +63,7 @@ function fireJumpStart(event)
 	ability.liftVelocity = 70
 	ability.fallVelocity = 0
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local targetPoint = event.target_points[1]
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills(event.type, caster, ability)
@@ -128,8 +128,7 @@ function rune_e_3(caster, ability)
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("warlord_rune_e_3")
 	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("e", 3)
 	if totalLevel > 0 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		local projectileCount = 0
@@ -274,7 +273,7 @@ function iceSprintStart(event)
 	ability.interval = 0
 	StartAnimation(caster, {duration = event.duration, activity = ACT_DOTA_RUN, rate = 1.2, translate = "haste"})
 	-- rune_e_2(caster, ability)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	if caster:HasModifier("modifier_warlord_glyph_1_1") then
 		swapSkills("ice", caster, ability)
 	end

@@ -35,7 +35,7 @@ function begin_slice(event)
 		end
 	end
 	slice_think(event)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 
@@ -216,39 +216,13 @@ function falling_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-	if caster:HasModifier("modifier_falcon_boots") then
-		if caster.foot.liftedTargetsTable then
-			ability.e_1_unit_table = {"length"}
-		end
-	end
 	if #ability.e_1_unit_table > 0 then
 		ability.e_1_particleTable = {}
 		ability.movespeed = Filters:GetAdjustedESpeed(caster, 50, false)
 		ability.particle = true
-		-- "modifier_falcon_boots"
-		if caster:HasModifier("modifier_falcon_boots") then
-
-			caster.foot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_falcon_freeze_self", {duration = 2.5})
-			Timers:CreateTimer(2.5, function()
-				ability.e_1_unit_table = {}
-				for i = 1, #caster.foot.liftedTargetsTable, 1 do
-					if #ability.e_1_unit_table < (1 + ability.e_1_level) then
-						table.insert(ability.e_1_unit_table, caster.foot.liftedTargetsTable[i]:GetEntityIndex())
-					end
-				end
-				if #ability.e_1_unit_table > 0 then
-					ability.startPosition = caster.foot.transportLocation
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
-					ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 10})
-					caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.e_1_level)
-				end
-			end)
-		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 8})
-			ability.startPosition = caster:GetAbsOrigin()
-			caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.e_1_level)
-		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 8})
+		ability.startPosition = caster:GetAbsOrigin()
 	else
 	end
 	caster.EFV = nil

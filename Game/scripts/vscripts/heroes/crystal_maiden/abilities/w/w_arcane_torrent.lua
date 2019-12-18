@@ -16,7 +16,7 @@ function calculateDamage(event)
     Helper.initializeAbilityRunes(caster, 'sorceress', 'e')
     Helper.initializeAbilityRunes(caster, 'sorceress', 'r')
 
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
     local arcane_explosion_damage = caster:FindAbilityByName("arcane_explosion"):GetLevelSpecialValueFor("damage", ability:GetLevel())
     arcane_explosion_damage = arcane_explosion_damage * SORCERESS_GLYPH_5_1_AMPLIFY * caster:GetMaxMana() / 100

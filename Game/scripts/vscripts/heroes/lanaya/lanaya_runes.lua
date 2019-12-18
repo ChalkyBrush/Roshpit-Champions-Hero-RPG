@@ -4,9 +4,10 @@ function rune_unit_3_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local hero = caster.hero
-	local c_c_level = Runes:GetTotalRuneLevel(hero, 3, "e_3", "trapper")
+	local c_c_level = hero:GetRuneValue("e", 3)
 
 	ability.e_3_level = c_c_level
+	print(c_c_level)
 	if c_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_psi_blades_c_c", {})
 		hero:SetModifierStackCount("modifier_psi_blades_c_c", ability, ability.e_3_level)
@@ -41,7 +42,7 @@ function CheckAngles(keys)
 	local attacker_angle = caster_origin_difference_radian / math.pi
 	-- Turns negative angles into positive ones and make the math simpler.
 	attacker_angle = attacker_angle + 180.0
-
+	print("GOING AT ALL?")
 	local radius = 700
 	local attack_spill_width = 50
 

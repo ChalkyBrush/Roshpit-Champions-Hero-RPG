@@ -5,38 +5,34 @@ end
 Glyphs.glyphDropIndex = 0
 Glyphs.ArcaneCrystalTable = {}
 
-function Glyphs:DropArcaneCrystals(position, quantityScale)
+function Glyphs:DropArcaneCrystals(position, enemyType, level, quantityScale)
 	if GameMode.VoteSystem.crystal_loot_disabled then
 		--print("crystal_loot_disabled")
 		return
 	end
 
-	local maxFactor = RPCItems:GetMaxFactor()
+	local maxFactor = RPCItems:RollItemLevelFromUnit(level) * 2.5 --Max return value is 120, so * 2.5 is old maxfactor limit of 300
 	--DEBUG
 	--
 	local connectedPlayerCount = RPCItems:GetConnectedPlayerCount()
 	local crystalQuantity = (maxFactor / 2) * (1 + connectedPlayerCount * 0.5) * quantityScale
 	crystalQuantity = crystalQuantity * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
 	crystalQuantity = RPCItems:GetLogarithmicVarianceValue(crystalQuantity, 0, 0, 0, 0)
-	local divisor = 3
-	if GameState:GetDifficultyFactor() == 1 then
-		if GameState:IsTanariJungle() then
-			divisor = 2.5
+	local multiplier = Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[GameState:GetDifficultyFactor()][enemyType]
+	crystalQuantity = crystalQuantity * Enemies.SPIRIT_REALM_CONSTANTS[Enemies:SpiritRealmNumber(Events.SpiritRealm)]["arcane_crystals"]	
+
+	if GameState:IsWinterblight() then
+		crystalQuantity = crystalQuantity * (1 + Winterblight.Stones * Enemies.WINTERBLIGHT_STONES_BUFFS["arcane_crystals"])
+	elseif GameState:IsRPCArena() then
+		crystalQuantity = base_attribute_value * (1 + Arena.PitLevel * Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"])
+	elseif GameState:IsSeaFortress() then
+		crystalQuantity = crystalQuantity * Enemies.GLOBAL_SEA_FORTRESS_MULT["arcane_crystals"]
+	elseif GameState:IsSerengaard() then
+		if Serengaard.InfiniteWaveCount then
+			crystalQuantity = crystalQuantity * (1 + Serengaard.InfiniteWaveCount * Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"])
 		end
 	end
-	if GameState:GetDifficultyFactor() == 2 then
-		divisor = 3
-		if GameState:IsTanariJungle() then
-			divisor = 2.2
-		end
-	end
-	if GameState:GetDifficultyFactor() == 3 then
-		divisor = 1.0
-	end
-	if Events.SpiritRealm then
-		crystalQuantity = crystalQuantity * 2
-	end
-	crystalQuantity = math.ceil(crystalQuantity / divisor)
+	crystalQuantity = math.ceil(crystalQuantity * multiplier)
 	local crystalsPerPlayer = math.floor(crystalQuantity / connectedPlayerCount)
 	Glyphs.glyphDropIndex = Glyphs.glyphDropIndex + 1
 	for i = 1, #MAIN_HERO_TABLE, 1 do
@@ -48,47 +44,53 @@ function Glyphs:DropArcaneCrystals(position, quantityScale)
 	crystalQuantity = crystalQuantity - greatestCrystalQuantity * 50
 	local greatCrystalQuantity = math.max((crystalQuantity - 20) / 20, 0)
 	crystalQuantity = crystalQuantity - greatCrystalQuantity * 20
-	local largeCrystalQuantity = math.max((crystalQuantity - 0) / 10, 1)
+	local largeCrystalQuantity = math.max((crystalQuantity - 10) / 10, 0)
 	crystalQuantity = crystalQuantity - largeCrystalQuantity * 10
-	local smallCrystalQuantity = math.max(crystalQuantity / 5, 0)
+	local smallCrystalQuantity = math.max((crystalQuantity - 5) / 5, 0)
+	crystalQuantity = crystalQuantity - smallCrystalQuantity * 5
+	local tinyCrystalQuantity = math.max(crystalQuantity, 0)
+
+	local totalIndex = 0
+	for i = 1, massiveCrystalQuantity, 1 do
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
+			Glyphs:CreateIndividualCrystal(position, 100)
+		end)
+	end
+	totalIndex = totalIndex + massiveCrystalQuantity
+	for i = 1, greatestCrystalQuantity, 1 do
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
+			Glyphs:CreateIndividualCrystal(position, 50)
+		end)
+	end
+	totalIndex = totalIndex + greatestCrystalQuantity
+	for i = 1, greatCrystalQuantity, 1 do
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
+			Glyphs:CreateIndividualCrystal(position, 20)
+		end)
+	end
+	totalIndex = totalIndex + greatCrystalQuantity
 	for i = 1, largeCrystalQuantity, 1 do
-		Timers:CreateTimer(0.12 * i, function()
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
 			Glyphs:CreateIndividualCrystal(position, 10)
 		end)
 	end
-	Timers:CreateTimer(0.53, function()
-		for i = 1, greatCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12 * i, function()
-				Glyphs:CreateIndividualCrystal(position, 20)
-			end)
-		end
-	end)
-	Timers:CreateTimer(2.03, function()
-		for i = 1, greatestCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12 * i, function()
-				Glyphs:CreateIndividualCrystal(position, 50)
-			end)
-		end
-	end)
-	Timers:CreateTimer(1.53, function()
-		for i = 1, massiveCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12 * i, function()
-				Glyphs:CreateIndividualCrystal(position, 100)
-			end)
-		end
-	end)
-	Timers:CreateTimer(1.06, function()
-		for i = 1, smallCrystalQuantity, 1 do
-			Timers:CreateTimer(0.12 * i, function()
-				Glyphs:CreateIndividualCrystal(position, 5)
-			end)
-		end
-	end)
+	totalIndex = totalIndex + largeCrystalQuantity
+	for i = 1, smallCrystalQuantity, 1 do
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
+			Glyphs:CreateIndividualCrystal(position, 5)
+		end)
+	end
+	totalIndex = totalIndex + smallCrystalQuantity
+	for i = 1, tinyCrystalQuantity, 1 do
+		Timers:CreateTimer(0.12 * (i + totalIndex), function()
+			Glyphs:CreateIndividualCrystal(position, 1)
+		end)
+	end
 	Timers:CreateTimer(45, function()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i].crystalsToSave = MAIN_HERO_TABLE[i].crystalsToSave + MAIN_HERO_TABLE[i].crystalsPickedUp
+			MAIN_HERO_TABLE[i].maxCrystals = MAIN_HERO_TABLE[i].maxCrystals - MAIN_HERO_TABLE[i].crystalsPickedUp
 			MAIN_HERO_TABLE[i].crystalsPickedUp = 0
-			MAIN_HERO_TABLE[i].maxCrystals = MAIN_HERO_TABLE[i].maxCrystals - crystalsPerPlayer
 		end
 		Glyphs.glyphDropIndex = Glyphs.glyphDropIndex - 1
 		if Glyphs.glyphDropIndex == 0 then
@@ -115,10 +117,12 @@ function Glyphs:CreateIndividualCrystal(position, size)
 	crystal:SetModel("models/props_gameplay/rune_invisibility01.vmdl")
 
 	crystal:SetModelScale(0)
-
 	Timers:CreateTimer(1, function()
 		if IsValidEntity(crystal) then
-			if size == 5 then
+			if size == 1 then
+				crystal:SetModelScale(0.3)
+				crystal.scale = 0.3
+			elseif size == 5 then
 				crystal:SetModelScale(0.5)
 				crystal.scale = 0.5
 			elseif size == 10 then
@@ -270,7 +274,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 
 	RPCItems:ItemUpdateCustomNetTables(item)
 	-- DeepPrintTable(item)
-	if dropIndex == 0 then
+	if dropIndex == 0 and deathLocation then
 		local drop = CreateItemOnPositionSync(deathLocation, item)
 		local position = deathLocation
 		RPCItems:DropItem(item, position)
@@ -280,7 +284,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 		item.pickedUp = true
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 	end
-
+	print(item:GetAbilityName())
 	return item
 end
 
@@ -392,7 +396,8 @@ function Glyphs:RollRandomGlyph(position)
 		rowItem = RandomInt(1, 3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	Glyphs:RollGlyphAll(glyphName, position, 0)
+	local glyph = Glyphs:RollGlyphAll(glyphName, position, -1)
+	return glyph
 end
 
 function Glyphs:RollRandomGlyphName()
@@ -411,7 +416,8 @@ function Glyphs:RollRandomGlyphBook(position)
 	local column = 2
 	local heroName = Glyphs:GetRandomHeronameForBook()
 	-- local bookName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..column
-	Glyphs:RollGlyphBook(position, heroName, tier, column)
+	local glyph = Glyphs:RollGlyphBook(position, heroName, tier, column)
+	return glyph
 end
 
 function Glyphs:RollRandomTier()
@@ -469,7 +475,12 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 		if glyph.glyphIndex > 0 then
 			glyph = EntIndexToHScript(glyph.glyphIndex)
 			local glyphModifierName = glyph.newItemTable.property1
-			glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			local glyphName = glyph.newItemTable.item_variant
+			if _G[glyphName] then
+				_G[glyphName]:AddSpecialModifiers(heroEntity)
+			else
+				glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			end
 		end
 	end
 end
@@ -714,7 +725,12 @@ function Glyphs:DebugRollHeroGlyphs(heroName, position)
 	for j = 1, maxTiers, 1 do
 		for i = 1, 7, 1 do
 			local variantName = "item_rpc_"..heroName.."_glyph_"..i.."_"..j
-			Glyphs:RollGlyphAll(variantName, position, 0)
+			if _G[variantName] then
+				newItem = _G[variantName]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(variantName, position, 0)
+			end
 		end
 	end
 
@@ -841,9 +857,12 @@ function Glyphs:RollGlyphBook(deathLocation, class, row, column)
 	item.newItemTable.property4 = 0
 	item.newItemTable.property4name = ""
 	RPCItems:SetPropertyValues(item, 0, "", "#FFFFFF", 4)
-	local drop = CreateItemOnPositionSync(deathLocation, item)
-	local position = deathLocation
-	RPCItems:DropItem(item, position)
+	if deathLocation then
+		local drop = CreateItemOnPositionSync(deathLocation, item)
+		local position = deathLocation
+		RPCItems:DropItem(item, position)
+	end
+	return item
 end
 
 function Glyphs:CreateGlyphBook(itemName, row, column)

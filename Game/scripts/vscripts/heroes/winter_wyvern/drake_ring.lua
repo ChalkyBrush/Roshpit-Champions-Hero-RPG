@@ -26,7 +26,7 @@ function drake_ring_cast(event)
 	Timers:CreateTimer(0.75, function()
 		EmitSoundOnLocationWithCaster(point, "Dinath.DrakeRing.Create", caster)
 	end)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	Timers:CreateTimer(1, function()
 		if ability.ring then
 			ParticleManager:DestroyParticle(ability.ring.pfx, false)
@@ -92,8 +92,8 @@ function drake_ring_thinker(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), drake_ring:GetAbsOrigin(), nil, drake_ring.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for _, enemy in pairs(enemies) do
 				if w_2_level > 0 then
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_postmit", {duration = 0.5})
-					enemy:SetModifierStackCount("modifier_drake_ring_postmit", caster, w_2_level)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_drake_ring_armor_reduction", {duration = 0.5})
+					enemy:SetModifierStackCount("modifier_drake_ring_armor_reduction", caster, w_2_level)
 				end
 			end
 		end

@@ -1,5 +1,5 @@
 mQueryUnit = 0
-mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_positive_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_positive_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null}
+mAttributesHash = {modifier_roshpit_level: null, modifier_roshpit_armor: null, modifier_negative_roshpit_armor: null, modifier_positive_roshpit_armor: null, modifier_roshpit_magic_armor: null, modifier_negative_roshpit_magic_armor: null, modifier_positive_roshpit_magic_armor: null, modifier_roshpit_armor_pierce: null, modifier_roshpit_spell_pierce: null, modifier_negative_roshpit_armor_pierce: null, modifier_negative_roshpit_spell_pierce: null}
 
 function InitializeHeroStatsOnce(){
 	$.Schedule( 3, InitializeHeroStats );
@@ -7,6 +7,7 @@ function InitializeHeroStatsOnce(){
 
 function InitializeHeroStats(){
 	UnitStats40()
+	WorldTooltip()
 	$.Schedule( 0.2, InitializeHeroStats );
 	// $.Schedule(0.2, function(){
 	// 	InitializeHeroStats()
@@ -17,6 +18,17 @@ function InitializeHeroStats(){
 function recalculate_attributes(){
 	mQueryUnit = 0
 	UnitStats40()
+}
+
+function WorldTooltip(){
+	// var ability_tooltip = GameUI.AbilityTooltip
+	// if (ability_tooltip.BHasClass("IsItem")){
+	// 	ability_tooltip.FindChildTraverse("AbilitySubHeader").style.visibility = "collapse"
+	// 	// ability_tooltip.FindChildTraverse("AbilityName").style.marginTop = "16px"
+	// }else{
+	// 	// ability_tooltip.FindChildTraverse("AbilitySubHeader").style.visibility = "visible"
+	// 	// ability_tooltip.FindChildTraverse("AbilityName").style.marginTop = "2px"
+	// }
 }
 
 function get_attributes_for_query_unit(queryUnit){
@@ -89,6 +101,8 @@ function UnitStats40(){
 			GameUI.level_label.text = Entities.GetLevel( queryUnit )
 			GameUI.level_label.style.color = "#E7D291"
 			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"
+
+			GameUI.MovespeedLabel.text = Math.round(heroAttributes.movespeed)
 		}
 	}else{
 		$('#hero_attributes').style.visibility = "collapse"
@@ -114,9 +128,12 @@ function UnitStats40(){
 			GameUI.level_label.style.color = "#E7D291"
 			GameUI.level_label.style.textShadow = "0px 0px 3px 3.7 #EC780E24"			
 		}
+		GameUI.MovespeedLabel.text = Math.round(Entities.GetMoveSpeedModifier(queryUnit, Entities.GetBaseMoveSpeed(queryUnit), false));
 	}
 	// if (!(mQueryUnit == queryUnit)){
 	$('#unit_attribute_armor_label').text = mAttributesHash["modifier_roshpit_armor"]
+	adjustLabelForHighNumber("modifier_roshpit_armor", 'unit_attribute_armor_label')
+
 	if (mAttributesHash["modifier_positive_roshpit_armor"] > 0){
 		$('#unit_attribute_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_armor_label').RemoveClass('stat_negative')
@@ -133,6 +150,7 @@ function UnitStats40(){
 
 
 	$('#unit_attribute_magic_armor_label').text = mAttributesHash["modifier_roshpit_magic_armor"]
+	adjustLabelForHighNumber("modifier_roshpit_magic_armor", 'unit_attribute_magic_armor_label')
 	if (mAttributesHash["modifier_positive_roshpit_magic_armor"] > 0){
 		$('#unit_attribute_magic_armor_label').AddClass('stat_bonus')
 		$('#unit_attribute_magic_armor_label').RemoveClass('stat_negative')
@@ -148,6 +166,7 @@ function UnitStats40(){
 	}
 
 	$('#unit_attribute_armor_pierce_label').text = mAttributesHash["modifier_roshpit_armor_pierce"]
+	adjustLabelForHighNumber("modifier_roshpit_armor_pierce", 'unit_attribute_armor_pierce_label')
 	if (mAttributesHash["modifier_positive_roshpit_armor_pierce"] > 0){
 		$('#unit_attribute_armor_pierce_label').AddClass('stat_bonus')
 		$('#unit_attribute_armor_pierce_label').RemoveClass('stat_negative')
@@ -163,6 +182,7 @@ function UnitStats40(){
 	}
 
 	$('#unit_attribute_spell_pierce_label').text = mAttributesHash["modifier_roshpit_spell_pierce"]
+	adjustLabelForHighNumber("modifier_roshpit_spell_pierce", 'unit_attribute_spell_pierce_label')
 	if (mAttributesHash["modifier_positive_roshpit_spell_pierce"] > 0){
 		$('#unit_attribute_spell_pierce_label').AddClass('stat_bonus')
 		$('#unit_attribute_spell_pierce_label').RemoveClass('stat_negative')
@@ -178,6 +198,14 @@ function UnitStats40(){
 	}
 
 	// }
+}
+
+function adjustLabelForHighNumber(attribute_type, label_id){
+	if (mAttributesHash[attribute_type] > 9999){
+		$('#'+label_id).style.fontSize = "9px"
+	}else{
+		$('#'+label_id).style.fontSize = "12px"
+	}
 }
 
 function UpdateHeroStats(){

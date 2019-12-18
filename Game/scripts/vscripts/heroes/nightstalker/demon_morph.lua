@@ -67,7 +67,7 @@ function begin_demon_morph(event)
 				CustomAbilities:AddAndOrSwapSkill(caster, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end
 		end
-		Filters:CastSkillArguments(4, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	end)
 end
 

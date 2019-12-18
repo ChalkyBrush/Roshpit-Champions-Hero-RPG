@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W2_POST_MITI %>"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -77,13 +77,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_ARCANA_W_W4_DMG_BONUS_OF_MISSING_MANA_PCT %>"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% BAHAMUT_ARCANA_W_W4_DMG_OF_SPHERE_SPEED_PCT %>"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA %>"
 			}
 		}
 	}

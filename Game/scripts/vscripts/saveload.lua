@@ -204,7 +204,7 @@ function SaveLoad:SaveCharacter(msg)
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		url = SaveLoad:AttachGlyphsToUrl(url, hero)
 		for i = 0, 5, 1 do
-			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, 0)
+			url = SaveLoad:AttachItemToURL(url, hero, 0, 0, playerID, i, hero.equipped_gear[i])
 		end
 		if msg.ignore_callback then
 			CreateHTTPRequestScriptVM("POST", url):Send(function(result)
@@ -302,35 +302,18 @@ function SaveLoad:DebugGear(playerID)
 	end
 end
 
-function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gearSlot, itemIndex)
-	--print("[SaveLoad:AttachItemToURL] Start")
-	gearSlot = tostring(gearSlot)
-	local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..gearSlot)
-	local itemTable = false
-	if gearTable and is_stash == 0 then
-		itemIndex = gearTable.itemIndex
-		itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-		-- DeepPrintTable(itemTable)
-	end
-	if itemIndex < 0 then
-		url = url.."&build_number"..gearSlot.."="..0
-		url = url.."&item_slot"..gearSlot.."="..gearSlot
-		return url
-	end
-	--print("[SaveLoad:AttachItemToURL] 1")
-	if itemIndex > 0 then
-		itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
-		--print("ITEM TABLE??")
-		--print(itemIndex)
-		-- DeepPrintTable(itemTable)
-	end
-	local item = EntIndexToHScript(itemIndex)
+function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gearSlot, item)
+	print("---------")
+	print("[SaveLoad:AttachItemToURL] Start")
+	print("ATTACHING ITEM FOR GEAR SLOT: "..gearSlot)
 	if not item then
-		--print("[SaveLoad:AttachItemToURL] ITEM is null")
-		url = url.."&build_number"..gearSlot.."="..0
-		url = url.."&item_slot"..gearSlot.."="..gearSlot
+		print("NO ITEM")
 		return url
 	end
+	local itemIndex = item:GetEntityIndex()
+
+	local itemTable = item.newItemTable
+
 	if itemTable.cantStash then
 		Notifications:Top(playerID, {text = "Can't stash this item", duration = 2, style = {color = "red"}, continue = true})
 		return url
@@ -341,11 +324,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&validator"..gearSlot.."="..validatorValue
 	end
 
-	--DeepPrintTable(itemTable)
-
-	--itemTable.consumable valve's custom net tables swapping boolean value to number when you set table.
 	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= 1 then
-		--print("[SaveLoad:AttachItemToURL] 3")
+		print("[SaveLoad:AttachItemToURL] Item Table and property1 exists")
+		DeepPrintTable(item.newItemTable)
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
 		local item_name = escape(itemTable.item_name)
 		local internalMinLevel = math.max(itemTable.minLevel, 1)
@@ -369,28 +350,21 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			url = url.."&weapon_xp="..itemTable.xp
 			url = url.."&item_level="..itemTable.level
 			url = url.."&max_level1="..itemTable.maxLevel
-			url = url.."&required_hero1="..itemTable.requiredHero
 		else
 			url = url.."&is_weapon=" .. "0"
-			if itemTable.requiredHero then
-				if is_stash == 1 then
-					url = url.."&required_hero1="..itemTable.requiredHero
-				else
-					url = url.."&required_hero"..gearSlot.."="..itemTable.requiredHero
-				end
+		end
+		if itemTable.requiredHero then
+			if is_stash == 1 then
+				url = url.."&required_hero1="..itemTable.requiredHero
 			else
-				url = url.."&required_hero"..gearSlot.."="..0
+				url = url.."&required_hero"..gearSlot.."="..itemTable.requiredHero
 			end
-		end
-		-- if item.level then
-		-- url = url.."&item_level="..item.level
 		-- else
-		-- url = url.."&item_level=".."0"
-		-- end
-		local affixCount = itemTable.rarityFactor
-		if affixCount > 4 then
-			affixCount = 4
+		-- 	url = url.."&required_hero"..gearSlot.."="..0
 		end
+
+		local affixCount = math.min(itemTable.rarityFactor, 4)
+
 		for i = 1, affixCount, 1 do
 			local property = 0
 			local propertyName = ""
@@ -420,14 +394,8 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 				saveTooltip = itemTable.property4tooltip
 				saveSpecialDescription = itemTable.property4special
 			end
-			if not property then
-				property = 0
-			end
 			if type(property) == "string" and property == "★" then
 				property = 1
-			end
-			if not propertyName then
-				propertyName = ""
 			end
 			url = url.."&property"..i..gearSlot.."="..property
 			url = url.."&property"..i.."name"..gearSlot.."="..propertyName
@@ -437,6 +405,31 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 				url = url.."&property"..i.."special"..gearSlot.."="..escape(saveSpecialDescription)
 			end
 		end
+		if item.newItemTable.base_armor then
+			url = url.."&base_armor"..gearSlot.."="..item.newItemTable.base_armor
+		end
+		if item.newItemTable.base_magic_armor then
+			url = url.."&base_magic_armor"..gearSlot.."="..item.newItemTable.base_magic_armor
+		end
+		if item.newItemTable.socket1 then
+			url = url.."&socket1"..gearSlot.."="..item.newItemTable.socket1
+			if item.newItemTable.socket1value then
+				url = url.."&socket1value"..gearSlot.."="..item.newItemTable.socket1value
+			end
+		else
+			url = url.."&socket1"..gearSlot.."=".."none"
+			url = url.."&socket1value"..gearSlot.."="..0
+		end
+		if item.newItemTable.socket2 then
+			url = url.."&socket2"..gearSlot.."="..item.newItemTable.socket2
+			if item.newItemTable.socket2value then
+				url = url.."&socket2value"..gearSlot.."="..item.newItemTable.socket2value
+			end
+		else
+			url = url.."&socket2"..gearSlot.."=".."none"
+			url = url.."&socket2value"..gearSlot.."="..0
+		end
+		print(url)
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
 	elseif itemTable.stashable then
 		--print("[SaveLoad:AttachItemToURL] 4")
@@ -452,6 +445,8 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&min_level"..gearSlot.."="..0
 		url = url.."&prefix"..gearSlot.."="..escape(itemTable.itemPrefix)
 		url = url.."&suffix"..gearSlot.."="..escape(itemTable.itemSuffix)
+
+
 		local affixCount = 0
 		--print("TU78A")
 		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") then
@@ -551,7 +546,7 @@ function SaveLoad:LoadCharacter(msg)
 		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
 		for i = 1, 6, 1 do
-			Timers:CreateTimer(0.5 + (0.5 * i), function()
+			Timers:CreateTimer((0.1 * i), function()
 				SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
 			end)
 		end
@@ -620,21 +615,20 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		-- DeepPrintTable(gearTable)
 		local item = nil
 		if gearTable.is_weapon == 1 then
-			item = Weapons:CreateWeaponVariant(gearTable.item_variant,
-				RPCItems:GetRarityNameFromFactor(gearTable.rarity),
-				gearTable.item_name,
-				gearSlot,
-				true,
-				"Slot: "..gearSlot:gsub("^%l", string.upper),
-				gearTable.required_hero,
-				gearTable.max_level,
-			gearTable.min_level)
+			-- item = Weapons:CreateWeaponVariant(gearTable.item_variant,
+			-- 	RPCItems:GetRarityNameFromFactor(gearTable.rarity),
+			-- 	gearTable.item_name,
+			-- 	gearSlot,
+			-- 	true,
+			-- 	"Slot: "..gearSlot:gsub("^%l", string.upper),
+			-- 	gearTable.required_hero,
+			-- 	gearTable.max_level,
+			-- gearTable.min_level)
+			item = Weapons:SetupBasicWeapon(gearTable.rarity, gearTable.min_level, gearTable.required_hero, gearTable.max_level, gearTable.item_variant, gearTable.level, gearTable.current_xp)
 		else
 			if gearTable.rarity == 6 then
-				--print("ARCANA ADD REQUIRED HERO!")
-				--print(gearTable)
-				--print(gearTable.required_hero)
-				item = RPCItems:CreateVariantArcana(gearTable.item_variant,
+
+				item = RPCItems:CreateArcanaBasic(gearTable.item_variant,
 					RPCItems:GetRarityNameFromFactor(gearTable.rarity),
 					gearTable.item_name,
 					gearSlot,
@@ -645,132 +639,6 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 
 				--print(item.newItemTable.requiredHero)
 			else
-				--print("[SaveLoad:LoadGear] item_variant:"..tostring(gearTable.item_variant))
-				--print("[SaveLoad:LoadGear] item_name:"..tostring(gearTable.item_name))
-				if gearTable.item_variant == "item_rpc_raven_idol"
-					or gearTable.item_variant == "item_rpc_raven_idol2" then
-
-					gearTable.item_variant = "item_rpc_raven_idol"
-					gearTable.item_name = "Raven Idol"
-
-					gearTable.property1name = "raven2"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_raven_idol2"
-					gearTable.property1color = "#807F85"
-					gearTable.property1special = "#property_raven_idol_description2"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_raven_idol", "#807F85",  1, "#property_raven_idol_description")
-				elseif gearTable.item_variant == "item_rpc_robe_of_flooding"
-					or gearTable.item_variant == "item_rpc_robe_of_flooding_2"
-					or gearTable.item_variant == "item_rpc_robe_of_flooding_3" then
-
-					gearTable.item_variant = "item_rpc_robe_of_flooding"
-					gearTable.item_name = "Robe of Flooding"
-
-					gearTable.property1name = "flooding"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_flooding_3"
-					gearTable.property1color = "#57CFFF"
-					gearTable.property1special = "#property_flooding_description_3"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_flooding_3", "#57CFFF",  1, "#property_flooding_description_3")
-				elseif gearTable.item_variant == "item_rpc_shipyard_veil_lv1"
-					or gearTable.item_variant == "item_rpc_shipyard_veil_lv2"
-					or gearTable.item_variant == "item_rpc_shipyard_veil_lv3" then
-
-					gearTable.item_variant = "item_rpc_shipyard_veil_lv1"
-					gearTable.item_name = "Shipyard Veil LV1"
-
-					gearTable.property1name = "shipyard_veil"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_shipyard_veil_3"
-					gearTable.property1color = "#91F2F1"
-					gearTable.property1special = "#property_shipyard_veil_3_description"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_shipyard_veil_3", "#91F2F1",  1, "#property_shipyard_veil_3_description")
-				elseif gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv1"
-					or gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv2"
-					or gearTable.item_variant == "item_rpc_crimsyth_elite_greaves_lv3" then
-
-					gearTable.item_variant = "item_rpc_crimsyth_elite_greaves_lv1"
-					gearTable.item_name = "Crimsyth Elite Greaves LV1"
-
-					gearTable.property1name = "crimsyth_elite"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_crimsyth_elite_3"
-					gearTable.property1color = "#DD2727"
-					gearTable.property1special = "#property_crimsyth_elite_3_description"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_crimsyth_elite_3", "#DD2727",  1, "#property_crimsyth_elite_3_description")
-				elseif gearTable.item_variant == "item_rpc_avalanche_plate"
-					or gearTable.item_variant == "item_rpc_avalanche_plate_2" then
-
-					gearTable.item_variant = "item_rpc_avalanche_plate"
-					gearTable.item_name = "Avalanche Plate"
-
-					gearTable.property1name = "avalanche"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_avalanche_2"
-					gearTable.property1color = "#9C8C81"
-					gearTable.property1special = "#property_avalanche_description_2"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avalanche_2", "#9C8C81",  1, "#property_avalanche_description_2")
-				elseif gearTable.item_variant == "item_rpc_armor_of_violet_guard"
-					or gearTable.item_variant == "item_rpc_armor_of_violet_guard2" then
-
-					gearTable.item_variant = "item_rpc_armor_of_violet_guard"
-					gearTable.item_name = "Armor of Violet Guard"
-
-					gearTable.property1name = "violet_guard2"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_violet_guard_armor2"
-					gearTable.property1color = "#A337E6"
-					gearTable.property1special = "#property_violet_guard_armor_description2"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor2", "#A337E6",  1, "#property_violet_guard_armor_description2")
-				elseif gearTable.item_variant == "item_rpc_white_mage_hat"
-					or gearTable.item_variant == "item_rpc_white_mage_hat_2" then
-
-					gearTable.item_variant = "item_rpc_white_mage_hat"
-					gearTable.item_name = "White Mage Hat"
-
-					gearTable.property1name = "white_mage_hat2"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_white_mage_hat_2"
-					gearTable.property1color = "#FFFFFF"
-					gearTable.property1special = "#property_white_mage_hat_2_description"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_white_mage_hat_2", "#FFFFFF",  1, "#property_white_mage_hat_2_description")
-				elseif gearTable.item_variant == "item_rpc_hyper_visor"
-					or gearTable.item_variant == "item_rpc_hyper_visor2" then
-
-					gearTable.item_variant = "item_rpc_hyper_visor"
-					gearTable.item_name = "Hyper Visor"
-
-					gearTable.property1name = "hyper_visor"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_hyper_visor2"
-					gearTable.property1color = "#3CB7E8"
-					gearTable.property1special = "#property_hyper_visor2_description"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_hyper_visor2", "#3CB7E8",  1, "#property_hyper_visor2_description")
-				elseif gearTable.item_variant == "item_rpc_stormcrack_helm"
-					or gearTable.item_variant == "item_rpc_stormcrack_helm2" then
-
-					gearTable.item_variant = "item_rpc_stormcrack_helm"
-					gearTable.item_name = "Stormcrack Helm"
-
-					gearTable.property1name = "stormcrack2"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_stormcrack2"
-					gearTable.property1color = "#EFF2AE"
-					gearTable.property1special = "#property_stormcrack2_description"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stormcrack2", "#EFF2AE",  1, "#property_stormcrack2_description")
-				elseif gearTable.item_variant == "item_rpc_scorched_gauntlets"
-					or gearTable.item_variant == "item_rpc_scorched_gauntlets_2" then
-
-					gearTable.item_variant = "item_rpc_scorched_gauntlets"
-					gearTable.item_name = "Gloves of the High Flame"
-
-					gearTable.property1name = "scorched_gauntlet"
-					gearTable.property1 = 1
-					gearTable.property1tooltip = "#item_property_scorched_gauntlet_2"
-					gearTable.property1color = "#E8A917"
-					gearTable.property1special = "#property_scorched_gauntlet_description_2"
-					--RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scorched_gauntlet_2", "#E8A917",  1, "#property_scorched_gauntlet_description_2")
-				end
 
 				item = RPCItems:CreateVariantWithMin(gearTable.item_variant,
 					RPCItems:GetRarityNameFromFactor(gearTable.rarity),
@@ -789,31 +657,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 		end
 
-		--should be removed after db update
-		if gearTable.property1name and gearTable.property1name == "level_reduce" and gearTable.property1tooltip and gearTable.property1tooltip == "#item_min_level_reduction" then
-			gearTable.property1name = "item_damage"
-			gearTable.property1tooltip = "#item_damage_increase"
-		end
-		if gearTable.property2name and gearTable.property2name == "level_reduce" and gearTable.property2tooltip and gearTable.property2tooltip == "#item_min_level_reduction" then
-			gearTable.property2name = "item_damage"
-			gearTable.property2tooltip = "#item_damage_increase"
-		end
-		if gearTable.property3name and gearTable.property3name == "level_reduce" and gearTable.property3tooltip and gearTable.property3tooltip == "#item_min_level_reduction" then
-			gearTable.property3name = "item_damage"
-			gearTable.property3tooltip = "#item_damage_increase"
-		end
-		if gearTable.property4name and gearTable.property4name == "level_reduce" and gearTable.property4tooltip and gearTable.property4tooltip == "#item_min_level_reduction" then
-			gearTable.property4name = "item_damage"
-			gearTable.property4tooltip = "#item_damage_increase"
-		end
-
 		item.newItemTable.item_slot = gearSlot
-		item.newItemTable.hasRunePoints = true
 		item.pickedUp = true
-		gearTable.property1name = SaveLoad:FixLoadedRuneProperties(gearTable.property1name)
-		gearTable.property2name = SaveLoad:FixLoadedRuneProperties(gearTable.property2name)
-		gearTable.property3name = SaveLoad:FixLoadedRuneProperties(gearTable.property3name)
-		gearTable.property4name = SaveLoad:FixLoadedRuneProperties(gearTable.property4name)
 		--PROPERTY1
 		item.newItemTable.property1 = gearTable.property1
 		item.newItemTable.property1name = gearTable.property1name
@@ -897,222 +742,221 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				RPCItems:SetPropertyValues(item, gearTable.property4, gearTable.property4tooltip, gearTable.property4color, 4)
 			end
 		end
+		-- ARMOR AND SOCKETS
+		if gearTable.base_armor then
+			item.newItemTable.base_armor = gearTable.base_armor
+		end
+		if gearTable.base_magic_armor then
+			item.newItemTable.base_magic_armor = gearTable.base_magic_armor
+		end
+		if gearTable.socket1 then
+			item.newItemTable.socket1 = gearTable.socket1
+			item.newItemTable.socket1value = gearTable.socket1value
+		end
+		if gearTable.socket2 then
+			item.newItemTable.socket2 = gearTable.socket2
+			item.newItemTable.socket2value = gearTable.socket2value
+		end
 		--WEAPON
 		if gearTable.is_weapon == 1 then
-			-- --print("GEARTABLE IS WEAPON")
-
 			item.newItemTable.xp = gearTable.current_xp
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
-			item.newItemTable.requiredHero = gearTable.required_hero
-			Weapons:SetWeaponTable(item)
-			if bEquip == 1 then
-				hero.weapon = item
-				CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()),
-					{xp = item.newItemTable.xp,
-						level = item.newItemTable.level,
-						xpNeeded = Weapons.XP_PER_LEVEL_TABLE[item.newItemTable.level],
-						maxLevel = item.newItemTable.maxLevel,
-					requiredHero = item.newItemTable.requiredHero})
-				end
-				Timers:CreateTimer(0.1, function()
-					Weapons:UpdateWeaponXP(0)
-				end)
+		end
+		item.pickedUp = true
+		if gearTable.validator then
+			item.newItemTable.validator = gearTable.validator
+		end
+		RPCItems:ItemUpdateCustomNetTables(item)
+
+		if bEquip == 1 then
+			hero:EquipItem(item, false)
+		else
+			return item
+		end
+	else
+		if gearTable.item_variant == "item_reanimation_stone" then
+			local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
+			item.pickedUp = true
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
 			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_name == "glyph" then
+			--print(gearTable.item_variant)
+			local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
+			item.pickedUp = true
+			SaveLoad:RemoveProperties(item)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_name == "temple_key" then
+			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+			key.pickedUp = true
+			SaveLoad:RemoveProperties(key)
+			SaveLoad:RemoveAdditionalData(key, false, false)
+			if gearTable.validator then
+				key.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return key
+		elseif gearTable.item_name == "tanari_element" then
+			local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
+			element.pickedUp = true
+			SaveLoad:RemoveProperties(element)
+			SaveLoad:RemoveAdditionalData(element, false, false)
+			if gearTable.validator then
+				element.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return element
+		elseif gearTable.item_name == "tanari_spirit_stones" then
+			local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+			stones.pickedUp = true
+			SaveLoad:RemoveProperties(stones)
+			SaveLoad:RemoveAdditionalData(stones, false, false)
+			if gearTable.validator then
+				stones.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return stones
+		elseif gearTable.item_name == "redfall_key" then
+			local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+			key.pickedUp = true
+			SaveLoad:RemoveProperties(key)
+			SaveLoad:RemoveAdditionalData(key, false, false)
+			if gearTable.validator then
+				key.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return key
+		elseif gearTable.item_name == "glyph_book" then
+			local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
 			item.pickedUp = true
 			if gearTable.validator then
 				item.newItemTable.validator = gearTable.validator
 			end
 			RPCItems:ItemUpdateCustomNetTables(item)
-
-			if bEquip == 1 then
-				Weapons:Equip(hero, item)
-			else
-				return item
+			return item
+		elseif gearTable.item_variant == "item_rpc_web_premium_token" then
+			--print("IN HERE??")
+			local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.newItemTable.property1 = gearTable.property1
+			item.newItemTable.property1color = gearTable.property1color
+			item.newItemTable.property1name = gearTable.property1name
+			item.newItemTable.property1tooltip = gearTable.property1tooltip
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "web_prem_tracking_id", item.newItemTable.property1color, 1)
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
 			end
-		else
-			if gearTable.item_variant == "item_reanimation_stone" then
-				local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
-				item.pickedUp = true
-				SaveLoad:RemoveProperties(item)
-				SaveLoad:RemoveAdditionalData(item, false, false)
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_name == "glyph" then
-				--print(gearTable.item_variant)
-				local item = Glyphs:RollGlyphAll(gearTable.item_variant, Vector(0, 0), -1)
-				item.pickedUp = true
-				SaveLoad:RemoveProperties(item)
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_name == "temple_key" then
-				local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "temple_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
-				key.pickedUp = true
-				SaveLoad:RemoveProperties(key)
-				SaveLoad:RemoveAdditionalData(key, false, false)
-				if gearTable.validator then
-					key.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return key
-			elseif gearTable.item_name == "tanari_element" then
-				local element = RPCItems:CreateConsumable(gearTable.item_variant, "mythical", "tanari_element", "consumable", false, "Key Item", gearTable.item_variant.."_desc")
-				element.pickedUp = true
-				SaveLoad:RemoveProperties(element)
-				SaveLoad:RemoveAdditionalData(element, false, false)
-				if gearTable.validator then
-					element.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return element
-			elseif gearTable.item_name == "tanari_spirit_stones" then
-				local stones = RPCItems:CreateConsumable(gearTable.item_variant, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
-				stones.pickedUp = true
-				SaveLoad:RemoveProperties(stones)
-				SaveLoad:RemoveAdditionalData(stones, false, false)
-				if gearTable.validator then
-					stones.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return stones
-			elseif gearTable.item_name == "redfall_key" then
-				local key = RPCItems:CreateConsumable(gearTable.item_variant, "rare", "redfall_key", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
-				key.pickedUp = true
-				SaveLoad:RemoveProperties(key)
-				SaveLoad:RemoveAdditionalData(key, false, false)
-				if gearTable.validator then
-					key.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return key
-			elseif gearTable.item_name == "glyph_book" then
-				local item = Glyphs:CreateGlyphBook(gearTable.item_variant, gearTable.property1, gearTable.property2)
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_variant == "item_rpc_web_premium_token" then
-				--print("IN HERE??")
-				local item = RPCItems:CreateConsumable("item_rpc_web_premium_token", "immortal", "Web Premium Token", "consumable", false, "Consumable", "web_premium_desc")
-				SaveLoad:RemoveProperties(item)
-				SaveLoad:RemoveAdditionalData(item, false, false)
-				item.newItemTable.property1 = gearTable.property1
-				item.newItemTable.property1color = gearTable.property1color
-				item.newItemTable.property1name = gearTable.property1name
-				item.newItemTable.property1tooltip = gearTable.property1tooltip
-				item.newItemTable.consumable = true
-				item.newItemTable.stashable = true
-				RPCItems:SetPropertyValues(item, item.newItemTable.property1, "web_prem_tracking_id", item.newItemTable.property1color, 1)
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_variant == "item_rpc_synthesis_vessel" then
-				local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
-				SaveLoad:RemoveProperties(item)
-				SaveLoad:RemoveAdditionalData(item, false, false)
-				item.newItemTable.consumable = true
-				item.newItemTable.stashable = true
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_variant == "item_rpc_socket_cutter" then
-				local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
-				SaveLoad:RemoveProperties(item)
-				SaveLoad:RemoveAdditionalData(item, false, false)
-				item.newItemTable.consumable = true
-				item.newItemTable.stashable = true
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
-				local item = RPCItems:CreateConsumable(gearTable.item_variant, "arcana", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
-				SaveLoad:RemoveProperties(item)
-				SaveLoad:RemoveAdditionalData(item, false, false)
-				item.newItemTable.stashable = true
-				item.newItemTable.consumable = true
-				item.pickedUp = true
-				item.newItemTable.property1 = gearTable.property1
-				item.newItemTable.property1name = gearTable.property1name
-				item.newItemTable.property1color = gearTable.property1color
-				item.newItemTable.property1tooltip = gearTable.property1tooltip
-				RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color, 1)
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" then
-				local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
-				local item = RPCItems:RollHyperstone(gearTable.property1)
-				item.pickedUp = true
-				item.newItemTable.stashable = true
-				item.newItemTable.consumable = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif string.match(gearTable.item_variant, "item_rpc_currency_whetstone") then
-				local item = RPCItems:CreateCurrencyWhetstone()
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif string.match(gearTable.item_variant, "item_rpc_currency_arcana_reroll") then
-				local item = RPCItems:CreateCurrencyArcanaReroll()
-				item.pickedUp = true
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				RPCItems:ItemUpdateCustomNetTables(item)
-				return item
-			elseif string.match(gearTable.item_variant, "item_rpc_unrefined_gemstones") then
-				local item = Gems:CreateUnrefinedGemstones(gearTable.property1)
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				return item
-			elseif string.match(gearTable.item_variant, "item_rpc_exp_orb") then
-				local item = Challenges:CreateEXPOrb()
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				return item
-			elseif string.match(gearTable.item_variant, "item_rpc_greater_exp_orb") then
-				local item = Challenges:CreateGreaterEXPOrb()
-				if gearTable.validator then
-					item.newItemTable.validator = gearTable.validator
-				end
-				return item
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_variant == "item_rpc_synthesis_vessel" then
+			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
 			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_variant == "item_rpc_socket_cutter" then
+			local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif string.match(gearTable.item_variant, "galactic_arcana_cache") then
+			local item = RPCItems:CreateConsumable(gearTable.item_variant, "arcana", "Arcana Cache Part", "consumable", false, "Consumable", gearTable.item_variant.."_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.newItemTable.stashable = true
+			item.newItemTable.consumable = true
+			item.pickedUp = true
+			item.newItemTable.property1 = gearTable.property1
+			item.newItemTable.property1name = gearTable.property1name
+			item.newItemTable.property1color = gearTable.property1color
+			item.newItemTable.property1tooltip = gearTable.property1tooltip
+			RPCItems:SetPropertyValues(item, item.newItemTable.property1, "cache_radiance", item.newItemTable.property1color, 1)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" then
+			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif string.match(gearTable.item_variant, "item_serengaard_hyperstone") then
+			local item = RPCItems:RollHyperstone(gearTable.property1)
+			item.pickedUp = true
+			item.newItemTable.stashable = true
+			item.newItemTable.consumable = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_currency_whetstone") then
+			local item = RPCItems:CreateCurrencyWhetstone()
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_currency_arcana_reroll") then
+			local item = RPCItems:CreateCurrencyArcanaReroll()
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_unrefined_gemstones") then
+			local item = Gems:CreateUnrefinedGemstones(gearTable.property1)
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_exp_orb") then
+			local item = Challenges:CreateEXPOrb()
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_greater_exp_orb") then
+			local item = Challenges:CreateGreaterEXPOrb()
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			return item
 		end
 	end
+end
 
 	function SaveLoad:FixLoadedRuneProperties(propertyName)
 		if propertyName then
@@ -1243,8 +1087,8 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		hero:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.ability3level)
 		hero:GetAbilityByIndex(DOTA_R_SLOT):SetLevel(results.ability4level)
 
-		Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 
+		Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	end
 
 	function SaveLoad:ApplyAllRunes(hero, playerID)
@@ -1447,7 +1291,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					end
 					local url = ROSHPIT_URL.."/champions/saveStashItem?"
 					url = url.."steam_id="..steamID
-					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemIndex)
+					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity)
 					url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 					Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_stash_lock", {duration = 90})
 					CreateHTTPRequestScriptVM("POST", url):Send(function(result)
@@ -1558,7 +1402,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 					end
 					local url = ROSHPIT_URL.."/champions/saveStashItem?"
 					url = url.."steam_id="..steamID
-					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity:GetEntityIndex())
+					url = SaveLoad:AttachItemToURL(url, hero, 1, stashSlot, playerID, 0, itemEntity)
 					url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 
 					CreateHTTPRequestScriptVM("POST", url):Send(function(result)
@@ -1815,6 +1659,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		url = url.."&change=1"
 		url = url.."&keyIndex="..msg.keyIndex
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
+		print(url)
 		if SaveLoad:GetAllowSaving() then
 			local itemEntity = EntIndexToHScript(itemIndex)
 			hero:TakeItem(itemEntity)
@@ -1895,6 +1740,20 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			key.newItemTable.consumable = true
 			RPCItems:ItemUpdateCustomNetTables(key)
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, key)
+		elseif keyIndex == 12 then
+			local item = RPCItems:CreateConsumable("item_rpc_synthesis_vessel", "immortal", "Synthesis Vessel", "consumable", false, "Consumable", "synthesis_vessel_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		elseif keyIndex == 13 then
+			local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 		end
 	end
 

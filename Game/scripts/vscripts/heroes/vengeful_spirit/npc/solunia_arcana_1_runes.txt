@@ -40,7 +40,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_Q2_SPELL_DMG_FLAT_HP_PCT %>"
+				"property_two"			"<% SOLUNIA_ARCANA_Q2_BASE_ATTACK_PER_HP_LUNAR %>"
 			}
 		}
 	}
@@ -61,7 +61,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_Q3_POST_MITI_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_Q3_ARMOR_LOSS %>"
 			}
 			"02"
 			{
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_Q4_COSMIC_AMP_PCT * 100 %>"
 			}
 		}
 	}

@@ -48,12 +48,12 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"additional_str_damage"		"25"
+				"additional_str_damage"		"1"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"post_mitigation"		"125"
+				"magic_armor_reduce"		"-100 -180 -260 -340 -420 -500 -580"
 			}
 
 		}
@@ -93,11 +93,29 @@
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
         	}
-        	"modifier_rockfall_post_mit"
+        	"modifier_rockfall_magic_armor_loss"
         	{
         		"IsHidden"	"0"
         		"IsDebuff"	"1"
-        		"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
         	}
 			"modifier_mountain_e_passives_think"
 			{

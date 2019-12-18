@@ -137,14 +137,21 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"slipfinn/slipfinn_rune_w_2"
 			}
 			"modifier_slipfinn_gloomshade_invisible"
 			{
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_slipfinn_agitated_visible"
 			{
@@ -176,6 +183,10 @@
 				{
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1" 
 				}
+			}
+			"modifier_slipfinn_e_2_armor"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}
@@ -220,12 +231,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 8000 25000 100000 250000 500000 1000000"
+				"damage"			"<% SLIPFINN_Q_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_pure_resist"			"70 75 80 85 90 95 100"
+				"magic_pure_resist"			"<% SLIPFINN_Q_RESIST %>"
 			}
 		}
 		"OnSpellStart"
@@ -285,10 +296,6 @@
 				"TextureName"	"slipfinn/slipfinn_rune_q_2"
 				"EffectName"	"particles/units/heroes/slipfinn/slipfinn_b_a_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% SLIPFINN_Q2_ARMOR %>"
-				}
 			}
 		}
 	}
@@ -345,6 +352,19 @@
 		}
 		"Modifiers"
 		{
+			"modifier_slipfinn_shadow_rush_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/slark/shadow_rush"
+						"Function"		"shadow_rush_kill"
+					}
+				}
+			}
 			"modifier_slipfinn_shadow_rush"
 			{
 				"Passive"			"0"
@@ -397,6 +417,11 @@
 				{
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_slipfinn_e_4_assassin"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
 			}
 		}
 		"OnAbilityPhaseStart"

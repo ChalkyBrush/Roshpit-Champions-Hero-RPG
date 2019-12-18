@@ -37,7 +37,7 @@ STARS_INCREASE_MITHRIL = false
 STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
-ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '3.8A'
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -205,14 +205,15 @@ function GameMode:OnNPCSpawned(keys)
 				-- gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_disable_player", {})
 			-- end
 		-- end
-		RPCItems:RecalculateStatsBasic(npc)
+		-- RPCItems:RecalculateStatsBasic(npc)
 		--print("RESPAWNING AND MOVING")
 	end
 end
 
 function GameMode:CorrectRespawn(npc)
-
-	Runes:RunesOnRespawn(npc)
+	if npc:IsRealHero() then
+		npc:ReequipAllGear()
+	end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR
@@ -239,9 +240,7 @@ function GameMode:CorrectRespawn(npc)
 			npc:SetOrigin(Dungeons.entryPoint)
 		end
 	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
-		if npc:HasModifier("modifier_neutral_glyph_4_1") and (not npc.prelastDeathTime or (npc.lastDeathTime - npc.prelastDeathTime > 30)) then
-			npc:SetOrigin(npc.deathPosition)
-		elseif npc.respawnFlag then
+		if npc.respawnFlag then
 			Events:RespawnFlag(npc)
 		else
 			if Dungeons.respawnPoint then
@@ -377,9 +376,9 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerId, pickup = "normal", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
 			end
 		end
-		if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
-			RPCItems:LegendaryPickup(itemEntity, heroEntity)
-		end
+		-- if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
+		-- 	RPCItems:LegendaryPickup(itemEntity, heroEntity)
+		-- end
 		if IsValidEntity(itemEntity) then
 			if itemEntity:GetAbilityName() == "item_reanimation_stone" then
 				RPCItems:LegendaryPickup(itemEntity, heroEntity)
@@ -454,7 +453,17 @@ function GameMode:OnPlayerChat(keys)
 	end
 	if string.match(text, "dbg") then
 		-- Serengaard:KillAllNeutrals()
-		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
+		-- item = Gems:AddSocket(item)
+  --   	item = Gems:AddSocket(item)		-- RPCItems.DROP_LOCATION = vector
+		-- RPCItems:CreateArcanaCache(85, "12345")
+		-- RPCItems:RollRavenIdol(position)
+		-- RPCItems:RollAxeArcana1(position)
+		-- RPCItems:RollAxeArcana2(position)
+		-- RPCItems:RollFarSeersEnchantedGloves(position)
+		-- RPCItems:RollFarSeersEnchantedGloves(position)
+		-- RPCItems:RollSeaGiantsPlate(position)
 		-- RPCItems:RollHyperstone(10, position)
 		-- RPCItems:RollBorealGraniteVest(position)
 		-- RPCItems:RollMonkeyPaw(position)
@@ -466,10 +475,9 @@ function GameMode:OnPlayerChat(keys)
 		-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
 		-- 	RPCItems:DropSynthesisVessel(position)
 		-- end
-		-- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		-- RPCItems:RollFlamewakerArcana1(vector)
-		-- RPCItems.DROP_LOCATION = vector
-		-- RPCItems:CreateArcanaCache(99, "12345")
+		--RPCItems:RollFlamewakerArcana1(vector)
+		 
+		 
 
 		--    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
 		--    key.newItemTable.stashable = true
@@ -569,24 +577,92 @@ function GameMode:OnPlayerChat(keys)
 		end
 	elseif string.match(text, "-immo") then
 		if Beacons.cheats then
-			local name = string.gsub(text, "-immo ", "")
+			local strings = string.gmatch(text, "%S+")
+			local command = strings()
+			local name = strings()
+			local level = tonumber(strings(), 10)
+			if not level then
+				level = 1
+			end
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
+			local item = RPCItems:RollImmortalByName(name, level)
+			Gems:AddSocket(item)
+			Gems:AddSocket(item)
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth40") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 40, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth80") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 80, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth120") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 120, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-gems") then
+		if Beacons.cheats then
+			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
+		end
+	elseif string.match(text, "-givegems") then
+		if Beacons.cheats then
+			local amount = tonumber(string.gsub(text, "-givegems ", ""), 10)
+			local msg = {}
+			msg.PlayerID = keys.playerid
+			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
+			Gems:CollectReward(msg)
+		end
+	elseif string.match(text, "-map_keys") then
+		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local item = CreateItem("item_debug_blink", nil, nil)
+		local drop = CreateItemOnPositionSync(vector, item)
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		if GameState:IsRedfallRidge() then
+			Redfall:GiveSpiritRuby(hero, vector)
+			Redfall:GiveVermillionBundle(hero, vector)
+			Redfall:GiveShipyardKey(hero, vector)
+			Redfall:GiveDemonRelic(hero, vector)
+		elseif GameState:IsWinterblight() then
+			for i = 1, 3 do
+				Winterblight:DropGlacierStone(vector)
+			end
+		elseif GameState:IsSerengaard() then
+			Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
 		end
 	elseif string.match(text, "-arc") then
 		if Beacons.cheats then
 			local name = string.gsub(text, "-arc ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, 1))
 		end
 	elseif string.match(text, "-gly") then
 		if Beacons.cheats then
 			local name = string.gsub(text, "-gly ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			if _G[name] then
+				newItem = _G[name]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(hero:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			end
+		end
+	elseif string.match(text, "-potion") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		    local potion = RPCItems:RollRandomPotion(1)
+    		RPCItems:BasicDropItem(hero:GetAbsOrigin(), potion)
 		end
 	elseif string.match(text, "-allglyph") then
 		if Beacons.cheats then
@@ -919,12 +995,16 @@ end
 function Events:HeroLevelUp(player, hero, level)
 	hero:SetAbilityPoints(0)
 
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	local skill_points = 0
 	if level%5 == 0 then
 		skill_points = 1
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = Runes.RUNE_POINTS_PER_LEVEL})
+	local rune_point_popup = Runes.RUNE_POINTS_PER_LEVEL
+	if hero:HasModifier("modifier_tattered_novice_armor") and level%ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS == 0 then
+		rune_point_popup = rune_point_popup + ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+	end
+	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = rune_point_popup})
 	if level % 40 == 0 then
 		Stars:StarEventPlayer("power_up", hero)
 	end
@@ -1062,11 +1142,12 @@ end
 function Events:SetupInventoryUnit(inventory_unit)
 	inventory_unit:AddAbility("town_unit")
 	inventory_unit:FindAbilityByName("town_unit"):SetLevel(1)
-	inventory_unit:FindAbilityByName("helm_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("hand_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("foot_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("body_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("weapon_slot"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_head"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_weapon"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_hands"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_feet"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_body"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_amulet"):SetLevel(1)
 end
 
 function Events:InitializeHero(heroEntity)
@@ -1193,7 +1274,7 @@ function Events:ChangeRuneState(msg)
 		end
 		Events:TutorialServerEvent(unit, "2_1", 2)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(unit)
+	Runes:UpdateHeroSkillAndRunePoints(unit, false)
 end
 
 function Events:LevelUpRune(keys)
@@ -1211,7 +1292,7 @@ function Events:LevelUpRuneMax(keys)
 	local hero = player:GetAssignedHero()
 	local bAllow = true
 
-	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
 	local current_rune_points = points.rune_points
 	local current_skill_points = points.ability_points
 
@@ -1233,7 +1314,7 @@ function Events:LevelUpRuneMax(keys)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:LevelUpAbility(keys)
@@ -1243,7 +1324,7 @@ function Events:LevelUpAbility(keys)
 	local unit = EntIndexToHScript(keys.unit)
 	local hero = player:GetAssignedHero()
 
-	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
 	local current_rune_points = points.rune_points
 	local current_skill_points = points.ability_points
 	
@@ -1257,11 +1338,11 @@ function Events:LevelUpAbility(keys)
 		local newLevel = ability:GetLevel() + 1
 		ability:SetLevel(newLevel)
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
-		Runes:UpdateHeroSkillAndRunePoints(hero)
+		Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	Runes:UpdateHeroSkillAndRunePoints(hero)
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
@@ -1351,6 +1432,7 @@ function Events:SetupHeroes(heroEntity)
 	end)
 	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(DOTA_Q_SLOT):GetCastPoint()
 	heroEntity.castPointW = heroEntity:GetAbilityByIndex(DOTA_W_SLOT):GetCastPoint()
+	heroEntity.castPointE = heroEntity:GetAbilityByIndex(DOTA_E_SLOT):GetCastPoint()
 	-- Timers:CreateTimer(6, function()
 	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = Runes.STARTING_RUNE_POINTS})
 	Events:CreateRuneUnits(heroEntity, ownerID)
@@ -1382,12 +1464,17 @@ function Events:SetupHeroes(heroEntity)
 		Tutorial:GetTutorialFromServer(heroEntity)
 	end
 	if Events.GameMaster then
+		print("APPLY THINKER")
+		print("QQQQ")
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 	else
 		Timers:CreateTimer(3, function()
 			if Events.GameMaster then
 				Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
+				print("APPLY THINKER")
+				print("QQQQ")
 			else
+				print("TRY AGAIN")
 				return 3
 			end
 		end)
@@ -1486,9 +1573,7 @@ function GameMode:OnEntityKilled(keys)
 		Enemies:EnemySlain(killedUnit, killerEntity)
 		Events:UpdateKillScores(killedUnit, killerEntity)
 		Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
-		if xpBounty > 0 then
-			RPCItems:RollDrops(killedUnit, killerEntity)
-		end
+		killedUnit:DropItemsOnDeath()
 		-- Weapons:UpdateWeaponXP(xpBounty)
 		-- if killedUnit.minDrops then
 		-- 	Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
@@ -1528,18 +1613,9 @@ function GameMode:OnEntityKilled(keys)
 		if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
 			Timers:CreateTimer(0.06, function()
 				Challenges:HeroDied()
-				local respawnTime = 20
-				if MAIN_HERO_TABLE then
-					respawnTime = #MAIN_HERO_TABLE * 10
-				end
-				-- if killedUnit:HasModifier("modifier_duskbringer_glyph_2_1") then
-				--   respawnTime = 20
-				-- end
-				if killedUnit:HasModifier("modifier_neutral_glyph_4_1") then
-					respawnTime = respawnTime * 0.2
-					killedUnit.deathPosition = killedUnit:GetAbsOrigin()
-					killedUnit.prelastDeathTime = killedUnit.lastDeathTime
-					killedUnit.lastDeathTime = GameRules:GetGameTime()
+				local respawnTime = 5
+				if MAIN_HERO_TABLE and GameState:GetDifficultyFactor() > 1 then
+					respawnTime = respawnTime + #MAIN_HERO_TABLE * 5
 				end
 				respawnTime = math.min(killedUnit:GetTimeUntilRespawn(), respawnTime)
 				if killedUnit:HasModifier("modifier_slipfinn_immortal_weapon_1") then
@@ -2446,10 +2522,10 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
 	-- 	unit:SetBaseMaxHealth(newHealth)
 	-- 	unit:SetHealth(newHealth)
 	-- 	unit:Heal(newHealth, unit)
-	-- 	if bHealthbar then
-	-- 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
-	-- 		unit.mainBoss = true
-	-- 	end
+	 	if bHealthbar then
+	 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+	 		--unit.mainBoss = true
+	 	end
 	-- 	unit.bossStatus = true
 	-- else
 	-- 	for i = 1, #unit, 1 do
@@ -4034,6 +4110,6 @@ function Events:MainBossSlain(boss_name)
 	Challenges:MainBossSlainEvent(boss_name)
 end
 
+require('worlds/redfall/redfall')
+
 require('worlds/winterblight/winterblight')
-
-

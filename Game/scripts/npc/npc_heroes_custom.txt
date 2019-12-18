@@ -56,6 +56,7 @@
 		"RoshpitIntelligenceGain" "1.6"
 		"RoshpitSpirit"			"8"
 		"RoshpitSpiritGain"		"1.2"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"voltex"
@@ -112,6 +113,7 @@
 		"RoshpitIntelligenceGain" "2.2"
 		"RoshpitSpirit"			"5"
 		"RoshpitSpiritGain"		"1"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"venomort"
@@ -166,18 +168,19 @@
 		"RoshpitIntelligenceGain" "3.6"
 		"RoshpitSpirit"			"9"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"axe"
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_axe"
-		"Ability1"	"red_general_skull_basher"
-		"Ability2"	"backshock"
-		"Ability3"	"whirlwind"
+		"Ability1"	"red_general_ability_base_q_skull_basher"
+		"Ability2"	"red_general_ability_base_w_backshock"
+		"Ability3"	"red_general_ability_base_e_whirlwind"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
-		"Ability6"	"sunder"
+		"Ability6"	"red_general_ability_base_r_sunder"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
@@ -222,6 +225,7 @@
 		"RoshpitIntelligenceGain" "1.1"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"1.9"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"astral"
@@ -276,6 +280,7 @@
 		"RoshpitIntelligenceGain" "2.8"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"1.9"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"epoch"
@@ -329,6 +334,7 @@
 		"RoshpitIntelligenceGain" "4.0"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"paladin"
@@ -384,6 +390,7 @@
 		"RoshpitIntelligenceGain" "2.2"
 		"RoshpitSpirit"			"6"
 		"RoshpitSpiritGain"		"2.4"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"sorceress"
@@ -437,6 +444,7 @@
 		"RoshpitIntelligenceGain" "3.8"
 		"RoshpitSpirit"			"14"
 		"RoshpitSpiritGain"		"2.0"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"conjuror"
@@ -491,6 +499,7 @@
 		"RoshpitIntelligenceGain" "2.8"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"2.2"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"seinaru"
@@ -547,6 +556,7 @@
 		"RoshpitIntelligenceGain" "2.0"
 		"RoshpitSpirit"			"4"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"warlord"
@@ -603,6 +613,7 @@
 		"RoshpitIntelligenceGain" "2.4"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"1.5"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"bahamut"
@@ -659,6 +670,7 @@
 		"RoshpitIntelligenceGain" "3.2"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"1.6"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"duskbringer"
@@ -714,6 +726,7 @@
 		"RoshpitIntelligenceGain" "1.1"
 		"RoshpitSpirit"			"6"
 		"RoshpitSpiritGain"		"2.0"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"auriun"
@@ -770,6 +783,7 @@
 		"RoshpitIntelligenceGain" "3.5"
 		"RoshpitSpirit"			"20"
 		"RoshpitSpiritGain"		"3.5"
+		"RoshpitPrimaryAttribute"	"3"
 	}
 
 	"trapper"
@@ -826,6 +840,7 @@
 		"RoshpitIntelligenceGain" "3.4"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"1.2"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"spirit_warrior"
@@ -879,6 +894,7 @@
 		"RoshpitIntelligenceGain" "1.5"
 		"RoshpitSpirit"			"20"
 		"RoshpitSpiritGain"		"2.8"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"mountain_protector"
@@ -934,6 +950,7 @@
 		"RoshpitIntelligenceGain" "1.6"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"1.5"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"chernobog"
@@ -988,6 +1005,7 @@
 		"RoshpitIntelligenceGain" "1.8"
 		"RoshpitSpirit"			"8"
 		"RoshpitSpiritGain"		"1.6"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"solunia"
@@ -1041,6 +1059,7 @@
 		"RoshpitIntelligenceGain" "2.7"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"2.3"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"hydroxis"
@@ -1096,6 +1115,7 @@
 		"RoshpitIntelligenceGain" "2.1"
 		"RoshpitSpirit"			"9"
 		"RoshpitSpiritGain"		"2.0"
+		"RoshpitPrimaryAttribute"	"0"
 	}
 
 	"ekkan"
@@ -1141,6 +1161,7 @@
 		"RoshpitIntelligenceGain" "3.2"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"2.0"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"hero_selection"
@@ -1246,6 +1267,7 @@
 		"RoshpitIntelligenceGain" "1.8"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"1.5"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"arkimus"
@@ -1303,6 +1325,7 @@
 		"RoshpitIntelligenceGain" "2.8"
 		"RoshpitSpirit"			"9"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"djanghor"
@@ -1360,6 +1383,7 @@
 		"RoshpitIntelligenceGain" "2.4"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"2.1"
+		"RoshpitPrimaryAttribute"	"3"
 	}
 
 	"slipfinn"
@@ -1418,6 +1442,7 @@
 		"RoshpitIntelligenceGain" "1.8"
 		"RoshpitSpirit"			"12"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 
 	"sephyr"
@@ -1473,6 +1498,7 @@
 		"RoshpitIntelligenceGain" "3.4"
 		"RoshpitSpirit"			"8"
 		"RoshpitSpiritGain"		"2.2"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"dinath"
@@ -1528,6 +1554,7 @@
 		"RoshpitIntelligenceGain" "2.8"
 		"RoshpitSpirit"			"14"
 		"RoshpitSpiritGain"		"2.2"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"jex"
@@ -1582,6 +1609,7 @@
 		"RoshpitIntelligenceGain" "3.4"
 		"RoshpitSpirit"			"8"
 		"RoshpitSpiritGain"		"1.8"
+		"RoshpitPrimaryAttribute"	"2"
 	}
 
 	"omniro"
@@ -1639,5 +1667,6 @@
 		"RoshpitIntelligenceGain" "1.7"
 		"RoshpitSpirit"			"10"
 		"RoshpitSpiritGain"		"2.4"
+		"RoshpitPrimaryAttribute"	"1"
 	}
 }

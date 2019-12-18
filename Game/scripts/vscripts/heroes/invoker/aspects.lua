@@ -40,7 +40,7 @@ function aspect_global_think(event)
 		local e_3_level = conjuror:GetRuneValue("e", 3)
 		local ability = conjuror:FindAbilityByName("summon_shadow_aspect")
 		if e_3_level > 0 then
-			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
+			local totalStats = (conjuror:GetStrength() + conjuror:GetAgility() + conjuror:GetIntellect() + conjuror:GetSpirit()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_c_c_damage", {})
 			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_rune_e_3_range", {})
@@ -99,7 +99,7 @@ function earth_aspect(event)
 	if caster:HasModifier("modifier_conjuror_glyph_2_1") then
 		aspectHealth = aspectHealth * (100+CONJUROR_GLYPH_2_1_BONUS_ASPECTS_HP_PCT)/100
 	end
-	local q_1_level = Runes:GetTotalRuneLevel(caster, 1, "q_1", "conjuror")
+	local q_1_level = caster:GetRuneValue("q", 1)
 	aspectHealth = aspectHealth * (1 + q_1_level * CONJUROR_Q1_ASPECT_HP_BONUS_PCT/100)
 	Timers:CreateTimer(0.05, function()
 		caster.earthAspect:SetMaxHealth(aspectHealth)
@@ -112,7 +112,7 @@ function earth_aspect(event)
 		caster.earthAspect:CalculateAndSaveRoshpitAttributes()
 		common_aspect_effects(caster, ability, caster.earthAspect)
 	end)
-	if has_rune_q_1(ability, caster) then
+	if q_1_level > 0 then
 		local runeUnit = caster.runeUnit
 		local runeAbility = runeUnit:FindAbilityByName("conjuror_rune_q_1")
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_earth_guardian", {})
@@ -742,7 +742,7 @@ function shadow_aspect_attack(event)
 			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_a_c_buff_visible", {duration = duration})
 			ability:ApplyDataDrivenModifier(attacker, unit, "modifier_conjuror_a_c_buff_invisible", {duration = duration})
 			local currentStacks = unit:GetModifierStackCount("modifier_conjuror_a_c_buff_visible", attacker)
-			local newStacks = math.min(currentStacks + 1, 20)
+			local newStacks = math.min(currentStacks + 1, CONJUROR_E1_MAX_STACKS)
 			unit:SetModifierStackCount("modifier_conjuror_a_c_buff_visible", attacker, newStacks)
 			unit:SetModifierStackCount("modifier_conjuror_a_c_buff_invisible", attacker, newStacks * a_c_level)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/shadow_aspect_soul_of_shadow.vpcf", unit, 1)

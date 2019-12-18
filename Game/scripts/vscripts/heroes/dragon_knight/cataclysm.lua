@@ -1,13 +1,13 @@
 function cataclysm_start(event)
     local caster = event.caster
-    Filters:CastSkillArguments(4, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_R, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_6_1") then
         local glyphDuration = Filters:GetAdjustedBuffDuration(caster, FLAMEWAKER_GLYPH_6_1_DURATION, false)
         event.ability:ApplyDataDrivenModifier(caster, caster, "modifier_flamewaker_glyph_6_1_buff", {duration = glyphDuration})
     end
     caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "flamewaker")
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_1") then
-        caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_volcano_shield", {duration = FLAMEWAKER_IMMORTAL_WEAPON_1_DURATION})
+        caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_volcano_shield", {duration = FLAMEWAKER_IMMORTAL_WEAPON_1_DURATION})
         caster:SetModifierStackCount("modifier_volcano_shield", caster.InventoryUnit, FLAMEWAKER_IMMORTAL_WEAPON_1_SHIELDS)
     end
     GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), 380, false)

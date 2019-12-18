@@ -40,10 +40,10 @@ function t21_glyph_unequip(event)
 end
 function t71_glyph_equip(event)
     local caster = event.caster.hero
-    caster:SetPrimaryAttribute(0)
+    caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_STRENGTH)
 end
 
 function t71_glyph_unequip(event)
     local caster = event.caster.hero
-    caster:SetPrimaryAttribute(1)
+    caster:SetRoshpitPrimaryAttribute(ROSHPIT_ATTRIBUTE_AGILITY)
 end

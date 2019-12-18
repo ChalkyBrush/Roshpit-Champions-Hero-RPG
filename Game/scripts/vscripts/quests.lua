@@ -279,16 +279,11 @@ function Quests:DummyFromClient(msg)
 		hero:RemoveModifierByName("modifier_attacking_dummy")
 		dummy:RemoveModifierByName("modifier_dummy_active")
 		dummy:RemoveModifierByName("modifier_black_King_bar_immunity")
-		if dummy:HasAbility("mega_steadfast") then
-			dummy:RemoveAbility("mega_steadfast")
-			dummy:RemoveModifierByName("modifier_mega_steadfast")
-		end
-		if dummy:HasAbility("normal_steadfast") then
-			dummy:RemoveAbility("normal_steadfast")
-			dummy:RemoveModifierByName("modifier_steadfast")
-		end
 		dummy:SetAttackCapability(DOTA_UNIT_CAP_NO_ATTACK)
 		dummy:RemoveModifierByName("modifier_dummy_attacking")
+		dummy:SetBaseRoshpitArmor(0, false)
+		dummy:SetBaseRoshpitMagicArmor(0, false)
+		dummy:CalculateAndSaveRoshpitAttributes()
 	elseif msg.timer then
 		local dummy = hero.targetDummy
 		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
@@ -304,9 +299,14 @@ function Quests:DummyFromClient(msg)
 	elseif msg.armor or msg.attack then
 		local dummy = hero.targetDummy
 		if tonumber(msg.armor) then
-			dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
+			dummy:SetBaseRoshpitArmor(tonumber(msg.armor), false)
+			Events:TutorialServerEvent(hero, "4_5", 2)
+		end	
+		if tonumber(msg.magicArmor) then
+			dummy:SetBaseRoshpitMagicArmor(tonumber(msg.magicArmor), false)
 			Events:TutorialServerEvent(hero, "4_5", 2)
 		end
+		dummy:CalculateAndSaveRoshpitAttributes()
 		if tonumber(msg.attack) then
 			local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
 			if tonumber(msg.attack) >= 0 then
@@ -330,34 +330,6 @@ function Quests:DummyFromClient(msg)
 		else
 			Events:TutorialServerEvent(hero, "4_5", 3)
 			dummyAbility:ApplyDataDrivenModifier(dummy, dummy, "modifier_black_King_bar_immunity", {})
-		end
-	elseif msg.steadfast then
-		local dummy = hero.targetDummy
-		if (msg.steadfast == 1) then
-			if dummy:HasAbility("mega_steadfast") then
-				dummy:RemoveAbility("mega_steadfast")
-				dummy:RemoveModifierByName("modifier_mega_steadfast")
-			end
-			if dummy:HasAbility("normal_steadfast") then
-				dummy:RemoveAbility("normal_steadfast")
-				dummy:RemoveModifierByName("modifier_steadfast")
-			else
-				dummy:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-				Events:TutorialServerEvent(hero, "4_5", 4)
-			end
-
-		elseif (msg.steadfast == 2) then
-			if dummy:HasAbility("normal_steadfast") then
-				dummy:RemoveAbility("normal_steadfast")
-				dummy:RemoveModifierByName("modifier_steadfast")
-			end
-			if dummy:HasAbility("mega_steadfast") then
-				dummy:RemoveAbility("mega_steadfast")
-				dummy:RemoveModifierByName("modifier_mega_steadfast")
-			else
-				dummy:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
-				Events:TutorialServerEvent(hero, "4_5", 4)
-			end
 		end
 	end
 end

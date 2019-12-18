@@ -188,6 +188,23 @@ function initializeTooltip(main_panel, item){
 			}
 		}else{
 			main_panel.FindChildTraverse('consumable-text').AddClass('invisible')
+			
+			if (itemValues.base_armor > 0){
+				main_panel.FindChildTraverse('armor-text').RemoveClass('invisible')
+				main_panel.FindChildTraverse('armor-text').text = itemValues.base_armor
+				main_panel.FindChildTraverse('equipment_attribute_armor').RemoveClass('invisible')
+			}else{
+				main_panel.FindChildTraverse('equipment_attribute_armor').AddClass('invisible')
+				main_panel.FindChildTraverse('armor-text').AddClass('invisible')
+			}
+			if (itemValues.base_magic_armor > 0){
+				main_panel.FindChildTraverse('magic-armor-text').RemoveClass('invisible')
+				main_panel.FindChildTraverse('magic-armor-text').text = itemValues.base_magic_armor
+				main_panel.FindChildTraverse('equipment_attribute_magic_armor').RemoveClass('invisible')
+			}else{
+				main_panel.FindChildTraverse('magic-armor-text').AddClass('invisible')
+				main_panel.FindChildTraverse('equipment_attribute_magic_armor').AddClass('invisible')
+			}
 			//PROPERTY1
 			var itemProperty1 = {}
 			itemProperty1.propertyColor = itemValues.property1color
@@ -300,7 +317,7 @@ function initializeTooltip(main_panel, item){
 
 		var weaponValues = itemValues
 		$.Msg(weaponValues)
-		if (!(weaponValues === undefined) && !(weaponValues.level === undefined)){
+		if (!(weaponValues === undefined) && !(weaponValues.level === undefined) && (weaponValues.gear_slot == 1)){
 			$.Msg("SHOULD BE HERE!!!")
 			$.Msg("item_tooltip_popout.js weaponValues")
 			main_panel.FindChildTraverse('tooltip_weapons_data_container').RemoveClass('invisible')
@@ -308,20 +325,20 @@ function initializeTooltip(main_panel, item){
 			main_panel.FindChildTraverse('tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_left2').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_max_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right2').text = "<font color='#FFFFFF'>"+weaponValues.maxLevel+"</font>"
-			if (weaponValues.item_name == Abilities.GetAbilityName(item)){
-				main_panel.FindChildTraverse('weapon_exp_bar').RemoveClass("invisible")
-				if (weaponValues.level == weaponValues.maxLevel){
-					main_panel.FindChildTraverse('weapon_exp_bar_inner').style.width = "100%"
-					main_panel.FindChildTraverse('weapon_exp_bar_text').text = "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
-				}else{
-					var percentage = (parseInt(weaponValues.xp)/parseInt(weaponValues.xpNeeded))*100
-					// percentage = toString(percentage)+"%"
-					$.Msg(percentage)
-					main_panel.FindChildTraverse('weapon_exp_bar_inner').RemoveClass('invisible')
-					main_panel.FindChildTraverse('weapon_exp_bar_inner').style.width = percentage + "%"
-					main_panel.FindChildTraverse('weapon_exp_bar_text').text = weaponValues.xp+" / "+weaponValues.xpNeeded
-				}
+
+			main_panel.FindChildTraverse('weapon_exp_bar').RemoveClass("invisible")
+			if (weaponValues.level == weaponValues.maxLevel){
+				main_panel.FindChildTraverse('weapon_exp_bar_inner').style.width = "100%"
+				main_panel.FindChildTraverse('weapon_exp_bar_text').text = "<font color='#f4dc42'>"+"★ MAX LEVEL ★"+"</font>"
+			}else{
+				var percentage = (parseInt(weaponValues.xp)/parseInt(weaponValues.xpNeeded))*100
+				// percentage = toString(percentage)+"%"
+				$.Msg(percentage)
+				main_panel.FindChildTraverse('weapon_exp_bar_inner').RemoveClass('invisible')
+				main_panel.FindChildTraverse('weapon_exp_bar_inner').style.width = percentage + "%"
+				main_panel.FindChildTraverse('weapon_exp_bar_text').text = weaponValues.xp+" / "+weaponValues.xpNeeded
 			}
+
 		}else if(itemValues.maxLevel){
 			main_panel.FindChildTraverse('tooltip_weapons_data_container').RemoveClass('invisible')
 			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"

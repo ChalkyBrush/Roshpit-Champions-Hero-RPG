@@ -6,7 +6,7 @@ function jex_living_bomb_cast(event)
 	local target = event.target
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_jex_living_bomb", {duration = 2})
 	EmitSoundOn("Jex.LivingBomb.Apply", target)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function jex_living_bomb_explode(event)

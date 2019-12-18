@@ -33,7 +33,9 @@ function Precache(context)
   PrecacheResource("sound", "sounds/music/valve_dota_001/music/battle_02_end.vsnd", context)
   PrecacheResource("soundfile", "sounds/music/valve_dota_001/music/battle_02_end.vsnd", context)
 
-  PrecacheResource("model", "models/items/razor/razor_head_bindings/razor_head_bindings.vmdl", context)
+  PrecacheResource("model", "models/invisible_dummy.vmdl", context)
+
+  
 
   PrecacheResource("particle", "particles/status_fx/status_effect_brewmaster_thunder_clap.vpcf", context)
   PrecacheResource("particle", "particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_debuff.vpcf", context)

@@ -949,6 +949,7 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 			end
 			unit.boss = boss
 			table.insert(Redfall.CanyonBossClones, unit)
+			unit.disable_drops = true
 			unit.generation = previousGeneration + 1
 			Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 1.6})
 			unit:SetAbsOrigin(basePosition + Vector(0, 0, 200))
@@ -956,6 +957,7 @@ function Redfall:SpawnBossMinions(boss, previousGeneration)
 			Events:AdjustBossPower(unit, 5 - unit.generation, 5 - unit.generation, false)
 			unit:SetModelScale(0.01)
 			unit:SetRenderColor(255, 255, 0)
+			unit.roshpit_attributes.deathXP = 0
 			if unit.generation == 1 or unit.generation == 2 then
 				unit.threshold = 0.5
 				unit.currentThreshold = 0.5

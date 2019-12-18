@@ -36,12 +36,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R2_BURN_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_R2_PIERCE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SOLUNIA_ARCANA_R2_DUAL_BURN_PCT %>"
+				"property_two"			"<% SOLUNIA_ARCANA_R2_PIERCE %>"
 			}
 			"03"
 			{
@@ -87,7 +87,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SOLUNIA_ARCANA_R4_ELEM_AMP_PCT %>"
+				"property_one"			"<% SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * 100 %>"
 			}
 			"02"
 			{

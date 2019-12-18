@@ -50,7 +50,7 @@ function blade_dash_start(event)
 	if q_4_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = q_4_level * 0.15})
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 	if caster:HasModifier("modifier_seinaru_immortal_weapon_2") then
 		local CD = ability:GetCooldownTimeRemaining()

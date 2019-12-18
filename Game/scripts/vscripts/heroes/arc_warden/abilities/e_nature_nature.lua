@@ -58,7 +58,7 @@ function jex_activate_nature_e(event)
 	EmitSoundOn("Jex.Grunt", caster)
 	EmitSoundOn("Jex.NaturesPath.Start", caster)
 	EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "Jex.NaturesPath.Start2", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then

@@ -69,7 +69,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R3_POST_MITI %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -89,7 +89,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH_PCT %>"
+				"property_one"			"<% MOUNTAIN_PROTECTOR_ARCANA2_R4_ICE_EARTH * 100%>"
 			}
 		}
 	}

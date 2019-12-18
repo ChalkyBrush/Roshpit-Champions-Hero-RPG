@@ -14,7 +14,7 @@ function class:OnIntervalThink()
 	local caster = self:GetCaster()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_2_level = caster:GetRuneValue("q", 2)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.8 * q_2_level / 2
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * PALADIN_Q2_DMG_PER_ATT * q_2_level / 2
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			CustomAbilities:QuickAttachParticle("particles/items2_fx/radiance.vpcf", enemy, 1)

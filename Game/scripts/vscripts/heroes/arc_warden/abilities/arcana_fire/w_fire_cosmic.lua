@@ -62,7 +62,7 @@ function jex_fire_cosmic_w_start(event)
 		end)
 	end
 	EmitSoundOn("Jex.OrbitalFlame.Start", caster)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function orbital_thinker(event)

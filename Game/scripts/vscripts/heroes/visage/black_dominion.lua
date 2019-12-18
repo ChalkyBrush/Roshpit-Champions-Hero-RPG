@@ -29,7 +29,7 @@ function dominion_bolt_fire(event)
 	caster.q_4_level = caster:GetRuneValue("q", 4)
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
 	EmitSoundOn("Ekkan.Dominion.Launch", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function dominion_bolt_impact(event)
@@ -74,25 +74,16 @@ function dominion_debuff_death(event)
 		local summonPosition = unit:GetAbsOrigin()
 		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
 		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
+		Enemies:InitializeEnemy(summon)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
-		local hp = unit:GetMaxHealth()
-		local armor = unit:GetPhysicalArmorBaseValue()
-		local movespeed = unit:GetBaseMoveSpeed()
-		local attackDamage = unit:GetAttackDamage()
-		summon:SetMaxHealth(hp)
-		summon:SetHealth(hp)
-		summon:SetBaseMaxHealth(hp)
-
-		summon:SetPhysicalArmorBaseValue(armor)
-		summon:SetBaseMoveSpeed(movespeed)
-		summon:SetBaseDamageMin(attackDamage)
-		summon:SetBaseDamageMax(attackDamage)
-		summon.attackDamage = attackDamage
-		summon.armor = armor
+		local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
+		local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
+		attacker:SetBaseDamageMin(buffedUnitBaseDamage)
+		attacker:SetBaseDamageMax(buffedUnitBaseDamage)
 		summon.aggro = true
 		summon.ekkan_unit = true
 		summon.ekkan_dominion = true
@@ -272,26 +263,32 @@ function dominion_unit_kill(event)
 		unit.dominionLock = true
 		local q_3_level = caster:GetRuneValue("q", 3)
 		if unit:GetDeathXP() > 10 then
-			if q_3_level > 0 then
-				attacker.armor = attacker.armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
-				local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
-				attacker.attackDamage = attacker.attackDamage + q_3_level * damageGainMult
-				attacker:SetPhysicalArmorBaseValue(attacker.armor)
-				attacker:SetBaseDamageMin(attacker.attackDamage)
-				attacker:SetBaseDamageMax(attacker.attackDamage)
-				EmitSoundOn("Ekkan.DarkJourney", attacker)
-				CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
-				local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, attacker)
-				ParticleManager:SetParticleControl(beamPFX, 0, unit:GetAbsOrigin())
-				ParticleManager:SetParticleControl(beamPFX, 1, attacker:GetAbsOrigin())
-				Timers:CreateTimer(3, function()
-					ParticleManager:DestroyParticle(beamPFX, false)
-					ParticleManager:ReleaseParticleIndex(beamPFX)
-				end)
-				ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks_black", {})
-				local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + 1
-				attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
-			end
+		if q_3_level > 0 then
+			local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+			local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
+			attacker:SetBaseRoshpitArmor(new_armor)
+			attacker:SetBaseRoshpitMagicArmor(new_magic_armor)
+			attacker:CalculateAndSaveRoshpitAttributes()
+			
+			local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
+			local getBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
+			local buffedgetBaseDamage = getBaseDamage + q_3_level * damageGainMult
+			attacker:SetBaseDamageMin(buffedgetBaseDamage)
+			attacker:SetBaseDamageMax(buffedgetBaseDamage)
+
+			EmitSoundOn("Ekkan.DarkJourney", attacker)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
+			local beamPFX = ParticleManager:CreateParticle("particles/roshpit/ekkan/cast_beams_beams.vpcf", PATTACH_CUSTOMORIGIN, attacker)
+			ParticleManager:SetParticleControl(beamPFX, 0, unit:GetAbsOrigin())
+			ParticleManager:SetParticleControl(beamPFX, 1, attacker:GetAbsOrigin())
+			Timers:CreateTimer(3, function()
+				ParticleManager:DestroyParticle(beamPFX, false)
+				ParticleManager:ReleaseParticleIndex(beamPFX)
+			end)
+			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks_black", {})
+			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + 1
+			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
+		end
 		end
 	end
 end
@@ -463,6 +460,7 @@ function swarm_hit(event)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_swarm_effect", {duration = 12})
 	local q_2_level = caster.hero:GetRuneValue("q", 2)
 	target:SetModifierStackCount("modifier_swarm_effect", caster, q_2_level)
+	target:CalculateAndSaveRoshpitAttributes()
 end
 
 function swarm_poison_think(event)

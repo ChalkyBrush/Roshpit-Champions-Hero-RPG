@@ -37,7 +37,7 @@ function shadow_rush_start(event)
 	if c_c_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_cloak", {duration = c_c_duration})
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function shadow_rush_think(event)
@@ -87,9 +87,20 @@ function slipfinn_attack_land(event)
 		if a_c_level > 0 then
 			local damage = event.damage * SLIPFINN_E1_MULT * a_c_level
 			-- Timers:CreateTimer(0.05, function()
-			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
+			Filters:TakeArgumentsAndApplyDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/slipfinn/shadow_shank.vpcf", target, 0.4)
 			-- end)
 		end
+	end
+end
+
+function shadow_rush_kill(event)
+	local caster = event.caster
+	local ability = event.ability
+	local e_4_level = caster:GetRuneValue("e", 4)
+	if e_4_level > 0 then
+		local duration = Filters:GetAdjustedBuffDuration(caster, SLIPFINN_E4_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_e_4_assassin", {duration = duration})
+		caster:SetModifierStackCount("modifier_slipfinn_e_4_assassin", caster, e_4_level)
 	end
 end

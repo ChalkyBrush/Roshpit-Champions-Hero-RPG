@@ -60,7 +60,7 @@ function Challenges:ChiselItem(msg)
 	if Beacons.cheats then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 		hero:RemoveModifierByName("modifier_cant_equip")
-		Weapons:UnequipItem(hero, item, itemSlot)
+		hero:UnequipItem(item)
 	else
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
@@ -83,7 +83,7 @@ function Challenges:ChiselItem(msg)
 				CustomGameEventManager:Send_ServerToPlayer(player, "update_main_mithril", {mithril = shards, player = playerID})
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 				hero:RemoveModifierByName("modifier_cant_equip")
-				Weapons:UnequipItem(hero, item, itemSlot)
+				hero:UnequipItem(item)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
 			end
@@ -106,7 +106,7 @@ function Challenges:FinalReroll(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local minLevel = itemProperties.minLevel
-	minLevel = math.max(math.min(minLevel, 100), 1)
+	minLevel = math.max(math.min(minLevel, 120), 1)
 	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
 	Events.reroll = true
 	local newItem = nil
@@ -133,12 +133,12 @@ function Challenges:FinalReroll(msg)
 		return false
 	end
 	if IsValidEntity(item) then
-		if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "open" then
-			return false
-		end
-		if item.newItemTable.socket2 and item.newItemTable.socket2 ~= "open" then
-			return false
-		end
+		-- if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "open" then
+		-- 	return false
+		-- end
+		-- if item.newItemTable.socket2 and item.newItemTable.socket2 ~= "open" then
+		-- 	return false
+		-- end
 		newItem = RPCItems:RerollImmortal(hero, item, msg.lock1, msg.lock2, msg.lock3, msg.lock4, minLevel, itemProperties)
 		if newItem then
 			if IsValidEntity(newItem) then

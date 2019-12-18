@@ -66,7 +66,7 @@ function begin_kaze_gust(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if caster:HasModifier("modifier_seinaru_immortal_weapon_2") then
 		local CD = ability:GetCooldownTimeRemaining()
 		local newCD = CD * 0.4

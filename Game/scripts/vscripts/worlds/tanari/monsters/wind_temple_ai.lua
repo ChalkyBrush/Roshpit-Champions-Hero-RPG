@@ -598,8 +598,8 @@ function WindTempleChest(event)
 	Timers:CreateTimer(2.0, function()
 		for i = 0, RandomInt(5, 6 + GameState:GetPlayerPremiumStatusCount()), 1 do
 			EmitSoundOn("General.FemaleLevelUp", chest)
-			RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 		end
+		chest:ChestDrops(7)
 		local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, chest)
 		local origin = chest:GetAbsOrigin()
@@ -1199,15 +1199,11 @@ function wind_temple_boss_die_begin(event)
 		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollGlovesOfSweepingWind(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_gloves_of_sweeping_wind")
 		end
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(12)
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_wind_temple_boss_wind_blessing")
 	end
@@ -2067,7 +2063,7 @@ function wind_demon_die(event)
 	end
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollAnkhOfAncients(event.caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.caster, "item_rpc_ankh_of_the_ancients")
 	end
 	Timers:CreateTimer(4, function()
 		Tanari:SpiritWindTempleBossRoom()
@@ -2308,11 +2304,7 @@ function wind_temple_spirit_boss_die_begin(event)
 	end)
 
 	local bossOrigin = caster:GetAbsOrigin()
-	for i = 1, 12, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(12)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
 		local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
@@ -2322,9 +2314,9 @@ function wind_temple_spirit_boss_die_begin(event)
 
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
-			RPCItems:RollTanariWindArmor(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ancient_tanari_wind_armor")
 		elseif luck == 2 then
-			RPCItems:RollEmeraldSpeedRunners(bossOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_emerald_speed_runners")
 		end
 	end)
 	Timers:CreateTimer(4, function()
@@ -2335,7 +2327,7 @@ function wind_temple_spirit_boss_die_begin(event)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollSpiritWarriorArcana3(bossOrigin)
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_spirit_warrior_arcana3")
 		end
 	end)
 	Timers:CreateTimer(8, function()

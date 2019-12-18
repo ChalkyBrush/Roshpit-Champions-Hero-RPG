@@ -24,7 +24,7 @@ function begin_bahamut_arcana_ult(event)
 		caster:SetModifierStackCount("modifier_leshrac_arcana_b_d_effect", caster, b_d_level)
 	end
 	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf", caster, 5)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function break_channel(event)
@@ -69,7 +69,7 @@ function leshrac_ult_go(ability, caster, damage, amp, enemy)
 		ability.r_3_level = caster:GetRuneValue("r", 3)
 	end
 	if ability.r_3_level > 0 then
-		damage = damage + ability.r_3_level * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG
+		damage = damage + ability.r_3_level * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * BAHAMUT_ARCANA_R_R3_ATTRIBUTES_TO_DMG
 	end
 	if amp then
 		damage = damage * ability.r_1_level * BAHAMUT_ARCANA_R_R1_DMG_OF_W_PCT/100

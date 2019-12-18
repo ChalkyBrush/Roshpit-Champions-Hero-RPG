@@ -45,7 +45,7 @@ function ghost_warp_start(event)
 	ability.pfx = ParticleManager:CreateParticle("particles/econ/courier/courier_polycount_01/courier_trail_polycount_01.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function ghost_warping_think(event)
@@ -154,7 +154,7 @@ function e2_think(event)
 		source = ability,
 		sourceType = BASE_ABILITY_E,
 		damage = ability.e2_damage,
-		damageType = DAMAGE_TYPE_PURE,
+		damageType = DAMAGE_TYPE_MAGICAL,
 		elements = { RPC_ELEMENT_POISON },
 		isDot = true
 	})

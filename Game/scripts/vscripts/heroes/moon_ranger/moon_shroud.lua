@@ -14,7 +14,7 @@ function begin_moon_shroud(event)
   duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
   create_moon_shroud_dummy(location, caster, duration, ability)
   ability.q_4_level = caster:GetRuneValue("q", 4)
-  Filters:CastSkillArguments(1, caster)
+  Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
   if ability.q_4_level > 0 then
     local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_q_4")

@@ -22,43 +22,101 @@ end
 function class:HasRuneSlots()
     return true
 end
-function class:RollProperty1(maxFactor)
+function class:RollProperty1(item_level)
     self.newItemTable.property1 = 1
-    self.newItemTable.property1name = "redfall_runners"
-    self:SetSpecialValue(self.newItemTable.property1name, "#E87B7B")
+    self.newItemTable.property1name = "!immortal!_modifier_redfall_runners"
+    self:SetSpecialValue("redfall_runners", "#E87B7B")
 end
-function class:RollProperty2(maxFactor)
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    self.newItemTable.property2 = math.floor(value * 1.75)
-    self.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(self, self.newItemTable.property2, "rune", "#7DFF12", 2)
+function class:RollProperty2(item_level)
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "t1_rune", 2)
+end
+function class:RollArmor(item_level)
+    RPCItems:GrantItemBaseArmor(self, item_level, 1)
+end
+function class:RollMagicArmor(item_level)
+    RPCItems:GrantItemBaseMagicArmor(self, item_level, 1)
 end
 
+function modifierClass:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
+        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
+    })
+end
 function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
-        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
+        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
     }
 
     return funcs
 end
+
+function modifierClass:GetRoshpitBaseAbilityDmgBonus(params)
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+
+function modifierClass:GetRoshpitArmorPierceBonus(params)
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("sapphire") > 0 then
+        return boots:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDFALL_RUNNERS_GEM_SAPPHIRE)*self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+
+function modifierClass:GetRoshpitSpellPierceBonus(params)
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("sapphire") > 0 then
+        return boots:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDFALL_RUNNERS_GEM_SAPPHIRE)*self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+
 function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
     if not IsServer() then
         return
     end
-    local caster = self:GetCaster()
-    local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
-    return missingHealthPercent * REDFALL_RUNNERS_MAX_MS_PER_HP_PCT_MISSING
+    local caster = self:GetParent()
+    local movespeed_max = ITEM_RPC_REDFALL_RUNNERS_MAX_MS_PER_AGI_AND_SPR*(caster:GetAgility() + caster:GetSpirit())
+    if caster:GetHealth() == caster:GetMaxHealth() then
+        movespeed_max = movespeed_max + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_REDFALL_RUNNERS_GEM_RUBY)
+    end
+    return movespeed_max
 end
 
 function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
     if not IsServer() then
         return
     end
-    local caster = self:GetCaster()
-    local missingHealthPercent = (1 - caster:GetHealth() / caster:GetMaxHealth()) * 100
-    return missingHealthPercent * REDFALL_RUNNERS_MS_PER_HP_PCT_MISSING
+    local caster = self:GetParent()
+    local movespeed = ITEM_RPC_REDFALL_RUNNERS_MS_PER_AGI_AND_SPR*(caster:GetAgility() + caster:GetSpirit())
+    if caster:GetHealth() == caster:GetMaxHealth() then
+        movespeed = movespeed + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_REDFALL_RUNNERS_GEM_RUBY)
+    end
+    return movespeed
 end
 
 function modifierClass:IsHidden()

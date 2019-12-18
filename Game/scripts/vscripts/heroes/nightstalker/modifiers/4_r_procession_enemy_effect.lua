@@ -30,7 +30,7 @@ function class:GetPostmitigationAmplify(data)
     if caster ~= data.attacker then
         return
     end
-    return caster.r1_level * CHERNOBOG_R1_POSTMIT
+    return 0
 end
 function class:IsHidden()
     return false

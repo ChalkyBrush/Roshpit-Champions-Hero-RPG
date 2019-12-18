@@ -30,7 +30,7 @@ function tomahawk_start(event)
 
 	if totalCharges > 0 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Warlord.ArcanaUlti.Cast", caster)
-		Filters:CastSkillArguments(4, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_enchant_tomahawk_buff", {duration = duration})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_tomahawk_buffs", {duration = duration})

@@ -2339,6 +2339,11 @@ function Arena:SpawnSpiritOfRakash(position, fv)
 	return stone
 end
 
+function Arena:SpawnCerberus(position, fv)
+	local stone = Arena:SpawnDungeonUnit("pit_of_trials_descent_cerberus", position, 2, 4, "Arena.Cerberus.Aggro", fv, false)
+	return stone
+end
+
 function Arena:SoulFerrierEvent()
 	local luck = RandomInt(1, 60)
 	if luck <= 2+GameState:GetPlayerPremiumStatusCount()*1 then

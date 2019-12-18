@@ -195,8 +195,9 @@ function Redfall:SpawnTwistedPumpkin(position)
 	shroom.itemLevel = 42
 	shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 210))
 	if shroom.paragon then
-		shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 130))
+		shroom:SetAbsOrigin(shroom:GetAbsOrigin() - Vector(0, 0, 230))
 	end
+	shroom.aggro_height_adjust = 210
 	shroom.dominion = true
 	local ability = shroom:FindAbilityByName("redfall_pumpkin_ai")
 	ability:ApplyDataDrivenModifier(shroom, shroom, "modifier_pumpkin_ai", {})
@@ -356,14 +357,6 @@ function Redfall:SpawnCrimsythBandit(position, fv)
 	ancient.targetRadius = 950
 	ancient.minRadius = 0
 	ancient.targetAbilityCD = 1
-	local damage = 800
-	if GameState:GetDifficultyFactor() == 2 then
-		damage = 8000
-	elseif GameState:GetDifficultyFactor() == 3 then
-		damage = 85000
-	end
-	ancient:SetBaseDamageMin(damage)
-	ancient:SetBaseDamageMax(damage)
 	ancient.targetFindOrder = FIND_ANY_ORDER
 	ancient.dominion = true
 	return ancient

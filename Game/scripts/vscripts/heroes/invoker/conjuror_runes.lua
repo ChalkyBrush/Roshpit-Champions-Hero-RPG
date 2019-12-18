@@ -125,11 +125,6 @@ function immolation_think(event)
 			healthGain = healthGain + damage
 		end
 	end
-	local w_1_level = caster:GetRuneValue("w", 1)
-	healthGain = healthGain * w_1_level * (CONJUROR_W1_HEALTH_GAIN_PCT / 100)
-	local newHealth = math.min(target:GetMaxHealth() + healthGain, 200000000)
-	target:SetBaseMaxHealth(newHealth)
-	target:SetMaxHealth(newHealth)
 end
 
 function immolation_global_think(event)

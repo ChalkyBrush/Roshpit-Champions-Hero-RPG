@@ -25,13 +25,13 @@ function winterblight_unit_die(event)
 		local premiumCount = GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, 13000 - (1000 * premiumCount))
 		if luck == 1 then
-			RPCItems:RollHelmOfTheMountainGiant(unit:GetAbsOrigin(), false)
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_helm_of_the_mountain_giant")
 		elseif luck == 2 then
-			RPCItems:RollSwiftspikeBracer(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_swiftspike_bracer")
 		elseif luck == 3 then
-			RPCItems:RollTatteredNoviceArmor(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_tattered_novice_armor")
 		elseif luck == 4 then
-			RPCItems:RollFrostmawHuntersHood(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_frostmaw_hunters_hood")
 		end
 		local luck2 = RandomInt(1, 10000 - (500 * premiumCount))
 		if luck2 == 1 then
@@ -41,7 +41,7 @@ function winterblight_unit_die(event)
 	if unit:GetUnitName() == "winterblight_source_assembly" then
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
-			RPCItems:RollEnergyWhipGlove(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_energy_whip_glove")
 		end
 	end
 end

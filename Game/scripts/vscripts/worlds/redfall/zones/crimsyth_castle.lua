@@ -37,7 +37,6 @@ function Redfall:InitiateDebugRedfall()
   -- local slotText = "Glyph"
   -- local useDescription = variantName.."_description"
   -- local minLevel = 15
-  -- Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText, useDescription, MAIN_HERO_TABLE[1]:GetAbsOrigin(), "tooltip_neutral", minLevel, "modifier_neutral_glyph_3_3", 0)
   -- Glyphs:RollGlyphAll("item_rpc_duskbringer_glyph_7_1", MAIN_HERO_TABLE[1]:GetAbsOrigin(), 0)
   -- Redfall:CastleSpawnBackHallway()
   -- Redfall:InitCastleGroundsRoom()
@@ -2271,12 +2270,12 @@ function Redfall:SpawnCrimsythCultistForBoss(position, fv)
   return ancient
 end
 
-function Redfall:FinalBossDrops(position)
+function Redfall:FinalBossDrops(boss)
   local luck = RandomInt(1, 8 - GameState:GetPlayerPremiumStatusCount())
   if luck == 1 then
-    RPCItems:RollSpellfireGloves(position, Events.SpiritRealm)
+    RPCItems:RollAndDropUniqueItem(boss, "item_rpc_spellfire_gloves")
   elseif luck == 2 then
-    RPCItems:RollHoodOfLords(position, Events.SpiritRealm)
+    RPCItems:RollAndDropUniqueItem(boss, "item_rpc_hood_of_lords")
   end
 end
 

@@ -81,7 +81,7 @@ function lavaGO(trigger, fv, zHeight)
 		return false
 	end
 	if hero:HasModifier("modifier_rpc_terrasic_lava_boots") then
-		hero.foot:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rpc_terrasic_lava_boot_effect", {duration = TERRASIC_LAVA_BOOTS_DURATION})
+		Filters:TerrasicLavaBootsTouchLava(hero)
 		return false
 	end
 	EmitSoundOn("Env.LavaHit", hero)
@@ -1970,7 +1970,7 @@ function sadist_death(event)
 	end
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollCrimsonSkullCap(caster:GetAbsOrigin(), false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_crimson_skull_cap")
 	end
 	Redfall.Castle.DoomParticleTable = nil
 	Timers:CreateTimer(1.5, function()
@@ -2901,7 +2901,7 @@ function loki_the_mad_die(event)
 	EmitSoundOn("Redfall.LokiTheMad.Death", caster)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:VermillionDreamRobes(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_vermillion_dream_robes")
 	end
 end
 
@@ -3479,7 +3479,7 @@ function perdition_die(event)
 	end)
 	local luck = RandomInt(1, 3)
 	if luck == 1 then
-		RPCItems:RollBloodstoneBoots(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_bloodstone_boots")
 	end
 end
 
@@ -3585,7 +3585,7 @@ function chest_transforming_think(event)
 		if Redfall.Castle.FortuneChestsOpened == 15 then
 			if caster.index == Redfall.Castle.FortuneChestBoss then
 			else
-				RPCItems:RollBootsOfGreatFortune(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_boots_of_great_fortune")
 				caster:RemoveModifierByName("modifier_chest_transforming")
 				Timers:CreateTimer(0.05, function()
 					UTIL_Remove(caster)
@@ -3691,7 +3691,7 @@ function chest_transforming_think(event)
 				Dungeons:AggroUnit(monkey)
 			end
 		elseif code == 10 then
-			Glyphs:DropArcaneCrystals(position, 1.4)
+			Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, GameState:GetDifficultyFactor() * 34, 1.4)
 		elseif code == 11 then
 			rollFortuneChestImmortal(position)
 		elseif code == 12 then
@@ -3716,7 +3716,7 @@ function chest_transforming_think(event)
 			Events:AdjustDeathXP(wozxak)
 			wozxak:SetModelScale(2.4)
 		elseif code == 17 then
-			RPCItems:RollHandOfMidas(position)
+			RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_hand_of_midas")
 		end
 		caster:RemoveModifierByName("modifier_chest_transforming")
 		Timers:CreateTimer(0.05, function()
@@ -3726,19 +3726,15 @@ function chest_transforming_think(event)
 end
 
 function rollFortuneChestImmortal(deathLocation)
-	local rarity = "immortal"
-	local luck = RandomInt(200, 500)
-	if luck >= 200 and luck < 265 then
-		RPCItems:RollHood(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 265 and luck < 330 then
-		RPCItems:RollHand(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 330 and luck < 395 then
-		RPCItems:RollFoot(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck >= 395 and luck < 460 then
-		RPCItems:RollBody(0, deathLocation, rarity, false, 0, nil, 0)
-	elseif luck <= 500 then
-		RPCItems:RollAmulet(0, deathLocation, rarity, false, 0, nil, 0)
+	local gear_slots = {RPC_GEAR_SLOT_HEAD, RPC_GEAR_SLOT_GLOVES, RPC_GEAR_SLOT_BOOTS, RPC_GEAR_SLOT_BODY, RPC_GEAR_SLOT_TRINKET}
+	local gear_slot = gear_slots[RandomInt(1, #rarities)]
+	local calc_level = GameState:GetDifficultyFactor()*35
+	if Events.SpiritRealm then
+		calc_level = 120
 	end
+	local item_level = RPCItems:RollItemLevelFromUnit(calc_level)
+	local item = RPCItems:RollRandomWorldImmortal(gear_slot, item_level)
+	RPCItems:BasicDropItem(deathLocation, item)
 end
 
 function FortunaSequence()
@@ -3924,7 +3920,7 @@ end
 function ethereal_revenant_die(event)
 	local caster = event.caster
 	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		RPCItems:RollClawOfTheEtherealRevenant(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_claws_of_the_ethereal_revenant")
 	end
 	EmitSoundOn("Redfall.EtherealRevenant.Death", caster)
 
@@ -3935,7 +3931,7 @@ function crystal_mine_attack(event)
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
 	caster.attacks = caster.attacks - 1
-	Glyphs:DropArcaneCrystals(position, 0.45)
+	Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, GameState:GetDifficultyFactor() * 34, 0.45)
 	caster:SetModelScale(4.0 - (6 - caster.attacks) * 0.3)
 	StartAnimation(caster, {duration = 0.87, activity = ACT_DOTA_IDLE, rate = 2.0})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_cant_be_attacked", {duration = 0.9})
@@ -4678,11 +4674,7 @@ function castle_final_boss_death(caster, ability)
 		-- RPCItems:RollCrimsythEliteGreavesLV1(caster:GetAbsOrigin(), false)
 		-- end
 	end)
-	for i = 1, 14, 1 do
-		Timers:CreateTimer(0.5 * i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(15)
 	Timers:CreateTimer(3, function()
 		local maxRoll = 250
 		if GameState:GetDifficultyFactor() == 3 then
@@ -4694,7 +4686,7 @@ function castle_final_boss_death(caster, ability)
 		local requirement = 2 + GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, maxRoll)
 		if luck <= requirement then
-			RPCItems:RollChernobogArcana1(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_chernobog_arcana1")
 		end
 	end)
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_water_temple_boss_dying_effect", {})
@@ -4708,7 +4700,7 @@ function castle_final_boss_death(caster, ability)
 			StartAnimation(caster, {duration = 8, activity = ACT_DOTA_DIE, rate = 0.25})
 			EmitSoundOn("Redfall.FinalBoss.Death2", caster)
 			Timers:CreateTimer(0.5, function()
-				Redfall:FinalBossDrops(bossOrigin)
+				Redfall:FinalBossDrops(caster)
 				Redfall:CreateLavaBlast(bossOrigin + Vector(0, 0, 300))
 			end)
 			for i = 1, 120, 1 do
@@ -4739,7 +4731,7 @@ end
 function lava_behemoth_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.LavaBehemoth.Aggro", caster)
-	RPCItems:RollIgneousCanineHelm(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_igneous_canine_helm")
 end
 
 function lava_behemoth_take_damage(event)

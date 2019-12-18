@@ -6,6 +6,7 @@ require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
 require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
+
 require('/heroes/dark_seer/zhonik_constants')
 require('/heroes/hero_necrolyte/venomort_constants')
 require('/heroes/nightstalker/chernobog_constants')
@@ -16,6 +17,7 @@ require("/heroes/winter_wyvern/dinath_constants")
 require("/heroes/beastmaster/warlord_constants")
 require("/heroes/moon_ranger/astral_ranger_constants")
 require("/heroes/leshrac/bahamut_constants")
+require("/heroes/axe/red_general_constants")
 
 require('items/constants/boots')
 require('items/constants/chest')
@@ -25,19 +27,19 @@ require('items/constants/trinket')
 
 CustomAttributes.HEALTH_PER_STR = 10
 CustomAttributes.HEALTH_REGEN_PER_STR = 0.5
-CustomAttributes.ARMOR_PER_STR = 1
+CustomAttributes.ARMOR_PER_STR = 2
 
 CustomAttributes.ATTACKSPEED_PER_AGI = 0.3
 CustomAttributes.MOVESPEED_PER_AGI = 0.1
-CustomAttributes.ARMOR_PIERCE_PER_AGI = 1
+CustomAttributes.ARMOR_PIERCE_PER_AGI = 2
 
 CustomAttributes.MANA_PER_INT = 5
 CustomAttributes.MANA_REGEN_PER_INT = 0.5
-CustomAttributes.SPELL_PIERCE_PER_INT = 1
+CustomAttributes.SPELL_PIERCE_PER_INT = 2
 
 CustomAttributes.STATUS_RESIST_PER_SPIRIT = 0.01
 CustomAttributes.BAD_PER_SPIRIT = 0.1
-CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 1
+CustomAttributes.MAGIC_ARMOR_PER_SPIRIT = 2
 
 CustomAttributes.ATK_DMG_PER_PRIMARY = 1
 
@@ -51,7 +53,7 @@ CustomAttributes.ZHONIK_ARCANA_R4_AGI = ZHONIK_R4_ARCANA_BONUS_AGI
 
 CustomAttributes.DJANGHOR_R4_STATS = DJANGHOR_R4_BONUS_ATTRIBUTE
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE
-CustomAttributes.AXE_Q3_STATS = 14
+CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 
 CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
 CustomAttributes.BAHAMUT_Q4_INT = BAHAMUT_Q4_INT_BONUS
@@ -63,14 +65,14 @@ CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = RED_GENERAL_ARCANA2_W2_STRENGTH
 CustomAttributes.SORCERESS_ARCANE_INT = 50
 CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
-CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = 330
+CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 
-CustomAttributes.RING_OF_NOBILITY = NOBILITY_ALL_ATTRIBUTES
-CustomAttributes.RING_OF_NOBILITY2 = NOBILITY_ALL_ATTRIBUTES_AUGMENTED
-CustomAttributes.AZURE_EMPIRE_STATS = PENDANT_AZURE_EMPIRE_GREEN_AGI
-CustomAttributes.WIND_ORCHID_AGI_PER_E4 = WIND_ORCHID_AGI_PER_E4
-CustomAttributes.AQUA_LILY_INT_PER_R4 = AQUA_LILY_INT_PER_R4
-CustomAttributes.FIRE_BLOSSOM_STR_PER_W4 = FIRE_BLOSSOM_STR_PER_W4
+CustomAttributes.RING_OF_NOBILITY = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES
+CustomAttributes.RING_OF_NOBILITY2 = ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED
+CustomAttributes.AZURE_EMPIRE_STATS = ITEM_RPC_AZURE_EMPIRE_GREEN_AGI
+CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4 = ITEM_RPC_WIND_ORCHID_AGI_PER_E4
+CustomAttributes.ITEM_RPC_AQUA_LILY_INT_PER_R4 = ITEM_RPC_AQUA_LILY_INT_PER_R4
+CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 = ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4
 CustomAttributes.FLAMEWAKER_WEAPON_2_AGI = FLAMEWAKER_IMMORTAL_WEAPON_2_AGILITY_DURING_E
 CustomAttributes.SEINARU_WEAPON_3_STR = 60
 
@@ -81,50 +83,76 @@ CustomAttributes.ASTRAL_W1_ARCANA2_STATS = 0.8
 
 CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH = DJANGHOR_R2_BONUS_HP
 CustomAttributes.OGTHUN_HEALTH = 10
-CustomAttributes.TYRIUS_HEALTH = TYRIUS_HP_PER_STR
-CustomAttributes.REDROCK_HEALTH = 10
-CustomAttributes.SANGE_HEALTH = SANGE_HP_PER_AGI
-CustomAttributes.SAPPHIRE_LOTUS_HEALTH = SAPPHIRE_LOTUS_HP_PER_INT
+CustomAttributes.SANGE_HEALTH = ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
+CustomAttributes.SAPPHIRE_LOTUS_HEALTH = ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT
 CustomAttributes.PALADIN_IMMO_3_HEALTH = PALADIN_IMMORTAL_WEAPON_3_HP_PER_STR
+
+function CDOTA_BaseNPC:GetRoshpitLevel()
+	local unit = self
+	if unit.roshpit_attributes and unit.roshpit_attributes.roshpit_level then
+		return unit.roshpit_attributes.roshpit_level
+	else
+		return 1
+	end
+end
 
 function CDOTA_BaseNPC_Hero:GetStrength()
 	local hero = self
+	if not self:IsRealHero() then
+		self.strength_custom = 0
+		self.str_bonus = 0
+	end
 	local strength = hero.strength_custom + hero.str_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		strength = item.newItemTable.property1
 	end
-	return tonumber(strength)
+	return math.max(tonumber(strength), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetAgility()
 	local hero = self
+	if not self:IsRealHero() then
+		self.agility_custom = 0
+		self.agi_bonus = 0
+	end
 	local agility = hero.agility_custom + hero.agi_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		agility = item.newItemTable.property1
 	end
-	return tonumber(agility)
+	if self:HasModifier("modifier_emerald_speed_runners") then
+		agility = math.max(agility, self.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_EMERALD2))
+	end
+	return math.max(tonumber(agility), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetIntellect()
 	local hero = self
+	if not self:IsRealHero() then
+		self.intellect_custom = 0
+		self.int_bonus = 0
+	end
 	local intelligence = hero.intellect_custom + hero.int_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		intelligence = item.newItemTable.property1
 	end
-	return tonumber(intelligence)
+	return math.max(tonumber(intelligence), 0)
 end
 
 function CDOTA_BaseNPC_Hero:GetSpirit()
 	local hero = self
+	if not self:IsRealHero() then
+		self.spirit_custom = 0
+		self.spirit_bonus = 0
+	end
 	local spirit = hero.spirit_custom + hero.spirit_bonus
 	if self:HasModifier("modifier_diamond_claws_of_tiamat") then
-		local item = self.handItem
+		local item = self.equipped_gear[RPC_GEAR_SLOT_GLOVES]
 		spirit = item.newItemTable.property1
 	end
-	return tonumber(spirit)
+	return math.max(tonumber(spirit), 0)
 end
 
 
@@ -160,11 +188,6 @@ function CDOTA_BaseNPC_Hero:GetBaseStrength()
 	modifier = self:FindModifierByName('modifier_red_divinex_amulet')
 	if modifier and modifier.stat_bonus then
 		strength = strength - modifier.stat_bonus
-	end
-
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_1')
-	if modifier then
-		strength = strength - modifier:GetStackCount()
 	end
 
 	modifier = self:FindModifierByName("modifier_w_4_str_decrease")
@@ -214,12 +237,12 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_2')
+	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
 	if modifier then
 		agility = agility - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName("modifier_w_4_agi_increase")
+	modifier = self:FindModifierByName("modifier_skyforge_agility")
 	if modifier then
 		agility = agility - modifier:GetStackCount()
 	end
@@ -230,7 +253,6 @@ end
 function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 	local intellect = self:GetIntellect()
 	local modifier = nil
-
 	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_int')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
@@ -256,17 +278,53 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 		intellect = intellect - modifier.stat_bonus
 	end
 
-	modifier = self:FindModifierByName('modifier_neutral_glyph_7_3')
-	if modifier then
-		intellect = intellect - modifier:GetStackCount()
-	end
-
 	modifier = self:FindModifierByName("modifier_w_4_int_increase")
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end
 
 	return intellect
+end
+
+function CDOTA_BaseNPC_Hero:GetBaseSpirit()
+	local spirit = self:GetSpirit()
+	local modifier = nil
+
+	modifier = self:FindModifierByName("modifier_blazing_fury_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName('modifier_empyreal_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName('modifier_gold_plate_of_leon_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_spr')
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName("modifier_sea_giant_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+	modifier = self:FindModifierByName("modifier_sorcerers_regalia_spirit")
+	if modifier then
+		spirit = spirit - modifier:GetStackCount()
+	end
+
+
+
+	return spirit
+end
+
+function CDOTA_BaseNPC:SetMaxHPandHealToFull(hp)
+	self:SetMaxHealth(hp)
+	self:SetBaseMaxHealth(hp)
+	self:SetHealth(hp)
+	self:Heal(hp, self)
 end
 
 function CDOTA_BaseNPC:InitRoshpitAttributes()
@@ -285,6 +343,7 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 		unit:SetBaseRoshpitMagicArmor(0)
 		unit:SetBaseRoshpitArmorPierce(0)
 		unit:SetBaseRoshpitSpellPierce(0)
+		unit:SetRoshpitPrimaryAttribute(unit:GetKeyValue("RoshpitPrimaryAttribute", false))
 		CustomAttributes:SetAttributes(unit)
 	else
 		unit:SetEnemyType()
@@ -301,8 +360,29 @@ function CDOTA_BaseNPC:InitRoshpitAttributes()
 	unit:CalculateAndSaveRoshpitAttributes()
 end
 
+function CDOTA_BaseNPC_Hero:SetRoshpitPrimaryAttribute(attribute)
+	self.roshpit_attributes.primary_attribute = attribute
+end
+
+function CDOTA_BaseNPC_Hero:GetRoshpitPrimaryAttribute()
+	local prime_attr = self.roshpit_attributes.primary_attribute
+	if self:HasModifier("modifier_gold_plate_of_leon") then
+		if self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("ruby") > 0 then
+			prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+		end
+	elseif self:HasModifier("modifier_ruby_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_STRENGTH
+	elseif self:HasModifier("modifier_topaz_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_AGILITY
+	elseif self:HasModifier("modifier_sapphire_dragon_scale_armor") then
+		prime_attr = ROSHPIT_ATTRIBUTE_INTELLIGENCE
+	end
+	return prime_attr
+end
+
 function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, armor_mult, magic_armor_mult, armor_pierce_mult, spell_pierce_mult)
 	local summon = self
+	summon:SetRoshpitLevel(caster:GetLevel())
 	if bDoHeroMult then
 		local newHealth = caster:GetMaxHealth() * hp_mult
 		summon:SetMaxHealth(newHealth)
@@ -319,8 +399,9 @@ function CDOTA_BaseNPC:AdjustSummon(caster, bDoHeroMult, hp_mult, attack_mult, a
 		local newSpellPierce = caster:GetRoshpitSpellPierce() * spell_pierce_mult
 		summon:SetBaseRoshpitSpellPierce(newSpellPierce)
 
-		local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * attack_mult
+		local newDamage = caster:GetAttackDamage() * attack_mult
 		Filters:SetAttackDamage(summon, newDamage)
+
 		summon:CalculateAndSaveRoshpitAttributes()
 	end
 	return true
@@ -358,31 +439,45 @@ end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	local hero = self
-	print(hero:GetUnitName())
 	local strength = hero:GetKeyValue("RoshpitStrength", nil)
-	print(strength)
-	strength = strength + self:GetLevel()*hero:GetKeyValue("RoshpitStrengthGain", nil)
+	local strength_per_level = hero:GetKeyValue("RoshpitStrengthGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		strength_per_level = strength_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	strength = strength + self:GetLevel()*strength_per_level
 	hero.strength_custom = math.floor(strength)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	local hero = self
 	local agility = hero:GetKeyValue("RoshpitAgility", nil)
-	agility = agility + self:GetLevel()*hero:GetKeyValue("RoshpitAgilityGain", nil)
+	local agility_per_level = hero:GetKeyValue("RoshpitAgilityGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		agility_per_level = agility_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	agility = agility + self:GetLevel()*agility_per_level
 	hero.agility_custom = math.floor(agility)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	local hero = self
 	local intellect = hero:GetKeyValue("RoshpitIntelligence", nil)
-	intellect = intellect + self:GetLevel()*hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	local intelligence_per_level = hero:GetKeyValue("RoshpitIntelligenceGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		intelligence_per_level = intelligence_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	intellect = intellect + self:GetLevel()*intelligence_per_level
 	hero.intellect_custom = math.floor(intellect)
 end
 
 function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 	local hero = self
 	local spirit = hero:GetKeyValue("RoshpitSpirit", nil)
-	spirit = spirit + self:GetLevel()*hero:GetKeyValue("RoshpitSpiritGain", nil)
+	local spirit_per_level = hero:GetKeyValue("RoshpitSpiritGain", nil)
+	if self:HasModifier("modifier_tattered_novice_armor") then
+		spirit_per_level = spirit_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
+	end
+	spirit = spirit + self:GetLevel()*spirit_per_level
 	hero.spirit_custom = math.floor(spirit)
 end
 
@@ -402,6 +497,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmor(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_armor = amount
 	return amount
 end
@@ -411,6 +507,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitMagicArmor(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_magic_armor = amount
 	return amount
 end
@@ -420,6 +517,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitSpellPierce(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_spell_pierce = amount
 	return amount
 end
@@ -429,6 +527,7 @@ function CDOTA_BaseNPC:SetBaseRoshpitArmorPierce(amount)
 	if not unit.roshpit_attributes then
 		unit.roshpit_attributes = {}
 	end
+	amount = math.floor(amount)
 	unit.roshpit_attributes.roshpit_armor_pierce = amount
 	return amount
 end
@@ -445,9 +544,26 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	local armor = unit.roshpit_attributes.roshpit_armor
 	if unit:IsRealHero() then
 		armor = armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
+		armor = armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			armor = armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			armor = armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseArmorBonus', { MODIFIER_ROSHPIT_BASE_ARMOR_BONUS }, { }, 
+		function(result, data)
+			armor = armor + result
+		end
+	)
 
 	local armor_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitArmorBonus', { MODIFIER_ROSHPIT_ARMOR_BONUS }, { }, 
+		function(result, data)
+			armor_modify = armor_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_wind_boss_slow") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_wind_boss_slow")
 	end
@@ -506,7 +622,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_reduce", "modifier_forest_ranger_bleed")
 	end
 	if unit:HasModifier("modifier_canyon_predator_effect") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_instance", "modifier_forest_ranger_bleed")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_per_instance", "modifier_canyon_predator_effect")
 	end
 	if unit:HasModifier("modifier_fire_god_armor_break") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_fire_god_armor_break")
@@ -566,7 +682,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
 	end
 	if unit:HasModifier("modifier_dragonflame_shield") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_dragonflame_shield")
@@ -642,6 +758,364 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_warlord_rune_q_3_invisible")
 		armor_modify = armor_modify + modifier:GetStackCount()*WARLORD_Q3_ARMOR_RED
 	end
+	if unit:HasModifier("modifier_duskbringer_rune_e_1_effect") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_e_1_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*DUSKBRINGER_E1_ARMOR
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
+		armor_modify = armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
+	end
+	if unit:HasModifier("modifier_auriun_rune_q_3_effect") then
+		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
+	end
+
+	if unit:HasModifier("modifier_mark_of_the_claw") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_claw")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_mark_of_the_claw")
+	end
+	if unit:HasModifier("modifier_mark_of_the_claw_rune") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_claw_rune")
+		local q_4_level = unit:GetRuneValue("q", 4)
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus_rune", "modifier_mark_of_the_claw_rune")*q_4_level*0.05
+	end
+	if unit:HasModifier("modifier_bear_armor_buff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_bonus", "modifier_bear_armor_buff")
+	end
+	if unit:HasModifier("modifier_wolf_rend_bleed") then
+		local modifier = unit:FindModifierByName("modifier_wolf_rend_bleed")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_bleed")
+	end
+	if unit:HasModifier("modifier_bear_rend_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_bear_rend_armor_loss")
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_bear_rend_armor_loss")
+	end
+	
+	if unit:HasModifier("modifier_wolf_rend_stack") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "rend_armor_reduction", "modifier_wolf_rend_stack")
+	end
+	if unit:HasModifier("modifier_flametongue_a_a_rune") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_a_a_rune")
+		modifier_caster = modifier:GetCaster()
+		local q_1_level = modifier_caster:GetRuneValue("q", 1)
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q1_ARMOR_DEBUFF*q_1_level
+	end
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		armor_modify = armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
+	if unit:HasModifier("modifier_spirit_rune_e_2_buff") then
+		local modifier = unit:FindModifierByName("modifier_spirit_rune_e_2_buff")
+		local all_mods = unit:FindAllModifiersByName("modifier_spirit_rune_e_2_buff")
+		local all_mods_count = #all_mods
+		local caster = modifier:GetCaster()
+		local armor_mod = SPIRIT_WARRIOR_E2_ARMOR_AURA
+		if caster:GetUnitName() == "spirit_warrior_spirit_elite" then
+			armor_mod = SPIRIT_WARRIOR_ARCANA_E2_ARMOR
+		end
+		armor_modify = armor_modify + modifier:GetStackCount()*all_mods_count*armor_mod
+	end
+	if unit:HasModifier("modifier_ancient_rain") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
+	end
+    if unit:HasModifier("modifier_monkey_a_c_effect") then
+    	local modifier = unit:FindModifierByName("modifier_monkey_a_c_effect")
+        local e_1_level = modifier:GetCaster():GetRuneValue("e", 1)
+        if e_1_level > 0 then
+            armor_modify = armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
+        end
+    end
+    if unit:HasModifier("modifier_energy_channel") then
+    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
+    end
+    if unit:HasModifier("modifier_steelforge_stance") then
+    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
+    end
+    if unit:HasModifier("modifier_protector_d_b_armor_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_protector_d_b_armor_aura_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_W4
+    end
+    if unit:HasModifier("modifier_immortal_weapon_2_stacks") then
+		local modifier = unit:FindModifierByName("modifier_immortal_weapon_2_stacks")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_ARMOR_PER_KILL
+    end
+    if unit:HasModifier("modifier_hailstorm_armor_and_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+	if unit:HasModifier("modifier_drake_ring_armor_reduction") then
+		local modifier = unit:FindModifierByName("modifier_drake_ring_armor_reduction")
+		armor_modify = armor_modify + modifier:GetStackCount() * DINATH_W2_ARMOR_REDUCTION
+	end
+    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
+    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
+    	local q_1_level = caster:GetRuneValue("q", 1)
+    	armor_modify = armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+    if unit:HasModifier("modifier_demon_hunter_w_2_inner_beast_inactive") then
+		local modifier = unit:FindModifierByName("modifier_demon_hunter_w_2_inner_beast_inactive")
+		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W2_ARMOR
+    end
+    if unit:HasModifier("modifier_chernobog_rune_w_3_fervor_enemy_invisible") then
+		local modifier = unit:FindModifierByName("modifier_chernobog_rune_w_3_fervor_enemy_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount() * CHERNOBOG_W3_ARMOR_REDUCE
+    end
+	if unit:HasModifier("modifier_solunia_warp_core_aura_lunar") then
+		modifier = unit:FindModifierByName("modifier_solunia_warp_core_aura_lunar")
+		armor_modify = armor_modify + modifier:GetAbility().e_3_level * SOLUNIA_E3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_lunar_compression_invisible") then
+		local modifier = unit:FindModifierByName("modifier_lunar_compression_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_hydroxis_a_d") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_a_d")
+		armor_modify = armor_modify + modifier:GetStackCount()*HYDROXIS_R1_ARMOR_RED
+	end
+	if unit:HasModifier("modifier_shimmer_cape") then
+		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
+	end
+	if unit:HasModifier("modifier_slipfinn_e_2_armor") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_2_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_E2_ARMOR
+	end
+	if unit:HasModifier("modifier_slipfinn_bog_roller_e3") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
+		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_ARMOR_BONUS
+	end
+	if unit:HasModifier("modifier_zonis_a_a_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_zonis_a_a_armor_loss")
+		armor_modify = armor_modify + modifier:GetStackCount()*ARKIMUS_Q1_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_slipfinn_bog_roller_armor_break") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_slipfinn_bog_roller_armor_break")
+	end
+	if unit:HasModifier("modifier_jex_nature_nature_shield_visible") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor", "modifier_jex_nature_nature_shield_visible")
+	end	
+	if unit:HasModifier("modifier_axe_rune_r_3_visible") then
+		local modifierStacks = unit:FindModifierByName("modifier_axe_rune_r_3_visible"):GetStackCount()
+		armor_modify = armor_modify + modifierStacks * RED_GENERAL_R3_BONUS_ARMOR
+	end
+	if unit:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
+		local modifierStacks = unit:FindModifierByName("modifier_stonewall_aura_axe_armor_strength"):GetStackCount()
+		armor_modify = armor_modify + modifierStacks * RED_GENERAL_ARCANA2_W2_ARMOR
+	end
+	if unit:HasModifier("modifier_jex_portal_armor") then
+		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
+		armor_modify = armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end	
+	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
+		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
+		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
+		armor_modify = armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
+	end
+	if unit:HasModifier("modifier_omnimace_earth_buff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
+	end
+	if unit:HasModifier("modifier_omniro_shadow_debuff") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "shadow_special_b", "modifier_omniro_shadow_debuff")
+	end
+	if unit:HasModifier("modifier_familiar_armor_break") then
+		local modifier = unit:FindModifierByName("modifier_familiar_armor_break")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_E3_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_swarm_effect") then
+		local modifier = unit:FindModifierByName("modifier_swarm_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
+	end
+	if unit:HasModifier("modifier_axe_rune_r_3_arcana1_invisible") then
+		local modifier = unit:FindModifierByName("modifier_axe_rune_r_3_arcana1_invisible")
+		armor_modify = armor_modify + modifier:GetStackCount()*RED_GENERAL_ARCANA1_R3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_axe_glyph_2_2_visible") then
+		local modifier = unit:FindModifierByName("modifier_axe_glyph_2_2_visible")
+		armor_modify = armor_modify + RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE
+	end
+	if unit:HasModifier("modifier_autumn_sleeper_root") then
+		local modifier = unit:FindModifierByName("modifier_autumn_sleeper_root")
+		local modifier_caster = modifier:GetCaster()
+		local sleeper_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", AUTUMN_SLEEPER_AMETHYST)
+		armor_modify = armor_modify + sleeper_armor_loss
+	end
+	if unit:HasModifier("modifier_basilisk_plague_petrify") then
+		local modifier = unit:FindModifierByName("modifier_basilisk_plague_petrify")
+		local modifier_caster = modifier:GetCaster()
+		local basilisk_petrify_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", BASILISK_PLAGUE_AMETHYST)
+		armor_modify = armor_modify + basilisk_petrify_armor_loss
+	end
+	if unit:HasModifier("modifier_blackfeather_armor_reduce") then
+		local modifier = unit:FindModifierByName("modifier_blackfeather_armor_reduce")
+		local modifier_caster = modifier:GetCaster()
+		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE)
+		armor_modify = armor_modify + blackfeather_armor_loss
+	end
+	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
+		local modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_poison_trap_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
+		end
+		if modifier:GetCaster().origCaster and modifier:GetCaster().origCaster:HasModifier("modifier_trapper_immortal_weapon_2") then
+			armor_modify = armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
+		end
+	end
+	if unit:HasModifier("modifier_sea_oracle_stacker") then
+		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
+		local hood_of_sea_oracle = modifier:GetAbility()
+		armor_modify = armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("ruby", SEA_ORACLE_RUBY)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("igneous_canine_aura") then
+		local modifier = unit:FindModifierByName("igneous_canine_aura")
+		local igneous_helm = modifier:GetAbility()
+		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
+	end
+	if unit:HasModifier("modifier_violet_guard_armor_loss_visible") then
+		local modifier = unit:FindModifierByName("modifier_violet_guard_armor_loss_visible")
+		armor_modify = armor_modify + modifier:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
+		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
+		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_hermit_spike_shell_quills") then
+		local quill_modifier = unit:FindModifierByName("modifier_hermit_spike_shell_quills")
+		local hermit_shell = quill_modifier:GetAbility()
+		armor_modify = armor_modify + hermit_shell:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_AMETHYST)*quill_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		armor_modify = armor_modify + ITEM_RPC_INFUSED_MAGEPLATE_ARMOR_PER_INT*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_mystic_mana_wall_armor") then
+		armor_modify = armor_modify + unit:FindModifierByName("modifier_mystic_mana_wall_armor"):GetStackCount()
+	end
+	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR)
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_modify = armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_RUBY))
+	end
+	if unit:HasModifier("modifier_knight_crusher_armor_loss") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_loss"):GetAbility()
+		armor_modify = armor_modify + crusher_armor:GetFinalGemPropertyValue("ruby", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_stormshield_active_shields") then
+		local shields_count = unit:GetModifierStackCount("modifier_stormshield_active_shields", unit.InventoryUnit)
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STORMSHIELD_CLOAK_GEM_RUBY)*shields_count
+	end
+	if unit:HasModifier("modifier_bladeforge_armor_debuff") then
+		local bladeforge_modifier = unit:FindModifierByName("modifier_bladeforge_armor_debuff")
+		local bladeforge_gauntlet = bladeforge_modifier:GetAbility()
+		armor_modify = armor_modify + bladeforge_gauntlet:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLADEFORGE_GAUNTLET_GEM_RUBY)*bladeforge_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_ironbound_gloves") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_IRONBOUND_GLOVES_GEM_SAPPHIRE)*(unit:GetAgility() + unit:GetIntellect() + unit:GetSpirit())
+	end
+	if unit:HasModifier("modifier_living_gauntlet_effect") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_malachite_shade_bracer") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_RUBY)*unit:GetHealthRegen()
+	end
+	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		armor_modify = armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR*unit:GetLevel()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		armor_modify = armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_ARMOR*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_RUBY)/100)
+	end
+	if unit:HasModifier("modifier_devotion_aura_buff") then
+		local devotion_caster = unit:FindModifierByName("modifier_devotion_aura_buff"):GetCaster()
+		local devotion_hero = devotion_caster.hero
+		local devotion_base = devotion_hero:GetStrength()*(ITEM_RPC_CRUSADER_BOOTS_STR_TO_ARMOR_AURA_PCT/100)
+		local devotion_sapphire = devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRUSADER_BOOTS_GEM_SAPPHIRE2)
+		armor_modify = armor_modify + devotion_base + devotion_sapphire
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		armor_modify = armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_fire_walkers_in_fire") then
+		local modifier_caster = unit:FindModifierByName("modifier_fire_walkers_in_fire"):GetCaster()
+		armor_modify = armor_modify + modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FIRE_WALKERS_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_gravelfoot_buff") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_modify = armor_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_rpc_sange_boots") then
+		armor_modify = armor_modify + ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		armor_modify = armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
+	end
+
+	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
+
+	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		armor_modify = armor_modify - (armor + armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		armor_modify = armor_modify - (armor + armor_modify)*(ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100)
+	end
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		local penalty = HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY
+		if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("ruby") > 0 then
+			penalty = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", HOOD_OF_BLACK_MAGE_RUBY)
+		end
+		armor_modify = armor_modify - (armor + armor_modify)*(penalty/100)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_modify = armor_modify + (armor + armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
 
 
 	if armor_modify > 0 then
@@ -656,16 +1130,17 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor")
 		unit:RemoveModifierByName("modifier_positive_roshpit_armor")
 	end
-	armor = armor + armor_modify
-	armor = math.max(armor, 0)
-	unit:SetRoshpitArmor(armor)
-	return armor
+	local total_armor = armor + armor_modify
+	total_armor = math.max(total_armor, 0)
+	unit:SetRoshpitArmor(total_armor)
+	return armor, armor_modify
 end
 
 function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, damage_type, damage, ability_index)
 	local armor_pierce = attacker:GetRoshpitArmorPierce()
 	local spell_pierce = attacker:GetRoshpitSpellPierce()
-
+	local armor = victim:GetRoshpitArmor()
+	local magic_armor = victim:GetRoshpitMagicArmor()
 	-- SPECIFIC ADJUSTMENTS BELOW
 	-- if ability_index then
 	-- 	local ability = EntIndexToHScript(ability_index)
@@ -682,19 +1157,35 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 	-- end
 
 	-- MAIN PART BELOW
+	local max_physical_mult = RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR
+	if attacker:HasModifier("modifier_marauder_gloves") then
+		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then 
+			max_physical_mult = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD)
+		end
+		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
+			armor = armor * (1 - (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MARAUDER_GLOVES_GEM_SAPPHIRE)/100))
+		end
+	end
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min((255 + armor_pierce)/(255 + victim:GetRoshpitArmor()), 2)
+		local mult = math.min((255 + armor_pierce)/(255 + armor), max_physical_mult)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min((255 + spell_pierce)/(255 + victim:GetRoshpitMagicArmor()), 2)
+		local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_ancient_waterstone") then
+			local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+			return damage*mult
+		end
+		return damage
+	else
 		return damage
 	end
 end
 
 function CustomAttributes:GetAbilityValueFromSpecial(unit, special_value_name, modifier_name)
 	local modifier = unit:FindModifierByName(modifier_name)
+	
 	local ability = modifier:GetAbility()
 	local caster = modifier:GetCaster()
 	local stacks = math.max(modifier:GetStackCount(), 1)
@@ -711,9 +1202,33 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	local magic_armor = unit.roshpit_attributes.roshpit_magic_armor
 	if unit:IsRealHero() then
 		magic_armor = magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
+		magic_armor = magic_armor + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_magic_armor", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_magic_armor", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
+	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
+		function(result, data)
+			magic_armor = magic_armor + result
+		end
+	)
 
 	local magic_armor_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitMagicArmorBonus', { MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS }, { }, 
+		function(result, data)
+			magic_armor_modify = magic_armor_modify + result
+		end
+	)
+	if unit:HasModifier("modifier_axe_rune_w_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_axe_rune_w_2_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION
+	end
 	if unit:HasModifier("modifier_flamespitting") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_flamespitting")
 	end
@@ -856,7 +1371,362 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_warlord_b_d_effect")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*WARLORD_R2_MAGIC_ARMOR_REDUCTION
 	end
+	if unit:HasModifier("modifier_ghost_hallow_magic_resist_loss") then
+		local modifier = unit:FindModifierByName("modifier_ghost_hallow_magic_resist_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DUSKBRINGER_W2_MAG_RES_RED
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_rune_w_2") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_rune_w_2")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA1_W2_ARMORS
+	end
+	if unit:HasModifier("modifier_auriun_rune_q_3_effect") then
+		local modifier = unit:FindModifierByName("modifier_auriun_rune_q_3_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*AURIUN_Q3_ARMOR_AND_MAGIC_ARMOR_BONUS
+	end
+	if unit:HasModifier("modifier_auriun_passive") then
+		local e_1_level = unit:GetRuneValue("e", 1)
+		magic_armor_modify = magic_armor_modify + e_1_level*AURIUN_E1_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_seraph_surge_glyphed") then
+		magic_armor_modify = magic_armor_modify + AURIUN_GLYPH_5_1_MAGIC_RESIST
+	end
+	
+	if unit:HasModifier("modifier_draghor_hawk_screech") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduction", "modifier_draghor_hawk_screech")
+	end
+	if unit:HasModifier("modifier_mark_of_the_talon") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_talon")
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase", "modifier_mark_of_the_talon")
+	end
+	if unit:HasModifier("modifier_mark_of_the_talon_rune") then
+		local modifier = unit:FindModifierByName("modifier_mark_of_the_talon_rune")
+		local q_4_level = unit:GetRuneValue("q", 4)
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_increase_rune", "modifier_mark_of_the_talon_rune")*q_4_level*0.05
+	end
+    if unit:HasModifier("modifier_monkey_a_c_effect") then
+    	local modifier = unit:FindModifierByName("modifier_monkey_a_c_effect")
+        local e_1_level = modifier:GetCaster():GetRuneValue("e", 1)
+        if e_1_level > 0 then
+            magic_armor_modify = magic_armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
+        end
+    end
 
+	if unit:HasModifier("modifier_trap_magic_resist_loss") then
+		local modifier = unit:FindModifierByName("modifier_trap_magic_resist_loss")
+		if modifier then
+			local trap = modifier:GetCaster()
+			local caster = trap.origCaster
+			if caster then
+				local q_3_level = caster:GetRuneValue("q", 3)
+				magic_armor_modify = magic_armor_modify + TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				if caster:HasModifier("modifier_trapper_glyph_1_2") then
+					magic_armor_modify = magic_armor_modify + TRAPPER_GLYPH_1_2_Q3_PCT_AMP*TRAPPER_Q3_MAGIC_ARMOR_LOSS*q_3_level
+				end
+			end
+		end
+	end
+	if unit:HasModifier("modifier_poison_whip") then
+		local modifier = unit:FindModifierByName("modifier_poison_whip")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
+	end
+	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
+		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SPIRIT_WARRIOR_Q2_FIRE_SHIELD_ARMORS
+	end
+	if unit:HasModifier("modifier_ancient_rain") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
+	end
+    if unit:HasModifier("modifier_energy_channel") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
+    end
+    if unit:HasModifier("modifier_steelforge_stance") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
+    end
+    if unit:HasModifier("modifier_hailstorm_armor_and_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+    if unit:HasModifier("modifier_rockfall_magic_armor_loss") then
+    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor_reduce", "modifier_rockfall_magic_armor_loss")
+    	local modifier = unit:FindModifierByName("modifier_rockfall_magic_armor_loss")
+    	if unit:GetHealth() > modifier:GetCaster():GetHealth() then
+    		local e_4_level = unit:GetRuneValue("e", 4)
+    		magic_armor_modify = magic_armor_modify + MOUNTAIN_PROTECTOR_ARCANA3_E4_EXTRA_MAGIC_ARMOR_REDUCE_WHEN_HP_HIGHER*e_4_level
+    	end
+    end
+    if unit:HasModifier("modifier_mountain_protector_arcana3") then
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local e_1_level = unit:GetRuneValue("e", 1)
+    	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
+    end
+	if unit:HasModifier("modifier_lightbomb_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_lightbomb_magic_armor_loss")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+	if unit:HasModifier("modifier_hyperbeam_magic_armor_reduction") then
+		local modifier = unit:FindModifierByName("modifier_hyperbeam_magic_armor_reduction")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*DINATH_R2_MAGIC_ARMOR_REDUCTION
+    end
+    if unit:HasModifier("modifier_chernobog_1_q_path_enemy_effect_q1") then
+    	local caster = unit:FindModifierByName("modifier_chernobog_1_q_path_enemy_effect_q1"):GetCaster()
+    	local q_1_level = caster:GetRuneValue("q", 1)
+    	magic_armor_modify = magic_armor_modify + q_1_level*CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS
+    end
+	if unit:HasModifier("modifier_solunia_warp_core_aura_solar") then
+		modifier = unit:FindModifierByName("modifier_solunia_warp_core_aura_solar")
+		magic_armor_modify = magic_armor_modify + modifier:GetAbility().e_3_level * SOLUNIA_E3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_solar_compression_invisible") then
+		local modifier = unit:FindModifierByName("modifier_solar_compression_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SOLUNIA_ARCANA_Q3_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_hydroxis_b_a_shield_invisible") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_b_a_shield_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q2_ARMOR_AND_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_hydroxis_c_a_magic_resist_lost") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_c_a_magic_resist_lost")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*HYDROXIS_Q3_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_hydroxis_mist") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_hydroxis_mist")
+	end
+	if unit:HasModifier("modifier_tachyon_amp") then
+		local modifier = unit:FindModifierByName("modifier_tachyon_amp")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_Q3_MAGIC_ARMOR_RED
+	end
+	if unit:HasModifier("modifier_zonik_lightspeed") then
+		local modifier = unit:FindModifierByName("modifier_zonik_lightspeed")
+		local e_3_level = unit:GetRuneValue("e", 3)
+		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
+	end
+	if unit:HasModifier("modifier_dummy_aura_effect_enemy_a_c_invisible") then
+		local modifier = unit:FindModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_E1_ARCANA_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_tempo_flux_invisible") then
+		local modifier = unit:FindModifierByName("modifier_tempo_flux_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_ARCANA2_R3_MAX_STACKS
+	end
+	if unit:HasModifier("modifier_slipfinn_gloomshade_invisible") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_W2_MAGIC_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_zonis_c_a_magic_resist") then
+		local modifier = unit:FindModifierByName("modifier_zonis_c_a_magic_resist")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_zonis_stun_arcana1") then
+		local caster = unit:FindModifierByName("modifier_zonis_stun_arcana1"):GetCaster()
+		local q_2_level = caster:GetRuneValue("q", 2)
+		magic_armor_modify = magic_armor_modify + q_2_level*ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION
+	end
+	if unit:HasModifier("modifier_shimmer_cape") then
+		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
+	end	
+	if unit:HasModifier("modifier_jex_q_cosmic_cosmic_postmitigation") then
+		local modifier = unit:FindModifierByName("modifier_jex_q_cosmic_cosmic_postmitigation")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_Q_COSMIC_COSMIC_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_jex_portal_armor") then
+		local modifier = unit:FindModifierByName("modifier_jex_portal_armor")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*JEX_NATURE_COSMIC_E_Q4_ARMOR_AND_MAGIC_ARMOR
+	end	
+	if unit:HasModifier("modifier_stonewall_aura_enemy_effect") then
+		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
+		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
+		magic_armor_modify = magic_armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
+	end
+	if unit:HasModifier("modifier_omnimace_earth_buff") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")
+	end
+	if unit:HasModifier("modifier_arcane_orb_magic_resist") then
+		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "arcane_orb_b", "modifier_arcane_orb_magic_resist")
+	end
+	if unit:HasModifier("modifier_mage_blast_slow") then
+		local modifier = unit:FindModifierByName("modifier_mage_blast_slow")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_W3_MAGIC_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_swarm_effect") then
+		local modifier = unit:FindModifierByName("modifier_swarm_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q2_ARMOR_LOSS
+	end
+	if unit:HasModifier("modifier_black_dominion_d_a_aura_effect") then
+		local modifier = unit:FindModifierByName("modifier_black_dominion_d_a_aura_effect")
+		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*EKKAN_ARCANA_Q4_ARMOR_AURA
+	end
+	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
+		local modifier = unit:FindModifierByName("modifier_fulminating_burn_effect")
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_poison_trap_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_net_trap_netted_effect")
+		end
+		if not modifier then
+			modifier = unit:FindModifierByName("modifier_torrent_trap_slowed_effect")
+		end
+		if modifier:GetCaster().origCaster and modifier:GetCaster().origCaster:HasModifier("modifier_trapper_immortal_weapon_2") then
+			magic_armor_modify = magic_armor_modify + TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS
+		end
+	end
+	if unit:HasModifier("modifier_sea_oracle_stacker") then
+		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
+		local hood_of_sea_oracle = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_witch_hat_damage_amp") then
+		local modifier = unit:FindModifierByName("modifier_witch_hat_damage_amp")
+		local witch_hat = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + witch_hat:GetFinalGemPropertyValue("ruby", SWAMP_WITCH_RUBY)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_undertaker_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_undertaker_magic_armor_loss")
+		local undertaker_hood = modifier:GetAbility()
+		magic_armor_modify = magic_armor_modify + undertaker_hood:GetFinalGemPropertyValue("sapphire", UNDERTAKER_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_wraith_hunters_steel_helm") then
+		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		magic_armor_modify = magic_armor_modify + unit:GetRoshpitArmor()*(wraith_hunter_helm:GetFinalGemPropertyValue("ruby", WRAITH_HUNTER_RUBY)/100)
+	end
+	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
+		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
+		magic_armor_modify = magic_armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_empyreal_magic_armor") then
+		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_empyreal_magic_armor"):GetStackCount()
+	end
+    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
+        magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+    end
+	if unit:HasModifier("modifier_infused_mageplate") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_outland_stone_cuirass_emerald") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_OUTLAND_STONE_CUIRASS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			magic_armor_modify = magic_armor_modify + radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				magic_armor_modify = magic_armor_modify + (radiant_leather:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_AMETHYST) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		magic_armor_modify = magic_armor_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_AMETHYST))
+	end
+	if unit:HasModifier("modifier_water_mage_slow") then
+		local robes = unit:FindModifierByName("modifier_water_mage_slow"):GetAbility()
+		magic_armor_modify = magic_armor_modify + robes:GetFinalGemPropertyValue("ruby", ITEM_RPC_WATER_MAGE_ROBES_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_glove_of_forgotten_ghost_magic_armor_sapphire") then
+		local glove = unit:FindModifierByName("modifier_glove_of_forgotten_ghost_magic_armor_sapphire"):GetAbility()
+		magic_armor_modify = magic_armor_modify + glove:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_grasp_of_elder") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRASP_OF_ELDER_GEM_EMERALD)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_living_gauntlet_effect") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIVING_GAUNTLET_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_malachite_shade_bracer") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MALACHITE_SHADE_BRACER_GEM_SAPPHIRE)*(unit:GetBaseManaRegen() + unit:GetBonusManaRegen())
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		magic_armor_modify = magic_armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE*unit:GetLevel()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		magic_armor_modify = magic_armor_modify + ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_MAGIC_RESISTANCE*unit:GetLevel()*(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_AMETHYST)/100)
+	end
+	if unit:HasModifier("modifier_devotion_aura_buff") then
+		local devotion_caster = unit:FindModifierByName("modifier_devotion_aura_buff"):GetCaster()
+		local devotion_hero = devotion_caster.hero
+		magic_armor_modify = magic_armor_modify + devotion_hero:GetSpirit()*(devotion_hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRUSADER_BOOTS_GEM_AMETHYST2)/100)
+	end
+	if unit:HasModifier("modifier_old_wisdom_amethyst_inactive") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_AMETHYST1)
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		magic_armor_modify = magic_armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_gravelfoot_buff") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GRAVELFOOT_TREADS_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			magic_armor_modify = magic_armor_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
+	end
+	if unit:HasModifier("moon_tech_aura") then
+		local modifier_ability = unit:FindModifierByName("moon_tech_aura"):GetAbility()
+		magic_armor_modify = magic_armor_modify + modifier_ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MOON_TECH_RUNNERS_GEM_SAPPHIRE1)
+	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_rpc_steamboots") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		magic_armor_modify = magic_armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
+	end
+	if unit:HasModifier("modifier_tranquil_boots") then
+		magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_aeriths_tear") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies and unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies > 0 then
+			magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AERITHS_TEAR_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_ancient_waterstone") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANCIENT_TANARI_WATERSTONE_GEM_EMERALD)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_arcane_charm") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
+	end
+
+	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
+
+	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
+		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
+		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(mantle:GetFinalGemPropertyValue("ruby", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_RUBY1)/100)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(ITEM_RPC_ROOTED_FEET_ARMOR_AMP-1)
+	end
+
+
+	-- WRAITH CROWN ETHERAL FORM - 0 MAGIC ARMOR
+
+	if unit:HasModifier("modifier_wraith_crown_ethereal") then
+		magic_armor_modify = magic_armor*-1
+	end
 
 
 	if magic_armor_modify > 0 then
@@ -899,8 +1769,21 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	local armor_pierce = unit.roshpit_attributes.roshpit_armor_pierce
 	if unit:IsRealHero() then
 		armor_pierce = armor_pierce + unit:GetAgility()*CustomAttributes.ARMOR_PIERCE_PER_AGI
+		armor_pierce = armor_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_armor_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_armor_pierce", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			armor_pierce = armor_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			armor_pierce = armor_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
 	end
+
 	local armor_pierce_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitArmorPierceBonus', { MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS }, { }, 
+		function(result, data)
+			armor_pierce_modify = armor_pierce_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_flamewaker_arcana_d_a_aura") then
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_d_a_aura")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetCaster():GetRuneValue("q", 4)*FLAMEWAKER_ARCANA_Q4_ARMOR_AND_SPELL_PIERCE_REDUCTION
@@ -940,7 +1823,252 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_warlord_arcana2") then
 		armor_pierce_modify = armor_pierce_modify + WARLORD_ARCANA2_Q1_PIERCES*unit:GetRuneValue("q", 1)
 	end
+	if unit:HasModifier("modifier_leshrac_arcana_b_d_effect") then
+		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
+	end
+	if unit:HasModifier("modifier_waterheart_weapon") then
+		local waterheart = unit:FindModifierByName("modifier_waterheart_weapon"):GetAbility()
+		if waterheart then
+			armor_pierce_modify = armor_pierce_modify + SPIRIT_WARRIOR_ARCANA_R3_ARMOR_PIERCE * waterheart.r_3_level
+		end
+	end
+	if unit:HasModifier("modifier_dinath_arcana1") then
+		local ms = unit:GetActualMovespeed()
+		local w_2_level = unit:GetRuneValue("w", 2)
+		armor_pierce_modify = armor_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
+	if unit:HasModifier('modifier_3_e_teleportation_buff') then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		armor_pierce_modify = armor_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_solunia_arcana2") then
+		if unit.sunMoon == "moon" then
+			local r_2_level = unit:GetRuneValue("r", 2)
+			armor_pierce_modify = armor_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
+		end
+	end
+	if unit:HasModifier("modifier_drowning_pool_actual_effect") then
+		local r_4_level = unit:GetRuneValue("r", 4)
+		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
+		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
+	end
+	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") and unit:HasModifier("modifier_arkimus_immortal_weapon_1") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		armor_pierce_modify = armor_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
+	end
+	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
+		local r_4_level = unit:GetRuneValue("r", 4)
+		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
+		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		if not ability.tech_level then
+			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+		end
+		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
+		armor_pierce_modify = armor_pierce_modify + pierces
+	end
+	if unit:HasModifier("modifier_omnimace_undead_buff") then
+		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
+	end
+	if unit:HasModifier("challen_postmit_buff") then
+		armor_pierce_modify = armor_pierce_modify + 1000
+	end
+    if unit:HasModifier("modifier_orthok_zeal") then
+    	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+	        local current_stack = unit:GetModifierStackCount("modifier_orthok_zeal", unit.InventoryUnit)
+	        armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
+	    end
+    end
+    if unit:HasModifier("modifier_crown_of_the_roknar_emperor") then
+    	local helm = unit:FindModifierByName("modifier_crown_of_the_roknar_emperor"):GetAbility()
+    	if helm:GetGemValue("ruby") > 0 then
+	    	if unit:HasModifier("modifier_stunned") or unit:HasModifier("modifier_knockback") or unit:IsStunned() then
+	    		armor_pierce_modify = armor_pierce_modify + helm:GetFinalGemPropertyValue("ruby", ROKNAR_RUBY)
+	    	end
+	    end
+    end
+    if unit:HasModifier("modifier_helm_of_the_mountain_giant") and unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+    	armor_pierce_modify = armor_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MOUNTAIN_GIANT_AMETHYST)
+    end
+	if unit:HasModifier("modifier_hood_of_defiler_buff_emerald") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_emerald")
+		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_sea_oracle_mega_buff") then
+		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
+	end
+	if unit:HasModifier("modifier_mask_of_mugato") and unit:IsSilenced() then
+		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		armor_pierce_modify = armor_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
+	end
+	if unit:HasModifier("modifier_bladestorm_vest_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLADESTORM_VEST_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_hermit_spike_shell") then
+		local spike_shell = unit:FindModifierByName("modifier_hermit_spike_shell"):GetAbility()
+		if spike_shell:GetGemValue("sapphire") > 0 then
+			armor_pierce_modify = armor_pierce_modify + (100-unit:GetHealthPercent())*spike_shell:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HERMITS_SPIKE_SHELL_GEM_SAPPHIRE)
+		end
+	end
+	if unit:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = unit:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			armor_pierce_modify = armor_pierce_modify + radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY)
+			if unit:HasModifier("modifier_radiant_ruins_leather") then
+				armor_pierce_modify = armor_pierce_modify + (radiant_leather:GetFinalGemPropertyValue("ruby", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_RUBY) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_EMERALD))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI)
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ARMOR_GEM_EMERALD))
+	end
+	if unit:HasModifier("modifier_ogthun_sapphire_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_flurry_aura_debuff") then
+		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_knight_crusher_armor_pierce") then
+		local crusher_armor = unit:FindModifierByName("modifier_knight_crusher_armor_pierce"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + crusher_armor:GetFinalGemPropertyValue("emerald", ITEM_RPC_STAGGERING_KNIGHT_CRUSHER_ARMOR_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_chitinous_skin_stack") then
+		local modifier = unit:FindModifierByName("modifier_chitinous_skin_stack")
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CHITINOUS_LOBSTER_CLAW_GEM_EMERALD)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		armor_pierce_modify = armor_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		armor_pierce_modify = armor_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_arena_crowd_buff") then
+		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
+		armor_pierce_modify = armor_pierce_modify + stacks*50
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_buff"):GetStackCount()
+		armor_pierce_modify = armor_pierce_modify + stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
+		armor_pierce_modify = armor_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_ironbound_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRONBOUND_GLOVES_GEM_AMETHYST)*(unit:GetStrength())
+	end
+	if unit:HasModifier("modifier_marauder_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MARAUDER_GLOVES_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_mordiggus_gauntlet") then
+		armor_pierce_modify = armor_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
+	end
+	if unit:HasModifier("modifier_shadowstep_invis") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_silverspring_gloves") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST)*unit:GetHealthRegen()
+	end
+	if unit:HasModifier("modifier_spiritual_empowerment_stack") then
+		local modifier = unit:FindModifierByName("modifier_spiritual_empowerment_stack")
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_ablecore_greaves_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_bloodstone_boots") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_dunetread_boots") then
+		if unit:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownTimeRemaining() == 0 then
+			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DUNETREAD_BOOTS_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability.wearer:GetAgility()*modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_GREAVES_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_redrock_footwear_taunt_effect") then
+		local modifier_ability = unit:FindModifierByName("modifier_redrock_footwear_taunt_effect"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			armor_pierce_modify = armor_pierce_modify + modifier_ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDROCK_FOOTWEAR_GEM_EMERALD)
+		end		
+	end
+	if unit:HasModifier("modifier_redrock_footwear_caster_visible") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_REDROCK_FOOTWEAR_GEM_SAPPHIRE)*unit:GetModifierStackCount("modifier_redrock_footwear_caster_visible", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		armor_pierce_modify = armor_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
+	end
+	if unit:HasModifier("modifier_rpc_yasha_boots") then
+		armor_pierce_modify = armor_pierce_modify + ITEM_RPC_YASHA_BOOTS_ARMOR_PIERCE_PER_STR*unit:GetStrength()
+	end
+	if unit:HasModifier("modifier_azure_empire_visible") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_AZURE_EMPIRE_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_beryl_ring_of_intuition_emerald_armor_pierce") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_EMERALD)
+	end
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_golden_war_plate") then
+		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		armor_pierce_modify = armor_pierce_modify + unit:GetRoshpitArmor()*((ITEM_RPC_GOLDEN_WAR_PLATE_ARMOR_TO_ARMOR_PIERCE + warplate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_SAPPHIRE))/100)
+		armor_pierce_modify = armor_pierce_modify + warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
+	end
 
+	-- FINAL STEP: HOOD OF BLACK MAGE | HAND OF MARAUDER
+	if unit:HasModifier("modifier_marauder_gloves") then
+		armor_pierce_modify = armor_pierce_modify + (armor_pierce + armor_pierce_modify)*(ITEM_RPC_MARAUDER_GLOVES_ARMOR_PIERCE_PCT/100)
+	end
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		armor_pierce_modify = armor_pierce_modify - (armor_pierce + armor_pierce_modify)*(HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY/100)
+	end
 
 	if armor_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_armor_pierce")
@@ -964,11 +2092,29 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	local spell_pierce = unit.roshpit_attributes.roshpit_spell_pierce
 	if unit:IsRealHero() then
 		spell_pierce = spell_pierce + unit:GetIntellect()*CustomAttributes.SPELL_PIERCE_PER_INT
+		spell_pierce = spell_pierce + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_head_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_weapon_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_hands_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_feet_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_body_spell_pierce", 1) + CustomAttributes:AddStatsBonusFromStacks(unit, unit.InventoryUnit, "modifier_amulet_spell_pierce", 1)
+		if unit:HasModifier("modifier_tattered_novice_armor") then
+			spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_SAPPHIRE)*unit:GetLevel()
+		end
+		if unit:HasModifier("modifier_halcyon_soul_glove") then
+			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
+		end
+	end
+	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
 	end
+	if unit:HasModifier("modifier_scarecrow_gloves") then
+		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SCARECROW_GLOVES_GEM_SAPPHIRE2)*unit:GetIntellect()
+	end
 	local spell_pierce_modify = 0
+	Util.Modifier:SimpleEvent(unit, 'GetRoshpitSpellPierceBonus', { MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS }, { }, 
+		function(result, data)
+			spell_pierce_modify = spell_pierce_modify + result
+		end
+	)
 	if unit:HasModifier("modifier_flamewaker_arcana_b_a_effect") then
 		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_b_a_effect")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA_Q2_SPELL_PIERCE
@@ -1009,6 +2155,320 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + WARLORD_GLYPH_5_A_SPELL_PIERCE_PER_ICE_CHARGE * iceCharges
 		end
 	end
+	if unit:HasModifier("modifier_bahamut_mega_flare_pierce") then
+		local modifier = unit:FindModifierByName("modifier_bahamut_mega_flare_pierce")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_R2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_leshrac_arcana_b_d_effect") then
+		local modifier = unit:FindModifierByName("modifier_leshrac_arcana_b_d_effect")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_bahamut_arcana_spell_pierce") then
+		local modifier = unit:FindModifierByName("modifier_bahamut_arcana_spell_pierce")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*BAHAMUT_ARCANA_W_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_duskbringer_rune_r_2_invisible") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_rune_r_2_invisible")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_R2_PIERCES
+	end
+	if unit:HasModifier("modifier_duskbringer_arcana_q_4") then
+		local modifier = unit:FindModifierByName("modifier_duskbringer_arcana_q_4")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*DUSKBRINGER_ARCANA2_Q4_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_auriun_passive") then
+		local e_1_level = unit:GetRuneValue("e", 1)
+		spell_pierce_modify = spell_pierce_modify + e_1_level*AURIUN_E1_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_shadow_trap_d_a_buff") then
+		local modifier = unit:FindModifierByName("modifier_shadow_trap_d_a_buff")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*AURIUN_ARCANA_2_Q4_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
+		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
+	end
+	if unit:HasModifier("modifier_energy_channel") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE
+	end
+    if unit:HasModifier("modifier_mountain_protector_arcana3") then
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local e_1_level = unit:GetRuneValue("e", 1)
+    	spell_pierce_modify = spell_pierce_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
+    end
+	if unit:HasModifier("modifier_dinath_arcana1") then
+		local ms = unit:GetActualMovespeed()
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*ms*DINATH_ARCANA_W2_SPELL_PIERCE_AND_ARMOR_PIERCE_PER_MS
+	end
+	if unit:HasModifier('modifier_3_e_teleportation_buff') then
+		local e_3_level = unit:GetRuneValue("e", 3)
+		spell_pierce_modify = spell_pierce_modify + e_3_level*CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_solunia_arcana2") then
+		if unit.sunMoon == "sun" or not unit.sunMoon then
+			local r_2_level = unit:GetRuneValue("r", 2)
+			spell_pierce_modify = spell_pierce_modify + r_2_level*SOLUNIA_ARCANA_R2_PIERCE
+		end
+	end
+	if unit:GetUnitName() == "npc_dota_hero_slardar" then
+		if unit:HasAbility("hydroxis_water_blade") then
+			local w_4_level = unit:GetRuneValue("w", 4)
+			spell_pierce_modify = spell_pierce_modify + w_4_level*unit:GetMana()*HYDROXIS_W4_MANA_TO_SPELL_PIERCE
+		end
+	end
+	if unit:HasModifier("modifier_hydroxis_basin_d_d") then
+		local modifier = unit:FindModifierByName("modifier_hydroxis_basin_d_d")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*HYDROXIS_ARCANA_R4_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_slipfinn_bog_roller_e3") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
+		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
+	end
+	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") then
+		local w_2_level = unit:GetRuneValue("w", 2)
+		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
+	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
+		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
+	end
+	if unit:GetUnitName() == "npc_dota_hero_arc_warden" then
+		if unit.r_4_level then
+			spell_pierce_modify = spell_pierce_modify + JEX_RUNE_R4_SPELL_PIERCE * unit.r_4_level
+		end
+	end
+	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
+		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		if not ability.tech_level then
+			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+		end
+		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
+		spell_pierce_modify = spell_pierce_modify + pierces
+	end
+    if unit:HasModifier("modifier_orthok_zeal") then
+    	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
+	        local current_stack = unit:GetModifierStackCount("modifier_orthok_zeal", unit.InventoryUnit)
+	        spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", ORTHOK_EMERALD)*current_stack
+	    end
+    end
+    if unit:HasModifier("modifier_crown_of_the_roknar_emperor") then
+    	local helm = unit:FindModifierByName("modifier_crown_of_the_roknar_emperor"):GetAbility()
+    	if helm:GetGemValue("ruby") > 0 then
+	    	if unit:HasModifier("modifier_stunned") or unit:HasModifier("modifier_knockback") or unit:IsStunned() then
+	    		spell_pierce_modify = spell_pierce_modify + helm:GetFinalGemPropertyValue("ruby", ROKNAR_RUBY)
+	    	end
+	    end
+    end
+    if unit:HasModifier("modifier_emerald_douli") and unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("amethyst") > 0 then
+    	local missingMana = unit:GetMaxMana() - unit:GetMana()
+    	spell_pierce_modify = spell_pierce_modify + missingMana*unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", EMERALD_DOULI_AMETHYST)
+    end
+	if unit:HasModifier("modifier_hood_of_defiler_buff_amethyst") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_buff_amethyst")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_sea_oracle_mega_buff") then
+		local helm = unit:FindModifierByName("modifier_sea_oracle_mega_buff"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + HOOD_OF_SEA_ORACLE_BASE_PIERCES + helm:GetFinalGemPropertyValue("emerald", SEA_ORACLE_EMERALD)
+	end
+	if unit:HasModifier("modifier_mask_of_mugato") and unit:IsSilenced() then
+		local helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		spell_pierce_modify = spell_pierce_modify + MUGATO_PIERCES + helm:GetFinalGemPropertyValue("emerald", MUGATO_EMERALD)
+	end
+	if unit:HasModifier("modifier_swamp_doctor_sapphire") then
+		local modifier = unit:FindModifierByName("modifier_swamp_doctor_sapphire")
+		local ability = modifier:GetAbility()
+		if ability and IsValidEntity(ability) then
+			spell_pierce_modify = spell_pierce_modify + ability:GetFinalGemPropertyValue("sapphire", SWAMP_DOCTOR_SAPPHIRE)*modifier:GetStackCount()
+		end
+	end
+	if unit:HasModifier("modifier_wraith_crown_ethereal") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WRAITH_CROWN_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_wraith_hunters_steel_helm") then
+		local wraith_hunter_helm = unit.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		local wraith_hunter_spell_pierce = unit:GetRoshpitArmorPierce()*(WRAITH_HUNTER_ARMOR_PIERCE_TO_SPELL_PIERCE_PCT/100) + unit:GetAgility()*wraith_hunter_helm:GetFinalGemPropertyValue("emerald", WRAITH_HUNTER_EMERALD) + unit:GetSpirit()*wraith_hunter_helm:GetFinalGemPropertyValue("amethyst", WRAITH_HUNTER_AMETHYST)
+		spell_pierce_modify = spell_pierce_modify + wraith_hunter_spell_pierce
+	end
+	if unit:HasModifier("modifier_bladestorm_vest_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_bladestorm_vest_buff", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE1)
+	end
+	if unit:HasModifier("modifier_empyreal_spell_pierce") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_empyreal_spell_pierce"):GetStackCount()
+	end
+    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
+        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
+        spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+    end
+    if unit:HasModifier("modifier_golden_war_plate") then
+    	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
+    end
+    if unit:HasModifier("modifier_ice_quill_carapace_stack") then
+    	local ice_quill_stacks_modifier = unit:FindModifierByName("modifier_ice_quill_carapace_stack")
+    	local ice_quill = ice_quill_stacks_modifier:GetAbility()
+    	spell_pierce_modify = spell_pierce_modify + ice_quill:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ICE_QUILL_CARAPACE_GEM_AMETHYST)*ice_quill_stacks_modifier:GetStackCount()
+    end
+	if unit:HasModifier("modifier_ruby_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetStrength()*(ITEM_RPC_RUBY_DRAGON_SCALE_ROSHPIT_ATTRS_PER_STR + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUBY_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_topaz_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetAgility()*(ITEM_RPC_TOPAZ_DRAGON_SCALE_ROSHPIT_ATTRS_PER_AGI + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TOPAZ_DRAGON_SCALE_ARMOR_GEM_SAPPHIRE))
+	end
+	if unit:HasModifier("modifier_sapphire_dragon_scale_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetIntellect()*(ITEM_RPC_SAPPHIRE_DRAGON_SCALE_ROSHPIT_ATTRS_PER_INT)
+	end
+	if unit:HasModifier("modifier_flurry_aura_debuff") then
+		local flurry_plate = unit:FindModifierByName("modifier_flurry_aura_debuff"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + flurry_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SKYFORGE_FLURRY_PLATE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_sorcerers_regalia") then
+		spell_pierce_modify = spell_pierce_modify + (unit:GetIntellect() + unit:GetSpirit())*ITEM_RPC_SORCERERS_REGALIA_SPELL_PIERCE_PER_INT_SPR
+	end
+	if unit:HasModifier("modifier_spellslinger_emerald") then
+		local modifier = unit:FindModifierByName("modifier_spellslinger_emerald")
+		local coat = modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*coat:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLSLINGER_COAT_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_vermillion_dream_amethyst") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_claws_of_the_ethereal_revenant") then
+		local revenant_claw = unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+		spell_pierce_modify = spell_pierce_modify + #revenant_claw.pfxTable*revenant_claw:GetFinalGemPropertyValue("emerald", ITEM_RPC_CLAWS_OF_THE_ETHEREAL_REVENANT_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_cytopian_stacks") then
+		local cytopian_modifier = unit:FindModifierByName("modifier_cytopian_stacks")
+		local cytopian_glove = cytopian_modifier:GetAbility()
+		spell_pierce_modify = spell_pierce_modify + cytopian_glove:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CYTOPIAN_LASER_GLOVE_GEM_AMETHYST)*cytopian_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_dark_emissary_glove") then
+		if unit:IsInvisible() then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_EMISSARY_GLOVE_GEM_AMETHYST2)
+		end
+	end
+	if unit:HasModifier("modifier_demonfire_stack") then
+		local demonfire_modifier = unit:FindModifierByName("modifier_demonfire_stack")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONFIRE_GAUNTLET_GEM_RUBY2)*demonfire_modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_arena_crowd_buff") then
+		local stacks = unit:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
+		spell_pierce_modify = spell_pierce_modify + stacks*50
+	end
+	if unit:HasModifier("modifier_grand_arcanist") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_GRAND_ARCANIST_WRAPS_SPELL_PIERCE_PER_ATTR
+	end
+	if unit:HasModifier("modifier_grasp_of_elder") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRASP_OF_ELDER_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_buff") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_buff"):GetStackCount()
+		spell_pierce_modify = spell_pierce_modify + stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_gravekeeper_gauntlet_target") then
+		local stacks = unit:FindModifierByName("modifier_gravekeeper_gauntlet_target"):GetStackCount()
+		spell_pierce_modify = spell_pierce_modify - stacks*ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES
+	end
+	if unit:HasModifier("modifier_mordiggus_gauntlet") then
+		spell_pierce_modify = spell_pierce_modify + math.floor((unit:GetMaxHealth() - unit:GetHealth())*ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING)
+	end
+	if unit:HasModifier("modifier_shadowstep_invis") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SHADOW_ARMLET_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_silverspring_gloves") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SILVERSPRING_GLOVES_GEM_AMETHYST)*unit:GetHealthRegen()
+	end
+	if unit:HasModifier("modifier_spirit_glove") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPIRIT_GLOVE_GEM_EMERALD)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_spiritual_empowerment_stack") then
+		local modifier = unit:FindModifierByName("modifier_spiritual_empowerment_stack")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_SAPPHIRE)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_ablecore_greaves_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_alarana_ice_freeze") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_arcanys_slipper_buff") then
+		local modifier = unit:FindModifierByName("modifier_arcanys_slipper_buff")
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_bloodstone_boots") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
+	end
+	if unit:HasModifier("modifier_old_wisdom_sapphire_stacks") then
+		local modifier = unit:FindModifierByName("modifier_old_wisdom_sapphire_stacks")
+		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_crimsyth_elite_greaves_magic_shield") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_crystalline_slippers") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_guardian_greaves_shield") then
+		local modifier_ability = unit:FindModifierByName("modifier_guardian_greaves_shield"):GetAbility()
+		if modifier_ability and IsValidEntity(modifier_ability) then
+			spell_pierce_modify = spell_pierce_modify + modifier_ability.wearer:GetSpirit()*modifier_ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GUARDIAN_GREAVES_GEM_AMETHYST)
+		end
+	end
+	if unit:HasModifier("modifier_mana_striders") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MANA_STRIDERS_GEM_RUBY)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_neptune_in_puddle_mana_regen") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_NEPTUNES_WATER_GLIDERS_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modifier_resonant_boots_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PATHFINDERS_RESONANT_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_rpc_steamboots") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
+	end
+	if unit:HasModifier("modifier_swamp_waders") then
+		spell_pierce_modify = spell_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
+	end
+	if unit:HasModifier("modifier_tranquil_boots") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_aeriths_tear") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies and unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].nearby_enemies > 0 then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AERITHS_TEAR_GEM_SAPPHIRE)
+		end
+	end
+	if unit:HasModifier("modifier_auric_ring_bkb") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_AURIC_RING_OF_INSPIRATION_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_azure_empire_visible") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AZURE_EMPIRE_GEM_SAPPHIRE)
+	end
+
+	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
+	if unit:HasModifier("modifier_arcane_charm") then
+		local arcane_charm = unit:FindModifierByName("modifier_arcane_charm"):GetAbility()
+		spell_pierce_modify = spell_pierce_modify + unit:GetRoshpitMagicArmor()*((arcane_charm:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANE_CHARM_GEM_EMERALD))/100)
+	end
+
+	-- FINAL STEP: HOOD OF BLACK MAGE
+	if unit:HasModifier("modifier_hood_of_the_black_mage") then
+		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
+		local spell_pierce_pct_bonus = HOOD_OF_BLACK_MAGE_SPELL_PIERCE_PCT_INCREASE + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", HOOD_OF_BLACK_MAGE_AMETHYST)
+		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(spell_pierce_pct_bonus/100)
+	end
+
+
 
 	if spell_pierce_modify > 0 then
 		unit:RemoveModifierByName("modifier_negative_roshpit_spell_pierce")
@@ -1029,11 +2489,9 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmor(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor", Events.GameMaster, amount)
-	if unit:IsRealHero() then
-		-- print(unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster))
-	end
 	return amount
 end
 
@@ -1041,12 +2499,14 @@ function CDOTA_BaseNPC:GetRoshpitArmor()
 	local mult = 1
 	local unit = self
 	local armor = unit:GetModifierStackCount("modifier_roshpit_armor", Events.GameMaster)
+
 	armor = armor*mult
 	return armor
 end
 
 function CDOTA_BaseNPC:SetRoshpitMagicArmor(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_magic_armor", {})
 	unit:SetModifierStackCount("modifier_roshpit_magic_armor", Events.GameMaster, amount)
 	return amount
@@ -1062,6 +2522,7 @@ end
 
 function CDOTA_BaseNPC:SetRoshpitArmorPierce(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_armor_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster, amount)
 	return amount
@@ -1070,11 +2531,13 @@ end
 function CDOTA_BaseNPC:GetRoshpitArmorPierce()
 	local unit = self
 	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
+	
 	return armor_pierce
 end
 
 function CDOTA_BaseNPC:SetRoshpitSpellPierce(amount)
 	local unit = self
+	amount = math.floor(amount)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_roshpit_spell_pierce", {})
 	unit:SetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster, amount)
 	return amount
@@ -1082,8 +2545,9 @@ end
 
 function CDOTA_BaseNPC:GetRoshpitSpellPierce()
 	local unit = self
-	local armor_pierce = unit:GetModifierStackCount("modifier_roshpit_armor_pierce", Events.GameMaster)
-	return armor_pierce
+	local spell_pierce = unit:GetModifierStackCount("modifier_roshpit_spell_pierce", Events.GameMaster)
+	
+	return spell_pierce
 end
 
 function CustomAttributes:SetAttributes(hero)
@@ -1097,11 +2561,35 @@ function CustomAttributes:SetAttributes(hero)
 	local str_bonus = 0
 	local agi_bonus = 0
 	local int_bonus = 0
-	local spirit_bonus = 0
+	local spr_bonus = 0
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthBonus', { MODIFIER_ROSHPIT_STRENGTH_BONUS }, { }, 
+		function(result, data)
+			str_bonus = str_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityBonus', { MODIFIER_ROSHPIT_AGILITY_BONUS }, { }, 
+		function(result, data)
+			agi_bonus = agi_bonus + result
+		end
+	)	
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligenceBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_BONUS }, { }, 
+		function(result, data)
+			int_bonus = int_bonus + result
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritBonus', { MODIFIER_ROSHPIT_SPIRIT_BONUS }, { }, 
+		function(result, data)
+			spr_bonus = spr_bonus + result
+		end
+	)
+
 	local heroName = hero:GetUnitName()
 	if hero:HasModifier("modifier_flamewaker_rune_r_3") then
 		local stacks = hero:GetModifierStackCount("modifier_flamewaker_rune_r_3", hero)
 		str_bonus = str_bonus + FLAMEWAKER_R3_STRENGTH * stacks
+	end
+	if hero:HasModifier("modifier_scoundrel_agility") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", TRICKSTER_EMERALD)
 	end
 	if hero:HasModifier("modifier_voltex_glyph_2_1_effect_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_voltex_glyph_2_1_effect_invisible", hero)
@@ -1112,24 +2600,49 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks
 		agi_bonus = agi_bonus + stacks
 		int_bonus = int_bonus + stacks
-		spirit_bonus = spirit_bonus + stacks
+		spr_bonus = spr_bonus + stacks
 	end
 	if hero:HasModifier("modifier_apollo_stats_invisible") then
 		local stacks = hero:GetModifierStackCount("modifier_apollo_stats_invisible", hero)
 		str_bonus = str_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
-		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 	end
 	if hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if hero:HasAbility("seinaru_hands_of_hikari") and hero.w_4_level then
-			spirit_bonus = spirit_bonus + hero.w_4_level*SEINARU_W4_SPIRIT
+			spr_bonus = spr_bonus + hero.w_4_level*SEINARU_W4_SPIRIT
 		end
 		if hero:HasAbility("seinaru_odachi_leap") and hero.e_4_level then
 			agi_bonus = agi_bonus + hero.e_4_level*SEINARU_E4_AGILITY
 		end
 	end
-
+	if hero:GetUnitName() == "npc_dota_hero_huskar" then
+		local e_4_level = hero:GetRuneValue("e", 4)
+		int_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+		spr_bonus = e_4_level*SPIRIT_WARRIOR_E4_SPIRIT_AND_INT
+	end
+	if hero:HasModifier("modifier_auriun_rune_q_4_effect") then
+		local modifier = hero:FindModifierByName("modifier_auriun_rune_q_4_effect")
+		spr_bonus = spr_bonus + modifier:GetStackCount()*AURIUN_Q4_SPIRIT
+	end
+	if hero:HasModifier("modifier_sea_giant_str_bonus_minus_agi") then
+		local amount = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SEA_GIANTS_PLATE_GEM_EMERALD)
+		str_bonus = str_bonus + amount
+		agi_bonus = agi_bonus - amount
+	end
+	if hero:HasModifier("modifier_windsteel_effect") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WINDSTEEL_ARMOR_GEM_EMERALD)
+	end
+	if hero:HasModifier("modifier_sea_giant_spirit") then
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
+	end
+	if hero:HasModifier("modifier_skyforge_agility") then
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
+	end
+	if hero:HasModifier("modifier_sorcerers_regalia_spirit") then
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sorcerers_regalia_spirit", 1)
+	end
 	if hero:HasModifier("modifier_epoch_rune_w_3_invisible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_epoch_rune_w_3_invisible", EPOCH_W3_INT)
 	end
@@ -1141,6 +2654,11 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
 		agi_bonus = agi_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
 		int_bonus = int_bonus + stacks * CustomAttributes.WARLORD_W2_STATS
+	end
+	if hero:HasModifier("modifier_rockfall_passive") then
+		local e_2_level = hero:GetRuneValue("e", 2)
+		str_bonus = str_bonus + MOUNTAIN_PROTECTOR_ARCANA3_E2_STR*e_2_level
+		agi_bonus = agi_bonus + MOUNTAIN_PROTECTOR_ARCANA3_E2_AGI*e_2_level
 	end
 	if hero:HasModifier("modifier_hailstorm_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_hailstorm_strength", CustomAttributes.MOUNTAIN_PROTECTOR_R1_ARCANA1_STRENGTH)
@@ -1165,7 +2683,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)
 	end
 	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA_Q4_AGI)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA1_Q4_AGI)
 	end
 	if hero:HasModifier("modifier_machinal_jump_d_c_effect") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", ARKIMUS_E4_AGI)
@@ -1196,11 +2714,13 @@ function CustomAttributes:SetAttributes(hero)
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, hero, "modifier_shapeshift_yearbest_stats", "draghor_shapeshift_year_beast", "all_attributes_bonus")
 		end
 		if hero:HasModifier("modifier_shapeshift_yearbeast_d_d") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_shapeshift_yearbeast_d_d", CustomAttributes.DJANGHOR_R4_ARCANA_STATS)
 		end
 	end
 	if hero:HasModifier("modifier_warlord_arcana2") then
@@ -1208,7 +2728,15 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
-		spirit_bonus = spirit_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+		spr_bonus = spr_bonus + q_4_level*WARLORD_ARCANA2_Q4_ALL_ATTRIBUTES
+	end
+	if hero:HasModifier("modifier_mask_of_mugato") and hero:IsSilenced() then
+		local helm = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		local stat_bonus = helm:GetFinalGemPropertyValue("ruby", MUGATO_RUBY)
+		str_bonus = str_bonus + stat_bonus
+		agi_bonus = agi_bonus + stat_bonus
+		int_bonus = int_bonus + stat_bonus
+		spr_bonus = spr_bonus + stat_bonus
 	end
 	if hero:HasModifier("modifier_seinaru_arcana_agility_buff") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_seinaru_arcana_agility_buff", SEINARU_ARCANA_Q3_AGI)
@@ -1218,16 +2746,17 @@ function CustomAttributes:SetAttributes(hero)
 
 	if hero:HasModifier("modifier_axe_rune_e_1_invisible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_axe_rune_e_1_invisible")
-		str_bonus = str_bonus + stacks * CustomAttributes.AXE_Q3_STATS
-		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_Q3_STATS
-		int_bonus = int_bonus + stacks * CustomAttributes.AXE_Q3_STATS
+		str_bonus = str_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		agi_bonus = agi_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		int_bonus = int_bonus + stacks * CustomAttributes.AXE_E1_STATS
+		spr_bonus = spr_bonus + stacks * CustomAttributes.AXE_E1_STATS
 	end
 	if hero:HasModifier("modifier_astral_d_c_visible") then
 		local stacks = CustomAttributes:GetStackWithNoCaster(hero, "modifier_astral_d_c_visible")
 		str_bonus = str_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
-		spirit_bonus = spirit_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
+		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
 	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
 	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
@@ -1253,6 +2782,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bahamut_rune_r_4_buff_invisible", CustomAttributes.BAHAMUT_R4_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_e_2") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_2", CustomAttributes.AURIUN_E2_INT)
@@ -1261,6 +2791,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_e_3_effect", CustomAttributes.AURIUN_E3_STATS)
 	end
 	if hero:HasModifier("modifier_auriun_rune_r_3_effect_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_auriun_rune_r_3_effect_agility", 1)
@@ -1291,7 +2822,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
-		spirit_bonus = spirit_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_bonus_stats", VENOMORT_W3_BONUS_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_conjuror_arcana2") then
 		str_bonus = str_bonus - CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_w_4_str_decrease", 1)
@@ -1332,31 +2863,37 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_blessing_of_maru", "redfall_ability", "maru_blessing")
 	end
 	if hero:HasModifier("modifier_demon_farmer_aura_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_agi", -1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_int", -1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
 	end
 	if hero:HasModifier("modifier_meta_slark_debuff") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_meta_slark_debuff", "tanari_meta_slark_passive", "attribute_loss")
 	end
 	if hero:HasModifier("modifier_prison_shank_effect_sea") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_prison_shank_effect_sea", "sea_shank", "stats_loss")
 	end
 	if hero:HasModifier("modifier_water_medusa_stat_loss") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromAbility(hero, nil, "modifier_water_medusa_stat_loss", "water_medusa_passive", "stat_loss")
 	end
 	if hero:HasModifier("modifier_sea_oracle_stats_debuff") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_str", -1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_agi", -1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_int", -1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_demon_farmer_aura_spi", -1)
 	end
 	if hero:HasModifier("modifier_secret_keeper_agi_loss") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_secret_keeper_agi_loss", -1)
@@ -1372,36 +2909,67 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
 	end
 	-- BASIC ITEMS STATS --
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_helm_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hand_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_hands_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_foot_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_feet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_body_spirit", 1)
 
-	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_strength", 1)
-	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_agility", 1)
-	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_trinket_intelligence", 1)
+	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_strength", 1)
+	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_agility", 1)
+	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_amulet_spirit", 1)
 
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_agility", 1)
 	int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_intelligence", 1)
+	spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_weapon_spirit", 1)
 
 	-- SPECIAL ITEMS STATS --
-
+	if hero:HasModifier("modifier_bladestorm_vest_buff") then
+		agi_bonus = agi_bonus + hero:GetModifierStackCount("modifier_bladestorm_vest_buff", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLADESTORM_VEST_GEM_SAPPHIRE2)
+	end
+	if hero:HasModifier("modifier_radiant_leather_aura_buff") then
+		local radiant_leather = hero:FindModifierByName("modifier_radiant_leather_aura_buff"):GetAbility()
+		if radiant_leather and IsValidEntity(radiant_leather) then
+			agi_bonus = agi_bonus + radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD)
+			if hero:HasModifier("modifier_radiant_ruins_leather") then
+				agi_bonus = agi_bonus + (radiant_leather:GetFinalGemPropertyValue("emerald", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_EMERALD) * radiant_leather:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RADIANT_RUINS_LEATHER_GEM_SAPPHIRE)/100)
+			end
+		end
+	end
+	if hero:HasModifier("modifier_spiritual_empowerment_stack") then
+		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1)
+	end
+	if hero:HasModifier("modifier_blue_dragon_greaves_effect") then
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
+		spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
+	end
+	if hero:HasModifier("modifier_claw_of_azinoth") then
+		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		int_bonus = int_bonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST2)
+		spr_bonus = spr_bonus - hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CLAW_OF_AZINOTH_GEM_AMETHYST1)
+	end
 	if hero:HasModifier("modifier_empyreal_sunrise_robe") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_int", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_empyreal_spr", 1)
 	end
 	if hero:HasModifier("modifier_eye_of_seasons_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
@@ -1413,16 +2981,21 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_blazing_fury_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
+		if hero:HasModifier("modifier_blazing_fury_spirit") then
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_spirit", 1)
+		end
 	end
 	if hero:HasModifier("modifier_legion_vestments") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_int", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_legion_vestments_effect_spr", 1)
 	end
 	if hero:HasModifier("modifier_gold_plate_of_leon") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_str", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_agi", 1)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_int", 1)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_gold_plate_of_leon_spr", 1)
 	end
 	if hero:HasModifier("modifier_mageplate_intelligence") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mageplate_intelligence", 1)
@@ -1438,34 +3011,39 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 	end
 	if hero:HasModifier("modifier_azure_empire") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", CustomAttributes.AZURE_EMPIRE_STATS)
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_agility", CustomAttributes.AZURE_EMPIRE_STATS)
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", CustomAttributes.AZURE_EMPIRE_STATS)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", ITEM_RPC_AZURE_EMPIRE_RED_STR)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_agility", ITEM_RPC_AZURE_EMPIRE_GREEN_AGI)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_intelligence", ITEM_RPC_AZURE_EMPIRE_BLUE_INT)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_spirit", ITEM_RPC_AZURE_EMPIRE_PURPLE_SPR)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.WIND_ORCHID_AGI_PER_E4)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
-			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_str", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_agi") then
-			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_agi", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 		if hero:HasModifier("modifier_captains_vest_int") then
-			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+			int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_int", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
+		end
+		if hero:HasModifier("modifier_captains_vest_spr") then
+			spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_captains_vest_spr", ITEM_RPC_CAPTAINS_VEST_INTERNAL_MULTIPLIER_OF_STACKS)
 		end
 	end
 	if hero:HasModifier("modifier_aqua_lily_intelligence_bonus") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", CustomAttributes.AQUA_LILY_INT_PER_R4)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", 1)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.FIRE_BLOSSOM_STR_PER_W4)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
@@ -1473,26 +3051,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_flamewaker_weapon_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_flamewaker_weapon_agility", CustomAttributes.FLAMEWAKER_WEAPON_2_AGI)
 	end
+	if hero:HasModifier("modifier_rpc_steamboots") then
+		agi_bonus = agi_bonus + hero:GetLevel()*ITEM_RPC_STEAMBOOTS_AGI_PER_LEVEL
+	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_1", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_1") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_1", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_2", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_2") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_2", 1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_1_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_1_3", CustomAttributes.NEUTRAL_GLYPH_1)
-	end
-	if hero:HasModifier("modifier_neutral_glyph_7_3") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_neutral_glyph_7_3", 1)
 	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
@@ -1523,11 +3086,11 @@ function CustomAttributes:SetAttributes(hero)
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
 	intelligence = math.max(intelligence + int_bonus, 0)
-	spirit = math.max(spirit + spirit_bonus, 0)
+	spirit = math.max(spirit + spr_bonus, 0)
 	hero.str_bonus = str_bonus
 	hero.agi_bonus = agi_bonus
 	hero.int_bonus = int_bonus
-	hero.spirit_bonus = spirit_bonus
+	hero.spirit_bonus = spr_bonus
 	CustomNetTables:SetTableValue("hero_index", tostring(hero:GetEntityIndex() .. "_custom_attributes"), {strength = tostring(strength), agility = tostring(agility), intelligence = tostring(intelligence), spirit = tostring(spirit)})
 end
 
@@ -1586,10 +3149,6 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local strength = hero:GetStrength()
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
-	local halcyon = 1
-	if hero:HasModifier("modifier_halcyon_soul_glove") then
-		halcyon = 1 + HALCYON_SOUL_GLOVE_BONUS
-	end
 	if hero:HasModifier("modifier_frozen_heart") then
 		hero:RemoveModifierByName("modifier_strength_health")
 	else
@@ -1614,29 +3173,38 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * halcyon)
+	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR)
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI * halcyon)
+	hero:SetModifierStackCount("modifier_agility_attackspeed", caster, agility * CustomAttributes.ATTACKSPEED_PER_AGI)
 
 	if not hero:HasModifier("modifier_agility_movespeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_movespeed", {})
 	end
-	hero:SetModifierStackCount("modifier_agility_movespeed", caster, agility * CustomAttributes.MOVESPEED_PER_AGI * halcyon)
-
+	hero:SetModifierStackCount("modifier_agility_movespeed", caster, agility * CustomAttributes.MOVESPEED_PER_AGI)
+	
 	if not hero:HasModifier("modifier_int_mana") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana", caster, intelligence * CustomAttributes.MANA_PER_INT * halcyon)
+	local manaStacks = CustomAttributes:GetMaxMana(hero)
+	if not hero:GetModifierStackCount("modifier_int_mana", caster) == healthStacks then
+		local manaPercentFreeze = hero:GetMana() / hero:GetMaxMana()
+		Timers:CreateTimer(0.03, function()
+			if hero:IsAlive() then
+				hero:SetMana(math.max(hero:GetMaxMana() * manaPercentFreeze, 1))
+			end
+		end)
+	end
+	hero:SetModifierStackCount("modifier_int_mana", caster, manaStacks)
 
 	if not hero:HasModifier("modifier_int_mana_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_int_mana_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence * CustomAttributes.MANA_REGEN_PER_INT * halcyon)
+	hero:SetModifierStackCount("modifier_int_mana_regen", caster, intelligence * CustomAttributes.MANA_REGEN_PER_INT)
 
-	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY * halcyon)
+	local damage_from_primary = Filters:GetPrimaryAttributeMultiple(hero, CustomAttributes.ATK_DMG_PER_PRIMARY)
 	if not hero:HasModifier("modifier_primary_attribute_damage") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_primary_attribute_damage", {})
 	end
@@ -1646,29 +3214,33 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 end
 
 function CustomAttributes:GetMaxHealth(hero, excludedModifier)
-	return CustomAttributes:GetBaseHealth(hero, excludedModifier) * CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier) - 1000 --1000 hp base hp, base hp cant be changed with Code thats why its substracted again
+	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
+	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
+	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
+	return baseHealth * healthMultiplier - 100 
 end
 
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)
-	local flatHealthBonus = 1000 --Each hero starts with 1000 hp, this is important so that its multiplied with helm of mountain giant for example
+	local flatHealthBonus = 100 --Each hero starts with 100 hp, this is important so that its multiplied with helm of mountain giant for example
 	flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR
-	if excludedModifier ~= "modifier_halcyon_soul_glove" and hero:HasModifier("modifier_halcyon_soul_glove") then
-		flatHealthBonus = flatHealthBonus + hero:GetStrength() * CustomAttributes.HEALTH_PER_STR * HALCYON_SOUL_GLOVE_BONUS
+
+	if excludedModifier ~= "modifier_head_max_health" and hero:HasModifier("modifier_head_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_head_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_helm_max_health" and hero:HasModifier("modifier_helm_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_helm_max_health", 1)
+	if excludedModifier ~= "modifier_hands_max_health" and hero:HasModifier("modifier_hands_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hands_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_hand_max_health" and hero:HasModifier("modifier_hand_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hand_max_health", 1)
-	end
-	if excludedModifier ~= "modifier_foot_max_health" and hero:HasModifier("modifier_foot_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_foot_max_health", 1)
+	if excludedModifier ~= "modifier_feet_max_health" and hero:HasModifier("modifier_feet_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_feet_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_body_max_health" and hero:HasModifier("modifier_body_max_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_health", 1)
 	end
-	if excludedModifier ~= "modifier_trinket_max_health" and hero:HasModifier("modifier_trinket_max_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_trinket_max_health", 1)
+	if excludedModifier ~= "modifier_amulet_max_health" and hero:HasModifier("modifier_amulet_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_amulet_max_health", 1)
+	end
+	if excludedModifier ~= "modifier_weapon_max_health" and hero:HasModifier("modifier_weapon_max_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_health", 1)
 	end
 	if excludedModifier ~= "modifier_venomort_e4_hero_bonus_invisible" and hero:HasModifier("modifier_venomort_e4_hero_bonus_invisible") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_venomort_e4_hero_bonus_invisible", VENOMORT_E4_HP_PER_ENEMY)
@@ -1679,11 +3251,23 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_bear_b_d" and hero:HasModifier("modifier_bear_b_d") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_bear_b_d", CustomAttributes.DJANGHOR_BEAR_MAX_HEALTH)
 	end
-	if excludedModifier ~= "modifier_tyrius_buff" and hero:HasModifier("modifier_tyrius_buff") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_buff", CustomAttributes.TYRIUS_HEALTH)
+	if excludedModifier ~= "modifier_tyrius_health" and hero:HasModifier("modifier_tyrius_health") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_tyrius_health", 1)
 	end
-	if excludedModifier ~= "modifier_ogthun_health" and hero:HasModifier("modifier_ogthun_health") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ogthun_health", CustomAttributes.OGTHUN_HEALTH)
+	if excludedModifier ~= "modifier_phoenix_gloves" and hero:HasModifier("modifier_phoenix_gloves") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PHOENIX_GLOVES_GEM_EMERALD2)*hero:GetAgility() + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PHOENIX_GLOVES_GEM_AMETHYST2)*hero:GetSpirit()
+	end
+	if excludedModifier ~= "modifier_guard_of_grithault" and hero:HasModifier("modifier_guard_of_grithault") then
+		local grithault = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+		if grithault:GetGemValue("amethyst") > 0 then
+			flatHealthBonus = flatHealthBonus + hero:GetSpirit()*grithault:GetFinalGemPropertyValue("amethyst", GRITHAULT_AMETHYST)
+		end
+	end
+	if excludedModifier ~= "modifier_skulldigger_hellfire_stacks" and hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1)*hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", hero.InventoryUnit)
+	end
+	if excludedModifier ~= "modifier_sea_giant_health_bonus" and hero:HasModifier("modifier_sea_giant_health_bonus") then
+		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_sea_giant_health_bonus", 1)
 	end
 	if excludedModifier ~= "modifier_rpc_sange_buff" and hero:HasModifier("modifier_rpc_sange_buff") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_rpc_sange_buff", CustomAttributes.SANGE_HEALTH)
@@ -1694,8 +3278,8 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_paladin_immortal_weapon_3_health" and hero:HasModifier("modifier_paladin_immortal_weapon_3_health") then
 		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_paladin_immortal_weapon_3_health", CustomAttributes.PALADIN_IMMO_3_HEALTH)
 	end
-	if excludedModifier ~= "modifier_redrock_footwear_health_increase" and hero:HasModifier("modifier_redrock_footwear_health_increase") then
-		flatHealthBonus = flatHealthBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_redrock_footwear_health_increase", CustomAttributes.REDROCK_HEALTH)
+	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
+		flatHealthBonus = flatHealthBonus + hero:GetAgility()*ITEM_RPC_SANGE_BOOTS_HP_PER_AGI
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
@@ -1704,20 +3288,88 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		local ability = hero:FindAbilityByName("omniro_omni_mace")
 		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a") * hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 	end
+	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
+	end
+	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
+		function(result, data)
+			flatHealthBonus = flatHealthBonus + result
+		end
+	)	
 	return flatHealthBonus
 end
 
 function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	local percentHealthMultiplier = 1
 	if excludedModifier ~= "modifier_helm_of_the_mountain_giant" and hero:HasModifier("modifier_helm_of_the_mountain_giant") then
-		percentHealthMultiplier = percentHealthMultiplier + HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH / 100
+		percentHealthMultiplier = percentHealthMultiplier + (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", MOUNTAIN_GIANT_RUBY)) / 100
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		percentHealthMultiplier = percentHealthMultiplier + CONJUROR_ARCANA_Q2_PERCENT_HEALTH / 100 * hero:GetRuneValue("q", 2)
 	end
+	if excludedModifier ~= "modifier_redrock_footwear_caster_visible" and hero:HasModifier("modifier_redrock_footwear_caster_visible") then
+		percentHealthMultiplier = percentHealthMultiplier + (hero:GetModifierStackCount("modifier_redrock_footwear_caster_visible", hero.InventoryUnit)*(ITEM_RPC_REDROCK_FOOTWEAR_MAX_HEALTH_PCT_PER_PULSE+hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_REDROCK_FOOTWEAR_GEM_RUBY))/100)
+	end
+	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
+		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE)/100
+	end
+
+	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 
+		function(result, data)
+			percentHealthMultiplier = percentHealthMultiplier + result
+		end
+	)	
+
 	return percentHealthMultiplier
 end
 
+function CustomAttributes:GetMaxMana(hero, excludedModifier)
+	--100 mp base mp, base mp cant be changed with Code thats why its substracted again
+	local baseMana = CustomAttributes:GetBaseMana(hero, excludedModifier)
+	local manaMultiplier = CustomAttributes:GetPercentManaMutliplier(hero, excludedModifier)
+	return baseMana * manaMultiplier - 100 
+end
+
+function CustomAttributes:GetBaseMana(hero, excludedModifier)
+	local flatManaBonus = 100 --Each hero starts with 100 hp, this is important so that its multiplied with helm of mountain giant for example
+	flatManaBonus = flatManaBonus + hero:GetIntellect() * CustomAttributes.MANA_PER_INT
+
+	if excludedModifier ~= "modifier_head_max_mana" and hero:HasModifier("modifier_head_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_head_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_hands_max_mana" and hero:HasModifier("modifier_hands_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_hands_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_feet_max_mana" and hero:HasModifier("modifier_feet_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_feet_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_body_max_mana" and hero:HasModifier("modifier_body_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_body_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_amulet_max_mana" and hero:HasModifier("modifier_amulet_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_amulet_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_weapon_max_mana" and hero:HasModifier("modifier_weapon_max_mana") then
+		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_mana", 1)
+	end
+	Util.Modifier:SimpleEvent(hero, 'GetFlatManaBonus', { MODIFIER_ROSHPIT_FLAT_MANA_BONUS }, { }, 
+		function(result, data)
+			flatManaBonus = flatManaBonus + result
+		end
+	)	
+	return flatManaBonus
+end
+	
+function CustomAttributes:GetPercentManaMutliplier(hero, excludedModifier)
+	local percentManaMultiplier = 1
+	Util.Modifier:SimpleEvent(hero, 'GetPercentManaBonus', { MODIFIER_ROSHPIT_PERCENT_MANA_BONUS }, { }, 
+		function(result, data)
+			percentManaMultiplier = percentManaMultiplier + result
+		end
+	)	
+
+	return percentManaMultiplier
+end
 function CustomAttributes:ActivateStatsTooltip(msg)
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then return end
 	local unit = EntIndexToHScript(msg.queryunit)
@@ -1730,20 +3382,17 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	tableData.phys = tostring(tableData.phys - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PHYSICAL) - 1) * 100)
 	tableData.magic = tostring(tableData.magic - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_MAGICAL) - 1) * 100)
 	tableData.pure = tostring(tableData.pure - (GameState:IncomingDamageIncrease(unit, Events.GameMaster, false, DAMAGE_TYPE_PURE) - 1) * 100)
-	tableData.roshpit_armor = unit:CalculateAndSaveRoshpitArmor()
-	tableData.roshpit_armor_pierce = unit:CalculateAndSaveRoshpitArmorPierce()
+	local base_armor, bonus_armor = unit:CalculateAndSaveRoshpitArmor()
+	tableData.roshpit_base_armor = math.floor(base_armor)
+	tableData.roshpit_bonus_armor = math.floor(bonus_armor)
+	tableData.roshpit_armor_pierce = math.floor(unit:CalculateAndSaveRoshpitArmorPierce())
 	if unit:IsRealHero() then
-		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor + unit:GetStrength()*CustomAttributes.ARMOR_PER_STR
+		tableData.base_roshpit_magic_armor = math.floor(unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT)
 	else
-		tableData.base_roshpit_armor = unit.roshpit_attributes.roshpit_armor
+		tableData.base_roshpit_magic_armor = math.floor(unit.roshpit_attributes.roshpit_magic_armor)
 	end
-	if unit:IsRealHero() then
-		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor + unit:GetSpirit()*CustomAttributes.MAGIC_ARMOR_PER_SPIRIT
-	else
-		tableData.base_roshpit_magic_armor = unit.roshpit_attributes.roshpit_magic_armor
-	end
-	tableData.roshpit_magic_armor = unit:CalculateAndSaveRoshpitMagicArmor()
-	tableData.roshpit_spell_pierce = unit:CalculateAndSaveRoshpitSpellPierce()
+	tableData.roshpit_magic_armor = math.floor(unit:CalculateAndSaveRoshpitMagicArmor())
+	tableData.roshpit_spell_pierce = math.floor(unit:CalculateAndSaveRoshpitSpellPierce())
 	local level = unit:GetLevel()
 	if unit:IsHero() then
 		unit.q_4_level = unit:GetRuneValue("q", 4)
@@ -1775,7 +3424,6 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	end
 	tableData.elements = CustomAttributes:CalculatedElementBonuses(victim, attacker)
 
-	tableData.halcyon = 0
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PHYSICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_MAGICAL, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
 	GameState:FilterDamage({entindex_victim_const = victim:GetEntityIndex(), entindex_attacker_const = attacker:GetEntityIndex(), damage = 1, damagetype_const = DAMAGE_TYPE_PURE, entindex_inflictor_const = Events.GameMasterAbility:GetEntityIndex()})
@@ -1794,24 +3442,32 @@ function CustomAttributes:ActivateStatsTooltip(msg)
 	else
 		tableData.pure_post_mit = 100
 	end
-	tableData.item_damage = Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000
-	if unit:HasModifier("modifier_halcyon_soul_glove") then
-		tableData.halcyon = 1
-	end
+	tableData.item_damage = (Filters:AdjustItemDamage(attacker, 1000000000, victim) / 10000000) - 100
 	if unit.paragon then
 		tableData.paragon = 1
 	end
+	-- ms
+	local movespeed = unit:GetBaseMoveSpeed()
+	local movespeed_bonus = unit:GetMoveSpeedModifier(movespeed, false) - movespeed
+	local max_ms = CustomAttributes:MSCap(unit)
+	local ms_from_agi_and_gear = 0
+	if unit:IsHero() and unit.InventoryUnit then
+		ms_from_agi_and_gear = unit:GetModifierStackCount("modifier_agility_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_head_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_weapon_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_hands_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_feet_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_body_movespeed", unit.InventoryUnit) + unit:GetModifierStackCount("modifier_amulet_movespeed", unit.InventoryUnit)
+		ms_from_agi_and_gear = math.floor(ms_from_agi_and_gear)
+	end
+	tableData.movespeed = math.floor(movespeed + ms_from_agi_and_gear)
+	tableData.movespeed_bonus = math.floor(movespeed_bonus - ms_from_agi_and_gear)
+	tableData.max_ms = math.floor(max_ms)
+
 	tableData.level = level
 	local baseDamage = 100000
-	local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.qAmp = math.floor((qDamage / baseDamage) * 100)
-	local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.wAmp = math.floor((wDamage / baseDamage) * 100)
-	local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.eAmp = math.floor((eDamage / baseDamage) * 100)
-	local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
-	tableData.rAmp = math.floor((rDamage / baseDamage) * 100)
+	tableData.qAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_Q)
+	tableData.wAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_W)
+	tableData.eAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_E)
+	tableData.rAmp = unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_R)
 	CustomGameEventManager:Send_ServerToPlayer(player, "attribute_tooltip", {unit = msg.queryunit, playerID = msg.playerID, extraData = tableData, IsEnemy = IsEnemy})
+
+
 	Events:TutorialServerEvent(unit, "1_3", 0)
 end
 
@@ -1835,8 +3491,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
 	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
 	modifier_movespeed_cap = 1400,
-	modifier_movespeed_cap_glyph = 620,
-	modifier_movespeed_cap_heat_wave = 640,
 	modifier_movespeed_cap_sonic = 750,
 	modifier_movespeed_cap_super = 5200,
 	modifier_movespeed_cap_shadow_walk_1 = 640,
@@ -1846,6 +3500,7 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
 	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
 	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
 function CDOTA_BaseNPC:GetActualMovespeed()
@@ -1928,10 +3583,38 @@ function CustomAttributes:MSCap(unit)
 	end
 	max_ms = math.max(local_max_ms, max_ms)
 	if unit:HasModifier("modifier_knight_hawk_helm") then
-		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
+		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KNIGHT_HAWK_RUBY)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
-		max_ms = max_ms + max_ms*(PEGASUS_MAX_MS_AMP_PCT/100)
+		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
 	end
 	return max_ms
+end
+
+function CDOTA_BaseNPC:GetBaseAbilityAmpForSlot(slot)
+	local unit = self
+	if unit:IsHero() then
+		local baseDamage = 100000
+		if slot == BASE_ABILITY_Q then
+			local qDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((qDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_W then
+			local wDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((wDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_E then
+			local eDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((eDamage / baseDamage) * 100) - 100
+		elseif slot == BASE_ABILITY_R then
+			local rDamage = Filters:TakeArgumentsAndApplyDamage(Events.GameMaster, unit, baseDamage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE, true)
+			return math.floor((rDamage / baseDamage) * 100) - 100
+		elseif slot == "average_of_all_slots" then
+			return (unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_Q) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_W) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_E) + unit:GetBaseAbilityAmpForSlot(BASE_ABILITY_R))/4
+		end
+	else
+		return 0
+	end
+end
+
+function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
+	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end

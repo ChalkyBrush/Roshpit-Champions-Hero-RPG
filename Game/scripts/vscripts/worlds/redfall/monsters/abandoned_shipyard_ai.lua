@@ -484,7 +484,7 @@ function shipyard_gatekeeper_die(event)
 	EmitSoundOn("Redfall.ShipyardGatekeeper.Death", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollSkulldiggerGloves(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_skulldigger_gauntlet")
 	end
 	Redfall:SpawnShipyardFerry()
 end
@@ -781,7 +781,7 @@ end
 function soul_collector_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.ShipyardSoulCollector.Death", caster)
-	RPCItems:RollShipyardVeil1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_shipyard_veil_lv1")
 end
 
 function ShipyardBridgeTrigger(event)

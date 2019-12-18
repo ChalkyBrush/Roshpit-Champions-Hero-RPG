@@ -19,7 +19,7 @@
 
 		"omniro_earth_special_description"									"Броня и магическое сопротивление увеличеный на <% OMNIRO_EARTH_SPECIAL_DURATION %> секунд."
 		"omniro_earth_special_a_pretext"									"БРОНЯ:"		
-		"omniro_earth_special_b_pretext"									"МАГ. СОПРОТИВЛЕНИЕ:"	
+		"omniro_earth_special_b_pretext"									"МАГ. БРОНЯ:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Земля"
 		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическое сопротивление увеличены."									
@@ -62,11 +62,12 @@
 		"omniro_arcane_special_description"									"Наносит урон, затрачивая <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% от максимальной маны героя."
 		"omniro_arcane_special_a_pretext"										"МНОЖИТЕЛЬ УРОНА ОТ МАНЫ:"							
 
-		"omniro_shadow_special_description"									"Наносит дополнительную порцию урона и деактивирует броню цели на <% OMNIRO_SHADOW_SPECIAL_DURATION %> секунд."
-		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"		
+		"omniro_shadow_special_description"									"Наносит дополнительную порцию урона и снижает броню цели на <% OMNIRO_SHADOW_SPECIAL_DURATION %> секунд."
+		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"
+		"omniro_shadow_special_b_pretext"										"СНИЖЕНИЕ БРОНИ:"
 
 		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Тень"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня игнорируется."													
+		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня снижена."													
 
 		"omniro_wind_special_description"									"Увеличивает Ловкость на <% OMNIRO_WIND_SPECIAL_DURATION %> секунд."
 		"omniro_wind_special_a_pretext"										"БОНУС ЛОВКОСТИ: "	
@@ -74,11 +75,11 @@
 		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Ветер"
 		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Ловкость увеличена."									
 
-		"omniro_ghost_special_description"									"Дарует 100% уклонение на некоторое время."
+		"omniro_ghost_special_description"									"Дарует <% OMNIRO_GHOST_MACE_EVASION_CHANCE %>% уклонение на некоторое время."
 		"omniro_ghost_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ: "
 
 		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Призрак"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%% Уклонение"											
+		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<% OMNIRO_GHOST_MACE_EVASION_CHANCE %>%% Уклонение"											
 
 		"omniro_water_special_description"									"Восстанавливает указанное количество ХП и дает дополнительную регенерацию здоровья на <% OMNIRO_WATER_SPECIAL_DURATION %> секунд."
 		"omniro_water_special_a_pretext"									"ЛЕЧЕНИЕ:"		
@@ -100,9 +101,9 @@
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Природа"
 		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Опутан корнями и получает ежесекундный урон."		
 
-		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <% OMNIRO_UNDEAD_SPECIAL_DURATION %> секунд увеличивает пост-резистный урон."
+		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <% OMNIRO_UNDEAD_SPECIAL_DURATION %> секунд увеличивает Пробитие Брони."
 		"omniro_undead_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОТКЛЮЧЕНИЯ РЕГЕНЕРАЦИИ:"		
-		"omniro_undead_special_b_pretext"									"БОНУС ПОСТ-РЕЗИСТНОГО УРОНА %:"	
+		"omniro_undead_special_b_pretext"									"ПРОБИТИЕ БРОНИ %:"	
 
 		"omniro_dragon_special_description"									"Увеличивает урон всех элементов на <% OMNIRO_DRAGON_SPECIAL_DURATION %> секунд."
 		"omniro_dragon_special_a_pretext"									"УРОН ЭЛЕМЕНТОВ:"		
@@ -114,7 +115,7 @@
 		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Регенерация отключена"
 
 		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пост-резистный урон увеличен."
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пробитие Брони увеличено."
 
 		"omniro_orb_effect_title"											"Орб-эффект"
 
@@ -156,9 +157,9 @@
 		"omniro_ice_orb_a_pretext"										"УРОН x ВСЕ АТРИБУТЫ:"				
 		"omniro_ice_orb_b_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"
 
-		"omniro_arcane_orb_description"										"Противники в <% OMNIRO_ARCANE_BASE_AOE %> AOE поражаются <% OMNIRO_ARCANE_ORB_BASE_PULSES %> пульсами от стандартного эффекта и теряют магическое сопротивление на <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> секунд. Количество пульсаций увеличивается от числа зарядов элемента."
+		"omniro_arcane_orb_description"										"Противники в <% OMNIRO_ARCANE_BASE_AOE %> AOE поражаются <% OMNIRO_ARCANE_ORB_BASE_PULSES %> пульсами от стандартного эффекта и теряют Магическую Броню на <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> секунд. Количество пульсаций увеличивается от числа зарядов элемента."
 		"omniro_arcane_orb_a_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"				
-		"omniro_arcane_orb_b_pretext"										"ПОТЕРЯ МАГ СОПРОТИВЛЕНИЯ:"
+		"omniro_arcane_orb_b_pretext"										"ПОТЕРЯ МАГИЧЕСКОЙ БРОНИ:"
 
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"Omni Orb: Тайна"
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"Магическое сопротивление снижено"
@@ -181,7 +182,7 @@
 		"omniro_water_orb_description"										"Водный поток подбрасывает и оглушает противников в радиусе <% OMNIRO_WATER_ORB_AOE %>."
 		"omniro_water_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 
-		"omniro_demon_orb_description"										"Наносит урон от силы атаки, игнорирующий Стойкость."
+		"omniro_demon_orb_description"										"Наносит большой урон."
 		"omniro_demon_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
 
 		"omniro_nature_orb_description"										"Применяет на героя щит, поглощающий урон. Базовое количество щитов <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %>, увеличивается с уровнем рун. Длится <% OMNIRO_NATURE_SHIELD_DURATION %> секунд."
@@ -353,26 +354,26 @@
 		"property_omniro_immortal_weapon3_description"                      "Активирует элемент <font color=\"#3289C7\">Dragon</font>. Эффект Omni Mace применяет бафф, увеличивающий урон всех элементов. Орб-эффект обновляет заряды на других элементах."
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"(T1) Glyph of Consistency"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_1_1"		"[T1-1] Glyph of Consistency"
 		"item_rpc_omniro_glyph_1_1_description" 				"Стандартный цикл элементов будет пропускать элементы без зарядов (кроме случая, когда зарядов нет ни у одного из элементов)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"(T2) Glyph of Chromatic Pathing"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_2_1"		"[T2-1] Glyph of Chromatic Pathing"
 		"item_rpc_omniro_glyph_2_1_description" 				"Увеличивает количество полей от @Ability3 на @glyph_property1."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"(T3) Glyph of Planar Stalking"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_3_1"		"[T3-1] Glyph of Planar Stalking"
 		"item_rpc_omniro_glyph_3_1_description" 				"@Ability4 наносит @glyph_property1 дополнительных удара."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"(T4) Glyph of Galvanization"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_4_1"		"[T4-1] Glyph of Galvanization"
 		"item_rpc_omniro_glyph_4_1_description" 				"Добавляет @glyph_property1 уровней к Нормальному элементу и ускоряет его зарядку на @glyph_property2%."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"(T5) Glyph of Inspiration"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_1"		"[T5-1] Glyph of Inspiration"
 		"item_rpc_omniro_glyph_5_1_description" 				"@glyph_property1 элемента с наименьшими рунами получают @glyph_property2 дополнительный заряд (исключая элементы <font color=\"#DDDDDD\">Нормальный</font> и <font color=\"#3289C7\">Дракон</font>)."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"(T6) Glyph of Sapping"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_6_1"		"[T6-1] Glyph of Sapping"
 		"item_rpc_omniro_glyph_6_1_description" 				"Атака по противнику восстановит @glyph_property1% заряда для текущего элемента."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"(T7) Glyph of Elemental Specialization"
-		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_7_1"		"[T7-1] Glyph of Elemental Specialization"
+		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
-		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"(Immortal) Glyph of Chromaticity"
+		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] Glyph of Chromaticity"
 		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>)получает <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% бонус урона, второй по счету получает <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, третий <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, и четвертый <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."

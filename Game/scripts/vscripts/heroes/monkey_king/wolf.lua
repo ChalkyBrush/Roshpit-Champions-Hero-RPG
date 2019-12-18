@@ -39,7 +39,7 @@ function wolf_howl(event)
 	end)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield_explosion_wave.vpcf", caster, 1.2)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_lone_druid/hermit_roar.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 20), 1.2)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function wolf_sprint(event)
@@ -80,7 +80,7 @@ function wolf_sprint(event)
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function wolf_sprint_think(event)
@@ -147,16 +147,17 @@ function rend_start(event)
 			local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
 			local newStacks = math.min(2, rendStacks + 1)
 			enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
-
-			local armorLoss = (enemy:GetPhysicalArmorValue(false) + enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster)) * 0.5
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
-			enemy:SetModifierStackCount("modifier_wolf_rend_armor_loss", caster, armorLoss * newStacks)
+			enemy:CalculateAndSaveRoshpitAttributes()
 			if rendStacks == 2 then
 				enemy.rendBleed = event.bleed_damage * damage / 100
 				ability.w_2_level = caster:GetRuneValue("w", 2)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
 				if not ability.bloodCount then
 					ability.bloodCount = 0
+				end
+				if ability.w_2_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_health_regen_loss", {duration = 12})
+					enemy:SetModifierStackCount("modifier_wolf_rend_health_regen_loss", caster, ability.w_2_level)
 				end
 				if ability.bloodCount < 9 then
 					ability.bloodCount = ability.bloodCount + 1
@@ -177,7 +178,7 @@ function rend_start(event)
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function rend_bleed_think(event)

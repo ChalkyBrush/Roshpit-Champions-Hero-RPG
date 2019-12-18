@@ -180,12 +180,7 @@ end
 function kraken_king_die(event)
 	local caster = event.caster
 	EmitSoundOn("tidehunter_tide_death_01", caster)
-	Timers:CreateTimer(0.9, function()
-		ScreenShake(caster:GetAbsOrigin(), 200, 0.4, 0.8, 9000, 0, true)
-		for i = 0, 1, 1 do
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 0, 0)
-		end
-	end)
+
 	Tanari.unibi.krakenKingDead = true
 end
 
@@ -665,11 +660,7 @@ function wind_temple_keyholder_die(event)
 	EmitSoundOn("lone_druid_lone_druid_bearform_death_06", caster)
 	EmitSoundOn("lone_druid_lone_druid_bearform_death_06", caster)
 	local casterOrigin = caster:GetAbsOrigin()
-	for j = 0, 6, 1 do
-		Timers:CreateTimer(0.4 * j, function()
-			RPCItems:RollItemtype(300, casterOrigin, 1, 0)
-		end)
-	end
+	caster:BossDrops(2)
 	for i = 1, #ability.flowerTable, 1 do
 		if IsValidEntity(ability.flowerTable[i]) then
 			if ability.flowerTable[i]:IsAlive() then

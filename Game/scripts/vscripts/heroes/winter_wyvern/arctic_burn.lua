@@ -42,7 +42,7 @@ function arctic_burn_finish_channel(event)
 	ability.channeledBeam = bomb
 	table.insert(ability.bombTable, bomb)
 	EmitSoundOn("Dinath.FireBomb.Launch", caster)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	Timers:CreateTimer(0.05, function()
 		fire_arctic_burn_bomb(caster, ability, bomb)
 	end)

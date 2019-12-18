@@ -12,7 +12,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_Q1_EXTRA_POSTMIT_PCT %>"
+				"property_one"			"<% CHERNOBOG_Q1_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -31,7 +31,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_Q2_PER_LVL %>"
+				"property_one"			"<% CHERNOBOG_Q2_DMG %>"
 			}
 			"03"
 			{
@@ -63,7 +63,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CHERNOBOG_Q3_ATT_AMP_PERCENT %>"
 			}
 		}
@@ -81,33 +81,18 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_Q4_BUFF_Q2_INTERVAL_THINK %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"		"<% CHERNOBOG_Q4_RANGE %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1"
+				"var_type"				"FIELD_INTEGER"
+				"property_two"		"<% CHERNOBOG_Q4_WIDTH %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_Q4_CD_REDUCTION_TIMES %>"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_three"		"<% CHERNOBOG_Q4_RANGE %>"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_four"		"<% CHERNOBOG_Q4_WIDTH %>"
+				"property_three"			"<% CHERNOBOG_Q4_BUFF_Q2_INTERVAL_THINK * 100 %>"
 			}
 		}
 	}
@@ -130,7 +115,7 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CHERNOBOG_W1_DMG_PER_MISSING_MP %>"
 			}
 			"03"
@@ -227,7 +212,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CHERNOBOG_E1_ATT_PCT %>"
 			}
 			"02"
@@ -290,7 +275,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% CHERNOBOG_E3_POSTMIT * 100 %>"
+				"property_two"			"<% CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -320,11 +305,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE %>"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"			"1"
-			}
 		}
 	}
 
@@ -341,7 +321,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_R1_POSTMIT * 100 %>"
+				"property_one"			"<% CHERNOBOG_R1_DEMON_AMP * 100 %>"
 			}
 
 		}
@@ -362,6 +342,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% CHERNOBOG_R2_SHADOWS_AMP * 100 %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"100"
 			}
 		}
 	}
@@ -413,32 +398,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CHERNOBOG_R4_CAST_TIME_REDUCE_TIMES %>"
+				"property_one"			"<% CHERNOBOG_R4_CHANNEL_TIME_REDUCTION %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"1"
+				"property_two"			"<% CHERNOBOG_R4_COOLDOWN_REDUCTION %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_R4_COOLDOWN_REDUCE_TIMES %>"
+				"property_two_max"			"<% CHERNOBOG_R4_MAX_COOLDOWN_REDUCTION %>"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two_base"		"1"
-			}
-			"05"
-			{
 				"var_type"				"FIELD_INTEGER"
 				"property_three"		"<% CHERNOBOG_R4_RADIUS %>"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_four"		    "<% CHERNOBOG_R4_DEMON_AMP_PER_AGI_PCT * 10 %>"
 			}
 		}
 	}

@@ -97,12 +97,12 @@ function add_difficulty_mod(challenge, panel){
 	}
 	if (challenge["challenge"]["map_name"] == "rpc_winterblight_mountain" && challenge["challenge"]["difficulty_mod"] > 0){
 		mod_text = $.Localize("challenge_mod_stones")
-		mod_text = mod_text.replace('@stones', "<font color='#32a852'>"+challenge["difficulty_mod"]+"</font>")
+		mod_text = mod_text.replace('@stones', "<font color='#32a852'>"+challenge["challenge"]["difficulty_mod"]+"</font>")
 		proceed = true
 	}
 	if (challenge["challenge"]["map_name"] == "rpc_roshpit_arena" && challenge["challenge"]["difficulty_mod"] > 0){
 		mod_text = $.Localize("challenge_mod_pit_level")
-		mod_text = mod_text.replace('@pit_level', "<font color='#32a852'>"+challenge["difficulty_mod"]+"</font>")
+		mod_text = mod_text.replace('@pit_level', "<font color='#32a852'>"+challenge["challenge"]["difficulty_mod"]+"</font>")
 		proceed = true
 	}
 	if (proceed){

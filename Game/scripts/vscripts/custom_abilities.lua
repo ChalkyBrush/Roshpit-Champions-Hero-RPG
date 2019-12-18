@@ -169,13 +169,13 @@ function CustomAbilities:IceQuill(event)
 					ability.manaSpent = 0
 				end
 				local bonusManaSpent = 0
-				if target:HasModifier("modifier_iron_colossus") then
+				if target:HasModifier("modifier_helm_of_the_iron_colossus") then
 					if executedAbility:GetManaCost(executedAbility:GetLevel() - 1) > 0 then
 						bonusManaSpent = bonusManaSpent + 1000
 					end
 				end
 				ability.manaSpent = ability.manaSpent + executedAbility:GetManaCost(executedAbility:GetLevel() - 1) + bonusManaSpent
-				if ability.manaSpent > ICE_QUILL_MANA_THRESHOLD then
+				if ability.manaSpent > ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD then
 					ability.manaSpent = 0
 					local spikeParticle = "particles/units/heroes/hero_bristleback/ice_quills.vpcf"
 					local position = target:GetAbsOrigin()
@@ -184,8 +184,8 @@ function CustomAbilities:IceQuill(event)
 					Timers:CreateTimer(2, function()
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
-					local radius = ICE_QUILL_RADIUS
-					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ICE_QUILL_ATTACK_TO_DMG
+					local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
+					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG
 					local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
@@ -469,6 +469,30 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
 		victim:SetModifierStackCount("modifier_shipyard_veil_shield", victim.InventoryUnit, currentStacks - 1)
 	else
 		victim:RemoveModifierByName("modifier_shipyard_veil_shield")
+	end
+	local unit = victim
+	local ability = unit:FindModifierByName("modifier_shipyard_veil_shield"):GetAbility()
+	ability.hero = unit
+	local emerald_value = ability:GetGemValue("emerald")
+	if emerald_value > 0 then
+		local info =
+		{
+			Target = attacker,
+			Source = unit,
+			Ability = ability,
+			EffectName = "particles/roshpit/redfall/shipyard_tracking_skull_enemy.vpcf",
+			StartPosition = "attach_hitloc",
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = false,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 8,
+			bProvidesVision = true,
+			iVisionRadius = 0,
+			iMoveSpeed = 500,
+		iVisionTeamNumber = unit:GetTeamNumber()}
+		projectile = ProjectileManager:CreateTrackingProjectile(info)
 	end
 end
 
@@ -909,12 +933,12 @@ function CustomAbilities:ClickOpenDialogue(msg)
 			local hero = GameState:GetHeroByPlayerID(playerID)
 			local queryUnit = EntIndexToHScript(msg.queryUnit)
 			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
-			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
 			local gem_reward = hero.gem_reward
 			if not hero.gem_reward then
 				gem_reward = 0
 			end
 			if distance <= distance_cap then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
 				CustomGameEventManager:Send_ServerToPlayer(player, "open_gemforger", {player=playerID, gem_reward = gem_reward} )
 				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
 			else
@@ -998,3 +1022,11 @@ function CDOTA_BaseNPC:ApplyAndIncrementStack(ability, caster, modifier_name, in
 	self:SetModifierStackCount(modifier_name, caster, new_stacks)
 end
 
+function CDOTA_BaseNPC:ApplyModifierAndSetStacks(ability, caster, modifier_name, stacks, duration)
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {})
+	end
+	self:SetModifierStackCount(modifier_name, caster, stacks)
+end
