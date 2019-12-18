@@ -121,6 +121,13 @@
         "item_rpc_azure_empire_sapphire1"                                   "Each active Hawk increases Spell Pierce by @sapphire_property1"
         "item_rpc_azure_empire_amethyst1"                                   "@amethyst_property1% chance when taking Pure or Magic damage for the Hawks to block it if any hawks are active"
 
+		
+		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
+		"item_rpc_badge_of_honor_ruby1"									"No Effect"
+		"item_rpc_badge_of_honor_emerald1"									"No Effect"
+		"item_rpc_badge_of_honor_sapphire1"									"No Effect"
+		"item_rpc_badge_of_honor_amethyst1"									"No Effect"
+
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_blacksmiths_tablet_emerald1"								"blah blah @emerald_property1 gem"
@@ -175,13 +182,6 @@
 		"item_rpc_sand_tomb_orb_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_sand_tomb_orb_amethyst1"									"blah blah @amethyst_property1 gem"
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_badge_of_honor"									"Badge of Honor"
-		"item_rpc_badge_of_honor_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_badge_of_honor_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_badge_of_honor_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_badge_of_honor_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"

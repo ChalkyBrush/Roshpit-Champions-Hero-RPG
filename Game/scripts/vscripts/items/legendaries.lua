@@ -236,40 +236,7 @@ function RPCItems:RollSteelbarkPlate(hero)
     RPCItems:GiveItemToHero(hero, item)
 end
 
-function RPCItems:RollBadgeOfHonor(hero)
 
-    local item = RPCItems:CreateVariant("item_rpc_badge_of_honor", "immortal", "Badge of Honor", "amulet", true, "Slot: Trinket")
-    local value = RandomInt(10, 15)
-    item.newItemTable.property1 = value
-    item.newItemTable.property1name = "health_regen"
-    RPCItems:SetPropertyValues(item, value, "#item_health_regen", "#6AA364", 1)
-
-    local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
-    item.newItemTable.property2 = RandomInt(20, 40)
-    if primaryAttribute == 0 then
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif primaryAttribute == 1 then
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    else
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-    local value = RandomInt(5, 10)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "armor"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_armor", "#D1D1D1", 3)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-    item.newItemTable.isShop = true
-    RPCItems:GiveItemToHero(hero, item)
-end
 
 function RPCItems:RollMagebaneRuneProperty()
     local luck = RandomInt(0, 905)
@@ -6107,6 +6074,25 @@ function RPCItems:RollAuricRingOfInspiration(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollBadgeOfHonor(hero)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+    local item = RPCItems:CreateVariant("item_rpc_badge_of_honor", "immortal", "Badge of Honor", "amulet", true, "Slot: Trinket")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, attr_roll, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor", 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "magic_armor", 1.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
