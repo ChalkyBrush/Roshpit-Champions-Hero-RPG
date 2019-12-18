@@ -4599,19 +4599,32 @@ function Filters:IgneousCanine(caster)
 end
 
 function Filters:AzureEmpire(victim, attacker)
+    local birdTable = victim.birdTable
+    if victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
+        local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AZURE_EMPIRE_GEM_AMETHYST))
+        if proc then
+            for i = 1, ITEM_RPC_AZURE_EMPIRE_NUMBER_OF_HAWKS, 1 do
+                if not birdTable[i]:HasModifier("modifier_azure_hawk_dead") then
+                    CustomAbilities:QuickAttachParticle("particles/roshpit/items/azure_hawk_impact.vpcf", birdTable[i], 1.5)
+                    break
+                end
+            end        
+            return 0
+        end
+    end
     local currentStacks = victim:GetModifierStackCount("modifier_azure_empire_visible", victim.InventoryUnit)
     if currentStacks > 1 then
         victim:SetModifierStackCount("modifier_azure_empire_visible", victim.InventoryUnit, currentStacks - 1)
     else
         victim:RemoveModifierByName("modifier_azure_empire_visible")
     end
-    local birdTable = victim.birdTable
     if birdTable then
         for i = 1, ITEM_RPC_AZURE_EMPIRE_NUMBER_OF_HAWKS, 1 do
             if not birdTable[i]:HasModifier("modifier_azure_hawk_dead") then
                 CustomAbilities:QuickAttachParticle("particles/roshpit/items/azure_hawk_impact.vpcf", birdTable[i], 1.5)
                 EmitSoundOn("RPCItem.AzureEmpireHit", birdTable[i])
-                victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = ITEM_RPC_AZURE_EMPIRE_HAWK_CD})
+                local respawn_time = ITEM_RPC_AZURE_EMPIRE_HAWK_CD - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_AZURE_EMPIRE_GEM_RUBY)
+                victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(victim.InventoryUnit, birdTable[i], "modifier_azure_hawk_dead", {duration = respawn_time})
                 EndAnimation(birdTable[i])
                 StartAnimation(birdTable[i], {duration = 0.8, activity = ACT_DOTA_DIE, rate = 1.3})
                 ParticleManager:DestroyParticle(birdTable[i].pfx, false)
@@ -4626,6 +4639,7 @@ function Filters:AzureEmpire(victim, attacker)
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_red")
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_blue")
                     birdTable[i]:RemoveModifierByName("modifier_azure_hawk_green")
+                    birdTable[i]:RemoveModifierByName("modifier_azure_hawk_purple")
                     birdTable[i]:AddNoDraw()
                 end)
                 break

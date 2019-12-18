@@ -2333,7 +2333,7 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
 			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
-		if victim:HasModifier("modifier_azure_empire_visible") then
+		if victim:HasModifier("modifier_azure_empire_visible") and applyEffects then
 			if not Filters:HasDamageBlockShield(victim) then
 				if filterTable["damage"] > 0 then
 					filterTable["damage"] = 0

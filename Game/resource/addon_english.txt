@@ -14533,6 +14533,27 @@
         "item_rpc_auric_ring_of_inspiration_sapphire1"  "Increases the Magic Immunity Duration by @sapphire_property1"
         "item_rpc_auric_ring_of_inspiration_amethyst1"  "When you activate Divine Inspiration, restore @amethyst_property1% of Max Health"
 
+        "DOTA_Tooltip_ability_item_rpc_azure_empire"                                    "Pendant of the Azure Empire"
+
+        "item_property_azure_empire"                "Sky Magistrate"
+        "property_azure_empire_description"         "<font color='#ccff66'>3</font> azure hawks accompany you, absorbing <font color='#ccff66'>1</font> instance of Magical or Pure damage each. Hawks regenerate <font color='#ccff66'>3</font> seconds after absorbing a hit."
+        "item_property_azure_empire_silver"             "Silver Skies"
+        "property_azure_empire_silver_description"  "Each active hawk increases Base Ability Damage by <font color='#ccff66'>20</font>%"
+        "item_property_azure_empire_green"              "Jade Skies"
+        "property_azure_empire_green_description"   "Each active hawk increases Agility by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_red"                "Crimson Skies"
+        "property_azure_empire_red_description" "Each active hawk increases Strength by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_blue"               "Cerulean Skies"
+        "property_azure_empire_blue_description"    "Each active hawk increases Intelligence by <font color='#ccff66'>1</font>x your hero's level."
+        "item_property_azure_empire_purple"               "Violet Skies"
+        "property_azure_empire_purple_description"    "Each active hawk increases Spirit by <font color='#ccff66'>1</font>x your hero's level."
+        "DOTA_Tooltip_modifier_azure_empire_visible"    "Azure Empire"
+        "DOTA_Tooltip_modifier_azure_empire_visible_Description"    "Hawks absorbing Magical and Pure damage."
+
+        "item_rpc_azure_empire_ruby1"                                   "Reduces Hawk respawn time by @ruby_property1 seconds"
+        "item_rpc_azure_empire_emerald1"                                    "Each active Hawk increases Armor Pierce by @emerald_property1"
+        "item_rpc_azure_empire_sapphire1"                                   "Each active Hawk increases Spell Pierce by @sapphire_property1"
+        "item_rpc_azure_empire_amethyst1"                                   "@amethyst_property1% chance when taking Pure or Magic damage for the Hawks to block it if any hawks are active"
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"Blacksmith's Tablet"
 		"item_rpc_blacksmiths_tablet_ruby1"								"blah blah @ruby_property1 gem"
@@ -14640,23 +14661,7 @@
 		"property_galaxy_orb_description"			"While channeling @Ability4, all enemies in a wide radius of <font color='#ccff66'>800</font> are slowly vacuumed toward you."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"Pendant of the Azure Empire"
-		"item_rpc_azure_empire_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_azure_empire_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_azure_empire_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_azure_empire_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_azure_empire"				"Sky Magistrate"
-		"property_azure_empire_description"			"<font color='#ccff66'>3</font> azure hawks accompany you, absorbing <font color='#ccff66'>1</font> instance of Magical or Pure damage each. Hawks regenerate <font color='#ccff66'>4</font> seconds after absorbing a hit."
-		"item_property_azure_empire_silver"				"Silver Skies"
-		"property_azure_empire_silver_description"	"Each active hawk increases Base Ability Damage by <font color='#ccff66'>40</font>%"
-		"item_property_azure_empire_green"				"Jade Skies"
-		"property_azure_empire_green_description"	"Each active hawk increases Agility by <font color='#ccff66'>25</font>x your hero's level."
-		"item_property_azure_empire_red"				"Crimson Skies"
-		"property_azure_empire_red_description"	"Each active hawk increases Strength by <font color='#ccff66'>25</font>x your hero's level."
-		"item_property_azure_empire_blue"				"Cerulean Skies"
-		"property_azure_empire_blue_description"	"Each active hawk increases Intelligence by <font color='#ccff66'>25</font>x your hero's level."
-		"DOTA_Tooltip_modifier_azure_empire_visible"	"Azure Empire"
-		"DOTA_Tooltip_modifier_azure_empire_visible_Description"	"Hawks absorbing Magical and Pure damage."
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"

@@ -1030,23 +1030,27 @@ function azure_empire_init(event)
 		bird:SetModelScale(0.5)
 		table.insert(target.birdTable, bird)
 		ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_empire_buff", {})
-		if ability.newItemTable.property2name == "azure_silver" then
+		if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 			-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_silver", {})
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(180, 190, 255))
-		elseif ability.newItemTable.property2name == "azure_green" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 255, 80))
-		elseif ability.newItemTable.property2name == "azure_blue" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 80, 255))
-		elseif ability.newItemTable.property2name == "azure_red" then
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(255, 80, 80))
+		elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+			bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
+			ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControl(bird.pfx, 15, Vector(185, 80, 255))
 		end
 		bird.index = i
 		StartAnimation(bird, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
@@ -1083,6 +1087,7 @@ function azure_empire_end(event)
 	target:RemoveModifierByName("modifier_azure_empire_agility")
 	target:RemoveModifierByName("modifier_azure_empire_strength")
 	target:RemoveModifierByName("modifier_azure_empire_intelligence")
+	target:RemoveModifierByName("modifier_azure_empire_spirit")
 	for i = 1, #target.birdTable, 1 do
 		UTIL_Remove(target.birdTable[i])
 	end
@@ -1095,18 +1100,21 @@ function azure_think(event)
 	local caster = event.caster
 	local stacks = target:GetModifierStackCount("modifier_azure_empire_visible", caster)
 	local heroLevel = target:GetLevel()
-	if ability.newItemTable.property2name == "azure_silver" then
+	if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_base_ability", {})
 		target:SetModifierStackCount("modifier_azure_empire_base_ability", caster, stacks)
-	elseif ability.newItemTable.property2name == "azure_green" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_agility", {})
 		target:SetModifierStackCount("modifier_azure_empire_agility", caster, heroLevel * stacks)
-	elseif ability.newItemTable.property2name == "azure_red" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_strength", {})
 		target:SetModifierStackCount("modifier_azure_empire_strength", caster, heroLevel * stacks)
-	elseif ability.newItemTable.property2name == "azure_blue" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_intelligence", {})
 		target:SetModifierStackCount("modifier_azure_empire_intelligence", caster, heroLevel * stacks)
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_azure_empire_spirit", {})
+		target:SetModifierStackCount("modifier_azure_empire_spirit", caster, heroLevel * stacks)
 	end
 end
 
@@ -1132,25 +1140,31 @@ function azure_hawk_dead_end(event)
 	elseif bird.index == 3 then
 		bird:SetAbsOrigin(heroPosition - perpFv * 90)
 	end
-	if ability.property2name == "azure_silver" then
+	if ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_silver" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(180, 190, 255))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_silver", {})
-	elseif ability.property2name == "azure_green" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_green" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 255, 80))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_green", {})
-	elseif ability.property2name == "azure_blue" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_blue" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(80, 80, 255))
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_blue", {})
-	elseif ability.property2name == "azure_red" then
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_red" then
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(255, 80, 80))
+		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_red", {})
+	elseif ability.newItemTable.property2name == "!immortal!_modifier_azure_empire_hero_purple" then
+		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
+		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(185, 80, 255))
+		print("APPLY PURPLE BUFF?")
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_red", {})
 	end
 	local birdStacks = 0

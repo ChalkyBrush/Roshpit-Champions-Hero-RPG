@@ -6112,6 +6112,50 @@ function RPCItems:RollAuricRingOfInspiration(item_level)
     return item
 end
 
+function RPCItems:RollAzureEmpire(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_azure_empire", "immortal", "Pendant of the Azure Empire", "amulet", true, "Slot: Trinket")
+    local maxFactor = RPCItems:GetMaxFactor()
+
+    item.newItemTable.property1name = "!immortal!_modifier_azure_empire"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire", "#7AD2F0", 1, "#property_azure_empire_description")
+
+    local luck = RandomInt(1, 5)
+    if luck == 1 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_azure_empire_hero_silver"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_silver", "#C9E6ED", 2, "#property_azure_empire_silver_description")
+    elseif luck == 2 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_azure_empire_hero_green"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_green", "#67EA64", 2, "#property_azure_empire_green_description")
+    elseif luck == 3 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_azure_empire_hero_blue"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_blue", "#74A0ED", 2, "#property_azure_empire_blue_description")
+    elseif luck == 4 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_azure_empire_hero_red"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_red", "#E03018", 2, "#property_azure_empire_red_description")
+    elseif luck == 5 then
+        item.newItemTable.property2 = 1
+        item.newItemTable.property2name = "!immortal!_modifier_azure_empire_hero_purple"
+        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_purple", "#D79FF9", 2, "#property_azure_empire_purple_description")
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -7261,50 +7305,6 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     RPCItems:ItemUpdateCustomNetTables(item)
     RPCItems:AmuletPickup(hero, item)
     Weapons:Equip(hero, item)
-    return item
-end
-
-function RPCItems:RollAzureEmpire(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_azure_empire", "immortal", "Pendant of the Azure Empire", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "azure_empire"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire", "#7AD2F0", 1, "#property_azure_empire_description")
-
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        item.newItemTable.property2 = 0
-        item.newItemTable.property2name = "azure_silver"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_silver", "#C9E6ED", 2, "#property_azure_empire_silver_description")
-    elseif luck == 2 then
-        item.newItemTable.property2 = 0
-        item.newItemTable.property2name = "azure_green"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_green", "#67EA64", 2, "#property_azure_empire_green_description")
-    elseif luck == 3 then
-        item.newItemTable.property2 = 0
-        item.newItemTable.property2name = "azure_blue"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_blue", "#74A0ED", 2, "#property_azure_empire_blue_description")
-    elseif luck == 4 then
-        item.newItemTable.property2 = 0
-        item.newItemTable.property2name = "azure_red"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_azure_empire_red", "#E03018", 2, "#property_azure_empire_red_description")
-    end
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.ceil(value * 1.4)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = math.ceil(value * 1.4)
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
     return item
 end
 
@@ -8525,7 +8525,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots", "item_rpc_voyager_boots",
         "item_rpc_yasha_boots"}
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
-        itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm"}
+        itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire"}
     end
     return itemsList
 end
