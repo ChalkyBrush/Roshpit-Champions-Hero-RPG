@@ -16,6 +16,9 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 		if parent:HasModifier("modifier_samurai_helmet") then
 			event.damage = Filters:SamuraiAttackLand(event.damage, parent, event.target)
 		end
+		if parent:HasModifier("modifier_fenrirs_fang") then
+			event.damage = Filters:FenrirAttackLand(event.damage, parent, event.target)
+		end
 		if parent:GetUnitName() == "ruby_dragon_3" then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)

@@ -225,6 +225,20 @@
         "item_rpc_eye_of_avernus_sapphire1"                                 "No Effect"
         "item_rpc_eye_of_avernus_amethyst1"                                 "No Effect"
 
+        "DOTA_Tooltip_ability_item_rpc_fenrirs_fang"                                    "Fenrir's Fang"
+        "item_property_fenrir_fang"                         "Alpha Wolf Aura"
+        "property_fenrir_fang"                                  "Increases Attack Power of you and all nearby allies by <% ITEM_RPC_FENRIRS_FANG_BONUS_DAMAGE %>%."
+        "DOTA_Tooltip_modifier_fenrir_fang_buff"                "Alpha Wolf Aura"
+        "DOTA_Tooltip_modifier_fenrir_fang_buff_Description"    "Increased attack damage"
+
+        "item_rpc_fenrirs_fang_ruby1"                                   "Grants a <% ITEM_RPC_FENRIRS_FANG_RUBY_CHANCE %>% chance for attacks to deal a Critical Strike with @ruby_property1% increased damage"
+        "item_rpc_fenrirs_fang_emerald1"                                    "Alpha Wolf Aura also increases Armor Pierce by @emerald_property1"
+        "item_rpc_fenrirs_fang_sapphire1"                                   "Landing an attack on an enemy reduces their Armor by @sapphire_property1 for <% ITEM_RPC_FENRIRS_FANG_ARMOR_LOSS_DURATION %> seconds"
+        "item_rpc_fenrirs_fang_amethyst1"                                   "Increases Movement Speed by @amethyst_property1 and Attack Speed by @amethyst_property2"
+
+        "DOTA_Tooltip_modifier_fenrir_fang_sapphire"        "Alpha Wolf (Sapphire)"
+        "DOTA_Tooltip_modifier_fenrir_fang_sapphire_Description"    "Reduced Armor"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -450,18 +464,6 @@
 		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_firelock"							"Steady Flame"		
 		"property_firelock_description"					"Increases Post-Mitigation Physical damage by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>% for every <% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %> points of Strength."
-		 
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"
-		"item_rpc_fenrirs_fang_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fenrirs_fang_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fenrirs_fang_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fenrirs_fang_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fenrir_fang"							"Alpha Wolf Aura"
-		"property_fenrir_fang"									"Increases attack damage of you and all nearby allies by <% ITEM_RPC_FENRIRS_FANG_BONUS_DAMAGE %>%."
-		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"Alpha Wolf Aura"
-		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Increased attack damage"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"

@@ -9971,3 +9971,13 @@ function divinex_end(event)
 	local hero = event.caster.hero
 	hero:SetStatsForLevel()
 end
+
+function fenrir_fang_attack_land(event)
+	local attacker = event.attacker
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_fenrir_fang_sapphire", {duration = ITEM_RPC_FENRIRS_FANG_ARMOR_LOSS_DURATION})
+	end
+end

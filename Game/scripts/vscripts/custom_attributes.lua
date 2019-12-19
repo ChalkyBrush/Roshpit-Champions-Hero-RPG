@@ -1119,6 +1119,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_kharzun_buff") then
 		armor_modify = armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end
+	if unit:HasModifier("modifier_fenrir_fang_sapphire") then
+		local fang_caster = unit:FindModifierByName("modifier_fenrir_fang_sapphire"):GetCaster()
+		local fang_hero = fang_caster.hero
+		armor_modify = armor_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FENRIRS_FANG_GEM_SAPPHIRE)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -2098,6 +2103,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_kharzun_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_fenrir_fang_buff") then
+		local fang_caster = unit:FindModifierByName("modifier_fenrir_fang_buff"):GetCaster()
+		local fang_hero = fang_caster.hero
+		armor_pierce_modify = armor_pierce_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FENRIRS_FANG_GEM_EMERALD)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

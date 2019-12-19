@@ -5206,7 +5206,8 @@ function Filters:SamuraiAttackLand(damage, attacker, target)
     if sapphire_value > 0 then
         chance = chance + ADAMANTINE_SAMURAI_HELMET_SAPPHIRE[sapphire_value]
     end
-    if luck <= chance then
+    local proc = Filters:GetProc(attacker, chance)
+    if proc then
         local damage_boost = ADAMANTINE_SAMURAI_CRIT/100
         local amethyst_value = helm:GetGemValue("amethyst")
         if amethyst_value > 0 then
@@ -5216,6 +5217,23 @@ function Filters:SamuraiAttackLand(damage, attacker, target)
         PopupDamage(target, damage)
         EmitSoundOn("RPCItems.SamuraiHelm.Crit", attacker)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf", attacker, 2)
+    end
+    return damage
+end
+
+function Filters:FenrirAttackLand(damage, attacker, target)
+    local luck = RandomInt(1, 100)
+    local fang = attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+    if fang:GetGemValue("ruby") > 0 then
+        local chance = ITEM_RPC_FENRIRS_FANG_RUBY_CHANCE
+        local proc = Filters:GetProc(attacker, chance)
+        if proc then
+            local damage_boost = fang:GetFinalGemPropertyValue("ruby", ITEM_RPC_FENRIRS_FANG_GEM_RUBY)/100
+            damage = damage * (1 + damage_boost)
+            PopupDamage(target, damage)
+            EmitSoundOn("RPCItems.WolfFang.Crit", attacker)
+            CustomAbilities:QuickAttachParticle("particles/roshpit/items/fenrir_crit.vpcf", attacker, 2)
+        end
     end
     return damage
 end
