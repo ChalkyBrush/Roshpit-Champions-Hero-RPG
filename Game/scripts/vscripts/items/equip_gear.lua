@@ -1328,7 +1328,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_fire_blossom" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_FIRE_BLOSSOM_GEM_RUBY, hero, "rune_w_4", RPC_GEAR_SLOT_TRINKET)
-		end	
+		end
+	elseif item:GetAbilityName() == "item_rpc_firelock_pendant" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_FIRELOCK_PENDANT_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_FIRELOCK_PENDANT_GEM_RUBY, hero, "agility", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_FIRELOCK_PENDANT_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_FIRELOCK_PENDANT_GEM_EMERALD, hero, "element_fire", RPC_GEAR_SLOT_TRINKET)
+		end		
 	end
 end
 

@@ -9984,3 +9984,18 @@ function fenrir_fang_attack_land(event)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_fenrir_fang_sapphire", {duration = ITEM_RPC_FENRIRS_FANG_ARMOR_LOSS_DURATION})
 	end
 end
+
+function firelock_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		local as_bonus = (hero:GetStrength() + hero:GetAgility())*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRELOCK_PENDANT_GEM_SAPPHIRE)
+		print("AS BONUS: "..as_bonus)
+		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_firelock_sapphire_attackspeed", as_bonus, 0)
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local atk_dmg_bonus = (hero:GetSpirit())*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FIRELOCK_PENDANT_GEM_AMETHYST)
+		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_firelock_amethyst_attack_damage", atk_dmg_bonus, 0)
+	end
+end

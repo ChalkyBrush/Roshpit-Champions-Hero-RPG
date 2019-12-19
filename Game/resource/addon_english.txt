@@ -14702,13 +14702,21 @@
 		"property_neverlord_soul_ring_description"											"Converts <font color='#ccff66'>30</font>% of max health to max mana."
     	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
 		
-		
+        "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
+        "item_property_firelock"                            "Piercing Heat"      
+        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <font color='#ccff66'>3</font>."
+        
+        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
+        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
+
+
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
-		"item_rpc_sand_tomb_orb_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_sand_tomb_orb_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_sand_tomb_orb_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_sand_tomb_orb_amethyst1"									"blah blah @amethyst_property1 gem"
-		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb_Description"						"Slot: Trinket"
+		"item_rpc_sand_tomb_orb_ruby1"									    "No Effect"
+		"item_rpc_sand_tomb_orb_emerald1"									"No Effect"
+		"item_rpc_sand_tomb_orb_sapphire1"									"No Effect"
+		"item_rpc_sand_tomb_orb_amethyst1"									"No Effect"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
@@ -14889,17 +14897,7 @@
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of Magical damage deals 300%% more Post-Mitigation damage"
 		 
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"Firelock Pendant"
-		"item_rpc_firelock_pendant_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_firelock_pendant_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_firelock"							"Steady Flame"		
-		"property_firelock_description"					"Increases Post-Mitigation Physical damage by <font color='#ccff66'>0.3</font>% for every <font color='#ccff66'>10</font> points of Strength."
-		
-		
+	
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
 		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"

@@ -2313,10 +2313,6 @@ function GameState:FilterDamage(filterTable)
 		if attacker:HasModifier("modifier_tempest_falcon_ring") then
 			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
 		end
-		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength() / ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR) * ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI/100
-			mult = mult + multIncrease
-		end
 
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]

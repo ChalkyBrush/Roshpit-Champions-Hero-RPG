@@ -6392,6 +6392,38 @@ function RPCItems:RollFireBlossom(item_level)
     return item
 end
 
+function RPCItems:RollFirelockPendant(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_firelock_pendant", "immortal", "Firelock Pendant", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_firelock_pendant"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_firelock", "#DE5957", 1, "#property_firelock_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
+    end
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_fire", 2)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "armor_pierce", 1.5)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
@@ -7382,40 +7414,6 @@ function RPCItems:RollTempestFalconRing(item_level)
     item.newItemTable.property3 = value
     item.newItemTable.property3name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollFirelockPendant(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_firelock_pendant", "immortal", "Firelock Pendant", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "firelock"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_firelock", "#DE5957", 1, "#property_firelock_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 14, 0, 0, item.newItemTable.rarity, false, maxFactor * 13)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        Elements:RollElementAttribute(item, RPC_ELEMENT_FIRE, 2.3, 1, 30, 3)
-    else
-        local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
 
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.newItemTable.property4 = value

@@ -2109,6 +2109,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local fang_hero = fang_caster.hero
 		armor_pierce_modify = armor_pierce_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FENRIRS_FANG_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_firelock_pendant") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then

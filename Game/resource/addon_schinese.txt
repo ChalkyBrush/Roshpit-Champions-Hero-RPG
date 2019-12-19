@@ -14403,12 +14403,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"火枪吊坠"
-		"item_rpc_firelock_pendant_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_firelock_pendant_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_firelock"							"稳定火焰"		
-		"property_firelock_description"					"每<font color='#ccff66'>10</font>点力量值提高所有物理伤害 <font color='#ccff66'>0.3</font>%。"
+		"item_property_firelock"							"稳定火焰"		    
+        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <font color='#ccff66'>3</font>."
+        
+        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
+        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"

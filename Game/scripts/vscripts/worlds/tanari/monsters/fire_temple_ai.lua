@@ -1447,7 +1447,7 @@ function fire_temple_boss_die(caster, ability)
 	Timers:CreateTimer(4, function()
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollFirelockPendant(casterOrigin)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_firelock_pendant")
 		end
 	end)
 	local bossOrigin = caster:GetAbsOrigin()
