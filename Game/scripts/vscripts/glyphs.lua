@@ -24,7 +24,7 @@ function Glyphs:DropArcaneCrystals(position, enemyType, level, quantityScale)
 	if GameState:IsWinterblight() then
 		crystalQuantity = crystalQuantity * (1 + Winterblight.Stones * Enemies.WINTERBLIGHT_STONES_BUFFS["arcane_crystals"])
 	elseif GameState:IsRPCArena() then
-		crystalQuantity = base_attribute_value * (1 + Arena.PitLevel * Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"])
+		crystalQuantity = crystalQuantity * (1 + Arena.PitLevel * Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"])
 	elseif GameState:IsSeaFortress() then
 		crystalQuantity = crystalQuantity * Enemies.GLOBAL_SEA_FORTRESS_MULT["arcane_crystals"]
 	elseif GameState:IsSerengaard() then

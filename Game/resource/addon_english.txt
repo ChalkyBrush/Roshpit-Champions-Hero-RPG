@@ -14621,6 +14621,14 @@
         "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Each point of Intelligence increases Mana Regen by an additional @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
+        "item_property_stone_falcon"                        "Gift of the Reliquary"
+        "property_stone_falcon_description"             "Instances of Magic or Pure damage taken can not exceed <font color='#ccff66'>35</font>% of max health."
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Increases Armor by @ruby_property1"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Increases Armor Pierce by @emerald_property1"
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Spell Pierce by @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Increases Magic Armor by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -14639,15 +14647,6 @@
 		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
 		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <font color='#ccff66'>25</font> and your max mana by <font color='#ccff66'>5</font>."
-
-		
-		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
-		"item_rpc_conquest_stone_falcon_ruby1" 							"blah blah @ruby_property1 gem"
-		"item_rpc_conquest_stone_falcon_emerald1" 							"blah blah @emerald_property1 gem"
-		"item_rpc_conquest_stone_falcon_sapphire1" 							"blah blah @sapphire_property1 gem"
-		"item_rpc_conquest_stone_falcon_amethyst1" 							"blah blah @amethyst_property1 gem"
-		"item_property_stone_falcon"						"Gift of the Reliquary"
-		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <font color='#ccff66'>35</font>% of max health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
@@ -15622,7 +15621,9 @@
 		"arena_pit_conquest_shrine_of_karzhun"							"Shrine of Kar'zhun"
 		"arena_pit_conquest_shrine_of_karzhun_Description"				"An empty tray accepts gifts for the legacy of Kar'zhun"
 
-		"arena_pit_shrine_of_karzhun_option_1"							"Give All Gold"
+		"arena_karzhun_offering_tip"									"Offer up to 100,000 Mithril Shards"
+
+		"arena_pit_shrine_of_karzhun_option_1"							"Give Mithril Shards"
 		"arena_pit_shrine_of_karzhun_option_2"							"Back Away"	
 
 		"DOTA_Tooltip_modifier_kharzun_buff"							"Force Of Kar'zhun"

@@ -50,6 +50,10 @@
 						<Panel id="dialogue_text_bg" hittest="false"></Panel>
 						<Label id="dialogue_text_text" text="dialogue_text" hittest="false"></Label>
 					</Panel>
+					<Panel class="invisible" id="optional_dialogue_input">
+						<Label id="optional_input_label" text="some_label"/>
+						<NumberEntry id="arena_dialogue_input" min="0" max="100000"/>
+					</Panel>
 					<Panel id="dialogue_options" hittest="false">
 						<Button class="dialogue_button" id="option1">
 							<Label class="dialogue_button_label" id="dialogue_label1" text="test" html="true"></Label>

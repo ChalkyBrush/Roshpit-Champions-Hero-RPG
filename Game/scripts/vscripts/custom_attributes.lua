@@ -1116,6 +1116,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_green_divinex_amulet") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
 	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		armor_modify = armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1733,6 +1736,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_green_divinex_amulet") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
 	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2086,6 +2092,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_blue_divinex_amulet") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2490,6 +2499,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_cobalt_serenity_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

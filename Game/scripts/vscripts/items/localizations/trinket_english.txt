@@ -187,6 +187,14 @@
         "item_rpc_cobalt_serenity_ring_sapphire1"                           "Increases Intelligence by @sapphire_property1"
         "item_rpc_cobalt_serenity_ring_amethyst1"                           "Each point of Intelligence increases Mana Regen by an additional @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon"                           "Conquest Stone Falcon"
+        "item_property_stone_falcon"                        "Gift of the Reliquary"
+        "property_stone_falcon_description"             "Instances of Magic or Pure damage taken can not exceed <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% of max health."
+        "item_rpc_conquest_stone_falcon_ruby1"                          "Increases Armor by @ruby_property1"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "Increases Armor Pierce by @emerald_property1"
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Spell Pierce by @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "Increases Magic Armor by @amethyst_property1"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -205,15 +213,6 @@
 		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
 		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <% ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT %> and your max mana by <% ITEM_RPC_SAPPHIRE_LOTUS_MP_PER_INT %>."
-
-		
-		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"
-		"item_rpc_conquest_stone_falcon_ruby1" 							"blah blah @ruby_property1 gem"
-		"item_rpc_conquest_stone_falcon_emerald1" 							"blah blah @emerald_property1 gem"
-		"item_rpc_conquest_stone_falcon_sapphire1" 							"blah blah @sapphire_property1 gem"
-		"item_rpc_conquest_stone_falcon_amethyst1" 							"blah blah @amethyst_property1 gem"
-		"item_property_stone_falcon"						"Gift of the Reliquary"
-		"property_stone_falcon_description"				"Instances of Magic or Pure damage taken can not exceed <% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>% of max health."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"

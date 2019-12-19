@@ -500,7 +500,9 @@
 		"arena_pit_conquest_shrine_of_karzhun"							"Shrine of Kar'zhun"
 		"arena_pit_conquest_shrine_of_karzhun_Description"				"An empty tray accepts gifts for the legacy of Kar'zhun"
 
-		"arena_pit_shrine_of_karzhun_option_1"							"Give All Gold"
+		"arena_karzhun_offering_tip"									"Offer up to 100,000 Mithril Shards"
+
+		"arena_pit_shrine_of_karzhun_option_1"							"Give Mithril Shards"
 		"arena_pit_shrine_of_karzhun_option_2"							"Back Away"	
 
 		"DOTA_Tooltip_modifier_kharzun_buff"							"Force Of Kar'zhun"

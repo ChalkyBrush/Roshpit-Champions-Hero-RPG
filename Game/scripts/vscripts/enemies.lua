@@ -414,7 +414,6 @@ function Enemies:ParagonChance(unit)
 		baseChance = baseChance/divisor
 	end
 	local luck = RandomInt(1, baseChance)
-	luck = 1
 	if luck == 1 then
 		Paragon:AddParagonUnit(unit)
 		return true	

@@ -220,7 +220,8 @@ function ArenaGenericNPCDialogue(msg){
  			var accept = 1
  			var npc = headerText
  			dialogueLabel.level = 1
-        	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {accept:accept , npc:npc, intattr:intattr, playerID: Players.GetLocalPlayer()} );
+            var input_value = dialogue.FindChildTraverse('arena_dialogue_input').value
+        	GameEvents.SendCustomGameEventToServer( "arena_dialogue", {accept:accept , npc:npc, intattr:intattr, playerID: Players.GetLocalPlayer(), input_value: input_value} );
         	// var newMsg = {npc: npc, intattr: intattr}
         	Game.EmitSound("Arena.Accept")
 		})
@@ -237,6 +238,10 @@ function ArenaGenericNPCDialogue(msg){
     	removeDialogueOptions(dialogue)
     }
 
+    if (msg.headerText == "arena_pit_conquest_shrine_of_karzhun"){
+        dialogue.FindChildTraverse('optional_dialogue_input').RemoveClass("invisible")
+        dialogue.FindChildTraverse('optional_input_label').text = $.Localize("arena_karzhun_offering_tip")
+    }
 }
 
 function ArenaTerminal(msg){

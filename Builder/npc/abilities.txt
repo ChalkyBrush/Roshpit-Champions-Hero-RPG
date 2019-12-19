@@ -35549,15 +35549,10 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"20"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_redc"			"-9"
-			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase"			"100"
+				"damage_increase"			"15"
 			}
 			"04"
 			{
@@ -35596,10 +35591,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_redc"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_increase"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"12"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"15"
 				}
 			}
 			"modifier_karzhun_aura_effect"
