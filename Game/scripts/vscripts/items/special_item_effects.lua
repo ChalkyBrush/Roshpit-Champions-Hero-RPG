@@ -10,6 +10,7 @@ LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_cry
 LinkLuaModifier("modifier_dunetreads_sapphire", "modifiers/modifier_dunetreads_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sandstream_slippers_emerald", "modifiers/modifier_sandstream_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_voyager_boots_emerald", "modifiers/modifier_voyager_boots_emerald", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_epsilon", "modifiers/modifier_epsilon", LUA_MODIFIER_MOTION_NONE)
 
 
 require('items/constants/boots')
@@ -3723,9 +3724,20 @@ function eyeglass_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	if target:GetAttackCapability() == DOTA_UNIT_CAP_RANGED_ATTACK then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_epsilons_eyeglass_range_effect", {})
+		local attack_range = ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EPSILONS_EYEGLASS_GEM_EMERALD)
+		local projectile_speed = ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE1)
+		-- ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_attack_range", {})
+		ability:ApplyDataDrivenModifier(caster, target,"modifier_epsilons_eyeglass_range_effect_projectile_speed", {})
+		-- target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_attack_range", caster, attack_range)
+		target:SetModifierStackCount("modifier_epsilons_eyeglass_range_effect_projectile_speed", caster, projectile_speed)
+		if ability:GetGemValue("sapphire") > 0 then
+			local atk_power_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EPSILONS_EYEGLASS_GEM_SAPPHIRE2)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_epsilons_eyeglass_attack_power", {})
+			target:SetModifierStackCount("modifier_epsilons_eyeglass_attack_power", caster, atk_power_stacks)
+		end
 	else
-		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect")
+		-- target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_attack_range")
+		target:RemoveModifierByName("modifier_epsilons_eyeglass_range_effect_projectile_speed")
 	end
 end
 
@@ -5270,15 +5282,17 @@ end
 function eyeglass_attack(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = event.ability
 	if target.dummy then
 		return false
 	end
-	local distance = math.min(WallPhysics:GetDistance(attacker:GetAbsOrigin(), target:GetAbsOrigin()), ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE)
-	distance = math.max(distance, ITEM_RPC_EPSILONS_EYEGLASS_MIN_RANGE)
-	local damage = ITEM_RPC_EPSILONS_EYEGLASS_DAMAGE_BASE * attacker:GetLevel() * distance ^ 3
-
-	Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
-	CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
+	if ability:GetGemValue("ruby") > 0 then
+		local distance = math.min(WallPhysics:GetDistance2d(attacker:GetAbsOrigin(), target:GetAbsOrigin()), ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE)
+		print(distance)
+		local damage = distance * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EPSILONS_EYEGLASS_GEM_RUBY)
+		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
+		CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
+	end
 end
 
 function eyeglass_equip(event)

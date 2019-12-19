@@ -314,12 +314,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
-		"item_rpc_epsilons_eyeglass_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_epsilons_eyeglass_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_epsilons_eyeglass_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_epsilons_eyeglass_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 <% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %> 码(只适用于远程英雄)并且增加 <% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %> 码视野范围，和 <% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<% ITEM_RPC_EPSILONS_EYEGLASS_DAMAGE_BASE * 1000 %> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <% ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>，仍以此距离计算。距离不足700时以700计算"
+        "property_epsilon_eyeglass_description"         "Increases attack range by <% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %> (RANGED ONLY), increases vision radius by <% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %>, and adds <% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %> to your attack projectile's speed."
+
+        "item_rpc_epsilons_eyeglass_ruby1"                              "Your attacks deal an extra instance of damage equal to @ruby_property1x the distance between you and your target"
+        "item_rpc_epsilons_eyeglass_emerald1"                               "Increases the Attack Range bonus (for Ranged heroes) by an additional @emerald_property1"
+        "item_rpc_epsilons_eyeglass_sapphire1"                              "Increases the Projectile Speed bonus by an additional @sapphire_property1 and increases Attack Power by @sapphire_property2%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=\"#C25DFC\">Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
@@ -364,12 +365,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
-		"item_rpc_emerald_nullification_ring_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_emerald_nullification_ring_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_emerald_nullification_ring_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_emerald_nullification_ring_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_emerald_null"							"翡翠淨化"
-		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_PURE_MAGIC_DMG_BLOCK %>x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
+         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <% ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR %>."
+
+        "item_rpc_emerald_nullification_ring_ruby1"                     "Reduces all Magic Damage taken by @ruby_property1%"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Increases Agility by @emerald_property1"
+        "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
+        "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"

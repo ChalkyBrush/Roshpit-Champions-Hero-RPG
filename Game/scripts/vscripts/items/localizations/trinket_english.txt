@@ -206,6 +206,16 @@
         "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"                               "Epsilon's Eyeglass"
+
+        "item_property_epsilon_eyeglass"                    "Extended Scope"
+        "property_epsilon_eyeglass_description"         "Increases attack range by <% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %> (RANGED ONLY), increases vision radius by <% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %>, and adds <% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %> to your attack projectile's speed."
+
+        "item_rpc_epsilons_eyeglass_ruby1"                              "Your attacks deal an extra instance of damage equal to @ruby_property1x the distance between you and your target"
+        "item_rpc_epsilons_eyeglass_emerald1"                               "Increases the Attack Range bonus (for Ranged heroes) by an additional @emerald_property1"
+        "item_rpc_epsilons_eyeglass_sapphire1"                              "Increases the Projectile Speed bonus by an additional @sapphire_property1 and increases Attack Power by @sapphire_property2%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=\"#C25DFC\">Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -441,15 +451,6 @@
 		"item_property_firelock"							"Steady Flame"		
 		"property_firelock_description"					"Increases Post-Mitigation Physical damage by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI %>% for every <% ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR %> points of Strength."
 		 
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"Epsilon's Eyeglass"
-		"item_rpc_epsilons_eyeglass_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_epsilons_eyeglass_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_epsilons_eyeglass_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_epsilons_eyeglass_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_epsilon_eyeglass"					"Extended Scope"
-		"property_epsilon_eyeglass_description"			"Increases attack range by <% ITEM_RPC_EPSILONS_EYEGLASS_ATTACK_RANGE %> (RANGED ONLY), increases vision radius by <% ITEM_RPC_EPSILONS_EYEGLASS_VISION_RADIUS %>, and adds <% ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED %> to your attack projectile's speed. Additionally, each of your attacks deals an instance of physical damage based on the distance between you and your target.<br>(Formula: 0.00<% ITEM_RPC_EPSILONS_EYEGLASS_DAMAGE_BASE * 1000 %> * hero level * distance ^ 3)<br>The maximum distance allowed for the bonus damage is <% ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE %>, and the minimum distance value is <% ITEM_RPC_EPSILONS_EYEGLASS_MIN_RANGE %> even for close-range attacks."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"Fenrir's Fang"

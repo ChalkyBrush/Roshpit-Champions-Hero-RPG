@@ -1315,6 +1315,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_TRINKET)
 		end		
+	elseif item:GetAbilityName() == "item_rpc_epsilons_eyeglass" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_EPSILONS_EYEGLASS_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_EPSILONS_EYEGLASS_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		end	
 	end
 end
 
