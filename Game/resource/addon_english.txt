@@ -14724,14 +14724,16 @@
         "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increases Item Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_frozen_heart"                "Frozen Heart of Az'heran"
-        "item_rpc_frozen_heart_ruby1"               "blah blah @ruby_property1 gem"
-        "item_rpc_frozen_heart_emerald1"                "blah blah @emerald_property1 gem"
-        "item_rpc_frozen_heart_sapphire1"               "blah blah @sapphire_property1 gem"
-        "item_rpc_frozen_heart_amethyst1"               "blah blah @amethyst_property1 gem"
+
         "item_property_frozen_heart"                                "Iceblood Marrow"   
         "property_frozen_heart_description"                 "Sets your maximum health to <font color='#ccff66'>80</font> and disables all healing. Instances of Physical / Magical / Pure damage deal <font color='#ccff66'>2</font> / <font color='#ccff66'>7</font> / <font color='#ccff66'>9</font> final damage, penetrating all defenses (including refraction shields). Regenerate <font color='#ccff66'>1</font> health every <font color='#ccff66'>0.1</font> seconds after not taking damage for <font color='#ccff66'>3</font> seconds."
         "DOTA_Tooltip_modifier_frozen_heart_regen_prep"     "Iceblood Cooldown"
         "DOTA_Tooltip_modifier_frozen_heart_regen"          "Iceblood Regen"
+
+        "item_rpc_frozen_heart_ruby1"               "Increases Iceblood Maximum Health by @ruby_property1"
+        "item_rpc_frozen_heart_emerald1"                "Reduces the delay to begin regn by @emerald_property1 seconds"
+        "item_rpc_frozen_heart_sapphire1"               "Reduce the Health Loss from Magic Damage by @sapphire_property1"
+        "item_rpc_frozen_heart_amethyst1"               "Reduce Health Loss from Pure Damage by @amethyst_property1"
 
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
