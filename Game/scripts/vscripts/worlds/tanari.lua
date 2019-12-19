@@ -66,12 +66,12 @@ function Tanari:Debug()
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_fractional_enhancement_geode")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80,  "item_rpc_helm_of_the_mountain_giant")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_fractional_enhancement_geode")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_frozen_heart")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

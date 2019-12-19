@@ -3314,7 +3314,11 @@ function CustomAttributes:GetMaxHealth(hero, excludedModifier)
 	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
 	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
-	return baseHealth * healthMultiplier - 100 
+	if hero:HasModifier("modifier_frozen_heart") then
+		return 100
+	else
+		return baseHealth * healthMultiplier - 100 
+	end
 end
 
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)

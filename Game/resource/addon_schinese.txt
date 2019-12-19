@@ -14602,7 +14602,7 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"冰血寒髓"	
-		"property_frozen_heart_description"					"最大生命值被设定为<font color='#ccff66'>100</font>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<font color='#ccff66'>2</font> / <font color='#ccff66'>5</font> / <font color='#ccff66'>8</font>点伤害。在没有受到伤害的<font color='#ccff66'>2.5</font>秒后，每<font color='#ccff66'>0.1</font>秒恢复<font color='#ccff66'>1</font>点生命值。"
+		"property_frozen_heart_description"					"最大生命值被设定为<font color='#ccff66'>80</font>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<font color='#ccff66'>2</font> / <font color='#ccff66'>7</font> / <font color='#ccff66'>9</font>点伤害。在没有受到伤害的<font color='#ccff66'>3</font>秒后，每<font color='#ccff66'>0.1</font>秒恢复<font color='#ccff66'>1</font>点生命值。"
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"冰血冷却"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"冰血回复"
 		

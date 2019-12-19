@@ -239,6 +239,15 @@
         "DOTA_Tooltip_modifier_fenrir_fang_sapphire"        "Alpha Wolf (Sapphire)"
         "DOTA_Tooltip_modifier_fenrir_fang_sapphire_Description"    "Reduced Armor"
 
+        "DOTA_Tooltip_ability_item_rpc_fire_blossom"                                    "Fire Blossom"
+        "item_property_fire_blossom"                            "Fire Bloom"
+        "property_fire_blossom_description"                    "Every point in [W4] increases Strength by <% ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 %>."
+
+        "item_rpc_fire_blossom_ruby1"                                  "Increases Rune [W4] by @ruby_property1"
+        "item_rpc_fire_blossom_emerald1"                                    "Each point in Rune [W2] increases Strength by @emerald_property1"
+        "item_rpc_fire_blossom_sapphire1"                                   "Each point in Rune [W1] increases Strength by @sapphire_property1"
+        "item_rpc_fire_blossom_amethyst1"                                    "Each point in Rune [W3] increases Strength by @amethyst_property1"
+
         "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
         "item_property_firelock"                            "Piercing Heat"      
         "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
@@ -262,7 +271,7 @@
         "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff" "Fortune's Talisman (Ruby)"
         "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff_Description" "Increased Strength and Armor"
 
-        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff" "Fortune's Talisman (Emerald)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff" "Fortune's Talisman (Emerald)" 
         "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff_Description" "Increased Agility and Armor Pierce"
 
         "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff" "Fortune's Talisman (Sapphire)"
@@ -279,6 +288,16 @@
         "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
         "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
         "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increases Item Damage by @amethyst_property1%"
+
+        "DOTA_Tooltip_ability_item_rpc_frozen_heart"                "Frozen Heart of Az'heran"
+        "item_rpc_frozen_heart_ruby1"               "blah blah @ruby_property1 gem"
+        "item_rpc_frozen_heart_emerald1"                "blah blah @emerald_property1 gem"
+        "item_rpc_frozen_heart_sapphire1"               "blah blah @sapphire_property1 gem"
+        "item_rpc_frozen_heart_amethyst1"               "blah blah @amethyst_property1 gem"
+        "item_property_frozen_heart"                                "Iceblood Marrow"   
+        "property_frozen_heart_description"                 "Sets your maximum health to <% ITEM_RPC_FROZEN_HEART_NEW_HP_CAP %> and disables all healing. Instances of Physical / Magical / Pure damage deal <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE %> final damage, penetrating all defenses (including refraction shields). Regenerate <% ITEM_RPC_FROZEN_HEART_HP_REGEN %> health every <% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %> seconds after not taking damage for <% ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY %> seconds."
+        "DOTA_Tooltip_modifier_frozen_heart_regen_prep"     "Iceblood Cooldown"
+        "DOTA_Tooltip_modifier_frozen_heart_regen"          "Iceblood Regen"
 
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
@@ -525,15 +544,6 @@
 		"item_property_wind_orchid"							"Wind Bloom"
 		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <% ITEM_RPC_WIND_ORCHID_AGI_PER_E4 %>."
 		 
-		 
-        "DOTA_Tooltip_ability_item_rpc_fire_blossom"                                    "Fire Blossom"
-        "item_property_fire_blossom"                            "Fire Bloom"
-        "property_fire_blossom_description"                    "Every point in [W4] increases Strength by <% ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4 %>."
-
-        "item_rpc_fire_blossom_ruby1"                                  "Increases Rune [W4] by @ruby_property1"
-        "item_rpc_fire_blossom_emerald1"                                    "Each point in Rune [W2] increases Strength by @emerald_property1"
-        "item_rpc_fire_blossom_sapphire1"                                   "Each point in Rune [W1] increases Strength by @sapphire_property1"
-        "item_rpc_fire_blossom_amethyst1"                                    "Each point in Rune [W3] increases Strength by @amethyst_property1"
 
 		 
 		
@@ -575,16 +585,6 @@
 		"property_sparkling_token"												"Tropical Haze"
 		"property_sparkling_token_Description"									"Reduces all Pure damage taken by <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION %>%"
 		
-		
-		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"
-		"item_rpc_frozen_heart_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_frozen_heart_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_frozen_heart"								"Iceblood Marrow"	
-		"property_frozen_heart_description"					"Sets your maximum health to <% ITEM_RPC_FROZEN_HEART_NEW_HP_CAP %> and disables all healing. Instances of Physical / Magical / Pure damage deal <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL %> / <% ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE %> final damage, penetrating all defenses (including refraction shields). Regenerate <% ITEM_RPC_FROZEN_HEART_HP_REGEN %> health every <% ITEM_RPC_FROZEN_HEART_HP_REGEN_INTERVAL %> seconds after not taking damage for <% ITEM_RPC_FROZEN_HEART_HP_REGEN_DELAY %> seconds."
-		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Cooldown"
-		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Regen"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"

@@ -14725,7 +14725,7 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"Iceblood Marrow"	
-		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на <font color='#ccff66'>100</font>. Входящий Физический / Магический / Чистый урон отнимает по <font color='#ccff66'>2</font> / <font color='#ccff66'>5</font> / <font color='#ccff66'>8</font> здоровья, пробивая любые щиты. Здоровье восстанавливается каждые <font color='#ccff66'>0.1</font> секунды по <font color='#ccff66'>1</font> ХП, когда герой не получал урона в течении <font color='#ccff66'>2.5</font> секунд."
+		"property_frozen_heart_description"					"Устанавливает максимальное значение здоровья героя на <font color='#ccff66'>80</font>. Входящий Физический / Магический / Чистый урон отнимает по <font color='#ccff66'>2</font> / <font color='#ccff66'>7</font> / <font color='#ccff66'>9</font> здоровья, пробивая любые щиты. Здоровье восстанавливается каждые <font color='#ccff66'>0.1</font> секунды по <font color='#ccff66'>1</font> ХП, когда герой не получал урона в течении <font color='#ccff66'>3</font> секунд."
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"Iceblood Перезаряжается"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Регенерация"
 		

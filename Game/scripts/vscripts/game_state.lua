@@ -3357,9 +3357,9 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_frozen_heart") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROZEN_HEART_GEM_AMETHYST)
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FROZEN_HEART_GEM_SAPPHIRE)
 		else
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS
 		end
