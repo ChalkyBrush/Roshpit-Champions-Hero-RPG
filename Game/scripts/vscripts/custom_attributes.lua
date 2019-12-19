@@ -1739,6 +1739,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_kharzun_buff") then
 		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end
+	if unit:HasModifier("modifier_emerald_nullification_ring") then
+		magic_armor_modify = magic_armor_modify + unit:GetAgility()*ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 

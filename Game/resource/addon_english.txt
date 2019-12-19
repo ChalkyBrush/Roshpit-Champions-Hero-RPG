@@ -14629,6 +14629,17 @@
         "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Spell Pierce by @sapphire_property1"
         "item_rpc_conquest_stone_falcon_amethyst1"                          "Increases Magic Armor by @amethyst_property1"
 
+
+        "DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"                      "Emerald Nullification Ring"
+
+        "item_property_emerald_null"                            "Emerald Nullification"
+         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <font color='#ccff66'>3</font>."
+
+        "item_rpc_emerald_nullification_ring_ruby1"                     "Reduces all Magic Damage taken by @ruby_property1%"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Increases Agility by @emerald_property1"
+        "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
+        "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -14905,15 +14916,6 @@
 		"item_rpc_fortunes_talisman_of_truth_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_fortune_talisman"						"Luck Booster"
 		"property_fortune_talisman_description"				"Increases the total proc chance of all equipped items by <font color='#ccff66'>50</font>% of their base value."
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"
-		"item_rpc_emerald_nullification_ring_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_emerald_nullification_ring_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_emerald_nullification_ring_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_emerald_nullification_ring_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_emerald_null"							"Emerald Nullification"
-		 "property_emerald_null_description"					"Instances of Pure or Magical damage taken are reduced by <font color='#ccff66'>5</font>x your Agility, applied after Magic Resistance and before other reductions."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"

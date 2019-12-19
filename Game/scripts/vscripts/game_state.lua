@@ -1611,7 +1611,13 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_RUBY))/100
+		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
+		end
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
 			damage = damage * (100 - ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION)/100
 		end
@@ -1651,6 +1657,16 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			if dash then
 				local reduction = (100 - dash:GetSpecialValueFor("damage_reduction_percent")) / 100
 				damage = damage * reduction
+			end
+		end
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("sapphire") > 0 then
+				local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_SAPPHIRE))
+				if proc then
+					damage = 0
+					EmitSoundOn("RPCItems.EmeraldNullification.SpellBlock", victim)
+					CustomAbilities:QuickAttachParticle("particles/items_fx/immunity_sphere.vpcf", victim, 3)
+				end
 			end
 		end
 		if victim:HasModifier("modifier_pure_resist") then
@@ -2318,7 +2334,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 
-
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_carbuncles_helm_of_reflection_effect") and applyEffects then
@@ -2326,9 +2341,6 @@ function GameState:FilterDamage(filterTable)
 				Filters:CarbuncleReflect(victim, attacker, filterTable["damage"], damagetype)
 				filterTable["damage"] = 0
 			end
-		end
-		if victim:HasModifier("modifier_emerald_nullification_ring") then
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
 		end
 		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
 			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
@@ -3606,7 +3618,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			filterTable["damage"] = victim:GetHealth()-10
+			-- filterTable["damage"] = victim:GetHealth()-10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

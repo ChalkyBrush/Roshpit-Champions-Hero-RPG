@@ -14480,7 +14480,7 @@
 		"item_rpc_emerald_nullification_ring_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_emerald_nullification_ring_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_emerald_null"							"翡翠淨化"
-		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 <font color='#ccff66'>5</font>x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
+		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 <font color='#ccff66'>0</font>x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"
