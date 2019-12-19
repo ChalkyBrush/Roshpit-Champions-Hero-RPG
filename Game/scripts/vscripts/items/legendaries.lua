@@ -6324,6 +6324,25 @@ function RPCItems:RollEpsilonsEyeglass(item_level)
     return item
 end
 
+function RPCItems:RollEyeOfAvernus(item_level)
+    local item = RPCItems:CreateVariant("item_rpc_eye_of_avernus", "immortal", "Eye of Avernus", "amulet", true, "Slot: Trinket")
+
+    item.newItemTable.property1name = "!immortal!_modifier_eye_of_avernus"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avernus", "#E85F31", 1, "#property_avernus_description")
+
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "base_ability", 1.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "base_ability", 1.75)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "base_ability", 1.75)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -7538,38 +7557,6 @@ function RPCItems:RollSignusCharm(item_level)
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
     if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollEyeOfAvernus(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_eye_of_avernus", "immortal", "Eye of Avernus", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "avernus"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_avernus", "#E85F31", 1, "#property_avernus_description")
-
-    local value, nameLevel = RPCItems:RollAttribute(0, 6, 12, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "all_attributes"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_all_attributes", "#FFFFFF", 2)
-
-    local magicResistRoll = RandomInt(15, 25)
-    item.newItemTable.property3 = magicResistRoll
-    item.newItemTable.property3name = "magic_resist"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_magic_resist", "#AC47DE", 3)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        value = math.floor(value * 1.5)
         item.newItemTable.property4 = value
         item.newItemTable.property4name = propertyName
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)

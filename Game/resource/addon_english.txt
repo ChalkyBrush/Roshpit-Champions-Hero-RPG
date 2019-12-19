@@ -14650,6 +14650,15 @@
         "item_rpc_epsilons_eyeglass_sapphire1"                              "Increases the Projectile Speed bonus by an additional @sapphire_property1 and increases Attack Power by @sapphire_property2%"
         "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=\"#C25DFC\">Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_eye_of_avernus"                                  "Eye of Avernus"
+        "item_property_avernus"                     "Commanding Vision"                             
+        "property_avernus_description"              "Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
+
+        "item_rpc_eye_of_avernus_ruby1"                                 "No Effect"
+        "item_rpc_eye_of_avernus_emerald1"                                  "No Effect"
+        "item_rpc_eye_of_avernus_sapphire1"                                 "No Effect"
+        "item_rpc_eye_of_avernus_amethyst1"                                 "No Effect"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -14741,15 +14750,6 @@
 		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"Authority"
 		"property_signus_description"				"Decreases cooldown of @Ability4 by <font color='#ccff66'>40</font>%. Doubles the cooldown of @Ability3."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"
-		"item_rpc_eye_of_avernus_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_eye_of_avernus_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_eye_of_avernus_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_eye_of_avernus_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_avernus"						"Commanding Vision"								
-		"property_avernus_description"				"Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
