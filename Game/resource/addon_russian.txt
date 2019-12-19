@@ -14592,7 +14592,7 @@
 		"item_rpc_cobalt_serenity_ring_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_cobalt_serenity_ring_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cobalt_serenity"						"Cobalt Serenity"
-		 "property_cobalt_serenity_description"					"Значение регенерации здоровья увеличено на x<font color='#ccff66'>8</font>% от показателя Интеллекта."
+		 "property_cobalt_serenity_description"					"Значение регенерации здоровья увеличено на x<font color='#ccff66'>1</font>% от показателя Интеллекта."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"Emerald Nullification Ring"

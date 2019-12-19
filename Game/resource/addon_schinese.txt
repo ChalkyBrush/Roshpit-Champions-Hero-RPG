@@ -14471,7 +14471,7 @@
 		"item_rpc_cobalt_serenity_ring_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_cobalt_serenity_ring_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>8</font>% x智力值。"
+		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>1</font>% x智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"

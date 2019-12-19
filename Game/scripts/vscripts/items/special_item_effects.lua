@@ -4200,8 +4200,13 @@ function cobalt_serenity_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_health_regen", {})
-	local healthRegenStacks = Filters:GetHeroAttribute(target, "intellect") * ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN
+	local healthRegenStacks = target:GetIntellect() * ITEM_RPC_COBALT_SERENITY_RING_INT_TO_HP_REGEN
 	target:SetModifierStackCount("modifier_cobalt_serenity_health_regen", caster, healthRegenStacks)
+	if ability:GetGemValue("amethyst") > 0 then
+		local mana_regen_stacks = target:GetIntellect()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_COBALT_SERENITY_RING_GEM_AMETHYST)/0.1
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_cobalt_serenity_amethyst_mana_regen", {})
+		target:SetModifierStackCount("modifier_cobalt_serenity_amethyst_mana_regen", caster, mana_regen_stacks)
+	end
 end
 
 function revenant_claw_start(event)
@@ -5362,9 +5367,9 @@ function init_blacksmith_tablet(event)
 	local ability = event.ability
 	local target = event.target
 	local hero = caster.hero
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
 end
 
 function end_blacksmith_tablet(event)
@@ -5372,9 +5377,9 @@ function end_blacksmith_tablet(event)
 	local ability = event.ability
 	local target = event.target
 	local hero = caster.hero
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
 end
 
 function frostmaw_kill(event)
@@ -8119,21 +8124,21 @@ function tattered_novice_init(event)
 	local hero = caster.hero
 	Runes:UpdateHeroSkillAndRunePoints(hero, true)
 	hero:SetStatsForLevel()
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 end
 
 function tattered_novice_end(event)
@@ -8142,21 +8147,21 @@ function tattered_novice_end(event)
 	Runes:UpdateHeroSkillAndRunePoints(hero, true)
 	hero:SetStatsForLevel()
 
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 end
 
 function tattered_novice_enemy_death(event)
@@ -8187,42 +8192,42 @@ function vermillion_dream_init(event)
 	local caster = event.caster
 	local hero = caster.hero
 	hero:AddNewModifier(caster, nil, 'modifier_vermillion_dream_lua', nil)
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 end
 
 function vermillion_dream_end(event)
 	local caster = event.caster
 	local hero = caster.hero
 	hero:RemoveModifierByName('modifier_vermillion_dream_lua')
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 	hero:RemoveModifierByName("modifier_vermillion_dream_amethyst")
 end
 
@@ -8680,41 +8685,41 @@ end
 function greensand_init(event)
 	local caster = event.caster
 	local hero = caster.hero
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 end
 
 function greensand_end(event)
 	local caster = event.caster
 	local hero = caster.hero
-	if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
-	end
-	if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-		hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
-	end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BODY] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+	-- end
+	-- if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+	-- 	hero:EquipItem(hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+	-- end
 end
 
 function heavy_echo_think(event)

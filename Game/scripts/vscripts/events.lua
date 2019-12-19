@@ -212,7 +212,7 @@ end
 
 function GameMode:CorrectRespawn(npc)
 	if npc:IsRealHero() then
-		npc:ReequipAllGear()
+		npc:ReequipAllGear(nil)
 	end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then

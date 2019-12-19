@@ -1,4 +1,4 @@
-function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup)
+function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup, bInitial)
 	local hero = self
 	local playerID = hero:GetPlayerOwnerID()
 	Events:TutorialServerEvent(hero, "3_1", 0)
@@ -56,6 +56,9 @@ function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup)
 
 	if gear_slot == RPC_GEAR_SLOT_WEAPON and item.newItemTable.rarity == "immortal" then
 		Stars:StarEventPlayer("weapon", hero)
+	end
+	if bInitial then
+		hero:ReequipAllGear(gear_slot)
 	end
 end
 
@@ -1292,6 +1295,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_SAPPHIRE, hero, "element_ice", RPC_GEAR_SLOT_TRINKET)
 		end			
+	elseif item:GetAbilityName() == "item_rpc_cobalt_serenity_ring" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_COBALT_SERENITY_RING_GEM_RUBY, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_COBALT_SERENITY_RING_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_TRINKET)
+		end		
 	end
 end
 
@@ -1314,25 +1323,25 @@ function RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 	end
 end
 
-function CDOTA_BaseNPC_Hero:ReequipAllGear()
+function CDOTA_BaseNPC_Hero:ReequipAllGear(ignore_slot)
 	if self.equipped_gear then
 		if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
 		end
 		if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
 		end
 		if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
 		end
 		if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
 		end
 		if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
 		end
 		if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false)
+			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
 		end
 	end
 end
