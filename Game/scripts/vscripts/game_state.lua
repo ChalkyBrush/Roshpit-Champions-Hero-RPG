@@ -3626,7 +3626,7 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			filterTable["damage"] = 9999999
+			-- filterTable["damage"] = 9999999
 		end
 	end
 

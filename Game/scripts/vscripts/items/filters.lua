@@ -4091,20 +4091,15 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
     if victim:GetEntityIndex() == attacker:GetEntityIndex() then
         return damage
     end
-    if damage < victim:GetMaxHealth() * ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD/100 then
-        local ability = attacker.amulet
-        if not ability.particles then
-            ability.particles = 0
-        end
-        if ability.particles < 6 then
+    local threshold = victim:GetMaxHealth()* (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY))/100
+    if damage < victim:GetMaxHealth() * threshold then
+        local limitKey = attacker:GetPlayerOwnerID() .. '_geode'
+        Util.Common:LimitPerTime(6, 1, limitKey, function()
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)
             EmitSoundOn("Items.Geode", victim)
-            ability.particles = ability.particles + 1
-            Timers:CreateTimer(1.5, function()
-                ability.particles = ability.particles - 1
-            end)
-        end
-        return damage * ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT
+        end)
+        local damage_mult = ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_EMERALD)
+        return damage * damage_mult
     else
         return damage
     end

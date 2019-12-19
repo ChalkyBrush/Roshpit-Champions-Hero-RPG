@@ -239,6 +239,54 @@
         "DOTA_Tooltip_modifier_fenrir_fang_sapphire"        "Alpha Wolf (Sapphire)"
         "DOTA_Tooltip_modifier_fenrir_fang_sapphire_Description"    "Reduced Armor"
 
+        "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
+        "item_property_firelock"                            "Piercing Heat"      
+        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
+        
+        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
+        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
+
+        "item_property_fortune_talisman"                        "Luck Booster"
+        "property_fortune_talisman_description"             "Increases the total proc chance of all equipped items by <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% of their base value."
+
+        "item_rpc_fortunes_talisman_of_truth_ruby1"                     "When an item procs its effect, gain @ruby_property1 Strength and @ruby_property2 Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @ruby_property2 Armor Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
+        "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "When an item procs its effect, gain @sapphire_property1 Intelligence and @sapphire_property2 Spell Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
+        "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "When an item procs its effect, gain @amethyst_property1 Spirit and @amethyst_property2 Magic Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
+
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff" "Fortune's Talisman (Ruby)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff_Description" "Increased Strength and Armor"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff" "Fortune's Talisman (Emerald)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff_Description" "Increased Agility and Armor Pierce"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff" "Fortune's Talisman (Sapphire)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff_Description" "Increased Intelligence and Spell Pierce"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff" "Fortune's Talisman (Amethyst)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff_Description" "Increased Spirit and Magic Armor"
+
+        "DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"                    "Fractional Enhancement Geode"
+
+        "item_property_geode"                               "Logarithmic Amplification"
+        "property_geode_description"                        "Whenver you deal an instance of damage which ends up being less than <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>% of the target's max health, multiply that damage instance by <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>."
+        "item_rpc_fractional_enhancement_geode_ruby1"                   "Increases the threshold to trigger Logarithmic Amplification by an additionial @ruby_property1% of the enemy's max health"
+        "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
+        "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
+        "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increases Item Damage by @amethyst_property1%"
+
+
+        "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
+        "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
+        "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
+        "item_rpc_sand_tomb_orb_sapphire1"                                  "No Effect"
+        "item_rpc_sand_tomb_orb_amethyst1"                                  "No Effect"
+
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"Hope of Saytaru"
 		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
@@ -268,43 +316,7 @@
 		"property_neverlord_soul_ring_description"											"Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
     	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
 		
-        "DOTA_Tooltip_ability_item_rpc_firelock_pendant"                                "Firelock Pendant"
-        "item_property_firelock"                            "Piercing Heat"      
-        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <% ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE %>."
-        
-        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
-        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
-        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
-        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
 
-        "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
-
-        "item_property_fortune_talisman"                        "Luck Booster"
-        "property_fortune_talisman_description"             "Increases the total proc chance of all equipped items by <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% of their base value."
-
-        "item_rpc_fortunes_talisman_of_truth_ruby1"                     "When an item procs its effect, gain @ruby_property1 Strength and @ruby_property2 Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @emerald_property2 Armor Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
-        "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "When an item procs its effect, gain @sapphire_property1 Intelligence and @sapphire_property2 Spell Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
-        "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "When an item procs its effect, gain @amethyst_property1 Spirit and @amethyst_property2 Magic Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
-
-
-        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff" "Fortune's Talisman (Ruby)"
-        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff_Description" "Increased Strength and Armor"
-
-        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff" "Fortune's Talisman (Emerald)"
-        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff_Description" "Increased Agility and Armor Pierce"
-
-        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff" "Fortune's Talisman (Sapphire)"
-        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff_Description" "Increased Intelligence and Spell Pierce"
-
-        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff" "Fortune's Talisman (Amethyst)"
-        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff_Description" "Increased Spirit and Magic Armor"
-
-		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
-		"item_rpc_sand_tomb_orb_ruby1"									    "No Effect"
-		"item_rpc_sand_tomb_orb_emerald1"									"No Effect"
-		"item_rpc_sand_tomb_orb_sapphire1"									"No Effect"
-		"item_rpc_sand_tomb_orb_amethyst1"									"No Effect"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
@@ -433,17 +445,7 @@
 		"item_property_volcano_orb"					"Fiery Core"
 		"property_volcano_orb_description"			"Increases Post-Mitigation Magical damage output <% ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT %>x. This effect multiplies with other Post-Mitigation buffs."
 		
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"Fractional Enhancement Geode"
-		"item_rpc_fractional_enhancement_geode_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_fractional_enhancement_geode_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
-		"item_property_geode"								"Logarithmic Amplification"
-		"property_geode_description"						"If you deal an instance of damage which ends up being less than <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>% of the target's max health, multiply that damage instance by <% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>."
-		
-		
+
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
 		"item_rpc_ring_of_nobility_ruby1"								"blah blah @ruby_property1 gem"
 		"item_rpc_ring_of_nobility_emerald1"								"blah blah @emerald_property1 gem"

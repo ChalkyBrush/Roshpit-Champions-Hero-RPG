@@ -1336,7 +1336,13 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_FIRELOCK_PENDANT_GEM_EMERALD, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_FIRELOCK_PENDANT_GEM_EMERALD, hero, "element_fire", RPC_GEAR_SLOT_TRINKET)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_fractional_enhancement_geode" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE, hero, "all_elements", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		end			
 	end
 end
 
