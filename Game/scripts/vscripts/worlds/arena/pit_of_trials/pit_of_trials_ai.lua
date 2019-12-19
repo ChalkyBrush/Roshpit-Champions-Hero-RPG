@@ -1800,7 +1800,7 @@ function supreme_ogre_die(event)
 		caster:BossDrops(immortals)	
 		local luck = RandomInt(1,3)
 		if luck == 1 then
-			RPCItems:RollFortunesTalismanOfTruth(position)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fortunes_talisman_of_truth")
 		end
 	end
 end

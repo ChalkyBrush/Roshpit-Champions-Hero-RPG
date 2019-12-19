@@ -319,6 +319,9 @@ function Filters:GetProc(caster, percentageChance)
     end
 
     if luck <= percentageChance then
+        if caster:HasModifier("modifier_fortunes_talisman_of_truth") then
+            Filters:FortunesTalismanItemProc(caster)
+        end
         return true
     else
         return false
@@ -6830,4 +6833,20 @@ function Filters:AnkhOfAncientsValidDeath(hero)
     ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
     ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
     StartSoundEvent("AnkhOfAncients.Death", hero)
+end
+
+function Filters:FortunesTalismanItemProc(caster)
+    local talisman = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+    if talisman:GetGemValue("ruby") > 0 then
+        talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_ruby_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
+    end
+    if talisman:GetGemValue("emerald") > 0 then
+        talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_emerald_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
+    end
+    if talisman:GetGemValue("sapphire") > 0 then
+        talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_sapphire_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
+    end
+    if talisman:GetGemValue("amethyst") > 0 then
+        talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_amethyst_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
+    end
 end

@@ -1124,6 +1124,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local fang_hero = fang_caster.hero
 		armor_modify = armor_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FENRIRS_FANG_GEM_SAPPHIRE)
 	end
+	if unit:HasModifier("modifier_fortunes_talisman_ruby_buff") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_RUBY2)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1747,6 +1750,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_emerald_nullification_ring") then
 		magic_armor_modify = magic_armor_modify + unit:GetAgility()*ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_fortunes_talisman_amethyst_buff") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_AMETHYST2)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2111,6 +2117,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_firelock_pendant") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_emerald_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD2)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2518,6 +2527,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_kharzun_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_sapphire_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_SAPPHIRE2)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3019,6 +3031,20 @@ function CustomAttributes:SetAttributes(hero)
 	end
 	if hero:HasModifier("modifier_spiritual_empowerment_stack") then
 		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1)
+	end
+	if hero:HasModifier("modifier_fortunes_talisman_of_truth") then
+		if hero:HasModifier("modifier_fortunes_talisman_ruby_buff") then
+			str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_RUBY1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_emerald_buff") then
+			agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_sapphire_buff") then
+			int_bonus = int_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_SAPPHIRE1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_amethyst_buff") then
+			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_AMETHYST1)
+		end
 	end
 	if hero:HasModifier("modifier_blue_dragon_greaves_effect") then
 		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)

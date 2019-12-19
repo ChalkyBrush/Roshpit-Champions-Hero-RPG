@@ -14711,6 +14711,28 @@
         "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
         "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"                      "Fortune's Talisman of Truth"
+
+        "item_property_fortune_talisman"                        "Luck Booster"
+        "property_fortune_talisman_description"             "Increases the total proc chance of all equipped items by <font color='#ccff66'>50</font>% of their base value."
+
+        "item_rpc_fortunes_talisman_of_truth_ruby1"                     "When an item procs its effect, gain @ruby_property1 Strength and @ruby_property2 Armor for <font color='#ccff66'>2</font> seconds"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @emerald_property2 Armor Pierce for <font color='#ccff66'>2</font> seconds"
+        "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "When an item procs its effect, gain @sapphire_property1 Intelligence and @sapphire_property2 Spell Pierce for <font color='#ccff66'>2</font> seconds"
+        "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "When an item procs its effect, gain @amethyst_property1 Spirit and @amethyst_property2 Magic Armor for <font color='#ccff66'>2</font> seconds"
+
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff" "Fortune's Talisman (Ruby)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_ruby_buff_Description" "Increased Strength and Armor"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff" "Fortune's Talisman (Emerald)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_emerald_buff_Description" "Increased Agility and Armor Pierce"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff" "Fortune's Talisman (Sapphire)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_sapphire_buff_Description" "Increased Intelligence and Spell Pierce"
+
+        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff" "Fortune's Talisman (Amethyst)"
+        "DOTA_Tooltip_modifier_fortunes_talisman_amethyst_buff_Description" "Increased Spirit and Magic Armor"
 
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"Fangs of Silithicus"
 		"item_rpc_sand_tomb_orb_ruby1"									    "No Effect"
@@ -14909,14 +14931,6 @@
 		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by <font color='#ccff66'>96</font>% and health regen increased by <font color='#ccff66'>45</font>% of max health."
 		 
 		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"Fortune's Talisman of Truth"
-		"item_rpc_fortunes_talisman_of_truth_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_fortunes_talisman_of_truth_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_fortunes_talisman_of_truth_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_fortunes_talisman_of_truth_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_fortune_talisman"						"Luck Booster"
-		"property_fortune_talisman_description"				"Increases the total proc chance of all equipped items by <font color='#ccff66'>50</font>% of their base value."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"

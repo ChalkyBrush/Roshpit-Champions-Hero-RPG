@@ -59,22 +59,28 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_firelock_pendant")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_fortunes_talisman_of_truth")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_firelock_pendant")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_fortunes_talisman_of_truth")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_firelock_pendant")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_fortunes_talisman_of_truth")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_hyper_visor")
+
+    helm = Gems:AddSocket(helm)
+    helm = Gems:AddSocket(helm)
+
 
     -- Curator:CurateALLHeroes()
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)

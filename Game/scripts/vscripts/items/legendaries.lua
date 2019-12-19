@@ -6424,6 +6424,29 @@ function RPCItems:RollFirelockPendant(item_level)
     return item
 end
 
+function RPCItems:RollFortunesTalismanOfTruth(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_fortunes_talisman_of_truth", "immortal", "Fortune's Talisman of Truth", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_fortunes_talisman_of_truth"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fortune_talisman", "#EFEC3B", 1, "#property_fortune_talisman_description")
+
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
@@ -6920,49 +6943,6 @@ function RPCItems:RollRavenIdol(item_level)
     else
         local value, nameLevel = RPCItems:RollAttribute(50, 1, 35, 0, 0, item.newItemTable.rarity, false, maxFactor * 12)
         item.newItemTable.property2 = math.ceil(value * 1.1)
-        item.newItemTable.property2name = "intelligence"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = math.floor(value * 1.4)
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollFortunesTalismanOfTruth(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_fortunes_talisman_of_truth", "immortal", "Fortune's Talisman of Truth", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "fortune_talisman"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fortune_talisman", "#EFEC3B", 1, "#property_fortune_talisman_description")
-
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property2 = RPCItems:GetLogarithmicVarianceValue(1500, 0, 0, 0, 0)
-    local primaryAttribute = RandomInt(0, 2)
-    if primaryAttribute == 0 then
-        item.newItemTable.property2name = "strength"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
-    elseif primaryAttribute == 1 then
-        item.newItemTable.property2name = "agility"
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-    else
         item.newItemTable.property2name = "intelligence"
         RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF", 2)
     end
