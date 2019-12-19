@@ -60851,33 +60851,23 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"85"
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"0.5 1.0 1.5 2.0 2.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"45.0"
+				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
+				"amethyst1"			"20 40 60 80 100"
 			}
 		}
 		"precache"
@@ -60899,7 +60889,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -60913,19 +60903,17 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_fuchsia_damage_resistance"
+						"ModifierName"	"modifier_fuschia_ring_emerald_health_regen"
 						"Target" 		"TARGET"
 					}
 				}
 			}
-			"modifier_fuchsia_damage_resistance"
+			"modifier_fuschia_ring_emerald_health_regen"
 			{
-				"IsHidden"	"0"
-				"IsBuff"	"0"
-				"TextureName"	"itemicons/fuchsia_ring"
+				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "45"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
 				}
 			}
 		}

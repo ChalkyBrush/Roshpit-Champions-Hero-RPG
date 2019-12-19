@@ -14568,14 +14568,15 @@
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"Урон увеличен"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
-		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fuchsia_ring"							"Solidarity"
-		"property_fuchsia_ring_description"					"В то время, пока герой подвержен эффекту оглушения или обезмолвлен, весь входящий урон снижается на <font color='#ccff66'>96</font>%, а регенерация здоровья увеличивается на <font color='#ccff66'>45</font>% от значения максимального здоровья."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Получаемый урон снижен на <font color='#ccff66'>96</font>%, а регенерация здоровья увеличена на <font color='#ccff66'>45</font>% от макс. здоровья."
+        "DOTA_Tooltip_ability_item_rpc_fuchsia_ring"                                    "Fuchsia Ring"
+
+        "item_property_fuchsia_ring"                            "Spiritual Brace"
+        "property_fuchsia_ring_description"                 "Each point of Spirit increases Max Health by <font color='#ccff66'>10</font> and Armor by <font color='#ccff66'>2</font>."
+
+        "item_rpc_fuchsia_ring_ruby1"                                   "Each point of Strength increases Magic Armor by @ruby_property1"
+        "item_rpc_fuchsia_ring_emerald1"                                    "Increases Health Regen by @emerald_property1% of Max Health"
+        "item_rpc_fuchsia_ring_sapphire1"                                   "Each point of Spirit increases Spell Pierce by @sapphire_property1"
+        "item_rpc_fuchsia_ring_amethyst1"                                   "Increases Strength and Spirit by @amethyst_property1"
 		
 		 
 		 

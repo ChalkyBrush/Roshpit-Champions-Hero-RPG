@@ -21,30 +21,20 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"85"
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_FUCHSIA_RING_GEM_RUBY %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"property_two"		"45.0"
+				"emerald1"			"<% ITEM_RPC_FUCHSIA_RING_GEM_EMERALD %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_FUCHSIA_RING_GEM_RUBY %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_FUCHSIA_RING_GEM_EMERALD %>"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"sapphire1"			"<% ITEM_RPC_FUCHSIA_RING_GEM_SAPPHIRE %>"
 			}
-			"06"
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_FUCHSIA_RING_GEM_AMETHYST %>"
@@ -69,7 +59,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -83,19 +73,17 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_fuchsia_damage_resistance"
+						"ModifierName"	"modifier_fuschia_ring_emerald_health_regen"
 						"Target" 		"TARGET"
 					}
 				}
 			}
-			"modifier_fuchsia_damage_resistance"
+			"modifier_fuschia_ring_emerald_health_regen"
 			{
-				"IsHidden"	"0"
-				"IsBuff"	"0"
-				"TextureName"	"itemicons/fuchsia_ring"
+				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.1"
 				}
 			}
 		}

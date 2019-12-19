@@ -1300,7 +1300,7 @@ function redfall_unit_die(event)
 		RPCItems:RollAndDropUniqueItem(event.unit, 'item_rpc_redfall_runners')
 	end
 	if luck == 3 then
-		RPCItems:RollFuchsiaRing(event.unit:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_fuchsia_ring")
 	end
 end
 

@@ -1889,9 +1889,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * reduction
 		end
 	end
-	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
-		damage = damage * (100-ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION)/100
-	end
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
 		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
 	end

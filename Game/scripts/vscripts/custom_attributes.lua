@@ -1127,6 +1127,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_fortunes_talisman_ruby_buff") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_RUBY2)
 	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		armor_modify = armor_modify + unit:GetSpirit()*ITEM_RPC_FUCHSIA_RING_ARMOR_PER_SPR
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1752,6 +1755,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_fortunes_talisman_amethyst_buff") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		magic_armor_modify = magic_armor_modify + unit:GetStrength()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FUCHSIA_RING_GEM_RUBY)
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
@@ -2530,6 +2536,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_fortunes_talisman_sapphire_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSpirit()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FUCHSIA_RING_GEM_SAPPHIRE)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3363,6 +3372,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 		if grithault:GetGemValue("amethyst") > 0 then
 			flatHealthBonus = flatHealthBonus + hero:GetSpirit()*grithault:GetFinalGemPropertyValue("amethyst", GRITHAULT_AMETHYST)
 		end
+	end
+	if excludedModifier ~= "modifier_fuchsia_ring" and hero:HasModifier("modifier_fuchsia_ring") then
+		flatHealthBonus = flatHealthBonus + ITEM_RPC_FUCHSIA_RING_HEALTH_PER_SPR * hero:GetSpirit()
 	end
 	if excludedModifier ~= "modifier_skulldigger_hellfire_stacks" and hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1)*hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", hero.InventoryUnit)

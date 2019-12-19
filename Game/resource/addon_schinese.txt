@@ -14447,15 +14447,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"紫红色的戒指"
-		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fuchsia_ring"							"团结"
-		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <font color='#ccff66'>96</font>% 并且血量每秒回复 <font color='#ccff66'>45</font>% 玩家的最大的生命值。"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
-		 
+
+        "item_property_fuchsia_ring"                            "Spiritual Brace"
+        "property_fuchsia_ring_description"                 "Each point of Spirit increases Max Health by <font color='#ccff66'>10</font> and Armor by <font color='#ccff66'>2</font>."
+
+        "item_rpc_fuchsia_ring_ruby1"                                   "Each point of Strength increases Magic Armor by @ruby_property1"
+        "item_rpc_fuchsia_ring_emerald1"                                    "Increases Health Regen by @emerald_property1% of Max Health"
+        "item_rpc_fuchsia_ring_sapphire1"                                   "Each point of Spirit increases Spell Pierce by @sapphire_property1"
+        "item_rpc_fuchsia_ring_amethyst1"                                   "Increases Strength and Spirit by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"幸运护身符"

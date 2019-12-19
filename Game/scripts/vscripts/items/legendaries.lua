@@ -6494,7 +6494,7 @@ function RPCItems:RollFuchsiaRing(item_level)
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
 
     local item = RPCItems:CreateVariant("item_rpc_fuchsia_ring", "immortal", "Fuchsia Ring", "amulet", true, "Slot: Trinket")
-    item.newItemTable.property1name = "fuchsia"
+    item.newItemTable.property1name = "!immortal!_modifier_fuchsia_ring"
     item.newItemTable.property1 = 1
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fuchsia_ring", "#FF0080", 1, "#property_fuchsia_ring_description")
 

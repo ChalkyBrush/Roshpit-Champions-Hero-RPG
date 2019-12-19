@@ -3808,10 +3808,10 @@ function fuchsia_ring_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	if target:IsStunned() or target:IsSilenced() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_fuchsia_damage_resistance", {})
-	else
-		target:RemoveModifierByName("modifier_fuchsia_damage_resistance")
+	if ability:GetGemValue("emerald") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_fuschia_ring_emerald_health_regen", {})
+		local regen_stacks = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FUCHSIA_RING_GEM_EMERALD)/0.1
+		target:SetModifierStackCount("modifier_fuschia_ring_emerald_health_regen", caster, regen_stacks)
 	end
 end
 

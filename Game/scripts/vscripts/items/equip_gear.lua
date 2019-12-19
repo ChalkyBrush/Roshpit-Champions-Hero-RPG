@@ -1342,7 +1342,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_SAPPHIRE, hero, "all_elements", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
-		end			
+		end	
+	elseif item:GetAbilityName() == "item_rpc_fuchsia_ring" then
+		if socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FUCHSIA_RING_GEM_AMETHYST, hero, "strength", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FUCHSIA_RING_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_TRINKET)
+		end		
 	end
 end
 

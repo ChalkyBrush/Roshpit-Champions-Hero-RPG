@@ -301,6 +301,16 @@
         "item_rpc_frozen_heart_sapphire1"               "Reduce the Health Loss from Magic Damage by @sapphire_property1"
         "item_rpc_frozen_heart_amethyst1"               "Reduce Health Loss from Pure Damage by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_fuchsia_ring"                                    "Fuchsia Ring"
+
+        "item_property_fuchsia_ring"                            "Spiritual Brace"
+        "property_fuchsia_ring_description"                 "Each point of Spirit increases Max Health by <% ITEM_RPC_FUCHSIA_RING_HEALTH_PER_SPR %> and Armor by <% ITEM_RPC_FUCHSIA_RING_ARMOR_PER_SPR %>."
+
+        "item_rpc_fuchsia_ring_ruby1"                                   "Each point of Strength increases Magic Armor by @ruby_property1"
+        "item_rpc_fuchsia_ring_emerald1"                                    "Increases Health Regen by @emerald_property1% of Max Health"
+        "item_rpc_fuchsia_ring_sapphire1"                                   "Each point of Spirit increases Spell Pierce by @sapphire_property1"
+        "item_rpc_fuchsia_ring_amethyst1"                                   "Increases Strength and Spirit by @amethyst_property1"
+         
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
@@ -509,16 +519,7 @@
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of Magical damage deals 300%% more Post-Mitigation damage"
 		 
 	
-		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"Fuchsia Ring"
-		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fuchsia_ring"							"Hex Guard"
-		"property_fuchsia_ring_description"					"While silenced or stunned, all damage taken is reduced by <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>%, and health regen is increased by <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>% of max health."
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"Hex Guard"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance_Description"		"Damage taken reduced by <% ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION %>% and health regen increased by <% ITEM_RPC_FUCHSIA_RING_HP_REGEN_OF_MAX_HP %>% of max health."
-		 
+
 		 
 		 
 		 
