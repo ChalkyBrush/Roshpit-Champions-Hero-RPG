@@ -6366,6 +6366,33 @@ function RPCItems:RollFenrirFang(item_level)
     return item
 end
 
+function RPCItems:RollFireBlossom(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_fire_blossom", "immortal", "Fire Blossom", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_fire_blossom"
+    item.newItemTable.property1 = 1
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_blossom", "#D62D2D", 1, "#property_fire_blossom_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_fire", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "strength", 2)
+    end
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+
 function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
@@ -7444,36 +7471,6 @@ function RPCItems:RollWindOrchid(item_level)
     item.newItemTable.property2 = value
     item.newItemTable.property2name = "agility"
     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollFireBlossom(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_fire_blossom", "immortal", "Fire Blossom", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "fire_blossom"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_fire_blossom", "#D62D2D", 1, "#property_fire_blossom_description")
-
-    value, nameLevel = RPCItems:RollAttribute(0, 6, 15, 0, 0, item.newItemTable.rarity, false, maxFactor * 14)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000", 2)
 
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.newItemTable.property3 = value

@@ -3099,7 +3099,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", 1)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", 1)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)

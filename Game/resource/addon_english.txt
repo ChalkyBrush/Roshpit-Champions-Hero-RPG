@@ -14946,13 +14946,15 @@
 		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <font color='#ccff66'>300</font>."
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_fire_blossom"									"Fire Blossom"
-		"item_rpc_fire_blossom_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fire_blossom_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fire_blossom_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fire_blossom_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fire_blossom"							"Fire Bloom"
-		 "property_fire_blossom_description"					"Every point in [W4] increases Strength by <font color='#ccff66'>300</font>."
+        "DOTA_Tooltip_ability_item_rpc_fire_blossom"                                    "Fire Blossom"
+        "item_property_fire_blossom"                            "Fire Bloom"
+        "property_fire_blossom_description"                    "Every point in [W4] increases Strength by <font color='#ccff66'>24</font>."
+
+        "item_rpc_fire_blossom_ruby1"                                  "Increases Rune [W4] by @ruby_property1"
+        "item_rpc_fire_blossom_emerald1"                                    "Each point in Rune [W2] increases Strength by @emerald_property1"
+        "item_rpc_fire_blossom_sapphire1"                                   "Each point in Rune [W1] increases Strength by @sapphire_property1"
+        "item_rpc_fire_blossom_amethyst1"                                    "Each point in Rune [W3] increases Strength by @amethyst_property1"
+
 		 
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"

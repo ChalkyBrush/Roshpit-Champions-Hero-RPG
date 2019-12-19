@@ -4742,10 +4742,13 @@ function fire_blossom_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local w_4_level = target:GetRuneValue("w", 4)
-	if w_4_level > 0 then
+
+	local base_str_bonus = target:GetRuneValue("w", 4)*ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4
+	local str_bonus_from_gems = target:GetRuneValue("w", 1)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRE_BLOSSOM_GEM_SAPPHIRE) + target:GetRuneValue("w", 2)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FIRE_BLOSSOM_GEM_EMERALD) + target:GetRuneValue("w", 3)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FIRE_BLOSSOM_GEM_AMETHYST)
+	local total_str = base_str_bonus + str_bonus_from_gems
+	if total_str > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_fire_blossom_strength_bonus", {})
-		target:SetModifierStackCount("modifier_fire_blossom_strength_bonus", caster, w_4_level)
+		target:SetModifierStackCount("modifier_fire_blossom_strength_bonus", caster, total_str)
 	else
 		target:RemoveModifierByName("modifier_fire_blossom_strength_bonus")
 	end

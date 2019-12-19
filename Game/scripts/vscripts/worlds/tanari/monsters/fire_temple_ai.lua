@@ -1638,7 +1638,7 @@ function fire_spirit_die(event)
 	end)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollFireBlossom(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fire_blossom")
 	end
 end
 

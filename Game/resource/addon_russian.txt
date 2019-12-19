@@ -14648,7 +14648,7 @@
 		"item_rpc_fire_blossom_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fire_blossom_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fire_blossom"							"Fire Bloom"
-		 "property_fire_blossom_description"					"Каждое очко руны [W4] увеличивает Силу на <font color='#ccff66'>300</font>."
+		 "property_fire_blossom_description"					"Каждое очко руны [W4] увеличивает Силу на <font color='#ccff66'>24</font>."
 		 
 		 
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"

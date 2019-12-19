@@ -1325,6 +1325,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FENRIRS_FANG_GEM_AMETHYST1, hero, "movespeed", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_FENRIRS_FANG_GEM_AMETHYST2, hero, "attack_speed", RPC_GEAR_SLOT_TRINKET)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_fire_blossom" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_FIRE_BLOSSOM_GEM_RUBY, hero, "rune_w_4", RPC_GEAR_SLOT_TRINKET)
+		end	
 	end
 end
 
