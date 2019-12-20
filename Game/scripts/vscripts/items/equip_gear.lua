@@ -1360,6 +1360,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GARNET_WARFARE_RING_GEM_EMERALD, hero, "armor", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GARNET_WARFARE_RING_GEM_EMERALD, hero, "armor_pierce", RPC_GEAR_SLOT_TRINKET)
 		end
+	elseif item:GetAbilityName() == "item_rpc_gem_of_eternal_frost" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_SAPPHIRE, hero, "element_ice", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_SAPPHIRE, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		end		
 	end
 end
 

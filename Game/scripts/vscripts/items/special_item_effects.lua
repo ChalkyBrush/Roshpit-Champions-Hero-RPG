@@ -4515,24 +4515,7 @@ function avalanche_end(event)
 
 end
 
-function eternal_frost_slowing(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	if not target:HasModifier("modifier_eternal_frost_nova") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_slowing_effect", {duration = 3})
-		local newStacks = target:GetModifierStackCount("modifier_eternal_frost_slowing_effect", caster) + 1
-		target:SetModifierStackCount("modifier_eternal_frost_slowing_effect", caster, newStacks)
-		local movespeed = target:GetBaseMoveSpeed()
-		local movespeedModifier = target:GetMoveSpeedModifier(movespeed, false)
-		if movespeedModifier <= ITEM_RPC_GEM_OF_ETERNAL_FROST_MS_THRESHOLD then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = ITEM_RPC_GEM_OF_ETERNAL_FROST_AURA_ROOT_DURATION})
-			target:RemoveModifierByName("modifier_eternal_frost_slowing_effect")
-			EmitSoundOn("RPCItem.EternalFrostFreeze", target)
-		else
-		end
-	end
-end
+
 
 function seraphic_soul_hit(event)
 	local ability = event.ability
@@ -10071,5 +10054,32 @@ function garnet_warfare_think(event)
 	if ability:GetGemValue("amethyst") > 0 then
 		local attack_damage = (hero:GetSpirit()+hero:GetStrength())*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GARNET_WARFARE_RING_GEM_AMETHYST)
 		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_garnet_warfare_ring_amethyst_base_attack", attack_damage, 0)
+	end
+end
+
+function eternal_frost_slowing(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	if ability:GetGemValue("amethyst") > 0 then
+		if not target:HasModifier("modifier_eternal_frost_nova") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_slowing_effect", {duration = 3})
+			local newStacks = target:GetModifierStackCount("modifier_eternal_frost_slowing_effect", caster) + 1
+			target:SetModifierStackCount("modifier_eternal_frost_slowing_effect", caster, newStacks)
+
+			local actual_ms_loss = newStacks*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_AMETHYST1)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_slowing_effect_movespeed_portion", {duration = 3})
+			target:SetModifierStackCount("modifier_eternal_frost_slowing_effect_movespeed_portion", caster, actual_ms_loss)
+			local movespeed = target:GetBaseMoveSpeed()
+			local movespeedModifier = target:GetMoveSpeedModifier(movespeed, false)
+			if movespeedModifier <= ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD then
+				local root_duration = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_AMETHYST2)
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_eternal_frost_nova", {duration = root_duration})
+				target:RemoveModifierByName("modifier_eternal_frost_slowing_effect")
+				EmitSoundOn("RPCItem.EternalFrostFreeze", target)
+			else
+			end
+		end
 	end
 end

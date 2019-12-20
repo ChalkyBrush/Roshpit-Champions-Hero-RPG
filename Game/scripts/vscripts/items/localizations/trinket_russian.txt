@@ -88,13 +88,15 @@
 		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от Умений, Рун и Глифов на <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
-		"item_rpc_gem_of_eternal_frost_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_gem_of_eternal_frost_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_gem_of_eternal_frost_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_gem_of_eternal_frost_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_eternal_frost"				"Frost Nova"
-		"property_eternal_frost_description"		"Скорость передвижения ближайших врагов снижается на <% ITEM_RPC_GEM_OF_ETERNAL_FROST_SLOW_PER_STACK %> каждые <% ITEM_RPC_GEM_OF_ETERNAL_FROST_STACK_INTERVAL %> секунды. Когда значение их скорости станет ниже <% ITEM_RPC_GEM_OF_ETERNAL_FROST_MS_THRESHOLD %>, они будут обездвижены на <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AURA_ROOT_DURATION %> секунды. С прочтением (E) @Ability3 все ближайшие враги в радиусе <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE %> будут обездвижены<br> на <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION %> секунды и получат урон, равный <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x Интеллекта.<br>Весь урон, напрямую наносимый предметами увеличивается на <% ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_TO_ITEM_DMG %>% за каждые <% ITEM_RPC_GEM_OF_ETERNAL_FROST_INT_DIVISOR %> очков Интеллекта."
+        "DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"                            "Gem of Eternal Frost"
+
+        "item_property_eternal_frost"               "Frost Nova"
+        "property_eternal_frost_description"        "When you cast @Ability3 - root all enemies in a <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE %> radius in a case of ice for <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION %> seconds and deal damage equal to <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x your Intelligence."
+
+        "item_rpc_gem_of_eternal_frost_ruby1"                           "Enemies who are rooted deal @ruby_property1% reduced damage to you"
+        "item_rpc_gem_of_eternal_frost_emerald1"                            "Increases Frost Nova radius by @emerald_property1 and nova damage by @emerald_property2"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> range are slowed by @amethyst_property1 movespeed every <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> seconds. When their movespeed drops below <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> they are rooted for @amethyst_property2 seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"

@@ -14316,13 +14316,15 @@
 		"property_arbor_dragonfly_description"		"Увеличивает длительность всех получаемых положительных усилений от Умений, Рун и Глифов на <font color='#ccff66'>35</font>%."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"Gem of Eternal Frost"
-		"item_rpc_gem_of_eternal_frost_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_gem_of_eternal_frost_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_gem_of_eternal_frost_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_gem_of_eternal_frost_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_eternal_frost"				"Frost Nova"
-		"property_eternal_frost_description"		"Скорость передвижения ближайших врагов снижается на <font color='#ccff66'>12</font> каждые <font color='#ccff66'>0.1</font> секунды. Когда значение их скорости станет ниже <font color='#ccff66'>150</font>, они будут обездвижены на <font color='#ccff66'>4.5</font> секунды. С прочтением (E) @Ability3 все ближайшие враги в радиусе <font color='#ccff66'>500</font> будут обездвижены<br> на <font color='#ccff66'>2.5</font> секунды и получат урон, равный <font color='#ccff66'>4000</font>x Интеллекта.<br>Весь урон, напрямую наносимый предметами увеличивается на <font color='#ccff66'>0.2</font>% за каждые <font color='#ccff66'>10</font> очков Интеллекта."
+        "DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"                            "Gem of Eternal Frost"
+
+        "item_property_eternal_frost"               "Frost Nova"
+        "property_eternal_frost_description"        "When you cast @Ability3 - root all enemies in a <font color='#ccff66'>500</font> radius in a case of ice for <font color='#ccff66'>3.5</font> seconds and deal damage equal to <font color='#ccff66'>3.5</font>x your Intelligence."
+
+        "item_rpc_gem_of_eternal_frost_ruby1"                           "Enemies who are rooted deal @ruby_property1% reduced damage to you"
+        "item_rpc_gem_of_eternal_frost_emerald1"                            "Increases Frost Nova radius by @emerald_property1 and nova damage by @emerald_property2"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <font color='#ccff66'>800</font> range are slowed by @amethyst_property1 movespeed every <font color='#ccff66'>0.1</font> seconds. When their movespeed drops below <font color='#ccff66'>150</font> they are rooted for @amethyst_property2 seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
@@ -14783,7 +14785,7 @@
         "DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"           "Galvanized Razor Band"
 
         "item_property_razor_band"                                      "Razor Blade"
-        "property_razor_band_description"                               "Taking damage additionally removes health equal to <font color='#ccff66'>1.5</font>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <font color='#ccff66'>2</font>% bonus Attack Power and increases Armor Pierce by <font color='#ccff66'>50</font>%. Stacks have independant durations of <font color='#ccff66'>6</font>. Max <font color='#ccff66'>50</font> stacks."
+        "property_razor_band_description"                               "Taking damage additionally removes health equal to <font color='#ccff66'>1.5</font>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <font color='#ccff66'>2</font>% bonus Attack Power and increases Armor Pierce by <font color='#ccff66'>35</font>. Stacks have independant durations of <font color='#ccff66'>6</font>. Max <font color='#ccff66'>50</font> stacks."
 
         "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <font color='#ccff66'>340</font> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <font color='#ccff66'>0.03</font> seconds."
         "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
