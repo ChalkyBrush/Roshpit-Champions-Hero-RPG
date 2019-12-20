@@ -1130,6 +1130,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_fuchsia_ring") then
 		armor_modify = armor_modify + unit:GetSpirit()*ITEM_RPC_FUCHSIA_RING_ARMOR_PER_SPR
 	end
+	if unit:HasModifier("modifier_galaxy_orb_emerald_freeze_effect") then
+		local galaxy_caster = unit:FindModifierByName("modifier_galaxy_orb_emerald_freeze_effect"):GetCaster()
+		local galaxy_hero = galaxy_caster.hero
+		armor_modify = armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1758,6 +1763,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_fuchsia_ring") then
 		magic_armor_modify = magic_armor_modify + unit:GetStrength()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FUCHSIA_RING_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_galaxy_orb_emerald_freeze_effect") then
+		local galaxy_caster = unit:FindModifierByName("modifier_galaxy_orb_emerald_freeze_effect"):GetCaster()
+		local galaxy_hero = galaxy_caster.hero
+		magic_armor_modify = magic_armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET

@@ -311,6 +311,16 @@
         "item_rpc_fuchsia_ring_sapphire1"                                   "Each point of Spirit increases Spell Pierce by @sapphire_property1"
         "item_rpc_fuchsia_ring_amethyst1"                                   "Increases Strength and Spirit by @amethyst_property1"
          
+        "DOTA_Tooltip_ability_item_rpc_galaxy_orb"                                      "Galaxy Orb"
+        "item_property_galaxy_orb"                  "Black Hole"
+        "property_galaxy_orb_description"           "While channeling @Ability4, all enemies within a <% ITEM_RPC_GALAXY_ORB_RADIUS %> radius are vacuumed toward you with a pull force of <% ITEM_RPC_GALAXY_ORB_BASE_VACUUM_SPEED %>."
+
+        "item_rpc_galaxy_orb_ruby1"                                     "Increases Black Hole's radius by @ruby_property1 and pull force by @ruby_property2"
+        "item_rpc_galaxy_orb_emerald1"                                      "Enemies trapped in the Black Hole vacuum for <% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> seconds are Frozen and have @emerald_property1 reduced Armor and Magic Armor for @emerald_property2 seconds"
+        "item_rpc_galaxy_orb_sapphire1"                                     "Black Hole persists for @sapphire_property1 seconds after channeling ends, and increases Base Ability Damage of [R] by @sapphire_property2%."
+        "item_rpc_galaxy_orb_amethyst1"                                     "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
+
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
@@ -382,19 +392,7 @@
 		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_lifesource_vessel"			"Lifesource"
 		"property_lifesource_vessel_description"	"Health regeneration is increased by an additional <% ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR %> for each point of Strength."
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"Galaxy Orb"
-		"item_rpc_galaxy_orb_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_galaxy_orb_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_galaxy_orb_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_galaxy_orb_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_galaxy_orb"					"Black Hole"
-		"property_galaxy_orb_description"			"While channeling @Ability4, all enemies in a wide radius of <% ITEM_RPC_GALAXY_ORB_RADIUS %> are slowly vacuumed toward you."
-		
-		
 
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
 		"item_rpc_signus_charm_ruby1"									"blah blah @ruby_property1 gem"

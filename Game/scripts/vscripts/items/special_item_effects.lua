@@ -979,43 +979,6 @@ function saytaru_think(event)
 	end
 end
 
-function galaxy_orb_channel_begin(event)
-	local caster = event.target
-	local ability = event.ability
-	local particleName = "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
-	ability.pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-
-	local position = caster:GetAbsOrigin()
-	local radius = ITEM_RPC_GALAXY_ORB_RADIUS
-	ParticleManager:SetParticleControl(ability.pfx, 0, position)
-	ParticleManager:SetParticleControl(ability.pfx, 1, Vector(radius, 2, radius * 2))
-
-	ability.position = position
-end
-
-function galaxy_orb_suction(event)
-	local caster = event.target
-	local ability = event.ability
-	local position = ability.position
-	local radius = ITEM_RPC_GALAXY_ORB_RADIUS
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			if not enemy.jumpLock then
-				local enemyPosition = enemy:GetAbsOrigin()
-				local movementVector = (position - enemyPosition):Normalized()
-				enemy:SetOrigin(enemyPosition + movementVector * 6)
-			end
-		end
-	end
-end
-
-function galaxy_orb_channel_end(event)
-	local target = event.target
-	local ability = event.ability
-	ParticleManager:DestroyParticle(ability.pfx, false)
-end
-
 function azure_empire_init(event)
 	local target = event.target
 	local caster = event.caster
@@ -10007,5 +9970,75 @@ function firelock_think(event)
 	if ability:GetGemValue("amethyst") > 0 then
 		local atk_dmg_bonus = (hero:GetSpirit())*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FIRELOCK_PENDANT_GEM_AMETHYST)
 		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_firelock_amethyst_attack_damage", atk_dmg_bonus, 0)
+	end
+end
+
+function galaxy_orb_channel_begin(event)
+	local caster = event.target
+	local ability = event.ability
+	local particleName = "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+	ability.pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+
+	local position = caster:GetAbsOrigin()
+	local radius = ITEM_RPC_GALAXY_ORB_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GALAXY_ORB_GEM_RUBY1)
+	ability.radius = radius
+	ability.vacuum_speed = ITEM_RPC_GALAXY_ORB_BASE_VACUUM_SPEED + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GALAXY_ORB_GEM_RUBY2)
+	ability.emerald_level = ability:GetGemValue("emerald")
+	ability.emerald_freeze_duration = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD2)
+	ParticleManager:SetParticleControl(ability.pfx, 0, position)
+	ParticleManager:SetParticleControl(ability.pfx, 1, Vector(radius, 2, radius * 2))
+
+	ability.suction_units_table = {}
+	ability.position = position
+end
+
+function galaxy_orb_suction(event)
+	local caster = event.target
+	local ability = event.ability
+	local position = ability.position
+	local radius = ability.radius
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			if enemy.jumpLock or enemy.pushlock then
+			else
+				local enemyPosition = enemy:GetAbsOrigin()
+				local movementVector = (position - enemyPosition):Normalized()
+				local distance = WallPhysics:GetDistance2d(enemyPosition, position)
+				if distance > ability.vacuum_speed*4 then
+					local newPosition = GetGroundPosition(enemyPosition + movementVector * ability.vacuum_speed, enemy)
+					enemy:SetOrigin(newPosition)
+				end
+			end
+			if not ability.suction_units_table[enemy:GetEntityIndex()] then
+				ability.suction_units_table[enemy:GetEntityIndex()] = 0
+			end
+			if ability.emerald_level > 0 then
+				if not enemy:HasModifier("modifier_galaxy_orb_emerald_freeze_effect") then
+					ability.suction_units_table[enemy:GetEntityIndex()] = ability.suction_units_table[enemy:GetEntityIndex()] + 1
+					if ability.suction_units_table[enemy:GetEntityIndex()] >= (ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE/0.033 - 5) then
+						ability:ApplyDataDrivenModifier(event.caster, enemy, "modifier_galaxy_orb_emerald_freeze_effect", {duration = ability.emerald_freeze_duration})
+					end
+				end
+			end
+		end
+	end
+end
+
+function galaxy_orb_channel_end(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	ParticleManager:DestroyParticle(ability.pfx, false)
+	if ability.can_stick and ability:GetGemValue("sapphire") > 0 then
+		ability.can_stick = false
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_galaxy_orb_channel", {duration = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE1)})
+	else
+		for key, value in pairs(ability.suction_units_table) do
+			local entity = EntIndexToHScript(key)
+			if entity and IsValidEntity(entity) and entity:IsAlive() then
+				FindClearSpaceForUnit(entity, entity:GetAbsOrigin(), false)
+			end
+		end
 	end
 end
