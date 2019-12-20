@@ -511,7 +511,7 @@ end
 function CDOTA_BaseNPC:GetEnemyTier()
 	local unit = self
 	if not unit.roshpit_attributes then
-		return false
+		return 0
 	end
 	if unit.roshpit_attributes.enemy_tier then
 		return unit.roshpit_attributes.enemy_tier
