@@ -10059,3 +10059,17 @@ function galaxy_orb_channel_end(event)
 		end
 	end
 end
+
+function garnet_warfare_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("sapphire") > 0 then
+		local attack_power = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GARNET_WARFARE_RING_GEM_SAPPHIRE)
+		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_garnet_warfare_ring_sapphire_attack_power", attack_power, 0)
+	end
+	if ability:GetGemValue("amethyst") > 0 then
+		local attack_damage = (hero:GetSpirit()+hero:GetStrength())*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GARNET_WARFARE_RING_GEM_AMETHYST)
+		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_garnet_warfare_ring_amethyst_base_attack", attack_damage, 0)
+	end
+end

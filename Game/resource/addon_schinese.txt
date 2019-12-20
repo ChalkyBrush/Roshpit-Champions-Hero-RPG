@@ -14486,12 +14486,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"
-		"item_rpc_garnet_warfare_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_garnet_warfare_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_garnet_warfare"							"石榴战争"
-		 "property_garnet_warfare_description"					"每<font color='#ccff66'>10</font>点力量增加基础技能伤害 <font color='#ccff66'>0.3</font>%。"
+        "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <font color='#ccff66'>0.12</font>%."
+
+        "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor and Armor Pierce by @emerald_property1"
+        "item_rpc_garnet_warfare_ring_sapphire1"                                "Increases Attack Power by @sapphire_property1%"
+        "item_rpc_garnet_warfare_ring_amethyst1"                                "Each point of Strength and Spirit increases Base Attack Damage by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"太阳宝石"

@@ -3572,7 +3572,7 @@ function chest_transforming_think(event)
 			if luck == 1 then
 				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_cobalt_serenity_ring")
 			elseif luck == 2 then
-				RPCItems:RollGarnetWarfareRing(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_garnet_warfare_ring")
 			elseif luck == 3 then
 				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_emerald_nullification_ring")
 			end

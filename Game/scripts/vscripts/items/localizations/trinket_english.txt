@@ -330,6 +330,15 @@
         "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
         "item_rpc_galvanized_razor_band_amethyst1"          "Each Razor Blade stack also increases Base Attack Damage by @amethyst_property1 and Spell Pierce by @amethyst_property2"
 
+        "DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"                             "Garnet Warfare Ring"
+
+        "item_property_garnet_warfare"                          "Garnet Warfare"
+        "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>%."
+
+        "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor and Armor Pierce by @emerald_property1"
+        "item_rpc_garnet_warfare_ring_sapphire1"                                "Increases Attack Power by @sapphire_property1%"
+        "item_rpc_garnet_warfare_ring_amethyst1"                                "Each point of Strength and Spirit increases Base Attack Damage by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
@@ -525,19 +534,7 @@
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of Magical damage deals 300%% more Post-Mitigation damage"
 		 
-	
-
-		 
-		 
-		 
-		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
-		"item_rpc_garnet_warfare_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_garnet_warfare_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_garnet_warfare"							"Garnet Warfare"
-		"property_garnet_warfare_description"                    "Increases Base Ability Damage by <% ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD %>% for every <% ITEM_RPC_GARNET_WARFARE_RING_STR_DIVISOR %> points of Strength."
-		 
+	 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
 		"item_rpc_serengaard_sun_crystal_ruby1"							"blah blah @ruby_property1 gem"

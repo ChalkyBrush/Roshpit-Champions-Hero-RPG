@@ -1666,7 +1666,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             damageMult = damageMult + WHITE_MAGE_BAD_PER_INT/100 * (attacker:GetIntellect() / WHITE_MAGE_INT_DIVISOR)
         end
         if attacker:HasModifier("modifier_garnet_warfare_ring") then
-            damageMult = damageMult + ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD/100 * (attacker:GetStrength() / ITEM_RPC_GARNET_WARFARE_RING_STR_DIVISOR)
+            damageMult = damageMult + ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD/100 * (attacker:GetStrength())
         end
         if attacker:HasModifier("modifier_torch_of_gengar_effect") then
             damageMult = damageMult + ITEM_RPC_TORCH_OF_GENGAR_BAD/100

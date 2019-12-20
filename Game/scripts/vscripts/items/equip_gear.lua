@@ -1353,6 +1353,13 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_GALAXY_ORB_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_GALAXY_ORB_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_garnet_warfare_ring" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_GARNET_WARFARE_RING_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GARNET_WARFARE_RING_GEM_EMERALD, hero, "armor", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_GARNET_WARFARE_RING_GEM_EMERALD, hero, "armor_pierce", RPC_GEAR_SLOT_TRINKET)
+		end
 	end
 end
 

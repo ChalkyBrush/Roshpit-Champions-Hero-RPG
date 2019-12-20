@@ -14610,13 +14610,15 @@
         "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"Garnet Warfare Ring"
-		"item_rpc_garnet_warfare_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_garnet_warfare_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_garnet_warfare"							"Garnet Warfare"
-		 "property_garnet_warfare_description"					"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>0.3</font>% за каждые 10 очков Силы."
+        "DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"                             "Garnet Warfare Ring"
+
+        "item_property_garnet_warfare"                          "Garnet Warfare"
+        "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <font color='#ccff66'>0.12</font>%."
+
+        "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor and Armor Pierce by @emerald_property1"
+        "item_rpc_garnet_warfare_ring_sapphire1"                                "Increases Attack Power by @sapphire_property1%"
+        "item_rpc_garnet_warfare_ring_amethyst1"                                "Each point of Strength and Spirit increases Base Attack Damage by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"Serengaard Sun Crystal"
