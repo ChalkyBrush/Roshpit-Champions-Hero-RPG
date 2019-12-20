@@ -14652,12 +14652,13 @@
 		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。"
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
-		"item_rpc_galvanized_razor_band_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_galvanized_razor_band_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_galvanized_razor_band_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_galvanized_razor_band_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_razor_band"										"旋转之刃"
-		"property_razor_band_description"								"承受敌人一次伤害后，你将会对自己造成一次 <font color='#ccff66'>1</font>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <font color='#ccff66'>24</font>% 倍攻击力和 <font color='#ccff66'>4</font>% 税后伤害。每0.3秒对附近的敌人造成一次 <font color='#ccff66'>10</font>% 攻击力的伤害。每层效果都有独立的<font color='#ccff66'>8</font> 秒持续时间，并且最大层数不能超过<font color='#ccff66'>100</font>层。"
+        "property_razor_band_description"                               "Taking damage additionally removes health equal to <font color='#ccff66'>1.5</font>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <font color='#ccff66'>2</font>% bonus Attack Power and increases Armor Pierce by <font color='#ccff66'>50</font>%. Stacks have independant durations of <font color='#ccff66'>6</font>. Max <font color='#ccff66'>50</font> stacks."
+
+        "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <font color='#ccff66'>340</font> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <font color='#ccff66'>0.03</font> seconds."
+        "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
+        "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
+        "item_rpc_galvanized_razor_band_amethyst1"          "Each Razor Blade stack also increases Base Attack Damage by @amethyst_property1 and Spell Pierce by @amethyst_property2"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"旋转之刃"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"

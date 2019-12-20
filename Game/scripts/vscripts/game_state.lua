@@ -2391,11 +2391,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modfier_razor_band_stacks") then
-		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
-		local stacks = modifier:GetStackCount()
-		mult = mult + (ITEM_RPC_GALVANIZED_RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
-	end
 
 	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
 		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then

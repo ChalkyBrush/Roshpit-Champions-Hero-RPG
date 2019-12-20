@@ -550,13 +550,15 @@
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Все руны второго ряда, полученные со снаряжения, меняют свой показатель на руну третьего ряда, и наоборот."
 		
-		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
-		"item_rpc_galvanized_razor_band_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_galvanized_razor_band_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_galvanized_razor_band_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_galvanized_razor_band_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_razor_band"										"Whirling Blade"
-		"property_razor_band_description"								"При получении урона от противника наносит дополнительную порцию урона, равную <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_DAMAGE %>% от максимального здоровья носителя, и даёт заряд Whirling Blade. Каждый заряд добавляет <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>% бонусного урона атаки и <% ITEM_RPC_GALVANIZED_RAZOR_BAND_POST_MITIGATION_PER_STACK %>% усиленного пост-резистного урона. Ближайшие противники получат урон, равный <% ITEM_RPC_GALVANIZED_RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% от урона атаки каждые 0.3 seconds. Заряды имеют независимую длительность <% ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION %> сек и максимально накапливаются до <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS %>."
+        "DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"           "Galvanized Razor Band"
+
+        "item_property_razor_band"                                      "Razor Blade"
+        "property_razor_band_description"                               "Taking damage additionally removes health equal to <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL %>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus Attack Power and increases Armor Pierce by <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE %>%. Stacks have independant durations of <% ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION %>. Max <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS %> stacks."
+
+        "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_RADIUS %> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_INTERVAL %> seconds."
+        "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
+        "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
+        "item_rpc_galvanized_razor_band_amethyst1"          "Each Razor Blade stack also increases Base Attack Damage by @amethyst_property1 and Spell Pierce by @amethyst_property2"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"Whirling Blade"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Урон атаки и пост-резистный урон увеличены. Наносит урон по ближайшим противникам."

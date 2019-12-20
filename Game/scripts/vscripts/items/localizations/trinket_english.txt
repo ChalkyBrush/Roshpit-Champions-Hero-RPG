@@ -320,6 +320,15 @@
         "item_rpc_galaxy_orb_sapphire1"                                     "Black Hole persists for @sapphire_property1 seconds after channeling ends, and increases Base Ability Damage of [R] by @sapphire_property2%."
         "item_rpc_galaxy_orb_amethyst1"                                     "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"           "Galvanized Razor Band"
+
+        "item_property_razor_band"                                      "Razor Blade"
+        "property_razor_band_description"                               "Taking damage additionally removes health equal to <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL %>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus Attack Power and increases Armor Pierce by <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE %>%. Stacks have independant durations of <% ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION %>. Max <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS %> stacks."
+
+        "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_RADIUS %> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_INTERVAL %> seconds."
+        "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
+        "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
+        "item_rpc_galvanized_razor_band_amethyst1"          "Each Razor Blade stack also increases Base Attack Damage by @amethyst_property1 and Spell Pierce by @amethyst_property2"
 
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
@@ -609,13 +618,6 @@
 		"item_property_puzzler"										"Anagram"
 		"property_puzzler_description"								"Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
 
-		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"Galvanized Razor Band"
-		"item_rpc_galvanized_razor_band_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_galvanized_razor_band_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_galvanized_razor_band_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_galvanized_razor_band_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_razor_band"										"Blade Barricade"
-		"property_razor_band_description"								"Taking damage from an enemy deals an additional instance of Magical damage to you, equal to <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_DAMAGE %>% of your max health, to apply a Blade Barricade stack. Each stack adds <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus attack damage and increases all Post-Mitigation damage dealt by <% ITEM_RPC_GALVANIZED_RAZOR_BAND_POST_MITIGATION_PER_STACK %>%. Each stack shreds nearby enemies, dealing damage equal to <% ITEM_RPC_GALVANIZED_RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER %>% of your attack power every 0.3 seconds. Each stack also has an independent <% ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION %>-second duration. Limit <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS %> stacks."
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"Blade Barricade"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and Post-Mitigation damage. Damaging nearby enemies."

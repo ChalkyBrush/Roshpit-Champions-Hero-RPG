@@ -6069,21 +6069,31 @@ function razor_band_take_damage(event)
 	local ability = event.ability
 	local caster = event.caster
 	local attacker = event.attacker
-	if target == attacker then
+	if target == attacker or event.damage < 1 then
 		return false
 	end
 	if not ability.buff_table then
 		ability.buff_table = {}
 	end
-	local new_buff = GameRules:GetGameTime()
-	if #ability.buff_table < 100 then
-		table.insert(ability.buff_table, new_buff)
+	local stack_gain = 1
+	local proc = Filters:GetProc(target, ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD2))
+	if proc then
+		stack_gain = stack_gain + 1
 	end
-	ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION})
-	local stacks = #ability.buff_table
-	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
-	local self_damage = target:GetMaxHealth()*(ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_DAMAGE/100)
-	ApplyDamage({victim = target, attacker = target, damage = self_damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	for i = 1, stack_gain, 1 do
+		local new_buff = GameRules:GetGameTime()
+		local max_stacks = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_SAPPHIRE1)
+		if #ability.buff_table < max_stacks then
+			table.insert(ability.buff_table, new_buff)
+		end
+		ability:ApplyDataDrivenModifier(caster, target, "modfier_razor_band_stacks", {duration = ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION})
+		local stacks = #ability.buff_table
+		target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
+	end
+	local self_removal_rate = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD1)
+	local self_health_removal = target:GetMaxHealth()*(self_removal_rate/100)
+	local newHealth = math.max(target:GetHealth() - self_health_removal, 1)
+	target:SetHealth(newHealth)
 end
 
 function razor_band_think(event)
@@ -6092,8 +6102,10 @@ function razor_band_think(event)
 	local caster = event.caster
 
 	local new_buff_table = {}
+
+	local stack_duration = ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_SAPPHIRE2)
 	for i = 1, #ability.buff_table, 1 do
-		if GameRules:GetGameTime() - ability.buff_table[i] > ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION then
+		if GameRules:GetGameTime() - ability.buff_table[i] >stack_duration then
 		else
 			table.insert(new_buff_table, ability.buff_table[i])
 		end
@@ -6102,17 +6114,20 @@ function razor_band_think(event)
 
 	local stacks = #ability.buff_table
 	target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
-
+	if ability:GetGemValue("amethyst") > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_razor_band_amethyst_attack_stacks", {})
+		target:SetModifierStackCount("modifier_razor_band_amethyst_attack_stacks", caster, stacks)
+	end
 	razor_band_update_pfx(ability, target)
 	if not ability.particles then
 		ability.particles = 0
 	end
-	if #ability.buff_table > 0 then
+	if #ability.buff_table > 0 and ability:GetGemValue("ruby") > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_RUBY)/100)
 		local stacks = #ability.buff_table
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 340, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				local damage = OverflowProtectedGetAverageTrueAttackDamage(target)*(stacks*ITEM_RPC_GALVANIZED_RAZOR_BAND_DAMAGE_PCT_OF_ATTACK_POWER/100)
 				Filters:ApplyItemDamage(enemy, target, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NORMAL)
 				if ability.particles < 10 then
 					ability.particles = ability.particles + 1
@@ -6153,10 +6168,11 @@ function razor_band_update_pfx(ability, hero)
 			ability.razor_pfx = nil
 		end
 	end
+	local max_pfx_stacks = math.max(ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS + 25, ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_SAPPHIRE1))
 	if ability.razor_pfx then
 		local stacks = #ability.buff_table
-		ParticleManager:SetParticleControl(ability.razor_pfx, 1, Vector(stacks/100, stacks/100, stacks/100))
-		ParticleManager:SetParticleControl(ability.razor_pfx, 9, Vector(stacks/100, stacks/100, stacks/100))
+		ParticleManager:SetParticleControl(ability.razor_pfx, 1, Vector(stacks/max_pfx_stacks, stacks/max_pfx_stacks, stacks/max_pfx_stacks))
+		ParticleManager:SetParticleControl(ability.razor_pfx, 9, Vector(stacks/max_pfx_stacks, stacks/max_pfx_stacks, stacks/max_pfx_stacks))
 	end
 end
 
@@ -6177,6 +6193,7 @@ function razor_band_end(event)
 	ability.buff_table = {}
 	EmitSoundOn("Items.RazorBandEnd", target)
 	target:RemoveModifierByName("modfier_razor_band_stacks")
+	target:RemoveModifierByName("modifier_razor_band_amethyst_attack_stacks")
 	razor_band_update_pfx(ability, target)
 end
 

@@ -2137,6 +2137,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_fortunes_talisman_emerald_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD2)
 	end
+	if unit:HasModifier("modfier_razor_band_stacks") then
+		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2549,6 +2552,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_fuchsia_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSpirit()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FUCHSIA_RING_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modfier_razor_band_stacks") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_AMETHYST2)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
