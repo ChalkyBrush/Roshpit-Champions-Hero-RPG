@@ -6654,6 +6654,26 @@ function RPCItems:RollHopeOfSaytaru(item_level)
     return item
 end
 
+function RPCItems:RollLifesourceVessel(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_lifesource_vessel", "immortal", "Lifesource Vessel", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_lifesource_vessel"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lifesource_vessel", "#E31459", 1, "#property_lifesource_vessel_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 
 -- break
 
@@ -6862,37 +6882,6 @@ function RPCItems:RollTwigOfEnlightened(item_level)
         item.newItemTable.property3name = propertyName
         RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
     end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollLifesourceVessel(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_lifesource_vessel", "immortal", "Lifesource Vessel", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "lifesource"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_lifesource_vessel", "#E31459", 1, "#property_lifesource_vessel_description")
-
-    local value, prefixLevel = RPCItems:RollAttribute(300, 220, 600, 1, 1, item.newItemTable.rarity, false, maxFactor * 400)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "max_health"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_max_health", "#B02020", 2)
-
-    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 10, 0, 0, item.newItemTable.rarity, false, maxFactor * 5)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "health_regen"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_health_regen", "#6AA364", 3)
 
     local tier, value, propertyName = RPCItems:RollSkillProperty()
     if tier > 0 then
@@ -8248,7 +8237,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_yasha_boots"}
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
         itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire", "item_rpc_blacksmiths_tablet", "item_rpc_epsilons_eyeglass",
-        "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru"}
+        "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel"}
     end
     return itemsList
 end

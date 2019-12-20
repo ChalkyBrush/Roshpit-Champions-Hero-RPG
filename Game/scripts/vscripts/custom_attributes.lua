@@ -3430,6 +3430,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
+	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE
+	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
 			flatHealthBonus = flatHealthBonus + result
@@ -3451,6 +3454,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
 		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE)/100
+	end
+	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
+		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIFESOURCE_VESSEL_GEM_SAPPHIRE)/100
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 

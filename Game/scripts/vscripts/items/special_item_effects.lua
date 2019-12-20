@@ -961,11 +961,25 @@ function lifesource_vessel_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local stacks = math.floor(target:GetStrength() * ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR)
-	if not target:HasModifier("modifier_lifesource_vessel_buff") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_lifesource_vessel_buff", {})
+	if ability:GetGemValue("emerald") > 0 then
+		local stacks = math.floor(target:GetSumOfAllAttributes() * ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_LIFESOURCE_VESSEL_GEM_EMERALD))/0.1
+		if not target:HasModifier("modifier_lifesource_vessel_buff") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_lifesource_vessel_buff", {})
+		end
+		target:SetModifierStackCount("modifier_lifesource_vessel_buff", ability, stacks)
 	end
-	target:SetModifierStackCount("modifier_lifesource_vessel_buff", ability, stacks)
+	if ability:GetGemValue("ruby") > 0 then
+		if not ability.interval then
+			ability.interval = 0
+		end
+		ability.interval = ability.interval + 1
+		if ability.interval >= ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL/0.1 then
+			ability.interval = 0
+			CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_claw_heal.vpcf", target, 0.7)
+			local healAmount = target:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_LIFESOURCE_VESSEL_GEM_RUBY)/100)
+			Filters:ApplyHeal(target, target, healAmount, true, true)
+		end
+	end
 end
 
 function saytaru_think(event)

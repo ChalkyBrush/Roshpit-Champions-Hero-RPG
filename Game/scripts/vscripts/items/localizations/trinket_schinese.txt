@@ -100,12 +100,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"
-		"item_rpc_lifesource_vessel_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_lifesource_vessel_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_lifesource_vessel_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_lifesource_vessel"			"生命源泉"
-		"property_lifesource_vessel_description"	"每点力量值提高生命值回复速度 <% ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR %>。"
+        "property_lifesource_vessel_description"    "All attributes increases Max Health by <% ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE %>."
+
+        "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <% ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL %> seconds"
+        "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
+        "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"星球"

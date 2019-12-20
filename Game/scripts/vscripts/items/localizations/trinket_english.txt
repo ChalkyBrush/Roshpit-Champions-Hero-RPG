@@ -373,6 +373,16 @@
         "item_rpc_hope_of_saytaru_sapphire1"                                    "While Final Hope is active gain @sapphire_property1% resistance to Pure Damage"
         "item_rpc_hope_of_saytaru_amethyst1"                                    "Reduces all damage taken while Final Hope is active by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_lifesource_vessel"                               "Lifesource Vessel"
+
+        "item_property_lifesource_vessel"           "Lifesource"
+        "property_lifesource_vessel_description"    "All attributes increases Max Health by <% ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE %>."
+
+        "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <% ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL %> seconds"
+        "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
+        "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
@@ -418,15 +428,6 @@
 		"item_rpc_stone_of_gordon_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 	
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"Lifesource Vessel"
-		"item_rpc_lifesource_vessel_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_lifesource_vessel_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_lifesource_vessel_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_lifesource_vessel"			"Lifesource"
-		"property_lifesource_vessel_description"	"Health regeneration is increased by an additional <% ITEM_RPC_LIFESOURCE_VESSEL_HP_REGEN_PER_STR %> for each point of Strength."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
