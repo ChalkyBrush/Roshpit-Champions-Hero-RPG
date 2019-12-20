@@ -2140,6 +2140,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modfier_razor_band_stacks") then
 		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE
 	end
+	if unit:HasModifier("modifier_hope_of_saytaru") then
+		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
+			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
+		end
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2555,6 +2560,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modfier_razor_band_stacks") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_hope_of_saytaru") then
+		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

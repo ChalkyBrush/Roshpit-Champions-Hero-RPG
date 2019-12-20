@@ -1638,7 +1638,7 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * reduction
 		end
 		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
-			damage = (1 - ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE) * damage
+			damage = (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HOPE_OF_SAYTARU_GEM_SAPPHIRE)/100) * damage
 		end
 		if victim:HasModifier("modifier_boots_of_ashara") then
 			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST)/100))
@@ -1795,6 +1795,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 	if victim:HasModifier("modifier_crystalline_slippers") and victim:IsRooted() then
 		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE)/100)
+	end
+	if victim:HasModifier("modifier_hope_of_saytaru_effect") then
+		damage = (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HOPE_OF_SAYTARU_GEM_AMETHYST)/100) * damage
 	end
 	if victim:HasModifier("modifier_bloodstone_boots") then
 		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
@@ -2342,9 +2345,6 @@ function GameState:FilterDamage(filterTable)
 				Filters:CarbuncleReflect(victim, attacker, filterTable["damage"], damagetype)
 				filterTable["damage"] = 0
 			end
-		end
-		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
-			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
 		if victim:HasModifier("modifier_azure_empire_visible") and applyEffects then
 			if not Filters:HasDamageBlockShield(victim) then

@@ -972,7 +972,8 @@ function saytaru_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	if target:GetHealth() <= target:GetMaxHealth() * ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT then
+	local threshold = (ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_HOPE_OF_SAYTARU_GEM_RUBY))/100
+	if target:GetHealth() <= threshold * target:GetMaxHealth() then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_hope_of_saytaru_effect", {})
 	else
 		target:RemoveModifierByName("modifier_hope_of_saytaru_effect")

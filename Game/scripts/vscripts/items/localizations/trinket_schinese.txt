@@ -9,12 +9,16 @@
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
-		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_hope_of_saytaru_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_hope_of_saytaru_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_saytaru"						"最后的希望"
-		"property_saytaru_description"				"当生命值低于<% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT * 100 %>%时获得魔法免疫，该状态下受到的纯粹伤害降低<% ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE * 100 %>%，造成的魔法和纯粹伤害降低<% ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE * 100 %>%"
+        "property_saytaru_description"              "Gain Magic Immunity while below <% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT %>% health."
+
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect"              "Final Hope"
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"  "Magic Immune"
+
+        "item_rpc_hope_of_saytaru_ruby1"                                    "Increases the Health threshold to activate Final Hope by an additional @ruby_property1% of Max Health"
+        "item_rpc_hope_of_saytaru_emerald1"                                 "While Final Hope is inactive, gain @emerald_property1 Armor Pierce and Spell Pierce"
+        "item_rpc_hope_of_saytaru_sapphire1"                                    "While Final Hope is active gain @sapphire_property1% resistance to Pure Damage"
+        "item_rpc_hope_of_saytaru_amethyst1"                                    "Reduces all damage taken while Final Hope is active by @amethyst_property1%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"
