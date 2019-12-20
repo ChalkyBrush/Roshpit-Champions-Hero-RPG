@@ -695,15 +695,18 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			Filters:GoldbreakerMagicImmuneBreak(hero, target)
 			return false
 		end
-	elseif target:HasModifier("modifier_guadian_stone") then
+	elseif target:HasModifier("modifier_guardian_stone") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then
-			local duration_modifier = ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
+			local duration_modifier = ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT + target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GUARDIAN_STONE_GEM_SAPPHIRE)
 			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
-				local heal = target:GetMaxHealth()*(ITEM_RPC_GUARDIAN_STONE_HEAL_PCT/100)
-				CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
-				Filters:ApplyHeal(target, target, heal, true, true)
+				if target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
+					local heal_pct_value = target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARDIAN_STONE_GEM_RUBY)
+					local heal = target:GetMaxHealth()*(heal_pct_value/100)
+					CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
+					Filters:ApplyHeal(target, target, heal, true, true)
+				end
 				EmitSoundOn("Items.GuardianStone.Trigger", target)
 			end
 		end			
@@ -1617,6 +1620,9 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
+		end
+		if victim:HasModifier("modifier_guardian_stone") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
 		end
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
 			damage = damage * (100 - ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION)/100

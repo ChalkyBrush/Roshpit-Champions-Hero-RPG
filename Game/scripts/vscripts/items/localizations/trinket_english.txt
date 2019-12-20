@@ -350,6 +350,17 @@
         "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> range are slowed by @amethyst_property1 movespeed every <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> seconds. When their movespeed drops below <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> they are rooted for @amethyst_property2 seconds."
 
+        "DOTA_Tooltip_ability_item_rpc_guardian_stone"                  "Guardian Stone"
+
+        "property_guardian_stone"                                       "Silver Heart"
+        "property_guardian_stone_description"                               "Reduces the durations of all debuffs applied to you by enemies by <% ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>%."
+
+        "item_rpc_guardian_stone_ruby1"                 "When a debuff is applied to you by an enemy, heal @ruby_property1% of your max health."
+        "item_rpc_guardian_stone_emerald1"                  "Reduces all Pure damage taken by @emerald_property1%"
+        "item_rpc_guardian_stone_sapphire1"                 "Reduces the durations of all debuffs applied to you by enemies by @sapphire_property1%"
+        "item_rpc_guardian_stone_amethyst1"                 "Increases Spirit by @amethyst_property1"
+
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
@@ -621,11 +632,3 @@
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"Blade Barricade"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and Post-Mitigation damage. Damaging nearby enemies."
-
-		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"Guardian Stone"
-		"item_rpc_guardian_stone_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_guardian_stone_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_guardian_stone"										"Silver Heart"
-		"property_guardian_stone_description"								"Debuffs applied to you by enemies have <% ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT %>% reduced duration. When a debuff duration is reduced this way, heal <% ITEM_RPC_GUARDIAN_STONE_HEAL_PCT %>% of your max health."

@@ -14666,12 +14666,13 @@
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"卫士之石"
-		"item_rpc_guardian_stone_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_guardian_stone_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"白银之心"
-		"property_guardian_stone_description"								"敌人对你施加的Debuffs的持续时间将会被降低 <font color='#ccff66'>75</font>% 。当一个debuff的持续时间被降低后，你将会被治疗一次，治疗量为<font color='#ccff66'>20</font>% 最大生命值。"
+        "property_guardian_stone_description"                               "Reduces the durations of all debuffs applied to you by enemies by <font color='#ccff66'>50</font>%."
+
+        "item_rpc_guardian_stone_ruby1"                 "When a debuff is applied to you by an enemy, heal @ruby_property1% of your max health."
+        "item_rpc_guardian_stone_emerald1"                  "Reduces all Pure damage taken by @emerald_property1%"
+        "item_rpc_guardian_stone_sapphire1"                 "Reduces the durations of all debuffs applied to you by enemies by @sapphire_property1%"
+        "item_rpc_guardian_stone_amethyst1"                 "Increases Spirit by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"直觉翡翠之戒"
 		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"
