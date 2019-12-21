@@ -3124,13 +3124,14 @@ function twig_think(event)
 		target.manaShellAbsorb = 0
 		target.manaShellMana = target:GetMana()
 	end
+	local max_capacity = ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_GEM_SAPPHIRE)
 	if target:GetMana() > target.manaShellMana then
 		local manaGained = target:GetMana() - target.manaShellMana
-		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD, target:GetMaxMana() * 5)
+		target.manaShellAbsorb = math.min(target.manaShellAbsorb + manaGained * (ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_GEM_RUBY)), target:GetMaxMana() * max_capacity)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/luna/luna_lucent_ti5/luna_eclipse_cast_flash_ti_5.vpcf", target, 1)
 	end
 	if ability.twigPFX then
-		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY)) * 255, 255)
+		local ratio = math.min((target.manaShellAbsorb / (target:GetMaxMana() * max_capacity)) * 255, 255)
 		ParticleManager:SetParticleControl(ability.twigPFX, 1, Vector(ratio, ratio, ratio))
 	end
 	if target.manaShellAbsorb > 0 then
@@ -3170,6 +3171,17 @@ function twig_shield_death(event)
 	if ability.twigPFX then
 		ParticleManager:DestroyParticle(ability.twigPFX, true)
 		ability.twigPFX = false
+	end
+end
+
+function twig_take_damage(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local damage = event.damage
+	if damage > 2 and ability:GetGemValue("emerald") > 0 then
+		local manaRestore = hero:GetMaxMana()*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_GEM_EMERALD)/100
+		hero:GiveMana(manaRestore)
 	end
 end
 

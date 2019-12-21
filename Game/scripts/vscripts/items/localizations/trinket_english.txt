@@ -589,7 +589,18 @@
         "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
         "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
 	
-		
+        "DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"                         "Twig of the Enlightened"
+
+        "item_property_twig_of_enlightened"                 "Mana Shell"
+        "property_twig_of_enlightened_description"          "Whenever you gain mana, create a temporary shield that absorbs damage equal to <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x the mana gained. The shield's maximum capacity is limited to <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x your max mana."
+        "DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"  "Mana Shell"
+        "DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"  "Absorbing Damage"
+
+        "item_rpc_twig_of_the_enlightened_ruby1"                            "The shield builds damage absorption by an additional @ruby_property1x Mana Gained"
+        "item_rpc_twig_of_the_enlightened_emerald1"                         "Restore @emerald_property1% of your Mana when taking damage"
+        "item_rpc_twig_of_the_enlightened_sapphire1"                            "Increases Mana Shell's capacity by an additional @sapphire_property1x of your Max Mana"
+        "item_rpc_twig_of_the_enlightened_amethyst1"                            "Increases Mana Regen by @amethyst_property1"
+        	
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
 		"item_rpc_volcano_orb_ruby1"										"blah blah @ruby_property1 gem"
@@ -601,15 +612,7 @@
 		
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"
-		"item_rpc_twig_of_the_enlightened_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_twig_of_the_enlightened_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_twig_of_the_enlightened_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_twig_of_the_enlightened_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_twig_of_enlightened"					"Mana Shell"
-		"property_twig_of_enlightened_description"			"Whenever you gain mana, create a temporary shield that absorbs damage equal to <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x the mana gained. The shield's maximum capacity is limited to <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x your max mana."
-		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"Mana Shell"
-		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"Absorbing Damage"
+
 		
 		 
 		 

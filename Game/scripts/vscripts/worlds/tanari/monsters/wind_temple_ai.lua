@@ -1271,7 +1271,7 @@ function wind_prophet_take_damage(event)
 end
 
 function wind_prophet_die(event)
-	RPCItems:RollTwigOfEnlightened(event.caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(event.caster, "item_rpc_twig_of_the_enlightened")
 end
 
 function rare_wind_warder_die(event)
