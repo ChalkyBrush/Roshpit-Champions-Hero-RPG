@@ -6792,6 +6792,70 @@ function RPCItems:RollRavenIdol(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollRingOfNobility(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ring_of_nobility", "immortal", "Ring of Nobility", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_ring_of_nobility"
+    item.newItemTable.property1 = 0
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
+
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, rune_type, 1)
+    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, rune_type, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariantWithMin("item_rpc_ring_of_nobility_augmented", "immortal", "Ring of Nobility Augmented", "amulet", true, "Slot: Trinket", ability.newItemTable.minLevel, "", "")
+    item.newItemTable.property1name = "!immortal!_modifier_ring_of_nobility_augmented"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF", 1, "#property_nobility_augmented_description")
+
+    item.newItemTable.property2 = ability.newItemTable.property2 * 2
+    item.newItemTable.property2name = ability.newItemTable.property2name
+    item.newItemTable.property2color = ability.newItemTable.property2color
+    item.newItemTable.property2tooltip = ability.newItemTable.property2tooltip
+
+    item.newItemTable.property3 = ability.newItemTable.property3 * 2
+    item.newItemTable.property3name = ability.newItemTable.property3name
+    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+
+    item.newItemTable.property4 = ability.newItemTable.property4 * 2
+    item.newItemTable.property4name = ability.newItemTable.property4name
+    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
+
+    item.newItemTable.armor = ability.newItemTable.armor
+    item.newItemTable.base_magic_armor = ability.newItemTable.base_magic_armor
+    item.newItemTable.socket1 = ability.newItemTable.socket1
+    item.newItemTable.socket1value = ability.newItemTable.socket1value
+    item.newItemTable.socket2 = ability.newItemTable.socket2
+    item.newItemTable.socket2value = ability.newItemTable.socket2value
+    if type(item.newItemTable.socket1value) == "number" then
+        item.newItemTable.socket1value = math.min(item.newItemTable.socket1value + 1, 5)
+    end
+    if type(item.newItemTable.socket1value) == "number" then
+        item.newItemTable.socket1value = math.min(item.newItemTable.socket1value + 1, 5)
+    end
+    item.pickedUp = true
+    RPCItems:ItemUpdateCustomNetTables(item)
+    hero:EquipItem(item, true, true)
+    UTIL_Remove(ability)
+    return item
+end
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7163,74 +7227,7 @@ function RPCItems:RollVolcanoOrb(item_level)
     return item
 end
 
-function RPCItems:RollRingOfNobility(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_ring_of_nobility", "immortal", "Ring of Nobility", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
 
-    item.newItemTable.property1name = "nobility"
-    item.newItemTable.property1 = 0
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
-
-    local value = math.ceil(RPCItems:GetMinLevel() / 2)
-    item.newItemTable.property2 = value * 5
-    item.newItemTable.property2name = "item_damage"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_damage_increase", "#F28100", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
-    local item = RPCItems:CreateVariantWithMin("item_rpc_ring_of_nobility_augmented", "immortal", "Ring of Nobility Augmented", "amulet", true, "Slot: Trinket", ability.newItemTable.minLevel, "", "")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "nobility_augmented"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_nobility_augmented", "#FFFFFF", 1, "#property_nobility_augmented_description")
-
-    item.newItemTable.property2 = ability.newItemTable.property2 * 2
-    item.newItemTable.property2name = ability.newItemTable.property2name
-    item.newItemTable.property2color = ability.newItemTable.property2color
-    item.newItemTable.property2tooltip = ability.newItemTable.property2tooltip
-    -- local primaryAttribute = hero:GetRoshpitPrimaryAttribute()
-    -- if primaryAttribute == 0 then
-    --     item.newItemTable.property2name = "strength"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_strength", "#CC0000",  2)
-    -- elseif primaryAttribute == 1 then
-    --     item.newItemTable.property2name = "agility"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E",  2)
-    -- else
-    --     item.newItemTable.property2name = "intelligence"
-    --     RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_intelligence", "#33CCFF",  2)
-    -- end
-
-    item.newItemTable.property3 = ability.newItemTable.property3 * 2
-    item.newItemTable.property3name = ability.newItemTable.property3name
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    item.newItemTable.property4 = ability.newItemTable.property4 * 2
-    item.newItemTable.property4name = ability.newItemTable.property4name
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    item.pickedUp = true
-    RPCItems:ItemUpdateCustomNetTables(item)
-    RPCItems:AmuletPickup(hero, item)
-    Weapons:Equip(hero, item)
-    return item
-end
 
 function RPCItems:RollTempestFalconRing(item_level)
     local item = RPCItems:CreateVariant("item_rpc_tempest_falcon_ring", "immortal", "Tempest Falcon Ring", "amulet", true, "Slot: Trinket")
@@ -8175,7 +8172,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
         itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire", "item_rpc_blacksmiths_tablet", "item_rpc_epsilons_eyeglass",
         "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel", "item_rpc_monkey_paw",
-        "item_rpc_raven_idol"}
+        "item_rpc_raven_idol", "item_rpc_ring_of_nobility"}
     end
     return itemsList
 end

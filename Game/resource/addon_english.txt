@@ -14879,7 +14879,23 @@
         "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
         "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
+        "item_rpc_ring_of_nobility_ruby1"                               "When this ring upgrades, upgrade this Ruby to Tier @ruby_property1"
+        "item_rpc_ring_of_nobility_emerald1"                                "When this ring upgrades, upgrade this Emerald to Tier @emerald_property1"
+        "item_rpc_ring_of_nobility_sapphire1"                               "When this ring upgrades, upgrade this Sapphire to Tier @sapphire_property1"
+        "item_rpc_ring_of_nobility_amethyst1"                               "When this ring upgrades, upgrade this Amethyst to Tier @amethyst_property1"
+        "item_property_nobility"                            "Path of Nobility"
+        "property_nobility_description"                        "Increases all attributes by <font color='#ccff66'>1</font>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith."
 
+        
+        
+        "DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"                      "Augmented Ring of Nobility"
+        "item_rpc_ring_of_nobility_augmented_ruby1"                     "Increases all Tier 1 runes by @ruby_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Increases all Tier 3 runes by @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Increases all Tier 2 runes by @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "Increases all Tier 4 runes by @amethyst_property1"
+        "item_property_nobility_augmented"                  "Strides of Nobility"
+        "property_nobility_augmented_description"           "Increases all attributes by <font color='#ccff66'>2</font>x your level. This item cannot be reforged by the Blacksmith."
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
@@ -14964,24 +14980,6 @@
 		"item_property_volcano_orb"					"Fiery Core"
 		"property_volcano_orb_description"			"Increases Post-Mitigation Magical damage output <font color='#ccff66'>2.5</font>x. This effect multiplies with other Post-Mitigation buffs."
 		
-
-		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"Ring of Nobility"
-		"item_rpc_ring_of_nobility_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_ring_of_nobility_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_nobility"							"Path of Nobility"
-		"property_nobility_description"                        "Increases all attributes by <font color='#ccff66'>30</font>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith."
-
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"Augmented Ring of Nobility"
-		"item_rpc_ring_of_nobility_augmented_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_ring_of_nobility_augmented_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_nobility_augmented"					"Strides of Nobility"
-		"property_nobility_augmented_description"			"Increases all attributes by <font color='#ccff66'>60</font>x your level. This item cannot be reforged by the Blacksmith."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"Twig of the Enlightened"

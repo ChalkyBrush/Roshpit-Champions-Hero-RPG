@@ -1424,6 +1424,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RAVEN_IDOL_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RAVEN_IDOL_GEM_AMETHYST, hero, "element_shadow", RPC_GEAR_SLOT_TRINKET)
 		end		
+	elseif item:GetAbilityName() == "item_rpc_ring_of_nobility_augmented" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_RUBY, hero, "all_t1_runes", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_EMERALD, hero, "all_t3_runes", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_SAPPHIRE, hero, "all_t2_runes", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_AMETHYST, hero, "all_t4_runes", RPC_GEAR_SLOT_TRINKET)
+		end			
 	end
 end
 

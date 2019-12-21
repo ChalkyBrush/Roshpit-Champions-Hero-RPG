@@ -14368,7 +14368,7 @@
 		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_nobility"							"崇高之路"
-		"property_nobility_description"						"提高全属性 <font color='#ccff66'>30</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
+		"property_nobility_description"						"提高全属性 <font color='#ccff66'>1</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
@@ -14377,7 +14377,7 @@
 		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_nobility_augmented"					"崇高步伐"
-		"property_nobility_augmented_description"			"提高全属性 <font color='#ccff66'>60</font>x 你的等级。该装备无法重铸。"
+		"property_nobility_augmented_description"			"提高全属性 <font color='#ccff66'>2</font>x 你的等级。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"启示树枝"
