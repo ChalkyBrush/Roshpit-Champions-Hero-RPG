@@ -243,7 +243,7 @@
 		"item_rpc_gravelfoot_treads_ruby1"	"Increases Max Health by @ruby_property1, and Strength and Spirit by @ruby_property2"
 		"item_rpc_gravelfoot_treads_emerald1"	"Reduces the movespeed loss while in Stone Form by @emerald_property1"
 		"item_rpc_gravelfoot_treads_sapphire1"	"While in Stone Form gain @sapphire_property1 Armor and Magic Armor"
-		"item_rpc_gravelfoot_treads_amethyst1"	"Castiing [E] activates Stone Form for @amethyst_property1 seconds"
+		"item_rpc_gravelfoot_treads_amethyst1"	"Casting [E] activates Stone Form for @amethyst_property1 seconds"
 
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
 
@@ -268,7 +268,7 @@
 		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <% ITEM_RPC_ICE_FLOE_SLIPPERS_TRAVEL_DISTANCE %>. This ability cannot be activated while stunned or rooted."
 
 		"item_rpc_ice_floe_slippers_ruby1"	"Removes the Rooted restriction and increases max travel distance by @ruby_property1"
-		"item_rpc_ice_floe_slippers_emerald1"	"Increaes [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
+		"item_rpc_ice_floe_slippers_emerald1"	"Increases [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
 		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=\"#87D9FF\">Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
 		"item_rpc_ice_floe_slippers_amethyst1"	"When Ice Floe is triggered, gain a shield that absorbs @amethyst_property1 instances of Magic and Pure Damage for <% ITEM_RPC_ICE_FLOE_SLIPPERS_MAGIC_SHIELD_DURATION %> seconds."
 
@@ -520,7 +520,7 @@
         "DOTA_Tooltip_modifier_temporal_warp_cooldown"      "Time Warp Cooldown"
 
         "item_rpc_temporal_warp_boots_ruby1"                                "Casting [E] resets mana, health, position, and cooldowns (except [E]) to what they were @ruby_property1 seconds ago. <% ITEM_RPC_TEMPORAL_WARP_BOOTS_RUBY_COOLDOWN %> second cooldown."
-        "item_rpc_temporal_warp_boots_emerald1"                             "Increaes Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_temporal_warp_boots_emerald1"                             "Increases Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
         "item_rpc_temporal_warp_boots_sapphire1"                                "Reduces the channel time of Time Warp by @sapphire_property1 seconds"
         "item_rpc_temporal_warp_boots_amethyst1"                                "When you plant your respawn flag, gain @amethyst_property1 vision of that area for @amethyst_property2 minutes"
 
@@ -552,7 +552,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all other Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time."
+        "property_voyager_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time."
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
