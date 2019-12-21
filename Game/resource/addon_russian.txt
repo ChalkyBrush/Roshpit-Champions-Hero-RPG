@@ -14376,7 +14376,7 @@
 		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"Signus"
-		"property_signus_description"				"Уменьшает время восстановления способности (R) @Ability4 на <font color='#ccff66'>40</font>%. Удваивает время восстановления способности (E) @Ability3."
+		"property_signus_description"				"Уменьшает время восстановления способности (R) @Ability4 на <font color='#ccff66'>50</font>%. Удваивает время восстановления способности (E) @Ability3."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"Eye of Avernus"

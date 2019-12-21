@@ -500,8 +500,18 @@
         "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='<% RPC_ELEMENT_TIME_COLOR %>'>Time</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>Cosmic</font>, and <font color='<% RPC_ELEMENT_ICE_COLOR %>'>Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Water</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Demon</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Nature</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Undead</font>, and <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
-		
-        
+        "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
+        "item_property_signus"                      "Authority"
+        "property_signus_description"               "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%."
+
+        "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
+        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds"
+        "item_rpc_signus_charm_sapphire1"                                   "Increase Base Ability Damage by @sapphire_property1%"
+        "item_rpc_signus_charm_amethyst1"                                   "Casting [E] applies a <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> second buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
+        "DOTA_Tooltip_modifier_signus_charm_amethyst_buff"              "Authority (Amethyst)"
+        "DOTA_Tooltip_modifier_signus_charm_amethyst_buff_Description"              "Increased Armor Pierce and Spell Pierce"
+
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
@@ -511,13 +521,7 @@
 	
 
 		
-		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"Signus Charm"
-		"item_rpc_signus_charm_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_signus_charm_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_signus"						"Authority"
-		"property_signus_description"				"Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Doubles the cooldown of @Ability3."
+
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"

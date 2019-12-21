@@ -14255,7 +14255,7 @@
 		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>40</font>%。 @Ability3 冷却时间提高1倍。"
+		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>50</font>%。 @Ability3 冷却时间提高1倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"
