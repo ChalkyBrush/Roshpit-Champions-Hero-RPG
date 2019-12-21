@@ -53193,6 +53193,144 @@
 
 	}
 
+	"infernal_reign_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"itemicons/tome_of_chaos"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"infernal_reign_amethyst_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"abyssal_underlord_firestorm"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"<% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_COOLDOWN %>"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_ability_activate"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
 	"bone_claw_skeleton_toggle_ai"
 	{
 		// General

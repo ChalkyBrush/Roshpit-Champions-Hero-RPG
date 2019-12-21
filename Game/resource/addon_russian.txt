@@ -14460,15 +14460,28 @@
 		"property_avernus_description"				"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>50</font>%"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
-		"item_rpc_tome_of_chaos_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_tome_of_chaos_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_tome_of_chaos"				"Infernal Reign"
-		"property_tome_of_chaos"					"После применения способности (W) @Ability2 на поле боя появится могущественный демон, оглушая врагов на <font color='#ccff66'>2</font> секунды в месте появления. Свойства демона основаны на характеристиках призвавшего его героя. Он имеет х<font color='#ccff66'>2</font> больше здоровья, х<font color='#ccff66'>0.5</font> брони, а атаки бьют по площади с уроном, равным х<font color='#ccff66'>5</font> сумме всех атрибутов.<br>Демон живёт <font color='#ccff66'>20</font> секунд, после чего покидает поле битвы. Время восстановления <font color='#ccff66'>30</font> секунд."
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"Infernal Reign Cooldown"
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+        "DOTA_Tooltip_ability_item_rpc_tome_of_chaos"                                   "Tome of Chaos"
+
+        "item_property_tome_of_chaos"               "Infernal Reign"
+        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>2</font>x your health and <font color='#ccff66'>4</font>x your attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Recharging"
+
+        "tome_of_chaos_infernal"                    "Infernal Demon"
+
+        "item_rpc_tome_of_chaos_ruby1"                                  "The Infernal has @ruby_property1% bonus Attack Power and deals his damage in an @ruby_property2 radius"
+        "item_rpc_tome_of_chaos_emerald1"                                   "The Infernal is covered in flames that burn enemies in <font color='#ccff66'>240</font> range every <font color='#ccff66'>0.5</font> seconds for @emerald_property1% of the Infernal's attack power"
+        "item_rpc_tome_of_chaos_sapphire1"                                  "Infernal Reign's cooldown is reduced by @sapphire_property1 seconds"
+        "item_rpc_tome_of_chaos_amethyst1"                                  "The Infernal has an ability with a <font color='#ccff66'>5</font> second cooldown that spits flames in all directions that deal @amethyst_property1% of the Infernal's attack power as damage, and lower effected enemies' armor by @amethyst_property2 for <font color='#ccff66'>10</font> seconds"
+
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss"      "Infernal Reign (Amethyst)"
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss_Description"  "Reduced Armor"
+
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai" "Infernal Demon AI"
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai_Description" "Toggle On to activate default behavior"
+
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability"  "Infernal Blast"
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability_Description"  "Launch flames in all directions that reduce enemies' armor"
 		
 		
 		
@@ -14594,15 +14607,15 @@
         "item_rpc_ancient_tanari_waterstone_amethyst1"                      "Increases Spirit by @amethyst_property1"
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
-		"item_rpc_tempest_falcon_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_tempest_falcon_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_tempest_falcon"						"Storm Switch"
-		"property_tempest_falcon_description"				"После нанесения физического урона герой получит бафф, усиливающий следующий магический урон на <font color='#ccff66'>0</font>%"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Следующий магический урон будет сильнее на <font color='#ccff66'>0</font>%."
+        "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
+
+        "item_property_tempest_falcon"                      "Storm Switch"
+        "property_tempest_falcon_description"               "Dealing an instance of Physical damage increases Spell Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Armor Pierce bonus. Dealing an instance of Magical damage increases Armor Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Spell Pierce bonus."
+
+        "item_rpc_tempest_falcon_ring_ruby1"                                "Increases Movement Speed by @ruby_property1 and Max Movement Speed by @ruby_property2"
+        "item_rpc_tempest_falcon_ring_emerald1"                             "Increases Attack Speed by @emerald_property1 and Agility by @emerald_property2"
+        "item_rpc_tempest_falcon_ring_sapphire1"                                "Landing an attack increases Armor and Magic Armor by @sapphire_property1 and removes this sapphire's attack power bonus, and taking damage increases Attack Power by @sapphire_property2% and removes this sapphire's armor and magic armor bonus."
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "Increases Item and <font color=\"#7AE2A7\">Wind</font> Elemental Damage by @amethyst_property1%"
 		 
 		 
 		 

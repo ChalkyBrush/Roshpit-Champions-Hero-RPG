@@ -40,6 +40,28 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 				end)
 			end
 			return false
+		elseif parent:GetUnitName() == "tome_of_chaos_infernal" then
+			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
+			if parent.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
+				local radius = parent.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TOME_OF_CHAOS_GEM_RUBY2)
+				local enemies = FindUnitsInRadius(parent.hero:GetTeamNumber(), event.target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					for _, enemy in pairs(enemies) do
+						Filters:ApplyItemDamage(enemy, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+					end
+				end
+				local particle = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf", PATTACH_WORLDORIGIN, target)
+				ParticleManager:SetParticleControl(particle, 0, event.target:GetAbsOrigin())
+				ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
+				ParticleManager:SetParticleControl(particle, 2, Vector(0.8, 0.8, 0.8))
+				ParticleManager:SetParticleControl(particle, 4, Vector(120, 240, 40))
+				Timers:CreateTimer(1.5, function()
+					ParticleManager:DestroyParticle(particle, false)
+				end)
+			else
+				Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET], RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+			end
+			return false			
 		elseif parent:GetUnitName() == "thorok_reborn" then
 			local damage = OverflowProtectedGetAverageTrueAttackDamage(parent)
 			Filters:ApplyItemDamage(event.target, parent.hero, damage, DAMAGE_TYPE_PHYSICAL, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_UNDEAD, RPC_ELEMENT_NONE)

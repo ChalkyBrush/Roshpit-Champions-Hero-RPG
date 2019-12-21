@@ -495,7 +495,7 @@ function RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 	elseif minLevelAVG == 100 then
 		bonus = 0
 	end
-	local new_min_level = math.min(minLevelAVG + bonus, 100)
+	local new_min_level = math.min(minLevelAVG + bonus, 120)
 	return new_min_level
 end
 

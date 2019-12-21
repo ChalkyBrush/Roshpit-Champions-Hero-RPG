@@ -10128,3 +10128,114 @@ function falcon_ring_take_damage(event)
 		hero:SetModifierStackCount("modifier_tempest_falcon_sapphire_attack_power", caster, stacks)
 	end
 end
+
+function infernal_reign_ai_on(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(1200)
+end
+
+function infernal_reign_ai_off(event)
+	local caster = event.caster
+	caster:SetAcquisitionRange(0)
+end
+
+function infernal_reign_ai_think(event)
+	local caster = event.caster
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
+	if not caster.moveLock then
+		if distance > 1200 then
+			caster:MoveToPosition(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		elseif distance > 300 then
+			caster:MoveToPositionAggressive(caster.hero:GetAbsOrigin()+RandomVector(240))
+			caster.moveLock = true
+			Timers:CreateTimer(4, function()
+				caster.moveLock = false
+			end)
+		end
+	end
+	local fire_ability = caster:FindAbilityByName("infernal_reign_amethyst_ability")
+	if fire_ability and fire_ability:IsFullyCastable() then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+				AbilityIndex = fire_ability:entindex(),
+			}
+			ExecuteOrderFromTable(newOrder)
+			return			
+		end
+	end
+end
+
+function tome_of_chaos_emerald_thinker(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local infernal = event.target
+	if not ability then
+		return false
+	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(infernal)*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_TOME_OF_CHAOS_GEM_EMERALD)/100
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), infernal:GetAbsOrigin(), nil, ITEM_RPC_TOME_OF_CHAOS_EMERALD_BURN_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+			hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(hero.InventoryUnit, enemy, "modifier_infernal_emerald_pfx", {duration = 0.5})
+		end
+	end
+end
+
+function infernal_reign_amethyst_ability_activate(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local tome = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 1.0})
+	local flame_count = 9
+	EmitSoundOn("RPCItems.TomeOfChaos.FlameSpiral", caster)
+	for i = 1, flame_count, 1 do
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi*i/flame_count)
+		local start_radius = 200
+		local end_radius = 340
+		local range = 600 + tome:GetGemValue("amethyst") * 50
+		local speed = 1000
+		local projectileParticle = "particles/roshpit/items/tome_of_chaos_flame.vpcf"
+		local projectile_origin = caster:GetAbsOrigin() + caster:GetForwardVector()*60
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectileParticle,
+			vSpawnOrigin = projectile_origin,
+			fDistance = range,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function infernal_reign_amethyst_impact(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.target
+	hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(hero.InventoryUnit, target, "modifier_infernal_reign_amethyst_armor_loss", {duration = ITEM_RPC_TOME_OF_CHAOS_AMETHYST_ARMOR_LOSS_DURATION})
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST1)/100
+	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+end

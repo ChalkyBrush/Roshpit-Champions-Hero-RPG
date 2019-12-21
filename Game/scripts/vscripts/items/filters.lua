@@ -3650,27 +3650,31 @@ function Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
 end
 
 function Filters:TomeOfChaos(caster)
-    if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
-        caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = ITEM_RPC_TOME_OF_CHAOS_CD})
+    -- if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
+        local tome_of_chaos_cooldown = ITEM_RPC_TOME_OF_CHAOS_CD - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TOME_OF_CHAOS_GEM_SAPPHIRE)
+        caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = tome_of_chaos_cooldown})
         local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 580
         particleName = "particles/items_fx/infernal_summon_spawn_aegis_starfall.vpcf"
-        for i = 1, 8, 1 do
-            Timers:CreateTimer(0.2 + i * 0.06, function()
-                EmitSoundOnLocationWithCaster(position, "Hero_WarlockGolem.Attack", caster)
-            end)
-        end
+        -- for i = 1, 8, 1 do
+        --     Timers:CreateTimer(0.2 + i * 0.06, function()
+        --         EmitSoundOnLocationWithCaster(position, "Hero_WarlockGolem.Attack", caster)
+        --     end)
+        -- end
+
         EmitSoundOnLocationWithCaster(position, "Hero_Warlock.RainOfChaos_buildup", caster)
-        for i = 0, 5, 1 do
-            Timers:CreateTimer(0.15 * i, function()
-                local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-                ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, 50))
-                Timers:CreateTimer(6, function()
-                    ParticleManager:DestroyParticle(particle1, false)
-                end)
+        CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/tome_of_chaos_summon.vpcf", position, 3)
+        Timers:CreateTimer(0.1, function()
+            EmitSoundOnLocationWithCaster(position, "Hero_WarlockGolem.Attack", caster)
+            local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControl(particle1, 0, position + Vector(0, 0, 50))
+            Timers:CreateTimer(6, function()
+                ParticleManager:DestroyParticle(particle1, false)
             end)
-        end
+        end)
+
         Timers:CreateTimer(0.4, function()
-            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            local infernal_summon_stun_radius = ITEM_RPC_TOME_OF_CHAOS_STUN_RADIUS
+            local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, infernal_summon_stun_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             if #enemies > 0 then
                 for _, enemy in pairs(enemies) do
                     Filters:ApplyStun(caster, ITEM_RPC_TOME_OF_CHAOS_STUN, enemy)
@@ -3679,38 +3683,32 @@ function Filters:TomeOfChaos(caster)
             Timers:CreateTimer(0.2, function()
                 EmitSoundOnLocationWithCaster(position, "Hero_Warlock.RainOfChaos", caster)
             end)
-            local infernal = CreateUnitByName("minion_of_twilight", position, true, nil, nil, caster:GetTeamNumber())
+            local infernal = CreateUnitByName("tome_of_chaos_infernal", position, true, nil, nil, caster:GetTeamNumber())
             infernal.owner = caster:GetPlayerOwnerID()
             infernal.summoner = caster
+            infernal.hero = caster
             infernal:SetOwner(caster)
             infernal:SetControllableByPlayer(caster:GetPlayerID(), true)
             infernal.dieTime = ITEM_RPC_TOME_OF_CHAOS_DURATION
             infernal:AddAbility("ability_die_after_time_generic"):SetLevel(1)
             StartAnimation(infernal, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
-            local summonAbil = infernal:AddAbility("ability_summoned_unit")
-            summonAbil:SetLevel(1)
-
-            local infernalDamage = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_PER_ATTRIBUTE
-            infernalDamage = Filters:AdjustItemDamage(caster, infernalDamage, nil)
-            infernalDamage = Filters:ElementalDamage(infernal, caster, infernalDamage, DAMAGE_TYPE_PHYSICAL, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, true)
-            infernal:SetBaseDamageMin(infernalDamage)
-            infernal:SetBaseDamageMax(infernalDamage)
-
-            local minionHealth = math.floor(caster:GetMaxHealth() * ITEM_RPC_TOME_OF_CHAOS_HP_MULT)
-            minionHealth = Filters:AdjustItemDamage(caster, minionHealth, nil)
-            infernal:SetMaxHealth(minionHealth)
-            infernal:SetBaseMaxHealth(minionHealth)
-            infernal:SetHealth(minionHealth)
-            infernal:Heal(minionHealth, infernal)
-            infernal:SetModelScale(0.9)
-            infernal:SetRenderColor(140, 255, 140)
-            infernal:SetPhysicalArmorBaseValue(Filters:AdjustItemDamage(caster, caster:GetPhysicalArmorValue(false) * ITEM_RPC_TOME_OF_CHAOS_ARMOR_MULT, nil))
-            infernal:AddAbility("sven_great_cleave"):SetLevel(1)
-            infernal:SetAcquisitionRange(2800)
-            caster.tome_of_chaos:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = 30})
-
+            infernal:SetModelScale(0.85)
+            infernal:AdjustSummon(caster, true, ITEM_RPC_TOME_OF_CHAOS_HP_MULT, ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT, 1, 1, 1, 1)
+            local reign_ability = infernal:AddAbility("infernal_reign_toggle_ai")
+            reign_ability:SetLevel(1)
+            reign_ability:ToggleAbility()
+            if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
+                caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, infernal, "modifier_infernal_effect", {duration = ITEM_RPC_TOME_OF_CHAOS_DURATION})
+            end
+            if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
+                local attack_power = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TOME_OF_CHAOS_GEM_RUBY1)
+                infernal:ApplyModifierAndSetStacks(caster.equipped_gear[RPC_GEAR_SLOT_TRINKET], caster, "modifier_tome_of_chaos_ruby_attack_power", attack_power, 0)    
+            end
+            if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
+                infernal:AddAbility("infernal_reign_amethyst_ability"):SetLevel(1)
+            end
         end)
-    end
+    -- end
 end
 
 function Filters:RedrockFootwear(caster)
