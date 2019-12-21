@@ -5994,17 +5994,17 @@ function elder_shield_particle_init(event)
 end
 
 function puzzlers_locket_recalculate(event)
-	local ability = event.ability
-	if not ability.recalculated then
-		ability.recalculated = true
-		Timers:CreateTimer(5, function()
-			local hero = event.target
-			RPCItems:RecalculateStatsBasic(hero)
-			Timers:CreateTimer(12, function()
-				ability.recalculated = false
-			end)
-		end)
-	end
+	-- local ability = event.ability
+	-- if not ability.recalculated then
+	-- 	ability.recalculated = true
+	-- 	Timers:CreateTimer(5, function()
+	-- 		local hero = event.target
+	-- 		RPCItems:RecalculateStatsBasic(hero)
+	-- 		Timers:CreateTimer(12, function()
+	-- 			ability.recalculated = false
+	-- 		end)
+	-- 	end)
+	-- end
 end
 
 function tiamat_claw_initialize(event)

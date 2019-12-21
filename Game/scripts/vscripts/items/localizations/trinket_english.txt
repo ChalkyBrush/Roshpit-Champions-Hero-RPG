@@ -325,6 +325,10 @@
         "item_property_razor_band"                                      "Razor Blade"
         "property_razor_band_description"                               "Taking damage additionally removes health equal to <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL %>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ATTACK_POWER_PER_STACK %>% bonus Attack Power and increases Armor Pierce by <% ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE %>. Stacks have independant durations of <% ITEM_RPC_GALVANIZED_RAZOR_BAND_STACK_DURATION %>. Max <% ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_STACKS %> stacks."
 
+        "DOTA_Tooltip_modfier_razor_band_stacks"                    "Razor Blade"
+        "DOTA_Tooltip_modfier_razor_band_stacks_Description"        "Increased attack power and Armor Pierce."
+
+
         "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_RADIUS %> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <% ITEM_RPC_GALVANIZED_RAZOR_BAND_RUBY_INTERVAL %> seconds."
         "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
         "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
@@ -421,6 +425,17 @@
         "item_rpc_phoenix_emblem_emerald1"                                  "Increases Max Health by @emerald_property1, and increases Health and Mana on respawn by an additional @emerald_property2%"
         "item_rpc_phoenix_emblem_sapphire1"                                 "Reduce Rebirth's Cooldown by @sapphire_property1 seconds"
         "item_rpc_phoenix_emblem_amethyst1"                                 "Increases Rebirth's radius by @amethyst_property1 and stun duration by @amethyst_property2"
+
+        "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
+        "item_property_puzzler"                                     "Anagram"
+        "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
+
+        "item_rpc_puzzlers_locket_ruby1"                "Increases Rune [Q2] by @ruby_property1"
+        "item_rpc_puzzlers_locket_emerald1"             "Increases Rune [E2] by @ruby_property1"
+        "item_rpc_puzzlers_locket_sapphire1"                "Increases Rune [W2] by @ruby_property1"
+        "item_rpc_puzzlers_locket_amethyst1"                "Increases Rune [R2] by @ruby_property1"
+
+
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
@@ -629,14 +644,5 @@
 		
 	
 		
-		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"Puzzler's Locket"
-		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"
-		"item_rpc_puzzlers_locket_emerald1"				"blah blah @emerald_property1 gem"
-		"item_rpc_puzzlers_locket_sapphire1"				"blah blah @sapphire_property1 gem"
-		"item_rpc_puzzlers_locket_amethyst1"				"blah blah @amethyst_property1 gem"
-		"item_property_puzzler"										"Anagram"
-		"property_puzzler_description"								"Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
 
 
-		"DOTA_Tooltip_modfier_razor_band_stacks"					"Blade Barricade"
-		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"Increased attack power and Post-Mitigation damage. Damaging nearby enemies."

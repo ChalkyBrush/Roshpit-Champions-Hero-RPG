@@ -82,6 +82,7 @@ function CDOTA_BaseNPC_Hero:UnequipItem(item)
 	hero.equipped_gear[slot] = nil
 	item.wearer = nil
 	Events:TutorialServerEvent(hero, "3_2", 0)
+	hero:ReequipAllGear(nil)
 end
 
 function CDOTA_BaseNPC_Hero:InitGearBonuses()
@@ -120,6 +121,11 @@ end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
 	-- print("PROPERTY NAME: "..property_name)
+	-- PROPERTY TYPE MODIFIERS:
+	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
+		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
+	end
+	-- RECORD PROPERTIES TO HASH
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		if string.match(property_name, "all_attributes") then
 			RPCItems:InitGearBonusProperty(hero, "strength", gear_slot)
@@ -155,6 +161,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
 	-- TATTERED NOVICE ARMOR AMETHYST:
 	local property_bonus_mult = 0
+
 	if hero:HasModifier("modifier_tattered_novice_armor") then
 		if item.newItemTable.rarityFactor < RPC_ITEMS_RARITY_IMMORTAL then
 			novice_armor = hero:FindModifierByName("modifier_tattered_novice_armor"):GetAbility()
@@ -184,6 +191,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if type(property_value) == "number" then
 		property_value = property_value + property_bonus_mult*property_value
 	end
+
 	-- 
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") or string.match(property_name, "!immortal!") then
@@ -1397,7 +1405,17 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY1, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
-		end			
+		end	
+	elseif item:GetAbilityName() == "item_rpc_puzzlers_locket" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PUZZLERS_LOCKET_GEM_RUBY, hero, "rune_q_2", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_PUZZLERS_LOCKET_GEM_EMERALD, hero, "rune_e_2", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_PUZZLERS_LOCKET_GEM_SAPPHIRE, hero, "rune_w_2", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_PUZZLERS_LOCKET_GEM_AMETHYST, hero, "rune_r_2", RPC_GEAR_SLOT_TRINKET)
+		end					
 	end
 end
 
@@ -1519,4 +1537,30 @@ function RPCItems:BonusMultForConjuror(hero, item, property_value, property_name
 		mult = hero:GetRuneValue("e", 3)*(CONJUROR_ARCANA_E3_AGILITY_GEAR_AMP/100)
 	end
 	return mult
+end
+
+function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
+	local property_name_to_return = property_name
+	if property_name == "all_t2_runes" then
+		property_name_to_return = all_t3_runes
+	elseif property_name == "all_t3_runes" then
+		property_name_to_return = "all_t2_runes"
+	elseif property_name == "rune_q_2" then
+		property_name_to_return = "rune_q_3"
+	elseif property_name == "rune_w_2" then
+		property_name_to_return = "rune_w_3"
+	elseif property_name == "rune_e_2" then
+		property_name_to_return = "rune_e_3"
+	elseif property_name == "rune_r_2" then
+		property_name_to_return = "rune_r_3"
+	elseif property_name == "rune_q_3" then
+		property_name_to_return = "rune_q_2"
+	elseif property_name == "rune_w_3" then
+		property_name_to_return = "rune_w_2"
+	elseif property_name == "rune_e_3" then
+		property_name_to_return = "rune_e_2"
+	elseif property_name == "rune_r_3" then
+		property_name_to_return = "rune_r_2"
+	end
+	return property_name_to_return
 end
