@@ -3386,7 +3386,6 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--LETHAL CHECK
-	filterTable["damage"] = victim:GetHealth()
 	if filterTable["damage"] >= victim:GetHealth() then
 		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then

@@ -2814,7 +2814,7 @@ function egg_end(event)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
 			if damage > 0 then
-				Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_HOLY)
+				Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_HOLY)
 			end
 			Filters:ApplyStun(hero, stun_duration, enemy)
 		end
