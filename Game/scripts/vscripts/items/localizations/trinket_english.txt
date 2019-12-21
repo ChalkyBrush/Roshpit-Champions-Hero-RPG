@@ -512,6 +512,16 @@
         "DOTA_Tooltip_modifier_signus_charm_amethyst_buff"              "Authority (Amethyst)"
         "DOTA_Tooltip_modifier_signus_charm_amethyst_buff_Description"              "Increased Armor Pierce and Spell Pierce"
 
+
+        "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
+
+        "property_sparkling_token"                                              "Tropical Mend"
+        "property_sparkling_token_Description"                                  "Restore <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% of Max Health every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"     
+
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
@@ -626,15 +636,6 @@
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 
 
-		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
-		"item_rpc_sparkling_token_of_oceanis_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_sparkling_token"												"Tropical Haze"
-		"property_sparkling_token_Description"									"Reduces all Pure damage taken by <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION %>%"
-		
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
 		"item_rpc_stargazers_sphere_ruby1"            "blah blah @ruby_property1 gem"

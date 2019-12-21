@@ -488,12 +488,12 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
-		"item_rpc_sparkling_token_of_oceanis_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sparkling_token"												"炽热雾霭"
-		"property_sparkling_token_Description"									"受到的所有纯粹伤害减少 <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION %>%。"
+        "property_sparkling_token_Description"                                  "Restore <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% of Max Health every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"   
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"

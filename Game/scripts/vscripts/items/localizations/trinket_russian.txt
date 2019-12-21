@@ -497,13 +497,14 @@
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a Giga Ocean elemental with huge knockback and attacks that deal @special_property1% of its summoner's attack power. Casting @Ability4 will replace your existing elemental."
 
 
-		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"Sparkling Token of Oceanis"	
-		"item_rpc_sparkling_token_of_oceanis_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
-		"property_sparkling_token"												"Tropical Haze"
-		"property_sparkling_token_Description"									"Сокращает весь входящий чистый урон на <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION %>%"
+        "DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"                  "Sparkling Token of Oceanis"    
+
+        "property_sparkling_token"                                              "Tropical Mend"
+        "property_sparkling_token_Description"                                  "Restore <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE %>% of Max Health every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"   
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"Frozen Heart of Az'heran"

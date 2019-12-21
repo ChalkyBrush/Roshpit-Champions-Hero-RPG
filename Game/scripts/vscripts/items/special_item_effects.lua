@@ -10053,3 +10053,21 @@ function eternal_frost_slowing(event)
 		end
 	end
 end
+
+function oceanis_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	if hero:GetHealth() < hero:GetMaxHealth() then
+		local healAmount = hero:GetMaxHealth()*ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_HEALTH_RESTORE/100
+		Filters:ApplyHeal(hero, hero, healAmount, true, true)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_oceanis_visual", {})
+	else
+		hero:RemoveModifierByName("modifier_oceanis_visual")
+	end
+	if ability:GetGemValue("sapphire") > 0 and hero:GetMana() < hero:GetMaxMana() then
+		local mana_restore = hero:GetMaxMana()*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_SAPPHIRE)/100
+		caster:GiveMana(mana_restore)
+		PopupMana(hero, mana_restore)
+	end
+end

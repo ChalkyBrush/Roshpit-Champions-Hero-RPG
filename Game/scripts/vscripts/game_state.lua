@@ -1617,6 +1617,9 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_RUBY))/100
 		end
+		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
+			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
+		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
@@ -1625,7 +1628,7 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
 		end
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage * (100 - ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION)/100
+			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_EMERALD))/100
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage * (1 - SEINARU_ARCANA_E2_PURE_DMG_REDUCE)
@@ -3614,7 +3617,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = victim:GetHealth()
+			filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

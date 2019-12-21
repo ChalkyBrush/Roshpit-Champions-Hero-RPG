@@ -1464,7 +1464,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_signus_charm" then	
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SIGNUS_CHARM_GEM_SAPPHIRE, hero, "base_ability", RPC_GEAR_SLOT_TRINKET)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_sparkling_token_of_oceanis" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_RUBY2, hero, "max_mana", RPC_GEAR_SLOT_TRINKET)
+		end			
 	end
 end
 
