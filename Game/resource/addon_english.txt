@@ -14827,6 +14827,14 @@
         "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
         "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
+        "item_rpc_neverlord_soul_ring_ruby1"                                        "Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
+        "item_rpc_neverlord_soul_ring_emerald1"                                     "Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
+        "item_rpc_neverlord_soul_ring_sapphire1"                                    "Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
+        "item_rpc_neverlord_soul_ring_amethyst1"                                    "Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+        "item_property_neverlord_soul_ring"                                             "Soul Conversion"
+        "property_neverlord_soul_ring_description"                                          "Converts <font color='#ccff66'>30</font>% of max health to max mana."
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
@@ -14844,14 +14852,7 @@
 		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <font color='#ccff66'>25</font> and your max mana by <font color='#ccff66'>5</font>."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
-		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
-		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
-		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
-		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores you mana by @amethyst_property1% of the burned health."
-		"item_property_neverlord_soul_ring"												"Soul Conversion"
-		"property_neverlord_soul_ring_description"											"Converts <font color='#ccff66'>30</font>% of max health to max mana."
-    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
+
 
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
