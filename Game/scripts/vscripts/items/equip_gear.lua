@@ -1433,6 +1433,10 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_SAPPHIRE, hero, "all_t2_runes", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_AMETHYST, hero, "all_t4_runes", RPC_GEAR_SLOT_TRINKET)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_sapphire_lotus" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SAPPHIRE_LOTUS_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_TRINKET)
 		end			
 	end
 end

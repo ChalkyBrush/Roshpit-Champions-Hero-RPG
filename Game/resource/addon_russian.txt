@@ -14256,7 +14256,7 @@
 		"item_rpc_sapphire_lotus_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"Sapphire Soul"
-		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <font color='#ccff66'>25</font> и показатель маны на <font color='#ccff66'>5</font>."
+		"property_sapphire_lotus_description"		"Каждое очко интеллекта увеличивает запас здоровья на <font color='#ccff66'>10</font> и показатель маны на <font color='#ccff66'>5</font>."
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"Conquest Stone Falcon"

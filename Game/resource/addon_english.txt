@@ -14918,15 +14918,15 @@
         "item_rpc_sand_tomb_orb_amethyst1"                                  "No Effect"
 
 
-		
-		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"Sapphire Lotus"
-		"item_rpc_sapphire_lotus_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_sapphire_lotus_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_sapphire_lotus_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_sapphire_lotus"				"Sapphire Soul"
-		"property_sapphire_lotus_description"		"Each point of Intelligence additionally increases max health by <font color='#ccff66'>25</font> and your max mana by <font color='#ccff66'>5</font>."
-		
+        
+        "DOTA_Tooltip_ability_item_rpc_sapphire_lotus"                                  "Sapphire Lotus"
+        "item_property_sapphire_lotus"              "Sapphiric Enchantment"
+        "property_sapphire_lotus_description"       "Each point of Intelligence additionally increases max health by <font color='#ccff66'>10</font> and your max mana by <font color='#ccff66'>5</font>."
+
+        "item_rpc_sapphire_lotus_ruby1"                                 "Each current point of health increases Spell Pierce by @ruby_property1"
+        "item_rpc_sapphire_lotus_emerald1"                                  "Each point of Intelligence increases Armor and Magic Armor by @emerald_property1"
+        "item_rpc_sapphire_lotus_sapphire1"                                 "Increases Intelligence by @sapphire_property1"
+        "item_rpc_sapphire_lotus_amethyst1"                                 "Each current point of Mana increases Spell Pierce by @amethyst_property1"
 		
 
 

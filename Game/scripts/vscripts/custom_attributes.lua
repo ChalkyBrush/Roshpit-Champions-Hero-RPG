@@ -1135,6 +1135,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local galaxy_hero = galaxy_caster.hero
 		armor_modify = armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
 	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1768,6 +1771,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local galaxy_caster = unit:FindModifierByName("modifier_galaxy_orb_emerald_freeze_effect"):GetCaster()
 		local galaxy_hero = galaxy_caster.hero
 		magic_armor_modify = magic_armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
 	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
@@ -2565,6 +2571,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
 			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
 		end
+	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_LOTUS_GEM_RUBY)*unit:GetHealth()
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_LOTUS_GEM_AMETHYST)*unit:GetMana()
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
