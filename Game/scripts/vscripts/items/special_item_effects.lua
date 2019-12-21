@@ -10071,3 +10071,38 @@ function oceanis_think(event)
 		PopupMana(hero, mana_restore)
 	end
 end
+
+function stargazer_take_damage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	local target = event.unit
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_PCT_ATK_POWER/100)
+	if target:HasModifier("modifier_stargazer_immunity") then
+		return false
+	end
+	local star_cd = ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STARGAZERS_SPHERE_GEM_SAPPHIRE1)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_stargazer_immunity", {duration = star_cd})
+      local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+      local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+      ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+      Timers:CreateTimer(0.6, function() 
+        ParticleManager:DestroyParticle( pfx, false )
+      end)  
+          Timers:CreateTimer(0.45, -- Start this timer 10 game-time seconds later
+          function()
+            if target:IsAlive() then
+              Filters:ApplyItemDamage(target,hero,damage,DAMAGE_TYPE_PURE,ability,RPC_ELEMENT_COSMOS,RPC_ELEMENT_NONE)
+              EmitSoundOn("RPCItems.Stargazer.Starfall", target)
+            end
+          end)
+	
+end
+
+function stargazer_end(event)
+	local ability = event.ability
+    if ability.sphereTable and ability.sphereTable.pfx then  
+        ParticleManager:DestroyParticle(ability.sphereTable.pfx, false)  
+        ability.sphereTable.pfx = false  
+    end 
+end

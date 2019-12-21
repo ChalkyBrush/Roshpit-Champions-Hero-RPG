@@ -14746,15 +14746,18 @@
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"Iceblood Регенерация"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"Stargazer's Sphere"
-		"item_rpc_stargazers_sphere_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_stargazers_sphere_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_stargazers_sphere_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_stargazers_sphere_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_stargazer"									"Eye of the Stargazer"
-		"property_stargazer_description"							"Приказ атаки вызовет область-кольцо, наполненную космической энергией. Врагов внутри при получении урона ударит звездой, урон которой рассчитан от <font color='#ccff66'>100</font>% наибольшей порции урона во время действия круга. <font color=\"#E4AE33\"> Аугментированный урон не может быть учитан </font>. Максимально возможный урон от звезды равен <font color='#ccff66'>10</font>x. Для Стойкости и Мега-Стойкости порог урона увеличен в <font color='#ccff66'>10</font>/<font color='#ccff66'>30</font>х соответственно. Интервал падения звезд <font color='#ccff66'>0.5</font> сек.<br>Повторный приказ атаки уничтожает кольцо и вызывает метеорит в эту область. Урон <font color='#ccff66'>20</font>x от силы атаки, длительность оглушения <font color='#ccff66'>1</font> сек. Перезарядка создания кольца <font color='#ccff66'>1.5</font> секунд."
-		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
-		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Поражает врагов падающими звездами при нанесении урона"
+        "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
+
+        "item_property_stargazer"                                    "Eye of the Stargazer"
+        "property_stargazer_description"                            "Issuing an attack-move order within <font color='#ccff66'>2000</font> range will create a <font color='#ccff66'>320</font> radius cosmic aperture with vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <font color='#ccff66'>5</font>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <font color='#ccff66'>2</font> seconds. Can only create a ring once every <font color='#ccff66'>3</font> seconds."
+
+        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
+        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
+        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
+        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
+        "DOTA_Tooltip_modifier_in_stargazer_area"                   "Stargazer's Sphere"
+        "DOTA_Tooltip_modifier_in_stargazer_area_Description"       "Hit by stars when taking damage"
 		
 		
 

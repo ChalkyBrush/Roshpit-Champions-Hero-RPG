@@ -6940,6 +6940,26 @@ function RPCItems:RollTokenOfOceanis(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollStargazersSphere(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_stargazers_sphere", "immortal", "Stargazer's Sphere", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_stargazers_sphere_rework"   
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_stargazer", "#7A5C8E",  1, "#property_stargazer_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7924,6 +7944,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollWraithCrown(item_level)
     elseif itemName == "item_rpc_sand_tomb_orb" then
         newItem = RPCItems:RollSandTombOrb(item_level)
+    elseif itemName == "item_rpc_stargazers_sphere" then
+        newItem = RPCItems:RollStargazersSphere(item_level)
     end
     return newItem
 end

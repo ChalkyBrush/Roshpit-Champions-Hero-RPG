@@ -520,7 +520,21 @@
         "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
         "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
         "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <% ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_INTERVAL %> seconds"
-        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"     
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"  
+
+        "DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
+
+        "item_property_stargazer"                                    "Eye of the Stargazer"
+        "property_stargazer_description"                            "Issuing an attack-move order within <% ITEM_RPC_STARGAZERS_SPHERE_MAX_CREATION_RANGE %> range will create a <% ITEM_RPC_STARGAZERS_SPHERE_RADIUS %> radius cosmic aperture with vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_PCT_ATK_POWER %>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> seconds. Can only create a ring once every <% ITEM_RPC_STARGAZERS_SPHERE_RING_CREATION_CD %> seconds."
+
+        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
+        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
+        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
+        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
+        "DOTA_Tooltip_modifier_in_stargazer_area"                   "Stargazer's Sphere"
+        "DOTA_Tooltip_modifier_in_stargazer_area_Description"       "Hit by stars when taking damage"
+
 
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
@@ -636,18 +650,7 @@
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 
 
-		
-		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"            "Stargazer's Sphere"
-		"item_rpc_stargazers_sphere_ruby1"            "blah blah @ruby_property1 gem"
-		"item_rpc_stargazers_sphere_emerald1"            "blah blah @emerald_property1 gem"
-		"item_rpc_stargazers_sphere_sapphire1"            "blah blah @sapphire_property1 gem"
-		"item_rpc_stargazers_sphere_amethyst1"            "blah blah @amethyst_property1 gem"
-        "item_property_stargazer"                                    "Eye of the Stargazer"
-        "property_stargazer_description"                            "Issuing an attack-move order anywhere will create a cosmic aperture there, with a radius equal to this item's Vision Increase property. Enemies inside the aperture who take damage will be struck by a star, which deals Pure damage equal to <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% of the highest damage instance dealt to enemies during that ring's lifetime (excluding damage from Ability Augments and Stargazer's Sphere), further limited to <% ITEM_RPC_STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x that damage value. Stars pierce Steadfast more effectively, increasing its threshold to <% ITEM_RPC_STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x its normal value (<% ITEM_RPC_STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>x versus Mega Steadfast). Enemies can only be hit by a star once every <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> seconds. Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does <% ITEM_RPC_STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x your attack power in the area and stuns enemies for <% ITEM_RPC_STARGAZERS_SPHERE_METEOR_STUN_DUR %> second. Stargazer aperture creation has a <% ITEM_RPC_STARGAZERS_SPHERE_SPHERE_COOLDOWN %> second internal cooldown."
-
-		"DOTA_Tooltip_modifier_in_stargazer_area"					"Stargazer's Sphere"
-		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"Hit by stars when taking damage"
-		
+	
 	
 		
 

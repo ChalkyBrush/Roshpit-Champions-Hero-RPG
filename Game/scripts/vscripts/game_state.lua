@@ -772,6 +772,12 @@ function GameState:OrderFilter(orderTable)
 				unit:RemoveModifierByName("modifier_wraith_crown_amethyst")
 			end
 		end
+		if unit:HasModifier("modifier_stargazers_sphere_rework") then
+			local stargazer = Filters:StargazerSphere(unit, orderTable)
+			if stargazer == "meteor" then
+				return false
+			end
+		end
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
 			unit.lastOrder = orderTable.order_type
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
@@ -3617,7 +3623,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			filterTable["damage"] = victim:GetHealth() - 10
+			-- filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

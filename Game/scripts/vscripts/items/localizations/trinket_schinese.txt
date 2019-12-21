@@ -508,12 +508,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
-		"item_rpc_stargazers_sphere_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_stargazers_sphere_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_stargazers_sphere_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_stargazers_sphere_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"对任意地点发出攻击移动命令能创建一个有视野的观星者领域。领域拥有该物品增大视野属性范围的顺畅视野。在领域内部受到伤害的敌人将被一颗流星击中，造成等于在该领域持续时间内对敌人造成的最高伤害<% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_AMP * 100 %>% 的纯粹伤害（不包括观星本身）。通过其他途径（元素和装备伤害等）提高的流星伤害不能超过触发流星的伤害的<% ITEM_RPC_STARGAZERS_SPHERE_MAX_PREMIT_DAMAGE_AMP%>x 。流星伤害对坚定能提高其 <% ITEM_RPC_STARGAZERS_SPHERE_STEADFAST_THRESHOLD %>x 阈值 (<% ITEM_RPC_STARGAZERS_SPHERE_MEGASTEADFAST_THRESHOLD %>x 对高级坚定). 敌人每 <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> 秒最多被流星打击一次.对领域发出攻击移动命令能使其立即崩溃，形成一颗陨石落下对范围内敌人造成<% ITEM_RPC_STARGAZERS_SPHERE_DAMAGE_PER_ATT %>x 你的攻击力的伤害并眩晕敌人<% ITEM_RPC_STARGAZERS_SPHERE_METEOR_STUN_DUR %>秒。观星者领域的创建有<% ITEM_RPC_STARGAZERS_SPHERE_SPHERE_COOLDOWN %> 秒内置cd。"
+        "property_stargazer_description"                            "Issuing an attack-move order within <% ITEM_RPC_STARGAZERS_SPHERE_MAX_CREATION_RANGE %> range will create a <% ITEM_RPC_STARGAZERS_SPHERE_RADIUS %> radius cosmic aperture with vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_DMG_PCT_ATK_POWER %>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <% ITEM_RPC_STARGAZERS_SPHERE_STARFALL_CD %> seconds. Can only create a ring once every <% ITEM_RPC_STARGAZERS_SPHERE_RING_CREATION_CD %> seconds."
+
+        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
+        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
+        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
+        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
 
