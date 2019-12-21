@@ -2605,6 +2605,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce_modify = spell_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
 		end
 	end
+	if unit:HasModifier("modifier_volcano_orb") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_arcane_charm") then

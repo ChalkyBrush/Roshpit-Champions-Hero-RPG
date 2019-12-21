@@ -238,12 +238,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
-		"item_rpc_volcano_orb_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_volcano_orb_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_volcano_orb_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_volcano_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"所有魔法伤害提升至<% ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT %>x。该效果与其他税后效果乘法计算。"
+        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
+
+		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Increases Intelligence by @sapphire_property1"
+		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"

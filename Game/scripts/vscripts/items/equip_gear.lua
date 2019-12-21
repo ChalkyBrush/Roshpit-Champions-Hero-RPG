@@ -1497,6 +1497,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_GEM_AMETHYST, hero, "mana_regen", RPC_GEAR_SLOT_TRINKET)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_volcano_orb" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_VOLCANO_ORB_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_VOLCANO_ORB_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_VOLCANO_ORB_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VOLCANO_ORB_GEM_AMETHYST, hero, "spirit", RPC_GEAR_SLOT_TRINKET)
+		end
 	end
 end
 

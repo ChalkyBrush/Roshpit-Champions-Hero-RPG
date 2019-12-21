@@ -14543,12 +14543,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"
-		"item_rpc_volcano_orb_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_volcano_orb_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_volcano_orb_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_volcano_orb_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_volcano_orb"					"Fiery Core"
-		"property_volcano_orb_description"			"Увеличивает Пост-Резистный магический урон x<font color='#ccff66'>2.5</font>. Этот эффект работает отдельно от других усилений Пост-Резистного урона."
+        "item_property_volcano_orb"                 "Fiery Core"
+        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>1</font>."
+
+		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Increases Intelligence by @sapphire_property1"
+		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"

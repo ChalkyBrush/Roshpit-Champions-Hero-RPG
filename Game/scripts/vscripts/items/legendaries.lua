@@ -7085,6 +7085,29 @@ function RPCItems:RollTwigOfEnlightened(item_level)
     return item
 end
 
+function RPCItems:RollVolcanoOrb(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_volcano_orb", "immortal", "Volcano Orb", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_volcano_orb"
+    item.newItemTable.property1 = 1
+
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_volcano_orb", "#995050", 1, "#property_volcano_orb_description")
+
+    local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
+    local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7179,37 +7202,6 @@ function RPCItems:RollWorldTreesFlowerCache(item_level)
 end
 
 
-function RPCItems:RollVolcanoOrb(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_volcano_orb", "immortal", "Volcano Orb", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "volcano_orb"
-    item.newItemTable.property1 = 1
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_volcano_orb", "#995050", 1, "#property_volcano_orb_description")
-
-    local tier, value, propertyName = RPCItems:RollAmuletProperty2(item, 300, 1)
-    if tier > 0 then
-        item.newItemTable.property2 = value
-        item.newItemTable.property2name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-    end
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = math.floor(value * 1.3)
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 
 
@@ -8065,7 +8057,8 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
         itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire", "item_rpc_blacksmiths_tablet", "item_rpc_epsilons_eyeglass",
         "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel", "item_rpc_monkey_paw",
-        "item_rpc_raven_idol", "item_rpc_ring_of_nobility", "item_rpc_sapphire_lotus", "item_rpc_signus_charm", "item_rpc_stone_of_gordon", "item_rpc_tome_of_chaos", "item_rpc_torch_of_gengar"}
+        "item_rpc_raven_idol", "item_rpc_ring_of_nobility", "item_rpc_sapphire_lotus", "item_rpc_signus_charm", "item_rpc_stone_of_gordon", "item_rpc_tome_of_chaos", "item_rpc_torch_of_gengar",
+        "item_rpc_volcano_orb"}
     end
     return itemsList
 end

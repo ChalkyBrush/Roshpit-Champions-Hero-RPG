@@ -3111,11 +3111,6 @@ function GameState:FilterDamage(filterTable)
 	if damageData.postmitigationDamage then
 		filterTable["damage"] = damageData.postmitigationDamage
 	end
-	if attacker:HasModifier("modifier_volcano_orb") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT
-		end
-	end
 	if victim:HasModifier("modifier_twilight_vestments") and applyEffects then
 		Filters:TwilightVestments(victim, filterTable["damage"], damagetype)
 	end
