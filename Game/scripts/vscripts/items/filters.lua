@@ -3650,16 +3650,12 @@ function Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
 end
 
 function Filters:TomeOfChaos(caster)
-    -- if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
+    if not caster:HasModifier("modifier_tome_of_chaos_cooldown") then
         local tome_of_chaos_cooldown = ITEM_RPC_TOME_OF_CHAOS_CD - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TOME_OF_CHAOS_GEM_SAPPHIRE)
         caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_tome_of_chaos_cooldown", {duration = tome_of_chaos_cooldown})
         local position = caster:GetAbsOrigin() + caster:GetForwardVector() * 580
         particleName = "particles/items_fx/infernal_summon_spawn_aegis_starfall.vpcf"
-        -- for i = 1, 8, 1 do
-        --     Timers:CreateTimer(0.2 + i * 0.06, function()
-        --         EmitSoundOnLocationWithCaster(position, "Hero_WarlockGolem.Attack", caster)
-        --     end)
-        -- end
+
 
         EmitSoundOnLocationWithCaster(position, "Hero_Warlock.RainOfChaos_buildup", caster)
         CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/tome_of_chaos_summon.vpcf", position, 3)
@@ -3692,8 +3688,9 @@ function Filters:TomeOfChaos(caster)
             infernal.dieTime = ITEM_RPC_TOME_OF_CHAOS_DURATION
             infernal:AddAbility("ability_die_after_time_generic"):SetLevel(1)
             StartAnimation(infernal, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.0})
-            infernal:SetModelScale(0.85)
+            -- infernal:SetModelScale(0.85)
             infernal:AdjustSummon(caster, true, ITEM_RPC_TOME_OF_CHAOS_HP_MULT, ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT, 1, 1, 1, 1)
+            Events:smoothSizeChange(infernal, 0.1, 0.85, 20)
             local reign_ability = infernal:AddAbility("infernal_reign_toggle_ai")
             reign_ability:SetLevel(1)
             reign_ability:ToggleAbility()
@@ -3708,7 +3705,7 @@ function Filters:TomeOfChaos(caster)
                 infernal:AddAbility("infernal_reign_amethyst_ability"):SetLevel(1)
             end
         end)
-    -- end
+    end
 end
 
 function Filters:RedrockFootwear(caster)
