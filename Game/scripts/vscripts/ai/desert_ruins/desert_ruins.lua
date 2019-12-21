@@ -923,7 +923,7 @@ function ruby_giant_die(event)
 		EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollOmegaRuby(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_omega_ruby")
 		end
 	end)	
 end

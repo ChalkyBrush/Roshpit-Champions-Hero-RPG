@@ -14429,7 +14429,7 @@
 		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области <font color='#ccff66'>360</font> единиц в размере <font color='#ccff66'>800</font> от урона атаки героя."
+		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области <font color='#ccff66'>240</font> единиц в размере <font color='#ccff66'>10</font> от урона атаки героя."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"

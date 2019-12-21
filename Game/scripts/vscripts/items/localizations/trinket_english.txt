@@ -401,6 +401,16 @@
         "item_property_neverlord_soul_ring"                                             "Soul Conversion"
         "property_neverlord_soul_ring_description"                                          "Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
 
+        "DOTA_Tooltip_ability_item_rpc_omega_ruby"                                      "Omega Ruby"
+
+        "item_property_omega_ruby"                  "Omega Flare"
+        "property_omega_ruby"                       "Your attacks explode on contact, dealing <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% of Attack Power as damage to enemies within <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> range."
+
+        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's damage by @ruby_property2"
+        "item_rpc_omega_ruby_emerald1"                                      "Increases Attack Speed by @emerald_property1"
+        "item_rpc_omega_ruby_sapphire1"                                     "Increases Attack Power by @sapphire_property1%"
+        "item_rpc_omega_ruby_amethyst1"                                     "Increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
@@ -472,15 +482,6 @@
 		"property_ruinfall"							"When you fall below 25% health, go invisible within a sandstorm and restore 20% of your max health every second for 5 seconds. While in the sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	"Recharging"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"Omega Ruby"
-		"item_rpc_omega_ruby_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_omega_ruby_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_omega_ruby"					"Omega Flare"
-		"property_omega_ruby"						"Your attacks explode on contact, dealing <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% bonus Magical damage to enemies within <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> range."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"

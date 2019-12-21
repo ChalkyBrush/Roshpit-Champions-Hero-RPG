@@ -14308,7 +14308,7 @@
 		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_omega_ruby"					"欧米伽之火"
-		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>800</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
+		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>10</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
