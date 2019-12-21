@@ -14897,7 +14897,21 @@
         "item_property_nobility_augmented"                  "Strides of Nobility"
         "property_nobility_augmented_description"           "Increases all attributes by <font color='#ccff66'>2</font>x your level. This item cannot be reforged by the Blacksmith."
 
+        "DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"                            "Ruinfall Skull Token"
+
+        "item_property_ruinfall"                    "Sandstorm"
+        "property_ruinfall"                         "When you fall below 25% health, go invisible within a sandstorm and restore 20% of your max health every second for 5 seconds. While in the sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
+        "DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
+        "DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"   "Recharging"
+
+        "item_rpc_ruinfall_skull_token_ruby1"                           "No Effect"
+        "item_rpc_ruinfall_skull_token_emerald1"                            "No Effect"
+        "item_rpc_ruinfall_skull_token_sapphire1"                           "No Effect"
+        "item_rpc_ruinfall_skull_token_amethyst1"                           "No Effect"
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
+        "item_property_silithicus"                                          "Silithicus' Bite"
+        "property_silithicus"                                               "No Effect"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
         "item_rpc_sand_tomb_orb_sapphire1"                                  "No Effect"
@@ -14957,17 +14971,6 @@
 		"property_gengar"                            "<font color='#ccff66'>15</font>% chance on taking damage to gain <font color='#ccff66'>75</font>% evasion, unit walking and <font color='#ccff66'>300</font>% increased Base Ability Damage for <font color='#ccff66'>6</font> seconds."
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
 		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<font color='#ccff66'>75</font>%% evasion, unit walking and <font color='#ccff66'>300</font>%% increased Ability Damage"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"
-		"item_rpc_ruinfall_skull_token_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_ruinfall_skull_token_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_ruinfall_skull_token_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_ruinfall_skull_token_amethyst1"							"blah blah @amethyst_property1 gem"
-		"item_property_ruinfall"					"Sandstorm"
-		"property_ruinfall"							"When you fall below 25% health, go invisible within a sandstorm and restore 20% of your max health every second for 5 seconds. While in the sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
-		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
-		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	"Recharging"
 		
 	
 		
