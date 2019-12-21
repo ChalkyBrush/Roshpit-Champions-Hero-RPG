@@ -59,19 +59,19 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_guardian_stone")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_omega_ruby")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_omega_ruby")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_phoenix_emblem")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_omega_ruby")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_phoenix_emblem")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)

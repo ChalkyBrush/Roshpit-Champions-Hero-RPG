@@ -6722,6 +6722,32 @@ function RPCItems:RollOmegaRuby(item_level)
     return item
 end
 
+function RPCItems:RollPhoenixEmblem(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_phoenix_emblem", "immortal", "Pheonix Token", "amulet", true, "Slot: Trinket")
+
+    item.newItemTable.property1name = "!immortal!_modifier_phoenix_emblem"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_emblem", "#C98920", 1, "#property_phoenix_emblem")
+
+    local luck = RandomInt(1, 2)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7060,39 +7086,6 @@ function RPCItems:RollRavenIdol(item_level)
     local tier, value, propertyName = RPCItems:RollSkillProperty()
     if tier > 0 then
         item.newItemTable.property4 = math.floor(value * 1.4)
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollPhoenixEmblem(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_phoenix_emblem", "immortal", "Pheonix Token", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "phoenix_emblem"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phoenix_emblem", "#C98920", 1, "#property_phoenix_emblem")
-
-    local value, prefixLevel = RPCItems:RollAttribute(100, 5, 23, 0, 0, item.newItemTable.rarity, false, maxFactor * 30)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "health_regen"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_health_regen", "#6AA364", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = value
         item.newItemTable.property4name = propertyName
         RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
     end

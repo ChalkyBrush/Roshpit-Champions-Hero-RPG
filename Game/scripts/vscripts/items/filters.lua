@@ -3442,7 +3442,7 @@ end
 
 function Filters:EternalFrost(caster)
     local ability = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]
-    
+
     local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
     local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
     local position = caster:GetAbsOrigin()
@@ -4665,43 +4665,48 @@ end
 
 function Filters:PhoenixEmblem(victim)
     local caster = victim
-    local ability = victim.amulet
+    local ability = victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]
     local inventoryUnit = victim.InventoryUnit
     if not caster:HasModifier("modifier_phoenix_emblem_cooldown") then
         local rezPosition = caster:GetAbsOrigin()
         ability.rezPosition = rezPosition
         caster:SetAbsOrigin(rezPosition)
-
+        caster:SetHealth(1)
+        caster:SetMana(0)
         caster:AddNoDraw()
         caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 1600))
         local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
+        local cooldown = ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PHOENIX_EMBLEM_GEM_SAPPHIRE)
         Timers:CreateTimer(5.01, function()
-            ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = 15})
+            ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = cooldown})
         end)
-        ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = 5})
-        gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = 5})
+        ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
+        gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
         caster:SetAbsOrigin(rezPosition)
-        local playerID = caster:GetPlayerID()
-        if playerID then
-            --print("WE HERE?? BREZ!!")
-            PlayerResource:SetCameraTarget(playerID, caster)
-        end
-        Timers:CreateTimer(2, function()
-            caster:SetAbsOrigin(rezPosition)
-            if playerID then
-                PlayerResource:SetCameraTarget(playerID, nil)
-            end
-        end)
-
+        -- local playerID = caster:GetPlayerID()
+        -- if playerID then
+        --     PlayerResource:SetCameraTarget(playerID, caster)
+        -- end
+        -- Timers:CreateTimer(2, function()
+        --     caster:SetAbsOrigin(rezPosition)
+        --     if playerID then
+        --         PlayerResource:SetCameraTarget(playerID, nil)
+        --     end
+        -- end)
+    
         local egg = CreateUnitByName("npc_dummy_unit", rezPosition, true, caster, caster, caster:GetTeamNumber())
         egg:FindAbilityByName("dummy_unit"):SetLevel(1)
         egg:SetModelScale(1.4)
         egg:SetOriginalModel("models/phoenix_egg_hitbox.vmdl")
         egg:SetModel("models/phoenix_egg_hitbox.vmdl")
-        egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(0, 0, 80))
+        egg:SetAbsOrigin(egg:GetAbsOrigin()+Vector(0,0,90))
         egg.hero = caster
-        ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = 5})
+        CustomAbilities:QuickAttachParticle("particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf", egg, 2)
+        ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
         AddFOWViewer(caster:GetTeamNumber(), rezPosition, 800, 8, false)
+        local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf", egg, ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY)
+        ParticleManager:SetParticleControlEnt(pfx, 3, egg, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", egg:GetAbsOrigin(), true)
+        Events:smoothSizeChange(egg, 0.3, 1.4, 20)
     end
 end
 

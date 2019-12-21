@@ -1392,6 +1392,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_OMEGA_RUBY_GEM_AMETHYST, hero, "armor_pierce", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_OMEGA_RUBY_GEM_AMETHYST, hero, "spell_pierce", RPC_GEAR_SLOT_TRINKET)
 		end		
+	elseif item:GetAbilityName() == "item_rpc_phoenix_emblem" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY1, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
+		end			
 	end
 end
 

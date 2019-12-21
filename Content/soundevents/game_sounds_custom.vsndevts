@@ -9739,3 +9739,67 @@ Env.LavaHit
         }
     }
 }
+
+"RPCItems.PhoenixEmblem.Explode"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/phoenix/super_nova_explode.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.021000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.990000"  }
+                    "soundlevel"        {   "value"     "96.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.PhoenixEmblem.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/phoenix/super_nova_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.021000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.990000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}

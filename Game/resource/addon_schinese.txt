@@ -14321,13 +14321,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
-		"item_rpc_phoenix_emblem_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_phoenix_emblem_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，<font color='#ccff66'>5</font>秒后涅盘重生并眩晕附近所有敌人<font color='#ccff66'>5</font>秒。冷却时间<font color='#ccff66'>20</font>秒。"
-		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
+
+        "property_phoenix_emblem"                   "On death, revive after <font color='#ccff66'>5</font> seconds with <font color='#ccff66'>50</font>% Health and Mana and stun all surrounding enemies within <font color='#ccff66'>700</font> range for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>20</font> second cooldown."
+        "DOTA_Tooltip_modifier_phoenix_emblem_cooldown" "Rebirth Cooldown"
+
+        "item_rpc_phoenix_emblem_ruby1"                                 "Increases Item Damage by @ruby_property1%, and enemies who are stunned by Rebirth also take damage based on @ruby_property2% of your Max Health"
+        "item_rpc_phoenix_emblem_emerald1"                                  "Increases Max Health by @emerald_property1, and increases Health and Mana on respawn by an additional @emerald_property2%"
+        "item_rpc_phoenix_emblem_sapphire1"                                 "Reduce Rebirth's Cooldown by @sapphire_property1 seconds"
+        "item_rpc_phoenix_emblem_amethyst1"                                 "Increases Rebirth's radius by @amethyst_property1 and stun duration by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"

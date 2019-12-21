@@ -2475,7 +2475,7 @@ function ruby_attack(event)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)*ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG/100 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY2)
 
 	EmitSoundOn("RPCItems.OmegaRuby.AttackLand", target)
-	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS
+	local radius = ITEM_RPC_OMEGA_RUBY_AOE_RADIUS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OMEGA_RUBY_GEM_RUBY1)
 	local particleName = "particles/econ/items/techies/techies_arcana/techies_suicide_arcana.vpcf"
 	local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(particle1, 0, target:GetAbsOrigin())
@@ -2777,74 +2777,16 @@ function april_fools_cast(event)
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_Gyrocopter.ART_Barrage.Launch", target)
 end
 
-function phoenix_die(event)
-	local caster = event.unit
-	local ability = event.ability
-	local inventoryUnit = event.caster
-	if not caster:HasModifier("modifier_phoenix_emblem_cooldown") then
-		local bRez = true
-		if caster:GetUnitName() == "npc_dota_hero_omniknight" then
-			local a_c_level = Runes:GetTotalRuneLevel(caster, 1, "e_1", "paladin")
-			local runeUnit = caster.runeUnit
-			local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")
-			if a_c_level > 0 and caster:HasModifier("modifier_paladin_rune_e_1_revivable") then
-				bRez = false
-			end
-		end
-		if bRez then
-			--print("BREZ!!")
-			caster.revive = true
-			local rezPosition = caster:GetAbsOrigin()
-			ability.rezPosition = rezPosition
-			caster:SetTimeUntilRespawn(0)
-			caster:SetAbsOrigin(rezPosition)
-			Timers:CreateTimer(0.3, function()
-				caster:AddNoDraw()
-				local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
-				Timers:CreateTimer(ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY+0.01, function()
-					ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_emblem_cooldown", {duration = ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN})
-				end)
-				ability:ApplyDataDrivenModifier(inventoryUnit, caster, "modifier_phoenix_rebirthing", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
-				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, caster, "modifier_disable_player", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
-				caster:SetAbsOrigin(rezPosition)
-				local playerID = caster:GetPlayerID()
-				if playerID then
-					--print("WE HERE?? BREZ!!")
-					PlayerResource:SetCameraTarget(playerID, caster)
-				end
-				Timers:CreateTimer(2, function()
-					caster:SetAbsOrigin(rezPosition)
-					if playerID then
-						PlayerResource:SetCameraTarget(playerID, nil)
-					end
-				end)
-			end)
-
-			local egg = CreateUnitByName("npc_dummy_unit", rezPosition, true, caster, caster, caster:GetTeamNumber())
-			egg:FindAbilityByName("dummy_unit"):SetLevel(1)
-			egg:SetModelScale(1.4)
-			egg:SetOriginalModel("models/phoenix_egg_hitbox.vmdl")
-			egg:SetModel("models/phoenix_egg_hitbox.vmdl")
-			egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(0, 0, 80))
-			egg.hero = caster
-			ability:ApplyDataDrivenModifier(inventoryUnit, egg, "modifier_egg_reviving", {duration = ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY})
-			AddFOWViewer(caster:GetTeamNumber(), rezPosition, 800, 8, false)
-		end
-	end
-
-end
-
 function egg_start(event)
 	local target = event.target
-	EmitSoundOn("Hero_Phoenix.SuperNova.Cast", target)
-	EmitSoundOn("Hero_Phoenix.SuperNova.Cast", target)
+	EmitSoundOn("RPCItems.PhoenixEmblem.Start", target)
 end
 
 function egg_think(event)
 	local target = event.target
-	target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0, 0, 4))
+	target:SetAbsOrigin(target:GetAbsOrigin() + Vector(0, 0, 2.5))
 	local fv = target:GetForwardVector()
-	target:SetForwardVector(WallPhysics:rotateVector(fv, math.pi / 56))
+	target:SetForwardVector(WallPhysics:rotateVector(fv, math.pi / 66))
 end
 
 function egg_end(event)
@@ -2853,24 +2795,33 @@ function egg_end(event)
 	local ability = event.ability
 	hero:RemoveNoDraw()
 	hero:SetAbsOrigin(ability.rezPosition)
-	EmitSoundOn("Hero_Phoenix.SuperNova.Explode", hero)
+	EmitSoundOn("RPCItems.PhoenixEmblem.Explode", hero)
 	local particleName = "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
-	local particleVector = hero:GetAbsOrigin()
+	local particleVector = target:GetAbsOrigin() - Vector(0,0,220)
 	-- CustomGameEventManager:Send_ServerToAllClients("special_event_close", {} )
-	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, hero)
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControl(pfx, 0, particleVector)
 	ParticleManager:SetParticleControl(pfx, 1, particleVector)
 	ParticleManager:SetParticleControl(pfx, 2, particleVector)
 	Timers:CreateTimer(ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
+	local damage = hero:GetMaxHealth()*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY2)/100
+	local stun_duration = ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PHOENIX_EMBLEM_GEM_AMETHYST2)
 	ScreenShake(particleVector, 500, 0.4, 0.8, 9000, 0, true)
-	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local radius = ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PHOENIX_EMBLEM_GEM_AMETHYST1)
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), particleVector, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			Filters:ApplyStun(hero, ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR, enemy)
+			if damage > 0 then
+				Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_HOLY)
+			end
+			Filters:ApplyStun(hero, stun_duration, enemy)
 		end
 	end
+	local starting_health_and_mana_pct = ITEM_RPC_PHOENIX_EMBLEM_REVIVE_HEALTH_AND_MANA_PCT + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD2)
+	hero:SetHealth(hero:GetMaxHealth()*(starting_health_and_mana_pct/100))
+	hero:SetMana(hero:GetMaxMana()*(starting_health_and_mana_pct/100))
 	UTIL_Remove(target)
 end
 

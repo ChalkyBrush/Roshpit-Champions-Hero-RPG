@@ -1,3 +1,157 @@
+	"item_rpc_phoenix_emblem"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/phoenix_emblem" //"phoenix_emblem"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+            "particle"  "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+            "particle"  "particles/units/heroes/hero_phoenix/phoenix_supernova_death.vpcf"
+            "particle"	"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+            "model"		"models/phoenix_egg_hitbox.vmdl"
+            "particle"	"particles/roshpit/flamewaker/flamewaker_q_arcana1.vpcf"
+		}
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_one"				"<% RPC_ELEMENT_FIRE %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"element_two"				"<% RPC_ELEMENT_HOLY %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY1 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY2 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_SAPPHIRE %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_AMETHYST1 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_phoenix_emblem"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_phoenix_rebirthing"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"TextureName"	"phoenix_supernova"
+				"IsBuff"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_phoenix_emblem_cooldown"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"TextureName"	"phoenix_supernova"
+			}
+			"modifier_egg_reviving"
+			{
+				"IsHidden" "1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"egg_start"
+						"target"		"TARGET"
+					}
+
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"egg_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"egg_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 	"item_rpc_omega_ruby"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -4045,129 +4199,6 @@
 		}
 	}
 
-	"item_rpc_phoenix_emblem"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/phoenix_emblem" //"phoenix_emblem"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"precache"
-		{
-            "soundfile" "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-            "particle"  "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
-            "particle"  "particles/units/heroes/hero_phoenix/phoenix_supernova_death.vpcf"
-            "model"		"models/phoenix_egg_hitbox.vmdl"
-		}
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_RUBY %>"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_EMERALD %>"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_SAPPHIRE %>"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_PHOENIX_EMBLEM_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_phoenix_emblem"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_phoenix_rebirthing"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"TextureName"	"phoenix_supernova"
-				"IsBuff"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_phoenix_emblem_cooldown"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"TextureName"	"phoenix_supernova"
-			}
-			"modifier_egg_reviving"
-			{
-				"IsHidden" "1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"egg_start"
-						"target"		"TARGET"
-					}
-
-				}
-				"ThinkInterval"  "0.05"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"egg_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"egg_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
-	}
 	"item_rpc_raven_idol"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

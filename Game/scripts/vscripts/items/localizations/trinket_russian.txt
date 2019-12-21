@@ -213,14 +213,16 @@
 		"property_raven_idol_description2"			"Весь получаемый урон снижен на <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Уровень здоровья не поднимется выше <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"Phoenix Emblem"
-		"item_rpc_phoenix_emblem_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_phoenix_emblem_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_phoenix_emblem"				"Rebirth"
-		"property_phoenix_emblem"					"При смерти герой начинает перерождение. Через <% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %> секунд он возрождается, оглушая всех врагов вокруг на <% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %> секунд. Перезаряжается <% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %> секунд."
-		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"Перезарядка Rebirth"
+        "DOTA_Tooltip_ability_item_rpc_phoenix_emblem"                                  "Phoenix Emblem"
+
+        "item_property_phoenix_emblem"              "Rebirth"
+        "property_phoenix_emblem"                   "On death, revive after <% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %> seconds with <% ITEM_RPC_PHOENIX_EMBLEM_REVIVE_HEALTH_AND_MANA_PCT %>% Health and Mana and stun all surrounding enemies within <% ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS %> range for <% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %> seconds. <% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %> second cooldown."
+        "DOTA_Tooltip_modifier_phoenix_emblem_cooldown" "Rebirth Cooldown"
+
+        "item_rpc_phoenix_emblem_ruby1"                                 "Increases Item Damage by @ruby_property1%, and enemies who are stunned by Rebirth also take damage based on @ruby_property2% of your Max Health"
+        "item_rpc_phoenix_emblem_emerald1"                                  "Increases Max Health by @emerald_property1, and increases Health and Mana on respawn by an additional @emerald_property2%"
+        "item_rpc_phoenix_emblem_sapphire1"                                 "Reduce Rebirth's Cooldown by @sapphire_property1 seconds"
+        "item_rpc_phoenix_emblem_amethyst1"                                 "Increases Rebirth's radius by @amethyst_property1 and stun duration by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"Volcano Orb"

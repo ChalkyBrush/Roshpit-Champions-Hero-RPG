@@ -3386,7 +3386,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--LETHAL CHECK
-	if filterTable["damage"] > victim:GetHealth() then
+	filterTable["damage"] = victim:GetHealth()
+	if filterTable["damage"] >= victim:GetHealth() then
 		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then
 			if victim:HasModifier("modifier_phoenix_rebirthing") then
@@ -3614,7 +3615,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = victim:GetHealth()-10
+			-- filterTable["damage"] = victim:GetHealth()
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
