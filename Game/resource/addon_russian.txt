@@ -14486,15 +14486,17 @@
 		
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"Torch of Gengar"
-		"item_rpc_torch_of_gengar_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_torch_of_gengar_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_gengar"						"Shadow Walk"
-		"property_gengar"							"При получении урона есть шанс <font color='#ccff66'>15</font>%, что герой получит возможность уклоняться от <font color='#ccff66'>75</font>% атак, ходить сквозь юнитов и увеличит Базовый Урон Способностей на <font color='#ccff66'>300</font>% на <font color='#ccff66'>6</font> секунд."
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"Shadow Walk"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<font color='#ccff66'>75</font>%% уклонение, хождение сквозь юнитов, базовый урон способностей увеличен на <font color='#ccff66'>300</font>%%."
+        "DOTA_Tooltip_ability_item_rpc_torch_of_gengar"                                 "Torch of Gengar"
+
+        "item_property_gengar"                      "Shadow Walk"
+        "property_gengar"                            "The wearer is disarmed and has <font color='#ccff66'>100</font>% evasion, unit walking and <font color='#ccff66'>60</font>% reduced Attack Power. Casting a spell removes this effect for <font color='#ccff66'>6</font> seconds."
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect"  "Shadow Walk"
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"  "<font color='#ccff66'>100</font>%% evasion and unit walking"
+        
+        "item_rpc_torch_of_gengar_ruby1"                                    "Reduces Shadow Walk's disabled duration by @ruby_property1 seconds"
+        "item_rpc_torch_of_gengar_emerald1"                                 "While Shadow Walk is disabled gain @emerald_property1% Base Ability Damage and @emerald_property2 Magic Armor"
+        "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"Ruinfall Skull Token"

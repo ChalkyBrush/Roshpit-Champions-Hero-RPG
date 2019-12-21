@@ -7030,6 +7030,33 @@ function RPCItems:RollTomeOfChaos(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollTorchOfGengar(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_torch_of_gengar", "immortal", "Torch Of Gengar", "amulet", true, "Slot: Trinket")
+
+    item.newItemTable.property1name = "!immortal!_modifier_torch_of_gengar"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gengar", "#7E36D6", 1, "#property_gengar")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_ghost", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spell_pierce", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7112,38 +7139,7 @@ function RPCItems:RollTwigOfEnlightened(item_level)
     return item
 end
 
-function RPCItems:RollTorchOfGengar(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_torch_of_gengar", "immortal", "Torch Of Gengar", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
 
-    item.newItemTable.property1name = "gengar"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_gengar", "#7E36D6", 1, "#property_gengar")
-
-    local magicResistRoll = RandomInt(5, 10)
-    item.newItemTable.property2 = magicResistRoll
-    item.newItemTable.property2name = "magic_resist"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_magic_resist", "#AC47DE", 2)
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property3 = value
-        item.newItemTable.property3name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-    end
-
-    local tier, value, propertyName = RPCItems:RollSkillProperty()
-    if tier > 0 then
-        item.newItemTable.property4 = math.floor(value * 1.4)
-        item.newItemTable.property4name = propertyName
-        RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-    end
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
 
 
 
@@ -8073,7 +8069,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
         itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire", "item_rpc_blacksmiths_tablet", "item_rpc_epsilons_eyeglass",
         "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel", "item_rpc_monkey_paw",
-        "item_rpc_raven_idol", "item_rpc_ring_of_nobility", "item_rpc_sapphire_lotus", "item_rpc_signus_charm", "item_rpc_stone_of_gordon", "item_rpc_tome_of_chaos"}
+        "item_rpc_raven_idol", "item_rpc_ring_of_nobility", "item_rpc_sapphire_lotus", "item_rpc_signus_charm", "item_rpc_stone_of_gordon", "item_rpc_tome_of_chaos", "item_rpc_torch_of_gengar"}
     end
     return itemsList
 end

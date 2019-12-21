@@ -2171,16 +2171,6 @@ function hermit_spike_damage_taken(event)
 	end
 end
 
-function gengar_damage(event)
-	local caster = event.caster
-	local ability = event.ability
-	local target = event.unit
-	local proc = Filters:GetProc(target, ITEM_RPC_TORCH_OF_GENGAR_CHANCE)
-	if proc then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_torch_of_gengar_effect", {duration = ITEM_RPC_TORCH_OF_GENGAR_DURATION})
-	end
-end
-
 function redrock_end(event)
 	local target = event.target
 	target:Stop()
@@ -10238,4 +10228,18 @@ function infernal_reign_amethyst_impact(event)
 	hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(hero.InventoryUnit, target, "modifier_infernal_reign_amethyst_armor_loss", {duration = ITEM_RPC_TOME_OF_CHAOS_AMETHYST_ARMOR_LOSS_DURATION})
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST1)/100
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_DEMON, RPC_ELEMENT_FIRE)
+end
+
+function torch_of_gengar_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if not hero:HasModifier("modifier_torch_of_gengar_inactive") then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_torch_of_gengar_effect", {})
+		local atk_penalty = ITEM_RPC_TORCH_OF_GENGAR_REDUCED_ATTACK_DAMAGE - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TORCH_OF_GENGAR_GEM_SAPPHIRE)
+		if atk_penalty > 0 then
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_torch_of_gengar_attack_penalty", {})
+			hero:SetModifierStackCount("modifier_torch_of_gengar_attack_penalty", caster, atk_penalty)
+		end
+	end
 end

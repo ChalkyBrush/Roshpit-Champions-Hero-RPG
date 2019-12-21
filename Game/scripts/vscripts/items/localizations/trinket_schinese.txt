@@ -182,14 +182,16 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"阴影火炬"
-		"item_rpc_torch_of_gengar_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_torch_of_gengar_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_gengar"						"暗影步伐"
-		"property_gengar"							"受到伤害时有 <% ITEM_RPC_TORCH_OF_GENGAR_CHANCE %>% 的几率获得 <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% 闪避，相位移动能力并且增加 <% ITEM_RPC_TORCH_OF_GENGAR_BAD %>% 的基础技能伤害，持续<% ITEM_RPC_TORCH_OF_GENGAR_DURATION %>秒。"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"暗影步伐"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% 闪避，相位移动和<% ITEM_RPC_TORCH_OF_GENGAR_BAD %>%% 技能伤害"
+        "property_gengar"                            "The wearer is disarmed and has <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% evasion, unit walking and <% ITEM_RPC_TORCH_OF_GENGAR_REDUCED_ATTACK_DAMAGE %>% reduced Attack Power. Casting a spell removes this effect for <% ITEM_RPC_TORCH_OF_GENGAR_REMOVE_DURATION %> seconds."
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect"  "Shadow Walk"
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"  "<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% evasion and unit walking"
+        
+        "item_rpc_torch_of_gengar_ruby1"                                    "Reduces Shadow Walk's disabled duration by @ruby_property1 seconds"
+        "item_rpc_torch_of_gengar_emerald1"                                 "While Shadow Walk is disabled gain @emerald_property1% Base Ability Damage and @emerald_property2 Magic Armor"
+        "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"

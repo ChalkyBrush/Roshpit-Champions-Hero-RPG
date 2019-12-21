@@ -798,6 +798,9 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:HasModifier("modifier_spellfire_gloves") then
         Filters:SpellfireAbilityCast(caster, slot)
     end
+    if caster:HasModifier("modifier_torch_of_gengar_effect") then
+        Filters:GengarCast(caster)
+    end
     if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
         Filters:InpsirationRing(caster, slot)
     end
@@ -1667,9 +1670,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_garnet_warfare_ring") then
             damageMult = damageMult + ITEM_RPC_GARNET_WARFARE_RING_STR_TO_BAD/100 * (attacker:GetStrength())
         end
-        if attacker:HasModifier("modifier_torch_of_gengar_effect") then
-            damageMult = damageMult + ITEM_RPC_TORCH_OF_GENGAR_BAD/100
-        end
         if attacker:HasModifier("modifier_boots_of_old_wisdom_active") then
             damageMult = damageMult + ITEM_RPC_BOOTS_OF_OLD_WISDOM_BAD/100
         end
@@ -1730,6 +1730,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_aquastone_ring") then
             damageMult = damageMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
+        end
+        if attacker:HasModifier("modifier_torch_of_gengar_inactive") then
+            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD1)/100
         end
         if attacker:HasModifier("modifier_tranquil_boots") then
             damageMult = damageMult + ((attacker:GetHealth()/attacker:GetMaxHealth())*100)*attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE2)/100
@@ -6972,4 +6975,12 @@ function Filters:StargazerSphere(unit, orderTable)
             end 
         end 
     end 
+end
+
+function Filters:GengarCast(caster)
+    if caster:HasModifier("modifier_torch_of_gengar_effect") then
+        caster:RemoveModifierByName("modifier_torch_of_gengar_effect")
+        local inactive_duration = ITEM_RPC_TORCH_OF_GENGAR_REMOVE_DURATION - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TORCH_OF_GENGAR_GEM_RUBY)
+        caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_torch_of_gengar_inactive", {duration = inactive_duration})
+    end
 end

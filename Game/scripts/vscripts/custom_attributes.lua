@@ -1143,7 +1143,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_infernal_reign_amethyst_armor_loss") then
 		local caster = unit:FindModifierByName("modifier_infernal_reign_amethyst_armor_loss"):GetCaster()
-		print(caster:GetUnitName())
 		local tome = caster.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
 		armor_modify = armor_modify + tome:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST2)
 	end
@@ -1787,7 +1786,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_tempest_falcon_sapphire_armors") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE1)
 	end
-
+    if unit:HasModifier("modifier_torch_of_gengar_inactive") then
+        magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD2)
+    end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then

@@ -60828,6 +60828,128 @@
 		}
 	}
 
+	"item_rpc_torch_of_gengar"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/torch_of_gengar" //"torch_of_gengar"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"1 2 3 4 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"25 50 75 100 125"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"600 1200 1800 2400 3000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"12 24 36 48 60"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"15 30 45 60 75"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_torch_of_gengar"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"torch_of_gengar_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_torch_of_gengar_effect"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_torch_of_gengar_effect"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"TextureName"	"riki_smoke_screen"
+				"EffectName"	"particles/units/heroes/hero_arc_warden/gengar_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_torch_of_gengar_attack_penalty"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_torch_of_gengar_inactive"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_torch_of_gengar_attack_penalty"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}
+			}
+		}
+	}
+
 	"item_rpc_tome_of_chaos"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -66282,93 +66404,6 @@
 		}
 	}
 
-	"item_rpc_torch_of_gengar"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"rpc/torch_of_gengar" //"torch_of_gengar"
-		"AbilityCastRange"	"900"
-		"AbilityCastPoint"	"0"
-		"AbilityCooldown"	"0"
-		"AbilityManaCost"	"0"
-		"ItemPermanent"			"0"
-		"ItemQuality"			"common"
-		"ItemDroppable"	"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"MaxUpgradeLevel"	"1"
-		"ItemBaseLevel"	"1"
-		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"10 20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"10 20 30 40 50"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"10 20 30 40 50"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"10 20 30 40 50"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_torch_of_gengar"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"gengar_damage"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_torch_of_gengar_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Duration"  "6"
-				"TextureName"	"riki_smoke_screen"
-				"EffectName"	"particles/units/heroes/hero_arc_warden/gengar_buff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"75"
-				}
-			}
-		}
-	}
 	"item_rpc_twig_of_the_enlightened"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
