@@ -131,6 +131,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_head_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_head_rune_q_1"
 			{
 				"Passive"	"0"
@@ -476,6 +486,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_weapon_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_weapon_rune_q_1"
 			{
@@ -829,6 +849,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_hands_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_hands_rune_q_1"
 			{
 				"Passive"	"0"
@@ -1174,6 +1204,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_feet_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_feet_rune_q_1"
 			{
@@ -1521,6 +1561,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_body_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_body_rune_q_1"
 			{
 				"Passive"	"0"
@@ -1866,6 +1916,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_amulet_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_amulet_rune_q_1"
 			{

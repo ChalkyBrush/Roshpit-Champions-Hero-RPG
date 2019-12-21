@@ -6675,6 +6675,27 @@ function RPCItems:RollLifesourceVessel(item_level)
     return item
 end
 
+function RPCItems:RollMonkeyPaw(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_monkey_paw", "immortal", "Monkey Paw", "amulet", true, "Slot: Trinket")
+    item.newItemTable.property1name = "!immortal!_modifier_monkey_paw"
+    item.newItemTable.property1 = 1
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_monkey_paw", "#E4AE33", 1, "#property_monkey_paw_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -6715,38 +6736,6 @@ function RPCItems:RollWinterblightSkullRing(item_level)
 
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     item.newItemTable.property4 = math.ceil(value * 1.1)
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollMonkeyPaw(item_level)
-    local item = RPCItems:CreateVariant("item_rpc_monkey_paw", "immortal", "Monkey Paw", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    item.newItemTable.property1name = "monkey_paw"
-    local value = 1
-    item.newItemTable.property1 = value
-
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_monkey_paw", "#E4AE33", 1, "#property_monkey_paw_description")
-
-    item.newItemTable.hasRunePoints = true
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property2 = math.floor(value * 1.5)
-    item.newItemTable.property2name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "rune", "#7DFF12", 2)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.floor(value * 1.5)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
-
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = value * 2
     item.newItemTable.property4name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
 
@@ -8237,7 +8226,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_yasha_boots"}
     elseif gear_slot == RPC_GEAR_SLOT_TRINKET then
         itemsList = {"item_rpc_aeriths_tear", "item_rpc_antique_mana_relic", "item_rpc_arbor_dragonfly", "item_rpc_arcane_charm", "item_rpc_azure_empire", "item_rpc_blacksmiths_tablet", "item_rpc_epsilons_eyeglass",
-        "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel"}
+        "item_rpc_epsilons_eyeglass", "item_rpc_fractional_enhancement_geode", "item_rpc_galaxy_orb", "item_rpc_gem_of_eternal_frost", "item_rpc_hope_of_saytaru", "item_rpc_lifesource_vessel", "item_rpc_monkey_paw"}
     end
     return itemsList
 end

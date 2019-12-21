@@ -14176,12 +14176,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"猴爪"
-		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"摇曳的梦想"
-		"property_monkey_paw_description"			"精英怪在玩家 <font color='#ccff66'>600</font> 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 <font color='#ccff66'>50</font>% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（<font color='#ccff66'>3500</font>/<font color='#ccff66'>7000</font>/<font color='#ccff66'>10500</font> 普通难度/精英难度/传说难度）装备猴爪后，玩家每 <font color='#ccff66'>0.03</font> 秒将受到 1 点纯粹伤害。"
+        "property_monkey_paw_description"           "Equipping this item causes you to take 1 point of Pure damage every <font color='#ccff66'>0.03</font> seconds."
+
+        "item_rpc_monkey_paw_ruby1"                                     "Increases Attack Power by @ruby_property1%"
+        "item_rpc_monkey_paw_emerald1"                                      "Increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
+        "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"戈登神石"

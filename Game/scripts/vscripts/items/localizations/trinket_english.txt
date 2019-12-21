@@ -383,6 +383,16 @@
         "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
         "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_monkey_paw"                                      "Monkey Paw"
+
+        "item_property_monkey_paw"                  "Wishful Curse"
+        "property_monkey_paw_description"           "Equipping this item causes you to take 1 point of Pure damage every <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> seconds."
+
+        "item_rpc_monkey_paw_ruby1"                                     "Increases Attack Power by @ruby_property1%"
+        "item_rpc_monkey_paw_emerald1"                                      "Increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
+        "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
+
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
         "item_rpc_sand_tomb_orb_ruby1"                                      "No Effect"
         "item_rpc_sand_tomb_orb_emerald1"                                   "No Effect"
@@ -408,18 +418,7 @@
 		"item_property_neverlord_soul_ring"												"Soul Conversion"
 		"property_neverlord_soul_ring_description"											"Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
     	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"				"Slot: Trinket"
-		
 
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
-		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_monkey_paw"					"Wishful Curse"
-		"property_monkey_paw_description"			"Paragon monsters who die within <% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %> range drop additional Immortal rarity items, at the cost of <% ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT %>% of your gold. The difficulty level of the map increases the quality of the items dropped, but also increases the amount of gold needed to generate them (<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 3 %> in Normal/Elite/Legend). Equipping this item causes you to take 1 point of Pure damage every <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> seconds."
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"

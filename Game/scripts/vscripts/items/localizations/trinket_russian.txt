@@ -65,13 +65,15 @@
 		"item_rpc_badge_of_honor_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"Monkey Paw"
-		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_monkey_paw"					"Wishful Curse"
-		"property_monkey_paw_description"			"Если в радиусе <% ITEM_RPC_MONKEY_PAW_AOE_PARAGON_TRIGGER %> от героя умирает монстр парагона, то после его смерти выпадут дополнительные Immortal предметы, отнимая <% ITEM_RPC_MONKEY_PAW_GOLD_COST_PCT %>% от имеющегося золота. Уровень сложности на карте определяет качество выпадающих предметов, также влияя на количество отнимаемого золота (<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 2 %>/<% ITEM_RPC_MONKEY_PAW_GOLD_DIVISOR * 3 %> для сложностей Normal/Elite/Legend). Пока надет этот предмет, герой постоянно получает 1 чистого урона каждые <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> секунды."
+        "DOTA_Tooltip_ability_item_rpc_monkey_paw"                                      "Monkey Paw"
+
+        "item_property_monkey_paw"                  "Wishful Curse"
+        "property_monkey_paw_description"           "Equipping this item causes you to take 1 point of Pure damage every <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> seconds."
+
+        "item_rpc_monkey_paw_ruby1"                                     "Increases Attack Power by @ruby_property1%"
+        "item_rpc_monkey_paw_emerald1"                                      "Increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
+        "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
