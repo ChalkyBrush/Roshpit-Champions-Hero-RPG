@@ -3180,6 +3180,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_rpc_steamboots") then
 		agi_bonus = agi_bonus + hero:GetLevel()*ITEM_RPC_STEAMBOOTS_AGI_PER_LEVEL
 	end
+	if hero:HasModifier("modifier_raven_idol") then
+		spr_bonus = spr_bonus - hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RAVEN_IDOL_GEM_SAPPHIRE1) 
+		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RAVEN_IDOL_GEM_SAPPHIRE2) 
+	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
 	end

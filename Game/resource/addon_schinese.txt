@@ -14312,12 +14312,14 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
-		"item_rpc_raven_idol_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_raven_idol_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>65</font>%. 你的血量不能超过 <font color='#ccff66'>35</font>% 的最大生命值. 每失去1%血量提升装备伤害 <font color='#ccff66'>10</font>% ."
+		"item_property_raven_idol1"					"黑暗灵魂"		
+    
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <font color='#ccff66'>35</font>%. Your health can not go above <font color='#ccff66'>65</font>% of your max."
+        
+        "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
+        "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
+        "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
+        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"

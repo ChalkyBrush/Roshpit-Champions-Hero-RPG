@@ -1948,7 +1948,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_raven_idol") then
-		damage = damage * (1 - ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT / 100)
+		damage = damage * (1 - (ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT + victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RAVEN_IDOL_GEM_RUBY2)) / 100)
 	end
 	if victim:HasModifier("modifier_savage_plate_of_ogthun") then
 		local savage_plate = victim.equipped_gear[RPC_GEAR_SLOT_BODY]

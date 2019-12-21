@@ -204,13 +204,15 @@
 		"property_omega_ruby"						"Вместе с обычными атаками происходит взрыв, наносящий магический урон в области <% ITEM_RPC_OMEGA_RUBY_AOE_RADIUS %> единиц в размере <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %> от урона атаки героя."
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
-		"item_rpc_raven_idol_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_raven_idol_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Весь получаемый урон снижен на <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Уровень здоровья не поднимется выше <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% от максимума. Каждые 100 очков недостающего здоровья увеличивают урон, напрямую наносимый предметами на 0.01%.<br><font color='#f14b4b'>Улучшенный  предмет перековывать нельзя!</font>"
+        "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
+
+        "item_property_raven_idol"                 "Black Soul"        
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Your health can not go above <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% of your max."
+        
+        "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
+        "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
+        "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
+        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 		
 		
         "DOTA_Tooltip_ability_item_rpc_phoenix_emblem"                                  "Phoenix Emblem"

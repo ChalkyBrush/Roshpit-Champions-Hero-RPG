@@ -1415,7 +1415,15 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_PUZZLERS_LOCKET_GEM_SAPPHIRE, hero, "rune_w_2", RPC_GEAR_SLOT_TRINKET)
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_PUZZLERS_LOCKET_GEM_AMETHYST, hero, "rune_r_2", RPC_GEAR_SLOT_TRINKET)
-		end					
+		end		
+	elseif item:GetAbilityName() == "item_rpc_raven_idol" then		
+		if socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_RAVEN_IDOL_GEM_EMERALD2, hero, "base_ability", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_RAVEN_IDOL_GEM_EMERALD3, hero, "attack_power", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RAVEN_IDOL_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_RAVEN_IDOL_GEM_AMETHYST, hero, "element_shadow", RPC_GEAR_SLOT_TRINKET)
+		end		
 	end
 end
 

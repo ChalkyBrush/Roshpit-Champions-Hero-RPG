@@ -213,10 +213,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
         local current_stack = caster:GetModifierStackCount("modifier_spiritual_empowerment_stack", caster.InventoryUnit)
         mult = mult + current_stack * caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_RUBY1)/100
     end
-    if caster:HasModifier("modifier_raven_idol") then
-        local multIncrease = (1 - caster:GetHealth() / caster:GetMaxHealth()) * ITEM_RPC_RAVEN_IDOL_ITEM_DMG_PCT_PER_MISSING_HP_PCT
-        mult = mult + multIncrease
-    end
     if caster:HasModifier("modifier_chernobog_immortal_weapon_2") then
 		local missingHealthPercent = math.floor((1 - (caster:GetHealth() / caster:GetMaxHealth())) * 100)
 		mult = mult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
@@ -659,6 +655,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
     end
     if caster:HasModifier("modifier_white_mage_hat") then
         healAmount = healAmount * (1 + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", WHITE_MAGE_EMERALD)/100)
+    end
+    if target:HasModifier("modifier_raven_idol") then
+        healAmount = healAmount * (1 - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RAVEN_IDOL_GEM_EMERALD1)/100)
     end
     healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then

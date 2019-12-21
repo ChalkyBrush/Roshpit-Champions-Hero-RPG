@@ -14869,6 +14869,16 @@
         "item_rpc_puzzlers_locket_sapphire1"                "Increases Rune [W2] by @ruby_property1"
         "item_rpc_puzzlers_locket_amethyst1"                "Increases Rune [R2] by @ruby_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
+
+        "item_property_raven_idol"                 "Black Soul"        
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <font color='#ccff66'>35</font>%. Your health can not go above <font color='#ccff66'>65</font>% of your max."
+        
+        "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
+        "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
+        "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
+        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
+
 
 
         "DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"                                   "Fangs of Silithicus"
@@ -14942,15 +14952,6 @@
 		"property_ruinfall"							"When you fall below 25% health, go invisible within a sandstorm and restore 20% of your max health every second for 5 seconds. While in the sandstorm you are silenced, disarmed and rooted. 40 second cooldown."
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown" "Sandstorm Cooldown"
 		"DOTA_Tooltip_modifier_ruinfall_skull_token_cooldown_Description"	"Recharging"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"Raven Idol"
-		"item_rpc_raven_idol_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_raven_idol_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_raven_idol2"					"Black Soul"		
-		"property_raven_idol_description2"			"Reduce damage taken from all sources by <font color='#ccff66'>65</font>%. Your health can not go above <font color='#ccff66'>35</font>% of your max. Increases item damage dealt by <font color='#ccff66'>10</font>% for each missing percent of health."
 		
 	
 		

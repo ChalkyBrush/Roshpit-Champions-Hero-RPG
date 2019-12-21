@@ -2644,17 +2644,21 @@ function ocean_tempest_channel_end(event)
 end
 
 function raven_idol_think(event)
-	local target = event.target
-	if target:GetHealth() > target:GetMaxHealth() * ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT / 100 then
-		target:SetHealth(target:GetMaxHealth() * ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT / 100)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local threshold_pct = ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RAVEN_IDOL_GEM_RUBY1)
+	if hero:GetHealth() > hero:GetMaxHealth() * threshold_pct / 100 then
+		hero:SetHealth(hero:GetMaxHealth() * threshold_pct / 100)
 	end
 end
 
 function raven_idol_health_gained(event)
-	local target = event.unit
-	if target:GetHealth() > target:GetMaxHealth() * ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT / 100 then
-		target:SetHealth(target:GetMaxHealth() * ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT / 100)
-	end
+	-- local hero = event.unit
+	-- local ability = event.ability
+	-- if hero:GetHealth() > hero:GetMaxHealth() * threshold_pct / 100 then
+	-- 	hero:SetHealth(hero:GetMaxHealth() * threshold_pct / 100)
+	-- end
 end
 
 function twilight_damage_taken(event)
