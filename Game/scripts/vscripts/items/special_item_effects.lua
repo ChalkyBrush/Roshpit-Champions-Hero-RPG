@@ -4632,10 +4632,12 @@ function wind_orchid_think(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
-	local e_4_level = target:GetRuneValue("e", 4)
-	if e_4_level > 0 then
+	local base_agi_bonus = target:GetRuneValue("e", 4)*ITEM_RPC_WIND_ORCHID_AGI_PER_E4
+	local agi_bonus_from_gems = target:GetRuneValue("e", 1)*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_WIND_ORCHID_GEM_RUBY) + target:GetRuneValue("e", 2)*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_WIND_ORCHID_GEM_SAPPHIRE) + target:GetRuneValue("e", 3)*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_AQUA_LILY_GEM_AMETHYST)
+	local total_agi = base_agi_bonus + agi_bonus_from_gems
+	if total_agi > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_wind_orchid_agility_bonus", {})
-		target:SetModifierStackCount("modifier_wind_orchid_agility_bonus", caster, e_4_level)
+		target:SetModifierStackCount("modifier_wind_orchid_agility_bonus", caster, total_agi)
 	else
 		target:RemoveModifierByName("modifier_wind_orchid_agility_bonus")
 	end

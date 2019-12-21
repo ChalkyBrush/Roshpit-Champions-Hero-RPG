@@ -1368,7 +1368,7 @@ function wind_spirit_die(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.SpiritRealmEpic", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollWindOrchid(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_wind_orchid")
 	end
 	local walls = Entities:FindAllByNameWithin("WindTempleSpiritWall", Vector(10560, 14283, 45 + Tanari.ZFLOAT), 1200)
 	if #walls > 0 then

@@ -14734,7 +14734,7 @@
 		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"Wind Bloom"
-		 "property_wind_orchid_description"						"Каждое очко руны [E4] увеличивает Ловкость на <font color='#ccff66'>300</font>."
+		 "property_wind_orchid_description"						"Каждое очко руны [E4] увеличивает Ловкость на <font color='#ccff66'>24</font>."
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"Aqua Lily"

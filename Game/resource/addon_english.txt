@@ -15046,7 +15046,13 @@
 		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
 
 		
-		
+       "DOTA_Tooltip_ability_item_rpc_wind_orchid"                                     "Wind Orchid"
+        "item_property_wind_orchid"                         "Wind Bloom"
+         "property_wind_orchid_description"                     "Every point in [E4] increases Agility by <font color='#ccff66'>24</font>."
+        "item_rpc_wind_orchid_ruby1"                                        "Each point in Rune [E1] increases Agility by @ruby_property1"
+        "item_rpc_wind_orchid_emerald1"                                     "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_wind_orchid_sapphire1"                                        "Each point in Rune [E2] increases Agility by @sapphire_property1"
+        "item_rpc_wind_orchid_amethyst1"                                        "Each point in Rune [E3] increases Agility by @amethyst_property1"	
 		
 
 		
@@ -15057,13 +15063,7 @@
 	 
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_wind_orchid"										"Wind Orchid"
-		"item_rpc_wind_orchid_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_wind_orchid_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_wind_orchid"							"Wind Bloom"
-		 "property_wind_orchid_description"						"Every point in [E4] increases Agility by <font color='#ccff66'>300</font>."
+
 		 
 
 		 

@@ -3185,7 +3185,7 @@ function CustomAttributes:SetAttributes(hero)
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_spirit", ITEM_RPC_AZURE_EMPIRE_PURPLE_SPR)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", 1)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
