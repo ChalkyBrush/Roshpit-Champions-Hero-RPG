@@ -542,6 +542,15 @@
 		"item_rpc_stone_of_gordon_sapphire1"									"Increases all Tier 2 rune bonuses from equipped gear by @sapphire_property1%"
 		"item_rpc_stone_of_gordon_amethyst1"									"Increases all Tier 4 rune bonuses from equipped gear by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
+
+        "item_property_tempest_falcon"                      "Storm Switch"
+        "property_tempest_falcon_description"               "Dealing an instance of Physical damage increases Spell Pierce by <% ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL %>x your Hero Level, and removes Storm Switch's Armor Pierce bonus. Dealing an instance of Magical damage increases Armor Pierce by <% ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL %>x your Hero Level, and removes Storm Switch's Spell Pierce bonus."
+
+        "item_rpc_tempest_falcon_ring_ruby1"                                "Increases Movement Speed by @ruby_property1 and Max Movement Speed by @ruby_property2"
+        "item_rpc_tempest_falcon_ring_emerald1"                             "Increases Attack Speed by @emerald_property1 and Agility by @emerald_property2"
+        "item_rpc_tempest_falcon_ring_sapphire1"                                "Landing an attack increases Armor and Magic Armor by @sapphire_property1 and removes this sapphire's attack power bonus, and taking damage increases Attack Power by @sapphire_property2% and removes this sapphire's armor and magic armor bonus."
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "Increases Item and <font color=\"#7AE2A7\">Wind</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"Tome of Chaos"
@@ -592,15 +601,7 @@
 		
 		 
 		 
-		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"Tempest Falcon Ring"
-		"item_rpc_tempest_falcon_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_tempest_falcon_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_tempest_falcon"						"Storm Switch"
-		"property_tempest_falcon_description"				"Dealing an instance of Physical damage applies a buff that enhances the Post-Mitigation damage of your next instance of Magical damage by <% ITEM_RPC_TEMPEST_FALCON_RING_POST_MITI_MAGIC %>%."
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Next instance of Magical damage deals 300%% more Post-Mitigation damage"
+
 		 
 	 
 		

@@ -10106,3 +10106,25 @@ function stargazer_end(event)
         ability.sphereTable.pfx = false  
     end 
 end
+
+function falcon_ring_attack_land(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		hero:RemoveModifierByName("modifier_tempest_falcon_sapphire_attack_power")
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_tempest_falcon_sapphire_armors", {})
+	end
+end
+
+function falcon_ring_take_damage(event)
+	local caster = event.caster
+	local hero = caster.hero
+	local ability = event.ability
+	if ability:GetGemValue("sapphire") > 0 then
+		hero:RemoveModifierByName("modifier_tempest_falcon_sapphire_armors")
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_tempest_falcon_sapphire_attack_power", {})
+		local stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE2)
+		hero:SetModifierStackCount("modifier_tempest_falcon_sapphire_attack_power", caster, stacks)
+	end
+end

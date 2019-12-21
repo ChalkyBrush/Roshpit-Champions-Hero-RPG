@@ -1277,7 +1277,7 @@ end
 function rare_wind_warder_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.RareWarden.Die", caster)
-	RPCItems:RollTempestFalconRing(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_tempest_falcon_ring")
 end
 
 function wind_spirit_lightning_think(event)

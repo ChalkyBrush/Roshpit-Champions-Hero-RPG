@@ -14600,9 +14600,9 @@
 		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_tempest_falcon"						"Storm Switch"
-		"property_tempest_falcon_description"				"После нанесения физического урона герой получит бафф, усиливающий следующий магический урон на <font color='#ccff66'>300</font>%"
+		"property_tempest_falcon_description"				"После нанесения физического урона герой получит бафф, усиливающий следующий магический урон на <font color='#ccff66'>0</font>%"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"Storm Switch"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Следующий магический урон будет сильнее на <font color='#ccff66'>300</font>%."
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"Следующий магический урон будет сильнее на <font color='#ccff66'>0</font>%."
 		 
 		 
 		 

@@ -2326,21 +2326,17 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+
+	if attacker:HasModifier("modifier_tempest_falcon_ring") then
+		attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type = damagetype
+	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		if attacker:HasModifier("modifier_tempest_falcon_ring") then
-			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
-		end
+
 
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_far_seers_gloves") and applyEffects then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
-		end
-		if attacker:HasModifier("modifier_tempest_falcon_ring_effect") then
-			mult = mult + ITEM_RPC_TEMPEST_FALCON_RING_POST_MITI_MAGIC/100
-			Timers:CreateTimer(0.05, function()
-				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
-			end)
 		end
 		if victim:IsMagicImmune() then
 			return false

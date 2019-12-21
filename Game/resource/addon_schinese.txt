@@ -14407,9 +14407,9 @@
 		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_tempest_falcon"						"暴风转换"
-		"property_tempest_falcon_description"				"每造成一次物理伤害获得一个buff，使你的下一次魔法伤害提高<font color='#ccff66'>300</font>%。"
+		"property_tempest_falcon_description"				"每造成一次物理伤害获得一个buff，使你的下一次魔法伤害提高<font color='#ccff66'>0</font>%。"
 		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"暴风转换"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"下一次魔法伤害提高<font color='#ccff66'>300</font>%"
+		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"下一次魔法伤害提高<font color='#ccff66'>0</font>%"
 		 
 		 
 		 

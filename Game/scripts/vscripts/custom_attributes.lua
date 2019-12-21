@@ -1138,6 +1138,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_sapphire_lotus") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_tempest_falcon_sapphire_armors") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE1)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1775,6 +1778,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_sapphire_lotus") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
 	end
+	if unit:HasModifier("modifier_tempest_falcon_sapphire_armors") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE1)
+	end
 
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
@@ -2153,6 +2159,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_tempest_falcon_ring") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_MAGICAL then
+			armor_pierce_modify = armor_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2581,6 +2592,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_tempest_falcon_ring") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_PHYSICAL then
+			spell_pierce_modify = spell_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

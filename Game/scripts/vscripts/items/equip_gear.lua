@@ -1477,7 +1477,17 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_STARGAZERS_SPHERE_GEM_AMETHYST, hero, "element_cosmic", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_STARGAZERS_SPHERE_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
-		end		
+		end	
+	elseif item:GetAbilityName() == "item_rpc_tempest_falcon_ring" then	
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY1, hero, "movespeed", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_TEMPEST_FALCON_RING_GEM_EMERALD1, hero, "attack_speed", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_TEMPEST_FALCON_RING_GEM_EMERALD2, hero, "agility", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_TEMPEST_FALCON_RING_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_TEMPEST_FALCON_RING_GEM_AMETHYST, hero, "element_wind", RPC_GEAR_SLOT_TRINKET)
+		end	
 	end
 end
 

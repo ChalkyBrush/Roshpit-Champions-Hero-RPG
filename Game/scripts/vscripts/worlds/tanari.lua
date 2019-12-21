@@ -59,7 +59,7 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_stargazers_sphere")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_tempest_falcon_ring")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
@@ -68,14 +68,14 @@ function Tanari:Debug()
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_stargazers_sphere")
     
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_stone_of_gordon")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_tempest_falcon_ring")
 
     
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_stone_of_gordon")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_tempest_falcon_ring")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
