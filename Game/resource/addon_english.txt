@@ -12093,7 +12093,7 @@
 		"item_rpc_gravelfoot_treads_ruby1"	"Increases Max Health by @ruby_property1, and Strength and Spirit by @ruby_property2"
 		"item_rpc_gravelfoot_treads_emerald1"	"Reduces the movespeed loss while in Stone Form by @emerald_property1"
 		"item_rpc_gravelfoot_treads_sapphire1"	"While in Stone Form gain @sapphire_property1 Armor and Magic Armor"
-		"item_rpc_gravelfoot_treads_amethyst1"	"Castiing [E] activates Stone Form for @amethyst_property1 seconds"
+		"item_rpc_gravelfoot_treads_amethyst1"	"Casting [E] activates Stone Form for @amethyst_property1 seconds"
 
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"Guardian Greaves"
 
@@ -12118,7 +12118,7 @@
 		"property_ice_floe_slippers_description"			"Issue two move orders consecutively at the same location to glide on a trail of ice. While gliding you are rooted and all Physical damage taken is reduced to 0. Max distance travelled is <font color='#ccff66'>1200</font>. This ability cannot be activated while stunned or rooted."
 
 		"item_rpc_ice_floe_slippers_ruby1"	"Removes the Rooted restriction and increases max travel distance by @ruby_property1"
-		"item_rpc_ice_floe_slippers_emerald1"	"Increaes [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
+		"item_rpc_ice_floe_slippers_emerald1"	"Increases [E4] rune by @emerald_property1, and Ice Floe's travel speed by @emerald_property2%"
 		"item_rpc_ice_floe_slippers_sapphire1"	"Increases <font color=\"#87D9FF\">Ice</font> Elemental damage and Base Ability Damage by @sapphire_property1%, and Ice Floe's travel speed by @sapphire_property2%"
 		"item_rpc_ice_floe_slippers_amethyst1"	"When Ice Floe is triggered, gain a shield that absorbs @amethyst_property1 instances of Magic and Pure Damage for <font color='#ccff66'>5</font> seconds."
 
@@ -12370,7 +12370,7 @@
         "DOTA_Tooltip_modifier_temporal_warp_cooldown"      "Time Warp Cooldown"
 
         "item_rpc_temporal_warp_boots_ruby1"                                "Casting [E] resets mana, health, position, and cooldowns (except [E]) to what they were @ruby_property1 seconds ago. <font color='#ccff66'>3.5</font> second cooldown."
-        "item_rpc_temporal_warp_boots_emerald1"                             "Increaes Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
+        "item_rpc_temporal_warp_boots_emerald1"                             "Increases Item Damage and <font color=\"#B5FFB7\">Temporal</font> Elemental Damage by @emerald_property1%"
         "item_rpc_temporal_warp_boots_sapphire1"                                "Reduces the channel time of Time Warp by @sapphire_property1 seconds"
         "item_rpc_temporal_warp_boots_amethyst1"                                "When you plant your respawn flag, gain @amethyst_property1 vision of that area for @amethyst_property2 minutes"
 
@@ -12402,7 +12402,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all other Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time."
+        "property_voyager_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time."
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
@@ -13205,7 +13205,7 @@
 		"item_rpc_blue_rain_gauntlet_ruby1"								"Increases Item Damage by @ruby_property1% and All Attributes by @ruby_property2"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"Increases Rain Lance proc chance by @emerald_property1% and max procs per second by @emerald_property2"
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"Increases Rain Lance damage by an additional @sapphire_property1% of Attack Power"
-		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <font color='#ccff66'>9</font> Rain Lances in all directions that deal @amethyst_property1% damage"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <font color='#ccff66'>9</font> Rain Lances in all directions that deal @amethyst_property1% of Rain Lance base damage"
 
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 
@@ -13368,7 +13368,7 @@
 		"DOTA_Tooltip_modifier_frostburn_gauntlets_slow_Description"	"Slowed"
 
 		"item_rpc_frostburn_gauntlets_ruby1"								"Increases the Frostburn AOE by @ruby_property1 and increases Frostburn damage by @ruby_property2"
-    	"item_rpc_frostburn_gauntlets_emerald1"								"Increases the proc chance by an additional @emerald_property1 and procs per second by @emerald_property2"
+    	"item_rpc_frostburn_gauntlets_emerald1"								"Increases the proc chance by an additional @emerald_property1% and procs per second by @emerald_property2"
     	"item_rpc_frostburn_gauntlets_sapphire1"								"Increases [W] Base Ability damage by @sapphire_property1% and mana regen by @sapphire_property2"
     	"item_rpc_frostburn_gauntlets_amethyst1"								"Increases Frostburn damage by an additional @amethyst_property1% of the triggering damage and increases the movement slow effect by @amethyst_property2"
 
@@ -13435,7 +13435,7 @@
 		"property_elder_grasp_description"			"Restore <font color='#ccff66'>25</font>% of max health every <font color='#ccff66'>1</font> seconds while there are no enemies within <font color='#ccff66'>1000</font> distance"
 
 		"item_rpc_grasp_of_elder_ruby1"									"Each point of Spirit increases Max Health by @ruby_property1"
-		"item_rpc_grasp_of_elder_emerald1"									"Each point of current mana increaes Magic Armor by @emerald_property1"
+		"item_rpc_grasp_of_elder_emerald1"									"Each point of current mana increases Magic Armor by @emerald_property1"
 		"item_rpc_grasp_of_elder_sapphire1"									"Increases Spirit by @sapphire_property1, and @sapphire_property2% of all healing received also restores mana"
 		"item_rpc_grasp_of_elder_amethyst1"									"Each point of Spirit increases Spell Pierce by @amethyst_property1"
 
@@ -13473,7 +13473,7 @@
     	"DOTA_Tooltip_ability_item_rpc_hand_of_midas"									"Hand of Midas"
 
 		"item_property_hand_of_midas"				"Midas Touch"
-		"property_hand_of_midas_description"		"<font color='#ccff66'>15</font>% chance on atack to deal <font color='#ccff66'>30</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
+		"property_hand_of_midas_description"		"<font color='#ccff66'>15</font>% chance on attack to deal <font color='#ccff66'>30</font>% of your attack damage in a <font color='#ccff66'>340</font> radius area around the target and turn them all to solid gold, freezing for <font color='#ccff66'>2</font> seconds. Max 1 freeze every <font color='#ccff66'>5</font> seconds."
 
     	"item_rpc_hand_of_midas_ruby1"									"Increases Midas Touch proc chance by @ruby_property1%"
     	"item_rpc_hand_of_midas_emerald1"									"Increases the Transmutation freeze duration by @emerald_property1 seconds"
@@ -13551,7 +13551,7 @@
     	"item_rpc_marauder_gloves_ruby1"									"Increase Armor Pierce by @ruby_property1x your Movement Speed"
     	"item_rpc_marauder_gloves_emerald1"									"Your maximum physical damage multiplier when Armor Pierce exceeds armor is increased to @emerald_property1"
     	"item_rpc_marauder_gloves_sapphire1"									"Your physical damage ignores @sapphire_property1% of enemies' armor"
-    	"item_rpc_marauder_gloves_amethyst1"									"Increaeses Movement Speed and Attack Speed by @amethyst_property1"
+    	"item_rpc_marauder_gloves_amethyst1"									"Increases Movement Speed and Attack Speed by @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_master_gloves"									"Master Gloves"
 
@@ -13581,7 +13581,7 @@
 		"item_rpc_mountain_vambraces_ruby1"									"Increases Strength by @ruby_property1 and Item Damage by @ruby_property2%"
     	"item_rpc_mountain_vambraces_emerald1"								"Increases Craggy Shock damage by @emerald_property1 and the proc chance on attack by an additional @emerald_property2%"
     	"item_rpc_mountain_vambraces_sapphire1"								"When an enemy damages you, they are hit with a Craggy Shock. @sapphire_property1 second cooldown per enemy"
-    	"item_rpc_mountain_vambraces_amethyst1"								"Enemies hit by [Q] have a @amethyst_property1% chance to trigger a Craggy Shock, and Craggy Shock damage is increased by @amethyst_property2x spirit"
+    	"item_rpc_mountain_vambraces_amethyst1"								"Enemies hit by [Q] have a @amethyst_property1% chance to trigger a Craggy Shock, and Craggy Shock damage is increased by @amethyst_property2x Spirit"
 
     	"DOTA_Tooltip_ability_item_rpc_phoenix_gloves"									"Phoenix Gloves"
 		"item_property_phoenix_gloves"				"Perpetual Rebirth" 
@@ -13704,10 +13704,10 @@
 		"item_property_spiritual_empowerment"				"Spiritual Empowerment"
 		"property_spiritual_empowerment_description"		"Every <font color='#ccff66'>3</font> seconds, gain a stack of Spiritual Empowerment. Each stack adds <font color='#ccff66'>15</font>% Base Ability Damage. Casting a spell consumes a stack. Max <font color='#ccff66'>15</font> stacks."
 		"DOTA_Tooltip_modifier_spiritual_empowerment_stack"	"Spiritual Empowerment"
-		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing %property_one%%% Base Ability Damage"
+		"DOTA_Tooltip_modifier_spiritual_empowerment_stack_Description"	"Each stack providing <font color='#ccff66'>15</font>%% Base Ability Damage"
 
    		"item_rpc_spiritual_empowerment_glove_ruby1"						"Each Spiritual Empowerment stack also increases Item Damage by @ruby_property1% and Attack Power by @ruby_property2%"
-    	"item_rpc_spiritual_empowerment_glove_emerald1"						"Increaes maximum Spiritual Empowerment stacks by @emerald_property1"
+    	"item_rpc_spiritual_empowerment_glove_emerald1"						"Increases maximum Spiritual Empowerment stacks by @emerald_property1"
     	"item_rpc_spiritual_empowerment_glove_sapphire1"						"Each Spiritual Empowerment stack increases Armor Pierce and Spell Pierce by @sapphire_property1"
     	"item_rpc_spiritual_empowerment_glove_amethyst1"						"Each Spiritual Empowerment stack increases Spirit by @amethyst_property1, and there is a @amethyst_property2% chance when casting a spell to not consume a stack"
 

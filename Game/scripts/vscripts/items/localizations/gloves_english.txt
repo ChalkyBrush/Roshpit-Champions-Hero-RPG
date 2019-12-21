@@ -50,7 +50,7 @@
 		"item_rpc_blue_rain_gauntlet_ruby1"								"Increases Item Damage by @ruby_property1% and All Attributes by @ruby_property2"
 		"item_rpc_blue_rain_gauntlet_emerald1"								"Increases Rain Lance proc chance by @emerald_property1% and max procs per second by @emerald_property2"
 		"item_rpc_blue_rain_gauntlet_sapphire1"								"Increases Rain Lance damage by an additional @sapphire_property1% of Attack Power"
-		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <% ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT %> Rain Lances in all directions that deal @amethyst_property1 damage"
+		"item_rpc_blue_rain_gauntlet_amethyst1"								"Casting [R] creates <% ITEM_RPC_BLUE_RAIN_GAUNTLET_AMETHYST_COUNT %> Rain Lances in all directions that deal @amethyst_property1% of Rain Lance base damage"
 
     	"DOTA_Tooltip_ability_item_rpc_boneguard_gauntlets"								"Claw of the Dead"
 
