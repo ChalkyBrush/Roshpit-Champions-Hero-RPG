@@ -6882,6 +6882,24 @@ function RPCItems:RollSapphireLotus(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+function RPCItems:RollSunCrystal(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_serengaard_sun_crystal", "immortal", "Serengaard Sun Crystal", "amulet", true, "Slot: Trinket")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "strength", 2.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 2.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "spirit", 2.5)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- break
 
 function RPCItems:RollWinterblightSkullRing(item_level)
@@ -7242,40 +7260,6 @@ function RPCItems:RollWindOrchid(item_level)
     item.newItemTable.property4 = value
     item.newItemTable.property4name = propertyName
     RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
-    return item
-end
-
-function RPCItems:RollSunCrystal(deathLocation, infiniteWave)
-    local item = RPCItems:CreateVariant("item_rpc_serengaard_sun_crystal", "immortal", "Serengaard Sun Crystal", "amulet", true, "Slot: Trinket")
-    local maxFactor = RPCItems:GetMaxFactor()
-
-    local initRoll = RandomInt(500, 1000 + infiniteWave * 40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
-    item.newItemTable.property1 = value
-    item.newItemTable.property1name = "strength"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#item_strength", "#CC0000", 1)
-
-    local initRoll = RandomInt(500, 1000 + infiniteWave * 40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
-    item.newItemTable.property2 = value
-    item.newItemTable.property2name = "agility"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property2, "#item_agility", "#2EB82E", 2)
-
-    local initRoll = RandomInt(500, 1000 + infiniteWave * 40)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 9000)
-    item.newItemTable.property3 = value
-    item.newItemTable.property3name = "intelligence"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "#item_intelligence", "#33CCFF", 3)
-
-    local initRoll = RandomInt(35, 50 + infiniteWave * 5)
-    local value = math.min(RPCItems:GetLogarithmicVarianceValue(initRoll, 0, 0, 0, 0), 1000)
-    item.newItemTable.property4 = value
-    item.newItemTable.property4name = "all_elements"
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "#property_all_elements", "#BED5E5", 4)
 
     local drop = CreateItemOnPositionSync(deathLocation, item)
     local position = deathLocation
@@ -7828,7 +7812,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_barons_storm_armor" then
         newItem = RPCItems:RollBaronsStormArmor(item_level)
     elseif itemName == "item_rpc_serengaard_sun_crystal" then
-        newItem = RPCItems:RollSunCrystal(deathLocation, 1)
+        newItem = RPCItems:RollSunCrystal(item_level)
     elseif itemName == "item_rpc_temporal_warp_boots" then
         newItem = RPCItems:RollTemporalWarpBoots(item_level)
     elseif itemName == "item_rpc_aqua_lily" then
