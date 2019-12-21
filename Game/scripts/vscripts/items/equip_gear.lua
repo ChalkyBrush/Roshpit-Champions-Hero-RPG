@@ -179,6 +179,9 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_vermillion_dream_robes") or item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
 	end
+	if hero.equipped_gear and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET] and hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetAbilityName() == "item_rpc_stone_of_gordon" then
+		property_bonus_mult = property_bonus_mult + RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)
+	end
 	if hero:GetUnitName() == "npc_dota_hero_zuus" and hero:HasAbility("auriun_ult") then
 		property_bonus_mult = property_bonus_mult + RPCItems:BonusMultForAuriun(hero, item, property_value, property_name)
 	end
@@ -1620,4 +1623,18 @@ function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, prope
 		property_name_to_return = "rune_r_2"
 	end
 	return property_name_to_return
+end
+
+function RPCItems:GetMultStoneOfGordon(hero, item, property_value, property_name)
+	local mult = 0
+	if property_name == "rune_q_1" or property_name == "rune_w_1" or property_name == "rune_e_1" or property_name == "rune_r_1" or property_name == "all_t1_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_STONE_OF_GORDON_GEM_RUBY)/100
+	elseif property_name == "rune_q_3" or property_name == "rune_w_3" or property_name == "rune_e_3" or property_name == "rune_r_3" or property_name == "all_t3_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_STONE_OF_GORDON_GEM_EMERALD)/100
+	elseif property_name == "rune_q_2" or property_name == "rune_w_2" or property_name == "rune_e_2" or property_name == "rune_r_2" or property_name == "all_t2_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STONE_OF_GORDON_GEM_SAPPHIRE)/100
+	elseif property_name == "rune_q_4" or property_name == "rune_w_4" or property_name == "rune_e_4" or property_name == "rune_r_4" or property_name == "all_t4_runes" then
+		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_STONE_OF_GORDON_GEM_AMETHYST)/100
+	end
+	return mult
 end

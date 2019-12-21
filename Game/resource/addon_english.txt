@@ -14971,14 +14971,10 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
-		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_stone_of_gordon_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_stone_of_gordon_amethyst1"									"blah blah @amethyst_property1 gem"
-		
-	
-
-		
+		"item_rpc_stone_of_gordon_ruby1"									"Increases all Tier 1 rune bonuses from equipped gear by @ruby_property1%"
+		"item_rpc_stone_of_gordon_emerald1"									"Increases all Tier 3 rune bonuses from equipped gear by @emerald_property1%"
+		"item_rpc_stone_of_gordon_sapphire1"									"Increases all Tier 2 rune bonuses from equipped gear by @sapphire_property1%"
+		"item_rpc_stone_of_gordon_amethyst1"									"Increases all Tier 4 rune bonuses from equipped gear by @amethyst_property1%"
 
 		
 		
