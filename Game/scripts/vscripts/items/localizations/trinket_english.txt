@@ -496,11 +496,12 @@
 		
         "DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"                          "Serengaard Sun Crystal"
         "item_rpc_serengaard_sun_crystal_ruby1"                         "Increases <font color='<% RPC_ELEMENT_FIRE_COLOR %>'>Fire</font>, <font color='<% RPC_ELEMENT_EARTH_COLOR %>'>Earth</font>, <font color='<% RPC_ELEMENT_LIGHTNING_COLOR %>'>Lightning</font>, and <font color='<% RPC_ELEMENT_POISON_COLOR %>'>Poison</font> Elemental Damage by @ruby_property1%"
-        "item_rpc_serengaard_sun_crystal_emerald1"                            "Increases <font color='<% RPC_ELEMENT_TIME_COLOR %>'>Time</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>Cosmic</font>, and <font color='<% RPC_ELEMENT_ICE_COLOR %>'>Ice</font> Elemental Damage by @emerald_property1%"
-        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='<% RPC_ELEMENT_ARCANE_COLOR %>'>Arcane</font>, <font color='<% RPC_ELEMENT_SHADOW_COLOR %>'>Shadow</font>, <font color='<% RPC_ELEMENT_WIND_COLOR %>'>Wind</font>, and <font color='<% RPC_ELEMENT_GHOST_COLOR %>'>Ghost</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_serengaard_sun_crystal_emerald1"                          "Increases <font color='<% RPC_ELEMENT_ARCANE_COLOR %>'>Arcane</font>, <font color='<% RPC_ELEMENT_SHADOW_COLOR %>'>Shadow</font>, <font color='<% RPC_ELEMENT_WIND_COLOR %>'>Wind</font>, and <font color='<% RPC_ELEMENT_GHOST_COLOR %>'>Ghost</font> Elemental Damage by @emerald_property1%"  
+        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='<% RPC_ELEMENT_TIME_COLOR %>'>Time</font>, <font color='<% RPC_ELEMENT_HOLY_COLOR %>'>Holy</font>, <font color='<% RPC_ELEMENT_COSMOS_COLOR %>'>Cosmic</font>, and <font color='<% RPC_ELEMENT_ICE_COLOR %>'>Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Water</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Demon</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Nature</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Undead</font>, and <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
 		
+        
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"

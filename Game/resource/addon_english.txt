@@ -14930,11 +14930,12 @@
 		
         "DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"                          "Serengaard Sun Crystal"
         "item_rpc_serengaard_sun_crystal_ruby1"                         "Increases <font color='#EF4126'>Fire</font>, <font color='#AF843D'>Earth</font>, <font color='#5CCDF9'>Lightning</font>, and <font color='#37DD3D'>Poison</font> Elemental Damage by @ruby_property1%"
-        "item_rpc_serengaard_sun_crystal_emerald1"                            "Increases <font color='#B5FFB7'>Time</font>, <font color='#F6FFB5'>Holy</font>, <font color='#C25DFC'>Cosmic</font>, and <font color='#87D9FF'>Ice</font> Elemental Damage by @emerald_property1%"
-        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='#E1A2E8'>Arcane</font>, <font color='#7F4F84'>Shadow</font>, <font color='#7AE2A7'>Wind</font>, and <font color='#9ACCD1'>Ghost</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_serengaard_sun_crystal_emerald1"                          "Increases <font color='#E1A2E8'>Arcane</font>, <font color='#7F4F84'>Shadow</font>, <font color='#7AE2A7'>Wind</font>, and <font color='#9ACCD1'>Ghost</font> Elemental Damage by @emerald_property1%"  
+        "item_rpc_serengaard_sun_crystal_sapphire1"                         "Increases <font color='#B5FFB7'>Time</font>, <font color='#F6FFB5'>Holy</font>, <font color='#C25DFC'>Cosmic</font>, and <font color='#87D9FF'>Ice</font> Elemental Damage by @sapphire_property1%"
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='#3894FF'>Water</font>, <font color='#5B648C'>Demon</font>, <font color='#69BC71'>Nature</font>, <font color='#5C776E'>Undead</font>, and <font color='#3289C7'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
 		
+        
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
 		"item_rpc_stone_of_gordon_ruby1"									"blah blah @ruby_property1 gem"
 		"item_rpc_stone_of_gordon_emerald1"									"blah blah @emerald_property1 gem"
