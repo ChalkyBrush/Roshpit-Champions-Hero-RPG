@@ -830,6 +830,8 @@
 		"inscription_kit_tip2"										"Type in your inscription below. Inscriptions are permanent and can NEVER be removed. Maximum of 36 characters."
 		"inscription_inscribe"										"Inscribe"
 
+		"gear_version_warning"										"This item is from before Roshpit 4.0. Activate this item from your inventory to update it."		
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"

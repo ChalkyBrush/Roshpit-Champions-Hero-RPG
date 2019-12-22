@@ -933,3 +933,38 @@ function Curator:CurateALLHeroes()
 		end)
 	end
 end
+
+function Curator:UpdateItemToCurrentVersion(item, hero, bEquipment)
+	local new_item = nil
+	if item.newItemTable.rarity == "immortal" then
+		if item.newItemTable.gear_slot == RPC_GEAR_SLOT_WEAPON then
+			new_item = Weapons:RollLegendWeaponVariantWithAbilityName(item:GetAbilityName(), hero:GetAbsOrigin())
+			local container = new_item:GetContainer()
+			if IsValidEntity(container) then
+				UTIL_Remove(container)
+			end
+		else
+			local new_level = math.floor(item.newItemTable.minLevel*1.2)
+			local item_level = math.min(new_level, 120)
+			new_item = RPCItems:RollImmortalByName(item:GetAbilityName(), item_level)
+		end
+	elseif item.newItemTable.rarity == "arcana" then
+		local new_level = math.floor(item.newItemTable.minLevel*1.2)
+		local item_level = math.min(new_level, 120)
+		new_item = RPCItems:RollArcanaByName(item:GetAbilityName(), item_level)
+	else
+		UTIL_Remove(item)
+	end
+	if new_item then
+		new_item.pickedUp = true
+		if bEquipment then
+			hero:EquipItem(new_item, false, true)
+			local inventory_unit = hero.InventoryUnit
+			local save_ability = inventory_unit:FindAbilityByName("equipment_head")
+			save_ability:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_save_character_on_delay", {duration = 3}) 
+		else
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, new_item)
+		end
+		UTIL_Remove(item)
+	end
+end

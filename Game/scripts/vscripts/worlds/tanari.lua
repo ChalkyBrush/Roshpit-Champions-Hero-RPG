@@ -63,6 +63,8 @@ function Tanari:Debug()
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
+    Weapons:RollLegendWeapon1WithDotaName("npc_dota_hero_phantom_assassin", Vector(-4928, 2048))
+
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1

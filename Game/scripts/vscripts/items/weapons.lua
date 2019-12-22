@@ -418,6 +418,7 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	local itemName = itemNameText
 	local suffix = ""
 	local prefix = ""
+	item.newItemTable.item_name = itemName
 	item.newItemTable.item_slot = slot
 	item.newItemTable.gear = gear
 	item.newItemTable.xp = 0

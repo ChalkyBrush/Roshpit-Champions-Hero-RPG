@@ -8,6 +8,9 @@
 		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 	</scripts>
 	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
+		<Panel id="version-warning" class="invisible">
+			<Label id="version-warning-label" text="gear_version_warning"/>
+		</Panel>
 		<Panel id="tooltip_main_container">
 			<Panel id="tooltip_title_container">
 				<Label id="tooltip_title" text="HIGH THIS IS CUSTOM" html="true">
