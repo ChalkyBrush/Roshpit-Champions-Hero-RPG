@@ -414,6 +414,11 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		if item.newItemTable.inscription then
 			url = url.."&inscription"..gearSlot.."="..Curator:urlencode(item.newItemTable.inscription)
 		end
+		if item.newItemTable.version then
+			url = url.."&version"..gearSlot.."="..Curator:urlencode(item.newItemTable.version)
+		else
+			url = url.."&version"..gearSlot.."="..Curator:urlencode(ROSHPIT_VERSION)
+		end
 		if item.newItemTable.socket1 then
 			url = url.."&socket1"..gearSlot.."="..item.newItemTable.socket1
 			if item.newItemTable.socket1value then
@@ -754,6 +759,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		end
 		if gearTable.special_tag then
 			item.newItemTable.inscription = gearTable.special_tag
+		end
+		if gearTable.version then
+			item.newItemTable.version = gearTable.version
 		end
 		if gearTable.socket1 then
 			item.newItemTable.socket1 = gearTable.socket1
