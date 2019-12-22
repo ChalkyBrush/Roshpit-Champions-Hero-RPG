@@ -1943,7 +1943,7 @@ function mountain_crush_end(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius + 5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ApplyDamage({victim = enemy, attacker = caster, damage = 700000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			ApplyDamage({victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end
@@ -5261,7 +5261,7 @@ function diviner_jump_end(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius + 5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ApplyDamage({victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			ApplyDamage({victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_blast_jump_slow", {duration = 3})
 		end
 	end
@@ -5681,7 +5681,7 @@ function boss_crush_end(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius - 10, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			ApplyDamage({victim = enemy, attacker = caster, damage = 600000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+			ApplyDamage({victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 1.5})
 		end
 	end
