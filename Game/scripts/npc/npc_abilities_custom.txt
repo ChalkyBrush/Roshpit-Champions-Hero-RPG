@@ -148669,12 +148669,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"300 900 9000"
+				"strike_damage"			"50 200 1000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_damage"		"100 300 3000"
+				"duration_damage"		"50 200 1000"
 			}
 			"03"
 			{
@@ -148685,16 +148685,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"projectile_speed"		"900"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range_tooltip"		"800"
-			}
+			}			
 			"06"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"duration_tooltip"		"7"
+				"var_type"				"FIELD_FLOAT"
+				"damage_interval"		"3.0"
 			}
 		}
 	}
@@ -148721,7 +148716,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"350 1200 12000"
+		"AbilityDamage"					"350 1200 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

@@ -1130,7 +1130,7 @@
 		"item_rpc_exp_orb_description"								"Grants <font color='#ccff66'>100000</font> Experience Points."
 
 		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"Greater EXP Orb"
-		"item_rpc_greater_exp_orb_description"						"Grants <font color='#ccff66'>1000000</font> Experience Points."
+		"item_rpc_greater_exp_orb_description"						"Grants <font color='#ccff66'>2000000</font> Experience Points."
 		"elder_rai_your_mithril_shards"								"Your Mithril Shards"
 		"ui_cost"													"Cost"
 
@@ -14724,7 +14724,7 @@
         "DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"                    "Fractional Enhancement Geode"
 
         "item_property_geode"                               "Logarithmic Amplification"
-        "property_geode_description"                        "Whenver you deal an instance of damage which ends up being less than <font color='#ccff66'>0.1</font>% of the target's max health, multiply that damage instance by <font color='#ccff66'>10</font>."
+        "property_geode_description"                        "Whenever you deal an instance of damage which ends up being less than <font color='#ccff66'>0.1</font>% of the target's max health, multiply that damage instance by <font color='#ccff66'>10</font>."
         "item_rpc_fractional_enhancement_geode_ruby1"                   "Increases the threshold to trigger Logarithmic Amplification by an additionial @ruby_property1% of the enemy's max health"
         "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
         "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
@@ -14738,7 +14738,7 @@
         "DOTA_Tooltip_modifier_frozen_heart_regen"          "Iceblood Regen"
 
         "item_rpc_frozen_heart_ruby1"               "Increases Iceblood Maximum Health by @ruby_property1"
-        "item_rpc_frozen_heart_emerald1"                "Reduces the delay to begin regn by @emerald_property1 seconds"
+        "item_rpc_frozen_heart_emerald1"                "Reduces the delay to begin HP regen by @emerald_property1 seconds"
         "item_rpc_frozen_heart_sapphire1"               "Reduce the Health Loss from Magic Damage by @sapphire_property1"
         "item_rpc_frozen_heart_amethyst1"               "Reduce Health Loss from Pure Damage by @amethyst_property1"
 
