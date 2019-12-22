@@ -599,6 +599,8 @@ function SaveLoad:LoadGlyphs(character, hero)
 		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 3, glyph:GetEntityIndex())
 	end
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+	CustomGameEventManager:Send_ServerToAllClients(hero:GetPlayerOwner(), "update_runes", {})
 end
 
 function SaveLoad:LoadPortalKeys(character, hero)
