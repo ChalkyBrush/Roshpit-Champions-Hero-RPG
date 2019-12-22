@@ -718,7 +718,7 @@ function winterblight_boss_final_death_animation(caster)
 		
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
-			RPCItems:RollWinterblightSkullRing(position)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_winterblight_skull_ring")
 		end
 		if dead_boss == "descent_of_winterblight_ozubu" then
 			local max_roll = math.max(10, 80-GameState:GetPlayerPremiumStatusCount()*2-boss_level)
@@ -767,7 +767,7 @@ function winterblight_boss_final_death_animation(caster)
 			end
 			local another_skull_ring_chance = RandomInt(1, 2)
 			if another_skull_ring_chance == 1 then
-				RPCItems:RollWinterblightSkullRing(position)
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_winterblight_skull_ring")
 			end
 		end
 		for j = 1, 2 + GameState:GetPlayerPremiumStatusCount(), 1 do

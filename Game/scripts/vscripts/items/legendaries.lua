@@ -7136,9 +7136,10 @@ function RPCItems:RollWindOrchid(item_level)
     return item
 end
 
--- break
-
 function RPCItems:RollWinterblightSkullRing(item_level)
+    local item_slot = RPC_GEAR_SLOT_TRINKET
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
     local glyphName = Glyphs:RollRandomGlyphName()
     local item = nil
     if glyphName[2] == "neutral" then
@@ -7162,28 +7163,29 @@ function RPCItems:RollWinterblightSkullRing(item_level)
     local glyphTitle = "#DOTA_Tooltip_ability_"..glyphName[1]
     local glyphDescrip = "#"..glyphName[1] .. "_description"
     RPCItems:SetPropertyValuesSpecial(item, "★", glyphTitle, "#b383d1", 1, glyphDescrip)
-    item.newItemTable.hasRunePoints = true
 
-    Elements:RollElementAttribute(item, RPC_ELEMENT_UNDEAD, 3.2, 2, 24, 2)
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_undead", 2)
+    else
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
+    end
     ----print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     -- item.newItemTable.requiredHero = glyphName[2]
     -- DeepPrintTable(glyphName)
 
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property3 = math.ceil(value * 1.0)
-    item.newItemTable.property3name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property3, "rune", "#7DFF12", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
-    item.newItemTable.property4 = math.ceil(value * 1.1)
-    item.newItemTable.property4name = propertyName
-    RPCItems:SetPropertyValues(item, item.newItemTable.property4, "rune", "#7DFF12", 4)
-
-    local drop = CreateItemOnPositionSync(deathLocation, item)
-    local position = deathLocation
-    RPCItems:DropItem(item, position)
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
+
+-- break
+
 
 
 
@@ -7949,6 +7951,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem.newItemTable.socket1value = oldItemProperties.socket1value
         newItem.newItemTable.socket2 = oldItemProperties.socket2
         newItem.newItemTable.socket2value = oldItemProperties.socket2value
+
+
         -- local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(newItem:GetEntityIndex()))
 
         -- CustomNetTables:SetTableValue( "item_basics", tostring(newItem:GetEntityIndex()),
@@ -7968,6 +7972,9 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
             newItem.newItemTable.property1color = oldItemProperties.property1color
             newItem.newItemTable.property1tooltip = oldItemProperties.property1tooltip
             newItem.newItemTable.property1special = oldItemProperties.property1special
+            if newItem:GetAbilityName() == "item_rpc_winterblight_skull_ring" then
+                 newItem.newItemTable.requiredHero = oldItemProperties.requiredHero
+            end
         end
         if slotLock2 == 1 then
             newItem.newItemTable.property2 = oldItemProperties.property2

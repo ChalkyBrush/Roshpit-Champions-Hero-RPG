@@ -621,7 +621,12 @@
         "item_rpc_wind_orchid_amethyst1"                                        "Each point in Rune [E3] increases Agility by @amethyst_property1"	
 		
 
-		
+        "DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"                         "Winterblight Skull Ring"
+        "item_rpc_winterblight_skull_ring_ruby1"                            "Increases Rune [Q4] by @ruby_property1"
+        "item_rpc_winterblight_skull_ring_emerald1"                         "Increases Rune [E4] by @emerald_property1"
+        "item_rpc_winterblight_skull_ring_sapphire1"                            "Increases Rune [W4] by @sapphire_property1"
+        "item_rpc_winterblight_skull_ring_amethyst1"                            "Increases Rune [R4] by @amethyst_property1"
+        		
 		 
 		 
 
@@ -648,18 +653,13 @@
 	
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_winterblight_skull_ring"							"Winterblight Skull Ring"
-		"item_rpc_winterblight_skull_ring_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_winterblight_skull_ring_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_winterblight_skull_ring_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_winterblight_skull_ring_amethyst1"							"blah blah @amethyst_property1 gem"
-		
+
 		
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
-		"item_rpc_sparkling_sea_crystal_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sparkling_sea_crystal_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sparkling_sea_crystal_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sparkling_sea_crystal_amethyst1"					"blah blah @amethyst_property1 gem"
+		"item_rpc_sparkling_sea_crystal_ruby1"					"No Effect"
+		"item_rpc_sparkling_sea_crystal_emerald1"					"No Effect"
+		"item_rpc_sparkling_sea_crystal_sapphire1"					"No Effect"
+		"item_rpc_sparkling_sea_crystal_amethyst1"					"No Effect"
 		"property_sea_crystal"												"Giga Ocean Elemental"
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 

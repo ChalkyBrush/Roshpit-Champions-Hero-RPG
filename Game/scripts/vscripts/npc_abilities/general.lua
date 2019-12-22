@@ -812,3 +812,8 @@ function utility_recalculate_roshpit_attributes(event)
 	local target = event.target
 	target:CalculateAndSaveRoshpitAttributes()
 end
+
+function utility_reequip_all_gear(event)
+	local target = event.target
+	target:ReequipAllGear(nil)
+end

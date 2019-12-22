@@ -176,6 +176,11 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 			property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_value, property_name)
 		end
 	end
+	if hero:HasModifier("modifier_paladin_glyph_2_2") then
+		if item.newItemTable.gear_slot == RPC_GEAR_SLOT_WEAPON then
+			property_bonus_mult = property_bonus_mult + RPCItems:AdjustPropertyValueForPaladinGlyph22(hero, item, property_value, property_name)
+		end
+	end
 	if hero:HasModifier("modifier_vermillion_dream_robes") or item:GetAbilityName() == "item_rpc_vermillion_dream_robes" then
 		property_bonus_mult = property_bonus_mult + RPCItems:GetMultForDreamRobes(hero, item, property_value, property_name)
 	end
@@ -225,7 +230,11 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 		hero.gear_bonuses[gear_slot]["rune_e_4"] = hero.gear_bonuses[gear_slot]["rune_e_4"] + property_value
 		hero.gear_bonuses[gear_slot]["rune_r_4"] = hero.gear_bonuses[gear_slot]["rune_r_4"] + property_value
 	else
-		hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
+		if type(property_value) == "number" then
+			hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + property_value
+		else
+			hero.gear_bonuses[gear_slot][property_name] = 1
+		end
 	end
 end
 
@@ -1511,6 +1520,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_WIND_ORCHID_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_TRINKET)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_winterblight_skull_ring" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_WINTERBLIGHT_SKULL_RING_GEM_RUBY, hero, "rune_q_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_WINTERBLIGHT_SKULL_RING_GEM_EMERALD, hero, "rune_e_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_WINTERBLIGHT_SKULL_RING_GEM_SAPPHIRE, hero, "rune_w_4", RPC_GEAR_SLOT_TRINKET)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WINTERBLIGHT_SKULL_RING_GEM_AMETHYST, hero, "rune_r_4", RPC_GEAR_SLOT_TRINKET)
+		end	
 	end
 end
 
@@ -1528,6 +1547,8 @@ end
 function RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 	if item:GetAbilityName() == "item_rpc_dragon_ceremony_vestments" then
 		hero.gear_bonuses[gear_slot]["!immortal!_modifier_dragon_ceremony_vestments"] = 1
+	elseif item:GetAbilityName() == "item_rpc_winterblight_skull_ring" then
+		hero.gear_bonuses[gear_slot]["!immortal!_modifier_winterblight_skull_ring"] = 1
 	end
 end
 
@@ -1579,8 +1600,20 @@ function RPCItems:AdjustPropertyValueForBlacksmithTablet(hero, item, property_va
 	elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
 		mult = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLACKSMITHS_TABLET_GEM_AMETHYST)/100
 	end
-	print("GREETME")
-	print(mult)
+	return mult
+end
+
+function RPCItems:AdjustPropertyValueForPaladinGlyph22()
+	local mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+	-- if item.newItemTable.property1 == property_value and item.newItemTable.property1name == property_name then
+	-- 	mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+	-- elseif item.newItemTable.property2 == property_value and item.newItemTable.property2name == property_name then
+	-- 	mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+	-- elseif item.newItemTable.property3 == property_value and item.newItemTable.property3name == property_name then
+	-- 	mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+	-- elseif item.newItemTable.property4 == property_value and item.newItemTable.property4name == property_name then
+	-- 	mult = PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT/100
+	-- end
 	return mult
 end
 
