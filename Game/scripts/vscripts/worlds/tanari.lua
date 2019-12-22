@@ -59,7 +59,7 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_twig_of_the_enlightened")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_world_trees_flower_cache")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
@@ -67,7 +67,7 @@ function Tanari:Debug()
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
-    
+
     local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_world_trees_flower_cache")
 
     
@@ -702,7 +702,9 @@ function Tanari:InitCamp()
     Timers:CreateTimer(4, function()
         Tanari:SpawnChampionsTrailPart1()
     end)
-
+    Timers:CreateTimer(7, function()
+        Tanari:InitProps()
+    end)
     Timers:CreateTimer(10, function()
         CalculateHeroZones()
         return 10
@@ -719,6 +721,18 @@ function Tanari:CreateDynamicBlockers()
     Timers:CreateTimer(10, function()
         Tanari:CreateWaterKeyWall()
     end)
+end
+
+function Tanari:InitProps()
+    Tanari.WaterTempleSneakSwitch = Entities:FindByNameNearest("WaterTempleBackRoomSwitch", Vector(-9920, 10560), 1000)
+    Tanari.WaterTempleSneakSwitch:SetAbsOrigin(Tanari.WaterTempleSneakSwitch:GetAbsOrigin()-Vector(0,0,300))
+
+    Tanari.WaterTempleSpiritSwitch = Entities:FindByNameNearest("WaterSwitch", Vector(-13509, 15873), 1000)
+    Tanari.WaterTempleSpiritSwitch:SetAbsOrigin(Tanari.WaterTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
+
+    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 1000)
+    Tanari.FireTempleSpiritSwitch:SetAbsOrigin(Tanari.FireTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
+    
 end
 
 function Tanari:CreateSideTempleDynamicBlockers()

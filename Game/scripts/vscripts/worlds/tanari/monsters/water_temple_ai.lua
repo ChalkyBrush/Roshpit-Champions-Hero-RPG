@@ -1206,14 +1206,18 @@ function WaterTempleBackroomTrigger(trigger)
 	if not Tanari.WaterTemple then
 		Tanari.WaterTemple = {}
 	end
-	local activator = trigger.activator
-	Dungeons:CreateBasicCameraLockForHeroes(Vector(-6009, 8885, -15), 4.8, {activator})
-	Tanari:ActivateSwitchGeneric(Vector(-9926, 10580, 300), "WaterTempleBackRoomSwitch", true)
-	Timers:CreateTimer(0.8, function()
-		Tanari:LowerWaterTempleWall(-6, "WaterTempleWall5", Vector(-6009, 8685, 85), "WaterTempleBlockers5", Vector(-5934, 8704, 219), 1000, true, false)
-	end)
-	Tanari.WaterTemple.GardenOpen = true
-	Tanari.WaterTemple.GardenSpawn = false
+	if not Tanari.CanHitWaterTempleSneakSwitch then
+	end
+	if not Tanari.WaterTemple.GardenOpen then
+		local activator = trigger.activator
+		Dungeons:CreateBasicCameraLockForHeroes(Vector(-6009, 8885, -15), 4.8, {activator})
+		Tanari:ActivateSwitchGeneric(Vector(-9926, 10580, 300), "WaterTempleBackRoomSwitch", true)
+		Timers:CreateTimer(0.8, function()
+			Tanari:LowerWaterTempleWall(-6, "WaterTempleWall5", Vector(-6009, 8685, 85), "WaterTempleBlockers5", Vector(-5934, 8704, 219), 1000, true, false)
+		end)
+		Tanari.WaterTemple.GardenOpen = true
+		Tanari.WaterTemple.GardenSpawn = false
+	end
 end
 
 function GardenSpawnTrigger()
@@ -2059,6 +2063,8 @@ function water_bomb_explode(bomb)
 							Tanari:CreateCollectionBeam(key:GetAbsOrigin() + Vector(0, 0, 100), wallPosition + Vector(0, 0, 140))
 							--COLLECTION BEAM
 							Timers:CreateTimer(0.5, function()
+								Tanari.WaterTempleSpiritBackSwitchAllowed = true
+								Tanari.WaterTempleSpiritSwitch:SetAbsOrigin(Tanari.WaterTempleSpiritSwitch:GetAbsOrigin()+Vector(0,0,300))
 								Tanari:SpawnWaterSpiritRoom2()
 								UTIL_Remove(key)
 								local walls = Entities:FindAllByNameWithin("WaterTempleSpiritWall", wallPosition, 1200)
@@ -2133,6 +2139,13 @@ function flareParticle(position)
 end
 
 function WaterSpiritTrigger(trigger)
+	if not Tanari.WaterTempleSpiritBackSwitchAllowed then
+		return
+	end
+	if Tanari.WaterTempleSpiritBackSwitchPressed then
+		return
+	end
+	Tanari.WaterTempleSpiritBackSwitchPressed = true
 	Tanari:ActivateSwitchGenericWithZ(Vector(-13498, 15873, 300), "WaterSwitch", true, 0.44)
 
 	local statue = Entities:FindByNameNearest("SpiritBeamStatue", Vector(-13920, 15883, -500), 1000)

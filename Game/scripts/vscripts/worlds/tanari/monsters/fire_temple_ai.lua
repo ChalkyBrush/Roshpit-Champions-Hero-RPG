@@ -587,6 +587,7 @@ end
 function solos_die(event)
 	Tanari:LowerWaterTempleWall(-4, "FireTempleSolosWall", Vector(7786, -15288, 510), "FireTempleSolosObstruction", Vector(7872, -15232, 367), 1200, true, false)
 	Tanari:FireTemplePart4()
+	Tanari.FireTempleAllowFinalBossSpawn = true
 end
 
 function combustion_cast(event)
@@ -695,6 +696,13 @@ function FireTempleLavaSpawnsTrigger()
 end
 
 function FireTempleFinalTrigger()
+	if Tanari.FinalFireBossSpawned then
+		return false
+	end
+	if not Tanari.FireTempleAllowFinalBossSpawn then
+		return false
+	end
+	Tanari.FinalFireBossSpawned = true
 	Tanari:FireTempleFinalBossSpawn()
 end
 
@@ -1640,6 +1648,8 @@ function fire_spirit_die(event)
 	if luck == 1 then
 		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fire_blossom")
 	end
+	Tanari.FireTempleSpiritInitialized = true
+	Tanari.FireTempleSpiritSwitch:SetAbsOrigin(Tanari.FireTempleSpiritSwitch:GetAbsOrigin()+Vector(0,0,300))
 end
 
 function fire_shaman_think(event)
@@ -1882,6 +1892,9 @@ function charge_slide_end(event)
 end
 
 function FireSpiritTrigger(event)
+	if not Tanari.FireTempleSpiritInitialized then
+		return false
+	end
 	if not Tanari.FireSpiritTriggerEvent then
 		Tanari.FireSpiritTriggerEvent = true
 		Tanari:ActivateSwitchGenericWithZ(Vector(11482, -12206, 500), "FireSwitch", true, 0.34)

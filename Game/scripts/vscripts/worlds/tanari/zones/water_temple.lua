@@ -842,6 +842,8 @@ function Tanari:RascalCutscene(allies)
 						Tanari:ActivateSwitchGeneric(Vector(-8424, 11416, 90), "WaterTempleRascalSwitch", true)
 						Timers:CreateTimer(0.5, function()
 							Tanari:SpawnBackSneakRoom()
+							Tanari.CanHitWaterTempleSneakSwitch = true
+							Tanari.WaterTempleSneakSwitch:SetAbsOrigin(Tanari.WaterTempleSneakSwitch:GetAbsOrigin()+Vector(0,0,300))
 							Tanari:LowerWaterTempleWall(-6, "WaterTempleRascalWall", Vector(-6436, 11392), "RascalWallBlocker", Vector(-6400, 11546, 119), 900, true, false)
 							Timers:CreateTimer(0.5, function()
 								for i = 1, #Tanari.WaterTemple.rascalTable, 1 do

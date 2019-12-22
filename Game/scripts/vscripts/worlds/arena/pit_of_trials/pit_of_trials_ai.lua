@@ -453,6 +453,7 @@ function ConquestBirdTrigger()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", mountainSpirit, 2)
 							EmitSoundOn("Arena.SpiritSPawn", mountainSpirit)
 							Arena:SpawnConquestPart2()
+							Arena.StaffBirdEvent = true
 						end)
 					end)
 				end)
@@ -700,6 +701,7 @@ function conquest_switch_attack(event)
 
 		if caster.attackCount == 5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attackable_unit_no_more_attacks", {})
+			Arena.TempleSwitchPressed = true
 			Arena:OpenTempleWall()
 			Timers:CreateTimer(0.35, function()
 				EmitSoundOn("Tanari.WaterTemple.SwitchEnd", caster)
@@ -847,6 +849,16 @@ function createSummonParticle2Pos(position1, position2)
 end
 
 function TempleStaffTrigger(trigger)
+	if Arena.TempleStaffTriggerActivated then
+		return false
+	end
+	if not Arena.TempleSwitchPressed then
+		return false
+	end
+	if not Arena.StaffBirdEvent then
+		return false
+	end
+	Arena.TempleStaffTriggerActivated = true
 	local hero = trigger.activator
 	local staff = Entities:FindByNameNearest("ConquestTempleStaff", Vector(-15168, 8713, 128), 500)
 	for i = 1, 90, 1 do

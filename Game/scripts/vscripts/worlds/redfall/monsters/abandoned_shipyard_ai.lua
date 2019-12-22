@@ -606,10 +606,24 @@ function pirate_archer_attack_land(event)
 end
 
 function ShipyardBigTrigger1()
+	if Redfall.ShipyardBigTriggerSpawned then
+		return false
+	end
+	if not Redfall.Shipyard.boatsEnabled then
+		return false
+	end
+	Redfall.ShipyardBigTriggerSpawned = true
 	Redfall:ShipyardBigTrigger1()
 end
 
 function ShipyardStatueBossTrigger()
+	if not Redfall.Shipyard.boatsEnabled then
+		return false
+	end
+	if Redfall.ShipyardSpawnerSpawned then
+		return false
+	end
+	Redfall.ShipyardSpawnerSpawned = true
 	Redfall:SpawnShipyardSpawner(Vector(14400, -854), Vector(1, 0))
 end
 
@@ -835,6 +849,9 @@ end
 
 function ShipyardBossRoomTrigger(trigger)
 	if Redfall.Shipyard.BossBattleStart then
+		return false
+	end
+	if Redfall.Shipyard.BossTriggerBegin then
 		return false
 	end
 	if Redfall.Shipyard.KnightsKilled == 11 then
