@@ -88,6 +88,7 @@ function initializeTooltip(func){
 			$('#equipment_attribute_armor').AddClass('invisible')
 			$('#armor-text').AddClass('invisible')
 			$('#magic-armor-text').AddClass('invisible')
+			$('#inscription-container').AddClass('invisible')
 			$('#equipment_attribute_magic_armor').AddClass('invisible')
 		}else{
 			$('#consumable-text').AddClass('invisible')
@@ -107,6 +108,12 @@ function initializeTooltip(func){
 			}else{
 				$('#magic-armor-text').AddClass('invisible')
 				$('#equipment_attribute_magic_armor').AddClass('invisible')
+			}
+			if (itemValues.inscription){
+				$('#inscription-container').RemoveClass('invisible')
+				$('#inscription-label').text = itemValues.inscription
+			}else{
+				$('#inscription-container').AddClass('invisible')
 			}
 			//PROPERTY1
 			var itemProperty1 = {}

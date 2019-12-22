@@ -204,3 +204,9 @@ function use_exp_orb(event)
 	UTIL_Remove(item)
 	caster:AddExperience(amount, 0, false, true)
 end
+
+function use_inscription_kit(event)
+	local caster = event.caster
+	local item = event.ability
+	CustomGameEventManager:Send_ServerToPlayer(caster:GetPlayerOwner(), "inscription_kit", {item = item:GetEntityIndex()})
+end

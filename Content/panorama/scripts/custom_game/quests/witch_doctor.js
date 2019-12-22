@@ -137,6 +137,59 @@ function CloseSynthesisVessel(msg){
 	$('#witch_doctor_content').RemoveAndDeleteChildren()
 }
 
+function OpenInscriptionKit(msg)
+{
+	if (GameUI.CustomUIConfig().mainDialog == 0){
+		var parentPanel = $('#witch_doctor_content')
+		mItem = msg.item
+		parentPanel.RemoveAndDeleteChildren()
+		var newChildPanel = $.CreatePanel( "Panel", parentPanel, "element-item" );
+		newChildPanel.vessel = mItem
+		newChildPanel.vesselParent = $.GetContextPanel()
+		newChildPanel.combineButton = $('#final_combine_button_container')
+		newChildPanel.BLoadLayout( "file://{resources}/layout/custom_game/quests/inscription_kit_slot.xml", false, false );	
+		$.GetContextPanel().windPanel = newChildPanel
+		$.GetContextPanel().LastItem = 0
+		$('#final_combine_button').RemoveClass("invisible")
+
+		$('#witch_doctor_container').style.width = "400px"
+		$('#witch_doctor_container').style.height = "600px"
+		$('#header_image').SetImage("file://{images}/custom_game/ui/inscription_kit_ui_bg.jpg")
+		$('#witch_doctor_container').RemoveClass("invisible")
+		$('#witch_doctor_container').style.visibility = "visible"
+		$('#header_text').text = $.Localize("#DOTA_Tooltip_ability_item_rpc_inscription_kit")
+		$('#witch_doctor_tooltip').text = $.Localize("#inscription_kit_tip1")
+		$.GetContextPanel().style.visibility = "visible"
+		$('#final_combine_button').SetPanelEvent('onactivate', function CombineItems(){
+			var playerID = Game.GetLocalPlayerID()
+			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+			var inscription = $('#inscription_input').text
+			$.Msg(inscription)
+			GameEvents.SendCustomGameEventToServer( "inscription", {event_type: 1, heroIndex: heroIndex, kit: mItem, inscription: inscription});
+			CloseInscriptionKit(-1)	
+			Game.EmitSound("RPCItems.Inscription.Click")		
+		})
+		$('#close_witch_doctor').SetPanelEvent('onactivate', function CloseVessel(){
+			CloseInscriptionKit(0)
+		})
+		// GameUI.CustomUIConfig().mainDialog = 1
+		$.Msg("BIG PLAYER")	
+	}
+}
+function CloseInscriptionKit(msg){
+	$('#witch_doctor_container').AddClass("invisible")
+	$('#witch_doctor_container').style.visibility = "collapse"
+
+	GameUI.CustomUIConfig().mainDialog = 0
+	$.GetContextPanel().style.visibility = "collapse"
+	$('#final_combine_button_container').AddClass('invisible')
+	var playerID = Game.GetLocalPlayerID()
+	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
+	$('#inscription_input_container').AddClass("invisible")
+	$('#witch_doctor_content').RemoveAndDeleteChildren()
+}
+
+
 function FinalCombine(){
 	$('#final_combine_button_container').AddClass('invisible')
 	var difficulty = 3
@@ -201,5 +254,6 @@ function CloseAltarOfIce(msg){
 	GameEvents.Subscribe( "open_synthesis_vessel", OpenSynthesisVessel );
 	GameEvents.Subscribe( "close_synthesis_vessel", CloseSynthesisVessel );
 	GameEvents.Subscribe( "open_altar_of_ice", OpenAltarOfIce );
-	GameEvents.Subscribe( "close_altar_of_ice", CloseAltarOfIce)	
+	GameEvents.Subscribe( "close_altar_of_ice", CloseAltarOfIce);
+	GameEvents.Subscribe( "inscription_kit", OpenInscriptionKit );	
 })();

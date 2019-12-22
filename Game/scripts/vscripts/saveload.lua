@@ -411,6 +411,9 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		if item.newItemTable.base_magic_armor then
 			url = url.."&base_magic_armor"..gearSlot.."="..item.newItemTable.base_magic_armor
 		end
+		if item.newItemTable.inscription then
+			url = url.."&inscription"..gearSlot.."="..Curator:urlencode(item.newItemTable.inscription)
+		end
 		if item.newItemTable.socket1 then
 			url = url.."&socket1"..gearSlot.."="..item.newItemTable.socket1
 			if item.newItemTable.socket1value then
@@ -749,6 +752,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		if gearTable.base_magic_armor then
 			item.newItemTable.base_magic_armor = gearTable.base_magic_armor
 		end
+		if gearTable.special_tag then
+			item.newItemTable.inscription = gearTable.special_tag
+		end
 		if gearTable.socket1 then
 			item.newItemTable.socket1 = gearTable.socket1
 			item.newItemTable.socket1value = gearTable.socket1value
@@ -875,6 +881,18 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			return item
 		elseif gearTable.item_variant == "item_rpc_socket_cutter" then
 			local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+			SaveLoad:RemoveProperties(item)
+			SaveLoad:RemoveAdditionalData(item, false, false)
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif gearTable.item_variant == "item_rpc_inscription_kit" then
+			local item = RPCItems:CreateConsumable("item_rpc_inscription_kit", "mythical", "Socket Cutter", "consumable", false, "Consumable", "inscription_kit_desc")
 			SaveLoad:RemoveProperties(item)
 			SaveLoad:RemoveAdditionalData(item, false, false)
 			item.newItemTable.consumable = true
@@ -1749,6 +1767,13 @@ end
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 		elseif keyIndex == 13 then
 			local item = RPCItems:CreateConsumable("item_rpc_socket_cutter", "immortal", "Socket Cutter", "consumable", false, "Consumable", "socket_cutter_desc")
+			item.newItemTable.consumable = true
+			item.newItemTable.stashable = true
+			item.pickedUp = true
+			RPCItems:ItemUpdateCustomNetTables(item)
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+		elseif keyIndex == 14 then
+			local item = RPCItems:CreateConsumable("item_rpc_inscription_kit", "mythical", "Socket Cutter", "consumable", false, "Consumable", "inscription_kit_desc")
 			item.newItemTable.consumable = true
 			item.newItemTable.stashable = true
 			item.pickedUp = true

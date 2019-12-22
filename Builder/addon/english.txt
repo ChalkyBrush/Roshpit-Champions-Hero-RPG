@@ -823,6 +823,13 @@
 		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"Socket Cutter"
 		"socket_cutter_desc"										"Use at the blacksmith to add a socket to an item."
 
+		"DOTA_Tooltip_ability_item_rpc_inscription_kit"				"Inscription Kit"
+		"inscription_kit_desc"										"Adds a permanent inscription to an equippable item."
+
+		"inscription_kit_tip1"										"Select a piece of equipment to inscribe"
+		"inscription_kit_tip2"										"Type in your inscription below. Inscriptions are permanent and can NEVER be removed. Maximum of 36 characters."
+		"inscription_inscribe"										"Inscribe"
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"
