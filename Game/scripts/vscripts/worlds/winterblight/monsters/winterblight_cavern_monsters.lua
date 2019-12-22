@@ -675,7 +675,7 @@ function cavern_unit_die(event)
 		end
 		local luck = RandomInt(1, 2400-GameState:GetPlayerPremiumStatusCount()*100)
 		if luck == 1 then
-			RPCItems:RollGuardianStone(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_guardian_stone")
 		end
 	end
 end

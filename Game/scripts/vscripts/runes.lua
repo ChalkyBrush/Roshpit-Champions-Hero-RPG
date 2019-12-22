@@ -338,6 +338,7 @@ function Runes:LevelUpRune(keys)
 		EmitSoundOnClient("General.Cancel", player)
 	end
 	Runes:UpdateHeroSkillAndRunePoints(hero, false)
+	Runes:RuneLevelupEvents(hero, ability)
 end
 
 function Runes:ResetRuneBonuses(hero, slotName)
@@ -2055,4 +2056,14 @@ function Runes:OnRuneCountUpdate(unit, letter, tier)
 	Util.Modifier:SimpleEvent(unit, 'OnRune'.. bigLetter .. tier .. 'CountUpdate', { MODIFIER_SPECIAL_TYPE_RUNE }, {
 		count = newCount,
 	}, nil)
+end
+
+function Runes:RuneLevelupEvents(hero, ability)
+	if hero:GetUnitName() == "npc_dota_hero_zuus" and ability:GetAbilityName() == "auriun_rune_r_2" then
+		hero:ReequipAllGear(nil)
+	elseif hero:GetUnitName() == "npc_dota_hero_winter_wyvern" and ability:GetAbilityName() == "dinath_rune_e_2" then
+		hero:ReequipAllGear(nil)
+	elseif hero:GetUnitName() == "npc_dota_hero_invoker" and ability:GetAbilityName() == "rune_e_3_arcana4" then
+		hero:ReequipAllGear(nil)
+	end
 end

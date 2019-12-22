@@ -453,6 +453,7 @@ function ConquestBirdTrigger()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", mountainSpirit, 2)
 							EmitSoundOn("Arena.SpiritSPawn", mountainSpirit)
 							Arena:SpawnConquestPart2()
+							Arena.StaffBirdEvent = true
 						end)
 					end)
 				end)
@@ -546,25 +547,28 @@ end
 
 function gift_of_karzhun_die(event)
 	local caster = event.caster
-	local immortals = math.max(RandomInt(math.ceil(caster.stackLevel/2.5), caster.stackLevel), 1)
+	local drops = caster.stackLevel
+	if caster.paragon then
+		drops = drops*2
+	end
 	local position = caster:GetAbsOrigin()
 	local particleName = "particles/bahamut/hyper_state_intro_omnislash_ascension_sparks.vpcf"
 	EmitSoundOn("Arena.KarzhunDie", caster)
-	for i = 1, immortals, 1 do
-		Timers:CreateTimer(i*0.5, function()
+	for i = 1, drops, 1 do
+		Timers:CreateTimer(i*0.3, function()
 			local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Arena.ArenaMaster )
 			ParticleManager:SetParticleControl( particle1, 0, position)
 			Timers:CreateTimer(3, 
 			function()
 				ParticleManager:DestroyParticle( particle1, false )
 			end)
+			local luck = RandomInt(1, 10)
+			if luck == 1 then
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_conquest_stone_falcon")
+			end
 		end)
 	end
-	caster:BossDrops(immortals)
-	local luck = RandomInt(1000*math.min(caster.stackLevel, 10), 10004)
-	if luck == 10004 then
-		RPCItems:RollConquestStoneFalcon(position)
-	end
+	caster:BossDrops(drops)
 end
 
 function ArenaConquestTemple()
@@ -697,6 +701,7 @@ function conquest_switch_attack(event)
 
 		if caster.attackCount == 5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attackable_unit_no_more_attacks", {})
+			Arena.TempleSwitchPressed = true
 			Arena:OpenTempleWall()
 			Timers:CreateTimer(0.35, function()
 				EmitSoundOn("Tanari.WaterTemple.SwitchEnd", caster)
@@ -844,6 +849,16 @@ function createSummonParticle2Pos(position1, position2)
 end
 
 function TempleStaffTrigger(trigger)
+	if Arena.TempleStaffTriggerActivated then
+		return false
+	end
+	if not Arena.TempleSwitchPressed then
+		return false
+	end
+	if not Arena.StaffBirdEvent then
+		return false
+	end
+	Arena.TempleStaffTriggerActivated = true
 	local hero = trigger.activator
 	local staff = Entities:FindByNameNearest("ConquestTempleStaff", Vector(-15168, 8713, 128), 500)
 	for i = 1, 90, 1 do
@@ -1797,7 +1812,7 @@ function supreme_ogre_die(event)
 		caster:BossDrops(immortals)	
 		local luck = RandomInt(1,3)
 		if luck == 1 then
-			RPCItems:RollFortunesTalismanOfTruth(position)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fortunes_talisman_of_truth")
 		end
 	end
 end

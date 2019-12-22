@@ -3567,7 +3567,7 @@ function azheran_die(event)
 				end)
 			end)
 		end
-		RPCItems:RollFrozenHeart(position)
+		RPCItems:RollAndDropUniqueItem(hero, "item_rpc_frozen_heart")
 		EmitSoundOn("RPCItems.FrozenHeart.Shatter", hero)
 		local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
 		local radius = 500

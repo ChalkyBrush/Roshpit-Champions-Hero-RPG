@@ -253,8 +253,30 @@
 }
 
 #armor-and-magic-armor-row{
+/*	flow-children:right;*/
+/*	horizontal-align:right;*/
+	width:100%;
+}
+
+#armor-and-magic-armor-main-container{
 	flow-children:right;
-	horizontal-align:right;
+	horizontal-align:right;	
+}
+
+#inscription-container{
+	flow-children:left;
+	horizontal-align:left;
+}
+
+#inscription-label{
+	color:#AAAAAA;
+	font-weight:lighter;
+	font-size:12px;
+	padding:2px;
+	padding-left:5px;
+	background-color: #111111;
+	border-radius:8px;
+	max-width:170px;
 }
 
 #equipment_attribute_armor{

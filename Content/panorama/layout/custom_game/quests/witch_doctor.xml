@@ -21,6 +21,10 @@
 			<Panel id="witch_doctor_content">
 
 			</Panel>
+			<Panel class="invisible" id="inscription_input_container">
+						<Label id="inscription_tip_label" text="inscription_kit_tip2"/>
+						<TextEntry id="inscription_input" maxchars="36"/>
+			</Panel>
 			<Panel id="final_combine_button_container" class="invisible">
 				<Button id="final_combine_button" class="combine_button_color_main" hittest="true"
 					onactivate='FinalCombine()'>

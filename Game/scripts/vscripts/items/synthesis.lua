@@ -167,9 +167,9 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
 				local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
-				newMinLevel = math.max(math.min(newMinLevel, 100), 3)
+				newMinLevel = math.max(math.min(newMinLevel, 120), 3)
 				RPCItems.LevelRoll = newMinLevel
-				local newItem = RPCItems:RollImmortalByName(randomItem:GetAbilityName(), position)
+				local newItem = RPCItems:RollImmortalByName(randomItem:GetAbilityName(), newMinLevel)
 				RPCItems.LevelRoll = nil
 				if newItem and IsValidEntity(newItem) then
 					newItem.pickedUp = true
@@ -186,7 +186,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 				local newMinLevel = 100
 				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
-				maxWeaponLevel = math.min(maxWeaponLevel, 50)
+				maxWeaponLevel = math.min(maxWeaponLevel, 10)
 				RPCItems.LevelRoll = newMinLevel
 				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), maxWeaponLevel, position, true)
 				RPCItems.LevelRoll = nil
@@ -495,7 +495,7 @@ function RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 	elseif minLevelAVG == 100 then
 		bonus = 0
 	end
-	local new_min_level = math.min(minLevelAVG + bonus, 100)
+	local new_min_level = math.min(minLevelAVG + bonus, 120)
 	return new_min_level
 end
 

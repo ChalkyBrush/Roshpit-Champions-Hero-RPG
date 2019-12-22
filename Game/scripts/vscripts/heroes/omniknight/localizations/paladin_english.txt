@@ -302,7 +302,7 @@
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "Attack speed reduced" 
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "[T2-2] Glyph of Blessed Hammer"
-        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>%. Bonus only updated on weapon equip."
+        "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>%."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "[T3-2] Glyph of Conviction"
         "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <% PALADIN_GLYPH_3_2_LIFESTEAL * 100 %>% of damage dealt."

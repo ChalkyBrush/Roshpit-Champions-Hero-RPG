@@ -2363,15 +2363,18 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.CandyCrystal.Shatter", Winterblight.Master)
 				local position = Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()
 				UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
+				local iLevelBonus = 0
 				local locketsCount = 1
 				if black_statue_count <= 3 then
+					iLevelBonus = 20
 					locketsCount = 3
 				elseif black_statue_count <= 6 then
+					iLevelBonus = 10
 					locketsCount = 2
 				end
 				for i = 1, locketsCount, 1 do
 					Timers:CreateTimer((i - 1), function()
-						RPCItems:RollPuzzlersLocket(Vector(2505, -14245, 560))
+						RPCItems:RollAndDropImmortalByLevel(position, (GameState:GetDifficultyFactor()*30)+iLevelBonus, "item_rpc_puzzlers_locket")
 					end)
 				end
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
@@ -4925,7 +4928,7 @@ function Winterblight:StargazerWaveUnitDie(unit)
 					end)
 					local luck = RandomInt(1, 8 - GameState:GetDifficultyFactor())
 					if luck == 1 then
-						item_rpc_stargazers_sphere:CreateLuaItem(pos)
+						RPCItems:RollAndDropUniqueItem(Winterblight.Stargazer, "item_rpc_stargazers_sphere")
 					end
 					Winterblight:LastBridgeAndCup()
 				end)

@@ -530,3 +530,61 @@ function CDOTABaseAbility:GetFinalGemPropertyValue(gem_type, value_table)
 	end
 	return final_value
 end
+
+function Gems:InscriptionInput(msg)
+	if msg.event_type == 0 then
+		local hero = EntIndexToHScript(msg.heroIndex)
+		local draggedItem = EntIndexToHScript(msg.itemIndex)
+		local kit = EntIndexToHScript(msg.kit)
+		Timers:CreateTimer(0.03, function()
+			hero:Stop()
+		end)
+		kit.item_to_inscribe = msg.itemIndex
+	elseif msg.event_type == 1 then
+		local hero = EntIndexToHScript(msg.heroIndex)
+		local kit = EntIndexToHScript(msg.kit)
+		local playerID = hero:GetPlayerOwnerID()
+		if not IsValidEntity(kit) then
+			Notifications:Top(playerID, {text = "Inscription Kit Not Found", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false
+		end
+		if not Challenges:CheckIfHeroHasItemByItemIndex(hero, kit:GetEntityIndex()) then
+			Notifications:Top(playerID, {text = "Inscription Kit Not Found", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false
+		end
+		if not kit:GetAbilityName() == "item_rpc_synthesis_vessel" then
+			Notifications:Top(playerID, {text = "Inscription Kit Not Found", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false
+		end
+
+		local inscribe_item = EntIndexToHScript(kit.item_to_inscribe)
+		if not IsValidEntity(inscribe_item) then
+			Notifications:Top(playerID, {text = "Inscription Fail", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false		
+		end	
+		if not Challenges:CheckIfHeroHasItemByItemIndex(hero, inscribe_item:GetEntityIndex()) then
+			Notifications:Top(playerID, {text = "Inscription Fail", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false	
+		end
+		if not inscribe_item.newItemTable.gear_slot then
+			Notifications:Top(playerID, {text = "Inscription Fail", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false	
+		end
+		if inscribe_item.newItemTable.inscription then
+			Notifications:Top(playerID, {text = "This Item already Has An Inscription", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false	
+		end			
+		if string.len(msg.inscription) > 36 then
+			Notifications:Top(playerID, {text = "Your inscription is too long", duration = 5, style = {color = "#EE2211"}, continue = true})
+			return false	
+		end
+		if inscribe_item.newItemTable.gear_slot == 0 or inscribe_item.newItemTable.gear_slot == 1 or inscribe_item.newItemTable.gear_slot == 2 or inscribe_item.newItemTable.gear_slot == 3 or inscribe_item.newItemTable.gear_slot == 4 or inscribe_item.newItemTable.gear_slot == 5 then
+			Notifications:Top(playerID, {text = "Inscription Success", duration = 5, style = {color = "#33DD89"}, continue = true})
+			inscribe_item.newItemTable.inscription = msg.inscription
+			RPCItems:ItemUpdateCustomNetTables(inscribe_item)
+			EmitSoundOn("RPCItems.Inscription.Success", hero)
+			UTIL_Remove(kit)
+			CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", hero, 2)
+		end
+	end
+end

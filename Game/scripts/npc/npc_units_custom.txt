@@ -69314,6 +69314,80 @@
         }
     }
 
+    "tome_of_chaos_infernal"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/warlock/warlock_demon_rubick.vmdl"
+        "ModelScale"    "0.55"
+        "Level" "1"
+        "HealthBarOffset"   "200"
+        "HasInventory"  "0"
+        "DefaultState"  "Invade"
+        "SoundSet"             "Hero_WarlockGolem"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+            "particle"      "particles/status_fx/status_effect_enigma_malefice.vpcf"
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1"
+        "AttackDamageMax"   "1"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.32"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "160"
+        "BountyGoldMin" "100"
+        "BountyGoldMax" "120"
+        "BountyXP" "260"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "120000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {     
+             
+            }
+
+        }
+
+    }
     //SERENGAARD
 
     "dark_fighter_serengaard"

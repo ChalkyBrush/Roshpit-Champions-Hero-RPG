@@ -157,10 +157,6 @@ end
 
 function CDOTA_BaseNPC:BossDrops(quantity)
 	local unit = self
-	quantity = math.max(quantity + RandomInt(-2, 2), 0)
-	if quantity <= 0 then
-		return false
-	end
 	local unit_level = 0
 	if unit.roshpit_attributes.roshpit_level then
 		unit_level = unit.roshpit_attributes.roshpit_level
@@ -173,7 +169,7 @@ function CDOTA_BaseNPC:BossDrops(quantity)
 			if luck < socket_forger_value then
 				Gems:DropSocketForger(unit:GetAbsOrigin())
 			end
-			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
+			RPCItems:RollRandomItemAtLocation(unit_level, location, RPCItems.RARITY_BOOSTS[unit:GetEnemyTier()])
 		end)
 	end
 end

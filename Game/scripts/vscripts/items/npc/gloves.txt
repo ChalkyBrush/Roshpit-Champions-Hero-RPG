@@ -955,7 +955,7 @@
 		{
 			"particle"  "particles/roshpit/items/shadowflame_fist.vpcf"
 		}
-		"AbilityUnitTargetType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"

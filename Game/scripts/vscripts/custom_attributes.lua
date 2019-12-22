@@ -445,6 +445,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 		strength_per_level = strength_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	strength = strength + self:GetLevel()*strength_per_level
+	if hero:HasModifier("modifier_green_divinex_amulet") then
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_RUBY)
+	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
+	end
 	hero.strength_custom = math.floor(strength)
 end
 
@@ -456,6 +461,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 		agility_per_level = agility_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	agility = agility + self:GetLevel()*agility_per_level
+	if hero:HasModifier("modifier_red_divinex_amulet") then
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RED_DIVINEX_AMULET_GEM_EMERALD)
+	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
+	end
 	hero.agility_custom = math.floor(agility)
 end
 
@@ -467,6 +477,11 @@ function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 		intelligence_per_level = intelligence_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	intellect = intellect + self:GetLevel()*intelligence_per_level
+	if hero:HasModifier("modifier_red_divinex_amulet") then
+		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
+	elseif hero:HasModifier("modifier_green_divinex_amulet") then
+		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
+	end
 	hero.intellect_custom = math.floor(intellect)
 end
 
@@ -1095,6 +1110,42 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_swamp_waders") then
 		armor_modify = armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
 	end
+	if unit:HasModifier("modifier_blue_divinex_amulet") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_green_divinex_amulet") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		armor_modify = armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_fenrir_fang_sapphire") then
+		local fang_caster = unit:FindModifierByName("modifier_fenrir_fang_sapphire"):GetCaster()
+		local fang_hero = fang_caster.hero
+		armor_modify = armor_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FENRIRS_FANG_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_ruby_buff") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_RUBY2)
+	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		armor_modify = armor_modify + unit:GetSpirit()*ITEM_RPC_FUCHSIA_RING_ARMOR_PER_SPR
+	end
+	if unit:HasModifier("modifier_galaxy_orb_emerald_freeze_effect") then
+		local galaxy_caster = unit:FindModifierByName("modifier_galaxy_orb_emerald_freeze_effect"):GetCaster()
+		local galaxy_hero = galaxy_caster.hero
+		armor_modify = armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_tempest_falcon_sapphire_armors") then
+		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE1)
+	end
+	if unit:HasModifier("modifier_infernal_reign_amethyst_armor_loss") then
+		local caster = unit:FindModifierByName("modifier_infernal_reign_amethyst_armor_loss"):GetCaster()
+		local tome = caster.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
+		armor_modify = armor_modify + tome:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST2)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1706,7 +1757,38 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_arcane_charm") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
 	end
-
+	if unit:HasModifier("modifier_red_divinex_amulet") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_green_divinex_amulet") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_emerald_nullification_ring") then
+		magic_armor_modify = magic_armor_modify + unit:GetAgility()*ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_MAGIC_ARMOR
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_amethyst_buff") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		magic_armor_modify = magic_armor_modify + unit:GetStrength()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FUCHSIA_RING_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_galaxy_orb_emerald_freeze_effect") then
+		local galaxy_caster = unit:FindModifierByName("modifier_galaxy_orb_emerald_freeze_effect"):GetCaster()
+		local galaxy_hero = galaxy_caster.hero
+		magic_armor_modify = magic_armor_modify + galaxy_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALAXY_ORB_GEM_EMERALD1)
+	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SAPPHIRE_LOTUS_GEM_EMERALD)*unit:GetIntellect()
+	end
+	if unit:HasModifier("modifier_tempest_falcon_sapphire_armors") then
+		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TEMPEST_FALCON_RING_GEM_SAPPHIRE1)
+	end
+    if unit:HasModifier("modifier_torch_of_gengar_inactive") then
+        magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD2)
+    end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2054,6 +2136,46 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_beryl_ring_of_intuition_emerald_armor_pierce") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BERYL_RING_OF_INTUITION_GEM_EMERALD)
 	end
+	if unit:HasModifier("modifier_red_divinex_amulet") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_blue_divinex_amulet") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_fenrir_fang_buff") then
+		local fang_caster = unit:FindModifierByName("modifier_fenrir_fang_buff"):GetCaster()
+		local fang_hero = fang_caster.hero
+		armor_pierce_modify = armor_pierce_modify + fang_hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FENRIRS_FANG_GEM_EMERALD)
+	end
+	if unit:HasModifier("modifier_firelock_pendant") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetStrength()*ITEM_RPC_FIRELOCK_PENDANT_STR_TO_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_emerald_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD2)
+	end
+	if unit:HasModifier("modfier_razor_band_stacks") then
+		armor_pierce_modify = armor_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*ITEM_RPC_GALVANIZED_RAZOR_BAND_ARMOR_PIERCE
+	end
+	if unit:HasModifier("modifier_hope_of_saytaru") then
+		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
+			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_tempest_falcon_ring") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_MAGICAL then
+			armor_pierce_modify = armor_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
+		end
+	end
+	if unit:HasModifier("modifier_world_tree_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
+	end
+
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
 		local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
@@ -2453,6 +2575,44 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_azure_empire_visible") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_azure_empire_visible", unit.InventoryUnit)*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AZURE_EMPIRE_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_cobalt_serenity_ring") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_COBALT_SERENITY_RING_GEM_EMERALD)*unit:GetHealth()
+	end
+	if unit:HasModifier("modifier_kharzun_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
+	end
+	if unit:HasModifier("modifier_fortunes_talisman_sapphire_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_fuchsia_ring") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSpirit()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FUCHSIA_RING_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modfier_razor_band_stacks") then
+		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_AMETHYST2)
+	end
+	if unit:HasModifier("modifier_hope_of_saytaru") then
+		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
+			spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
+		end
+	end
+	if unit:HasModifier("modifier_sapphire_lotus") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_LOTUS_GEM_RUBY)*unit:GetHealth()
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_LOTUS_GEM_AMETHYST)*unit:GetMana()
+	end
+	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
+	end
+	if unit:HasModifier("modifier_tempest_falcon_ring") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_PHYSICAL then
+			spell_pierce_modify = spell_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
+		end
+	end
+	if unit:HasModifier("modifier_volcano_orb") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR
+	end
+	if unit:HasModifier("modifier_world_tree_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2955,6 +3115,20 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_spiritual_empowerment_stack") then
 		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_spiritual_empowerment_stack", hero.InventoryUnit)*hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPIRITUAL_EMPOWERMENT_GLOVE_GEM_AMETHYST1)
 	end
+	if hero:HasModifier("modifier_fortunes_talisman_of_truth") then
+		if hero:HasModifier("modifier_fortunes_talisman_ruby_buff") then
+			str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_RUBY1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_emerald_buff") then
+			agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_EMERALD1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_sapphire_buff") then
+			int_bonus = int_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_SAPPHIRE1)
+		end
+		if hero:HasModifier("modifier_fortunes_talisman_amethyst_buff") then
+			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_AMETHYST1)
+		end
+	end
 	if hero:HasModifier("modifier_blue_dragon_greaves_effect") then
 		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
 		spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_EMERALD)
@@ -3017,7 +3191,7 @@ function CustomAttributes:SetAttributes(hero)
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_spirit", ITEM_RPC_AZURE_EMPIRE_PURPLE_SPR)
 	end
 	if hero:HasModifier("modifier_wind_orchid_agility_bonus") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", CustomAttributes.ITEM_RPC_WIND_ORCHID_AGI_PER_E4)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_wind_orchid_agility_bonus", 1)
 	end
 	if hero:HasModifier("modifier_captains_vest") then
 		if hero:HasModifier("modifier_captains_vest_str") then
@@ -3037,7 +3211,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_aqua_lily_intelligence_bonus", 1)
 	end
 	if hero:HasModifier("modifier_fire_blossom_strength_bonus") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", CustomAttributes.ITEM_RPC_FIRE_BLOSSOM_STR_PER_W4)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_fire_blossom_strength_bonus", 1)
 	end
 	if hero:HasModifier("modifier_solunia_d_d_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
@@ -3054,6 +3228,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_rpc_steamboots") then
 		agi_bonus = agi_bonus + hero:GetLevel()*ITEM_RPC_STEAMBOOTS_AGI_PER_LEVEL
 	end
+	if hero:HasModifier("modifier_raven_idol") then
+		spr_bonus = spr_bonus - hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RAVEN_IDOL_GEM_SAPPHIRE1) 
+		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RAVEN_IDOL_GEM_SAPPHIRE2) 
+	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
 	end
@@ -3065,7 +3243,9 @@ function CustomAttributes:SetAttributes(hero)
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		str_bonus = str_bonus + stat_bonus
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RED_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
+		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
 		local stat_bonus = hero:GetBaseAgility()
@@ -3073,13 +3253,17 @@ function CustomAttributes:SetAttributes(hero)
 		modifier.stat_bonus = stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
 		str_bonus = 0
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_RUBY)
 		int_bonus = 0
+		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		local stat_bonus = hero:GetBaseIntellect()
 		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		int_bonus = int_bonus + stat_bonus
+		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
 		str_bonus = 0
+		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
 	end
 
@@ -3217,7 +3401,11 @@ function CustomAttributes:GetMaxHealth(hero, excludedModifier)
 	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
 	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
-	return baseHealth * healthMultiplier - 100 
+	if hero:HasModifier("modifier_frozen_heart") then
+		return 100
+	else
+		return baseHealth * healthMultiplier - 100 
+	end
 end
 
 function CustomAttributes:GetBaseHealth(hero, excludedModifier)
@@ -3263,6 +3451,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 			flatHealthBonus = flatHealthBonus + hero:GetSpirit()*grithault:GetFinalGemPropertyValue("amethyst", GRITHAULT_AMETHYST)
 		end
 	end
+	if excludedModifier ~= "modifier_fuchsia_ring" and hero:HasModifier("modifier_fuchsia_ring") then
+		flatHealthBonus = flatHealthBonus + ITEM_RPC_FUCHSIA_RING_HEALTH_PER_SPR * hero:GetSpirit()
+	end
 	if excludedModifier ~= "modifier_skulldigger_hellfire_stacks" and hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SKULLDIGGER_GAUNTLET_GEM_RUBY1)*hero:GetModifierStackCount("modifier_skulldigger_hellfire_stacks", hero.InventoryUnit)
 	end
@@ -3291,6 +3482,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
+	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE
+	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
 			flatHealthBonus = flatHealthBonus + result
@@ -3312,6 +3506,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_rpc_sange_boots" and hero:HasModifier("modifier_rpc_sange_boots") then
 		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SANGE_BOOTS_GEM_SAPPHIRE)/100
+	end
+	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
+		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIFESOURCE_VESSEL_GEM_SAPPHIRE)/100
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 

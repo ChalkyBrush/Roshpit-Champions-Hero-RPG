@@ -32,10 +32,10 @@ function wave_unit_die(event)
 		elseif luck == 2998 then
 			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_twilight_vestments")
 		elseif luck == 2997 then
-			RPCItems:RollPhoenixEmblem(deathLocation)
+			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_phoenix_emblem")
 		elseif luck == 2996 then
 			if Serengaard.InfiniteWaveCount then
-				RPCItems:RollSunCrystal(deathLocation, Serengaard.InfiniteWaveCount)
+				RPCItems:RollAndDropImmortalByLevel(event.unit:GetAbsOrigin(), Serengaard.InfiniteWaveCount, "item_rpc_serengaard_sun_crystal")
 			end
 		elseif luck == 2995 then
 			RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_undertakers_hood")

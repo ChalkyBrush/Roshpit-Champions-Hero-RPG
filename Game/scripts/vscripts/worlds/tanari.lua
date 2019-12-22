@@ -59,40 +59,26 @@ function Tanari:Debug()
 
 
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
-    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_aquastone_ring")
+    -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_world_trees_flower_cache")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
     RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_blacksmiths_tablet")
+    -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
+
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_world_trees_flower_cache")
+
+    
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_vermillion_dream_robes")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_world_trees_flower_cache")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
-
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_tattered_novice_armor")
-
-    helm = Gems:AddSocket(helm)
-    helm = Gems:AddSocket(helm)
-
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 60, "item_rpc_harvester_boots")
-
-    helm = Gems:AddSocket(helm)
-    helm = Gems:AddSocket(helm)
-
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_blacksmiths_tablet")
-
-    helm = Gems:AddSocket(helm)
-    helm = Gems:AddSocket(helm)
-
-    local weapon = Weapons:RollWeapon(4, 80, nil)
-    RPCItems:BasicDropItem(MAIN_HERO_TABLE[1]:GetAbsOrigin(), weapon)
 
     -- Curator:CurateALLHeroes()
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
@@ -716,7 +702,9 @@ function Tanari:InitCamp()
     Timers:CreateTimer(4, function()
         Tanari:SpawnChampionsTrailPart1()
     end)
-
+    Timers:CreateTimer(7, function()
+        Tanari:InitProps()
+    end)
     Timers:CreateTimer(10, function()
         CalculateHeroZones()
         return 10
@@ -733,6 +721,18 @@ function Tanari:CreateDynamicBlockers()
     Timers:CreateTimer(10, function()
         Tanari:CreateWaterKeyWall()
     end)
+end
+
+function Tanari:InitProps()
+    Tanari.WaterTempleSneakSwitch = Entities:FindByNameNearest("WaterTempleBackRoomSwitch", Vector(-9920, 10560), 1000)
+    Tanari.WaterTempleSneakSwitch:SetAbsOrigin(Tanari.WaterTempleSneakSwitch:GetAbsOrigin()-Vector(0,0,300))
+
+    Tanari.WaterTempleSpiritSwitch = Entities:FindByNameNearest("WaterSwitch", Vector(-13509, 15873), 1000)
+    Tanari.WaterTempleSpiritSwitch:SetAbsOrigin(Tanari.WaterTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
+
+    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 1000)
+    Tanari.FireTempleSpiritSwitch:SetAbsOrigin(Tanari.FireTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
+    
 end
 
 function Tanari:CreateSideTempleDynamicBlockers()

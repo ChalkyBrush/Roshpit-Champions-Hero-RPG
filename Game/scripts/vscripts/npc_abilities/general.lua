@@ -704,6 +704,9 @@ function ms_thinker(event)
 	if unit:HasModifier("modifier_knight_hawk_helm") then
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
+	if unit:HasModifier("modifier_tempest_falcon_ring") then
+		local max_ms = max_ms + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY2)
+	end
 	if unit:HasModifier("modifier_pegasus_boots") then
 		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
 	end
@@ -808,4 +811,9 @@ end
 function utility_recalculate_roshpit_attributes(event)
 	local target = event.target
 	target:CalculateAndSaveRoshpitAttributes()
+end
+
+function utility_reequip_all_gear(event)
+	local target = event.target
+	target:ReequipAllGear(nil)
 end

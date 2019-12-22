@@ -31,7 +31,7 @@ function Arena:Debug()
 	local drop = CreateItemOnPositionSync(Vector(-3136, -11200), item)
 	local position = Vector(-3136, -11200)
 	RPCItems:DropItem(item, Vector(-3136, -11200))
-	-- Arena.PitLevel = 5
+	Arena.PitLevel = 5
 	-- Arena:SpawnCerberus(Vector(-3136, -11200), Vector(1,0))
 	--    MAIN_HERO_TABLE[1].ChampionsLeague = {}
 	--    MAIN_HERO_TABLE[1].ChampionsLeague.rank = 14
@@ -822,7 +822,13 @@ function Arena:ArenaDialogue(msg)
 			Arena.skipIntro = 1
 		elseif npc == "arena_pit_conquest_shrine_of_karzhun" then
 			--print("GO?")
-			Arena:PitConquestKarzhun(hero)
+			local input_value = msg.input_value
+			print("KARZHUN LETS GO")
+			print(input_value)
+			if not input_value then
+				input_value = 0
+			end
+			Arena:PitConquestKarzhun(hero, tonumber(input_value))
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "close_left_leaderboard", {})
 		end
 	end

@@ -422,7 +422,7 @@ function ancient_tree_main_think(event)
 				EmitGlobalSound("Loot_Drop_Stinger_Arcana")
 				local luck = RandomInt(1, 2)
 				if luck == 1 then
-					RPCItems:RollWorldTreesFlowerCache(caster:GetAbsOrigin())
+					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_world_trees_flower_cache")
 				else
 					RPCItems:RollAndDropUniqueItem(caster, "item_rpc_red_october_boots")
 				end

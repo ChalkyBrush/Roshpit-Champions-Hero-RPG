@@ -14017,8 +14017,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"城主的兜帽"
-		"item_property_lords"									"命令视域"
-		 "property_lords_description"							"技能冷却时间减少 <font color='#ccff66'>1</font> 秒并且拥有 <font color='#ccff66'>140</font> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。该装备的符文有重铸上限，重铸上限为24 。"
+		"item_property_hood_of_lords"									"命令视域"
+		 "property_hood_of_lords_description"							"技能冷却时间减少 <font color='#ccff66'>1</font> 秒并且拥有 <font color='#ccff66'>140</font> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。该装备的符文有重铸上限，重铸上限为24 。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"烈焰犬头盔"
@@ -14120,12 +14120,16 @@
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
-		"item_rpc_hope_of_saytaru_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_hope_of_saytaru_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_hope_of_saytaru_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_hope_of_saytaru_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_saytaru"						"最后的希望"
-		"property_saytaru_description"				"当生命值低于<font color='#ccff66'>50</font>%时获得魔法免疫，该状态下受到的纯粹伤害降低<font color='#ccff66'>70</font>%，造成的魔法和纯粹伤害降低<font color='#ccff66'>50</font>%"
+        "property_saytaru_description"              "Gain Magic Immunity while below <font color='#ccff66'>30</font>% health."
+
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect"              "Final Hope"
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"  "Magic Immune"
+
+        "item_rpc_hope_of_saytaru_ruby1"                                    "Increases the Health threshold to activate Final Hope by an additional @ruby_property1% of Max Health"
+        "item_rpc_hope_of_saytaru_emerald1"                                 "While Final Hope is inactive, gain @emerald_property1 Armor Pierce and Spell Pierce"
+        "item_rpc_hope_of_saytaru_sapphire1"                                    "While Final Hope is active gain @sapphire_property1% resistance to Pure Damage"
+        "item_rpc_hope_of_saytaru_amethyst1"                                    "Reduces all damage taken while Final Hope is active by @amethyst_property1%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"
@@ -14134,7 +14138,7 @@
 		"item_rpc_sapphire_lotus_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_sapphire_lotus_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_sapphire_lotus"				"蓝色魅力"
-		"property_sapphire_lotus_description"		"每点智力值额外增加<font color='#ccff66'>25</font>点最大生命值。"
+		"property_sapphire_lotus_description"		"每点智力值额外增加<font color='#ccff66'>10</font>点最大生命值。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
@@ -14172,12 +14176,13 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"猴爪"
-		"item_rpc_monkey_paw_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_monkey_paw_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_monkey_paw_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_monkey_paw_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_monkey_paw"					"摇曳的梦想"
-		"property_monkey_paw_description"			"精英怪在玩家 <font color='#ccff66'>600</font> 码 范围内死亡，会掉落额外的不朽装备。每额外掉落一件装备，将消耗 <font color='#ccff66'>50</font>% 的当前金钱。地图的难度决定额外掉落的装备的质量与等级，但同时也会增加掉落时所需的最少金钱数（<font color='#ccff66'>3500</font>/<font color='#ccff66'>7000</font>/<font color='#ccff66'>10500</font> 普通难度/精英难度/传说难度）装备猴爪后，玩家每 <font color='#ccff66'>0.03</font> 秒将受到 1 点纯粹伤害。"
+        "property_monkey_paw_description"           "Equipping this item causes you to take 1 point of Pure damage every <font color='#ccff66'>0.03</font> seconds."
+
+        "item_rpc_monkey_paw_ruby1"                                     "Increases Attack Power by @ruby_property1%"
+        "item_rpc_monkey_paw_emerald1"                                      "Increases Base Ability Damage by @emerald_property1%"
+        "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
+        "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"戈登神石"
@@ -14197,21 +14202,23 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"
-		"item_rpc_gem_of_eternal_frost_ruby1"							"blah blah @ruby_property1 gem"
-		"item_rpc_gem_of_eternal_frost_emerald1"							"blah blah @emerald_property1 gem"
-		"item_rpc_gem_of_eternal_frost_sapphire1"							"blah blah @sapphire_property1 gem"
-		"item_rpc_gem_of_eternal_frost_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_eternal_frost"				"冰霜新星"
-		"property_eternal_frost_description"		"附近的敌人每<font color='#ccff66'>0.1</font>秒降低<font color='#ccff66'>12</font>移速，当敌人移速低于<font color='#ccff66'>150</font>时被冰冻<font color='#ccff66'>4.5</font>秒。<br>当你施放 @Ability3 技能时，冰冻<font color='#ccff66'>500</font>码范围敌人<font color='#ccff66'>2.5</font>秒，并造成 <font color='#ccff66'>4000</font>x 智力值的伤害。<br>每<font color='#ccff66'>10</font>点智力值提高所有装备伤害 <font color='#ccff66'>0.2</font>% 。"
+        "property_eternal_frost_description"        "When you cast @Ability3 - root all enemies in a <font color='#ccff66'>500</font> radius in a case of ice for <font color='#ccff66'>3.5</font> seconds and deal damage equal to <font color='#ccff66'>3.5</font>x your Intelligence."
+
+        "item_rpc_gem_of_eternal_frost_ruby1"                           "Enemies who are rooted deal @ruby_property1% reduced damage to you"
+        "item_rpc_gem_of_eternal_frost_emerald1"                            "Increases Frost Nova radius by @emerald_property1 and nova damage by @emerald_property2"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <font color='#ccff66'>800</font> range are slowed by @amethyst_property1 movespeed every <font color='#ccff66'>0.1</font> seconds. When their movespeed drops below <font color='#ccff66'>150</font> they are rooted for @amethyst_property2 seconds."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"
-		"item_rpc_lifesource_vessel_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_lifesource_vessel_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_lifesource_vessel_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_lifesource_vessel_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_lifesource_vessel"			"生命源泉"
-		"property_lifesource_vessel_description"	"每点力量值提高生命值回复速度 <font color='#ccff66'>0.3</font>。"
+        "property_lifesource_vessel_description"    "All attributes increases Max Health by <font color='#ccff66'>3</font>."
+
+        "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <font color='#ccff66'>5</font> seconds"
+        "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
+        "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"星球"
@@ -14248,7 +14255,7 @@
 		"item_rpc_signus_charm_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_signus_charm_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>40</font>%。 @Ability3 冷却时间提高1倍。"
+		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>50</font>%。 @Ability3 冷却时间提高1倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"
@@ -14261,27 +14268,41 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"混乱之书"
-		"item_rpc_tome_of_chaos_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_tome_of_chaos_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_tome_of_chaos_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_tome_of_chaos_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_tome_of_chaos"				"地狱火"
-		"property_tome_of_chaos"					"施放 @Ability2 后，召唤一头地狱火并眩晕敌人<font color='#ccff66'>2</font>秒。地狱火拥有你<font color='#ccff66'>2</font>倍的生命值，<font color='#ccff66'>0.5</font>倍的护甲值和<font color='#ccff66'>5</font>倍总属性值的基础攻击力。<br>持续<font color='#ccff66'>20</font>秒，冷却时间<font color='#ccff66'>30</font>秒。"
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown"	"地狱火冷却中"
-		"DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"	""
+        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <font color='#ccff66'>500</font> for <font color='#ccff66'>3</font> seconds upon arrival. The devil has <font color='#ccff66'>2</font>x your health and <font color='#ccff66'>4</font>x your attack damage. Lasts <font color='#ccff66'>30</font> seconds and has a <font color='#ccff66'>35</font> second cooldown."
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Recharging"
+
+        "tome_of_chaos_infernal"                    "Infernal Demon"
+
+        "item_rpc_tome_of_chaos_ruby1"                                  "The Infernal has @ruby_property1% bonus Attack Power and deals his damage in an @ruby_property2 radius"
+        "item_rpc_tome_of_chaos_emerald1"                                   "The Infernal is covered in flames that burn enemies in <font color='#ccff66'>240</font> range every <font color='#ccff66'>0.5</font> seconds for @emerald_property1% of the Infernal's attack power"
+        "item_rpc_tome_of_chaos_sapphire1"                                  "Infernal Reign's cooldown is reduced by @sapphire_property1 seconds"
+        "item_rpc_tome_of_chaos_amethyst1"                                  "The Infernal has an ability with a <font color='#ccff66'>5</font> second cooldown that spits flames in all directions that deal @amethyst_property1% of the Infernal's attack power as damage, and lower effected enemies' armor by @amethyst_property2 for <font color='#ccff66'>10</font> seconds"
+
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss"      "Infernal Reign (Amethyst)"
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss_Description"  "Reduced Armor"
+
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai" "Infernal Demon AI"
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai_Description" "Toggle On to activate default behavior"
+
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability"  "Infernal Blast"
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability_Description"  "Launch flames in all directions that reduce enemies' armor"
 		
 		
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"阴影火炬"
-		"item_rpc_torch_of_gengar_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_torch_of_gengar_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_torch_of_gengar_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_torch_of_gengar_amethyst1"									"blah blah @amethyst_property1 gem"
+
 		"item_property_gengar"						"暗影步伐"
-		"property_gengar"							"受到伤害时有 <font color='#ccff66'>15</font>% 的几率获得 <font color='#ccff66'>75</font>% 闪避，相位移动能力并且增加 <font color='#ccff66'>300</font>% 的基础技能伤害，持续<font color='#ccff66'>6</font>秒。"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect"	"暗影步伐"
-		"DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"	"<font color='#ccff66'>75</font>%% 闪避，相位移动和<font color='#ccff66'>300</font>%% 技能伤害"
+        "property_gengar"                            "The wearer is disarmed and has <font color='#ccff66'>100</font>% evasion, unit walking and <font color='#ccff66'>60</font>% reduced Attack Power. Casting a spell removes this effect for <font color='#ccff66'>6</font> seconds."
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect"  "Shadow Walk"
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"  "<font color='#ccff66'>100</font>%% evasion and unit walking"
+        
+        "item_rpc_torch_of_gengar_ruby1"                                    "Reduces Shadow Walk's disabled duration by @ruby_property1 seconds"
+        "item_rpc_torch_of_gengar_emerald1"                                 "While Shadow Walk is disabled gain @emerald_property1% Base Ability Damage and @emerald_property2 Magic Armor"
+        "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"
@@ -14301,35 +14322,40 @@
 		"item_rpc_omega_ruby_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_omega_ruby_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_omega_ruby"					"欧米伽之火"
-		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>800</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
+		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <font color='#ccff66'>10</font>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
-		"item_rpc_raven_idol_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_raven_idol_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_raven_idol_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_raven_idol_amethyst1"										"blah blah @amethyst_property1 gem"
-		"item_property_raven_idol2"					"黑暗灵魂"		
-		"property_raven_idol_description2"			"减少受到的所有伤害<font color='#ccff66'>65</font>%. 你的血量不能超过 <font color='#ccff66'>35</font>% 的最大生命值. 每失去1%血量提升装备伤害 <font color='#ccff66'>10</font>% ."
+		"item_property_raven_idol1"					"黑暗灵魂"		
+    
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <font color='#ccff66'>35</font>%. Your health can not go above <font color='#ccff66'>65</font>% of your max."
+        
+        "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
+        "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
+        "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
+        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
-		"item_rpc_phoenix_emblem_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_phoenix_emblem_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_phoenix_emblem_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_phoenix_emblem_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_phoenix_emblem"				"涅盘"
-		"property_phoenix_emblem"					"当你死亡时，<font color='#ccff66'>5</font>秒后涅盘重生并眩晕附近所有敌人<font color='#ccff66'>5</font>秒。冷却时间<font color='#ccff66'>20</font>秒。"
-		"DOTA_Tooltip_modifier_phoenix_emblem_cooldown"	"涅盘冷却中"
+
+        "property_phoenix_emblem"                   "On death, revive after <font color='#ccff66'>5</font> seconds with <font color='#ccff66'>50</font>% Health and Mana and stun all surrounding enemies within <font color='#ccff66'>700</font> range for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>20</font> second cooldown."
+        "DOTA_Tooltip_modifier_phoenix_emblem_cooldown" "Rebirth Cooldown"
+
+        "item_rpc_phoenix_emblem_ruby1"                                 "Increases Item Damage by @ruby_property1%, and enemies who are stunned by Rebirth also take damage based on @ruby_property2% of your Max Health"
+        "item_rpc_phoenix_emblem_emerald1"                                  "Increases Max Health by @emerald_property1, and increases Health and Mana on respawn by an additional @emerald_property2%"
+        "item_rpc_phoenix_emblem_sapphire1"                                 "Reduce Rebirth's Cooldown by @sapphire_property1 seconds"
+        "item_rpc_phoenix_emblem_amethyst1"                                 "Increases Rebirth's radius by @amethyst_property1 and stun duration by @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
-		"item_rpc_volcano_orb_ruby1"										"blah blah @ruby_property1 gem"
-		"item_rpc_volcano_orb_emerald1"										"blah blah @emerald_property1 gem"
-		"item_rpc_volcano_orb_sapphire1"										"blah blah @sapphire_property1 gem"
-		"item_rpc_volcano_orb_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_volcano_orb"					"火热之心"
-		"property_volcano_orb_description"			"所有魔法伤害提升至<font color='#ccff66'>2.5</font>x。该效果与其他税后效果乘法计算。"
+        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <font color='#ccff66'>1</font>."
+
+		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"Increases Intelligence by @sapphire_property1"
+		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
@@ -14348,7 +14374,7 @@
 		"item_rpc_fractional_enhancement_geode_sapphire1"					"blah blah @sapphire_property1 gem"
 		"item_rpc_fractional_enhancement_geode_amethyst1"					"blah blah @amethyst_property1 gem"
 		"item_property_geode"								"对数放大"
-		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<font color='#ccff66'>0.2</font>%，该伤害值变为<font color='#ccff66'>10</font>倍。"
+		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<font color='#ccff66'>0.1</font>%，该伤害值变为<font color='#ccff66'>10</font>倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
@@ -14357,7 +14383,7 @@
 		"item_rpc_ring_of_nobility_sapphire1"								"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_nobility"							"崇高之路"
-		"property_nobility_description"						"提高全属性 <font color='#ccff66'>30</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
+		"property_nobility_description"						"提高全属性 <font color='#ccff66'>1</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
@@ -14366,7 +14392,7 @@
 		"item_rpc_ring_of_nobility_augmented_sapphire1"						"blah blah @sapphire_property1 gem"
 		"item_rpc_ring_of_nobility_augmented_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_nobility_augmented"					"崇高步伐"
-		"property_nobility_augmented_description"			"提高全属性 <font color='#ccff66'>60</font>x 你的等级。该装备无法重铸。"
+		"property_nobility_augmented_description"			"提高全属性 <font color='#ccff66'>2</font>x 你的等级。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"启示树枝"
@@ -14375,7 +14401,7 @@
 		"item_rpc_twig_of_the_enlightened_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_twig_of_the_enlightened_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_twig_of_enlightened"					"魔力护盾"
-		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <font color='#ccff66'>5</font>x所获魔法值的伤害。护盾的伤害吸收上限为 <font color='#ccff66'>5</font>x你的最大魔法值。"
+		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <font color='#ccff66'>1</font>x所获魔法值的伤害。护盾的伤害吸收上限为 <font color='#ccff66'>1</font>x你的最大魔法值。"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield"	"魔力护盾"
 		"DOTA_Tooltip_modifier_twig_of_the_enlightened_shield_Description"	"吸收伤害"
 		
@@ -14391,24 +14417,25 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"								"风暴猎鹰指环"
-		"item_rpc_tempest_falcon_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_tempest_falcon_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_tempest_falcon_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_tempest_falcon_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_tempest_falcon"						"暴风转换"
-		"property_tempest_falcon_description"				"每造成一次物理伤害获得一个buff，使你的下一次魔法伤害提高<font color='#ccff66'>300</font>%。"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect"	"暴风转换"
-		"DOTA_Tooltip_modifier_tempest_falcon_ring_effect_Description"	"下一次魔法伤害提高<font color='#ccff66'>300</font>%"
+
+        "property_tempest_falcon_description"               "Dealing an instance of Physical damage increases Spell Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Armor Pierce bonus. Dealing an instance of Magical damage increases Armor Pierce by <font color='#ccff66'>30</font>x your Hero Level, and removes Storm Switch's Spell Pierce bonus."
+
+        "item_rpc_tempest_falcon_ring_ruby1"                                "Increases Movement Speed by @ruby_property1 and Max Movement Speed by @ruby_property2"
+        "item_rpc_tempest_falcon_ring_emerald1"                             "Increases Attack Speed by @emerald_property1 and Agility by @emerald_property2"
+        "item_rpc_tempest_falcon_ring_sapphire1"                                "Landing an attack increases Armor and Magic Armor by @sapphire_property1 and removes this sapphire's attack power bonus, and taking damage increases Attack Power by @sapphire_property2% and removes this sapphire's armor and magic armor bonus."
+        "item_rpc_tempest_falcon_ring_amethyst1"                                "Increases Item and <font color=\"#7AE2A7\">Wind</font> Elemental Damage by @amethyst_property1%"
 		 
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_firelock_pendant"								"火枪吊坠"
-		"item_rpc_firelock_pendant_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_firelock_pendant_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_firelock_pendant_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_firelock_pendant_amethyst1"								"blah blah @amethyst_property1 gem"
-		"item_property_firelock"							"稳定火焰"		
-		"property_firelock_description"					"每<font color='#ccff66'>10</font>点力量值提高所有物理伤害 <font color='#ccff66'>0.3</font>%。"
+		"item_property_firelock"							"稳定火焰"		    
+        "property_firelock_description"                 "Each point of Strength increases Armor Pierce by <font color='#ccff66'>3</font>."
+        
+        "item_rpc_firelock_pendant_ruby1"                               "Increases Strength and Agility by @ruby_property1"
+        "item_rpc_firelock_pendant_emerald1"                                 "Increases Item and <font color=\"#EF4126\">Fire</font> Elemental damage by @emerald_property1%"
+        "item_rpc_firelock_pendant_sapphire1"                               "Each point of Agility and Strength increase Attack Speed by @sapphire_property1"
+        "item_rpc_firelock_pendant_amethyst1"                               "Each point of Spirit increases Base Attack Damage by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_antique_mana_relic"								"古老的魔法遗物"
@@ -14425,12 +14452,13 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_epsilons_eyeglass"								"伊普西龙的眼镜"
-		"item_rpc_epsilons_eyeglass_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_epsilons_eyeglass_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_epsilons_eyeglass_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_epsilons_eyeglass_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_epsilon_eyeglass"					"扩展范围"
-		"property_epsilon_eyeglass_description"			"增加攻击距离 <font color='#ccff66'>240</font> 码(只适用于远程英雄)并且增加 <font color='#ccff66'>800</font> 码视野范围，和 <font color='#ccff66'>1500</font> 的弹道飞行速度。额外地，普通攻击将造成一次物理伤害，伤害基于玩家与攻击目标之间的距离。<br>（伤害计算公式：0.00<font color='#ccff66'>1</font> * 玩家等级 * 距离 ^ 3)<br> 计算时，如果距离超过 <font color='#ccff66'>5000</font>，仍以此距离计算。距离不足700时以700计算"
+        "property_epsilon_eyeglass_description"         "Increases attack range by <font color='#ccff66'>160</font> (RANGED ONLY), increases vision radius by <font color='#ccff66'>800</font>, and adds <font color='#ccff66'>600</font> to your attack projectile's speed."
+
+        "item_rpc_epsilons_eyeglass_ruby1"                              "Your attacks deal an extra instance of damage equal to @ruby_property1x the distance between you and your target"
+        "item_rpc_epsilons_eyeglass_emerald1"                               "Increases the Attack Range bonus (for Ranged heroes) by an additional @emerald_property1"
+        "item_rpc_epsilons_eyeglass_sapphire1"                              "Increases the Projectile Speed bonus by an additional @sapphire_property1 and increases Attack Power by @sapphire_property2%"
+        "item_rpc_epsilons_eyeglass_amethyst1"                              "Increases <font color=\"#C25DFC\">Cosmic</font> Elemental Damage and Item Damage by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fenrirs_fang"									"芬里尔的犬牙"
@@ -14439,21 +14467,20 @@
 		"item_rpc_fenrirs_fang_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fenrirs_fang_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fenrir_fang"							"阿尔法狼灵气"
-		"property_fenrir_fang"									"增加自己和友军的攻击力<font color='#ccff66'>60</font>%。"
+		"property_fenrir_fang"									"增加自己和友军的攻击力<font color='#ccff66'>30</font>%。"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff"				"阿尔法狼灵气"
 		"DOTA_Tooltip_modifier_fenrir_fang_buff_Description"	"增加攻击力"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fuchsia_ring"									"紫红色的戒指"
-		"item_rpc_fuchsia_ring_ruby1"									"blah blah @ruby_property1 gem"
-		"item_rpc_fuchsia_ring_emerald1"									"blah blah @emerald_property1 gem"
-		"item_rpc_fuchsia_ring_sapphire1"									"blah blah @sapphire_property1 gem"
-		"item_rpc_fuchsia_ring_amethyst1"									"blah blah @amethyst_property1 gem"
-		"item_property_fuchsia_ring"							"团结"
-		"property_fuchsia_ring_description"					"当被沉默或者眩晕时所有受到的伤害减少 <font color='#ccff66'>96</font>% 并且血量每秒回复 <font color='#ccff66'>45</font>% 玩家的最大的生命值。"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
-		"DOTA_Tooltip_modifier_fuchsia_damage_resistance"		"伤害减免 <font color='#ccff66'>96</font>% 并且生命回复提高每秒 <font color='#ccff66'>45</font>%% 的最大生命值"
-		 
+
+        "item_property_fuchsia_ring"                            "Spiritual Brace"
+        "property_fuchsia_ring_description"                 "Each point of Spirit increases Max Health by <font color='#ccff66'>10</font> and Armor by <font color='#ccff66'>2</font>."
+
+        "item_rpc_fuchsia_ring_ruby1"                                   "Each point of Strength increases Magic Armor by @ruby_property1"
+        "item_rpc_fuchsia_ring_emerald1"                                    "Increases Health Regen by @emerald_property1% of Max Health"
+        "item_rpc_fuchsia_ring_sapphire1"                                   "Each point of Spirit increases Spell Pierce by @sapphire_property1"
+        "item_rpc_fuchsia_ring_amethyst1"                                   "Increases Strength and Spirit by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"幸运护身符"
@@ -14471,25 +14498,27 @@
 		"item_rpc_cobalt_serenity_ring_sapphire1"							"blah blah @sapphire_property1 gem"
 		"item_rpc_cobalt_serenity_ring_amethyst1"							"blah blah @amethyst_property1 gem"
 		"item_property_cobalt_serenity"						"宁静"
-		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>8</font>% x智力值。"
+		 "property_cobalt_serenity_description"					"提高生命回复速度，提高值为 <font color='#ccff66'>1</font>% x智力值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_emerald_nullification_ring"						"翡翠净化环"
-		"item_rpc_emerald_nullification_ring_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_emerald_nullification_ring_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_emerald_nullification_ring_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_emerald_nullification_ring_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_emerald_null"							"翡翠淨化"
-		 "property_emerald_null_description"					"减少受到的纯粹或魔法伤害，减少值为 <font color='#ccff66'>5</font>x 敏捷值。计算在魔法抗性之后，其他伤害减免之前。"
+         "property_emerald_null_description"                    "Each point of Agility increases Magic Armor by <font color='#ccff66'>3</font>."
+
+        "item_rpc_emerald_nullification_ring_ruby1"                     "Reduces all Magic Damage taken by @ruby_property1%"
+        "item_rpc_emerald_nullification_ring_emerald1"                      "Increases Agility by @emerald_property1"
+        "item_rpc_emerald_nullification_ring_sapphire1"                     "@sapphire_property1% chance to completely block an instance of Magic or Pure damage"
+        "item_rpc_emerald_nullification_ring_amethyst1"                     "Reduces all Pure damage taken by @amethyst_property1%"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_garnet_warfare_ring"								"战争戒指"
-		"item_rpc_garnet_warfare_ring_ruby1"								"blah blah @ruby_property1 gem"
-		"item_rpc_garnet_warfare_ring_emerald1"								"blah blah @emerald_property1 gem"
-		"item_rpc_garnet_warfare_ring_sapphire1"								"blah blah @sapphire_property1 gem"
-		"item_rpc_garnet_warfare_ring_amethyst1"								"blah blah @amethyst_property1 gem"
 		"item_property_garnet_warfare"							"石榴战争"
-		 "property_garnet_warfare_description"					"每<font color='#ccff66'>10</font>点力量增加基础技能伤害 <font color='#ccff66'>0.3</font>%。"
+        "property_garnet_warfare_description"                    "Each point of Strength increases Base Ability Damage by <font color='#ccff66'>0.12</font>%."
+
+        "item_rpc_garnet_warfare_ring_ruby1"                                "Increases Strength by @ruby_property1"
+        "item_rpc_garnet_warfare_ring_emerald1"                             "Increases Armor and Armor Pierce by @emerald_property1"
+        "item_rpc_garnet_warfare_ring_sapphire1"                                "Increases Attack Power by @sapphire_property1%"
+        "item_rpc_garnet_warfare_ring_amethyst1"                                "Each point of Strength and Spirit increases Base Attack Damage by @amethyst_property1"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_serengaard_sun_crystal"							"太阳宝石"
@@ -14505,7 +14534,7 @@
 		"item_rpc_wind_orchid_sapphire1"										"blah blah @sapphire_property1 gem"
 		"item_rpc_wind_orchid_amethyst1"										"blah blah @amethyst_property1 gem"
 		"item_property_wind_orchid"							"风之花"
-		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 <font color='#ccff66'>300</font> 点敏捷值。"
+		 "property_wind_orchid_description"						"E4 每一点符文点数将提高 <font color='#ccff66'>24</font> 点敏捷值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aqua_lily"										"水百合"
@@ -14523,7 +14552,7 @@
 		"item_rpc_fire_blossom_sapphire1"									"blah blah @sapphire_property1 gem"
 		"item_rpc_fire_blossom_amethyst1"									"blah blah @amethyst_property1 gem"
 		"item_property_fire_blossom"							"火之花"
-		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 <font color='#ccff66'>300</font> 点力量值。"
+		 "property_fire_blossom_description"					"W4 每一点符文点数将提高 <font color='#ccff66'>24</font> 点力量值。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"							"远古护符"
@@ -14548,15 +14577,17 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"世界树之花的宝藏"
-		"item_rpc_world_trees_flower_cache_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_world_trees_flower_cache_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
 		"item_property_world_trees_flower_cache"				"血之兰"
-		"property_world_trees_flower_cache_description"			"受到致命伤害后 <font color='#ccff66'>3</font>秒，将从世界树之花中满血重生。重生后获得buff，使所受到的伤害提高 <font color='#ccff66'>200</font>%，同时也加深敌人所受到的伤害 <font color='#ccff66'>200</font>%。（计算在敌人减伤之后） 伤害加深buff持续时间<font color='#ccff66'>12</font>秒。物品技能冷却时间12秒。"
-		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"血之兰冷却中"
-		"DOTA_Tooltip_modifier_world_tree_effect"				"血之兰"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"受到的伤害提高 <font color='#ccff66'>200</font>%% 同时加深敌人所受到的伤害 <font color='#ccff66'>200</font>%%（伤害加深计算在减伤之后）"
+
+        "property_world_trees_flower_cache_description"         "On death, you are reborn from a flower after <font color='#ccff66'>3</font> seconds with full health. Upon emerging, you receive a buff that increases Base Ability Damage by <font color='#ccff66'>100</font>%, Attack Power by <font color='#ccff66'>50</font>%, and movespeed by <font color='#ccff66'>150</font> for <font color='#ccff66'>6</font> seconds. <font color='#ccff66'>15</font> second cooldown."
+        "DOTA_Tooltip_modifier_world_tree_cache_cooldown"       "New Bloom Cooldown"
+        "DOTA_Tooltip_modifier_world_tree_effect"               "New Bloom"
+        "DOTA_Tooltip_modifier_world_tree_effect_Description"   "Increases Base Ability Damage, Attack Power and Movespeed"
+
+        "item_rpc_world_trees_flower_cache_ruby1"                       "New Bloom buff also increases Armor Pierce and Spell Pierce by @ruby_property1"
+        "item_rpc_world_trees_flower_cache_emerald1"                        "Reduces New Bloom's Cooldown by @emerald_property1 seconds"
+        "item_rpc_world_trees_flower_cache_sapphire1"                       "Increases New Bloom's buff duration by @sapphire_property1 seconds"
+        "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=\"#69BC71\">Nature</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"奥术挂坠"
@@ -14585,12 +14616,12 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_sparkling_token_of_oceanis"					"海洋之心"	
-		"item_rpc_sparkling_token_of_oceanis_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_sparkling_token_of_oceanis_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_sparkling_token"												"炽热雾霭"
-		"property_sparkling_token_Description"									"受到的所有纯粹伤害减少 <font color='#ccff66'>95</font>%。"
+        "property_sparkling_token_Description"                                  "Restore <font color='#ccff66'>1.5</font>% of Max Health every <font color='#ccff66'>0.2</font> seconds."
+        "item_rpc_sparkling_token_of_oceanis_ruby1"                 "Increases Max Health by @ruby_property1 and Max Mana by @ruby_property2"
+        "item_rpc_sparkling_token_of_oceanis_emerald1"                  "Reduce Pure Damage taken by @emerald_property1%"
+        "item_rpc_sparkling_token_of_oceanis_sapphire1"                 "Restore @sapphire_property1% of Max Mana every <font color='#ccff66'>0.2</font> seconds"
+        "item_rpc_sparkling_token_of_oceanis_amethyst1"                 "Reduce Magic Damage taken by @amethyst_property1%"   
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_frozen_heart"				"阿祖赫仑的冰霜之心"
@@ -14599,47 +14630,49 @@
 		"item_rpc_frozen_heart_sapphire1"				"blah blah @sapphire_property1 gem"
 		"item_rpc_frozen_heart_amethyst1"				"blah blah @amethyst_property1 gem"
 		"item_property_frozen_heart"								"冰血寒髓"	
-		"property_frozen_heart_description"					"最大生命值被设定为<font color='#ccff66'>100</font>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<font color='#ccff66'>2</font> / <font color='#ccff66'>5</font> / <font color='#ccff66'>8</font>点伤害。在没有受到伤害的<font color='#ccff66'>2.5</font>秒后，每<font color='#ccff66'>0.1</font>秒恢复<font color='#ccff66'>1</font>点生命值。"
+		"property_frozen_heart_description"					"最大生命值被设定为<font color='#ccff66'>80</font>，无法被治疗。每次受到的物理/魔法/纯粹伤害对英雄造成<font color='#ccff66'>2</font> / <font color='#ccff66'>7</font> / <font color='#ccff66'>9</font>点伤害。在没有受到伤害的<font color='#ccff66'>3</font>秒后，每<font color='#ccff66'>0.1</font>秒恢复<font color='#ccff66'>1</font>点生命值。"
 		"DOTA_Tooltip_modifier_frozen_heart_regen_prep"		"冰血冷却"
 		"DOTA_Tooltip_modifier_frozen_heart_regen"			"冰血回复"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stargazers_sphere"			"观星者的法球"
-		"item_rpc_stargazers_sphere_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_stargazers_sphere_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_stargazers_sphere_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_stargazers_sphere_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_stargazer"									"观星者之眼"
-		"property_stargazer_description"							"对任意地点发出攻击移动命令能创建一个有视野的观星者领域。领域拥有该物品增大视野属性范围的顺畅视野。在领域内部受到伤害的敌人将被一颗流星击中，造成等于在该领域持续时间内对敌人造成的最高伤害<font color='#ccff66'>100</font>% 的纯粹伤害（不包括观星本身）。通过其他途径（元素和装备伤害等）提高的流星伤害不能超过触发流星的伤害的<font color='#ccff66'>10</font>x 。流星伤害对坚定能提高其 <font color='#ccff66'>10</font>x 阈值 (<font color='#ccff66'>30</font>x 对高级坚定). 敌人每 <font color='#ccff66'>0.5</font> 秒最多被流星打击一次.对领域发出攻击移动命令能使其立即崩溃，形成一颗陨石落下对范围内敌人造成<font color='#ccff66'>20</font>x 你的攻击力的伤害并眩晕敌人<font color='#ccff66'>1</font>秒。观星者领域的创建有<font color='#ccff66'>1.5</font> 秒内置cd。"
+        "property_stargazer_description"                            "Issuing an attack-move order within <font color='#ccff66'>2000</font> range will create a <font color='#ccff66'>320</font> radius cosmic aperture with vision at that location. Enemies inside the aperture who take damage will be struck by a star which deals <font color='#ccff66'>5</font>% of the Stargazer's attack power. Each enemy can only be hit by a star once every <font color='#ccff66'>2</font> seconds. Can only create a ring once every <font color='#ccff66'>3</font> seconds."
+
+        "item_rpc_stargazers_sphere_ruby1"            "Issuing an attack-move order within a circle instantly collapses it, forming a meteor that does @ruby_property1% your attack power in the area and stuns enemies for @ruby_property2 seconds."
+        "item_rpc_stargazers_sphere_emerald1"            "Reduces Eye of the Stargazer's cooldown by @emerald_property1 and max creation range by @emerald_property2"
+        "item_rpc_stargazers_sphere_sapphire1"            "Reduces the Starfall delay per enemy by @sapphire_property1 seconds and increases the Star's damage by @sapphire_property2"
+        "item_rpc_stargazers_sphere_amethyst1"            "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+
 		"DOTA_Tooltip_modifier_in_stargazer_area"					"观星者的法球"
 		"DOTA_Tooltip_modifier_in_stargazer_area_Description"		"受到伤害时将被流星打击"
-		
-		
-		"DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"			"红色占卜神符"
-		"item_rpc_red_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_red_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_red_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_red_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_red_divinex"									"我渴望力量！"
-		"property_red_divinex_description"							"敏捷和智力上限被限定为20。力量翻倍。每<font color='#ccff66'>10</font>点力量提高装备伤害 <font color='#ccff66'>0.07</font>%."
 
-		
-		"DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"			"绿色占卜神符"
-		"item_rpc_green_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_green_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_green_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_green_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_green_divinex"									"超强敏捷"
-		"property_green_divinex_description"							"力量和智力上限被限定为20。敏捷翻倍。每<font color='#ccff66'>10</font>点敏捷提高装备伤害 <font color='#ccff66'>0.07</font>%."
+        "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "蓝色占卜神符"
 
-		
-		"DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"			"蓝色占卜神符"
-		"item_rpc_blue_divinex_amulet_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_blue_divinex_amulet_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_blue_divinex_amulet_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_blue_divinex_amulet_amethyst1"			"blah blah @amethyst_property1 gem"
-		"item_property_blue_divinex"									"超强智力"
-		"property_blue_divinex_description"							"力量和敏捷上限被限定为20。智力翻倍。每<font color='#ccff66'>10</font>点智力提高装备伤害 <font color='#ccff66'>0.07</font>%."
+        "item_property_blue_divinex"                                    "X-Intelligence"
+        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is doubled."
+        "item_rpc_blue_divinex_amulet_ruby1"            "X-Intelligence only reduces your Strength to @ruby_property1"
+        "item_rpc_blue_divinex_amulet_emerald1"         "X-Intelligence only reduces your Agility to @emerald_property1"
+        "item_rpc_blue_divinex_amulet_sapphire1"            "Each point of Intelligence increases Item Damage by @sapphire_property1%"
+        "item_rpc_blue_divinex_amulet_amethyst1"            "Each point of Spirit increases Armor and Armor Pierce by @amethyst_property1"
+        
+        "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "绿色占卜神符"
+        "item_property_green_divinex"                                   "X-Agility"
+        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is doubled."
+
+        "item_rpc_green_divinex_amulet_ruby1"           "X-Agility only reduces your Strength to @ruby_property1"
+        "item_rpc_green_divinex_amulet_emerald1"            "Each point of Agility increases Item Damage by @emerald_property1%"
+        "item_rpc_green_divinex_amulet_sapphire1"           "X-Agility only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_green_divinex_amulet_amethyst1"           "Each point of Spirit increases Armor and Spell Pierce by @amethyst_property1"
+
+
+        "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "红色占卜神符"
+        "item_property_red_divinex"                                 "X-Strength"
+        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is doubled."   
+        "item_rpc_red_divinex_amulet_ruby1"         "Each point of Strength increases Item Damage by @ruby_property1%"
+        "item_rpc_red_divinex_amulet_emerald1"          "X-Strength only reduces your Agility to @emerald_property1"
+        "item_rpc_red_divinex_amulet_sapphire1"         "X-Strength only reduces your Intelligence to @sapphire_property1"
+        "item_rpc_red_divinex_amulet_amethyst1"         "Each point of Spirit increases Armor Pierce and Spell Pierce by @amethyst_property1"   
 		
 		"DOTA_Tooltip_ability_item_rpc_puzzlers_locket"				"解谜者吊坠"
 		"item_rpc_puzzlers_locket_ruby1"				"blah blah @ruby_property1 gem"
@@ -14650,23 +14683,25 @@
 		"property_puzzler_description"						 "装备上的T2 符文数和 T3符文数互换。"
 		
 		"DOTA_Tooltip_ability_item_rpc_galvanized_razor_band"			"旋转剃刀系带"
-		"item_rpc_galvanized_razor_band_ruby1"			"blah blah @ruby_property1 gem"
-		"item_rpc_galvanized_razor_band_emerald1"			"blah blah @emerald_property1 gem"
-		"item_rpc_galvanized_razor_band_sapphire1"			"blah blah @sapphire_property1 gem"
-		"item_rpc_galvanized_razor_band_amethyst1"			"blah blah @amethyst_property1 gem"
 		"item_property_razor_band"										"旋转之刃"
-		"property_razor_band_description"								"承受敌人一次伤害后，你将会对自己造成一次 <font color='#ccff66'>1</font>% 最大生命值的伤害并且施加一个效果。每层效果将会增加 <font color='#ccff66'>24</font>% 倍攻击力和 <font color='#ccff66'>4</font>% 税后伤害。每0.3秒对附近的敌人造成一次 <font color='#ccff66'>10</font>% 攻击力的伤害。每层效果都有独立的<font color='#ccff66'>8</font> 秒持续时间，并且最大层数不能超过<font color='#ccff66'>100</font>层。"
+        "property_razor_band_description"                               "Taking damage additionally removes health equal to <font color='#ccff66'>1.5</font>% of your max health and applies a Razor Blade stack. Each Razor Blade stack adds <font color='#ccff66'>2</font>% bonus Attack Power and increases Armor Pierce by <font color='#ccff66'>35</font>. Stacks have independant durations of <font color='#ccff66'>6</font>. Max <font color='#ccff66'>50</font> stacks."
+
+        "item_rpc_galvanized_razor_band_ruby1"          "Razor Blade shreds nearby enemies within <font color='#ccff66'>340</font> range, dealing damage equal to @ruby_property1% of your attack power per Razor Blade stack every <font color='#ccff66'>0.03</font> seconds."
+        "item_rpc_galvanized_razor_band_emerald1"           "Reduces the Health Removal when taking damage by @emerald_property1% and have an @emerald_property2% chance to gain an additional Razor Blade stack when taking damage"
+        "item_rpc_galvanized_razor_band_sapphire1"          "Increases Razor Blade's Max Stacks by @sapphire_property1, and adds @sapphire_property2 seconds to the durations"
+        "item_rpc_galvanized_razor_band_amethyst1"          "Each Razor Blade stack also increases Base Attack Damage by @amethyst_property1 and Spell Pierce by @amethyst_property2"
 
 		"DOTA_Tooltip_modfier_razor_band_stacks"					"旋转之刃"
 		"DOTA_Tooltip_modfier_razor_band_stacks_Description"		"增加攻击力和税后伤害并且每0.3秒对周围的敌人造成一次伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_guardian_stone"					"卫士之石"
-		"item_rpc_guardian_stone_ruby1"					"blah blah @ruby_property1 gem"
-		"item_rpc_guardian_stone_emerald1"					"blah blah @emerald_property1 gem"
-		"item_rpc_guardian_stone_sapphire1"					"blah blah @sapphire_property1 gem"
-		"item_rpc_guardian_stone_amethyst1"					"blah blah @amethyst_property1 gem"
 		"property_guardian_stone"										"白银之心"
-		"property_guardian_stone_description"								"敌人对你施加的Debuffs的持续时间将会被降低 <font color='#ccff66'>75</font>% 。当一个debuff的持续时间被降低后，你将会被治疗一次，治疗量为<font color='#ccff66'>20</font>% 最大生命值。"
+        "property_guardian_stone_description"                               "Reduces the durations of all debuffs applied to you by enemies by <font color='#ccff66'>50</font>%."
+
+        "item_rpc_guardian_stone_ruby1"                 "When a debuff is applied to you by an enemy, heal @ruby_property1% of your max health."
+        "item_rpc_guardian_stone_emerald1"                  "Reduces all Pure damage taken by @emerald_property1%"
+        "item_rpc_guardian_stone_sapphire1"                 "Reduces the durations of all debuffs applied to you by enemies by @sapphire_property1%"
+        "item_rpc_guardian_stone_amethyst1"                 "Increases Spirit by @amethyst_property1"
 
 		"DOTA_Tooltip_ability_item_rpc_beryl_ring_of_intuition" 	"直觉翡翠之戒"
 		"item_rpc_beryl_ring_of_intuition_ruby1" 	"blah blah @ruby_property1 gem"

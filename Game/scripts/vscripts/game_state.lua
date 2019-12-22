@@ -695,15 +695,18 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			Filters:GoldbreakerMagicImmuneBreak(hero, target)
 			return false
 		end
-	elseif target:HasModifier("modifier_guadian_stone") then
+	elseif target:HasModifier("modifier_guardian_stone") then
 		local caster = EntIndexToHScript(modifierGainedTable["entindex_caster_const"])
 		if modifierGainedTable["entindex_ability_const"] then
-			local duration_modifier = ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT
+			local duration_modifier = ITEM_RPC_GUARDIAN_STONE_DEBUFF_REDUCTION_PCT + target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GUARDIAN_STONE_GEM_SAPPHIRE)
 			if target:GetTeamNumber() ~= caster:GetTeamNumber() and modifierGainedTable["duration"] > 0 then
 				modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1-(duration_modifier/100))
-				local heal = target:GetMaxHealth()*(ITEM_RPC_GUARDIAN_STONE_HEAL_PCT/100)
-				CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
-				Filters:ApplyHeal(target, target, heal, true, true)
+				if target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
+					local heal_pct_value = target.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GUARDIAN_STONE_GEM_RUBY)
+					local heal = target:GetMaxHealth()*(heal_pct_value/100)
+					CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_talon_heal.vpcf", target, 1)
+					Filters:ApplyHeal(target, target, heal, true, true)
+				end
 				EmitSoundOn("Items.GuardianStone.Trigger", target)
 			end
 		end			
@@ -767,6 +770,12 @@ function GameState:OrderFilter(orderTable)
 		if unit:HasModifier("modifier_wraith_crown_amethyst") then
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
 				unit:RemoveModifierByName("modifier_wraith_crown_amethyst")
+			end
+		end
+		if unit:HasModifier("modifier_stargazers_sphere_rework") then
+			local stargazer = Filters:StargazerSphere(unit, orderTable)
+			if stargazer == "meteor" then
+				return false
 			end
 		end
 		if unit:HasModifier("modifier_neptunes_water_gliders") then
@@ -1611,9 +1620,21 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_resplendent_rubber_boots") then
 			damage = damage * (100-ITEM_RPC_RESPLENDENT_RUBBER_BOOTS_DMG_REDUCTION)/100
 		end
-	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_RUBY))/100
+		end
 		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
-			damage = damage * (100 - ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_PURE_DMG_REDUCTION)/100
+			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
+		end
+	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
+		end
+		if victim:HasModifier("modifier_guardian_stone") then
+			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
+		end
+		if victim:HasModifier("modifier_sparkling_token_of_oceanis") then
+			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_EMERALD))/100
 		end
 		if victim:HasModifier("modifier_sunstrider_lightsworn") then
 			damage = damage * (1 - SEINARU_ARCANA_E2_PURE_DMG_REDUCE)
@@ -1626,7 +1647,7 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * reduction
 		end
 		if victim:HasModifier("modifier_hope_of_saytaru_effect") then
-			damage = (1 - ITEM_RPC_HOPE_OF_SAYTARU_PURE_DMG_RESISTANCE) * damage
+			damage = (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HOPE_OF_SAYTARU_GEM_SAPPHIRE)/100) * damage
 		end
 		if victim:HasModifier("modifier_boots_of_ashara") then
 			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_ASHARA_GEM_AMETHYST)/100))
@@ -1651,6 +1672,16 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			if dash then
 				local reduction = (100 - dash:GetSpecialValueFor("damage_reduction_percent")) / 100
 				damage = damage * reduction
+			end
+		end
+		if victim:HasModifier("modifier_emerald_nullification_ring") then
+			if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("sapphire") > 0 then
+				local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_SAPPHIRE))
+				if proc then
+					damage = 0
+					EmitSoundOn("RPCItems.EmeraldNullification.SpellBlock", victim)
+					CustomAbilities:QuickAttachParticle("particles/items_fx/immunity_sphere.vpcf", victim, 3)
+				end
 			end
 		end
 		if victim:HasModifier("modifier_pure_resist") then
@@ -1765,12 +1796,17 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-
+	if victim:HasModifier("modifier_gem_of_eternal_frost") and shouldConsumeShields and attacker:IsRooted() then
+		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GEM_OF_ETERNAL_FROST_GEM_RUBY)/100)
+	end
 	if victim:HasModifier("modifier_solunia_c_d_arcana_shell") then
 		damage = damage * (1 - SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT)
 	end
 	if victim:HasModifier("modifier_crystalline_slippers") and victim:IsRooted() then
 		damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_SAPPHIRE)/100)
+	end
+	if victim:HasModifier("modifier_hope_of_saytaru_effect") then
+		damage = (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HOPE_OF_SAYTARU_GEM_AMETHYST)/100) * damage
 	end
 	if victim:HasModifier("modifier_bloodstone_boots") then
 		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
@@ -1873,9 +1909,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * reduction
 		end
 	end
-	if victim:HasModifier("modifier_fuchsia_damage_resistance") then
-		damage = damage * (100-ITEM_RPC_FUCHSIA_RING_DMG_REDUCTION)/100
-	end
 	if victim:HasModifier("modifier_energy_field_c_d_shield") then
 		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
 	end
@@ -1924,7 +1957,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	end
 
 	if victim:HasModifier("modifier_raven_idol") then
-		damage = damage * (1 - ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT / 100)
+		damage = damage * (1 - (ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT + victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RAVEN_IDOL_GEM_RUBY2)) / 100)
 	end
 	if victim:HasModifier("modifier_savage_plate_of_ogthun") then
 		local savage_plate = victim.equipped_gear[RPC_GEAR_SLOT_BODY]
@@ -1939,10 +1972,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_living_gauntlet_effect") then
 		local damage_reduction = ITEM_RPC_LIVING_GAUNTLET_DMG_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_LIVING_GAUNTLET_GEM_AMETHYST1)
 		damage = damage * (100-damage_reduction)/100
-	end
-
-	if victim:HasModifier("modifier_world_tree_effect") then
-		damage = damage * ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT/100
 	end
 
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
@@ -2293,31 +2322,22 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
+
+	if attacker:HasModifier("modifier_tempest_falcon_ring") then
+		attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type = damagetype
+	end
 	if damagetype == DAMAGE_TYPE_PHYSICAL then
-		if attacker:HasModifier("modifier_tempest_falcon_ring") then
-			attacker.amulet:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_tempest_falcon_ring_effect", {duration = ITEM_RPC_TEMPEST_FALCON_RING_DURATION})
-		end
-		if attacker:HasModifier("modifier_firelock_pendant") then
-			local multIncrease = (attacker:GetStrength() / ITEM_RPC_FIRELOCK_PENDANT_STR_DIVISOR) * ITEM_RPC_FIRELOCK_PENDANT_STR_TO_POST_MITI/100
-			mult = mult + multIncrease
-		end
+
 
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
 		local inflictor = filterTable["entindex_inflictor_const"]
 		if attacker:HasModifier("modifier_far_seers_gloves") and applyEffects then
 			Filters:FarSeerGloves(attacker, filterTable["damage"], filterTable["entindex_inflictor_const"])
 		end
-		if attacker:HasModifier("modifier_tempest_falcon_ring_effect") then
-			mult = mult + ITEM_RPC_TEMPEST_FALCON_RING_POST_MITI_MAGIC/100
-			Timers:CreateTimer(0.05, function()
-				attacker:RemoveModifierByName("modifier_tempest_falcon_ring_effect")
-			end)
-		end
 		if victim:IsMagicImmune() then
 			return false
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
-
 
 	end
 	if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
@@ -2326,12 +2346,6 @@ function GameState:FilterDamage(filterTable)
 				Filters:CarbuncleReflect(victim, attacker, filterTable["damage"], damagetype)
 				filterTable["damage"] = 0
 			end
-		end
-		if victim:HasModifier("modifier_emerald_nullification_ring") then
-			filterTable["damage"] = math.max(filterTable["damage"] - Filters:GetHeroAttribute(victim, "agility") * ITEM_RPC_EMERALD_NULLIFICATION_RING_AGI_TO_PURE_MAGIC_DMG_BLOCK, 0)
-		end
-		if attacker:HasModifier("modifier_hope_of_saytaru_effect") then
-			filterTable["damage"] = (1 - ITEM_RPC_HOPE_OF_SAYTARU_OUTPUT_PURE_AND_MAGIC_DMG_DECREASE) * filterTable["damage"]
 		end
 		if victim:HasModifier("modifier_azure_empire_visible") and applyEffects then
 			if not Filters:HasDamageBlockShield(victim) then
@@ -2386,11 +2400,6 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if attacker:HasModifier("modfier_razor_band_stacks") then
-		local modifier = attacker:FindModifierByName("modfier_razor_band_stacks")
-		local stacks = modifier:GetStackCount()
-		mult = mult + (ITEM_RPC_GALVANIZED_RAZOR_BAND_POST_MITIGATION_PER_STACK/100)*stacks
-	end
 
 	if attacker:HasModifier("modifier_jex_root_weave_debuff") then
 		if attacker:FindModifierByName("modifier_jex_root_weave_debuff"):GetCaster():HasModifier("modifier_jex_glyph_5_1") then
@@ -2971,9 +2980,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_exploder_freeze") then
 		filterTable["damage"] = filterTable["damage"] * 5
 	end
-	if attacker:HasModifier("modifier_world_tree_effect") then
-		mult = mult + ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI/100
-	end
 
 	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
 		local healAmount = filterTable["damage"]
@@ -3097,11 +3103,6 @@ function GameState:FilterDamage(filterTable)
 	end
 	if damageData.postmitigationDamage then
 		filterTable["damage"] = damageData.postmitigationDamage
-	end
-	if attacker:HasModifier("modifier_volcano_orb") and not damageData.ignoreMultipliers and not damageData.ignoreExtraPostmitigation then
-		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * ITEM_RPC_VOLCANO_ORB_MAGIC_DMG_MULT
-		end
 	end
 	if victim:HasModifier("modifier_twilight_vestments") and applyEffects then
 		Filters:TwilightVestments(victim, filterTable["damage"], damagetype)
@@ -3349,9 +3350,9 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_frozen_heart") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROZEN_HEART_GEM_AMETHYST)
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL
+			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_MAGICAL - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FROZEN_HEART_GEM_SAPPHIRE)
 		else
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PHYS
 		end
@@ -3378,7 +3379,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--LETHAL CHECK
-	if filterTable["damage"] > victim:GetHealth() then
+	filterTable["damage"] = victim:GetHealth()*100
+	if filterTable["damage"] >= victim:GetHealth() then
 		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then
 			if victim:HasModifier("modifier_phoenix_rebirthing") then
@@ -3464,35 +3466,10 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then
-			--print("HAS FLOWER CACHE")
 			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				--print("DO THIS STUFF")
-				victim:AddNoDraw()
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_COOLDOWN})
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY})
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
-				ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
-				ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
-				for i = 0, 12, 1 do
-					ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
-				end
-				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
 				rezzed = true
-				Timers:CreateTimer(ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY, function()
-					victim:RemoveNoDraw()
-					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
-					victim:SetHealth(victim:GetMaxHealth())
-					ParticleManager:DestroyParticle(pfx, false)
-					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION})
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
-					local enemies = FindUnitsInRadius(victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-					if #enemies > 0 then
-						for _, enemy in pairs(enemies) do
-							Filters:ApplyStun(victim, 0.6, enemy)
-						end
-					end
-				end)
+				Filters:WorldTreeFlowerCacheTrigger(victim)
 			end
 		end
 		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
@@ -3606,7 +3583,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = victim:GetHealth()-10
+			-- filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then

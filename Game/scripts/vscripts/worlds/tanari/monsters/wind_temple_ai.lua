@@ -1271,13 +1271,13 @@ function wind_prophet_take_damage(event)
 end
 
 function wind_prophet_die(event)
-	RPCItems:RollTwigOfEnlightened(event.caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(event.caster, "item_rpc_twig_of_the_enlightened")
 end
 
 function rare_wind_warder_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.RareWarden.Die", caster)
-	RPCItems:RollTempestFalconRing(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_tempest_falcon_ring")
 end
 
 function wind_spirit_lightning_think(event)
@@ -1368,7 +1368,7 @@ function wind_spirit_die(event)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Tanari.SpiritRealmEpic", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollWindOrchid(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_wind_orchid")
 	end
 	local walls = Entities:FindAllByNameWithin("WindTempleSpiritWall", Vector(10560, 14283, 45 + Tanari.ZFLOAT), 1200)
 	if #walls > 0 then
@@ -1759,54 +1759,61 @@ end
 function wind_tree_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.WindTreant.Death", caster)
+	Tanari.WindSpiritFinalAreaAllowed = true
 end
 
 function WindSpiritFinalArea(trigger)
-	local positionTable = {Vector(15505, 4416), Vector(14208, 5056), Vector(13170, 5568), Vector(11648, 6464), Vector(11520, 5120)}
-	local fvTable = {Vector(0, 1), Vector(1, -1), Vector(1, 0), Vector(1, -1), Vector(0, 1)}
-	for i = 1, #positionTable, 1 do
-		Timers:CreateTimer(i * 0.2, function()
-			Tanari:SpawnWindApparition(positionTable[i], fvTable[i])
-		end)
+	if not Tanari.WindSpiritFinalAreaAllowed then
+		return false
 	end
-	local positionTable = {Vector(15680, 5120), Vector(15104, 4544), Vector(14592, 4326), Vector(14062, 5383), Vector(12992, 5383), Vector(12314, 6016), Vector(11438, 6720)}
-	for i = 1, #positionTable, 1 do
-		Timers:CreateTimer(i * 0.2, function()
-			Tanari:SpawnWindSpark(positionTable[i], RandomVector(1))
-		end)
-	end
-
-	local positionTable = {Vector(11520, 5568), Vector(15552, 5056), Vector(11520, 6604), Vector(15168, 4608), Vector(12032, 6240), Vector(14464, 4944), Vector(12992, 5536), Vector(13888, 5405)}
-	for i = 1, #positionTable, 1 do
-		Timers:CreateTimer(i * 0.8, function()
-			local patrolPositionTable = {}
-			for j = 1, #positionTable, 1 do
-				local index = i + j
-				if index > #positionTable then
-					index = index - #positionTable
-				end
-				table.insert(patrolPositionTable, positionTable[index])
-			end
-			local elemental = Tanari:SpawnDescendantOfZeus(positionTable[i], RandomVector(1))
-			Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, elemental, "tanari_mountain_specter_ai", {})
-			Tanari:AddPatrolArguments(elemental, 20, 8, 30, patrolPositionTable)
-		end)
-	end
-	Tanari:SpawnWindCrusher(Vector(12032, 6464), Vector(0.3, -1))
-	Tanari:SpawnWindCrusher(Vector(11328, 6528), Vector(1, -1))
-
-	Timers:CreateTimer(4, function()
-		local positionTable = {Vector(15808, 4544), Vector(15168, 4800), Vector(14656, 4928), Vector(14528, 4288), Vector(14336, 4416), Vector(14336, 5312), Vector(13696, 5120), Vector(12544, 5568), Vector(12736, 5888), Vector(12224, 6208), Vector(11904, 6720), Vector(11328, 6144)}
+	if not Tanari.WindSpiritFinalAreaSpawned then
+		Tanari.WindSpiritFinalAreaSpawned = true
+		local positionTable = {Vector(15505, 4416), Vector(14208, 5056), Vector(13170, 5568), Vector(11648, 6464), Vector(11520, 5120)}
+		local fvTable = {Vector(0, 1), Vector(1, -1), Vector(1, 0), Vector(1, -1), Vector(0, 1)}
 		for i = 1, #positionTable, 1 do
-			local flower = Tanari:SpawnPoisonFlower(RandomVector(1), positionTable[i])
-			Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, flower, "tanari_mountain_specter_ai", {})
+			Timers:CreateTimer(i * 0.2, function()
+				Tanari:SpawnWindApparition(positionTable[i], fvTable[i])
+			end)
 		end
-	end)
-	Tanari:SpawnWindBallSwitch(Vector(15524, 5431, 620))
-	Tanari.WindTemple.SpiritBridge3 = Entities:FindByNameNearest("WindSpiritBridge", Vector(11516, 3594, 96 + Tanari.ZFLOAT), 1200)
-	Tanari.WindTemple.SpiritBridge3:SetAbsOrigin(Tanari.WindTemple.SpiritBridge3:GetAbsOrigin() - Vector(0, 0, 1000))
+		local positionTable = {Vector(15680, 5120), Vector(15104, 4544), Vector(14592, 4326), Vector(14062, 5383), Vector(12992, 5383), Vector(12314, 6016), Vector(11438, 6720)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i * 0.2, function()
+				Tanari:SpawnWindSpark(positionTable[i], RandomVector(1))
+			end)
+		end
 
-	Tanari.WindTemple.FrozenDemon = Tanari:SpawnWindDemon(Vector(11558, 4439), Vector(0, 1))
+		local positionTable = {Vector(11520, 5568), Vector(15552, 5056), Vector(11520, 6604), Vector(15168, 4608), Vector(12032, 6240), Vector(14464, 4944), Vector(12992, 5536), Vector(13888, 5405)}
+		for i = 1, #positionTable, 1 do
+			Timers:CreateTimer(i * 0.8, function()
+				local patrolPositionTable = {}
+				for j = 1, #positionTable, 1 do
+					local index = i + j
+					if index > #positionTable then
+						index = index - #positionTable
+					end
+					table.insert(patrolPositionTable, positionTable[index])
+				end
+				local elemental = Tanari:SpawnDescendantOfZeus(positionTable[i], RandomVector(1))
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, elemental, "tanari_mountain_specter_ai", {})
+				Tanari:AddPatrolArguments(elemental, 20, 8, 30, patrolPositionTable)
+			end)
+		end
+		Tanari:SpawnWindCrusher(Vector(12032, 6464), Vector(0.3, -1))
+		Tanari:SpawnWindCrusher(Vector(11328, 6528), Vector(1, -1))
+
+		Timers:CreateTimer(4, function()
+			local positionTable = {Vector(15808, 4544), Vector(15168, 4800), Vector(14656, 4928), Vector(14528, 4288), Vector(14336, 4416), Vector(14336, 5312), Vector(13696, 5120), Vector(12544, 5568), Vector(12736, 5888), Vector(12224, 6208), Vector(11904, 6720), Vector(11328, 6144)}
+			for i = 1, #positionTable, 1 do
+				local flower = Tanari:SpawnPoisonFlower(RandomVector(1), positionTable[i])
+				Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, flower, "tanari_mountain_specter_ai", {})
+			end
+		end)
+		Tanari:SpawnWindBallSwitch(Vector(15524, 5431, 620))
+		Tanari.WindTemple.SpiritBridge3 = Entities:FindByNameNearest("WindSpiritBridge", Vector(11516, 3594, 96 + Tanari.ZFLOAT), 1200)
+		Tanari.WindTemple.SpiritBridge3:SetAbsOrigin(Tanari.WindTemple.SpiritBridge3:GetAbsOrigin() - Vector(0, 0, 1000))
+
+		Tanari.WindTemple.FrozenDemon = Tanari:SpawnWindDemon(Vector(11558, 4439), Vector(0, 1))
+	end
 end
 
 function crimsyth_ball_prop_attacked(event)
@@ -2066,6 +2073,7 @@ function wind_demon_die(event)
 		RPCItems:RollAndDropUniqueItem(event.caster, "item_rpc_ankh_of_the_ancients")
 	end
 	Timers:CreateTimer(4, function()
+		Tanari.FinalWindSpiritTornadoAllowed = true
 		Tanari:SpiritWindTempleBossRoom()
 		for i = 1, 300, 1 do
 			Timers:CreateTimer(i * 0.03, function()
@@ -2086,17 +2094,23 @@ function wind_demon_die(event)
 end
 
 function WindSpiritTornado(trigger)
-	local hero = trigger.activator
-	EmitSoundOn("Tanari.WindPortalSpawn", hero)
-	ParticleManager:DestroyParticle(Tanari.WindTemple.TornadoPFX, false)
-	local pfx = ParticleManager:CreateParticle("particles/econ/events/fall_major_2016/cyclone_fm06.vpcf", PATTACH_WORLDORIGIN, guardian)
-	ParticleManager:SetParticleControl(pfx, 0, Vector(13777, 2202, 428))
-	Timers:CreateTimer(3, function()
-		ParticleManager:DestroyParticle(pfx, false)
-	end)
-	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, hero, "tanari_wind_tornado_jump", {})
-	Tanari.TanariMasterAbility.liftVelocity = 50
-	Tanari.TanariMasterAbility.liftPosition = hero:GetAbsOrigin()
+	if not Tanari.FinalWindSpiritTornadoAllowed then
+		return false
+	end
+	if not Tanari.WindSpiritFinalTornado then
+		Tanari.WindSpiritFinalTornado = true
+		local hero = trigger.activator
+		EmitSoundOn("Tanari.WindPortalSpawn", hero)
+		ParticleManager:DestroyParticle(Tanari.WindTemple.TornadoPFX, false)
+		local pfx = ParticleManager:CreateParticle("particles/econ/events/fall_major_2016/cyclone_fm06.vpcf", PATTACH_WORLDORIGIN, guardian)
+		ParticleManager:SetParticleControl(pfx, 0, Vector(13777, 2202, 428))
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, hero, "tanari_wind_tornado_jump", {})
+		Tanari.TanariMasterAbility.liftVelocity = 50
+		Tanari.TanariMasterAbility.liftPosition = hero:GetAbsOrigin()
+	end
 end
 
 function wind_tornado_jump(event)

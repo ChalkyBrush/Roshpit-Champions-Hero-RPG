@@ -1,0 +1,24 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quests/quests.css" />
+		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quests/inscription_kit_slot.js" />
+		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip.js" />
+		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+	</scripts>
+	<Panel class="inscription_kit_slot_root" hittest="false">
+			<Panel id="inscription_kit_item_panel">
+				<Button id="item_tooltip_button" hittest="true"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+				<DOTAItemImage hittest="true" id="item_synth_slot"
+					onmouseover="ItemShowTooltipInit()"
+					onmouseout="ItemHideTooltipInit()"/>
+			</Panel>
+
+	</Panel>
+
+
+</root>

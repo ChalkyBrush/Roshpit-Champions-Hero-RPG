@@ -40,6 +40,26 @@ RPC_ELEMENT_NATURE_COLOR = "#69BC71"
 RPC_ELEMENT_UNDEAD_COLOR = "#5C776E"
 RPC_ELEMENT_DRAGON_COLOR = "#3289C7"
 
+-- ELEMENT_TOOLTIP_NORMAL = "<font color='#DDDDDD'>Normal</font>"
+-- ELEMENT_TOOLTIP_FIRE = "<font color='#EF4126'>Fire</font>"
+-- ELEMENT_TOOLTIP_EARTH = "<font color='#AF843D'>Earth</font>"
+-- ELEMENT_TOOLTIP_LIGHTNING = "<font color='#5CCDF9'>Lightning</font>"
+-- ELEMENT_TOOLTIP_POISON = "<font color='#37DD3D'>Poison</font>"
+-- ELEMENT_TOOLTIP_TIME = "<font color='#B5FFB7'>Temporal</font>"
+-- ELEMENT_TOOLTIP_HOLY = "<font color='#F6FFB5'>Holy</font>"
+-- ELEMENT_TOOLTIP_COSMOS = "<font color='#C25DFC'>Cosmic</font>"
+-- ELEMENT_TOOLTIP_ICE = "<font color='#87D9FF'>Ice</font>"
+-- ELEMENT_TOOLTIP_ARCANE = "<font color='#E1A2E8'>Arcane</font>"
+-- ELEMENT_TOOLTIP_SHADOW = "<font color='#7F4F84'>Shadow</font>"
+-- ELEMENT_TOOLTIP_WIND = "<font color='#7AE2A7'>Wind</font>"
+-- ELEMENT_TOOLTIP_GHOST = "<font color='#9ACCD1'>Ghost</font>"
+-- ELEMENT_TOOLTIP_WATER = "<font color='#3894FF'>Water</font>"
+-- ELEMENT_TOOLTIP_DEMON = "<font color='#5B648C'>Demon</font>"
+-- ELEMENT_TOOLTIP_NATURE = "<font color='#69BC71'>Nature</font>"
+-- ELEMENT_TOOLTIP_UNDEAD = "<font color='#5C776E'>Undead</font>"
+-- ELEMENT_TOOLTIP_DRAGON = "<font color='#3289C7'>Dragon</font>"
+-- DOESNT WORK :'(
+
 --SKILL SLOTS--
 DOTA_Q_SLOT = 0
 DOTA_W_SLOT = 1

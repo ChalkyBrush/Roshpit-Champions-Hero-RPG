@@ -1549,3 +1549,24 @@
 	font-size:16px;
 	line-height:14px;
 }
+
+#optional_dialogue_input{
+	margin-top:15px;
+	horizontal-align:center;
+	flow-children:down;
+	text-align: center;
+}
+
+#arena_dialogue_input{
+	width:240px;
+	horizontal-align:center;
+}
+
+#optional_input_label{
+	horizontal-align:center;
+	vertical-align: center;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	font-family: TH Sarabun New, Radiance, FZLanTingHei-R-GBK, Gulim,MingLiU;
+}

@@ -86033,6 +86033,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_head_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_head_rune_q_1"
 			{
 				"Passive"	"0"
@@ -86378,6 +86388,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_weapon_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_weapon_rune_q_1"
 			{
@@ -86731,6 +86751,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_hands_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_hands_rune_q_1"
 			{
 				"Passive"	"0"
@@ -87076,6 +87106,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_feet_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_feet_rune_q_1"
 			{
@@ -87423,6 +87463,16 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_body_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
 			"modifier_body_rune_q_1"
 			{
 				"Passive"	"0"
@@ -87768,6 +87818,16 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+			}
+			"modifier_amulet_attack_power"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
 			}
 			"modifier_amulet_rune_q_1"
 			{
@@ -123323,15 +123383,10 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"20"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_redc"			"-9"
-			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase"			"100"
+				"damage_increase"			"15"
 			}
 			"04"
 			{
@@ -123370,10 +123425,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_redc"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_increase"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"12"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"15"
 				}
 			}
 			"modifier_karzhun_aura_effect"
@@ -140971,6 +141025,144 @@
 			}
 		}
 
+	}
+
+	"infernal_reign_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"itemicons/tome_of_chaos"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"infernal_reign_amethyst_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"abyssal_underlord_firestorm"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_ability_activate"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
 	}
 
 	"bone_claw_skeleton_toggle_ai"

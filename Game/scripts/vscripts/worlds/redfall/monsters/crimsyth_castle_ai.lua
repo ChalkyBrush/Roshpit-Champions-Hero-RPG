@@ -3570,11 +3570,11 @@ function chest_transforming_think(event)
 		if code == -1 then
 			local luck = RandomInt(1, 3)
 			if luck == 1 then
-				RPCItems:RollCobaltSerenityRing(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_cobalt_serenity_ring")
 			elseif luck == 2 then
-				RPCItems:RollGarnetWarfareRing(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_garnet_warfare_ring")
 			elseif luck == 3 then
-				RPCItems:RollEmeraldNullificationRing(position)
+				RPCItems:RollAndDropImmortalByLevel(position, GameState:GetDifficultyFactor()*35, "item_rpc_emerald_nullification_ring")
 			end
 			caster:RemoveModifierByName("modifier_chest_transforming")
 			Timers:CreateTimer(0.05, function()

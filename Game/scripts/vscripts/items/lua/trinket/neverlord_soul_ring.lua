@@ -96,10 +96,12 @@ end
 function modifierClass:OnCastWAbility()
     local hero = self:GetParent()
     if self:GetAbility():GetGemValue("amethyst") > 0 then
-        local healthBurned = math.max(hero:GetMaxHealth() * ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT / 100, hero:GetHealth() - 1)
+        local healthBurned = math.min(hero:GetMaxHealth() * ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT / 100, hero:GetHealth() - 1)
         local manaRestored = healthBurned * self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST) / 100
         hero:GiveMana(manaRestored)
         hero:SetHealth(hero:GetHealth() - healthBurned)
+        local pfx = CustomAbilities:QuickAttachParticle("particles/items2_fx/soul_ring.vpcf", hero, 1)
+        ParticleManager:SetParticleControl(pfx, 1, Vector(1,1,1))
     end
 
 end

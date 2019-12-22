@@ -385,7 +385,8 @@ function Redfall:QuestComplete(hero, questIndex)
     mask.expiryTime = false
     RPCItems:GiveItemToHeroWithSlotCheck(hero, mask)
   elseif questIndex == 6 then
-    local fang = RPCItems:RollFenrirFang(hero:GetAbsOrigin())
+    local item_level = math.min(RandomInt(25, 30)*GameState:GetDifficultyFactor(), hero:GetLevel())
+    local fang = RPCItems:RollImmortalByName("item_rpc_fenrirs_fang", item_level)
     if IsValidEntity(fang:GetContainer()) then
       UTIL_Remove(fang:GetContainer())
     end

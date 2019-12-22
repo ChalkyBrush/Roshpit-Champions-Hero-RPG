@@ -63,7 +63,7 @@ Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_
 Enemies.DIFFICULTY_PIERCE_ADJUST = {}
 Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_NORMAL] = 1
 Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_ELITE] = 1
-Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_LEGEND] = 0.25
+Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_LEGEND] = 0.5
 
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL = {}
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 0
@@ -414,7 +414,6 @@ function Enemies:ParagonChance(unit)
 		baseChance = baseChance/divisor
 	end
 	local luck = RandomInt(1, baseChance)
-	luck = 1
 	if luck == 1 then
 		Paragon:AddParagonUnit(unit)
 		return true	
@@ -512,7 +511,7 @@ end
 function CDOTA_BaseNPC:GetEnemyTier()
 	local unit = self
 	if not unit.roshpit_attributes then
-		return false
+		return 0
 	end
 	if unit.roshpit_attributes.enemy_tier then
 		return unit.roshpit_attributes.enemy_tier

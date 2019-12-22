@@ -28,6 +28,7 @@ function cave_unit_die(event)
 		end)
 		Timers:CreateTimer(1.75, function()
 			EmitGlobalSound("Tanari.HarpMystery")
+			Tanari.BoulderSpineWavesCleared = true
 		end)
 		UTIL_Remove(Tanari.caveBlocker11)
 		UTIL_Remove(Tanari.caveBlocker12)
@@ -428,8 +429,13 @@ function frost_wyrm_die(event)
 end
 
 function SpawnFinalRoom()
-	Tanari:SpawnBoulderspineFinalRoom()
-
+	if not Tanari.BoulderSpineWavesCleared then
+		return false
+	end
+	if not Tanari.BoulderSpineFinalRoomSpawned then
+		Tanari.BoulderSpineFinalRoomSpawned = true
+		Tanari:SpawnBoulderspineFinalRoom()
+	end
 end
 
 function slithereen_guard_think(event)
