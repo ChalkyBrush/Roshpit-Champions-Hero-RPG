@@ -9,6 +9,7 @@ function PickupPopup(msg)
 
 	var pickup_box = new_panel.BLoadLayoutSnippet("pickup_contents")
 	InitializePickupBox(pickup_box, msg, pickupCount, new_panel)
+
 	pickupCount++;
 	pickup_array.push(new_panel)
 	$.Schedule(10.5, function(){
@@ -65,6 +66,7 @@ function InitializePickupBox(pickup_box, msg, popupIndex, pickup_parent){
 	tooltip_panel.SetPanelEvent('onmouseout', function PickUpTooltipHide() {
 		ItemHideTooltipPickup()
 	});		
+	manageSocketsWithRoot(pickup_parent, item)
 	$.Schedule(10, function(){		
 		
 		pickup_parent.RemoveClass("animateIn")

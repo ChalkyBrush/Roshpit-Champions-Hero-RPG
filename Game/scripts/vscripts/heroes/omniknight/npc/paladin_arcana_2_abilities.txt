@@ -45,12 +45,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"3000 12000 35000 80000 160000 350000 600000"
+				"base_damage"	"200 420 640 860 1080 1300 1520"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_from_str"	"20 40 80 160 240 320 400"
+				"var_type"				"FIELD_FLOAT"
+				"damage_from_str"	"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
 			}
 		}
 

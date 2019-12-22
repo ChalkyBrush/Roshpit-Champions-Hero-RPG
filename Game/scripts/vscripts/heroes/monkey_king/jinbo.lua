@@ -18,7 +18,11 @@ function jinbo_phase(event)
 		--print(colorVector)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/dreghor/jinbo_precast.vpcf", caster, 3)
 		ParticleManager:SetParticleControl(pfx, 8, colorVector)
-		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_MK_STRIKE, rate = 1.4})
+		local rate = 1.4
+		if caster:HasModifier("modifier_spellfire_gloves") then
+			rate = 2.8
+		end
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_MK_STRIKE, rate = rate})
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Draghor.JinBo.HeavySwing", caster)
 	end
 end
@@ -68,7 +72,7 @@ function jinbo_start(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				Filters:ApplyStun(caster, event.stun_duration, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NORMAL)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 			end
 			if caster:HasModifier("modifier_djanghor_glyph_1_1") then
 				caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
@@ -102,7 +106,7 @@ function jinbo_start(event)
 		end)
 
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function heavy_boulder_pushback(event)

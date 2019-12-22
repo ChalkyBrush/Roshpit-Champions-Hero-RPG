@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% EPOCH_ARCANA_Q2_POST_MITI_PCT %>"
+				"property_one"			"<% EPOCH_ARCANA_Q2_ARMOR_AND_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -54,7 +54,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EPOCH_ARCANA_Q3_DMG_MULTI_PCT %>"
 			}
 			"02"

@@ -56,7 +56,7 @@ function solarang_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
 	local target = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
 	if not ability.boomerangTable then
@@ -269,7 +269,7 @@ function a_c_explosion(caster, finalMoveVector)
 		EmitSoundOn("Solunia.SolarGlow.Impact", caster)
 		local damageType = DAMAGE_TYPE_MAGICAL
 		if caster:HasModifier("boomerang_passive_lunar") then
-			damageType = DAMAGE_TYPE_PURE
+			damageType = DAMAGE_TYPE_PHYSICAL
 		end
 		local enemies = FindUnitsInRadius(caster.origCaster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -308,7 +308,7 @@ function lunarang_start(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_disarm_weapon", {duration = 0.6})
 	EmitSoundOn("Selethas.Boomerang.Throw", caster)
 	local target = event.target_points[1]
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local fv = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local boomerang = CreateUnitByName("selethas_boomerang", caster:GetAbsOrigin() + Vector(0, 0, 100), false, caster, nil, caster:GetTeamNumber())
 	if not ability.boomerangTable then
@@ -387,7 +387,7 @@ function boomerang_impact(caster, ability, target)
 	local damageType = DAMAGE_TYPE_MAGICAL
 	if IsValidEntity(caster) then
 		if caster:HasModifier("boomerang_passive_lunar") then
-			damageType = DAMAGE_TYPE_PURE
+			damageType = DAMAGE_TYPE_PHYSICAL
 		end
 		local damage = caster.damage
 		if caster.w_1_level > 0 then
@@ -439,7 +439,7 @@ function immo_weapon_2_effect(caster, target)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			caster.origCaster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION})
+			caster.origCaster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_solunia_cryoshock", {duration = SOLUNIA_IMMORTAL_WEAPON_2_CRIT_FREEZE_DURATION})
 		end
 	end
 end

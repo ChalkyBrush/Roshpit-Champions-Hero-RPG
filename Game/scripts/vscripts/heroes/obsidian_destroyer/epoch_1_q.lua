@@ -3,7 +3,7 @@ require('/heroes/obsidian_destroyer/epoch_constants')
 function time_bind_cast(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then

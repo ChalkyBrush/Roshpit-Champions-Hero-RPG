@@ -484,7 +484,7 @@ function shipyard_gatekeeper_die(event)
 	EmitSoundOn("Redfall.ShipyardGatekeeper.Death", caster)
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		RPCItems:RollSkulldiggerGloves(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_skulldigger_gauntlet")
 	end
 	Redfall:SpawnShipyardFerry()
 end
@@ -606,10 +606,24 @@ function pirate_archer_attack_land(event)
 end
 
 function ShipyardBigTrigger1()
+	if Redfall.ShipyardBigTriggerSpawned then
+		return false
+	end
+	if not Redfall.Shipyard.boatsEnabled then
+		return false
+	end
+	Redfall.ShipyardBigTriggerSpawned = true
 	Redfall:ShipyardBigTrigger1()
 end
 
 function ShipyardStatueBossTrigger()
+	if not Redfall.Shipyard.boatsEnabled then
+		return false
+	end
+	if Redfall.ShipyardSpawnerSpawned then
+		return false
+	end
+	Redfall.ShipyardSpawnerSpawned = true
 	Redfall:SpawnShipyardSpawner(Vector(14400, -854), Vector(1, 0))
 end
 
@@ -781,7 +795,7 @@ end
 function soul_collector_die(event)
 	local caster = event.caster
 	EmitSoundOn("Redfall.ShipyardSoulCollector.Death", caster)
-	RPCItems:RollShipyardVeil1(caster:GetAbsOrigin())
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_shipyard_veil_lv1")
 end
 
 function ShipyardBridgeTrigger(event)
@@ -835,6 +849,9 @@ end
 
 function ShipyardBossRoomTrigger(trigger)
 	if Redfall.Shipyard.BossBattleStart then
+		return false
+	end
+	if Redfall.Shipyard.BossTriggerBegin then
 		return false
 	end
 	if Redfall.Shipyard.KnightsKilled == 11 then
@@ -1014,6 +1031,7 @@ function redfall_shipyard_boss_death_check(event)
 		if caster:GetHealth() < 50 then
 			caster.deathStart = true
 			Events:MainBossSlain(caster:GetUnitName())
+			Enemies:EnemySlain(caster, nil)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
 			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 			caster.deathStart = true

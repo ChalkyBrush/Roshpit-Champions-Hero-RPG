@@ -36,22 +36,22 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor"						"30 100 200 400 1000 3000 5000"
+				"armor_and_magic_armor"						"200 600 1000 1400 1800 2200 2600"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resist"				"45 49 54 60 67 75 84"
+				"damage_resist"				"30"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"regen_percent"		    "5 9 13 17 21 25 35"
+				"regen_percent"		    "5 6 7 8 9 10 11"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"80 120 200 600 1200 1600 2400"
+				"mana_drain_per_second"		"30 60 90 120 150 180 210"
 			}
 		}
 		"OnToggleOn"
@@ -118,10 +118,6 @@
 				}
 				"IsHidden"	"0"
 				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -170,6 +166,18 @@
 						"Function"		"protector_c_b_zap"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_mountain_protector_arcana1_w_2_slow"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% MOUNTAIN_PROTECTOR_ARCANA1_W2_ATTACK_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% MOUNTAIN_PROTECTOR_ARCANA1_W2_MOVE_SLOW %>"
 				}
 			}
 			"modifier_steelforge_passive"

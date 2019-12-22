@@ -1,3 +1,4 @@
+require('/items/constants/trinket')
 modifier_epsilon = class({})
 
 function modifier_epsilon:DeclareFunctions()
@@ -10,7 +11,8 @@ function modifier_epsilon:DeclareFunctions()
 end
 
 function modifier_epsilon:GetModifierProjectileSpeedBonus(params)
-	return 700
+	local ability = self:GetAbility()
+	return ITEM_RPC_EPSILONS_EYEGLASS_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_EPSILONS_EYEGLASS_GEM_EMERALD)
 end
 
 function modifier_epsilon:GetAttackSound(params)

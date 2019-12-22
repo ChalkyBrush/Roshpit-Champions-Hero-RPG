@@ -207,6 +207,8 @@
 	##NPC_INVASION##
 	##NPC_FIREBALL##
 
+	##EQUIPMENT_MODIFIER_ABILITIES##
+
 
 	"oracle_ability"
 	{
@@ -582,6 +584,33 @@
 
 	}
 
+	"gem_forger_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_gem_forger_entering"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/friendly_npcs.lua"
+						"Function"		"gem_forger_entering_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+
+	}
+	
 	"wind_temple_staff_dummy"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1091,7 +1120,7 @@
 
     // Damage.
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityDamage"         "6000 30000 250000"
+    "AbilityDamage"         "260 800 3000"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -1356,10 +1385,23 @@
 						"Target"	"TARGET"
 					}
 				}
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -1399,7 +1441,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 30000 120000"
+				"damage"				"50 200 2500"
 			}
 			"04"
 			{
@@ -1414,7 +1456,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_explode"		"400 15000 60000"
+				"damage_explode"		"200 600 2000"
 			}
 		}
 	}
@@ -1541,10 +1583,23 @@
 						"Target"	"TARGET"
 					}
 				}
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -1584,7 +1639,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 25000"
+				"damage"				"200 600 2000"
 			}
 			"04"
 			{
@@ -1599,7 +1654,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_explode"		"1200 30000 80000"
+				"damage_explode"		"200 600 2000"
 			}
 		}
 	}
@@ -2707,7 +2762,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"300 5000 60500"
+				"damage_per_second"		"75 325 5000"
 			}
 			"02"
 			{
@@ -2968,7 +3023,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "<% FEATHERWHITE_INTERVAL %>"
+				"ThinkInterval"  "<% ITEM_RPC_FEATHERWHITE_ARMOR_INTERVAL %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -2978,30 +3033,22 @@
 						"target"		"TARGET"
 					}
 				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-						"ControlPoints"
-						{
-							"01"	"650 650 650"
-						}
-					}
-				}
-				"Aura"          	"modifier_ivory_gryffin_aura_effect"
-				"Aura_Radius"   	"<% FEATHERWHITE_AURA_RADIUS %>"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
 			}
 			"modifier_ivory_gryffin_aura_effect"
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"skywrath_mage_concussive_shot"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"gryffin_aura_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -3024,7 +3071,7 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "<% DRAGON_CEREMONY_INTERVAL %>"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3033,6 +3080,10 @@
 						"Function"		"ceremony_beast_think"
 						"target"		"TARGET"
 					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "160"
 				}
 			}
 		}
@@ -3048,20 +3099,47 @@
 		}
 	}
 
-
-	//SEINARU
-
-	//Elemental Warlord
-
-
-
-
-
-	//mystic_assassin
-
-
-
-
+	"dragon_ceremony_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_ceremony_beast"
+			{
+				"IsHidden" 	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ceremony_dragon_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"ceremony_dragon_projectile_strike"
+				"target"		"TARGET"
+			}
+		}
+	}
 
 
 	"creep_jump"
@@ -3287,7 +3365,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"heal_per_tick"			"1200 9000 100000"
+				"heal_per_tick"			"100 400 5000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_during_cast"			"300 1000 10000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"magic_armor_during_cast"			"300 1000 10000"
 			}
 		}
 		"OnSpellStart"
@@ -3326,11 +3414,6 @@
 	            	"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 	            	"MODIFIER_STATE_ROOTED"			"MODIFIER_STATE_VALUE_ENABLED"
 	            }
-	            "Properties"
-	            {
-	            	"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "500"
-	                "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "90"
-	            }
 	            "OnIntervalThink"
 	            {
 	            	"FireSound"
@@ -3355,6 +3438,24 @@
 						"HealAmount"	"%heal_per_tick"
 					}
 	            }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_tomb_heal_effect"
 			{
@@ -3612,7 +3713,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_loss"			"-1000 -20000 -50000"
+				"damage_loss"			"-100 -1000 -5000"
 			}
 			"02"
 			{
@@ -3748,7 +3849,7 @@
 
 	"water_elemental_ability"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"morphling_waveform"
 		"MaxLevel"	"1"
@@ -3764,24 +3865,100 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"flood_water_elemental_always_think"
+					}
+				}
+			}
+			"modifier_water_elemental_slow"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_slardar_crush.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+		}
+
+	}
+
+	"flood_water_elemental_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"morphling_waveform"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"flood_water_elemental_think"
 					}
 				}
 				"OnCreated"
 				{
-					"AttachEffect"
+					"RunScript"
 					{
-						"EffectName"        "particles/units/heroes/hero_morphling/morphling_ambient_swirl_new.vpcf"
-						"EffectAttachType"  "follow_overhead"
-						"Target"            "TARGET"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"flood_robe_ai_on"
 					}
 				}
-				"OnAttackLanded"
+				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"flood_water_elemental_attack"
+						"Function"		"flood_robe_ai_off"
 					}
 				}
 			}
@@ -3796,7 +3973,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"morphling_adaptive_strike"
+		"AbilityTextureName"			"morphling_adaptive_strike_agi"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -3813,7 +3990,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5"
+		"AbilityCooldown"				"4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3821,19 +3998,6 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 150000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.5"
-			}
-		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -5947,6 +6111,15 @@
 				"ScriptFile"	"ai/castle/castle.lua"
 				"Function"		"wraithguard_hellfire_strike"
 				"Target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 900 9000"
 			}
 		}
 
@@ -6358,7 +6531,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"100 1000 10000"
 			}
 		}
 		"Modifiers"
@@ -6803,7 +6976,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"poison_damage"			"500 10000 100000"
+				"poison_damage"			"10 80 800"
 			}
 		}
 		"Modifiers"
@@ -8876,6 +9049,16 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 				}
 			}
+			"modifier_agility_movespeed"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+				}
+			}
 			"modifier_agility_armor"
 			{
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -8989,10 +9172,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_helm_attack_damage"
 			{
@@ -9052,21 +9231,6 @@
 					}
 				}
 			}
-			"modifier_white_mage_hat_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_oracle/white_mage_healheal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-			}
 			"modifier_helm_attack_speed"
 			{
 				"Passive"	"0"
@@ -9075,123 +9239,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-				}
-			}
-			"modifier_ruby_dragon"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_death_whisper"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_death_whisper_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "<% DEATH_WHISPER_DAMAGE_AMP_PCT %>"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% DEATH_WHISPER_SLOW %>"
-				}
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/econ/generic/generic_buff_1/death_whisper_helm_debuff.vpcf"
-						"EffectAttachType"			"follow_overhead"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
-			"modifier_wild_nature_one"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"wild_nature_struck"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_wild_nature_two"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_wild_nature_entangle_effect"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "3"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_lone_druid/lone_druid_bear_entangle_body.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "TARGET"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"wild_nature_entangle_think"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_luma_guard"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_luma_guard_moonbeam"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"  "4"
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
-						"EffectAttachType"	"follow_origin"
-						"Target"			"TARGET"
-
-						"ControlPointEntities"
-			            {
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			                "TARGET" "follow_origin"
-			            }
-					}
 				}
 			}
 			"modifier_helm_vision"
@@ -9519,24 +9566,7 @@
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_hand_azinoth"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"255 255 255"
-						"EffectAlphaScale"			"1"
-					}
-				}
-			}
+
 			"modifier_divine_purity"
 			{
 				"Passive"	"0"
@@ -9947,10 +9977,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_body_max_health"
 			{
@@ -10046,11 +10072,6 @@
 						"EffectColorA"				"68 255 20"
 						"EffectAlphaScale"			"1"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "40"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "100"
 				}
 			}
 			"modifier_body_hurricane"
@@ -10257,10 +10278,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
 			}
 			"modifier_trinket_magic_resist"
 			{
@@ -10679,14 +10696,9 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"warcry_armor"		"5 20 50"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"warcry_movespeed"	"12"
 			}
-			"03"
+			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"warcry_radius"		"900"
@@ -10753,7 +10765,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"200.0"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%warcry_armor"
 				}
 			}
 			"modifier_howling"
@@ -11293,7 +11304,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"				"14 300 1500"
+				"armor_bonus"				"100 400 2400"
 			}
 			"02"
 			{
@@ -11314,7 +11325,7 @@
 		{
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_battle_hunger"
+				"ModifierName"	"modifier_goremaw_battlehunger"
 				"Target" 		"CASTER"
 				"Duration"		"5"
 			}
@@ -11323,7 +11334,7 @@
 
 		"Modifiers"
 		{
-			"modifier_battle_hunger"
+			"modifier_goremaw_battlehunger"
 			{
 				"StatusEffectName" 		"particles/status_fx/status_effect_battle_hunger.vpcf"
 				"StatusEffectPriority"  "10"
@@ -11336,12 +11347,26 @@
 						"EffectAttachType"  "follow_overhead"
 						"Target"            "TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attackspeed"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -11372,10 +11397,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"03"
+			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 8000 70000"
+				"damage"				"80 280 3400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resist"				"120 600 7000"
 			}
 		}
 
@@ -11413,10 +11443,21 @@
 						"ScriptFile"	"ai/goremaw_shaman/goremaw_electricity"
 						"Function"		"start_electricity"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"States"
 				{
@@ -12280,6 +12321,132 @@
 				"IsHidden"	"1"
 				"Passive"	"0"
 			}
+			"modifier_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_negative_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_positive_roshpit_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_negative_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_positive_roshpit_magic_armor"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_positive_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_positive_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_armor_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_negative_roshpit_spell_pierce"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
+			}
+			"modifier_roshpit_level"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_challenge_win_float"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"challenge_win_float_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_challenge_cd_reduce"
+			{
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"challenge_mob_ability_execute"
+						"target"        "TARGET"
+					}
+				}
+			}
+			"modifier_challenge_mob_speed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1" 
+				}
+			}
+			"modifier_rune_points_q"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_rune_points_w"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_rune_points_e"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_rune_points_d"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -13010,8 +13177,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"4"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"4"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"40"
 				}
 			}
@@ -13033,7 +13198,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_break"			"-40 -350 -1000"
+				"armor_break"			"-100 -400 -2000"
 			}
 		}
 		"Modifiers"
@@ -13056,12 +13221,24 @@
 			{
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -13079,7 +13256,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_break"			"-100 -500 -3500"
+				"armor_break"			"-250 -800 -4000"
 			}
 		}
 		"Modifiers"
@@ -13103,9 +13280,23 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -13144,7 +13335,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 400 600 800"
+				"damage"				"280 1000 10000"
 			}
 		}
 
@@ -13222,6 +13413,7 @@
 	                {
 						"ScriptFile"	"ai/hellhound/hellhound_charge.lua"
 						"Function"		"charge_think"
+						"damage"		"%damage"
 	                }
         		}
         		"States"
@@ -13309,7 +13501,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1500 15000 150000"
+				"damage"			"180 600 6000"
 			}
 		}
 		"LevelsBetweenUpgrades" "0"
@@ -13698,7 +13890,6 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "300"
 				    "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "2"
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 	  "2400"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"40"
 				}
 			}
 
@@ -13849,10 +14040,6 @@
 						"ScriptFile"	"ai/graveyard_boss/graveyard_boss_skill"
 						"Function"		"start_attack"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
 				}
 				"States"
 				{
@@ -14272,10 +14459,6 @@
 					}
 				}
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-10"
-				}
 			}
 		}
 
@@ -14771,7 +14954,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"4000 30000 18000"
+				"damage"			"200 800 8000"
 			}
 		}
 		"OnSpellStart"
@@ -15182,6 +15365,8 @@
 		}
 	}
 
+
+
 	//Creature abilities
 
 	"freeze_fiend_crystal_nova"
@@ -15207,7 +15392,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 15000 45000 50000"
+		"AbilityDamage"					"120 500 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -16115,7 +16300,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_loss"		"-100 -1000 -3000"
+				"attack_loss"		"-10 -50 -150"
 			}
 		}
 		"Modifiers"
@@ -16585,7 +16770,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 5000 150000"
+				"damage"			"300 2000 8000"
 			}
 		}
 		"Modifiers"
@@ -16627,7 +16812,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"-10 -500 -3000"
+				"armor"				"-50 -250 -700"
 			}
 		}
 		"Modifiers"
@@ -16659,7 +16844,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-90"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -16778,6 +16980,7 @@
 		{
 			"modifier_twilight_crow_summon_ai"
 			{
+				"Passive"			"1"
 				"IsPurgable"		"0"
 				"IsBuff"			"1"
 				"States"
@@ -16788,37 +16991,32 @@
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "4"
-				"OnIntervalThink"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_summon_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_end"
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"crow_summon_attack_land"
 					}
 				}
 			}
-			"modifier_twilight_crow_moving"
+			"modifier_disable_player"
 			{
-				"IsPurgable"		"0"
-				"IsBuff"			"1"
-				"ThinkInterval"  "0.05"
-				"OnIntervalThink"
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_cant_attack"
+			{
+				"IsHidden" "1"
+				"States"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"twilight_crow_moving_think"
-					}
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_crow_attacking"
+			{
+				"IsHidden"	"1"
 			}
 		}
 
@@ -17448,7 +17646,7 @@
 		}
 	}
 
-	"grizzly_cave_shroom_ai"
+	"redfall_shroomling_ai"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"	"ability_datadriven"
@@ -17456,7 +17654,7 @@
 		"MaxLevel"	"1"
 		"Modifiers"
 		{
-			"modifier_cave_shroom_ai"
+			"modifier_redfall_shroomling_ai"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
@@ -17465,8 +17663,8 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"ai/grizzly_falls/grizzly_falls.lua"
-						"Function"		"grizzly_cave_shroom_think"
+						"ScriptFile"	"worlds/redfall/monsters/redfall_forest_ai.lua"
+						"Function"		"redfall_shroomling_think"
 					}
 				}
 				"States"
@@ -18283,12 +18481,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"initial_damage"		"3080 20000 80000"
+				"initial_damage"		"400 1400 14000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dot_damage"			"500 5000 15000"
+				"dot_damage"			"80 250 2400"
 			}
 		}
 		"Modifiers"
@@ -18415,12 +18613,21 @@
 				"ScriptFile"	"ai/phoenix_nest/phoenix_nest.lua"
 				"Function"		"lich_boss_projectile_hit"
 				"target"		"TARGET"
+				"damage"		"%damage"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_lich_boss_cold"
 				"Target" 		"TARGET"
 				"Duration"		"3.5"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1500 15000"
 			}
 		}
 	}
@@ -18482,7 +18689,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 4000 10000"
+				"damage"				"110 320 3200"
 			}
 			"02"
 			{
@@ -19106,10 +19313,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
-				}
 				"OnCreated"
 				{
 					"RunScript"
@@ -19349,19 +19552,15 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"ThinkInterval"  	"13.0"
+				"ThinkInterval"  	"12.0"
 				"OnIntervalThink"
 				{
 					"ApplyModifier"
 					{
 						"ModifierName"	"modifier_paragon_magic_barrier_effect"
 						"Target" 		"TARGET"
-						"Duration"		"6"
+						"Duration"		"3"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "30"
 				}
 			}
 			"modifier_paragon_magic_barrier_effect"
@@ -19376,6 +19575,10 @@
 						"EffectName"	"Paragon.MagicBarrierActivate"
 						"Target" 		"TARGET"
 					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_paragon_blinking"
@@ -19830,7 +20033,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 15000 150000"
+		"AbilityDamage"					"100 1000 10000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -19880,7 +20083,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"200 500000 9855000"
+		"AbilityDamage"					"80 1000 500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -19951,6 +20154,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"damage_reduction"			"10.0 90.0 99.9"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_damage"			"25 150 1500"
+			}
 		}
 		"Modifiers"
 		{
@@ -19981,7 +20189,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "2.5"
+				"ThinkInterval"  "4.0"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -20009,6 +20217,7 @@
 				"ScriptFile"	"worlds/tanari/monsters/champions_path_ai"
 				"Function"		"specter_projectile_hit"
 				"target"		"TARGET"
+				"aoe_damage"	"%aoe_damage"
 			}
 		}
 		"OnOwnerDied"
@@ -20186,6 +20395,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"bloodseeker_rupture"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -20252,7 +20462,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%damage"
 					}
 				}
@@ -20271,7 +20481,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"90 1000 12000"
+				"damage"			"60 200 500"
 			}
 		}
 
@@ -20419,18 +20629,27 @@
 		"AbilityTextureName"	"lone_druid_true_form"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bomb_damage"			"150 1000 6000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_wind_temple_keyholder_ai"
 			{
 				"Passive"	"1"
-				"ThinkInterval"  "1.0"
+				"ThinkInterval"  "1.8"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/tanari/monsters/champions_path_ai"
 						"Function"		"wind_temple_keyholder_think"
+						"bomb_damage"	"%bomb_damage"
 					}
 				}
 				"OnAttackStart"
@@ -20808,10 +21027,6 @@
 						"Function"		"bat_attack_land"
 						"mana_drain_percent"	"10"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "75"
 				}
 			}
 		}
@@ -21293,10 +21508,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"			"50"
-				}
 				"ThinkInterval"  "0.8"
 				"OnIntervalThink"
 				{
@@ -21431,7 +21642,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2200 15000 65000"
+		"AbilityDamage"					"250 1400 6000"
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
@@ -21742,7 +21953,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "100"
 				}
 			}
 			"modifier_wind_temple_boss_staff_boss_initiate"
@@ -21773,7 +21984,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "100"
 					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-2000"
 				}
 			}
@@ -22054,11 +22265,25 @@
 						"EffectColorA"				"255 255 255"
 						"EffectAlphaScale"			"1"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"-10"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_wind_temple_boss_dying"
@@ -22122,7 +22347,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss"		"-10 -50 -250"
+				"armor_loss"		"-20 -100 -200"
 			}
 
 		}
@@ -22140,6 +22365,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"skywrath_mage_mystic_flare"
+		"AbilityDamage"					"50 250 2000"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -22161,7 +22387,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"260"
+				"radius"				"200"
 			}
 			"02"
 			{
@@ -22171,7 +22397,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 25000 250000"
+				"damage"				"50 250 2000"
 			}
 			"04"
 			{
@@ -22182,6 +22408,12 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"scepter_cooldown"		"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_radius"		"700"
+				"RequiresScepter"	"1"
 			}
 		}
 	}
@@ -22451,7 +22683,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 6000 45000"
+		"AbilityDamage"					"200 800 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22617,13 +22849,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"viper_nethertoxin"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"80 3000 8000"
+				"damage_per_tick"			"10 50 500"
 			}
 		}
 		"Modifiers"
@@ -22738,7 +22971,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"50 1000 5000"
+				"damage_per_second"		"50 200 2000"
 			}
 			"02"
 			{
@@ -22748,7 +22981,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_total_tooltip"		"150 3000 15000"
+				"damage_total_tooltip"		"150 600 6000"
 			}
 			"04"
 			{
@@ -22799,7 +23032,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"50 300 3000"
+				"damage"			"5 35 210"
 			}
 		}
 		"Modifiers"
@@ -23028,7 +23261,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"200 100000 5000000"
+		"AbilityDamage"					"300 800 4000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23298,7 +23531,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 6000 105000"
+		"AbilityDamage"					"300 1600 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23371,7 +23604,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 6000 45000"
+		"AbilityDamage"					"400 1200 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23405,6 +23638,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"antimage_spell_shield"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magical_resistance"			"1000 5000 30000"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_royal_guard_ai"
@@ -23427,9 +23668,23 @@
 				"IsBuff"	"1"
 				"EffectName" "particles/items_fx/immunity_sphere_buff.vpcf"
 				"EffectAttachType"	"attach_light"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "95"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -23517,7 +23772,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 7000 50000"
+		"AbilityDamage"					"500 2000 7500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -23622,13 +23877,13 @@
 		"AOERadius"						"2200"
 		"AbilityCooldown"				"8.0"
 		"AbilityManaCost"				"100"
-		"AbilityDamage"					"30 500 3000"
+		"AbilityDamage"					"80 300 2000"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 500 3000"
+				"damage"			"80 300 1000"
 			}
 		}
 		"MaxLevel"	"3"
@@ -23645,7 +23900,7 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/water_temple_ai"
 						"Function"		"tanari_ancient_think"
-						"damage"		"%AbilityDamage"
+						"damage"		"%damage"
 					}
 				}
 			}
@@ -23672,13 +23927,14 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityDamage"					"500 1200 2000"
 		"FightRecapLevel"				"2"
 		"BaseClass"						"magnataur_reverse_polarity"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"0"
 		"AbilityCastRange"				"410 410 410"
 
@@ -23698,7 +23954,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"polarity_damage"		"500 5000 50000"
+				"polarity_damage"		"500 1200 2000"
 			}
 			"03"
 			{
@@ -24155,7 +24411,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"total_damage"			"300 7000 100000"
+				"total_damage"			"300 1000 3000"
 			}
 			"05"
 			{
@@ -24181,12 +24437,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_mult"		"3 5 7"
+				"agility_mult"		"3"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"strength_loss"		"-100 -1000 -5000"
+				"strength_loss"		"-100 -200 -700"
 			}
 		}
 		"Modifiers"
@@ -24285,7 +24541,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_gain"		"25 520 1500"
+				"armor_gain"		"225 750 3000"
 			}
 		}
 		"Modifiers"
@@ -24332,9 +24588,23 @@
 				"IsDebuff"	"0"
 				"EffectName"	"particles/units/heroes/hero_legion_commander/cheiftain_buff_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_gain"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -24345,14 +24615,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"pudge_flesh_heap"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"70 250 700"
 			}
 		}
 		"OnOwnerDied"
@@ -24411,7 +24681,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%bleed_damage"
 					}
 				}
@@ -24554,7 +24824,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 8000 60000"
+		"AbilityDamage"					"500 800 1200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24609,7 +24879,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 35000 200000"
+		"AbilityDamage"		"500 800 1200"
 		"AbilitySpecial"
 		{
 			"01"
@@ -24686,7 +24956,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 25000 180000"
+		"AbilityDamage"		"500 800 1200"
 		"AbilitySpecial"
 		{
 			"01"
@@ -24894,7 +25164,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"200 2000 20000"
+				"mana_per_second"			"200 1000 2000"
 			}
 			"03"
 			{
@@ -25046,7 +25316,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityTextureName"	"morphling_waveform"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1000 8000 55000"
+		"AbilityDamage"			"300 1000 6000"
 		"MaxLevel"	"3"
 		"OnSpellStart"
 		{
@@ -25115,7 +25385,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityTextureName"	"tidehunter_gush"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1000 8000 55000"
+		"AbilityDamage"			"400 1200 4000"
 		"MaxLevel"	"3"
 		"OnSpellStart"
 		{
@@ -25196,7 +25466,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 8000 40000"
+		"AbilityDamage"					"300 1000 2000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -25214,7 +25484,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_stun_duration"	"2.0"
+				"bolt_stun_duration"	"1.5"
 			}
 			"03"
 			{
@@ -25335,11 +25605,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_per_mana"			"5 10 15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 30 50"
-			}
 		}
 		"Modifiers"
 		{
@@ -25354,10 +25619,6 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"OnAttacked"
 				{
 					"RunScript"
@@ -25430,7 +25691,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"100 6000 35000"
+				"damage"					"500 800 1200"
 			}
 			"02"
 			{
@@ -25510,7 +25771,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"100 6000 35000"
+				"damage"						"500 800 1200"
 			}
 			"02"
 			{
@@ -25574,7 +25835,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage"			"5000 30000 120000"
+				"damage"			"200 600 1500"
 			}
 		}
 		"Modifiers"
@@ -25767,7 +26028,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5115"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"BaseClass"						"slardar_slithereen_crush"
@@ -25784,7 +26045,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3000 15000 75000"
+		"AbilityDamage"					"700 1200 2500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -25955,12 +26216,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 3000 15000"
+				"burn_damage"			"70 210 1100"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1000 25000 100000"
+				"impact_damage"		"400 600 1400"
 			}
 		}
 
@@ -26080,7 +26341,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"40 300 3000"
+				"bonus_armor"			"100 600 3000"
 			}
 			"03"
 			{
@@ -26106,7 +26367,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 15000 200000"
+		"AbilityDamage"					"100 300 1000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -26141,7 +26402,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"burn_dps"			"100 800 3000"
+				"burn_dps"			"100 400 1500"
 			}
 		}
 		"Modifiers"
@@ -26208,19 +26469,19 @@
 		"AbilityCooldown"				"8.0 6.0 4.0"
 		"AbilityChannelTime"	"4.2"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"500 8000 40000"
+		"AbilityDamage"			"45 200 1200"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 50 90"
+				"magic_armor"			"100 1000 3500"
 			}
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"50 200 1500"
+				"burn_dps"		"45 200 1200"
 			}
 		}
 		"OnSpellStart"
@@ -26287,10 +26548,6 @@
 						"Function"		"flamespit_think"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
-				}
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -26326,13 +26583,13 @@
 		"AbilityTextureName"	"earthshaker/sltv__earthshaker_ability_icons/earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"200 500 3500"
+		"AbilityDamage"			"40 120 800"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"burn_dps"			"40 300 1000"
+				"burn_dps"			"40 120 800"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -26700,12 +26957,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 6000 15000"
+				"damage"					"300 1000 4000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"ally_damage"				"12000 80000 500000"
+				"ally_damage"				"5000 15000 100000"
 			}
 			"02"
 			{
@@ -26794,7 +27051,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-40 -400 -2000"
+				"armor_reduction"		"-120 -400 -2600"
 			}
 		}
 		"Modifiers"
@@ -26818,9 +27075,23 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -26902,7 +27173,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 40000 240000"
+				"damage"					"400 1200 4000"
 			}
 			"02"
 			{
@@ -27016,17 +27287,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"helix_damage"			"3000 200000 1000000"
+				"helix_damage"			"100 300 1500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"fireball_damage"	"3000 6000 9000"
+				"fireball_damage"	"600 1600 5000"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"50 300 1000"
+				"burn_dps"			"50 300 800"
 			}
 		}
 		"MaxLevel"	"3"
@@ -27097,14 +27368,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"ember_spirit_flame_guard"
-		"AbilityDamage"       "700 7000 34000"
+		"AbilityDamage"       "700 1500 5000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"200 650 3000"
+				"burn_dps"			"200 650 900"
 			}
 		}
 		"Modifiers"
@@ -27177,7 +27448,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MIN_HEALTH" "50000"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
 				}
 			}
 		}
@@ -27381,12 +27652,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_stack"	"5 20 70"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mr_per_stack"			"3"
+				"armor_per_stack"	"10 30 150"
 			}
 		}
 		"Modifiers"
@@ -27401,10 +27667,6 @@
 				"Passive"	"0"
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -27413,18 +27675,37 @@
 						"Function"		"steam_end"
 						"type"			"DAMAGE_TYPE_PHYSICAL"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnStackCountChanged"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_terrasic_fire_key_holder_steam_magical"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%mr_per_stack"
-				}
 				"OnDestroy"
 				{
 					"RunScript"
@@ -27432,6 +27713,30 @@
 						"ScriptFile"	"worlds/tanari/monsters/terrasic_crater_ai"
 						"Function"		"steam_end"
 						"type"			"DAMAGE_TYPE_MAGICAL"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnStackCountChanged"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -27443,7 +27748,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityTextureName"	"ursa_fury_swipes"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -27451,12 +27756,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"			"-30 -300 -2000"
+				"armor_reduction"			"-150 -500 -5000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"100 400 2000"
+				"bleed_damage"			"100 300 1500"
 			}
 		}
 		"Modifiers"
@@ -27491,7 +27796,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%bleed_damage"
 					}
 				}
@@ -27505,9 +27810,23 @@
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -27538,7 +27857,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 8000 40000"
+		"AbilityDamage"					"500 1500 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -27550,7 +27869,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"tooltip_brain_sap_heal_amt"		"1000 8000 40000"
+				"tooltip_brain_sap_heal_amt"		"500 1500 5000"
 			}
 		}
 	}
@@ -27580,7 +27899,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"600 5000 25000"
+		"AbilityDamage"					"100 400 1400"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -27603,7 +27922,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"total_damage"		"600 5000 25000"
+				"total_damage"		"100 400 1400"
 			}
 		}
 	}
@@ -27620,7 +27939,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"	"10 25 40"
+				"magic_resistance"	"100 400 1000"
 			}
 		}
 		"Modifiers"
@@ -27638,9 +27957,23 @@
 						"Function"		"blackguard_cultist_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -27807,7 +28140,7 @@
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_datadriven"
-		"AbilityDamage"			"7000 40000 150000"
+		"AbilityDamage"			"100 800 2000"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"	"earthshaker_aftershock"
 		"AOERadius"				"750"
@@ -27853,7 +28186,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_stack"			"10 40 150"
+				"armor_per_stack"			"30 100 400"
 			}
 		}
 		"Modifiers"
@@ -27876,9 +28209,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_per_stack"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -27897,7 +28244,7 @@
 		"AbilityTextureName"			"chaos_knight_chaos_bolt"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 14000 80000"
+		"AbilityDamage"					"400 1000 5000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -28021,7 +28368,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"100 700 2000"
+				"armor"				"100 300 1500"
 			}
 			"02"
 			{
@@ -28051,8 +28398,25 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -28069,7 +28433,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"1000 5000 20000"
+		"AbilityDamage"					"300 1000 4000"
 		"AOERadius"						"320"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -28155,7 +28519,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"500 3000 15000"
+		"AbilityDamage"					"500 1500 7500"
 
 
 		// Precache
@@ -28180,7 +28544,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 3000 15000"
+				"damage"			"500 1500 7500"
 			}
 		}
 		"OnSpellStart"
@@ -28259,7 +28623,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_damage"				"5 4 3"
+				"damage_reduce"				"20 35 50"
 			}
 		}
 		"Modifiers"
@@ -28408,7 +28772,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 25000"
+				"chains_damage"					"100 1000 3000"
 			}
 			"04"
 			{
@@ -28471,7 +28835,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"absorb_amount"					"50000 1000000 10000000"
+				"absorb_amount"					"5000 10000 30000"
 			}
 			"04"
 			{
@@ -28481,7 +28845,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_second"				"300 4000 24000"
+				"damage_per_second"				"300 1000 5000"
 			}
 		}
 	}
@@ -28604,7 +28968,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 4000 40000"
+		"AbilityDamage"					"300 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -28649,7 +29013,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_loss"			"-100 -2000 -8000"
+				"agility_loss"			"-100 -200 -700"
 			}
 		}
 		"Modifiers"
@@ -28732,7 +29096,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"omni_slash_damage"			"10000 100000 1000000"
+				"omni_slash_damage"			"200 700 1500"
 			}
 			"02"
 			{
@@ -29022,7 +29386,7 @@
 		"AbilityTextureName"			"luna_lucent_beam"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityDamage"					"1000 4000 10000"
+		"AbilityDamage"					"200 900 3000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -29107,7 +29471,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_loss"			"-100 -500 -3000"
+				"strength_loss"			"-80 -200 -300"
 			}
 		}
 		"Modifiers"
@@ -29148,7 +29512,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityTextureName"			"phoenix_supernova"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"10000 45000 200000"
+		"AbilityDamage"					"500 1500 5000"
 		"AOERadius"						"1400"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -29219,11 +29583,7 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 35 60"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -29231,10 +29591,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 			"modifier_solos_entrance"
 			{
@@ -29274,7 +29630,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_stack"			"30 300 8000"
+				"damage_per_stack"			"30 100 900"
 			}
 		}
 		"Modifiers"
@@ -29341,7 +29697,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 8000 40000"
+		"AbilityDamage"					"800 1600 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -29388,7 +29744,7 @@
 		"AbilityTextureName"			"lina_fiery_soul"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"4000 20000 80000"
+		"AbilityDamage"					"1000 3000 10000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -29604,7 +29960,7 @@
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 7000 20000"
+		"AbilityDamage"					"2000 6000 20000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -29719,7 +30075,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"			"10 80 250"
+				"armor_and_magic_armor_bonus"			"30 100 500"
 			}
 			"02"
 			{
@@ -29758,9 +30114,26 @@
 				"IsBuff"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%movespeed_bonus"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_power_bonus_percent"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -30102,12 +30475,12 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.6"
+		"AbilityCooldown"				"2.0"
 		"AbilityDuration"				"0.6875 0.6875 0.6875 0.6875"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 18000 120000"
+		"AbilityDamage"					"700 1700 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -30152,9 +30525,9 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityTextureName"			"warlock_shadow_word"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 10000 35000"
+		"AbilityDamage"					"400 1200 3500"
 		"AOERadius"						"400"
-		"AbilityDamage"					"500 2000 8000"
+		"AbilityDamage"					"500 1200 3000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -30399,7 +30772,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_1"
 		"AbilityTextureName"			"nevermore_requiem"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"5000 34000 130000"
+		"AbilityDamage"					"500 2000 12000"
 		"AbilityCastRange"				"1200"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -30435,8 +30808,8 @@
 				"EffectAttachType" "attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "5"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1000"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "15"
+				    "MODIFIER_PROPERTY_BASE_MANA_REGEN" "500"
 				}
 				"OnCreated"
 				{
@@ -30577,6 +30950,15 @@
                 		"ScriptFile"	"worlds/tanari/tanari_trigger_areas"
                 		"Function"		"town_portal_take_damage"
                 		"damage"        "%attack_damage"
+                	}
+                }
+                "ThinkInterval"  "0.1"
+                "OnIntervalThink"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile"	"items/special_item_effects.lua"
+                		"Function"		"hero_town_portal_channeling_think"
                 	}
                 }
 	        }
@@ -30787,7 +31169,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"3000 40000 220000"
+				"stomp_damage"					"800 2500 12000"
 			}
 		}
 	}
@@ -30892,7 +31274,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityTextureName"			"ogre_magi/antipodeanabilityicons/ogre_magi_ignite"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"5000 25000 150000"
+		"AbilityDamage"					"500 1500 7000"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -30978,15 +31360,10 @@
 		"AbilityTextureName"			"skywrath_mage_mystic_flare_alt"
 		"AOERadius"						"750"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"1000 9000 150000"
+		"AbilityDamage"			"500 1500 8000"
 		"AbilitySpecial"
 		{
 			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"			"0 60 99"
-			}
-			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"radius"			"750"
@@ -31019,10 +31396,6 @@
 				"IsDebuff"			"0"
 				"EffectName"		"particles/econ/courier/courier_onibi/courier_onibi_green_lvl4_ambient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
-				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -31548,7 +31921,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 150000"
+		"AbilityDamage"					"3500"
 
 
 		// Precache
@@ -31572,7 +31945,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 150000"
+				"damage"				"3500"
 			}
 			"02"
 			{
@@ -31710,7 +32083,7 @@
 		"AbilityManaCost"				"0"
 
 		//Damage
-		"AbilityDamage"					"1000 5000 35000"
+		"AbilityDamage"					"60 300 2200"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -31797,14 +32170,9 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_damage_attack"			"500 5000 45000"
+				"magic_damage_attack"			"500 2000 8000"
 			}
 			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"80"
-			}
-			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"5"
@@ -31816,10 +32184,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "80"
-				}
 				"OnAttackLanded"
 				{
 					"Damage"
@@ -31890,7 +32254,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"300 3000 50000"
+				"damage"					"300 1000 4000"
 			}
 			"02"
 			{
@@ -31907,14 +32271,6 @@
 		"AbilityTextureName"	"rattletrap_battery_assault"
 		"MaxLevel"	"1"
 		"IsHidden"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_damage_attack"			"500 5000 45000"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_challenger_17_immune"
@@ -31939,14 +32295,6 @@
 		"AbilityTextureName"	"rattletrap_battery_assault"
 		"MaxLevel"	"1"
 		"IsHidden"	"1"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_damage_attack"			"500 5000 45000"
-			}
-		}
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -31999,7 +32347,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"10000 30000 70000"
+				"damage"					"1000 4000 7000"
 			}
 			"03"
 			{
@@ -32203,7 +32551,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss_per_stack"		"-250"
+				"armor_loss_per_stack"		"-200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -32240,10 +32588,6 @@
 				"IsDebuff"			"1"
 				"IsStunDebuff"			"1"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss_per_stack"
-				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -32253,6 +32597,21 @@
 						"EffectAttachType"			"follow_origin"
 						"EffectLifeDurationScale"	"1"
 						"EffectAlphaScale"			"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -32301,7 +32660,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"140000"
+		"AbilityDamage"					"800 2000 7500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -32315,11 +32674,27 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"shock_radius"				"385"
+				"LinkedSpecialBonus"		"special_bonus_unique_ursa_5"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movement_slow"				"-25 -35 -45 -55"
+				"movement_slow"				"-10 -25 -40 -55"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hop_distance"					"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"hop_duration"		"0.05"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hop_height"		"0"
 			}
 		}
 	}
@@ -32478,7 +32853,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 70000"
+		"AbilityDamage"					"3000"
 
 
 		// Precache
@@ -32502,7 +32877,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 70000"
+				"damage"				"3000"
 			}
 			"02"
 			{
@@ -32645,7 +33020,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 150000"
+		"AbilityDamage"					"1000 3000 5000"
 
 
 		// Precache
@@ -32669,7 +33044,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 90000"
+				"damage"				"1000 3000 5000"
 			}
 			"02"
 			{
@@ -32878,7 +33253,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"7000 35000 140000"
+		"AbilityDamage"					"800 2500 8000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -32914,7 +33289,11 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_armor"					"200"
+			}			
 		}
 		"Modifiers"
 		{
@@ -32952,9 +33331,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_war_rally_axe_throwing"
@@ -33225,12 +33618,12 @@
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 8000 75000"
+				"damage"			"2000 6000 10000"
 			}
 			"11"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_scepter"	"1000 8000 75000"
+				"damage_scepter"	"2000 6000 10000"
 			}
 			"12"
 			{
@@ -33379,8 +33772,7 @@
 				"StatusEffectPriority"  "10"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"99"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "5"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15"
 				}
 			}
 		}
@@ -33470,7 +33862,7 @@
 
         // Damage.
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityDamage"                 "5000 25000 150000"
+        "AbilityDamage"                 "2000 8000 12000"
 
         // Cost
         //-------------------------------------------------------------------------------------------------------------
@@ -33590,7 +33982,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"main_damage"			"30000.0"
+				"main_damage"			"20000.0"
 				"levelkey"				"exortlevel"
 			}
 			"09"
@@ -33601,7 +33993,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_dps"				"8000.0"
+				"burn_dps"				"2000.0"
 				"levelkey"				"exortlevel"
 			}
 		}
@@ -33841,7 +34233,7 @@
 		"AbilityTextureName"			"rubick_fade_bolt"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 8000 15000"
+		"AbilityDamage"					"3000 9000 45000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -33853,7 +34245,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"5.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -34308,7 +34700,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"550000"
+		"AbilityDamage"					"2500 7500 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -34345,6 +34737,14 @@
 		"AbilityTextureName"	"dragon_knight_dragon_blood"
 		"MaxLevel"	"1"
 		"IsHidden"	"1"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_per_stack"			"30 75 300"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_arena_champion_gladiator_passive"
@@ -34372,9 +34772,23 @@
 			{
 				"IsBuff"	"1"
 				"IsHidden"	"0"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "50"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -34425,7 +34839,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"450000"
+		"AbilityDamage"					"2400 7200 60000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"OnAbilityPhaseStart"
@@ -34660,14 +35074,19 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500000"
+		"AbilityDamage"					"1000 3000 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-
-
-
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1000 3000 9000"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -34809,7 +35228,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shock_damage"				"2000 30000 300000"
+				"shock_damage"				"1000 4000 15000"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
 			}
 			"04"
@@ -34960,12 +35379,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"300 20000 200000"
+				"strike_damage"			"100 400 7000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"tick_damage"			"100 1000 10000"
+				"tick_damage"			"40 125 1050"
 			}
 			"04"
 			{
@@ -35008,7 +35427,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"90"
+				"magic_resist"			"2000"
 			}
 		}
 		"Modifiers"
@@ -35028,9 +35447,23 @@
 						"damage_percent"	"%damage_return"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 
 			}
@@ -35056,7 +35489,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"6000"
+				"damage_per_tick"			"100 300 3000"
 			}
 		}
 		"Modifiers"
@@ -35116,15 +35549,10 @@
 				"var_type"			"FIELD_INTEGER"
 				"movespeed"			"20"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_redc"			"-9"
-			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase"			"100"
+				"damage_increase"			"15"
 			}
 			"04"
 			{
@@ -35163,10 +35591,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%damage_redc"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_increase"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"12"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"15"
 				}
 			}
 			"modifier_karzhun_aura_effect"
@@ -35255,7 +35682,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"200 1000 20000"
+				"damage"					"200 800 6000"
 			}
 			"05"
 			{
@@ -35265,7 +35692,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration_scepter"			"16"
+				"duration_scepter"			"6"
 			}
 			"07"
 			{
@@ -35289,11 +35716,7 @@
 		"MaxLevel"	"1"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"99"
-			}
+
 		}
 
 		"Modifiers"
@@ -35313,10 +35736,6 @@
 						"Function"		"temple_explorier_think"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 
 		}
@@ -35331,11 +35750,7 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"	"10 35 60"
-			}
+
 		}
 		"Modifiers"
 		{
@@ -35351,10 +35766,6 @@
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"arena_temple_shaman_think"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
 				}
 			}
 		}
@@ -35452,7 +35863,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"heal"						"1000000"
+				"heal"						"3000"
 			}
 			"04"
 			{
@@ -35500,7 +35911,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 150000"
+		"AbilityDamage"					"200 800 7000"
 
 
 		// Precache
@@ -35679,11 +36090,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_per_mana"			"5 10 15"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 30 50"
-			}
 		}
 		"Modifiers"
 		{
@@ -35698,10 +36104,6 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 			}
 
 			"modifier_fairy_dragon_feedback"
@@ -35800,7 +36202,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 10000 95000"
+				"damage"				"500 2000 18000"
 			}
 			"03"
 			{
@@ -35976,7 +36378,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 15000 250000"
+				"damage"					"500 2000 24000"
 			}
 			"02"
 			{
@@ -36002,14 +36404,14 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"dragon_knight_dragon_blood"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"bleed_damage"			"500 1800 18000"
 			}
 		}
 		"Modifiers"
@@ -36060,7 +36462,7 @@
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%bleed_damage"
 					}
 				}
@@ -36081,7 +36483,7 @@
 		"AbilityTextureName"			"winter_wyvern_splinter_blast"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"5000 25000 80000"
+		"AbilityDamage"					"600 1500 7000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -36606,7 +37008,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"25000"
+				"damage"			"8000"
 			}
 		}
 		"Modifiers"
@@ -36752,7 +37154,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 55000"
+				"chains_damage"					"100 2000 35000"
 			}
 			"04"
 			{
@@ -36799,11 +37201,6 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_bonus"		"3000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"health_regen_percent"		"1.5"
 			}
 		}
@@ -36826,9 +37223,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
 				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"95"
 				}
 			}
 		}
@@ -36851,12 +37246,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_per_burn"		"1.0"
+				"damage_per_burn"		"3.0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"1500 10000 40000"
+				"mana_per_hit"			"200 500 1400"
 			}
 		}
 	}
@@ -36877,7 +37272,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"1400"
+				"armor_bonus"		"200 800 2400"
 			}
 		}
 		"OnOwnerDied"
@@ -36897,7 +37292,6 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%armor_bonus"
 				}
 				"ThinkInterval"  "4.0"
 				"OnIntervalThink"
@@ -36906,6 +37300,24 @@
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"lies_arbiter_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -36934,10 +37346,6 @@
 				"IsHidden"	"1"
 				"EffectName"	"particles/econ/courier/courier_bajie/courier_bajie_sparkles.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
-				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{
@@ -37139,7 +37547,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"far_damage"			"500 4000 25000"
+				"far_damage"			"200 600 7000"
 			}
 			"02"
 			{
@@ -37164,7 +37572,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"near_damage"			"1000 10000 80000"
+				"near_damage"			"1000 3000 24000"
 			}
 			"07"
 			{
@@ -37195,7 +37603,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stacks"			"5 15 30"
+				"stacks"			"4 5 6"
 			}
 		}
 		"Modifiers"
@@ -37269,12 +37677,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"60000"
+				"damage_min"				"1000 3000 30000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"140000"
+				"damage_max"				"60000"
 			}
 			"03"
 			{
@@ -37639,7 +38047,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"-98"
+				"damage_block"			"-80"
 			}
 		}
 		"Modifiers"
@@ -37672,7 +38080,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"death_prophet_carrion_swarm"
-		"AbilityDamage"			"20000"
+		"AbilityDamage"			"250 750 7500"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -37880,10 +38288,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3000"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -38334,7 +38738,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 25000 150000"
+		"AbilityDamage"					"2000 6000 36000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -38466,7 +38870,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"5000 15000 300000"
+				"damage"					"1000 4000 45000"
 			}
 			"02"
 			{
@@ -38958,7 +39362,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"35 65 95"
+				"magic_resist"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -38971,9 +39375,23 @@
 				"StatusEffectPriority"  "10"
 				"EffectName"			"particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient.vpcf"
 				"EffectAttachType"		"follow_origin"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -39039,12 +39457,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_steal"			"5000"
+				"armor_steal"			"300 1000 5000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist_steal"		"75"
+				"magic_armor_steal"		"300 1000 5000"
 			}
 		}
 
@@ -39096,13 +39514,25 @@
 							"TARGET"	"attach_origin"
 						}
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-5000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-75"
 				}
 			}
 			"modifier_arena_grave_chill_caster"
@@ -39126,27 +39556,77 @@
 							"TARGET"	"attach_origin"
 						}
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "140"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"75"
 				}
 			}
 		}
 	}
 
+	"pit_of_trials_cerberus_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lycan_howl"
+		"MaxLevel"	"5"
 
+		"Modifiers"
+		{
+			"modifier_direwolf_bulwark"
+			{
+				"Passive"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"pit_of_trials_cerberus_init"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"cerberus_die"
+					}
+				}
+			}
+
+		}
+	}
 
 	"wolfir_druid_passive"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"lone_druid_true_form"
-		"MaxLevel"	"1"
-		"IsHidden"	"1"
+		"MaxLevel"	"5"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wolfir_druid_ruby"			"<% WOLFIR_DRUID_RUBY %>"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_wolfir_druid_passive"
@@ -39161,6 +39641,10 @@
 						"Function"		"wolfir_wolf_think"
 					}
 				}
+			}
+			"modifier_wolfir_druid_aura"
+			{
+				"IsHidden"	"1"
 				"Aura"          	"modifier_wolfir_druid_aura_effect"
 				"Aura_Radius"   	"800"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -39175,7 +39659,15 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "15"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" 	"%wolfir_druid_ruby"
+				}
+			}
+			"OnDeath"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/special_item_effects.lua"
+					"Function"		"wolfir_reindex_wolf_table"
 				}
 			}
 		}
@@ -39259,10 +39751,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -39335,7 +39823,12 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_stack"				"30 5000 50000"
+				"damage_per_stack"				"7 20 50"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_stacks"				"30"
 			}
 		}
 
@@ -39406,7 +39899,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"damage_per_tick"				"10 1200 5400"
+				"damage_per_tick"				"12 100 500"
 			}
 		}
 
@@ -39465,7 +39958,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"maru_blessing"			"50 300 1000"
+				"maru_blessing"			"35 35 70 100"
 			}
 		}
 		"Modifiers"
@@ -39859,6 +40352,14 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 			}
+			"modifier_elite_creep"
+			{
+				"TextureName"		"redfall/enemy_elite"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+			}
 			"modifier_mini_boss"
 			{
 				"TextureName"		"redfall/enemy_mini_boss"
@@ -40086,7 +40587,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"-20 -300 -600"
+				"attack_speed"		"-20 -90 -250"
 			}
 			"04"
 			{
@@ -40142,7 +40643,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"500 24000 100000"
+		"AbilityDamage"					"80 300 1200"
 
 
 		// Precache
@@ -40166,7 +40667,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 24000 100000"
+				"damage"				"60 270 1200"
 			}
 			"02"
 			{
@@ -40279,19 +40780,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_health"			"10000 100000 1000000"
+				"max_health"			"500 2500 5000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"5 500 10000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"health_regen_percent"				"1 2 3"
 			}
-			"06"
+			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"damage_percentage"				"10 100 400"
@@ -40360,7 +40856,6 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%health_regen_percent"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percentage"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"80"
@@ -40472,18 +40967,19 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"drow_ranger_marksmanship"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"				"60 2700 26000"
+				"damage_per_tick"				"20 120 900"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"armor_reduce"		"-10 -600 -3500"
+				"armor_reduce"		"-10 -300 -1500"
 			}
 		}
 		"Modifiers"
@@ -40531,18 +41027,28 @@
 						"EffectAttachType"  "attach_hitloc"
 						"Target"            "TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
-
-				"Properties"
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnIntervalThink"
 				{
 					"Damage"
 					{
 						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Type"			"DAMAGE_TYPE_PHYSICAL"
 						"Damage"		"%damage_per_tick"
 					}
 				}
@@ -40628,7 +41134,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"300 15000 150000"
+				"damage"						"115 385 2815"
 			}
 			"02"
 			{
@@ -40680,7 +41186,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1500 60000 300000"
+		"AbilityDamage"					"240 800 4000"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		// Casting
@@ -40702,7 +41208,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 300000"
+				"damage"				"240 800 4000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -40833,7 +41339,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"			"-30 -240 -960"
+				"attack_speed_loss"			"-30 -120 -200"
 			}
 			"02"
 			{
@@ -41007,7 +41513,7 @@
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"12 10 8"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"	"600 25000 150000"
+		"AbilityDamage"	"155 450 3400"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -41031,7 +41537,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"155 450 3400"
 			}
 			"02"
 			{
@@ -41053,7 +41559,7 @@
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"12 10 8"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"	"500 25000 180000"
+		"AbilityDamage"	"100 500 3000"
 		"RequiredLevel"          		"0"
 		"LevelsBetweenUpgrades"  		"0"
 		"MaxLevel"				 		"3"
@@ -41077,7 +41583,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"500 25000 180000"
+				"damage"						"100 500 3000"
 			}
 			"02"
 			{
@@ -41087,7 +41593,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_slow"				  "-60 -200 -600"
+				"attack_slow"				  "-60 -100 -220"
 			}
 		}
 		"Modifiers"
@@ -41187,7 +41693,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1500 12000 40000"
+		"AbilityDamage"					"250 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41407,7 +41913,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 30000 200000"
+		"AbilityDamage"					"225 800 3200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41486,8 +41992,8 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"1000 6000 45000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityDamage"					"500 2000 10000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -41591,7 +42097,6 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 250000"
 
 
 		// Precache
@@ -41615,7 +42120,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 200000"
+				"damage"				"300 1200 6400"
 			}
 			"02"
 			{
@@ -41703,7 +42208,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_per_instance"			"1 10 100"
+				"armor_per_instance"			"10 30 90"
 			}
 		}
 		"Modifiers"
@@ -41742,7 +42247,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_per_instance"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_per_instance"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 
@@ -41832,6 +42354,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"health_regen_percent"			"0 -2 -5"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"debuff_duration"			"3.5"
+			}
 		}
 		"Modifiers"
 		{
@@ -41845,8 +42372,14 @@
 					{
 						"ModifierName"	"modifier_ghost_mace_debuff"
 						"Target" 		"TARGET"
-						"Duration"		"3.5"
+						"Duration"		"%debuff_duration"
 					}
+				}
+				"RunScript"
+				{
+					"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
+					"Function"		"ghost_mace_apply"
+					"debuff_duration"	"%debuff_duration"
 				}
 			}
 			"modifier_ghost_mace_debuff"
@@ -41872,9 +42405,16 @@
 				"EffectAttachType"	"attach_hitloc"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
 				}
+			}
+			"modifier_ghost_mace_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_percent"
+				}				
 			}
 
 		}
@@ -41887,13 +42427,13 @@
 		"AbilityTextureName"	"earthshaker/sltv__earthshaker_ability_icons/earthshaker_aftershock"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"1500 30000 180000"
+		"AbilityDamage"			"200 650 2500"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_dps"			"60 1000 12000"
+				"burn_dps"			"20 65 250"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -42085,7 +42625,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"3000 40000 300000"
+		"AbilityDamage"			"240 800 4000"
 
 		"OnProjectileHitUnit"
 		{
@@ -42144,12 +42684,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist_loss"			"-30 -60 -90"
+				"magic_resist_loss"			"-60 -240 -2000"
 			}
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 3500 30000"
+				"damage"			"40 300 1200"
 			}
 		}
 		"Modifiers"
@@ -42183,9 +42723,23 @@
 						"Target"            "TARGET"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist_loss"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -42309,7 +42863,7 @@
 		"AbilityTextureName"	"nevermore_shadowraze3_demon"
 		"MaxLevel"	"3"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"2000 10000 200000"
+		"AbilityDamage"			"220 700 2400"
 		"Modifiers"
 		{
 			"modifier_autumn_mage_boss_passive"
@@ -42873,13 +43427,13 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"luna_lucent_beam_alt"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"200 8000 65000"
+		"AbilityDamage"			"250 1000 3000"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"				"400 10000 105000"
+				"damage"				"250 1000 3000"
 			}
 		}
 		"Modifiers"
@@ -43105,7 +43659,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 
-		"AbilityDamage"					"500 25000 220000"
+		"AbilityDamage"					"500 3000 9000"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -43256,7 +43810,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500 15000 400000"
+		"AbilityDamage"					"250 800 3000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -43331,7 +43885,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 35000 350000"
+		"AbilityDamage"					"250 800 4000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -43431,7 +43985,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_break"			"-6000"
+				"armor_break"			"-9000"
 			}
 		}
 		"Modifiers"
@@ -43491,10 +44045,23 @@
 
 				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/fire_temple_doombringer_debuff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_break"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -43585,7 +44152,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"190000"
+		"AbilityDamage"					"1000 3000 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -43932,8 +44499,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"0.3 0.2 0.1"
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduce"				"70 80 90"
 			}
 		}
 		"Modifiers"
@@ -44183,10 +44750,6 @@
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -44211,7 +44774,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_reduction"			"-30 -60 -120"
+				"attacK_damage_reduction"			"-30 -50 -75"
 			}
 		}
 		"Modifiers"
@@ -44299,7 +44862,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"600 4000 25000"
+				"immolation_damage"				"25 200 900"
 			}
 			"02"
 			{
@@ -44382,7 +44945,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"magic_resist"				"30 60 96"
+				"magic_resist"				"500 2500 10000"
 			}
 		}
 
@@ -44401,9 +44964,23 @@
 						"Function"		"shredder_passive_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -44446,7 +45023,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"whirling_damage"			"1500 18000 120000"
+				"whirling_damage"			"160 500 2700"
 			}
 			"03"
 			{
@@ -44541,12 +45118,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"300 4000 15000"
+				"burn_damage"			"10 40 500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"2400 24000 70000"
+				"impact_damage"		"20 120 1400"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -44583,6 +45160,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"kunkka_tidebringer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -44849,7 +45427,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"300 3000 35000"
+				"bonus_damage"				"150 700 1200"
 			}
 		}
 	}
@@ -44865,7 +45443,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"prism_strike"		"0.25 1.5 3.0"
+				"prism_strike"		"0.1 0.2 0.6"
 			}
 		}
 		"Modifiers"
@@ -45071,17 +45649,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduce_per_hit"			"-3 -25 -100"
+				"armor_reduce_per_hit"			"-8 -50 -80"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed_per_hit"			"1 5 15"
+				"attack_speed_per_hit"			"2 5 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_per_hit"			"1 3 5"
+				"attack_damage_per_hit"			"5 15 30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"30"
 			}
 		}
 		"Modifiers"
@@ -45105,12 +45688,26 @@
 			{
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 				"TextureName"	"misc/armor_reduction"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
 			{
@@ -45234,6 +45831,11 @@
 						"ModifierName"	"modifier_demon_farmer_aura_int"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_demon_farmer_aura_spit"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_demon_farmer_aura_str"
@@ -45245,6 +45847,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
@@ -45418,7 +46024,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_bonus"			"30 150 2400"
+				"attack_damage_bonus"			"30 70 140"
 			}
 		}
 		"Modifiers"
@@ -45429,7 +46035,6 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"			"50"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"		"%attack_damage_bonus"
 				}
 				"ThinkInterval"  "0.8"
@@ -45458,7 +46063,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"8000 50000 350000"
+		"AbilityDamage"					"150 500 2800"
 
 		"OnOwnerDied"
 		{
@@ -45485,7 +46090,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 60000 350000"
+				"damage"				"150 1500 3000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -45624,12 +46229,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"2000 5000 80000"
+				"damage_min"				"150 500 2000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"10000 100000 600000"
+				"damage_max"				"400 1400 6000"
 			}
 			"03"
 			{
@@ -45649,8 +46254,9 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_hellfire_blast"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
-		"AbilityDamage"			"3000 10000 65000"
+		"AbilityDamage"			"140 420 2100"
 		"AbilitySpecial"
 		{
 			"01"
@@ -45742,7 +46348,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_VICTORY"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"8000 35000 140000"
+		"AbilityDamage"					"500 2000 11000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
@@ -45751,6 +46357,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"			"1.5 2.0 2.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"protection_while_casting"			"30000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -45820,9 +46431,23 @@
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30000"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -45914,7 +46539,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage_per_tick"			"400 3000 8000"
+				"burn_damage_per_tick"			"100 280 520"
 			}
 		}
 		"Modifiers"
@@ -46000,10 +46625,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
@@ -46024,7 +46645,7 @@
 		"AbilityTextureName"	"necrolyte_death_pulse"
 		"AOERadius"		"1650"
 		"MaxLevel"	"3"
-		"AbilityDamage"		"1000 10000 100000"
+		"AbilityDamage"		"85 225 1350"
 		"AbilitySpecial"
 		{
 			"01"
@@ -46224,7 +46845,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5365"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"BaseClass"						"alchemist_acid_spray"
 
@@ -46258,12 +46879,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 10000 100000"
+				"damage"				"200 800 2000"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"50 1000 10000"
+				"armor_reduction"		"0"
 			}
 			"05"
 			{
@@ -46994,7 +47615,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "35"
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -47053,12 +47673,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"500 5000 25000"
+				"burn_damage"			"50 150 1000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1600 28000 130000"
+				"impact_damage"		"400 1200 5000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47120,7 +47740,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3500 20000 180000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{
@@ -47232,7 +47852,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 50000 160000"
+				"damage"				"700 1200 3000"
 			}
 			"02"
 			{
@@ -47541,14 +48161,14 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"ember_spirit_searing_chains"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"			"500 8000 80000"
+		"AbilityDamage"			"100 400 1600"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"burn_dps"		"600 3000 31500"
+				"burn_dps"		"40 120 480"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47701,7 +48321,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"4000 30000 260000"
+		"AbilityDamage"					"1000 3000 21000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -47771,7 +48391,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"3000 25000 350000"
+				"damage"			"300 1000 4000"
 			}
 			"02"
 			{
@@ -47939,7 +48559,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"100 800 2000"
+				"armor"				"300 1000 4000"
 			}
 		}
 
@@ -47952,10 +48572,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -47963,6 +48579,24 @@
 					{
 						"ScriptFile"	"worlds/redfall/monsters/crimsyth_castle_ai.lua"
 						"Function"		"warflayer_attack_land"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -48050,7 +48684,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 240000"
+				"damage"				"900 2500 12000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -48216,7 +48850,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shrapnel_damage"		"1000 4000 25000"
+				"shrapnel_damage"		"400 1400 7500"
 				"LinkedSpecialBonus"	"special_bonus_unique_sniper_1"
 			}
 			"04"
@@ -48360,7 +48994,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"1000 5000 35000"
+				"burn_damage"			"1000 2500 10000"
 			}
 			"02"
 			{
@@ -48616,7 +49250,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"800 2000 10000"
+				"bleed_damage"			"800 1000 3000"
 			}
 		}
 		"Modifiers"
@@ -48770,7 +49404,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 15000 165000"
+				"damage"					"900 3000 18000"
 			}
 			"04"
 			{
@@ -48805,7 +49439,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"1000 5000 35000"
+				"burn_damage"			"100 350 1500"
 			}
 			"02"
 			{
@@ -48981,7 +49615,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2500 17000 150000"
+				"damage"				"800 2400 12000"
 			}
 			"02"
 			{
@@ -49541,7 +50175,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"main_damage"			"1000 5000 65000"
+				"main_damage"			"200 700 2500"
 			}
 			"09"
 			{
@@ -49551,7 +50185,7 @@
 			"10"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"burn_dps"				"100 500 8000"
+				"burn_dps"				"40 140 400"
 			}
 		}
 	}
@@ -49733,6 +50367,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"doom_bringer_doom"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -49776,12 +50411,20 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 10000 50000"
+				"damage"			"300 800 4000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"duration"		"8 10 12"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+				"Function"		"doom_mob_die"
 			}
 		}
 		"Modifiers"
@@ -50118,7 +50761,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"600 5000 35000"
+				"damage"			"600 1500 3200"
 			}
 			"02"
 			{
@@ -50252,7 +50895,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 9000 40000"
+				"damage"					"600 1800 7800"
 			}
 			"02"
 			{
@@ -50263,13 +50906,13 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"hero_attack_damage_reduction"	"2000 50000 150000"
+				"hero_attack_damage_reduction"	"100 1000 5000"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"creep_attack_damage_reduction"	"2000 50000 150000"
+				"creep_attack_damage_reduction"	"100 1000 5000"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"05"
@@ -50465,7 +51108,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"freeze_damage"			"300 1000 5000"
+				"freeze_damage"			"300 1000 6000"
 			}
 			"05"
 			{
@@ -50662,7 +51305,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"static_remnant_damage"			"3000 18000 90000"
+				"static_remnant_damage"			"800 2500 15000"
 			}
 		}
 	}
@@ -50699,7 +51342,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "50"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"50"
 				}
 			}
 		}
@@ -50884,8 +51526,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"max_damage"				"2.0 1.0 0.5"
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduce"				"35 50 65"
 			}
 		}
 		"Modifiers"
@@ -51114,7 +51756,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 3500 25000"
+				"damage"			"160 500 2400"
 			}
 			"02"
 			{
@@ -51200,7 +51842,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"				"20 300 2000"
+				"armor"				"200 600 2400"
 			}
 		}
 
@@ -51213,9 +51855,23 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -51247,7 +51903,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3500 20000 80000"
+		"AbilityDamage"					"1500 5000 20000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -51316,7 +51972,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"				"20 50 80"
+				"magic_resist"				"200 1000 5000"
 			}
 		}
 		"OnOwnerDied"
@@ -51336,10 +51992,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf"
 				"StatusEffectPriority"  "10"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"ThinkInterval"  "1.4"
 				"OnIntervalThink"
 				{
@@ -51347,6 +51999,24 @@
 					{
 						"ScriptFile"	"worlds/tanari/monsters/water_temple_ai"
 						"Function"		"jailer_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -51397,7 +52067,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"1000 5000 25000"
+				"wave_damage"					"600 1000 2400"
 			}
 			"05"
 			{
@@ -51466,7 +52136,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 10000 44000"
+				"damage"					"1000 2000 5000"
 			}
 			"02"
 			{
@@ -51543,7 +52213,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduce_per_hit"			"-2 -10 -40"
+				"armor_reduce_per_hit"			"-10 -30 -150"
 			}
 			"02"
 			{
@@ -51577,10 +52247,6 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/roshpit/redfall/crimsyth_recruiter_buff.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduce_per_hit"
-				}
 				"IsHidden"	"0"
 			}
 			"modifier_crimsyth_recruiter_attack_gain"
@@ -51831,7 +52497,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"meteor_damage"			"8000 40000 255000"
+				"meteor_damage"			"1600 3000 8000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -51960,7 +52626,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 10000 250000"
+		"AbilityDamage"					"750 2250 8000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -52009,7 +52675,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1500 18000"
+				"damage"			"140 750 2400"
 			}
 		}
 		"OnOwnerDied"
@@ -52158,23 +52824,6 @@
 				//"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
 				//"EffectAttachType" 	"attach_origin"
 			}
-			"ruby_dragon_burn"
-			{
-				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
-				"EffectAttachType" 	"attach_origin"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"ThinkInterval"  "<% RUBY_DRAGON_TICK_INTERVAL %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"ruby_dragon_flame_think"
-						"target"		"TARGET"
-					}
-				}
-			}
 			"ruby_dragon_cinematic"
 			{
 				"IsHidden"	"1"
@@ -52195,6 +52844,760 @@
 		}
 	}
 
+	"ruby_dragon3_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"dragon_knight_breathe_fire"
+		"MaxLevel"	"1"
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"ruby_dragon_flame_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"ruby_dragon_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "160"
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_constant_think"
+					}
+				}
+			}
+			"ruby_dragon_cinematic"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_entering_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"ruby_dragon_regenerating"
+			{
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_regenerating_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"ruby_dragon_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"dragon_knight_elder_dragon_form"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_ai_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_ai_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_ai_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"ruby_dragon_flame_breath"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"dragon_knight_breathe_fire"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_mult"			"<% RUBY_DRAGON_FLAME_BREATH_ATTACK_MULT %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"RPC.RubyDragon.FlameBreath"
+				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"ruby_dragon_fire_breath"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit" "0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"ruby_dragon_fire_breath_hit"
+				"target"		"TARGET"
+				"attack_mult"	"%attack_mult"
+			}
+		}
+		"Modifiers"
+		{
+			"ruby_dragon_burn"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+		
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"ruby_dragon_fire_breath_burn"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"thorok_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"life_stealer_rage"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thorok_passive"
+			{	
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnDeath"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPCItems.Thorok.Death"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"thorok_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"infernal_reign_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"itemicons/tome_of_chaos"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"infernal_reign_ai_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"infernal_reign_amethyst_ability"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"abyssal_underlord_firestorm"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"<% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_COOLDOWN %>"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_ability_activate"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/special_item_effects.lua"
+				"Function"		"infernal_reign_amethyst_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"bone_claw_skeleton_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/ekkan_summon_skeleton"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"bone_claw_skeleton_off"
+					}
+				}
+			}
+		}
+
+	}
+
+	"trickster_scoundrel_toggle_ai"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"bounty_hunter_wind_walk"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+
+
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_hero_summon_ai"
+				"Target" 		"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_hero_summon_ai"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"trickster_scoundrel_think"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"trickster_scoundrel_on"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"trickster_scoundrel_off"
+					}
+				}
+			}
+			"modifier_scoundrel_agility"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_scoundrel_ms"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"modifier_scoundrel_invis_countdown"
+			{
+				"IsHidden"	"0"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"scoundrel_invis_countdown_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_scoundrel_invis"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnUnitMoved"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_scoundrel_invis"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_scoundrel_invis"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnAttack"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_scoundrel_invis"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_invisible"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_invisibility_datadriven"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"RPC.DeathWhisper.Invis"
+						"Target"		"CASTER"
+					}
+
+					"RemoveModifier"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+						"ModifierName"	"modifier_persistent_invisibility"
+					}
+				}
+			}
+		}
+
+	}
 
 	//SERENGAARD
 
@@ -52645,7 +54048,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"50 2000 20000"
+		"AbilityDamage"					"50 300 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -52668,7 +54071,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"-3 -100 -1200"
+				"armor_reduction"	"0"
 			}
 			"04"
 			{
@@ -52801,7 +54204,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 20000 120000"
+				"damage"				"100 500 5000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -52922,7 +54325,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 
-		"AbilityDamage"					"100 12000 55000"
+		"AbilityDamage"					"100 400 4000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -53010,7 +54413,6 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "100"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"100"
 				}
 				"OnCreated"
@@ -53134,7 +54536,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 15000 145000"
+				"damage"				"220 800 8000"
 			}
 		}
 
@@ -53345,7 +54747,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 20000 200000"
+				"damage"				"400 1300 13000"
 			}
 			"02"
 			{
@@ -53479,7 +54881,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"shard_damage"				"600 10000 200000"
+				"shard_damage"				"200 600 6000"
 			}
 			"03"
 			{
@@ -53546,12 +54948,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 25000 250000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_loss"				"-10 -300 -3000"
+				"damage"				"500 1500 15000"
 			}
 		}
 
@@ -53635,7 +55032,6 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-20"
 				}
 			}
@@ -53681,7 +55077,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strike_dmg"			"3000 20000 150000"
+				"strike_dmg"			"280 800 9000"
 			}
 			"02"
 			{
@@ -53768,7 +55164,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"5000 50000 360000"
+		"AbilityDamage"					"800 2400 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -53830,10 +55226,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -53873,7 +55265,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"7 1000 8000"
+		"AbilityDamage"					"7 120 1600"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -53937,7 +55329,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 2000 20000"
+		"AbilityDamage"					"100 200 500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -54033,6 +55425,7 @@
 		"AbilityTextureName"	"treant_natures_guise"
 		"MaxLevel"	"1"
 		"AbilityCooldown"				"4.0"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilitySpecial"
 		{
 			"01"
@@ -54043,7 +55436,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2 3000 300000"
+				"damage"			"40 150 1600"
 			}
 		}
 		"Modifiers"
@@ -54591,7 +55984,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"1000 54000 200000"
+		"AbilityDamage"					"700 1800 10000"
 
 
 		// Precache
@@ -54615,7 +56008,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 54000 200000"
+				"damage"				"700 1800 10000"
 			}
 			"02"
 			{
@@ -54936,7 +56329,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"leech_damage"					"500 10000 100000"
+				"leech_damage"					"500 1500 10000"
 			}
 			"03"
 			{
@@ -55222,7 +56615,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"500 8000 120000"
+				"damage_max"				"500 5000 30000"
 			}
 			"04"
 			{
@@ -55466,7 +56859,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 30000 210000"
+		"AbilityDamage"					"500 2000 12000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -55510,7 +56903,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 8000 120000"
+				"damage"			"500 1200 8000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -55725,7 +57118,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"8000 65000 250000"
+				"damage"			"1000 5000 40000"
 			}
 			"02"
 			{
@@ -55959,7 +57352,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"						"1000 20000 125000"
+				"damage"						"700 2000 10000"
 			}
 		}
 
@@ -56051,7 +57444,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 10000 150000"
+				"damage_per_hit" "1000 3000 12000"
 			}
 			"02"
 			{
@@ -56062,6 +57455,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"bonus_movement_speed" "-30 -60 -95"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magic_armor_while_channeling" "400 4000 15000"
 			}
 		}
 
@@ -56120,9 +57518,23 @@
 						"Function"		"prison_channel_think"
 					}
 				}
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "80"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_water_channel_in_area"
@@ -56359,15 +57771,6 @@
 		"AbilityTextureName"	"treant_overgrowth"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
-			}
-		}
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"1"
@@ -56392,7 +57795,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_loss"			"-200"
+				"armor_and_magic_armor_loss"			"-125"
 			}
 			"03"
 			{
@@ -56459,7 +57862,24 @@
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-70"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION" "-70"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-100"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_ancient_tree_round_2"
@@ -56617,7 +58037,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000000"
+				"damage"			"40000"
 			}
 		}
 
@@ -56738,7 +58158,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"100000"
+				"damage_per_tick"		"3000"
 			}
 		}
 
@@ -56853,11 +58273,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"1"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"50"
-			}
 		}
 		"Modifiers"
 		{
@@ -56875,10 +58290,6 @@
 						"Function"		"karzhun_shield_take_damage"
 						"damage_percent"	"%damage_return"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
 				}
 
 			}
@@ -57005,7 +58416,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 150000"
+				"damage"				"200 800 7000"
 			}
 			"02"
 			{
@@ -57060,7 +58471,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"pure_damage"			"100 1000 10000"
+				"pure_damage"			"100 300 1500"
 			}
 			"02"
 			{
@@ -57150,11 +58561,6 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_return"			"1"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"10 15 25"
-			}
 		}
 		"Modifiers"
 		{
@@ -57162,10 +58568,6 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
-				}
 				"ThinkInterval"  "1.5"
 				"OnIntervalThink"
 				{
@@ -57348,7 +58750,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 9000 140000"
+				"damage"			"200 800 3500"
 			}
 			"02"
 			{
@@ -57363,7 +58765,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"quake_damage"			"1200 12000 300000"
+				"quake_damage"			"800 3500 30000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -57567,12 +58969,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"100 1000 10000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"15 35 85"
+				"armor_and_magic_armor"			"300 1000 4000"
 			}
 			"06"
 			{
@@ -57622,8 +59019,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_attack_damage"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%magic_resist"
 				}
 				"EffectName"	"particles/roshpit/tanari/fire_buff_owner.vpcf"
 				"EffectAttachType"	"attach_hitloc"
@@ -57633,6 +59028,21 @@
 					{
 						"EffectName"	"Tanari.FireSpirit.BuffApply"
 						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -57717,12 +59127,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 3000 15000"
+				"burn_damage"			"70 210 1200"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1000 25000 100000"
+				"impact_damage"		"350 1200 8000"
 			}
 		}
 
@@ -57760,10 +59170,6 @@
 				"IsBuff"		"1"
 				"EffectName"	"particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon_offhand/bloodseeker_eztzhok_offhand_ambient_arc_glow.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "10"
 				"OnIntervalThink"
 				{
@@ -57808,7 +59214,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"1500 50000 500000"
+				"burn_damage"			"300 1500 8000"
 			}
 		}
 		"Modifiers"
@@ -57969,12 +59375,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 3000 15000"
+				"burn_damage"			"120 360 1250"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"1000 25000 100000"
+				"impact_damage"		"300 1500 8000"
 			}
 		}
 
@@ -58022,7 +59428,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"3000 50000 400000"
+				"damage"				"800 2000 10000"
 			}
 			"02"
 			{
@@ -58037,7 +59443,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"1500 50000 500000"
+				"burn_damage"			"800 2000 10000"
 			}
 		}
 		"OnSpellStart"
@@ -58555,11 +59961,6 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"4 100 2500"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"burn_damage"			"150 3000 15000"
 			}
 		}
@@ -58579,10 +59980,6 @@
 				"Passive" 		"1"
 				"IsHidden"		"1"
 				"IsBuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -58731,7 +60128,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"50 300 5000"
+				"burn_damage"		"50 150 5000"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -58900,7 +60297,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 180000"
+				"damage"				"500 1500 15000"
 			}
 			"02"
 			{
@@ -59053,7 +60450,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"powered_up_armor"			"0.1 0.3 1"
+				"powered_up_armor_and_magic_armor"			"0.2 1 3"
 			}
 		}
 		"Modifiers"
@@ -59211,7 +60608,24 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%powered_up_as"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%powered_up_ms" 
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%powered_up_atk"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%powered_up_armor"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_triboss_in_battle"
@@ -59421,12 +60835,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"strike_damage"			"500 5000 150000"
+				"strike_damage"			"300 900 9000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration_damage"		"100 3000 120000"
+				"duration_damage"		"100 300 3000"
 			}
 			"03"
 			{
@@ -59473,7 +60887,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3500 65000 240000"
+		"AbilityDamage"					"350 1200 12000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -59523,7 +60937,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"600000"
+		"AbilityDamage"					"1000 3500 35000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -59534,7 +60948,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"600000"
+				"damage"			"1000 3500 35000"
 			}
 			"02"
 			{
@@ -59604,7 +61018,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"600000"
+		"AbilityDamage"					"74000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -59615,7 +61029,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000000"
+				"damage"			"74000"
 			}
 			"02"
 			{
@@ -60030,7 +61444,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"2000"
+				"poison_damage"			"10 30 300"
 			}
 		}
 		"Modifiers"
@@ -60240,7 +61654,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500000"
+				"damage"			"50000"
 			}
 		}
 		"Modifiers"
@@ -60354,7 +61768,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"180000"
+				"damage"			"35000"
 			}
 		}
 		"Modifiers"
@@ -60448,7 +61862,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100000"
+				"damage"			"1000 3000 25000"
 			}
 		}
 		"Modifiers"
@@ -60552,7 +61966,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000000"
+				"damage"			"120000"
 			}
 			"01"
 			{
@@ -60640,7 +62054,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"				"65000"
+				"damage"				"8000"
 			}
 			"02"
 			{
@@ -60728,7 +62142,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"90000"
+				"damage"			"24000"
 			}
 			"02"
 			{
@@ -60764,7 +62178,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 10000 80000"
+				"damage"			"600 1800 18000"
 			}
 		}
 		"OnOwnerDied"
@@ -60784,10 +62198,6 @@
 				"IsHidden"		"1"
 				"IsBuff"		"1"
 				"OverrideAnimation"     "ACT_DOTA_IDLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				}
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
@@ -61093,7 +62503,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2 3000 300000"
+				"damage"			"100 500 50000"
 			}
 		}
 		"Modifiers"
@@ -61498,7 +62908,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"7500 50000 320000"
+				"damage"				"750 3000 30000"
 			}
 			"02"
 			{
@@ -61769,7 +63179,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_stormshield_cloak"
+			"modifier_creature_stormshield"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
@@ -61782,6 +63192,12 @@
 						"Function"		"stormshield_cloak_initialize"
 						"target"		"TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnDestroy"
 				{
@@ -61791,11 +63207,12 @@
 						"Function"		"stormshield_cloak_end"
 						"target"		"TARGET"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "75"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"OnDeath"
 				{
@@ -62035,7 +63452,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"3000 10000 200000"
+				"damage"		"500 1500 20000"
 			}
 			"02"
 			{
@@ -62114,7 +63531,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"700000"
+		"AbilityDamage"					"60000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -62190,7 +63607,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3000 10000 95000"
+		"AbilityDamage"					"400 1200 14000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -62213,7 +63630,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"negative_armor"		"-50 -750 -4000"
+				"negative_armor"		"0"
 			}
 		}
 	}
@@ -62289,7 +63706,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"55000"
+				"damage"			"10000"
 			}
 		}
 		"Modifiers"
@@ -62423,7 +63840,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"20000"
 			}
 			"02"
 			{
@@ -62826,7 +64243,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 10000 100000"
+		"AbilityDamage"					"300 1000 10000"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -62914,7 +64331,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2000 50000 225000"
+				"damage"			"1000 3000 30000"
 			}
 			"07"
 			{
@@ -63027,12 +64444,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_base_damage"		"500 50000 1000000"
+				"quill_base_damage"		"100 300 3000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"quill_stack_damage"	"500 50000 2000000"
+				"quill_stack_damage"	"100 300 3000"
 			}
 			"04"
 			{
@@ -63085,17 +64502,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 20000 70000"
+				"damage"				"300 1000 15000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_unit"		"1000 100000 1000000"
+				"damage_per_unit"		"50 250 1000"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_hero"		"10000 1000000 10000000"
+				"damage_per_hero"		"250 1250 5000"
 			}
 			"04"
 			{
@@ -63242,7 +64659,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"15000 60000 250000"
+				"damage"			"600 1500 15000"
 			}
 		}
 		"Modifiers"
@@ -63544,12 +64961,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"5000 25000 100000"
+				"damage_min"				"300 1200 12000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"10000 300000 800000"
+				"damage_max"				"600 2400 24000"
 			}
 			"03"
 			{
@@ -63575,7 +64992,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"80000"
+				"damage"			"15000"
 			}
 		}
 		"Modifiers"
@@ -63629,7 +65046,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500000"
+				"damage"			"10000"
 			}
 		}
 		"Modifiers"
@@ -63974,9 +65391,23 @@
 				"IsStunDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
 				"EffectAttachType"	"attach_hitloc"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_loss"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -64087,7 +65518,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"stomp_damage"					"1000 30000 200000"
+				"stomp_damage"					"400 1200 12000"
 			}
 		}
 	}
@@ -64273,7 +65704,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 20000 400000"
+		"AbilityDamage"					"800 2400 25000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -64653,12 +66084,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"500 100000 5000000"
+				"bonus_damage"				"500 2000 20000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"				"-50 -300 -3000"
+				"bonus_armor"				"0"
 			}
 			"03"
 			{
@@ -64682,7 +66113,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"5000 30000 280000"
+		"AbilityDamage"					"300 1000 12000"
 
 
 		// Precache
@@ -64706,7 +66137,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 280000"
+				"damage"				"300 1000 12000"
 			}
 			"02"
 			{
@@ -64790,12 +66221,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"30 300 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"magic_resistance"			"20"
+				"armor_and_magic_armor"			"30 300 1000"
 			}
 		}
 		"Modifiers"
@@ -64828,10 +66254,23 @@
 			{
 				"IsHidden"	"0"
 				"IsBuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -64942,7 +66381,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3000 15000"
+				"damage"			"80 250 2800"
 			}
 		}
 		"Modifiers"
@@ -65024,17 +66463,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"movespeed_percent"	"-5"
+				"movespeed_percent"	"-10"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_loss"	"-1000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"magic_resist_loss"	"-20"
+				"armor_and_magic_armor_loss"			"-300 -1500 -5000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -65078,6 +66512,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage"			"300 1000 8000"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_and_magic_armor_loss"			"-300 -1500 -5000"
+			}
 		}
 		"Modifiers"
 		{
@@ -65111,12 +66550,16 @@
 						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
 						"Function"		"whirlpool_end"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-5"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"-1000"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"
 				}
 			}
 		}
@@ -65170,7 +66613,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"			"300 2000 10000"
+				"damage_per_tick"			"100 400 4500"
 			}
 			"02"
 			{
@@ -65424,7 +66867,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			"5000 25000 250000"
+				"damage"			"500 1500 20000"
 			}
 			"02"
 			{
@@ -65632,7 +67075,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 10000 100000"
+				"damage"			"300 1800 24000"
 			}
 		}
 		"Modifiers"
@@ -65754,7 +67197,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_resist"			"50"
+				"magic_resist"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -65766,7 +67209,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resist"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_dark_spirit_prepare"
@@ -65884,7 +67344,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"magic_resist"		"0.5"
+				"physical_and_magic_armor"		"5"
 			}
 		}
 		"Modifiers"
@@ -65927,7 +67387,24 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "5"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"5"
-				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"0.5"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -66167,7 +67644,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"5000"
 				}
 			}
 			"modifier_stalacorr_flail"
@@ -66616,10 +68092,6 @@
 				"IsDebuff"	"0"
 				"IsHidden" "1"
 				"EffectName"	"particles/act_2/siltbreaker_beam_channel.vpcf"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "100"
-				}
 			}
 			"modifier_dark_reef_massive_buff"
 			{
@@ -67050,7 +68522,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 10000 200000"
+				"damage"			"500 2000 20000"
 			}
 			"02"
 			{
@@ -67087,7 +68559,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"75000"
+				"damage"			"15000"
 			}
 		}
 		"Modifiers"
@@ -67409,7 +68881,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 3000 30000"
+				"damage"			"300 900 9000"
 			}
 			"02"
 			{
@@ -67475,8 +68947,6 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-
 			}
 			"modifier_demon_farmer_aura_str"
 			{
@@ -67487,6 +68957,10 @@
 				"IsHidden"	"1"
 			}
 			"modifier_demon_farmer_aura_int"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_demon_farmer_aura_spi"
 			{
 				"IsHidden"	"1"
 			}
@@ -67600,7 +69074,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage" "1000 10000 80000"
+				"damage" "500 2000 35000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -67709,7 +69183,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"450000"
+		"AbilityDamage"					"35000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -67932,7 +69406,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"75000"
+				"damage"			"10000"
 			}
 		}
 		"Modifiers"
@@ -68007,7 +69481,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"500000"
+		"AbilityDamage"					"60000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -68089,7 +69563,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"14000"
 			}
 		}
 		"Modifiers"
@@ -68200,7 +69674,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"27000"
 			}
 			"02"
 			{
@@ -68499,7 +69973,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"1000000"
+				"base_damage"	"40000"
 			}
 			"03"
 			{

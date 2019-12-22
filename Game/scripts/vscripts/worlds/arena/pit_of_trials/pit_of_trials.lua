@@ -136,6 +136,9 @@ function Arena:OpenPit(pitLevel)
 			end
 		end)
 	end)
+    Timers:CreateTimer(4, function()
+      Challenges:ProcessPossibleSpawnEvent(Arena.PitLevel)
+    end)
 	CustomGameEventManager:Send_ServerToAllClients("BGMend", {})
 	CustomGameEventManager:Send_ServerToAllClients("BGMstart", {songName = "Arena.PitIntro"})
 	Timers:CreateTimer(5, function()
@@ -654,23 +657,29 @@ function Arena:SpawnRuinsGuardian(position, fv)
 	return stone
 end
 
-function Arena:PitConquestKarzhun(hero)
-	local goldAmount = PlayerResource:GetGold(hero:GetPlayerOwnerID())
+function Arena:PitConquestKarzhun(hero, input)
+	local max_mithril_amount = 100000
+	local mithril_offered = math.min(max_mithril_amount, input)
+	mithril_offered = math.max(mithril_offered, 0)
+	local playerID = hero:GetPlayerOwnerID()
+	local shards = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
+	if shards < mithril_offered or mithril_offered <= 0 then
+		EmitSoundOn("UI.TooFarDialogue", hero)
+		return false
+	end
 	if not Arena.Karzhun then
-		if goldAmount > 0 then
-			
-			Arena.Karzhun = true
-
-			local goldCoins = Entities:FindByNameNearest("KarzhunGold", Vector(-11734, 15584, 531), 800)
-			goldCoins:SetOrigin(Vector(-11734, 15584, 872))
-			local stackLevel = math.floor(goldAmount/10000) + 1
-			local randomBonus = RandomInt(1, 10000)
-			if randomBonus <= goldAmount%10000 then
-				stackLevel = stackLevel + 1
-			end 
-			PlayerResource:SpendGold(hero:GetPlayerOwnerID(), goldAmount, 0)
-			Arena:SpawnKarhzun(stackLevel)
+		Arena.Karzhun = true
+		local goldCoins = Entities:FindByNameNearest("KarzhunGold", Vector(-11734, 15584, 531), 800)
+		goldCoins:SetOrigin(Vector(-11734, 15584, 558+260))
+		goldCoins:SetModelScale(0.75 + mithril_offered/80000)
+		local stackLevel = math.floor(mithril_offered/10000)
+		local remainder_luck = RandomInt(0, 10000)
+		if mithril_offered%10000 > remainder_luck then
+			stackLevel = stackLevel + 1
 		end
+		Arena:SpawnKarhzun(stackLevel)
+		local debit = mithril_offered*-1
+		Challenges:ModifyMithril(debit, hero, "karzhun")
 	end
 end
 
@@ -682,7 +691,6 @@ function Arena:SpawnKarhzun(stackLevel)
 	gardiner.itemLevel = 125 + stackLevel
 	gardiner.stackLevel = stackLevel
 	EmitSoundOn("Arena.Karzhun.Entry", gardiner)
-	Events:AdjustBossPower(gardiner, 10+stackLevel*2, 10+stackLevel*2, false)
 	gardiner:SetAbsOrigin(gardiner:GetAbsOrigin()+Vector(0,0,1000))
 	WallPhysics:Jump(gardiner, Vector(0,1), 0, 0, 10, 1.2)
 	gardiner.jumpEnd = "cloudburst"
@@ -690,6 +698,7 @@ function Arena:SpawnKarhzun(stackLevel)
 	ability:ApplyDataDrivenModifier(gardiner, gardiner, "modifier_kharzun_buff", {})
 	gardiner:SetModifierStackCount("modifier_kharzun_buff", gardiner, stackLevel)
 	gardiner:SetModelScale(1.0 + stackLevel/10)
+	gardiner:CalculateAndSaveRoshpitAttributes()
 end
 
 function Arena:SpawnTempleExplorier(position, fv)
@@ -2333,6 +2342,11 @@ function Arena:SpawnSpiritOfRakash(position, fv)
 	stone.itemLevel = 128
 	local ability = stone:FindAbilityByName("solos_burning_spear")
 	ability:ToggleAutoCast()
+	return stone
+end
+
+function Arena:SpawnCerberus(position, fv)
+	local stone = Arena:SpawnDungeonUnit("pit_of_trials_descent_cerberus", position, 2, 4, "Arena.Cerberus.Aggro", fv, false)
 	return stone
 end
 

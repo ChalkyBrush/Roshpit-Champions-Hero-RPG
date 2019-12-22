@@ -53,7 +53,7 @@ function hawk_screech(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_wolf_howl_flat_b_b", {duration = howlDuration})
 		caster:SetModifierStackCount("modifier_wolf_howl_flat_b_b", caster, q_2_level)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function hawk_screech_hit(event)
@@ -118,6 +118,10 @@ function rend_start(event)
 				if not ability.bloodCount then
 					ability.bloodCount = 0
 				end
+				if ability.w_2_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_health_regen_loss", {duration = 12})
+					enemy:SetModifierStackCount("modifier_wolf_rend_health_regen_loss", caster, ability.w_2_level)
+				end
 				if ability.bloodCount < 9 then
 					ability.bloodCount = ability.bloodCount + 1
 					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
@@ -136,7 +140,7 @@ function rend_start(event)
 			EmitSoundOnLocationWithCaster(enemies[1]:GetAbsOrigin(), "Draghor.Wolf.RendBleed", caster)
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function rend_bleed_think(event)
@@ -218,6 +222,10 @@ function tornado_hit(event)
 		enemy.rendBleed = event.bleed_damage * damage / 100
 		ability.w_2_level = caster:GetRuneValue("w", 2)
 		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_bleed", {duration = 12})
+		if ability.w_2_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_health_regen_loss", {duration = 12})
+			enemy:SetModifierStackCount("modifier_wolf_rend_health_regen_loss", caster, ability.w_2_level)
+		end
 		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
 		ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", enemy:GetAbsOrigin(), true)
@@ -252,7 +260,7 @@ function begin_bear_charge(event)
 	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
 		local c_c_level = caster:GetRuneValue("e", 3)
 		if c_c_level > 0 then
-			local procs = Runes:Procs(c_c_level, 5, 1)
+			local procs = Runes:Procs(c_c_level, DJANGHOR_E3_CLEANCE_CHANCE, 1)
 			if procs > 0 then
 				local particle = false
 				for i = 1, procs, 1 do
@@ -274,7 +282,7 @@ function begin_bear_charge(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function bear_charge_thinking(event)
@@ -405,7 +413,7 @@ function wolf_sprint(event)
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function wolf_slide_think(event)
@@ -461,7 +469,7 @@ function yb_jump_start(event)
 	-- StartAnimation(caster, {duration=2.0, ACT_DOTA_MK_SPRING_SOAR, rate=1.0})
 	-- StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 	-- EmitSoundOn("Akrimus.Jump.VO", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

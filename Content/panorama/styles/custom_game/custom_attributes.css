@@ -9,15 +9,15 @@
 .master_attribute_container{
 	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
 	flow-children:down;
-	width:540px;
+	width:660px;
 }
 
 .AspectRatio4x3 .master_attribute_container{
-	width:640px;
+	width:760px;
 }
 
 .AspectRatio5x4 .master_attribute_container{
-	width:600px;
+	width:720px;
 }
 
 
@@ -83,10 +83,11 @@
 }
 
 .attribute_container{
-	width:33%;
-	border-radius:4px;
+	width:25%;
+	/*border-radius:4px;*/
 	flow-children:down;
-	margin-right:0.3%;
+/*	margin-right:0.3%;*/
+/*	margin-right:1px;*/
 	padding-bottom:10px;
 }
 
@@ -100,6 +101,10 @@
 
 #container_int{
 	background-color: #202126;
+}
+
+#container_spr{
+	background-color: #231e26;
 }
 
 .attribute_title{
@@ -146,6 +151,10 @@
 
 }
 
+#attribute_image_spr{
+
+}
+
 .attribute_title_and_value_container{
 	flow-children:down;
 	width:100%;
@@ -157,7 +166,7 @@
 }
 
 #attribute_value_strength{
-	color: #DD4444;
+	color: #CC0000;
 }
 
 #attribute_value_agility{
@@ -166,6 +175,10 @@
 
 #attribute_value_int{
 	color: #33CCFF;
+}
+
+#attribute_value_spr{
+	color: #8033b0;
 }
 
 .class-splitter-thin{
@@ -186,15 +199,15 @@
 	width:100%;
 	color: #68ff23;
 	font-weight:lighter;
-	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-family:RadianceM;
 }
 
 .attribute_given_bonus_container{
 	width:100%;
-	font-weight:lighter;
-	padding-left:20px;
-	padding-right:20px;
-	height:20px;
+/*	font-weight:lighter;*/
+	padding-left:10px;
+	padding-right:10px;
+/*	height:20px;*/
 }
 
 .bonus_right{
@@ -226,6 +239,9 @@
 .AspectRatio5x4 .attack_defense_container{
 	height:220px;
 }*/
+.panel_left{
+	padding-bottom:5px;
+}
 
 .panel_right{
 	horizontal-align:right;
@@ -281,13 +297,16 @@
 }
 
 #resistance_container{
-	flow-children: down;
-	height: 110px;
+	flow-children: right;
+}
+
+#base_ability_container{
+	margin-bottom:11px;
 }
 
 .resistance_item_container{
-	width:250px;
-	height:33%;
+	width:80px;
+	height:36px;
 	background-color: #1F1F1F;
 	border-radius:4px;
 	margin-left:4px;
@@ -337,6 +356,7 @@
 	padding-bottom:8px;
 	margin-top:4px;
 	padding-left:10px;
+
 }
 
 .elements_title{
@@ -354,6 +374,7 @@
 	flow-children:right;
 	height:45px;
 	margin-top:5px;
+	horizontal-align:center;
 }
 
 .element-box{
@@ -382,4 +403,34 @@
 	height:16px;
 	horizontal-align:center;
 	margin-top:5px;
+}
+
+.property_image{
+	width:12px;
+	height:12px;
+	color: #DDDDDD;
+	margin-top:2px;
+}
+#unit_attribute_armor{
+	background-size: 12px 12px;
+	background-image: url("s2r://panorama/images/hud/reborn/icon_armor_psd.vtex");
+}
+
+#unit_attribute_armor_pierce{
+	background-size: 12px 12px;
+	background-image: url("file://{images}/custom_game/ui/armor_pierce.png");
+}
+
+#unit_attribute_magic_armor{
+	background-size: 12px 12px;
+	background-image: url("file://{images}/custom_game/ui/magic_armor.png");
+}
+
+#unit_attribute_spell_pierce{
+	background-size: 12px 12px;
+	background-image: url("file://{images}/custom_game/ui/spell_pierce.png");
+}
+
+.stat_label_offset{
+	margin-left:16px;
 }

@@ -1931,11 +1931,11 @@ function Winterblight:StatueSlotStart(statue_index)
 						EmitSoundOnLocationWithCaster(Winterblight.StatuesTable[2].prop:GetAbsOrigin(), "Winterblight.AzaleaCrystal.FinishPuzzle", Events.GameMaster)
 						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/frost_titan_god_start.vpcf", Winterblight.StatuesTable[2].prop:GetAbsOrigin(), 3)
 						if Winterblight.StatueColors[1] == "red" then
-							RPCItems:RollRedDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+							RPCItems:RollAndDropImmortalByLevel(Winterblight.StatuesTable[2].prop:GetAbsOrigin(), GameState:GetDifficultyFactor()*30, "item_rpc_red_divinex_amulet")
 						elseif Winterblight.StatueColors[1] == "blue" then
-							RPCItems:RollBlueDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+							RPCItems:RollAndDropImmortalByLevel(Winterblight.StatuesTable[2].prop:GetAbsOrigin(), GameState:GetDifficultyFactor()*30, "item_rpc_blue_divinex_amulet")
 						else
-							RPCItems:RollGreenDivinexAmulet(Winterblight.StatuesTable[2].prop:GetAbsOrigin())
+							RPCItems:RollAndDropImmortalByLevel(Winterblight.StatuesTable[2].prop:GetAbsOrigin(), GameState:GetDifficultyFactor()*30, "item_rpc_green_divinex_amulet")
 						end
 					end
 				end)

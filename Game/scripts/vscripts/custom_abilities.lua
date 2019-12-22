@@ -157,24 +157,6 @@ function CustomAbilities:AxeSunderB_D(sunderAbility, caster, slamPoint)
 	end
 end
 
-function CustomAbilities:HeroicLeapThink(target)
-	local skullBasher = target:FindAbilityByName("stun_attack")
-	skullBasher:ApplyDataDrivenModifier(target, target, "modifier_stun_attack", {duration = skullBasher:GetDuration()})
-	if target:HasModifier("modifier_axe_rune_w_3_visible") then
-		local runeUnit = target.runeUnit3
-		local runeAbility = runeUnit:FindAbilityByName("axe_rune_w_3")
-		local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_visible", {duration = duration})
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_w_3_invisible", {duration = duration})
-	end
-	if target:HasModifier("modifier_axe_rune_q_2_stacker") then
-		local runeUnit = target.runeUnit2
-		local runeAbility = runeUnit:FindAbilityByName("axe_rune_q_2")
-		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		runeAbility:ApplyDataDrivenModifier(runeUnit, target, "modifier_axe_rune_q_2_stacker", {duration = duration})
-	end
-end
-
 function CustomAbilities:IceQuill(event)
 
 	local ability = event.ability
@@ -187,13 +169,13 @@ function CustomAbilities:IceQuill(event)
 					ability.manaSpent = 0
 				end
 				local bonusManaSpent = 0
-				if target:HasModifier("modifier_iron_colossus") then
+				if target:HasModifier("modifier_helm_of_the_iron_colossus") then
 					if executedAbility:GetManaCost(executedAbility:GetLevel() - 1) > 0 then
 						bonusManaSpent = bonusManaSpent + 1000
 					end
 				end
 				ability.manaSpent = ability.manaSpent + executedAbility:GetManaCost(executedAbility:GetLevel() - 1) + bonusManaSpent
-				if ability.manaSpent > ICE_QUILL_MANA_THRESHOLD then
+				if ability.manaSpent > ITEM_RPC_ICE_QUILL_CARAPACE_MANA_THRESHOLD then
 					ability.manaSpent = 0
 					local spikeParticle = "particles/units/heroes/hero_bristleback/ice_quills.vpcf"
 					local position = target:GetAbsOrigin()
@@ -202,8 +184,8 @@ function CustomAbilities:IceQuill(event)
 					Timers:CreateTimer(2, function()
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
-					local radius = ICE_QUILL_RADIUS
-					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ICE_QUILL_ATTACK_TO_DMG
+					local radius = ITEM_RPC_ICE_QUILL_CARAPACE_RADIUS
+					local damage = OverflowProtectedGetAverageTrueAttackDamage(target) * ITEM_RPC_ICE_QUILL_CARAPACE_ATTACK_TO_DMG
 					local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
@@ -487,6 +469,30 @@ function CustomAbilities:HitShipyardShield(victim, attacker)
 		victim:SetModifierStackCount("modifier_shipyard_veil_shield", victim.InventoryUnit, currentStacks - 1)
 	else
 		victim:RemoveModifierByName("modifier_shipyard_veil_shield")
+	end
+	local unit = victim
+	local ability = unit:FindModifierByName("modifier_shipyard_veil_shield"):GetAbility()
+	ability.hero = unit
+	local emerald_value = ability:GetGemValue("emerald")
+	if emerald_value > 0 then
+		local info =
+		{
+			Target = attacker,
+			Source = unit,
+			Ability = ability,
+			EffectName = "particles/roshpit/redfall/shipyard_tracking_skull_enemy.vpcf",
+			StartPosition = "attach_hitloc",
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = false,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 8,
+			bProvidesVision = true,
+			iVisionRadius = 0,
+			iMoveSpeed = 500,
+		iVisionTeamNumber = unit:GetTeamNumber()}
+		projectile = ProjectileManager:CreateTrackingProjectile(info)
 	end
 end
 
@@ -919,6 +925,73 @@ function CustomAbilities:ClickOpenDialogue(msg)
 				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
 			end
 		end
+	elseif msg.unit_name == "gem_forger" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			local gem_reward = hero.gem_reward
+			if not hero.gem_reward then
+				gem_reward = 0
+			end
+			if distance <= distance_cap then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", queryUnit, 0.03)
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_gemforger", {player=playerID, gem_reward = gem_reward} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "the_crusader" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if Challenges.ActiveChallenge then
+			return false
+		end
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				local main_match = 0
+				local web_match = 0
+				if Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
+					main_match = 1
+				end
+				if Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) and Challenges:ShouldSpawnForWebPremium() then
+					web_match = 1
+				end
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_crusader", {player=playerID, main_challenge = Challenges.main_challenge, web_challenge = Challenges.web_challenge, main_match = main_match, web_match = web_match} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end
+	elseif msg.unit_name == "elder_rai" then
+		local distance_cap = 700
+		local playerID = msg.PlayerID
+		local player = PlayerResource:GetPlayer(playerID)
+		if Challenges.ActiveChallenge then
+			return false
+		end
+		if player then
+			local hero = GameState:GetHeroByPlayerID(playerID)
+			local queryUnit = EntIndexToHScript(msg.queryUnit)
+			local distance = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), queryUnit:GetAbsOrigin())
+			if distance <= distance_cap then
+				CustomGameEventManager:Send_ServerToPlayer(player, "open_elder_rai", {} )
+				CustomGameEventManager:Send_ServerToPlayer(player, "select_hero", {} )
+			else
+				Notifications:Top(playerID, {text="Too Far", duration=4, style={color="#FFDDAA"}, continue=true})
+				CustomGameEventManager:Send_ServerToPlayer(player, "grey_dialogue", {player=playerID} )
+			end
+		end		
 	end
 end
 
@@ -949,3 +1022,11 @@ function CDOTA_BaseNPC:ApplyAndIncrementStack(ability, caster, modifier_name, in
 	self:SetModifierStackCount(modifier_name, caster, new_stacks)
 end
 
+function CDOTA_BaseNPC:ApplyModifierAndSetStacks(ability, caster, modifier_name, stacks, duration)
+	if duration > 0 then
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {duration = duration})
+	else
+		ability:ApplyDataDrivenModifier(caster, self, modifier_name, {})
+	end
+	self:SetModifierStackCount(modifier_name, caster, stacks)
+end

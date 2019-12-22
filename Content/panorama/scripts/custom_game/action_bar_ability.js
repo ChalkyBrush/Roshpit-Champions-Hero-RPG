@@ -14,6 +14,7 @@ function SetAbility( ability, queryUnit, bInLevelUp )
 	var player_stats = CustomNetTables.GetTableValue( "player_stats", playerID.toString() );
 	if (!(player_stats == undefined)){
 		var skillPoints = player_stats.skillPoints
+		$.Msg("SKILL POINTS: "+skillPoints)
 		if (skillPoints > 0){
 			bInLevelUp = true;
 		}

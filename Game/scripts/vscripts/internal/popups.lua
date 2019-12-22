@@ -46,6 +46,10 @@ function PopupArcaneCrystals(target, amount)
     PopupNumbers(target, "miss", Vector(150, 20, 230), 1.5, amount, nil, POPUP_SYMBOL_POST_LIGHTNING)
 end
 
+function PopupDamageBlock2(target, amount)
+    PopupNumbers(target, "block", Vector(150, 150, 150), 1.5, amount, POPUP_SYMBOL_PRE_MINUS, POPUP_SYMBOL_POST_SHIELD)
+end
+
 function PopupOdin(target, amount)
     PopupNumbers(target, "damage", Vector(255, 255, 255), 1.5, amount, POPUP_SYMBOL_PRE_ARROW, nil)
 end
@@ -137,6 +141,7 @@ function PopupNumbers(target, pfx, color, lifetime, number, presymbol, postsymbo
 
     local digits = 0
     if number ~= nil then
+        number = math.floor(number)
         digits = #tostring(number)
     end
     if presymbol ~= nil then

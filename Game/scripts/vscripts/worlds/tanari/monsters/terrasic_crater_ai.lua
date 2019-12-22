@@ -1,10 +1,10 @@
 function TerrasicGuardTrigger(trigger)
 	if not Tanari.TerrasicGuardStart then
-		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor() * 25 then
+		if trigger.activator:GetLevel() >= GameState:GetDifficultyFactor() * 20 then
 			Tanari.TerrasicGuardStart = true
 			Tanari:TerrasicGuardSpawn()
 		else
-			local lvlReq = GameState:GetDifficultyFactor() * 25
+			local lvlReq = GameState:GetDifficultyFactor() * 20
 			Notifications:Top(trigger.activator:GetPlayerOwnerID(), {text = "Level "..lvlReq.." Required", duration = 3, style = {color = "red"}, continue = true})
 		end
 	end
@@ -1194,7 +1194,7 @@ function fire_temple_key_holder_die(event)
 	if GameState:GetDifficultyFactor() > 1 then
 		local luck = RandomInt(1, 4)
 		if luck == 1 then
-			RPCItems:RollTerrasicLavaBoots(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_terrasic_lava_boots")
 		end
 	end
 end

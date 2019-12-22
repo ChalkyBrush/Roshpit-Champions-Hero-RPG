@@ -11,7 +11,7 @@ function earthquake_cast(event)
 	if caster:HasModifier("modifier_conjuror_glyph_5_1") then
 		radius = radius + CONJUROR_GLYPH_5_1_Q_BONUS_RADIUS
 	end
-	ability.q_3_level = get_q_3_level(caster, ability)
+	ability.q_3_level = caster:GetRuneValue("q", 3)
 	fireQuake(point, caster, radius, stun_duration, damage, true, ability, 1)
 	if caster.earthAspect then
 		fireQuake(caster.earthAspect:GetAbsOrigin(), caster, radius, stun_duration, damage, false, ability, 1)
@@ -25,7 +25,7 @@ function earthquake_cast(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_free_quake", {duration = duration})
 	end
 	if not ability.procCast then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		ability.procCast = true
 	end
 	if caster.earthAspect then

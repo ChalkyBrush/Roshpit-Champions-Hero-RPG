@@ -15,6 +15,7 @@ function gang_up_think(event)
 	if stacks > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gangup_stack", {})
 		caster:SetModifierStackCount("modifier_gangup_stack", caster, stacks)
+		caster:CalculateAndSaveRoshpitAttributes()
 	else
 		caster:RemoveModifierByName("modifier_gangup_stack")
 	end
@@ -526,7 +527,7 @@ function spirit_warp_start(event)
     ability.pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/float_particle_.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(ability.pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     ParticleManager:SetParticleControl(ability.pfx, 15, Vector(100, 220, 100))
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function spirit_warping_think(event)
@@ -674,7 +675,7 @@ function cavern_unit_die(event)
 		end
 		local luck = RandomInt(1, 2400-GameState:GetPlayerPremiumStatusCount()*100)
 		if luck == 1 then
-			RPCItems:RollGuardianStone(unit:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_guardian_stone")
 		end
 	end
 end
@@ -1149,7 +1150,7 @@ function cavern_spark_throw(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 	end
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function cavern_spark_impact(event)
@@ -2446,9 +2447,6 @@ function zero_g_spell_cast(event)
 	local executedAbility = event.event_ability
 	executedAbility:EndCooldown()
 	local cd = 1
-	if target:HasModifier("modifier_hood_of_lords_lua") then
-		cd = cd + 1
-	end
 	executedAbility:StartCooldown(cd)
 	Timers:CreateTimer(0.03, function()
 		if executedAbility:GetCooldownTimeRemaining() > 0.97 then
@@ -3183,7 +3181,7 @@ function tiamat_fire_finish_channel(event)
 		ability.channeledBeam = bomb
 		table.insert(ability.bombTable, bomb)
 		EmitSoundOn("Tiamat.FireBomb.Launch", caster)
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		Timers:CreateTimer(0.05, function()
 			fire_tiamat_fire_bomb(caster, ability, bomb)
 		end)
@@ -3444,7 +3442,7 @@ function radeon_orbit_thinker(event)
 	end
 	ability:ApplyDataDrivenModifier(caster, caster, counter_modifier_name, {})
 	caster:SetModifierStackCount(counter_modifier_name, caster, #ability.vorpals)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function radeon_orbit_projectile_thinker(event)

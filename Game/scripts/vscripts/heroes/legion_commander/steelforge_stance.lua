@@ -5,7 +5,7 @@ function energy_shield_create(event)
 	local ability = event.ability
 	local regen_percent = event.regen_percent
 	if not caster:HasModifier("modifier_energy_channel_no_cast_filter") then
-		Filters:CastSkillArguments(2, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_no_cast_filter", {duration = 0.5})
 	end
 
@@ -50,13 +50,13 @@ function energy_shield_create(event)
 		Timers:CreateTimer(4, function()
 			ParticleManager:DestroyParticle(particle1, false)
 		end)
-		local damage = w_1_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.50 + w_1_level * caster:GetStrength() * 10
+		local damage = w_1_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_ATTACK_POWER_PCT/100 + w_1_level * caster:GetStrength() * MOUNTAIN_PROTECTOR_ARCANA1_W1_DMG_OF_STR
 		EmitSoundOnLocationWithCaster(position, "MysticAssasin.FissureExplosion", caster)
-		local explosionAOE = 800
+		local explosionAOE = MOUNTAIN_PROTECTOR_ARCANA1_W1_AOE_RADIUS
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, explosionAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:ApplyStun(caster, 0.5, enemy)
+				Filters:ApplyStun(caster, MOUNTAIN_PROTECTOR_ARCANA1_W1_STUN_DURATION, enemy)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
 			end
 		end
@@ -69,7 +69,7 @@ function energy_shield_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local mana_drain = event.mana_drain
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	caster:ReduceMana(mana_drain)
 	CustomAbilities:IceQuill(event)
 

@@ -8,16 +8,14 @@ function class:GetTexture()
 end
 function class:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+        MODIFIER_PROPERTY_EVASION_CONSTANT
     }
 end
+
 function class:GetModifierEvasion_Constant()
-    return 100
+    return CHERNOBOG_E4_EVASION
 end
-function class:GetModifierMagicalResistanceBonus()
-    return 30
-end
+
 function class:IsHidden()
     return false
 end

@@ -31,7 +31,7 @@ function epoch_arcana_q_start(event)
 					end
 				end
 			end
-			Filters:CastSkillArguments(1, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		end)
 	end
 end

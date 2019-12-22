@@ -62,7 +62,7 @@ function cast_fire_blast(event)
     if thinkerDuration and thinkerDuration > 0 then
         CustomAbilities:QuickAttachThinker(ability, caster, target_location, "modifier_vacuum_thinker_datadriven", {duration = thinkerDuration})
     end
-    Filters:CastSkillArguments(1, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
     if caster:HasModifier("modifier_flamewaker_glyph_2_1") then
         ability:EndCooldown()
         ability:StartCooldown(FLAMEWAKER_GLYPH_2_1_Q_CD)
@@ -75,7 +75,7 @@ function rune_q_2(caster)
     local runeUnit = caster.runeUnit2
     local ability = runeUnit:FindAbilityByName("flamewaker_rune_q_2")
     ability.q_2_level = caster:GetRuneValue("q", 2)
-    ability.heal = 0
+    ability.heal = FLAMEWAKER_Q2_HEAL_PER_TICK_PER_UNIT*ability.q_2_level
 end
 
 function fire_blast_damage(event)
@@ -91,13 +91,9 @@ function fire_blast_damage(event)
 end
 
 function rune_q_3_eruption(ability, caster, point, radius)
-    local runeUnit = caster.runeUnit3
-    local runeAbility = runeUnit:FindAbilityByName("flamewaker_rune_q_3")
-    local abilityLevel = runeAbility:GetLevel()
-    local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-    local totalLevel = abilityLevel + bonusLevel
-    if totalLevel > 0 then
-        ability.q_3_damage = caster:GetStrength() * totalLevel * 0.5 + totalLevel * 800
+    local rune_level = caster:GetRuneValue("q", 3)
+    if rune_level > 0 then
+        ability.q_3_damage = (caster:GetStrength() * rune_level * FLAMEWAKER_Q3_STRENGTH_ADDED_TO_LAVA_DMG_PCT/100) + (rune_level * FLAMEWAKER_Q3_FLAT_LAVA_DPS)
         --ability:ApplyDataDrivenThinker(caster, point, "modifier_eruption_thinker", {})
         CustomAbilities:QuickAttachThinker(ability, caster, point, "modifier_eruption_thinker", {})
     else

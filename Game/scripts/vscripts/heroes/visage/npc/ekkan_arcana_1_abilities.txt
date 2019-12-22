@@ -259,7 +259,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% EKKAN_ARCANA_Q4_BONUS_DAMAGE_AURA * 100 %>"
-				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "<% EKKAN_ARCANA_Q4_ARMOR_AURA %>"
 				}
 				"EffectName"	"particles/items_fx/darkness_aura_ring.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -346,6 +345,15 @@
 					{
 						"ScriptFile"	"heroes/visage/black_dominion.lua"
 						"Function"		"swarm_poison_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
 				}

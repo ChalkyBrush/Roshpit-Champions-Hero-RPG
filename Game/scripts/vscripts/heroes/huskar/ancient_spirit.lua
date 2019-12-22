@@ -18,7 +18,7 @@ function cast_ancient_spirit(event)
 		end
 	end
 	if targetedSpirit then
-		Filters:CastSkillArguments(3, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_dashing", {duration = 3.4})
 		caster:RemoveModifierByName("modifier_spirit_warrior_glyph_effect")
 		ability.targetedSpirit = targetedSpirit
@@ -38,16 +38,19 @@ function cast_ancient_spirit(event)
 		if not caster:HasModifier("modifier_ancient_vigor") then
 			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_disarm", {})
 		else
-			local duration = caster:FindModifierByName("modifier_ancient_vigor"):GetRemainingTime()
-			ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
 			local c_d_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "spirit_warrior")
-			spirit.r_3_level = c_d_level
-			local vigor_ability = caster:FindAbilityByName("spirit_warrior_ancient_vigor")
-			if vigor_ability then
-				local r_4_level = caster:GetRuneValue("r", 4)
-				if r_4_level > 0 then
-					vigor_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_attackspeed", {duration = duration})
-					spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, r_4_level)
+			if c_d_level > 0 then
+				local duration = caster:FindModifierByName("modifier_ancient_vigor"):GetRemainingTime()
+				ability:ApplyDataDrivenModifier(caster, spirit, "modifier_spirit_attacking", {})
+				
+				spirit.r_3_level = c_d_level
+				local vigor_ability = caster:FindAbilityByName("spirit_warrior_ancient_vigor")
+				if vigor_ability then
+					local r_4_level = caster:GetRuneValue("r", 4)
+					if r_4_level > 0 then
+						vigor_ability:ApplyDataDrivenModifier(caster, spirit, "modifier_ancient_spirit_attackspeed", {duration = duration})
+						spirit:SetModifierStackCount("modifier_ancient_spirit_attackspeed", caster, r_4_level)
+					end
 				end
 			end
 		end
@@ -263,6 +266,7 @@ function b_c_start(event)
 		local caster = event.caster
 		local target = event.target
 		target:SetModifierStackCount("modifier_spirit_rune_e_2_buff", caster, ability.level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
@@ -279,7 +283,7 @@ function ancient_spirit_attack_hit(event)
 	local attacker = event.attacker
 	local target = event.target
 	local origCaster = attacker.origCaster
-	local damage = attacker.r_3_level * 0.5 * OverflowProtectedGetAverageTrueAttackDamage(origCaster)
+	local damage = attacker.r_3_level * SPIRIT_WARRIOR_R3_ATTACK_POWER_TO_DAMAGE/100 * OverflowProtectedGetAverageTrueAttackDamage(origCaster)
 	Filters:TakeArgumentsAndApplyDamage(target, origCaster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_WIND)
 end
 
@@ -317,7 +321,7 @@ function tempest_haze_friendly_think(event)
 		local glyph = modifier:GetAbility()
 		local buffDuration = Filters:GetAdjustedBuffDuration(caster, 6, false)
 		glyph:ApplyDataDrivenModifier(glyphUnit, target, "modifier_spirit_warrior_glyph_5_a_effect", {duration = buffDuration})
-		local newStacks = target:GetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit) + 1
+		local newStacks = math.min(target:GetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit) + 1, SPIRIT_WARRIOR_GLYPH_5_A_MAX_STACKS)
 		target:SetModifierStackCount("modifier_spirit_warrior_glyph_5_a_effect", glyphUnit, newStacks)
 	end
 end

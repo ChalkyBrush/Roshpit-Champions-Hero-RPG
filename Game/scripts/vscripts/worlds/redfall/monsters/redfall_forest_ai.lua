@@ -24,6 +24,36 @@ function RedfallQuest1Trigger(trigger)
 	end
 end
 
+function redfall_shroomling_think(event)
+	local caster = event.caster
+	if caster.aggro then
+		local particleName = "particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, event.caster)
+		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+		Timers:CreateTimer(1, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+		Timers:CreateTimer(0.03, function()
+			EmitSoundOn("Redfall.Shroom.Aggro", caster)
+		end)
+		caster:RemoveModifierByName("modifier_redfall_shroomling_ai")
+		StartAnimation(caster, {duration = 0.84, activity = ACT_DOTA_SPAWN, rate = 1})
+		local ability = event.ability
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_shroom_jumping", {duration = 0.84})
+		local position = caster:GetAbsOrigin()
+		caster.liftVelocity = 21
+		for i = 1, 28, 1 do
+			Timers:CreateTimer(0.03 * i, function()
+				caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, caster.liftVelocity))
+				caster.liftVelocity = caster.liftVelocity - 1.5
+			end)
+		end
+		Timers:CreateTimer(0.84, function()
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+		end)
+	end
+end
+
 function autumn_spawner_think(event)
 	local caster = event.caster
 	if not caster.summonTable then
@@ -184,10 +214,15 @@ function RedfallAquaLilyTrigger()
 				dummy:AddAbility("ability_blue_effect"):SetLevel(1)
 				dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 1200))
 				WallPhysics:Jump(dummy, Vector(1, 1), 0, 0, 0, 0.05)
+				local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
+				ParticleManager:SetParticleControl(pfx, 14, Vector(1,1,1))
+				ParticleManager:SetParticleControl(pfx, 15, Vector(0,30,255))
 				Timers:CreateTimer(10, function()
 					local unit = Redfall:SpawnWaterLily(dummy:GetAbsOrigin(), RandomVector(1), false)
 					unit:SetAbsOrigin(dummy:GetAbsOrigin())
 					unit:SetAbsOrigin(unit:GetAbsOrigin() - Vector(0, 0, 40))
+					EmitSoundOn("Redfall.Aqualily.Spawn", unit)
+					CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", unit, 4)
 					-- StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
 					UTIL_Remove(dummy)
 				end)
@@ -221,6 +256,7 @@ function fury_swipes_attack(keys)
 	-- Check if unit already have stack
 	if target:HasModifier(modifierName) then
 		local current_stack = target:GetModifierStackCount(modifierName, ability)
+		local max_stacks = 30
 
 		-- Deal damage
 		local damage_table = {
@@ -233,7 +269,8 @@ function fury_swipes_attack(keys)
 		ApplyDamage(damage_table)
 
 		ability:ApplyDataDrivenModifier(caster, target, modifierName, {Duration = duration})
-		target:SetModifierStackCount(modifierName, ability, current_stack + 1)
+		
+		target:SetModifierStackCount(modifierName, ability, math.min(current_stack + 1, max_stacks))
 	else
 		ability:ApplyDataDrivenModifier(caster, target, modifierName, {Duration = duration})
 		target:SetModifierStackCount(modifierName, ability, 1)
@@ -302,6 +339,11 @@ function big_tree_die(event)
 			dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 200))
 			local dummyFV = WallPhysics:rotateVector(fv, (2 * math.pi / spawns) * i)
 			WallPhysics:Jump(dummy, dummyFV, 5 + RandomInt(1, 4), 5 + RandomInt(1, 4), 16, 0.45)
+
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
+			ParticleManager:SetParticleControl(pfx, 14, Vector(1.4,1.4,1.4))
+			ParticleManager:SetParticleControl(pfx, 15, Vector(250,120,0))
+
 			Timers:CreateTimer(4, function()
 				local unit = Redfall:SpawnAutumnSpawnerUnit(dummy:GetAbsOrigin(), RandomVector(1), 1, true)
 				CustomAbilities:QuickAttachParticle("particles/roshpit/redfall/autumn_spawn.vpcf", unit, 3)
@@ -680,15 +722,18 @@ function forest_ranger_attack_land(event)
 
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
-		local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
-		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_forest_ranger_bleed", {duration = 6})
-		Timers:CreateTimer(4, function()
-			ParticleManager:DestroyParticle(pfx, false)
+		local key = 'forest_ranger_attack_land_pfx'
+			Util.Common:LimitPerTimeAndPlace(1, 1, target:GetAbsOrigin(), 400, key, function()
+			local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 2, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target)
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_forest_ranger_bleed", {duration = 6})
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
 		end)
 	end
 end
@@ -725,10 +770,15 @@ function LilyTrigger2()
 			dummy:AddAbility("ability_blue_effect"):SetLevel(1)
 			dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 1200))
 			WallPhysics:Jump(dummy, Vector(1, 1), 0, 0, 0, 0.05)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
+			ParticleManager:SetParticleControl(pfx, 14, Vector(1,1,1))
+			ParticleManager:SetParticleControl(pfx, 15, Vector(0,30,255))
 			Timers:CreateTimer(10, function()
 				local unit = Redfall:SpawnWaterLily(dummy:GetAbsOrigin(), RandomVector(1), false)
 				unit:SetAbsOrigin(dummy:GetAbsOrigin())
 				unit:SetAbsOrigin(unit:GetAbsOrigin() - Vector(0, 0, 40))
+				EmitSoundOn("Redfall.Aqualily.Spawn", unit)
+				CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_kunkka_parrot/courier_kunkka_parrot_splash.vpcf", unit, 4)
 				-- StartAnimation(unit, {duration=1, activity=ACT_DOTA_SPAWN, rate=1})
 				UTIL_Remove(dummy)
 			end)
@@ -1247,10 +1297,10 @@ function redfall_unit_die(event)
 		Redfall:DropAshTwig(event.unit:GetAbsOrigin())
 	end
 	if luck == 2 then
-		item_rpc_redfall_runners:CreateLuaItem(event.unit:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.unit, 'item_rpc_redfall_runners')
 	end
 	if luck == 3 then
-		RPCItems:RollFuchsiaRing(event.unit:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_fuchsia_ring")
 	end
 end
 
@@ -1370,6 +1420,10 @@ function ash_tree_think(event)
 		local dummy = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 		dummy:AddAbility("ability_red_effect"):SetLevel(1)
 		dummy:SetAbsOrigin(dummy:GetAbsOrigin() + Vector(0, 0, 200))
+		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 4)
+		ParticleManager:SetParticleControl(pfx, 14, Vector(1,1,1))
+		ParticleManager:SetParticleControl(pfx, 15, Vector(255,120,0))
+
 		local dummyFV = WallPhysics:rotateVector(fv, (2 * math.pi / spawns) * i)
 		WallPhysics:Jump(dummy, dummyFV, 5 + RandomInt(1, 4), 5 + RandomInt(1, 4), 16, 0.45)
 		Timers:CreateTimer(4, function()
@@ -1406,7 +1460,7 @@ function redfall_ashara_die(event)
 		end
 		local luck = RandomInt(1, GameState:GetDifficultyFactor())
 		if luck == 1 then
-			RPCItems:RollBootsOfAshara(position)
+			RPCItems:RollAndDropUniqueItem(unit, "item_rpc_boots_of_ashara")
 		end
 	end
 end
@@ -1741,7 +1795,6 @@ function begin_splitshot(event)
 	ability.damage = damage
 
 	EmitSoundOn("Astral.AstralVolleyBig", caster)
-	local projectileParticle = "particles/frostivus_herofx/drow_linear_arrow.vpcf"
 
 	local minArrows = -4
 	local maxArrows = 4
@@ -1768,6 +1821,7 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local start_radius = 60
 	local end_radius = 60
 	local speed = 1100
+	local projectileParticle = "particles/frostivus_gameplay/astral_rune_c_b_linear_frost_arrow.vpcf"
 	--print(fv)
 	--print(arrowOrigin)
 	--print(caster:GetUnitName())
@@ -1776,7 +1830,7 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local info =
 	{
 		Ability = ability,
-		EffectName = "particles/frostivus_gameplay/astral_rune_w_3_linear_frost_arrow.vpcf",
+		EffectName = projectileParticle,
 		vSpawnOrigin = arrowOrigin,
 		fDistance = 1200,
 		fStartRadius = start_radius,

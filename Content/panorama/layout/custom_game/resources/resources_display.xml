@@ -38,6 +38,17 @@
 				</Panel>
 
 			</Panel>
+			<Panel id="prismatic_gemstones_container">
+				<Panel id="prismatic_gemstones_title_container">
+						<Label id="prismatic_gemstones_title_label" text="tooltip_prismatic_gemstones"></Label>
+				</Panel>
+				<Panel id="prismatic_gemstones_value_container">
+						<Image id="prismatic_gemstone_image_resources" src="file://{images}/custom_game/ui/prismatic_gemstone.png" />
+						<Label id="prismatic_gemstones_value" text="Loading"></Label>
+						<Label id="prismatic_gemstones_increment" text="(+0)"></Label>
+				</Panel>
+
+			</Panel>
 		</Panel>	
 	</Panel>
 

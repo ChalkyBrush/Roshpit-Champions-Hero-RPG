@@ -54,6 +54,8 @@ function UpdateItem()
 	$( "#ChargeCount" ).text = chargeCount;
 	$( "#AltChargeCount" ).text = altChargeCount;
 	
+	manageSockets(m_Item)
+
 	if(m_ItemSlot <= 5){
 		if ( m_Item == -1 || Abilities.IsCooldownReady( m_Item ) )
 		{
@@ -79,6 +81,15 @@ function UpdateItem()
 		$( "#CooldownOverlay" ).style.width = "100%";
 		$( "#CooldownTimer" ).text = "";
 		$.GetContextPanel().AddClass('ItemPanelBackpack')
+		$("#gems-small-socket1").style.width='10px'
+		$("#gems-small-socket1").style.height='10px'
+		$("#gems-small-socket2").style.width='10px'
+		$("#gems-small-socket2").style.height='10px'
+	}else{
+		$("#gems-small-socket1").style.width='18px'
+		$("#gems-small-socket1").style.height='18px'
+		$("#gems-small-socket2").style.width='18px'
+		$("#gems-small-socket2").style.height='18px'		
 	}
 	
 	$.Schedule( 0.1, UpdateItem );

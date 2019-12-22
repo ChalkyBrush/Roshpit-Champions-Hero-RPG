@@ -273,8 +273,6 @@
     	"DOTA_Tooltip_ability_item_rpc_boots"											"Boots"
     	"DOTA_Tooltip_ability_item_rpc_boots_Description"								"Slot: Feet"
 
-    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers"									"Ghost Slippers"
-    	"DOTA_Tooltip_ability_item_rpc_ghost_slippers_Description"						"Slot: Feet"
 
     	"DOTA_Tooltip_ability_item_rpc_robe"											"Robe"
     	"DOTA_Tooltip_ability_item_rpc_robe_Description"								"Slot: Body"
@@ -293,12 +291,12 @@
     	"DOTA_Tooltip_ability_item_rpc_talisman_Description"							"Slot: Trinket"
     	
 
-    	"DOTA_Tooltip_ability_item_potion_green"										"Green Potion"
-    	"DOTA_Tooltip_ability_item_potion_green_Description"							"Can be consumed for bonuses."
+    	"DOTA_Tooltip_ability_item_potion_green"										"Health Potion"
+    	"DOTA_Tooltip_ability_item_potion_green_Description"							"Restores Health."
     	"DOTA_Tooltip_ability_item_potion_red"											"Red Potion"
     	"DOTA_Tooltip_ability_item_potion_red_Description"								"Can be consumed for bonuses."
-    	"DOTA_Tooltip_ability_item_potion_blue"											"Blue Potion"
-    	"DOTA_Tooltip_ability_item_potion_blue_Description"								"Can be consumed for bonuses."
+    	"DOTA_Tooltip_ability_item_potion_blue"											"Mana Potion"
+    	"DOTA_Tooltip_ability_item_potion_blue_Description"								"Restores Mana."
 
     	"DOTA_Tooltip_ability_item_fire_blaster"										"Fire Cannon"
     	"DOTA_Tooltip_ability_item_fire_blaster_Description"							"Creates a cone in front of the caster dealing damage and applying an elemental modifier."
@@ -512,8 +510,11 @@
 		"shop_roll_strength"		"Higher chance to roll Strength"
 		"shop_title_gheed"			"Gheed's Gambling Outpost"
 
-		"runic_points"			"Runic Points"
+		"runic_points"			"Rune Points"
+		"runic_points_help"		"<br>Can level up runes on the 4x4 grid below your base abilities. When your base ability level increases, a new tier of runes beneath that ability is unlocked.<br>Shift+Click on a rune to pour as many points as you can into it.<br>Alt+Click on a rune to disable it.<br><br>Tier 1 runes cost 1 point to upgrade, and have a maximum level of 40.<br><br>Tier 2 runes cost 1 point to upgrade, have a maximum level of 40.<br><br>Tier 3 runes cost 2 points to upgrade, have a maximum level of 20.<br><br>Tier 4 runes cost 4 points to upgrade, have a maximum level of 10."
+		"rune_points_cost_tip"	"*Costs @points rune points to upgrade."
 		"skill_points"			"Skill Points"
+		"skill_points_help"		"Can increase the level of a Base Ability by 1 with each skill point."
 		"ui_base_skills"		"Base Skills"
 		"ui_runes"				"Runes"
 		"ui_future_patch"		"More Runes in future updates"
@@ -566,9 +567,9 @@
 		"ui_difficulty_select"	"Difficulty Select"
 		"ui_difficulty_select_tip"	"(Lobby Host Only)"
 
-		"ui_normal_tip"			"Level 1-50"
-		"ui_elite_tip"			"Level 50-100"
-		"ui_legend_tip"			"Level 100+"
+		"ui_normal_tip"			"Level 1-40"
+		"ui_elite_tip"			"Level 40-80"
+		"ui_legend_tip"			"Level 80+"
 
 		"ui_level_up"			"Level UP"
 
@@ -589,8 +590,12 @@
 		"ui_bonus_armor"			"Armor Bonus"
 		"ui_elements"				"Elemental Damage"
 		"ui_elements_resist"				"Elemental Resistance Against Your Hero"
-		"ui_most_mit_and_item_single"		"Item And Post-Mitigation Damage Increase Against Your Hero"
-		"ui_most_mit_and_item_global"		"Item And Post-Mitigation Damage Increase"
+		"ui_most_mit_and_item_single"		"Other Damage Against Your Hero"
+		"ui_most_mit_and_item_global"		"Other Damage"
+		"ui_movement"						"Movement"
+		"ui_base_movement_speed"			"Base Movement Speed"
+		"ui_bonus_movement_speed"			"Bonus Movement Speed"
+		"ui_max_movement_speed"				"Max Movement Speed"
 
 		"ui_recalculate_stats_button"	"Recalculate Stats"
 		"ui_recalculate_stats_waiting"	"Recalculating"
@@ -640,6 +645,7 @@
 		"item_agility"			"Agility"
 		"item_strength"			"Strength"
 		"item_intelligence"		"Intelligence"
+		"item_spirit"			"Spirit"
 		"item_bonus_damage"		"Bonus Damage"
 		"item_end_radius"		"End Radius Increase"
 		"item_range_increase"	"Range Increase"
@@ -660,6 +666,13 @@
 		"item_cannon_torrent"		"Torrents Created"
 		"item_cannon_moon_shroud"	"Moon Shrouds Created"
 		"item_vision_bonus"			"Vision Increase"
+		"item_armor_pierce"			"Armor Pierce"
+		"item_spell_pierce"			"Spell Pierce"
+		"item_magic_armor"			"Magic Armor"
+		"bonus_magic_armor"			"Bonus Magic Armor"
+		"item_status_resist"		"Status Resist"
+		"ui_base_ability_damage"	"Base Ability"
+		"tooltip_magic_armor"		"Magic Armor Resist"
 
 		"item_magic_resist"			"Magic Resist"
 		"item_armor"				"Armor"
@@ -703,9 +716,15 @@
 		"item_base_ability"			"Base Ability Damage %"
 
 		"item_damage_increase"			"Item Damage %"
+		"item_item_damage"				"Item Damage %"
+
+		"item_attack_damage"				"Base Attack Damage"
 
 		"item_all_runes"							"+ All T1-T3 Runes"
 		"item_all_attributes"						"+ All Attributes"
+		"item_all_elements"							"All Elemental Damage %"
+
+		"DOTA_Tooltip_modifier_command_restric_player"			"Restricted"
 
 		 
 
@@ -718,10 +737,10 @@
 		 "property_skulldigger3_description"				"Gain wraithfire stacks each @special_property1 seconds. When attacked, launch a wraithfire blast at the target that deals @special_property3x your attack damage on impact and stuns in a small AOE for @special_property4 seconds. Max @special_property2 stacks."
 
 
-		"item_t1_runes"											"All T1 Runes"
-		"item_t2_runes"											"All T2 Runes"
-		"item_t3_runes"											"All T3 Runes"
-		"item_t4_runes"											"All T4 Runes"
+		"item_all_t1_runes"											"All T1 Runes"
+		"item_all_t2_runes"											"All T2 Runes"
+		"item_all_t3_runes"											"All T3 Runes"
+		"item_all_t4_runes"											"All T4 Runes"
 
 		//Seafortress Items:
 		//NOTE: From now on, item name will appear directly above its special property, as seen below:
@@ -800,6 +819,16 @@
 
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
 		"item_rpc_currency_whetstone_desc"							"Use: Combine with a Weapon in a Synthesis Vessel to upgrade it to its max level."
+
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"Socket Cutter"
+		"socket_cutter_desc"										"Use at the blacksmith to add a socket to an item."
+
+		"DOTA_Tooltip_ability_item_rpc_inscription_kit"				"Inscription Kit"
+		"inscription_kit_desc"										"Adds a permanent inscription to an equippable item."
+
+		"inscription_kit_tip1"										"Select a piece of equipment to inscribe"
+		"inscription_kit_tip2"										"Type in your inscription below. Inscriptions are permanent and can NEVER be removed. Maximum of 36 characters."
+		"inscription_inscribe"										"Inscribe"
 
 		"cache_radiance"									"Radiance"
 
@@ -899,69 +928,7 @@
 
 		"dialogue_glyph_shop_one"	"I can turn your Arcane Crystals into material enhancements."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"Glyph of Lesser Strength"
-		"item_rpc_neutral_glyph_1_1_description" 			"Increases Strength by @glyph_property1"
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"Glyph of Items"
-		"item_rpc_neutral_glyph_2_1_description" 			"Increases damage dealt directly by items by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"Glyph of Flight"
-		"item_rpc_neutral_glyph_3_1_description"			"Increases your Movement Speed Cap to @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Reduces respawn time by @glyph_property1%, and you will respawn at the location of your death. If you die again within @glyph_property2 seconds, however, you will respawn at your Respawn Flag or at the map's default location."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"Glyph of Walling"
-		"item_rpc_neutral_glyph_5_1_description" 			"Decreases all damage taken by @glyph_property1% and reduces all outgoing damage by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"Glyph of War"
-		"item_rpc_neutral_glyph_6_1_description" 			"Increase attack damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"Glyph of Grand Strength"
-		"item_rpc_neutral_glyph_7_1_description" 			"Increases Strength by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"Glyph of Lesser Agility"
-		"item_rpc_neutral_glyph_1_2_description" 			"Increases Agility by @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"Glyph of Ability"
-		"item_rpc_neutral_glyph_2_2_description" 			"Increases base ability damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"Glyph of Avoidance"
-		"item_rpc_neutral_glyph_3_2_description" 			"Increases Evasion by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"Glyph of the Giant Slayer"
-		"item_rpc_neutral_glyph_4_2_description" 			"Your damage against enemies with the Steadfast or Mega Steadfast properties is bolstered. The threshold for Steadfast is reduced to @glyph_property1% of their maximum health (from 3%), and @glyph_property2% for Mega Steadfast (from 0.5%). Any post-mitigation amplification effects are reduced against these enemies, down to @glyph_property3% of the total bonus against Steadfast and @glyph_property4% vs. Mega Steadfast. (Ancient Steadfast is unaffected.) In exchange, your damage output against targets without Steadfast properties is reduced by @glyph_property5%."
-
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"Glyph of Berserking"
-		"item_rpc_neutral_glyph_5_2_description" 			"Increases all damage taken by @glyph_property1% and increases all outgoing damage by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"Glyph of Aptitude"
-		"item_rpc_neutral_glyph_6_2_description" 			"Increase Normal damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"Glyph of Grand Agility"
-		"item_rpc_neutral_glyph_7_2_description" 			"Increases Agility by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"Glyph of Lesser Intelligence"
-		"item_rpc_neutral_glyph_1_3_description" 			"Increases Intelligence by @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"Glyph of Elements"
-		"item_rpc_neutral_glyph_2_3_description" 			"Increases all elemental damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"Glyph of Fleeting"
-		"item_rpc_neutral_glyph_3_3_description" 			"Reduces cooldown of @Ability3 by @glyph_property1 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_4_3_description" 			 "All effects of consumed Potions are increased by @glyph_property1%. Additionally, automatically consume any potions within 400 range every 0.5 seconds."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"Glyph of Barbarism"
-		"item_rpc_neutral_glyph_5_3_description" 			"Increases ALL physical damage output by @glyph_property1% and decreases all magic damage output by @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"Glyph of Sorcery"
-		"item_rpc_neutral_glyph_6_3_description" 			"Increases Post-Mitigation magic damage by @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"Glyph of Grand Intelligence"
-		"item_rpc_neutral_glyph_7_3_description" 			"Increases Intelligence by either @glyph_property2% or @glyph_property1, whichever provides a greater bonus."
 
 		//FLAMEWAKER
 
@@ -1091,7 +1058,7 @@
 		"DOTA_Tooltip_modifier_paragon_light_infused_Description"	"Granted the ability to heal allied target for 30%% of max HP (7%% for Paragon Units)."
 
 		"DOTA_Tooltip_modifier_paragon_magic_barrier"				"Magic Barrier"
-		"DOTA_Tooltip_modifier_paragon_magic_barrier_Description"	"30%% Magic Resistance for 6 seconds. 13 seconds cooldown."
+		"DOTA_Tooltip_modifier_paragon_magic_barrier_Description"	"Gain Magic Immunity for 3 seconds. 12 second cooldown."
 
 		"DOTA_Tooltip_modifier_paragon_shielding"					"Shielding"
 		"DOTA_Tooltip_modifier_paragon_shielding_Description"		"Granth the shield which makes Paragon immune to spells and attacks. 4 seconds duration, 11 seconds cooldown."
@@ -1100,7 +1067,7 @@
 		"DOTA_Tooltip_modifier_paragon_shield_Description"			"Invulnerable"	
 
 		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect"		"Magic Barrier"
-		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect_Description"	"Taking 0 Magic Damage"
+		"DOTA_Tooltip_modifier_paragon_magic_barrier_effect_Description"	"Immune to Magic"
 
 		"DOTA_Tooltip_modifier_paragon_blinking"					"Blinking"
 		"DOTA_Tooltip_modifier_paragon_blinking_Description"		"Blinks in a random direction every 6 seconds."
@@ -1111,17 +1078,69 @@
 
 		"challenge_title"											"Hourly Challenge"
 		"challenge_timer_title"										"CHALLENGE"
-		"challenge_description"										"A new challenge is generated every hour. All players have the same challenge at all times and can be completed on any difficulty."
-		"challenge_dungeon"											"Defeat @boss_name@level_condition in @dungeon_name."
-		"challenge_paragon"											"Defeat @paragon_quantity Paragon creatures in a single game session."
-		"challenge_paragon_with_affix"								"Defeat @paragon_quantity Paragon creatures with @paragon_affix affix in a single game session."	
-		"challenge_level_condition"									"Level @level or higher"
-		"challenge_time_constraint"									"Must be completed within @time_constraint of starting the dungeon."
-		"challenge_hero_constraint"									"Parties with a @heroname cannot complete this challenge."
-		"challenge_ability_constraint"								"Any player using @ability (@letter Ability) will disqualify you from completing this challenge in this game session."	
-		"challenge_solo"											"This challenge must be completed solo."	
-		"challenge_no_deaths"										"Any player deaths will disqualify you from completing this challenge in this game session."
-		"challenge_reward"											"Rewards"		
+		"challenge_description"										"A new challenge is generated every hour. All players have the same challenge at all times."
+		"challenge_main_title"										"Hourly Challenge"
+		"challenge_web_title"										"Daily Solo Web Premium Challenge"
+		"challenge_main"											"Defeat @boss_name of @map_name on @difficulty_name difficulty."
+		"challenge_mod_no_deaths"									"Must be completed without any deaths."
+		"challenge_mod_hero_limit_solo"								"Must be completed solo."	
+		"challenge_mod_hero_limit"									"Must be completed with @int1 or fewer players."
+		"challenge_mod_hero_spec_5"									"Must be completed with only @string1, @string2, @string3, @string4 and @string5 in the party."
+		"challenge_mod_hero_spec_4"									"Must be completed with only @string1, @string2, @string3 and @string4 in the party."
+		"challenge_mod_hero_spec_3"									"Must be completed with only @string1, @string2, and @string3 in the party."
+		"challenge_mod_hero_spec_2"									"Must be completed with only @string1 and @string2 in the party."
+		"challenge_mod_hero_spec_1"									"Must be completed as @string1."
+		"challenge_mod_mob_health"									"Enemies have @int1% increased health."
+		"challenge_mod_mob_attack_power"							"Enemies have @int1% increased attack power."
+		"challenge_mod_mob_armor"									"Enemies have @int1% increased armor."
+		"challenge_mod_mob_armor_pierce"							"Enemies have @int1% increased armor pierce."
+		"challenge_mod_mob_magic_armor"								"Enemies have @int1% increased magic armor."
+		"challenge_mod_mob_spell_pierce"							"Enemies have @int1% increased spell pierce."
+		"challenge_mod_time_limit"									"Must be completed within @time."
+		"challenge_mod_paragon_rate"								"Enemies spawn as paragons @int1% more frequently."
+		"challenge_mod_mob_cooldown_reduction"						"Enemies have @int1% cooldown reduction."
+		"challenge_mod_ability_disable"								"@ability_button ability is disabled for all heroes."
+		"challenge_mod_super_boss"									"The objective boss has all if its stats increased by @int1%."
+		"challenge_mod_mob_speed"									"Enemies have @int1% increased attackspeed and movespeed."
+		"challenge_mod_spirit"										"Must be completed in @event."
+		"challenge_mod_stones"										"Must be completed with @stones active Glacier Stones."
+		"challenge_mod_pit_level"									"Must be completed on at least Pit Level @pit_level."
+
+		"challenge_spirit"											"Spirit Realm"
+		"challenge_equinox"											"Equinox"
+
+		"ui_start_challenge"										"Start Challenge"
+		"ui_challenge_reward"										"Reward"
+		"ui_challenge_started"										"The Crusader's Challenge is accepted."
+		"ui_challenge_completed"									"Challenge Completed"
+		"ui_challenge_failed"										"Challenge Failed"
+
+		"DOTA_Tooltip_ability_item_rpc_unrefined_gemstones"			"Unrefined Gemstones"
+		"unrefined_gemstones_desc"									"Grants Primsatic Gemstones when taken to Elder Rai in town."
+
+
+		"elder_rai"													"Elder Rai"
+		"dialogue_elder_rai_one"									""
+
+		"elder_rai_refine_gemstones"								"Refine Gemstones"
+		"elder_rai_buy_exp_orb"										"Purchase EXP Orb"
+		"elder_rai_buy_greater_exp_orb"								"Purchase Greater EXP Orb"	
+
+		"DOTA_Tooltip_ability_item_rpc_exp_orb"						"EXP Orb"
+		"item_rpc_exp_orb_description"								"Grants <% RPC_EXP_ORB_1 %> Experience Points."
+
+		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"Greater EXP Orb"
+		"item_rpc_greater_exp_orb_description"						"Grants <% RPC_EXP_ORB_2 %> Experience Points."
+		"elder_rai_your_mithril_shards"								"Your Mithril Shards"
+		"ui_cost"													"Cost"
+
+		"ui_purchase"												"Purchase"
+		"ui_no_unrefined_gemstones"									"No Gemstones in Inventory"
+		"elder_rai_you_have_x_gemstones_1"							"Elder Rai will refine the Gemstones in your inventory."
+		"elder_rai_you_have_x_gemstones_2"							"Elder Rai will refine both Unrefined Gemstones in your inventory."
+		"elder_rai_you_have_x_gemstones_3"							"Elder Rai will refine all @count Unrefined Gemstones in your inventory."
+
+		"elder_rai_cut"												"Telekinetic Cut!"
 
 	    //------------------------
 		// Blacksmith
@@ -1140,6 +1159,9 @@
 		"reroll_name"												"Item Reroll"
 		"reroll_tooltip"											"A selected Immortal Item can have its properties rerolled. For an additional fee, you can lock specific slots from rerolling. Price of reroll depends on the item's internal level. Weapons can't be rerolled."
 
+		"socket_name"												"Socket Cutting"
+		"socket_tooltip"											"A selected non-weapon immortal item can have a socket added, at the cost of some mithril and a Socket Cutter. Items can have a maximum of 2 sockets."
+
 		"ui_cancel"													"Cancel"
 
 		"message_chisel_price"										"Cost to Chisel"
@@ -1155,6 +1177,66 @@
 
 		"property_lock_title"										"Lock Property"
 		"property_lock_tooltip"										"Click on this row to lock or unlock this property from rerolling."
+
+		"socket_item_select_help"									"Select an equipped item or drag an item from your inventory into the slot."
+		"cannot_be_socketed_slot"									"This item is not a Helm, Chest, Boots, Glove, or Trinket item."
+		"cannot_be_socketed_rarity"									"This item is not an immortal."
+		"cannot_be_socketed_full_socket"							"This item already has maximum sockets."
+
+		"next_socket_1"												"This item is valid for adding its first socket. The socketing process requires 1 Socket Cutter and mithril."
+		"next_socket_2"												"This item is valid for adding its second socket. The socketing process requires 1 Socket Cutter and mithril."
+
+		"item_forger_tip_for_socket"								"Drag a Socket Cutter into this slot"
+		"final_add_socket"											"Add Socket"
+
+		"socket_not_enough_mithril"									"You do not have enough mithril to proceed"
+
+		//------------------------
+		// GEMS
+		//------------------------
+
+		"gem_forger"												"Gem Forger"
+
+		"gem_forger_fluff"											"I arrive in a thrilling spectacle of color!"
+		"gem_forger_reward_available"								"Reward Available"
+		"tooltip_prismatic_gemstones"								"Prismatic Gemstones"
+		"ui_click_to_collect"										"Click to Collect"
+		"gem_forger_start"											"Forge Gems"
+
+		"gemforge_item_select_help"									"Select an equipped item or drag an item from your inventory into the slot to view gem forging options."
+		"gemforge_item_cannot_be_forged"							"This item does not have any sockets."
+		"ui_socket"													"Socket"
+		"ui_no_socket"												"No Socket"
+		"ui_open_socket"											"Empty Socket"
+
+		"gems_ruby1"												"Chipped Ruby"
+		"gems_ruby2"												"Flawed Ruby"
+		"gems_ruby3"												"Ordinary Ruby"
+		"gems_ruby4"												"Pristine Ruby"
+		"gems_ruby5"												"Perfect Ruby"
+
+		"gems_emerald1"												"Chipped Emerald"
+		"gems_emerald2"												"Flawed Emerald"
+		"gems_emerald3"												"Ordinary Emerald"
+		"gems_emerald4"												"Pristine Emerald"
+		"gems_emerald5"												"Perfect Emerald"
+
+		"gems_sapphire1"												"Chipped Sapphire"
+		"gems_sapphire2"												"Flawed Sapphire"
+		"gems_sapphire3"												"Ordinary Sapphire"
+		"gems_sapphire4"												"Pristine Sapphire"
+		"gems_sapphire5"												"Perfect Sapphire"
+
+		"gems_amethyst1"												"Chipped Amethyst"
+		"gems_amethyst2"												"Flawed Amethyst"
+		"gems_amethyst3"												"Ordinary Amethyst"
+		"gems_amethyst4"												"Pristine Amethyst"
+		"gems_amethyst5"												"Perfect Amethyst"
+
+		"rpc_items_basic_ruby"	"Increases Strength by @ruby_property1"
+		"rpc_items_basic_emerald" "Increases Agility by @emerald_property1"
+		"rpc_items_basic_sapphire" "Increases Intelligence by @sapphire_property1"
+		"rpc_items_basic_amethyst" "Increases Spirit by @amethyst_property1"
 
 	    //------------------------
 		// World
@@ -1378,6 +1460,9 @@
 		"swamp_viper"								"Swamp Viper"
 		"swamp_razorfish"							"Razorfish"
 		"swamp_razorfish_captain"					"Razorfish Plaguebringer"
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive"	"Plague Strike"
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive_Description"	 "Applies poison on attack, which damages target every 0.5 seconds."
+		"DOTA_Tooltip_ability_swamp_razorfish_captain_passive_poison_damage" "POISON DAMAGE:"
 		"swamp_tribal_cultist"						"Tribal Cultist"
 		"the_bog_monster"							"The Bog Monster"
 		"swamp_tribal_invoker"						"Azunu the Mad"
@@ -1851,6 +1936,25 @@
 		"rpc_item_element17"												"Undead Damage %"
 		"rpc_item_element18"												"Dragon Damage %"
 
+		"item_element_normal"												"Normal Damage %"
+		"item_element_fire"													"Fire Damage %"
+		"item_element_earth"												"Earth Damage %"
+		"item_element_lightning"											"Lightning Damage %"
+		"item_element_poison"												"Poison Damage %"
+		"item_element_time"													"Temporal Damage %"
+		"item_element_holy"													"Holy Damage %"
+		"item_element_cosmic"												"Cosmic Damage %"
+		"item_element_ice"													"Ice Damage %"
+		"item_element_arcane"												"Arcane Damage %"
+		"item_element_shadow"												"Shadow Damage %"
+		"item_element_wind"													"Wind Damage %"
+		"item_element_ghost"												"Ghost Damage %"
+		"item_element_water"												"Water Damage %"
+		"item_element_demon"												"Demon Damage %"
+		"item_element_nature"												"Nature Damage %"
+		"item_element_undead"												"Undead Damage %"
+		"item_element_dragon"												"Dragon Damage %"
+
 		//RUNES GENERIC
 
 		"rune_q_1"														"Rune Q1"
@@ -1999,6 +2103,7 @@
     	##GLOVES_ENGLISH##
     	##HELM_ENGLISH##
     	##TRINKET_ENGLISH##
+		##NEUTRAL_GLYPHS_ENGLISH##
 
         ##ARENA_ENGLISH##
         ##REDFALL_ENGLISH##

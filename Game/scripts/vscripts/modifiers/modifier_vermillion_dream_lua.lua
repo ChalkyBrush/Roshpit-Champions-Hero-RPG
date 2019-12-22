@@ -1,3 +1,6 @@
+require('/items/constants/helm')
+require('/items/constants/chest')
+
 modifier_vermillion_dream_lua = class({})
 
 function modifier_vermillion_dream_lua:DeclareFunctions()
@@ -10,9 +13,9 @@ end
 
 function modifier_vermillion_dream_lua:GetModifierCastRangeBonus(params)
     local hero = self:GetParent()
-    local range = 420
-    if hero:HasModifier("modifier_hood_of_lords_lua") then
-        range = range + 140
+    local range = ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
+    if IsServer() then
+        range = range + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_RUBY)
     end
     return range
 end

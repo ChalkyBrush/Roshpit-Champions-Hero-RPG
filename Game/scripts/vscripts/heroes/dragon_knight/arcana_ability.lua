@@ -78,7 +78,7 @@ function start_arcana_ability(event)
 		local b_a_particle = CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire_channel.vpcf", caster, 4)
 		ParticleManager:SetParticleControlEnt(b_a_particle, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function cast_dragon_fire_burst(caster, ability, target_point, damage, q_2_level)

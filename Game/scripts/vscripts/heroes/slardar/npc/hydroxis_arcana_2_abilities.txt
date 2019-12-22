@@ -295,12 +295,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"cast_time"	"20 25 30 35 40 45 50"
+				"cast_time"	"30 35 40 45 50 55 60"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"mana_regen"	"100 500 1000 2000 3000 5000 8000"
+				"mana_regen"	"40 120 200 280 360 440 520"
 			}
 			"03"
 			{

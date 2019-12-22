@@ -168,7 +168,7 @@ function Winterblight:AzaleaCupAttacked(cup, attacker)
 				Timers:CreateTimer(0.1, function()
 					local arcanaLuck = RandomInt(1, 700 - GameState:GetPlayerPremiumStatusCount() * 40 - Winterblight.Stones * 120)
 					if arcanaLuck == 1 then
-						RPCItems:RollSephyrArcana1(cup:GetAbsOrigin())
+						RPCItems:RollAndDropArcanaByLevel(cup:GetAbsOrigin(), GameState:GetDifficultyFactor()*36, "item_rpc_sephyr_arcana1")
 					end
 				end)
 			end)
@@ -2363,15 +2363,18 @@ function Winterblight:CandyCrushPoints(units_to_remove_per_x_coord)
 				EmitSoundOnLocationWithCaster(Winterblight.CandyCrushProgressCrystal:GetAbsOrigin(), "Winterblight.CandyCrystal.Shatter", Winterblight.Master)
 				local position = Winterblight.CandyCrushProgressCrystal:GetAbsOrigin()
 				UTIL_Remove(Winterblight.CandyCrushProgressCrystal)
+				local iLevelBonus = 0
 				local locketsCount = 1
 				if black_statue_count <= 3 then
+					iLevelBonus = 20
 					locketsCount = 3
 				elseif black_statue_count <= 6 then
+					iLevelBonus = 10
 					locketsCount = 2
 				end
 				for i = 1, locketsCount, 1 do
 					Timers:CreateTimer((i - 1), function()
-						RPCItems:RollPuzzlersLocket(Vector(2505, -14245, 560))
+						RPCItems:RollAndDropImmortalByLevel(position, (GameState:GetDifficultyFactor()*30)+iLevelBonus, "item_rpc_puzzlers_locket")
 					end)
 				end
 				EmitSoundOnLocationWithCaster(position, "Winterblight.Azalea.Win", Winterblight.Master)
@@ -3925,6 +3928,7 @@ function Winterblight:SpawnTriBoss(bossName)
 	ability:ApplyDataDrivenModifier(stone, stone, "modifier_azalea_triple_boss_frozen", {})
 	if Winterblight.Stones >= 1 then
 		stone:RemoveAbility("normal_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
 		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 end
@@ -4924,7 +4928,7 @@ function Winterblight:StargazerWaveUnitDie(unit)
 					end)
 					local luck = RandomInt(1, 8 - GameState:GetDifficultyFactor())
 					if luck == 1 then
-						item_rpc_stargazers_sphere:CreateLuaItem(pos)
+						RPCItems:RollAndDropUniqueItem(Winterblight.Stargazer, "item_rpc_stargazers_sphere")
 					end
 					Winterblight:LastBridgeAndCup()
 				end)
@@ -5033,6 +5037,7 @@ function Winterblight:SpawnGigaIceRevenant(position, fv)
 	-- stone.dominion = true
 	if Winterblight.Stones >= 1 then
 		stone:RemoveAbility("normal_steadfast")
+		stone:RemoveModifierByName("modifier_steadfast")
 		stone:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	Events:ColorWearablesAndBase(stone, Vector(150, 255, 145))
@@ -5227,15 +5232,11 @@ function Winterblight:AzaleaBossDie(boss)
 		local luck = RandomInt(1, 3)
 	end)
 	local position = boss:GetAbsOrigin()
-	for i = 1, 18, 1 do
-		Timers:CreateTimer(0.3 * i, function()
-			RPCItems:RollItemtype(300, boss:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	boss:BossDrops(14)
 	Timers:CreateTimer(1, function()
 		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.Stones * 25)
 		if arcanaLuck == 1 then
-			RPCItems:RollAstralArcana3(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_astral_arcana3")
 		end
 		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 1)
 		if luck2 == 1 then
@@ -5245,13 +5246,13 @@ function Winterblight:AzaleaBossDie(boss)
 	Timers:CreateTimer(3, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIceFloeSlippers(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_ice_floe_slippers")
 		end
 	end)
 	Timers:CreateTimer(5, function()
 		local luck = RandomInt(1, 5)
 		if luck == 1 then
-			RPCItems:RollIronTreadsOfDestruction(boss:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(boss, "item_rpc_iron_treads_of_destruction")
 		end
 	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
@@ -5267,6 +5268,7 @@ function Winterblight:AzaleaBossDie(boss)
 		end
 	end)
 	Timers:CreateTimer(8, function()
+		Enemies:EnemySlain(boss, nil)
 		Events:MainBossSlain(boss:GetUnitName())
 		EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})

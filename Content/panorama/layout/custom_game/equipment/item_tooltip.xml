@@ -5,6 +5,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/equipment/item_tooltip_popout.js" />
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 	</scripts>
 	<Panel class="item_tooltip_new_root" ontooltiploaded="initializeTooltip()">
 		<Panel id="tooltip_main_container">
@@ -18,6 +19,19 @@
 				<Label id="tooltip_quality_left" html="true"/>
 				<Label id="tooltip_quality_right" html="true"/>
 			</Panel>
+<!-- 			<Panel class="class-splitter"/> -->
+
+				<Panel id="armor-and-magic-armor-row">
+					<Panel id="inscription-container">
+						<Label id="inscription-label" html="true"/>
+					</Panel>
+					<Panel id="armor-and-magic-armor-main-container">
+						<Image id="equipment_attribute_armor" class="equipment_attribute_image" hittest="false"/>
+						<Label id="armor-text" class="armor-text" html="true"/>
+						<Image id="equipment_attribute_magic_armor" class="equipment_attribute_image" hittest="false"/>
+						<Label id="magic-armor-text" class="armor-text" html="true"/>
+					</Panel>
+				</Panel>
 			<Panel class="class-splitter"/>
 			<Panel id="properties_container">
 				<Label id="consumable-text" html="true">
@@ -91,6 +105,22 @@
 					</Panel>
 					<Label id="weapon_exp_bar_text" html="true"/>
 				</Panel> 				
+			</Panel>
+			<Panel id="gems_info_container" class="properties_special_container invisible">
+				<Panel id="gem_info_1" class="gem_info">
+					<Image id="gem_image1" class="tooltip_gem_image"/>
+					<Panel class="gem_title_and_descrip">
+						<Label id="gem_title1" class="gem_title" html="true"/>
+						<Label id="gem_description1" class="gem_description" html="true"/>
+					</Panel>
+				</Panel>
+				<Panel id="gem_info_2" class="gem_info">
+					<Image id="gem_image2" class="tooltip_gem_image"/>
+					<Panel class="gem_title_and_descrip">
+						<Label id="gem_title2" class="gem_title" html="true"/>
+						<Label id="gem_description2" class="gem_description" html="true"/>
+					</Panel>
+				</Panel>
 			</Panel>
 			<Panel class="class-splitter" id="class-splitter3"/>
 			<Panel id="tooltip_requirements_container">

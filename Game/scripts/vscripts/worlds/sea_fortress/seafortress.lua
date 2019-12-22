@@ -110,8 +110,7 @@ function Seafortress:Init()
   Seafortress.ZFLOAT = 0
   -- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-4864, 4112), 5000, 5000, false)
   Timers:CreateTimer(2, function()
-    -- Events:SpawnSuppliesDealer(Vector(-3232, 2427), Vector(0,-1))
-
+    Challenges:SpawnElderRai(Vector(-64, -14528), Vector(1,-1))
   end)
   Events.TownPosition = Vector(448, -15744)
   Events.isTownActive = true

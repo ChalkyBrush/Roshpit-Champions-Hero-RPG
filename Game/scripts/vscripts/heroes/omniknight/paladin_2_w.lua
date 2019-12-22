@@ -11,9 +11,8 @@ function fireCone(args)
 
 	local caster = args.caster
 	local ability = args.ability
-	ability.w_1_level = paladin_get_w_1_level(caster, ability)
-	ability.w_2_level = paladin_get_w_2_level(caster)
-	if ability.w_2_level > 0 then
+	local w_2_level = caster:GetRuneValue("w", 2)
+	if w_2_level > 0 then
 		local coneImpactSelfTable = {}
 		coneImpactSelfTable.caster = caster
 		coneImpactSelfTable.ability = ability
@@ -61,39 +60,13 @@ function fireCone(args)
 		should_stun = 0
 	}
 	caster.cone_velocity = 50
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
-	--caster:RemoveModifierByName("modifier_knockback")
-	--caster:AddNewModifier( caster, nil, "modifier_knockback", modifierKnockback );
 	if caster:HasModifier("modifier_paladin_glyph_4_1") then
 	else
 		Timers:CreateTimer(0.03, function()
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_justice_overwhelming", {duration = 0.5})
 		end)
 	end
-	Filters:CastSkillArguments(2, caster)
-end
-
-function paladin_get_w_1_level(caster, ability)
-	local runeUnit = caster.runeUnit
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_1")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_1")
-	local totalLevel = abilityLevel + bonusLevel
-	ability.w_1_damage = (150 + totalLevel * 5000) / 2
-	ability.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
-	if caster:HasModifier("modifier_paladin_glyph_5_1") then
-		ability.w_1_damage = ability.w_1_damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
-	end
-	return totalLevel
-end
-
-function paladin_get_w_2_level(caster)
-	local runeUnit = caster.runeUnit2
-	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_2")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_2")
-	local totalLevel = abilityLevel + bonusLevel
-	return totalLevel
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function knockback_interval(keys)
@@ -138,8 +111,9 @@ function cone_impact(event)
 		damage = damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
 	end
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
-		if ability.w_2_level > 0 then
-			local amount = damage * ability.w_2_level * 0.04
+		local w_2_level = caster:GetRuneValue("w", 2)
+		if w_2_level > 0 then
+			local amount = damage * w_2_level * 0.04
 			amount = math.floor(amount)
 			ability:ApplyDataDrivenModifier(caster, target, "justice_overwhelming_heal_effect", {})
 
@@ -154,18 +128,17 @@ function cone_impact(event)
 end
 
 function paladin_w_1_apply(caster, target, ability)
-	ability.w_1_level = caster:GetRuneValue("w", 1)
-	ability.w_2_level = caster:GetRuneValue("w", 2)
-	ability.w_4_level = caster:GetRuneValue("w", 4)
-	if ability.w_1_level > 0 then
-		ability.w_1_damage = (PALADIN_W1_BASE_DMG + ability.w_1_level * PALADIN_W1_DMG_PER_LEVEL) / 2
+	local w_1_level = caster:GetRuneValue("w", 1)
+	if w_1_level > 0 then
+		ability.w_1_damage = (PALADIN_W1_BASE_DMG + w_1_level * PALADIN_W1_DMG_PER_LEVEL) / 2
 		if caster:HasModifier("modifier_paladin_glyph_5_1") then
 			ability.w_1_damage = ability.w_1_damage * PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP
 		end
-		local burnDuration = ability.w_1_level * PALADIN_W1_DURATION_PER_LEVEL + PALADIN_W1_BASE_DURATION
+		local burnDuration = w_1_level * PALADIN_W1_DURATION_PER_LEVEL + PALADIN_W1_BASE_DURATION
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_w_1", {duration = burnDuration})
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_holy_fire_burn_effect", {duration = burnDuration})
-		if ability.w_4_level > 0 then
+		local w_4_level = caster:GetRuneValue("w", 4)
+		if w_4_level > 0 then
 			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
 			local additionalStacks = 1
 			if caster:HasModifier("modifier_paladin_glyph_5_1") then
@@ -174,7 +147,7 @@ function paladin_w_1_apply(caster, target, ability)
 			if caster:HasModifier("modifier_paladin_glyph_4_1") then
 				additionalStacks = additionalStacks * PALADIN_GLYPH_4_1_W_W1_STACK_AMP
 			end
-			local newStacks = math.min(stackCount + additionalStacks, ability.w_4_level + 1)
+			local newStacks = math.min(stackCount + additionalStacks, w_4_level + 1)
 			target:SetModifierStackCount("modifier_paladin_rune_w_1", caster, newStacks)
 		end
 	end
@@ -194,13 +167,8 @@ function paladin_w_1_damage_think(event)
 	local ability = event.ability
 	local damage = ability.w_1_damage
 	local stacks = target:GetModifierStackCount("modifier_paladin_rune_w_1", caster)
-	stacks = math.max(1, stacks)
-	if stacks == 1 then
-	elseif stacks > 1 then
-		for i = 1, stacks - 1, 1 do
-			damage = damage + ability.w_1_damage * (1 + i * PALADIN_W4_DMG_PER_STACK_PCT / 100)
-		end
-	end
+	stacks = math.max(1, stacks)	
+	damage = damage * (1 + (PALADIN_W4_DMG_PER_STACK_PCT / 100) * (stacks-1))
 	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 2, RPC_ELEMENT_HOLY, RPC_ELEMENT_FIRE)
 end
 --DESIRED OUTPUT: 100, 210, 331, 463
@@ -215,12 +183,10 @@ end
 function rune_w_3(caster, ability)
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_w_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
-	local totalLevel = abilityLevel + bonusLevel
-	if totalLevel > 0 then
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
 		local radius = 550
-		local damage = totalLevel * 5 * caster:GetIntellect()
+		local damage = w_3_level * PALADIN_W3_DMG_PER_INT * caster:GetIntellect()
 		damage = math.floor(damage)
 
 		EmitSoundOn("Paladin.HolyNova", caster)

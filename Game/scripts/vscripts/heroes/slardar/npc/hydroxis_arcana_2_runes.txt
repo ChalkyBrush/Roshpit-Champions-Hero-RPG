@@ -86,7 +86,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% HYDROXIS_ARCANA_R4_POST_MITI_PCT %>"
+				"property_two"			"<% HYDROXIS_ARCANA_R4_SPELL_PIERCE %>"
 			}
 		}
 	}

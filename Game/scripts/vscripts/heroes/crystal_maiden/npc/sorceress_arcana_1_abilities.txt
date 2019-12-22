@@ -190,14 +190,12 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"sorceress/sorceress_rune_r_3_arcana1"
 			}
 			"modifier_tornado_ice_resist_loss_invisible"
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 			}
 			"modifier_ice_avatar"
 			{
@@ -267,7 +265,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2000 5000 25000 100000 200000 400000"
+				"damage"			"80 180 280 380 480 580 680"
 			}
 			"02"
 			{

@@ -52,6 +52,7 @@ function Tanari:InitializeWindTemple()
 	end)
 	Timers:CreateTimer(3, function()
 		local chest = CreateUnitByName("chest", Vector(9280, 7168), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		chest:SetRoshpitLevel(15 + (GameState:GetDifficultyFactor()-1)*35)
 		chest:SetForwardVector(Vector(0, 1))
 		chest:FindAbilityByName("town_unit"):SetLevel(1)
 		Tanari.WindTemple.TempleChest1 = chest
@@ -1017,6 +1018,7 @@ end
 
 function Tanari:SpawnWindTempleSpiritBoss()
 	local guardian = Events:SpawnBoss("wind_temple_spirit_boss", Vector(12992, 1536))
+
 	Tanari.WindTemple.SpiritBoss = guardian
 	guardian.type = ENEMY_TYPE_BOSS
 	Tanari.TanariMasterAbility:ApplyDataDrivenModifier(Tanari.TanariMaster, guardian, "tanari_mountain_specter_ai", {})

@@ -39,7 +39,7 @@ function begin_fireball(event)
 		-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*d_d_level*damage
 		sorceress_c_d(caster, target, 280, c_d_level)
 	end
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 end
 

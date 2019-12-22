@@ -33,7 +33,7 @@ function BlizzardStart(event)
 	-- rune_q_3(caster, event.ability)
 	caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "sorceress")
 
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 	if caster:HasModifier("modifier_sorceress_glyph_6_1") then
 		caster:Stop()
 		StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_ATTACK, rate = 1.4})
@@ -48,7 +48,7 @@ function rune_q_1(caster, ability)
 	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_1")
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_1")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("q", 1)
 	if totalLevel > 0 then
 		local iceLance = caster:FindAbilityByName("ice_lance")
 		if not iceLance then
@@ -76,7 +76,7 @@ function rune_q_3(caster, ability)
 	local runeAbility = runeUnit:FindAbilityByName("sorceress_rune_q_3")
 	local abilityLevel = runeAbility:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "q_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("q", 3)
 	if totalLevel > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_ice_block", {duration = 5})
 		caster:SetModifierStackCount("modifier_ice_block", ability, totalLevel)

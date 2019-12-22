@@ -8,6 +8,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/npc_dialogue_re.js" />
 		<include src="file://{resources}/scripts/custom_game/heroes_custom/heroes_custom.js" />
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 	</scripts>
 	<snippets>
 		<snippet name="supplies_dealer">

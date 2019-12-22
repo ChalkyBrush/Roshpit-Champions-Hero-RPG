@@ -61,7 +61,7 @@ function flood_basin_start(event)
 			table.insert(ability.basin_table, basin_dummy)
 			EmitSoundOnLocationWithCaster(target_position, "Hydroxis.Arcana2.BasinStart", caster)
 			StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.8})
-			Filters:CastSkillArguments(4, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		end)
 	end
 end
@@ -143,7 +143,7 @@ function slippery_tail_arcana(caster, target, e_ability)
 				StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.5})
 				target = WallPhysics:WallSearch(target, caster:GetAbsOrigin(), caster)
 				FindClearSpaceForUnit(caster, target, false)
-				Filters:CastSkillArguments(3, caster)
+				Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 				local pfx = ParticleManager:CreateParticle("particles/roshpit/hydroxis/water_bomb_water_explosion_splash_fxset.vpcf", PATTACH_CUSTOMORIGIN, caster)
 				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin() - Vector(0, 0, 200))
 				Timers:CreateTimer(2, function()
@@ -186,7 +186,7 @@ function basin_passive_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local d_d_level = caster:GetRuneValue("r", 4)
-	if d_d_level > 0 then
+	if d_d_level > 0 and caster:HasModifier("modifier_flood_basin_aura_effect") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hydroxis_basin_d_d", {})
 		caster:SetModifierStackCount("modifier_hydroxis_basin_d_d", caster, d_d_level)
 	else

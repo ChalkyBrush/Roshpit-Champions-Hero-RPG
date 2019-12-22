@@ -39,7 +39,7 @@ function slippery_tail_start(event)
 	ability.radians = 0
 	EmitSoundOn("Hydroxis.SlipStream.Start", caster)
 	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_RUN, rate = 1, translate = "sprint"})
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	-- caster:SetForwardVector(Vector(1,0))
 end
 
@@ -146,7 +146,7 @@ function slippery_tail_think(event)
 				end
 				if enemy.pushLock or enemy.jumpLock then
 				else
-					caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_hydroxis_immortal_push", {duration = 0.1})
+					caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_hydroxis_immortal_push", {duration = 0.1})
 					enemy.pushFV = ability.fv
 				end
 			end

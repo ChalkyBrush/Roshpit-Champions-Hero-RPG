@@ -3,18 +3,18 @@
 		"winterblight_mountain"											"Гора Winterblight"
 		
 		"DOTA_Tooltip_ability_item_rpc_winterblight_glacier_stone"		"Winterblight Glacier Stone"
-		"item_rpc_winterblight_glacier_stone_desc"						"Разместите в Алтаре Льда на горе Winterblight, чтобы увеличить силу монстров."
+		"item_rpc_winterblight_glacier_stone_desc"						"Разместите в Алтаре Льда на горе Winterblight, чтобы увеличить силу монстров. Алтарь Льда находится южнее деревни."
 
 		"altar_of_ice"												"Алтарь Льда"
-		"altar_of_ice_help1"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>1 Камень: Враги получают на 99% меньше урона и наносят на 100% больше урона.</font>"
-		"altar_of_ice_help2"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>2 Камня: Враги получают на 99.9% меньше урона и наносят на 200% больше урона.</font>"
-		"altar_of_ice_help3"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>3 Камня: Враги получают на 99.999% меньше урона и наносят на 300% больше урона.</font>"
+		"altar_of_ice_help1"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>1 Камень: Противники имеют 35% бонус урона атаки, 75% бонус Брони, Маг. Защиты, Пробитий, 50% увеличение ХП.</font>"
+		"altar_of_ice_help2"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>2 Камня: Противники имеют 70% бонус урона атаки, 150% бонус Брони, Маг. Защиты, Пробитий, 100% увеличение ХП.</font>"
+		"altar_of_ice_help3"										"Леденящий голос звучит в вашей голове: 'Освободи холод из ледникового камня и почувствуй дрожь Горы.'<br><br><font color='FFFFFF'>3 Камня: Противники имеют 105% бонус урона атаки, 225% бонус Брони, Маг. Защиты, Пробитий, 150% увеличение ХП.</font>"
 
 		"buzuki_powerup"											"Усиление!"
 
 		"villager_dialogue_1"										"Похоже, что горный воздух становится все более морозным. Иногда мне кажется, что холод поглотит всех нас."
 		"villager_dialogue_2"										"Эта тропа знаменует начало длинного и мучительного пути к вершине горы Winterblight."
-		"villager_dialogue_2a"										"О какой тропе я говорю? Ну, её еще не существует, она материализуется в далеком будущем."
+		"villager_dialogue_2a"										"Отчаянные путники поднимаются к вершине, рискуя своими жизнями ради просветления."
 		"villager_dialogue_3"										"Здесь берет начало иной путь к горе Winterblight. Однако и мост и сама гора еще не существуют, и появятся в далеком будущем..."
 	
 		"winterblight_tuskar_villager"								"Житель"
@@ -61,7 +61,7 @@
 
 		"DOTA_Tooltip_ability_winterblight_wolf_ability"			"Pack Leader"
 		"DOTA_Tooltip_ability_winterblight_wolf_ability_Description"	"Распространяет ауру, повышающую урон союзников."
-		"DOTA_Tooltip_ability_winterblight_wolf_ability_attacK_damage_increase"				"ДОП. УРОН, %:"
+		"DOTA_Tooltip_ability_winterblight_wolf_ability_attack_damage_increase"				"ДОП. УРОН, %:"
 
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability"	"Shimmering Ice"
 		"DOTA_Tooltip_ability_winterblight_ice_magic_immune_ability_Description"	"С некоторым интервалом получает иммунитет к магии."
@@ -189,7 +189,7 @@
 		"DOTA_Tooltip_ability_winterblight_luna_blessing_bonus_damage"		"ДОП. УРОН:"
 
 		"DOTA_Tooltip_ability_luna_taskmaster_shield"				"Moon Shield"
-		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Сокращает получаемый урон на 99.9%. Теряет 1 заряд каждый раз, когда получает урон."
+		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Сокращает получаемый урон на 99%. Теряет 1 заряд каждый раз, когда получает урон."
 		"DOTA_Tooltip_ability_luna_taskmaster_shield_charges"		"ЗАРЯДОВ В НАЧАЛЕ:"
 
 		"DOTA_Tooltip_modifier_luna_armor"						"Moon Shield"
@@ -620,6 +620,7 @@
 		"DOTA_Tooltip_ability_stalacorr_ice_blast_damage"		"УРОН:"
 
 		"DOTA_Tooltip_modifier_triboss_powered_up_multiple"	"Power Up!"
+		"DOTA_Tooltip_modifier_triboss_powered_up_multiple_Description"	"Юнит под усилением получает бонусный урон атаки, скорость атаки и перемещения, броню и магическую защиту."
 
 		"winterblight_snowball_kid"								"Snowball Kid"
 		"winterblight_snowcrab_eggs"							"Snowcrab Eggs"

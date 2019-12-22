@@ -39,7 +39,7 @@
 		"redfall_quest_2_objective"								"Defeat the Mari Sprites."
 
 		"redfall_blessing_of_maru"								"Blessing of Mari"
-		"redfall_blessing_of_maru_Description"					"Grants 50/300/1000 to all stats for 60 minutes"
+		"redfall_blessing_of_maru_Description"					"Grants 35/100/200 to all stats for 60 minutes"
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"Blessing of Mari"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"Increased Attributes"
@@ -125,6 +125,7 @@
 		"DOTA_Tooltip_ability_wozxak_fury_swipes"				"Fury Swipes"
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_Description"	"Successive attacks deal increased damage."
 		"DOTA_Tooltip_ability_wozxak_fury_swipes_damage_per_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_wozxak_fury_swipes_max_stacks" 		"MAX STACKS:"
 
 		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven"				"Fury Swipes"
 		"DOTA_Tooltip_modifier_fury_swipes_target_datadriven_Description"	"Taking increased physical damage with each stack"
@@ -515,7 +516,10 @@
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_Description"	"Attacks leave a stacking armor debuff on the target, while increasing the attack speed and attack damage of the owner."
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_armor_reduce_per_hit"	"ARMOR REDUCTION PER HIT:"
 		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_speed_per_hit"	"ATTACK SPEED PER HIT:"
-		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ATTACK DAMAGE PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_attack_damage_per_hit"	"ATTACK DAMAGE % PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_recriter_ai_max_stacks"				"MAX STACKS:"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Loss"
+		"DOTA_Tooltip_modifier_crimsyth_recruiter_attack_gain"						"Bonus attack damage and attack speed gain"
 
 		"DOTA_Tooltip_ability_shipyard_plasma_field"					"Energy Conductor"
 		"DOTA_Tooltip_ability_shipyard_plasma_field_Description"		"Deals damage in an expanding circle. Deals much less damage closer to the center."
@@ -523,6 +527,10 @@
 		"DOTA_Tooltip_ability_shipyard_plasma_field_damage_max"			"DAMAGE AT EDGE:"
 
 		"shipyard_pirate_archer"										"Shipyard Pirate Archer"
+		
+		"redfall_shipyard_gatekeeper"									"Gatekeeper"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion"			"Skull Explosion"
+		"DOTA_Tooltip_ability_shipyard_gatekeeper_explosion_Description"	"Explodes and emits 11 skulls covered by ethereal flame. Skulls deal damage on contact and make another explosion, dealing damage in area."
 
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger" "Skulldigger"
 		"DOTA_Tooltip_ability_redfall_shipyard_gatekeeper_skulldigger_Description" "Builds charges every 2.2 seconds. Each time damage is taken with a charge active, launch a wraithfire blast at the attacker."
@@ -744,6 +752,7 @@
 
 		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive"		"Domination"
 		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_Description"	"Links up with the target, reducing their movespeed and vision radius and allowing the Sadist to pull himself closer. Tether breaks at 2000 distance."
+		"DOTA_Tooltip_ability_redfall_erakor_the_sadist_passive_burn_damage"	"DAMAGE:"
 		
 		"DOTA_Tooltip_ability_sadist_blood_bath"						"Blood Bath"
 		"DOTA_Tooltip_ability_sadist_blood_bath_Description"			"Creates a ritualistic circle of blood that pops after a 2 second delay. Anyone within the radius as it explodes is silenced and takes magic damage."
@@ -800,8 +809,8 @@
 		"DOTA_Tooltip_ability_redfall_wild_leap_demon_knight_Description"	"Jumps toward the target location and deal magic damage in an AOE at the landing point."
 
 		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai"					"Flesh Heap"
-		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Increases magic resistance"
-		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"MAGIC RESIST:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_Description"		"Increases magic armor"
+		"DOTA_Tooltip_ability_redfall_crimsyth_cannibal_ai_magic_resist"	"MAGIC ARMOR:"
 
 		"DOTA_Tooltip_ability_castle_sorceress_blink_ability"				"Sparkle Dash"
 		"DOTA_Tooltip_ability_castle_sorceress_blink_ability_Description"	"Quickly dodge in a random direction."
@@ -824,7 +833,11 @@
 
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive"				"Tormented Fervor"
 		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_Description"	"Attacks leave a stacking armor debuff, and the attacker increases his attack speed with each successive strike."
-
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_armor_reduce_per_hit"	"ARMOR REDUCTION PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_speed_per_hit"	"ATTACK SPEED PER HIT:"
+		"DOTA_Tooltip_ability_redfall_crimsyth_boss_passive_attack_damage_per_hit"	"ATTACK DAMAGE % PER HIT:"
+		
+		
 		"redfall_crimsyth_mage"											"Crimsyth Mage"
 		"redfall_crimsyth_mage_elite"									"Crimsyth Mage Elite"	
 
@@ -928,10 +941,10 @@
 		"DOTA_Tooltip_ability_magic_immune_breakable_ability_mega_stacks"		"CHARGES:"
 
 		"DOTA_Tooltip_ability_mega_steadfast"							"Mega Steadfast"
-		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Each instance of damage can not deal more than a % of max health."
-		"DOTA_Tooltip_ability_mega_steadfast_max_damage"				"HEALTH % MAX:"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"Reduces all damage taken."
+		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% DAMAGE REDUCTION:"
 		"DOTA_Tooltip_modifier_mega_steadfast"									"Mega Steadfast"
-		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"Each instance of damage can not deal more than a % of max health."
+		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"Taking reduced damage."
 
 		"redfall_crimsyth_castle_grounds_guardian"						"Castle Grounds Guardian"
 
@@ -993,13 +1006,13 @@
 		"item_redfall_crimsyth_demon_relic_legend_desc"						"Activates the portal to Crimsyth Castle, located near the entrance to the Farmlands."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_normal_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_elite"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_elite_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 		
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_legend"			"Redfall Spirit Ruby"
-		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, 3x mithril and 2x arcane crystal gain."
+		"item_redfall_spirit_ruby_legend_desc"							"Use: Activates the Equinox in Redfall Ridge. During the Equinox there is 3x paragon spawn rate, 2x mob damage and resistance, increased immortal drop rate, <% REDFALL_MITHRIL_EQUINOX_MULT %>x mithril and 2x arcane crystal gain."
 		
 		"redfall_equinox"												"Equinox"
 

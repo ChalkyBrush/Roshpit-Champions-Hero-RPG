@@ -74,6 +74,13 @@
                 }
             }
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_skeleton_mage"
@@ -151,6 +158,13 @@
                 }
             }
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_familiar"
@@ -170,7 +184,7 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "40400"
@@ -216,6 +230,13 @@
             }
 
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_supercharged_skeleton"
@@ -235,7 +256,7 @@
 
         }
         "ArmorPhysical" "0"
-        "MagicalResistance" "25"
+        "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "40400"
@@ -281,6 +302,13 @@
             }
 
         }
+		"RoshpitArmor"          "365"
+        "RoshpitArmorPierce"    "485"
+        "RoshpitSpellPierce"    "155"
+        "RoshpitMagicArmor"     "290"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
     }
 
     "ekkan_corpse"

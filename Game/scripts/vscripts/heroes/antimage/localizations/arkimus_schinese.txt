@@ -207,28 +207,28 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
 		
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"能量场雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"[T1-1] 能量场雕文"
 		"item_rpc_arkimus_glyph_1_1_description" 				"能量子将产生在最小的范围内。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"法力之潮雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_2_1"		"[T2-1] 法力之潮雕文"
 		"item_rpc_arkimus_glyph_2_1_description" 				"魔法恢复速度提高 <% ARKIMUS_GLYPH_2_1_MANA_REGEN %>。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"能量子雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_3_1"		"[T3-1] 能量子雕文"
 		"item_rpc_arkimus_glyph_3_1_description" 				"能量场将额外产生 <% ARKIMUS_GLYPH_3_1_R_EXTRA_CELLS %> 个能量子。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"杂技雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_4_1"		"[T4-1] 杂技雕文"
 		"item_rpc_arkimus_glyph_4_1_description" 				"加多 <% ARKIMUS_GLYPH_4_1_E_FREE_CAST %> 个轨道飞跃自由施放的最大充能数。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"法力盾雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_1"		"[T5-1] 法力盾雕文"
 		"item_rpc_arkimus_glyph_5_1_description" 				"所受到伤害的 <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_PART_PCT %>% 将从魔法值中扣除而不是生命值。并且所扣除的魔法值将再减少 <% ARKIMUS_GLYPH_5_1_MANA_DAMAGE_REDUCTION %>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"扭曲折叠雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_6_1"		"[T6-1] 扭曲折叠雕文"
 		"item_rpc_arkimus_glyph_6_1_description" 				"加多 <% ARKIMUS_GLYPH_6_1_Q_FREE_CAST %> 个维度扭曲自由施放的最大充能数。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"杨永信雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_7_1"		"[T7-1] 杨永信雕文"
 		"item_rpc_arkimus_glyph_7_1_description" 				"所有 <font color=\"#5CCDF9\">电</font> 元素伤害提高 <% ARKIMUS_GLYPH_7_1_LIGHTNING_AMP %>%。"
 
-		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"带状分离雕文"
+		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_5_a"		"[T5-a] 带状分离雕文"
 		"item_rpc_arkimus_glyph_5_a_description" 				"每个激活的能量子吸收一次魔法或纯粹伤害，然后被毁坏。"
 
 

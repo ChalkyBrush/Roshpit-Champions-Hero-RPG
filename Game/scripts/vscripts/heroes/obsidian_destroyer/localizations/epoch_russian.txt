@@ -59,17 +59,15 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% от макс. маны"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] Origination"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Все враги, задетые умением @Ability2 теряют броню на 6 секунд. За каждое очко брони ниже нуля, цели будут получать дополнительный пост-резистный магический и чистый урон от Epoch Guardian. Минимальная броня: -1000."
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Снижение брони"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"Противники, задетые @Ability2 теряют Магическую Защиту на <% EPOCH_W2_DURATION %> сек. Эффект складывается до <% EPOCH_W2_MAX_STACKS %> раз."
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"Снижение Магической Защиты"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
-     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_two"				"Доп. магический и чистый урон"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix_two"				"% за каждые 10 очков брони ниже 0"
 
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible"					"Origination"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Броня снижена. Если показатель брони опустится ниже 0, то цель будет получать дополнительный магический и чистый урон от Epoch Guardian."
+    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"Снижение Магической Защиты."
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] Ages of Wisdom"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум 10 зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"С каждым прочтением @Ability2, Epoch Guardian получает заряд. Каждый заряд даёт дополнительные очки Интеллекта. Максимум <% EPOCH_W3_MAX_STACKS %> зарядов. Каждая базовая атака тратит 1 заряд и восстанавливает герою здоровье."
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"Интеллекта за заряд"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"Восст. здоровья за атаку"
@@ -102,14 +100,14 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"Хождение сквозь врагов - Максимальная скорость передвижения, 100%% уклонение."
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] Distortion Rift"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Выпуская @Ability3, Epoch Guardian дополнительно выпустит Сферы Времени в конусе перед собой. Сферы Времени наносят двойной урон противникам, находящимся под действием @Ability1."
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"Выпуская @Ability3, Epoch Guardian дополнительно выпустит Сферы Времени в конусе перед собой. Сферы Времени наносят двойной урон противникам, находящимся под действием @Ability1. Максимальное количество сфер - <% EPOCH_E2_ORBS_MAX %>."
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"Кол-во сфер"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"Урон за сферу"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] Time’s Eye"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"После телепортации к @Ability3, Epoch Guardian в течение 6 секунд будет наносить двойной урон по нескольким целям сразу."
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"После телепортации к @Ability3, Epoch Guardian в течение 6 секунд получит бонус <% EPOCH_E3_ATTACK_DAMAGE_PCT %>% к урону атаки, и его атаки будут атаковать несколько целей одновременно."
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"Макс. целей"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
@@ -135,7 +133,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] Tempo"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"С прочтением @Ability4, герой получает бонус к урону, зависящий от текущего значения маны. Базовая длительность эффекта 10 секунд."
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"Доп. урон %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" за каждые 1000 маны"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" за каждые <% EPOCH_R1_PER_MANA %> маны"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"Доп. время эффекта"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" сек."
 
@@ -162,9 +160,9 @@
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "Взрывается, получая часть базового урона Guardian"	
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] Tides of Time"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Текущее значение регенерации маны героя увеличивает наносимый урон стихии <font color=\"#B5FFB7\">Время</font>."
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Доп. урон времени"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% за каждые 10 регенерации маны"	
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"Пассивно увеличивает урон стихии <font color=\"#B5FFB7\">Время</font>."
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"Урон <font color=\"#B5FFB7\">Времени</font>"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
 
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
     	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"
@@ -182,20 +180,20 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Обездвижен"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"						"[Q1] Eternal Void"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Враги, атакованные героем во время удержания в @Ability1 получат дополнительный урон по окончании действия умения. Этот урон проигнорирует свойство монстров 'Стойкость' и равняется всему урону, нанесенному монстрам до вычета резистов. Последующее прочтение заклинания на уже подверженных эффекту врагов не обновит время действия этой руны."
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"Враги, атакованные героем во время удержания в @Ability1 получат дополнительный урон по окончании действия умения. Этот урон равняется всему урону, нанесенному монстрам до вычета резистов. Последующее прочтение заклинания на уже подверженных эффекту врагов не обновит время действия этой руны."
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"			"Множитель урона"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Весь пост-резистный урон, наносимый врагам увеличивается в зависимости от значения их базовой брони. Не учитываются модификаторы брони."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Доп. пост-рез. урон"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"% за каждые 1000 базовой брони"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Пробития Брони и Магической Защиты пассивно увеличены."
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защитын"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"С каждой атакой Epoch Guardian тратит 1% маны и наносит дополнительный чистый урон основанный на количестве выжженной маны. Максимальное значение маны увеличивает базовый урон."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"С каждой атакой Epoch Guardian тратит 1% маны и наносит дополнительный чистый урон основанный на количестве выжженной маны. Максимальное значение маны увеличивает базовый урон атаки."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"Бонус чистого урона"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x от выжженной маны"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Бонус к базовому урону"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Бонус к базовому урону атаки"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix_two"				"% от макс. маны"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1"							"[Q4] Dimensional Replication"
@@ -206,34 +204,34 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix_two"				""
 
 		//Glyphs
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"(T1) Glyph of Crumbling Bonds"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] Glyph of Crumbling Bonds"
 		"item_rpc_epoch_glyph_1_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] получат на <% EPOCH_GLYPH_1_1_Q1_DAMAGE_INCREASED_PCT %>% больше урона из всех источников."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"Crumbling Bonds"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"Получаемый урон из ВСЕХ источников увеличен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"(T2) Glyph of Distorted Time"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] Glyph of Distorted Time"
 		"item_rpc_epoch_glyph_2_1_description" 				"(E) Distortion Orb пролетает на <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% дальше и движется на <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>% быстрее. Дополнительно, длительность [E1] удвоена."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"(T3) Glyph of Cracking"
-		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере<% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% от значения текущей маны героя, умноженного на уровень основного умения."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] Glyph of Cracking"
+		"item_rpc_epoch_glyph_3_1_description" 				"(W) Genesis Orb наносит увеличенный урон в размере <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% от значения текущей маны героя, умноженного на уровень основного умения."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"(T4) Glyph of Ages"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] Glyph of Ages"
 		"item_rpc_epoch_glyph_4_1_description" 				"Атаки больше не поглощают заряды [W3] (Бонус к интеллекту не пропадает, тогда как восстановление здоровья происходит в полной мере как раньше)."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"(T5) Glyph of Substituted Time"
-		"item_rpc_epoch_glyph_5_1_description" 				"Атаки накладывают Origination на противника."
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] Glyph of Substituted Time"
+		"item_rpc_epoch_glyph_5_1_description" 				"Атаки накладывают [W2] на противника."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"(T6) Glyph of Tangled Flow"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] Glyph of Tangled Flow"
 		"item_rpc_epoch_glyph_6_1_description" 				"Враги, находящиеся под действием (Q) Time Binder и [Q1] теряют <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>% своего основного урона. Дополнительно, эффекты от [Q2] усиливаются в <% EPOCH_GLYPH_6_1_Q2_MULTI %> раз."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"Базовый урон уменьшен"
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"(T7) Glyph of Shifting Dimensions"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"[T7-1] Glyph of Shifting Dimensions"
 		"item_rpc_epoch_glyph_7_1_description" 				"Пока летит @Ability3, герой покидает это измерение и уклоняется от летящих заклинаний и атак."
 
-		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"(Immortal) Glyph of Time Travel"
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] Glyph of Time Travel"
 		"item_rpc_epoch_glyph_5_a_description" 				"Позволяет герою выжить при получении смертельного урона, восстанавливая здоровье, ману и способности. Перезаряжается <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> сек."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"Time Travel Cooldown"

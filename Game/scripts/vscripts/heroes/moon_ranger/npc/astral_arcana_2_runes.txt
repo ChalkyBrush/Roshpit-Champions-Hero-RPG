@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES %>"
 			}
 		}
 	}
@@ -49,20 +49,15 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA2_W_3_DAMAGE_PCT_ATK_POWER * 100 %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"4"
+			"3"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"8"

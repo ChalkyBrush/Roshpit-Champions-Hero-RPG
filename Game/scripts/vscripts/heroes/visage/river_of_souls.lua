@@ -100,7 +100,7 @@ function river_of_souls_start(event)
 			UTIL_Remove(targetCorpse)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function SummonFamiliar(caster, ability, portalPosition, b_c_level)
@@ -109,19 +109,11 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	familiar:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	familiar:SetOwner(caster)
 
-	local familiarArmor = caster:GetPhysicalArmorValue(false) * EKKAN_E2_FAMILIAR_ARMOR * b_c_level
-	familiar:SetPhysicalArmorBaseValue(familiarArmor)
-	local attackDamage = math.min(OverflowProtectedGetAverageTrueAttackDamage(caster) * EKKAN_E2_FAMILIAR_ATTACK * b_c_level, (2 ^ 31) - 10)
-
-	familiar:SetBaseDamageMin(attackDamage)
-	familiar:SetBaseDamageMax(attackDamage)
+	familiar:AdjustSummon(caster, true, EKKAN_E2_HP_MULT, EKKAN_E2_FAMILIAR_ATTACK*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level, EKKAN_E2_FAMILIAR_ROSHPIT_ATTRIBUTES*b_c_level)
 	if not ability.familiarTable then
 		ability.familiarTable = {}
 	end
-	local familiarHealth = math.floor(caster:GetMaxHealth() * 0.5)
-	familiar:SetMaxHealth(familiarHealth)
-	familiar:SetBaseMaxHealth(familiarHealth)
-	familiar:SetHealth(familiarHealth)
+
 	familiar.ekkan_unit = true
 	familiar.ekkan_dominion = true
 	familiar.dominion = true
@@ -153,7 +145,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	if caster:HasModifier("modifier_ekkan_immortal_weapon_2") then
 		familiar:SetOriginalModel("models/creeps/bat_spitter/bat_spitter.vmdl")
 		familiar:SetModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-		caster.weapon:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
+		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
 	end
 end
 
@@ -300,6 +292,7 @@ function familiar_attack_land(event)
 	if attacker.e_3_level and attacker.e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_familiar_armor_break", {duration = 12})
 		target:SetModifierStackCount("modifier_familiar_armor_break", attacker, attacker.e_3_level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end
 

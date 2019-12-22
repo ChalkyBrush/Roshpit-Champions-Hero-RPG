@@ -48,15 +48,12 @@ function jex_activate_q_fire_fire(event)
 	end)
 	EmitSoundOn("Jex.RingOfFire.Start", caster)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_ring_of_fire_thinker", {})
-	Filters:CastSkillArguments(1, caster)
 	local cd = ability:GetCooldownTimeRemaining()
 	cd = cd - tech_level * event.cooldown_reduction_per_tech
 	cd = math.max(cd, 0.2)
-	if caster:HasModifier("modifier_hood_of_lords_lua") then
-		cd = math.max(cd, 1.2)
-	end
 	ability:EndCooldown()
 	ability:StartCooldown(cd)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function reindex_fire_fire_q_table(caster, ability)

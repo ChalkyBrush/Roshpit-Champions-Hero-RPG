@@ -32,7 +32,7 @@ function ringOfFire(caster, ability, totalLevel)
 
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "sorceress")
 	damage = damage + 0.0001 * (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) / 10 * d_d_level * damage
-
+	print("RING OF FIRE?")
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do

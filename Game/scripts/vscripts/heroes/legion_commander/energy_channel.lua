@@ -3,7 +3,7 @@ function energy_shield_create(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not caster:HasModifier("modifier_energy_channel_no_cast_filter") then
-		Filters:CastSkillArguments(2, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_no_cast_filter", {duration = 0.5})
 	end
 
@@ -39,7 +39,7 @@ function energy_shield_think(event)
 	end
 	caster:ReduceMana(mana_drain)
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	CustomAbilities:IceQuill(event)
 	if not caster:HasModifier("modifier_energy_channel_animating") then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_energy_channel_animating", {duration = 6})

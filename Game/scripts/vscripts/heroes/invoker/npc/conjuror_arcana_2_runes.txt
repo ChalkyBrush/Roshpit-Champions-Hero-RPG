@@ -15,12 +15,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CONJUROR_W1_BASE_ATTACK_FROM_BUFF %>"
+				"property_one"			"<% CONJUROR_ARCANA_W1_BASE_ATTACK_FROM_BUFF %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CONJUROR_W1_ARCANA_ATTACK_PCT_FROM_INT %>"
+				"property_two"			"<% CONJUROR_ARCANA_W1_ATTACK_PCT_FROM_INT %>"
 			}
 		}
 	}

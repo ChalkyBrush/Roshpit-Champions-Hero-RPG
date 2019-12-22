@@ -46,7 +46,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% EKKAN_ARCANA_Q2_POST_MITI * 100 %>"
+				"property_two"			"<% EKKAN_ARCANA_Q2_ARMOR_LOSS %>"
 			}
 			"03"
 			{

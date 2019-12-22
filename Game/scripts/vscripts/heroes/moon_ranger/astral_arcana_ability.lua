@@ -17,7 +17,7 @@ function astral_arcana_start(event)
 	ParticleManager:SetParticleControl(platformPFX, 1, Vector(5, 5, 5))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_astral_arcana_lifting", {duration = 2})
 	ability.platformPFX = platformPFX
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function astral_arcana_passive_think(event)

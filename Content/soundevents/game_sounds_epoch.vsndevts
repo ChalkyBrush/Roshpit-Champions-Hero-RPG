@@ -17,11 +17,11 @@
                               "value0"        "sounds/weapons/hero/warlock/rain_of_chaos_cast.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.92000"  }
+                    "volume"            {   "value"     "0.82000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "95.00000" }
+                    "soundlevel"        {   "value"     "91.00000" }
                     "distance_max"      {   "value"     "2900.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -49,11 +49,11 @@
                               "value0"        "sounds/weapons/hero/faceless_void/chronosphere.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.92000"  }
+                    "volume"            {   "value"     "0.72000"  }
                     "pitch_rand_min"    {   "value"     "-0.05000"  }
                     "pitch_rand_max"    {   "value"     "0.050000"  }
                     "pitch"             {   "value"     "1.000000"  }
-                    "soundlevel"        {   "value"     "95.00000" }
+                    "soundlevel"        {   "value"     "92.00000" }
                     "distance_max"      {   "value"     "2900.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -182,6 +182,38 @@
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "1.00000"  }
                     "soundlevel"        {   "value"     "82.00000" }
+                    "distance_max"      {   "value"     "2900.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Epoch.DistortionOrb"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/oracle/false_promise_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.82000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
                     "distance_max"      {   "value"     "2900.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

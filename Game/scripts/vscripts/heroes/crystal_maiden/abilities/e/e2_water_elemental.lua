@@ -47,13 +47,9 @@ local function summon(caster, ability, origin)
     local armor = SORCERESS_E2_HEALTH_AMPLIFY * caster:GetPhysicalArmorValue(false)
 
     Timers:CreateTimer(0.05, function()
-        caster.waterElemental:SetMaxHealth(health)
-        caster.waterElemental:SetBaseMaxHealth(health)
-        caster.waterElemental:SetHealth(health)
-        caster.waterElemental:Heal(health, caster.waterElemental)
+        caster.waterElemental:AdjustSummon(caster, true, SORCERESS_E2_HEALTH_AMPLIFY, 0, SORCERESS_E2_ARMOR_AMPLIFY, 1, 1, 1)
         caster.waterElemental:SetBaseDamageMin(baseDamage)
         caster.waterElemental:SetBaseDamageMax(baseDamage)
-        caster.waterElemental:SetPhysicalArmorBaseValue(armor)
     end)
 
 end
@@ -81,8 +77,10 @@ function attack(event)
     end)
     -- EmitSoundOn("Hero_Ancient_Apparition.IceBlast.Target", caster)
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
-    if creator.e_4_level then
-        damage = damage * (1 + SORCERESS_E4_AMPLIFY_PERCENT / 100 * OverflowProtectedGetAverageTrueAttackDamage(creator) * creator.e_4_level)
+    if creator.e_4_level and creator.e_4_level > 0 then
+        print(OverflowProtectedGetAverageTrueAttackDamage(attacker))
+        damage = ((SORCERESS_E4_DAMAGE_AS_PCT_OF_ELEMENTAL_ATK_POWER*creator.e_4_level / 100) * OverflowProtectedGetAverageTrueAttackDamage(attacker))
+        print(damage)
     end
     local frozenDamage = damage
     if creator.e_3_level > 0 then
@@ -109,7 +107,9 @@ function attack(event)
             if Filters:IsIceFrozen(enemy) then
                 finalDamage = frozenDamage
             end
-            Filters:TakeArgumentsAndApplyDamage(enemy, creator, finalDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+            if creator.e_4_level and creator.e_4_level > 0 then
+                Filters:TakeArgumentsAndApplyDamage(enemy, creator, finalDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_ICE, RPC_ELEMENT_NONE)
+            end
             ability:ApplyDataDrivenModifier(attacker, enemy, "modifier_elemental_slow", {duration = slowDuration})
         end
     end

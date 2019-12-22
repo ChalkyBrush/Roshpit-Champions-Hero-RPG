@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_Q1_FIRE_AMP_AGAINST_STUNNED %>"
 			}
 		}
 	}
@@ -36,12 +36,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3000"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_Q2_HEALTH_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"90"
+				"property_two"			"<% FLAMEWAKER_ARCANA2_Q2_ARMOR %>"
 			}
 		}
 	}
@@ -62,12 +62,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_Q3_ATK_POWER_ADDED_TO_FLAME %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"<% FLAMEWAKER_ARCANA2_Q3_RANGE %>"
 			}
 			"03"
 			{
@@ -98,7 +98,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_Q4_AGILITY_TO_DAMAGE %>"
 			}
 		}
 	}

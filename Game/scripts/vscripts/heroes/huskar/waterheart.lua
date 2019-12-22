@@ -30,7 +30,7 @@ function waterheart_start(event)
 	end
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	caster.waterheartStarted = true
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_waterheart_weapon", {duration = duration})
 end
 
@@ -41,7 +41,7 @@ function waterheart_attack_land(event)
 	local target = event.target
 	local mult = event.mult
 	CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/mk_spring_water_splash_c.vpcf", target, 1)
-	local damage = attacker:GetHealth() * ability.r_3_level * 0.6 * mult
+	local damage = attacker:GetHealth() * ability.r_3_level * SPIRIT_WARRIOR_ARCANA_R3_CURR_HP_TO_DMG_PCT/100 * mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "SpiritWarrior.Waterheart.Impact", attacker)
 end

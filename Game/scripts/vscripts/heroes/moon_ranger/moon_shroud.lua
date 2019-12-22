@@ -14,14 +14,14 @@ function begin_moon_shroud(event)
   duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
   create_moon_shroud_dummy(location, caster, duration, ability)
   ability.q_4_level = caster:GetRuneValue("q", 4)
-  Filters:CastSkillArguments(1, caster)
+  Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
   if ability.q_4_level > 0 then
     local runeAbility = caster.runeUnit4:FindAbilityByName("astral_rune_q_4")
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_visible", {})
     caster:SetModifierStackCount("modifier_astral_rune_q_4_visible", runeAbility, ability.q_4_level)
     runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_astral_rune_q_4_invisible", {})
-    local damageBonus = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()) * 0.5 * ability.q_4_level
+    local damageBonus = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * ASTRAL_RANGER_Q4_ATTACK_DAMAGE_PER_ATTRIBUTE * ability.q_4_level
     caster:SetModifierStackCount("modifier_astral_rune_q_4_invisible", runeAbility, damageBonus)
   else
     caster:RemoveModifierByName("modifier_astral_rune_q_4_visible")

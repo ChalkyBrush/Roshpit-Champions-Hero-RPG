@@ -1,0 +1,460 @@
+#gems-small{
+	vertical-align: bottom;
+	flow-children:right;
+	margin-left:4px;
+	margin-bottom:4px;
+}
+
+.gems-root{
+	vertical-align: bottom;
+	flow-children:right;
+	margin-left:4px;
+	margin-bottom:4px;
+}
+
+.gems-equipment-container{
+	vertical-align: bottom;
+	flow-children:right;
+}
+
+.gems-small-socket{
+	border-radius:100%;
+	border:1px solid #a87732;
+	opacity:0.95;
+	background-color: #222222;
+	width:20px;
+	height:20px;
+}
+
+.placed-gem{
+	width:100%;
+	height:100%;
+}
+
+.gemforger_content{
+	width:100%;
+	height:100%;
+}
+
+#gemforger_container{
+	width:100%;
+	height:100%;
+}
+
+.gemforger_main{
+	vertical-align: center;
+	horizontal-align:center;
+	margin-bottom:10%;
+	border-radius: 4px;
+	border:1px solid #BBBBBB;
+}
+
+#gemforger_bg{
+	background-color: gradient( linear, 0px 0%, 600px 0%, from( #222222 ), to( #000000 ) );
+	width:600px;
+	height:800px;
+	opacity:0.92;
+}
+
+
+.gemforger_mega_container{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+#gemforger_header{
+	width:100%;
+	height:120px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom:1px solid #444444;
+}
+
+#gemforger_header_title{
+	horizontal-align:center;
+	vertical-align: center;
+	font-size:48px;
+	color:#FFFFFF;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-left:20px;
+	padding-right:20px;
+	text-shadow: 1px 1px 2px 3 #00000066;
+}
+
+#gemforger_header_container{
+	horizontal-align:center;
+	vertical-align: center;	
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#gemforger_header_container_bg{
+	border-radius:4px;
+	background-color: #111111;
+	opacity: 0.98;
+	height:100%;
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#close_button{
+	width:100%;
+	horizontal-align:center;
+	vertical-align: bottom;
+	height:50px;
+	background-color: #121212;
+	border:1px solid white;
+}
+
+#close_button:hover{
+	background-color: #333333;
+}
+
+#close_button_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 35px;
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.gemforger_reward_root{
+	width:100%;
+	height:80px;
+	
+	
+	margin-top:30px;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+#gemforger_reward_collect{
+	height:100%;
+	width:100%;
+	background-color: gradient( linear, 0px 0%, 0px 100px, from( #121212 ), to( #0C0C0C ) );
+	border-radius:6px;
+	flow-children:right;
+}
+
+.gemforger_reward_active{
+	border:1px solid white;
+	box-shadow: 2px 2px 6px #000000;
+}
+
+#gemforger_reward_collect:hover{
+	background-color: #202020;
+
+}
+
+#gemforger_attach_contents{
+	flow-children:down;
+	width:100%;
+
+}
+
+#gemforger_reward_image{
+	height:40px;
+	width:40px;
+	margin-left:20px;
+	margin-top:15px;
+}
+
+#reward_available_label{
+	color:white;
+	font-size:20px;
+	text-decoration: underline;
+}
+
+.gemforger_reward_text_container{
+	flow-children:down;
+	margin-top:15px;
+	margin-left:20px;
+}
+
+#reward_amount_label{
+	color:white;
+	font-size:18px;	
+	margin-top:5px;
+	font-weight:bold;
+}
+
+#reward_click{
+	color:white;
+	font-size:18px;
+	margin-left:80px;
+	margin-top:30px;
+}
+
+.gemforger_start_button_root{
+	width:100%;
+	height:80px;
+	
+	
+	margin-top:30px;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+#gemforger_start_button_collect{
+	height:100%;
+	width:100%;
+	background-color: gradient( linear, 0px 0%, 0px 100px, from( #121212 ), to( #0C0C0C ) );
+	border-radius:6px;
+}
+
+.gemforger_start_button_active{
+	border:1px solid white;
+}
+
+#gemforger_start_button_collect:hover{
+	background-color: #202020;
+
+}
+
+#gem_forger_start_label{
+	color:white;	
+	font-weight:lighter;
+	vertical-align: center;
+	horizontal-align:center;
+	font-size:28px;
+}
+
+#gemforger_start_image{
+	height:44px;
+	width:44px;
+	vertical-align: center;
+	margin-left:16px;
+}
+
+#forge_gems_start_tip{
+	color:#e3cda1;
+	font-size:24px;
+	text-align: center;
+	horizontal-align:center;
+	margin-top:140px;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#forge_gems_item_attacher{
+	horizontal-align:center;
+	margin-top:260px;
+}
+
+.forge_gem_fail_root{
+	width:100%;
+}
+#socket_item_fail{
+	margin-top:140px;
+	horizontal-align:center;
+}
+
+#forge_gems_fail_tip{
+	color:#e3cda1;
+	font-size:24px;
+	text-align: center;
+	horizontal-align:center;
+	margin-top:240px;
+	font-weight:lighter;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+}
+
+#socket_item_name{
+	horizontal-align:center;
+	margin-top:70px;
+	text-align: center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:32px;
+	color:white;
+}
+
+#socket_item_name_main{
+	horizontal-align:center;
+	margin-top:5px;
+	text-align: center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:32px;
+	color:white;	
+	width:100%;
+	text-align:center;
+}
+
+#socket_item_main{
+	horizontal-align:center;
+	margin-top:40px;
+}
+
+#gemforger-item-start-main{
+	width:100%;
+}
+
+#gemforging_main_socket_attacher{
+	width:100%;
+	flow-children:down;
+	margin-top:105px;
+}
+
+.gemforging_main_no_socket_root{
+	width:100%;
+}
+
+#socket_name{
+	margin-top:5px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:24px;
+	color:white;	
+	text-align:center;
+}
+
+#no_socket_text{
+	margin-top:40px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:18px;
+	color:#ccc09f;	
+	text-align:center;
+}
+
+.gemforging_main_socket_root{
+	width:100%;
+}
+#socket_seperator{
+	width:92%;
+	horizontal-align:center;
+	height:2px;
+	background-color: #555555;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+#socket_summary_text{
+	margin-top:40px;
+	horizontal-align:center;
+	font-family: Radiance, FZLanTingHei-R-GBK, TH Sarabun New, Gulim,MingLiU;
+	font-weight:lighter;
+	font-size:18px;
+	text-align:center;
+}
+
+.gem_color_open{
+	color:#ccc09f;
+}
+
+.gem_color_ruby{
+	color:#f02929;
+}
+
+.gem_color_emerald{
+	color:#36d63b;
+}
+
+.gem_color_sapphire{
+	color:#388af5;
+}
+
+.gem_color_amethyst{
+	color:#c744b8;
+}
+
+#socket_gems_attacher{
+	width:100%;
+	margin-top:65px;
+	flow-children:down;
+}
+.socket_gems_list_root{
+	width:100%;
+}
+.socket_gems_list_row{
+	width:100%;
+	margin-bottom:5px;
+}
+#socket_gems_list_row_attacher{
+	horizontal-align:center;
+	flow-children:right;
+}
+#socket_gem_image{
+	width:36px;
+	height:36px;
+	horizontal-align:center;
+	vertical-align: center;
+}
+
+
+
+.socket_gem_root{
+	border-radius:100%;
+	
+	margin-left:20px;
+	margin-right:20px;
+	width:40px;
+	height:40px;
+}
+
+#socket_gem_overlay{
+	width:80%;
+	height:80%;
+	vertical-align: center;
+	horizontal-align:center;
+}
+
+.socket_gem_hoverable{
+	background-color: #111111;
+}
+
+.socket_gem_hoverable:hover{
+	background-color: #AAAAAA;
+}
+
+.socket_gems_list_row_background{
+	height:4px;
+	background-color: #111111;
+	margin-top:18px;
+	width:50%;
+	horizontal-align:center;
+}
+
+.too-poor-for-gem{
+	background-color: #111111;
+	opacity:0.95;
+	width:52px;
+	border-radius:100%;
+}
+
+.too-poor-for-gem:hover{
+	background-color: #111111;
+}

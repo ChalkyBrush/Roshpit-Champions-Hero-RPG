@@ -83,6 +83,6 @@ function jex_activate_q_fire_cosmic(event)
 		end
 		ability.meteor_showers_table = new_meteors_table
 	end)
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 

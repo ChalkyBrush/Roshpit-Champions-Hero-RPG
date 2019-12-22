@@ -18,7 +18,7 @@ function HideCaster(event)
 	--     ParticleManager:SetParticleControl( pfx, 0, position )
 	local newPosition = WallPhysics:WallSearch(position, event.caster.newPosition, caster)
 	AddFOWViewer(caster:GetTeamNumber(), newPosition, 250, 1.8, false)
-	Filters:CastSkillArguments(3, event.caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, event.caster)
 
 	local particle = "particles/econ/items/sven/sven_cyclopean_marauder/leshrac_grow_effect.vpcf"
 	local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, event.caster)
@@ -61,6 +61,7 @@ function HideCaster(event)
 	ability.e_2_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "bahamut")
 	if ability.e_2_level > 0 then
 		ability.e_2_duration = ability.e_2_level * BAHAMUT_E2_PARALYZE_DURATION
+		ability.e_2_damage = ability.e_2_level * BAHAMUT_E2_DAMAGE
 		b_c_sequence(caster, position, fv, ability)
 	end
 	caster:RemoveModifierByName("modifier_pulse_slow")
@@ -107,6 +108,7 @@ function b_c_strike(event)
 	EmitSoundOn("Bahamut.Purity.Hit", target)
 	if not target:HasModifier("modifier_purity_freeze") then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_purity_freeze", {duration = ability.e_2_duration})
+		Filters:TakeArgumentsAndApplyDamage(target, caster, ability.e_2_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	end
 end
 
@@ -207,19 +209,19 @@ function prepare_bahamut_pulse(caster)
 end
 
 function bahamut_pulse_calculate_damage(caster)
-	local e_2_level = caster:GetRuneValue("e", 2)
+	-- local e_2_level = caster:GetRuneValue("e", 2)
 	local e_3_level = caster:GetRuneValue("e", 3)
-	local modifiers = caster:FindAllModifiers()
-	local glyphs_level = 0
-	for _, modifier in pairs(modifiers) do
-		local name = modifier:GetName()
-		if name:find("glyph") then
-			local tier, row = name:match("(%d)_(.)")
-			glyphs_level = glyphs_level + 15 * tier
-		end
-	end
-	local e_2_mult = 1 + (e_2_level * BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT / 100 * (math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect()) / math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
-	return (e_3_level * BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE) * math.max(1, glyphs_level) * e_2_mult
+	-- local modifiers = caster:FindAllModifiers()
+	-- local glyphs_level = 0
+	-- for _, modifier in pairs(modifiers) do
+	-- 	local name = modifier:GetName()
+	-- 	if name:find("glyph") then
+	-- 		local tier, row = name:match("(%d)_(.)")
+	-- 		glyphs_level = glyphs_level + 15 * tier
+	-- 	end
+	-- end
+	-- local e_2_mult = 1 + (e_2_level * BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT / 100 * (math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect()) / math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
+	return (e_3_level * BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)
 end
 
 function rune_e_3(caster, ability)

@@ -20,7 +20,7 @@ function begin_crusader_comet(event)
 		e_3_duration = Filters:GetAdjustedBuffDuration(caster, e_3_duration, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_black_King_bar_immunity", {duration = e_3_duration})
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function jumping_think(event)
@@ -113,15 +113,5 @@ function paladin_e_arcana2_thinker(event)
 		caster:SetModifierStackCount("modifier_paladin_b_c_attackpower", caster, holyAmp * e_2_level * PALADIN_ARCANA_E2_ATT_PER_HOLY)
 	else
 		caster:RemoveModifierByName("modifier_paladin_b_c_attackpower")
-	end
-	local e_4_level = caster:GetRuneValue("e", 4)
-	if e_4_level > 0 then
-		local damageDealt = 1000
-		local damageHOLY = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE, false)
-		local holyAmp = damageHOLY / damageDealt
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c_postmit", {})
-		caster:SetModifierStackCount("modifier_paladin_d_c_postmit", caster, holyAmp * PALADIN_ARCANA_E4_POSTMIT_PER_HOLY * e_4_level)
-	else
-		caster:RemoveModifierByName("modifier_paladin_d_c_postmit")
 	end
 end

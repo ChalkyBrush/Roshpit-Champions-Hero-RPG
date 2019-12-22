@@ -342,7 +342,7 @@ SUFFIX_EXP_TABLE = {"of Training", "of Greater Training", "of Adept Training", "
 
 function RPCItems:RollPotionProperty1(item, xpBounty)
 	local luck = RandomInt(0, 100)
-	value, suffixLevel = RPCItems:RollAttribute(xpBounty, 200, 400, 3, 8, item.newItemTable.rarity, false, nil)
+	value, suffixLevel = RPCItems:RollAttribute(xpBounty, 1, 8, 3, 8, item.newItemTable.rarity, false, nil)
 	item.newItemTable.property1 = value
 	item.newItemTable.property1name = "heal"
 	suffix = SUFFIX_HEAL_TABLE[suffixLevel]
@@ -361,44 +361,20 @@ PREFIX_MANA_HEAL_TABLE = {"Mana", "Greater Mana", "Soul", "Lunar", "Grand Arcane
 PREFIX_EXP_TABLE = {"Squire's", "Adventurer's", "Quester's", "Explorer's", "Inquisitive"}
 
 function RPCItems:RollPotionProperty2(item, xpBounty)
-	local luck = RandomInt(0, 100)
+	local luck = RandomInt(1, 3)
 	local prefix = ""
-	if luck < 40 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 200, 400, 3, 8, item.newItemTable.rarity, false, nil)
+	if luck <= 2 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 9, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property2 = value
 		item.newItemTable.property2name = "heal"
 		prefix = PREFIX_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_health_restore", "#99FF66", 2)
-	elseif luck >= 40 and luck < 50 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "strength"
-		prefix = PREFIX_STRENGTH_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_strength", "#CC0000", 2)
-	elseif luck >= 50 and luck < 60 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "agility"
-		prefix = PREFIX_AGILITY_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_agility", "#2EB82E", 2)
-	elseif luck >= 60 and luck < 70 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 1, 2, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "intelligence"
-		prefix = PREFIX_INTELLIGENCE_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_perm_intelligence", "#33CCFF", 2)
-	elseif luck >= 70 and luck <= 100 then
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
+	else
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 2, 10, 2, 4, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property2 = value
 		item.newItemTable.property2name = "mana_heal"
 		prefix = PREFIX_MANA_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_mana_restore", "#1975FF", 2)
-	else
-		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 7, 28, 1, 5, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property2 = value
-		item.newItemTable.property2name = "exp"
-		prefix = PREFIX_EXP_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property2, "item_bonus_exp", "#E6B800", 2)
 	end
 	return prefix
 end
@@ -406,44 +382,20 @@ end
 POTION_NAME_TABLE = {"Godly Potion", "Ultra Potion", "Divine Potion", "Mega Potion", "Super Potion"}
 
 function RPCItems:RollPotionProperty3(item, xpBounty)
-	luck = RandomInt(0, 100)
+	local luck = RandomInt(1, 3)
 	local name = ""
-	if luck < 20 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 300, 3, 8, item.newItemTable.rarity, false, nil)
+	if luck <= 2 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 3, 12, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property3 = value
 		item.newItemTable.property3name = "heal"
-		name = POTION_NAME_TABLE[nameLevel]
+		prefix = PREFIX_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_health_restore", "#99FF66", 3)
-	elseif luck >= 20 and luck < 35 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "strength"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_strength", "#CC0000", 3)
-	elseif luck >= 35 and luck < 50 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "agility"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_agility", "#2EB82E", 3)
-	elseif luck >= 50 and luck < 65 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 3, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "intelligence"
-		name = POTION_NAME_TABLE[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_perm_intelligence", "#33CCFF", 3)
-	elseif luck >= 65 and luck <= 100 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
+	else
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 2, 10, 2, 4, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property3 = value
 		item.newItemTable.property3name = "mana_heal"
-		name = POTION_NAME_TABLE[nameLevel]
+		prefix = PREFIX_MANA_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_mana_restore", "#1975FF", 3)
-	else
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 7, 30, 4, 8, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property3 = value
-		item.newItemTable.property3name = "exp"
-		name = POTION_NAME_TABLE[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property3, "item_bonus_exp", "#E6B800", 3)
 	end
 	return name
 end
@@ -451,41 +403,20 @@ end
 POTION_NAME_TABLE2 = {"Godly Elixir", "Ultra Elixir", "Divine Elixir", "Mega Elixir", "Super Elixir"}
 
 function RPCItems:RollPotionProperty4(item, xpBounty)
-	luck = RandomInt(0, 100)
-	if luck < 20 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 100, 300, 3, 8, item.newItemTable.rarity, false, nil)
+	local luck = RandomInt(1, 3)
+	local name = ""
+	if luck <= 2 then
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 4, 16, 3, 8, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property4 = value
 		item.newItemTable.property4name = "heal"
-		local name = POTION_NAME_TABLE2[nameLevel]
+		prefix = PREFIX_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_health_restore", "#99FF66", 4)
-	elseif luck >= 20 and luck < 35 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, value, "item_perm_strength", "#CC0000", 4)
-	elseif luck >= 35 and luck < 50 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "agility"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_perm_agility", "#2EB82E", 4)
-	elseif luck >= 50 and luck < 65 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 1, 4, 0, 0, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "intelligence"
-		local name = POTION_NAME_TABLE2[nameLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_perm_intelligence", "#33CCFF", 4)
-	elseif luck >= 65 and luck <= 100 then
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 50, 150, 2, 4, item.newItemTable.rarity, false, nil)
+	else
+		value, prefixLevel = RPCItems:RollAttribute(xpBounty, 2, 10, 2, 4, item.newItemTable.rarity, false, nil)
 		item.newItemTable.property4 = value
 		item.newItemTable.property4name = "mana_heal"
-		local name = POTION_NAME_TABLE2[nameLevel]
+		prefix = PREFIX_MANA_HEAL_TABLE[prefixLevel]
 		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_mana_restore", "#1975FF", 4)
-	else
-		value, nameLevel = RPCItems:RollAttribute(xpBounty, 10, 30, 5, 10, item.newItemTable.rarity, false, nil)
-		item.newItemTable.property4 = value
-		item.newItemTable.property4name = "exp"
-		local name = POTION_NAME_TABLE2[prefixLevel]
-		RPCItems:SetPropertyValues(item, item.newItemTable.property4, "item_bonus_exp", "#E6B800", 4)
 	end
 	return name
 end
@@ -695,6 +626,10 @@ function RPCItems:GetExpiryTime(item)
 end
 
 function RPCItems:DropItem(item, position)
+	if not item then
+		-- what the hell sometimes the item is null?
+		return false
+	end
 	RPCItems:ItemUpdateCustomNetTables(item)
 	local origPosition = position
 	local basePosition = position
@@ -823,24 +758,22 @@ function RPCItems:SetTableValues(item, itemName, consumableBoolean, description,
 			suffix = " "..suffix
 		end
 	end
-	local minLevel = 0
-	if item.newItemTable.slot == "weapon" then
-		if not item.newItemTable.minLevel then
-			if rarityFactor < 5 then
-				minLevel = 0
-			else
-				minLevel = 100
-				item.newItemTable.minLevel = minLevel
-			end
-		end
-	end
-	if item.newItemTable.minLevel then
-	else
-		minLevel = RPCItems:GetMinLevel()
-		item.newItemTable.minLevel = minLevel
-	end
-
-	print("MIN LEVEL BEFORE ADJUST"..item.newItemTable.minLevel)
+	-- local minLevel = 0
+	-- if item.newItemTable.slot == "weapon" then
+	-- 	if not item.newItemTable.minLevel then
+	-- 		if rarityFactor < 5 then
+	-- 			minLevel = 0
+	-- 		else
+	-- 			minLevel = 100
+	-- 			item.newItemTable.minLevel = minLevel
+	-- 		end
+	-- 	end
+	-- end
+	-- if item.newItemTable.minLevel then
+	-- else
+	-- 	minLevel = RPCItems:GetMinLevel()
+	-- 	item.newItemTable.minLevel = minLevel
+	-- end
 	--
 	if not item.newItemTable.validator then
 		item.newItemTable.validator = RPCItems:GetRandomKey(13)
@@ -934,7 +867,7 @@ function RPCItems:ItemUpdateCustomNetTables(item)
 	if not item.newItemTable.minLevel then
 		item.newItemTable.minLevel = 1
 	end
-	item.newItemTable.minLevel = math.max(math.min(item.newItemTable.minLevel, 100), 1)
+	item.newItemTable.minLevel = math.max(math.min(item.newItemTable.minLevel, 120), 1)
 
 	if not item.newItemTable.validator then
 		item.newItemTable.validator = RPCItems:GetRandomKey(13)
@@ -1137,20 +1070,16 @@ function RPCItems:ItemSwapInput(msg)
 		
 
 		if oldGear then
-			UTIL_Remove(oldGear)
+			Timers:CreateTimer(1, function()
+				UTIL_Remove(oldGear)
+			end)
 		end
 		hero:RemoveModifierByName("modifier_equip_ui_open")
 		EmitGlobalSound("RPC.EquipItem")
 		local player = hero:GetPlayerOwner()
 		local heroId = hero:GetClassname()
 		if newGear then
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newGear:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newGear.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newGear.newItemTable.rarity)})
-			RPCItems:EquipItem(slot, hero, inventory_unit, newGear)
-		end
-		if slot == 1 then
-			hero.weapon = newGear
-			Weapons:SetWeaponTable(newGear)
-			CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = newGear.xp, level = newGear.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[newGear.level], maxLevel = newGear.maxLevel, requiredHero = newGear.requiredHero})
+			hero:EquipItem(newGear, true, true)
 		end
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
 		if input == 3 then
@@ -1228,18 +1157,10 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 			if IsValidEntity(itemEntity:GetContainer()) then
 				UTIL_Remove(itemEntity:GetContainer())
 			end
-			CustomNetTables:SetTableValue("equipment", tostring(player:GetPlayerID()) .. "-"..tostring(slot), {itemIndex = itemIndexNew})
+			
 			local hero = heroEntity
 			local inventory_unit = heroEntity.InventoryUnit
-			RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
-			EmitGlobalSound("RPC.EquipItem")
-			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
-			if slot == 1 then
-				hero.weapon = itemEntity
-				Weapons:SetWeaponTable(itemEntity)
-				CustomNetTables:SetTableValue("weapons", tostring(hero:GetEntityIndex()), {xp = itemEntity.newItemTable.xp, level = itemEntity.newItemTable.level, xpNeeded = Weapons.XP_PER_LEVEL_TABLE[itemEntity.newItemTable.level], maxLevel = itemEntity.newItemTable.maxLevel, requiredHero = itemEntity.newItemTable.requiredHero})
-			end
+			hero:EquipItem(itemEntity, true, true)
 		end
 	end
 	Statistics.dispatch('items:equip')
@@ -1441,7 +1362,7 @@ function RPCItems:AcceptNewItem(keys)
 	local heroId = hero:GetClassname()
 	if newItem then
 		CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = newItem:GetEntityIndex(), heroId = heroId, playerId = playerID, pickup = "equip", rarity = newItem.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(newItem.newItemTable.rarity)})
-		RPCItems:EquipItem(slot, hero, inventory_unit, newItem)
+		hero:EquipItem(newItem, true, true)
 	end
 	if slot == 1 then
 		hero.weapon = newItem
@@ -1893,11 +1814,13 @@ function RPCItems:GetMaxFactor()
 end
 
 function RPCItems:RollReanimationStone(deathLocation)
-
 	local item = RPCItems:CreateConsumable("item_reanimation_stone", "mythical", "Reanimation Stone", "consumable", false, "Consumable", "reanimation_stone_desc")
-	local drop = CreateItemOnPositionSync(deathLocation, item)
-	local position = deathLocation
-	RPCItems:DropItem(item, position)
+	if deathLocation then
+		local drop = CreateItemOnPositionSync(deathLocation, item)
+		local position = deathLocation
+		RPCItems:DropItem(item, position)
+	end
+	return item
 end
 
 function RPCItems:GiveReanimationStoneToHero(hero)
@@ -1935,7 +1858,7 @@ function RPCItems:GetLogarithmicVarianceValue(baseValue, varianceUpPercent, vari
 	elseif RNG < 98 then
 		baseValue = math.ceil(baseValue * 1.35)
 	elseif RNG >= 98 then
-		baseValue = math.ceil(baseValue * 0.65)
+		baseValue = math.ceil(baseValue * 1.0)
 	end
 	local finalRoll = RandomInt(1, 5)
 	if finalRoll == 1 then

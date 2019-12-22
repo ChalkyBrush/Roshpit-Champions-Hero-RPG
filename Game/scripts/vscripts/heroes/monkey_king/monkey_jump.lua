@@ -36,7 +36,7 @@ function monkey_jump_start(event)
 
 	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
-		local procs = Runes:Procs(c_c_level, 5, 1)
+		local procs = Runes:Procs(c_c_level, DJANGHOR_E3_CLEANCE_CHANCE, 1)
 		if procs > 0 then
 			local particle = false
 			for i = 1, procs, 1 do
@@ -60,7 +60,7 @@ function monkey_jump_start(event)
 	-- StartAnimation(caster, {duration=2.0, ACT_DOTA_MK_SPRING_SOAR, rate=1.0})
 	-- StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
 	-- EmitSoundOn("Akrimus.Jump.VO", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 
 end
 

@@ -1,7 +1,7 @@
 function paladin_e_dash_start(event)
 	local caster = event.caster
 	local ability = event.ability
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	caster:StartGesture(ACT_DOTA_CAST_ABILITY_1)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)
 	EmitSoundOn("Hero_Omniknight.GuardianAngel", caster)
@@ -14,10 +14,8 @@ function paladin_e_dash_start(event)
 	local dash_duration = Filters:GetAdjustedBuffDuration(caster, 0.8, false)
 	caster:RemoveModifierByName("modifier_crusader_dash")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_crusader_dash", {duration = dash_duration})
-	ability.e_3_level = Runes:GetTotalRuneLevel(caster, 3, "e_3", "paladin")
-	ability.projectileDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (0.25 * ability.e_3_level + 0.1)
-	caster.w_4_level = Runes:GetTotalRuneLevel(caster, 4, "w_4", "paladin")
-	if ability.e_3_level > 0 then
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.FalconDash", caster)
 		local info =
 		{
@@ -42,6 +40,7 @@ function paladin_e_dash_start(event)
 		projectile = ProjectileManager:CreateLinearProjectile(info)
 
 	end
+	paladin_rune_e_4(caster, ability)
 end
 
 function paladin_e_dash_think(event)
@@ -151,27 +150,26 @@ function paladin_rune_e_3_falcon_hit(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-
+	local e_3_level = caster:GetRuneValue("e", 3)
 	local particleName = "particles/econ/events/ti5/dagon_lvl2_ti5.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_POINT, target)
 	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (ability.e_3_level * 0.25 + 0.1)
-	-- damage = damage + 0.0004*(caster:GetIntellect()+caster:GetStrength()+caster:GetAgility())/10*ability.w_4_level*damage
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (e_3_level * PALADIN_E3_DMG_PER_ATT + PALADIN_E3_BASE_DMG_PER_ATT)
 
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 	Timers:CreateTimer(1.0, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	paladin_rune_e_4(caster, ability, target)
+
 end
 
-function paladin_rune_e_4(caster, ability, target)
-	local d_c_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
-	if d_c_level > 0 then
-		local d_c_duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_d_c", {duration = d_c_duration})
-		target:SetModifierStackCount("modifier_paladin_d_c", caster, d_c_level)
+function paladin_rune_e_4(caster, ability)
+	local e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "paladin")
+	if e_4_level > 0 then
+		local e_4_duration = Filters:GetAdjustedBuffDuration(caster, PALADIN_E4_DURATION, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_d_c", {duration = e_4_duration})
+		caster:SetModifierStackCount("modifier_paladin_d_c", caster, e_4_level)
 	end
 end
 

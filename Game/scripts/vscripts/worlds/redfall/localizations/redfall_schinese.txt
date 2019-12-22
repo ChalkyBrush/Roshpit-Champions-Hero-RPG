@@ -34,7 +34,7 @@
 		"redfall_quest_2_objective"								"打败马里的精灵们."
 
 		"redfall_blessing_of_maru"								"马里的祝福"
-		"redfall_blessing_of_maru_Description"					"获得 50/300/1000 的全属性持续时间60分钟"
+		"redfall_blessing_of_maru_Description"					"获得 35/100/200 的全属性持续时间60分钟"
 
 		"DOTA_Tooltip_modifier_blessing_of_maru"				"马里的祝福"
 		"DOTA_Tooltip_modifier_blessing_of_maru_Description"	"增加属性"

@@ -68,7 +68,7 @@ function beginCast(event)
 end
 
 function makeShot(caster, ability, w3ability, manaCost, range, minArrow, maxArrow, empyralArrowsProcChance, playSound, angleMult)
-    Filters:CastSkillArguments(2, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_W, caster)
     for arrowNumber = minArrow, maxArrow, 1 do
         local arrowOrigin = caster:GetOrigin() + caster:GetForwardVector() * Vector(20, 20, 0)
         local rotatedVector = rotateVector(caster:GetForwardVector(), math.pi / 40 * angleMult * arrowNumber)

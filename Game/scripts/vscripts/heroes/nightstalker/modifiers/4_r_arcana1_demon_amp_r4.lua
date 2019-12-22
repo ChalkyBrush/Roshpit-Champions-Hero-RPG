@@ -9,7 +9,7 @@ function class:OnCreated()
 end
 function class:GetDemonElementAmplify(data)
     local caster = self:GetCaster()
-    return caster.r4_level * CHERNOBOG_ARCANA1_R4_DEMON_AMP_PER_AGI_PCT/100 * caster:GetAgility()
+    return caster.r4_level * CHERNOBOG_ARCANA1_R4_DEMON_AMP
 end
 function class:IsHidden()
     return true

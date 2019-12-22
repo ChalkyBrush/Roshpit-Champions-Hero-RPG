@@ -23,7 +23,7 @@ function jex_ion_cannon_throw(event)
 	local splits = Runes:Procs(ability.tech_level, event.split_chance_per_tech, 1)
 	new_ion_cannon_projectile(caster, ability, caster, target, splits)
 
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function new_ion_cannon_projectile(caster, ability, target1, target2, splits)

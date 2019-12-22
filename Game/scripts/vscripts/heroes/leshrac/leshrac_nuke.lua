@@ -18,7 +18,7 @@ function begin_judgement(event)
 		targetPoint = GetGroundPosition(casterOrigin, caster)
 	end
 	blast(caster, targetPoint, radius, damage, ability)
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local animationTable = {ACT_DOTA_ATTACK, ACT_DOTA_ATTACK2}
 	StartAnimation(caster, {duration = 0.25, activity = animationTable[RandomInt(1, #animationTable)], rate = 2.5})
 	ability.w_2_level = Runes:GetTotalRuneLevel(caster, 2, "w_2", "bahamut")
@@ -76,9 +76,7 @@ function rune_w_3(caster, ability, fv)
 
 	local runeUnit = caster.runeUnit3
 	local runeAbility = runeUnit:FindAbilityByName("bahamut_rune_w_3")
-	local abilityLevel = runeAbility:GetLevel()
-	local bonusLevel = Runes:GetTotalBonus(runeUnit, "w_3")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = caster:GetRuneValue("w", 3)
 	runeAbility.totalLevel = totalLevel
 	runeAbility.origCaster = caster
 	runeAbility.damageAmp = ability.damageAmp

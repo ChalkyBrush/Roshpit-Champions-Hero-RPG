@@ -29,7 +29,7 @@ function begin_mystic_strike(event)
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_dragon_knight/dragon_knight_transform_red_coreglow.vpcf", caster, 2)
         end
     end
-    Filters:CastSkillArguments(3, caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function rock_start(caster, ability, target_location)
@@ -167,7 +167,7 @@ end
 function teleportToPosition(caster, ability, target)
     local b_c_level = Runes:GetTotalRuneLevel(caster, 2, "e_2", "mountain_protector")
     if b_c_level > 0 then
-        local b_c_duration = Filters:GetAdjustedBuffDuration(caster, 15, false)
+        local b_c_duration = Filters:GetAdjustedBuffDuration(caster, MOUNTAIN_PROTECTOR_E2_DURATION, false)
         local runeAbility = caster.runeUnit2:FindAbilityByName("mountain_protector_rune_e_2")
         runeAbility:ApplyDataDrivenModifier(caster.runeUnit2, caster, "modifier_mountain_protector_rune_e_2", {duration = b_c_duration})
         caster:SetModifierStackCount("modifier_mountain_protector_rune_e_2", caster.runeUnit2, b_c_level)

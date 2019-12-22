@@ -7,7 +7,7 @@ function voltex_azure_leap_onspellstart(event)
 	--ability.location = caster:GetOrigin() + caster:GetForwardVector()*Vector(400,400)
 	ability.jump_level = 0
 	EmitSoundOn("Voltex.ElectricJump.Grunt", caster)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	voltex_rune_e_1(caster, ability)
 	voltex_rune_e_3(caster, ability)
 
@@ -65,7 +65,9 @@ function voltex_azure_leap_landing(keys)
 	local ability = keys.ability
 	local location = caster:GetAbsOrigin()
 	voltex_rune_e_2(caster, ability)
-	WallPhysics:ClearSpaceForUnit(caster, location)
+	Timers:CreateTimer(0.03, function()
+		WallPhysics:ClearSpaceForUnit(caster, location)
+	end)
 	voltex_rune_e_1(caster, ability)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lb_cfx_il.vpcf", caster, 2)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", caster, 0.03)
@@ -87,7 +89,7 @@ function voltex_rune_e_1(hero, ability)
 	local ability = runeUnit:FindAbilityByName("voltex_rune_e_1")
 	local abilityLevel = ability:GetLevel()
 	local bonusLevel = Runes:GetTotalBonus(runeUnit, "e_1")
-	local totalLevel = abilityLevel + bonusLevel
+	local totalLevel = hero:GetRuneValue("e", 1)
 	local player = caster:GetPlayerOwner()
 	if totalLevel > 0 then
 		ConjureImage(caster, player, ability)
@@ -99,7 +101,7 @@ function ConjureImage(caster, player, ability)
 	local origin = caster:GetAbsOrigin() + RandomVector(100)
 	local e_1_level = caster:GetRuneValue("e", 1)
 	local duration = e_1_level * VOLTEX_E1_DUR + VOLTEX_E1_BASE_DUR
-	local incomingDamage = VOLTEX_E1_BASE_INCOMMING_DMG_MULT
+	local incomingDamage = VOLTEX_E1_INCOMING_DAMAGE_ILLUSION
 	if not ability.illusions_table then
 		ability.illusions_table = {}
 	else
@@ -144,15 +146,8 @@ function ConjureImage(caster, player, ability)
 	overCharge:SetLevel(caster:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel())
 	overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven", {duration = duration})
 
-	local newHealth = caster:GetMaxHealth() * 5
-	illusion:SetMaxHealth(newHealth)
-	illusion:SetBaseMaxHealth(newHealth)
-	illusion:SetHealth(newHealth)
-	illusion:Heal(newHealth, illusion)
-	local newArmor = caster:GetPhysicalArmorValue(false) * 5
-	illusion:SetPhysicalArmorBaseValue(newArmor)
-	local newDamage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 5
-	Filters:SetAttackDamage(illusion, newDamage)
+	local attack_damage_inherit = VOLTEX_E1_ATTACK_POWER/100
+	illusion:AdjustSummon(caster, true, VOLTEX_E1_INHERITED_HEALTH, attack_damage_inherit, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR)
 
 	if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
 		local runeAbility = caster.runeUnit3:FindAbilityByName("voltex_rune_r_3")

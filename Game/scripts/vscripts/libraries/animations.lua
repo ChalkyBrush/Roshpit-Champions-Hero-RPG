@@ -426,7 +426,10 @@ function StartAnimation(unit, table)
   local translate = table.translate
   local translate2 = table.translate2
   local rate = table.rate or 1.0
-
+  if unit:HasModifier("modifier_spellfire_gloves") then
+    rate = rate / (1 - ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION/100)
+    rate = rate * 0.85
+  end
   rate = math.floor(math.max(0, math.min(255 / 20, rate)) * 20 + .5)
 
   local stacks = activity + bit.lshift(rate, 11)

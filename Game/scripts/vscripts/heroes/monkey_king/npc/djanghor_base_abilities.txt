@@ -255,12 +255,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"agility_bonus"			"100 200 500 1000 3000 6000 10000"
+				"agility_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"resist"			"70"
+				"resist"			"<% DJANGHOR_WOLF_MAG_PURE_RED * 100 %>"
 			}
 		}
 	}
@@ -465,12 +465,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"strength_bonus"			"100 200 500 1000 3000 6000 10000"
+				"strength_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"resist"			"30"
+				"resist"			"<% DJANGHOR_BEAR_PHYS_PURE_RED * 100 %>"
 			}
 		}
 	}
@@ -665,12 +665,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"int_bonus"			"100 200 500 1000 3000 6000 10000"
+				"int_bonus"			"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"block"			"5"
+				"block"			"<% DJANGHOR_BIRD_PURE_MAG_BLOCK %>"
 			}
 		}
 	}
@@ -713,7 +713,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"80 100 120 140 160 180 200"
 			}
 		}
 		"OnSpellStart"
@@ -805,17 +805,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base"			"300 1000 5000 20000 40000 80000 160000"
+				"attack_damage_base"			"30 60 120 210 330 480 760"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 7.25 8.5"
+				"attack_speed_rune"			"3 3.75 4.5 5.25 6.0 6.75 7.5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_base_rune"			"15 50 250 800 2000 4000 8000"
+				"attack_damage_base_rune"			"1.5 3.0 6 10.5 16.5 24 38"
 			}
 		}
 		"Modifiers"
@@ -898,7 +898,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"health_regen"			"30 80 150 250 500 1000 1500"
+				"health_regen"			"10 25 55 75 120 200 250"
 			}
 			"03"
 			{
@@ -908,7 +908,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"health_regen_rune"			"1.5 4.0 7.5 12.5 25 50 75"
+				"health_regen_rune"			"0.5 1.25 2.75 3.75 6 10 12.5"
 			}
 		}
 		"Modifiers"
@@ -923,7 +923,6 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen"
 				}
 			}
@@ -934,7 +933,6 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus_rune"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%health_regen_rune"
 				}
 			}
@@ -986,17 +984,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_regen"			"30 60 100 150 240 400 700"
+				"mana_regen"			"30 60 100 150 210 280 360"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"post_mitigation_magic"			"25 50 75 100 125 150 175"
+				"magic_armor_increase"			"30 60 200 400 700 1000 1400"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"mana_regen_rune"			"1.5 3 5 7.5 12 20 35"
+				"mana_regen_rune"			"1.5 3 5 7.5 10.5 14 18"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_armor_increase_rune"			"1.5 3.0 10 20 35 50 70"
 			}
 		}
 		"Modifiers"
@@ -1074,7 +1077,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"70 75 80 85 90 95 100"
 			}
 			"02"
 			{
@@ -1274,8 +1277,25 @@
 			{
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
 				"TextureName"	"djanghor/djanghor_rune_e_1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -1318,7 +1338,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent"		"150 200 250 300 350 400 450"
+				"damage_increase_percent"		"20 25 30 35 40 45 50"
 			}
 			"02"
 			{
@@ -1328,7 +1348,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_increase_percent_ally"		"15 30 45 60 75 90 105"
+				"damage_increase_percent_ally"		"5 10 15 20 25 30 35"
 			}
 		}
 		"Modifiers"
@@ -1425,7 +1445,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_increase"		"420 450 500 550 600 660 710"
+				"movespeed_increase"		"710"
 			}
 			"02"
 			{
@@ -1542,17 +1562,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"140 180 240 340 520 800 1200"
+				"damage_mult"			"60 65 70 75 80 85 90"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"			"5 8 11 14 17 20 23"
+				"bleed_damage"			"8 10 12 14 16 18 20"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"bleed_duration"			"12"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1587,9 +1612,23 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_wolf_rend_bleed"
@@ -1609,6 +1648,14 @@
 						"Function"		"rend_bleed_think"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_wolf_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
 				}
 			}
 		}
@@ -1657,7 +1704,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_bonus"		"30 70 150 450 1000 3000 5000"
+				"armor_bonus"		"30 70 150 350 400 700 900"
 			}
 		}
 		"Modifiers"
@@ -1681,9 +1728,23 @@
 				"IsBuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 			"modifier_bear_regen"
@@ -1762,12 +1823,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"		"600 1500 5000 15000 50000 100000 200000"
+				"damage"		"120 260 400 540 680 820 1040"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"stun_duration"			"0.45 0.5 0.55 0.6 0.65 0.7 0.75"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
 			}
 		}
 		"Modifiers"
@@ -1778,9 +1844,13 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"TextureName"	"djanghor/war_stomp"
+			}
+			"modifier_bear_rend_health_regen_loss"
+			{
+				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% DJANGHOR_W2_HEALTH_REGEN_REDUCTION %>"
 				}
 			}
 		}
@@ -1973,7 +2043,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 60000 140000 300000 650000"
+				"damage"				"120 220 320 420 520 620 720"
 			}
 			"02"
 			{
@@ -1983,7 +2053,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"postmitigation"			"100 200 300 400 500 600 700"
+				"magic_armor_reduction"			"-100 -200 -300 -400 -500 -600 -700"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -2023,10 +2093,27 @@
         		"Passive"			"0"
         		"IsHidden"			"0"
         		"IsDebuff"			"1"
-        		"IsStunDebuff"			"1"
 
         		"EffectName"		"particles/roshpit/draghor/hawk_screech_debuff_knockback_debuff.vpcf"
         		"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
         	}
         }
 	}
@@ -2059,7 +2146,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 400 700 1200 1700 2600"
+		"AbilityManaCost"				"100 200 350 550 800 1100 1450"
 
 		// Special
 		//-------------------------------------------------------
@@ -2078,12 +2165,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 5000 12000 40000 90000 150000"
+				"damage"			"30 100 170 240 310 380 450"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"2.0 2.5 3.0 3.5 4.0 4.5 5.0"
+				"int_mult"			"0.7 0.75 0.80 0.85 0.90 0.95 1.00"
 			}
 		}
 		"OnAbilityPhaseStart"

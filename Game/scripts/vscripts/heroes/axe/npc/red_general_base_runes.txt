@@ -29,12 +29,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% RED_GENERAL_Q2_ATTACK_SPEED %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% RED_GENERAL_Q2_ATTACK_DAMAGE %>"
 			}
 		}
@@ -61,7 +61,7 @@
 				"Duration"			"2"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RED_GENERAL_Q2_ATTACK_SPEED %>"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"<% RED_GENERAL_Q2_ATTACK_DAMAGE %>"
 				}
 			}
@@ -175,7 +175,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_Q4_RESIST_REDUCE_PROCENT %>"
+				"property_one"			"<% RED_GENERAL_Q4_RADIUS_INCREASE %>"
 			}
 
 		}
@@ -195,7 +195,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W1_DAMAGE_PERCENT %>s"
+				"property_one"			"<% RED_GENERAL_W1_DAMAGE_PERCENT %>"
 			}
 			"02"
 			{
@@ -222,8 +222,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% RED_GENERAL_W2_MAGIC_RESIST_LOSE %>"
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"<% RED_GENERAL_W2_MAGIC_ARMOR_REDUCTION %>"
 			}
 			"02"
 			{
@@ -331,7 +331,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% RED_GENERAL_E1_ATTRIBUTES_GAIN %>"
 			}
 		}
@@ -383,7 +383,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% RED_GENERAL_E3_DAMAGE_PERCENT %>"
 			}
 			"02"
@@ -548,7 +548,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% RED_GENERAL_R4_POST_AMP_PERCENT %>"
+				"property_one"			"<% RED_GENERAL_R4_ARMOR_PIERCE %>"
 			}
 		}
 	}

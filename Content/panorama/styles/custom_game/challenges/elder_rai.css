@@ -1,0 +1,266 @@
+.elder_rai_content{
+	width:100%;
+	height:100%;
+}
+
+#elder_rai_container{
+	width:100%;
+	height:100%;
+}
+
+.elder_rai{
+	vertical-align: center;
+	horizontal-align:center;
+	margin-bottom:15%;
+}
+
+.elder_rai_main{
+	vertical-align: center;
+	horizontal-align:center;
+	border-radius: 4px;
+	border:1px solid #BBBBBB;
+}
+
+#elder_rai_bg{
+	background-color: gradient( linear, 0px 0%, 600px 0%, from( #222222 ), to( #000000 ) );
+	width:500px;
+	height:700px;
+	opacity:0.92;
+}
+
+
+.elder_rai_mega_container{
+	height:100%;
+	width:100%;
+	flow-children:down;
+}
+
+#elder_rai_header{
+	width:100%;
+	height:140px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-bottom:1px solid #444444;
+}
+
+#elder_rai_header_title{
+	horizontal-align:center;
+	vertical-align: center;
+	font-size:48px;
+	color:#FFFFFF;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+	padding-left:20px;
+	padding-right:20px;
+	text-shadow: 1px 1px 2px 3 #00000066;
+}
+
+#elder_rai_header_container{
+	horizontal-align:center;
+	vertical-align: center;	
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#elder_rai_header_container_bg{
+	border-radius:4px;
+	background-color: #111111;
+	opacity: 0.98;
+	height:100%;
+	width:100%;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#close_button{
+	width:100%;
+	horizontal-align:center;
+	vertical-align: bottom;
+	height:50px;
+	background-color: #121212;
+	border:1px solid white;
+}
+
+#close_button:hover{
+	background-color: #333333;
+}
+
+#close_button_label{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	text-align: center;
+	font-size:18px;
+	line-height: 35px;
+}
+
+.invisible{
+	transition-delay: .5s;
+	visibility: collapse;
+}
+
+.animateEaseClass{
+    animation-name: easeIn;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+.animateEaseOutClass{
+    animation-name: easeOut;
+    animation-duration: .2s;
+    animation-timing-function: linear;	
+}
+
+@keyframes 'easeIn'{
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes 'easeOut'{
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#elder_rai_attach_contents{
+	width:100%;
+	flow-children:down;
+	margin-top:8px;
+}
+
+.elder_rai_action_root{
+	width:80%;
+	horizontal-align:center;
+	height:50px;
+	border:1px solid white;
+	margin-top:5px;
+	background-color:#111111;
+	flow-children:right;
+	box-shadow: 1px 1px 2px #000000;
+}
+
+.elder_rai_action_root:hover{
+	background-color: #222222;
+}
+
+#elder-rai-image-container{
+	width:84px;
+	height:64px;
+}
+
+#elder_rai_action_image{
+	height:40px;
+	width:54px;
+	horizontal-align:center;
+	vertical-align: center;
+	border-radius:10px;
+	box-shadow: 1px 1px 2px #000000;
+}
+#elder_rai_action_text{
+	width:100%;
+	font-family:Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;	
+	color:white;
+	font-weight:lighter;
+	font-size:16px;
+	vertical-align: center;
+}
+
+.elder_rai_exp_orb_root{
+	margin-top:10px;
+	horizontal-align:center;
+	flow-children:down;
+	font-weight:lighter;
+	color:white;
+	width:100%;
+	background-color:#111111;
+	border:1px solid black;
+	box-shadow:1px 1px 2px #000000;
+	border-radius:6px;
+	padding:10px;
+	padding-left:40px;
+	padding-right:40px;
+}
+
+#elder_rai_attach_2{
+	horizontal-align:center;
+	width:400px;
+}
+
+#elder_rai_orb_image_preview{
+	horizontal-align:center;
+}
+#elder_rai_orb_image_title{
+	font-size:22px;
+	color:#8847FF;
+	margin-top:8px;
+	horizontal-align:center;
+}
+
+#elder_rai_orb_mithril_cost_right{
+	horizontal-align:right;
+}
+
+#elder_rai_orb_your_mithril_right{
+	horizontal-align:right;
+}
+
+#elder_rai_orb_mithril_cost_left{
+}
+
+.exp-orb-cost-container{
+	width:100%;
+	font-size:16px;
+	font-weight:lighter;
+
+}
+
+#elder_rai_orb_final_purchase{
+	horizontal-align:center;
+	margin-top:30px;
+	border-radius:4px;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	font-size:18px;
+	padding-right:20px;
+	
+}
+
+.elder_rai_orb_final_purchase_ok{
+	border:1px solid white;
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #1C4FA0 ), to( #0d326d ) );
+}
+
+.elder_rai_orb_final_purchase_ok:hover{
+	background-color: gradient( linear, 0px 0%, 260px 0%, from( #3f6eba ), to( #1C4FA0 ) );
+}
+
+.cost_value_container{
+	horizontal-align:right;
+	flow-children:right;
+}
+
+.mithril_preview{
+	height:16px;
+	width:16px;
+}
+
+#elder_rai_orb_description{
+	text-align: center;
+	width:100%;
+	margin-top:5px;
+	margin-bottom:20px;
+	font-size:18px;
+}
+
+#elder_rai_orb_image_preview{
+	border-radius:6px;
+	box-shadow:0px 0px 1px #000000;
+}
+
+.button-disabled{
+	border:1px solid #000000;
+	background-color: #333333;
+}
+
+.button-disabled:hover{
+	background-color: #333333;
+}

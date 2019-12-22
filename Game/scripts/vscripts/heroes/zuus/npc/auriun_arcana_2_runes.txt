@@ -73,7 +73,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% AURIUN_ARCANA_2_Q3_ATTRIBUTES_TO_SHADOW_AMP_PCT %>"
+				"property_one"			"<% AURIUN_ARCANA_2_Q3_SHADOW_AMP * 100 %>"
 			}
 		}
 	}
@@ -94,7 +94,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% AURIUN_ARCANA_2_Q4_MAGIC_POST_MITI %>"
+				"property_one"			"<% AURIUN_ARCANA_2_Q4_SPELL_PIERCE %>"
 			}
 			"02"
 			{

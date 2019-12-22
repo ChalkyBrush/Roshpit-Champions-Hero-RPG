@@ -253,7 +253,7 @@ function fire_crystal_arrow(event)
 		caster:SetModifierStackCount("modifier_crystal_arrow_b_d", caster, b_d_level)
 	end
 	ability.r_4_level = caster:GetRuneValue("r", 4)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function arrows_thinking(event)
@@ -303,7 +303,7 @@ function arrow_explode(caster, ability, position, damage)
 	Timers:CreateTimer(3.5, function()
 		ParticleManager:DestroyParticle(pfx2, false)
 	end)
-	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.05 * ability.r_2_level
+	damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (ASTRAL_RANGER_ARCANA3_Q2_ATK_DAMAGE_ADDED_TO_ARROW/100) * ability.r_2_level
 	if caster:HasModifier("modifier_astral_glyph_7_1") then
 		damage = damage * ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
 	end

@@ -11,7 +11,7 @@
 	  "hero_index",
 	  "weapons",
 	  "stash",
-	  "portal_keys",
+	  "units",
 	  "xp_table",
 	  //"min_level_reduction",
 	  "premium_pass",

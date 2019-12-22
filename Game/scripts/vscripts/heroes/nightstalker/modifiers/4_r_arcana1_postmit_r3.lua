@@ -13,7 +13,7 @@ function class:GetPostmitigationAmplify(data)
     if data.attacker ~= caster then
         return 0
     end
-    return caster.r3_level * CHERNOBOG_ARCANA1_R3_POSTMIT
+    return 0
 end
 function class:GetTexture()
     return 'chernobog/chernobog_rune_r_3_arcana1'

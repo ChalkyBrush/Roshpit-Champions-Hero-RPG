@@ -29,7 +29,7 @@ function startCast(event)
         WaterElemental.summon(caster, ability, newPosition)
     end
 
-    Filters:CastSkillArguments(3, event.caster)
+    Filters:CastSkillArguments(BASE_ABILITY_E, event.caster)
     ProjectileManager:ProjectileDodge(event.caster)
 end
 

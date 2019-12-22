@@ -3,8 +3,10 @@
 		<include src="file://{resources}/styles/custom_game/menu/equipment.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 		<include src="file://{resources}/styles/custom_game/weapons.css" />
+		<include src="file://{resources}/styles/custom_game/gems.css" />
 	</styles>
 	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gems/gems_shared.js" />
 		<include src="file://{resources}/scripts/custom_game/glyphs/glyphs.js" />
 		<include src="file://{resources}/scripts/custom_game/menu/equipment.js" />
 		<include src="file://{resources}/scripts/custom_game/equipment_manager.js" />
@@ -26,6 +28,16 @@
 					onmouseout="ItemHideTooltipInit(0)">
 					<DOTAItemImage hittest="false" id="ItemImage" draggable="true"/>
 
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="gem_snippet">
+			<Panel hittest="false" class="invisible gems-root">
+				<Panel hittest="false" id="gems-small-socket1" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem1"/>
+				</Panel>
+				<Panel hittest="false" id="gems-small-socket2" class="gems-small-socket">
+					<Image class="placed-gem" id="placed-gem2"/>
 				</Panel>
 			</Panel>
 		</snippet>
@@ -61,7 +73,7 @@
 						onmouseover="ItemShowTooltipInit(0)"
 						onmouseout="ItemHideTooltipInit(0)">
 						<DOTAItemImage hittest="false" id="ItemImageHelm"/>
-
+						<Panel id="gems_container0" class="gems-equipment-container"/>
 					</Panel>
 				</Panel>
 				<Panel class="item_container" id="armor_main_container" hittest="false">
@@ -70,7 +82,7 @@
 						onmouseover="ItemShowTooltipInit(4)"
 						onmouseout="ItemHideTooltipInit(4)">
 						<DOTAItemImage hittest="false" id="ItemImageArmor"/>
-
+						<Panel id="gems_container4" class="gems-equipment-container"/>
 					</Panel>
 				</Panel>
 				<Panel class="item_container"  id="weapon_glove_main_container" hittest="false">
@@ -79,13 +91,14 @@
 						onmouseover="ItemShowTooltipInit(1)"
 						onmouseout="ItemHideTooltipInit(1)">
 						<DOTAItemImage hittest="false" id="ItemImageWeapon"/>
-
+						<Panel id="gems_container1" class="gems-equipment-container"/>
 					</Panel>
 					<Panel class="item_image" id="glove_container" hittest="true"
 						onactivate='EquipmentClick(2)'
 						onmouseover="ItemShowTooltipInit(2)"
 						onmouseout="ItemHideTooltipInit(2)">
 						<DOTAItemImage hittest="false" id="ItemImageGlove"/>
+						<Panel id="gems_container2" class="gems-equipment-container"/>
 
 					</Panel>
 				</Panel>
@@ -95,14 +108,14 @@
 						onmouseover="ItemShowTooltipInit(3)"
 						onmouseout="ItemHideTooltipInit(3)">
 						<DOTAItemImage hittest="false" id="ItemImageBoot"/>
-
+						<Panel id="gems_container3" class="gems-equipment-container"/>
 					</Panel>
 					<Panel class="item_image" id="amulet_container" hittest="true"
 						onactivate='EquipmentClick(5)'
 						onmouseover="ItemShowTooltipInit(5)"
 						onmouseout="ItemHideTooltipInit(5)">
 						<DOTAItemImage hittest="false" id="ItemImageAmulet"/>
-
+						<Panel id="gems_container5" class="gems-equipment-container"/>
 					</Panel>
 				</Panel>
 			</Panel>

@@ -24,7 +24,7 @@ function channel_complete(event)
 	local mainAOE = event.radius
 	local explosionAOE = 300
 	local damage = event.damage
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.1})
 	EmitSoundOn("MysticAssasin.FissureYell", caster)
@@ -212,7 +212,8 @@ function hailstorm_enemy_aura_start(event)
 	local ability = event.ability
 	local caster = event.caster
 	if ability.r_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_hailstorm_enemy_amp", {})
-		target:SetModifierStackCount("modifier_hailstorm_enemy_amp", caster, ability.r_3_level)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_hailstorm_armor_and_magic_armor_loss", {})
+		target:SetModifierStackCount("modifier_hailstorm_armor_and_magic_armor_loss", caster, ability.r_3_level)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end

@@ -6,6 +6,7 @@ require('runes')
 require('beacons')
 require('wallPhysics')
 require('dungeons')
+require('enemies')
 require('game_state')
 require('saveload')
 require('quests')
@@ -13,8 +14,10 @@ require('glyphs')
 require('paragon')
 require('elements')
 require('spawning')
+require('keyvalues')
+require('challenges_reborn')
 
-Beacons.cheats = false
+Beacons.cheats = true
 
 if Events == nil then
 	Events = class({})
@@ -34,7 +37,7 @@ STARS_INCREASE_MITHRIL = false
 STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
-ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '3.8A'
 
 SPAWN_POINT_OPEN_1 = Vector(-7232, -6464)
@@ -193,14 +196,7 @@ function GameMode:OnNPCSpawned(keys)
 	if npc:GetClassname() ~= "npc_dota_base_additive" and npc:GetUnitName() ~= "rune_unit" then
 		npc:AddNewModifier(nil, nil, "modifier_attack_land_basic", {})
 	end
-	if npc:IsRealHero() then
-		if not npc.strength_custom then
-			npc.strength_custom = 20
-			npc.agility_custom = 20
-			npc.intellect_custom = 20
-		end
-		CustomAttributes:SetAttributes(npc)
-	end
+	npc:InitRoshpitAttributes()
 	if npc:IsRealHero() and Events.gameLoaded then
 		GameMode:CorrectRespawn(npc)
 		-- if GameState:IsSerengaard() then
@@ -209,14 +205,15 @@ function GameMode:OnNPCSpawned(keys)
 				-- gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, npc, "modifier_disable_player", {})
 			-- end
 		-- end
-		RPCItems:RecalculateStatsBasic(npc)
+		-- RPCItems:RecalculateStatsBasic(npc)
 		--print("RESPAWNING AND MOVING")
 	end
 end
 
 function GameMode:CorrectRespawn(npc)
-
-	Runes:RunesOnRespawn(npc)
+	if npc:IsRealHero() then
+		npc:ReequipAllGear(nil)
+	end
 	if GameState:IsWorld1() then
 		if Events.isTownActive then
 			local vector = TOWN_RESPAWN_VECTOR
@@ -243,9 +240,7 @@ function GameMode:CorrectRespawn(npc)
 			npc:SetOrigin(Dungeons.entryPoint)
 		end
 	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() or GameState:IsSeaFortress() or GameState:IsWinterblight() or GameState:IsTutorial() then
-		if npc:HasModifier("modifier_neutral_glyph_4_1") and (not npc.prelastDeathTime or (npc.lastDeathTime - npc.prelastDeathTime > 30)) then
-			npc:SetOrigin(npc.deathPosition)
-		elseif npc.respawnFlag then
+		if npc.respawnFlag then
 			Events:RespawnFlag(npc)
 		else
 			if Dungeons.respawnPoint then
@@ -381,9 +376,9 @@ function Events:PickUpTest(heroEntity, itemEntity, itemname)
 				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = itemEntity:GetEntityIndex(), heroId = heroId, playerId = playerId, pickup = "normal", rarity = itemEntity.newItemTable.rarity, rarityColor = RPCItems:GetRarityColor(itemEntity.newItemTable.rarity)})
 			end
 		end
-		if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
-			RPCItems:LegendaryPickup(itemEntity, heroEntity)
-		end
+		-- if itemEntity.newItemTable.slot == "weapon" and rarityFactor > 2 and rarityFactor < 5 then
+		-- 	RPCItems:LegendaryPickup(itemEntity, heroEntity)
+		-- end
 		if IsValidEntity(itemEntity) then
 			if itemEntity:GetAbilityName() == "item_reanimation_stone" then
 				RPCItems:LegendaryPickup(itemEntity, heroEntity)
@@ -458,7 +453,17 @@ function GameMode:OnPlayerChat(keys)
 	end
 	if string.match(text, "dbg") then
 		-- Serengaard:KillAllNeutrals()
-		-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
+		-- item = Gems:AddSocket(item)
+  --   	item = Gems:AddSocket(item)		-- RPCItems.DROP_LOCATION = vector
+		-- RPCItems:CreateArcanaCache(85, "12345")
+		-- RPCItems:RollRavenIdol(position)
+		-- RPCItems:RollAxeArcana1(position)
+		-- RPCItems:RollAxeArcana2(position)
+		-- RPCItems:RollFarSeersEnchantedGloves(position)
+		-- RPCItems:RollFarSeersEnchantedGloves(position)
+		-- RPCItems:RollSeaGiantsPlate(position)
 		-- RPCItems:RollHyperstone(10, position)
 		-- RPCItems:RollBorealGraniteVest(position)
 		-- RPCItems:RollMonkeyPaw(position)
@@ -470,10 +475,9 @@ function GameMode:OnPlayerChat(keys)
 		-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
 		-- 	RPCItems:DropSynthesisVessel(position)
 		-- end
-		-- local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		-- RPCItems:RollFlamewakerArcana1(vector)
-		-- RPCItems.DROP_LOCATION = vector
-		-- RPCItems:CreateArcanaCache(99, "12345")
+		--RPCItems:RollFlamewakerArcana1(vector)
+		 
+		 
 
 		--    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
 		--    key.newItemTable.stashable = true
@@ -573,24 +577,92 @@ function GameMode:OnPlayerChat(keys)
 		end
 	elseif string.match(text, "-immo") then
 		if Beacons.cheats then
-			local name = string.gsub(text, "-immo ", "")
+			local strings = string.gmatch(text, "%S+")
+			local command = strings()
+			local name = strings()
+			local level = tonumber(strings(), 10)
+			if not level then
+				level = 1
+			end
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollImmortalByName(name, hero:GetAbsOrigin())
+			local item = RPCItems:RollImmortalByName(name, level)
+			Gems:AddSocket(item)
+			Gems:AddSocket(item)
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth40") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 40, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth80") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 80, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-myth120") then
+		if Beacons.cheats then
+			local random_gear_slot = RandomInt(0, 5)
+			local item = RPCItems:RollRandomItemBySlot(4, 120, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+		end
+	elseif string.match(text, "-gems") then
+		if Beacons.cheats then
+			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
+		end
+	elseif string.match(text, "-givegems") then
+		if Beacons.cheats then
+			local amount = tonumber(string.gsub(text, "-givegems ", ""), 10)
+			local msg = {}
+			msg.PlayerID = keys.playerid
+			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
+			Gems:CollectReward(msg)
+		end
+	elseif string.match(text, "-map_keys") then
+		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+		local item = CreateItem("item_debug_blink", nil, nil)
+		local drop = CreateItemOnPositionSync(vector, item)
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		if GameState:IsRedfallRidge() then
+			Redfall:GiveSpiritRuby(hero, vector)
+			Redfall:GiveVermillionBundle(hero, vector)
+			Redfall:GiveShipyardKey(hero, vector)
+			Redfall:GiveDemonRelic(hero, vector)
+		elseif GameState:IsWinterblight() then
+			for i = 1, 3 do
+				Winterblight:DropGlacierStone(vector)
+			end
+		elseif GameState:IsSerengaard() then
+			Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
 		end
 	elseif string.match(text, "-arc") then
 		if Beacons.cheats then
 			local name = string.gsub(text, "-arc ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:RollArcanaByName(name, hero:GetAbsOrigin())
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, 1))
 		end
 	elseif string.match(text, "-gly") then
 		if Beacons.cheats then
 			local name = string.gsub(text, "-gly ", "")
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			if _G[name] then
+				newItem = _G[name]:CreateLuaItem(item_level)
+				RPCItems:BasicDropItem(hero:GetAbsOrigin(), newItem)
+			else
+				Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
+			end
+		end
+	elseif string.match(text, "-potion") then
+		if Beacons.cheats then
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		    local potion = RPCItems:RollRandomPotion(1)
+    		RPCItems:BasicDropItem(hero:GetAbsOrigin(), potion)
 		end
 	elseif string.match(text, "-allglyph") then
 		if Beacons.cheats then
@@ -923,23 +995,20 @@ end
 function Events:HeroLevelUp(player, hero, level)
 	hero:SetAbilityPoints(0)
 
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	-- if not player_stats then
-	--   return false
-	-- end
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
-	if level % 5 == 0 then
-		CustomNetTables:SetTableValue("player_stats", tostring(player:GetPlayerID()), {skillPoints = current_skill_points + 1, runePoints = current_rune_points + 2})
-	else
-		CustomNetTables:SetTableValue("player_stats", tostring(player:GetPlayerID()), {skillPoints = current_skill_points, runePoints = current_rune_points + 2})
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
+	local skill_points = 0
+	if level%5 == 0 then
+		skill_points = 1
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {})
+	local rune_point_popup = Runes.RUNE_POINTS_PER_LEVEL
+	if hero:HasModifier("modifier_tattered_novice_armor") and level%ITEM_RPC_TATTERED_NOVICE_ARMOR_LEVELS == 0 then
+		rune_point_popup = rune_point_popup + ITEM_RPC_TATTERED_NOVICE_ARMOR_EXTRA_RUNE_POINTS
+	end
+	CustomGameEventManager:Send_ServerToPlayer(player, "hero_level_up", {skill_points = skill_points, rune_points = rune_point_popup})
 	if level % 40 == 0 then
 		Stars:StarEventPlayer("power_up", hero)
 	end
+	hero:SetStatsForLevel()
 end
 
 -- A player last hit a creep, a tower, or a hero
@@ -1035,6 +1104,11 @@ function GameMode:OnPlayerPickHero(keys)
 		CustomGameEventManager:Send_ServerToPlayer(player, "correct_dota_ui", {})
 		table.insert(GameState.HeroPlayerTable, {heroEntity:GetPlayerOwnerID(), keys.heroindex})
 		Events:SetupHeroes(heroEntity)
+		print(#MAIN_HERO_TABLE)
+		print(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
+		if #MAIN_HERO_TABLE == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
+			Challenges:GetChallengeFromRoshpitServer()
+		end
 		Events:BGMmanager(player, heroEntity)
 
 		--DEBUG
@@ -1068,11 +1142,12 @@ end
 function Events:SetupInventoryUnit(inventory_unit)
 	inventory_unit:AddAbility("town_unit")
 	inventory_unit:FindAbilityByName("town_unit"):SetLevel(1)
-	inventory_unit:FindAbilityByName("helm_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("hand_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("foot_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("body_slot"):SetLevel(1)
-	inventory_unit:FindAbilityByName("weapon_slot"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_head"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_weapon"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_hands"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_feet"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_body"):SetLevel(1)
+	inventory_unit:FindAbilityByName("equipment_amulet"):SetLevel(1)
 end
 
 function Events:InitializeHero(heroEntity)
@@ -1100,18 +1175,7 @@ function Events:InitializeHero(heroEntity)
 	local player = heroEntity:GetPlayerOwner()
 
 	local heroIndex = heroEntity:GetEntityIndex()
-	if GameState:IsWorld1() then
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = 1, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = 0, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = 0, desert = 0, mines = 0})
-		Timers:CreateTimer(3, function()
-			Beacons:ActivatePortalsForKeys()
-		end)
-	else
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "1", {forest = 1, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "2", {forest = 0, desert = 0, mines = 0})
-		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-" .. "3", {forest = 0, desert = 0, mines = 0})
-	end
+
 	Timers:CreateTimer(4, function()
 		-- if not GameState:NoOracle() then
 		--   CustomGameEventManager:Send_ServerToPlayer(player, "open_oracle", {player=playerID, loadEnabled = heroEntity.loadEnabled} )
@@ -1145,44 +1209,44 @@ function Events:InitializeHero(heroEntity)
 end
 
 function Events:EarnKey(clearedZone)
-	local difficulty = GameState:GetDifficultyFactor()
-	local keyName = ""
-	if clearedZone == "forest" then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = 1, mines = existingKeysThisDifficulty.mines})
-			keyName = "desert"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysThisDifficulty.desert == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	elseif clearedZone == "desert" then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = existingKeysThisDifficulty.desert, mines = 1})
-			keyName = "mines"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysThisDifficulty.mines == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	elseif clearedZone == "mines" and difficulty < 3 then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
-			local existingKeysNextDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty + 1))
-			CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty + 1, {forest = 1, desert = existingKeysNextDifficulty.desert, mines = existingKeysNextDifficulty.mines})
-			keyName = "forest"
-			local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
-			if existingKeysNextDifficulty.forest == 0 then
-				CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
-			end
-		end
-	end
-	CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
-	Beacons:ActivatePortalsForKeys()
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- local keyName = ""
+	-- if clearedZone == "forest" then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = 1, mines = existingKeysThisDifficulty.mines})
+	-- 		keyName = "desert"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysThisDifficulty.desert == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- elseif clearedZone == "desert" then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysThisDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty, {forest = existingKeysThisDifficulty.forest, desert = existingKeysThisDifficulty.desert, mines = 1})
+	-- 		keyName = "mines"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysThisDifficulty.mines == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- elseif clearedZone == "mines" and difficulty < 3 then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local heroIndex = MAIN_HERO_TABLE[i]:GetEntityIndex()
+	-- 		local existingKeysNextDifficulty = CustomNetTables:GetTableValue("portal_keys", tostring(heroIndex) .. "-"..tostring(difficulty + 1))
+	-- 		CustomNetTables:SetTableValue("portal_keys", tostring(heroIndex) .. "-"..difficulty + 1, {forest = 1, desert = existingKeysNextDifficulty.desert, mines = existingKeysNextDifficulty.mines})
+	-- 		keyName = "forest"
+	-- 		local playerID = MAIN_HERO_TABLE[i]:GetPlayerOwnerID()
+	-- 		if existingKeysNextDifficulty.forest == 0 then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("PickupPopup", {item = -1, heroId = MAIN_HERO_TABLE[i]:GetUnitName(), playerId = playerID, pickup = "key", keyName = keyName})
+	-- 		end
+	-- 	end
+	-- end
+	-- CustomGameEventManager:Send_ServerToAllClients("update_key_display", {})
+	-- Beacons:ActivatePortalsForKeys()
 
 end
 
@@ -1210,39 +1274,11 @@ function Events:ChangeRuneState(msg)
 		end
 		Events:TutorialServerEvent(unit, "2_1", 2)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = playerid})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = playerid})
+	Runes:UpdateHeroSkillAndRunePoints(unit, false)
 end
 
 function Events:LevelUpRune(keys)
-	local PlayerID = keys.playerID
-	local player = PlayerResource:GetPlayer(PlayerID)
-	local ability = EntIndexToHScript(keys.ability)
-	local unit = EntIndexToHScript(keys.unit)
-	--print("LEVELUP RUNE")
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
-	local hero = player:GetAssignedHero()
-	local bAllow = true
-	if not unit:GetPlayerOwnerID() == PlayerID then
-		if unit:IsHero() then
-			bAllow = false
-		end
-	end
-	--print(unit:GetPlayerOwnerID())
-	--print(PlayerID)
-	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - 1})
-		local newLevel = ability:GetLevel() + 1
-		ability:SetLevel(newLevel)
-		EmitSoundOnClient("ui.crafting_gem_applied", player)
-		Runes:apply_runes(ability, unit, PlayerID)
-	else
-		EmitSoundOnClient("General.Cancel", player)
-	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:LevelUpRune(keys)
 end
 
 function Events:LevelUpRuneMax(keys)
@@ -1250,11 +1286,16 @@ function Events:LevelUpRuneMax(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
+
+
+
 	local hero = player:GetAssignedHero()
 	local bAllow = true
+
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
+	local current_rune_points = points.rune_points
+	local current_skill_points = points.ability_points
+
 	if not unit:GetPlayerOwnerID() == PlayerID then
 		if unit:IsHero() then
 			bAllow = false
@@ -1262,18 +1303,18 @@ function Events:LevelUpRuneMax(keys)
 	end
 	--print(unit:GetPlayerOwnerID())
 	--print(PlayerID)
-	if current_rune_points > 0 and ability:GetLevel() < 20 and hero:IsAlive() and bAllow then
-		local levelsToSet = math.min(current_rune_points, 20 - ability:GetLevel())
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points, runePoints = current_rune_points - levelsToSet})
-		local newLevel = ability:GetLevel() + levelsToSet
-		ability:SetLevel(newLevel)
+	local max_rune_level = Runes:GetMaxRuneLevel(ability, hero)
+	local cost_per_rune_level = Runes:GetRuneCostPerLevel(ability, hero)
+	if current_rune_points >= cost_per_rune_level and ability.rune_level < max_rune_level and hero:IsAlive() and bAllow then
+		local levelsToSet = math.min(math.floor(current_rune_points/cost_per_rune_level), (max_rune_level - ability.rune_level))
+		local newLevel = ability.rune_level + levelsToSet
+		ability.rune_level = newLevel
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
 		Runes:apply_runes(ability, unit, PlayerID)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:LevelUpAbility(keys)
@@ -1281,11 +1322,12 @@ function Events:LevelUpAbility(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-
-	local player_stats = CustomNetTables:GetTableValue("player_stats", tostring(player:GetPlayerID()))
-	local current_rune_points = player_stats.runePoints
-	local current_skill_points = player_stats.skillPoints
 	local hero = player:GetAssignedHero()
+
+	local points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero, false)
+	local current_rune_points = points.rune_points
+	local current_skill_points = points.ability_points
+	
 	local bAllow = true
 	if not unit:GetPlayerOwnerID() == PlayerID then
 		if unit:IsHero() then
@@ -1293,15 +1335,14 @@ function Events:LevelUpAbility(keys)
 		end
 	end
 	if current_skill_points > 0 and ability:GetLevel() < 7 and hero:IsAlive() and hero:GetLevel() >= -5 + 10 * ability:GetLevel() and bAllow then
-		CustomNetTables:SetTableValue("player_stats", tostring(PlayerID), {skillPoints = current_skill_points - 1, runePoints = current_rune_points})
 		local newLevel = ability:GetLevel() + 1
 		ability:SetLevel(newLevel)
 		EmitSoundOnClient("ui.crafting_gem_applied", player)
+		Runes:UpdateHeroSkillAndRunePoints(hero, false)
 	else
 		EmitSoundOnClient("General.Cancel", player)
 	end
-	CustomGameEventManager:Send_ServerToPlayer(player, "AbilityUp", {playerId = PlayerID})
-	CustomGameEventManager:Send_ServerToPlayer(player, "ability_tree_upgrade", {playerId = PlayerID})
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
 end
 
 function Events:CreateRuneUnits(heroEntity, playerID)
@@ -1337,6 +1378,7 @@ function Events:CreateRuneUnits(heroEntity, playerID)
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-enchanter", {tier = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = -1})
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {mithril = -1})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-income", {available = 0})
 	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-challenge", {completed = -1})
 
@@ -1390,8 +1432,9 @@ function Events:SetupHeroes(heroEntity)
 	end)
 	heroEntity.castPointQ = heroEntity:GetAbilityByIndex(DOTA_Q_SLOT):GetCastPoint()
 	heroEntity.castPointW = heroEntity:GetAbilityByIndex(DOTA_W_SLOT):GetCastPoint()
+	heroEntity.castPointE = heroEntity:GetAbilityByIndex(DOTA_E_SLOT):GetCastPoint()
 	-- Timers:CreateTimer(6, function()
-	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = 3})
+	CustomNetTables:SetTableValue("player_stats", tostring(ownerID), {skillPoints = 0, runePoints = Runes.STARTING_RUNE_POINTS})
 	Events:CreateRuneUnits(heroEntity, ownerID)
 	heroEntity.InventoryUnit = CreateUnitByName("inventory_unit", Vector(-8000, 2000), true, heroEntity, PlayerResource:GetPlayer(ownerID), heroEntity:GetTeamNumber())
 	heroEntity.InventoryUnit:AddAbility("town_unit"):SetLevel(1)
@@ -1421,12 +1464,17 @@ function Events:SetupHeroes(heroEntity)
 		Tutorial:GetTutorialFromServer(heroEntity)
 	end
 	if Events.GameMaster then
+		print("APPLY THINKER")
+		print("QQQQ")
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 	else
 		Timers:CreateTimer(3, function()
 			if Events.GameMaster then
 				Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
+				print("APPLY THINKER")
+				print("QQQQ")
 			else
+				print("TRY AGAIN")
 				return 3
 			end
 		end)
@@ -1522,19 +1570,14 @@ function GameMode:OnEntityKilled(keys)
 		Dungeons.itemLevel = killedUnit.itemLevel
 	end
 	if killedUnit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-		PopupExperience(killedUnit, killedUnit:GetDeathXP())
-		-- Events:updateKillQuest(killedUnit)
+		Enemies:EnemySlain(killedUnit, killerEntity)
 		Events:UpdateKillScores(killedUnit, killerEntity)
-
-		if xpBounty > 0 then
-			RPCItems:RollDrops(killedUnit, killerEntity)
-		end
-		Weapons:UpdateWeaponXP(xpBounty)
-		if killedUnit.minDrops then
-			Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
-		end
-
-		-- Events:SpecialDeath(killedUnit, killerEntity)
+		Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
+		killedUnit:DropItemsOnDeath()
+		-- Weapons:UpdateWeaponXP(xpBounty)
+		-- if killedUnit.minDrops then
+		-- 	Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
+		-- end
 		killedUnit:ClearParticles()
 		Timers:CreateTimer(1, function()
 			--ABILITIES: 10 slots of 24 max
@@ -1569,18 +1612,10 @@ function GameMode:OnEntityKilled(keys)
 	else
 		if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and killedUnit:IsHero() and not killedUnit:HasModifier("modifier_paladin_rune_a_c_revivable") and not killedUnit:HasModifier("modifier_phoenix_rebirthing") then
 			Timers:CreateTimer(0.06, function()
-				local respawnTime = 20
-				if MAIN_HERO_TABLE then
-					respawnTime = #MAIN_HERO_TABLE * 10
-				end
-				-- if killedUnit:HasModifier("modifier_duskbringer_glyph_2_1") then
-				--   respawnTime = 20
-				-- end
-				if killedUnit:HasModifier("modifier_neutral_glyph_4_1") then
-					respawnTime = respawnTime * 0.2
-					killedUnit.deathPosition = killedUnit:GetAbsOrigin()
-					killedUnit.prelastDeathTime = killedUnit.lastDeathTime
-					killedUnit.lastDeathTime = GameRules:GetGameTime()
+				Challenges:HeroDied()
+				local respawnTime = 5
+				if MAIN_HERO_TABLE and GameState:GetDifficultyFactor() > 1 then
+					respawnTime = respawnTime + #MAIN_HERO_TABLE * 5
 				end
 				respawnTime = math.min(killedUnit:GetTimeUntilRespawn(), respawnTime)
 				if killedUnit:HasModifier("modifier_slipfinn_immortal_weapon_1") then
@@ -2388,78 +2423,78 @@ function Events:GetDifficultyScaledDamage(normalDamage, eliteDamage, legendDamag
 end
 
 function Events:AdjustDeathXP(unit)
-	local difficulty = GameState:GetDifficultyFactor()
-	local xp = unit:GetDeathXP()
-	if difficulty == 1 then
-		xp = math.floor(xp * 1.3)
-	end
-	xp = (difficulty - 1) * 355 + math.ceil(difficulty * xp * 1.55)
-	if difficulty > 2 then
-		xp = math.floor(xp * 2)
-	elseif difficulty == 2 then
-		xp = math.floor(xp * 1.5)
-	end
-	if Events.PreserverXP then
-		xp = math.floor(xp * 1.2)
-	end
-	local xpBoost = (RPCItems:GetConnectedPlayerCount() - 1) * 0.35
-	local adjustedXP = xp * (1 + xpBoost) * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
-	adjustedXP = math.min(adjustedXP, 200000)
-	unit:SetDeathXP(adjustedXP)
-	unit:SetMaximumGoldBounty(unit:GetMaximumGoldBounty() / 3)
-	unit:SetMinimumGoldBounty(unit:GetMinimumGoldBounty() / 3)
-	local damageAdjustment = unit:GetAttackDamage() * 3 * (difficulty - 1) + (difficulty - 1) * 52000
-	if GameState:IsTanariJungle() then
-		local powerMult = 3
-		if difficulty == 3 then
-			powerMult = 5
-		end
-		damageAdjustment = unit:GetAttackDamage() * powerMult * (difficulty - 1) + (difficulty - 1) * 52000
-	end
-	if difficulty >= 3 then
-		if GameState:IsWorld1() then
-			damageAdjustment = damageAdjustment + RPCItems:GetMaxFactor() * 6400
-		end
-		if Dungeons.itemLevel > 0 then
-			damageAdjustment = math.floor(damageAdjustment * 1.6)
-		end
-		-- damageAdjustment = math.floor(damageAdjustment + unit:GetAttackDamage()*unit:GetAttackDamage()*1.45)
-		-- damageAdjustment = math.min(damageAdjustment, 1000000000)
-	end
-	local minDamage = unit:GetBaseDamageMin()
-	local maxDamage = unit:GetBaseDamageMax()
-	if Events.SpiritRealm then
-		minDamage = minDamage * 2.6
-		maxDamage = maxDamage * 2.6
-	end
-	unit:SetBaseDamageMin(minDamage + damageAdjustment)
-	unit:SetBaseDamageMax(maxDamage + damageAdjustment)
-
-	-- local newArmor = unit:GetPhysicalArmorValue(false)*difficulty*difficulty+30*(difficulty-1)
-	-- if difficulty > 2 then
-	--   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(false)*4
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- local xp = unit:GetDeathXP()
+	-- if difficulty == 1 then
+	-- 	xp = math.floor(xp * 1.3)
 	-- end
-	local newArmor = unit:GetPhysicalArmorBaseValue() * difficulty + 10 * (difficulty - 1)
-	unit:SetPhysicalArmorBaseValue(newArmor)
+	-- xp = (difficulty - 1) * 355 + math.ceil(difficulty * xp * 1.55)
+	-- if difficulty > 2 then
+	-- 	xp = math.floor(xp * 2)
+	-- elseif difficulty == 2 then
+	-- 	xp = math.floor(xp * 1.5)
+	-- end
+	-- if Events.PreserverXP then
+	-- 	xp = math.floor(xp * 1.2)
+	-- end
+	-- local xpBoost = (RPCItems:GetConnectedPlayerCount() - 1) * 0.35
+	-- local adjustedXP = xp * (1 + xpBoost) * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
+	-- adjustedXP = math.min(adjustedXP, 200000)
+	-- unit:SetDeathXP(adjustedXP)
+	-- unit:SetMaximumGoldBounty(unit:GetMaximumGoldBounty() / 3)
+	-- unit:SetMinimumGoldBounty(unit:GetMinimumGoldBounty() / 3)
+	-- local damageAdjustment = unit:GetAttackDamage() * 3 * (difficulty - 1) + (difficulty - 1) * 52000
+	-- if GameState:IsTanariJungle() then
+	-- 	local powerMult = 3
+	-- 	if difficulty == 3 then
+	-- 		powerMult = 5
+	-- 	end
+	-- 	damageAdjustment = unit:GetAttackDamage() * powerMult * (difficulty - 1) + (difficulty - 1) * 52000
+	-- end
+	-- if difficulty >= 3 then
+	-- 	if GameState:IsWorld1() then
+	-- 		damageAdjustment = damageAdjustment + RPCItems:GetMaxFactor() * 6400
+	-- 	end
+	-- 	if Dungeons.itemLevel > 0 then
+	-- 		damageAdjustment = math.floor(damageAdjustment * 1.6)
+	-- 	end
+	-- 	-- damageAdjustment = math.floor(damageAdjustment + unit:GetAttackDamage()*unit:GetAttackDamage()*1.45)
+	-- 	-- damageAdjustment = math.min(damageAdjustment, 1000000000)
+	-- end
+	-- local minDamage = unit:GetBaseDamageMin()
+	-- local maxDamage = unit:GetBaseDamageMax()
+	-- if Events.SpiritRealm then
+	-- 	minDamage = minDamage * 2.6
+	-- 	maxDamage = maxDamage * 2.6
+	-- end
+	-- unit:SetBaseDamageMin(minDamage + damageAdjustment)
+	-- unit:SetBaseDamageMax(maxDamage + damageAdjustment)
 
-	local newHealth = unit:GetMaxHealth() * difficulty + (difficulty - 1) * unit:GetMaxHealth() + 82000 * (difficulty - 1)
-	if difficulty > 2 then
-		newHealth = newHealth + 420000
-	end
-	newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
-	newHealth = math.min(newHealth, (2 ^ 30) - 10)
-	unit:SetMaxHealth(newHealth)
-	unit:SetBaseMaxHealth(newHealth)
-	unit:SetHealth(newHealth)
-	unit:Heal(newHealth, unit)
+	-- -- local newArmor = unit:GetPhysicalArmorValue(false)*difficulty*difficulty+30*(difficulty-1)
+	-- -- if difficulty > 2 then
+	-- --   newArmor = newArmor+90 + unit:GetPhysicalArmorValue(false)*4
+	-- -- end
+	-- local newArmor = unit:GetPhysicalArmorBaseValue() * difficulty + 10 * (difficulty - 1)
+	-- unit:SetPhysicalArmorBaseValue(newArmor)
 
-	for i = 0, 6, 1 do
-		local ability = unit:GetAbilityByIndex(i)
-		if ability then
-			ability:SetLevel(difficulty)
-		end
-	end
-	unit.regularEnemy = true
+	-- local newHealth = unit:GetMaxHealth() * difficulty + (difficulty - 1) * unit:GetMaxHealth() + 82000 * (difficulty - 1)
+	-- if difficulty > 2 then
+	-- 	newHealth = newHealth + 420000
+	-- end
+	-- newHealth = newHealth + newHealth * 0.3 * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
+	-- newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- unit:SetMaxHealth(newHealth)
+	-- unit:SetBaseMaxHealth(newHealth)
+	-- unit:SetHealth(newHealth)
+	-- unit:Heal(newHealth, unit)
+
+	-- for i = 0, 6, 1 do
+	-- 	local ability = unit:GetAbilityByIndex(i)
+	-- 	if ability then
+	-- 		ability:SetLevel(difficulty)
+	-- 	end
+	-- end
+	-- unit.regularEnemy = true
 end
 
 function Events:TownSiegeXP(unit)
@@ -2467,58 +2502,58 @@ function Events:TownSiegeXP(unit)
 end
 
 function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
-	local difficulty = GameState:GetDifficultyFactor()
-	if IsValidEntity(unit) then
-		local minDamage = unit:GetBaseDamageMin()
-		local maxDamage = unit:GetBaseDamageMax()
-		local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
-		unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
-		unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
-		local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
-		if difficulty > DIFFICULTY_ELITE then
-			healthAdjustment = healthAdjustment + healthFactor * 1600000
-			local armor = unit:GetPhysicalArmorValue(false)
-			unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
-			unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
-		end
-		local newHealth = unit:GetMaxHealth() + healthAdjustment
-		newHealth = math.min(newHealth, (2 ^ 30) - 10)
-		unit:SetMaxHealth(newHealth)
-		unit:SetBaseMaxHealth(newHealth)
-		unit:SetHealth(newHealth)
-		unit:Heal(newHealth, unit)
-		if bHealthbar then
-			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
-			unit.mainBoss = true
-		end
-		unit.bossStatus = true
-	else
-		for i = 1, #unit, 1 do
-			local minDamage = unit[i]:GetBaseDamageMin()
-			local maxDamage = unit[i]:GetBaseDamageMax()
-			local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
-			unit[i]:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
-			unit[i]:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
-			local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
-			if difficulty > DIFFICULTY_ELITE then
-				healthAdjustment = healthAdjustment + healthFactor * 1600000
-				local armor = unit[i]:GetPhysicalArmorValue(false)
-				unit[i]:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
-				unit[i]:SetPhysicalArmorBaseValue(unit[i]:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
-			end
-			local newHealth = unit[i]:GetMaxHealth() + healthAdjustment
-			newHealth = math.min(newHealth, (2 ^ 30) - 10)
-			unit[i]:SetMaxHealth(newHealth)
-			unit[i]:SetBaseMaxHealth(newHealth)
-			unit[i]:SetHealth(newHealth)
-			unit[i]:Heal(newHealth, unit[i])
-			if bHealthbar then
-				CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit[i]:GetUnitName(), bossMaxHealth = unit[i]:GetMaxHealth(), bossId = tostring(unit[i])})
-				unit[i].mainBoss = true
-			end
-			unit[i].bossStatus = true
-		end
-	end
+	-- local difficulty = GameState:GetDifficultyFactor()
+	-- if IsValidEntity(unit) then
+	-- 	local minDamage = unit:GetBaseDamageMin()
+	-- 	local maxDamage = unit:GetBaseDamageMax()
+	-- 	local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+	-- 	unit:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+	-- 	unit:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+	-- 	local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+	-- 	if difficulty > DIFFICULTY_ELITE then
+	-- 		healthAdjustment = healthAdjustment + healthFactor * 1600000
+	-- 		local armor = unit:GetPhysicalArmorValue(false)
+	-- 		unit:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+	-- 		unit:SetPhysicalArmorBaseValue(unit:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+	-- 	end
+	-- 	local newHealth = unit:GetMaxHealth() + healthAdjustment
+	-- 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- 	unit:SetMaxHealth(newHealth)
+	-- 	unit:SetBaseMaxHealth(newHealth)
+	-- 	unit:SetHealth(newHealth)
+	-- 	unit:Heal(newHealth, unit)
+	 	if bHealthbar then
+	 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+	 		--unit.mainBoss = true
+	 	end
+	-- 	unit.bossStatus = true
+	-- else
+	-- 	for i = 1, #unit, 1 do
+	-- 		local minDamage = unit[i]:GetBaseDamageMin()
+	-- 		local maxDamage = unit[i]:GetBaseDamageMax()
+	-- 		local damageAdjustment = damageFactor * 80000 * (difficulty - 1)
+	-- 		unit[i]:SetBaseDamageMin(math.min(minDamage + damageAdjustment, 2 ^ 30))
+	-- 		unit[i]:SetBaseDamageMax(math.min(maxDamage + damageAdjustment, 2 ^ 30))
+	-- 		local healthAdjustment = healthFactor * 800000 * (difficulty - 1)
+	-- 		if difficulty > DIFFICULTY_ELITE then
+	-- 			healthAdjustment = healthAdjustment + healthFactor * 1600000
+	-- 			local armor = unit[i]:GetPhysicalArmorValue(false)
+	-- 			unit[i]:SetPhysicalArmorBaseValue(armor + 40 * healthFactor)
+	-- 			unit[i]:SetPhysicalArmorBaseValue(unit[i]:GetPhysicalArmorBaseValue() * difficulty + (healthFactor * (difficulty - 1) * 3))
+	-- 		end
+	-- 		local newHealth = unit[i]:GetMaxHealth() + healthAdjustment
+	-- 		newHealth = math.min(newHealth, (2 ^ 30) - 10)
+	-- 		unit[i]:SetMaxHealth(newHealth)
+	-- 		unit[i]:SetBaseMaxHealth(newHealth)
+	-- 		unit[i]:SetHealth(newHealth)
+	-- 		unit[i]:Heal(newHealth, unit[i])
+	-- 		if bHealthbar then
+	-- 			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit[i]:GetUnitName(), bossMaxHealth = unit[i]:GetMaxHealth(), bossId = tostring(unit[i])})
+	-- 			unit[i].mainBoss = true
+	-- 		end
+	-- 		unit[i].bossStatus = true
+	-- 	end
+	-- end
 end
 
 function Events:spawnUnit(unitName, spawnPoint, quantity)
@@ -2550,7 +2585,6 @@ end
 
 function Events:SpawnBoss(unitName, spawnPoint)
 	local boss = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
-	Events:AdjustDeathXP(boss)
 	boss.mainBoss = true
 	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
 	return boss
@@ -4072,8 +4106,10 @@ function Events:TutorialServerEvent(hero, code1, code2)
 end
 
 function Events:MainBossSlain(boss_name)
+	Gems:GemForgerPossibleSpawnEvent(boss_name)
+	Challenges:MainBossSlainEvent(boss_name)
 end
 
+require('worlds/redfall/redfall')
+
 require('worlds/winterblight/winterblight')
-
-

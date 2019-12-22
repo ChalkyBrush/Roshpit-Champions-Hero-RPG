@@ -842,6 +842,8 @@ function Tanari:RascalCutscene(allies)
 						Tanari:ActivateSwitchGeneric(Vector(-8424, 11416, 90), "WaterTempleRascalSwitch", true)
 						Timers:CreateTimer(0.5, function()
 							Tanari:SpawnBackSneakRoom()
+							Tanari.CanHitWaterTempleSneakSwitch = true
+							Tanari.WaterTempleSneakSwitch:SetAbsOrigin(Tanari.WaterTempleSneakSwitch:GetAbsOrigin()+Vector(0,0,300))
 							Tanari:LowerWaterTempleWall(-6, "WaterTempleRascalWall", Vector(-6436, 11392), "RascalWallBlocker", Vector(-6400, 11546, 119), 900, true, false)
 							Timers:CreateTimer(0.5, function()
 								for i = 1, #Tanari.WaterTemple.rascalTable, 1 do
@@ -1632,16 +1634,16 @@ end
 
 function Tanari:FloodRobeCheck()
 	Tanari.FloodRobeBattle = false
-	if GameState:GetDifficultyFactor() == 3 then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			local body = MAIN_HERO_TABLE[i].body
-			if body then
-				if body:GetAbilityName() == "item_rpc_robe_of_flooding_2" then
-					Tanari.FloodRobeBattle = true
-				end
-			end
-		end
-	end
+	-- if GameState:GetDifficultyFactor() == 3 then
+	-- 	for i = 1, #MAIN_HERO_TABLE, 1 do
+	-- 		local body = MAIN_HERO_TABLE[i].body
+	-- 		if body then
+	-- 			if body:GetAbilityName() == "item_rpc_robe_of_flooding_2" then
+	-- 				Tanari.FloodRobeBattle = true
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function Tanari:UpgradeFloodRobes(bossPosition)

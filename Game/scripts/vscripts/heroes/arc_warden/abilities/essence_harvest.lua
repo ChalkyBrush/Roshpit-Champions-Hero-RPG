@@ -77,7 +77,10 @@ end
 
 function essence_aura_unit_die(event)
 	local unit = event.unit
-	local xp = unit:GetDeathXP()
+	local xp = unit.roshpit_attributes.deathXP
+	if not xp then
+		return false
+	end
 	local caster = event.caster
 	local onibi = caster.onibi
 	get_onibi_essences(caster, onibi)
@@ -85,7 +88,7 @@ function essence_aura_unit_die(event)
 	local actual_essence = essence_possibilities[RandomInt(1, #essence_possibilities)]
 	local level = get_level_by_sum_exp(caster.onibi.stats_table[actual_essence]["exp"])
 	if xp > 0 and level < 100 then
-		local essence_value = math.ceil(xp / 10)
+		local essence_value = math.max(math.ceil(xp / 2), 1)
 		local essence_point = GetGroundPosition(unit:GetAbsOrigin(), unit) + RandomVector(RandomInt(0, 300))
 		local essence_unit = CreateUnitByName("jex_essence", essence_point, false, nil, nil, DOTA_TEAM_GOODGUYS)
 		essence_unit:FindAbilityByName("jex_essence_ability"):SetLevel(1)
@@ -131,10 +134,7 @@ function essence_aura_unit_die(event)
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, modifierName, nil)
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "jex_essence_spawning", {duration = 0.42})
 		essence_unit:FindAbilityByName("jex_essence_ability"):ApplyDataDrivenModifier(essence_unit, essence_unit, "modifier_jex_essence_despawn", {duration = 180})
-		essence_unit.essence_value = math.ceil(RPCItems:GetMaxFactor())
-		if essence_unit.itemLevel then
-			essence_unit.essence_value = essence_unit.essence_value + essence_unit.itemLevel * 2
-		end
+		essence_unit.essence_value = unit.roshpit_attributes.deathXP/2
 		essence_unit.essence_value = math.min(essence_unit.essence_value, caster:GetLevel() * 10)
 		essence_unit.essence_unit = true
 		essence_unit.essence = actual_essence
@@ -346,7 +346,7 @@ end
 function transfer_to_onibi(caster, ability)
 	if ability.harvested > 0 then
 		if not ability.casted then
-			Filters:CastSkillArguments(4, caster)
+			Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 			ability.casted = true
 		end
 		local intensity = 1
@@ -392,7 +392,7 @@ function successfullCast(event)
 	local caster = event.caster
 	local ability = event.ability
 	if not ability.casted then
-		Filters:CastSkillArguments(4, caster)
+		-- Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 		ability.casted = true
 	end
 end

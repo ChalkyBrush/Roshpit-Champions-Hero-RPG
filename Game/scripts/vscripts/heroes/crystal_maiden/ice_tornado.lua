@@ -125,7 +125,7 @@ function channel_complete(event)
 	Timers:CreateTimer(1, function()
 		EmitSoundOn("Sorceress.TornadoLP", dummy)
 	end)
-	Filters:CastSkillArguments(4, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
 
 function channel_interrupt(event)
@@ -249,7 +249,7 @@ end
 -- launch_lance(caster, fv, caster:FindAbilityByName("sorceress_blink"), "particles/roshpit/sorceress/arcane_enchantment.vpcf", casterOrigin+Vector(0,0,80), 90)
 -- end
 -- -- caster.q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "sorceress")
--- -- Filters:CastSkillArguments(1, caster)
+-- -- Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 -- --end)
 -- -- StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=2.0})
 -- -- "modifier_arcane_enchantment"

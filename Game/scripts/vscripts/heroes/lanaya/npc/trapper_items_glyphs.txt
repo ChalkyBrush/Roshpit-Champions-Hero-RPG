@@ -208,7 +208,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"<% TRAPPER_PARAGON_T4_GLYPH_DMG_MULT %>"
 			}
 		}
 	}
@@ -415,7 +415,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% T12_AMPLIFY %>"
+				"property_one"			"<% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>"
 			}
 		}
 	}

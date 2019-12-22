@@ -41,6 +41,8 @@ function InitializePickupBox(){
 	}
 	$('#ItemImagePickup').contextEntityIndex = item;
 	$('#ItemImagePickup').SetAttributeInt("item", item)
+
+	
 	if (pickup == "key"){
 		$('#pickup-bg').RemoveClass("pickupBG")
 		$('#pickup-bg').AddClass("keyBG")

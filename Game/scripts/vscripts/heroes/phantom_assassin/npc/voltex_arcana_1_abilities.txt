@@ -131,21 +131,9 @@
 				"IsBuff"	"1"
 				"ThinkInterval"  "0.1"
 				"TextureName"	"voltex/voltex_rune_e_3_arcana1"
-				"OnIntervalThink"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/phantom_assassin/lightning_dash.lua"
-						"Function"		"regen_end"
-					}
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
 				}
 			}
 			"modifier_voltex_lightning_dash_regen_hidden"

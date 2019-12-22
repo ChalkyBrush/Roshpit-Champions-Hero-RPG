@@ -62,7 +62,7 @@ function SaveButton(msg){
 
 function recentlySaved(msg){
 	var j = 1
-	var saveCooldown = 120
+	var saveCooldown = 1
 	$.Msg("anything?")
 	for (i = 1; i < saveCooldown; i++) {
 	 	$.Schedule(1*i, function(){
@@ -154,11 +154,12 @@ function keysLoaded(msg){
 	board.BLoadLayoutSnippet("key_bank");
 	$.Msg(msg.result)
 	for (i = 1; i <= 4; i++) {
-		for (j = 1; j <= 3; j++) {
-			var parentRow = $('#keys_row'+j)
+		for (j = 1; j <= 4; j++) {
+			var parentRow = $('#keys_row'+i)
 			var keyBoard = $.CreatePanel( "Panel", parentRow, "load_box" );
 			keyBoard.BLoadLayoutSnippet("key_bank_item");
-			var index = (j-1)*4 + i
+			var index = (i-1)*4 + j
+			$.Msg("INDEX: "+index)
 			var keyData = getKeyData(index, msg.result)
 			if (keyData[0]){
 				$.Msg(keyData[0])
@@ -235,6 +236,12 @@ function getKeyData(index, resultTable){
 		array = ["file://{images}/items/rpc/sunstone.png", "DOTA_Tooltip_Ability_item_serengaard_sunstone", resultTable[1].serengaard_sunstone, '#8847FF']
 	}else if(index == 11){
 		array = ["file://{images}/items/winterblight/winterblight_glacier_stone.png", "DOTA_Tooltip_ability_item_rpc_winterblight_glacier_stone", resultTable[1].glacier_stone, '#8847FF']
+	}else if(index == 12){
+		array = ["file://{images}/items/winterblight/synthesis_vessel.png", "DOTA_Tooltip_ability_item_rpc_synthesis_vessel", resultTable[1].synth_vessel, '#E4AE33']
+	}else if(index == 13){
+		array = ["file://{images}/items/currency/socket_cutter.png", "DOTA_Tooltip_ability_item_rpc_socket_cutter", resultTable[1].socket_forger, '#E4AE33']
+	}else if(index == 14){
+		array = ["file://{images}/items/currency/inscription_kit.png", "DOTA_Tooltip_ability_item_rpc_inscription_kit", resultTable[1].inscription_kit, '#8847FF']
 	}
 	return array
 }
@@ -287,6 +294,12 @@ function IsValidKey(itemName){
 		valid = 10
 	}else if(itemName == "item_rpc_winterblight_glacier_stone"){
 		valid = 11
+	}else if (itemName == "item_rpc_synthesis_vessel"){
+		valid = 12
+	}else if (itemName == "item_rpc_socket_cutter"){
+		valid = 13
+	}else if (itemName == "item_rpc_inscription_kit"){
+		valid = 14
 	}
 	return valid
 }
@@ -394,6 +407,12 @@ function GetKeyCountByItemName(itemName){
 		keyCount = resultTable[1].serengaard_sunstone
 	}else if(itemName == "item_rpc_winterblight_glacier_stone"){
 		keyCount = resultTable[1].glacier_stone
+	}else if(itemName == "item_rpc_synthesis_vessel"){
+		keyCount = resultTable[1].synth_vessel
+	}else if(itemName == "item_rpc_socket_cutter"){
+		keyCount = resultTable[1].socket_forger
+	}else if(itemName == "item_rpc_inscription_kit"){
+		keyCount = resultTable[1].inscription_kit
 	}
 	return keyCount
 }

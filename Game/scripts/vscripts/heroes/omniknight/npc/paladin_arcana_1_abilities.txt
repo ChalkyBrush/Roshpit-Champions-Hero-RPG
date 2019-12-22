@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000 5000 25000 80000 150000 250000 500000"
+				"damage"				"120 160 200 240 280 320 360"
 			}
 			"02"
 			{
@@ -174,10 +174,6 @@
 				"IsHidden"	"0"
 				"TextureName"	"paladin/paladin_rune_w_3_arcana1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "100"
-				}
 			}
 			"modifier_penance_projectiles"
 			{

@@ -17,7 +17,7 @@ function begin_rockfall(event)
 	local damage = ability:GetAbilityDamage()
 	damage = damage + event.additional_str_damage * caster:GetStrength()
 	local stun_duration = event.stun_duration
-	local self_damage_percent = event.self_damage
+	local self_damage_percent = MOUNTAIN_PROTECTOR_ARCANA3_E_SELF_DMG_PCT
 	EmitSoundOnLocationWithCaster(target, "MysticAssasin.Rockfall", caster.InventoryUnit)
 	for i = 0, 2, 1 do
 		Timers:CreateTimer(i * 0.18, function()
@@ -43,25 +43,26 @@ function begin_rockfall(event)
 						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_EARTH, RPC_ELEMENT_FIRE)
 						Filters:ApplyStun(caster, stun_duration, enemy)
 						ability:ApplyDataDrivenModifier(caster, caster, "modifier_rockfall_min_health", {duration = 0.09})
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_post_mit", {duration = 10})
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_rockfall_magic_armor_loss", {duration = 10})
+						enemy:CalculateAndSaveRoshpitAttributes()
 						if enemy.dummy then
 						else
 							--print("SELF DAMAGE")
 							local self_damage = caster:GetMaxHealth() * self_damage_percent / 100
 							--print(self_damage)
-							Filters:ApplyDamageBasic(caster, enemy, self_damage, DAMAGE_TYPE_PURE)
+							Filters:ApplyDamageBasic(caster, caster, self_damage, DAMAGE_TYPE_PURE)
 						end
 					end
 				end
 			end)
 		end)
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	CustomAbilities:AddAndOrSwapSkill(caster, "mountain_protector_rockfall", "mountain_protector_volcanic_glissade", 2)
 	local glissadeAbility = caster:FindAbilityByName("mountain_protector_volcanic_glissade")
 	local c_c_level = caster:GetRuneValue("e", 3)
 	if c_c_level > 0 then
-		local procs = Runes:Procs(c_c_level, 7, 1)
+		local procs = Runes:Procs(c_c_level, MOUNTAIN_PROTECTOR_ARCANA3_E3_FREECAST_STACK_CHANCE, 1)
 		if procs > 0 then
 			glissadeAbility:ApplyDataDrivenModifier(caster, caster, "modifier_glissade_freecast", {})
 			caster:SetModifierStackCount("modifier_glissade_freecast", caster, procs)
@@ -90,7 +91,7 @@ function volcanic_glissade(event)
 	end
 	ability.beamPFX = ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/epoch_rune_b_a.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(ability.beamPFX, 0, caster:GetAbsOrigin() + Vector(0, 0, 90))
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	local glyphFreeCast = false
 	if caster:HasModifier("modifier_mountain_protector_glyph_5_1") then
 		local luck = RandomInt(1, 100)

@@ -60,6 +60,10 @@ function earth_deity(event)
 		caster.earthAspect:SetBaseMaxHealth(aspectHealth)
 		caster.earthAspect:SetHealth(aspectHealth)
 		caster.earthAspect:Heal(aspectHealth, caster.earthAspect)
+		caster.earthAspect:SetRoshpitLevel(caster:GetLevel())
+		caster.earthAspect:SetBaseRoshpitArmor(event.armor)
+		caster.earthAspect:SetBaseRoshpitMagicArmor(event.magic_armor)
+		caster.earthAspect:CalculateAndSaveRoshpitAttributes()
 		StartAnimation(caster.earthAspect, {duration = 2.05, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.8})
 		common_aspect_effects(caster, ability, caster.earthAspect)
 	end)
@@ -159,7 +163,7 @@ function earthshock_cast(event)
 		end
 	end
 	if not ability.procCast then
-		Filters:CastSkillArguments(1, caster)
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 		ability.procCast = true
 	end
 	fire_earth_shock(point, caster, radius, ability, damage)

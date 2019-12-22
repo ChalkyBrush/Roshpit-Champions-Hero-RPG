@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W1_LIFESTEAL_PCT %>"
 			}
 		}
 	}
@@ -36,7 +36,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"6"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W2_SPELL_PIERCE %>"
 			}
 		}
 	}
@@ -57,7 +57,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W3_PARALYSIS %>"
 			}
 		}
 	}
@@ -77,13 +77,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"500"
-			}
-			"02"
-			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.42"
+				"property_one"			"<% BAHAMUT_ARCANA_W_W4_ATK_DMG_PER_MISSING_MANA %>"
 			}
 		}
 	}

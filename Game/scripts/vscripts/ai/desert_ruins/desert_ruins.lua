@@ -350,7 +350,7 @@ end
 function blighted_sapling_photosynthesis_think(event)
 	local caster = event.caster
 	local target = event.target
-	local manaSteal = math.floor(target:GetMaxMana()*0.05)
+	local manaSteal = math.floor(target:GetMaxMana()*0.04)
 	if caster:IsAlive() then
 		local heal = math.floor(math.min(manaSteal, target:GetMana()))
 		target:ReduceMana(manaSteal)
@@ -923,7 +923,7 @@ function ruby_giant_die(event)
 		EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
-			RPCItems:RollOmegaRuby(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_omega_ruby")
 		end
 	end)	
 end

@@ -162,7 +162,7 @@ function boomerang_think(event)
 						ability:ApplyDataDrivenModifier(boomerang, boomerang.caster, "modifier_boomerang_attack_damage_visible", {duration = duration})
 						ability:ApplyDataDrivenModifier(boomerang, boomerang.caster, "modifier_boomerang_attack_damage_invisible", {duration = duration})
 						boomerang.caster:SetModifierStackCount("modifier_boomerang_attack_damage_visible", boomerang, boomerang.actual_hits)
-						boomerang.caster:SetModifierStackCount("modifier_boomerang_attack_damage_invisible", boomerang, boomerang.actual_hits * b_c_level)
+						boomerang.caster:SetModifierStackCount("modifier_boomerang_attack_damage_invisible", boomerang, boomerang.actual_hits * b_c_level * SEPHYR_E2_BONUS_ATTACK_DAMAGE)
 					end
 				end
 				UTIL_Remove(boomerang)

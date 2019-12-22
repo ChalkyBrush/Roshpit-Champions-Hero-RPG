@@ -34,7 +34,7 @@ function bear_roar(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bear_regen", {duration = 12})
 		EmitSoundOn("Draghor.Bear.Regeneration", caster)
 	end
-	Filters:CastSkillArguments(1, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function bear_warstomp_pre(event)
@@ -62,6 +62,7 @@ function bear_warstomp(event)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
 	EmitSoundOn("Draghor.Bear.Warstomp", caster)
 	-- FindClearSpaceForUnit(caster, position, false)
+	ability.w_2_level = caster:GetRuneValue("w", 2)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -71,12 +72,15 @@ function bear_warstomp(event)
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_armor_loss", {duration = 20})
 				local shredStacks = enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster)
 				local newStacks = math.min(2, shredStacks + 1)
-				local armorLoss = (enemy:GetPhysicalArmorValue(false) + enemy:GetModifierStackCount("modifier_bear_rend_armor_loss", caster)) * 0.5
-				enemy:SetModifierStackCount("modifier_bear_rend_armor_loss", caster, armorLoss * newStacks)
+				enemy:SetModifierStackCount("modifier_bear_rend_armor_loss", caster, newStacks)
+				if ability.w_2_level > 0 then
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bear_rend_health_regen_loss", {duration = 12})
+					enemy:SetModifierStackCount("modifier_bear_rend_health_regen_loss", caster, ability.w_2_level)
+				end
 			end
 		end
 	end
-	Filters:CastSkillArguments(2, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function begin_bear_charge(event)
@@ -98,7 +102,7 @@ function begin_bear_charge(event)
 	if caster:HasModifier("modifier_djanghor_glyph_6_1") then
 		local c_c_level = caster:GetRuneValue("e", 3)
 		if c_c_level > 0 then
-			local procs = Runes:Procs(c_c_level, 5, 1)
+			local procs = Runes:Procs(c_c_level, DJANGHOR_E3_CLEANCE_CHANCE, 1)
 			if procs > 0 then
 				local particle = false
 				for i = 1, procs, 1 do
@@ -120,7 +124,7 @@ function begin_bear_charge(event)
 			end
 		end
 	end
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function bear_charge_thinking(event)

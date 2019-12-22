@@ -33,7 +33,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"				"50 55 60 65 70 75 80"
+				"burn_damage"				"80 110 130 150 170 180 200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"flat_hp_increase"		"300 500 800 1200 1800 2000 2500"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
@@ -118,6 +123,7 @@
 						"ScriptFile"	"heroes/visage/dominion.lua"
 						"Function"		"dominion_debuff_death"
 						"max_summons"	"%max_summons"
+						"flat_hp_increase"	"%flat_hp_increase"
 					}
 				}
 				"ThinkInterval"  "0.5"
@@ -300,12 +306,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"4"
+				"attack_mult"			"2"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"skeleton_health"		"1000 6000 24000 120000 300000 700000 1200000"
+				"skeleton_health"		"340 740 1140 1540 1940 2340 2740"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
@@ -503,10 +509,6 @@
 			"modifier_ekkan_d_b_magic_resist"
 			{
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "<% EKKAN_W4_MAGIC_RESIST %>"
-				}
 			}
 		}
 	}
@@ -687,10 +689,12 @@
 						"ScriptFile"	"heroes/slardar/tsunami.lua"
 						"Function"		"EndAmplifyDamageParticle"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-<% EKKAN_E3_ARMOR_REDUCTION %>"
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -936,6 +940,15 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% EKKAN_W3_MOVESPEED_SLOW %>"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -1310,7 +1323,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"percent_attack_damage"	"100 150 200 250 300 350 400"
+				"percent_attack_damage"	"60 85 110 140 160 180 200"
 			}
 			"03"
 			{
@@ -1320,7 +1333,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"health_regen"	"0.2 0.35 0.5 0.65 0.7 0.85 1.0"
+				"health_regen"	"1.0"
 			}
 		}
 	}

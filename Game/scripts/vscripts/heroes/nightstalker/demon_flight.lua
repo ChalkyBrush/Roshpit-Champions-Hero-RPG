@@ -47,7 +47,7 @@ function demon_flight_start(event)
 	EmitSoundOn("Chernobog.DemonFlight.StartVO", caster)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	swap_to_demon_warp(caster, ability, "chernobog_demon_flight")
 end
 
@@ -199,7 +199,7 @@ function demon_warp_start(event)
 		newPosition = WallPhysics:WallSearch(casterOrigin, casterOrigin + direction * maxDistance, caster)
 	end
 	FindClearSpaceForUnit(caster, newPosition, false)
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	ProjectileManager:ProjectileDodge(caster)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster:GetAbsOrigin(), 3)
 	CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", caster:GetAbsOrigin() + Vector(0, 0, heightStacks), 3)
@@ -229,6 +229,7 @@ end
 function passive_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	caster.e2_level = caster:GetRuneValue("e", 2)
 	if caster.e2_level > 0 then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
@@ -254,6 +255,7 @@ function passive_thinker(event)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
 	end
+	caster.e4_level = caster:GetRuneValue("e", 4)
 	if ability.e4_level ~= caster.e4_level then
 		if caster.e4_level > 0 then
 			init_shadows_values_for_ability({
@@ -277,7 +279,7 @@ function initialize_demon_walk(event)
 	caster:AddNewModifier(caster, ability, modifiers.movespeed, {duration = duration})
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_walk", {duration = duration})
-	Filters:CastSkillArguments(3, caster)
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 	swap_to_demon_warp(caster, ability, "chernobog_demon_walk")
 	EmitSoundOn("Chernobog.DemonWalkStart", caster)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/chernobog/shadow_walk.vpcf", caster, 1.5)

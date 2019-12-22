@@ -1,17 +1,18 @@
 function PitTerminal(trigger)
 	local hero = trigger.activator
 	if hero.pit then
-		if hero.pit.pit_open_time then
-			local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
+		-- if hero.pit.pit_open_time then
+			-- local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
 			--DeepPrintTable(os:TimeStamp(hero.pit.pit_open_time))
 			--DeepPrintTable(os:ServerTimeToTable())
 			--print(lockoutStatus)
+			hero.pit.pit_level = 7
 			lockoutStatus = 0--removed cd check
 			if Arena.PitActive or Arena.PitLocked then
 				lockoutStatus = 2
 			end
 			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "pit_terminal", {pitData=hero.pit, heroName=hero:GetUnitName(), lockoutStatus = lockoutStatus})
-		end
+		-- end
 	end
 end
 
@@ -24,7 +25,7 @@ function generic_pit_enemy_die(event)
 	end
 	local luck2 = RandomInt(1, 3000-(500*premiumCount))
 	if luck2 == 1 then
-		RPCItems:RollSacredTrialsArmor(event.unit:GetAbsOrigin()) 
+		RPCItems:RollAndDropUniqueItem(event.unit, "item_rpc_sacred_trials_armor")
 	end
 	local paragonAdjust = 0
 	if event.unit.paragon then
@@ -214,6 +215,7 @@ function gladiator_take_damage(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_champion_gladiator_passive_stacking", {duration = 5})
 	local newStacks = caster:GetModifierStackCount("modifier_champion_gladiator_passive_stacking", caster) + 1
 	caster:SetModifierStackCount("modifier_champion_gladiator_passive_stacking", caster, newStacks)
+	caster:CalculateAndSaveRoshpitAttributes()
 end
 
 function gladiator_die(event)
@@ -340,7 +342,7 @@ function mountain_crush_end(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), position, nil, radius+5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			ApplyDamage({ victim = enemy, attacker = caster, damage = 450000, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
+			ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
 		end
 	end 	
@@ -451,6 +453,7 @@ function ConquestBirdTrigger()
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", mountainSpirit, 2)
 							EmitSoundOn("Arena.SpiritSPawn", mountainSpirit)
 							Arena:SpawnConquestPart2()
+							Arena.StaffBirdEvent = true
 						end)
 					end)
 				end)
@@ -544,25 +547,28 @@ end
 
 function gift_of_karzhun_die(event)
 	local caster = event.caster
-	local immortals = math.max(RandomInt(math.ceil(caster.stackLevel/2.5), caster.stackLevel), 1)
+	local drops = caster.stackLevel
+	if caster.paragon then
+		drops = drops*2
+	end
 	local position = caster:GetAbsOrigin()
 	local particleName = "particles/bahamut/hyper_state_intro_omnislash_ascension_sparks.vpcf"
 	EmitSoundOn("Arena.KarzhunDie", caster)
-	for i = 1, immortals, 1 do
-		Timers:CreateTimer(i, function()
+	for i = 1, drops, 1 do
+		Timers:CreateTimer(i*0.3, function()
 			local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Arena.ArenaMaster )
 			ParticleManager:SetParticleControl( particle1, 0, position)
 			Timers:CreateTimer(3, 
 			function()
 				ParticleManager:DestroyParticle( particle1, false )
 			end)
-			RPCItems:RollItemtype(100, position, 5, 100)
+			local luck = RandomInt(1, 10)
+			if luck == 1 then
+				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_conquest_stone_falcon")
+			end
 		end)
 	end
-	local luck = RandomInt(1000*math.min(caster.stackLevel, 10), 10004)
-	if luck == 10004 then
-		RPCItems:RollConquestStoneFalcon(position)
-	end
+	caster:BossDrops(drops)
 end
 
 function ArenaConquestTemple()
@@ -695,6 +701,7 @@ function conquest_switch_attack(event)
 
 		if caster.attackCount == 5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attackable_unit_no_more_attacks", {})
+			Arena.TempleSwitchPressed = true
 			Arena:OpenTempleWall()
 			Timers:CreateTimer(0.35, function()
 				EmitSoundOn("Tanari.WaterTemple.SwitchEnd", caster)
@@ -842,6 +849,16 @@ function createSummonParticle2Pos(position1, position2)
 end
 
 function TempleStaffTrigger(trigger)
+	if Arena.TempleStaffTriggerActivated then
+		return false
+	end
+	if not Arena.TempleSwitchPressed then
+		return false
+	end
+	if not Arena.StaffBirdEvent then
+		return false
+	end
+	Arena.TempleStaffTriggerActivated = true
 	local hero = trigger.activator
 	local staff = Entities:FindByNameNearest("ConquestTempleStaff", Vector(-15168, 8713, 128), 500)
 	for i = 1, 90, 1 do
@@ -1286,7 +1303,7 @@ function conquest_boss_die(event)
 	end)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		RPCItems:RollHoodOfBlackMage(caster:GetAbsOrigin(), false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_hood_of_the_black_mage")
 	end
 	if not Arena.PitBossesSlain then
 		Arena.PitBossesSlain = 0
@@ -1447,6 +1464,7 @@ function use_truth_dust(event)
 	if #treasureChest > 0 then
 		UTIL_Remove(treasureChest[1])
 		local chest = CreateUnitByName("chest", Vector(6357, 15335, 128+Arena.ZFLOAT), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		chest:SetRoshpitLevel(120)
 		chest:SetForwardVector(Vector(-1,0))
 		chest:FindAbilityByName("town_unit"):SetLevel(1)
 		chest:AddAbility("rpc_chest_ability"):SetLevel(1)
@@ -1618,20 +1636,22 @@ end
 
 function lies_arbiter_die(event)
 	local caster = event.caster
-	EmitSoundOn("Arena.LiesArbiter.Death", caster)
-	for j = 1, 200, 1 do
-		Timers:CreateTimer(j*0.03, function()
-			Arena.arbiterBridge:SetAbsOrigin(Arena.arbiterBridge:GetAbsOrigin()+Vector(0,0,10))
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		EmitSoundOn("Arena.LiesArbiter.Death", caster)
+		for j = 1, 200, 1 do
+			Timers:CreateTimer(j*0.03, function()
+				Arena.arbiterBridge:SetAbsOrigin(Arena.arbiterBridge:GetAbsOrigin()+Vector(0,0,10))
+			end)
+		end
+		Timers:CreateTimer(6, function()
+			local blockers = Entities:FindAllByNameWithin("LiesAntiBridgeBlocker", Vector(3713, 15393, 160+Arena.ZFLOAT), 3000)
+			for k = 1, #blockers, 1 do
+				UTIL_Remove(blockers[k])
+			end
+			Arena:SpawnLiesTreasureRoom()
+			EmitSoundOnLocationWithCaster(Vector(3713, 15393, 160+Arena.ZFLOAT), "Arena.WaterTemple.SwitchEnd", Arena.ArenaMaster)
 		end)
 	end
-	Timers:CreateTimer(6, function()
-		local blockers = Entities:FindAllByNameWithin("LiesAntiBridgeBlocker", Vector(3713, 15393, 160+Arena.ZFLOAT), 3000)
-		for k = 1, #blockers, 1 do
-			UTIL_Remove(blockers[k])
-		end
-		Arena:SpawnLiesTreasureRoom()
-		EmitSoundOnLocationWithCaster(Vector(3713, 15393, 160+Arena.ZFLOAT), "Arena.WaterTemple.SwitchEnd", Arena.ArenaMaster)
-	end)
 end
 
 function lies_treasure_bird_think(event)
@@ -1661,8 +1681,8 @@ function dungeon_chest_think(event)
 			Timers:CreateTimer(2.0, function()
 				for i = 0, RandomInt(5, 7), 1 do
 					EmitSoundOn("General.FemaleLevelUp", chest)
-					RPCItems:RollItemtype(300, chest:GetAbsOrigin(), 1, 0)
 				end
+				chest:ChestDrops(7)
 				local particleName = "particles/econ/items/sven/sven_warcry_ti5/sven_spell_warcry_ti_5.vpcf"
 		      	local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, chest )
 		      	local origin = chest:GetAbsOrigin()
@@ -1780,19 +1800,19 @@ function supreme_ogre_die(event)
 		local particleName = "particles/bahamut/hyper_state_intro_omnislash_ascension_sparks.vpcf"
 		EmitSoundOn("Arena.TrueOgre.Death", caster)
 		for i = 1, immortals, 1 do
-			Timers:CreateTimer(i, function()
+			Timers:CreateTimer(i*0.5, function()
 				local particle1 = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, Arena.ArenaMaster )
 				ParticleManager:SetParticleControl( particle1, 0, position)
 				Timers:CreateTimer(3, 
 				function()
 					ParticleManager:DestroyParticle( particle1, false )
 				end)
-				RPCItems:RollItemtype(100, position, 5, 100)
 			end)
-		end		
+		end	
+		caster:BossDrops(immortals)	
 		local luck = RandomInt(1,3)
 		if luck == 1 then
-			RPCItems:RollFortunesTalismanOfTruth(position)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_fortunes_talisman_of_truth")
 		end
 	end
 end
@@ -2006,7 +2026,7 @@ function lies_boss_die(event)
 		end
 		local luck = RandomInt(1,4)
 		if luck == 1 then
-			RPCItems:RollGiantHunterBoots(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_giant_hunters_boots_of_resilience")
 		end
 	else
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.LiesBoss.IllusionDie", Arena.ArenaMaster)
@@ -2279,7 +2299,11 @@ function widow_die(event)
 			end)
 		end)
 	end)
-	--SOUL FERRIER
+	local luck = RandomInt(1, 5)
+	if luck == 5 then
+		local cerberus = Arena:SpawnCerberus(Vector(14208, -8128), Vector(1,0))
+		Arena:AddPatrolArguments(cerberus, 0, 4, 20, {cerberus:GetAbsOrigin(), Vector(7552, -4032)})
+	end
 end
 
 function pit_tombstone_think(event)
@@ -2940,7 +2964,7 @@ function descent_boss_die(event)
 	end)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		RPCItems:RollBasiliskPlagueHelm(casterLoc, false)
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_basilisk_plague_helm")
 	end
 	Timers:CreateTimer(1.0, function()
 		EmitGlobalSound("ui.set_applied")
@@ -3041,11 +3065,11 @@ function pit_guardian_die(event)
 	local luck = RandomInt(1,5)
 	if luck == 1 then
 		if Arena.PitColor == "red" then
-			RPCItems:RollRubyDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ruby_dragon_scale_armor")
 		elseif Arena.PitColor == "blue" then
-			RPCItems:RollSapphireDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_sapphire_dragon_scale_armor")
 		elseif Arena.PitColor == "yellow" then
-			RPCItems:RollTopazDragonScaleArmor(caster:GetAbsOrigin())
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_topaz_dragon_scale_armor")
 		end
 	end
 end
@@ -3401,14 +3425,11 @@ function pit_boss_final_death(caster, ability)
 		Notifications:TopToAll({text="Dungeon Clear!", duration=8.0})
 
 	end)
-	for i = 1, 20, 1 do
-		Timers:CreateTimer(0.5*i, function()
-			RPCItems:RollItemtype(300, caster:GetAbsOrigin(), 1, 0)
-		end)
-	end
+	caster:BossDrops(15)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_pit_boss_dying_effect", {})
 	local bossOrigin = caster:GetAbsOrigin()
 	Timers:CreateTimer(9, function()
+		Enemies:EnemySlain(caster, nil)
 		Events:MainBossSlain(caster:GetUnitName())
 		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
 		caster:RemoveModifierByName("modifier_pit_boss_dying")
@@ -3457,7 +3478,7 @@ function pit_boss_final_death(caster, ability)
 	local luck = RandomInt(1,4)
 	if luck == 1 then
 		Timers:CreateTimer(RandomInt(2,5), function()
-			RPCItems:RollHeroicConquerorVestments(bossOrigin, Arena.PitLevel)
+			RPCItems:RollAndDropUniqueItem(caster, "item_rpc_heroic_conqueror_vestments")
 		end)
 	end
 	Arena:UpdatePitLevels()
@@ -3484,7 +3505,7 @@ function rakash_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1,5)
 	if luck == 1 then
-		RPCItems:RollSpiritualEmpowermentGlove(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_spiritual_empowerment_glove")
 	end
 end
 
@@ -3492,7 +3513,7 @@ function ultra_striker_die(event)
 	local caster = event.caster
 	local luck = RandomInt(1,4)
 	if luck == 1 then
-		RPCItems:RollGravekeepersGauntlet(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_gravekeepers_gauntlet")
 	end
 end
 
@@ -3707,4 +3728,28 @@ function soul_ferrier_die(event)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_undying/undying_tnt_wlk.vpcf", caster, 3)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arena.SecretHorrorPianoEnd", Events.GameMaster)
 	RPCItems:CreateBasicConsumable(caster:GetAbsOrigin(), "item_rpc_grimloks_soul_vessel", "Grimlok's Soul Vessel", "immortal", true)
+end
+
+function pit_of_trials_cerberus_init(event)
+	local ability = event.ability
+	ability.newItemTable = {}
+	ability.newItemTable.socket1 = "ruby"
+	ability.newItemTable.socket1value = 5
+	ability.newItemTable.socket2 = "amethyst"
+	ability.newItemTable.socket2value = "amethyst"
+end
+
+function cerberus_die(event)
+	local caster = event.caster
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_direwolf_bulwark")
+	EmitSoundOn("Arena.Cerberus.Die", caster)
+end
+
+function doom_mob_die(event)
+	local caster = event.caster
+	local luck = RandomInt(1, 8)
+	if luck == 1 then
+		RPCItems:RollAndDropUniqueItem(caster, "item_rpc_doomplate")
+	end
+	EmitSoundOn("Arena.DoomUnit.Die", caster)
 end
