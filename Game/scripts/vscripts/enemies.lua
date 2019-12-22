@@ -318,20 +318,20 @@ Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.1
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["arcane_crystals"] = 0.1
 
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL = {}
-Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["attack_damage"] = 0.2
-Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor"] = 0.3
-Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_magic_armor"] = 0.3
-Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor_pierce"] = 0.3
-Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_spell_pierce"] = 0.3
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["attack_damage"] = 0.1
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor"] = 0.2
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_magic_armor"] = 0.2
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_armor_pierce"] = 0.2
+Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["roshpit_spell_pierce"] = 0.2
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["health"] = 0.3
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"] = 0.25
 
 Enemies.GLOBAL_SEA_FORTRESS_MULT = {}
-Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 1.5
+Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 0.75
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 2
-Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 0.4
-Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 3
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 1
+Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 1
 Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 1
 Enemies.GLOBAL_SEA_FORTRESS_MULT["arcane_crystals"] = 2
 
