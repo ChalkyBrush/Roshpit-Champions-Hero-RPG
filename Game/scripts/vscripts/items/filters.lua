@@ -1731,6 +1731,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_aquastone_ring") then
             damageMult = damageMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
         end
+        if attacker:HasModifier("modifier_world_tree_effect") then
+            damageMult = damageMult + ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BAD/100
+        end
         if attacker:HasModifier("modifier_torch_of_gengar_inactive") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD1)/100
         end
@@ -6983,4 +6986,34 @@ function Filters:GengarCast(caster)
         local inactive_duration = ITEM_RPC_TORCH_OF_GENGAR_REMOVE_DURATION - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TORCH_OF_GENGAR_GEM_RUBY)
         caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_torch_of_gengar_inactive", {duration = inactive_duration})
     end
+end
+
+function Filters:WorldTreeFlowerCacheTrigger(victim)
+    CustomAbilities:QuickAttachParticle("particles/roshpit/draghor/mark_of_the_claw_heal.vpcf", victim, 3)
+    victim:AddNoDraw()
+    victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY})
+    local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
+    ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
+    ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
+    for i = 0, 12, 1 do
+        ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
+    end
+    EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
+    Timers:CreateTimer(ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY, function()
+        victim:RemoveNoDraw()
+        EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
+        victim:SetHealth(victim:GetMaxHealth())
+        ParticleManager:DestroyParticle(pfx, false)
+        local cooldown = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_COOLDOWN - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_EMERALD)
+        local buff_duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION + victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_SAPPHIRE)
+        victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = cooldown})
+        victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = buff_duration})
+        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
+        local enemies = FindUnitsInRadius(victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+        if #enemies > 0 then
+            for _, enemy in pairs(enemies) do
+                Filters:ApplyStun(victim, 0.6, enemy)
+            end
+        end
+    end)
 end

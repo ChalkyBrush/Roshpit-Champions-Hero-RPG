@@ -1974,10 +1974,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-damage_reduction)/100
 	end
 
-	if victim:HasModifier("modifier_world_tree_effect") then
-		damage = damage * ITEM_RPC_WORLD_TREES_FLOWER_CACHE_DAMAGE_TAKEN_INC_PCT/100
-	end
-
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
 		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
@@ -2984,9 +2980,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_exploder_freeze") then
 		filterTable["damage"] = filterTable["damage"] * 5
 	end
-	if attacker:HasModifier("modifier_world_tree_effect") then
-		mult = mult + ITEM_RPC_WORLD_TREES_FLOWER_CACHE_POST_MITI/100
-	end
 
 	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
 		local healAmount = filterTable["damage"]
@@ -3386,6 +3379,7 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--LETHAL CHECK
+	filterTable["damage"] = victim:GetHealth()*100
 	if filterTable["damage"] >= victim:GetHealth() then
 		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then
@@ -3472,35 +3466,10 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then
-			--print("HAS FLOWER CACHE")
 			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				--print("DO THIS STUFF")
-				victim:AddNoDraw()
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_cache_cooldown", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_COOLDOWN})
-				victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_ankh_of_ancients_shield", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY})
-				local pfx = ParticleManager:CreateParticle("particles/econ/items/natures_prophet/natures_prophet_weapon_sufferwood/furion_teleport_end_sufferwood.vpcf", PATTACH_ABSORIGIN_FOLLOW, victim)
-				ParticleManager:SetParticleControl(pfx, 0, victim:GetAbsOrigin())
-				ParticleManager:SetParticleControl(pfx, 4, Vector(300, 0, 0))
-				for i = 0, 12, 1 do
-					ParticleManager:SetParticleControlEnt(pfx, i, victim, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", victim:GetAbsOrigin(), true)
-				end
-				EmitSoundOn("RPCItem.WorldTreeCache.Start", victim)
 				rezzed = true
-				Timers:CreateTimer(ITEM_RPC_WORLD_TREES_FLOWER_CACHE_RESURRECTION_DELAY, function()
-					victim:RemoveNoDraw()
-					EmitSoundOn("RPCItem.WorldTreeCache.End", victim)
-					victim:SetHealth(victim:GetMaxHealth())
-					ParticleManager:DestroyParticle(pfx, false)
-					victim.amulet:ApplyDataDrivenModifier(victim.InventoryUnit, victim, "modifier_world_tree_effect", {duration = ITEM_RPC_WORLD_TREES_FLOWER_CACHE_BUFF_DURATION})
-					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf", victim, 1.2)
-					local enemies = FindUnitsInRadius(victim:GetTeamNumber(), victim:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-					if #enemies > 0 then
-						for _, enemy in pairs(enemies) do
-							Filters:ApplyStun(victim, 0.6, enemy)
-						end
-					end
-				end)
+				Filters:WorldTreeFlowerCacheTrigger(victim)
 			end
 		end
 		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then

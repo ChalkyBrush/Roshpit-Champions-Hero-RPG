@@ -2172,6 +2172,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
 		end
 	end
+	if unit:HasModifier("modifier_world_tree_effect") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2607,6 +2610,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_volcano_orb") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSumOfAllAttributes()*ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR
+	end
+	if unit:HasModifier("modifier_world_tree_effect") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

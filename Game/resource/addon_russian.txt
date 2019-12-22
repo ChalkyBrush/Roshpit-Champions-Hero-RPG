@@ -14776,16 +14776,18 @@
 		"item_rpc_aquastone_ring_amethyst1"									"blah blah @amethyst_property1 gem"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"						"World Tree's Flower Cache"
-		"item_rpc_world_trees_flower_cache_ruby1"						"blah blah @ruby_property1 gem"
-		"item_rpc_world_trees_flower_cache_emerald1"						"blah blah @emerald_property1 gem"
-		"item_rpc_world_trees_flower_cache_sapphire1"						"blah blah @sapphire_property1 gem"
-		"item_rpc_world_trees_flower_cache_amethyst1"						"blah blah @amethyst_property1 gem"
-		"item_property_world_trees_flower_cache"				"Blood Orchid"
-		"property_world_trees_flower_cache_description"			"При получении смертельного урона, герой перерождается в цветке, возвращаясь в бой через <font color='#ccff66'>3</font> секунды с полным здоровьем. После возрождения весь исходящий Пост-Резистный урон увеличивается на <font color='#ccff66'>200</font>%, но увеличивает весь входящий урон на <font color='#ccff66'>200</font>% на <font color='#ccff66'>12</font> секунд. Перезаряжается <font color='#ccff66'>12</font> секунд."
-		"DOTA_Tooltip_modifier_world_tree_cache_cooldown"		"Перезарядка Blood Orchid"
-		"DOTA_Tooltip_modifier_world_tree_effect"				"Blood Orchid"
-		"DOTA_Tooltip_modifier_world_tree_effect_Description"	"Наносимый пост-резистный урон увеличен на 200%%, получаемый урон увеличен на 200%%"
+        "DOTA_Tooltip_ability_item_rpc_world_trees_flower_cache"                        "World Tree's Flower Cache"
+
+        "item_property_world_trees_flower_cache"                "New Bloom"
+        "property_world_trees_flower_cache_description"         "On death, you are reborn from a flower after <font color='#ccff66'>3</font> seconds with full health. Upon emerging, you receive a buff that increases Base Ability Damage by <font color='#ccff66'>100</font>%, Attack Power by <font color='#ccff66'>50</font>%, and movespeed by <font color='#ccff66'>150</font> for <font color='#ccff66'>6</font> seconds. <font color='#ccff66'>15</font> second cooldown."
+        "DOTA_Tooltip_modifier_world_tree_cache_cooldown"       "New Bloom Cooldown"
+        "DOTA_Tooltip_modifier_world_tree_effect"               "New Bloom"
+        "DOTA_Tooltip_modifier_world_tree_effect_Description"   "Increases Base Ability Damage, Attack Power and Movespeed"
+
+        "item_rpc_world_trees_flower_cache_ruby1"                       "New Bloom buff also increases Armor Pierce and Spell Pierce by @ruby_property1"
+        "item_rpc_world_trees_flower_cache_emerald1"                        "Reduces New Bloom's Cooldown by @emerald_property1 seconds"
+        "item_rpc_world_trees_flower_cache_sapphire1"                       "Increases New Bloom's buff duration by @sapphire_property1 seconds"
+        "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=\"#69BC71\">Nature</font> Elemental Damage by @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arcane_charm"									"Arcane Charm"
