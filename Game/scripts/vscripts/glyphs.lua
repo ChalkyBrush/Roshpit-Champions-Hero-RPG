@@ -357,8 +357,10 @@ function Glyphs:ApplyGlyph(heroEntity, glyphSlot, glyphIndex)
 		heroEntity.glyphs_table = {}
 	end
 	if Glyphs:ValidateGlyph(glyph, heroEntity) then
-		local old_modifier_name = string.gsub(heroEntity.glyphs_table[glyphSlot]:GetAbilityName(), "item_rpc", "modifier")
-		heroEntity:RemoveModifierByName(old_modifier_name)
+		if heroEntity.glyphs_table[glyphSlot]
+			local old_modifier_name = string.gsub(heroEntity.glyphs_table[glyphSlot]:GetAbilityName(), "item_rpc", "modifier")
+			heroEntity:RemoveModifierByName(old_modifier_name)
+		end
 		heroEntity.glyphs_table[glyphSlot] = glyph
 		CustomNetTables:SetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()) .. "-glyph-"..tostring(glyphSlot), {glyphIndex = glyphIndex})
 		-- heroEntity.glyphUnit:AddItem(glyph)
