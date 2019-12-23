@@ -308,7 +308,7 @@ function Glyphs:PlaceGlyphInSlot(msg)
 	if item.newItemTable.glyph then
 		--print("PlaceGlyphInSlot 1")
 		local applicable = Glyphs:CheckApplicable(item, hero)
-		if applicable == 1 then
+		if applicable == 1 and Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 			--print("PlaceGlyphInSlot 2")
 			hero:TakeItem(item)
 			--print(tostring(msg.heroIndex).."-glyph-"..tostring(glyphSlot))

@@ -356,7 +356,7 @@ end
 
 function Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex)
 	local hasItem = false
-	for i = 0, 8, 1 do
+	for i = 0, 9, 1 do
 		if IsValidEntity(hero:GetItemInSlot(i)) then
 			if hero:GetItemInSlot(i):GetEntityIndex() == itemIndex then
 				hasItem = true

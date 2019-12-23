@@ -39,9 +39,9 @@ function CreateInventoryPanels()
 		if (( i > 2 ) && (i <= 5))
 		{
 			parentPanel = secondRowPanel;
-		}else if(( i > 5 ) && (i <= 8)){
+		}else if(( i > 5 ) && (i <= 9)){
 			parentPanel = thirdRowPanel;
-		}else if (i > 8){
+		}else if (i > 9){
 			parentPanel = stashPanel;
 		}
 
@@ -49,7 +49,7 @@ function CreateInventoryPanels()
 		inventoryPanel.BLoadLayout( "file://{resources}/layout/custom_game/inventory_item.xml", false, false );
 		inventoryPanel.SetItemSlot( i );
 		inventoryPanel.m_inventory_from_slot = i
-		if(( i > 5 ) && (i <= 8)){
+		if(( i > 5 ) && (i <= 9)){
 			inventoryPanel.AddClass("backpack_item")
 		}
 		m_InventoryPanels.push( inventoryPanel );
