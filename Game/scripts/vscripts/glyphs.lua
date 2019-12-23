@@ -357,7 +357,7 @@ function Glyphs:ApplyGlyph(heroEntity, glyphSlot, glyphIndex)
 		heroEntity.glyphs_table = {}
 	end
 	if Glyphs:ValidateGlyph(glyph, heroEntity) then
-		if heroEntity.glyphs_table[glyphSlot]
+		if heroEntity.glyphs_table[glyphSlot] then
 			local old_modifier_name = string.gsub(heroEntity.glyphs_table[glyphSlot]:GetAbilityName(), "item_rpc", "modifier")
 			heroEntity:RemoveModifierByName(old_modifier_name)
 		end
