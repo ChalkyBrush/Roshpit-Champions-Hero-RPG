@@ -7918,6 +7918,7 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         newItem.pickedUp = true
         newItem.newItemTable.minLevel = itemLevel
         newItem.newItemTable.inscription = oldItemProperties.inscription
+        newItem.newItemTable.version = oldItemProperties.version
         newItem.newItemTable.validator = oldItemProperties.validator
         newItem.newItemTable.socket1 = oldItemProperties.socket1
         newItem.newItemTable.socket1value = oldItemProperties.socket1value
