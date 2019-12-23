@@ -5,7 +5,7 @@ item_rpc_neutral_glyph_6_3 = class(BaseGlyph, nil, BaseGlyph)
 local itemClass = item_rpc_neutral_glyph_6_3
 local itemClassName = 'item_rpc_neutral_glyph_6_3'
 
-modifier_neutral_glyph_6_3 = class(npc_base_modifier, nil, npc_base_modifier)
+modifier_neutral_glyph_6_3 = {}
 local modifierClass = modifier_neutral_glyph_6_3
 local modifierName = 'modifier_neutral_glyph_6_3'
 LinkLuaModifier(modifierName, "items/lua/glyph/neutral_glyph_6_3", LUA_MODIFIER_MOTION_NONE)
@@ -18,17 +18,24 @@ function itemClass:GetItemName()
     return itemClassName
 end
 
+function itemClass:GetStackCount()
+    return ITEM_RPC_NEUTRAL_GLYPH_6_3_BASE_ATTACK_DMG_BONUS_PCT
+end
+
 ------------
 --MODIFIER--
 ------------
 
-function modifierClass:OnCreated()
-    if not IsServer() then
-        return
-    end
-    self:SetSpecialTypes({ 
-        --Nothing
-    })
+function modifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
+    }
+
+    return funcs
+end
+
+function modifierClass:GetModifierBaseDamageOutgoing_Percentage()
+    return self:GetStackCount() * 1
 end
 
 function modifierClass:IsHidden()

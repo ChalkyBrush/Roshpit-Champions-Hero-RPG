@@ -22,17 +22,17 @@ end
 --MODIFIER--
 ------------
 
-function modifierClass:OnCreated()
-    if not IsServer() then
-        return
-    end
-    self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS
-    })
+function modifierClass:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE
+    }
+
+    return funcs
 end
 
-function modifierClass:GetRoshpitBaseAbilityDmgBonus()
-    return ITEM_RPC_NEUTRAL_GLYPH_2_3_BASE_ABILITY_DMG
+function modifierClass:GetModifierBaseAttack_BonusDamage()
+    local hero = self:GetParent()
+    return hero:GetLevel() * ITEM_RPC_NEUTRAL_GLYPH_2_3_BASE_ATTACK_DMG_PER_LVL
 end
 function modifierClass:IsHidden()
     return true

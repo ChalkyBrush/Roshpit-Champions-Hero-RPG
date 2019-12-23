@@ -27,8 +27,24 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        --Nothing
+        MODIFIER_ROSHPIT_STRENGTH_BONUS,
+        MODIFIER_ROSHPIT_AGILITY_BONUS,
+        MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
+        MODIFIER_ROSHPIT_SPIRIT_BONUS
     })
+end
+
+function modifierClass:GetRoshpitStrengthBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS
+end
+function modifierClass:GetRoshpitAgilityBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS
+end
+function modifierClass:GetRoshpitIntelligenceBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS
+end
+function modifierClass:GetRoshpitSpiritBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS
 end
 function modifierClass:IsHidden()
     return true

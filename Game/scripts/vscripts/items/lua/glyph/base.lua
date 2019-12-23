@@ -20,6 +20,10 @@ function class:GetGlyphIndex()
     return string.sub(self:GetItemName(), nameLength, nameLength)
 end
 
+function class:GetStackCount()
+    return 1
+end
+
 function class:GetGlyphRarity()
     local nameLength = string.len(self:GetItemName())
 	local index = string.sub(self:GetItemName(), nameLength, nameLength)
@@ -47,7 +51,8 @@ function class:CreateLuaItem()
 end
 
 function class:AddSpecialModifiers(caster)
-    caster:AddNewModifier(caster, self, self:GetModifierName(), {})
+    local modifier = caster:AddNewModifier(caster, self, self:GetModifierName(), {})
+    modifier:SetStackCount(self:GetStackCount())
 end
 function class:RemoveSpecialModifiers(caster)
     caster:RemoveModifierByName(self:GetModifierName())
