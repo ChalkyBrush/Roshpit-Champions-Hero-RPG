@@ -3,9 +3,9 @@ if Gems == nil then
 end
 
 Gems.BaseRewardDifficultyMult = {}
-Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 2
-Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 4
-Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 6
+Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 3
+Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 6
+Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 9
 
 Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
 Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}

@@ -4,7 +4,7 @@ if SaveLoad == nil then
 	SaveLoad = class({})
 end
 
-SaveLoad.KeyVersion = "1"
+SaveLoad.KeyVersion = "4.0"
 
 function SaveLoad:GetKey()
 	if Beacons.cheats then
