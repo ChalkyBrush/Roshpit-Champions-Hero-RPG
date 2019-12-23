@@ -1040,12 +1040,12 @@
 		"tooltip_enchanting_tier"	"Уровень зачарования"
 		"tooltip_upgrade_enchanter"	"Улучшить Зачарователя"
 		"tooltip_upgrade_cost"		"Цена"
-		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему Steam аккаунту. Чем выше уровень Заклинателя, тем больше Глифов можно создать."
+		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему аккаунту Steam. Чем выше уровень Заклинателя, тем больше Глифов можно создать."
 		"tooltip_tier"				"Уровень"
 
 		"tooltip_shop_glyphs"		"Просмотреть Глифы"
 
-		"dialogue_glyph_shop_one"	"Я могу обменять твои Кристаллы Тайны на нечто большее..."
+		"dialogue_glyph_shop_one"	"Я могу обменять твои Кристаллы Тайны на мудрость тысячелетий"
 
 		//FLAMEWAKER
 
