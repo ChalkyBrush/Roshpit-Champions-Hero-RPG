@@ -109,7 +109,7 @@ function jex_q_cosmic_cosmic_casting_thinker2(event)
 
 	local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "Q")
 	if tech_level > 0 then
-		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.postmitigation_per_tech / 100) * tech_level
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.attack_damage_added_per_tech / 100) * tech_level
 	end
 	local e_4_level = caster:GetRuneValue("e", 4)
 	if e_4_level > 0 then
