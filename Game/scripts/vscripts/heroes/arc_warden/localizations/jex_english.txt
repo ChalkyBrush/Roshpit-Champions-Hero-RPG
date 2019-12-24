@@ -167,7 +167,7 @@
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Element: <font color=\"#69BC71\">Nature</font><br>Creates a small area of enhanced fertility that causes roots to grow on enemies who enter on a 0.5 second delay. Rooted enemies have reduced attack range and take damage every 0.5 seconds."
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ROOT DURATION PER TECH LEVEL</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH, %</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"%<font color=\"#f4b942\">ATTACK POWER ADDED TO DAMAGE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"RADIUS:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_base_root_duration"				"BASE ROOT DURATION:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_all_attributes_added_to_damage"	"ALL ATTRIBUTES MULTIPLE ADDED TO ROOT DAMAGE:"
