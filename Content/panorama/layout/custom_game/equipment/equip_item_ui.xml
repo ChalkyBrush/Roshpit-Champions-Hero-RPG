@@ -65,10 +65,15 @@
 					<Label id="tooltip_quality_right" html="true"/>
 				</Panel>
 				<Panel id="armor-and-magic-armor-row">
-					<Image id="equipment_attribute_armor" class="equipment_attribute_image" hittest="false"/>
-					<Label id="armor-text" class="armor-text" html="true"/>
-					<Image id="equipment_attribute_magic_armor" class="equipment_attribute_image" hittest="false"/>
-					<Label id="magic-armor-text" class="armor-text" html="true"/>
+					<Panel id="inscription-container">
+						<Label id="inscription-label" html="true"/>
+					</Panel>
+					<Panel id="armor-and-magic-armor-main-container">
+						<Image id="equipment_attribute_armor" class="equipment_attribute_image" hittest="false"/>
+						<Label id="armor-text" class="armor-text" html="true"/>
+						<Image id="equipment_attribute_magic_armor" class="equipment_attribute_image" hittest="false"/>
+						<Label id="magic-armor-text" class="armor-text" html="true"/>
+					</Panel>
 				</Panel>
 				<Panel class="class-splitter"/>
 				<Panel id="properties_container">
