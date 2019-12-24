@@ -1040,12 +1040,12 @@
 		"tooltip_enchanting_tier"	"Уровень зачарования"
 		"tooltip_upgrade_enchanter"	"Улучшить Зачарователя"
 		"tooltip_upgrade_cost"		"Цена"
-		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему Steam аккаунту. Чем выше уровень Заклинателя, тем больше Глифов можно создать."
+		"upgrade_enchanter_info_tooltip"	"Улучшение зачарований привязано к вашему аккаунту Steam. Чем выше уровень Заклинателя, тем больше Глифов можно создать."
 		"tooltip_tier"				"Уровень"
 
 		"tooltip_shop_glyphs"		"Просмотреть Глифы"
 
-		"dialogue_glyph_shop_one"	"Я могу обменять твои Кристаллы Тайны на нечто большее..."
+		"dialogue_glyph_shop_one"	"Я могу обменять твои Кристаллы Тайны на мудрость тысячелетий"
 
 		//FLAMEWAKER
 
@@ -14945,71 +14945,82 @@
 		"property_sea_crystal"												"Giga Ocean Elemental"
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 
+		//Tier 1
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] Glyph of Lesser Strength"
-		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Силу на @glyph_property1"
+        "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] Glyph of Hard Skin"
+		"item_rpc_neutral_glyph_1_1_description" 			"Увеличивает Броню на <font color='#ccff66'>10</font> за Уровень героя."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] Glyph of Items"
-		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает урон, напрямую наносимый предметами на @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Magic Protection"
+		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Магическую Защиту на <font color='#ccff66'>10</font> за Уровень героя."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of the Gourmand"
+		"item_rpc_neutral_glyph_1_3_description" 			 "Зелья дополнительно восстанавливают <font color='#ccff66'>100</font>% от значения Здоровья или Маны в течение <font color='#ccff66'>10</font> сек."
+
+        //Tier 2
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] Glyph of Armor Pierce"
+		"item_rpc_neutral_glyph_2_1_description" 			"Увеличивает Пробитие Брони на <font color='#ccff66'>10</font> за Уровень героя."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Spell Pierce"
+		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает Пробитие Магической Защиты на <font color='#ccff66'>10</font> за Уровень героя."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Berserk"
+		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает Базовый Урон Атаки на <font color='#ccff66'>3</font> за Уровень героя."
+
+        //Tier 3
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"[T3-1] Glyph of Flight"
-		"item_rpc_neutral_glyph_3_1_description"			"Максимальная скорость передвижения увеличена до @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] Glyph of Renewal"
-		"item_rpc_neutral_glyph_4_1_description" 			"Устанавливает время возрождения на 10 секунд, а герой возрождается на месте своей смерти. Если герой повторно умирает в течении @glyph_property2 секунд, местом возрождения станет установленный Флаг возрождения или место на карте по умолчанию."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"[T5-1] Glyph of Walling"
-		"item_rpc_neutral_glyph_5_1_description" 			"Сокращает ВЕСЬ получаемый урон на @glyph_property1% и уменьшает весь наносимый урон на @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"[T6-1] Glyph of War"
-		"item_rpc_neutral_glyph_6_1_description" 			"Увеличивает основной урон на @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"[T7-1] Glyph of Grand Strength"
-		"item_rpc_neutral_glyph_7_1_description" 			"Увеличивает Cилу на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Lesser Agility"
-		"item_rpc_neutral_glyph_1_2_description" 			"Увеличивает Ловкость на @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Ability"
-		"item_rpc_neutral_glyph_2_2_description" 			"Увеличивает базовый урон способностей на @glyph_property1%"
+		"item_rpc_neutral_glyph_3_1_description"			"Увеличивает Лимит Скорости Передвижения на <font color='#ccff66'>70</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"[T3-2] Glyph of Avoidance"
-		"item_rpc_neutral_glyph_3_2_description" 			"Увеличивает уклонение на @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of the Giant Slayer"
-		"item_rpc_neutral_glyph_4_2_description" 			"Увеличивает урон против существ со свойством 'Стойкость' и 'Мега стойкость'. Граница для 'Стойкости' снижается до @glyph_property1% от их макс. здоровья (от 3%), граница 'Мега стойкости' снижается до @glyph_property2% (от 0.5%). Все бонусы к пост-резистному урону снижаются против этих врагов до @glyph_property3% от общего значения против 'Стойкость' и @glyph_property4% против 'Мега стойкости'. (Стойкость древних не подвергается этому эффекту.). Дополнительно, весь урон против врагов без стойкости снижается на @glyph_property5%."
-
-		
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"[T5-2] Glyph of Berserking"
-		"item_rpc_neutral_glyph_5_2_description" 			"Увеличивает ВЕСЬ получаемый урон на @glyph_property1% и увеличивает весь наносимый урон на @glyph_property2%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] Glyph of Aptitude"
-		"item_rpc_neutral_glyph_6_2_description" 			"Увеличивает основной урон Нормальной стихии на @glyph_property1%"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] Glyph of Grand Agility"
-		"item_rpc_neutral_glyph_7_2_description" 			"Увеличивает Ловкость на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of Lesser Intelligence"
-		"item_rpc_neutral_glyph_1_3_description" 			"Увеличивает Интеллект на @glyph_property1"
-
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] (Т2) Glyph of Elements"
-		"item_rpc_neutral_glyph_2_3_description" 			"Увеличивает весь стихийный урон на @glyph_property1%"
+		"item_rpc_neutral_glyph_3_2_description" 			"Увеличивает Уклонение на <font color='#ccff66'>25</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"[T3-3] Glyph of Fleeting"
-		"item_rpc_neutral_glyph_3_3_description" 			"Уменьшает время перезарядки (E) @Ability3 на @glyph_property1 сек."
+		"item_rpc_neutral_glyph_3_3_description" 			"Снижает перезарядку способности [E] @Ability3 на <font color='#ccff66'>1</font> seconds."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_4_3_description" 			"Эффекты всех зелий при использовании увеличиваются на @glyph_property1%. Дополнительно позволяет герою автоматически подбирать и использовать зелья в радиусе 400 каждые 0.5 секунды."
+        //Tier 4
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"[T5-3] Glyph of Barbarism"
-		"item_rpc_neutral_glyph_5_3_description" 			"Увеличивает ВЕСЬ наносимый физический урон на @glyph_property1%, но уменьшает весь наносимый магический урон на @glyph_property2%"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] Glyph of Elements"
+		"item_rpc_neutral_glyph_4_1_description" 			"Увеличивает урон всех Элементов на <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Sorcery"
-		"item_rpc_neutral_glyph_6_3_description" 			"Увеличивает весь наносимый магический урон на @glyph_property1%"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Ability"
+		"item_rpc_neutral_glyph_4_2_description" 			"Увеличивает Базовый Урон Способностей на <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of Grand Intelligence"
-		"item_rpc_neutral_glyph_7_3_description" 			"Увеличивает Интеллект на @glyph_property2% или на @glyph_property1, в зависимости от того, какое число выше."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of Items"
+		"item_rpc_neutral_glyph_4_3_description" 			"Увеличивает Урон Предметов на <font color='#ccff66'>50</font>%."
 
+        //Tier 5
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"[T5-1] Glyph of Physical Resistance"
+		"item_rpc_neutral_glyph_5_1_description" 			"Уменьшает получаемый Физический урон на <font color='#ccff66'>35</font>%."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"[T5-2] Glyph of Magical Resistance"
+		"item_rpc_neutral_glyph_5_2_description" 			"Уменьшает получаемый Магический урон на <font color='#ccff66'>35</font>%."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"[T5-3] Glyph of Pure Resistance"
+		"item_rpc_neutral_glyph_5_3_description" 			"Уменьшает получаемый Чистый урон на <font color='#ccff66'>20</font>%."
+
+        //Tier 6
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"[T6-1] Glyph of Grand Strength"
+		"item_rpc_neutral_glyph_6_1_description" 			"Повышает Силу героя на <font color='#ccff66'>250</font>."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] Glyph of Grand Intelligence"
+		"item_rpc_neutral_glyph_6_2_description" 			"Повышает Интеллект героя на <font color='#ccff66'>250</font>."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Enhanced Attacking"
+		"item_rpc_neutral_glyph_6_3_description" 			"Герой получает <font color='#ccff66'>35</font>% Бонусной Силы Атаки."
+
+        //Tier 7
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"[T7-1] Glyph of Grand Agility"
+		"item_rpc_neutral_glyph_7_1_description" 			"Повышает Ловкость героя на <font color='#ccff66'>250</font>."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] Glyph of Grand Spirit"
+		"item_rpc_neutral_glyph_7_2_description" 			"Повышает Дух героя на <font color='#ccff66'>250</font>."
+
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of All Trades"
+		"item_rpc_neutral_glyph_7_3_description" 			"Повышает все Атрибуты героя на <font color='#ccff66'>75</font>."
     	
 
 		

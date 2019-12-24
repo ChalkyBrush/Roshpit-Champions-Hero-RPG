@@ -15116,8 +15116,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Magic Protection"
 		"item_rpc_neutral_glyph_1_2_description" 			"Increases Magic Armor by <font color='#ccff66'>10</font> per Hero Level."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of Items"
-		"item_rpc_neutral_glyph_1_3_description" 			"Increases Item Damage by <font color='#ccff66'>50</font>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of the Gourmand"
+		"item_rpc_neutral_glyph_1_3_description" 			 "Consuming a potion will additionally restore <font color='#ccff66'>100</font>% of the HP or MP restored over <font color='#ccff66'>10</font>s."
 
         //Tier 2
 
@@ -15127,8 +15127,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Spell Pierce"
 		"item_rpc_neutral_glyph_2_2_description" 			"Increases Spell Pierce by <font color='#ccff66'>10</font> per Hero Level."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Ability"
-		"item_rpc_neutral_glyph_2_3_description" 			"Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Berserk"
+		"item_rpc_neutral_glyph_2_3_description" 			"Increases Base Attack Damage by <font color='#ccff66'>3</font> per Hero Level."
 
         //Tier 3
 
@@ -15146,11 +15146,11 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] Glyph of Elements"
 		"item_rpc_neutral_glyph_4_1_description" 			"Increases the damage with all Elements by <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_4_2_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Ability"
+		"item_rpc_neutral_glyph_4_2_description" 			"Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_4_3_description" 			 "Consuming a potion will additionally restore <font color='#ccff66'>100</font>% of the HP or MP restored over <font color='#ccff66'>10</font>s."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of Items"
+		"item_rpc_neutral_glyph_4_3_description" 			"Increases Item Damage by <font color='#ccff66'>50</font>%."
 
         //Tier 5
 
@@ -15171,8 +15171,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] Glyph of Grand Intelligence"
 		"item_rpc_neutral_glyph_6_2_description" 			"Increase Intelligence by <font color='#ccff66'>250</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_6_3_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Enhanced Attacking"
+		"item_rpc_neutral_glyph_6_3_description" 			"Increase Attack Damage by <font color='#ccff66'>35</font>%."
 
         //Tier 7
 
@@ -15182,8 +15182,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] Glyph of Grand Spirit"
 		"item_rpc_neutral_glyph_7_2_description" 			"Increases Spirit by <font color='#ccff66'>250</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_7_3_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of All Trades"
+		"item_rpc_neutral_glyph_7_3_description" 			"Increases all Attributes by <font color='#ccff66'>75</font>."
 
 
 		
