@@ -134,7 +134,7 @@ function load_mod(mod, panel, index){
 		var ability_button = get_ability_button_from_mod(mod)
 		mod_text = mod_text.replace("@ability_button", ability_button)
 	}
-	for (i = 1; i < 5; i++) {
+	for (i = 1; i < 6; i++) {
 		var int_index = "mod_int"+i
 		var str_index = "mod_string"+i
 		mod_text = mod_text.replace("@int"+i, "<font color='#32a852'>"+mod[int_index]+"</font>")

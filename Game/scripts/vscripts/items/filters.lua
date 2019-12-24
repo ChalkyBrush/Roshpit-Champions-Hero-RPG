@@ -6017,6 +6017,9 @@ function Filters:SilverspringWCast(caster)
 end
 
 function Filters:SkulldiggerWraithBlast(caster, ability, hero, target)
+    if not hero then
+        return false
+    end
     if not hero:HasModifier("modifier_skulldigger_hellfire_stacks") then
         return false
     end

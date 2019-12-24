@@ -396,6 +396,9 @@ function Challenges:DragIntoRerollSlot(msg)
 	if item.newItemTable.item_slot == "weapon" then
 		return false
 	end
+	if item.newItemTable.version == "3.9" then
+		return false
+	end
 	Timers:CreateTimer(0.03, function()
 		hero:Stop()
 	end)
