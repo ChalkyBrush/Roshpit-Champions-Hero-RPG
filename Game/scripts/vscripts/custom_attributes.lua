@@ -1210,22 +1210,24 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 	-- MAIN PART BELOW
 	local max_physical_mult = RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR
 	if attacker:HasModifier("modifier_marauder_gloves") then
-		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then 
-			max_physical_mult = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD)
-		end
 		if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
 			armor = armor * (1 - (attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MARAUDER_GLOVES_GEM_SAPPHIRE)/100))
 		end
 	end
+	if victim:HasModifier("modifier_marauder_gloves") then
+		if victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			armor = armor * (1 + (victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_MARAUDER_GLOVES_GEM_EMERALD)/100))
+		end
+	end
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min((255 + armor_pierce)/(255 + armor), max_physical_mult)
+		local mult = math.min(255 / (armor * ( 255 / (255 + armor_pierce))), max_physical_mult)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+		local mult = math.min(255 / (magic_armor * ( 255 / (255 + spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_ancient_waterstone") then
-			local mult = math.min((255 + spell_pierce)/(255 + magic_armor), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+			local mult = math.min(255 / (magic_armor * ( 255 / (255 + spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 			return damage*mult
 		end
 		return damage

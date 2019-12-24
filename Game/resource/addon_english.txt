@@ -13558,7 +13558,7 @@
 		"property_marauder_description"				"Increases Armor Pierce by <font color='#ccff66'>50</font>%."
 
     	"item_rpc_marauder_gloves_ruby1"									"Increase Armor Pierce by @ruby_property1x your Movement Speed"
-    	"item_rpc_marauder_gloves_emerald1"									"Your maximum physical damage multiplier when Armor Pierce exceeds armor is increased to @emerald_property1"
+    	"item_rpc_marauder_gloves_emerald1"									"Your armor is considered to be @emerald_property1% higher when taking physical damage"
     	"item_rpc_marauder_gloves_sapphire1"									"Your physical damage ignores @sapphire_property1% of enemies' armor"
     	"item_rpc_marauder_gloves_amethyst1"									"Increases Movement Speed and Attack Speed by @amethyst_property1"
 
