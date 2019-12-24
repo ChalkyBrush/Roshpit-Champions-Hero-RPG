@@ -80,7 +80,7 @@ function cast_soul_thrust(event)
 					flametongueEvent.target = enemy
 					flametongueEvent.caster = caster
 					flametongueEvent.ability = caster:FindAbilityByName("spirit_warrior_flametongue")
-					flametongueEvent.pure_damage = flametongueEvent.ability:GetSpecialValueFor("flat_pure_damage")
+					flametongueEvent.damage = flametongueEvent.ability:GetSpecialValueFor("flat_damage")
 					flametongueEvent.mult = w_3_mult
 					flametongue_attack_land(flametongueEvent)
 				end
