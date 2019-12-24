@@ -7619,6 +7619,7 @@
 	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
 	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."
 
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"
@@ -16453,6 +16454,8 @@
 
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Burns nearby enemies."
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_immolation_damage"		"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_attackspeed_loss"		"ATTACK SPEED LOSS:"
 
 		"redfall_farmlands_corn_harvester"										"Corn Harvester"
 		"redfall_farmlands_flame_panda"											"Flame Panda"

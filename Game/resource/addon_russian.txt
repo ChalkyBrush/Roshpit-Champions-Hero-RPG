@@ -949,6 +949,18 @@
 		"DOTA_Tooltip_ability_item_rpc_currency_whetstone"			"Ultraforger"
 		"item_rpc_currency_whetstone_desc"							"Используйте в Синтезирующем Сосуде вместе с Оружием, чтобы сразу же поднять его до максимального уровня."
 		
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"Socket Cutter"
+		"socket_cutter_desc"										"Кузнец может создать ячейку на предмете при помощи этого инструмента. Может быть сохранен в Банке Ключей."
+		
+		"DOTA_Tooltip_ability_item_rpc_inscription_kit"				"Inscription Kit"
+		"inscription_kit_desc"										"Добавляет надпись на надеваемый предмет."
+
+		"inscription_kit_tip1"										"Положите предмет для нанесени надписи"
+		"inscription_kit_tip2"										"Добавьте любую надпись на предмет. Надписи остаются навсегда и не могут быть убраны. Максимум 36 символов."
+		"inscription_inscribe"										"Inscribe"
+
+		"gear_version_warning"										"Этот предмет не соответствует  версии игры 4.0. Переложите предмет в свой инвентарь героя и активируйте для обновления."
+		
 		"cache_radiance"									"Излучение"
 
 		"item_row"					"Уровень глифа"
@@ -1197,16 +1209,16 @@
 		"tooltip_collect_income"									"Забрать бонус"
 		"collect_income_info"										"Ваш бонус обновляется в 00:00 по EST (8:00 MSK) ежедневно."
 
-		"chisel_name"												"Снять предмет"
+		"chisel_name"												"СНЯТЬ ПРЕДМЕТ"
 		"chisel_tooltip"											"Позволяет снять выбранный надетый предмет. Стоимость снятия определяется требуемым уровнем у предмета. Когда снимается предмет, герой автоматически сохраняется, не забудьте сохранить предмет после этого."
 
-		"reroll_name"												"Перековка предмета"
+		"reroll_name"												"ПЕРЕКОВКА ПРЕДМЕТА"
 		"reroll_tooltip"											"Выбранный предмет редкости Immortal может быть перекован, что позволит полностью изменить свойства. За дополнительную плату можно заблокировать определенный показатель от перековки. Стоимость перековки определяется внутренним уровнем предмета. Оружие перековывать нельзя."
 		
-		"socket_name"												"Ячейки Самоцветов"
+		"socket_name"												"ЯЧЕЙКИ САМОЦВЕТОВ"
 		"socket_tooltip"											"В выбранном предмете будет вырезана ячейка для драгоценного камня, в обмен на Мифрил и Socket Cutter. Максимум 2 ячейки на предмет. Не работает на оружии и Арканах."
 
-		"ui_cancel"													"Отмена"
+		"ui_cancel"													"ОТМЕНА"
 
 		"message_chisel_price"										"Стоимость снятия"
 		"action_finish_chisel"										"Снять"
@@ -3258,7 +3270,7 @@
         "item_rpc_axe_glyph_5_2_description"                "После успешного прочтения (R) @Ability4, в последующие <font color='#ccff66'>9</font> секунд урон умения (W) @Ability2 будет увеличен на <font color='#ccff66'>200</font>%"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_6_2"       "[T6-2] Glyph of Reduction"
-        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] на <font color='#ccff66'>40</font>, но снижает шанс получения щита до <font color='#ccff66'>75</font>% за каждое очко руны, вместо <font color='#ccff66'>150</font>%."
+        "item_rpc_axe_glyph_6_2_description"                "Увеличивает сопротивление щитов от руны [E4] на <font color='#ccff66'>40</font>%, но снижает шанс получения щита до <font color='#ccff66'>75</font>% за каждое очко руны, вместо <font color='#ccff66'>150</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_7_2"       "[T7-2] Glyph of Rage"
         "item_rpc_axe_glyph_7_2_description"                "Пока активно умение (Q) @Ability1, максимальное количество зарядов руны [Q2] Berserker Rage увеличено до <font color='#ccff66'>50</font>, а количество получаемых зарядов увеличено до <font color='#ccff66'>2</font>. Половина зарядов активна постоянно."
@@ -7694,7 +7706,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента<font color=\"#3289C7\">Дракон</font>)получает <font color='#ccff66'>100</font>% бонус урона, второй по счету получает <font color='#ccff66'>75</font>%, третий <font color='#ccff66'>50</font>, и четвертый <font color='#ccff66'>25</font>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>)получает <font color='#ccff66'>100</font>% бонус урона, второй по счету получает <font color='#ccff66'>75</font>%, третий <font color='#ccff66'>50</font>, и четвертый <font color='#ccff66'>25</font>."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
@@ -11255,7 +11267,7 @@
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_base_damage"			"УРОН:"
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_radius"					"РАДИУС:"		
 	"DOTA_Tooltip_ability_jex_thunder_thunder_q_agility_added_to_base_damage"	"МНОЖИТЕЛЬ ЛОВКОСТИ К БАЗЕ УРОНА:"
-	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[Q4] Усиление урона удара молнии</font>:"
+	"DOTA_Tooltip_ability_jex_thunder_thunder_q_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Усиление урона удара молнии</font>:"
 
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q"				"Electron Shield"
 	"DOTA_Tooltip_ability_jex_lightning_cosmic_q_Description"	"Барьер из квантовых частиц вокруг Jex не позволяет его здоровью упасть ниже определенного предела. Получаемый урон снимает слои щита."
@@ -11302,9 +11314,9 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_w_e_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[E4]Увеличение базового урона Nebula Bomb</font>:"	
 
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w"			"Vortex Weapon"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font><br>Jex активирует модуль Молнии, позволяет ему вызывать цепные молнии при атаках. Увеличивает базовый урон атаки, каждая атака будет поглощать ману. Если маны слишком мало, Vortex Weapon отключается."
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_Description"	"Элемент: <font color=\"#5CCDF9\">Молния</font><br>Jex активирует модуль Молнии, позволяет ему вызывать цепные молнии при атаках. Увеличивает бонусный урон атаки, каждая атака будет поглощать ману. Если маны слишком мало, Vortex Weapon отключается."
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_jumps_per_tech"	"<font color=\"#f4b942\">ПРЫЖКИ МОЛНИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">УРОН АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_dmg_pct_per_tech"	"%<font color=\"#f4b942\">БОНУС СИЛЫ АТАКИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_damage_mult"				"УРОН СПОСОБНОСТИ ОТ СИЛЫ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_mana_cost"					"МАНЫ ЗА УДАР:"
 	"DOTA_Tooltip_ability_jex_lightning_lightning_w_attack_speed"				"БОНУС СКОРОСТИ АТАКИ:"
@@ -11335,7 +11347,7 @@
 	"DOTA_Tooltip_ability_jex_nature_nature_w"					"Root Weaver"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_Description"		"Элемент: <font color=\"#69BC71\">Природа</font><br>Создает небольшую зону с повышенным ростом растений, любой противник в этой зоне будет опутан корнями, задержка 0.5 секунды. Опутанные противники имеют меньшую дальность атаки и получают урон каждые 0.5 секунды."
 	"DOTA_Tooltip_ability_jex_nature_nature_w_root_per_tech_level"	"<font color=\"#f4b942\">ДЛИТЕЛЬНОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">ПРИБАВКА АТАКИ К УРОНУ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_nature_w_attack_power_added_to_tick_per_tech"	"<font color=\"#f4b942\">ПРИБАВКА АТАКИ К УРОНУ, %</font>:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_radius"							"РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_base_root_duration"				"БАЗОВАЯ ДЛИТЕЛЬНОСТЬ КОРНЕЙ:"
 	"DOTA_Tooltip_ability_jex_nature_nature_w_all_attributes_added_to_damage"	"ПРИБАВКА МНОЖИТЕЛЯ ВСЕХ АТРИБУТОВ:"
@@ -15928,12 +15940,12 @@
 		"tooltip_completed"										"Завершено"
 
 		"redfall_quest_1_title"									"Сердце Леса"
-		"redfall_quest_1_objective"								"Восстановите 4 Дерева Вермиллиона в Осеннем Лесу."
+		"redfall_quest_1_objective"								"Оживите 4 высохших Алых Древа в Осеннем Лесу."
 
 		"redfall_quest_1_objective_2"							"Одолейте мастера культа Кримсита"	
 
-		"redfall_autumnleaf_firefly"							"Бургундийский Светлячок"
-		"redfall_autumnleaf_firefly_Description"				"Открывает вход в Каньон Осеннего Тумана."
+		"redfall_autumnleaf_firefly"							"Burgundy Firefly"
+		"redfall_autumnleaf_firefly_Description"				"Мигает алым светом. Открывает вход в Каньон Осеннего Тумана, в горах севернее Осенней деревни."
 
 		"redfall_quest_2_title"									"Храм Мари"
 		"redfall_quest_2_objective"								"Одолейте Духов Мари."
@@ -15998,7 +16010,7 @@
 
 		//REDFALL DIALOGUE
 
-		"redfall_quest_1_dialogue"								"Деревья Вермиллиона хранят жизнь во всём лесу."
+		"redfall_quest_1_dialogue"								"Алые Древа хранят жизнь во всём лесу."
 		"redfall_quest_1_dialogue_2"							"Внешние силы ставят под угрозу их выживание."
 
 		//REDFALL MONSTERS
@@ -16242,13 +16254,13 @@
 		//Redfall Farmlands
 
 
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Очищенная связка Вермиллиона"
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Очищенная связка Вермиллиона"
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Очищенная связка Вермиллиона"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Purified Vermillion Bundle"
 
-		"item_redfall_purified_vermillion_bundle_normal_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
-		"item_redfall_purified_vermillion_bundle_elite_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
-		"item_redfall_purified_vermillion_bundle_legend_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
+		"item_redfall_purified_vermillion_bundle_normal_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
+		"item_redfall_purified_vermillion_bundle_elite_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
+		"item_redfall_purified_vermillion_bundle_legend_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
 
 		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability"							"Enfeebling Wraith"
 		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_Description"				"Атаки снижают урон целей. Атаки никогда не промахиваются."
@@ -16259,6 +16271,8 @@
 
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Поджигает ближайших врагов."
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_immolation_damage"		"УРО ПЛАМЕНИ:"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_attackspeed_loss"		"ПОТЕРЯ СКОРОСТИ АТАКИ:"
 
 		"redfall_farmlands_corn_harvester"										"Сборщик зерна"
 		"redfall_farmlands_flame_panda"											"Огненная панда"
@@ -16355,13 +16369,13 @@
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"Demon Link"
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"Можно наносить урон Демону"
 
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Ключ заброшенной верфи"
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Ключ заброшенной верфи"
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Ключ заброшенной верфи"
-
-		"item_redfall_hidden_shipyard_key_normal_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
-		"item_redfall_hidden_shipyard_key_elite_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
-		"item_redfall_hidden_shipyard_key_legend_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Abandoned Shipyard Key"
+		
+		"item_redfall_hidden_shipyard_key_normal_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
+		"item_redfall_hidden_shipyard_key_elite_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
+		"item_redfall_hidden_shipyard_key_legend_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
 
 		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai"				"Death Pact"
 		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_Description"	"Увеличивает урон."
@@ -16872,14 +16886,14 @@
 		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Sap"
 		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss_Description"			"Снижение брони"
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_normal_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_normal_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_elite_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_elite_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_legend_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_legend_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
 		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <font color='#ccff66'>1.5</font> раза, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."

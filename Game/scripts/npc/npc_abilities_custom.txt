@@ -2179,7 +2179,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.03"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.06"
 				}
 			}
 		}
@@ -2948,7 +2948,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"				"10"
+				"e_4_damage_increase_pct"				"12"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -3051,7 +3051,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"15"
+				"attack_damage_per_tech"				"3"
 			}	
 			"02"
 			{
@@ -3061,12 +3061,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_per_tech"		"2"
+				"minimum_bolts_per_tech"		"1"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_base"				"2"
+				"minimum_bolts_base"				"5"
 			}		
 			"05"
 			{
@@ -3081,12 +3081,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agility_added_to_base_damage"		"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"agility_added_to_base_damage"		"0.2 0.25 0.3 0.35 0.4 0.45 0.5"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct"		"10"
+				"w_4_damage_increase_pct"		"4"
 			}
 		}
 		"OnSpellStart"
@@ -3750,7 +3750,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_dmg_pct_per_tech"			"15"
+				"attack_dmg_pct_per_tech"			"8"
 			}
 			"03"
 			{
@@ -6802,7 +6802,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.06"
 			}
 		}
 	}
@@ -6820,7 +6820,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -6843,7 +6843,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -6881,7 +6881,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.06"
 			}
 		}
 	}
@@ -6899,7 +6899,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -6922,7 +6922,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -6958,7 +6958,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.06"
 			}
 		}
 	}
@@ -6976,7 +6976,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -6999,7 +6999,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -7034,7 +7034,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.06"
 			}
 		}
 	}
@@ -7052,7 +7052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -7075,7 +7075,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -27667,7 +27667,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"ThinkInterval"  "0.1"
-				"TextureName"	"spirit_warrior/spirit_warrior_a_d"
+				"TextureName"	"spirit_warrior/spirit_warrior_r_1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -27896,7 +27896,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"5"
 			}
 		}
 		"Modifiers"
@@ -27950,7 +27950,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"2"
 			}
 		}
 	}
@@ -28318,7 +28318,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -132710,7 +132710,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"25 200 900"
+				"immolation_damage"				"70 220 900"
 			}
 			"02"
 			{
