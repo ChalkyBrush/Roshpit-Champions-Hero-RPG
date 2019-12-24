@@ -464,14 +464,21 @@ function CustomAbilities:HitShieldGeneric(victim, attacker, caster, modifierName
 end
 
 function CustomAbilities:HitShipyardShield(victim, attacker)
+	local unit = victim
+	local shield_modifier = unit:FindModifierByName("modifier_shipyard_veil_shield")
+	if not shield_modifier then
+		return false
+	end
+	local ability = shield_modifier:GetAbility()
+	if not ability then
+		return false
+	end
 	local currentStacks = victim:GetModifierStackCount("modifier_shipyard_veil_shield", victim.InventoryUnit)
 	if currentStacks > 1 then
 		victim:SetModifierStackCount("modifier_shipyard_veil_shield", victim.InventoryUnit, currentStacks - 1)
 	else
 		victim:RemoveModifierByName("modifier_shipyard_veil_shield")
 	end
-	local unit = victim
-	local ability = unit:FindModifierByName("modifier_shipyard_veil_shield"):GetAbility()
 	ability.hero = unit
 	local emerald_value = ability:GetGemValue("emerald")
 	if emerald_value > 0 then

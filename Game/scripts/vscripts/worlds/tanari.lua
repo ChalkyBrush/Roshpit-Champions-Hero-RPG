@@ -71,14 +71,14 @@ function Tanari:Debug()
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_world_trees_flower_cache")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_epsilons_eyeglass")
 
     
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_world_trees_flower_cache")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_epsilons_eyeglass")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
