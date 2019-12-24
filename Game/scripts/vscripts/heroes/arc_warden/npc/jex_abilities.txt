@@ -1192,7 +1192,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"e_4_damage_increase_pct"				"10"
+				"e_4_damage_increase_pct"				"12"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -1295,7 +1295,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"15"
+				"attack_damage_per_tech"				"3"
 			}	
 			"02"
 			{
@@ -1305,12 +1305,12 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_per_tech"		"2"
+				"minimum_bolts_per_tech"		"1"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"minimum_bolts_base"				"2"
+				"minimum_bolts_base"				"5"
 			}		
 			"05"
 			{
@@ -1325,12 +1325,12 @@
 			"07"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"agility_added_to_base_damage"		"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"agility_added_to_base_damage"		"0.2 0.25 0.3 0.35 0.4 0.45 0.5"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"w_4_damage_increase_pct"		"10"
+				"w_4_damage_increase_pct"		"4"
 			}
 		}
 		"OnSpellStart"
@@ -1994,7 +1994,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_dmg_pct_per_tech"			"15"
+				"attack_dmg_pct_per_tech"			"8"
 			}
 			"03"
 			{

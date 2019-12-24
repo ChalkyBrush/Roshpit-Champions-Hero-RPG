@@ -44863,7 +44863,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"immolation_damage"				"25 200 900"
+				"immolation_damage"				"70 220 900"
 			}
 			"02"
 			{

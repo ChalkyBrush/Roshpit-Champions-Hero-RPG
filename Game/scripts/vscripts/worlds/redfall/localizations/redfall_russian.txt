@@ -28,12 +28,12 @@
 		"tooltip_completed"										"Завершено"
 
 		"redfall_quest_1_title"									"Сердце Леса"
-		"redfall_quest_1_objective"								"Восстановите 4 Дерева Вермиллиона в Осеннем Лесу."
+		"redfall_quest_1_objective"								"Оживите 4 высохших Алых Древа в Осеннем Лесу."
 
 		"redfall_quest_1_objective_2"							"Одолейте мастера культа Кримсита"	
 
-		"redfall_autumnleaf_firefly"							"Бургундийский Светлячок"
-		"redfall_autumnleaf_firefly_Description"				"Открывает вход в Каньон Осеннего Тумана."
+		"redfall_autumnleaf_firefly"							"Burgundy Firefly"
+		"redfall_autumnleaf_firefly_Description"				"Мигает алым светом. Открывает вход в Каньон Осеннего Тумана, в горах севернее Осенней деревни."
 
 		"redfall_quest_2_title"									"Храм Мари"
 		"redfall_quest_2_objective"								"Одолейте Духов Мари."
@@ -98,7 +98,7 @@
 
 		//REDFALL DIALOGUE
 
-		"redfall_quest_1_dialogue"								"Деревья Вермиллиона хранят жизнь во всём лесу."
+		"redfall_quest_1_dialogue"								"Алые Древа хранят жизнь во всём лесу."
 		"redfall_quest_1_dialogue_2"							"Внешние силы ставят под угрозу их выживание."
 
 		//REDFALL MONSTERS
@@ -342,13 +342,13 @@
 		//Redfall Farmlands
 
 
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Очищенная связка Вермиллиона"
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Очищенная связка Вермиллиона"
-		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Очищенная связка Вермиллиона"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_normal" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_elite" "Purified Vermillion Bundle"
+		"DOTA_Tooltip_ability_item_redfall_purified_vermillion_bundle_legend" "Purified Vermillion Bundle"
 
-		"item_redfall_purified_vermillion_bundle_normal_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
-		"item_redfall_purified_vermillion_bundle_elite_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
-		"item_redfall_purified_vermillion_bundle_legend_desc"				"Позволяет открыть портал в Осеннюю Ферму, расположенный сразу за Осенней Деревней."
+		"item_redfall_purified_vermillion_bundle_normal_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
+		"item_redfall_purified_vermillion_bundle_elite_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
+		"item_redfall_purified_vermillion_bundle_legend_desc"				"Связка алых листьев, очищенных от заражения. Позволяет открыть портал в Осеннюю Ферму, расположенный в Осенней Деревне."
 
 		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability"							"Enfeebling Wraith"
 		"DOTA_Tooltip_ability_redfall_harvest_wraith_ability_Description"				"Атаки снижают урон целей. Атаки никогда не промахиваются."
@@ -359,6 +359,8 @@
 
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Поджигает ближайших врагов."
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_immolation_damage"		"УРО ПЛАМЕНИ:"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_attackspeed_loss"		"ПОТЕРЯ СКОРОСТИ АТАКИ:"
 
 		"redfall_farmlands_corn_harvester"										"Сборщик зерна"
 		"redfall_farmlands_flame_panda"											"Огненная панда"
@@ -455,13 +457,13 @@
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect"					"Demon Link"
 		"DOTA_Tooltip_modifier_demon_farmer_mark_effect_Description"		"Можно наносить урон Демону"
 
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Ключ заброшенной верфи"
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Ключ заброшенной верфи"
-		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Ключ заброшенной верфи"
-
-		"item_redfall_hidden_shipyard_key_normal_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
-		"item_redfall_hidden_shipyard_key_elite_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
-		"item_redfall_hidden_shipyard_key_legend_desc"				"Открывает проход в заброшенную верфь на карте Осенний Хребет."
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_normal" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_elite" "Abandoned Shipyard Key"
+		"DOTA_Tooltip_ability_item_redfall_hidden_shipyard_key_legend" "Abandoned Shipyard Key"
+		
+		"item_redfall_hidden_shipyard_key_normal_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
+		"item_redfall_hidden_shipyard_key_elite_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
+		"item_redfall_hidden_shipyard_key_legend_desc"				"Старый ключ, покрытый солью и ржавчиной. Открывает вход в Заброшенную Верфь, которая находится по соседству с фермерскими хозяйствами. Чтобы найти вход, пройдите по юго-восточной части полей к скалам."
 
 		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai"				"Death Pact"
 		"DOTA_Tooltip_ability_redfall_skeleton_archer_ai_Description"	"Увеличивает урон."
@@ -972,14 +974,14 @@
 		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss"						"Armor Sap"
 		"DOTA_Tooltip_modifier_crimsyth_recruiter_armor_loss_Description"			"Снижение брони"
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_normal_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_normal"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_normal_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_elite_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_elite"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_elite_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
-		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Демоническая реликвия Кримсит"
-		"item_redfall_crimsyth_demon_relic_legend_desc"						"Открывает портал в замок Кримсит, расположенный рядом со входом в фермы."
+		"DOTA_Tooltip_ability_item_redfall_crimsyth_demon_relic_legend"		"Crimsyth Demon Relic"
+		"item_redfall_crimsyth_demon_relic_legend_desc"						"Древняя реликвия, излучающая темный свет. Вернитесь в фермерские угодья и найдите портал в замок Кримсит в юго-восточном углу острова."
 
 		"DOTA_Tooltip_ability_item_redfall_spirit_ruby_normal"			"Рубин Осеннего Духа"
 		"item_redfall_spirit_ruby_normal_desc"							"Использование: Активирует Равноденствие на карте Redfall Ridge. В этом режиме монстры Парагона появляются в 3 раза чаще, сопротивление и урон всех существ удвоены, увеличен шанс выпадения предметов редкости Immortal. Получаемые Мифрильные Осколки увеличены в <% REDFALL_MITHRIL_EQUINOX_MULT %> раза, получаемые Темные Кристаллы удвоены. Оптимально активировать в начале игры, в стартовой зоне."

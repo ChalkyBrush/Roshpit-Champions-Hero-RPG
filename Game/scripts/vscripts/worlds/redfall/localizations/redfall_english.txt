@@ -369,6 +369,8 @@
 
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Burns nearby enemies."
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_immolation_damage"		"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_attackspeed_loss"		"ATTACK SPEED LOSS:"
 
 		"redfall_farmlands_corn_harvester"										"Corn Harvester"
 		"redfall_farmlands_flame_panda"											"Flame Panda"
