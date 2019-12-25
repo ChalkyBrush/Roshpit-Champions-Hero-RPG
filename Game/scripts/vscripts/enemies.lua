@@ -391,7 +391,7 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 
-	local newHealth = unit:GetMaxHealth() * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["max_health"])
+	local newHealth = unit:GetMaxHealth() * (1 + chamber_level*Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"])
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
 	unit:SetMaxHealth(newHealth)
 	unit:SetBaseMaxHealth(newHealth)
