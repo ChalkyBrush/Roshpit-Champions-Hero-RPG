@@ -55774,7 +55774,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3"
 				}
 			}
 		}
@@ -55892,7 +55892,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"3"
 			}
 		}
 	}
