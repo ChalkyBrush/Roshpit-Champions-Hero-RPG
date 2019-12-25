@@ -52207,7 +52207,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"0.2"
 			}
 		}
 	}

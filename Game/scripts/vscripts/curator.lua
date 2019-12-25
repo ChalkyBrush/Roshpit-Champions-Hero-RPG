@@ -685,7 +685,7 @@ end
 function Curator:CurateArcanaAbilities(hero)
 	local available_arcanas = RPCItems:GetAvailableArcanaData(hero)
 	for i = 1, #available_arcanas, 1 do
-		Timers:CreateTimer(8 * (i - 1), function()
+		Timers:CreateTimer(5 * (i - 1), function()
 			Runes:EquipArcana(hero, available_arcanas[i][1])
 			Timers:CreateTimer(2, function()
 				local index = available_arcanas[i][2]
@@ -922,7 +922,7 @@ function Curator:CurateALLHeroes()
 	local hero_table = HerosCustom:GetAvailableHerosTable()
 	local playerID = MAIN_HERO_TABLE[1]:GetPlayerOwnerID()
 	for i = 1, #hero_table, 1 do
-		local delay = (i - 1) * 60 + 5
+		local delay = (i - 1) * 40 + 5
 		Timers:CreateTimer(delay, function()
 			PlayerResource:ReplaceHeroWith(playerID, hero_table[i], 0, 0)
 			Timers:CreateTimer(1, function()
