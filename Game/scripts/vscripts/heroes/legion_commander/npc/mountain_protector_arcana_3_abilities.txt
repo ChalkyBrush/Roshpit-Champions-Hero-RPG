@@ -13,7 +13,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"900"
-		"AbilityDamage"					"3600 30000 90000 240000 500000 1000000 2000000"
+		"AbilityDamage"					"100 200 300 400 500 600 700"
 		"AOERadius"						"240"
 		"precache"
 		{
