@@ -61,6 +61,7 @@ function Challenges:ChiselItem(msg)
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 		hero:RemoveModifierByName("modifier_cant_equip")
 		hero:UnequipItem(item)
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	else
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
@@ -86,6 +87,7 @@ function Challenges:ChiselItem(msg)
 				hero:UnequipItem(item)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
+				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 			end
 		end)
 	end

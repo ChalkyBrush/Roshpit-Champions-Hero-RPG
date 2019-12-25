@@ -315,7 +315,7 @@ function fire_deity_spell_impact(event)
 	local ability = event.ability
 	local target = event.target
 	local mult = caster.conjuror:GetAbilityByIndex(DOTA_W_SLOT):GetLevel()
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.damage_percentage
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*event.damage_percentage/100
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

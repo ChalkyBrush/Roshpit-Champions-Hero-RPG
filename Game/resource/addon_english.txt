@@ -8997,7 +8997,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantaimai"
-        "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by @special_property1. Reduces base movement speed by @special_property2."
+        "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by <font color='#ccff66'>1</font>. Reduces base movement speed by @special_property2."
 
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"

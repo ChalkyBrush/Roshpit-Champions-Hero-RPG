@@ -3236,7 +3236,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RAVEN_IDOL_GEM_SAPPHIRE2) 
 	end
 	if hero:HasModifier("modifier_seinaru_immo_weapon_3_strength") then
-		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", CustomAttributes.SEINARU_WEAPON_3_STR)
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_seinaru_immo_weapon_3_strength", SEINARU_WEAP_3_STR_PER_MS)
 	end
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
