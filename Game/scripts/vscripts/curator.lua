@@ -957,6 +957,7 @@ function Curator:UpdateItemToCurrentVersion(item, hero, bEquipment)
 	end
 	if new_item then
 		new_item.pickedUp = true
+		new_item.expiryTime = nil
 		if bEquipment then
 			hero:EquipItem(new_item, false, true)
 			local inventory_unit = hero.InventoryUnit

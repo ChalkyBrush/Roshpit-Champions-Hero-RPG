@@ -115,41 +115,41 @@ function Weapons:InitialWeapon(hero, item_variant, itemName)
 end
 
 function Weapons:ValidateGear(hero)
-	-- print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++++++++++++")
-	-- local playerID = hero:GetPlayerOwnerID()
-	-- for i = 0, 5, 1 do
-	-- 	local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
-	-- 	if gearTable then
-	-- 		print("[Weapons:ValidateGear] gear "..i)
-	-- 		DeepPrintTable(gearTable)
-	-- 		print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++ ")
-	-- 		local index = gearTable.itemIndex
-	-- 		local itemEntity = EntIndexToHScript(index)
-	-- 		if IsValidEntity(itemEntity) then
-	-- 			print(itemEntity:GetAbilityName())
-	-- 			print("[Weapons:ValidateGear] VALID ENTITY")
-	-- 			if itemEntity.newItemTable and itemEntity.newItemTable.item_slot then
-	-- 				if RPCItems:getGearSlot(itemEntity.newItemTable.item_slot) == i then
-	-- 					print("[Weapons:ValidateGear] SLOT CORRECT")
-	-- 				else
-	-- 					print("[Weapons:ValidateGear] INCORRECT SLOT")
-	-- 					RPCItems:ItemUTIL_Remove(itemEntity)
-	-- 					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
-	-- 					CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
-	-- 				end
-	-- 			else
-	-- 				print("[Weapons:ValidateGear} NO SLOT!")
-	-- 				RPCItems:ItemUTIL_Remove(itemEntity)
-	-- 				CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
-	-- 				CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
-	-- 			end
-	-- 		else
-	-- 			print("[Weapons:ValidateGear} 111 NO SLOT!")
-	-- 			CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
-	-- 			CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
-	-- 		end
-	-- 	end
-	-- end
+	print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++++++++++++")
+	local playerID = hero:GetPlayerOwnerID()
+	for i = 0, 5, 1 do
+		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
+		if gearTable then
+			print("[Weapons:ValidateGear] gear "..i)
+			DeepPrintTable(gearTable)
+			print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++ ")
+			local index = gearTable.itemIndex
+			local itemEntity = EntIndexToHScript(index)
+			if IsValidEntity(itemEntity) then
+				print(itemEntity:GetAbilityName())
+				print("[Weapons:ValidateGear] VALID ENTITY")
+				if itemEntity.newItemTable and itemEntity.newItemTable.item_slot then
+					if RPCItems:getGearSlot(itemEntity.newItemTable.item_slot) == i then
+						print("[Weapons:ValidateGear] SLOT CORRECT")
+					else
+						print("[Weapons:ValidateGear] INCORRECT SLOT")
+						RPCItems:ItemUTIL_Remove(itemEntity)
+						CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
+						CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
+					end
+				else
+					print("[Weapons:ValidateGear} NO SLOT!")
+					RPCItems:ItemUTIL_Remove(itemEntity)
+					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
+					CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
+				end
+			else
+				print("[Weapons:ValidateGear} 111 NO SLOT!")
+				CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
+				CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
+			end
+		end
+	end
 end
 
 function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)

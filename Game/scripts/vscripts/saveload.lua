@@ -786,6 +786,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
 		end
+		item.expiryTime = nil
 		item.pickedUp = true
 		if gearTable.validator then
 			item.newItemTable.validator = gearTable.validator
