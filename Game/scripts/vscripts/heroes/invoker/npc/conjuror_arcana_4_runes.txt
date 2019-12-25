@@ -72,7 +72,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% CONJUROR_ARCANA_E3_SHADOW_AMP * 100 %>"
+				"property_one"			"<% CONJUROR_ARCANA_E3_SHADOW_AMP %>"
 			}
 			"01"
 			{
