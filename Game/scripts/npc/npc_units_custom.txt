@@ -57931,10 +57931,10 @@
 
             }
         }
-        "RoshpitArmor"          "300"
-        "RoshpitArmorPierce"    "300"
-        "RoshpitSpellPierce"    "300"
-        "RoshpitMagicArmor"     "300"
+        "RoshpitArmor"          "240"
+        "RoshpitArmorPierce"    "240"
+        "RoshpitSpellPierce"    "240"
+        "RoshpitMagicArmor"     "240"
         "RoshpitLevel"          "16"
         "RoshpitDominion"       "0"
         "AggroSound"            ""
