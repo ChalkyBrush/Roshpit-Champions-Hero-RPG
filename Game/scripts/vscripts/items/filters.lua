@@ -185,11 +185,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_pivotal_swiftboots_speed_decay") then
         mult = mult + caster:GetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster.InventoryUnit)*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_AMETHYST)/10000
     end
-    if caster:HasModifier("modifier_depth_crest_armor") then
-        if victim and victim:IsStunned() then
-            mult = mult + ITEM_RPC_DEPTH_CREST_ARMOR_ITEM_AMP/100 * (caster:GetStrength() / ITEM_RPC_DEPTH_CREST_ARMOR_STR_DIVISOR)
-        end
-    end
     if caster:HasModifier("modifier_aquastone_ring") then
         mult = mult + (caster:GetRuneValue("q", 4) + caster:GetRuneValue("w", 4) + caster:GetRuneValue("e", 4) + caster:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
     end
