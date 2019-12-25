@@ -2389,7 +2389,7 @@ function RPCItems:RollHeroicConquerorVestments(item_level)
     local item = RPCItems:CreateVariant("item_rpc_heroic_conqueror_vestments", "immortal", "heroic conqueror", "body", true, "Slot: Body")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_e_4", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_4", 1.25)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "rune_e_4", 1.25)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "rune_r_4", 1.25)
 
