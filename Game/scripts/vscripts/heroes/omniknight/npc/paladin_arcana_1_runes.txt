@@ -89,10 +89,5 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% PALADIN_ARCANA_W4_BOUNCE_CHANCE %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% PALADIN_ARCANA_W4_ATT_PER_ARMOR %>"
-			}
 		}
 	}

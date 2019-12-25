@@ -70579,11 +70579,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"15"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
-			}
 		}
 	}
 

@@ -96,15 +96,15 @@ function passive_think(event)
 	if not ability.w_4_level then
 		ability.w_4_level = caster:GetRuneValue("w", 4)
 	end
-	if ability.w_4_level > 0 then
-		local stacks = caster:GetPhysicalArmorValue(false) * ability.w_4_level * 1.0
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_arcana_armor", {})
-		caster:SetModifierStackCount("modifier_paladin_arcana_armor", caster, stacks)
-	else
-		if caster:HasModifier("modifier_paladin_arcana_armor") then
-			caster:RemoveModifierByName("modifier_paladin_arcana_armor")
-		end
-	end
+	-- if ability.w_4_level > 0 then
+	-- 	local stacks = caster:GetPhysicalArmorValue(false) * ability.w_4_level * 1.0
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_paladin_arcana_armor", {})
+	-- 	caster:SetModifierStackCount("modifier_paladin_arcana_armor", caster, stacks)
+	-- else
+	-- 	if caster:HasModifier("modifier_paladin_arcana_armor") then
+	-- 		caster:RemoveModifierByName("modifier_paladin_arcana_armor")
+	-- 	end
+	-- end
 	penance_dummy_checker(caster, ability)
 end
 
