@@ -28980,7 +28980,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_attack_damage"				"10 15 20 25 30 35 40"
+				"buff_attack_damage"				"10 15 20 30 40 60 80"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -29213,7 +29213,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 			"03"
 			{
@@ -32450,7 +32450,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"45"
+				"property_one"			"5"
 			}
 			"02"
 			{

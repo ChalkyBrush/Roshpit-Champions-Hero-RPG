@@ -2589,7 +2589,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             else
                 if attacker.e_4_level and attacker.e_4_level > 0 then
-                    local multIncrease = attacker.e_4_level * SEINARU_ARCANA2_E4_HOLY_AMP
+                    local multIncrease = attacker.e_4_level * SEINARU_ARCANA2_E4_HOLY_AMP/100
                     mult = mult + multIncrease
                 end
             end
