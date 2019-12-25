@@ -2563,7 +2563,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
             if attacker:HasAbility("paladin_crusader_comet") then
                 local e_4_level = attacker:GetRuneValue("e", 4)
-                mult = mult + e_4_level*PALADIN_ARCANA2_E4_HOLY_AMP_PER_SPIRIT*attacker:GetSpirit()
+                mult = mult + e_4_level*(PALADIN_ARCANA2_E4_HOLY_AMP_PER_SPIRIT/100)*attacker:GetSpirit()
             end
         elseif unitName == "npc_dota_hero_leshrac" then
             if attacker.e_4_level then
