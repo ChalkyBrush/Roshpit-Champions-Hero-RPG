@@ -262,12 +262,13 @@ function fire_ray_casting_end2(event)
 	end)
 end
 
+--this is BASE_ABILITY_W skill damage (special value in buff_attack_damage)
 function fire_buff_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
 	local target = event.target
-	local mult = ability:GetLevel()
+	local mult = ability:GetSpecialValueFor("buff_attack_damage") * 0.01
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * mult
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_infernal_blade_impact_d.vpcf", target, 0.5)
