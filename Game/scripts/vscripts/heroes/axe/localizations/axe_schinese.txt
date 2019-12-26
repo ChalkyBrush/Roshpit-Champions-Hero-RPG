@@ -43,12 +43,11 @@
 		
 		
         "DOTA_Tooltip_ability_axe_rune_q_4"                             "[Q4] 野蛮扩张"
-        "DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "敌人受到骷髅锤伤害时，将获得一层debuff，提高所受到来自于赤色上将的普通元素伤害。最高叠加 20层。"
-        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "每层普通元素伤害提高"
-        "DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      "%"
+	"DOTA_Tooltip_ability_axe_rune_q_4_Description"                 "增加 @Ability1 的范围."
+        "DOTA_Tooltip_ability_axe_rune_q_4_property_one"                "范围增加"
+	"DOTA_Tooltip_ability_axe_rune_q_4_suffix"                      ""
 
-        "DOTA_Tooltip_modifier_axe_rune_q_4_visible"					"野蛮扩张"
-        "DOTA_Tooltip_modifier_axe_rune_q_4_visible_Description"		"受到来自赤色上将的普通元素伤害提高"
+
 		
 		
 		"DOTA_Tooltip_ability_red_general_ability_base_w_backshock"                                "冲击波"
@@ -65,12 +64,12 @@
         "DOTA_Tooltip_modifier_axe_rune_w_1_visible_Description"		"每 0.3秒受到一次额外伤害"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_2"                             "[W2] 弱化能流"
-        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "每次被冲击波伤害，敌人都将受到一层debuff，使魔法抗性降低。最高叠加3层。"
-        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "魔法抗性降低"
-        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_w_2_Description"                 "每次被冲击波伤害，敌人都将受到一层debuff，使其魔甲降低。最高叠加3层。"
+        "DOTA_Tooltip_ability_axe_rune_w_2_property_one"                "魔甲降低"
+        "DOTA_Tooltip_ability_axe_rune_w_2_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_w_2_visible"					"弱化能流"
-        "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"魔法抗性降低"
+        "DOTA_Tooltip_modifier_axe_rune_w_2_visible_Description"		"魔甲降低"
 		
 		"DOTA_Tooltip_ability_axe_rune_w_3"                             "[W3] 复原"
         "DOTA_Tooltip_ability_axe_rune_w_3_Description"                 "施放冲击波时上将恢复生命值。治疗量将被冲击波等级提高。"
@@ -82,7 +81,7 @@
 		"DOTA_Tooltip_ability_axe_rune_w_4"                             "[W4] 雷霆一脚"
         "DOTA_Tooltip_ability_axe_rune_w_4_Description"                 "你的力量值将提高冲击波和脚跟重踏的伤害。"
         "DOTA_Tooltip_ability_axe_rune_w_4_property_one"                "伤害提高"
-        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "% 每10点力量值"
+        "DOTA_Tooltip_ability_axe_rune_w_4_suffix"                      "%力量 "
  
 		
 		
@@ -133,9 +132,9 @@
         "DOTA_Tooltip_ability_red_general_ability_base_r_sunder_main_damage"                       "伤害为当前生命值的%："
 		
 		"DOTA_Tooltip_ability_axe_rune_r_1"                             "[R1] 狂战士怒吼"
-        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "当施放破甲时，每秒怒吼一次，嘲讽800范围内的敌人，强制敌人攻击你。当狂战士怒吼激活时，赤色上将所受到的来自敌人的所有伤害都将被反弹回敌人。反弹伤害为物理。最大反弹伤害为 20X最大生命值的伤害。"
+        "DOTA_Tooltip_ability_axe_rune_r_1_Description"                 "当施放破甲时，每秒怒吼一次，嘲讽800范围内的敌人，强制敌人攻击你。当狂战士怒吼激活时，伤害赤色上将的敌人都将被反弹伤害"
         "DOTA_Tooltip_ability_axe_rune_r_1_property_one"                "反弹伤害"
-        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      "x 所受到的伤害"
+        "DOTA_Tooltip_ability_axe_rune_r_1_suffix"                      ""
 
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt"						"狂战士怒吼"
         "DOTA_Tooltip_modifier_axe_rune_r_1_taunt_Description"			"被嘲讽了，怎么办？？干他"
@@ -162,12 +161,12 @@
         "DOTA_Tooltip_modifier_axe_rune_r_3_shield_Description"			"减伤 80%%"	
  
 		"DOTA_Tooltip_ability_axe_rune_r_4"                             "[R4] 钢铁破裂"
-        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "赤色上将自身的减伤百分比（不包含护甲值和魔法抗性）也将提高赤色上将对敌人所造成的伤害。（伤害计算在减伤之后）当赤色上将的减伤在 0% 与 50% 之间时，赤色上将将获得第一层buff，当减伤值超过 50% 时，获得第二层buff，当超过 75% 时，获得第三层，当超过 87.5% 时，获得第四层，93.75%、96.875% 。。。以此类推。（规律为每额外减伤50%，获得一层buff）所有 100% 减伤的护盾都不计算在内。"
-        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "每层 buff 减伤后伤害加深"
-        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      "%"
+        "DOTA_Tooltip_ability_axe_rune_r_4_Description"                 "极大地增加物理穿透"
+        "DOTA_Tooltip_ability_axe_rune_r_4_property_one"                "物理穿透"
+        "DOTA_Tooltip_ability_axe_rune_r_4_suffix"                      ""
  
         "DOTA_Tooltip_modifier_axe_rune_r_4_visible"                    "钢铁破裂"
-        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "减伤后伤害加深"
+        "DOTA_Tooltip_modifier_axe_rune_r_4_visible_description"        "增加物理穿透"
  
 		//Arcanas
 		"item_property_axe_arcana1"                                     "开天辟地"
@@ -179,8 +178,8 @@
         "DOTA_Tooltip_ability_red_general_ability_arcana1_r_tectonic_sunder_stun_duration"           "眩晕持续时间："
  
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1"                     "[R1] 天地崩裂"
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "开天辟地对敌人造成的伤害将被加深。（计算在敌人减伤之后）"
-        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "减伤后伤害加深"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_Description"         "增加开天辟地的基础技能伤害"
+        "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_property_one"        "基础技能伤害增加"
         "DOTA_Tooltip_ability_axe_rune_r_1_arcana1_suffix"              "%"
  
         "DOTA_Tooltip_ability_axe_rune_r_2_arcana1"                     "[R2] 酷热狂怒"
@@ -192,11 +191,14 @@
         "DOTA_Tooltip_modifier_axe_arcana_b_d_attack_power_Description" "基础攻击力提高"
  
         "DOTA_Tooltip_ability_axe_rune_r_3_arcana1"                     "[R3] 熊熊怒火"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "处于大招范围内的敌人将受到debuff，提高所受到的普通元素伤害，持续 6秒。debuff施加在大招造成伤害之前。"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "所受到的普通元素伤害提高"
-        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              "%"
-
-        "DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_Description"         "处于大招范围内的敌人将受到debuff，降低护甲值，持续9 秒。debuff施加在大招造成伤害之前。"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_property_one"        "护甲降低"
+        "DOTA_Tooltip_ability_axe_rune_r_3_arcana1_suffix"              ""
+	
+	"DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible"              "熊熊怒火"
+        "DOTA_Tooltip_modifier_axe_rune_r_3_arcana1_visible_Description"  "护甲值降低"
+        
+	"DOTA_Tooltip_ability_axe_rune_r_4_arcana1"                     "[R4] 地壳余震"
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_Description"         "大招有几率额外造成一道地裂，几率超过 100% 可以撕裂多道。并且额外提高每条地裂的撕裂距离。英勇飞跃释放的大招只享受一半的加成。"
 
         "DOTA_Tooltip_ability_axe_rune_r_4_arcana1_property_one"        "额外的地裂概率"
@@ -218,9 +220,9 @@
         "DOTA_Tooltip_modifier_stonewall_aura_friendly_effect_Description" "降低受到的伤害"
  
         "DOTA_Tooltip_ability_axe_rune_w_1_arcana2"                     "[W1] 筑墙伏击"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "提高赤色上将对站在石墙范围中的敌人造成的税后伤害。"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "税后伤害增加"
-        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              "%"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_Description"         "降低站在石墙范围中的敌人的护甲和魔甲。"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_property_one"        "护甲和魔甲降低"
+        "DOTA_Tooltip_ability_axe_rune_w_1_arcana2_suffix"              ""
  
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2"                     "[W2] 盾墙"
         "DOTA_Tooltip_ability_axe_rune_w_2_arcana2_Description"         "当赤色上将站在石墙中时，他的力量值和护甲值将会提高。"
@@ -235,8 +237,8 @@
         "DOTA_Tooltip_ability_axe_rune_w_3_arcana2_suffix"              "%攻击力"
 
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2"                     "[W4] 强制执行者"
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "当赤色上将释放石墙时，敌人将会被嘲讽，对赤色上将发动攻击。"
-        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "嘲讽范围"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_Description"         "当赤色上将释放石墙时，敌人将会被拉扯向赤色上将的位置，强制对赤色上将发动攻击。"
+        "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_property_one"        "拉扯和嘲讽范围"
         "DOTA_Tooltip_ability_axe_rune_w_4_arcana2_suffix"              ""
 
 
@@ -266,7 +268,7 @@
         "item_rpc_axe_glyph_1_2_description"                "被 @Ability2 击中的敌人将被眩晕 <% RED_GENERAL_GLYPH_1_2_STUN_DURATION %> 秒。"
  
         "DOTA_Tooltip_ability_item_rpc_axe_glyph_2_2"       "[T2-2] 裂甲雕文"
-        "item_rpc_axe_glyph_2_2_description"                "@Ability1 技能的 [Q4] 符文，每层同时降低敌人护甲 -<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> 。"
+        "item_rpc_axe_glyph_2_2_description"                "被 @Ability1 击中的敌人护甲将被降低<% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE %> ,持续 <% RED_GENERAL_GLYPH_2_2_ARMOR_DECREASE_DURATION %> 秒"
 
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible"		"裂甲"
         "DOTA_Tooltip_modifier_axe_glyph_2_2_visible_Description"	"护甲值降低"	
