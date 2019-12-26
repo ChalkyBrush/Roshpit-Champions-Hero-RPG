@@ -172,9 +172,9 @@ end
 function activate_gargantuan(event)
 	local caster = event.caster
 	caster:SetModelScale(caster:GetModelScale() * 1.3)
-	local mult = 7
+	local mult = 3
 	if GameState:GetDifficultyFactor() == 1 then
-		mult = 4
+		mult = 2
 	end
 	local newHealth = math.min(caster:GetMaxHealth() * mult, (2 ^ 30) - 10)
 	caster:SetMaxHealth(newHealth)
