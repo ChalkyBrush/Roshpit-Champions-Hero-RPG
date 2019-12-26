@@ -4,7 +4,7 @@ if SaveLoad == nil then
 	SaveLoad = class({})
 end
 
-SaveLoad.KeyVersion = "1"
+SaveLoad.KeyVersion = "4.0"
 
 function SaveLoad:GetKey()
 	if Beacons.cheats then
@@ -328,7 +328,10 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		print("[SaveLoad:AttachItemToURL] Item Table and property1 exists")
 		DeepPrintTable(item.newItemTable)
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
-		local item_name = escape(itemTable.item_name)
+		local item_name = ""
+		if itemTable.item_name then
+			item_name = escape(itemTable.item_name)
+		end
 		local internalMinLevel = math.max(itemTable.minLevel, 1)
 		local buildNumber = "1"
 		if itemTable.glyphBook then
@@ -413,6 +416,11 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		end
 		if item.newItemTable.inscription then
 			url = url.."&inscription"..gearSlot.."="..Curator:urlencode(item.newItemTable.inscription)
+		end
+		if item.newItemTable.version then
+			url = url.."&version"..gearSlot.."="..Curator:urlencode(item.newItemTable.version)
+		else
+			url = url.."&version"..gearSlot.."="..Curator:urlencode(ROSHPIT_VERSION)
 		end
 		if item.newItemTable.socket1 then
 			url = url.."&socket1"..gearSlot.."="..item.newItemTable.socket1
@@ -553,6 +561,7 @@ function SaveLoad:LoadCharacter(msg)
 				SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
 			end)
 		end
+
 		Timers:CreateTimer(1, function()
 			SaveLoad:LoadGlyphs(resultTable.character, hero)
 		end)
@@ -575,18 +584,23 @@ function SaveLoad:LoadGlyphs(character, hero)
 	if character.glyph_a == "" or character.glyph_a == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_a, Vector(0, 0), -1)
+		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 1, glyph:GetEntityIndex())
 	end
 	if character.glyph_b == "" or character.glyph_b == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_b, Vector(0, 0), -1)
+		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 2, glyph:GetEntityIndex())
 	end
 	if character.glyph_c == "" or character.glyph_c == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_c, Vector(0, 0), -1)
+		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 3, glyph:GetEntityIndex())
 	end
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+	CustomGameEventManager:Send_ServerToAllClients(hero:GetPlayerOwner(), "update_runes", {})
 end
 
 function SaveLoad:LoadPortalKeys(character, hero)
@@ -755,6 +769,9 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		if gearTable.special_tag then
 			item.newItemTable.inscription = gearTable.special_tag
 		end
+		if gearTable.version then
+			item.newItemTable.version = gearTable.version
+		end
 		if gearTable.socket1 then
 			item.newItemTable.socket1 = gearTable.socket1
 			item.newItemTable.socket1value = gearTable.socket1value
@@ -769,6 +786,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			item.newItemTable.level = gearTable.level
 			item.newItemTable.maxLevel = gearTable.max_level
 		end
+		item.expiryTime = nil
 		item.pickedUp = true
 		if gearTable.validator then
 			item.newItemTable.validator = gearTable.validator
@@ -776,7 +794,11 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 		RPCItems:ItemUpdateCustomNetTables(item)
 
 		if bEquip == 1 then
-			hero:EquipItem(item, false)
+			if item.newItemTable.version == "3.9" then
+				Curator:UpdateItemToCurrentVersion(item, hero, true)
+			else
+				hero:EquipItem(item, false, true)
+			end
 		else
 			return item
 		end

@@ -830,6 +830,8 @@
 		"inscription_kit_tip2"										"Type in your inscription below. Inscriptions are permanent and can NEVER be removed. Maximum of 36 characters."
 		"inscription_inscribe"										"Inscribe"
 
+		"gear_version_warning"										"This item is from before Roshpit 4.0. Activate this item from your inventory to update it."		
+
 		"cache_radiance"									"Radiance"
 
 		"item_row"					"Glyph Tier"
@@ -1130,7 +1132,7 @@
 		"item_rpc_exp_orb_description"								"Grants <font color='#ccff66'>100000</font> Experience Points."
 
 		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"Greater EXP Orb"
-		"item_rpc_greater_exp_orb_description"						"Grants <font color='#ccff66'>1000000</font> Experience Points."
+		"item_rpc_greater_exp_orb_description"						"Grants <font color='#ccff66'>2000000</font> Experience Points."
 		"elder_rai_your_mithril_shards"								"Your Mithril Shards"
 		"ui_cost"													"Cost"
 
@@ -6002,7 +6004,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% of Attack Power"
 
   		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] Chilling Edge"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below <font color='#ccff66'>30</font>)% max HP (<font color='#ccff66'>15</font>% for bosses), these damage instances will be multiplied by <font color='#ccff66'>200</font> and release an explosion that applies this debuff to all nearby enemies."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Attacks during Enchant Tomahawk leave the target with a chilling debuff for 6 seconds that deals damage every 0.5 seconds based on Warlord's total attributes. The debuff also slows movespeed by 20%. If the target is below <font color='#ccff66'>30</font>)% max HP (<font color='#ccff66'>15</font>% for bosses), these damage instances will be multiplied by <font color='#ccff66'>2</font> and release an explosion that applies this debuff to all nearby enemies."
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"Damage Per Tick"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x Sum of Attributes"
 
@@ -7617,6 +7619,7 @@
 	"item_property_jex_immortal_weapon2_a"                             "Fire Enhancement"
 	"property_jex_immortal_weapon2_a_description"                      "All tech abilities with <font color=\"#EF4126\">Fire</font> element receive @special_property1 Tech Level. Double <font color=\"#EF4126\">Fire</font> abilities gain @special_property2 bonus Tech Levels."
 
+
 		"DOTA_Tooltip_ability_mountain_protector_shockwave"			"Shockwave"
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_Description"	"Element: <font color=\"#DDDDDD\">Normal</font> / <font color=\"#AF843D\">Earth</font><br>Unearths a cascade of force that damage and stuns everyone in its path."
     	"DOTA_Tooltip_ability_mountain_protector_shockwave_stun_duration"	"STUN DURATION:"
@@ -8994,7 +8997,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "Heavy Sangeblade"
         "item_property_seinaru_immortal_weapon3"                             "Adamantaimai"
-        "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by @special_property1. Reduces base movement speed by @special_property2."
+        "property_seinaru_immortal_weapon3_description"                      "Each point of current movement speed increases Strength by <font color='#ccff66'>1</font>. Reduces base movement speed by @special_property2."
 
 		//Abilities
 		"DOTA_Tooltip_ability_sephyr_lightbomb"										"Lightbomb"
@@ -9947,8 +9950,8 @@
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_2"							"[W2] Amplify Magic"
     	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"Enemies struck by Arcane Explosion and Arcane Shell have reduced magic armor for 9 seconds. Stacks up to 5 times."
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Arcane Damage Amplify per Stack"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Magic Armor Loss per Stack"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					""
 
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2"							"Amplify Magic"
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"Reduced Magic Armor."	
@@ -11137,7 +11140,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2"						"[Q3] Fangs of Ozubu"
-    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's Damage Over Time effects. Max <font color='#ccff66'>15</font> stacks, VENOMORT_ARCANA2_Q3_DURATION_DURATION %> seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"Every time an enemy unit takes an instance of damage from any of Venomort's various poisons, it gains a stacking debuff which increases damage received from all of Venomort's Damage Over Time effects. Max <font color='#ccff66'>15</font> stacks and lasts <font color='#ccff66'>10</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"Damage Boost"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% per stack"
 		"DOTA_Tooltip_modifier_venomort_frostvenom_graps_dot_amp"				"Fangs of Ozubu"
@@ -13556,7 +13559,7 @@
 		"property_marauder_description"				"Increases Armor Pierce by <font color='#ccff66'>50</font>%."
 
     	"item_rpc_marauder_gloves_ruby1"									"Increase Armor Pierce by @ruby_property1x your Movement Speed"
-    	"item_rpc_marauder_gloves_emerald1"									"Your maximum physical damage multiplier when Armor Pierce exceeds armor is increased to @emerald_property1"
+    	"item_rpc_marauder_gloves_emerald1"									"Your armor is considered to be @emerald_property1% higher when taking physical damage"
     	"item_rpc_marauder_gloves_sapphire1"									"Your physical damage ignores @sapphire_property1% of enemies' armor"
     	"item_rpc_marauder_gloves_amethyst1"									"Increases Movement Speed and Attack Speed by @amethyst_property1"
 
@@ -14724,7 +14727,7 @@
         "DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"                    "Fractional Enhancement Geode"
 
         "item_property_geode"                               "Logarithmic Amplification"
-        "property_geode_description"                        "Whenver you deal an instance of damage which ends up being less than <font color='#ccff66'>0.1</font>% of the target's max health, multiply that damage instance by <font color='#ccff66'>10</font>."
+        "property_geode_description"                        "Whenever you deal an instance of damage which ends up being less than <font color='#ccff66'>0.1</font>% of the target's max health, multiply that damage instance by <font color='#ccff66'>10</font>."
         "item_rpc_fractional_enhancement_geode_ruby1"                   "Increases the threshold to trigger Logarithmic Amplification by an additionial @ruby_property1% of the enemy's max health"
         "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
         "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
@@ -14738,7 +14741,7 @@
         "DOTA_Tooltip_modifier_frozen_heart_regen"          "Iceblood Regen"
 
         "item_rpc_frozen_heart_ruby1"               "Increases Iceblood Maximum Health by @ruby_property1"
-        "item_rpc_frozen_heart_emerald1"                "Reduces the delay to begin regn by @emerald_property1 seconds"
+        "item_rpc_frozen_heart_emerald1"                "Reduces the delay to begin HP regen by @emerald_property1 seconds"
         "item_rpc_frozen_heart_sapphire1"               "Reduce the Health Loss from Magic Damage by @sapphire_property1"
         "item_rpc_frozen_heart_amethyst1"               "Reduce Health Loss from Pure Damage by @amethyst_property1"
 
@@ -15114,8 +15117,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Magic Protection"
 		"item_rpc_neutral_glyph_1_2_description" 			"Increases Magic Armor by <font color='#ccff66'>10</font> per Hero Level."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of Items"
-		"item_rpc_neutral_glyph_1_3_description" 			"Increases Item Damage by <font color='#ccff66'>50</font>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of the Gourmand"
+		"item_rpc_neutral_glyph_1_3_description" 			 "Consuming a potion will additionally restore <font color='#ccff66'>100</font>% of the HP or MP restored over <font color='#ccff66'>10</font>s."
 
         //Tier 2
 
@@ -15125,8 +15128,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Spell Pierce"
 		"item_rpc_neutral_glyph_2_2_description" 			"Increases Spell Pierce by <font color='#ccff66'>10</font> per Hero Level."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Ability"
-		"item_rpc_neutral_glyph_2_3_description" 			"Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Berserk"
+		"item_rpc_neutral_glyph_2_3_description" 			"Increases Base Attack Damage by <font color='#ccff66'>3</font> per Hero Level."
 
         //Tier 3
 
@@ -15144,11 +15147,11 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] Glyph of Elements"
 		"item_rpc_neutral_glyph_4_1_description" 			"Increases the damage with all Elements by <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_4_2_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Ability"
+		"item_rpc_neutral_glyph_4_2_description" 			"Increases Base Ability Damage by <font color='#ccff66'>50</font>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_4_3_description" 			 "Consuming a potion will additionally restore <font color='#ccff66'>100</font>% of the HP or MP restored over <font color='#ccff66'>10</font>s."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of Items"
+		"item_rpc_neutral_glyph_4_3_description" 			"Increases Item Damage by <font color='#ccff66'>50</font>%."
 
         //Tier 5
 
@@ -15169,8 +15172,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] Glyph of Grand Intelligence"
 		"item_rpc_neutral_glyph_6_2_description" 			"Increase Intelligence by <font color='#ccff66'>250</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_6_3_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Enhanced Attacking"
+		"item_rpc_neutral_glyph_6_3_description" 			"Increase Attack Damage by <font color='#ccff66'>35</font>%."
 
         //Tier 7
 
@@ -15180,8 +15183,8 @@
 		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] Glyph of Grand Spirit"
 		"item_rpc_neutral_glyph_7_2_description" 			"Increases Spirit by <font color='#ccff66'>250</font>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of Nothingness"
-		"item_rpc_neutral_glyph_7_3_description" 			"Does nothing, what did you expect with such a name?"
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of All Trades"
+		"item_rpc_neutral_glyph_7_3_description" 			"Increases all Attributes by <font color='#ccff66'>75</font>."
 
 
 		
@@ -16451,6 +16454,8 @@
 
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation"						"Immolation"
 		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_Description"			"Burns nearby enemies."
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_immolation_damage"		"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_redfall_farm_panda_immolation_attackspeed_loss"		"ATTACK SPEED LOSS:"
 
 		"redfall_farmlands_corn_harvester"										"Corn Harvester"
 		"redfall_farmlands_flame_panda"											"Flame Panda"

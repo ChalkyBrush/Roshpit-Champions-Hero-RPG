@@ -685,7 +685,7 @@ end
 function Curator:CurateArcanaAbilities(hero)
 	local available_arcanas = RPCItems:GetAvailableArcanaData(hero)
 	for i = 1, #available_arcanas, 1 do
-		Timers:CreateTimer(8 * (i - 1), function()
+		Timers:CreateTimer(5 * (i - 1), function()
 			Runes:EquipArcana(hero, available_arcanas[i][1])
 			Timers:CreateTimer(2, function()
 				local index = available_arcanas[i][2]
@@ -922,7 +922,7 @@ function Curator:CurateALLHeroes()
 	local hero_table = HerosCustom:GetAvailableHerosTable()
 	local playerID = MAIN_HERO_TABLE[1]:GetPlayerOwnerID()
 	for i = 1, #hero_table, 1 do
-		local delay = (i - 1) * 60 + 5
+		local delay = (i - 1) * 40 + 5
 		Timers:CreateTimer(delay, function()
 			PlayerResource:ReplaceHeroWith(playerID, hero_table[i], 0, 0)
 			Timers:CreateTimer(1, function()
@@ -931,5 +931,41 @@ function Curator:CurateALLHeroes()
 				Curator:FullCurateHero(hero)
 			end)
 		end)
+	end
+end
+
+function Curator:UpdateItemToCurrentVersion(item, hero, bEquipment)
+	local new_item = nil
+	if item.newItemTable.rarity == "immortal" then
+		if item.newItemTable.gear_slot == RPC_GEAR_SLOT_WEAPON then
+			new_item = Weapons:RollLegendWeaponVariantWithAbilityName(item:GetAbilityName(), hero:GetAbsOrigin())
+			local container = new_item:GetContainer()
+			if IsValidEntity(container) then
+				UTIL_Remove(container)
+			end
+		else
+			local new_level = math.floor(item.newItemTable.minLevel*1.2)
+			local item_level = math.min(new_level, 120)
+			new_item = RPCItems:RollImmortalByName(item:GetAbilityName(), item_level)
+		end
+	elseif item.newItemTable.rarity == "arcana" then
+		local new_level = math.floor(item.newItemTable.minLevel*1.2)
+		local item_level = math.min(new_level, 120)
+		new_item = RPCItems:RollArcanaByName(item:GetAbilityName(), item_level)
+	else
+		UTIL_Remove(item)
+	end
+	if new_item then
+		new_item.pickedUp = true
+		new_item.expiryTime = nil
+		if bEquipment then
+			hero:EquipItem(new_item, false, true)
+			local inventory_unit = hero.InventoryUnit
+			local save_ability = inventory_unit:FindAbilityByName("equipment_head")
+			save_ability:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_save_character_on_delay", {duration = 3}) 
+		else
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, new_item)
+		end
+		UTIL_Remove(item)
 	end
 end

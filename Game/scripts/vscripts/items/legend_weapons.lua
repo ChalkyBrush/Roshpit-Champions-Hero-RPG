@@ -1,18 +1,21 @@
-function Weapons:RollLegendWeaponVariantWithAbilityName(abilityName, strictMaxItemLevel, position, disableDrop)
+function Weapons:RollLegendWeaponVariantWithAbilityName(abilityName, position)
 	if string.match(abilityName, "item_rpc_") then--item_rpc_hydroxis_immortal_weapon_3
 		abilityName = string.gsub(abilityName, "item_rpc_", "")
 		local class = nil
 		if string.match(abilityName, "_immortal_weapon_1") then
 			class = string.gsub(abilityName, "_immortal_weapon_1", "")
-			return Weapons:RollLegendWeapon1(position, class, strictMaxItemLevel, disableDrop)
+			class = HerosCustom:ConvertRPCNameToStringHeroName(class)
+			return Weapons:RollLegendWeapon1WithDotaName(class, position)
 		elseif string.match(abilityName, "_immortal_weapon_2_a") then
-			return Weapons:RollJexLegendWeapon2a(position, disableDrop)
+			return Weapons:RollJexLegendWeapon2a(position, false)
 		elseif string.match(abilityName, "_immortal_weapon_2") then
 			class = string.gsub(abilityName, "_immortal_weapon_2", "")
-			return Weapons:RollLegendWeapon2(position, class, strictMaxItemLevel, disableDrop)
+			class = HerosCustom:ConvertRPCNameToStringHeroName(class)
+			return Weapons:RollLegendWeapon2WithDotaName(class, position)
 		elseif string.match(abilityName, "_immortal_weapon_3") then
 			class = string.gsub(abilityName, "_immortal_weapon_3", "")
-			return Weapons:RollLegendWeapon3(position, class, strictMaxItemLevel, disableDrop)
+			class = HerosCustom:ConvertRPCNameToStringHeroName(class)
+			return Weapons:RollLegendWeapon3WithDotaName(class, position)
 		end
 	end
 end
@@ -20,37 +23,37 @@ end
 function Weapons:RollRandomLegendWeapon1(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
-	Weapons:RollLegendWeapon1(deathLocation, class)
+	return Weapons:RollLegendWeapon1(deathLocation, class)
 end
 
 function Weapons:RollLegendWeapon1WithDotaName(class, deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	class = HerosCustom:GetInternalHeroNameMain(class)
-	Weapons:RollLegendWeapon1(deathLocation, class)
+	return Weapons:RollLegendWeapon1(deathLocation, class)
 end
 
 function Weapons:RollRandomLegendWeapon2(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
-	Weapons:RollLegendWeapon2(deathLocation, class)
+	return Weapons:RollLegendWeapon2(deathLocation, class)
 end
 
 function Weapons:RollLegendWeapon2WithDotaName(class, deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	class = HerosCustom:GetInternalHeroNameMain(class)
-	Weapons:RollLegendWeapon2(deathLocation, class)
+	return Weapons:RollLegendWeapon2(deathLocation, class)
 end
 
 function Weapons:RollRandomLegendWeapon3(deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	local class = classTable[RandomInt(1, #classTable)]
-	Weapons:RollLegendWeapon3(deathLocation, class)
+	return Weapons:RollLegendWeapon3(deathLocation, class)
 end
 
 function Weapons:RollLegendWeapon3WithDotaName(class, deathLocation)
 	local classTable = HerosCustom:GetInternalNameTable()
 	class = HerosCustom:GetInternalHeroNameMain(class)
-	Weapons:RollLegendWeapon3(deathLocation, class)
+	return Weapons:RollLegendWeapon3(deathLocation, class)
 end
 
 function Weapons:SetLegendWeaponProperty1(weapon, hero_name, propertyName, propertyColor, propertyMult)
@@ -94,7 +97,7 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	local weaponName = "item_rpc_"..internalName.."_immortal_weapon_1"
 
-	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon1", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
 	weapon.newItemTable.minLevel = item_level
 	if internalName == "conjuror" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "aspect_health", nil, 3)
@@ -231,7 +234,7 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	local weaponName = "item_rpc_"..internalName.."_immortal_weapon_2"
 
-	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon2", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
 	weapon.newItemTable.minLevel = item_level
 	if internalName == "flamewaker" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#E06647", nil, 2)
@@ -379,7 +382,7 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	local weaponName = "item_rpc_"..internalName.."_immortal_weapon_3"
 
-	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
+	local weapon = Weapons:CreateWeaponVariant(weaponName, rarity, "Legend Weapon3", "weapon", true, "Slot: Weapon", whichHero, maxLevel, item_level)
 	weapon.newItemTable.minLevel = item_level
 	if internalName == "flamewaker" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#E06647", nil, 3)

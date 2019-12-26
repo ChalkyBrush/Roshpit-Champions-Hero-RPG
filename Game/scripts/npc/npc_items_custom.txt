@@ -1133,7 +1133,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"100"
 			}
 			"02"
 			{
@@ -50207,7 +50207,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1.2 1.4 1.6 1.8 2.0"
+				"emerald1"			"5 10 15 20 25"
 			}
 			"03"
 			{

@@ -2389,7 +2389,7 @@ function RPCItems:RollHeroicConquerorVestments(item_level)
     local item = RPCItems:CreateVariant("item_rpc_heroic_conqueror_vestments", "immortal", "heroic conqueror", "body", true, "Slot: Body")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "rune_q_4", 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_e_4", 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_4", 1.25)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "rune_e_4", 1.25)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, "rune_r_4", 1.25)
 
@@ -7917,6 +7917,8 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     else
         newItem.pickedUp = true
         newItem.newItemTable.minLevel = itemLevel
+        newItem.newItemTable.inscription = oldItemProperties.inscription
+        newItem.newItemTable.version = oldItemProperties.version
         newItem.newItemTable.validator = oldItemProperties.validator
         newItem.newItemTable.socket1 = oldItemProperties.socket1
         newItem.newItemTable.socket1value = oldItemProperties.socket1value

@@ -14,7 +14,7 @@ function voltex_glyph_4_1_trigger(event)
 	if executedAbility:GetAbilityName() == "voltex_static" or executedAbility:IsItem() then
 	else
 		local ability = event.ability
-		local caster = ability.hero
+		local caster = event.caster.hero
 		for i = 1, VOLTEX_GLYPH_4_1_NUMBER_OF_BOLTS, 1 do
 			local fv = RandomVector(1)
 			local projectileParticle = "particles/econ/items/zeus/lightning_weapon_fx/linear_electric_immortal_lightning.vpcf"

@@ -15,10 +15,10 @@ Weapons.MAX_WEAPON_LEVEL = 10
 Weapons.XP_PER_LEVEL_TABLE = {}
 Weapons.XP_PER_LEVEL_TABLE[1] = 1000
 for i = 2, Weapons.MAX_WEAPON_LEVEL, 1 do
-	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*4
+	Weapons.XP_PER_LEVEL_TABLE[i] = (Weapons.XP_PER_LEVEL_TABLE[i-1])*3
 end
 
-Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS = 0.1
+Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS = 0.5
 
 function Weapons:weaponRedirect(hero)
 	local heroName = hero:GetName()
@@ -165,7 +165,7 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 		return false
 	end
 	if weapon.newItemTable.rarity == "immortal" then
-		exp = exp*Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS
+		exp = math.floor(exp*Weapons.EXP_MULT_FOR_IMMORTAL_WEAPONS)
 	end
 	if hero:HasModifier("modifier_blacksmiths_tablet") then
 		exp = math.floor(exp * (1 + ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP))
@@ -184,7 +184,7 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 		end
 		Weapons:LevelUpWeapon(hero, weapon)
 		hero:ApplyGearBonusesByGearSlot(RPC_GEAR_SLOT_WEAPON)
-
+		weapon.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level]
 	end
 	RPCItems:ItemUpdateCustomNetTables(weapon)
 end
@@ -243,11 +243,6 @@ function Weapons:LevelUpWeapon(hero, weapon)
 	if not weapon.newItemTable then
 		print("[Error] Weapons:LevelUpWeapon - newItemTable is null")
 		return
-	end
-	if weapon.newItemTable.level == 2 then
-		if type(weapon.newItemTable.property1) == "number" and weapon.newItemTable.property1 > 8000 then
-			return false
-		end
 	end
 	if weapon.newItemTable.property1 and type(weapon.newItemTable.property1) == "number" then
 		if Weapons.STAT_ADD_PER_LEVEL_TABLE[weapon.newItemTable.property1name] then
@@ -418,6 +413,7 @@ function Weapons:CreateWeaponVariant(variantName, rarityName, itemNameText, slot
 	local itemName = itemNameText
 	local suffix = ""
 	local prefix = ""
+	item.newItemTable.item_name = itemName
 	item.newItemTable.item_slot = slot
 	item.newItemTable.gear = gear
 	item.newItemTable.xp = 0

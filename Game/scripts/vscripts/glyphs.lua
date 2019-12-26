@@ -308,7 +308,7 @@ function Glyphs:PlaceGlyphInSlot(msg)
 	if item.newItemTable.glyph then
 		--print("PlaceGlyphInSlot 1")
 		local applicable = Glyphs:CheckApplicable(item, hero)
-		if applicable == 1 then
+		if applicable == 1 and Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
 			--print("PlaceGlyphInSlot 2")
 			hero:TakeItem(item)
 			--print(tostring(msg.heroIndex).."-glyph-"..tostring(glyphSlot))
@@ -353,10 +353,19 @@ function Glyphs:ApplyGlyph(heroEntity, glyphSlot, glyphIndex)
 	local glyph = EntIndexToHScript(glyphIndex)
 	glyph.pickedUp = true
 	glyph.newItemTable.hero = heroEntity
+	if not heroEntity.glyphs_table then
+		heroEntity.glyphs_table = {}
+	end
 	if Glyphs:ValidateGlyph(glyph, heroEntity) then
+		if heroEntity.glyphs_table[glyphSlot] then
+			local old_modifier_name = string.gsub(heroEntity.glyphs_table[glyphSlot]:GetAbilityName(), "item_rpc", "modifier")
+			heroEntity:RemoveModifierByName(old_modifier_name)
+		end
+		heroEntity.glyphs_table[glyphSlot] = glyph
 		CustomNetTables:SetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()) .. "-glyph-"..tostring(glyphSlot), {glyphIndex = glyphIndex})
-		heroEntity.glyphUnit:AddItem(glyph)
-		Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
+		-- heroEntity.glyphUnit:AddItem(glyph)
+		-- Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
+		Glyphs:RecalculateGlyphs(heroEntity)
 	end
 end
 
@@ -470,6 +479,23 @@ function Glyphs:RemoveGlyphBonusesAndRecalculateAll(heroEntity)
 		heroEntity:RemoveModifierByName(Glyphs.GLYPH_MODIFIER_TABLE[i])
 		--print(Glyphs.GLYPH_MODIFIER_TABLE[i])
 	end
+	for j = 1, MAX_GLYPHS, 1 do
+		local glyph = CustomNetTables:GetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()) .. "-glyph-"..tostring(j))
+		if glyph.glyphIndex > 0 then
+			glyph = EntIndexToHScript(glyph.glyphIndex)
+			local glyphModifierName = glyph.newItemTable.property1
+			local glyphName = glyph.newItemTable.item_variant
+			if _G[glyphName] then
+				_G[glyphName]:AddSpecialModifiers(heroEntity)
+			else
+				glyph:ApplyDataDrivenModifier(heroEntity.glyphUnit, heroEntity, glyphModifierName, {})
+			end
+		end
+	end
+end
+
+function Glyphs:RecalculateGlyphs(heroEntity)
+	local MAX_GLYPHS = 3
 	for j = 1, MAX_GLYPHS, 1 do
 		local glyph = CustomNetTables:GetTableValue("skill_tree", tostring(heroEntity:GetPlayerOwnerID()) .. "-glyph-"..tostring(j))
 		if glyph.glyphIndex > 0 then

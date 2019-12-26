@@ -27,10 +27,13 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        --Nothing
+        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS
     })
 end
 
+function modifierClass:GetRoshpitBaseAbilityDmgBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG
+end
 function modifierClass:IsHidden()
     return true
 end

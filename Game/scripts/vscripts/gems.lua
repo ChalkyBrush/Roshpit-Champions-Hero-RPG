@@ -3,9 +3,9 @@ if Gems == nil then
 end
 
 Gems.BaseRewardDifficultyMult = {}
-Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 2
-Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 4
-Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 6
+Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 3
+Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 6
+Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 9
 
 Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
 Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}
@@ -126,7 +126,17 @@ function Gems:AddSocket(item)
 			item.newItemTable.socket1value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
+		elseif item.newItemTable.socket1 == "none" then
+			item.newItemTable.socket1 = "open"
+			item.newItemTable.socket1value = 0
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
 		elseif not item.newItemTable.socket2 then
+			item.newItemTable.socket2 = "open"
+			item.newItemTable.socket2value = 0
+			RPCItems:ItemUpdateCustomNetTables(item)
+			return item
+		elseif item.newItemTable.socket2 == "none" then
 			item.newItemTable.socket2 = "open"
 			item.newItemTable.socket2value = 0
 			RPCItems:ItemUpdateCustomNetTables(item)
@@ -189,7 +199,11 @@ function Gems:NextSlotNumber(item)
 	local next_slot = 0
 	if not item.newItemTable.socket1 then
 		next_slot = 1
+	elseif item.newItemTable.socket1 == "none" then
+		next_slot = 1
 	elseif not item.newItemTable.socket2 then
+		next_slot = 2
+	elseif item.newItemTable.socket2 == "none" then
 		next_slot = 2
 	end
 	return next_slot
@@ -405,6 +419,7 @@ function Gems:InsertGem(msg)
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
 			end
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 		end
 	end
 end

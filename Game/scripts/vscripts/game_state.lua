@@ -2804,14 +2804,7 @@ function GameState:FilterDamage(filterTable)
 		Tanari:FireTempleFireShieldHit(victim)
 	end
 
-	if Events.SpiritRealm then
-		if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
-			filterTable["damage"] = filterTable["damage"] / 6
-		end
-		if attacker:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
-			filterTable["damage"] = filterTable["damage"] * 2
-		end
-	end
+
 	if victim:HasModifier("modifier_arena_drill_spike") then
 		if attacker:GetEntityIndex() == Arena.ArenaMaster:GetEntityIndex() then
 		else
@@ -3379,7 +3372,6 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	--LETHAL CHECK
-	filterTable["damage"] = victim:GetHealth()*100
 	if filterTable["damage"] >= victim:GetHealth() then
 		local rezzed = false
 		if victim:HasModifier("modifier_phoenix_emblem") then

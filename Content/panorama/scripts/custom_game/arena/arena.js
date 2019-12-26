@@ -804,28 +804,28 @@ function GetPitModData(level)
     var enemyArmorsAndPierces = 0
     var enemyHealth = 0
     if (level == 2){
-        enemyAttackDamage = 20
-        enemyArmorsAndPierces = 30
+        enemyAttackDamage = 10
+        enemyArmorsAndPierces = 20
         enemyHealth = 30
     }else if (level == 3){
-        enemyAttackDamage = 40
-        enemyArmorsAndPierces = 60
+        enemyAttackDamage = 20
+        enemyArmorsAndPierces = 40
         enemyHealth = 60
     }else if (level == 4){
-        enemyAttackDamage = 60
-        enemyArmorsAndPierces = 90
+        enemyAttackDamage = 30
+        enemyArmorsAndPierces = 60
         enemyHealth = 90
     }else if (level == 5){
-        enemyAttackDamage = 80
-        enemyArmorsAndPierces = 120
+        enemyAttackDamage = 40
+        enemyArmorsAndPierces = 80
         enemyHealth = 120
     }else if (level == 6){
-        enemyAttackDamage = 100
-        enemyArmorsAndPierces = 150
+        enemyAttackDamage = 50
+        enemyArmorsAndPierces = 100
         enemyHealth = 150
     }else if (level == 7){
-        enemyAttackDamage = 120
-        enemyArmorsAndPierces = 180
+        enemyAttackDamage = 60
+        enemyArmorsAndPierces = 120
         enemyHealth = 180
     }
     return [enemyAttackDamage, enemyArmorsAndPierces, enemyHealth]

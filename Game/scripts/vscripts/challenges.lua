@@ -61,6 +61,7 @@ function Challenges:ChiselItem(msg)
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_blacksmith", {})
 		hero:RemoveModifierByName("modifier_cant_equip")
 		hero:UnequipItem(item)
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	else
 		local url = ROSHPIT_URL.."/champions/chiselItem?"
 		url = url.."steam_id="..steamID
@@ -86,6 +87,7 @@ function Challenges:ChiselItem(msg)
 				hero:UnequipItem(item)
 				Statistics.dispatch('items:chisel')
 				Events:TutorialServerEvent(hero, "3_2", 0)
+				CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 			end
 		end)
 	end
@@ -289,6 +291,7 @@ function Challenges:FinalSocket(msg)
 			Timers:CreateTimer(1.5, function()
 				EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
 			end)
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 			UTIL_Remove(cutter)
 		end
 	end
@@ -356,7 +359,7 @@ end
 
 function Challenges:CheckIfHeroHasItemByItemIndex(hero, itemIndex)
 	local hasItem = false
-	for i = 0, 8, 1 do
+	for i = 0, 9, 1 do
 		if IsValidEntity(hero:GetItemInSlot(i)) then
 			if hero:GetItemInSlot(i):GetEntityIndex() == itemIndex then
 				hasItem = true
@@ -394,6 +397,9 @@ function Challenges:DragIntoRerollSlot(msg)
 	-- UTIL_Remove(item:GetContainer())
 	-- end
 	if item.newItemTable.item_slot == "weapon" then
+		return false
+	end
+	if item.newItemTable.version == "3.9" then
 		return false
 	end
 	Timers:CreateTimer(0.03, function()

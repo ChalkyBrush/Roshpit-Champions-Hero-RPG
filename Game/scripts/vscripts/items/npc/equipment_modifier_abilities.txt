@@ -9,6 +9,19 @@
 
 		"Modifiers"
 		{
+			"modifier_save_character_on_delay"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"save_character"
+						"target"		"TARGET"
+					}
+				}
+			}
 			"modifier_head_strength"
 			{
 				"Passive"	"0"

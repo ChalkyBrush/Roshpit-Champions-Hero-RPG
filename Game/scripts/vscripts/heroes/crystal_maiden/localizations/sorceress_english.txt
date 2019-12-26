@@ -71,8 +71,8 @@
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_2"							"[W2] Amplify Magic"
     	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"Enemies struck by Arcane Explosion and Arcane Shell have reduced magic armor for 9 seconds. Stacks up to 5 times."
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Arcane Damage Amplify per Stack"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"Magic Armor Loss per Stack"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					""
 
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2"							"Amplify Magic"
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"Reduced Magic Armor."	

@@ -74,7 +74,7 @@ function UpdateItem()
 		}
 	}
 
-	if(m_ItemSlot > 5 && m_ItemSlot <= 8){
+	if(m_ItemSlot > 5 && m_ItemSlot <= 9){
 		$("#Hotkey").AddClass('invisible')
 		$.GetContextPanel().SetHasClass( "in_cooldown", true );
 		$.GetContextPanel().SetHasClass( "cooldown_ready", false );

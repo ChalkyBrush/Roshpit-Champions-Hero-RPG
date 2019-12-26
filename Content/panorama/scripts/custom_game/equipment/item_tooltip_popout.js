@@ -17,7 +17,13 @@ function initializeTooltip(func){
 	// $.Msg(queryUnit)
 	var itemName = Abilities.GetAbilityName( item );
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-
+	if (itemValues.version == "3.9"){
+		$('#tooltip_main_container').AddClass("invisible")
+		$('#version-warning').RemoveClass("invisible")
+	}else{
+		$('#tooltip_main_container').RemoveClass("invisible")
+		$('#version-warning').AddClass("invisible")
+	}
 	itemValues = itemValuesCheck(itemValues)
 	var unitName = queryUnit
 	if (!(itemValues.requiredHero === undefined)){

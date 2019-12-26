@@ -752,7 +752,7 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"ThinkInterval"  "0.1"
-				"TextureName"	"spirit_warrior/spirit_warrior_a_d"
+				"TextureName"	"spirit_warrior/spirit_warrior_r_1"
 				"OnIntervalThink"
 				{
 					"RunScript"
