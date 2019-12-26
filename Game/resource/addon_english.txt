@@ -1102,7 +1102,7 @@
 		"challenge_mod_paragon_rate"								"Enemies spawn as paragons @int1% more frequently."
 		"challenge_mod_mob_cooldown_reduction"						"Enemies have @int1% cooldown reduction."
 		"challenge_mod_ability_disable"								"@ability_button ability is disabled for all heroes."
-		"challenge_mod_super_boss"									"The objective boss has all if its stats increased by @int1%."
+		"challenge_mod_super_boss"									"The objective boss has all of its stats increased by @int1%."
 		"challenge_mod_mob_speed"									"Enemies have @int1% increased attackspeed and movespeed."
 		"challenge_mod_spirit"										"Must be completed in @event."
 		"challenge_mod_stones"										"Must be completed with @stones active Glacier Stones."
@@ -3369,7 +3369,7 @@
     	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases base attack damage and base ability damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases Attack Power and Base Ability Damage."
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_property_one"			"Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_suffix"					"%"	
 
@@ -3446,7 +3446,7 @@
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage. Damage dealt ignores Steadfast."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"

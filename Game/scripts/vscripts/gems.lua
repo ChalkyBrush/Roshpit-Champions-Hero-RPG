@@ -471,7 +471,7 @@ function Gems:CreateUnrefinedGemstones(reward)
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	item.pickedUp = true
-	item.newItemTable.property1 = reward
+	item.newItemTable.property1 = tonumber(reward)
 	item.newItemTable.property1name = "tooltip_prismatic_gemstones"
 	item.newItemTable.property1color = "#EEEEEE"
 	item.newItemTable.property1tooltip = "tooltip_prismatic_gemstones"

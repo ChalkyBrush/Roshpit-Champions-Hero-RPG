@@ -413,7 +413,8 @@ function Challenges:RewardSequenceForHero(hero)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/challenge_complete.vpcf", hero, 4)
 		CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
 	end)
-	local reward = 10
+	-- local reward = 10
+	local reward = Challenges.ActiveChallenge["challenge"]["reward"]
 	Timers:CreateTimer(5, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/win_pop.vpcf", hero, 3)
 		EmitSoundOn("Challenges.RewardPopEnd", hero)
@@ -461,7 +462,7 @@ function Challenges:CreateEXPOrb()
 end
 
 function Challenges:CreateGreaterEXPOrb()
-	local item = RPCItems:CreateConsumable("item_rpc_greater_exp_orb", "mythical", "Unrefined Gemstones", "consumable", false, "Consumable", "item_rpc_greater_exp_orb_description")
+	local item = RPCItems:CreateConsumable("item_rpc_greater_exp_orb", "mythical", "Greater EXP Orb", "consumable", false, "Consumable", "item_rpc_greater_exp_orb_description")
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	item.pickedUp = true
@@ -483,6 +484,7 @@ function Challenges:SetChallengeClears()
 	print(steamIDS)
 	url = url.."steam_ids="..steamIDS
 	url = url.."&challenge_id="..Challenges.ActiveChallenge["challenge"]["id"]
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		local resultTable = {}
 		--print( "GET response:\n" )

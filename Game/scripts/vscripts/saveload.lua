@@ -324,7 +324,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 		url = url.."&validator"..gearSlot.."="..validatorValue
 	end
 
-	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= 1 then
+	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= true then
 		print("[SaveLoad:AttachItemToURL] Item Table and property1 exists")
 		DeepPrintTable(item.newItemTable)
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
@@ -373,6 +373,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			local propertyName = ""
 			local saveTooltip = 1
 			if i == 1 then
+				DeepPrintTable(itemTable)
 				property = itemTable.property1
 				propertyName = itemTable.property1name
 				saveColor = itemTable.property1color

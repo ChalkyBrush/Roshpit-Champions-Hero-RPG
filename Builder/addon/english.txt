@@ -1102,7 +1102,7 @@
 		"challenge_mod_paragon_rate"								"Enemies spawn as paragons @int1% more frequently."
 		"challenge_mod_mob_cooldown_reduction"						"Enemies have @int1% cooldown reduction."
 		"challenge_mod_ability_disable"								"@ability_button ability is disabled for all heroes."
-		"challenge_mod_super_boss"									"The objective boss has all if its stats increased by @int1%."
+		"challenge_mod_super_boss"									"The objective boss has all of its stats increased by @int1%."
 		"challenge_mod_mob_speed"									"Enemies have @int1% increased attackspeed and movespeed."
 		"challenge_mod_spirit"										"Must be completed in @event."
 		"challenge_mod_stones"										"Must be completed with @stones active Glacier Stones."

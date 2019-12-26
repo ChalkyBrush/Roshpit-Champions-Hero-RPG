@@ -129836,7 +129836,7 @@
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityDamage"					"500 2000 10000"
+		"AbilityDamage"					"300 1500 9000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
