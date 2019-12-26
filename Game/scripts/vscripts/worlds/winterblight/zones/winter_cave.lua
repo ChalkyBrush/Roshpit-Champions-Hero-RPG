@@ -1032,7 +1032,7 @@ end
 function Winterblight:DisperseRelicFragments(position, crystal_reward, hero, chamber, event_index)
 	local relic_dummy_count = math.ceil(crystal_reward/100)
 	for i = 1, relic_dummy_count, 1 do
-		local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+		local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_BADGUYS)
 		crystal:SetModelScale(0.9)
 		crystal:SetOriginalModel("models/props_gameplay/rune_illusion01.vmdl")
 		crystal:SetModel("models/props_gameplay/rune_illusion01.vmdl")

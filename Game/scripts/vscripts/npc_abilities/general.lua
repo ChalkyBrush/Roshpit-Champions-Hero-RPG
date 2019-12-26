@@ -1,5 +1,8 @@
 function general_hero_think(event)
 	local target = event.target
+	if not target.calculation_interval then
+		target.calculation_interval = 0
+	end
 	CustomAttributes:SetAttributes(target)
 	CustomAttributes:ApplyStatBonusesToHero(target)
 	local strength = math.floor(target:GetStrength())
@@ -49,7 +52,11 @@ function general_hero_think(event)
 		end
 
 	end
-	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+	target.calculation_interval = target.calculation_interval + 1
+	if target.calculation_interval >= 10 then
+		CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+		target.calculation_interval = 0
+	end
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
