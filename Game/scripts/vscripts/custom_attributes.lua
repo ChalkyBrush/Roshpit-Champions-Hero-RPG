@@ -1227,7 +1227,7 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_ancient_waterstone") then
-			local mult = math.min(255 + (255 + magic_armor * (255 / (255+spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+			local mult = math.min(255 / (255 + magic_armor * (255 / (255+spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 			return damage*mult
 		end
 		return damage

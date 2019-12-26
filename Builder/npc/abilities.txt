@@ -43729,7 +43729,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_increase"				"50 200 600"
+				"attacK_damage_increase"				"30 60 90"
 			}
 		}
 		"Modifiers"

@@ -1239,7 +1239,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1271,7 +1271,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1303,7 +1303,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1335,7 +1335,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1368,7 +1368,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1400,7 +1400,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1432,7 +1432,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1464,7 +1464,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.04"
 			}
 			"03"
 			{
@@ -1497,7 +1497,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.08"
 			}
 			"03"
 			{
@@ -1529,7 +1529,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.08"
 			}
 			"03"
 			{
@@ -1561,7 +1561,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.08"
 			}
 			"03"
 			{
@@ -1603,7 +1603,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.08"
 			}
 			"03"
 			{
@@ -1636,7 +1636,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.16"
 			}
 			"03"
 			{
@@ -1668,7 +1668,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.16"
 			}
 			"03"
 			{
@@ -1700,7 +1700,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.16"
 			}
 			"03"
 			{
@@ -1732,7 +1732,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.16"
 			}
 			"03"
 			{
@@ -131571,7 +131571,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_increase"				"50 200 600"
+				"attacK_damage_increase"				"30 60 90"
 			}
 		}
 		"Modifiers"
