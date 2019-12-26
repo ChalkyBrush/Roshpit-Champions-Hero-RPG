@@ -1974,11 +1974,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
 		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
-	if victim:HasModifier("modifier_damage_resistance") then
-		if victim.damageReduc then
-			damage = damage * victim.damageReduc
-		end
-	end
+	-- if victim:HasModifier("modifier_damage_resistance") then
+	-- 	if victim.damageReduc then
+	-- 		damage = damage * victim.damageReduc
+	-- 	end
+	-- end
 
 	if victim:HasModifier("modifier_sea_giants_plate") then
 		if victim:IsStunned() then
@@ -2129,10 +2129,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = 0
 		end
 	end
-	if victim:HasModifier("modifier_triboss_powered_up_single") then
-		local difficultyReduc = {0.7, 0.1, 0.01}
-		damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]
-	end
+	-- if victim:HasModifier("modifier_triboss_powered_up_single") then
+	-- 	local difficultyReduc = {0.7, 0.1, 0.01}
+	-- 	damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]
+	-- end
 	return damage / BASE_VALUE_FOR_CALCULATE
 end
 
@@ -2508,11 +2508,11 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_general_postmitigation") then
-		local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
-		local multIncrease = stacks / 100
-		mult = mult + multIncrease
-	end
+	-- if attacker:HasModifier("modifier_general_postmitigation") then
+	-- 	local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
+	-- 	local multIncrease = stacks / 100
+	-- 	mult = mult + multIncrease
+	-- end
 	if attacker:HasModifier("modifier_azalea_knife_postmitigation") then
 		if victim:IsRooted() then
 			local multIncrease = 5
@@ -2876,9 +2876,9 @@ function GameState:FilterDamage(filterTable)
 		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - damageReduction
 	end
-	if attacker:HasModifier("modifier_sea_fortress_ai") and (damageType == DAMAGE_TYPE_PURE or damageType == DAMAGE_TYPE_MAGICAL) then
-		filterTable["damage"] = filterTable["damage"] * 3
-	end
+	-- if attacker:HasModifier("modifier_sea_fortress_ai") and (damageType == DAMAGE_TYPE_PURE or damageType == DAMAGE_TYPE_MAGICAL) then
+	-- 	filterTable["damage"] = filterTable["damage"] * 3
+	-- end
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
@@ -3174,7 +3174,7 @@ function GameState:FilterDamage(filterTable)
 		elseif GameState:GetDifficultyFactor() == 2 then
 			reductionMult = 0.2
 		end
-		local reduction = reductionMult * (3 - Redfall.Castle.TorchesLit)
+		local reduction = reductionMult/Redfall.Castle.TorchesLit
 		filterTable["damage"] = math.max(filterTable["damage"] - filterTable["damage"] * reduction, 0)
 	end
 	if victim:HasModifier("modifier_seven_visions_striking") or victim:HasModifier("modifier_seven_visions_striking_glyphed") then

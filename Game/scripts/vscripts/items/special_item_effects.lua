@@ -7039,7 +7039,12 @@ end
 function odin_beam_pushback(event)
 	local hero = event.target
 	local ability = event.ability
-	hero:SetAbsOrigin(hero:GetAbsOrigin()+ability.pushBack*50)
+	local obstruction = WallPhysics:FindNearestObstruction(hero:GetAbsOrigin())
+	local newPosition = hero:GetAbsOrigin()+ability.pushBack*50
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, hero)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
 	StartAnimation(hero, {duration = 0.25, activity = ACT_DOTA_FLAIL, rate = 1.6, translate="forcestaff_friendly"})
 end
 
