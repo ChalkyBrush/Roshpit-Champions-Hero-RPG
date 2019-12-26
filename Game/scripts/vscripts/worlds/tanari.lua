@@ -61,17 +61,17 @@ function Tanari:Debug()
     -- RPCItems:RollRandomItemAtLocation(1, Vector(-4928, 2048), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_MINI_BOSS])
     -- RPCItems:RollAndDropUniqueItem(unit, "item_rpc_world_trees_flower_cache")
     Winterblight:DropBorealGraniteChunk(Vector(-4928, 2048))
-    RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
+    -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     Weapons:RollLegendWeapon1WithDotaName("npc_dota_hero_phantom_assassin", Vector(-4928, 2048))
-    local arcana = RPCItems:RollArcanaByName("item_rpc_flamewaker_arcana2", 110)
-    RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+    -- local arcana = RPCItems:RollArcanaByName("item_rpc_flamewaker_arcana2", 110)
+    -- RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
 
-    -- local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_epsilons_eyeglass")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_epsilons_eyeglass")
 
     
 

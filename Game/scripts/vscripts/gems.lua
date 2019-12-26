@@ -189,7 +189,11 @@ function Gems:NextSlotNumber(item)
 	local next_slot = 0
 	if not item.newItemTable.socket1 then
 		next_slot = 1
+	elseif item.newItemTable.socket1 == "none" then
+		next_slot = 1
 	elseif not item.newItemTable.socket2 then
+		next_slot = 2
+	elseif item.newItemTable.socket2 == "none" then
 		next_slot = 2
 	end
 	return next_slot
