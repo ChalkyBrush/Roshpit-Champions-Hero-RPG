@@ -69,21 +69,23 @@ function dominion_debuff_death(event)
 	if not ability.dominionTable then
 		ability.dominionTable = {}
 	end
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if unit.dominion then
 		local fv = unit:GetForwardVector()
 		local summonPosition = unit:GetAbsOrigin()
 		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
 		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
+		summon.cant_paragon = true
 		Enemies:InitializeEnemy(summon)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
-		local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
-		local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
-		attacker:SetBaseDamageMin(buffedUnitBaseDamage)
-		attacker:SetBaseDamageMax(buffedUnitBaseDamage)
+		local unitBaseDamage = (unit:GetBaseDamageMax() + unit:GetBaseDamageMin())/2
+		local buffedUnitBaseDamage = unitBaseDamage
+		unit:SetBaseDamageMin(buffedUnitBaseDamage)
+		unit:SetBaseDamageMax(buffedUnitBaseDamage)
 		summon.aggro = true
 		summon.ekkan_unit = true
 		summon.ekkan_dominion = true

@@ -399,6 +399,9 @@ function Enemies:AdjustUnitForCavern(unit)
 end
 
 function Enemies:ParagonChance(unit)
+	if unit.cant_paragon then
+		return false
+	end
 	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS then
 		return false
 	end
