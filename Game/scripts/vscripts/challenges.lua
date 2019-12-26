@@ -291,6 +291,7 @@ function Challenges:FinalSocket(msg)
 			Timers:CreateTimer(1.5, function()
 				EmitSoundOn("NPC.Blacksmith.AddSocket2", hero)
 			end)
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 			UTIL_Remove(cutter)
 		end
 	end

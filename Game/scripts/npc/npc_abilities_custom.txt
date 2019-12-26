@@ -14044,7 +14044,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"200"
+				"property_one"			"35"
 			}
 			"02"
 			{

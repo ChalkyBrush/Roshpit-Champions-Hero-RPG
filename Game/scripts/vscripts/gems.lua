@@ -405,6 +405,7 @@ function Gems:InsertGem(msg)
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
 			end
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 		end
 	end
 end
