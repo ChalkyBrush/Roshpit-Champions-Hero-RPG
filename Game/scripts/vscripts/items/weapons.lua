@@ -184,7 +184,7 @@ function CDOTA_BaseNPC_Hero:UpdateWeaponEXP(exp)
 		end
 		Weapons:LevelUpWeapon(hero, weapon)
 		hero:ApplyGearBonusesByGearSlot(RPC_GEAR_SLOT_WEAPON)
-
+		weapon.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level]
 	end
 	RPCItems:ItemUpdateCustomNetTables(weapon)
 end
