@@ -81,9 +81,9 @@ RPCItems.PotionsDrops[ENEMY_TYPE_MAJOR_BOSS][0] = 100
 RPCItems.RarityChances = {}
 RPCItems.RarityChances[RPC_ITEMS_RARITY_COMMON] = 0
 RPCItems.RarityChances[RPC_ITEMS_RARITY_UNCOMMON] = 5000
-RPCItems.RarityChances[RPC_ITEMS_RARITY_RARE] = 8000
-RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] = 9500
-RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL] = 9900
+RPCItems.RarityChances[RPC_ITEMS_RARITY_RARE] = 7800
+RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] = 9360
+RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL] = 9850
 RPCItems.RarityChances[RPC_ITEMS_RARITY_ARCANA] = 10000
 
 RPCItems.ChancesToLoseImmortal = {}
@@ -224,6 +224,12 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance >= value and rarity <= key then
 			rarity = key
+		end
+	end
+	if rarity == RPC_ITEMS_RARITY_COMMON or rarity == RPC_ITEMS_RARITY_UNCOMMON then
+		local removal_luck = RandomInt(1, 10)
+		if removal_luck > 4 then
+			return
 		end
 	end
 	local bad_luck = RandomInt(1, 100)
