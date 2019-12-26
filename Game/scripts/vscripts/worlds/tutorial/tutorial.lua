@@ -1725,11 +1725,12 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local question = "tutorial_quiz_question_5"
 					local choice = RandomInt(1, 3)
 					local baseDamage = 100000
-					local verifier = CDOTA_BaseNPC_Hero:GetBaseAbilityAmpForSlot(choice)
+					local verifier = hero:GetBaseAbilityAmpForSlot(choice)
 					if choice == 4 then
 						choice = DOTA_R_SLOT + 1
 					end
 					local sub = "DOTA_Tooltip_Ability_"..hero:GetAbilityByIndex(choice - 1):GetAbilityName()
+					print("WHY NOTHING")
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "2_2", quiz_question = question, sequence = 0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 3})
 					CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"})
 				end)
