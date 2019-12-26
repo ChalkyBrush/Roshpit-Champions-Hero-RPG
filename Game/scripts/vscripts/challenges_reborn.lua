@@ -388,7 +388,7 @@ function Challenges:MainBossSlainEvent(boss_name)
 		Challenges.ChallengeCompleted = true
 		Challenges:SetChallengeClears()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
-			if MAIN_HERO_TABLE[i].hero.challenge_cleared then
+			if MAIN_HERO_TABLE[i].challenge_cleared then
 				Notifications:Top(MAIN_HERO_TABLE[i]:GetPlayerOwnerID(), {text="You have already cleared this Challenge", duration=4, style={color="#FFDDAA"}, continue=true})
 			else
 				local hero = MAIN_HERO_TABLE[i]

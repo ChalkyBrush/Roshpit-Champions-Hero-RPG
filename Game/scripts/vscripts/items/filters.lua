@@ -2264,7 +2264,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             )
         end
         if victim:HasModifier("modifier_elemental_resistance") then
-            damage = damage * 0.01
+            damage = damage * 0.5
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_all_elements", 1))/100
         if attacker:HasAbility("arkimus_archon_form") then
@@ -2597,11 +2597,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasModifier("modifier_gilded_soul_buff") then
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
             mult = mult + stacks * ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP/100
-        end
-
-        if attacker:HasModifier("modifier_sunstrider_holy_amplify") then
-            local stacks = attacker:GetModifierStackCount("modifier_sunstrider_holy_amplify", attacker)
-            mult = mult + stacks * SEINARU_ARCANA_E4_HOLY_PCT
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_holy", 1))/100
     end
@@ -3977,7 +3972,10 @@ end
 
 function Filters:SecretTempleTakeDamage(target, damage)
     local stackCount = target:GetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem)
-    local proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_RUBY))
+    local proc = false
+    if target.equipped_gear then
+        proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_RUBY))
+    end
     if not proc then
         if stackCount > 1 then
             target:SetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem, stackCount - 1)

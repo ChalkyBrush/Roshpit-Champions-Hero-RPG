@@ -1607,9 +1607,6 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
 		end
-		if victim:HasModifier("modifier_pure_resist") then
-			damage = damage * 6
-		end
 		if victim:HasModifier("modifier_ice_floe_sliding") then
 			damage = 0
 		end
@@ -3575,7 +3572,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = victim:GetHealth() - 10
+			-- filterTable["damage"] = 0
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
@@ -3587,7 +3584,7 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			-- filterTable["damage"] = 9999999
+			-- filterTable["damage"] = 999999999999
 		end
 	end
 

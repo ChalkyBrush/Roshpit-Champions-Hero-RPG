@@ -15,18 +15,18 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"7"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SORCERESS_ARCANA_R1_DMG_X_INT_PER_LVL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_PER_LVL %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"600"
+				"property_two_base"		"<% SORCERESS_ARCANA_R1_RADIUS_SEARCH_BASE %>"
 			}
 			"05"
 			{

@@ -166,7 +166,7 @@ function tornado_thinker(event)
 	end
 	if ability.r_1_level > 0 then
 		if dummy.interval % 15 == 0 then
-			local radius = 600 + 3 * ability.r_1_level
+			local radius = SORCERESS_ARCANA_R1_RADIUS_SEARCH_BASE + SORCERESS_ARCANA_R1_RADIUS_SEARCH_PER_LVL * ability.r_1_level
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local enemy = enemies[1]
@@ -212,7 +212,7 @@ function splinter_hit(event)
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 	end
-	local damage = caster:GetIntellect() * 7 * ability.r_1_level
+	local damage = caster:GetIntellect() * SORCERESS_ARCANA_R1_DMG_X_INT_PER_LVL * ability.r_1_level
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage * SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER
 	end

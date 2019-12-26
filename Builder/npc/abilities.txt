@@ -51657,7 +51657,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"pure_resist"			"50 80 99"
+				"pure_resist"			"20 35 50"
 			}
 			"02"
 			{
@@ -61909,7 +61909,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"elemental_resistance"				"99"
+				"elemental_resistance"				"50"
 			}
 		}
 
