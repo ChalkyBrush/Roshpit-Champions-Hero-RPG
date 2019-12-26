@@ -40,7 +40,7 @@ function UpdateInventory()
 	// Brute-force recreate the entire inventory UI for now
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	var playerID = Players.GetLocalPlayer();
-	$.Msg(Entities.IsHero(queryUnit))
+
 	if (Entities.IsHero(queryUnit)){
 		var playerTable = CustomNetTables.GetTableValue( "hero_index", queryUnit.toString() );
 		if (playerTable === undefined){
@@ -51,7 +51,7 @@ function UpdateInventory()
 	}else{
 		var playerID = Players.GetLocalPlayer();
 	}
-	$.Msg("playerID: "+playerID)
+
 
 		for ( var i = 0; i < 6; ++i )
 		{

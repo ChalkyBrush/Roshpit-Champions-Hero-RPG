@@ -50,7 +50,7 @@ function NewGlyphInserted(msg)
 function UpdateGlyphDisplay(delay)
 {
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
-	$.Msg(Entities.IsHero(queryUnit))
+
 	var playerID = Players.GetLocalPlayer()
 	if (Entities.IsHero(queryUnit)){
 		var playerTable = CustomNetTables.GetTableValue( "hero_index", queryUnit.toString() );
@@ -67,7 +67,7 @@ function UpdateGlyphDisplay(delay)
 		}
 	}
 
-	$.Msg(playerID.toString()+"-glyph-1")
+
 	var glyphTable1 = CustomNetTables.GetTableValue( "skill_tree", playerID.toString()+"-glyph-1" )
 	var glyph1 = -1
 	if (!(glyphTable1 == undefined)) {
@@ -97,7 +97,7 @@ function UpdateIndividualGlyph(glyph, glyphPanel, delay)
 	if (glyph > 0){
 		textureName = "file://{images}/items/"+Abilities.GetAbilityTextureName( glyph)+".png"
 	}
-	$.Msg(textureName)
+
 	glyphPanel.SetAttributeInt( "item", glyph );
 	$.Schedule(delay, function(){
 		glyphPanel.SetImage(textureName)

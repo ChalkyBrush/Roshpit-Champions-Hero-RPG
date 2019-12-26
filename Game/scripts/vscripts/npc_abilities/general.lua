@@ -40,15 +40,16 @@ function general_hero_think(event)
 				if IsValidEntity(item) then
 				else
 					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
-					CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+					-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 				end
 			end
 		else
 			CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
-			CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+			-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 		end
 
 	end
+	CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
 	end
