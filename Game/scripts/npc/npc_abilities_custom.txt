@@ -132343,7 +132343,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"				"70 80 90"
+				"damage_reduce"				"40 60 80"
 			}
 		}
 		"Modifiers"
