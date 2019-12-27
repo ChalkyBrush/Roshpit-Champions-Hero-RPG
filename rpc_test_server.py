@@ -10,6 +10,7 @@ filesToCheck = [
   "Game\\scripts\\vscripts\\glyphs.lua",
   "Game\\scripts\\vscripts\\game_state.lua",
   "Game\\scripts\\vscripts\\stars.lua",
+  "Game\\scripts\\vscripts\\items\\items_reborn.lua", 
   "Game\\scripts\\vscripts\\items\\RPCamulet.lua", 
   "Game\\scripts\\vscripts\\items\\legendaries.lua", 
   "Game\\scripts\\vscripts\\items\\special_item_effects.lua", 

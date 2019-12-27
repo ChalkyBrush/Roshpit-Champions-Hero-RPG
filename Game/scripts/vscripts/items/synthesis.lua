@@ -147,7 +147,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 			local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
 			local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
-			newMinLevel = math.max(math.min(newMinLevel, 100), 3)
+			newMinLevel = math.max(math.min(newMinLevel, 120), 3)
 			RPCItems.LevelRoll = newMinLevel
 			local newItem = RPCItems:RollArcanaByName(randomItem:GetAbilityName(), newMinLevel)
 			RPCItems.LevelRoll = nil
