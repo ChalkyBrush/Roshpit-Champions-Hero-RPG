@@ -14,9 +14,9 @@
     	"DOTA_Tooltip_modifier_mountain_protector_c_a_daze_Description"	"移动速度减少"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] 震动吸收"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"每一次被冲击波击中，敌人都会受到一层debuff。再次被冲击波击中时会受到额外伤害，debuff层数越高额外伤害越高。debuff持续15秒，且可以无限叠加。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"每层debuff提供额外伤害"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"% 冲击波伤害"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"每一次被冲击波击中，敌人都会受到一层debuff。再次被冲击波击中时会受到额外伤害，最多叠加<% MOUNTAIN_PROTECTOR_Q2_MAX_STACKS %>层 。debuff持续15秒。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"每层debuff提高伤害"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"% "
 		
 		"DOTA_Tooltip_modifier_mountain_protector_b_a_visible"			"震动吸收"
     	"DOTA_Tooltip_modifier_mountain_protector_b_a_visible_Description"	"每次被冲击波击中的敌人都会在下次被击中时受到额外的伤害"
@@ -34,9 +34,9 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"山丘守卫"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"山丘之力保护山丘守卫者，被保护状态下山丘守护者不能移动。处于山丘守卫状态下，冲击波将汲取 1% x 冲击波等级 的最大魔法值。"
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"山丘之力保护山丘守卫者，提高护甲和魔甲且不能移动。处于山丘守卫状态下，冲击波将汲取 1% x 冲击波等级 的最大魔法值。"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor"			"护甲值提高"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_magic_resist"	"魔法抗性提高"
+ 	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"护甲和魔甲提高:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"每秒消耗魔法量"
 
     	"DOTA_Tooltip_modifier_energy_channel"									"山丘守卫"
@@ -48,9 +48,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"在山丘守卫状态下时山丘守卫者的造成的税后伤害将会提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"税后伤害提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"在山丘守卫状态下时提高魔法穿透"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"魔法穿透提高"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] 盛怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"开启山丘守卫时，山丘守护者周围500码范围内的敌人将受到基于山丘守护者攻击力的持续伤害。"
@@ -133,9 +133,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_suffix_two"	"x 力量值"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_r_4"						"[R4] 山丘之力"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"山丘守护者的属性值将提高所有 <font color=\"#AF843D\">土</font> 和 <font color=\"#EF4126\">火</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_Description"			"提高所有 <font color=\"#AF843D\">土</font> 和 <font color=\"#EF4126\">火</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_property_one"			"元素伤害提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"% 每10点属性值"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_suffix"				"%"
 		
 		//Arcanas
 		
@@ -161,10 +161,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_suffix_two"			"x 力量值"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1"						"[W2] 第二次冲击"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"当敌人被眩晕时，山丘守卫将加深敌人所受到的全部伤害（计算在敌人减伤之后）。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				"%"
-
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_Description"			"当敌人被眩晕时，减少他们的攻击速度和移动速度，持续<% MOUNTAIN_PROTECTOR_ARCANA1_W2_DURATION_MULT %>秒"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"移动速度减少"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
+        "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "攻击速度减少"
+        "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] 朗基努斯之槍"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害并且造成0.03秒的眩晕。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_property_one"			"伤害"
@@ -212,49 +213,55 @@
     	"DOTA_Tooltip_modifier_frozen_stand_Description"								"免疫全部伤害"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2"						"[R3] 凛冽寒风"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"所有处于霜雪风暴中的敌人受到来自山丘守卫的伤害加深（计算在减伤之后）。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_Description"			"所有处于霜雪风暴中的敌人的护甲和魔甲将被降低"
+    "DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_property_one"			"护甲和魔甲降低"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_3_arcana2_suffix"				""
+
+        "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss"                    "凛冽寒风"
+        "DOTA_Tooltip_modifier_hailstorm_armor_and_magic_armor_loss_Description"        "降低双甲"  
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2"						"[R4] 冰山一角"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"山丘守卫的属性值将提高所有 <font color=\"#AF843D\">土</font> 与 <font color=\"#87D9FF\">冰</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_Description"			"提高所有 <font color=\"#AF843D\">土</font> 与 <font color=\"#87D9FF\">冰</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_property_one"			"元素伤害提高"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"% 每10点属性值"	
+    	"DOTA_Tooltip_ability_mountain_protector_rune_r_4_arcana2_suffix"				"%"	
 
     	"item_property_mountain_protector_arcana3"										"陨石"
     	"property_mountain_protector_arcana3_description"								"用 陨石 和 火山岩 替换 @Ability3 及其全部符文。"
 
     	"DOTA_Tooltip_ability_mountain_protector_rockfall"								"陨石"
-    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>召唤 3 组 炽热的火山岩，向目标地点投射，伤害并眩晕敌人。同时，每击中一个敌人，山丘守卫都将对自己造成 % 最大生命值的伤害，对自身的伤害不致死。"
+    	"DOTA_Tooltip_ability_mountain_protector_rockfall_Description"					"元素： <font color=\"#AF843D\">土</font> / <font color=\"#EF4126\">火</font><br>召唤 3 组 炽热的火山岩，向目标地点投射，伤害并眩晕敌人。 被击中的敌人魔甲将被降低10秒。同时，每击中一个敌人，山丘守卫都将对自己造成 % 最大生命值的伤害，对自身的伤害不致死。"
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_Lore"							""
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_stun_duration"				"眩晕持续时间："
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_damage"						"伤害："
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_self_damage"					"对自身伤害（% 最大生命值）："
     	"DOTA_Tooltip_ability_mountain_protector_rockfall_additional_str_damage"		"额外伤害为力量值的倍数："
-
+	"DOTA_Tooltip_ability_mountain_protector_rockfall_magic_armor_reduce"				"被击中的敌人魔甲降低:"
+	
     	"DOTA_Tooltip_ability_mountain_protector_volcanic_glissade"						"火山岩"
     	"DOTA_Tooltip_ability_mountain_protector_volcanic_glissade_Description"			"火山喷发，将军团猛烈而迅速地向目标点推射，山丘守卫放弃了思考。"
     	"DOTA_Tooltip_ability_mountain_protector_volcanic_glissade_cast_range"			"施法距离："
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3"						"[E1] 岩坑"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"每损失 1000 点生命值，山丘守卫都将提高基础技能伤害和物品伤害。（基于基础技能的物品伤害除外，火头、水头、月光头、恶魔头、冰手）"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"提高基础技能和物品伤害"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% 每损失 1000 点生命值"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"山丘守卫根据损失的生命值提高魔甲和魔法穿透"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"魔甲和魔法穿透提高"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"每 1% 损失的生命值"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] 基岩"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"提高全部基础技能伤害（加法），提高值为力量的倍数。"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"额外基础技能伤害（加法）"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x 力量值"
-
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"提高力量值，但是敏捷值降低。"
+    		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"额外力量值"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				""
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_two"         "敏捷值降低"
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
+	
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] 岩浆流"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"释放完 陨石后，将有概率获得 火山岩 技能的自由释放层数，概率超过 100% ，将获得多层。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"自由释放层数概率"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 
       	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3"						"[E4] 泰坦毁灭者"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"增加坚定技能的拦截伤害阈值。（类似日天）"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"坚定拦截阈值增加"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"%"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_Description"			"如果敌人的生命值高于山丘守卫，陨石降低的魔甲数值将会提高"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_property_one"			"额外的魔甲降低"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_4_arcana3_suffix"				"当敌人生命值更高时"
 		
 		//Glyphs
 		
@@ -265,7 +272,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 <% MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"        "[T3-1] 灾难雕文"
-        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害."
+        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害.但是@Ability4 的基础技能伤害减少<% MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE * 100 %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] 山丘之力雕文"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<% MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE %>% 有几率释放2道超声波。"
@@ -302,7 +309,7 @@
 		"property_mountain_protector_immortal_weapon_description"				"冲击波的眩晕时间增加<% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_1_Q_STUN_DURATION_INCREASE %>秒."
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_immortal_weapon_2"            "史空恩的脊骨"
         "item_property_mountain_protector_immortal_weapon2"                             "王者遗物"
-        "property_mountain_protector_immortal_weapon2_description"                      "每杀死一个敌人（获得了经验值）提高 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_DAMAGE_PER_KILL_PCT %>% 攻击力和 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_ARMOR_PER_KILL %> 的护甲值。加成效果持续直到本局结束。"
+        "property_mountain_protector_immortal_weapon2_description"                      "每杀死一个（能获得经验的）敌人提高 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_DAMAGE_PER_KILL_PCT %>% 攻击力和 <% MOUNTAIN_PROTECTOR_IMMORTAL_WEAPON_2_BONUS_ARMOR_PER_KILL %> 的护甲值。加成效果持续直到本局结束。"
  		
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks"								"王者遗物"
  		"DOTA_Tooltip_modifier_immortal_weapon_2_stacks_Description"					"提高攻击力和护甲值 %%"

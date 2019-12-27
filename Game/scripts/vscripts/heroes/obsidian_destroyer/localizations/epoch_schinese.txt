@@ -29,15 +29,15 @@
     	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"					"攻击力被偷取"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_3"									"[Q3] 永世打击"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"每次攻击汲取你 1% 最大魔法值，并根据被汲取的魔法值造成额外纯粹伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"每次攻击汲取你 <% EPOCH_Q3_BASE_MANA_DRAIN_PCT %>% 最大魔法值，并根据被汲取的魔法值造成额外伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"						"伤害"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"% 所汲取魔法值"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"x所汲取魔法值"
 
     	"DOTA_Tooltip_modifier_epoch_q_3"										"永世打击"
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"每次攻击汲取你的部分魔法值并造成额外伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] 时光节点"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你50% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<% EPOCH_Q4_MANA_DRAIN_BASE_PCT * 100 %>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% 每汲取100点魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"永世打击 每次攻击的魔法汲取量提高"
@@ -54,17 +54,15 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_1_suffix"					"% 最大魔法值"
 
     	"DOTA_Tooltip_ability_epoch_rune_w_2"							"[W2] 时光风暴"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"被创世纪之球击中的敌人在6秒内减少护甲，敌人最低护甲值不低于 -1000。如果敌人护甲值低于0，时光守卫对其造成的魔法和纯粹伤害也将被提高。每点低于0的护甲值都将提高这个额外伤害。"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"护甲值减少"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_Description"				"被@Ability2击中的敌人减少魔甲<% EPOCH_W2_DURATION %> 秒， 最高叠加<% EPOCH_W2_MAX_STACKS %> 层"
+    	"DOTA_Tooltip_ability_epoch_rune_w_2_property_one"				"魔甲减少"
     	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix"					""
-     	"DOTA_Tooltip_ability_epoch_rune_w_2_property_two"				"提高造成的魔法和纯粹伤害"
-    	"DOTA_Tooltip_ability_epoch_rune_w_2_suffix_two"				"% 每10点低于0的护甲值"
-
+     
     	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible"					"时光风暴"
-    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"减少护甲。每点低于0的护甲，增加受到来自时光守卫的伤害"
+    	"DOTA_Tooltip_modifier_epoch_rune_w_2_visible_Description"		"减少魔甲"
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_3"							"[W3] 智慧穷尽"
-    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"每次施放创世纪之球增加智力值，上限10层。每次攻击消耗一层并且回复生命值。"
+    	"DOTA_Tooltip_ability_epoch_rune_w_3_Description"				"每次施放@Ability2增加智力值，上限<% EPOCH_W3_MAX_STACKS %>层。每次攻击消耗一层并且回复生命值。"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_one"				"每层智力值"
     	"DOTA_Tooltip_ability_epoch_rune_w_3_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_w_3_property_two"				"每次攻击消耗一层并恢复血量"
@@ -74,7 +72,7 @@
     	"DOTA_Tooltip_modifier_epoch_rune_w_3_visible_Description"		"增加智力值。每次攻击消耗一层并且回复生命值。"	
 		
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] 创世纪"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"每次施放创世纪之球吸取额外 5% 你最大的魔法值，根据吸取魔法量增加伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"每次施放@Ability2 吸取额外 <% EPOCH_W4_MANA_DRAIN_BASE_PCT * 100 %>% 你最大的魔法值，根据吸取魔法量增加伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% 每汲取100点魔法值"
 		
@@ -89,7 +87,7 @@
 		"DOTA_Tooltip_modifier_time_warp_description" 							"再次使用时空球技能将把你传送至你的时空球处"
 
     	"DOTA_Tooltip_ability_epoch_rune_e_1"							"[E1] 时光扭曲"
-    	"DOTA_Tooltip_ability_epoch_rune_e_1_Description"				"使用时空球传送后，将获得相位移动、最大移动速度和100%物理闪避。"
+    	"DOTA_Tooltip_ability_epoch_rune_e_1_Description"				"使用@Ability3传送后，将获得相位移动、最大移动速度和100%物理闪避。"
     	"DOTA_Tooltip_ability_epoch_rune_e_1_property_one"				"持续时间"
     	"DOTA_Tooltip_ability_epoch_rune_e_1_suffix"					""
 
@@ -97,22 +95,22 @@
 		"DOTA_Tooltip_modifier_epoch_rune_e_1_description" 				"相位移动、最大移动速度和100%物理闪避"
 
     	"DOTA_Tooltip_ability_epoch_rune_e_2"							"[E2] 时光裂谷"
-    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"施放时空球同时向前方发射几个光球。光球对时空锁链接中的单位造成2倍伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_e_2_Description"				"施放@Ability3同时向前方发射几个光球。光球对时空锁链接中的单位造成2倍伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_one"				"光球数量"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix"					""
     	"DOTA_Tooltip_ability_epoch_rune_e_2_property_two"				"每个光球伤害"
     	"DOTA_Tooltip_ability_epoch_rune_e_2_suffix_two"				""
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_3"							"[E3] 时光之眼"
-    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"使用时空球传送后，获得2倍攻击力和多重攻击能力，持续6秒。"
+    	"DOTA_Tooltip_ability_epoch_rune_e_3_Description"				"使用@Ability3传送后，获得<% EPOCH_E3_ATTACK_DAMAGE_PCT %>%攻击力和多重攻击能力，持续6秒。"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_property_one"				"最多攻击目标数"
     	"DOTA_Tooltip_ability_epoch_rune_e_3_suffix"					""
 
 		"DOTA_Tooltip_modifier_epoch_rune_e_3"							"时光之眼"
-		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"多重攻击能力和2倍攻击力"
+		"DOTA_Tooltip_modifier_epoch_rune_e_3_description" 				"多重攻击能力和<% EPOCH_E3_ATTACK_DAMAGE_PCT %>%攻击力"
 		
     	"DOTA_Tooltip_ability_epoch_rune_e_4"							"[E4] 时空发散"
-    	"DOTA_Tooltip_ability_epoch_rune_e_4_Description"				"你的攻击力将提高时空球和时光裂谷的伤害。时光裂谷的提升效果为1/5。"
+    	"DOTA_Tooltip_ability_epoch_rune_e_4_Description"				"你的攻击力将提高 @Ability3 和[E2]的伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_e_4_property_one"				"额外伤害"
     	"DOTA_Tooltip_ability_epoch_rune_e_4_suffix"					"% 攻击力"
 		
@@ -128,10 +126,10 @@
 		"DOTA_Tooltip_modifier_eternity_flood_locked_description" 				"冰封在时间中"
 
     	"DOTA_Tooltip_ability_epoch_rune_r_1"							"[R1] 永恒上升"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"永恒之水将根据你现有的魔法值增加你的攻击力，buff持续10秒。"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_Description"				"@Ability4 将根据你现有的魔法值增加你的攻击力，buff基础持续时间为10秒。"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_property_one"				"攻击力提高 %"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" 每 1000 点当前魔法值"
-    	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"额外延长次 buff 时间"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix"					" 每 <% EPOCH_R1_PER_MANA %>  点当前魔法值"
+    	"DOTA_Tooltip_ability_epoch_rune_r_1_property_two"				"额外延长 buff 时间"
     	"DOTA_Tooltip_ability_epoch_rune_r_1_suffix_two"				" 秒"
 
     	"DOTA_Tooltip_modifier_eternity_flood_r_1_visible"					"永恒上升"
@@ -146,7 +144,7 @@
 
 
     	"DOTA_Tooltip_ability_epoch_rune_r_3"							"[R3] 时间裂纹"
-    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"被永恒之水击中的敌人将暂时锁定在时间中，且每 0.32 秒受到一次伤害。"
+    	"DOTA_Tooltip_ability_epoch_rune_r_3_Description"				"被@Ability4击中的敌人将暂时锁定在时间中，且每 0.32 秒受到一次伤害。"
     	"DOTA_Tooltip_ability_epoch_rune_r_3_property_one"				"每次伤害"
     	"DOTA_Tooltip_ability_epoch_rune_r_3_suffix"					"% 攻击力"
 
@@ -154,12 +152,11 @@
     	"DOTA_Tooltip_modifier_eternity_flood_locked_rune_r_3_exploding_Description" "受到时光守卫攻击力一定百分比的伤害"	
 
     	"DOTA_Tooltip_ability_epoch_rune_r_4"							"[R4] 时光之潮"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"时光守卫的当前魔法值回复速度将提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害。"
+    	 	"DOTA_Tooltip_ability_epoch_rune_r_4_Description"				"提高所有 <font color=\"#B5FFB7\">时</font> 元素伤害."
     	"DOTA_Tooltip_ability_epoch_rune_r_4_property_one"				"时元素伤害提高"
-    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"% 每 10 点魔法值回复速度"	
-
-    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"Tides of Time"
-    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"Gaining Attack Damage"
+    	"DOTA_Tooltip_ability_epoch_rune_r_4_suffix"					"%"	
+    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible"					"时光之潮"
+    	//"DOTA_Tooltip_modifier_epoch_rune_r_4_visible_Description"		"提高时元素伤害"
 
 		//Arcanas
 		
@@ -174,24 +171,24 @@
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"被缠绕"	
 
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1"						"[Q1] 永恒虚无"
-    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"伤害被时之缚缠绕住的敌人，在永恒虚无持续时间内伤害将会被累计。当永恒虚无debuff结束时，debuff存在期间所有对敌人所积累的伤害，都将一次性加倍并再次施加给敌人，最终的结算伤害无视敌人的坚定技能。伤害的累计计算在敌人减伤之前，并且随后释放的 时之缚 不会刷新 永恒虚无的 持续时间。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_Description"			"伤害被时之缚缠绕住的敌人，在永恒虚无持续时间内伤害将会被累计。当永恒虚无debuff结束时，debuff存在期间所有对敌人所积累的伤害，都将一次性加倍并再次施加给敌人。伤害的累计计算在敌人减伤之前，并且随后释放的 @Ability1 不会刷新[Q1]的持续时间。"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_property_one"			"累计伤害加倍数"
     	"DOTA_Tooltip_ability_epoch_rune_q_1_arcana1_suffix"				"%"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] 轨道湮灭"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"敌人将加深所受到的来自时光守卫的伤害（伤害加深计算在敌人减伤之后）。伤害加深百分比取决于敌人自己的基础护甲值（敌人受到buff/debuff之前的护甲值）。"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					"x 每 1000 点敌人的基础护甲值"
+    		"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"提高物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"额外的物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] 永世毁灭"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"时光守卫的攻击将汲取 1% 的魔法值，并且根据所汲取的魔法值造成纯粹伤害。同时时光守卫的最大魔法值将提高他的基础攻击力。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"时光守卫的攻击将汲取<% EPOCH_ARCANA_Q3_BASE_MANA_DRAIN_PCT %>%的魔法值，并且根据所汲取的魔法值造成额外纯粹伤害。同时时光守卫的最大魔法值将提高他的基础攻击力。"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"纯粹伤害"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x 所汲取的魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"基础攻击力提高"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix_two"				"% 最大魔法值"
 
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1"							"[Q4] 多重维度"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_Description"				"施放时之缚的 1秒后有几率在原地点再次施放一次时之缚。几率超过 100%，将施放多次时之缚。同时符文等级提升时之缚的范围。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_Description"				"施放@Ability1 的 1秒后有几率在原地点再次施放一次@Ability1 。若几率超过 100%，将施放多次时之缚。同时符文等级提升时之缚的范围。"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_property_one"				"多重施法几率"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_suffix"					"%"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_arcana1_property_two"				"范围提升"
@@ -199,37 +196,37 @@
 
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_1_1"		"[T1-1] 衰落雕文"
-		"item_rpc_epoch_glyph_1_1_description" 				"受时空锁和空间链接影响的敌人受到的所有伤害将提高 <% EPOCH_GLYPH_1_1_Q1_DAMAGE_INCREASED_PCT %>%"
+		"item_rpc_epoch_glyph_1_1_description" 				"受@Ability1 和[Q1]影响的敌人受到的所有伤害将提高 <% EPOCH_GLYPH_1_1_Q1_DAMAGE_INCREASED_PCT %>%"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect"		"衰落"
 		"DOTA_Tooltip_modifier_epoch_glyph_1_1_effect_Description"	"受到所有伤害提高"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_2_1"		"[T2-1] 扭曲雕文"
-		"item_rpc_epoch_glyph_2_1_description" 				"时空球移动距离提高 <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% 并且速度提高 <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>%。额外地，[E1] 时光扭曲持续时间提高一倍。"
+		"item_rpc_epoch_glyph_2_1_description" 				"@Ability3移动距离提高 <% EPOCH_GLYPH_2_1_E_DISTANCE_BONUS_PCT %>% 并且速度提高 <% EPOCH_GLYPH_2_1_E_SPEED_BONUS_PCT %>%。额外地，[E1]持续时间提高一倍。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_3_1"		"[T3-1] 裂隙雕文"
-		"item_rpc_epoch_glyph_3_1_description" 				"创世纪之球造成基于 <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% 当前魔法值 乘以技能等级的额外的伤害。"
+		"item_rpc_epoch_glyph_3_1_description" 				"@Ability2造成基于 <% EPOCH_GLYPH_3_1_MANA_X_ABILITYLVL_TO_W_PCT %>% 当前魔法值 乘以技能等级的额外的伤害。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_4_1"		"[T4-1] 世纪雕文"
-		"item_rpc_epoch_glyph_4_1_description" 				"攻击不在消耗 [W3] 智慧穷尽 buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
+		"item_rpc_epoch_glyph_4_1_description" 				"攻击不再消耗 [W3] buff。（智力加成不降低，同时每次攻击都恢复相应的生命值）"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_1"		"[T5-1] 时间取代雕文"
-		"item_rpc_epoch_glyph_5_1_description" 				"普通攻击附带[W2]时光风暴debuff。"
+		"item_rpc_epoch_glyph_5_1_description" 				"普通攻击附带[W2]debuff。"
 
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] 凝结雕文"
-		"item_rpc_epoch_glyph_6_1_description" 				"受时空锁和空间连接影响的敌人基础攻击力降低 <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>%，同时 [Q2] 的效果 X<% EPOCH_GLYPH_6_1_Q2_MULTI %>。"
+		"item_rpc_epoch_glyph_6_1_description" 				"受@Ability1和[Q1] 影响的敌人基础攻击力降低 <% EPOCH_GLYPH_6_1_ATTACK_DMG_REDUCTION_PCT %>%，同时 [Q2] 的效果 X<% EPOCH_GLYPH_6_1_Q2_MULTI %>。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"凝结"
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect_Description"	"攻击力降低"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_7_1"		"[T7-1] 维度转移雕文"
-		"item_rpc_epoch_glyph_7_1_description" 				"当时空球移动时，时光守卫离开此空间维度，无法攻击并闪避所有弹道。"
+		"item_rpc_epoch_glyph_7_1_description" 				"当@Ability3移动时，时光守卫离开此空间维度，无法攻击并闪避所有弹道。"
 
 		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_5_a"		"[T5-a] 时光旅行雕文"
-		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。该掉文有 <% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> 秒冷却时间。"
+		"item_rpc_epoch_glyph_5_a_description" 				"时光守卫受到致命伤害时，立刻发动时光宝石回到过去，恢复全部生命值、魔法值、刷新技能冷却。<% EPOCH_GLYPH_5_A_SECOND_LIFE_CD %> 秒冷却时间。"
 
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_cooldown"	"时光旅行冷却中"
 		"DOTA_Tooltip_modifier_epoch_glyph_5_a_little_shield"	"时光旅行伤害抵御"

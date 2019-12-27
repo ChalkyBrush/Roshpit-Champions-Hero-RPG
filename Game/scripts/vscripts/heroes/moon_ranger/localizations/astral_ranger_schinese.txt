@@ -64,12 +64,12 @@
     	"DOTA_Tooltip_ability_astral_rune_w_3_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_astral_rune_w_4"							"[W4] 集束箭"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"敌人每被分裂箭击中一次，将获得一层debuff。每层debuff都将加深敌人所受到的伤害。（计算在敌人减伤之后，只加深来自星际游侠的伤害）debuff最高叠加20层。"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"伤害加深"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"% 每层"
-
+    	"DOTA_Tooltip_ability_astral_rune_w_4_Description"				"敌人每被分裂箭击中一次，将获得一层降低魔甲的debuff. 最高叠加 <% ASTRAL_RANGER_W4_MAX_STACKS_COUNT %>层"
+     	"DOTA_Tooltip_ability_astral_rune_w_4_property_one"				"魔甲降低"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_suffix"					"每层"
+	
     	"DOTA_Tooltip_modifier_astral_d_b_visible"						"集束箭"
-    	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"加深来自星际游侠的伤害"
+    	"DOTA_Tooltip_modifier_astral_d_b_visible_Description"			"魔甲降低"
 		
 		"DOTA_Tooltip_ability_star_blink"								"星际裂隙"
 		"DOTA_Tooltip_ability_star_blink_Description"					"元素： <font color=\"#C25DFC\">宇宙</font><br>向目标点放置一粒星辰，眩晕其附近的单位。2秒后，游侠传送到该点。"
@@ -79,14 +79,14 @@
     	"DOTA_Tooltip_ability_star_blink_star_aoe"						"范围："
 		
 		"DOTA_Tooltip_ability_astral_rune_e_1"							"[E1] 飞马"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"施放星际裂隙时可以召唤飞马，定住其穿过的敌人并且对缠绕的敌人所造成的伤害加深。（计算在敌人减伤之后）伤害加深效果可以叠加，最多叠加 10 层。"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					"%"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_Description"				"施放星际裂隙时可以召唤飞马，定住其穿过的敌人并且降低他们的魔甲"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_property_one"				"魔甲降低"
+    	"DOTA_Tooltip_ability_astral_rune_e_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_1_property_two"				"缠绕持续时间"
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"飞马"
-    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"被缠绕并且受到的伤害加深"
+    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"被缠绕并且魔甲降低"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] 星辰之力"
     	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"施放星际裂隙后，增加攻击速度和攻击力，持续8秒。并且传送后对着陆点周围所有敌人发动一次攻击。"
@@ -99,16 +99,18 @@
 		"DOTA_Tooltip_modifier_astral_rune_e_2_description" 			"攻击速度和攻击力提升"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_3"							"[E3] 星辰披风"
-    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"当你施放星际裂隙后，得到星辰披风的庇护，伤害减免 75%，提高魔法抗性 95%，并且每 0.5 秒清除一次眩晕/沉默的负面效果。"
+    	"DOTA_Tooltip_ability_astral_rune_e_3_Description"				"当你施放星际裂隙后，得到星辰披风的庇护，伤害减免 <% ASTRAL_RANGER_E3_DAMAGE_REDUCTION %>%，提高魔甲，并且每 0.5 秒清除一次眩晕/沉默的负面效果。"
     	"DOTA_Tooltip_ability_astral_rune_e_3_property_one"				"持续时间"
     	"DOTA_Tooltip_ability_astral_rune_e_3_suffix"					" 秒"
+	"DOTA_Tooltip_ability_astral_rune_e_3_property_two"             "魔甲提高"
+        "DOTA_Tooltip_ability_astral_rune_e_3_suffix_two"                   ""
 		
 		"DOTA_Tooltip_ability_astral_rune_e_4"							"[E4] 流星"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"提高属性值，同时属性值将提高所有 <font color=\"#C25DFC\">宇宙</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_Description"				"提高属性值和所有 <font color=\"#C25DFC\">宇宙</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_one"				"额外属性值"
     	"DOTA_Tooltip_ability_astral_rune_e_4_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_e_4_property_two"				"宇宙元素伤害提高"
-    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"% 每10点属性值"
+    	"DOTA_Tooltip_ability_astral_rune_e_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_modifier_astral_d_c_visible"						"流星"
 		
@@ -137,7 +139,7 @@
 
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] 凤凰"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"成功施放天体爆发后召唤凤凰。凤凰将跟随星际游侠并攻击附近的敌人，凤凰的伤害基于星际游侠的攻击力。"
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"成功施放天体爆发后召唤凤凰。凤凰将在 <% ASTRAL_RANGER_R3_DURATION %>秒内跟随星际游侠并攻击附近<% ASTRAL_RANGER_R3_RADIUS %>范围内的敌人，凤凰的伤害基于星际游侠的攻击力。"
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"凤凰伤害"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% 总攻击力"
 		
@@ -204,37 +206,36 @@
     	"DOTA_Tooltip_ability_astral_rune_w_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2"							"[W3] 宇宙爆发"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"阿波罗之弓射出的每支箭都有20％的几率造成额外的魔法伤害并无限叠加减抗效果。可以减少 <font color=\"#C25DFC\">宇宙</font>抗性10秒。"
+    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_Description"				"阿波罗之弓射出的每支箭都有20％的几率造成额外的魔法伤害"
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_one"				"伤害"
     	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix"					"% 攻击力"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_property_two"				"降低宇宙抗性"
-    	"DOTA_Tooltip_ability_astral_rune_w_3_arcana2_suffix_two"					"% 每层"
+   
 
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible"							"宇宙爆发"
     	"DOTA_Tooltip_modifier_apollo_c_b_proc_visible_Description"				"降低宇宙抗性"	
 
     	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2"							"[W4] 聚焦火焰"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"专注于单个目标，星际游侠对目标敌人造成的所有税后伤害提高，持续8秒，最多可叠加50次。使用阿波罗神弓改变射击目标后会重置此效果。"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"税后增伤"
-    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"% 每层"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_Description"				"专注于单个目标，星际游侠对目标敌人的物理穿透提高，持续8秒，最多可叠加50次。使用阿波罗神弓改变射击目标后会重置此效果。"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_property_one"				"物理穿透"
+    	"DOTA_Tooltip_ability_astral_rune_w_4_arcana2_suffix"					"每层"
 
     	"DOTA_Tooltip_modifier_apollo_post_mit_visible"							"聚焦火焰"
-    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"提高对阿波罗神弓的目标造成的税后伤害"	
+    	"DOTA_Tooltip_modifier_apollo_post_mit_visible_Description"				"提高对阿波罗神弓的目标的物理穿透"	
 
       	"item_property_astral_arcana3"										"冰晶之箭"
     	"property_astral_arcana3_description"								"用冰晶之箭来替换 @Ability4 和它的全部符文。"
 
     	"DOTA_Tooltip_ability_crystal_arrow"						"冰晶之箭"
-    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#C25DFC\">宇宙</font><br>星界游侠向天空射出一只冰晶之箭。引导结束后，向目标位置射击受到阿塞莉娅祝福的冰晶之箭，造成无视坚定的范围伤害。"
+    	"DOTA_Tooltip_ability_crystal_arrow_Description"			"元素: <font color=\"#87D9FF\">冰</font> / <font color=\"#C25DFC\">宇宙</font><br>星界游侠向天空射出一只冰晶之箭。引导结束后，向目标位置射击受到阿塞莉娅祝福的冰晶之箭，造成范围伤害。"
     	"DOTA_Tooltip_ability_crystal_arrow_damage"					"伤害:"
 
     	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3"						"[R1] 阿塞莉娅之窗"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"当你开始引导冰晶之箭时，在目标位置创建一个450码范围的拥有视野的圆形区域。站在该区域的敌人受到星际游侠的税后伤害提高。同时只能激活一扇阿塞莉娅之窗。"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"税后增伤"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				"%"  	
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_Description"			"当你开始引导冰晶之箭时，在目标位置创建一个450码范围的拥有视野的圆形区域。站在该区域的敌人护甲和魔甲将被降低。同时只能激活一扇阿塞莉娅之窗。"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_property_one"			"护甲和魔甲降低"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_arcana3_suffix"				""  	
 
     	"DOTA_Tooltip_crystal_arrow_ad_aura"								"阿塞莉娅之窗"
-    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"受到来自星际游侠的税后伤害提高"
+    	"DOTA_Tooltip_crystal_arrow_ad_aura_Description"					"护甲和魔甲降低"
 
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3"							"[R2] 结晶"
     	"DOTA_Tooltip_ability_astral_rune_r_2_arcana3_Description"				"射出冰晶之箭后，获得额外的 % 攻击力，持续7秒. 额外%的攻击力伤害加入到冰晶之箭中。"

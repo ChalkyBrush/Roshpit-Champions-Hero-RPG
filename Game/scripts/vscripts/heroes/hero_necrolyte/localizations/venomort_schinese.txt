@@ -5,8 +5,13 @@
     	"DOTA_Tooltip_ability_gale_nova_damage"							        "毒素伤害/每次:"
     	"DOTA_Tooltip_ability_gale_nova_duration"								"毒素持续时间:"
     	"DOTA_Tooltip_ability_gale_nova_range"								    "半径:"
-
-    	"DOTA_Tooltip_modifier_gale_nova_target"								"瘟疫散播"
+	
+		"DOTA_Tooltip_modifier_gale_nova_dot"									"瘟疫散播"
+    	"DOTA_Tooltip_modifier_gale_nova_dot_Description"						"受到持续毒伤"
+"DOTA_Tooltip_modifier_gale_nova_bad"									"汇集狂热"
+    	"DOTA_Tooltip_modifier_gale_nova_bad_Description"						"基础技能伤害提高"
+    	
+	"DOTA_Tooltip_modifier_gale_nova_target"								"瘟疫散播"
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"受到持续伤害"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] 汇集狂热"
@@ -56,8 +61,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" 每个被影响的敌人"
 		
 		"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] 安乐行刑"
-    	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"敌人每损失1%的生命，剧毒巫师对它造成的税后伤害都会提高。"
-    	"DOTA_Tooltip_ability_venomort_rune_w_4_property_one"				"税后伤害提高"
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"敌人每损失1%的生命，剧毒巫师对它造成伤害都会提高。"
+    	"DOTA_Tooltip_ability_venomort_rune_w_4_property_one"				"伤害提高"
     	"DOTA_Tooltip_ability_venomort_rune_w_4_suffix"						"% 每1%损失的的生命"
 
     	"DOTA_Tooltip_modifier_ghost_warp_invisible"						"鬼步"
@@ -75,9 +80,9 @@
     	"DOTA_Tooltip_ability_venomort_rune_e_1_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] 酸液护甲"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"攻击剧毒巫师的敌人将被溅到腐蚀性酸液，每秒受到一次伤害，持续5秒。酸液的基础伤害还要乘以剧毒巫师的等级。"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"攻击剧毒巫师的敌人将被溅到腐蚀性酸液，每<% VENOMORT_E2_TICK_RATE %> 秒受到一次伤害，持续 <% VENONORT_E2_DURATION %>秒。"
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"伤害"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"X 英雄等级"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						""
 
 		
 		
@@ -111,12 +116,12 @@
     	"DOTA_Tooltip_ability_venomort_rune_r_1_suffix"						"% 蝮蛇的攻击力"
 
     	"DOTA_Tooltip_ability_venomort_rune_r_2"							"[R2] 蜕皮"
-    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"剧毒蝮蛇得到强化，增加攻击力，最大生命值和攻击速度，以及总护甲值。"
+    	"DOTA_Tooltip_ability_venomort_rune_r_2_Description"				"剧毒蝮蛇得到强化，增加攻击力，最大生命值和攻击速度，以及双甲和双穿。"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_property_one"				"额外的属性值"
     	"DOTA_Tooltip_ability_venomort_rune_r_2_suffix"						"% 基础属性值"
 		
 		"DOTA_Tooltip_ability_venomort_rune_r_3"							"[R3] 麻木催化剂"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"被蝮蛇攻击的敌人会受到一种可叠加的减益效果，使它们对剧毒巫师造成的伤害降低。每层独立计算，降低敌人3%的全部伤害(按照0.97^x的公式计算伤害降低)。效果在结束前会一直持续5秒。"
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_Description"				"被蝮蛇攻击的敌人会受到一种可叠加的减益效果，使它们对剧毒巫师造成的伤害降低。每层独立计算，降低敌人3%的全部伤害(按照0.97^x的公式计算伤害降低)。效果在结束前会一直持续 <% VENOMORT_R3_DURATION %>秒。"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_property_one"				"最大叠加层数"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_suffix"						""
 
@@ -124,12 +129,13 @@
     	"DOTA_Tooltip_modifier_venomort_c_d_poison_Description"				"对剧毒巫师造成的伤害降低"
     	
 		"DOTA_Tooltip_ability_venomort_rune_r_4"                            "[R4] 死亡文明"
-        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "增加剧毒蝮蛇的基础血量和攻击力。"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_Description"                "增加剧毒蝮蛇的基础血量、攻击力和物理穿透。"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_one"               "蝮蛇生命值提高"
         "DOTA_Tooltip_ability_venomort_rune_r_4_property_two"               "蝮蛇攻击力提高"
+	"DOTA_Tooltip_ability_venomort_rune_r_4_property_three"				"蝮蛇物理穿透提高"
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix"                     ""
         "DOTA_Tooltip_ability_venomort_rune_r_4_suffix_two" 				""
-		
+	"DOTA_Tooltip_ability_venomort_rune_r_4_suffix_three" 				""
 		//Arcanas
 
     	"item_property_venomort_arcana1"									"死神审判"
@@ -162,10 +168,10 @@
     	"DOTA_Tooltip_modifier_reaper_slice_shield_Description"					"吸收伤害"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1"						"[R4] 娴熟收割"
-    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速，同时，根据@Ability4的符文等级为剧毒巫师减免一定百分比的伤害(最高减伤值90%)"
+    	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_Description"			"提高开启 @Ability4 时的基础移速和护甲"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_one"			"移速提高"
     	"DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix"					""
-        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "伤害减免"
+        "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_property_two"                 "额外护甲"
         "DOTA_Tooltip_ability_venomort_rune_r_4_arcana1_suffix_two"                       ""
 
 
@@ -195,7 +201,7 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_suffix_two"				""
 
   		"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2"						"[Q3] 死神獠牙"
-    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"敌人每次受到来自剧毒巫师的各种毒素伤害，都会叠加一层debuff，提高来自剧毒巫师的所有持续性伤害。最多可叠加15层，持续10秒"
+    	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_Description"			"敌人每次受到来自剧毒巫师的各种毒素伤害，都会叠加一层debuff，提高来自剧毒巫师的所有持续性伤害。最多可叠加<% VENOMORT_ARCANA2_Q3_MAX_STACKS_COUNT %>层，持续<% VENOMORT_ARCANA2_Q3_DURATION %>秒"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_property_one"			"伤害提高"
     	"DOTA_Tooltip_ability_venomort_rune_q_3_arcana2_suffix"					"% 每层"
 
@@ -205,7 +211,8 @@
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix"					"%"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_property_two"			"基础技能伤害"
     	"DOTA_Tooltip_ability_venomort_rune_q_4_arcana2_suffix_two"				"% 每层"
-		
+		"DOTA_Tooltip_modifier_venomort_arcana2_q_4_visible"				"脉冲新星"
+		"DOTA_Tooltip_modifier_venomort_arcana2_q_4_visible_Description"	"基础技能伤害提高"
 		//Glyphs
 		
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_1"		"[T1-1] 快速调制雕文"

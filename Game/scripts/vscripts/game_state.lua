@@ -2734,20 +2734,12 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_ancient_hero_water_god") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end
 	end
 	if victim:HasModifier("modifier_ancient_hero_wind_god") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end
@@ -2755,10 +2747,6 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_ancient_hero_fire_god") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end

@@ -48,9 +48,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_suffix_two"				" 秒"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_4"							"[Q4] 冰霜大师"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"魔法少女的属性值将提高所有 <font color=\"#87D9FF\">冰</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_Description"				"提高所有 <font color=\"#87D9FF\">冰</font> 元素伤害。"
     	"DOTA_Tooltip_ability_sorceress_rune_q_4_property_one"				"冰元素伤害提高"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"% 每10点属性值"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_suffix"					"%"
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"魔爆术"
@@ -70,12 +70,12 @@
     	"DOTA_Tooltip_modifier_arcane_shell_Description"					"吸收两次伤害并对攻击者造成伤害。"	
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_2"							"[W2] 魔法增效"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"每一次被魔爆术击中或被奥术护盾伤害的敌人，都将受到一层debuff，其所受到的全部 <font color=\"#E1A2E8\">奥术</font> 元素伤害将被提高。持续9秒。debuff最高5层。"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"每层debuff提高敌人所受到的奥术元素伤害"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_Description"				"每一次被魔爆术击中或被奥术护盾伤害的敌人，都将受到一层debuff，每层降低魔甲,持续9秒。debuff最高5层。"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_property_one"				"每层降低魔甲"
+    	"DOTA_Tooltip_ability_sorceress_rune_w_2_suffix"					""
 
     	"DOTA_Tooltip_modifier_sorceress_rune_w_2"							"魔法增效"
-    	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"所受到的奥术元素伤害提高"	
+    	"DOTA_Tooltip_modifier_sorceress_rune_w_2_Description"				"减少魔甲"	
 
 		"DOTA_Tooltip_ability_sorceress_rune_w_3"							"[W3] 奥术智慧"
     	"DOTA_Tooltip_ability_sorceress_rune_w_3_Description"				"魔法少女和附近的友军获得额外的智力和魔法值回复。"
@@ -138,9 +138,9 @@
 		"DOTA_Tooltip_modifier_modifier_clear_cast_description"				"炎爆术瞬发且冷却时间变为1秒"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_e_4"							"[E4] 强化水精灵"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_4_Description"				"魔法少女的攻击力将提高其水精灵的攻击力，同时水精灵有几率多重攻击。"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_one"				"水精灵攻击力提高"
-    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix"					"% 每100点魔法少女的攻击力"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_Description"				"水精灵的攻击能根据其攻击力附带额外魔法伤害,同时有几率多重攻击。"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_one"				"额外魔法伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix"					"% 水精灵的攻击力"
     	"DOTA_Tooltip_ability_sorceress_rune_e_4_property_two"				"多重攻击几率"
     	"DOTA_Tooltip_ability_sorceress_rune_e_4_suffix_two"				"%"
 
@@ -169,7 +169,7 @@
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_2"							"[R2] 燃点"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"被炎爆术击中的敌人将着火，并受到持续伤害，持续6秒。被火球术击中的敌人将燃烧2秒。"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"每秒伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"每0.15秒伤害"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% 炎爆术/火球术的伤害（按敌人受到的伤害计算）"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_r_3"							"[R3] 火焰打击"
@@ -182,9 +182,9 @@
 
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_4"							"[R4] 火焰大师"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"魔法少女的属性值将提高所有 <font color=\"#EF4126\">火</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_Description"				"提高所有 <font color=\"#EF4126\">火</font> 元素伤害。"
     	"DOTA_Tooltip_ability_sorceress_rune_r_4_property_one"				"火元素伤害提高"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"% 每10点属性值"
+    	"DOTA_Tooltip_ability_sorceress_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_sorceress_arcana1"									"冰川漩涡"
@@ -210,6 +210,11 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_Description"			"寒冰碎片有 15% 的概率冻结敌人 1 秒 并且 造成暴击伤害。敌人被连续冰冻后，将免疫寒冰之触的冰冻效果 8 秒。"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_property_one"			"冰冻免疫前最长冰冻时间"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix"					" 秒"
+	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_property_two"			"暴击伤害"
+
+    	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
+
+
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] 冰川风暴"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"处于冰川漩涡龙卷风中的敌人每0.5秒会受到一层冰川风暴的debuff，每层冰川风暴debuff都使敌人受到的全部 <font color=\"#87D9FF\">冰</font> 元素伤害提高。"
@@ -252,9 +257,9 @@
 		"DOTA_Tooltip_ability_sorceress_sun_lance_Lore"							""
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2"						"[Q2] 炎魔之火"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"连续施放两次魔爆术后魔法少女将释放炎魔之火。受到炎魔之火影响的敌人开始燃烧并且攻击速度降低 180。10 秒冷却时间。施放炎魔之火的同时所召唤的水元素也将同时施放该技能。受到来自任何灼烧效果的敌人，受到来自魔法少女的伤害将被加深（伤害加深计算在减伤之后）。灼烧的敌人每 0.5秒都会受到一次 <font color=\"#E1A2E8\">奥术</font> 元素的额外伤害，伤害量为 10% 的魔法巫女所造成的总火元素伤害。（总伤害从敌人开始燃烧时计算）"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"燃烧时减伤后伤害加深"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_Description"				"连续施放两次魔爆术后魔法少女将释放炎魔之火。受到炎魔之火影响的敌人开始燃烧并且攻击速度降低 180。<% SORCERESS_ARCANA2_Q2_COOLDOWN %>  秒冷却时间。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_property_two"				"燃烧持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_arcana2_suffix_two"				" 秒"
 
@@ -271,19 +276,17 @@
   		"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2"						"[Q3] 焦烬"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_Description"				"曜燚术有 20% 的概率爆炸，在范围内造成 % 焰之灰烬的伤害并且灼烧敌人。"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_one"				"伤害"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix"					"% 焰之灰烬伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix"					"% 曜燚术伤害"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_property_two"				"燃烧持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_q_3_arcana2_suffix_two"				" 秒"
 
     	"DOTA_Tooltip_modifier_sun_lance_burn"									"燃烧"
 
   		"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2"						"[Q4] 火焰女神"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"施放焰之灰烬之后魔法少女将会进入火焰女神形态。在火焰女神形态下，所有的元素伤害都将转化为 <font color=\"#87D9FF\">火</font> 元素伤害并且所有 <font color=\"#87D9FF\">火</font> 元素伤害提高。智力值提高 焰之灰烬 的基础技能伤害。（加法）"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"焰之灰烬 基础技能伤害提高"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"X 智力值"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_two"			"火焰伤害提高"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix_two"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_Description"			"施放焰之灰烬之后魔法少女将会进入火焰女神形态12秒。在火焰女神形态下，所有的元素伤害都将转化为 <font color=\"#87D9FF\">火</font> 元素伤害并且所有 <font color=\"#87D9FF\">火</font> 元素伤害提高。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_property_one"			"火元素伤害提高"
 
+    	"DOTA_Tooltip_ability_sorceress_rune_q_4_arcana2_suffix"					"%"
     	"DOTA_Tooltip_modifier_fire_avatar"  									"火焰女神"
     	"DOTA_Tooltip_modifier_fire_avatar_Description"							"所有元素伤害都将变为火元素。并且火元素伤害提高。"
 
@@ -364,9 +367,9 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_2"            "冰雪女王法杖"
         "item_property_sorceress_immortal_weapon2"                             "冰圣"
-        "property_sorceress_immortal_weapon2_description"                      "施放 @Ability1 将制造一个幻象，幻想拥有技能 @Ability1 和 @Ability3。制造幻象消耗一半的最大魔法值。"
+        "property_sorceress_immortal_weapon2_description"                      "施放 @Ability1 将制造一个幻象，幻象拥有技能 @Ability1 和 @Ability3。制造幻象消耗一半的最大魔法值。"
 
         "DOTA_Tooltip_ability_item_rpc_sorceress_immortal_weapon_3"            "火焰女王法杖"
         "item_property_sorceress_immortal_weapon3"                             "炎魔"
-        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability1 将制造一个幻象，幻想拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
+        "property_sorceress_immortal_weapon3_description"                      "施放 @Ability1 将制造一个幻象，幻象拥有技能 @Ability4 和 @Ability3。制造幻象消耗一半的最大魔法值。"
 		
