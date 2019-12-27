@@ -387,14 +387,17 @@ end
 function ChatDropItems(keys)
 	local text = string.lower(keys.text)
 	Dungeons.itemLevel = 3000
-	local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+	local vector = 120
+	local itemlevelDrop = 120
+	local positionVector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
 	if string.match(text, "-championsgear") then
-		RPCItems:RollChampionsGearHelm(vector)
-		RPCItems:RollChampionsGearGauntlet(vector)
-		RPCItems:RollChampionsGearMail(vector)
-		RPCItems:RollChampionsGearBoots(vector)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChampionsGearHelm(vector))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChampionsGearGauntlet(vector))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChampionsGearMail(vector))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChampionsGearBoots(vector))
 	end
 	if string.match(text, "weapon_lvl") then
+		print("[weapon_lvl]")
 		for i = 1, 50 do
 			Timers:CreateTimer(i / 5, function()
 				Weapons:UpdateWeaponXP(2000000000)
@@ -402,342 +405,345 @@ function ChatDropItems(keys)
 		end
 	end
 	if string.match(text, "-synthesis") then
-		RPCItems:DropSynthesisVessel(vector)
+		RPCItems:DropSynthesisVessel(positionVector)
 	end
 	if string.match(text, "-arcanas") then
 		local timer = 1
-		Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSeinaruArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana3(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollConjurorArcana4(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollTrapperArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSpiritWarriorArcana3(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollMountainProtectorArcana3(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollVenomortArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollChernobogArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAuriunArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollPaladinArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollEpochArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAxeArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollWarlordArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollEkkanArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSoluniaArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollArkimusArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollZhonikArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollBahamutArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSorceressArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollDjanghorArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollFlamewakerArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollAstralArcana3(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSephyrArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollHydroxisArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollVoltexArcana2(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollDinathArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollJexArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollSlipfinnArcana1(vector) end) timer = timer + 1
-		Timers:CreateTimer(timer, function() RPCItems:RollDuskbringerArcana2(vector) end) timer = timer + 1
+
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollFlamewakerArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSeinaruArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSeinaruArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollPaladinArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAstralArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollBahamutArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollDuskbringerArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollConjurorArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollConjurorArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollConjurorArcana3(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollConjurorArcana4(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollTrapperArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritWarriorArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritWarriorArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritWarriorArcana3(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollMountainProtectorArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollMountainProtectorArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollMountainProtectorArcana3(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollVenomortArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollVenomortArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollChernobogArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollChernobogArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAuriunArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAuriunArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollVoltexArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollPaladinArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSorceressArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollEpochArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAxeArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAxeArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollWarlordArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollEkkanArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSoluniaArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSoluniaArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollArkimusArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollArkimusArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollZhonikArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollZhonikArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollHydroxisArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollBahamutArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSorceressArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollDjanghorArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollFlamewakerArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAstralArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollAstralArcana3(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSephyrArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollHydroxisArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollVoltexArcana2(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollDinathArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollJexArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSlipfinnArcana1(itemlevelDrop)) end) timer = timer + 1
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollDuskbringerArcana2(itemlevelDrop)) end) timer = timer + 1
+
+
 	end
 
 	if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
-		RPCItems:RollMageBaneGloves(vector)
-		RPCItems:RollBerserkerGloves(vector)
-		RPCItems:RollShadowArmlet(vector)
-		RPCItems:RollMalachiteShadeBracer(vector)
-		RPCItems:RollHeavyEchoGauntlet(vector)
-		RPCItems:RollBoneguardGauntlets(vector)
-		RPCItems:RollScorchedGauntlets(vector)
-		RPCItems:RollHandOfMidas(vector)
-		RPCItems:RollProudGloves(vector)
-		RPCItems:RollClawOfAzinoth(vector)
-		RPCItems:RollBuzukisFinger(vector)
-		RPCItems:RollSwiftspikeBracer(vector)
-		RPCItems:RollDivinePurityGauntlets(vector)
-		RPCItems:RollMarauderGloves(vector)
-		RPCItems:RollSkulldiggerGloves(vector)
-		RPCItems:RollElderGrasp(vector)
-		RPCItems:RollScarecrowGloves(vector)
-		RPCItems:RollChitinousLobsterClaw(vector)
-		RPCItems:RollDarkEmissaryGlove(vector)
-		RPCItems:RollDepthDemonClaw(vector)
-		RPCItems:RollGlovesOfSweepingWind(vector)
-		RPCItems:RollLivingGauntlet(vector)
-		RPCItems:RollSilverspringGloves(vector)
-		RPCItems:RollMordiggusGauntlet(vector)
-		RPCItems:RollIronboundGloves(vector)
-		RPCItems:RollFarSeersEnchantedGloves(vector)
-		RPCItems:RollShadowflameFist(vector)
-		RPCItems:RollMasterGloves(vector)
-		RPCItems:RollPhoenixGloves(vector)
-		RPCItems:RollEternalEssenceGauntlet(vector)
-		RPCItems:RollSpiritGlove(vector)
-		RPCItems:RollFrostburnGauntlets(vector)
-		RPCItems:RollHalcyonSoulGlove(vector)
-		RPCItems:RollGreensandCopperGauntlets(vector)
-		RPCItems:RollGloveOfTheForgottenGhost(vector)
-		RPCItems:RollGravekeepersGauntlet(vector)
-		RPCItems:RollBlueRainGauntlet(vector)
-		RPCItems:RollSpiritualEmpowermentGlove(vector)
-		RPCItems:RollMountainVambraces(vector)
-		RPCItems:RollAutumnrockBracers(vector)
-		RPCItems:RollGrandArcanist(vector)
-		RPCItems:RollBladeforgeGauntlet(vector)
-		RPCItems:RollRoyalWristguards(vector)
-		RPCItems:RollAquasteelBracers(vector)
-		RPCItems:RollDemonfireGauntlet(vector)
-		RPCItems:RollCytopianLaserGloves(vector)
-		RPCItems:RollClawOfTheEtherealRevenant(vector)
-		RPCItems:RollEnergyWhipGlove(vector)
-		RPCItems:RollStormclothBracer(vector)
-		RPCItems:RollPowerRangerGloves(vector)
-		RPCItems:RollSpellfireGloves(vector, true)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMageBaneGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBerserkerGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollShadowArmlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMalachiteShadeBracer(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHeavyEchoGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBoneguardGauntlets(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollScorchedGauntlets(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHandOfMidas(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollProudGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollClawOfAzinoth(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBuzukisFinger(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSwiftspikeBracer(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDivinePurityGauntlets(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMarauderGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSkulldiggerGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollElderGrasp(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollScarecrowGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChitinousLobsterClaw(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDarkEmissaryGlove(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDepthDemonClaw(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGlovesOfSweepingWind(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLivingGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSilverspringGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMordiggusGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollIronboundGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFarSeersEnchantedGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollShadowflameFist(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMasterGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPhoenixGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEternalEssenceGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritGlove(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFrostburnGauntlets(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHalcyonSoulGlove(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGreensandCopperGauntlets(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGloveOfTheForgottenGhost(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGravekeepersGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlueRainGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritualEmpowermentGlove(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMountainVambraces(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAutumnrockBracers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGrandArcanist(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBladeforgeGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRoyalWristguards(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAquasteelBracers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDemonfireGauntlet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCytopianLaserGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollClawOfTheEtherealRevenant(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEnergyWhipGlove(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollStormclothBracer(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPowerRangerGloves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpellfireGloves(itemlevelDrop, true))
 	end
 
 	if string.match(text, "-legendaries2") or string.match(text, "-chest") then
-		RPCItems:RollHurricaneVest(vector)
-		RPCItems:VermillionDreamRobes(vector)
-		RPCItems:RollBaronsStormArmor(vector)
-		RPCItems:RollFloodRobe(vector)
-		RPCItems:RollAvalanchePlate(vector)
-		RPCItems:RollSeaGiantsPlate(vector)
-		RPCItems:RollKnightCrusherArmor(vector)
-		RPCItems:RollTerrasicStonePlate(vector)
-		RPCItems:RollCaptainsVest(vector)
-		RPCItems:RollBorealGraniteVest(vector)
-		RPCItems:RollVioletGuardArmor(vector)
-		RPCItems:RollTwilightVestments(vector)
-		RPCItems:RollRadiantRuinsLeather(vector)
-		RPCItems:RollBladestormVest(vector)
-		RPCItems:RollSacredTrialsArmor(vector)
-		RPCItems:RollHermitSpikeShell(vector)
-		RPCItems:RollSoulVest(vector)
-		RPCItems:RollTanariWindArmor(vector)
-		RPCItems:RollEmpyrealSunriseRobe(vector)
-		RPCItems:RollMageplate(vector)
-		RPCItems:RollGoldenWarPlate(vector)
-		RPCItems:RollWaterMageRobes(vector)
-		RPCItems:RollWatcherPlate(vector)
-		RPCItems:RollSorcererRegalia(vector)
-		RPCItems:RollSpellslingerCoat(vector)
-		RPCItems:RollDoomplate(vector)
-		RPCItems:RollOceanTempestPallium(vector)
-		RPCItems:RollSavagePlateOfOgthun(vector)
-		RPCItems:RollIceQuillCarapace(vector)
-		RPCItems:RollDepthCrestArmor(vector)
-		RPCItems:RollFeatherwhiteArmor(vector)
-		RPCItems:RollDragonCeremonyVestments(vector)
-		RPCItems:RollSecretTempleArmor(vector)
-		RPCItems:RollVampiricBreastplate(vector)
-		RPCItems:RollGuardOfFeronia(vector)
-		RPCItems:RollMysticManaWall(vector)
-		RPCItems:RollSkyforgeFlurryPlate(vector)
-		RPCItems:RollDarkArtsVestments(vector)
-		RPCItems:RollSapphireDragonScaleArmor(vector)
-		RPCItems:RollTopazDragonScaleArmor(vector)
-		RPCItems:RollBlazingFuryArmor(vector)
-		RPCItems:RollRubyDragonScaleArmor(vector)
-		RPCItems:RollLegionVestments(vector)
-		RPCItems:RollNightmareRiderMantle(vector)
-		RPCItems:RollGoldPlateOfLeon(vector)
-		RPCItems:RollSpaceTechVest(vector)
-		RPCItems:RollStormshieldCloak(vector)
-		RPCItems:RollDirewolfBulkwark(vector)
-		RPCItems:RollInfernalPrison(vector)
-		RPCItems:RollEnchantedSolarCape(vector)
-		RPCItems:RollGildedSoulCage(vector)
-		RPCItems:RollOutlandStoneCuirass(vector)
-		item_rpc_armor_of_atlantis:CreateLuaItem(vector) --RPCItems:RollArmorOfAtlantis(vector)
-		RPCItems:RollBluestarArmor(vector)
-		RPCItems:RollTatteredNoviceArmor(vector)
-		RPCItems:RollWindsteelArmor(vector)
-		RPCItems:RollLightSeersRobes(vector)
-		RPCItems:RollHeroicConquerorVestments(vector, 7)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHurricaneVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVermillionDreamRobes(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBaronsStormArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFloodRobe(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAvalanchePlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSeaGiantsPlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollKnightCrusherArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTerrasicStonePlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCaptainsVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBorealGraniteVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVioletGuardArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTwilightVestments(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRadiantRuinsLeather(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBladestormVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSacredTrialsArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHermitSpikeShell(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSoulVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTanariWindArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEmpyrealSunriseRobe(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMageplate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGoldenWarPlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWaterMageRobes(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWatcherPlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSorcererRegalia(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpellslingerCoat(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDoomplate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOceanTempestPallium(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSavagePlateOfOgthun(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollIceQuillCarapace(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDepthCrestArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFeatherwhiteArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDragonCeremonyVestments(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSecretTempleArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVampiricBreastplate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGuardOfFeronia(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMysticManaWall(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSkyforgeFlurryPlate(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDarkArtsVestments(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSapphireDragonScaleArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTopazDragonScaleArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlazingFuryArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRubyDragonScaleArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLegionVestments(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollNightmareRiderMantle(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGoldPlateOfLeon(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpaceTechVest(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollStormshieldCloak(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDirewolfBulwark(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollInfernalPrison(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEnchantedSolarCape(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGildedSoulCage(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOutlandStoneCuirass(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_armor_of_atlantis:CreateLuaItem(itemlevelDrop)) 
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBluestarArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTatteredNoviceArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWindsteelArmor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLightSeersRobes(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHeroicConquerorVestments(itemlevelDrop, 7))
 	end
 
 	if string.match(text, "-legendaries3") or string.match(text, "-helm") then
-		RPCItems:RollWhiteMageHat(vector)
-		RPCItems:RollBasiliskPlagueHelm(vector)
-		RPCItems:RollHoodOfTheSeaOracle(vector)
-		RPCItems:RollFrostmawHuntersHood(vector)
-		RPCItems:RollOceanHelmOfValdun(vector)
-		RPCItems:RollTwistedMaskOfAhnqhirBlue(vector)
-		RPCItems:RollTwistedMaskOfAhnqhirYellow(vector)
-		RPCItems:RollTwistedMaskOfAhnqhirPurple(vector)
-		RPCItems:RollShipyardVeil1(vector)
-		RPCItems:RollHyperVisor(vector)
-		RPCItems:RollBurningSpiritHelmet(vector)
-		RPCItems:RollRubyDragonCrown(vector)
-		RPCItems:RollCentaurHorns(vector)
-		RPCItems:RollHoodOfChosen(vector)
-		RPCItems:RollDeathWhisperHelm(vector)
-		RPCItems:RollGuardOfGrithault(vector)
-		RPCItems:RollHoodOfBlackMage(vector)
-		RPCItems:RollCapOfWildNature(vector)
-		RPCItems:RollLumaGuard(vector)
-		RPCItems:RollBrazenKabuto(vector)
-		RPCItems:RollOdinHelmet(vector)
-		RPCItems:RollStormcrackHelm(vector)
-		item_rpc_wraith_crown:CreateLuaItem(vector) --RPCItems:RollWraithCrown(vector)
-		RPCItems:RollIronColossus(vector)
-		RPCItems:RollMugatoMask(vector)
-		RPCItems:RollWitchHat(vector)
-		RPCItems:RollExcavatorsFocusHat(vector)
-		RPCItems:RollTricksterMask(vector)
-		RPCItems:RollDemonMask(vector, false, 0)
-		RPCItems:RollCrestOfTheUmbralSentinel(vector)
-		RPCItems:RollCarbuncleHelm(vector)
-		RPCItems:RollWraithHuntersSteelHelm(vector)
-		RPCItems:RollEmeraldDouli(vector)
-		RPCItems:RollMaskOfTyrius(vector)
-		RPCItems:RollAutumnSleeperMask(vector)
-		RPCItems:RollIgneousCanineHelm(vector)
-		RPCItems:RollCrimsonSkullCap(vector)
-		RPCItems:RollEyeOfSeasons(vector)
-		RPCItems:RollCeruleanHighguard(vector)
-		RPCItems:RollBlackfeatherCrown(vector)
-		RPCItems:RollSuperAscendency(vector)
-		RPCItems:RollPhantomSorcererMask(vector)
-		RPCItems:RollHelmOfSilentTemplar(vector)
-		RPCItems:RollChainsOfOrthok(vector)
-		RPCItems:RollArcaneCascadeHat(vector)
-		RPCItems:RollSamuraiHelmet(vector)
-		RPCItems:RollScourgeKnightHelm(vector)
-		RPCItems:RollHoodOfDefiler(vector)
-		RPCItems:RollDarkReefSharkHelmet(vector)
-		RPCItems:RollNecromancerMask(vector)
-		RPCItems:RollUndertakersHood(vector)
-		RPCItems:RollEternalNightShroud(vector)
-		RPCItems:RollHelmOfTheMountainGiant(vector)
-		RPCItems:RollDruidsSpiritHelm(vector)
-		RPCItems:RollGlintOfOnu(vector)
-		RPCItems:RollLavaForgeCrown(vector)
-		RPCItems:RollRoknarEmperor(vector)
-		RPCItems:RollSwampDoctorMask(vector)
-		RPCItems:RollHoodOfLords(vector, true)
-		RPCItems:RollWindDeityCrown(vector, true, 4)
-		RPCItems:RollWaterDeityCrown(vector, true, 4)
-		RPCItems:RollFireDeityCrown(vector, true, 4)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWhiteMageHat(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBasiliskPlagueHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHoodOfTheSeaOracle(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFrostmawHuntersHood(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOceanHelmOfValdun(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTwistedMaskOfAhnqhirBlue(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTwistedMaskOfAhnqhirYellow(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTwistedMaskOfAhnqhirPurple(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollShipyardVeil(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHyperVisor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBurningSpiritHelmet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRubyDragonCrown(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCentaurHorns(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHoodOfChosen(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDeathWhisperHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGuardOfGrithault(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHoodOfBlackMage(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCapOfWildNature(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLumaGuard(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBrazenKabuto(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOdinHelmet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollStormcrackHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWraithCrown(itemlevelDrop)) 
+		RPCItems:BasicDropItem(positionVector, item_rpc_helm_of_the_iron_colossus:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMugatoMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWitchHat(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollExcavatorsFocusHat(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTricksterMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDemonMask(itemlevelDrop, false, 0))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCrestOfTheUmbralSentinel(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCarbuncleHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWraithHuntersSteelHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEmeraldDouli(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMaskOfTyrius(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAutumnSleeperMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollIgneousCanineHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCrimsonSkullCap(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEyeOfSeasons(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCeruleanHighguard(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlackfeatherCrown(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSuperAscendency(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPhantomSorcererMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHelmOfSilentTemplar(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollChainsOfOrthok(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollArcaneCascadeHat(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSamuraiHelmet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollScourgeKnightHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHoodOfDefiler(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDarkReefSharkHelmet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollNecromancerMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollUndertakersHood(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEternalNightShroud(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHelmOfTheMountainGiant(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDruidsSpiritHelm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGlintOfOnu(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLavaForgeCrown(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRoknarEmperor(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSwampDoctorMask(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_hood_of_lords:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWindDeityCrown(itemlevelDrop, true, 4))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWaterDeityCrown(itemlevelDrop, true, 4))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFireDeityCrown(itemlevelDrop, true, 4))
 	end
 
 	if string.match(text, "-legendaries4") or string.match(text, "-boots") then
-		RPCItems:RollDunetreadBoots(vector)
-		RPCItems:RollEmeraldSpeedRunners(vector)
-		RPCItems:RollCrystallineSlippers(vector)
-		RPCItems:RollAlaranaIceBoot(vector)
-		RPCItems:RollGiantHunterBoots(vector)
-		RPCItems:RollVoyagerBoots(vector)
-		RPCItems:RollRedrockFootwear(vector)
-		RPCItems:RollResonantPathfinderBoots(vector)
-		RPCItems:RollNeptunesWaterGliders(vector)
-		RPCItems:RollVioletTreads(vector)
-		RPCItems:RollGuardianGreaves(vector)
-		RPCItems:RollHarvesterBoots(vector)
-		RPCItems:RollAblecoreGreaves(vector)
-		RPCItems:RollBlueDragonGreaves(vector)
-		RPCItems:RollSangeBoots(vector)
-		RPCItems:RollOceanrunnerBoots(vector)
-		RPCItems:RollBootsOfOldWisdom(vector)
-		RPCItems:RollResplendantRubberBoots(vector)
-		RPCItems:RollTerrasicLavaBoots(vector)
-		RPCItems:RollYashaBoots(vector)
-		RPCItems:RollSteamboots(vector)
-		RPCItems:RollTranquilBoots(vector)
-		RPCItems:RollFireWalkers(vector)
-		item_rpc_redfall_runners:CreateLuaItem(vector) --RPCItems:RollRedfallRunners(vector)
-		RPCItems:RollRedOctoberBoots(vector)
-		RPCItems:RollBootsOfAshara(vector)
-		RPCItems:RollGravelfootTreads(vector)
-		RPCItems:RollIceFloeSlippers(vector)
-		RPCItems:RollIronTreadsOfDestruction(vector)
-		RPCItems:RollBloodstoneBoots(vector)
-		RPCItems:RollBootsOfGreatFortune(vector)
-		RPCItems:RollSandstreamSlippers(vector)
-		RPCItems:RollManaStriders(vector)
-		RPCItems:RollBootsOfPureWaters(vector)
-		RPCItems:RollMoonTechs(vector)
-		RPCItems:RollTemporalWarpBoots(vector)
-		RPCItems:RollSonicBoots(vector)
-		RPCItems:RollFalconBoots(vector)
-		RPCItems:RollCrusaderBoots(vector)
-		RPCItems:RollArcanysSlipper(vector)
-		RPCItems:RollAdmiralBoot(vector)
-		RPCItems:RollRootedFeet(vector)
-		RPCItems:SlingerBoots(vector)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollDunetreadBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEmeraldSpeedRunners(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCrystallineSlippers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAlaranaIceBoot(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGiantHunterBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVoyagerBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRedrockFootwear(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollResonantPathfinderBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollNeptunesWaterGliders(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVioletTreads(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGuardianGreaves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHarvesterBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAblecoreGreaves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlueDragonGreaves(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSangeBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOceanrunnerBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBootsOfOldWisdom(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollResplendantRubberBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTerrasicLavaBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollYashaBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSteamboots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTranquilBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFireWalkers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_redfall_runners:CreateLuaItem(itemlevelDrop)) 
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEternalForestStriders(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBootsOfAshara(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGravelfootTreads(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollIceFloeSlippers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollIronTreadsOfDestruction(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBloodstoneBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBootsOfGreatFortune(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSandstreamSlippers(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollManaStriders(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBootsOfPureWaters(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMoonTechs(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTemporalWarpBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSonicBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFalconBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCrusaderBoots(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollArcanysSlipper(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAdmiralBoot(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRootedFeet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:SlingerBoots(itemlevelDrop))
 	end
 
 	if string.match(text, "-legendaries5") or string.match(text, "-trinket") then
-		RPCItems:RollPuzzlersLocket(vector)
-		RPCItems:RollWinterblightSkullRing(vector)
-		RPCItems:RollArcaneCharm(vector)
-		RPCItems:RollMonkeyPaw(vector)
-		RPCItems:RollFrozenHeart(vector)
-		RPCItems:RollBlacksmithsTablet(vector)
-		RPCItems:RollAquastoneRing(vector)
-		RPCItems:RollStoneOfGordon(vector, 10)
-		RPCItems:RollSapphireLotus(vector)
-		RPCItems:RollArborDragonfly(vector)
-		RPCItems:RollTokenOfOceanis(vector)
-		RPCItems:RollAncientTanariWaterstone(vector)
-		RPCItems:RollAntiqueManaRelic(vector)
-		RPCItems:RollFrostGem(vector)
-		RPCItems:RollTwigOfEnlightened(vector)
-		RPCItems:RollLifesourceVessel(vector)
-		RPCItems:RollTomeOfChaos(vector)
-		RPCItems:RollAerithsTear(vector)
-		RPCItems:RollTorchOfGengar(vector)
-		RPCItems:RollRuinfallSkullToken(vector)
-		RPCItems:RollRavenIdol(vector)
-		RPCItems:RollConquestStoneFalcon(vector)
-		RPCItems:RollFortunesTalismanOfTruth(vector)
-		RPCItems:RollEpsilonsEyeglass(vector)
-		RPCItems:RollOmegaRuby(vector)
-		RPCItems:RollFenrirFang(vector)
-		RPCItems:RollPhoenixEmblem(vector)
-		RPCItems:RollHopeOfSaytaru(vector)
-		RPCItems:RollFuchsiaRing(vector)
-		RPCItems:RollAnkhOfAncients(vector)
-		RPCItems:RollWorldTreesFlowerCache(vector)
-		RPCItems:RollGalaxyOrb(vector)
-		RPCItems:RollVolcanoOrb(vector)
-		RPCItems:RollFractionalEnhancementGeode(vector)
-		RPCItems:RollRingOfNobility(vector)
-		RPCItems:RollAzureEmpire(vector)
-		RPCItems:RollTempestFalconRing(vector)
-		RPCItems:RollFirelockPendant(vector)
-		item_rpc_stargazers_sphere:CreateLuaItem(vector) --RPCItems:RollStargazersSphere(vector)
-		RPCItems:RollEmeraldNullificationRing(vector)
-		RPCItems:RollGarnetWarfareRing(vector)
-		RPCItems:RollRedDivinexAmulet(vector)
-		RPCItems:RollGreenDivinexAmulet(vector)
-		RPCItems:RollBlueDivinexAmulet(vector)
-		RPCItems:RollCobaltSerenityRing(vector)
-		RPCItems:RollWindOrchid(vector)
-		RPCItems:RollFireBlossom(vector)
-		RPCItems:RollAquaLily(vector)
-		RPCItems:RollSunCrystal(vector, 999)
-		RPCItems:RollSignusCharm(vector)
-		RPCItems:RollEyeOfAvernus(vector)
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPuzzlersLocket(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWinterblightSkullRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollArcaneCharm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollMonkeyPaw(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFrozenHeart(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlacksmithsTablet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAquastoneRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollStoneOfGordon(itemlevelDrop, 10))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSapphireLotus(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollArborDragonfly(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTokenOfOceanis(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAncientTanariWaterstone(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAntiqueManaRelic(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFrostGem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTwigOfEnlightened(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollLifesourceVessel(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTomeOfChaos(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAerithsTear(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTorchOfGengar(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRuinfallSkullToken(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRavenIdol(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollConquestStoneFalcon(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFortunesTalismanOfTruth(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEpsilonsEyeglass(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollOmegaRuby(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFenrirFang(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollPhoenixEmblem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollHopeOfSaytaru(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFuchsiaRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAnkhOfAncients(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWorldTreesFlowerCache(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGalaxyOrb(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollVolcanoOrb(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFractionalEnhancementGeode(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRingOfNobility(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAzureEmpire(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollTempestFalconRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFirelockPendant(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollStargazersSphere(itemlevelDrop)) 
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEmeraldNullificationRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGarnetWarfareRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollRedDivinexAmulet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollGreenDivinexAmulet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollBlueDivinexAmulet(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollCobaltSerenityRing(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollWindOrchid(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollFireBlossom(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollAquaLily(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSunCrystal(itemlevelDrop, 999))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollSignusCharm(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, RPCItems:RollEyeOfAvernus(itemlevelDrop))
 	end
 
 	if string.match(text, "-blacksmith") then
@@ -746,19 +752,19 @@ function ChatDropItems(keys)
 		local player = hero:GetPlayerOwner()
 		CustomGameEventManager:Send_ServerToPlayer(player, "unlock_blacksmith", {})
 	end
-
-	if string.match(text, "-potions") then
-		local max = 30
-		if string.match(text, "-potions ") then
-			str1 = string.gsub(text, "-potions ", "")
-			max = tonumber(str1)
-		end
-		for i = 1, max do
-			Timers:CreateTimer((max - i) / 50, function()
-				RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
-			end)
-		end
-	end
+	-- --rip in rpc 4.0
+	-- if string.match(text, "-potions") then
+	-- 	local max = 30
+	-- 	if string.match(text, "-potions ") then
+	-- 		str1 = string.gsub(text, "-potions ", "")
+	-- 		max = tonumber(str1)
+	-- 	end
+	-- 	for i = 1, max do
+	-- 		Timers:CreateTimer((max - i) / 50, function()
+	-- 			RPCItems:RollBasicPotion(5000, vector, "mythical", 100)
+	-- 		end)
+	-- 	end
+	-- end
 	--TO DO
 	local wepClass
 	wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, vector, string.gsub(text, "-"..wepClass, " ")) end
@@ -884,25 +890,27 @@ function GameMode:OnPlayerChat(keys)
 	local text = string.lower(keys.text)
 	if string.match(text, "winterblight_cavern") then
 		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		local deathLocation = position
-		local boss_level = 20
-		RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level)
-		RPCItems:RollGoldbreakerGauntlet(deathLocation)
-		RPCItems:RollAlienArmor(deathLocation)
-		RPCItems:NethergraspPalisade(deathLocation)
-		RPCItems:RollRobesOfEruditeTeacher(deathLocation)
-		RPCItems:RollHelmOfKnightHawk(deathLocation, isShop)
-		RPCItems:RollMagistratesHood(deathLocation)
-		RPCItems:RollPegasusBoots(deathLocation)
-		RPCItems:RollPivotalSwiftboots(deathLocation)
-		RPCItems:RollGuardianStone(deathLocation)
-		RPCItems:RollAuricRingOfInspiration(deathLocation, boss_level)
-		RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level)
-		RPCItems:RollGalvanizedRazorBand(deathLocation)
-		item_rpc_storm_pacer_sabatons:CreateLuaItem(position)
+		local deathLocation = 120
+		local boss_level = 20--RPCItems:DropItem
 
-		RPCItems:RollWarlordArcana2(deathLocation, boss_level)
-		RPCItems:RollSoluniaArcana3(deathLocation)
+		RPCItems:BasicDropItem(position, RPCItems:RollDiamondClawsOfTiamat(deathLocation, boss_level))
+		RPCItems:BasicDropItem(position, RPCItems:RollGoldbreakerGauntlet(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollAlienArmor(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:NethergraspPalisade(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollRobesOfEruditeTeacher(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollHelmOfKnightHawk(deathLocation, isShop))
+		RPCItems:BasicDropItem(position, RPCItems:RollMagistratesHood(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollPegasusBoots(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollPivotalSwiftboots(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollGuardianStone(deathLocation))
+		RPCItems:BasicDropItem(position, RPCItems:RollAuricRingOfInspiration(deathLocation, boss_level))
+		RPCItems:BasicDropItem(position, RPCItems:RollBerylRingOfIntuition(deathLocation, boss_level))
+		RPCItems:BasicDropItem(position, RPCItems:RollGalvanizedRazorBand(deathLocation))
+		RPCItems:BasicDropItem(position, item_rpc_storm_pacer_sabatons:CreateLuaItem(deathLocation))
+
+		RPCItems:BasicDropItem(position, RPCItems:RollWarlordArcana2(deathLocation, boss_level))
+		RPCItems:BasicDropItem(position, RPCItems:RollSoluniaArcana3(deathLocation))
+
 	end
 	if string.match(text, "-suicide") or string.match(text, "-unstuck") then
 		local playerHero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
@@ -915,17 +923,17 @@ function GameMode:OnPlayerChat(keys)
 	end
 	if string.match(text, "dbg") then
 		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		for i = 1, 10 do
-			RPCItems:RollDuskbringerArcana2(vector)
-		end
+		-- for i = 1, 10 do
+		-- 	RPCItems:RollDuskbringerArcana2(vector)
+		-- end
 	end
 	if string.match(text, "-mp weapon2 stacks") then
-		local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
-		local finalStacks = tonumber(textToParse)
-		local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		local attacker = caster
-		caster.weapon:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
-		attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, finalStacks)
+		-- local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
+		-- local finalStacks = tonumber(textToParse)
+		-- local caster = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		-- local attacker = caster
+		-- caster.weapon:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
+		-- attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, finalStacks)
 	end
 	if string.match(text, "-allglyph") then
 		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
