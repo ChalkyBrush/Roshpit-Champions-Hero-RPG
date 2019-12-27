@@ -398,9 +398,10 @@ function ChatDropItems(keys)
 	end
 	if string.match(text, "weapon_lvl") then
 		print("[weapon_lvl]")
-		for i = 1, 50 do
+		for i = 1, 10 do
 			Timers:CreateTimer(i / 5, function()
-				Weapons:UpdateWeaponXP(2000000000)
+				print("[weapon_lvl] "..tostring(i))
+				PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():UpdateWeaponEXP(2000000000)
 			end)
 		end
 	end
