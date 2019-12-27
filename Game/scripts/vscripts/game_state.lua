@@ -1272,7 +1272,7 @@ function GameState:OrderFilter(orderTable)
 		end
 		if unit:HasModifier("modifier_zonik_speedball") then
 			unit:RemoveModifierByName("modifier_zonik_speedball")
-			unit:RemoveModifierByName("modifier_zonik_speedball_cap")
+			unit:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 		end
 		if unit:HasModifier("modifier_arkimus_c_b_sprinting") then
 			unit:RemoveModifierByName("modifier_arkimus_c_b_sprinting")
@@ -1971,7 +1971,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-damage_reduction)/100
 	end
 
-	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
+	if victim:HasModifier("modifier_zhonik_temporal_field_buff") then
 		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
 	-- if victim:HasModifier("modifier_damage_resistance") then

@@ -73,8 +73,8 @@
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"移动速度上限："
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"持续时间："
 
-    	"DOTA_Tooltip_modifier_zonik_lightspeed"							"光速移动"
-    	"DOTA_Tooltip_modifier_zonik_lightspeed_Description"				"提高移动速度并且穿越地形"
+    	"DOTA_Tooltip_modifier_zhonik_lightspeed"							"光速移动"
+    	"DOTA_Tooltip_modifier_zhonik_lightspeed_Description"				"提高移动速度并且穿越地形"
 		
 		"DOTA_Tooltip_ability_zonik_rune_e_1"								"[E1] 浪涌"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_Description"					"在光速移动buff持续时间内增加移动速度，跑得快。（不玩梗了，怕被禁）"
@@ -150,8 +150,8 @@
     	"DOTA_Tooltip_ability_zhonik_temporal_field_enemy_move_slow"	"敌人移动速度减缓："
     	"DOTA_Tooltip_ability_zhonik_temporal_field_damage_resistance"	"伤害减免 %："
 
-    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik"				"次元护盾"
-    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"移动速度和移动速度上限提高。伤害减免<% ZHONIK_E_ARCANA_DMG_REDUCTION_PCT %>%，并且清除部分眩晕和沉默的负面效果。"
+    	"DOTA_Tooltip_modifier_zhonik_temporal_field_buff"				"次元护盾"
+    	"DOTA_Tooltip_modifier_zhonik_temporal_field_buff_Description"	"移动速度和移动速度上限提高。伤害减免<% ZHONIK_E_ARCANA_DMG_REDUCTION_PCT %>%，并且清除部分眩晕和沉默的负面效果。"
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy"					"次元护盾"
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"移动速度减缓"		
