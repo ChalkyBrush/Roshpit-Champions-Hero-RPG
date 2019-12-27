@@ -434,7 +434,7 @@
 
     	"item_rpc_phoenix_gloves_ruby1"									"Увеличивает Скорость Атаки на @ruby_property1 и обычные атаки получают элемент <font color=\"#EF4126\">Огня</font>"
     	"item_rpc_phoenix_gloves_emerald1"									"Повышает Ловкость на @emerald_property1, а каждое очко Ловкости увеличивает Здоровье на @emerald_property2"
-    	"item_rpc_phoenix_gloves_sapphire1"									"Базовый Урон Атаки увеличивается на @sapphire_property1 за каждое отсутствующее очко Здоровья"
+    	"item_rpc_phoenix_gloves_sapphire1"									"Базовый Урон Атаки увеличивается на @sapphire_property1 за каждое текущее очко Здоровья"
     	"item_rpc_phoenix_gloves_amethyst1"									"Повышает Дух на @amethyst_property1, а каждое очко Духа увеличивает Здоровье на @amethyst_property2"
 
     	"DOTA_Tooltip_ability_item_rpc_power_ranger_gloves"								"Power Source Gauntlet"
