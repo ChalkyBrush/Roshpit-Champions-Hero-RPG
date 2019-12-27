@@ -505,7 +505,7 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertySpecialLocalized4="..property4specialLocalized
 	url = url.."&propertyValue4="..property4value
 
-	if msg.gem_data.ruby then
+	if msg.gem_data.ruby and language == "english" then
 		url = url.."&ruby1="..Curator:urlencode(msg.gem_data.ruby["0"])
 		url = url.."&ruby2="..Curator:urlencode(msg.gem_data.ruby["1"])
 		url = url.."&ruby3="..Curator:urlencode(msg.gem_data.ruby["2"])
