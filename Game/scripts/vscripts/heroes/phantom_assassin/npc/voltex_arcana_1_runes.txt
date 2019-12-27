@@ -95,7 +95,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"VOLTEX_ARCANA_E4_LIGHTNING_AMP"
+				"property_one"			"<% VOLTEX_ARCANA_E4_LIGHTNING_AMP %>"
 			}
 		}
 	}
