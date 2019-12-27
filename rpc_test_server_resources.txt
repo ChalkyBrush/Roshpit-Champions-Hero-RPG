@@ -1058,6 +1058,15 @@ function GameMode:OnPlayerChat(keys)
 			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
 		end
 	end
+
+	if string.match(text, "-givegems") then
+		local amount = 2000000000
+		local player = PlayerResource:GetPlayer(keys.playerid)
+		PlayerResource:GetPlayer(keys.playerid):GetAssignedHero().gem_reward = amount
+		CustomNetTables:SetTableValue("player_stats", tostring(keys.playerid) .. "-gemstones", {gemstones = amount})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_gemstones", {gemstones = amount, player = keys.playerid})
+	end
+
 	if string.match(text, "-gem_forger") then
 		Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
 	end
