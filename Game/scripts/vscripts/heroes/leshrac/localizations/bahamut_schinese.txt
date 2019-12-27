@@ -75,12 +75,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_4"							"[W4] 潜能"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"当敌人受到审判 debuff 时，巴哈姆特对所有拥有 debuff 的敌人所造成的伤害将附带一部分的当前魔法值，当前魔法值提高到巴哈姆特的所有基础技能伤害中。每一次伤害强化都将汲取巴哈姆特一小部分的魔法值。如果是 [W]审判 的基础技能，伤害加成为 10X 。"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"额外基础技能伤害提高（加法）"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					"% 当前魔法值"		
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_two"			"每次提高汲取魔法值"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix_two"				"% 最大魔法值"
-		
+   "DOTA_Tooltip_ability_bahamut_rune_w_4_Description"				"巴哈姆特根据他的当前魔法值提高基础攻击力"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_property_one"			"基础攻击力提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_suffix"					" 每点当前魔法值"
 		
 		"DOTA_Tooltip_ability_leshrac_blink"							"升华"
     	"DOTA_Tooltip_ability_leshrac_blink_Description"				"巴哈姆特进入能感知所有真理的状态，暂时离开现实世界，之后传送至目标位置。"
@@ -122,9 +119,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_4"							"[E4] 和谐"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"巴哈姆特的属性值将提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_Description"				"提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_4_property_one"			"圣元素伤害提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% 每10点属性值"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_4_suffix"					"% "
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"神圣之耀"
@@ -144,14 +141,14 @@
     	"DOTA_Tooltip_modifier_charge_of_light_hyper_state_Description"	"提高攻击速度和移动速度"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_2"							"[R2] 破碎之愿"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"施放神圣之耀时穿过宽恕之墙将对附近敌人造成大量伤害并将其眩晕1秒。穿过墙壁后同时也将加深对敌人的伤害，持续 3秒。（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_Description"				"施放神圣之耀时穿过宽恕之墙将对附近敌人造成大量伤害并将其眩晕1秒。穿过墙壁后同时也将提高魔法穿透，持续<% BAHAMUT_R2_PIERCE_DURATION %> 秒。"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_one"			"伤害"
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix"					"% 神圣之耀"		
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"减伤后伤害提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				"%"	
-
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_property_two"			"魔法穿透提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
+	
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"破碎之愿"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"大幅加深对敌人的伤害（伤害加深计算在敌人减伤之后）"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"大幅提高魔法穿透"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] 亥伯龙"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"引导神圣之耀时，降低周围敌人的攻击速度和移动速度。"
@@ -197,9 +194,9 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_1_arcana1_suffix"				"% 天罚伤害"
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1"						"[R2] 神力"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"当天罚buff存在时，敌人受到的所有来自巴哈姆特的魔法和纯粹伤害将被加深。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"敌人受到的伤害提高"
-    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_Description"			"当天罚buff存在时，提高巴哈姆特的物理穿透和魔法穿透"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_property_one"		"物理穿透和魔法穿透提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_r_2_arcana1_suffix"				""
 
   		"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1"						"[R3] 觉醒"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_arcana1_Description"			"巴哈姆特总属性的一部分将加入到天罚的闪电伤害中。"    	
@@ -226,12 +223,12 @@
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_arcana2_suffix"				"% 每造成 100 点伤害"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2"						"[W2] 联结"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"被光球击中的友军将被大幅强化，获得减伤后伤害加深的能力，持续 8秒。（友军造成的所有伤害都将被加深，伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				"%"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_Description"			"被光球击中的友军将被大幅强化，获得额外的魔法穿透"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_property_one"		"额外的魔法穿透"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_2_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit"						"联结"
-    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"提高减伤后伤害加深"
+    	"DOTA_Tooltip_modifier_bahamut_arcana_post_mit_Description"			"提高魔法穿透"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2"						"[W3] 赦免"
     	"DOTA_Tooltip_ability_bahamut_rune_w_3_arcana2_Description"			"被光球击中的敌人将被冻结一段时间。"
@@ -242,14 +239,13 @@
     	"DOTA_Tooltip_modifier_arcana2_purity_freeze_Description"			"被冻结"
 
   		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2"						"[W4] 逆效力"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"当巴哈姆特在@Ability2之外时，所有基础技能伤害和装备伤害都将被巴哈姆特所损失的魔法量提高（加法）。当巴哈姆特在@Ability2中时，巴哈姆特造成的伤害将会提高，提高系数基于@Ability2的飞行速度。此外，在@Ability2中释放神圣之耀时，增加@Ability2的飞行速度<% BAHAMUT_ARCANA_W_W4_R_SPEED_MULT %>倍，并且在接下去的5秒中这个符文将会把你判定为在@Ability2之中。基于移动速度增加伤害的效果会被@Ability2等级提高。"
-		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"             "额外伤害"
-		"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"                   "丢失魔法值%"		        			
-        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_two"             "增加伤害"	  						
-        "DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix_two"               "飞行速度%" 		  
-		 
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_Description"				"巴哈姆特根据损失的魔法值获得额外攻击力"
+	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_property_one"			"攻击力提高"
+    	"DOTA_Tooltip_ability_bahamut_rune_w_4_arcana2_suffix"					" 每损失1点魔法值"	
+	
+       
         "DOTA_Tooltip_modifier_bahamut_arcana_w4_amp"                             "逆效力"
-		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于神之领域的飞行速度增加伤害"
+		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_Description"                 "基于损失的魔法值增加额外攻击力"
 		
 		"DOTA_Tooltip_modifier_bahamut_arcana_w4_amp_linger"                      "逆效力"
 				
@@ -300,7 +296,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_1"		"宇宙符文"
 		"item_property_bahamut_immortal_weapon"								"世界之渊"
-		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有<% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>%暴击造成<% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x所造成的伤害，暴击伤害为纯粹伤害。"
+		"property_bahamut_immortal_weapon_description"						"技能和多重审判所造成的伤害有<% BAHAMUT_IMMORTAL_WEAPON_1_CHANCE %>%几率暴击造成<% BAHAMUT_IMMORTAL_WEAPON_1_DAMAGE_AMP %>x伤害，暴击伤害为纯粹伤害。"
 		
 		"DOTA_Tooltip_ability_item_rpc_bahamut_immortal_weapon_2"            "核子符文"
         "item_property_bahamut_immortal_weapon2"                             "顿悟"
