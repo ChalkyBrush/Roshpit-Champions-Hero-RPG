@@ -39,11 +39,11 @@
     	"DOTA_Tooltip_ability_paladin_rune_q_3_suffix_two"				"x 力量值"
 		
 		"DOTA_Tooltip_ability_paladin_rune_q_4"							"[Q4] 激化之火"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"全能骑士所有的过度治疗（治疗量大于所损失的生命值）都会创造一个护盾，吸收伤害。并且全能骑士的属性将提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_Description"				"全能骑士所有的过度治疗（治疗量大于所损失的生命值）都会创造一个护盾，吸收伤害。被动提高所有 <font color=\"#F6FFB5\">圣</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_one"			"护盾吸收最大伤害"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix"					"% 目标的最大生命值"
     	"DOTA_Tooltip_ability_paladin_rune_q_4_property_two"			"圣元素伤害提高"
-    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"% 每10点属性值"
+    	"DOTA_Tooltip_ability_paladin_rune_q_4_suffix_two"				"%"
 		
 		"DOTA_Tooltip_ability_justice_overwhelming"								"正义之手"
 		"DOTA_Tooltip_ability_justice_overwhelming_Description"					"元素： <font color=\"#F6FFB5\">圣</font><br>全能骑士从手中释放出一道纯粹的神圣风暴，自己退避并对前方锥形区域的敌人造成伤害。"
@@ -118,24 +118,24 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_suffix"					"% 攻击力"
 		
 		"DOTA_Tooltip_ability_paladin_rune_e_4"							"[E4] 鼓翼"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"被[E3]众志成城飞鸟击中的敌人，获得一个debuff，加深其受到来自全能骑士的伤害。（计算在敌人减伤之后）持续8秒。"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"敌人受到的伤害加深"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					"%"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_Description"				"释放 @Ability3后获得额外魔甲 <% PALADIN_E4_DURATION %> 秒."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_property_one"			"魔甲提高"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_suffix"					""
 
     	"DOTA_Tooltip_modifier_paladin_d_c"								"鼓翼"
-    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"来自全能骑士的伤害被加深"
+    	"DOTA_Tooltip_modifier_paladin_d_c_Description"					"提高魔甲"
 
 		"DOTA_Tooltip_ability_knights_disciple"								"骑士的门徒"
-		"DOTA_Tooltip_ability_knights_disciple_Description"					"召唤全能骑士的门徒，门徒拥有治疗技能治疗附近最低血量的单位，被治疗的单位伤害减免 20% 。"
+		"DOTA_Tooltip_ability_knights_disciple_Description"					"召唤全能骑士的门徒，门徒拥有治疗技能治疗附近最低血量的单位，被治疗的单位伤害减免 <% PALADIN_BASE_R_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL * 100 %>% 。"
 		"DOTA_Tooltip_ability_knights_disciple_Lore"							""
     	"DOTA_Tooltip_ability_knights_disciple_summon_duration"						"门徒持续时间："
-    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"每次治疗血量:"
+    	"DOTA_Tooltip_ability_knights_disciple_heal_per_tick_percent"					"% 最大生命值治疗每0.2秒:"
 
 		"DOTA_Tooltip_modifier_holy_ult_aura" 							"圣所"
 		"DOTA_Tooltip_modifier_holy_ult_aura_description" 				"无视物理攻击并且回复血量，额外获得200移动速度。"
 
 		"DOTA_Tooltip_modifier_knights_disciple_heal"					"骑士的门徒"
-		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"每0.2秒治疗一次，伤害减免 20%"
+		"DOTA_Tooltip_modifier_knights_disciple_heal_Description"		"每0.2秒治疗一次，伤害减免<% PALADIN_BASE_R_DAMAGE_REDUCTION_FROM_DISCIPLE_HEAL * 100 %>%%"
 		
 		"DOTA_Tooltip_ability_paladin_rune_r_1"							"[R1] 天堂守护者"
     	"DOTA_Tooltip_ability_paladin_rune_r_1_Description"				"全能骑士的门徒拥有1000 AOE的护甲提升光环."
@@ -238,10 +238,13 @@
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_property_one"		"持续时间"
     	"DOTA_Tooltip_ability_paladin_rune_e_3_arcana2_suffix"				" 秒"
 
-  		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] 审判者"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"全能骑士的 <font color=\"#F6FFB5\">圣</font> 元素伤害加成，将加深全能骑士对敌人的伤害。（伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				" % 的圣元素伤害加成倍数"
+  		"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2"						"[E4] 虔诚"
+    "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_Description"			"精神值增加全能骑士所有 <font color=\"#F6FFB5\">圣</font> 元素伤害和魔法穿透."
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_one"		"圣元素伤害提高"
+    	"DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix"				"% 精神值"
+        "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_property_two"        "魔法穿透"
+        "DOTA_Tooltip_ability_paladin_rune_e_4_arcana2_suffix_two"          " 每点精神值"
+
 
 		//Glyphs
 
@@ -252,37 +255,37 @@
 		"item_rpc_paladin_glyph_2_1_description" 				"英雄之怒变为切换技能。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_1"		"[T3-1] 命令雕文"
-		"item_rpc_paladin_glyph_3_1_description" 				"使你能完全控制门徒并且门徒的移动速度增加至800，右键该技能可以让门徒变为ai控制。"
+		"item_rpc_paladin_glyph_3_1_description" 				"使你能完全控制门徒并且门徒的移动速度增加至<% PALADIN_GLYPH_3_1_DISCIPLE_MS %>，右键该技能可以让门徒变为ai控制。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_1"		"[T4-1] 坚定正义雕文"
 		"item_rpc_paladin_glyph_4_1_description" 				"正义之手不再将自己击退，并且使正义之手每次释放施加的神圣之火的debuff层数X5。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_1"		"[T5-1] 神威雕文"
-		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火200%的伤害，并且当正义之手击中敌人时额外施加9层神圣之火的debuff。"
+		"item_rpc_paladin_glyph_5_1_description" 				"增加正义之手和神圣之火的伤害至<% PALADIN_GLYPH_5_1_W_W1_DAMAGE_AMP %>x，并且当正义之手击中敌人时额外施加<% PALADIN_GLYPH_5_1_W_W1_ADDITIONAL_STACKS%>层神圣之火的debuff。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_1"		"[T6-1] 崇高雕文"
-		"item_rpc_paladin_glyph_6_1_description" 				"拥有崇高光环 - 提高 @glyph_property1 移动速度。"
+		"item_rpc_paladin_glyph_6_1_description" 				"拥有崇高光环 - 提高 <% PALADIN_GLYPH_6_1_MS_AURA %> 移动速度。"
 
 		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect"		"崇高光环"
-		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"移动速度提高"
+		"DOTA_Tooltip_modifier_paladin_glyph_6_1_effect_Description"	"移动速度提高<% PALADIN_GLYPH_6_1_MS_AURA %> "
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_1"		"[T7-1] 热忱雕文"
-		"item_rpc_paladin_glyph_7_1_description" 				"每当某次攻击击中目标时,有 @glyph_property1% 几率立即对范围内另一目标进行一次攻击，无冷却时间。"
+		"item_rpc_paladin_glyph_7_1_description" 				"每当某次攻击击中目标时,有 <% PALADIN_GLYPH_7_1_ZEAL_CHANCE_DIV_BY_10 * 10 %>% 几率立即对范围内另一目标进行一次攻击，无冷却时间。"
 
 		"DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_a"		"[T5-a] 圣怒雕文"
-		"item_rpc_paladin_glyph_5_a_description" 				"骑士的门徒拥有 @glyph_property1 的AOE攻击效果并且攻击主要目标两次。"
+		"item_rpc_paladin_glyph_5_a_description" 				"骑士的门徒拥有 <% PALADIN_GLYPH_5_A_AOE_RADIUS %> 的AOE攻击效果并且攻击主要目标两次。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_1_2"       "[T1-2] 忏悔雕文"
-        "item_rpc_paladin_glyph_1_2_description"                "被 @Ability2 击中的敌人的攻击速度将会被降低 @glyph_property1 ，持续8秒。"
+        "item_rpc_paladin_glyph_1_2_description"                "被 @Ability2 击中的敌人的攻击速度将会被降低<% PALADIN_GLYPH_1_2_AS_SLOW %> ，持续8秒。"
 
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect"        "忏悔"
         "DOTA_Tooltip_modifier_paladin_glyph_1_2_effect_Description"    "攻击速度降低" 
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_2_2"       "[T2-2] 神祝之锤雕文"
-        "item_rpc_paladin_glyph_2_2_description"                "武器上的加成将会增加 @glyph_property1%。该加成只有在装备武器的同时更新。"
+        "item_rpc_paladin_glyph_2_2_description"                "武器上的加成将会增加 <% PALADIN_GLYPH_2_2_WEAPON_BONUS_PCT %>%。该加成只有在装备武器的同时更新。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "[T3-2] 金耀雕文"
-        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得 @glyph_property1% 的吸血。"
+        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得<% PALADIN_GLYPH_3_2_LIFESTEAL * 100 %>%的吸血。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] 冲鸭雕文"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"
@@ -290,11 +293,11 @@
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] 赎罪雕文"
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=\"#F6FFB5\">圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
 
-        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] 残值雕文"
-        "item_rpc_paladin_glyph_6_2_description"                "每一件神话及以下稀有度的物品将会增加税后伤害 @glyph_property1%。"
+        "DOTA_Tooltip_ability_item_rpc_paladin_glyph_6_2"       "[T6-2] 神护雕文"
+        "item_rpc_paladin_glyph_6_2_description"                "提高魔甲 <% PALADIN_GLYPH_6_2_MAGIC_ARMOR_PCT %>%。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_7_2"       "[T7-2] 天堂守卫雕文"
-        "item_rpc_paladin_glyph_7_2_description"                "降低承受伤害 @glyph_property1%，并且降低输出  @glyph_property2%。"
+        "item_rpc_paladin_glyph_7_2_description"                "降低承受的伤害<% PALADIN_GLYPH_7_2_DAMAGE_RECEIVED_REDUCTION %>%，并且降低输出 <% PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION %>%。"
 		
 		
 		//Weapons
