@@ -17,12 +17,12 @@
 		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"全能权杖: 火"	
 		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"增加基础攻击力"							
 
-		"omniro_earth_special_description"									"施加一个 <% OMNIRO_EARTH_SPECIAL_DURATION %> 秒的buff，buff增加护甲 和魔法抗性。"
+		"omniro_earth_special_description"									"施加一个 <% OMNIRO_EARTH_SPECIAL_DURATION %> 秒的buff，增加护甲和魔甲。"
 		"omniro_earth_special_a_pretext"									"额外护甲："		
-		"omniro_earth_special_b_pretext"									"额外魔法抗性："	
+		"omniro_earth_special_b_pretext"									"额外魔甲："	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"全能权杖: 土"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"增加护甲和魔法抗性"									
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"增加护甲和魔甲"									
 
 		"omniro_lightning_special_description"									"造成数值基于目标当前生命值的额外伤害。"
 		"omniro_lightning_special_a_pretext"										"目标当前生命值% 的额外伤害："					
@@ -108,8 +108,9 @@
 		"omniro_undead_special_a_pretext"									"禁止治疗debuff持续时间："		
 		"omniro_undead_special_b_pretext"									"税后伤害增加 %："	
 
-		"omniro_dragon_special_description"									"施加一个 <% OMNIRO_DRAGON_SPECIAL_DURATION %> 秒的buff，该buff提供所有元素伤害。"
+		"omniro_dragon_special_description"									"施加一个 <% OMNIRO_DRAGON_SPECIAL_DURATION %> 秒的buff，增加物理穿透。"
 		"omniro_dragon_special_a_pretext"									"元素伤害增加："		
+"omniro_undead_special_b_pretext"									"物理穿透:"	
 
 		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"全能权杖：龙"
 		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"增加所有元素伤害"
@@ -118,7 +119,7 @@
 		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"禁止治疗"
 
 		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"全能权杖：不死"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"增加税后伤害"
+		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"增加物理穿透"
 
 		"omniro_orb_effect_title"											"全能之球效果"
 
@@ -160,12 +161,12 @@
 		"omniro_ice_orb_a_pretext"										"基于全属性的伤害："				
 		"omniro_ice_orb_b_pretext"										"额外范围："
 
-		"omniro_arcane_orb_description"										"在 <% OMNIRO_ARCANE_BASE_AOE %> 将会被 <% OMNIRO_ARCANE_ORB_BASE_PULSES %> 道脉冲击中并且魔法抗性将会降低，持续 <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> 秒。脉冲的次数将会被奥术充能的最大充能增加。 "
+		"omniro_arcane_orb_description"										"在 <% OMNIRO_ARCANE_BASE_AOE %> 将会被 <% OMNIRO_ARCANE_ORB_BASE_PULSES %> 道脉冲击中并且魔甲将会降低，持续 <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> 秒。脉冲的次数将会被奥术充能的最大充能增加。 "
 		"omniro_arcane_orb_a_pretext"										"额外脉冲范围："				
-		"omniro_arcane_orb_b_pretext"										"魔法抗性降低："
+		"omniro_arcane_orb_b_pretext"										"魔甲降低："
 
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist"					"全能之球：奥术"
-		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"降低魔法抗性"
+		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"降低魔甲"
 
 		"omniro_shadow_orb_description"									"产生一个暗影冲击对 <% OMNIRO_SHADOW_ORB_BASE_AOE %> 范围内的敌人造成伤害并且施加一个禁用护甲的debuff。伤害基于攻击力。"
 		"omniro_shadow_orb_a_pretext"										"攻击力倍数的伤害："				

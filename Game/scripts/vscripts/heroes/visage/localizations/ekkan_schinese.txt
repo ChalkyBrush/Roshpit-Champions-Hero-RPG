@@ -47,14 +47,14 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] 暗黑旅程"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"被支配的死灵每击杀一个敌人，都将永久增加其攻击力与护甲值"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"被支配的死灵每击杀一个敌人，都将永久增加其攻击力、护甲和魔甲"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"攻击力提高"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"护甲值提高"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"护甲和魔甲提高"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"暗黑旅程层数"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"收获了敌人的灵魂，护甲值和攻击力提高"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"收获了敌人的灵魂，双甲和攻击力提高"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] 同情"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"增加被支配死灵的攻击速度和移动速度。"
@@ -93,14 +93,16 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"召唤持续时间增加"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" 秒"
 	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "不死元素伤害增加"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "每一个存在的骷髅"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                        "%每一个存在的骷髅"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] 骷髅法师"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30%几率召唤骷髅法师，对敌人进行aoe魔法攻击，伤害并减速敌人。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"30%几率召唤骷髅法师，对敌人进行aoe魔法攻击，伤害并降低敌人的魔甲。"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_one"					"AOE魔法伤害"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix"						"% 死灵飞龙的攻击力"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_property_two"					"移动速度降低"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_two"					""
+	 "DOTA_Tooltip_ability_ekkan_rune_w_3_property_three"                "魔甲降低"
+        "DOTA_Tooltip_ability_ekkan_rune_w_3_suffix_three"                  ""
 
     	"DOTA_Tooltip_ability_ekkan_mage_blast"								"爆炸"
     	"DOTA_Tooltip_ability_ekkan_mage_blast_Description"					"1秒后对范围内的敌人造成伤害并且减速敌人。伤害视为召唤骷髅的基础技能伤害。"
@@ -109,11 +111,11 @@
     	"DOTA_Tooltip_modifier_mage_blast_slow_Description"					"移动速度降低"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_4"								"[W4] 阴影斗篷"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔法抗性。被召唤的骷髅拥有税后伤害加成。"
-    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"魔法抗性提高"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_Description"					"所有被召唤的骷髅和死灵飞龙自身，都将获得额外的魔甲，物理穿透和魔法穿透。"
+    	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_one"					"额外魔甲"
     	"DOTA_Tooltip_ability_ekkan_rune_w_4_suffix"						""
-	"DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "骷髅的税后伤害增加"
-        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    "%"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_property_two"                  "物理穿透和魔法穿透提高"
+        "DOTA_Tooltip_ability_ekkan_rune_w_4_suffix_two"                    ""
 		
 		"DOTA_Tooltip_ability_ekkan_river_of_souls"							"地狱之门"
 		"DOTA_Tooltip_ability_ekkan_river_of_souls_Description"				"在目标地点创造一个地狱之门，可以与另一个地狱之门联通，踏入地狱之门在1.5秒之后将被传送至另一个地狱之门处。死灵飞龙所有的控制单位都可以被传送，并且友军也可以使用地狱之门。"	
@@ -129,11 +131,11 @@
     	"DOTA_Tooltip_ability_ekkan_rune_e_1_suffix_two"					""
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_2"								"[E2] 石像鬼"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"一个魔法免疫的石像鬼从地狱之门中被召唤出来。石像鬼拥有死灵飞龙一半的最大生命值。最多拥有两个石像鬼。"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_Description"					"一个魔法免疫的石像鬼从地狱之门中被召唤出来。石像鬼拥有死灵飞龙 <% EKKAN_E2_HP_MULT * 100 %>% 最大生命值。最多拥有两个石像鬼。"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_one"					"石像鬼攻击力"
     	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix"						"% 死灵飞龙攻击力"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"石像鬼护甲值"
-    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% 死灵飞龙护甲值"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_property_two"					"石像鬼双甲和双穿"
+    	"DOTA_Tooltip_ability_ekkan_rune_e_2_suffix_two"					"% 死灵飞龙双甲和双穿"
 
     	"DOTA_Tooltip_ability_ekkan_rune_e_3"								"[E3] 分解"
     	"DOTA_Tooltip_ability_ekkan_rune_e_3_Description"					"石像鬼的攻击将降低攻击目标的护甲值"
@@ -207,27 +209,27 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"减速并受到持续伤害"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] 食尸鬼"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"黑暗统治所支配的单位可以吞噬地面上的尸体，获得基础攻击力持续12秒。当buff持续时间结束时，所支配的单位将根据所吞噬的尸体数量释放大量尸虫（每吞噬一具尸体释放两个尸虫）。被尸虫击中的敌人将中毒，持续受到毒元素的伤害，每次伤害都基于所支配单位的攻击力。并且中毒的敌人所受到的全部伤害都将被加深（伤害加深计算在敌人减伤之后）。中毒的敌人不可以被治疗，并且在中毒期间死去会额外产生一具尸体。"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"黑暗统治所支配的单位可以吞噬地面上的尸体，获得基础攻击力持续12秒。当buff持续时间结束时，所支配的单位将根据所吞噬的尸体数量释放大量尸虫（每吞噬一具尸体释放两个尸虫）。被尸虫击中的敌人将中毒，持续受到毒元素的伤害，每次伤害都基于所支配单位的攻击力。并且中毒的敌人护甲和魔甲降低。中毒的敌人不可以被治疗，并且在中毒期间死去会额外产生一具尸体。"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"每个尸体提高基础攻击力"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				"%"
+    "DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"护甲和魔甲降低"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible"						"食尸鬼"
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"获得基础攻击力。此buff结束时释放成群的尸虫。"
 
     	"DOTA_Tooltip_modifier_swarm_effect"									"食尸鬼的剧毒"
-    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"每0.5秒受到一次毒元素的伤害，并且所受到的全部伤害加深（计算在减伤之后）。此debuff持续时间内死亡，将额外产生一具尸体。"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"每0.5秒受到一次毒元素的伤害，并且降低双甲。此debuff持续时间内死亡，将额外产生一具尸体。"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] 阴暗之旅"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"当有敌人在黑暗统治所支配单位 1200 码距离内死亡时，所支配的单位将永久获得攻击力和护甲值。"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"当有敌人在黑暗统治所支配单位 1200 码距离内死亡时，所支配的单位将永久获得攻击力、护甲和魔甲。"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"攻击力提高"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"护甲值提高"
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"双甲提高"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"阴暗之旅"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"永久提升攻击力和护甲值"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"永久提升攻击力和双甲"	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] 灵魂守卫"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"黑暗统治所支配的单位将提供一个光环，提高 % 攻击力和护甲值（光环作用于死灵飞龙和死灵飞龙的全部召唤物）。每5秒，光环将产生一次脉冲，为范围内所有友方单位提供两层护盾，每层护盾吸收一次伤害。"
@@ -286,7 +288,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_1"			"灵魂收割者"
 		"item_property_ekkan_immortal_weapon"							"灵魂收割者"
-		"property_ekkan_immortal_weapon_description"					"走过尸体后收集并增加 100000 的基础攻击力。最多6具尸体并且尸体持续时间10秒."
+		"property_ekkan_immortal_weapon_description"					"走过尸体后收集并增加  <% EKKAN_IMMORTAL_WEAPON_1_BASE_DAMAGE %>  的基础攻击力。最多6具尸体并且尸体持续时间10秒."
 		
 		"DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_2"            "伊米尔之侵略"
         "item_property_ekkan_immortal_weapon2"                             "石像鬼之命令"
@@ -294,4 +296,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_ekkan_immortal_weapon_3"            "灵魂冲击"
         "item_property_ekkan_immortal_weapon3"                             "僵尸王"
-        "property_ekkan_immortal_weapon3_description"                      "由召唤物基础技能所造成的魔法或纯粹伤害提高 @special_property1x。"
+        "property_ekkan_immortal_weapon3_description"                      "由召唤物直接造成的伤害提高 @special_property1x。"

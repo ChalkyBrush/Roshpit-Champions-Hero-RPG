@@ -42,24 +42,26 @@
 		"DOTA_Tooltip_modifier_torrent_trap_immunity"				"免疫激流陷阱"
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_3"                     "[Q3] 法力陷阱"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "位于爆炸陷阱中的敌人受到所有 <font color=\"#EF4126\">火</font> 和 <font color=\"#37DD3D\">毒</font> 和 <font color=\"#3894FF\">水</font> 元素的伤害提高。"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "元素伤害提高"
-        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_Description"         "位于爆炸陷阱中的敌人魔甲将被降低。"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_property_one"        "魔甲降低"
+        "DOTA_Tooltip_ability_trapper_rune_q_3_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_fulminating_magic_resist_loss"		"法力陷阱"		
-    	"DOTA_Tooltip_modifier_fulminating_magic_resist_loss_Description"	"位于爆炸陷阱中的敌人受到火、水和毒元素的伤害提高"
+    	"DOTA_Tooltip_modifier_fulminating_magic_resist_loss_Description"	"位于爆炸陷阱中的敌人魔甲降低"
 
 		"DOTA_Tooltip_ability_trapper_rune_q_4"						"[Q4] 狡诈陷阱"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"猎人的智力值将提高爆炸陷阱、毒蛇陷阱和激流陷阱的伤害。"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"伤害提高"
-    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"% 每10点智力值"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_Description"			"提高爆炸陷阱、毒蛇陷阱和激流陷阱的基础伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_property_one"		"基础伤害提高"
+    	"DOTA_Tooltip_ability_trapper_rune_q_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_explosive_bomb"						"炸弹"
-    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"Element: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">Normal</font><br>Tosses volatile bombs at the target location. The explosion damages and stuns enemies in the blast radius."
+    	"DOTA_Tooltip_ability_explosive_bomb_Description"			"元素: <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">普通</font><br>向目标地点投掷炸弹. 炸弹爆炸将会伤害并眩晕附近的敌人."
     	"DOTA_Tooltip_ability_explosive_bomb_Lore"					""
     	"DOTA_Tooltip_ability_explosive_bomb_damage"				"伤害："
     	"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"眩晕持续时间："
-		
+			"DOTA_Tooltip_ability_explosive_bomb_stun_duration"			"眩晕时间:"
+        "DOTA_Tooltip_ability_explosive_bomb_number_of_bombs"            "炸弹数量:"
+	
 		"DOTA_Tooltip_ability_smoke_bomb"							"烟雾弹"
     	"DOTA_Tooltip_ability_smoke_bomb_Description"				"向目标点扔一个烟雾弹，3秒后烟雾弹爆炸并释放烟雾。位于烟雾中的敌人100% 攻击丢失，且无法发现潜行状态下的猎人。"
     	"DOTA_Tooltip_ability_smoke_bomb_Lore"						""
@@ -87,9 +89,9 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_rune_w_4"						"[W4] 爆破专家"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"猎人的属性值将提高炸弹和瓦斯毒气的伤害。"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"伤害提高"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"% 每10点属性值"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_Description"			"提高炸弹和瓦斯毒气的基础伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_property_one"		"基础伤害提高"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_trapper_vanish"						"消失"
     	"DOTA_Tooltip_ability_trapper_vanish_Description"			"猎人消失在一片烟雾中，隐身且不会被发现。"
@@ -120,9 +122,9 @@
     	"DOTA_Tooltip_ability_trapper_rune_e_3_suffix"				"% 攻击力"
 		
 		"DOTA_Tooltip_ability_trapper_rune_e_4"                     "[E4] 麻痹粉尘"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "隐身时，猎人对敌人造成的伤害将加深。（伤害加深计算在敌人减伤之后）"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "减伤后伤害加深"
-        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_Description"         "隐身时，猎人获得额外的物理穿透和魔法穿透"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_property_one"        "双穿提高"
+        "DOTA_Tooltip_ability_trapper_rune_e_4_suffix"              ""
 		
 		"DOTA_Tooltip_modifier_vanish_paralyze"						"麻痹粉尘"
     	"DOTA_Tooltip_modifier_vanish_paralyze_Description"			"麻痹"
@@ -194,13 +196,13 @@
     	"DOTA_Tooltip_ability_trapper_arcana_lasso_whip_range"				"施法距离："
 
   		"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1"						"[W1] 剧毒"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"毒液鞭的debuff同时会使敌人受到的伤害提高。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"每层伤害提高"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_Description"			"毒液鞭的debuff同时降低敌人的魔甲。最多叠加 <% TRAPPER_ARCANA_W_W1_MAX_STACKS %> 层"
+    	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_property_one"		"每层魔甲降低"
     	"DOTA_Tooltip_ability_trapper_rune_w_1_arcana1_suffix"				"%"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1"						"[W2] 灵巧"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_Description"			"提高所有 <font color=\"#FFFFFF\">普通</font> 元素伤害。"
-    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_property_one"		"伤害提高"
+    	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_property_one"		"普通元素伤害提高"
     	"DOTA_Tooltip_ability_trapper_rune_w_2_arcana1_suffix"				"%"
 
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1"                     "[W3] 圣索"
@@ -209,9 +211,9 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x 敏捷值"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] 元素诡计"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"猎人的属性值之和提高<br><font color=\"#EF4126\">火</font>, <font color=\"#3894FF\">水</font> 和 <font color=\"#37DD3D\">毒</font> 元素的伤害。"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"伤害提高"
-    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"% 每10点属性值"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"			"提高猎人所有的<br><font color=\"#EF4126\">火</font>, <font color=\"#3894FF\">水</font> 和 <font color=\"#37DD3D\">毒</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"		"火、水、毒元素伤害提高"
+    	"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"				"%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "[T1-1] 潜行雕文"
@@ -233,7 +235,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "每当你移动 <% TRAPPER_GLYPH_5_1_DISTANCE %> 码时将会自动释放@Ability2。烟幕弹的持续时间增加 <% TRAPPER_GLYPH_5_1_INVISIBLE_W_DURATION_AMPLIFY %> 并且范围增加 <% TRAPPER_GLYPH_5_1_INVISIBLE_W_RADIUS_AMPLIFY %>。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] 工匠雕文"
-        "item_rpc_trapper_glyph_6_1_description"                "所有由装备直接造成的伤害都将拥有 普通 元素伤害，作为第二元素伤害。同时，猎人的普通元素输出降低 @glyph_property1%。"
+        "item_rpc_trapper_glyph_6_1_description"                "提高所有 <font color=\"<% RPC_ELEMENT_NORMAL_COLOR %>\">普通</font> 元素伤害 <% TRAPPER_GLYPH_6_1_NORMAL_AMP * 100 %>%.。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] 陷阱雕文"
         "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个同种陷阱。"
@@ -242,16 +244,16 @@
         "item_rpc_trapper_glyph_5_a_description"                "升级 @Ability1。爆炸陷阱造成的伤害提高 <% TRAPPER_GLYPH_5_A_FULMINATING_AMP * 100 - 100 %>% 。毒液陷阱的最大层数增加至<% TRAPPER_GLYPH_5_A_POISON_STACKS %>。蛛网陷阱的缠绕时间增加 <% TRAPPER_GLYPH_5_A_NET_DUR_AMP %>x 。洪流陷阱只需要 <% TRAPPER_GLYPH_5_A_TORRENT_DUR_UNTIL %>秒生效 。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] 薪火雕文"
-        "item_rpc_trapper_glyph_1_2_description"                "法力陷阱的效果变为双倍。"
+        "item_rpc_trapper_glyph_1_2_description"                "[Q3]的效果提高 <% TRAPPER_GLYPH_1_2_Q3_PCT_AMP * 100 %>%"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_2_2"       "[T2-2] 鹰爪雕文"
         "item_rpc_trapper_glyph_2_2_description"                "灵能之刃伤害将作用于主目标。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_3_2"       "[T3-2] 暗潮雕文"
-        "item_rpc_trapper_glyph_3_2_description"                "被洪流陷阱伤害的敌人伤害输出将降低 @glyph_property1%，持续 1秒。"
+        "item_rpc_trapper_glyph_3_2_description"                "位于烟雾弹中的敌人将迷失方向, 使他们向随机方向小距离走动."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_4_2"       "[T4-2] 兰花雕文"
-        "item_rpc_trapper_glyph_4_2_description"                "受到蛛网陷阱影响的敌人将被沉默。"
+        "item_rpc_trapper_glyph_4_2_description"                "受到蛛网陷阱影响的敌人将被沉默和缴械。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_2"       "[T5-2] 隐匿雕文"
         "item_rpc_trapper_glyph_5_2_description"                "[R2] 暗杀 攻击力提高的层数上限 增加 @glyph_property1。"
@@ -282,8 +284,8 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "黑色玛瑙莲花"
         "item_property_trapper_immortal_weapon2"                             "致命陷阱"
-        "property_trapper_immortal_weapon2_description"                      "受到任何陷阱影响的敌人，受到来自猎人的伤害将加深 @special_property1% （伤害加深计算在敌人减伤之后）"
+        "property_trapper_immortal_weapon2_description"                      "受到任何陷阱影响的敌人，降低<% TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS %> 护甲和魔甲"
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "七彩碎片"
         "item_property_trapper_immortal_weapon3"                             "暗杀距离"
-        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. Cooldowns for @Ability1 and @Ability4 are decreased by <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."
+        "property_trapper_immortal_weapon3_description"                      "提高所有技能的施法距离 <% TRAPPER_IMMORTAL_WEAPON_3_RANGE %>. @Ability1 和 @Ability4 的冷却时间减少 <% TRAPPER_IMMORTAL_WEAPON_3_CD_RED * 100%>%."

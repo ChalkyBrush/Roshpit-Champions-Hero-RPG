@@ -12,9 +12,9 @@
         "DOTA_Tooltip_modifier_charons_claw_enemy_Description"                  "减少移动速度和攻击力"
         
         "DOTA_Tooltip_ability_chernobog_rune_q_1"                               "[Q1] 当心脚下"
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_Description"                   "被 @Ability1 影响的敌人会使他们受到所有来源的税后伤害提高。该效果与其他税后伤害增加效果为乘法叠加。"
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_property_one"                  "受到的所有伤害提高"
-        "DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"                        "%"
+        "DOTA_Tooltip_ability_chernobog_rune_q_1_Description"                   "被 @Ability1 影响的敌人会使他们的护甲和魔甲降低。"
+      "DOTA_Tooltip_ability_chernobog_rune_q_1_property_one"					"护甲和魔甲降低"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_1_suffix"						""
 
         "DOTA_Tooltip_ability_chernobog_rune_q_2"                               "[Q2] 暗夜之爪"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "被@Ability1 影响的敌人每 <% CHERNOBOG_Q2_INTERVAL_THINK %>秒受到一次伤害。"
@@ -29,17 +29,15 @@
         "DOTA_Tooltip_modifier_charons_claw_c_a"                                "冥河苍凉"
         "DOTA_Tooltip_modifier_charons_claw_c_a_Description"                    "在卡戎之爪内增加额外的攻击力"
 
-        "DOTA_Tooltip_ability_chernobog_rune_q_4"                           "[Q4] 黑暗形态"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_Description"               "增加 @Ability1的长度和宽度。此外也会增加 [Q2] 的伤害频率，并且降低 @Ability1的冷却时间; 这个效果计算基于基础冷却时间和伤害间隔。"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"              "Q2 伤害频率增加"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"                    "x 倍（加快）"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"              "冷却时间降低"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_two"                    "x 倍（降低）"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"            "额外距离"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"                  ""
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_four"             "额外宽度"
-        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_four"                   ""
-        
+        "DOTA_Tooltip_ability_chernobog_rune_q_4"                           "[Q4] 延伸之夜"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_Description"               "增加 @Ability1的长度和宽度。此外也会增加 [Q2] 的伤害频率，并且降低 @Ability1的冷却时间。"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_one"            "额外的长度"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix"                  ""
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_property_two"             "额外的宽度"
+        "DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_two"                   ""
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_property_three"				"Q2 伤害频率增加"
+    	"DOTA_Tooltip_ability_chernobog_rune_q_4_suffix_three"					"%"
+
         "DOTA_Tooltip_ability_chernobog_demon_hunter"                           "恶魔猎人"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_Description"               "元素： <font color=\"#5B648C\">恶魔</font><br>暗夜魔王进入猎人模式使他的攻击额外造成基于攻击力的魔法伤害。猎人模式下暗夜魔王所受到的伤害不会超过他自身最大血量的 a%，受到的伤害溢出时也仅扣除暗夜魔王的一定魔法值。但是在猎人状态下血量恢复关闭。"
         "DOTA_Tooltip_ability_chernobog_demon_hunter_mana_drain_per_attack"                     "猎人状态下每次攻击汲取自身魔法值："
@@ -67,7 +65,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_w_2_suffix_two"                    ""
         
         "DOTA_Tooltip_ability_chernobog_rune_w_3"                               "[W3] 激情"
-        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "当恶魔猎人关闭，暗夜魔王每次攻击都会使敌方（主目标和他周围<% CHERNOBOG_W3_ARMOR_REDUCE_RADIUS %>范围内的所有敌人）的护甲降低。开启时，每次攻击攻击力会提高。转换目标激情的层数会减少 <% CHERNOBOG_W3_STACK_LOSE_PCT %>% 。（减甲的debuff在转移目标后不会重置。） "
+        "DOTA_Tooltip_ability_chernobog_rune_w_3_Description"                   "当恶魔猎人关闭，暗夜魔王每次攻击都会使敌方的护甲降低，最多叠加<% CHERNOBOG_W3_MAX_STACKS %>层。开启时，每次攻击会提高基础攻击力。转换目标激情的层数会减少 <% CHERNOBOG_W3_STACK_LOSE_PCT %>% 。（减甲的debuff在转移目标后不会重置。） "
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_one"                  "每次攻击叠加护甲值减少（关闭时）"
         "DOTA_Tooltip_ability_chernobog_rune_w_3_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_3_property_two"                  "每次攻击叠加攻击力提高（开启时）"
@@ -86,11 +84,11 @@
         "DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"                  "额外的敏捷值（开启时）"
         "DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"                    ""
         
-        "DOTA_Tooltip_ability_chernobog_shadow_walk"                            "暗影追捕"
-        "DOTA_Tooltip_ability_chernobog_shadow_walk_Description"                "暗夜魔王在暗夜追捕时能够在三种不同的形态间切换。在没有开启时，增加暗夜魔王的移动速度和移动速度上限。<br> 在开启时进入第一种形态，对敌方目标发出攻击指令时会立刻将你传送至目标身后(冷却时间: <% CHERNOBOG_E_ATTACK_TELEPORTATION_CD %>)。<br>再次切换会进入第二种形态，向目标地点发出移动指令会使你传送至目标地点(冷却时间: <% CHERNOBOG_E_MOVE_TELEPORTATION_CD %>)。<br>在任意开启状态中， 暗夜魔王每秒丢失魔法和生命值。"
-        "DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_cap"              "移动速度上限："
-        "DOTA_Tooltip_ability_chernobog_shadow_walk_movespeed_bonus"            "移动速度提高:"
-        "DOTA_Tooltip_ability_chernobog_shadow_walk_drain_per_second"           "每秒汲取 % 最大生命值和最大魔法值："
+       "DOTA_Tooltip_ability_chernobog_3_e"		                         "暗影追捕"
+      	"DOTA_Tooltip_ability_chernobog_3_e_Description"          "暗夜魔王在暗夜追捕时能够在三种不同的形态间切换。在没有开启时，增加暗夜魔王的移动速度和移动速度上限。<br> 在开启时进入第一种形态，对敌方目标发出攻击指令时会立刻将你传送至目标身后(冷却时间: <% CHERNOBOG_E_ATTACK_TELEPORTATION_CD %>)。<br>再次切换会进入第二种形态，向目标地点发出移动指令会使你传送至目标地点(冷却时间: <% CHERNOBOG_E_MOVE_TELEPORTATION_CD %>)。<br>在任意开启状态中， 暗夜魔王每秒丢失魔法和生命值。"
+        "DOTA_Tooltip_ability_chernobog_3_e_movespeed_cap"	           "移动速度上限："
+        "DOTA_Tooltip_ability_chernobog_3_e_movespeed_bonus"	       "移动速度提高:"
+         	"DOTA_Tooltip_ability_chernobog_3_e_drain_per_second"	         "每秒汲取 % 最大生命值和最大魔法值："
     "DOTA_Tooltip_modifier_shadow_walk_aura"                                "魔王降临"
         "DOTA_Tooltip_modifier_shadow_walk_aura_Description"                    "如果你看到这个，你就先告诉Deckard Cain，再告诉dragon，Deckard Cain有概率大笑。"
         
@@ -110,41 +108,41 @@
         "DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"                        "% 暗夜魔王的攻击力"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_3"                               "[E3] 突击"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "在暗影追捕状态下，下达对一个敌人的攻击指令时，暗夜魔王将瞬移到敌人背后，对其施加一个持续1秒的税后伤害加深状态。0.4秒冷却时间。同时增加 @Ability3在两种开启状态下的最大传送距离。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "在暗影追捕状态下，下达对一个敌人的攻击指令时，暗夜魔王将瞬移到敌人背后， 获得额外的物理穿透和魔法穿透 <% CHERNOBOG_E3_BUFF_DURATION_BASE %> 秒。同时增加 @Ability3在两种开启状态下的最大传送距离。"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                  "额外距离"
         "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "税后伤害加深"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    "% "
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "物理穿透和魔法穿透提高"
+        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    " "
         
         "DOTA_Tooltip_modifier_chernobog_c_c_cooldown"                          "突击冷却中"
 
         "DOTA_Tooltip_modifier_chernobog_c_c_cooldown"                          "突击冷却中"
 
         "DOTA_Tooltip_ability_chernobog_rune_e_4"                               "[E4] 日食"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_Description"                   "开启暗影追捕期间增加100%的闪避和30%的魔抗，关闭后这个效果会根据符文等级持续一段时间，同时该符文也会降低暗影的攻击间隔。"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_Description"                   "开启暗影追捕期间增加 <% CHERNOBOG_E4_EVASION %>%的闪避，关闭后这个效果会根据符文等级持续一段时间，同时该符文也会提高暗影的攻击速率。"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"                  "持续时间"
         "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"                        " 秒"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"                  "暗影攻击频率增加"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"                        "x "
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"                  "暗影攻击速率增加"
+        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"                        "%"
     
         "DOTA_Tooltip_modifier_chernobog_rune_e_4"                              "日食"
-        "DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"                  "100%的闪避和30%的魔抗"
+        "DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"                  " <% CHERNOBOG_E4_EVASION %>%闪避"
         
-        "DOTA_Tooltip_ability_chernobog_nights_procession"                      "暗夜游行"
-        "DOTA_Tooltip_ability_chernobog_nights_procession_Description"          "暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
-        "DOTA_Tooltip_ability_chernobog_nights_procession_radius"               "半径范围："
-        "DOTA_Tooltip_ability_chernobog_nights_procession_duration"             "持续时间："
+      	"DOTA_Tooltip_ability_chernobog_4_r"		        "暗夜游行"
+       "DOTA_Tooltip_ability_chernobog_4_r_Description"        "暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
+        "DOTA_Tooltip_ability_chernobog_4_r_radius"	          "半径范围："
+        "DOTA_Tooltip_ability_chernobog_4_r_duration"		            "持续时间："
 
-        "DOTA_Tooltip_modifier_chernobog_ult_freeze_special"                    "暗夜游行"
-        "DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"        "定身"
+      "DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect"                 "暗夜游行"
+      "DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect_Description"       "定身"
 
         "DOTA_Tooltip_modifier_charons_claw_rune_q_1_effect"                    "当心脚下"
-        "DOTA_Tooltip_modifier_charons_claw_rune_q_1_effect_Description"        "受到卡戎之爪的影响，受到所有来源的伤害提高"
+        "DOTA_Tooltip_modifier_charons_claw_rune_q_1_effect_Description"        "受到卡戎之爪的影响，降低护甲和魔甲"
         
         "DOTA_Tooltip_ability_chernobog_rune_r_1"                               "[R1] 恶魔之爪"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"                   "被暗夜游行困住的敌人受到来自暗夜魔王的伤害增加。"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"                  "受到的伤害提高"
-        "DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"                        "%"
+       "DOTA_Tooltip_ability_chernobog_rune_r_1_Description"					"提高所有 <font color=\"#5B648C\">恶魔</font> 元素伤害."
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_property_one"					"恶魔元素伤害提高"
+    	"DOTA_Tooltip_ability_chernobog_rune_r_1_suffix"						"%"
 
         "DOTA_Tooltip_modifier_nights_procession_a_d_rune"                      "恶魔之爪"          
         "DOTA_Tooltip_modifier_nights_procession_a_d_rune_Description"          "受到来自暗夜魔王的伤害提高" 
@@ -165,17 +163,15 @@
     
         //c_d: Illusion smacking affected enemies                                       
 
-        "DOTA_Tooltip_ability_chernobog_rune_r_4"                               "[R4] 延伸之夜"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_Description"                   "敏捷将会增加所有 <font color=\"#5B648C\">恶魔</font>元素伤害。此外，该符文也会增加@Ability4的范围，并且减少持续施法时间和冷却时间。"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"                  "持续时间时间"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"                        "x （降低）"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"                  "冷却时间"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"                        "x （减少）"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4"                               "[R4] 黑暗之心"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_Description"                   "增加@Ability4的范围，并且减少吟唱时间和冷却时间。"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_one"                  "吟唱时间减少"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix"                        "秒"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_two"                  "冷却时间减少"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_two"                        "秒"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_property_three"                "范围增加"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_three"                      ""
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_property_four"                 "恶魔伤害增加"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_suffix_four"                       "%每10点敏捷："
-        
+  
         //Arcanas
         
         "item_property_chernobog_arcana1"                                       "恶魔霸权"
@@ -211,11 +207,11 @@
         "DOTA_Tooltip_ability_chernobog_rune_r_3_arcana1_suffix_two"                "%"
 
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1"                       "[R4] 黑暗化身"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且敏捷将会增加所有<font color=\"#5B648C\">恶魔</font> 伤害。"
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_Description"           "增加恶魔霸权的持续时间，并且提高所有<font color=\"#5B648C\">恶魔</font> 元素的伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_one"          "持续时间延长："
         "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix"                " 秒"
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "恶魔元素增加："
-        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"            "%每10点敏捷："
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_property_two"          "恶魔元素伤害增加："
+        "DOTA_Tooltip_ability_chernobog_rune_r_4_arcana1_suffix_two"            "%"
 
         //cherno arcana2
         "item_property_chernobog_arcana2"                                       "恶魔之翼"
@@ -279,13 +275,13 @@
         "item_rpc_chernobog_glyph_4_1_description"              "[Q2] 对所有被影响的敌人周围 <% CHERNOBOG_T41_RADIUS %> 范围内的敌人造成伤害。"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_1"     "[T5-1] 夜行者雕文"
-        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于50%时，暗影追捕不再扣除生命值和魔法值。"
+        "item_rpc_chernobog_glyph_5_1_description"              "生命值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时，暗影追捕不再扣除生命值，魔法值低于<% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% 时暗影追捕不再扣除魔法值."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] 黑色裂痕雕文"
-        "item_rpc_chernobog_glyph_6_1_description"              "突击对目标500范围内的敌人都施加伤害加深buff。"
+        "item_rpc_chernobog_glyph_6_1_description"              "[E3] 持续时间提高 <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] 不屈不挠雕文"
-        "item_rpc_chernobog_glyph_7_1_description"              "每0.2秒清除一次眩晕效果。在清除一次眩晕后，暗夜魔王将会获得额外的 <% CHERNOBOG_T71_POSTMIT * 100 %>%税后伤害加成，持续<% CHERNOBOG_T71_POSTMIT_DUR %> 秒。"
+        "item_rpc_chernobog_glyph_7_1_description"              "每<% CHERNOBOG_T71_CD_CLEANSE %>秒清除一次眩晕效果"
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] 暗夜猎手雕文"
         "item_rpc_chernobog_glyph_5_a_description"              "暗夜魔王享受 @Ability2 的所有符文的所有加成效果无论 W 技能开启或是关闭。但是 @Ability2 开启时，仍然禁止治疗。"
