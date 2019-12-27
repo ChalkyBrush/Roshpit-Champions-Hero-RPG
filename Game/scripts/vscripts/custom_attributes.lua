@@ -1961,9 +1961,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
 	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 		if not ability.tech_level then
-			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
 		end
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		armor_pierce_modify = armor_pierce_modify + pierces
@@ -2367,9 +2367,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		end
 	end
 	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 		if not ability.tech_level then
-			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
 		end
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		spell_pierce_modify = spell_pierce_modify + pierces
@@ -3181,11 +3181,13 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 	end
 	if hero:HasModifier("modifier_ring_of_nobility_augmented") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 	end
 	if hero:HasModifier("modifier_azure_empire") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", ITEM_RPC_AZURE_EMPIRE_RED_STR)

@@ -6236,7 +6236,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityManaCost"				"100 300 500 700 900 1100 1300"
+		"AbilityManaCost"				"100 250 400 550 700 850 1000"
 		"precache"
 		{
 
@@ -8082,7 +8082,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 240 400 800 1400 2400 3600"
+		"AbilityManaCost"				"100 200 300 400 500 600 700"
 
 		"OnSpellStart"
 		{
@@ -70254,7 +70254,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"120 240 360 500 700 1200 2000"
+		"AbilityManaCost"				"120 220 320 420 520 620 720"
 
 		"OnSpellStart"
 		{

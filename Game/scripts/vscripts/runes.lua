@@ -1856,7 +1856,7 @@ function Runes:UnequipArcana(hero, index)
 			end
 			hero:RemoveModifierByName("modifier_ice_scathe_passive")
 			hero:RemoveModifierByName("modifier_ice_scathe_q2_shield")
-			Runes:EasyRevertArcanaSkills(hero, 0, abilityCheck:GetAbilityName(), new_ability_name, HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasyRevertArcanaSkills(hero, 0, new_ability_name, abilityCheck:GetAbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
 		local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")
