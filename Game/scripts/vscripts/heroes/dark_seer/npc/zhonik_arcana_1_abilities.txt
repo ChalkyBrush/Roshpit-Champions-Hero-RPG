@@ -40,12 +40,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"880 910 940 970 1000 1030 1060"
+				"movespeed_cap_bonus"		"<% ZHONIK_E_ARCANA_MS_CAP_BONUS %>"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"420 450 480 510 540 570 600"
+				"movespeed_bonus"		"<% ZHONIK_E_ARCANA_MS_BONUS %>"
 			}
 			"03"
 			{
@@ -183,26 +183,6 @@
 						"ScriptFile"	"heroes/dark_seer/temporal_field"
 						"Function"		"temporal_field_leave"
 						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_dummy_aura1_effect_zhonik"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"		"particles/roshpit/zhonik/dash_fade.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dark_seer/temporal_field"
-						"Function"		"zhonik_aura_thinker"
 					}
 				}
 			}

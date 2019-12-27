@@ -1,6 +1,6 @@
 require('/heroes/dark_seer/zhonik_constants')
 
-LinkLuaModifier("modifier_zonik_temporal_field_cap", "modifiers/zonik/modifier_zonik_temporal_field_cap", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_zhonik_temporal_field_buff", "modifiers/zhonik/modifier_zhonik_temporal_field_buff", LUA_MODIFIER_MOTION_NONE)
 
 function field_phase_start(event)
 	local caster = event.caster
@@ -128,10 +128,8 @@ function temporal_field_enter(event)
 	--print("DID THIS TRIGGER?")
 
 	if target:GetEntityIndex() == caster:GetEntityIndex() then
-		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
-		target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_dummy_aura1_effect_zhonik", {})
-		caster:AddNewModifier(caster, ability, "modifier_zonik_temporal_field_cap", {duration = duration})
+		target:RemoveModifierByName("modifier_zhonik_temporal_field_buff")
+		caster:AddNewModifier(caster, ability, "modifier_zhonik_temporal_field_buff", {})
 	end
 	if event.create == 1 then
 		if target:GetTeamNumber() == caster:GetTeamNumber() then
@@ -148,35 +146,14 @@ function temporal_field_leave(event)
 	local target = event.target
 
 	if not target:HasModifier("modifier_temporal_field_dashing") then
-		target:RemoveModifierByName("modifier_dummy_aura1_effect_zhonik")
-		target:RemoveModifierByName("modifier_zonik_temporal_field_cap")
+		target:RemoveModifierByName("modifier_zhonik_temporal_field_buff")
 	end
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_visible")
 	target:RemoveModifierByName("modifier_dummy_aura_effect_enemy_a_c_invisible")
 	if ability.e_4_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_E4_ARCANA_MS_STICKY_DURATION * ability.e_4_level, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_temporal_field_cap", {duration = duration})
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dummy_aura1_effect_zhonik", {duration = duration})
-	end
-end
-
-function zhonik_aura_thinker(event)
-	local target = event.target
-	local caster = event.caster
-	local ability = event.ability
-	if caster:HasModifier("modifier_temporal_dummy_aura_effect") then
-		Filters:CleanseStuns(target)
-		Filters:CleanseSilences(target)
-
-		if ability.e_3_level > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_zhonic_arcana_c_c_visible", {})
-			local newStacks = math.min(target:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster) + 1, 1000)
-			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster, newStacks)
-
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_zhonic_arcana_c_c_invisible", {})
-			target:SetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", caster, newStacks * ability.e_3_level)
-		end
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_zhonik_temporal_field_buff", {duration = duration})
 	end
 end
 
@@ -204,7 +181,7 @@ function c_c_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local loseRate = ability:GetSpecialValueFor("lose_rate")
-	if not caster:HasModifier("modifier_temporal_dummy_aura_effect") and not caster:HasModifier("modifier_temporal_field_dashing") then
+	if not caster:HasModifier("modifier_zhonik_temporal_field_buff") and not caster:HasModifier("modifier_temporal_field_dashing") then
 		for i = 1, loseRate, 1 do
 			local newStacks = caster:GetModifierStackCount("modifier_zhonic_arcana_c_c_visible", caster) - 1
 			local newStacks_inv = newStacks * ability.e_3_level

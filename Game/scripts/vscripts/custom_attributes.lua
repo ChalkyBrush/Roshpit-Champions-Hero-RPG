@@ -1548,8 +1548,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_tachyon_amp")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_Q3_MAGIC_ARMOR_RED
 	end
-	if unit:HasModifier("modifier_zonik_lightspeed") then
-		local modifier = unit:FindModifierByName("modifier_zonik_lightspeed")
+	if unit:HasModifier("modifier_zhonik_lightspeed") then
+		local modifier = unit:FindModifierByName("modifier_zhonik_lightspeed")
 		local e_3_level = unit:GetRuneValue("e", 3)
 		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
 	end
@@ -3697,9 +3697,8 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_disciple_bonus_movespeed = 800,
 	modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed_cap",
 	slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
-	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
-	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
-	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+	modifier_zhonik_speedball_invisible = "modifier_zhonik_speedball_invisible",
+	modifier_zhonik_temporal_field_buff = "modifier_zhonik_temporal_field_buff",
 	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
@@ -3753,29 +3752,7 @@ function CustomAttributes:MSCap(unit)
 					local decay = modifier:GetRemainingTime() / unit.baseShadowRushDuration
 					local msBonus = unit:FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())
 					local_max_ms = math.max(msBonus * decay, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_lightspeed_cap" then
-					local cap = 600
-					cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level * ZHONIK_E4_MS_CAP_INCREASE
-					if unit:HasModifier("modifier_zonik_speedball") then
-						cap = cap + 600
-					end
-					if unit:HasModifier("modifier_zonik_glyph_5_1") then
-						cap = cap + 200
-					end
-					local_max_ms = math.max(cap, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
-					local cap = 550 + modifier_ability:GetSpecialValueFor("movespeed_cap")
-					if unit:HasModifier("modifier_zonik_lightspeed") then
-						cap = cap + unit:FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap") - 550
-					end
-					if unit:FindAbilityByName("zonik_lightspeed") and unit:FindAbilityByName("zonik_lightspeed").e_4_level and unit:HasModifier("modifier_zonik_lightspeed") then
-						cap = cap + ZHONIK_E4_MS_CAP_INCREASE * unit:FindAbilityByName("zonik_lightspeed").e_4_level
-					end
-					if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
-						cap = cap + 200
-					end
-					local_max_ms = math.max(cap, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
+				elseif ms_cap_modifier == "modifier_zhonik_temporal_field_buff" then
 					local_max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), local_max_ms)
 				end
 			end

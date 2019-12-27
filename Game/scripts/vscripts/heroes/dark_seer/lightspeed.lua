@@ -1,6 +1,6 @@
 require('/heroes/dark_seer/zhonik_constants')
 
-LinkLuaModifier("modifier_zonik_lightspeed_cap", "modifiers/zonik/modifier_zonik_lightspeed_cap", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_zhonik_lightspeed_invisible", "modifiers/zhonik/modifier_zhonik_lightspeed_invisible", LUA_MODIFIER_MOTION_NONE)
 
 function lightspeed_precast(event)
 	local caster = event.caster
@@ -17,41 +17,19 @@ function lightspeed_cast(event)
 
 	duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 	EmitSoundOn("Zonik.Lightspeed", caster)
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_lightspeed", {duration = duration})
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_lightspeed_flying_portion", {duration = duration})
-	caster:AddNewModifier(caster, ability, "modifier_zonik_lightspeed_cap", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zhonik_lightspeed", {duration = duration})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zhonik_lightspeed_flying_portion", {duration = duration})
+	caster:AddNewModifier(caster, ability, "modifier_zhonik_lightspeed_invisible", {duration = duration})
 
-	local e_1_level = caster:GetRuneValue("e", 1)
-	e_1_level = 60
-	local zonik_glyph_5_1_speed = 0
-	if caster:HasModifier("modifier_zonik_glyph_5_1") then
-		zonik_glyph_5_1_speed = ZHONIK_GLYPH_5_1_LIGHTSPEED_ADDITIONAL_MS
-	end
-	if e_1_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_lightspeed_a_c", {duration = duration})
-		caster:SetModifierStackCount("modifier_lightspeed_a_c", caster, e_1_level * ZHONIK_E1_MS + zonik_glyph_5_1_speed)
-	end
 	ability.e_3_level = caster:GetRuneValue("e", 3)
 	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
-
-	-- if caster:HasModifier("modifier_zonik_glyph_5_a") then
-	-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ZHONIK_GLYPH_5_a_AOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
-	-- if #enemies > 0 then
-	-- for _,enemy in pairs(enemies) do
-	-- AddFOWViewer(caster:GetTeamNumber(), enemy:GetAbsOrigin(), 300, 5, false)
-	-- -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sages_eyes", {})
-	-- end
-	-- end
-	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar.vpcf", caster, 2)
-	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_sages_eyes", {duration = 5})
-	-- end
 end
 
 function lightspeed_start(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	caster:AddNewModifier(caster, ability, "modifier_zonik_lightspeed", {})
+	caster:AddNewModifier(caster, ability, "modifier_zhonik_lightspeed", {})
 	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "surge"})
 
 end
@@ -60,22 +38,22 @@ function lightspeed_end(event)
 	local caster = event.caster
 	local ability = event.ability
 
-	caster:RemoveModifierByName("modifier_zonik_lightspeed")
+	caster:RemoveModifierByName("modifier_zhonik_lightspeed")
 	caster:RemoveModifierByName("modifier_animation_translate")
-	caster:RemoveModifierByName("modifier_zonik_lightspeed_cap")
+	caster:RemoveModifierByName("modifier_zhonik_lightspeed_invisible")
 end
 
 function lightspeed_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:HasModifier("modifier_zonik_lightspeed_flying_portion") then
+	if caster:HasModifier("modifier_zhonik_lightspeed_flying_portion") then
 		local newPos = caster:GetAbsOrigin() + caster:GetForwardVector() * 100
 		local obstruction = WallPhysics:FindNearestObstruction(caster:GetAbsOrigin())
 		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPos, caster)
 		if blockUnit then
 			caster:SetAbsOrigin(caster:GetAbsOrigin() - caster:GetForwardVector() * 80)
 			WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
-			caster:RemoveModifierByName("modifier_zonik_lightspeed_flying_portion")
+			caster:RemoveModifierByName("modifier_zhonik_lightspeed_flying_portion")
 		end
 	end
 
@@ -97,7 +75,7 @@ function lightspeed_think(event)
 			manaDrain = manaDrain * DistanceMult
 			caster:ReduceMana(manaDrain)
 			if caster:GetMana() < 1 then
-				caster:RemoveModifierByName("modifier_zonik_lightspeed")
+				caster:RemoveModifierByName("modifier_zhonik_lightspeed")
 			end
 			if not ability.remnantPrep then
 				ability.remnantPrep = 0

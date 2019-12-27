@@ -2,7 +2,7 @@ require('/heroes/dark_seer/zhonik_constants')
 require('heroes/dark_seer/mach_punch')
 require('heroes/dark_seer/tachyon_shell')
 
-LinkLuaModifier("modifier_zonik_speedball_cap", "modifiers/zonik/modifier_zonik_speedball_cap", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_zhonik_speedball_invisible", "modifiers/zhonik/modifier_zhonik_speedball_invisible", LUA_MODIFIER_MOTION_NONE)
 
 function start_channel(event)
 	local caster = event.caster
@@ -58,7 +58,7 @@ function speedball_start(event)
 	ability.speedTarget = target
 	local duration = Filters:GetAdjustedBuffDuration(caster, 8, false)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_zonik_speedball", {duration = duration})
-	caster:AddNewModifier(caster, ability, "modifier_zonik_speedball_cap", {duration = duration})
+	caster:AddNewModifier(caster, ability, "modifier_zhonik_speedball_invisible", {duration = duration})
 
 	ability.r_1_level = caster:GetRuneValue("r", 1)
 
@@ -91,7 +91,7 @@ function speedball_thinking(event)
 		if ability.speedTarget:IsAlive() then
 			local cd = ability:GetCooldownTimeRemaining()
 			ability:EndCooldown()
-			ability:StartCooldown(cd - 0.65)
+			ability:StartCooldown(cd - ZHONIK_R_CD_RED_ON_TRAVEL)
 			caster:MoveToPosition(ability.speedTarget:GetAbsOrigin() + caster:GetForwardVector() * 80)
 			local distance = WallPhysics:GetDistance(caster:GetAbsOrigin(), ability.speedTarget:GetAbsOrigin())
 			if distance < 150 then
@@ -99,6 +99,7 @@ function speedball_thinking(event)
 			end
 
 			if ability.r_1_level > 0 then
+				local r_1_duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_R1_BASE_DUR, false)
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
 					local stun_duration = ZHONIK_R1_BASE_STUN_DURATION + ability.r_1_level * ZHONIK_R1_EXTRA_STUN_DURATION
@@ -109,11 +110,11 @@ function speedball_thinking(event)
 							ability:ApplyDataDrivenModifier(caster, enemy, "modifier_speedball_stun", {duration = stun_duration})
 							CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", enemy, 0.8)
 
-							ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {})
+							ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {duration = r_1_duration})
 							local newStacks = caster:GetModifierStackCount("modifier_speedball_a_d_visible", caster) + 1
 							caster:SetModifierStackCount("modifier_speedball_a_d_visible", caster, newStacks)
 
-							ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {})
+							ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {duration = r_1_duration})
 							caster:SetModifierStackCount("modifier_speedball_a_d_invisible", caster, newStacks * ability.r_1_level)
 
 							caster:PerformAttack(enemy, true, true, true, false, true, false, false)
@@ -126,12 +127,12 @@ function speedball_thinking(event)
 			end
 		else
 			caster:RemoveModifierByName("modifier_zonik_speedball")
-			caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+			caster:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 			-- caster:RemoveNoDraw()
 		end
 	else
 		caster:RemoveModifierByName("modifier_zonik_speedball")
-		caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+		caster:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 		-- caster:RemoveNoDraw()
 	end
 end
@@ -148,7 +149,7 @@ end
 
 function speedball_explode(caster, ability, damage, stun_duration)
 	caster:RemoveModifierByName("modifier_zonik_speedball")
-	caster:RemoveModifierByName("modifier_zonik_speedball_cap")
+	caster:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 	-- caster:RemoveNoDraw()
 	CustomAbilities:QuickAttachParticle("particles/roshpit/zonik/speedball_explosion.vpcf", caster, 5)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 560, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -158,7 +159,7 @@ function speedball_explode(caster, ability, damage, stun_duration)
 			Filters:ApplyStun(caster, stun_duration, enemy)
 			local cd = ability:GetCooldownTimeRemaining()
 			ability:EndCooldown()
-			ability:StartCooldown(cd - 0.2)
+			ability:StartCooldown(cd - ZHONIK_R_CD_RED_ON_HIT)
 			if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 				if caster:HasAbility("tachyon_shell") then
 					--print("HERE?")
@@ -177,10 +178,11 @@ function speedball_explode(caster, ability, damage, stun_duration)
 		end
 	end
 	EmitSoundOn("Zonik.Speedball.Explode", caster)
-	Filters:ApplyStun(caster, 2.0, caster)
+	Filters:ApplyStun(caster, ZHONIK_R_SELF_STUN, caster)
 	if caster:HasModifier("modifier_speedball_a_d_visible") then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {duration = 8})
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {duration = 8})
+		local r_1_duration = Filters:GetAdjustedBuffDuration(caster, ZHONIK_R1_BASE_DUR, false)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_visible", {duration = r_1_duration})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_speedball_a_d_invisible", {duration = r_1_duration})
 	end
 	local r_3_level = caster:GetRuneValue("r", 3)
 	if r_3_level > 0 then
