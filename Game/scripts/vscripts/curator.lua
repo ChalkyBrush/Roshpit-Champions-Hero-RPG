@@ -346,6 +346,9 @@ function Curator:FinishGettingClientData(msg)
 	local playerID = msg.playerID
 	local item = EntIndexToHScript(msg.item)
 	local language = msg.language
+	if language ~= "english" then
+		return false
+	end
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
 	--print("[Curator:FinishGettingClientData] ")
