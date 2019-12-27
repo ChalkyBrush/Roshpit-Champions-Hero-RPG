@@ -56,21 +56,24 @@
 		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] 旋风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				" <font color='#CCFF66'>圣光之手</font> 还会释放一股旋风对敌人造成伤害. 技能基础伤害值也会被<font color='#CCFF66'>圣光之手</font>的等级和神圣剑客的等级提高。（乘法）"
+		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				" <font color='#CCFF66'>圣光之手</font> 还会释放一股旋风对敌人造成伤害并降低敌人的魔甲"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_property_one"			"旋风伤害"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_suffix"					""
-
+ "DOTA_Tooltip_ability_seinaru_rune_w_2_property_two"            "魔甲降低"
+        "DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"                  ""
+	
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] 光之盾"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 3秒。护盾根据敏捷值吸收伤害。"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"伤害吸收"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"X 敏捷值"
 
     	"DOTA_Tooltip_ability_seinaru_rune_w_4"							"[W4] 智慧之光"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"神圣剑客的敏捷值将提高圣光之手的治疗量，并且提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_Description"				"提高神圣剑客的所有 <font color=\"#7AE2A7\">风</font> 元素伤害，并获得额外精神值"
 	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_one"			"风元素伤害提高"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"				"% 每10点敏捷值"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"治疗加成"
-    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix_two"				"% 每10点敏捷"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix"				"%"
+	"DOTA_Tooltip_ability_seinaru_rune_w_4_property_two"			"额外精神值"
+    	"DOTA_Tooltip_ability_seinaru_rune_w_4_suffix_two"				""
+
 
 
 		"DOTA_Tooltip_ability_seinaru_odachi_leap"						"太刀飞跃"
@@ -93,32 +96,32 @@
     	"DOTA_Tooltip_ability_seinaru_rune_e_2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_seinaru_rune_e_3"						"[E3] 潜影龙渊"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"神圣剑客能以高超的剑术穿透敌人, 提高怪物的坚定阈值. 然而，这种秘技要求神圣剑客没有其他破坚定效果存在."
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"坚定阈值提高"
-    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					"% 基础值"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_Description"			"神圣剑客获得额外的物理穿透."
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_property_one"			"物理穿透提高"
+    	"DOTA_Tooltip_ability_seinaru_rune_e_3_suffix"					""
 		
 		"DOTA_Tooltip_ability_seinaru_rune_e_4"						"[E4] 迅捷之翼"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"加强[R1]，使得[R1]能将目标的护甲降低至0以下。当敌人护甲为负时，每点低于0点的护甲值，都将提高其受到的圣元素伤害。"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"最大负值护甲"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					""
-	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"圣元素伤害提高"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				"% 每10点低于0的护甲值"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_Description"			"提高神圣剑客所有 <font color=\"#F6FFB5\">圣</font> 元素伤害，并获得额外敏捷值"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_property_one"			"圣元素伤害提高"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix"					"%"
+	 	"DOTA_Tooltip_ability_seinaru_rune_e_4_property_two"			"额外敏捷值"
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_suffix_two"				""
 		
 	
 		
 		"DOTA_Tooltip_ability_seinaru_gorudo"						"戈尔德"
-		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"神圣剑客变成魔免状态并根据敏捷提高基础攻击力."
+		"DOTA_Tooltip_ability_seinaru_gorudo_Description"			"神圣剑客变成魔免状态并根据敏捷提高基础攻击力.戈尔德施法结束时对附近的敌人造成神圣剑客攻击力 x<% SEINARU_R_CAST_END_HIT_MULT %> 的伤害"
 		"DOTA_Tooltip_ability_seinaru_gorudo_duration"			"持续时间:"
 		"DOTA_Tooltip_ability_seinaru_gorudo_att_per_agi"			"每点敏捷提高基础攻击:"
 
 		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity"					"戈尔德"
 		"DOTA_Tooltip_modifier_seinaru_gorudo_magic_immunity_Description"		"魔法免疫"
-		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"Gorudo"
-		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"Grants base attack damage based on Seinaru's attributes"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible"					"戈尔德"
+		"DOTA_Tooltip_modifier_seinaru_gorudo_att_bonus_visible_Description"		"根据神圣剑客的属性提高基础攻击力"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_1"						"[R1] 穿甲"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"神圣剑客的攻击在8秒内大量减少敌人的护甲。效果无法适用于护甲低于0的目标。抬手前就能造成该效果。"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"最大减甲值"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_Description"			"神圣剑客的攻击在8秒内大量减少敌人的护甲。在抬手前就能造成该效果。"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_1_property_one"			"护甲降低"
     	"DOTA_Tooltip_ability_seinaru_rune_r_1_suffix"					""
 
     	"DOTA_Tooltip_modifier_seinaru_gorudo_rune_r_1"				"穿甲"
@@ -145,9 +148,9 @@
     	"DOTA_Tooltip_modifier_seinaru_rune_r_3_effect_Description"	"攻击造成额外纯粹伤害"
 
     	"DOTA_Tooltip_ability_seinaru_rune_r_4"						"[R4] 勇气的考验"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"在决斗之环内的敌人，受到来自神圣剑客的伤害将提高。"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"伤害提高"
-    	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					"%"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_Description"			"当 [R2] 生效时获得额外的力量值."
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_property_one"			"额外力量值"
+    	"DOTA_Tooltip_ability_seinaru_rune_r_4_suffix"					""
 
 
 	//Arcanas
@@ -166,7 +169,7 @@
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1"						"[Q2] 刀舞"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"每次拔刀斩对一个敌人进行斩击后，神圣剑客都将获得一层buff，提高攻击力。buff最高叠加3层，每攻击15次减少一层buff。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_Description"			"每次拔刀斩对一个敌人进行斩击后，神圣剑客都将获得一层buff，提高攻击力。buff最高叠加 <% SEINARU_ARCANA_Q2_MAX_STACKS %>层，每攻击15次减少一层buff。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_property_one"			"每层攻击力提高"
     	"DOTA_Tooltip_ability_seinaru_rune_q_2_arcana1_suffix"					"%"
 
@@ -182,7 +185,7 @@
     	"DOTA_Tooltip_modifier_seinaru_arcana_agility_buff_Description"			"敏捷值提高"	
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1"						"[Q4] 无影"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_Description"			"施放拔刀斩后获得100%闪避。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_Description"			"施放拔刀斩后获得<% SEINARU_ARCANA_Q4_EVA_BASE %>%闪避。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_property_one"			"持续时间"
     	"DOTA_Tooltip_ability_seinaru_rune_q_4_arcana1_suffix"					" 秒"
 
@@ -221,21 +224,22 @@
     	"DOTA_Tooltip_modifier_sunstrider_lightsworn_Description"						"提高 <% SEINARU_ARCANA_E2_PURE_DMG_REDUCE * 100%>%  纯粹伤害减免"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2"						"[E3] 光之斩"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能时，提高税后伤害."
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"税后伤害提高"
-		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_Description"			"施放E技能的过程中，提高神圣剑客的物理穿透和魔法穿透."
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_property_one"			"双穿提高"
+		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
+
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"税后伤害提高"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"双穿提高"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"光之斩"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"税后伤害提高"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"双穿提高"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] 光能"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"当炎阳冲锋进入冷却时间时，神圣剑客有概率额外地获得一格充能，使炎阳冲锋可以自由施放一次而不进入冷却时间。概率超过 100% 可以获得多格充能。"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_one"			"自由施放概率"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix"					"%"
-		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"圣元素伤害增加："
+		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"<font color=\"#F6FFB5\">圣</font> 元素伤害提高"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
     	"DOTA_Tooltip_modifier_sunstrider_freecast"							"炎阳冲锋自由施放充能"
@@ -250,16 +254,16 @@
 		"item_rpc_seinaru_glyph_3_1_description" 				"R3对主目标155码范围内的其他目标造成伤害!"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_4_1"		"[T4-1] 银边雕文"
-		"item_rpc_seinaru_glyph_4_1_description" 				"新E3的增加敌人坚定阈值的效果，可以与税后增伤同时叠乘生效了，但是代价是E3符文的效果会降低到只有原先的1/10."
+		"item_rpc_seinaru_glyph_4_1_description" 				"增加移动速度<% SEINARU_GLYPH_4_1_MS %>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_1"		"[T5-1] 武士道雕文" //Red burst particle effect for damage
-		"item_rpc_seinaru_glyph_5_1_description" 				"被Q致盲的敌人受到W2的双倍伤害"
+		"item_rpc_seinaru_glyph_5_1_description" 				"[W2] 对被  @Ability1 致盲的敌人造成<% SEINARU_GLYPH5_W_DMG_AMP_VS_BLINDED %>x 伤害."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_6_1"		"[T6-1] 九尾雕文"
-		"item_rpc_seinaru_glyph_6_1_description" 				"圆环内减伤效果增加至 90% "
+		"item_rpc_seinaru_glyph_6_1_description" 				"圆环内减伤效果增加至 <% SEINARU_GLYPH6_R2_DMG_RED * 100%>% "
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_7_1"		"[T7-1] 金刚雕文"
-		"item_rpc_seinaru_glyph_7_1_description" 				"剑圣主属性变成力量。W4和R的加成变为60%的力量值和60%敏捷值加成"
+		"item_rpc_seinaru_glyph_7_1_description" 				"神圣剑客的每点力量值提高物理和魔法穿透 <% SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR %>."
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_5_a"		"[T5-a] 樱花雕文"
 		"item_rpc_seinaru_glyph_5_a_description" 				"[R2]决斗之环 跟随剑圣移动。"
@@ -304,4 +308,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_seinaru_immortal_weapon_3"            "重剑"
         "item_property_seinaru_immortal_weapon3"                             "坚定不移"
-        "property_seinaru_immortal_weapon3_description"                      "每点移动速度提高力量值 @special_property1。基础移动速度减少 @special_property2"
+        "property_seinaru_immortal_weapon3_description"                      "每点移动速度提高力量值 <% SEINARU_WEAP_3_STR_PER_MS %>。基础移动速度减少 @special_property2"
