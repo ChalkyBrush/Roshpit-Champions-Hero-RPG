@@ -30,12 +30,12 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% PALADIN_ARCANA_W2_DMG_PER_INT %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_two"			"<% PALADIN_ARCANA_W2_DMG_PER_ATT * 100 %>"
 			}
 			"03"
