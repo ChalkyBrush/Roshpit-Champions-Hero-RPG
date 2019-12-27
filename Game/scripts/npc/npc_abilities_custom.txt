@@ -19568,12 +19568,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"880 910 940 970 1000 1030 1060"
+				"movespeed_cap_bonus"		"330 360 390 420 450 480 510"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"420 450 480 510 540 570 600"
+				"movespeed_bonus"		"420 450 480 510 540 560 600"
 			}
 			"03"
 			{
@@ -19714,26 +19714,6 @@
 					}
 				}
 			}
-			"modifier_dummy_aura1_effect_zhonik"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"		"particles/roshpit/zhonik/dash_fade.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/dark_seer/temporal_field"
-						"Function"		"zhonik_aura_thinker"
-					}
-				}
-			}
 			"modifier_dummy_aura_effect_enemy"
 			{
 				"IsHidden"	"0"
@@ -19814,7 +19794,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-0.1"
+				"property_one"			"-3"
 			}
 		}
 	}
@@ -20150,7 +20130,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"1.5"
 			}
 			"02"
 			{
@@ -20179,7 +20159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"1.2"
 			}
 			"02"
 			{
@@ -20732,7 +20712,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"580 610 640 670 700 730 760"
+				"movespeed_cap_increase"	"30 60 90 120 150 180 210"
 			}
 			"02"
 			{
@@ -20749,7 +20729,7 @@
 		{
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_zonik_lightspeed"
+				"ModifierName"	"modifier_zhonik_lightspeed"
 				"Target" 		"CASTER"
 			}
 		}
@@ -20757,7 +20737,7 @@
 		{
 			"RemoveModifier"
 			{
-				"ModifierName"	"modifier_zonik_lightspeed"
+				"ModifierName"	"modifier_zhonik_lightspeed"
 				"Target" 		"CASTER"
 			}
 		}
@@ -20780,8 +20760,8 @@
 		}
 		"Modifiers"
 		{
-			"modifier_zonik_lightspeed"
-			{
+			"modifier_zhonik_lightspeed"
+			{		
 				"OnCreated"
 				{
 					"RunScript"
@@ -20817,7 +20797,7 @@
 					}
 				}
 			}
-			"modifier_zonik_lightspeed_flying_portion"
+			"modifier_zhonik_lightspeed_flying_portion"
 			{
 				"IsHidden"	"1"
 				"States"
@@ -21153,12 +21133,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"movespeed"	"600"
+				"movespeed_bonus"	"600"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"movespeed_cap"	"600"
+				"movespeed_cap_bonus"	"600"
 			}
 			"03"
 			{
@@ -21168,12 +21148,12 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+				"speed_mult"	"0.2 0.4 0.6 0.8 1.0 1.2 1.4"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"0.2 0.4 0.6 0.8 1.0 1.2 1.4"
+				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
 			}
 		}
 	}
@@ -24567,7 +24547,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -33020,7 +33000,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -33040,7 +33020,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -129255,7 +129235,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14 11 8"
+		"AbilityCooldown"				"12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -129276,12 +129256,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"regen_in_shield"		"0 2.0 4.0"
+				"regen_in_shield"		"0.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_loss"		"-30 -100 -240"
+				"damage_loss"		"-50 -75 -90"
 			}
 			"03"
 			{
@@ -129291,7 +129271,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"silence_duration"	"2 3 4"
+				"silence_duration"	"2 3 4"	
 			}
 		}
 		"Modifiers"
@@ -132041,7 +132021,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_regen_percent"			"0.3"
+				"hp_regen_percent"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -132399,7 +132379,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 25000 180000"
+		"AbilityDamage"		"3000 5000 10000"
 		"AbilitySpecial"
 		{
 			"01"
@@ -132410,7 +132390,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_slow"		"-80 -160 -300"
+				"attack_slow"		"-80 -160 -200"
 			}
 		}
 		"MaxLevel"	"3"
@@ -145880,7 +145860,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"40000"
+				"damage"			"15000"
 			}
 		}
 
@@ -145991,17 +145971,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent"			"20"
+				"heal_percent"			"5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent_boss"		"6"
+				"heal_percent_boss"		"1"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"3000"
+				"damage_per_tick"		"500"
 			}
 		}
 

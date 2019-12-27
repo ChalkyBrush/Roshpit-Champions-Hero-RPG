@@ -57,7 +57,8 @@ function frostvenom_grasp_start(event)
 					ability:ApplyDataDrivenModifier(caster, enemy2, "modifier_chilled_stacking", {duration = 8})
 					if q_1_level > 0 then
 						local currentStacks = enemy2:GetModifierStackCount("modifier_chilled_stacking", caster)
-						enemy2:SetModifierStackCount("modifier_chilled_stacking", caster, currentStacks + 1)
+						local newStacks = math.min(currentStacks + 1, VENOMORT_ARCANA2_Q1_MAX_STACKS)
+						enemy2:SetModifierStackCount("modifier_chilled_stacking", caster, newStacks)
 					end
 					Filters:TakeArgumentsAndApplyDamage(enemy2, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_POISON, RPC_ELEMENT_ICE)
 					if q_4_level > 0 then

@@ -2666,7 +2666,7 @@
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] Glyph of Parallax Arrows"
-		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>1500</font>."
+		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>1000</font>."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"
@@ -10968,8 +10968,8 @@
     	"DOTA_Tooltip_ability_zonik_lightspeed_movespeed_cap"				"ГРАНИЦА МАКСИМАЛЬНОЙ СКОРОСТИ:"
     	"DOTA_Tooltip_ability_zonik_lightspeed_duration"					"ДЛИТЕЛЬНОСТЬ:"
 
-    	"DOTA_Tooltip_modifier_zonik_lightspeed"							"Lightspeed"
-    	"DOTA_Tooltip_modifier_zonik_lightspeed_Description"				"Увеличена максимальная скорость передвижения. Можно проходить через препятствия."
+    	"DOTA_Tooltip_modifier_zhonik_lightspeed"							"Lightspeed"
+    	"DOTA_Tooltip_modifier_zhonik_lightspeed_Description"				"Увеличена максимальная скорость передвижения. Можно проходить через препятствия."
 		
 		"DOTA_Tooltip_ability_zonik_rune_e_1"								"[E1] Surge"
     	"DOTA_Tooltip_ability_zonik_rune_e_1_Description"					"Увеличивает скорость передвижения на время действия (E) Lightspeed."
@@ -11047,8 +11047,8 @@
     	"DOTA_Tooltip_ability_zhonik_temporal_field_enemy_move_slow"	"ЗАМЕДЛЕНИЕ ВРАГОВ:"
     	"DOTA_Tooltip_ability_zhonik_temporal_field_damage_resistance"	"СНИЖЕНИЕ ВХОДЯЩЕГО УРОНА ДЛЯ ГЕРОЯ ZHONIK, %:"
 
-    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik"				"Warp Field"
-    	"DOTA_Tooltip_modifier_dummy_aura1_effect_zhonik_Description"	"Скорость передвижения и максимальная скорость передвижения увеличены. Герой получает на <font color='#ccff66'>30</font>%% меньше урона. Эффекты оглушения и безмолвия снимаются."
+    	"DOTA_Tooltip_modifier_zhonik_temporal_field_buff"				"Warp Field"
+    	"DOTA_Tooltip_modifier_zhonik_temporal_field_buff_Description"	"Скорость передвижения и максимальная скорость передвижения увеличены. Герой получает на <font color='#ccff66'>30</font>%% меньше урона. Эффекты оглушения и безмолвия снимаются."
 
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy"					"Warp Field"
     	"DOTA_Tooltip_modifier_dummy_aura_effect_enemy_Description"		"Скорость передвижения снижена"		

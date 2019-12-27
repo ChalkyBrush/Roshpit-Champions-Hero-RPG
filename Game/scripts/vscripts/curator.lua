@@ -18,6 +18,9 @@ function Curator:Curate(msg)
 
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	Quests:ShowDialogueText({hero}, Events.curator, "#curator_dialogue_2", 5, true)
+	if item.newItemTable.version == "3.9" then
+		return false
+	end
 	Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 end
 
