@@ -41413,7 +41413,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14 11 8"
+		"AbilityCooldown"				"12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41434,12 +41434,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"regen_in_shield"		"0 2.0 4.0"
+				"regen_in_shield"		"0.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_loss"		"-30 -100 -240"
+				"damage_loss"		"-50 -75 -90"
 			}
 			"03"
 			{
@@ -41449,7 +41449,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"silence_duration"	"2 3 4"
+				"silence_duration"	"2 3 4"	
 			}
 		}
 		"Modifiers"
@@ -44199,7 +44199,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_regen_percent"			"0.3"
+				"hp_regen_percent"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -44557,7 +44557,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 25000 180000"
+		"AbilityDamage"		"3000 5000 10000"
 		"AbilitySpecial"
 		{
 			"01"
@@ -44568,7 +44568,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_slow"		"-80 -160 -300"
+				"attack_slow"		"-80 -160 -200"
 			}
 		}
 		"MaxLevel"	"3"
@@ -58038,7 +58038,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"40000"
+				"damage"			"15000"
 			}
 		}
 
@@ -58149,17 +58149,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent"			"20"
+				"heal_percent"			"5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent_boss"		"6"
+				"heal_percent_boss"		"1"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"3000"
+				"damage_per_tick"		"500"
 			}
 		}
 

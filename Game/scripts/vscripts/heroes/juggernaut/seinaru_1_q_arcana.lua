@@ -48,7 +48,7 @@ function blade_dash_start(event)
 	end
 	local q_4_level = caster:GetRuneValue("q", 4)
 	if q_4_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = q_4_level * 0.15})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_evasion_buff", {duration = q_4_level * SEINARU_ARCANA_Q4_DUR})
 	end
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
