@@ -2009,6 +2009,9 @@ function Runes:UnequipArcana(hero, index)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_nature_1", 3)
 			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
 			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_nature_2", 4)
+			if not onibi.stats_table["arcanas"] then
+				onibi.stats_table["arcanas"] = {}
+			end
 			onibi.stats_table["arcanas"]["fire"] = 0
 			require('heroes/arc_warden/abilities/onibi')
 
