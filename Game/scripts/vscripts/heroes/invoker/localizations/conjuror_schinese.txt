@@ -10,6 +10,8 @@
 		"DOTA_Tooltip_ability_summon_earth_aspect_Description"				"从地底深处召唤一个无法攻击的土之位面。召唤师受到伤害的50%将由土之位面分担。当土之位面存在时召唤师可以施放地震术。"
 		"DOTA_Tooltip_ability_summon_earth_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_health"			"土之位面生命值："
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_armor"				"土之位面护甲:"
+		"DOTA_Tooltip_ability_summon_earth_aspect_aspect_magic_armor"		"土之位面魔甲:"
 		
 		"DOTA_Tooltip_ability_earthquake"									"地震术"
 		"DOTA_Tooltip_ability_earthquake_Description"						"元素： <font color=\"#AF843D\">土</font><br>在目标点和土之位面下方释放地震，对范围内敌人造成眩晕和伤害。<br>第一次施放地震术后1.5秒才会进入技能冷却时间。期间可以自由施放地震术多次。"
@@ -45,16 +47,20 @@
     	"DOTA_Tooltip_ability_conjuror_rune_q_3_suffix"						""
 		
 		"DOTA_Tooltip_ability_conjuror_rune_q_4"							"[Q4] 土与火"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"召唤师的力量值将提高所有 <font color=\"#AF843D\">土</font> 和 <font color=\"#EF4126\">火</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_Description"				"提高召唤师所有 <font color=\"#AF843D\">土</font> 和 <font color=\"#EF4126\">火</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_conjuror_rune_q_4_property_one"				"土与火元素伤害提高"
-    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"% 每10点力量值"
+    	"DOTA_Tooltip_ability_conjuror_rune_q_4_suffix"						"%"
 		
 		"DOTA_Tooltip_ability_summon_fire_aspect"							"火之位面"
 		"DOTA_Tooltip_ability_summon_fire_aspect_Description"				"从魔术火焰中召唤一个近战攻击的火之位面。火之位面可造成巨额的伤害，当其存在时，你可以施放献祭。火之位面所受到的伤害不会超过其最大生命值的20%。"
 		"DOTA_Tooltip_ability_summon_fire_aspect_Lore"						""
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_health"					"火之位面生命值："
 		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_damage"					"火之位面攻击力："
-
+"DOTA_Tooltip_ability_summon_fire_aspect_aspect_armor"				"火之位面护甲:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_magic_armor"		"火之位面魔甲:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_armor_pierce"		"火之位面物理穿透:"
+		"DOTA_Tooltip_ability_summon_fire_aspect_aspect_spell_pierce"		"火之位面魔法穿透:"
+		
 		"DOTA_Tooltip_ability_immolation"									"献祭"
 		"DOTA_Tooltip_ability_immolation_Description"						"元素： <font color=\"#EF4126\">火</font><br>向你的前方发射一道圆弧状的火焰。同时，你的火之位面向身周释放火焰，对附近的敌人造成伤害。"
 		"DOTA_Tooltip_ability_immolation_Lore"								""
@@ -62,7 +68,7 @@
 		"DOTA_Tooltip_ability_immolation_radius"							"火之位面火焰范围："
 
 		"DOTA_Tooltip_ability_conjuror_rune_w_1"							"[W1] 永久献祭"
-    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。由火之位面造成的献祭伤害将会永久增加他的最大生命值。最多2亿最大生命值。"
+    	"DOTA_Tooltip_ability_conjuror_rune_w_1_Description"				"你的火之位面将持续对周围所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_property_one"				"每秒伤害"
     	"DOTA_Tooltip_ability_conjuror_rune_w_1_suffix"						""
 		
@@ -99,7 +105,10 @@
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_health"					"暗影位面生命值："
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_damage"					"暗影位面攻击力："
 		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_attack_splits"	"暗影位面分裂攻击数量："	
-		
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_armor"			"暗影位面护甲:"
+	
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_armor_pierce"		"暗影位面物理穿透:"
+		"DOTA_Tooltip_ability_summon_shadow_aspect_aspect_spell_pierce"		"暗影位面魔法穿透:"	
 
 		"DOTA_Tooltip_ability_shadow_gate"									"暗影之门"
 		"DOTA_Tooltip_ability_shadow_gate_Description"						"元素： <font color=\"#7F4F84\">暗</font><br>将召唤师和他的所有位面生物传送至目标点，回复所有位面生物最大生命值的血量，传送后留下的暗影之门将伤害所有其中的敌人。"
@@ -144,14 +153,14 @@
 		"DOTA_Tooltip_ability_call_of_elements_Description"					"为召唤师和他的所有位面生物施加buff。每个召唤的位面会得到一个不同的buff。<br>如果没有位面生物存在此技能将不产生效果。"
 		"DOTA_Tooltip_ability_call_of_elements_Lore"						""
 		"DOTA_Tooltip_ability_call_of_elements_health_regen"				"生命值回复速度（土之位面）："
-		"DOTA_Tooltip_ability_call_of_elements_magic_resist"				"魔法抗性（土之位面）："
+		"DOTA_Tooltip_ability_call_of_elements_magic_armor"				"魔甲（土之位面）："
 		"DOTA_Tooltip_ability_call_of_elements_attack_speed"				"攻击速度（暗影位面）："
 		"DOTA_Tooltip_ability_call_of_elements_movespeed"					"移动速度（暗影位面）："
 		"DOTA_Tooltip_ability_call_of_elements_bonus_damage"				"攻击力（火之位面）："
 		"DOTA_Tooltip_ability_call_of_elements_duration"					"持续时间："
 
 		"DOTA_Tooltip_modifier_call_of_earth"								"土之呼唤"
-		"DOTA_Tooltip_modifier_call_of_earth_Description"					"增加生命回复速度和魔法抗性"
+		"DOTA_Tooltip_modifier_call_of_earth_Description"					"增加生命回复速度和魔甲"
 
 		"DOTA_Tooltip_modifier_call_of_fire"								"火之呼唤"
 		"DOTA_Tooltip_modifier_call_of_fire_Description"					"增加攻击力"
@@ -228,7 +237,7 @@
     	"DOTA_Tooltip_ability_conjuror_deity_terra_blast_Description"		"元素： <font color=\"#AF843D\">土</font><br>在一条直线上引发一系列的地震，造成伤害和眩晕。伤害基于元素尊者的攻击力。"
 
   		"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1"						"[R3] 元素呼唤"
-    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_Description"			"元素尊者可以强化召唤师的军队。提高其位面生物的生命回复速度、攻击速度、攻击力和魔法抗性。当有位面生物存在时buff才生效。[R3]元素呼唤可以被多重施法，buff叠加。概率超过100%时，buff可被叠加多次。"
+    	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_Description"			"元素尊者可以强化召唤师的军队。提高其位面生物的生命回复速度、攻击速度、攻击力和魔甲。当有位面生物存在时buff才生效。[R3]元素呼唤可以被多重施法，buff叠加。概率超过100%时，buff可被叠加多次。"
     	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_property_one"		"多重施法概率"
     	"DOTA_Tooltip_ability_conjuror_rune_r_3_arcana1_suffix"				"%"
 
@@ -267,7 +276,7 @@
 
     	"DOTA_Tooltip_ability_summon_fire_deity_aspect_armor"			"护甲:"
 
-    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"魔法抗性:"
+    	"DOTA_Tooltip_ability_summon_fire_deity_aspect_magic_resist"			"魔甲:"
 
 
 
@@ -358,7 +367,7 @@
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_health"				"生命值:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_damage"				"基础攻击力:"
     	"DOTA_Tooltip_ability_summon_earth_deity_aspect_armor"				"护甲:"
-    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"魔法抗性:"
+    	"DOTA_Tooltip_ability_summon_earth_deity_aspect_magic_resist"		"魔甲:"
 
     	"DOTA_Tooltip_ability_earth_deity_sandstorm"						"沙尘暴"
     	"DOTA_Tooltip_ability_earth_deity_sandstorm_Description"			"元素: <font color=\"#AF843D\">土</font><br>大地尊者所站立的地方产生一阵狂暴的沙尘暴。处于沙尘暴的敌人的攻击速度和移动速度将被降低，并且他们的普通攻击有概率丢失。每0.25秒汲取魔法值并造成伤害并且在魔法耗尽时自动关闭。"
@@ -428,7 +437,7 @@
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_health"				"生命值:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_damage"				"攻击力:"
     	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_armor"				"护甲:"
-    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"魔抗:"
+    	"DOTA_Tooltip_ability_summon_shadow_deity_aspect_magic_resist"		"魔甲:"
 
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows"				"魔影斗篷"
     	"DOTA_Tooltip_ability_shadow_deity_cloak_of_shadows_Description"	"使用暗影波动掩盖幽冥尊者和他的盟友，给他们牢不可破的隐形."
@@ -462,14 +471,14 @@
     	"DOTA_Tooltip_ability_conjuror_rune_e_1_arcana4_suffix_two"				"%"	
 
   		"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4"						"[E2] 阴暗回响"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"			"所有不是 暗 的元素伤害都会造成额外的暗元素伤害."
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"额外暗元素伤害"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"% 基础伤害"
-
+     "DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_Description"            "所有元素伤害的第二元素类型转变为<font color=\"#7F4F84\">暗</font>.并且所有伤害有概率造成额外打击.概率超过 100% 意味着能造成多次打击."
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_property_one"		"回响打击概率"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_2_arcana4_suffix"				"%"
+	
 		"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4"							"[E3] 万华虚空"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_Description"				"敏捷值提高<font color=\"#7F4F84\">暗</font> 元素伤害. 所有从装备上获得的敏捷值提高."
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_one"				"暗元素伤害提高"
-    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"% 每10点敏捷"
+    	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix"						"%"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_property_two"				"从装备上获得的敏捷值提高"
     	"DOTA_Tooltip_ability_conjuror_rune_e_3_arcana4_suffix_two"					"%"
 
@@ -502,7 +511,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"你的土元素将在死亡后立即复活。"
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"[T5-a] 召唤雕文"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% for Conjuror and his Summons."
+		"item_rpc_conjuror_glyph_5_a_description" 				"提高魔术师及其召唤物 <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>%  的物理穿透和魔法穿透."
 		
 		//Weapons
 		"conjuror_weapon_01"			"土魔法球"
@@ -522,7 +531,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_2"            "三位一体"
         "item_property_conjuror_immortal_weapon2"                             "宇宙平衡"
-        "property_conjuror_immortal_weapon2_description"                      "每 10 点力量值提高 @Ability1 的伤害 0.03%，每 10 点智力值提高 @Ability2 的伤害 0.03%，每 10 点敏捷值提高 @Ability3 的伤害 0.03%。"  
+        "property_conjuror_immortal_weapon2_description"                      "每 1 点力量值提高 @Ability1 的伤害 <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%，每 1 点智力值提高 @Ability2 的伤害 <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%，每 1 点敏捷值提高 @Ability3 的伤害 <% CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT %>%。"  
 
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "坚定球"
