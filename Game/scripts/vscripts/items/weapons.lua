@@ -321,6 +321,7 @@ function Weapons:SetupBasicWeapon(rarity, item_level, required_hero, max_level, 
 	-- weapon.newItemTable.minLevel = item_level
 	weapon.newItemTable.xp = current_xp
 	weapon.newItemTable.level = current_level
+	weapon.newItemTable.xpNeeded = Weapons.XP_PER_LEVEL_TABLE[weapon.newItemTable.level]
 	RPCItems:SetBaseItemValues(weapon, item_variant, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, RPC_GEAR_SLOT_WEAPON)
 	return weapon
 end

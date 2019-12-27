@@ -166,11 +166,11 @@ function Gems:CanItemBeSocketed(item)
 	local slot = item.newItemTable.item_slot
 	if slot == "amulet" or slot == "body" or slot == "feet" or slot == "hands" or slot == "head" then
 	else
-		allowed = false
+		return false
 	end
 	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
-		allowed = false
+		return false
 	end
 	if not item.newItemTable.socket2 then
 	else
