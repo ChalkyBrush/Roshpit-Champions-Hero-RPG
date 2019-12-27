@@ -13,12 +13,12 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_1_suffix"								"%"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_2"									"[Q2] 冷光岬"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"质化状态下将提高护甲值。失去硬化效果后，护甲提升效果仍然持续 4 秒。"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"护甲提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_Description"						"质化状态下将提高护甲和魔甲。失去硬化效果后，双甲提升效果仍然持续 4 秒。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_2_property_one"						"护甲和魔甲提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_shimmer_cape"										"冷光岬"
-    	"DOTA_Tooltip_modifier_shimmer_cape_Description"							"护甲值提高"
+    	"DOTA_Tooltip_modifier_shimmer_cape_Description"							"双甲提高"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3"									"[Q3] 重力势能"
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_Description"						"重击地面 将根据 质化后 所坠下的高度造成额外的伤害。"
@@ -26,9 +26,9 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_q_3_suffix"								"x 高度的平方"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_q_4"									"[Q4] 黑礁杀手"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"黑礁守卫的敏捷值将提高所有 <font color=\"#7F4F84\">暗</font> and <font color=\"#3894FF\">水</font> 元素的伤害。"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"暗元素、水元素伤害提高"
-    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"% 每 10 点敏捷值。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_Description"						"提高所有 <font color=\"#7F4F84\">暗</font>和 <font color=\"#3894FF\">水</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_property_one"						"暗、水元素伤害提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_q_4_suffix"								"%"
 		
 		"DOTA_Tooltip_ability_slipfinn_jump"										"鱼跃"
     	"DOTA_Tooltip_ability_slipfinn_jump_Description"							"黑礁守卫高高跃起，升空后仍保持移动速度向前移动。可以借助敌人的头顶弹起进行二段跳。当黑礁守卫上升到一定高度时，敌人将无法攻击他。起跳时或者从头顶弹起时移动，会略微改变黑礁守卫的跳跃轨迹，向目标地点倾斜。<br><b>二段跳：</b> 第一次跳跃着陆后，执行第二次跳跃。<br><b>三段跳：</b> 二段跳着陆后，再次起跳。<br><b>高跃：</b> 硬化后当滑动速度很低时起跳。<br><b>远跃：</b> 硬化后当滑动速度仍然很快时起跳。（多段跳也会越跳越高越跳越远）"
@@ -42,12 +42,12 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% 攻击力"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] 阴郁之影"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得一层阴郁之影 buff，加深黑礁守卫对那个 被踩的敌人 的伤害。（伤害加深计算在敌人减伤之后）buff 持续 <% SLIPFINN_W2_DURATION %>秒。"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"每层 buff 伤害加深"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"跳跃至某敌人头顶时，敌人获得2层阴郁之影buff，降低被踩的敌人的魔甲，持续<% SLIPFINN_W2_DURATION %>秒. [W1]击中的敌人能叠加1层阴郁之影buff."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"每层 buff 魔甲降低"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible"							"阴郁之影"
-    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"受到来自黑礁守卫的伤害被加深"
+    	"DOTA_Tooltip_modifier_slipfinn_gloomshade_visible_Description"				"魔甲降低"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3"									"[W3] 汹涌之潮"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_3_Description"						"跳跃至敌人头顶时，将提高 % 攻击力。持续 <% SLIPFINN_W3_DURATION %> 秒，再次跳跃至敌人头顶时刷新攻击力加成和持续时间。"
@@ -81,11 +81,13 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_e_1_suffix"								"% 攻击所造成的伤害"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2"									"[E2] 深渊眠者"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"敏捷值将提高最大生命值和生命值回复速度。质化状态下，生命值恢复效果增强 2X。"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_Description"						"敏捷值将提高最大生命值、生命值回复速度和护甲。质化状态下，生命值恢复效果增强 2X。"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_one"						"最大生命值提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix"								" 每点敏捷值"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_two"						"生命值回复速度提高"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_two"							" 每点敏捷值"
+	"DOTA_Tooltip_ability_slipfinn_rune_e_2_property_three"						"额外护甲"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_2_suffix_three"							" 每点敏捷"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3"									"[E3] 暗影披风"
     	"DOTA_Tooltip_ability_slipfinn_rune_e_3_Description"						"释放 滑步疾驰 或 鬼雾 后，黑礁守卫将进入隐身状态。"
@@ -95,10 +97,11 @@
     	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak"								"暗影披风"
     	"DOTA_Tooltip_modifier_slipfinn_shadow_cloak_Description"					"隐身"
 
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] 年轻的刺客"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"每次伤害都有一定的概率忽略敌人的坚定技能。"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"忽略坚定概率"
-    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								"%"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4"									"[E4] 犀利的刺客"
+   "DOTA_Tooltip_ability_slipfinn_rune_e_4_Description"						"在击杀一个敌人后，获得额外的物理穿透和魔法穿透，持续 <% SLIPFINN_E4_DURATION %> 秒."
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_property_one"						"物理和魔法穿透提高"
+    	"DOTA_Tooltip_ability_slipfinn_rune_e_4_suffix"								""
+
 		
 		"DOTA_Tooltip_ability_slipfinn_bubble_possession"							"主权气泡"
     	"DOTA_Tooltip_ability_slipfinn_bubble_possession_Description"				"1.5 秒持续施法后，黑礁守卫 冲锋至目标敌人处，将敌人用主权气泡包裹住，捕获并控制该敌人。黑礁守卫将获得被捕获敌人的所有技能，并且所窃取的技能被视为 黑礁守卫大招的 基础技能。"	
@@ -123,7 +126,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_r_2_suffix"								" 秒"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3"									"[R3] 逐个击破"
-    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"当控制某个敌人后，对同一种类型的敌人（相同模型和技能）所造成的伤害都将被加深。（伤害加深计算在敌人减伤之后）同源敌人破坚定效果持续直至本局游戏结束。如果某个敌人不可被控制，对该种敌人的伤害提高效果仍然生效。（只是伤害提高，但是不破坚定）"
+    	"DOTA_Tooltip_ability_slipfinn_rune_r_3_Description"						"当控制某个敌人后，对同一种类型的敌人（相同模型和技能）所造成的伤害都将被提高。效果持续直至本局游戏结束。如果某个敌人不可被控制，对该种敌人的伤害提高效果仍然生效。"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3_property_one"						"本局对该种敌人减伤后伤害加深"
     	"DOTA_Tooltip_ability_slipfinn_rune_r_3_suffix"								"%"
 
@@ -151,10 +154,10 @@
 
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1"                      "[E1] 旋转剃刀"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "在泥沼滚滚中使用质化会获得一个2秒持续时间的速度加成buff，这个速度加成效果随时间递减。此外也会在周围产生一个水流旋风，对周围的敌人造成基于黑礁守卫攻击力的伤害。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_Description"          "在泥沼滚滚中使用质化会获得一个2秒持续时间的减速buff，这个效果随时间递减。此外也会在周围产生一个水流旋风，对周围的敌人造成基于黑礁守卫攻击力的伤害。"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "伤害"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% 攻击力造成的伤害"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "速度加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "速度降低"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "旋转剃刀"
@@ -168,11 +171,11 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% 攻击力造成的伤害"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] 金刚之壳"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "在泥沼滚滚中时将会获得额外的护甲和税后魔法伤害加成。"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "在泥沼滚滚中时将会获得额外的护甲和魔法穿透加成。"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_one"             "护甲加成"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix"                   ""
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "税后魔法伤害加成"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               "%"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_property_two"             "魔法穿透加成"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_suffix_two"               ""
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1"                          "[E4] 渊流气泡"
         "DOTA_Tooltip_ability_slipfinn_rune_e_4_arcana1_Description"              "在黑礁守卫起跳后，如果进入泥沼滚滚再落地将会在周围区域产生一个巨大的震荡，对敌人造成基于攻击力的伤害和眩晕。产生的范围与跳起的高度有关，并且在空中使用质化会进一步加强效果。"
