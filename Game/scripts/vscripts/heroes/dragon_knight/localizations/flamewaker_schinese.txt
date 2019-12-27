@@ -259,7 +259,7 @@
 		"item_rpc_flamewaker_glyph_6_1_description" 			"施放大灾变后提高额外攻击力 <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% ，持续时间 <% FLAMEWAKER_GLYPH_6_1_DURATION %> 秒。"
 
 		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff"		"山脉之核"
-		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"提高 100%% 额外攻击力"
+		"DOTA_Tooltip_modifier_flamewaker_glyph_6_1_buff_Description"	"提高 <% FLAMEWAKER_GLYPH_6_1_BONUS_ATTACK_DAMAGE %>% 额外攻击力"
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_7_1"	"[T7-1] 火海雕文"
 		"item_rpc_flamewaker_glyph_7_1_description" 			"余烬拥有 @glyph_property1x 宽度并造成 <% FLAMEWAKER_GLYPH_7_1_E1_DAMAGE_MULT %>x 伤害。"
