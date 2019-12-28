@@ -1,76 +1,76 @@
 		//Tier 1
 
-        "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] Glyph of Hard Skin"
-		"item_rpc_neutral_glyph_1_1_description" 			"Increases Armor by <% ITEM_RPC_NEUTRAL_GLYPH_1_1_ARM_PER_LVL %> per Hero Level."
+        "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] 护甲雕文"
+		"item_rpc_neutral_glyph_1_1_description" 			"每级英雄等级提高 <% ITEM_RPC_NEUTRAL_GLYPH_1_1_ARM_PER_LVL %> 护甲值."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] Glyph of Magic Protection"
-		"item_rpc_neutral_glyph_1_2_description" 			"Increases Magic Armor by <% ITEM_RPC_NEUTRAL_GLYPH_1_2_MAG_ARM_PER_LVL %> per Hero Level."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_2"	"[T1-2] 魔甲雕文"
+		"item_rpc_neutral_glyph_1_2_description" 			"每级英雄等级提高 <% ITEM_RPC_NEUTRAL_GLYPH_1_2_MAG_ARM_PER_LVL %> 魔甲值."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] Glyph of the Gourmand"
-		"item_rpc_neutral_glyph_1_3_description" 			 "Consuming a potion will additionally restore <% ITEM_RPC_NEUTRAL_GLYPH_1_3_HEAL_PER_HEAL * 100 %>% of the HP or MP restored over <% ITEM_RPC_NEUTRAL_GLYPH_1_3_DURATION %>s."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_3"	"[T1-3] 贪吃雕文"
+		"item_rpc_neutral_glyph_1_3_description" 			 "使用药剂时在<% ITEM_RPC_NEUTRAL_GLYPH_1_3_DURATION %>秒内额外回复 <% ITEM_RPC_NEUTRAL_GLYPH_1_3_HEAL_PER_HEAL * 100 %>% 药剂提供的生命值和魔法值."
 
         //Tier 2
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] Glyph of Armor Pierce"
-		"item_rpc_neutral_glyph_2_1_description" 			"Increases Armor Pierce by <% ITEM_RPC_NEUTRAL_GLYPH_2_1_ARM_PRC_PER_LVL %> per Hero Level."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_1"	"[T2-1] 物穿雕文"
+		"item_rpc_neutral_glyph_2_1_description" 			"每级英雄等级提高 <% ITEM_RPC_NEUTRAL_GLYPH_2_1_ARM_PRC_PER_LVL %> 物理穿透."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] Glyph of Spell Pierce"
-		"item_rpc_neutral_glyph_2_2_description" 			"Increases Spell Pierce by <% ITEM_RPC_NEUTRAL_GLYPH_2_2_SPELL_PRC_PER_LVL %> per Hero Level."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_2"	"[T2-2] 法穿雕文"
+		"item_rpc_neutral_glyph_2_2_description" 			"每级英雄等级提高<% ITEM_RPC_NEUTRAL_GLYPH_2_2_SPELL_PRC_PER_LVL %> 魔法穿透."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] Glyph of Berserk"
-		"item_rpc_neutral_glyph_2_3_description" 			"Increases Base Attack Damage by <% ITEM_RPC_NEUTRAL_GLYPH_2_3_BASE_ATTACK_DMG_PER_LVL %> per Hero Level."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_2_3"	"[T2-3] 狂怒雕文"
+		"item_rpc_neutral_glyph_2_3_description" 			"每级英雄等级提高 <% ITEM_RPC_NEUTRAL_GLYPH_2_3_BASE_ATTACK_DMG_PER_LVL %> 基础攻击力."
 
         //Tier 3
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"[T3-1] Glyph of Flight"
-		"item_rpc_neutral_glyph_3_1_description"			"Increases your Movement Speed Cap by <% ITEM_RPC_NEUTRAL_GLYPH_3_1_MS_CAP_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_1"	"[T3-1] 飞行雕文"
+		"item_rpc_neutral_glyph_3_1_description"			"提高移速上限 <% ITEM_RPC_NEUTRAL_GLYPH_3_1_MS_CAP_BONUS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"[T3-2] Glyph of Avoidance"
-		"item_rpc_neutral_glyph_3_2_description" 			"Increases Evasion by <% ITEM_RPC_NEUTRAL_GLYPH_3_2_EVASION %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_2"	"[T3-2] 闪避雕文"
+		"item_rpc_neutral_glyph_3_2_description" 			"提高闪避 <% ITEM_RPC_NEUTRAL_GLYPH_3_2_EVASION %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"[T3-3] Glyph of Fleeting"
-		"item_rpc_neutral_glyph_3_3_description" 			"Reduces cooldown of @Ability3 by <% ITEM_RPC_NEUTRAL_GLYPH_3_3_E_CD_RED %> seconds."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_3_3"	"[T3-3] 惊鸿雕文"
+		"item_rpc_neutral_glyph_3_3_description" 			"减少 @Ability3 的冷却时间 <% ITEM_RPC_NEUTRAL_GLYPH_3_3_E_CD_RED %> 秒."
 
         //Tier 4
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] Glyph of Elements"
-		"item_rpc_neutral_glyph_4_1_description" 			"Increases the damage with all Elements by <% ITEM_RPC_NEUTRAL_GLYPH_4_1_ELE_DMG * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_1"	"[T4-1] 元素雕文"
+		"item_rpc_neutral_glyph_4_1_description" 			"提高所有元素伤害 <% ITEM_RPC_NEUTRAL_GLYPH_4_1_ELE_DMG * 100 %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] Glyph of Ability"
-		"item_rpc_neutral_glyph_4_2_description" 			"Increases Base Ability Damage by <% ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_2"	"[T4-2] 技能雕文"
+		"item_rpc_neutral_glyph_4_2_description" 			"提高基础技能伤害 <% ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG * 100 %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] Glyph of Items"
-		"item_rpc_neutral_glyph_4_3_description" 			"Increases Item Damage by <% ITEM_RPC_NEUTRAL_GLYPH_4_3_ITEM_DMG * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_4_3"	"[T4-3] 物品雕文"
+		"item_rpc_neutral_glyph_4_3_description" 			"提高物品伤害 <% ITEM_RPC_NEUTRAL_GLYPH_4_3_ITEM_DMG * 100 %>%."
 
         //Tier 5
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"[T5-1] Glyph of Physical Resistance"
-		"item_rpc_neutral_glyph_5_1_description" 			"Decreases Physical Damage taken by <% ITEM_RPC_NEUTRAL_GLYPH_5_1_PHYS_RES * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_1"	"[T5-1] 物抗雕文"
+		"item_rpc_neutral_glyph_5_1_description" 			"减少承受的物理伤害 <% ITEM_RPC_NEUTRAL_GLYPH_5_1_PHYS_RES * 100 %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"[T5-2] Glyph of Magical Resistance"
-		"item_rpc_neutral_glyph_5_2_description" 			"Decreases Magical Damage taken by <% ITEM_RPC_NEUTRAL_GLYPH_5_1_MAG_RES * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_2"	"[T5-2] 魔抗雕文"
+		"item_rpc_neutral_glyph_5_2_description" 			"减少承受的魔法伤害 <% ITEM_RPC_NEUTRAL_GLYPH_5_1_MAG_RES * 100 %>%."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"[T5-3] Glyph of Pure Resistance"
-		"item_rpc_neutral_glyph_5_3_description" 			"Decreases Pure Damage taken by <% ITEM_RPC_NEUTRAL_GLYPH_5_1_PURE_RES * 100 %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_5_3"	"[T5-3] 纯粹雕文"
+		"item_rpc_neutral_glyph_5_3_description" 			"减少承受的纯粹伤害 <% ITEM_RPC_NEUTRAL_GLYPH_5_1_PURE_RES * 100 %>%."
 
         //Tier 6
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"[T6-1] Glyph of Grand Strength"
-		"item_rpc_neutral_glyph_6_1_description" 			"Increase Strength by <% ITEM_RPC_NEUTRAL_GLYPH_6_1_STR_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_1"	"[T6-1] 大型力量雕文"
+		"item_rpc_neutral_glyph_6_1_description" 			"提高力量值 <% ITEM_RPC_NEUTRAL_GLYPH_6_1_STR_BONUS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] Glyph of Grand Intelligence"
-		"item_rpc_neutral_glyph_6_2_description" 			"Increase Intelligence by <% ITEM_RPC_NEUTRAL_GLYPH_6_2_INT_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_2"	"[T6-2] 大型智力雕文"
+		"item_rpc_neutral_glyph_6_2_description" 			"提高智力值 <% ITEM_RPC_NEUTRAL_GLYPH_6_2_INT_BONUS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] Glyph of Enhanced Attacking"
-		"item_rpc_neutral_glyph_6_3_description" 			"Increase Attack Damage by <% ITEM_RPC_NEUTRAL_GLYPH_6_3_BASE_ATTACK_DMG_BONUS_PCT %>%."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_6_3"	"[T6-3] 强攻雕文"
+		"item_rpc_neutral_glyph_6_3_description" 			"提高攻击力 <% ITEM_RPC_NEUTRAL_GLYPH_6_3_BASE_ATTACK_DMG_BONUS_PCT %>%."
 
         //Tier 7
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"[T7-1] Glyph of Grand Agility"
-		"item_rpc_neutral_glyph_7_1_description" 			"Increases Agility by <% ITEM_RPC_NEUTRAL_GLYPH_7_1_AGI_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_1"	"[T7-1] 大型敏捷雕文"
+		"item_rpc_neutral_glyph_7_1_description" 			"提高敏捷值 <% ITEM_RPC_NEUTRAL_GLYPH_7_1_AGI_BONUS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] Glyph of Grand Spirit"
-		"item_rpc_neutral_glyph_7_2_description" 			"Increases Spirit by <% ITEM_RPC_NEUTRAL_GLYPH_7_2_SPI_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_2"	"[T7-2] 大型精神雕文"
+		"item_rpc_neutral_glyph_7_2_description" 			"提高精神值 <% ITEM_RPC_NEUTRAL_GLYPH_7_2_SPI_BONUS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] Glyph of All Trades"
-		"item_rpc_neutral_glyph_7_3_description" 			"Increases all Attributes by <% ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS %>."
+		"DOTA_Tooltip_ability_item_rpc_neutral_glyph_7_3"	"[T7-3] 万能雕文"
+		"item_rpc_neutral_glyph_7_3_description" 			"提高全属性 <% ITEM_RPC_NEUTRAL_GLYPH_7_3_ALL_ATTR_BONUS %>."
