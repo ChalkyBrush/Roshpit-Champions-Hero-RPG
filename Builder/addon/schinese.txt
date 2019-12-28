@@ -919,13 +919,12 @@
 		"item_range_increase"	"范围增加"
 		"item_cooldown_reduce"	"冷却时间减少"
 		"item_armor_pierce"			"物理穿透"
-		"item_spell_pierce"			"魔法穿透
+		"item_spell_pierce"			"魔法穿透"
 		"item_magic_armor"			"魔甲"
 		"bonus_magic_armor"			"额外魔甲"
 		"item_status_resist"		"状态抗性"
 	
 		"tooltip_magic_armor"		"魔甲提供的魔法抗性"
-"
 		"item_burn_damage"		"额外烧灼伤害"
 		"item_move_slow"		"额外减速"
 		"item_miss_chance"		"额外攻击丢失"

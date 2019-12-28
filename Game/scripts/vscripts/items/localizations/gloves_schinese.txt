@@ -373,7 +373,7 @@
     	"item_rpc_autumnrock_bracer_ruby1"								"提高力量值 @ruby_property1 和沟壑概率 @ruby_property2%"
     	"item_rpc_autumnrock_bracer_emerald1"								"提高沟壑伤害 @emerald_property1 和眩晕时间@emerald_property2"
     	"item_rpc_autumnrock_bracer_sapphire1"								"降低传播延迟@sapphire_property1 秒并提高物品伤害 @sapphire_property2%"
-n    	"item_rpc_autumnrock_bracer_amethyst1"								"释放[W] 有@amethyst_property1% 概率对 <% ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE %> 范围内接近的敌人产生沟壑 "
+	  	"item_rpc_autumnrock_bracer_amethyst1"								"释放[W] 有@amethyst_property1% 概率对 <% ITEM_RPC_AUTUMNROCK_BRACER_AMETHYST_SEARCH_RANGE %> 范围内接近的敌人产生沟壑"
 		 
     	"DOTA_Tooltip_ability_item_rpc_malachite_shade_bracer"							"孔雀色的护腕"
     	"item_rpc_malachite_shade_bracer_ruby1"							"每点生命回复提高护甲 @ruby_property1"
