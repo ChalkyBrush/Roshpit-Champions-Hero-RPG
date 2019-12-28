@@ -1508,7 +1508,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     	end
     end
     if unit:HasModifier("modifier_mountain_protector_arcana3") then
-    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)
     	local e_1_level = unit:GetRuneValue("e", 1)
     	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
@@ -2316,7 +2316,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce_modify = spell_pierce_modify + w_2_level*MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE
 	end
     if unit:HasModifier("modifier_mountain_protector_arcana3") then
-    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)
     	local e_1_level = unit:GetRuneValue("e", 1)
     	spell_pierce_modify = spell_pierce_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end

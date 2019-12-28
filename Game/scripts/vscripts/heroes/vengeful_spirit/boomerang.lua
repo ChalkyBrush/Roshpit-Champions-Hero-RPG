@@ -498,7 +498,7 @@ function d_b_prep(caster, boomerang, ability)
 				ParticleManager:DestroyParticle(pfx, false)
 				ParticleManager:ReleaseParticleIndex(pfx)
 			end)
-			local duration = boomerang.w_4_level * SOLUNIA_W4_DURATION/100 + SOLUNIA_W4_DURATION_BASE
+			local duration = boomerang.w_4_level * SOLUNIA_W4_DURATION + SOLUNIA_W4_DURATION_BASE
 			duration = Filters:GetAdjustedBuffDuration(caster, duration, false)
 			local solarangAbility = caster:FindAbilityByName("solunia_solarang")
 			solarangAbility:ApplyDataDrivenModifier(caster, caster, "modifier_black_widow_invisible_damage_buff", {duration = duration})

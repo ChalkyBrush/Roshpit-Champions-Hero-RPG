@@ -50,6 +50,7 @@ function red_general_ability_arcana1_r_startChannel(event)
 			ParticleManager:DestroyParticle(pfx2, false)
 			ParticleManager:ReleaseParticleIndex(pfx2)			end)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), startPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		print(#enemies)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				red_general_rune_arcana1_r_3_applyDebuff(caster, enemy, ability)
@@ -234,7 +235,7 @@ function red_general_rune_arcana1_r_3_applyDebuff(caster, target, ability)
 		return
 	end
 	local duration = Filters:GetAdjustedBuffDuration(caster, RED_GENERAL_ARCANA1_R3_DURATION, false)
-	local new_stacks = runesCount * RED_GENERAL_ARCANA1_R3_RESIST_REDUCE_PERCENT
+	local new_stacks = runesCount
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_visible", {duration = duration})
 	target:SetModifierStackCount("modifier_axe_rune_r_3_arcana1_visible", caster, new_stacks)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_axe_rune_r_3_arcana1_invisible", {duration = duration})
