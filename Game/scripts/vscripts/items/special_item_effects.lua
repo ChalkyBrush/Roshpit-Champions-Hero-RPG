@@ -3012,6 +3012,27 @@ function nobility_think_augmented(event)
 	target:SetModifierStackCount("modifier_ring_of_nobility_buff_augmented", ability, target:GetLevel())
 end
 
+function nobility_kill(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	if type(ability.newItemTable.property1) == "string" then
+		ability.newItemTable.property1 = 0
+	end
+	local nextValue = ability.newItemTable.property1 + 1
+	local upgradeThreshold = 10000
+	if nextValue >= upgradeThreshold then
+		RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
+		Notifications:Top(attacker:GetPlayerOwnerID(), {text = "Ring of Nobility Upgraded", duration = 5, style = {color = "white"}, continue = true})
+		CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
+
+		EmitSoundOn("Items.NobilityUpgrade", attacker)
+	else
+		ability.newItemTable.property1 = nextValue
+		RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
+		RPCItems:ItemUpdateCustomNetTables(ability)
+	end
+end
 
 function ironbound_think(event)
 	local caster = event.caster
@@ -10243,27 +10264,5 @@ function torch_of_gengar_think(event)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_torch_of_gengar_attack_penalty", {})
 			hero:SetModifierStackCount("modifier_torch_of_gengar_attack_penalty", caster, atk_penalty)
 		end
-	end
-end
-
-function nobility_kill(event)
-	local attacker = event.attacker
-	local ability = event.ability
-	if type(ability.newItemTable.property1) == "string" then
-		ability.newItemTable.property1 = 0
-	end
-	local nextValue = ability.newItemTable.property1 + 1
-	local upgradeThreshold = 1
-	if nextValue >= upgradeThreshold then
-		RPCItems:CreateAugmentedRingOfNobility(attacker, ability)
-		Notifications:Top(attacker:GetPlayerOwnerID(), {text = "Ring of Nobility Upgraded", duration = 5, style = {color = "white"}, continue = true})
-		CustomAbilities:QuickAttachParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_endcap_arcana.vpcf", attacker, 3)
-		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_legion_commander/legion_commander_duel_winner_rays.vpcf", attacker, 3)
-
-		EmitSoundOn("Items.NobilityUpgrade", attacker)
-	else
-		ability.newItemTable.property1 = nextValue
-		RPCItems:SetPropertyValuesSpecial(ability, ability.newItemTable.property1, "#item_property_nobility", "#FFFFFF", 1, "#property_nobility_description")
-		RPCItems:ItemUpdateCustomNetTables(ability)
 	end
 end
