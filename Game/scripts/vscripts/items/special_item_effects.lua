@@ -7038,6 +7038,7 @@ end
 
 function odin_beam_pushback(event)
 	local hero = event.target
+	local caster = event.caster
 	local ability = event.ability
 	local obstruction = WallPhysics:FindNearestObstruction(hero:GetAbsOrigin())
 	local newPosition = hero:GetAbsOrigin()+ability.pushBack*50
