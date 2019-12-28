@@ -10811,9 +10811,9 @@
         "DOTA_Tooltip_ability_trapper_rune_w_3_arcana1_suffix"              "x Agility"
 
   		"DOTA_Tooltip_ability_trapper_rune_w_4_arcana1"						"[W4] Elemental Trickery"
-        "DOTA_Tooltip_ability_trapper_rune_w_4_Description"         "Increases all <font color=\"#EF4126\">Fire</font>, <font color=\"#37DD3D\">Poison</font> and <font color=\"#3894FF\">Water</font> damage."
-        "DOTA_Tooltip_ability_trapper_rune_w_4_property_one"        "Elemental Amp"
-        "DOTA_Tooltip_ability_trapper_rune_w_4_suffix"              "%"
+        "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_Description"         "Increases all <font color=\"#EF4126\">Fire</font>, <font color=\"#37DD3D\">Poison</font> and <font color=\"#3894FF\">Water</font> damage."
+        "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_property_one"        "Elemental Amp"
+        "DOTA_Tooltip_ability_trapper_rune_w_4_arcana1_suffix"              "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_1"       "[T1-1] Glyph of Sneaking"

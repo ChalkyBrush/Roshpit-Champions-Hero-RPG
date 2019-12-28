@@ -188,9 +188,12 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 10)
 				RPCItems.LevelRoll = newMinLevel
-				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), maxWeaponLevel, position, true)
+				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), position)
 				RPCItems.LevelRoll = nil
 				if newItem and IsValidEntity(newItem) then
+					if IsValidEntity(newItem:GetContainer()) then
+						UTIL_Remove(newItem:GetContainer())
+					end
 					newItem.pickedUp = true
 					newItem.newItemTable.minLevel = newMinLevel
 					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
