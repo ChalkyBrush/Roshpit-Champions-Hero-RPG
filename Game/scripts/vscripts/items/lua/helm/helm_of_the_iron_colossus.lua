@@ -102,6 +102,9 @@ end
 
 function modifierClass:OnAttackLanded(event)
     local attacker = event.attacker
+    if attacker ~= self:GetParent() then
+        return
+    end
     local target = event.target
     local ability = event.ability
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (IRON_COLOSSUS_DMG_PER_ATT + self:GetAbility():GetFinalGemPropertyValue("amethyst", IRON_COLOSSUS_AMETHYST))
