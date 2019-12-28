@@ -125,9 +125,9 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_3_suffix"							"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_4"									"[R4] 海德拉的血脉"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"帝纳斯的全属性提高 <font color=\"#3289C7\">龙</font> 元素伤害。"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"伤害提高"
-    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"% 每10点全属性值。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_Description"				"提高所有 <font color=\"#3289C7\">龙</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_property_one"				"龙元素伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_r_4_suffix"					"%"
 		
 		//Arcanas
 		"item_property_dinath_arcana1"										"螺旋吐息"
