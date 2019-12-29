@@ -163,6 +163,9 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"沼泽长靴"
+	  "item_property_swamp_waders"                                    "粘滞的脚"
+        "property_swamp_waders_description"                             "降低移动速度 <% ITEM_RPC_SWAMP_WADERS_MOVESPEED_LOSS %> 和 @Ability3 的弹道速度 <% ITEM_RPC_SWAMP_WADERS_E_TRAVEL_SPEED_LOSS %>%. 你受到的所有buff和debuff持续时间延长 <% ITEM_RPC_SWAMP_WADERS_BUFF_DURATION_INCREASE %>% ."
+
         "item_rpc_swamp_waders_ruby1"                                   "增加护甲和魔甲 @ruby_property1点。每点当前移动速度降低该效果 @ruby_property2 点"
         "item_rpc_swamp_waders_emerald1"                                    "每移动 <% ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE %> 距离产生一个<% ITEM_RPC_SWAMP_WADERS_EMERALD_RADIUS %> 范围的腐朽气体，减速敌人 @emerald_property1% 并且每 <% ITEM_RPC_SWAMP_WADERS_EMERALD_THINK_INTERVAL %> 秒造成 @emerald_property2% 攻击力的伤害。腐朽气体持续 <% ITEM_RPC_SWAMP_WADERS_EMERALD_DURATION %> 秒"
         "item_rpc_swamp_waders_sapphire1"                                   "增加[E] 的冷却时间<% ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE %>% ，增加 [E] 的基础技能伤害@sapphire_property1%"
