@@ -1887,9 +1887,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2)/100
         end
-        if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-            damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
-        end
+        -- if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
+        --     damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
+        -- end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
             local bad = CERULEAN_HIGHGUARD_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST1)
             damageMult = damageMult + bad/100
