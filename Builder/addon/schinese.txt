@@ -1348,7 +1348,7 @@
 		"challenge_mod_pit_level"									"必须在等级 @pit_level或以上的竞技场难度完成."
 
 		"challenge_spirit"											"灵魂之境"
-		"challenge_equinox"											"春分/秋分"
+		"challenge_equinox"											"疯狂生长"
 
 		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
 		"DOTA_Tooltip_ability_mega_steadfast_Description"				"降低受到的伤害"
