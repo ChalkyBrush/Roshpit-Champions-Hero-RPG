@@ -48,8 +48,8 @@
     	"DOTA_Tooltip_modifier_drake_ring_a_b_Description"						"增加攻击力"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_2"									"[W2] 清扫之禁咒"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"站在德雷克之眼中的敌人承受的税后魔法伤害增加。"
-    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"税后魔法伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_Description"						"站在德雷克之眼中的敌人的护甲将会降低"
+    	"DOTA_Tooltip_ability_dinath_rune_w_2_property_one"						"护甲降低"
     	"DOTA_Tooltip_ability_dinath_rune_w_2_suffix"								"%"
 
     	"DOTA_Tooltip_ability_dinath_rune_w_3"									"[W3] 石化蛇环"
@@ -109,11 +109,11 @@
 		"DOTA_Tooltip_ability_dinath_rune_r_1"									"[R1] 暴风雨"
     	"DOTA_Tooltip_ability_dinath_rune_r_1_Description"						"破坏死光会高频的电击附近的敌人。电击的半径基于破坏死光光球的半径。同时闪电的伤害也会受到光球的半径加成。闪电打击间隔 0.2秒。"
     	"DOTA_Tooltip_ability_dinath_rune_r_1_property_one"						"基础伤害"
-    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							"% 的攻击力"
+    	"DOTA_Tooltip_ability_dinath_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_dinath_rune_r_2"									"[R2] 细胞坏死"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"被破坏死光的光球直接击中的敌人，受到的全部税后伤害提高。"
-    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"税后伤害提高"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_Description"						"降低被破坏死光的光球击中的敌人的魔甲。"
+    	"DOTA_Tooltip_ability_dinath_rune_r_2_property_one"						"魔甲降低"
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							"%"
 
     	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"细胞坏死"

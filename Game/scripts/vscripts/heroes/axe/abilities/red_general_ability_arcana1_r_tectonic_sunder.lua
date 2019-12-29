@@ -201,7 +201,7 @@ function red_general_ability_arcana1_r_dealDamage(caster, ability, damage, stun_
 		if caster:HasModifier("modifier_axe_glyph_5_a") then
 			damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
 		end
-		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 		Filters:ApplyStun(caster, stun_duration, enemy)
 		--ability:ApplyDataDrivenModifier(caster, targetUnit, "modifier_stun_explosion", {})
 	end
