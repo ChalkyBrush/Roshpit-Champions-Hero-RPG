@@ -44,7 +44,7 @@
     	"item_rpc_guardian_greaves_sapphire1"								"增加力量值和智力值 @sapphire_property1 点"
     	"item_rpc_guardian_greaves_amethyst1"								"卫士胫甲现在也会施加一个卫士之盾，增加数值为 @amethyst_property1x 倍的精神值的魔甲和魔法穿透 ，持续 <% ITEM_RPC_GUARDIAN_GREAVES_GEM_BUFF_DURATION %>秒"
 		"item_property_guardian_greaves"			"卫士进军"
-		"property_guardien_greaves_description"		"施法 @Ability3 后将会触发卫士胫甲，为你和附近800范围内的友军回复3倍力量的生命值、2倍智力的魔法值，冷却时间为1秒。"
+		"property_guardien_greaves_description"		"施法 @Ability3 后将会触发卫士胫甲，为你和附近<% ITEM_RPC_GUARDIAN_GREAVES_RADIUS%>范围内的友军回复<% ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_STRENGTH %>倍力量的生命值、<% ITEM_RPC_GUARDIAN_GREAVES_HEAL_X_INTELLIGENCE %>倍智力的魔法值，冷却时间为<% ITEM_RPC_GUARDIAN_GREAVES_COOLDOWN %>秒。"
 		"DOTA_Tooltip_modifier_guardian_greaves_护甲"					"卫士进军"
 		"DOTA_Tooltip_modifier_guardian_greaves_护甲_Description"		"护甲值提高"
 		
@@ -82,7 +82,7 @@
     	"item_rpc_fire_walkers_sapphire1"									"处于熔岩之路中的敌人将会被引燃，每<% ITEM_RPC_FIRE_WALKERS_INTERVAL %> 秒受到数值为 @sapphire_property1% 熔岩之路的伤害，持续 <% ITEM_RPC_FIRE_WALKERS_SAPPHIRE_BURN_DURATION %> 秒"
     	"item_rpc_fire_walkers_amethyst1"									"有 @amethyst_property1% 概率在被 [Q], [E] 或者 [R] 技能击中的敌人的脚下产生熔岩之路。"
 		"item_property_fire_walkers"				"火焰印迹"
-		"property_fire_walkers_description"			"移动时留下火焰印迹，印记上的所有敌人每0.5秒受到一次玩家总属性值的伤害。持续5秒。"
+		"property_fire_walkers_description"			"移动时留下火焰印迹，印记上的所有敌人每<% ITEM_RPC_FIRE_WALKERS_INTERVAL %>秒受到一次玩家<% ITEM_RPC_FIRE_WALKERS_DAMAGE_X_SUM_ATTRIBUTES %>x总属性值的伤害。持续5秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_moon_tech_runners"								"月球旅航鞋"
@@ -91,7 +91,7 @@
     	"item_rpc_moon_tech_runners_sapphire1"								"处于月之尘埃中的敌人的魔甲将会降低 @sapphire_property1 点并且他们有 @sapphire_property2% 的丢失概率。"
     	"item_rpc_moon_tech_runners_amethyst1"								"增加物品伤害和<font color=\"#C25DFC\">宇宙</font> 元素伤害 @amethyst_property1%"
 		"item_property_moon_techs"					"月球尘埃"
-		"property_moon_techs_description"			"施放 @Ability3 时在脚下留下月之尘埃，范围为550。处于尘埃中的敌人将被减速 <% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>%。尘埃持续<% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %>秒。"
+		"property_moon_techs_description"			"施放 @Ability3 时在脚下留下月之尘埃，范围为<% ITEM_RPC_MOON_TECH_RUNNERS_RADIUS %>。处于尘埃中的敌人将被减速 <% ITEM_RPC_MOON_TECH_RUNNERS_MS_SLOW_PCT %>%。尘埃持续<% ITEM_RPC_MOON_TECH_RUNNERS_DURATION %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_sonic_boots"										"音速鞋"
@@ -100,18 +100,18 @@
         "item_rpc_sonic_boots_sapphire1"                                        "处于音速状态下时移动速度上限将会提高 @sapphire_property1点"
         "item_rpc_sonic_boots_amethyst1"                                        "处于音速状态下时攻击力将会提高 @amethyst_property1% "
 		"item_property_sonic_boots"					"音速"
-		"property_sonic_boots_description"			"施放 @Ability3 将提高攻击速度240点，提高移动速度和移动速度上限300点 持续8秒。同时不与其他单位产生碰撞。"
+		"property_sonic_boots_description"			"施放 @Ability3 将提高攻击速度<% ITEM_RPC_SONIC_BOOTS_ATTACK_SPEED %>点，提高移动速度<% ITEM_RPC_SONIC_BOOTS_MOVESPEED %>和移动速度上限<% ITEM_RPC_SONIC_BOOTS_MAX_MOVESPEED %>点 持续<% ITEM_RPC_SONIC_BOOTS_DURATION %>秒。同时不与其他单位产生碰撞。"
 		"DOTA_Tooltip_modifier_sonic_boots_effect"			"音速"
 		"DOTA_Tooltip_modifier_sonic_boots_effect_Description"	"攻击速度和移动速度及移动速度上限提高。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_falcon_boots"									"猎鹰长靴"
-        "item_rpc_falcon_boots_ruby1"                                       "Each point of current movespeed increases Base Attack Damage by @ruby_property1"
-        "item_rpc_falcon_boots_emerald1"                                    "Increases 敏捷 and 智力 by @emerald_property1"
-        "item_rpc_falcon_boots_sapphire1"                                   "Increases Attack Speed by @sapphire_property1 and increases the Freeze Duration of Falcon Swoop by @sapphire_property2 秒"
-        "item_rpc_falcon_boots_amethyst1"                                   "Increases falcon fly speed by @amethyst_property1 and enemies take @amethyst_property2% of your Attack Power as damage upon landing"
+        "item_rpc_falcon_boots_ruby1"                                       "每点当前移动速度增加基础攻击力@ruby_property1"
+        "item_rpc_falcon_boots_emerald1"                                    "提高敏捷和智力@emerald_property1"
+        "item_rpc_falcon_boots_sapphire1"                                   "提高攻击速度@sapphire_property1 并且提高猎鹰的冻结时间 @sapphire_property2 秒"
+        "item_rpc_falcon_boots_amethyst1"                                   "提高猎鹰之空的速度 @amethyst_property1 且落地时敌人受到额外 @amethyst_property2% 你的攻击力的伤害"
 		"item_property_falcon_boot"					"猎鹰之空"
-		"property_falcon_boot_description"			"施放 @Ability3 后有5只猎鹰跟随你飞行并且抓取路径上的敌人。飞行结束后，将敌人丢在一起，并且冻结他们2秒。"
+		"property_falcon_boot_description"			"施放 @Ability3 后有5只猎鹰跟随你飞行并且抓取路径上的敌人。飞行结束后，将敌人丢在一起，并且冻结他们<% ITEM_RPC_FALCON_BOOTS_FREEZE_DURATION %>秒。"
 		"DOTA_Tooltip_modifier_falcon_freeze"		"猎鹰之空"
 		"DOTA_Tooltip_modifier_falcon_freeze_Description"	"被冻结"
 		
@@ -163,6 +163,9 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_waders"									"沼泽长靴"
+	  "item_property_swamp_waders"                                    "粘滞的脚"
+        "property_swamp_waders_description"                             "降低移动速度 <% ITEM_RPC_SWAMP_WADERS_MOVESPEED_LOSS %> 和 @Ability3 的弹道速度 <% ITEM_RPC_SWAMP_WADERS_E_TRAVEL_SPEED_LOSS %>%. 你受到的所有buff和debuff持续时间延长 <% ITEM_RPC_SWAMP_WADERS_BUFF_DURATION_INCREASE %>% ."
+
         "item_rpc_swamp_waders_ruby1"                                   "增加护甲和魔甲 @ruby_property1点。每点当前移动速度降低该效果 @ruby_property2 点"
         "item_rpc_swamp_waders_emerald1"                                    "每移动 <% ITEM_RPC_SWAMP_WADERS_EMERALD_TRAVEL_DISTANCE %> 距离产生一个<% ITEM_RPC_SWAMP_WADERS_EMERALD_RADIUS %> 范围的腐朽气体，减速敌人 @emerald_property1% 并且每 <% ITEM_RPC_SWAMP_WADERS_EMERALD_THINK_INTERVAL %> 秒造成 @emerald_property2% 攻击力的伤害。腐朽气体持续 <% ITEM_RPC_SWAMP_WADERS_EMERALD_DURATION %> 秒"
         "item_rpc_swamp_waders_sapphire1"                                   "增加[E] 的冷却时间<% ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE %>% ，增加 [E] 的基础技能伤害@sapphire_property1%"
@@ -339,10 +342,10 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"收割者鞋子"
-    	"item_rpc_harvester_boots_ruby1"									"增加该技能的第 1 项属性 @ruby_property1%"
-    	"item_rpc_harvester_boots_emerald1"									"增加该技能的第 3 项重属性  @emerald_property1%"
-    	"item_rpc_harvester_boots_sapphire1"									"增加该技能的第 2 项属性  @sapphire_property1%"
-    	"item_rpc_harvester_boots_amethyst1"									"增加该技能的第 4 项属性  @amethyst_property1%"
+    	"item_rpc_harvester_boots_ruby1"									"增加该物品的第 1 项属性重铸上限 @ruby_property1%"
+    	"item_rpc_harvester_boots_emerald1"									"增加该物品的第 3 项属性重铸上限  @emerald_property1%"
+    	"item_rpc_harvester_boots_sapphire1"									"增加该物品的第 2 项属性重铸上限  @sapphire_property1%"
+    	"item_rpc_harvester_boots_amethyst1"									"增加该物品的第 4 项属性重铸上限  @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"大财宝靴"
@@ -441,7 +444,7 @@
         "DOTA_Tooltip_modifier_crystalline_sapphire_root"       "水晶之舞 (蓝宝石)"
         "DOTA_Tooltip_modifier_crystalline_sapphire_root_Description"   "被缠绕"
 
-        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion"   "水晶之舞 (翡翠)"
+        "DOTA_Tooltip_modifier_crystalline_emerald_in_motion"   "水晶之舞 (绿宝石)"
         "DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"   "移动时获得闪避效果"
 		
 		

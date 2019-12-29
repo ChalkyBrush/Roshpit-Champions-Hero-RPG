@@ -983,6 +983,10 @@
 
 		"item_damage_increase"			"物品伤害提高 % "
 		
+		"item_item_damage"				"物品伤害提高e %"
+
+		"item_attack_damage"				"基础攻击力"
+		
 		"property_unit_walking_description"			"该单位移动时将不与其他单位产生碰撞。"
 
 		"item_all_runes"							"+ 所有T1-T3符文"
@@ -1287,6 +1291,9 @@
 
 		"DOTA_Tooltip_Ability_item_reanimation_stone"	"复苏宝石"
 		"reanimation_stone_desc"	"重置所有技能和符文，并返还所有技能点和符文点。"
+		
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"打孔器"
+		"socket_cutter_desc"										"可以在铁匠处使用，为一件物品开凿一个宝石孔位."
 
 		
 		
@@ -1347,7 +1354,17 @@
 		"challenge_mod_pit_level"									"必须在等级 @pit_level或以上的竞技场难度完成."
 
 		"challenge_spirit"											"灵魂之境"
-		"challenge_equinox"											"春分/秋分"
+		"challenge_equinox"											"疯狂生长"
+
+		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% 伤害减免:"
+		"DOTA_Tooltip_modifier_mega_steadfast"									"高级坚定"
+		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"降低受到的伤害"
+		
+		"DOTA_Tooltip_ability_normal_steadfast"							"坚定"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_normal_steadfast_damage_reduce"				"% 伤害减免:"
 
 		"ui_start_challenge"										"开始挑战"
 		"ui_challenge_reward"										"奖励"
