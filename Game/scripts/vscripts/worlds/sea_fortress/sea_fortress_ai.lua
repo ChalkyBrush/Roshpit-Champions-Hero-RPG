@@ -6063,7 +6063,7 @@ function archon_wizard_die(event)
 		arcanas = 2
 	end
 	for i = 1, arcanas, 1 do
-		RPCItems:RollArkimusArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_arkimus_arcana2")
 	end
 	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 end
