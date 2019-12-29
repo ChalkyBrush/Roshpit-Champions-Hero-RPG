@@ -275,7 +275,9 @@ function tornado_damage_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	if not target.pushLock then
+		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	end
 end
 
 function tornado_damage_think(event)

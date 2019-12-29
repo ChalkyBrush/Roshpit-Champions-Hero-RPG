@@ -5351,7 +5351,7 @@ function Filters:OdinHelm(caster, victim, damage)
             EmitSoundOn("Jex.CosmicLaser", caster)
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_odin_beam_pushback", {duration = 0.3})
             EmitSoundOn("RPCItems.OdinHelmet.Proc", caster)    
-            beam.damage = damage * (1 + (ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE)/100))
+            beam.damage = damage * (1 + ((ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE))/100))
         end
     end
 end
