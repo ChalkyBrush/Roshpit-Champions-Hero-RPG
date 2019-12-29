@@ -1820,7 +1820,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             end
         end
         if attacker:GetUnitName() == "npc_dota_hero_antimage" then
-            if attacker:HasAbility("arkimus_zonis_spark") then
+            if attacker:HasAbility("arkimus_dimension_coil") then
                 local q_4_level = attacker:GetRuneValue("q", 4)
                 damageMult = damageMult + ARKIMUS_Q4_ADD_DMG_PCT/100
             end
@@ -2253,7 +2253,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:HasAbility("arkimus_archon_form") then
             local r_3_level = attacker:GetRuneValue("r", 3)
             if r_3_level > 0 then
-                mult = mult + ARKIMUS_ARCANA_R_R3_ELEMENTS_PCT * r_3_level
+                mult = mult + ARKIMUS_ARCANA2_R3_ELEMENTS_PCT * r_3_level
             end
         end
         if attacker:HasModifier("modifier_omniro_dragon_buff") then

@@ -1,12 +1,12 @@
-		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <% ARKIMUS_Q_COIL_BASE_DURATION %> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"DAMAGE:"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"CAST RANGE:"
+		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"Dimension Coil"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <% ARKIMUS_Q_COIL_BASE_DURATION %> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"CAST RANGE:"
 
     	"DOTA_Tooltip_modifier_zonis_stun"										"Dimension Coil Shock"
 
-    	"DOTA_Tooltip_modifier_zonis_freecast"									"Dimension Coil Free Cast"
-    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"Dimension Coil Free Cast"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Enemies who touch a Dimension Coil have their armor reduced for 8 seconds."
@@ -24,12 +24,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] Malleable Fabric"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic resist reduced for 8 seconds."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Resist Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic armor reduced for 8 seconds."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Armor Reduction"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"Malleable Fabric"
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"Reduced magic resist"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"Reduced magic armor"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Increases the damage of Dimension Coil and Zonal Net (Base Ability Q), and increases the duration of the lightning beams."
@@ -188,7 +188,7 @@
     	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +<% ARKIMUS_ARCANA_R_BONUS_AS %> attack speed, ranged attacks and takes reduced damage. All damage is converted to PHYSICAL damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +<% ARKIMUS_ARCANA2_R_BONUS_AS %> attack speed, ranged attacks and takes reduced damage. All damage is converted to PHYSICAL damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
@@ -197,7 +197,7 @@
     	"DOTA_Tooltip_modifier_arkimus_archon_form_Description"									"Increased attack range and damage resistance"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2"									"[R1] Archon Tide"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent <% ARKIMUS_ARCANA_R_R1_AOE %> radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
+    	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_Description"						"Landing an attack in Archon Form creates a persistent <% ARKIMUS_ARCANA2_R1_AOE %> radius area for 4 seconds. Enemies within the area take damage every 0.1 seconds based on attack power, and the damage is split amongst all enemies. Only 1 Archon Tide can be active at a time."
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_property_one"					"Damage Per 0.1s"
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_arcana2_suffix"							"% of attack power"
 

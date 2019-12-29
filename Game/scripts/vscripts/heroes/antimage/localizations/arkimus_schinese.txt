@@ -1,12 +1,12 @@
-		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"维度扭曲"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯扭曲面前的空间，闪烁至新的地点。空间的碎片相互联结，在初始点与闪烁目标点之间创造一束聚集的奥术闪电。被奥术闪电击中的敌人将被一直眩晕并且受到伤害。每6秒获得一层维度扭曲的充能，每层充能可以自由施放一次维度扭曲（无冷却），最多两层充能。"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"伤害："
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"施法距离："
+		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"维度扭曲"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯扭曲面前的空间，闪烁至新的地点。空间的碎片相互联结，在初始点与闪烁目标点之间创造一束聚集的奥术闪电。被奥术闪电击中的敌人将被一直眩晕并且受到伤害。每6秒获得一层维度扭曲的充能，每层充能可以自由施放一次维度扭曲（无冷却），最多两层充能。"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"伤害："
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"施法距离："
 
     	"DOTA_Tooltip_modifier_zonis_stun"										"被维度扭曲击晕"
 
-    	"DOTA_Tooltip_modifier_zonis_freecast"									"维度扭曲充能"
-    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"维度扭曲充能"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] 攻壳震荡"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"接触到维度扭曲的敌人将丢失护甲，持续8秒。"
@@ -25,8 +25,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"魔甲降低"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"可塑性结构"
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"魔甲降低"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"可塑性结构"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"魔甲降低"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] 奥术扭曲"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"提高维度扭曲和带状网的伤害，并且提高奥术闪电的持续时间。"

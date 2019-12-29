@@ -552,6 +552,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	self:CalculateAndSaveRoshpitMagicArmor()
 	self:CalculateAndSaveRoshpitArmorPierce()
 	self:CalculateAndSaveRoshpitSpellPierce()
+	if self:IsRealHero() then
+		self:CalculateAndSaveCooldownRedutions()
+	end
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -904,8 +907,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
 		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_ARMOR_BONUS
 	end
-	if unit:HasModifier("modifier_zonis_a_a_armor_loss") then
-		local modifier = unit:FindModifierByName("modifier_zonis_a_a_armor_loss")
+	if unit:HasModifier("modifier_arkimus_q_1_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_arkimus_q_1_armor_loss")
 		armor_modify = armor_modify + modifier:GetStackCount()*ARKIMUS_Q1_ARMOR_REDUCTION
 	end
 	if unit:HasModifier("modifier_slipfinn_bog_roller_armor_break") then
@@ -1565,8 +1568,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_W2_MAGIC_ARMOR_REDUCTION
 	end
-	if unit:HasModifier("modifier_zonis_c_a_magic_resist") then
-		local modifier = unit:FindModifierByName("modifier_zonis_c_a_magic_resist")
+	if unit:HasModifier("modifier_arkimus_q_3_magic_armor_loss") then
+		local modifier = unit:FindModifierByName("modifier_arkimus_q_3_magic_armor_loss")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION
 	end
 	if unit:HasModifier("modifier_zonis_stun_arcana1") then
@@ -3796,4 +3799,30 @@ end
 
 function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
+end
+
+function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownRedutions()
+	local cdReductionPercent = GetQCooldownReductionPercent(self, self:GetAbilityByIndex(DOTA_Q_SLOT):GetBaseCooldown(-1))
+	local modifierStacks = math.floor(cdReductionPercent * 10000)
+	local modifier = Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_cooldown_reduction", {})
+	self:SetModifierStackCount("modifier_q_cooldown_reduction", self, modifierStacks)
+end
+
+function GetQCooldownReductionPercent(caster, baseCD)
+	local abilityCooldown = baseCD
+	local CDreduce = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_Q_FLAT_CD_RED }, { }, 
+		function(result, data)
+			CDreduce = CDreduce + result
+		end
+	)
+	local abilityCooldown = abilityCooldown - CDreduce
+
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitPctCdRed', { MODIFIER_ROSHPIT_Q_PCT_CD_RED }, { }, 
+		function(result, data)
+			abilityCooldown = abilityCooldown * (1 - result / 100)
+		end
+	)
+
+	return 1 - (abilityCooldown / baseCD)
 end

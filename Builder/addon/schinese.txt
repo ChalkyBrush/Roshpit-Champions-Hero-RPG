@@ -465,8 +465,8 @@
 		//阿基莫斯
 		//--------------------
 
-    	"DOTA_Tooltip_modifier_zonis_a_a_armor_loss"							"攻壳震荡"
-    	"DOTA_Tooltip_modifier_zonis_a_a_armor_loss_Description"				"护甲值减少"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss"							"攻壳震荡"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss_Description"				"护甲值减少"
 
     	"DOTA_Tooltip_modifier_damage_boost_a_a_visible"						"奥法武器"
     	"DOTA_Tooltip_modifier_damage_boost_a_a_visible_Description"			"根据最后一次的奥术伤害提高基础攻击力"

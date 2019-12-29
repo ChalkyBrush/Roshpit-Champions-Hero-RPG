@@ -13,7 +13,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_ARCANA_R_R1_DMG_OF_ATTACK_POWER_PCT %>"
+				"property_one"			"<% ARKIMUS_ARCANA2_R1_DMG_OF_ATTACK_POWER_PCT %>"
 			}
 			"02"
 			{
@@ -41,12 +41,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_ARCANA_R_R2_MANA_REGEN_PER_ATTRIBUTE_PCT %>"
+				"property_one"			"<% ARKIMUS_ARCANA2_R2_MANA_REGEN_PER_ATTRIBUTE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_ARCANA_R_R2_BASE_DMG_PER_MANA_PCT %>"
+				"property_two"			"<% ARKIMUS_ARCANA2_R2_BASE_DMG_PER_MANA_PCT %>"
 			}
 		}
 	}
@@ -64,7 +64,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_ARCANA_R_R3_ELEMENTS_PCT * 100%>"
+				"property_one"			"<% ARKIMUS_ARCANA2_R3_ELEMENTS_PCT * 100%>"
 			}
 		}
 	}
@@ -82,7 +82,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% ARKIMUS_ARCANA_R_R4_CHANCE_DIV_1000 /10 %>"
+				"property_one"			"<% ARKIMUS_ARCANA2_R4_CHANCE_DIV_1000 /10 %>"
 			}
 			"02"
 			{

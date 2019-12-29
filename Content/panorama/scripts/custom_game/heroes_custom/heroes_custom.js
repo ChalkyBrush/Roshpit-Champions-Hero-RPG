@@ -491,7 +491,7 @@ function getZonikSkill(slot){
 function getArkimusSkill(slot){
     var skillName = "";
 	if (slot === 1){
-        skillName = "DOTA_Tooltip_Ability_arkimus_zonis_spark";
+        skillName = "DOTA_Tooltip_Ability_arkimus_dimension_coil";
 	}else if(slot === 2){
         skillName = "DOTA_Tooltip_Ability_arkimus_storm_weapon";
 	}else if(slot === 3){

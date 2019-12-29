@@ -36,17 +36,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"<% ARKIMUS_ARCANA_Q_DURATION %>"
+				"duration"			"<% ARKIMUS_ARCANA1_Q_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% ARKIMUS_ARCANA_Q_DAMAGE %>"
+				"damage"			"<% ARKIMUS_ARCANA1_Q_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_damage"		"<% ARKIMUS_ARCANA_Q_DAMAGE_INT_MULT %>"
+				"int_damage"		"<% ARKIMUS_ARCANA1_Q_DAMAGE_INT_MULT %>"
 			}
 		}
 		"OnSpellStart"

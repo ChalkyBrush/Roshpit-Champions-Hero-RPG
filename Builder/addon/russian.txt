@@ -357,8 +357,8 @@
 
     	//ARKIMUS
 
-    	"DOTA_Tooltip_modifier_zonis_a_a_armor_loss"							"Shell Shock"
-    	"DOTA_Tooltip_modifier_zonis_a_a_armor_loss_Description"				"Броня снижена"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss"							"Shell Shock"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss_Description"				"Броня снижена"
 
     	"DOTA_Tooltip_modifier_damage_boost_a_a_visible"						"Archon Weapons"
     	"DOTA_Tooltip_modifier_damage_boost_a_a_visible_Description"			"Увеличивает базовый урон героя в зависимости от последнего нанесенного урона стихии Тайны."
