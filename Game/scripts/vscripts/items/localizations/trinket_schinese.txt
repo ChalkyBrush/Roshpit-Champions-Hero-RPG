@@ -1,51 +1,51 @@
 
 		"DOTA_Tooltip_ability_item_rpc_blacksmiths_tablet"								"铁匠牌匾"
-        "item_rpc_blacksmiths_tablet_ruby1"                             "Increases your Equipped Weapon's Property 1 bonus by @ruby_property1%"
-        "item_rpc_blacksmiths_tablet_emerald1"                              "Increases your Equipped Weapon's Property 3 bonus by @emerald_property1%"
-        "item_rpc_blacksmiths_tablet_sapphire1"                             "Increases your Equipped Weapon's Property 2 bonus by @sapphire_property1%"
-        "item_rpc_blacksmiths_tablet_amethyst1"                             "Increases your Equipped Weapon's Property 4 bonus by @amethyst_property1%"
+        "item_rpc_blacksmiths_tablet_ruby1"                             "提高你当前装备的武器的第 1 项属性@ruby_property1%"
+        "item_rpc_blacksmiths_tablet_emerald1"                              "提高你当前装备的武器的第 3 项属性@emerald_property1%"
+        "item_rpc_blacksmiths_tablet_sapphire1"                             "提高你当前装备的武器的第 2 项属性@sapphire_property1%"
+        "item_rpc_blacksmiths_tablet_amethyst1"                             "提高你当前装备的武器的第 4 项属性@amethyst_property1%"
 		"item_property_blacksmiths_tablet"			"精制武器"
-		"property_blacksmiths_tablet_description"	"同时，玩家的武器升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
+		"property_blacksmiths_tablet_description"	"武器的升级速度提高 <% ITEM_RPC_BLACKSMITHS_TABLET_ADD_WEAPON_EXP * 100 %>%。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_hope_of_saytaru"									"赛塔侞的希望"
 		"item_property_saytaru"						"最后的希望"
-        "property_saytaru_description"              "Gain Magic Immunity while below <% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT %>% health."
+        "property_saytaru_description"              "生命值低于 <% ITEM_RPC_HOPE_OF_SAYTARU_HP_THRESHOLD_PCT %>% 时获得魔法免疫状态."
 
-        "DOTA_Tooltip_modifier_hope_of_saytaru_effect"              "Final Hope"
-        "DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"  "Magic Immune"
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect"              "最后的希望"
+        "DOTA_Tooltip_modifier_hope_of_saytaru_effect_Description"  "魔法免疫"
 
-        "item_rpc_hope_of_saytaru_ruby1"                                    "Increases the Health threshold to activate Final Hope by an additional @ruby_property1% of Max Health"
-        "item_rpc_hope_of_saytaru_emerald1"                                 "While Final Hope is inactive, gain @emerald_property1 Armor Pierce and Spell Pierce"
-        "item_rpc_hope_of_saytaru_sapphire1"                                    "While Final Hope is active gain @sapphire_property1% resistance to Pure Damage"
-        "item_rpc_hope_of_saytaru_amethyst1"                                    "Reduces all damage taken while Final Hope is active by @amethyst_property1%"
+        "item_rpc_hope_of_saytaru_ruby1"                                    "提高触发最后的希望的血量阈值 @ruby_property1% of Max Health"
+        "item_rpc_hope_of_saytaru_emerald1"                                 "最后的希望触发时, 获得 @emerald_property1 物理穿透和魔法穿透"
+        "item_rpc_hope_of_saytaru_sapphire1"                                    "最后的希望触发时，获得 @sapphire_property1% 纯粹伤害抗性"
+        "item_rpc_hope_of_saytaru_amethyst1"                                    "最后的希望触发时，减少所有来源的伤害 @amethyst_property1%"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_sapphire_lotus"									"蓝莲花"
-        "item_rpc_sapphire_lotus_ruby1"                                 "Each current point of health increases Spell Pierce by @ruby_property1"
-        "item_rpc_sapphire_lotus_emerald1"                                  "Each point of Intelligence increases Armor and Magic Armor by @emerald_property1"
-        "item_rpc_sapphire_lotus_sapphire1"                                 "Increases Intelligence by @sapphire_property1"
-        "item_rpc_sapphire_lotus_amethyst1"                                 "Each current point of Mana increases Spell Pierce by @amethyst_property1"
+        "item_rpc_sapphire_lotus_ruby1"                                 "每点当前生命值提高魔法穿透 @ruby_property1"
+        "item_rpc_sapphire_lotus_emerald1"                                  "每点智力值提高护甲和魔甲 @emerald_property1"
+        "item_rpc_sapphire_lotus_sapphire1"                                 "提高智力值 @sapphire_property1"
+        "item_rpc_sapphire_lotus_amethyst1"                                 "每点现有魔法值提高魔法穿透 @amethyst_property1"
 		"item_property_sapphire_lotus"				"蓝色魅力"
 		"property_sapphire_lotus_description"		"每点智力值额外增加<% ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值。"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
-        "item_rpc_conquest_stone_falcon_ruby1"                          "Increases Armor by @ruby_property1"
-        "item_rpc_conquest_stone_falcon_emerald1"                           "Increases Armor Pierce by @emerald_property1"
-        "item_rpc_conquest_stone_falcon_sapphire1"                          "Increases Spell Pierce by @sapphire_property1"
-        "item_rpc_conquest_stone_falcon_amethyst1"                          "Increases Magic Armor by @amethyst_property1"
+        "item_rpc_conquest_stone_falcon_ruby1"                          "提高护甲值 @ruby_property1"
+        "item_rpc_conquest_stone_falcon_emerald1"                           "提高物理穿透 @emerald_property1"
+        "item_rpc_conquest_stone_falcon_sapphire1"                          "提高魔法穿透 @sapphire_property1"
+        "item_rpc_conquest_stone_falcon_amethyst1"                          "提高魔甲 @amethyst_property1"
 		"item_property_stone_falcon"						"圣物"
 		"property_stone_falcon_description"				"受到的魔法伤害或者纯粹伤害不会超过你最大生命值的<% ITEM_RPC_CONQUEST_STONE_FALCON_HP_THRESHOLD %>%。"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"Neverlord's Soul Ring"
-		"item_rpc_neverlord_soul_ring_ruby1"										"Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
-		"item_rpc_neverlord_soul_ring_emerald1"										"Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
-		"item_rpc_neverlord_soul_ring_sapphire1"									"Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
-		"item_rpc_neverlord_soul_ring_amethyst1"									"Casting [W] burns <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% of your max health and restores you mana by @amethyst_property1% of the burned health."
-		"item_property_neverlord_soul_ring"												"Soul Conversion"
-		"property_neverlord_soul_ring_description"											"Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
+		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"灵魂之戒"
+		"item_rpc_neverlord_soul_ring_ruby1"										"增加灵魂契约的转换量 @ruby_property1%."
+		"item_rpc_neverlord_soul_ring_emerald1"										"灵魂契约每转换1点魔法值提高物理穿透和魔法穿透 @emerald_property1."
+		"item_rpc_neverlord_soul_ring_sapphire1"									"灵魂契约每转换1点魔法值提高基础攻击力 @sapphire_property1 "
+		"item_rpc_neverlord_soul_ring_amethyst1"									"施放 [W] 燃烧 <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% 你的最大生命值并回复你@amethyst_property1% 燃烧的生命值的魔法值."
+		"item_property_neverlord_soul_ring"												"灵魂契约"
+		"property_neverlord_soul_ring_description"											"将 <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% 最大生命值转换为最大魔法值."
     	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
 		
 		
@@ -66,64 +66,64 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_monkey_paw"										"猴爪"
 		"item_property_monkey_paw"					"摇曳的梦想"
-        "property_monkey_paw_description"           "Equipping this item causes you to take 1 point of Pure damage every <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> seconds."
+        "property_monkey_paw_description"           "装备这件物品会使你每 <% ITEM_RPC_MONKEY_PAW_DMG_TICK_RATE %> 秒受到1点纯粹伤害."
 
-        "item_rpc_monkey_paw_ruby1"                                     "Increases Attack Power by @ruby_property1%"
-        "item_rpc_monkey_paw_emerald1"                                      "Increases Base Ability Damage by @emerald_property1%"
-        "item_rpc_monkey_paw_sapphire1"                                     "Increases Item Damage by @sapphire_property1%"
-        "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
+        "item_rpc_monkey_paw_ruby1"                                     "提高攻击力 @ruby_property1%"
+        "item_rpc_monkey_paw_emerald1"                                      "提高基础技能伤害 @emerald_property1%"
+        "item_rpc_monkey_paw_sapphire1"                                     "提高物品伤害 @sapphire_property1%"
+        "item_rpc_monkey_paw_amethyst1"                                     "提高所有元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"戈登神石"
-		"item_rpc_stone_of_gordon_ruby1"									"Increases all Tier 1 rune bonuses from equipped gear by @ruby_property1%"
-		"item_rpc_stone_of_gordon_emerald1"									"Increases all Tier 3 rune bonuses from equipped gear by @emerald_property1%"
-		"item_rpc_stone_of_gordon_sapphire1"									"Increases all Tier 2 rune bonuses from equipped gear by @sapphire_property1%"
-		"item_rpc_stone_of_gordon_amethyst1"									"Increases all Tier 4 rune bonuses from equipped gear by @amethyst_property1%"
+		"item_rpc_stone_of_gordon_ruby1"									"提高所有从装备上获取的额外 T 1 符文  @ruby_property1%"
+		"item_rpc_stone_of_gordon_emerald1"									"提高所有从装备上获取的额外 T 3 符文 @emerald_property1%"
+		"item_rpc_stone_of_gordon_sapphire1"									"提高所有从装备上获取的额外 T 2 符文 @sapphire_property1%"
+		"item_rpc_stone_of_gordon_amethyst1"									"提高所有从装备上获取的额外 T 4 符文 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_arbor_dragonfly"									"点水蜻蜓"
-        "item_rpc_arbor_dragonfly_ruby1"                                    "Increases all Tier 1 runes by @ruby_property1"
-        "item_rpc_arbor_dragonfly_emerald1"                                 "Increases Base Ability and Item Damage by @emerald_property1"
-        "item_rpc_arbor_dragonfly_sapphire1"                                    "Increases all Tier 2 runes by @sapphire_property1"
-        "item_rpc_arbor_dragonfly_amethyst1"                                    "Increases All Attributes by @amethyst_property1"
+        "item_rpc_arbor_dragonfly_ruby1"                                    "提高所有 T 1 符文 @ruby_property1"
+        "item_rpc_arbor_dragonfly_emerald1"                                 "提高基础技能伤害和物品伤害 @emerald_property1"
+        "item_rpc_arbor_dragonfly_sapphire1"                                    "提高所有 T 1 符文 @sapphire_property1"
+        "item_rpc_arbor_dragonfly_amethyst1"                                    "提高全属性 @amethyst_property1"
 		"item_property_arbor_dragonfly"				"迷雾祝福"
 		"property_arbor_dragonfly_description"		"增加所有buff的持续时间 <% ITEM_RPC_ARBOR_DRAGONFLY_BUFF_INCREASE_PCT %>%，包括雕文和符文技能。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_gem_of_eternal_frost"							"永冻宝石"
 		"item_property_eternal_frost"				"冰霜新星"
-        "property_eternal_frost_description"        "When you cast @Ability3 - root all enemies in a <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE %> radius in a case of ice for <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION %> seconds and deal damage equal to <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x your Intelligence."
+        "property_eternal_frost_description"        "当你施放 @Ability3 时- 爆发冰霜新星缠绕 <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_AOE %> 范围内的所有敌人 <% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_ROOT_DURATION %>秒并造成<% ITEM_RPC_GEM_OF_ETERNAL_FROST_ACTIVE_EXPLOSION_DMG_PER_INT %>x 你的智力值的伤害."
 
-        "item_rpc_gem_of_eternal_frost_ruby1"                           "Enemies who are rooted deal @ruby_property1% reduced damage to you"
-        "item_rpc_gem_of_eternal_frost_emerald1"                            "Increases Frost Nova radius by @emerald_property1 and nova damage by @emerald_property2"
-        "item_rpc_gem_of_eternal_frost_sapphire1"                           "Increases Item and <font color=\"#87D9FF\">Ice</font> Elemental Damage by @sapphire_property1%"
-        "item_rpc_gem_of_eternal_frost_amethyst1"                           "Enemies with <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> range are slowed by @amethyst_property1 movespeed every <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> seconds. When their movespeed drops below <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> they are rooted for @amethyst_property2 seconds."
+        "item_rpc_gem_of_eternal_frost_ruby1"                           "被缠绕的敌人对你造成的伤害减少 @ruby_property1% "
+        "item_rpc_gem_of_eternal_frost_emerald1"                            "提高冰霜新星的范围 @emerald_property1 和伤害 @emerald_property2"
+        "item_rpc_gem_of_eternal_frost_sapphire1"                           "提高物品伤害和所有 <font color=\"#87D9FF\">冰</font> 元素伤害 @sapphire_property1%"
+        "item_rpc_gem_of_eternal_frost_amethyst1"                           " <% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_AURA_RADIUS %> 范围内的敌人每<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_STACK_INTERVAL %> 秒将被降低 @amethyst_property1 移动速度 . 当他们的移动速度低于<% ITEM_RPC_GEM_OF_ETERNAL_FROST_AMETHYST_MS_THRESHOLD %> 时他们将被缠绕 @amethyst_property2 秒."
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"
 		"item_property_lifesource_vessel"			"生命源泉"
-        "property_lifesource_vessel_description"    "All attributes increases Max Health by <% ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE %>."
+        "property_lifesource_vessel_description"    "全属性值提高最大生命值 <% ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE %>."
 
-        "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <% ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL %> seconds"
-        "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
-        "item_rpc_lifesource_vessel_sapphire1"                              "Increases Max Health by @sapphire_property1%"   
-        "item_rpc_lifesource_vessel_amethyst1"                              "Increases All Attributes by @amethyst_property1"
+        "item_rpc_lifesource_vessel_ruby1"                              "每 <% ITEM_RPC_LIFESOURCE_VESSEL_RUBY_HEAL_INTERVAL %> 秒回复 @ruby_property1% 最大生命值 "
+        "item_rpc_lifesource_vessel_emerald1"                               "全属性增加生命回复 @emerald_property1"
+        "item_rpc_lifesource_vessel_sapphire1"                              "提高最大生命值 @sapphire_property1%"   
+        "item_rpc_lifesource_vessel_amethyst1"                              "提高全属性 @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_galaxy_orb"										"星球"
-        "item_rpc_galaxy_orb_ruby1"                                     "Increases Black Hole's radius by @ruby_property1 and pull force by @ruby_property2"
-        "item_rpc_galaxy_orb_emerald1"                                      "Enemies trapped in the Black Hole vacuum for <% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> seconds are Frozen and have @emerald_property1 reduced Armor and Magic Armor for @emerald_property2 seconds"
-        "item_rpc_galaxy_orb_sapphire1"                                     "Black Hole persists for @sapphire_property1 seconds after channeling ends, and increases Base Ability Damage of [R] by @sapphire_property2%."
-        "item_rpc_galaxy_orb_amethyst1"                                     "Increases Item and <font color=\"#C25DFC\">Cosmic</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_galaxy_orb_ruby1"                                     "提高黑洞的范围 @ruby_property1 和吸力 @ruby_property2"
+        "item_rpc_galaxy_orb_emerald1"                                      "被黑洞吸附<% ITEM_RPC_GALAXY_ORB_EMERALD_TIME_TO_FREEZE %> 秒的敌人将被冻结并降低 @emerald_property1 护甲和魔甲 @emerald_property2 秒"
+        "item_rpc_galaxy_orb_sapphire1"                                     "黑洞在引导结束时还将残留 @sapphire_property1 秒, 并且提高 [R] 的基础技能伤害 @sapphire_property2%."
+        "item_rpc_galaxy_orb_amethyst1"                                     "提高物品伤害和所有 <font color=\"#C25DFC\">宇宙</font> 元素伤害 @amethyst_property1%"
 		"item_property_galaxy_orb"					"黑洞"
 		"property_galaxy_orb_description"			"当你引导 @Ability4 时，身边所有敌方单位将被拽向你。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_azure_empire"									"天蓝帝国吊坠"
-        "item_rpc_azure_empire_ruby1"                                   "Reduces Hawk respawn time by @ruby_property1 seconds"
-        "item_rpc_azure_empire_emerald1"                                    "Each active Hawk increases Armor Pierce by @emerald_property1"
-        "item_rpc_azure_empire_sapphire1"                                   "Each active Hawk increases Spell Pierce by @sapphire_property1"
-        "item_rpc_azure_empire_amethyst1"                                   "@amethyst_property1% chance when taking Pure or Magic damage for the Hawks to block it if any hawks are active"
+        "item_rpc_azure_empire_ruby1"                                   "降低雄鹰的复活时间 @ruby_property1 秒"
+        "item_rpc_azure_empire_emerald1"                                    "每只雄鹰提高物理穿透 @emerald_property1"
+        "item_rpc_azure_empire_sapphire1"                                   "每只雄鹰提高魔法穿透 @sapphire_property1"
+        "item_rpc_azure_empire_amethyst1"                                   "若至少有1只雄鹰存在，当承受魔法或纯粹伤害时有@amethyst_property1% 概率使雄鹰格挡这个伤害"
 		"item_property_azure_empire"				"天空法官"
 		"property_azure_empire_description"			"<% ITEM_RPC_AZURE_EMPIRE_NUMBER_OF_HAWKS %>只雄鹰跟随你，每只吸收一次纯碎伤害或魔法伤害。雄鹰在受到伤害 <% ITEM_RPC_AZURE_EMPIRE_HAWK_CD %> 秒后重生"
 		"item_property_azure_empire_silver"				"银色天空"
@@ -139,12 +139,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"西格拉斯的魅力"
-        "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
-        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds"
-        "item_rpc_signus_charm_sapphire1"                                   "Increase Base Ability Damage by @sapphire_property1%"
-        "item_rpc_signus_charm_amethyst1"                                   "Casting [E] applies a <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> second buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
+        "item_rpc_signus_charm_ruby1"                                   "施放 [Q] 减少 [E] @ruby_property1 秒的冷却时间"
+        "item_rpc_signus_charm_emerald1"                                    "增加 [W] 的冷却时间@emerald_property1 秒，减少 [Q] 的冷却时间 @emerald_property2 秒"
+        "item_rpc_signus_charm_sapphire1"                                   "提高基础技能伤害 @sapphire_property1%"
+        "item_rpc_signus_charm_amethyst1"                                   "施放 [E] 获得一层持续 <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> 秒的buff，能提高你的物理穿透和魔法穿透 @amethyst_property1"
 		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%。 @Ability3 冷却时间提高1倍。"
+		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%。 @Ability3 冷却时间提高<% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"
@@ -158,25 +158,25 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_tome_of_chaos"									"混乱之书"
 		"item_property_tome_of_chaos"				"地狱火"
-        "property_tome_of_chaos"                    "When you cast @Ability2, summon an infernal demon in front of you, which stuns nearby enemies in <% ITEM_RPC_TOME_OF_CHAOS_STUN_RADIUS %> for <% ITEM_RPC_TOME_OF_CHAOS_STUN %> seconds upon arrival. The devil has <% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>x your health and <% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT%>x your attack damage. Lasts <% ITEM_RPC_TOME_OF_CHAOS_DURATION %> seconds and has a <% ITEM_RPC_TOME_OF_CHAOS_CD %> second cooldown."
-        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "Infernal Reign Cooldown"
-        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "Recharging"
+        "property_tome_of_chaos"                    "当你施放 @Ability2, 在你面前召唤一头地狱火, 眩晕 <% ITEM_RPC_TOME_OF_CHAOS_STUN_RADIUS %> 范围内的敌人 <% ITEM_RPC_TOME_OF_CHAOS_STUN %> 秒. 地狱火拥有 <% ITEM_RPC_TOME_OF_CHAOS_HP_MULT %>x 你的生命值和 <% ITEM_RPC_TOME_OF_CHAOS_ATTACK_DAMAGE_MULT%>x 你的攻击力. 持续 <% ITEM_RPC_TOME_OF_CHAOS_DURATION %>秒。 <% ITEM_RPC_TOME_OF_CHAOS_CD %> 秒冷却时间."
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown"  "地狱火冷却"
+        "DOTA_Tooltip_modifier_tome_of_chaos_cooldown_Description"  "充能中"
 
-        "tome_of_chaos_infernal"                    "Infernal Demon"
+        "tome_of_chaos_infernal"                    "地狱火"
 
-        "item_rpc_tome_of_chaos_ruby1"                                  "The Infernal has @ruby_property1% bonus Attack Power and deals his damage in an @ruby_property2 radius"
-        "item_rpc_tome_of_chaos_emerald1"                                   "The Infernal is covered in flames that burn enemies in <% ITEM_RPC_TOME_OF_CHAOS_EMERALD_BURN_RANGE %> range every <% ITEM_RPC_TOME_OF_CHAOS_EMERALD_BURN_INTERVAL %> seconds for @emerald_property1% of the Infernal's attack power"
-        "item_rpc_tome_of_chaos_sapphire1"                                  "Infernal Reign's cooldown is reduced by @sapphire_property1 seconds"
-        "item_rpc_tome_of_chaos_amethyst1"                                  "The Infernal has an ability with a <% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_COOLDOWN %> second cooldown that spits flames in all directions that deal @amethyst_property1% of the Infernal's attack power as damage, and lower effected enemies' armor by @amethyst_property2 for <% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_ARMOR_LOSS_DURATION %> seconds"
+        "item_rpc_tome_of_chaos_ruby1"                                  "地狱火拥有 @ruby_property1% 额外攻击力并且能够伤害  @ruby_property2 范围内的敌人"
+        "item_rpc_tome_of_chaos_emerald1"                                   "地狱火周身覆盖火焰，每<% ITEM_RPC_TOME_OF_CHAOS_EMERALD_BURN_INTERVAL %>秒灼烧 <% ITEM_RPC_TOME_OF_CHAOS_EMERALD_BURN_RANGE %> 范围内的敌人，造成@emerald_property1% 地狱火攻击力的伤害"
+        "item_rpc_tome_of_chaos_sapphire1"                                  "召唤地狱火的冷却时间减少 @sapphire_property1 秒"
+        "item_rpc_tome_of_chaos_amethyst1"                                  "地狱火拥有一个<% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_COOLDOWN %>秒冷却时间的技能：对周围喷射火焰并造成 @amethyst_property1% 地狱火攻击力的伤害, 并且降低击中敌人的护甲@amethyst_property2，持续 <% ITEM_RPC_TOME_OF_CHAOS_AMETHYST_ARMOR_LOSS_DURATION %> 秒"
 
-        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss"      "Infernal Reign (Amethyst)"
-        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss_Description"  "Reduced Armor"
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss"      "地狱火 (紫宝石)"
+        "DOTA_Tooltip_modifier_infernal_reign_amethyst_armor_loss_Description"  "降低护甲"
 
-        "DOTA_Tooltip_ability_infernal_reign_toggle_ai" "Infernal Demon AI"
-        "DOTA_Tooltip_ability_infernal_reign_toggle_ai_Description" "Toggle On to activate default behavior"
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai" "地狱火 AI"
+        "DOTA_Tooltip_ability_infernal_reign_toggle_ai_Description" "开关此技能以切换AI设定"
 
-        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability"  "Infernal Blast"
-        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability_Description"  "Launch flames in all directions that reduce enemies' armor"
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability"  "地狱火爆裂冲击"
+        "DOTA_Tooltip_ability_infernal_reign_amethyst_ability_Description"  "向四面八方喷射火焰并降低受到影响的敌人的护甲"
 		
 		
 		
@@ -184,14 +184,14 @@
 		"DOTA_Tooltip_ability_item_rpc_torch_of_gengar"									"阴影火炬"
 
 		"item_property_gengar"						"暗影步伐"
-        "property_gengar"                            "The wearer is disarmed and has <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% evasion, unit walking and <% ITEM_RPC_TORCH_OF_GENGAR_REDUCED_ATTACK_DAMAGE %>% reduced Attack Power. Casting a spell removes this effect for <% ITEM_RPC_TORCH_OF_GENGAR_REMOVE_DURATION %> seconds."
-        "DOTA_Tooltip_modifier_torch_of_gengar_effect"  "Shadow Walk"
-        "DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"  "<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% evasion and unit walking"
+        "property_gengar"                            "穿戴者被缴械并有 <% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>% 闪避, 相位移动并降低 <% ITEM_RPC_TORCH_OF_GENGAR_REDUCED_ATTACK_DAMAGE %>% 攻击力. 施放技能移除这个效果 <% ITEM_RPC_TORCH_OF_GENGAR_REMOVE_DURATION %> 秒."
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect"  "暗影步伐"
+        "DOTA_Tooltip_modifier_torch_of_gengar_effect_Description"  "<% ITEM_RPC_TORCH_OF_GENGAR_EVASION %>%% 闪避和相位移动"
         
-        "item_rpc_torch_of_gengar_ruby1"                                    "Reduces Shadow Walk's disabled duration by @ruby_property1 seconds"
-        "item_rpc_torch_of_gengar_emerald1"                                 "While Shadow Walk is disabled gain @emerald_property1% Base Ability Damage and @emerald_property2 Magic Armor"
-        "item_rpc_torch_of_gengar_sapphire1"                                    "Reduces the Attack Power penalty during Shadow Walk by @sapphire_property1%"
-        "item_rpc_torch_of_gengar_amethyst1"                                    "Increases Item and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_torch_of_gengar_ruby1"                                    "减少施放技能时暗影步伐效果移除的时间 @ruby_property1 seconds"
+        "item_rpc_torch_of_gengar_emerald1"                                 "暗影步伐效果移除时获得 @emerald_property1% 基础技能伤害和 @emerald_property2 魔甲"
+        "item_rpc_torch_of_gengar_sapphire1"                                    "减少暗影步伐的攻击力降低惩罚 @sapphire_property1%"
+        "item_rpc_torch_of_gengar_amethyst1"                                    "提高物品伤害和所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ruinfall_skull_token"							"头骨令牌"
@@ -206,10 +206,10 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_omega_ruby"										"欧米伽宝石"
-        "item_rpc_omega_ruby_ruby1"                                     "Increases the explosion radius by @ruby_property1 and Omega Flare's damage by @ruby_property2"
-        "item_rpc_omega_ruby_emerald1"                                      "Increases Attack Speed by @emerald_property1"
-        "item_rpc_omega_ruby_sapphire1"                                     "Increases Attack Power by @sapphire_property1%"
-        "item_rpc_omega_ruby_amethyst1"                                     "Increases Armor Pierce and Spell Pierce by @amethyst_property1"
+        "item_rpc_omega_ruby_ruby1"                                     "提高欧米伽之火AOE范围 @ruby_property1 和伤害@ruby_property2"
+        "item_rpc_omega_ruby_emerald1"                                      "提高攻击速度 @emerald_property1"
+        "item_rpc_omega_ruby_sapphire1"                                     "提高攻击力 @sapphire_property1%"
+        "item_rpc_omega_ruby_amethyst1"                                     "提高物理穿透和魔法穿透 @amethyst_property1"
 		"item_property_omega_ruby"					"欧米伽之火"
 		"property_omega_ruby"						"你的普通攻击附有火焰，造成 <% ITEM_RPC_OMEGA_RUBY_ATTACK_TO_DMG %>% 的AOE魔法伤害。与其他类型的分裂攻击叠加。"
 		
@@ -217,77 +217,77 @@
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol1"					"黑暗灵魂"		
     
-        "property_raven_idol_description"          "Reduce damage taken from all sources by <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Your health can not go above <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% of your max."
+        "property_raven_idol_description"          "降低所受的伤害 <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. 你的生命值不能超过 <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% 最大生命值."
         
-        "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
-        "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"
-        "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
-        "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
+        "item_rpc_raven_idol_ruby1"                                     "降低黑暗灵魂的生命阈值 @ruby_property1% , 但能提高其减伤效果 @ruby_property2%"
+        "item_rpc_raven_idol_emerald1"                                      "对你的治疗效果降低 @emerald_property1% . 提高基础技能伤害 @emerald_property2% 和攻击力 @emerald_property3"
+        "item_rpc_raven_idol_sapphire1"                                     "提高精神值 @sapphire_property1 ，提高力量值 @sapphire_property2"
+        "item_rpc_raven_idol_amethyst1"                                     "提高物品伤害和所有 <font color=\"#7F4F84\">暗</font> 元素伤害 @amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_phoenix_emblem"									"凤凰徽章"
 		"item_property_phoenix_emblem"				"涅盘"
 
-        "property_phoenix_emblem"                   "On death, revive after <% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %> seconds with <% ITEM_RPC_PHOENIX_EMBLEM_REVIVE_HEALTH_AND_MANA_PCT %>% Health and Mana and stun all surrounding enemies within <% ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS %> range for <% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %> seconds. <% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %> second cooldown."
-        "DOTA_Tooltip_modifier_phoenix_emblem_cooldown" "Rebirth Cooldown"
+        "property_phoenix_emblem"                   "死亡时, 在 <% ITEM_RPC_PHOENIX_EMBLEM_RESURRECTION_DELAY %> 秒后复活，回复 <% ITEM_RPC_PHOENIX_EMBLEM_REVIVE_HEALTH_AND_MANA_PCT %>% 生命值和魔法值并眩晕 <% ITEM_RPC_PHOENIX_EMBLEM_STUN_RADIUS %> 范围内的敌人<% ITEM_RPC_PHOENIX_EMBLEM_STUN_DUR %> 秒. <% ITEM_RPC_PHOENIX_EMBLEM_COOLDOWN %> 秒冷却时间."
+        "DOTA_Tooltip_modifier_phoenix_emblem_cooldown" "涅槃冷却时间"
 
-        "item_rpc_phoenix_emblem_ruby1"                                 "Increases Item Damage by @ruby_property1%, and enemies who are stunned by Rebirth also take damage based on @ruby_property2% of your Max Health"
-        "item_rpc_phoenix_emblem_emerald1"                                  "Increases Max Health by @emerald_property1, and increases Health and Mana on respawn by an additional @emerald_property2%"
-        "item_rpc_phoenix_emblem_sapphire1"                                 "Reduce Rebirth's Cooldown by @sapphire_property1 seconds"
-        "item_rpc_phoenix_emblem_amethyst1"                                 "Increases Rebirth's radius by @amethyst_property1 and stun duration by @amethyst_property2"
+        "item_rpc_phoenix_emblem_ruby1"                                 "提高物品伤害 @ruby_property1%, 被涅槃眩晕的敌人同时受到 @ruby_property2% 你最大生命值的伤害"
+        "item_rpc_phoenix_emblem_emerald1"                                  "提高最大生命值 @emerald_property1, 并提高涅槃时的回复比例@emerald_property2%"
+        "item_rpc_phoenix_emblem_sapphire1"                                 "降低涅槃的冷却时间 @sapphire_property1 秒"
+        "item_rpc_phoenix_emblem_amethyst1"                                 "提高涅槃的影响范围 @amethyst_property1 和眩晕时间 @amethyst_property2"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_volcano_orb"										"火山石"
 		"item_property_volcano_orb"					"火热之心"
-        "property_volcano_orb_description"          "All attributes increase Spell Pierce by <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
+        "property_volcano_orb_description"          "全属性提高魔法穿透 <% ITEM_RPC_VOLCANO_ORB_SPELL_PIERCE_PER_ATTR  %>."
 
-		"item_rpc_volcano_orb_ruby1"										"Increases Strength by @ruby_property1"
-		"item_rpc_volcano_orb_emerald1"										"Increases Agility by @emerald_property1"
-		"item_rpc_volcano_orb_sapphire1"										"Increases Intelligence by @sapphire_property1"
-		"item_rpc_volcano_orb_amethyst1"										"Increases Spirit by @amethyst_property1"
+		"item_rpc_volcano_orb_ruby1"										"提高力量值 @ruby_property1"
+		"item_rpc_volcano_orb_emerald1"										"提高敏捷值 @emerald_property1"
+		"item_rpc_volcano_orb_sapphire1"										"提高智力值 @sapphire_property1"
+		"item_rpc_volcano_orb_amethyst1"										"提高精神值 @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_aeriths_tear"									"艾瑞丝的眼泪"
 		"item_property_aeriths_tear"							"最终幻想"
-        "property_aeriths_tear"                                 "While below <% ITEM_RPC_AERITHS_TEAR_HP_THRESHOLD %>% health, gain a regenerative blessing of life that grants <% ITEM_RPC_AERITHS_TEAR_HEALTH_REGEN_PCT %>% Health Regen and <% ITEM_RPC_AERITHS_TEAR_MANA_REGEN %> Mana Regen."
+        "property_aeriths_tear"                                 "当生命值低于 <% ITEM_RPC_AERITHS_TEAR_HP_THRESHOLD %>% 时, 获得 <% ITEM_RPC_AERITHS_TEAR_HEALTH_REGEN_PCT %>% 最大生命值的生命回复和 <% ITEM_RPC_AERITHS_TEAR_MANA_REGEN %> 魔法回复."
 
-        "item_rpc_aeriths_tear_ruby1"                                   "Reduces damage taken from enemies within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> distance by @ruby_property1%"
-        "item_rpc_aeriths_tear_emerald1"                                    "If there is at least 1 enemy within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> range, gain @emerald_property1 Magic Armor"
-        "item_rpc_aeriths_tear_sapphire1"                                  "If there is at least 1 enemy within <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> range, gain @sapphire_property1 Spell Pierce"
-        "item_rpc_aeriths_tear_amethyst1"                                   "Increases Spirit by @amethyst_property1"
+        "item_rpc_aeriths_tear_ruby1"                                   "降低 <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> 范围内敌人对你造成的伤害 @ruby_property1%"
+        "item_rpc_aeriths_tear_emerald1"                                    "若 <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> 范围内至少有1名敌人, 获得 @emerald_property1 魔甲"
+        "item_rpc_aeriths_tear_sapphire1"                                  "若 <% ITEM_RPC_AERITHS_TEAR_DISTANCE %> 范围内至少有1名敌人, 获得 @sapphire_property1 魔法穿透"
+        "item_rpc_aeriths_tear_amethyst1"                                   "提高精神值 @amethyst_property1"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_fractional_enhancement_geode"					"放大水晶"
-        "item_rpc_fractional_enhancement_geode_ruby1"                   "Increases the threshold to trigger Logarithmic Amplification by an additionial @ruby_property1% of the enemy's max health"
-        "item_rpc_fractional_enhancement_geode_emerald1"                    "Increases the Amplification value by an additional @emerald_property1x"
-        "item_rpc_fractional_enhancement_geode_sapphire1"                   "Increases All Elemental Damage by @sapphire_property1%"
-        "item_rpc_fractional_enhancement_geode_amethyst1"                   "Increases Item Damage by @amethyst_property1%"
+        "item_rpc_fractional_enhancement_geode_ruby1"                   "提高对数放大的触发阈值 @ruby_property1% 敌人的最大生命值"
+        "item_rpc_fractional_enhancement_geode_emerald1"                    "提高放大伤害 @emerald_property1x"
+        "item_rpc_fractional_enhancement_geode_sapphire1"                   "提高所有元素伤害@sapphire_property1%"
+        "item_rpc_fractional_enhancement_geode_amethyst1"                   "提高物品伤害 @amethyst_property1%"
 		"item_property_geode"								"对数放大"
 		"property_geode_description"						"如果你造成的单次伤害值低于目标最大生命值的<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD %>%，该伤害值变为<% ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_DAMAGE_MULT %>倍。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
-        "item_rpc_ring_of_nobility_ruby1"                               "When this ring upgrades, upgrade this Ruby to Tier @ruby_property1"
-        "item_rpc_ring_of_nobility_emerald1"                                "When this ring upgrades, upgrade this Emerald to Tier @emerald_property1"
-        "item_rpc_ring_of_nobility_sapphire1"                               "When this ring upgrades, upgrade this Sapphire to Tier @sapphire_property1"
-        "item_rpc_ring_of_nobility_amethyst1"                               "When this ring upgrades, upgrade this Amethyst to Tier @amethyst_property1"
+        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 T @ruby_property1符文"
+        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 T @emerald_property1符文"
+        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 T @sapphire_property1符文"
+        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 T @amethyst_property1符文"
 		"item_property_nobility"							"崇高之路"
 		"property_nobility_description"						"提高全属性 <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
-        "item_rpc_ring_of_nobility_augmented_ruby1"                     "Increases all Tier 1 runes by @ruby_property1"
-        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Increases all Tier 3 runes by @emerald_property1"
-        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Increases all Tier 2 runes by @sapphire_property1"
-        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "Increases all Tier 4 runes by @amethyst_property1"
+        "item_rpc_ring_of_nobility_augmented_ruby1"                     "提高所有 T 1 符文 @ruby_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "提高所有 Tier 3 符文 @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "提高所有 Tier 2 符文 @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "提高所有 Tier 4 符文 @amethyst_property1"
 		"item_property_nobility_augmented"					"崇高步伐"
 		"property_nobility_augmented_description"			"提高全属性 <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x 你的等级。该装备无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twig_of_the_enlightened"							"启示树枝"
-        "item_rpc_twig_of_the_enlightened_ruby1"                            "The shield builds damage absorption by an additional @ruby_property1x Mana Gained"
-        "item_rpc_twig_of_the_enlightened_emerald1"                         "Restore @emerald_property1% of your Mana when taking damage"
-        "item_rpc_twig_of_the_enlightened_sapphire1"                            "Increases Mana Shell's capacity by an additional @sapphire_property1x of your Max Mana"
+        "item_rpc_twig_of_the_enlightened_ruby1"                            "护盾额外吸收@ruby_property1x 获得的魔法值的伤害"
+        "item_rpc_twig_of_the_enlightened_emerald1"                         "承受伤害时回复 @emerald_property1% 魔法值"
+        "item_rpc_twig_of_the_enlightened_sapphire1"                            "提高魔力护盾的伤害吸收上限 @sapphire_property1x 你的最大魔法值"
         "item_rpc_twig_of_the_enlightened_amethyst1"                            "Increases Mana Regen by @amethyst_property1"
 		"item_property_twig_of_enlightened"					"魔力护盾"
 		"property_twig_of_enlightened_description"			"每当你获得魔法值时，创建一个护盾吸收 <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_MANA_GAIN_TO_SHIELD %>x所获魔法值的伤害。护盾的伤害吸收上限为 <% ITEM_RPC_TWIG_OF_THE_ENLIGHTENED_SHIELD_MAX_CAPACITY %>x你的最大魔法值。"
