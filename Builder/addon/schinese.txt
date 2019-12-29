@@ -1292,6 +1292,9 @@
 
 		"DOTA_Tooltip_Ability_item_reanimation_stone"	"复苏宝石"
 		"reanimation_stone_desc"	"重置所有技能和符文，并返还所有技能点和符文点。"
+		
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"打孔器"
+		"socket_cutter_desc"										"可以在铁匠处使用，为一件物品开凿一个宝石孔位."
 
 		
 		
