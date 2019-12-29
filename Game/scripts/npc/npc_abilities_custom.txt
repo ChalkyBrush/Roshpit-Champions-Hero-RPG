@@ -33058,7 +33058,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"15 20 25 30 35 40 45"
+				"att_to_dmg"			"3 6 9 12 15 18 21"
 			}
 		}
 		// Precache
@@ -56639,7 +56639,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "80"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 		}
