@@ -544,6 +544,7 @@ function Challenges:SetChallengeParameters()
 end
 
 function Challenges:DisableHeroAbilityInit()
+	print("ABILITY DISABLE")
 	Timers:CreateTimer(0, function()
 		local index = Challenges.AbilityDisable
 		if index == 3 then
@@ -552,9 +553,11 @@ function Challenges:DisableHeroAbilityInit()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local hero = MAIN_HERO_TABLE[i]
 			local ability_to_disable = hero:GetAbilityByIndex(index)
-			if ability_disable and IsValidEntity(ability_to_disable) then
-				if ability_disable:IsActivated() then
-					ability_disable:SetActivated(false)
+			if ability_to_disable and IsValidEntity(ability_to_disable) then
+				print(ability_to_disable:IsActivated())
+				if ability_to_disable:IsActivated() then
+					print("final step")
+					ability_to_disable:SetActivated(false)
 				end
 			end
 		end
