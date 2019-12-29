@@ -1350,6 +1350,16 @@
 		"challenge_spirit"											"灵魂之境"
 		"challenge_equinox"											"春分/秋分"
 
+		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% 伤害减免:"
+		"DOTA_Tooltip_modifier_mega_steadfast"									"高级坚定"
+		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"降低受到的伤害"
+		
+		"DOTA_Tooltip_ability_normal_steadfast"							"坚定"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_normal_steadfast_damage_reduce"				"% 伤害减免:"
+
 		"ui_start_challenge"										"开始挑战"
 		"ui_challenge_reward"										"奖励"
 		"ui_challenge_started"										"十字军战士的挑战已接受."
