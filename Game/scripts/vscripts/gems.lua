@@ -68,7 +68,7 @@ function Gems:GetRewardAndSpawnPositionByEventName(event_name)
 		spawn_args["position"] = Vector(-15040, -3904)
 		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 9		
-	elseif event_name == "water_temple_spirit_boss" then
+	elseif event_name == "tanari_water_spirit_boss" then
 		spawn_args["position"] = Vector(14400, -2432)
 		spawn_args["fv"] = Vector(-1,1)
 		spawn_args["reward"] = 9	
