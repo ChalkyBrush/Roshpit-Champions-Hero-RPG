@@ -984,6 +984,10 @@
 
 		"item_damage_increase"			"物品伤害提高 % "
 		
+		"item_item_damage"				"物品伤害提高e %"
+
+		"item_attack_damage"				"基础攻击力"
+		
 		"property_unit_walking_description"			"该单位移动时将不与其他单位产生碰撞。"
 
 		"item_all_runes"							"+ 所有T1-T3符文"
