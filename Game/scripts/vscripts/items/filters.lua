@@ -2826,6 +2826,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
+        if unitName == "npc_dota_hero_night_stalker" then
+            if attacker:HasModifier("modifier_chernobog_arcana1") then
+                mult = mult + attacker:GetRuneValue("r", 4)*CHERNOBOG_ARCANA1_R4_DEMON_AMP
+            end
+        end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
@@ -6649,7 +6654,7 @@ function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
         if unit.temporal_warp_boots.last_clicked then
             if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
             else
-                if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) and fow_visible then
+                if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) then
                     local fow_checker = CreateUnitByName("dummy_unit_vulnerable", Vector(orderTable.position_x, orderTable.position_y), true, nil, nil, DOTA_TEAM_NEUTRALS)
                     fow_checker:AddAbility("dummy_unit"):SetLevel(1)
                     local enemies = FindUnitsInRadius(unit:GetTeamNumber(), Vector(orderTable.position_x, orderTable.position_y), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)

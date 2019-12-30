@@ -11403,7 +11403,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"attack_power_mult_percent"			"60 80 100 140 180 240 300"
+				"attack_power_mult_percent"			"100 200 300 400 500 600 700"
 			}
 			"02"
 			{
@@ -11483,7 +11483,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 			"01"
 			{
@@ -48149,7 +48149,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.4"
 			}
 			"02"
 			{

@@ -2,7 +2,6 @@
 LinkLuaModifier("modifier_chernobog_demonform_lua", "heroes/nightstalker/modifiers/modifier_chernobog_demonform_lua", LUA_MODIFIER_MOTION_NONE)
 local prefix = '4_r_arcana1_'
 local modifiers = {
-	demon_amp_r4 = 'modifier_chernobog_4_r_arcana1_demon_amp_r4',
 	postmit_r3 = 'modifier_chernobog_4_r_arcana1_postmit_r3',
 	slow_aura_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_r2',
 	slow_aura_effect_r2 = 'modifier_chernobog_4_r_arcana1_slow_aura_effect_r2',
@@ -174,10 +173,5 @@ function passive_thinker(event)
 		caster:AddNewModifier(caster, ability, modifiers.postmit_r3, {})
 	else
 		caster:RemoveModifierByName(modifiers.postmit_r3)
-	end
-	if caster.r4_level > 0 then
-		caster:AddNewModifier(caster, ability, modifiers.demon_amp_r4, {})
-	else
-		caster:RemoveModifierByName(modifiers.demon_amp_r4)
 	end
 end
