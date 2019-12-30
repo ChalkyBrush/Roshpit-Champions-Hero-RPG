@@ -7906,7 +7906,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"All damage taken is reduced by another <font color='#ccff66'>30</font>% while in @Ability2."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"[T3-1] Glyph of Catastrophe"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage. @Ability4 Base Ability Damage reduced by <font color='#ccff66'>7500</font>%"
+		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage. @Ability4 Base Ability Damage reduced by <font color='#ccff66'>80</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] Glyph of Mountain Force"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<font color='#ccff66'>25</font>% chance to launch 2 @Ability1s."

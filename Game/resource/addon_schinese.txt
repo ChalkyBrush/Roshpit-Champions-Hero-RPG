@@ -7641,7 +7641,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"当使用山丘守护时所有伤害减少 <font color='#ccff66'>30</font>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"        "[T3-1] 灾难雕文"
-        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害.但是@Ability4 的基础技能伤害减少<font color='#ccff66'>7500</font>%"
+        "item_rpc_mountain_protector_glyph_3_1_description"                 "@Ability4 可以对魔免单位造成纯粹伤害.但是@Ability4 的基础技能伤害减少<font color='#ccff66'>8000</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] 山丘之力雕文"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<font color='#ccff66'>25</font>% 有几率释放2道超声波。"

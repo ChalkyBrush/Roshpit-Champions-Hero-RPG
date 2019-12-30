@@ -37736,7 +37736,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"300 470 640 810 980 1150 1320"
+		"AbilityDamage"				"300 550 800 1050 1300 1550 1800"
 		"precache"
 		{
 
@@ -38052,7 +38052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"16"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -38107,7 +38107,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-45"
+				"property_one"			"-90"
 			}
 		}
 	}
@@ -57727,7 +57727,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "6"
 				}
 			}
 			"modifier_slipfinn_b_c_health"
@@ -58452,7 +58452,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -58472,7 +58472,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -58518,7 +58518,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"4"
 			}
 			"02"
 			{
@@ -58553,7 +58553,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-15"
+				"property_one"			"-40"
 			}
 		}
 	}
@@ -58573,7 +58573,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -58614,7 +58614,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -58694,7 +58694,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"300"
 			}
 		}
 	}
@@ -58714,7 +58714,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -58774,7 +58774,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -59102,12 +59102,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -59133,7 +59133,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"24"
 			}
 			"03"
 			{
