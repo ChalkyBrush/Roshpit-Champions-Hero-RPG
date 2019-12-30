@@ -173,7 +173,7 @@ function penance_impact(event)
 	end)
 	local damage = event.damage
 	if ability.w_3_level > 0 then
-		damage = damage + caster:GetPhysicalArmorValue(false) * 6 * ability.w_3_level
+		damage = damage + caster:GetRoshpitArmor() * PALADIN_ARCANA_W3_ADD_DMG_PER_ARMOR * ability.w_3_level
 	end
 	local heal_percent = event.heal_percentage
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
