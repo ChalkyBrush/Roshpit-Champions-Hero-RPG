@@ -987,7 +987,7 @@ function sea_beast_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOn("Seafortress.DetonateCreep", caster)
-		local damage = 65000
+		local damage = event.pop_damage
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do

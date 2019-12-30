@@ -36301,7 +36301,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3000 15000 240000"
+		"AbilityDamage"					"300 1000 9000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -61789,7 +61789,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500"
+				"damage"			"500 2000 6000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"pop_damage"			"1000 5000 15000"
 			}
 		}
 		"Modifiers"
@@ -61819,6 +61824,7 @@
 						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
 						"Function"		"sea_beast_think"
 						"target"		"TARGET"
+						"pop_damage"	"%pop_damage"
 					}
 				}
 			}

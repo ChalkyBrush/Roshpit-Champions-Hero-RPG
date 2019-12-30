@@ -13953,7 +13953,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
-		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>8</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
+		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>15</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"
@@ -14029,7 +14029,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
 		"item_property_cerulean_highguard"			"浓缩魔力"
-		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>300</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
+		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>240</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"
