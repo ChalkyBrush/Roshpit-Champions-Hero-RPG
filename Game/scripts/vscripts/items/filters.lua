@@ -1730,7 +1730,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_ablecore_greaves_effect") then
             damageMult = damageMult + ITEM_RPC_ABLECORE_GREAVES_BAD/100
         end
-        if attacker:HasModifier("item_rpc_scarecrow_gloves") then
+        if attacker:HasModifier("modifier_scarecrow_gloves") then
             damageMult = damageMult + attacker:GetIntellect()*(attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SCARECROW_GLOVES_GEM_RUBY)/100)
         end
         if attacker:HasModifier("modifier_claw_of_azinoth") then

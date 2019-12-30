@@ -1,4 +1,4 @@
-DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
+		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
 		"property_hurricane_description"			"释放@Ability4后将会向周围释放 <% ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT %> 股旋风，造成 <% ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT %>%攻击力的伤害r"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
@@ -357,7 +357,8 @@ DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_ogthun"						"野性"
 		"property_ogthun_description"				"杀死敌人将会回复<% ITEM_RPC_SAVAGE_PLATE_OF_OGTHUN_HEALTH_RESTORE_PCT %>%的最大生命值。"
 		"DOTA_Tooltip_modifier_ogthun_visible" 				"野性"
-		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"提高最大生命值和基础技能伤害"	"DOTA_Tooltip_modifier_ogthun_sapphire_buff" 				"野性 (蓝宝石)"
+		"DOTA_Tooltip_modifier_ogthun_visible_Description"	"提高最大生命值和基础技能伤害"	
+		"DOTA_Tooltip_modifier_ogthun_sapphire_buff" 				"野性 (蓝宝石)"
 		"DOTA_Tooltip_modifier_ogthun_sapphire_buff_Description"	"提高攻击力和物理穿透"
 		
 		
