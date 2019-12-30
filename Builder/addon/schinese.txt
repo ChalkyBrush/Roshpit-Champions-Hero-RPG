@@ -983,6 +983,7 @@
 		"item_base_ability"			"基础技能伤害提高 %"
 
 		"item_damage_increase"			"物品伤害提高 % "
+		"item_all_elements"							"所有元素伤害提高 %"
 		
 		"item_item_damage"				"物品伤害提高 %"
 
