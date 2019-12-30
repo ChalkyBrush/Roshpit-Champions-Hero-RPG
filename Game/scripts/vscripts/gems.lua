@@ -239,7 +239,7 @@ function Gems:SpawnGemForger(position, endFV, gem_reward)
 		Gems.GemForger = CreateUnitByName("gem_forger", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		Gems.GemForger:SetAbsOrigin(Gems.GemForger:GetAbsOrigin()+Vector(0,0,1000))
 		Gems.GemForger.endFV = endFV
-
+		Gems.GemForger.go_home = 0
 		Gems.GemForger:FindAbilityByName("town_unit"):SetLevel(1)
 		Gems.GemForger:FindAbilityByName("npc_dialogue"):SetLevel(1)
 		Gems.GemForger.dialogueName = "gem_forger"
@@ -286,6 +286,39 @@ function Gems:PanoramaInput(msg)
 		Gems:ItemUpForForging(msg)
 	elseif msg.event_type == "insert_gem" then
 		Gems:InsertGem(msg)
+	elseif msg.event_type == "go_home" then
+		Gems:GemforgerGoHome(msg)
+	end
+end
+
+function Gems:GemforgerGoHome(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	if player then
+		local hero = GameState:GetHeroByPlayerID(playerID)
+		if Gems.GemForger.go_home == 0 then
+			Gems.GemForger.go_home = 1
+			local gem_ability = Gems.GemForger:FindAbilityByName("gem_forger_ability")
+			gem_ability:ApplyDataDrivenModifier(Gems.GemForger, Gems.GemForger, "modifier_gem_forger_going_home", {})
+			gem_ability:ApplyDataDrivenModifier(Gems.GemForger, hero, "modifier_gem_forger_going_home_hero", {})
+
+			Events:LockCamera(hero)
+			Gems.GemForger.going_home_buddy = hero
+			Gems.GemForger.going_home_phase = 0
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
+
+			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, Gems.GemForger:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Gems.GemForger:GetAbsOrigin())
+			Gems.GemForger.home_pfx = pfx
+			StartAnimation(Gems.GemForger, {duration = 3, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
+			EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
+
+			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin())
+			Gems.GemForger.hero_home_pfx = pfx
+		end
 	end
 end
 

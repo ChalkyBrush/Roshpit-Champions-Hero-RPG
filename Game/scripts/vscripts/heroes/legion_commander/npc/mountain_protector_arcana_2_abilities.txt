@@ -15,7 +15,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"300 470 640 810 980 1150 1320"
+		"AbilityDamage"				"300 550 800 1050 1300 1550 1800"
 		"precache"
 		{
 

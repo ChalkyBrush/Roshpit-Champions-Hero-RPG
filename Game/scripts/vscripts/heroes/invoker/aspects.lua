@@ -545,11 +545,15 @@ function aspect_die(event)
 				if earthReviveEvent.caster:HasAbility("summon_earth_aspect") then
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_aspect")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
+					earthReviveEvent.armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_armor")
+					earthReviveEvent.magic_armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_magic_armor")
 					earth_aspect(earthReviveEvent)
 				elseif earthReviveEvent.caster:HasAbility("summon_earth_deity") then
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_deity")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
+					earthReviveEvent.armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_armor")
+					earthReviveEvent.magic_armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_magic_armor")
 					conjuror_summon_arcana_earth_deity(earthReviveEvent)
 				end
 			end

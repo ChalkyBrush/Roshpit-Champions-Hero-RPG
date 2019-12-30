@@ -102,12 +102,16 @@ function Challenges:HeroMatch(challenge_table)
 		end
 		if mod["mod_type"] == "hero_spec" then
 			print("CHALLENGES: HERO SPEC")
-			for i = 1, #MAIN_HERO_TABLE, 1 do
-				if MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string1"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string2"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string3"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string4"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string5"] then
-					print("HERO CHECK FAIL")
-					proceed = false
-					break
+			if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) >= #MAIN_HERO_TABLE then
+				for i = 1, #MAIN_HERO_TABLE, 1 do
+					if MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string1"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string2"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string3"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string4"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string5"] then
+						print("HERO CHECK FAIL")
+						proceed = false
+						break
+					end
 				end
+			else
+				proceed = false
 			end
 		end
 	end
@@ -201,6 +205,9 @@ end
 
 function Challenges:SpawnCrusaderNow(position, fv)
 	print("SPAWN CRUSADER")
+	if Challenges.CrusaderDisabled then
+		return false
+	end
  	if Challenges.Crusader then
  		UTIL_Remove(Challenges.Crusader)
  	end
@@ -237,6 +244,9 @@ function Challenges:PanoramaInput(msg)
 	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
 	if msg.event_type == "start" then
 		if Challenges.ActiveChallenge then
+			return false
+		end
+		if Challenges.CrusaderDisabled then
 			return false
 		end
 		if Challenges.Crusader.disabled then
@@ -434,9 +444,9 @@ function Challenges:SpawnElderRai(position, fv)
 end
 
 function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
-	if not Challenges.Crusader then
-		return false
-	end
+	-- if not Challenges.Crusader then
+	-- 	return false
+	-- end
 	if not Challenges.units_slain then
 		Challenges.units_slain = 0
 	end
@@ -446,9 +456,13 @@ function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 		Challenges.units_slain = Challenges.units_slain - 1
 	end
 	if Challenges.units_slain == 40 then
-		Challenges.Crusader.disabled = true
-		CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
-		Challenges:DespawnCrusader()
+		if Challenges.Crusader then
+			Challenges.Crusader.disabled = true
+			CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
+			Challenges:DespawnCrusader()
+		else
+			Challenges.CrusaderDisabled = true
+		end
 	end
 end
 
@@ -544,6 +558,7 @@ function Challenges:SetChallengeParameters()
 end
 
 function Challenges:DisableHeroAbilityInit()
+	print("ABILITY DISABLE")
 	Timers:CreateTimer(0, function()
 		local index = Challenges.AbilityDisable
 		if index == 3 then
@@ -552,9 +567,11 @@ function Challenges:DisableHeroAbilityInit()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local hero = MAIN_HERO_TABLE[i]
 			local ability_to_disable = hero:GetAbilityByIndex(index)
-			if ability_disable and IsValidEntity(ability_to_disable) then
-				if ability_disable:IsActivated() then
-					ability_disable:SetActivated(false)
+			if ability_to_disable and IsValidEntity(ability_to_disable) then
+				print(ability_to_disable:IsActivated())
+				if ability_to_disable:IsActivated() then
+					print("final step")
+					ability_to_disable:SetActivated(false)
 				end
 			end
 		end

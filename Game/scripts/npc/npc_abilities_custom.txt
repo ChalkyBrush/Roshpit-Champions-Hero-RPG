@@ -26095,7 +26095,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -33058,7 +33058,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"15 20 25 30 35 40 45"
+				"att_to_dmg"			"3 6 9 12 15 18 21"
 			}
 		}
 		// Precache
@@ -37736,7 +37736,7 @@
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
-		"AbilityDamage"				"300 470 640 810 980 1150 1320"
+		"AbilityDamage"				"300 550 800 1050 1300 1550 1800"
 		"precache"
 		{
 
@@ -38052,7 +38052,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"16"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -38107,7 +38107,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-45"
+				"property_one"			"-90"
 			}
 		}
 	}
@@ -39776,7 +39776,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -39816,7 +39816,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.03"
 			}
 		}
 	}
@@ -56639,7 +56639,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "80"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
 				}
 			}
 		}
@@ -57727,7 +57727,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "6"
 				}
 			}
 			"modifier_slipfinn_b_c_health"
@@ -58452,7 +58452,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -58472,7 +58472,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -58518,7 +58518,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"4"
 			}
 			"02"
 			{
@@ -58553,7 +58553,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-15"
+				"property_one"			"-40"
 			}
 		}
 	}
@@ -58573,7 +58573,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -58614,7 +58614,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -58694,7 +58694,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"125"
+				"property_one"			"300"
 			}
 		}
 	}
@@ -58714,7 +58714,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -58774,7 +58774,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -59102,12 +59102,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"25"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -59133,7 +59133,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"24"
 			}
 			"03"
 			{
@@ -88428,7 +88428,32 @@
 					}
 				}
 			}
-
+			"modifier_gem_forger_going_home"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/friendly_npcs.lua"
+						"Function"		"gem_forger_going_home_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gem_forger_going_home_hero"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+			}
 		}
 
 	}
@@ -145125,7 +145150,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"10 50 98"
+				"damage_block"			"50 55 60"
 			}
 		}
 		"Modifiers"
