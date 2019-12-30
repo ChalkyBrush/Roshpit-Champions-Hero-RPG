@@ -199,7 +199,7 @@
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"
-		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "提高 [W] 技能伤害 @amethyst_property1, 但是提高其耗蓝 @amethyst_property2"
+		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "提高 [W] 基础技能伤害 @amethyst_property1, 但是提高其耗蓝 @amethyst_property2"
 
 		
 		
@@ -219,81 +219,130 @@
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"
 		"item_property_phantom_sorcerer"			"幻影凝视"
 		"property_phantom_sorcerer_description"		"@Ability2 伤害提高 <% PHANTOM_SORCERER_BAD %>%，但冷却时间增加<% PHANTOM_SORCERER_CD_INCREASE %>秒。"
+		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"提高 [W] 基础技能伤害 @ruby_property1% 但是提高其冷却时间 @ruby_property2 秒"
+		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"提高 [W2] 符文 @emerald_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "提高 [W1] 符文 @sapphire_property1"
+		"item_rpc_mask_of_the_phantom_sorcerer_amethyst1" "提高 [W3] 符文 @amethyst_property1"	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
 		"item_property_arcane_cascade_hat"				"奥术洪流"
 		"property_arcane_cascade_hat_description"		"每<% ARCANE_CASCADE_TICKRATE %>秒汲取你 <% ARCANE_CASCADE_MANA_DRAIN * 100 %>% 的最大魔法值，对周围敌人造成<% ARCANE_CASCADE_DAMAGE %>。"
+		"item_rpc_arcane_cascade_hat_ruby1"	"提高所有 <font color=\"#E1A2E8\">奥术</font> 元素伤害 @ruby_property1%"
+		"item_rpc_arcane_cascade_hat_emerald1" "提高最大魔法值 @emerald_property1"
+		"item_rpc_arcane_cascade_hat_sapphire1"	"提高奥术洪流效果的魔法损失 @sapphire_property1%"
+		"item_rpc_arcane_cascade_hat_amethyst1" "奥术洪流伤害范围内的敌人降低魔甲 @amethyst_property1 "	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
 		"item_property_samurai_helmet"				"致命一击"
 		"property_samurai_helmet_description"		"你的普通攻击有 <% ADAMANTINE_SAMURAI_CHANCE %>% 几率造成 <% ADAMANTINE_SAMURAI_CRIT %>% 的暴击伤害。"
-		
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"提高力量值 @ruby_property1"
+		"item_rpc_adamantine_samurai_helmet_emerald1" "提高敏捷值 @emerald_property1"
+		"item_rpc_adamantine_samurai_helmet_sapphire1"	"提高暴击概率 @sapphire_property1%"
+		"item_rpc_adamantine_samurai_helmet_amethyst1" "提高暴击伤害 @amethyst_property1%"
+
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"天灾骑士头盔"
 		"item_property_scourge_knight"				"亡灵统帅"
-		"property_scourge_knight_description"		"施放 @Ability4 后，召唤5个骷髅弓箭手。弓箭手拥有玩家最大生命值 15% 的生命值和玩家 100% 的攻击力。"
+		"property_scourge_knight_description"		"施放 @Ability4 后，召唤5个骷髅弓箭手。弓箭手拥有 <% SCOURGE_KNIGHT_ATTACK_MULT %>x 你的攻击力。持续时间<% SCOURGE_KNIGHT_ARCHER_DURATION %>秒，或被攻击<% SCOURGE_KNIGHT_HITS_TO_KILL %>次后消失"
+		"item_rpc_scourge_knights_helm_ruby1"	"骷髅弓箭手有 50% 概率射出火箭, 在 @ruby_property1 范围内造成伤害"
+		"item_rpc_scourge_knights_helm_emerald1"	"骷髅弓箭手有 50% 概率射出毒箭, 每秒造成 @emerald_property1% 你的攻击力的伤害，持续 <% SCOURGE_KNIGHT_EMERALD_DURATION %> 秒"
+		"item_rpc_scourge_knights_helm_sapphire1" "骷髅弓箭手有 50% 概率射出冰箭, 降低敌人的攻击速度和移动速度@sapphire_property1 ，持续<% SCOURGE_KNIGHT_SAPPHIRE_DURATION %> 秒"
+		"item_rpc_scourge_knights_helm_amethyst1" "骷髅弓箭手有 50% 概率射出奥术箭, 造成 @amethyst_property1% 额外伤害"
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"送葬者兜帽"
 		"item_property_undertaker"					"死亡打击"
-		"property_undertaker_description"			"你的普通攻击将同时释放死亡打击，造成30倍智力值的伤害。"
+		"property_undertaker_description"			"你的普通攻击将同时释放死亡打击，造成<% UNDERTAKER_DAMAGE_INT_MULT %>x智力值的伤害。"
+		"item_rpc_undertakers_hood_ruby1"	"每点智力值提高攻击速度 @ruby_property1"
+		"item_rpc_undertakers_hood_emerald1"	"提高死亡打击的飞行速度 @emerald_property1"
+		"item_rpc_undertakers_hood_sapphire1" "死亡打击对目标施加一层可叠加的 @sapphire_property1 魔甲降低debuff，持续 <% UNDERTAKER_SAPPHIRE_DURATION %> 秒, 最多叠加<% UNDERTAKER_SAPPHIRE_MAX_STACKS %> 层"
+		"item_rpc_undertakers_hood_amethyst1" "攻击时, 有@amethyst_property1% 概率释放额外一次死亡打击"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_shroud_of_eternal_night"							"永恒之夜斗篷"
 		"item_property_eternal_night"				"安眠药"
-		"property_eternal_night_description"		"攻击你的敌人有60% 几率进入睡眠状态，持续6秒。任何伤害都将惊醒睡眠的单位。睡眠最初的1秒内不会被惊醒。"
+		"property_eternal_night_description"		"攻击你的敌人有<% ETERNAL_NIGHT_SLEEP_CHANCE %>%  几率进入睡眠状态，持续<% ETERNAL_NIGHT_SLEEP_DURATION %>秒。任何伤害都将惊醒睡眠的单位。睡眠最初的<% ETERNAL_NIGHT_UNWAKEABLE_DURATION %>秒内不会被惊醒。"
+		"item_rpc_shroud_of_eternal_night_ruby1"	"被 [W] 击中的敌人有 @ruby_property1% 概率进入睡眠状态"
+		"item_rpc_shroud_of_eternal_night_emerald1"	"提高睡眠时间 @emerald_property1 秒"
+		"item_rpc_shroud_of_eternal_night_sapphire1" "提高不会被惊醒的睡眠时间 @sapphire_property1 秒"
+		"item_rpc_shroud_of_eternal_night_amethyst1" "若<% ETERNAL_NIGHT_AMETHYST_RADIUS %> 范围内至少有 @amethyst_property1 个睡着的敌人, 穿戴者将会隐身"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"德鲁伊灵魂头盔"
 		"item_property_druids_spirt"				"野性灵魂"
-		"property_druids_spirit_description"		"当你引导 @Ability4 时，每0.5秒召唤出一头幽灵狼。幽灵狼拥有玩家2倍总攻击力的基础攻击力，25%的生命值，1倍的护甲值，持续12秒。每只幽灵狼为玩家提供一层buff，提高玩家攻击力 15% 。"
+		"property_druids_spirit_description"		"当你引导 @Ability4 时，每0.5秒召唤出一头幽灵狼。幽灵狼拥有玩家<% WOLFIR_DRUID_ATTACK_POWER_MULT %>倍总攻击力的基础攻击力，<% WOLFIR_DRUID_HEALTH_PCT %>% 玩家的生命值，持续<% WOLFIR_DRUID_WOLF_LIFE_DURATION %> 秒。同时只能存在最多<% WOLFIR_DRUID_MAX_WOLVES %>头幽灵狼。"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"野性灵魂"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"攻击力提高，buff来自于幽灵狼"
+		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"每头幽灵狼提供 @ruby_property1% 可叠加的额外攻击力光环."
+		"item_rpc_wolfir_druids_spirit_helm_emerald1"	"幽灵狼拥有 @emerald_property1 额外攻击速度. 每头存活的幽灵狼提高你 @emerald_property2攻击速度"
+		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"召唤幽灵狼时，其基础攻击力提高 @sapphire_property1% 你的魔法穿透值"
+		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"每点你的力量值和精神值提高幽灵狼的最大生命值 @amethyst_property1 "		
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_blinded_glint_of_onu"							"阴影闪烁斗篷"
-		"item_property_glint_of_onu"				"闪烁打击"
-		"property_glint_of_onu_description"			"攻击时有<% GLINT_OF_ONU_CHANCE %>%的几率瞬移到敌人身后，并获得极限攻击速度，持续<% GLINT_OF_ONU_BUFF_DUR %>秒。闪烁到敌人背后的同时立即对敌人进行两次额外的攻击。额外的普通攻击没有攻击间隔瞬间完成，不影响正常的普通攻击。"
+		"item_property_glint_of_onu"				"闪击"
+		"property_glint_of_onu_description"			"攻击时有<% GLINT_OF_ONU_CHANCE %>%的几率瞬移到敌人身后，并获得极限攻击速度，持续<% GLINT_OF_ONU_BUFF_DUR %>秒。闪烁时躲避弹道。"
+		"item_rpc_blinded_glint_of_onu_ruby1"	"@ruby_property1% 概率在瞬移后立即施加一次普通攻击."
+		"item_rpc_blinded_glint_of_onu_emerald1" "提高敏捷值 @emerald_property1"
+		"item_rpc_blinded_glint_of_onu_sapphire1"	"提高闪击的触发概率 @sapphire_property1%"
+		"item_rpc_blinded_glint_of_onu_amethyst1" "闪击的攻击速度buff下，同时也提高攻击力 @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_roknar_emperor"						"兽王之冠"
 		"item_property_roknar_emperor"				"永恒守护"
 		"property_roknar_emperor_description"		"当你被击晕或击退时，每<% ROKNAR_EMPEROR_TICKRATE %>秒回复<% ROKNAR_EMPEROR_HP_PCT %>%的最大生命值。"
 		
+		"item_rpc_crown_of_the_roknar_emperor_ruby1"	"被眩晕时提高 @ruby_property1 物理穿透和魔法穿透"
+		"item_rpc_crown_of_the_roknar_emperor_emerald1"	"被眩晕时，永恒守护的每次回复效果提高 @emerald_property1% 你最大生命值的血量"
+		"item_rpc_crown_of_the_roknar_emperor_sapphire1" "提高护甲值 @sapphire_property1"
+		"item_rpc_crown_of_the_roknar_emperor_amethyst1" "降低所有受到的伤害 @amethyst_property1%"
+		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"死灵法师面具"
-		"item_property_desert_necromancer"			"复活Thorok"
-		"property_desert_necromancer_description"	"当你施放 @Ability4 时，召唤Thorok，持续10秒。它拥有你8倍总攻击力的基础攻击力，4倍的生命值和1倍的护甲值。 -<br>如果你在召唤它时生命值低于40%，它将被激怒，提高160点攻击速度和100点移动速度。"
-		
+		"item_property_desert_necromancer"			"索罗克归来"
+		"property_desert_necromancer_description"	"当你施放 @Ability4 时，召唤索罗克，持续<% DESERT_NECROMANCER_LIFE_DURATION %>秒。它拥有你<% THOROK_CASTER_ATTACK_DMG%>x你的总攻击力的基础攻击力，<% THOROK_CASTER_HP %>x你的生命值和<% THOROK_CASTER_ARMORS_AND_PIERCES%>x你的的护甲和穿透。 -<br>如果你在召唤它时生命值低于<% THOROK_RAGE_CASTER_HP_THRESHOLD %>% ，它将被激怒，提高<% THOROK_RAGE_AS %>点攻击速度和<% THOROK_RAGE_MS %>点移动速度。在索罗克存在时召唤新的一只会使先前的一只死亡。所有索罗克造成的伤害其来源计为穿戴者"
+		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"提高索罗克的生命值 @ruby_property1x 穿戴者的生命, 并增加其持续时间 @ruby_property2 秒"
+		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"索罗克拥有 @emerald_property1% 生命偷取，偷取的生命同时治疗穿戴者"
+		"item_rpc_mask_of_the_desert_necromancer_sapphire1" "索罗克拥有 @sapphire_property1% 额外攻击力"
+		"item_rpc_mask_of_the_desert_necromancer_amethyst1" "提高索罗克的攻击速度 @amethyst_property1"	
 		
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"黑羽之冠"
 		"item_property_blackfeather"				"老树昏鸦"	
-		"property_blackfeather_description"			"每隔4秒召唤一只乌鸦，乌鸦拥有玩家5倍总攻击力的基础攻击力并可降低敌人目标的护甲40点，每只乌鸦持续10秒。"
+		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<% BLACKFEATHER_ATTACK_DAMAGE_MULT %>x 你的攻击力."
+		"item_rpc_blackfeather_crown_ruby1"	"提高乌鸦的攻击力 @ruby_property1%"
+		"item_rpc_blackfeather_crown_emerald1" "乌鸦有 @emerald_property1% 概率还击攻击你的敌人"
+		"item_rpc_blackfeather_crown_sapphire1"	"乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %>秒"
+		"item_rpc_blackfeather_crown_amethyst1" "提高攻击速度 @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_wraith_crown"                                    "幽灵王冠"
         "item_property_wraith_crown"                        "幽灵暗潮"				
-		"property_wraith_crown_description"						"Casting @Ability2 applies Ethereal Form for <% WRAITH_CROWN_ETHEREAL_DURATION %> seconds. While ethereal, your attacks are disabled and enemies cannot attack you, your magic armor is set to 0, and drain <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% of max mana per second. <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> second cooldown."
+		"property_wraith_crown_description"						"释放@Ability2 进入幽灵暗潮状态 <% WRAITH_CROWN_ETHEREAL_DURATION %> 秒. 在此状态下, 你不能攻击，也不会被敌人攻击, 你的魔甲被设置为 0, 并且每秒损失 <% WRAITH_CROWN_ETHEREAL_MANA_DRAIN_PCT %>% 最大魔法值的法力. <% WRAITH_CROWN_ETHEREAL_COOLDOWN %> 秒冷却时间."
 
-		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"Ethereal Form"
-		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"Attack Immune. Can't attack and 0 magic armor."
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal"			"幽灵暗潮"
+		"DOTA_Tooltip_modifier_wraith_crown_ethereal_Description"	"无法攻击，也不会被攻击，魔甲设置为0."
 
-		"DOTA_Tooltip_modifier_wraith_crown_cd"					"Wraith Crown Cooldown"
+		"DOTA_Tooltip_modifier_wraith_crown_cd"					"幽灵暗潮冷却"
 
-		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"Wraith Crown (Amethyst)"
+		"DOTA_Tooltip_modifier_wraith_crown_amethyst"			"幽灵暗潮 (紫宝石)"
 		"DOTA_Tooltip_modifier_wraith_crown_amethyst_Description"	"Outside of this dimension and invlnerable."
 
-		"item_rpc_wraith_crown_ruby1"		"Reduces the Ethereal form Mana Drain by @ruby_property1%"
-		"item_rpc_wraith_crown_emerald1"	"Increases Ethereal Form's duration by @emerald_property1"
-		"item_rpc_wraith_crown_sapphire1" 	"Increases Spell Pierce while ethereal by @sapphire_property1"
-		"item_rpc_wraith_crown_amethyst1" 	"Casting [W] while Ethereal makes you disappear from this dimension, making you invulnerable but also unable to act for @amethyst_property1 seconds. Ethereal Form's cooldown does not get reduced while invulnerable. Issuing a move order returns you before the duration ends."	
+		"item_rpc_wraith_crown_ruby1"		"降低幽灵暗潮的每秒法力损失 @ruby_property1%"
+		"item_rpc_wraith_crown_emerald1"	"提高幽灵暗潮的持续时间 @emerald_property1"
+		"item_rpc_wraith_crown_sapphire1" 	"幽灵暗潮状态下提高魔法穿透 @sapphire_property1"
+		"item_rpc_wraith_crown_amethyst1" 	"在幽灵暗潮状态下释放 [W] 会使你从这个维度消失, 使你无法被选中但也不能行动 @amethyst_property1 秒. 处于另一个维度时幽灵暗潮的冷却将被暂停. 在持续时间前发布移动指令可以使你从另一个维度归来."	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"恶魔面具"
 		"item_property_demon"						"恶魔之泪"
-		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <% DEMON_MASK_CHANCE %>% 几率释放一道火花，对周围所有单位造成 <% DEMON_MASK_AMP %>x 该技能的伤害。此装备不享受装备伤害加成效果。"
+		"property_demon_description"				"受到 @Ability1 伤害的敌人有 <% DEMON_MASK_CHANCE %>% 几率释放一道火花，对目标<% DEMON_MASK_AOE %>范围内的所有单位造成 <% DEMON_MASK_AMP %>% 该技能的伤害。每秒最多触发<% DEMON_MASK_MAX_PROCS_PER_SEC %>次。"
+		"item_rpc_demon_mask_ruby1"	"Underworld Tear damage increased by an additional @ruby_property1% of [Q] damage"
+		"item_rpc_demon_mask_emerald1"	"Increases [Q3] Rune by @emerald_property1"
+		"item_rpc_demon_mask_sapphire1" "Increases proc chance of Underworld Tear by @sapphire_property1%"
+		"item_rpc_demon_mask_amethyst1" "Increases all <font color=\"#5B648C\">Demon</font> elemental damage by @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crest_of_the_umbral_sentinel"					"暗哨头冠"
