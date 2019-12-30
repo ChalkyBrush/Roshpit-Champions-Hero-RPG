@@ -1,19 +1,31 @@
 
     	"DOTA_Tooltip_ability_item_rpc_basilisk_plague_helm"							"蜥蜴瘟疫之头"
 		"item_property_basilisk_plague"					"深度腐烂"
-		"property_basilisk_plague_description"				"附近敌人降低<% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>%的移动速度和<% BASILISK_PLAGUE_ATT_SPD_REDUCE %>的攻击速度"
+		"property_basilisk_plague_description"				"附近敌人降低<% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>%的移动速度和<% BASILISK_PLAGUE_ATT_SPD_REDUCE %>的攻击速度。暴露在腐化环境下 <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> 秒的敌人将被石化 <% BASILISK_PLAGUE_STONE_FORM_DUR %> 秒,使他们麻痹但是技能免疫."
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"深度腐烂"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"变成石头并且魔法免疫"
+		"item_rpc_basilisk_plague_helm_ruby1"	"被腐化的敌人攻击速度额外降低 @ruby_property1"
+		"item_rpc_basilisk_plague_helm_emerald1" "附近被腐化的敌人受到每 <% BASILISK_PLAGUE_THINK_INTERVAL %> 秒@emerald_property1 的持续伤害"
+		"item_rpc_basilisk_plague_helm_sapphire1"	"提高石化持续时间 @sapphire_property1 秒"
+		"item_rpc_basilisk_plague_helm_amethyst1" "被石化的敌人降低@amethyst_property1 护甲值"
 
 		
     	"DOTA_Tooltip_ability_item_rpc_brazen_kabuto_of_the_desert_realm"				"沙漠头盔"
 		"item_property_brazen_kabuto"				"勇士壁垒"
 		"property_brazen_kabuto_description"		"施放 @Ability4 时，100% 伤害免疫"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"提高力量值 @ruby_property1"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_emerald1" "提高 [R] 的基础技能伤害 @emerald_property1%"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_sapphire1"	"开始施放[R]时有@sapphire_property1% 概率刷新此技能的冷却时间"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_amethyst1" "持续施法结束时, 获得一层减伤 <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>% 的护盾 @amethyst_property1 秒"
 		
 
 		 "DOTA_Tooltip_ability_item_rpc_shipyard_veil_lv1"								"船厂面纱"
 		 "item_property_shipyard_veil"					"灵魂支盾"
-		 "property_shipyard_veil_description"			"Each enemy hit by @Ability1 applies a shield stack that absorbs an instance of damage. There is a <% SHIPYARD_SHIELD_COOLDOWN %> second cooldown between adding stacks. Max <% SHIPYARD_VEIL_MAX_STACKS %> stacks."
+		 "property_shipyard_veil_description"			"所有被 @Ability1 击中的敌人为你添加一层抵挡任意伤害的护盾. 每层护盾叠加有 <% SHIPYARD_SHIELD_COOLDOWN %> 秒间隔. 最高叠加<% SHIPYARD_VEIL_MAX_STACKS %> 层护盾."
+		 "item_rpc_shipyard_veil_lv1_ruby1"	"每层灵魂支盾提高基础技能伤害 @ruby_property1%"
+		"item_rpc_shipyard_veil_lv1_emerald1"	"每当敌人打破一层你的灵魂支盾, 他们将会被一个骷髅攻击，受到 @emerald_property1 伤害"
+		"item_rpc_shipyard_veil_lv1_sapphire1" "叠加间隔降低 @sapphire_property1秒"
+		"item_rpc_shipyard_veil_lv1_amethyst1" "提高所有 <font color=\"#9ACCD1\">鬼</font> 元素伤害 @amethyst_property1%"
 
 		 
 		 "DOTA_Tooltip_modifier_shipyard_veil_shield"			"灵魂之盾"
@@ -22,134 +34,159 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"熔岩王冠"
 		 "item_property_lava_forge"							"熔岩爆裂"
-		 "property_lava_forge_description"					"受到伤害时有30% 几率向进攻者发射火球，在目标小范围内造成<% LAVA_FORGE_DMG_PER_ATT %>x攻击力。"
+		 "property_lava_forge_description"					"受到伤害时有<% LAVA_FORGE_BASE_PROC_CHANCE %>%向进攻者发射火球，在目标小范围内造成<% LAVA_FORGE_DMG_PER_ATT %>% 攻击力的伤害"
+		 "item_rpc_crown_of_the_lava_forge_ruby1"	"提高熔岩爆裂触发概率 @ruby_property1%"
+		"item_rpc_crown_of_the_lava_forge_emerald1"	"提高熔岩爆裂伤害 @emerald_property1% of Agility"
+		"item_rpc_crown_of_the_lava_forge_sapphire1" "提高护甲和魔甲 @sapphire_property1"
+		"item_rpc_crown_of_the_lava_forge_amethyst1" "提高所有 <font color=\"#EF4126\">火</font> 以及 <font color=\"#7AE2A7\">风</font> 元素伤害 @amethyst_property1%"
+
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_white_mage_hat"								"白色魔法帽"
 		"item_property_white_mage_hat"			"关怀庇护"
-		"property_white_mage_hat_description"		"@Ability2 also restores HP for you and nearby allies, based <% WHITE_MAGE_INT_TO_HEAL %>x your Intelligence."
-		"DOTA_Tooltip_modifier_white_mage_hat"	"White Mage Shield"
-		"DOTA_Tooltip_modifier_white_mage_hat_Description"	"Absorbing Damage"
+		"property_white_mage_hat_description"		"施放@Ability2 同时回复你和周围友军的生命值, 回复量为 <% WHITE_MAGE_INT_TO_HEAL %>x 你的智力值."
+		"DOTA_Tooltip_modifier_white_mage_hat"	"白魔护盾"
+		"DOTA_Tooltip_modifier_white_mage_hat_Description"	"抵挡伤害"
 		
-		"item_rpc_white_mage_hat_ruby1"		"Increases health regen by @ruby_property1% of max health"
-		"item_rpc_white_mage_hat_emerald1"	"Increases the potency of all healing effects (excluding natural health regen) by @emerald_property1%"
-		"item_rpc_white_mage_hat_sapphire1" 	"Any over heal from Curaga applies a shield that absorbs damage equal to the amount of over heal. The shield's max damage capacity is @sapphire_property1% of target's max health."
-		"item_rpc_white_mage_hat_amethyst1" 	"Curaga's heal is increased by @amethyst1x your Spirit"	
+		"item_rpc_white_mage_hat_ruby1"		"提高每秒生命回复 @ruby_property1% 最大生命值"
+		"item_rpc_white_mage_hat_emerald1"	"提高所有治疗效果 (包括自然的生命值恢复)  @emerald_property1%"
+		"item_rpc_white_mage_hat_sapphire1" 	"任何来自关怀庇护的过量治疗为你提供等量的护盾效果. 护盾最大生命值为 @sapphire_property1% 目标最大生命值."
+		"item_rpc_white_mage_hat_amethyst1" 	"关怀庇护治疗量提高 @amethyst1x 你的精神值"	
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"长沿帽"
 		"item_property_hyper_visor2"				"超级闪电"
-		"property_hyper_visor_description"			"<% HYPER_VISOR_CHANCE %>% chance on attack to drop a lightning bolt on your target, dealing damage in a small <% HYPER_VISOR_AOE %> area based on <% HYPER_VISOR_ATTACK_TO_DMG %>% of your attack power. Changes your Base Attack Time to <% HYPER_VISOR_BAT %> seconds."
+		"property_hyper_visor_description"			"攻击有<% HYPER_VISOR_CHANCE %>% 概率触发超级闪电电击目标单位, 在 <% HYPER_VISOR_AOE %> 范围内造成你攻击力 <% HYPER_VISOR_ATTACK_TO_DMG %>% 的伤害. 你的基础攻击间隔改变成 <% HYPER_VISOR_BAT %> 秒."
 
-		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
-		"item_rpc_hyper_visor_emerald1"	"Increases the lightning bolt's damage by @emerald_property1x Agility"
-		"item_rpc_hyper_visor_sapphire1" "<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% chance on attack to trigger a chain lightning that bounces <% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %> times and deals @sapphire_property1% of Hyper Lightning's damage"
+		"item_rpc_hyper_visor_ruby1"	"提高攻击速度 @ruby_property1"
+		"item_rpc_hyper_visor_emerald1"	"提高超级闪电伤害 @emerald_property1x 敏捷值"
+		"item_rpc_hyper_visor_sapphire1" "攻击有<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_CHANCE %>% 概率触发跳跃<% HYPER_VISOR_SAPPHIRE_CHAIN_LIGHTNING_TARGET_COUNT %>次的连锁闪电，造成 @sapphire_property1% 超级闪电的伤害"
 		"item_rpc_hyper_visor_amethyst1" "Increases Item Damage by @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"红宝石龙冠"	
 		"item_property_ruby_dragon"					"红龙"
-		"property_ruby_dragon_description"			"The wearer has a permanent Ruby Dragon companion with a Flame Breath ability. The dragon has <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>HP per level and <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> base attack damage per level. All damage dealt by the dragon is attributed to its master."
+		"property_ruby_dragon_description"			"穿戴者拥有一条永久的红龙伙伴，它拥有火焰呼吸技能. 红龙有 <% RUBY_DRAGON_HP_PER_HERO_LEVEL %>x等级的生命值 <% RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL %> x等级的基础攻击力.所有红龙造成的伤害其来源将被计算为穿戴者."
 
-		"ruby_dragon_3"							"Ruby Dragon"
+		"ruby_dragon_3"							"红龙"
 
-		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"Dragon AI"
-		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"Toggle On to activate the Dragon's default behavior"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai"	"红龙 AI"
+		"DOTA_Tooltip_ability_ruby_dragon_toggle_ai_Description"	"开关此技能以切换红龙的AI模式"
 
-		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"Flame Breath"
-		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"Spits fire in a cone ahead of the caster. Damage is based on caster's attack power."
-		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"DAMAGE x ATTACK POWER:"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath"	"火焰呼吸"
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_Description"	"朝前喷射一股火焰. 伤害基于施法者的攻击力."
+		"DOTA_Tooltip_ability_ruby_dragon_flame_breath_attack_mult"	"伤害 x 攻击力:"
 
-		"item_rpc_crown_of_ruby_dragon_ruby1"	"Increases Ruby Dragon's base attack power per level by @ruby_property1"
-		"item_rpc_crown_of_ruby_dragon_emerald1"	"Enemies hit by Ruby Dragon's flame breath burn for @emerald_property1% of the initial damage every 0.5 seconds for <% RUBY_DRAGON_EMERALD_BURN_DURATION %> seconds."
-		"item_rpc_crown_of_ruby_dragon_sapphire1" "Increases Ruby Dragon's Attack Speed and Movespeed by @sapphire_property1"
-		"item_rpc_crown_of_ruby_dragon_amethyst1" "Ruby Dragon's basic attacks have a splash effect, dealing @amethyst_property1% of the attack damage in a <% RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE %> radius"
+		"item_rpc_crown_of_ruby_dragon_ruby1"	"提高红龙的基础攻击力 @ruby_property1每级"
+		"item_rpc_crown_of_ruby_dragon_emerald1"	"被红龙的火焰呼吸击中的敌人将燃烧<% RUBY_DRAGON_EMERALD_BURN_DURATION %> 秒，每0.5秒受到 @emerald_property1% 火焰呼吸的伤害."
+		"item_rpc_crown_of_ruby_dragon_sapphire1" "提高红龙的攻击速度和移动速度 @sapphire_property1"
+		"item_rpc_crown_of_ruby_dragon_amethyst1" "红龙的普通攻击拥有溅射效果, 在<% RUBY_DRAGON_AMETHYST_ATTACK_SPLASH_AOE %> 范围内造成 @amethyst_property1% 攻击力的伤害 "
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_centaur_horns"									"半人马角"	
 		"item_property_centaur_horns"				"刚性"
-		"property_centaur_horns_description"		"Immune to Stuns."
+		"property_centaur_horns_description"		"免疫眩晕效果."
 
-		"item_rpc_centaur_horns_ruby1"	"Increases Strength by @ruby_property1"
-		"item_rpc_centaur_horns_emerald1" "When a Stun is negated, gain @emerald_property1 movespeed for <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> seconds"
-		"item_rpc_centaur_horns_sapphire1"	"Increases Status Resistance by @sapphire_property1%"
-		"item_rpc_centaur_horns_amethyst1" "When a Stun is negated, @amethyst_property1% chance to refresh [E] cooldown"
+		"item_rpc_centaur_horns_ruby1"	"提高力量值 @ruby_property1"
+		"item_rpc_centaur_horns_emerald1" "当一次眩晕效果被抵挡时, 获得 @emerald_property1 移动速度 <% CENTAUR_HORNS_EMERALD_SPEED_DURATION %> 秒"
+		"item_rpc_centaur_horns_sapphire1"	"提高状态抗性 @sapphire_property1%"
+		"item_rpc_centaur_horns_amethyst1" "当一次眩晕效果被抵挡时,有 @amethyst_property1% 的概率刷新 [E] 技能的冷却时间"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_chosen"									"天选兜帽"	
+	"item_rpc_hood_of_chosen_ruby1"	"提高 [Q1] 符文 @ruby_property1"
+		"item_rpc_hood_of_chosen_emerald1"	"提高 [E1] 符文 @emerald_property1"
+		"item_rpc_hood_of_chosen_sapphire1" "提高 [W1] 符文 @sapphire_property1"
+		"item_rpc_hood_of_chosen_amethyst1" "提高 [R1] 符文 @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_death_whisper_helm"								"死亡耳语"
 		"item_property_death_whisper"				"死亡耳语"
-		"property_death_whisper_description"		"All enemies struck by @Ability1 have -<% DEATH_WHISPER_SLOW %> movespeed and -<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% Status Resistance for <% DEATH_WHISPER_DURATION %> seconds."
+		"property_death_whisper_description"		"所有被 @Ability1 打击的敌人降低 <% DEATH_WHISPER_SLOW %> 移动速度和状态抗性<% DEATH_WHISPER_DAMAGE_STATUS_RESIST_LOSS %>% ，持续 <% DEATH_WHISPER_DURATION %> 秒."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"大自然之帽"
 		"item_property_wild_nature"					"纠缠根须"
-		"property_wild_nature_description"			"敌人攻击你时，有 <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% 几率被定身 <% CAP_OF_WILD_NATURE_DURATION_ONE %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 你的主属性的魔法伤害。"
+		"property_wild_nature_description"			"敌人攻击你时，有 <% CAP_OF_WILD_NATURE_CHANCE_ONE %>% 几率被缠绕 <% CAP_OF_WILD_NATURE_DURATION_ONE %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 你的主属性的魔法伤害。"
 		"item_property_wild_nature_two"				"诱捕根须"
 		"property_wild_nature_two_description"		"被 @Ability2 击中的敌人有 <% CAP_OF_WILD_NATURE_CHANCE_TWO %>% 几率被缠绕 <% CAP_OF_WILD_NATURE_DURATION_TWO %> 秒，每秒受到 <% CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES %>x 你的主属性的伤害。"
+		"item_rpc_cap_of_wild_nature_ruby1"	"提高大自然之帽的缠绕伤害 @ruby_property1%"
+		"item_rpc_cap_of_wild_nature_emerald1" "提高所有 <font color=\"#69BC71\">自然</font> 元素伤害 @emerald_property1%"
+		"item_rpc_cap_of_wild_nature_sapphire1"	"被 [Q] 击中的敌人有 <% CAP_OF_WILD_NATURE_SAPPHIRE_PROC %>% 概率被缠绕 @sapphire_property1 秒"
+		"item_rpc_cap_of_wild_nature_amethyst1" "提高生命回复 @amethyst_property1"	
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
-		"property_luma_description"					 "Enemies hit by @Ability1 have a <% LUMA_BEAM_CHANCE %>% chance to be hit by a lucent beam, dealing <% LUMA_DAMAGE_AMP %>% of the ability's damage and providing flying vision over the target for <% LUMA_VISION_DURATION %> seconds. Max <% LUMA_MAX_PROCS_PER_SECOND %> procs per second."
+		"property_luma_description"					 "被 @Ability1 打击的敌人有 <% LUMA_BEAM_CHANCE %>% 概率被一道月光打击, 造成 <% LUMA_DAMAGE_AMP %>% 此技能的伤害并在敌人的位置提供高空视野 <% LUMA_VISION_DURATION %> 秒. 每秒最多触发 <% LUMA_MAX_PROCS_PER_SECOND %> 次月光."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"
 		"item_property_odin"						"斩铁拳"
-		"property_odin_description"					"All Item Damage and Base Ability damage has a <% ODIN_HELMET_CHANCE %>% chance to trigger an acute <% ODIN_BEAM_LENGTH %> range beam of dragon energy that travels toward the target. The beam hits enemies up to 3 times for <% ODIN_HELMET_PCT_DAMAGE %>% of the original damage."
-		"item_rpc_odin_helmet_ruby1"	"Increases proc chance by @ruby_property1%"
-		"item_rpc_odin_helmet_emerald1"	"Increases beam length by @emerald_property1"
-		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
-		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1"
+		"property_odin_description"					"所有物品和基础技能的伤害有 <% ODIN_HELMET_CHANCE %>% 触发一道强烈的光波，冲击 <% ODIN_BEAM_LENGTH %> 直线范围内的目标. 光波最多对敌人造成3次伤害，每次为 <% ODIN_HELMET_PCT_DAMAGE %>% 触发伤害."
+		"item_rpc_odin_helmet_ruby1"	"提高触发概率 @ruby_property1%"
+		"item_rpc_odin_helmet_emerald1"	"提高光波长度 @emerald_property1"
+		"item_rpc_odin_helmet_sapphire1" "提高斩铁拳伤害 @sapphire_property1% 触发伤害"
+		"item_rpc_odin_helmet_amethyst1" "提高基础技能伤害和物品伤害 @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"钢铁巨象头盔"
 		"item_property_helm_of_the_iron_colossus"				"钢铁巨象"	
-		"property_helm_of_the_iron_colossus_description"		"每点力量值提高基础攻击力 <% IRON_COLOSSUS_ATT_PER_STR %> 和护甲值 <% IRON_COLOSSUS_AMR_PER_STR %> 。并且体型长大 15%。攻击速度固定为 <% IRON_COLOSSUS_ATT_SPD %> 且变为近战攻击。攻击会眩晕敌人 0.5 秒，并且额外造成 <% IRON_COLOSSUS_DMG_PER_ATT %>x 的物理伤害。施放 @Ability2 额外消耗 1000 点魔法值。"
+		"property_helm_of_the_iron_colossus_description"		"每点力量值提高基础攻击力 <% IRON_COLOSSUS_ATT_PER_STR %> 和护甲值 <% IRON_COLOSSUS_AMR_PER_STR %> 。并且体型长大 <% IRON_COLOSSUS_MODEL_SCALE %>%。攻击速度固定为 <% IRON_COLOSSUS_ATT_SPD %> 且变为近战攻击。攻击会眩晕敌人 <% IRON_COLOSSUS_STUN_DURATION %> 秒，并且额外造成 <% IRON_COLOSSUS_DMG_PER_ATT %>x 攻击力的物理伤害。施放 @Ability2 额外消耗 <% IRON_COLOSSUS_INCR_W_MANA_COST_PCT %>% 魔法值。"
 		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"钢铁巨象"
-		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"攻击额外造成 50x 的物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为100，且变为近战。力量值额外提高基础攻击力和护甲值。"
+		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"攻击造成额外物理伤害，眩晕敌人0.5秒。体型增大，攻击速度固定为120，且变为近战。力量值额外提高基础攻击力和护甲值。"
+		"item_rpc_helm_of_the_iron_colossus_ruby1"	"提高力量值 @ruby_property1"
+		"item_rpc_helm_of_the_iron_colossus_emerald1"	"每点力量额外获得 @emerald_property1护甲"
+		"item_rpc_helm_of_the_iron_colossus_sapphire1" "降低 [W] 技能的魔法消耗 @sapphire_property1%"
+		"item_rpc_helm_of_the_iron_colossus_amethyst1" "攻击造成额外 @amethyst_property1x 攻击力的伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"穆咖钭面具"
 		"item_property_mugato"						"穆咖钭的诅咒"	
-		"property_mugato_description" 				"Casting any spell silences you for <% MUGATO_SPELL_SILENCE_DUR %> seconds, and attacking silences you for <% MUGATO_ATTACK_SILENCE_DUR %> seconds. While silenced from any source, your Armor Pierce and Spell Pierce is increased by <% MUGATO_PIERCES %>."
+		"property_mugato_description" 				"施放任意技能沉默你<% MUGATO_SPELL_SILENCE_DUR %> 秒, 并且发起攻击沉默你 <% MUGATO_ATTACK_SILENCE_DUR %>秒. 当被任意来源沉默时, 你的物理穿透和魔法穿透提高 <% MUGATO_PIERCES %>."
+		"item_rpc_mask_of_mugato_ruby1"	"当被沉默时, 提高 @ruby_property1 额外全属性"
+		"item_rpc_mask_of_mugato_emerald1"	"当被任意来源沉默时, 你的物理穿透和魔法穿透额外提高 @emerald_property1 "
+		"item_rpc_mask_of_mugato_sapphire1" "当被沉默时, 每秒损失 @sapphire_property1 魔法值并且提高 @sapphire_property2% 基础技能伤害"
+		"item_rpc_mask_of_mugato_amethyst1" "当被沉默时, 每秒损失 @amethyst_property1 魔法值并提高 @amethyst_property2% 物品伤害"		
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"沼泽女巫帽"
-		"item_property_swamp_witch"					"玄武波"
-		"property_swamp_witch_description"			"Each cast of @Ability2 also unleashes a swarm of spectral bats in front of you, dealing <% SWAMP_WITCH_HAT_INT_TO_DMG %>x your Intelligence as damage. Maximimum of 1 trigger every <% SWAMP_WITCH_COOLDOWN %> seconds."
+		"item_property_swamp_witch"					"暗影波"
+		"property_swamp_witch_description"			"每次施放 @Ability2 同时向你面前释放出一大群幽灵蝙蝠 , 造成 <% SWAMP_WITCH_HAT_INT_TO_DMG %>x 你的智力值的伤害. 每 <% SWAMP_WITCH_COOLDOWN %> 秒最多触发一次."
 
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
-		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Reduced Magic Armor"
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"暗影波"
+		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"降低魔甲"
 
-		"item_rpc_swamp_witch_hat_ruby1"	"Each time an enemy is hit by a Murky Wave, they lose @ruby_property1 magic armor. Stacks up to <% SWAMP_WITCH_RUBY_MAX_STACKS %> times and lasts <% SWAMP_WITCH_RUBY_DURATION %> seconds"
-		"item_rpc_swamp_witch_hat_emerald1"	"Murky Wave can trigger once every @emerald_property1 seconds"
-		"item_rpc_swamp_witch_hat_sapphire1" "Each enemy hit by Murky Wave restores @sapphire_property1 mana"
-		"item_rpc_swamp_witch_hat_amethyst1" "Increases Murky Wave's damage by @amethyst_property1"
+		"item_rpc_swamp_witch_hat_ruby1"	"每次敌人被暗影波击中, 他们的魔甲将降低 @ruby_property1 点. 最多叠加 <% SWAMP_WITCH_RUBY_MAX_STACKS %> 层，持续 <% SWAMP_WITCH_RUBY_DURATION %> 秒"
+		"item_rpc_swamp_witch_hat_emerald1"	"暗影波可以每 @emerald_property1 秒触发一次"
+		"item_rpc_swamp_witch_hat_sapphire1" "每个被暗影波击中的敌人回复你 @sapphire_property1 魔法值"
+		"item_rpc_swamp_witch_hat_amethyst1" "提高暗影波的伤害 @amethyst_property1"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_tricksters_mask"									"狡诈面具"
-		"item_property_trickster"					"Laughing Scoundrel"
-		"property_trickster_description"            "The wearer gains a permanent scoundrel companion who is invisible. Each cast of @Ability2 instantly moves you to a random position within the Scoundrel's range and disjoints incoming projectiles. Scoundrel's base range is <% TRICKSTER_BASE_RADIUS %>."
+		"item_property_trickster"					"捣蛋鬼"
+		"property_trickster_description"            "穿戴者获得一个永久隐形的捣蛋鬼，每次施放 @Ability2 都会立即将你移动到捣蛋鬼一定范围内的任意位置，并躲避弹道。捣蛋鬼的基础范围是<% TRICKSTER_BASE_RADIUS %>码."
 
-		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai"	"Scoundrel AI"
-		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai_Description"	"Toggle to activate this minion's default behavior."
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai"	"捣蛋鬼 AI"
+		"DOTA_Tooltip_ability_trickster_scoundrel_toggle_ai_Description"	"开关此技能以改变捣蛋鬼的AI."
 
-		"DOTA_Tooltip_modifier_scoundrel_invis_countdown"	"Invisible Fade Time"
-		"DOTA_Tooltip_modifier_scoundrel_invis_countdown_Description"	"Going invisible at end of countdown if remaining idle"
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown"	"消失"
+		"DOTA_Tooltip_modifier_scoundrel_invis_countdown_Description"	"隐形直到打破状态"
 
-		"item_rpc_tricksters_mask_ruby1"	"Increases the Scoundrel's range by @ruby_property1"
-		"item_rpc_tricksters_mask_emerald1"	"While standing in the Scoundrel's range, gain @emerald_property1 agility"
-		"item_rpc_tricksters_mask_sapphire1" "Increases the Scoundrel's movespeed by @sapphire_property1"
-		"item_rpc_tricksters_mask_amethyst1" "Standing still in the Scoundrel's range for @amethyst_property1 seconds applies invisibility. Invisibility breaks from performing an action."
+		"item_rpc_tricksters_mask_ruby1"	"提高捣蛋鬼的范围 @ruby_property1"
+		"item_rpc_tricksters_mask_emerald1"	"站在捣蛋鬼的范围内时, 获得 @emerald_property1 敏捷"
+		"item_rpc_tricksters_mask_sapphire1" "提高捣蛋鬼的移动速度 @sapphire_property1"
+		"item_rpc_tricksters_mask_amethyst1" "站在捣蛋鬼范围内 @amethyst_property1 秒进入隐形状态. 进行任意动作将打破隐形状态."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_emerald_douli"									"翡翠兜里"
 		"item_property_emerald_douli"				"法力护盾"
 		"property_emerald_douli_description"		"<% EMERALD_DOULI_ABSORBED_DMG_PCT %>% 受到的伤害被法力护盾吸收. 1点魔法值 可以抵挡 <% EMERALD_DOULI_DMG_ABSORB_PER_MANA %> 伤害."
-		
+		"item_rpc_emerald_douli_ruby1"	"提高吸收的伤害百分比 @ruby_property1%"
+		"item_rpc_emerald_douli_emerald1"	"每点魔法值可以额外吸收 @emerald_property1 伤害"
+		"item_rpc_emerald_douli_sapphire1" "提高魔法回复 @sapphire_property1"
+		"item_rpc_emerald_douli_amethyst1" "每点已损失的魔法值提高魔法穿透 @amethyst_property1"
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
 		"item_property_tyrius"						"提瑞斯之威"
@@ -159,19 +196,24 @@
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
 		"item_property_cerulean_highguard"			"浓缩魔力"
 		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <% CERULEAN_HIGHGUARD_MANA_INCREASE %>%，其基础技能伤害提高 <% CERULEAN_HIGHGUARD_BAD %>%。"
+		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"
+		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "提高 [W] 技能伤害 @amethyst_property1, 但是提高其耗蓝 @amethyst_property2"
+
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_super_ascendency_mask"							"优势面具"
 		"item_property_super_ascendency"			"巨大优势"
-		"property_super_ascendency_description"		"After casting @Ability4, you gain <% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed. Attacks split and hit up to <% SUPER_ASCENDENCY_SPLIT_TARGETS_BASE %> extra targets. This buff's duration is equal to <% SUPER_ASCENDENCY_DURATION_PCT_OF_R %>% @Ability4's cooldown."
+		"property_super_ascendency_description"		"施放 @Ability4后, 你获得 <% SUPER_ASCENDENCY_ATK_RANGE %> 额外攻击距离, <% SUPER_ASCENDENCY_ATK_PCT %>% 额外攻击力, <% SUPER_ASCENDENCY_ATK_SPD %> 攻击速度, 和 <% SUPER_ASCENDENCY_MOVE_SPD %> 移动速度. 攻击可以分裂，至多溅射 <% SUPER_ASCENDENCY_SPLIT_TARGETS_BASE %>个额外目标. 巨大优势的持续时间等于 <% SUPER_ASCENDENCY_DURATION_PCT_OF_R %>% @Ability4的冷却时间."
 
-		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"Super Ascension"
-		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> more attack range, <% SUPER_ASCENDENCY_ATK_PCT %>%% bonus attack damage, <% SUPER_ASCENDENCY_ATK_SPD %> attack speed, and <% SUPER_ASCENDENCY_MOVE_SPD %> movespeed."
+		"DOTA_Tooltip_modifier_super_ascendency_trigger"	"巨大优势"
+		"DOTA_Tooltip_modifier_super_ascendency_trigger_Description"	"<% SUPER_ASCENDENCY_ATK_RANGE %> 额外攻击距离, <% SUPER_ASCENDENCY_ATK_PCT %>%% 额外攻击力, <% SUPER_ASCENDENCY_ATK_SPD %> 攻击速度, 和 <% SUPER_ASCENDENCY_MOVE_SPD %> 移动速度."
 
-		"item_rpc_super_ascendency_mask_ruby1"	"Your split attacks can hit @ruby_property1 additional targets"
-		"item_rpc_super_ascendency_mask_emerald1"	"Each attack that hits an enemy during Super Ascension will reduce the current cooldown of [R] by @emerald_property1 seconds"
-		"item_rpc_super_ascendency_mask_sapphire1" "Gain @sapphire_property1 Base Attack Damage during Super Ascension"
-		"item_rpc_super_ascendency_mask_amethyst1" "Super Ascension has a minimum duration of @amethyst_property1 seconds"
+		"item_rpc_super_ascendency_mask_ruby1"	"分裂攻击目标数上限提高 @ruby_property1 "
+		"item_rpc_super_ascendency_mask_emerald1"	"在巨大优势状态下，每次攻击减少 [R] 的冷却时间 @emerald_property1 秒"
+		"item_rpc_super_ascendency_mask_sapphire1" "在巨大优势状态下提高@sapphire_property1 基础攻击力"
+		"item_rpc_super_ascendency_mask_amethyst1" "巨大优势的持续时间不会低于 @amethyst_property1 秒"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"
