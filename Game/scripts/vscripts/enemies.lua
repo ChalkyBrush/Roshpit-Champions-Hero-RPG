@@ -398,10 +398,13 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetHealth(newHealth)
 end
 
-Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar"}
+Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar", "npc_flying_dummy_vision", "water_temple_tentacle_switch"}
 
 function Enemies:ParagonChance(unit)
 	if WallPhysics:DoesTableHaveValue(Enemies.PARAGON_EXCEPTION_TABLE, unit:GetUnitName()) then
+		return false
+	end
+	if unit:GetRoshpitLevel() <= 1 then
 		return false
 	end
 	if unit.cant_paragon then
