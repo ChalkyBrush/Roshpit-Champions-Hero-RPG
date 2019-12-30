@@ -342,10 +342,10 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_harvester_boots"									"收割者鞋子"
-    	"item_rpc_harvester_boots_ruby1"									"增加该物品的第 1 项属性重铸上限 @ruby_property1%"
-    	"item_rpc_harvester_boots_emerald1"									"增加该物品的第 3 项属性重铸上限  @emerald_property1%"
-    	"item_rpc_harvester_boots_sapphire1"									"增加该物品的第 2 项属性重铸上限  @sapphire_property1%"
-    	"item_rpc_harvester_boots_amethyst1"									"增加该物品的第 4 项属性重铸上限  @amethyst_property1%"
+    	"item_rpc_harvester_boots_ruby1"									"增加该物品的第 1 项属性 @ruby_property1%"
+    	"item_rpc_harvester_boots_emerald1"									"增加该物品的第 3 项属性 @emerald_property1%"
+    	"item_rpc_harvester_boots_sapphire1"									"增加该物品的第 2 项属性  @sapphire_property1%"
+    	"item_rpc_harvester_boots_amethyst1"									"增加该物品的第 4 项属性  @amethyst_property1%"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_great_fortune"							"大财宝靴"
