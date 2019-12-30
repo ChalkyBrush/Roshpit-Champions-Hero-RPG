@@ -984,7 +984,7 @@
 
 		"item_damage_increase"			"物品伤害提高 % "
 		
-		"item_item_damage"				"物品伤害提高e %"
+		"item_item_damage"				"物品伤害提高 %"
 
 		"item_attack_damage"				"基础攻击力"
 		
