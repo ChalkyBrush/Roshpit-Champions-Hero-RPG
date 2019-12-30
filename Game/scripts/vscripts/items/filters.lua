@@ -2742,7 +2742,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * q_4_level
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
-                mult = mult + SEINARU_W4_WIND_AMP * attacker.w_4_level
+                mult = mult + (SEINARU_W4_WIND_AMP/100) * attacker.w_4_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then
