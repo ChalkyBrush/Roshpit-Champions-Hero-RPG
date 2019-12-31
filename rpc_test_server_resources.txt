@@ -1,3 +1,89 @@
+function Seafortress:Init()
+	--print("Initialize Sea Fortress")
+	Dungeons.phoenixCollision = true
+	RPCItems.DROP_LOCATION = Vector(6656, -16128)
+	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
+	Events.GameMaster:AddAbility("town_portal"):SetLevel(1)
+	Events.GameMaster:RemoveModifierByName("modifier_portal")
+
+	Seafortress.Master = CreateUnitByName("rune_unit", RPCItems.DROP_LOCATION, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	Seafortress.Master:AddAbility("sea_fortress_ability"):SetLevel(GameState:GetDifficultyFactor())
+	Seafortress.MasterAbility = Seafortress.Master:FindAbilityByName("sea_fortress_ability")
+	Seafortress.Master:AddAbility("dummy_unit"):SetLevel(1)
+
+	Seafortress.ZFLOAT = 0
+	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(-4864, 4112), 5000, 5000, false)
+	Timers:CreateTimer(2, function()
+		Challenges:SpawnElderRai(Vector(-64, -14528), Vector(1, -1))
+	end)
+	Events.TownPosition = Vector(448, -15744)
+	Events.isTownActive = true
+	Events.Dialog0 = false
+	Events.Dialog1 = false
+	Events.Dialog2 = false
+	Events.Dialog3 = false
+	Dungeons.itemLevel = 1
+	Timers:CreateTimer(3, function()
+		local blacksmith = Events:SpawnTownNPC(Vector(-448, -16064), "red_fox", Vector(0, 1), "models/props_gameplay/shopkeeper_fountain/shopkeeper_fountain.vmdl", nil, nil, 1.1, false, "blacksmith")
+		StartAnimation(blacksmith, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1.0})
+		local oracle = Events:SpawnOracle(Vector(1344, -15488), Vector(-1, -0.3))
+		Events.GlyphEnchanter = Events:SpawnGlyphEnchanter(Vector(-512, -14912), Vector(1, -1))
+		Events:SpawnCurator(Vector(1216, -14976), Vector(-1, -0.2))
+	end)
+
+	Seafortress:Music()
+	Seafortress:Ambience()
+
+	Timers:CreateTimer(6, function()
+		local dummy = CreateUnitByName("arena_training_dummy", Vector(-756, -15360, 520), true, nil, nil, DOTA_TEAM_NEUTRALS)
+		dummy:SetForwardVector(Vector(1, 0))
+		dummy.angle = 0
+		dummy.targetPosition = Vector(-756, -15360, 520)
+		dummy.pushLock = true
+	end)
+
+	Timers:CreateTimer(6, function()
+		Seafortress:SpawnRoom1()
+	end)
+
+	--OTHER DUNGEON INITS
+	Seafortress.switchA = Entities:FindByNameNearest("CastleSwitch1a", Vector(-12913, -9341, 139 + Seafortress.ZFLOAT), 900)
+	Seafortress.switchA:SetAbsOrigin(Seafortress.switchA:GetAbsOrigin() - Vector(0, 0, 1000))
+
+	Seafortress.switchB = Entities:FindByNameNearest("CastleSwitch2", Vector(-9316, 2084, 12 + Seafortress.ZFLOAT), 900)
+	Seafortress.switchB:SetAbsOrigin(Seafortress.switchB:GetAbsOrigin() - Vector(0, 0, 1000))
+
+	Seafortress.Jumper = Entities:FindByNameNearest("SeaJumper", Vector(2128, -8189, 400 + Seafortress.ZFLOAT), 1200)
+	Seafortress.Jumper:SetAbsOrigin(Seafortress.Jumper:GetAbsOrigin() - Vector(0, 0, 1000))
+
+	Seafortress.PlatformsTable = {}
+	Seafortress.PlatformsTable[1] = Entities:FindByNameNearest("Platform1", Vector(-10327, 4921, 124 + Seafortress.ZFLOAT), 1200)
+	Seafortress.PlatformsTable[2] = Entities:FindByNameNearest("Platform2", Vector(-8893, 4552, 124 + Seafortress.ZFLOAT), 1200)
+	Seafortress.PlatformsTable[3] = Entities:FindByNameNearest("Platform3", Vector(-7410, 4511, 124 + Seafortress.ZFLOAT), 1200)
+	Seafortress.PlatformsTable[4] = Entities:FindByNameNearest("Platform4", Vector(-7222, 6081, 124 + Seafortress.ZFLOAT), 1200)
+
+	for i = 1, #Seafortress.PlatformsTable, 1 do
+		Seafortress.PlatformsTable[i]:SetAbsOrigin(Seafortress.PlatformsTable[i]:GetAbsOrigin() - Vector(0, 0, 1000))
+	end
+
+	local bridge = Entities:FindByNameNearest("PirateBridgeForGrid", Vector(7808, 7671, 91 + Seafortress.ZFLOAT), 1200)
+	bridge:SetModel("models/development/invisiblebox.vmdl")
+
+	local bridge = Entities:FindByNameNearest("PirateBridgeForGrid", Vector(8841, 11179, 91 + Seafortress.ZFLOAT), 1200)
+	bridge:SetModel("models/development/invisiblebox.vmdl")
+
+	Seafortress.Jumper2 = Entities:FindByNameNearest("SeaJumper", Vector(-6398, 14592, 652 + Seafortress.ZFLOAT), 1200)
+	Seafortress.Jumper2:SetAbsOrigin(Seafortress.Jumper2:GetAbsOrigin() - Vector(0, 0, 1000))
+	Timers:CreateTimer(5, function()
+		local particleName = "particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf"
+		Seafortress.switchPFX = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_mace_of_aeons/fv_chronosphere_aeons.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(Seafortress.switchPFX, 0, Vector(-6638, 2503))
+		ParticleManager:SetParticleControl(Seafortress.switchPFX, 1, Vector(190, 190, 190))
+	end)
+	Seafortress.TempleEnergyState = -1
+	Seafortress:OlSpiny()
+end
+
 function Challenges:FinalSocket(msg)
 	local playerID = msg.PlayerID
 	local item = EntIndexToHScript(msg.socketingItem)
