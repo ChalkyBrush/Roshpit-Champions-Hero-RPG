@@ -8,7 +8,7 @@ local function cast(caster, durationMod)
         runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "modifier_arcane_shell", {duration = duration})
         if caster:HasModifier("modifier_sorceress_glyph_5_1") then
             caster:SetModifierStackCount("modifier_arcane_shell", runeUnit, SORCERESS_GLYPH_4_1_W1_SHIELDS)
-        else caster:SetModifierStackCount("modifier_arcane_shell", runeUnit, 3)
+        else caster:SetModifierStackCount("modifier_arcane_shell", runeUnit, SORCERESS_W1_STACKS_BASE)
         end
     end
 end

@@ -9929,7 +9929,7 @@
 		"item_rpc_sorceress_glyph_5_1_description" 				"将 @Ability2 替换为奥术洪流，在远距离吟唱施法，对目标敌人造成 <font color='#ccff66'>2</font>x @Ability2 的伤害。"
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"奥术洪流"
-		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 <font color='#ccff66'>0.2</font> 秒将发射弹道攻击最近的敌人。伤害为 <font color='#ccff66'>2</font>x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至<font color='#ccff66'>4</font>层。"
+		"DOTA_Tooltip_ability_arcane_torrent_Description"		"元素： <font color=\"#E1A2E8\">奥术</font><br> 开启技能，每 <font color='#ccff66'>0.2</font> 秒将发射弹道攻击最近的敌人。伤害为 <font color='#ccff66'>2</font>x 魔爆术伤害 x 现在的魔法值 / 最大魔法值。并且[W1]提供的护盾增加至<font color='#ccff66'>3</font>层。"
 		"DOTA_Tooltip_ability_arcane_torrent_range"				"距离："
 
 		"DOTA_Tooltip_modifier_arcane_torrent_enable"			"奥术洪流"
