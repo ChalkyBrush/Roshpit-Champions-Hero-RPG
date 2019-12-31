@@ -3454,8 +3454,8 @@ function ablecore_greaves_think(event)
 		end
 	else
 		--fast move speed
-		if hero:HasModifier("modifier_ablecore_greaves_effect") then
-			if hero:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 and ability:GetGemValue("ruby") > 0  then
+		if hero:HasModifier("modifier_ablecore_greaves_effect") and hero:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 then
+			if ability:GetGemValue("ruby") > 0  then
 				event.ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_greaves_effect", {duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY2)})
 			else
 				hero:RemoveModifierByName("modifier_ablecore_greaves_effect")
