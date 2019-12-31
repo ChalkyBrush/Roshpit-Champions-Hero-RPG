@@ -5445,7 +5445,7 @@ function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
         ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_sunlight", {})
         hero:SetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster, new_stacks)
         local stacks_for_flare = math.max(ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD), 1)
-        if new_stacks >= ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS then
+        if new_stacks >= stacks_for_flare then
             ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
             hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")
         end

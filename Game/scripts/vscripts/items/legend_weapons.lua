@@ -311,7 +311,7 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
 	elseif internalName == "hydroxis" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#6D78BA", nil, 2)
-		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 4)
 	elseif internalName == "ekkan" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#99B0C1", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "attack_damage", 2)

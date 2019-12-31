@@ -1263,7 +1263,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+	if unit:HasModifier("modifier_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
@@ -2224,7 +2224,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+	if unit:HasModifier("modifier_dark_arts_vestments") then
 		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
