@@ -12125,7 +12125,7 @@
         "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
 
         "item_property_red_october"                             "Bellow of Ages"
-        "property_red_october_description"                      "Противники задетые @Ability3 имеют <font color='#ccff66'>25</font>% шанс вызвать временной парадокс в радиусе <font color='#ccff66'>400</font>, который нанесет урон в <font color='#ccff66'>40</font>% от урона способности. Максимум <font color='#ccff66'>3</font> срабатываний в секунду."
+        "property_red_october_description"                      "Противники задетые @Ability3 имеют <font color='#ccff66'>25</font>% шанс вызвать временной парадокс в радиусе <font color='#ccff66'>400</font>, который нанесет урон в <font color='#ccff66'>200</font>% от урона способности. Максимум <font color='#ccff66'>3</font> срабатываний в секунду."
 
         "item_rpc_red_october_boots_ruby1"                              "Увеличивает шанс срабатывания на @ruby_property1% и ограничение срабатываний в секунду на @ruby_property2"
         "item_rpc_red_october_boots_emerald1"                               "Увеличивает [E4] на @emerald_property1"
@@ -12758,7 +12758,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
+		"property_ruby_dragon_armor_description"			"Основным атрибутом героя назначается Сила. Каждое очко Силы увеличивает урон Атаки на <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Сила увеличивает Базовый Урон Атаки на @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Сила увеличивает Пробитие Брони на @emerald_property1"
@@ -12768,7 +12768,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
+		"property_topaz_dragon_description"				"Основным атрибутом героя назначается Ловкость. Каждое очко Ловкости увеличивает урон Атаки на <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Ловкость увеличивает Броню на @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Ловкость увеличивает Базовый Урон Атаки на @emerald_property1"
@@ -12778,7 +12778,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>1</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.5</font>."
+		"property_sapphire_dragon_description"				"Основным атрибутом героя назначается Интеллект. Каждое очко Интеллекта увеличивает урон Атаки на  <font color='#ccff66'>0.5</font>, Броню/Магическую Защиту/их Пробития на <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Интеллект увеличивает Броню на @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Интеллекть увеличивает Пробитие Брони на  @ruby_property1"
@@ -13873,7 +13873,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		"property_fire_deity_description"					"Урон способности @Ability2 имеет шанс <font color='#ccff66'>15</font>% вызвать взрыв силой <font color='#ccff66'>20</font>% от урона способности и оглушить противников на <font color='#ccff66'>0.3</font> сек. в небольшом радиусе вокруг цели. Максимум <font color='#ccff66'>4</font> срабатываний в секунду."
+		"property_fire_deity_description"					"Урон способности @Ability2 имеет шанс <font color='#ccff66'>15</font>% вызвать взрыв силой <font color='#ccff66'>200</font>% от урона способности и оглушить противников на <font color='#ccff66'>0.3</font> сек. в небольшом радиусе вокруг цели. Максимум <font color='#ccff66'>4</font> срабатываний в секунду."
 
 		"item_rpc_fire_deity_crown_ruby1"	"Увеличивает шанс срабатывания на @ruby_property1%"
 		"item_rpc_fire_deity_crown_emerald1"	"Увеличивает урон взрыва на @emerald_property1"
@@ -13903,7 +13903,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>15</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
+		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>150</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
 
 		"item_rpc_guard_of_luma_ruby1"	"Шанс срабатывания лучей увеличен на @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Максимум срабатываний в секунду увеличен на @emerald_property1"
@@ -14239,7 +14239,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 наносит дополнительно <font color='#ccff66'>8</font>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <font color='#ccff66'>60</font>% на <font color='#ccff66'>6</font> сек. Максимум <font color='#ccff66'>7</font> срабатываний в секунду."
+		"property_water_deity_description"						"@Ability4 наносит дополнительно <font color='#ccff66'>30</font>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <font color='#ccff66'>60</font>% на <font color='#ccff66'>6</font> сек. Максимум <font color='#ccff66'>7</font> срабатываний в секунду."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Скорость перемещения снижена"
 

@@ -12464,7 +12464,7 @@
         "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "永恒丛林之靴"
 
         "item_property_red_october"                             "时光之流"
-        "property_red_october_description"                      "被 @Ability3 击中的敌人有 <font color='#ccff66'>25</font>%  概率触发一个永恒脉冲，对 <font color='#ccff66'>400</font>范围内的敌人造成 <font color='#ccff66'>40</font>% 的该技能的伤害。每秒最多触发 <font color='#ccff66'>3</font> 次"
+        "property_red_october_description"                      "被 @Ability3 击中的敌人有 <font color='#ccff66'>25</font>%  概率触发一个永恒脉冲，对 <font color='#ccff66'>400</font>范围内的敌人造成 <font color='#ccff66'>200</font>% 的该技能的伤害。每秒最多触发 <font color='#ccff66'>3</font> 次"
 
         "item_rpc_red_october_boots_ruby1"                              "提高时光之流的触发概率 @ruby_property1% 并且增加每秒最大触发次数至 @ruby_property2"
         "item_rpc_red_october_boots_emerald1"                               "增加 [E4] 符文数 @emerald_property1"
@@ -13055,7 +13055,7 @@
 		"item_rpc_sapphire_dragon_scale_armor_sapphire1"						"每点智力增加基础攻击力 @sapphire_property1点"
 		"item_rpc_sapphire_dragon_scale_armor_amethyst1"						"每点智力增加魔甲@amethyst_property1点"
 		"item_property_sapphire_dragon"					"蓝龙"
-		"property_sapphire_dragon_description"				"每点智力值增加 <font color='#ccff66'>1</font>点基础攻击力。"
+		"property_sapphire_dragon_description"				"每点智力值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"红宝石龙鳞铠甲"
@@ -13064,7 +13064,7 @@
 		"item_rpc_ruby_dragon_scale_armor_sapphire1"							"每点力量增加魔法穿透 @sapphire_property1点"
 		"item_rpc_ruby_dragon_scale_armor_amethyst1"							"每点力量增加魔甲 @amethyst_property1点"
 		"item_property_ruby_dragon_armor"					"红龙"
-		"property_ruby_dragon_armor_description"			"每点力量值增加 <font color='#ccff66'>1</font>点基础攻击力。"
+		"property_ruby_dragon_armor_description"			"每点力量值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"黄玉龙鳞铠甲"
@@ -13073,7 +13073,7 @@
 		"item_rpc_topaz_dragon_scale_armor_sapphire1"						"每点敏捷增加魔法穿透 @sapphire_property1点"
 		"item_rpc_topaz_dragon_scale_armor_amethyst1"						"每点敏捷增加魔甲 @amethyst_property1点"
 		"item_property_topaz_dragon"						"黄龙"
-		"property_topaz_dragon_description"				"每点敏捷值增加 <font color='#ccff66'>1</font>点基础攻击力。"
+		"property_topaz_dragon_description"				"每点敏捷值增加 <font color='#ccff66'>0.5</font>点基础攻击力。"
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_sacred_trials_armor"								"神圣审判护甲"
@@ -13953,7 +13953,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
-		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>15</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
+		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>150</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"
@@ -14311,7 +14311,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"水神的王冠"
 		 "item_property_water_deity"							"水神谴"
-		"property_water_deity_description"						"@Ability4 造成额外 <font color='#ccff66'>8</font>% <font color=\"#3894FF\">水</font> 元素伤害并降低敌人的移动速度 <font color='#ccff66'>60</font>% 持续 <font color='#ccff66'>6</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次."
+		"property_water_deity_description"						"@Ability4 造成额外 <font color='#ccff66'>30</font>% <font color=\"#3894FF\">水</font> 元素伤害并降低敌人的移动速度 <font color='#ccff66'>60</font>% 持续 <font color='#ccff66'>6</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"水神谴"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"移速降低"
 
@@ -14323,7 +14323,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"火神的王冠"
 		"item_property_fire_deity"							"火神谴"
-		 "property_fire_deity_description"					"@Ability2 造成伤害有 <font color='#ccff66'>15</font>% 概率触发一次爆炸, 造成 <font color='#ccff66'>20</font>% 触发技能的伤害并眩晕目标周围小范围内的敌人 <font color='#ccff66'>0.3</font> 秒. 每秒最多触发 <font color='#ccff66'>4</font> 次."
+		 "property_fire_deity_description"					"@Ability2 造成伤害有 <font color='#ccff66'>15</font>% 概率触发一次爆炸, 造成 <font color='#ccff66'>200</font>% 触发技能的伤害并眩晕目标周围小范围内的敌人 <font color='#ccff66'>0.3</font> 秒. 每秒最多触发 <font color='#ccff66'>4</font> 次."
 		 "item_rpc_fire_deity_crown_ruby1"	"提高触发火神谴的概率 @ruby_property1%"
 		"item_rpc_fire_deity_crown_emerald1"	"提高爆炸伤害 @emerald_property1"
 		"item_rpc_fire_deity_crown_sapphire1" "提高眩晕时间 @sapphire_property1"

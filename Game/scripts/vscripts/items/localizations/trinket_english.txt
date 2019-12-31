@@ -153,7 +153,7 @@
         "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "Blue Divinex Amulet"
 
         "item_property_blue_divinex"                                    "X-Intelligence"
-        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is doubled."
+        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is increased by <% ITEM_RPC_BLUE_DIVINEX_AMULET_INT_PCT %>%."
         "item_rpc_blue_divinex_amulet_ruby1"            "X-Intelligence only reduces your Strength to @ruby_property1"
         "item_rpc_blue_divinex_amulet_emerald1"         "X-Intelligence only reduces your Agility to @emerald_property1"
         "item_rpc_blue_divinex_amulet_sapphire1"            "Each point of Intelligence increases Item Damage by @sapphire_property1%"
@@ -161,7 +161,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "Green Divinex Amulet"
         "item_property_green_divinex"                                   "X-Agility"
-        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is doubled."
+        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is increased by <% ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_PCT %>%."
 
         "item_rpc_green_divinex_amulet_ruby1"           "X-Agility only reduces your Strength to @ruby_property1"
         "item_rpc_green_divinex_amulet_emerald1"            "Each point of Agility increases Item Damage by @emerald_property1%"
@@ -171,7 +171,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "Red Divinex Amulet"
         "item_property_red_divinex"                                 "X-Strength"
-        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is doubled."   
+        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is increased by <% ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT %>%."   
         "item_rpc_red_divinex_amulet_ruby1"         "Each point of Strength increases Item Damage by @ruby_property1%"
         "item_rpc_red_divinex_amulet_emerald1"          "X-Strength only reduces your Agility to @emerald_property1"
         "item_rpc_red_divinex_amulet_sapphire1"         "X-Strength only reduces your Intelligence to @sapphire_property1"

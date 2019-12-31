@@ -3242,7 +3242,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		local stat_bonus = hero:GetBaseStrength()
+		local stat_bonus = hero:GetBaseStrength()*ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT/100
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		str_bonus = str_bonus + stat_bonus
@@ -3251,7 +3251,7 @@ function CustomAttributes:SetAttributes(hero)
 		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		local stat_bonus = hero:GetBaseAgility()
+		local stat_bonus = hero:GetBaseAgility()*ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_PCT/100
 		local modifier = hero:FindModifierByName('modifier_green_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
@@ -3260,7 +3260,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = 0
 		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		local stat_bonus = hero:GetBaseIntellect()
+		local stat_bonus = hero:GetBaseIntellect()*ITEM_RPC_BLUE_DIVINEX_AMULET_INT_PCT/100
 		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		int_bonus = int_bonus + stat_bonus

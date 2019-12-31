@@ -24,13 +24,8 @@ function class:OnAttackLanded(event)
 	if q_3_level > 0 then
 		local duration = PALADIN_Q3_BASE_DUR + q_3_level * PALADIN_Q3_DUR
 		local max_stacks = 1
-		if not caster.weapon then
-			--print("[modifier_paladin_q_passive] error caster.weapon is null")
-			return
-		else
-			if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
-				max_stacks = PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS
-			end
+		if caster:HasModifier("modifier_paladin_immortal_weapon_1") then
+			max_stacks = PALADIN_IMMORTAL_WEAPON_1_Q3_MAX_STACKS
 		end
 		local stacks = caster:GetModifierStackCount("modifier_paladin_q3_shield", caster)
 		caster:AddNewModifier(caster, self:GetAbility(), "modifier_paladin_q3_shield", {duration = duration})

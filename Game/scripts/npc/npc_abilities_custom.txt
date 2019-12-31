@@ -560,7 +560,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.2 0.35 0.5 0.65 0.8 0.95 1.1"
+				"lightning_orb_a"			"0.04 0.05 0.06 0.07 0.08 0.09 0.1"
 			}
 			"06"
 			{
@@ -620,7 +620,7 @@
 			"17"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shadow_orb_a"			"0.11 0.13 0.15 0.17 0.19 0.21 0.23"
+				"shadow_orb_a"			"0.01 0.02 0.03 0.04 0.05 0.06 0.07"
 			}
 			"18"
 			{
@@ -26207,7 +26207,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"3000 12000 48000 96000 144000 225000 500000"
+				"damage"					"300 600 900 1200 1500 1800 2100"
 			}
 			"02"
 			{
@@ -33058,7 +33058,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"3 6 9 12 15 18 21"
+				"att_to_dmg"			"4 5 6 7 8 9 10"
 			}
 		}
 		// Precache
@@ -39816,7 +39816,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.03"
+				"property_one"			"0.02"
 			}
 		}
 	}

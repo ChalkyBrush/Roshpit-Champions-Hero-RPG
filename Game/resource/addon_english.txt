@@ -12245,7 +12245,7 @@
         "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "Eternal Forest Striders"
 
         "item_property_red_october"                             "Bellow of Ages"
-        "property_red_october_description"                      "Enemies hit by @Ability3 have a <font color='#ccff66'>25</font>%  chance to trigger a swell of eternity in a <font color='#ccff66'>400</font> radius that deals <font color='#ccff66'>40</font>% of the ability's damage. Max <font color='#ccff66'>3</font> procs per second."
+        "property_red_october_description"                      "Enemies hit by @Ability3 have a <font color='#ccff66'>25</font>%  chance to trigger a swell of eternity in a <font color='#ccff66'>400</font> radius that deals <font color='#ccff66'>200</font>% of the ability's damage. Max <font color='#ccff66'>3</font> procs per second."
 
         "item_rpc_red_october_boots_ruby1"                              "Increases Bellow of Ages proc chance by @ruby_property1% and max procs per second by @ruby_property2"
         "item_rpc_red_october_boots_emerald1"                               "Increases [E4] rune by @emerald_property1"
@@ -12893,7 +12893,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ruby_dragon_scale_armor"							"Ruby Dragon Scale Armor"
 
 		"item_property_ruby_dragon_armor"					"Red Scale"
-		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
+		"property_ruby_dragon_armor_description"			"Primary attribute is always Strength. Each point of Strength increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_ruby_dragon_scale_armor_ruby1"							"Each point of Strength increases Base Attack Damage by @ruby_property1"
 		"item_rpc_ruby_dragon_scale_armor_emerald1"							"Each point of Strength increases Armor Pierce by @emerald_property1"
@@ -12903,7 +12903,7 @@
 		"DOTA_Tooltip_ability_item_rpc_topaz_dragon_scale_armor"						"Topaz Dragon Scale Armor"
 
 		"item_property_topaz_dragon"						"Yellow Scale"
-		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
+		"property_topaz_dragon_description"				"Primary attribute is always Agility. Each point of Agility increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_topaz_dragon_scale_armor_ruby1"						"Each point of Agility increases Armor by @ruby_property1"
 		"item_rpc_topaz_dragon_scale_armor_emerald1"						"Each point of Agility increases Base Attack Damage by @emerald_property1"
@@ -12913,7 +12913,7 @@
 		"DOTA_Tooltip_ability_item_rpc_sapphire_dragon_scale_armor"						"Sapphire Dragon Scale Armor"
 
 		"item_property_sapphire_dragon"					"Blue Scale"
-		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>1</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.5</font>."
+		"property_sapphire_dragon_description"				"Primary attribute is always Intelligence. Each point of Intelligence increases attack damage by an additional <font color='#ccff66'>0.5</font> and Armor/Magic Armor/Armor Pierce/Spell Pierce by <font color='#ccff66'>0.3</font>."
 
 		"item_rpc_sapphire_dragon_scale_armor_ruby1"						"Each point of Intelligence increases Armor by @ruby_property1"
 		"item_rpc_sapphire_dragon_scale_armor_emerald1"						"Each point of Intelligence increases Armor Pierce by @ruby_property1"
@@ -14008,7 +14008,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_fire_deity_crown"								"Fire Deity Crown"
 		"item_property_fire_deity"							"Wrath of Fire"
-		"property_fire_deity_description"					"@Ability2 damage instances have a <font color='#ccff66'>15</font>% chance to trigger a pyroclastic blast, dealing <font color='#ccff66'>20</font>% of the ability's damage and stunning enemies for <font color='#ccff66'>0.3</font> seconds in a small area around the target. Max <font color='#ccff66'>4</font> procs per second."
+		"property_fire_deity_description"					"@Ability2 damage instances have a <font color='#ccff66'>15</font>% chance to trigger a pyroclastic blast, dealing <font color='#ccff66'>200</font>% of the ability's damage and stunning enemies for <font color='#ccff66'>0.3</font> seconds in a small area around the target. Max <font color='#ccff66'>4</font> procs per second."
 
 		"item_rpc_fire_deity_crown_ruby1"	"Increases proc chance by an additional @ruby_property1%"
 		"item_rpc_fire_deity_crown_emerald1"	"Increases explosion damage by @emerald_property1"
@@ -14038,7 +14038,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "Enemies hit by @Ability1 have a <font color='#ccff66'>40</font>% chance to be hit by a lucent beam, dealing <font color='#ccff66'>15</font>% of the ability's damage and providing flying vision over the target for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>7</font> procs per second."
+		"property_luma_description"					 "Enemies hit by @Ability1 have a <font color='#ccff66'>40</font>% chance to be hit by a lucent beam, dealing <font color='#ccff66'>150</font>% of the ability's damage and providing flying vision over the target for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>7</font> procs per second."
 
 		"item_rpc_guard_of_luma_ruby1"	"Increases moonbeam proc chance by @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Increases the maximum number of procs per second by @emerald_property1"
@@ -14374,7 +14374,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>8</font>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
+		"property_water_deity_description"						"@Ability4 deals additional <font color='#ccff66'>30</font>% <font color=\"#3894FF\">Water</font> damage and slows the enemy's movement speed by <font color='#ccff66'>60</font>% for <font color='#ccff66'>6</font> seconds. Maximum of <font color='#ccff66'>7</font> triggers per second."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Movement slowed"
 
@@ -14600,7 +14600,7 @@
         "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "Blue Divinex Amulet"
 
         "item_property_blue_divinex"                                    "X-Intelligence"
-        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is doubled."
+        "property_blue_divinex_description"                         "Strength and Agility are set to 0 and cannot be increased. Intelligence is increased by <font color='#ccff66'>50</font>%."
         "item_rpc_blue_divinex_amulet_ruby1"            "X-Intelligence only reduces your Strength to @ruby_property1"
         "item_rpc_blue_divinex_amulet_emerald1"         "X-Intelligence only reduces your Agility to @emerald_property1"
         "item_rpc_blue_divinex_amulet_sapphire1"            "Each point of Intelligence increases Item Damage by @sapphire_property1%"
@@ -14608,7 +14608,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "Green Divinex Amulet"
         "item_property_green_divinex"                                   "X-Agility"
-        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is doubled."
+        "property_green_divinex_description"                            "Strength and Intelligence are set to 0 and cannot be increased. Agility is increased by <font color='#ccff66'>50</font>%."
 
         "item_rpc_green_divinex_amulet_ruby1"           "X-Agility only reduces your Strength to @ruby_property1"
         "item_rpc_green_divinex_amulet_emerald1"            "Each point of Agility increases Item Damage by @emerald_property1%"
@@ -14618,7 +14618,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "Red Divinex Amulet"
         "item_property_red_divinex"                                 "X-Strength"
-        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is doubled."   
+        "property_red_divinex_description"                          "Agility and Intelligence are set to 0 and cannot be increased. Strength is increased by <font color='#ccff66'>50</font>%."   
         "item_rpc_red_divinex_amulet_ruby1"         "Each point of Strength increases Item Damage by @ruby_property1%"
         "item_rpc_red_divinex_amulet_emerald1"          "X-Strength only reduces your Agility to @emerald_property1"
         "item_rpc_red_divinex_amulet_sapphire1"         "X-Strength only reduces your Intelligence to @sapphire_property1"

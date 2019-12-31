@@ -34,6 +34,11 @@ end
 function jex_activate_q_fire_cosmic(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not ability.cast_index then
+		ability.cast_index = 0
+	end
+	ability.cast_index = ability.cast_index + 1
+	local cast_index = ability.cast_index
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf", caster:GetAbsOrigin(), 3)
 	table.insert(ability.meteor_showers_table, new_meteor_shower)
 	local tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "Q")
@@ -57,22 +62,24 @@ function jex_activate_q_fire_cosmic(event)
 
 	for i = 1, meteors, 1 do
 		Timers:CreateTimer((i - 1) * meteor_delay, function()
-			local target = ability.meteor_showers_table[RandomInt(1, #ability.meteor_showers_table)].position + RandomVector(RandomInt(1, 600))
-			EmitSoundOnLocationWithCaster(target, "Jex.Meteor.Fall", caster)
-			CustomAbilities:QuickParticleAtPoint("particles/roshpit/jex/jex_fire_cosmic_q_meteor_attack.vpcf", target, 4)
-			Timers:CreateTimer(0.45, function()
-				EmitSoundOnLocationWithCaster(target, "Jex.MeteorShower.Impact", caster)
-				CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", target, 3)
-				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-				if #enemies > 0 then
-					for _, enemy in pairs(enemies) do
-						Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_COSMOS)
-						if stun_duration > 0 then
-							Filters:ApplyStun(caster, stun_duration, enemy)
+			if cast_index == ability.cast_index then
+				local target = ability.meteor_showers_table[RandomInt(1, #ability.meteor_showers_table)].position + RandomVector(RandomInt(1, 600))
+				EmitSoundOnLocationWithCaster(target, "Jex.Meteor.Fall", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/jex/jex_fire_cosmic_q_meteor_attack.vpcf", target, 4)
+				Timers:CreateTimer(0.45, function()
+					EmitSoundOnLocationWithCaster(target, "Jex.MeteorShower.Impact", caster)
+					CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", target, 3)
+					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target, nil, 260, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					if #enemies > 0 then
+						for _, enemy in pairs(enemies) do
+							Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_COSMOS)
+							if stun_duration > 0 then
+								Filters:ApplyStun(caster, stun_duration, enemy)
+							end
 						end
 					end
-				end
-			end)
+				end)
+			end
 		end)
 	end
 	Timers:CreateTimer(meteor_delay * meteors, function()
