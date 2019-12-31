@@ -130,7 +130,7 @@ Enemies.SPIRIT_REALM_CONSTANTS[0]["attack_damage"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["roshpit_attribute"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["max_hp"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["arcane_crystals"] = 1
-Enemies.SPIRIT_REALM_CONSTANTS[1]["attack_damage"] = 2
+Enemies.SPIRIT_REALM_CONSTANTS[1]["attack_damage"] = 1.5
 Enemies.SPIRIT_REALM_CONSTANTS[1]["roshpit_attribute"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["arcane_crystals"] = 2
@@ -327,7 +327,7 @@ Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["health"] = 0.3
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"] = 0.25
 
 Enemies.GLOBAL_SEA_FORTRESS_MULT = {}
-Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 0.75
+Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 0.5
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 1

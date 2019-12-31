@@ -78874,8 +78874,8 @@
         "ProjectileModel"   "particles/items_fx/desolator_projectile.vpcf"
         "ProjectileSpeed"   "1100"
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
-        "AttackDamageMin"   "9000"
-        "AttackDamageMax"   "9000"
+        "AttackDamageMin"   "900"
+        "AttackDamageMax"   "900"
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.3"
         "AttackAcquisitionRange"  "0"
@@ -78945,7 +78945,7 @@
             }
         }
         "RoshpitArmor"          "305"
-        "RoshpitArmorPierce"    "565"
+        "RoshpitArmorPierce"    "535"
         "RoshpitSpellPierce"    "245"
         "RoshpitMagicArmor"     "420"
         "RoshpitLevel"          "49"
