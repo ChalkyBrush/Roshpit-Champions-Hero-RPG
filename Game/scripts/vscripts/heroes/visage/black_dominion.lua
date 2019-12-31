@@ -264,7 +264,6 @@ function dominion_unit_kill(event)
 	if not unit.dominionLock then
 		unit.dominionLock = true
 		local q_3_level = caster:GetRuneValue("q", 3)
-		if unit:GetDeathXP() > 10 then
 		if q_3_level > 0 then
 			local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
 			local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
@@ -290,7 +289,6 @@ function dominion_unit_kill(event)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks_black", {})
 			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + 1
 			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
-		end
 		end
 	end
 end
