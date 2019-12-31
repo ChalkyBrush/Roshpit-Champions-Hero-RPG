@@ -55,7 +55,7 @@ CustomAttributes.DJANGHOR_R4_STATS = DJANGHOR_R4_BONUS_ATTRIBUTE
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE
 CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 
-CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
+
 CustomAttributes.BAHAMUT_Q4_INT = BAHAMUT_Q4_INT_BONUS
 CustomAttributes.BAHAMUT_R4_STATS = BAHAMUT_R4_STATS_PER_TICK
 CustomAttributes.AURIUN_E2_INT = AURIUN_E2_INT_INCREASE
@@ -63,7 +63,7 @@ CustomAttributes.AURIUN_E3_STATS = AURIUN_E3_ATTRIBUTES_INCREASE
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = MOUNTAIN_PROTECTOR_E2_BONUS_STR
 CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = RED_GENERAL_ARCANA2_W2_STRENGTH
-CustomAttributes.SORCERESS_ARCANE_INT = 50
+
 CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 
@@ -2920,9 +2920,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
-	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
-	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
-	-- end
+
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_strength", WARLORD_Q4_ALL_ATTRIBUTES)
@@ -3225,7 +3223,7 @@ function CustomAttributes:SetAttributes(hero)
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", SORCERESS_W3_INTELLECT)
 	end
 	if hero:HasModifier("modifier_flamewaker_weapon_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_flamewaker_weapon_agility", CustomAttributes.FLAMEWAKER_WEAPON_2_AGI)
