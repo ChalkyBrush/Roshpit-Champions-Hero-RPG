@@ -253,27 +253,28 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	local ability = inventory_unit:FindAbilityByName(ability_name)
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
-		if hero.equipped_gear[gear_slot].isLuaItem then
-			--ApplyDataDrivenModifier doesnt work with lua
-			--Modifier is applied in base.lua
-		else
-			if string.match(key, "immortal_weapon") then
-				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
-			elseif string.match(key, "arcana") then
-				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
-				RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
-			elseif string.match(key, "!immortal!") then
+		if string.match(key, "immortal_weapon") then
+			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+		elseif string.match(key, "arcana") then
+			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
+			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
+		elseif string.match(key, "!immortal!") then
+			if hero.equipped_gear[gear_slot].isLuaItem then
+				--ApplyDataDrivenModifier doesnt work with lua
+				--Modifier is applied in base.lua
+				--Only needed for the immortal property
+			else
 				local modifier_name = key:gsub("!immortal!_", "")
 				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 				RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
-			else
-				if value > 0 then
-					local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
-					local stacks = value
-					
-					ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
-					hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
-				end
+			end
+		else
+			if value > 0 then
+				local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
+				local stacks = value
+				
+				ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
+				hero:SetModifierStackCount(modifier_name, inventory_unit, stacks)
 			end
 		end
 	end
