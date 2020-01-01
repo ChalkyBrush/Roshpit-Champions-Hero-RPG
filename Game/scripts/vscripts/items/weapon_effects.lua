@@ -302,7 +302,7 @@ function mountain_protector_immo2_kill(event)
 	local ability = event.ability
 	local caster = event.caster
 	local attacker = event.attacker
-	if event.unit:GetDeathXP() > 0 then
+	if event.unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 		ability:ApplyDataDrivenModifier(caster, attacker, "modifier_immortal_weapon_2_stacks", {})
 		local newStacks = attacker:GetModifierStackCount("modifier_immortal_weapon_2_stacks", caster) + 1
 		attacker:SetModifierStackCount("modifier_immortal_weapon_2_stacks", caster, newStacks)

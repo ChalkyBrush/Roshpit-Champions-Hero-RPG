@@ -264,7 +264,7 @@ function dominion_unit_kill(event)
 	if not unit.dominionLock then
 		unit.dominionLock = true
 		local q_3_level = caster:GetRuneValue("q", 3)
-		if q_3_level > 0 then
+		if q_3_level > 0 and unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 			local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
 			local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
 			attacker:SetBaseRoshpitArmor(new_armor)
