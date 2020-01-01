@@ -2013,7 +2013,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_plate_of_the_watcher4") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST2)/100
         end
-        if attacker:HasModifier("modifier_axe_arcana2") then
+        if attacker:HasModifier("modifier_axe_arcana1") then
             local r_1_level = attacker:GetRuneValue("r", 1)
             damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT*r_1_level
         end

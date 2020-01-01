@@ -1563,7 +1563,7 @@ function lies_beetle_passive_think(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			local damage = 25000
+			local damage = event.damage
 			PopupDamage(enemy, damage)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			local particleName = "particles/items_fx/green_lightning.vpcf"
@@ -3411,7 +3411,7 @@ function pit_lord_dash_think(event)
 			caster:RemoveModifierByName("modifier_pit_lord_charging")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		end)
-		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_pit_lord_charging")

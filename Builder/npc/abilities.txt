@@ -39144,7 +39144,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"5000 15000 255000"
+				"wave_damage"					"8000"
 			}
 			"05"
 			{
@@ -39154,7 +39154,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"burn_damage"					"2 4 6"
+				"burn_damage"					"6"
 			}
 			"07"
 			{
@@ -39295,7 +39295,6 @@
 		"AbilityTextureName"			"magnataur_skewer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"30000 75000 305000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -39311,7 +39310,14 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"0"	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"10000"
+			}
 
 		"OnAbilityPhaseStart"
 		{
@@ -39327,7 +39333,7 @@
 			{
 				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 				"Function"		"pit_lord_sword_dash"
-				"damage"		"%AbilityDamage"
+				"damage"		"%damage"
 				"target"		"TARGET"
 			}
 		}
