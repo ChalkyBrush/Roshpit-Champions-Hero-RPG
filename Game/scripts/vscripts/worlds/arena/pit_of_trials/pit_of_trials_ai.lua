@@ -562,6 +562,12 @@ function gift_of_karzhun_die(event)
 			function()
 				ParticleManager:DestroyParticle( particle1, false )
 			end)
+			local random_gear_slot = RandomInt(0, 5)
+			if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
+			else
+				item = RPCItems:RollRandomItemBySlot(RPC_ITEMS_RARITY_IMMORTAL, 99+Arena.PitLevel*3, random_gear_slot)
+				RPCItems:BasicDropItem(position, item)
+			end
 			local luck = RandomInt(1, 10)
 			if luck == 1 then
 				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_conquest_stone_falcon")

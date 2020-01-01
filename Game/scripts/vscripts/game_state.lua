@@ -592,7 +592,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
 					local luck = RandomInt(1, 100)
 					if luck <= target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CENTAUR_HORNS_SAPPHIRE) then
-						target:GetAbilityByIndex(BASE_ABILITY_E):EndCooldown()
+						target:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
 						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", target, 0.8)
 					end
 				end
