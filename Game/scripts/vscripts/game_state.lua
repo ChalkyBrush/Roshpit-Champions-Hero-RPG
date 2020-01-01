@@ -2811,7 +2811,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_warlord_ice_shell") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = 0
-			Filters:WarlordTakeMagicDamage(victim)
+			Filters:IceShellTakeDamage(victim)
 		end
 	end
 	if victim:HasModifier("modifier_warlord_ice_shell_pure") then

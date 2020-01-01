@@ -431,9 +431,9 @@
         "property_puzzler_description"                              "Tier 2 rune bonuses provided by equipment are swapped with Tier 3 rune bonuses."
 
         "item_rpc_puzzlers_locket_ruby1"                "Increases Rune [Q2] by @ruby_property1"
-        "item_rpc_puzzlers_locket_emerald1"             "Increases Rune [E2] by @ruby_property1"
-        "item_rpc_puzzlers_locket_sapphire1"                "Increases Rune [W2] by @ruby_property1"
-        "item_rpc_puzzlers_locket_amethyst1"                "Increases Rune [R2] by @ruby_property1"
+        "item_rpc_puzzlers_locket_emerald1"             "Increases Rune [E2] by @emerald_property1"
+        "item_rpc_puzzlers_locket_sapphire1"                "Increases Rune [W2] by @sapphire_property1"
+        "item_rpc_puzzlers_locket_amethyst1"                "Increases Rune [R2] by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 

@@ -4343,6 +4343,14 @@ function Filters:ShatterVoltexShell(victim, attacker)
     end
 end
 
+function Filters:IceShellTakeDamage(unit)
+    local newStacks = unit:GetModifierStackCount("modifier_warlord_ice_shell", unit) - 1
+    unit:SetModifierStackCount("modifier_warlord_ice_shell", unit, newStacks)
+    if newStacks <= 0 then
+        unit:RemoveModifierByName("modifier_warlord_ice_shell")
+    end
+end
+
 function Filters:WarlordTakePureDamage(warlord)
     local newStacks = warlord:GetModifierStackCount("modifier_warlord_ice_shell_pure", warlord) - 1
     warlord:SetModifierStackCount("modifier_warlord_ice_shell_pure", warlord, newStacks)

@@ -655,7 +655,7 @@
 		"item_rpc_white_mage_hat_ruby1"		"Increases health regen by @ruby_property1% of max health"
 		"item_rpc_white_mage_hat_emerald1"	"Increases the potency of all healing effects (excluding natural health regen) by @emerald_property1%"
 		"item_rpc_white_mage_hat_sapphire1" 	"Any over heal from Curaga applies a shield that absorbs damage equal to the amount of over heal. The shield's max damage capacity is @sapphire_property1% of target's max health."
-		"item_rpc_white_mage_hat_amethyst1" 	"Curaga's heal is increased by @amethyst1x your Spirit"	
+		"item_rpc_white_mage_hat_amethyst1" 	"Curaga's heal is increased by @amethyst_property1x your Spirit"	
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
