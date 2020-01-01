@@ -456,8 +456,8 @@
         
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"                      "Augmented Ring of Nobility"
         "item_rpc_ring_of_nobility_augmented_ruby1"                     "Повышает все руны 1 строки на @ruby_property1"
-        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Повышает все руны 2 строки на @emerald_property1"
-        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Повышает все руны 3 строки на @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Повышает все руны 3 строки на @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Повышает все руны 2 строки на @sapphire_property1"
         "item_rpc_ring_of_nobility_augmented_amethyst1"                     "Повышает все руны 4 строки на @amethyst_property1"
         "item_property_nobility_augmented"                  "Strides of Nobility"
         "property_nobility_augmented_description"           "Повышает все Атрибуты героя на <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x от Уровня героя. Кольцо не может быть перковано у Кузнеца."

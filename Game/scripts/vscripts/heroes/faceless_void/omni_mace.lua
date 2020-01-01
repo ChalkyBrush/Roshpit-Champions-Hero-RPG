@@ -445,7 +445,7 @@ function omni_mace_basic_hit(caster, ability, target, event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", target, 0.4)
 	--print(mace_hit_data["color"])
 	ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.damage_mult / 100) * caster.omniro_data[caster.active_element]["level"]
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.damage_mult / 100)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_Q, caster.active_element, RPC_ELEMENT_NONE)
 
 	if caster.active_element == RPC_ELEMENT_FIRE then
@@ -457,7 +457,7 @@ function omni_mace_basic_hit(caster, ability, target, event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_omnimace_earth_buff", {duration = duration})
 		caster:SetModifierStackCount("modifier_omnimace_earth_buff", caster, caster.omniro_data[RPC_ELEMENT_EARTH]["level"])
 	elseif caster.active_element == RPC_ELEMENT_LIGHTNING then
-		local lightning_dmg = target:GetHealth() * (event.lightning_special_a / 100) * caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"]
+		local lightning_dmg = target:GetHealthPercent() * (event.lightning_special_a) * caster.omniro_data[RPC_ELEMENT_LIGHTNING]["level"]
 		Filters:TakeArgumentsAndApplyDamage(target, caster, lightning_dmg, mace_hit_data["damage_type"], BASE_ABILITY_Q, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_NONE)
 	elseif caster.active_element == RPC_ELEMENT_POISON then
 		local duration = 2
@@ -546,7 +546,7 @@ function omnimace_poison_debuff_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local poison_damage = (event.poison_special_a / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local poison_damage = (event.poison_special_a)/100 * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	if target:HasModifier("modifier_omniro_poison_pool_enemy") then
 		poison_damage = poison_damage * OMNIRO_POISON_MULTIPLE_FOR_DOUBLE
 	end
@@ -558,7 +558,7 @@ function omnimace_root_think(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	local nature_damage = (event.nature_special_b / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster)
+	local nature_damage = (event.nature_special_b)/100 * OverflowProtectedGetAverageTrueAttackDamage(caster)
 	local hit_data = omni_mace_basic_element_data(RPC_ELEMENT_NATURE)
 	Filters:ApplyDotDamage(caster, ability, target, nature_damage, hit_data["damage_type"], 1, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end

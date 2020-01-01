@@ -5,7 +5,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	local mace_hit_data = omni_mace_basic_element_data(caster.active_element)
 	local orb_ability = caster:FindAbilityByName("omniro_omni_orb")
 	if caster.active_element == RPC_ELEMENT_NORMAL then
-		local damage = orb_ability:GetSpecialValueFor("normal_orb_a") * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_NORMAL]["level"]
+		local damage = orb_ability:GetSpecialValueFor("normal_orb_a")/100 * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_NORMAL]["level"]
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_normal_orb.vpcf", PATTACH_ABSORIGIN, caster)
 		-- local pull_direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 40))

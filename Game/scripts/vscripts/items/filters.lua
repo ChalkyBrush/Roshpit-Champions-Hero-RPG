@@ -2257,7 +2257,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         if attacker:HasModifier("modifier_omniro_dragon_buff") then
-            mult = mult + (OMNIRO_DRAGON_MACE_ELEMENTAL_BUFF/100)
+            mult = mult + (OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF/100)
         end
         if attacker:HasModifier("shadow_deity_passive") then
             if bIsRealDamage and slot ~= 0 then

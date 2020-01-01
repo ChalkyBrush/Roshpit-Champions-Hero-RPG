@@ -173,7 +173,7 @@ function penance_impact(event)
 	end)
 	local damage = event.damage
 	if ability.w_3_level > 0 then
-		damage = damage + caster:GetRoshpitArmor() * PALADIN_ARCANA_W3_ADD_DMG_PER_ARMOR * ability.w_3_level
+		damage = damage + caster:GetPhysicalArmorValue(false) * PALADIN_ARCANA_W3_ADD_DMG_PER_ARMOR * ability.w_3_level
 	end
 	local heal_percent = event.heal_percentage
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
@@ -216,7 +216,7 @@ function penance_impact(event)
 		luck = 1
 		if luck == 1 then
 			local radius = 550
-			local damage = ability.w_2_level * 30 * caster:GetIntellect() + OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.w_2_level
+			local damage = ability.w_2_level * PALADIN_ARCANA_W2_DMG_PER_INT * caster:GetIntellect() + OverflowProtectedGetAverageTrueAttackDamage(caster) * PALADIN_ARCANA_W2_DMG_PER_ATT * ability.w_2_level
 			damage = math.floor(damage)
 
 			EmitSoundOn("Paladin.HolyNova", caster)
