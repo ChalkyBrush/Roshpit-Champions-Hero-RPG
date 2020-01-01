@@ -62,7 +62,7 @@ function jex_activate_q_fire_cosmic(event)
 
 	for i = 1, meteors, 1 do
 		Timers:CreateTimer((i - 1) * meteor_delay, function()
-			if cast_index == ability.cast_index then
+			if cast_index >= (ability.cast_index - 2) then
 				local target = ability.meteor_showers_table[RandomInt(1, #ability.meteor_showers_table)].position + RandomVector(RandomInt(1, 600))
 				EmitSoundOnLocationWithCaster(target, "Jex.Meteor.Fall", caster)
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/jex/jex_fire_cosmic_q_meteor_attack.vpcf", target, 4)

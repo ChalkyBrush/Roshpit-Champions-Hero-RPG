@@ -3327,6 +3327,13 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_frozen_heart") then
+		if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+			if not victim.equipped_gear then
+				victim.equipped_gear = {}
+				victim.equipped_gear[RPC_GEAR_SLOT_TRINKET] = victim:FindAbilityByName("winterblight_azheran_passive")
+				victim.equipped_gear[RPC_GEAR_SLOT_TRINKET].newItemTable = {}
+			end
+		end
 		if damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROZEN_HEART_GEM_AMETHYST)
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
