@@ -1706,7 +1706,7 @@ function ursan_attack_land(event)
 	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/econ/items/ursa/ursa_swift_claw/ursa_swift_claw_left.vpcf", target, 1)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf", target, 3)
-	local damage = 1000000000
+	local damage = 100000
 	ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 end
 
