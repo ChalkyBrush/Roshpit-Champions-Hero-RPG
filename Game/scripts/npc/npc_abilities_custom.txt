@@ -11813,6 +11813,7 @@
 				"ScriptFile"		"heroes/axe/abilities/red_general_ability_base_q_skull_basher.lua"
 				"Function"			"red_general_ability_base_q_skull_basher"
 				"target"			"POINT"
+				"duration"		"%buff_duration"
 			}
 		}
 
