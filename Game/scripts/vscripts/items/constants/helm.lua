@@ -283,7 +283,7 @@ LUMA_MAX_PROCS_PER_SECOND = 7
 LUMA_RUBY = {3, 6, 9, 12, 15}
 LUMA_EMERALD = {1, 2, 3, 4, 5}
 LUMA_SAPPHIRE = {250, 500, 750, 1000, 1250}
-LUMA_AMETHYST = {1, 2, 3, 4, 5}
+LUMA_AMETHYST = {10, 20, 30, 40, 50}
 
 -- CHAMPIONS GEAR -- same constant for all 4 slots, located here
 

@@ -10946,7 +10946,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"100"
+				"property_one"		"1"
 			}
 		}
 	}
@@ -58232,7 +58232,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"10 20 30 40 50"
 			}
 		}
 		"Modifiers"
