@@ -722,7 +722,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     if caster:HasModifier('modifier_venomort_glyph_5_a') then
         damage_types[1] = {dot_damage_type = DAMAGE_TYPE_PHYSICAL, dot_damage = damage / 3}
         damage_types[2] = {dot_damage_type = DAMAGE_TYPE_MAGICAL, dot_damage = damage / 3}
-        damage_types[3] = {dot_damage_type = DAMAGE_TYPE_PURE, dot_damage = damage / 3}
+        damage_types[3] = {dot_damage_type = DAMAGE_TYPE_PURE, dot_damage = damage / 15}
     end
 
     for index, dot in ipairs(damage_types) do

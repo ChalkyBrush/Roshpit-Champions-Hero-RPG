@@ -79,7 +79,7 @@ function angry_fish_attack_land(event)
 			Timers:CreateTimer(0.18, function()
 				EmitSoundOn("Tanari.AngryFishCrit", target)
 				caster:PerformAttack(target, true, true, false, true, false, false, false)
-				local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster) * 3.5)
+				local damageApprox = math.ceil(OverflowProtectedGetAverageTrueAttackDamage(caster) * 1.5)
 				PopupDamage(target, damageApprox)
 			end)
 		end

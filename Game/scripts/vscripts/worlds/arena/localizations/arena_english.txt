@@ -797,7 +797,8 @@
 		"arena_pit_quizmaster"									"Quizmaster"
 
 		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
-		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals 450000 damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_damage"		"DAMAGE:"
 
 		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
 
