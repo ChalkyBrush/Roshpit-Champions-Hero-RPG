@@ -2797,7 +2797,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WINDSTEEL_ARMOR_GEM_EMERALD)
 	end
 	if hero:HasModifier("modifier_sea_giant_spirit") then
-		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
+		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_sea_giant_spirit", hero.InventoryUnit)
 	end
 	if hero:HasModifier("modifier_skyforge_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
