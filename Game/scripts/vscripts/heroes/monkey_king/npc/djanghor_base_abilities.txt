@@ -160,7 +160,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/monkey_king/wolf"
+						"ScriptFile"	"heroes/monkey_king/wolf.lua"
 						"Function"		"lifesteal_attack"
 					}
 				}
