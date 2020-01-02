@@ -717,7 +717,7 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
     local mult = 1
     mult = mult + heroes.venomort.getDotAmplify(caster, target)
     damage = damage * mult
-    local damage_types = {  }
+    local damage_types = { {dot_damage_type = DAMAGE_TYPE_PHYSICAL, dot_damage = 0}, {dot_damage_type = DAMAGE_TYPE_MAGICAL, dot_damage = 0},{dot_damage_type = DAMAGE_TYPE_PURE, dot_damage = 0}  }
     damage_types[1] = {dot_damage_type = damage_type, dot_damage = damage}
     if caster:HasModifier('modifier_venomort_glyph_5_a') then
         damage_types[1] = {dot_damage_type = DAMAGE_TYPE_PHYSICAL, dot_damage = damage / 3}
@@ -727,9 +727,9 @@ function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, sl
 
     for index, dot in ipairs(damage_types) do
         if slot == BASE_NONE then
-            Filters:ApplyItemDamage(target, caster, dot.dot_damage, dot.dot_damage_type, ability, element1, element2)
+			ApplyDamage({victim = target, attacker = caster, damage = dot.dot_damage, damage_type = dot.dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
         elseif slot == BASE_ITEM then
-            ApplyDamage({victim = target, attacker = caster, damage = dot.dot_damage, damage_type = dot.dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+            Filters:ApplyItemDamage(target, caster, dot.dot_damage, dot.dot_damage_type, ability, element1, element2)
         elseif slot == -2 then
             Filters:TakeArgumentsAndApplyDamage(target, caster, dot.dot_damage, dot.dot_damage_type, -2, element1, element2)
         else

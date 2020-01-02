@@ -195,7 +195,7 @@ end
 
 function applyIgnite(caster, ability, damage, target, b_d_level, duration)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_pyroblast_ignite", {duration = duration})
-	local igniteDPS = damage * 0.01 * b_d_level
+	local igniteDPS = damage * SORCERESS_R2_IGNITE_DAMAGE_PCT/100 * b_d_level
 	if target:HasModifier("modifier_pyroblast_ignite") and target.igniteDPS then
 		target.igniteDPS = math.max(target.igniteDPS, igniteDPS)
 	else
