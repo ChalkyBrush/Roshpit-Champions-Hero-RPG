@@ -166,6 +166,8 @@
 
 		"DOTA_Tooltip_ability_sorceress_rune_r_2"							"[R2] Ignite"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"Враги пораженные Pyroblast загорятся, от чего будут получать дополнительный урон каждые 0.15 секунды в течении 6 секунд. [R1] загорятся на 2 секунды."
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite"					"[R2] Ignite"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite_Description"		"Объят пламенем"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"Урон каждые 0.15 сек."
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% от полученного урона"
 		

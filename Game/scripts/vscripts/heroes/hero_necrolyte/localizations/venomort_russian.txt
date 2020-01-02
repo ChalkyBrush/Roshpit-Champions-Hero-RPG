@@ -198,9 +198,9 @@
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_movement_speed"			"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Каждое нанесение урона от @Ability1 заражает противника токсином Frostbite Venom, наносящего периодический урон. Дебафф стакается."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Каждое нанесение урона от @Ability1 заражает противника токсином Frostbite Venom, наносящего периодический урон. Дебафф стакается до <% VENOMORT_ARCANA2_Q1_MAX_STACKS %> раз."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" каждые 0.1 секунды"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" каждые <% VENOMORT_ARCANA2_Q1_TICK_RATE %> секунды"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2"						"[Q2] Icemeter"
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_Description"			"Радиус поиска цели @Ability1 увеличивается, а сама способность немного толкает Venomort вперед."
@@ -249,7 +249,7 @@
 		"item_rpc_venomort_glyph_7_1_description" 				"Увеличивает длительность жизни существ, призванных с помощью способностей и рун Venomort (но не из остальных источников) на @glyph_property1 секунд, и увеличивает их скорость атаки на @glyph_property2."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
-		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на 3 равные порции Физического, Магического и Чистого урона."
+		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на три порции Физического, Магического и Чистого урона. Физический и Магический разделенный урон наносит 1/<% VENOMORT_GLYPH_5_A_DIV_MAGIC %> от первоначального урона, а Чистый 1/<% VENOMORT_GLYPH_5_A_DIV_PURE %> от него."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] Glyph of Delirium"
 		"item_rpc_venomort_glyph_1_2_description" 				"Увеличивает длительность [W2] на @glyph_property2%. К тому же, противники, задетые @Ability1 имеют @glyph_property1% шанс потерять ориентацию в пространстве."

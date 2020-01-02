@@ -344,7 +344,7 @@
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"护盾充能:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"任务护甲"
-		"DOTA_Tooltip_modifier_task_armor_Description"									"伤害降低99.9％"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"伤害降低90％"
 
 		"redfall_dialogue_farmer_2_a"											"Crimsyth不只是盗贼。他们也参与诽谤仪式."
 		"redfall_dialogue_farmer_2_b"											"他们是邪教，滋生腐败."

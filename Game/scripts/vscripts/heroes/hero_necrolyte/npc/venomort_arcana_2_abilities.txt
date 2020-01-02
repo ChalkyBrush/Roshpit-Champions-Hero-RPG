@@ -85,7 +85,7 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% VENOMORT_ARCANA2_Q1_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"

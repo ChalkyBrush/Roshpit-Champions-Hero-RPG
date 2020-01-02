@@ -220,7 +220,7 @@ function javelin_hit(event)
 			local eventTable = {}
 			eventTable.caster = caster
 			eventTable.ability = caster:FindAbilityByName("spirit_warrior_flametongue")
-			eventTable.pure_damage = eventTable.ability:GetSpecialValueFor("flat_pure_damage")
+			eventTable.damage = eventTable.ability:GetSpecialValueFor("damage")
 			eventTable.target = target
 			eventTable.attacker = caster
 			eventTable.mult = mult
