@@ -52,9 +52,10 @@ function demon_flight_start(event)
 end
 
 function swap_to_demon_warp(caster, ability, base_name)
-	if caster.e1_level > 0 then
+	local e_1_level = caster:GetRuneValue("e", 1)
+	if e_1_level > 0 then
 		CustomAbilities:AddAndOrSwapSkill(caster, base_name, "chernobog_demon_warp", 2)
-		local procs = Runes:Procs(caster.e1_level, CHERNOBOG_ARCANA2_E1_CHANCE, 1)
+		local procs = Runes:Procs(e_1_level, CHERNOBOG_ARCANA2_E1_CHANCE, 1)
 		if procs > 0 then
 			local warp_ability = caster:FindAbilityByName("chernobog_demon_warp")
 			warp_ability:ApplyDataDrivenModifier(caster, caster, "modifier_demon_warp_freecast", {})
@@ -194,7 +195,8 @@ function demon_warp_start(event)
 	local newPosition = target
 	local direction = ((newPosition - casterOrigin) * Vector(1, 1, 0)):Normalized()
 	local distance = WallPhysics:GetDistance2d(casterOrigin, newPosition)
-	local maxDistance = CHERNOBOG_ARCANA2_E1_RANGE_BASE + caster.e1_level * CHERNOBOG_ARCANA2_E1_RANGE
+	local e_1_level = caster:GetRuneValue("e", 1)
+	local maxDistance = CHERNOBOG_ARCANA2_E1_RANGE_BASE + e_1_level * CHERNOBOG_ARCANA2_E1_RANGE
 	if distance > maxDistance then
 		newPosition = WallPhysics:WallSearch(casterOrigin, casterOrigin + direction * maxDistance, caster)
 	end
@@ -245,12 +247,13 @@ function passive_thinker(event)
 		caster:RemoveModifierByName("modifier_demonflight_b_c_visible")
 		caster:RemoveModifierByName("modifier_demonflight_b_c_invisible")
 	end
-	if caster.e3_level > 0 then
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
 		local damageDealt = 10000
 		local damageDEMON = Filters:ElementalDamage(Events.GameMaster, caster, damageDealt * 100, DAMAGE_TYPE_PURE, 0, RPC_ELEMENT_DEMON, RPC_ELEMENT_NONE, false)
 		local demonAmp = math.floor(damageDEMON / damageDealt)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_demonflight_c_c_attack", {})
-		local attack_dmg = (demonAmp) * caster.e3_level * CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT
+		local attack_dmg = (demonAmp) * e_3_level * CHERNOBOG_ARCANA2_E3_ATT_PER_DEMON_PCT
 		caster:SetModifierStackCount("modifier_demonflight_c_c_attack", caster, attack_dmg)
 	else
 		caster:RemoveModifierByName("modifier_demonflight_c_c_attack")
