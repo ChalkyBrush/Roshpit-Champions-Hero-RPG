@@ -332,16 +332,16 @@ Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 1
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 1
-Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 1
+Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 1.5
 Enemies.GLOBAL_SEA_FORTRESS_MULT["arcane_crystals"] = 2
 
 Enemies.SERENGAARD_BUFFS_PER_WAVE = {}
-Enemies.SERENGAARD_BUFFS_PER_WAVE["attack_damage"] = 0.05
+Enemies.SERENGAARD_BUFFS_PER_WAVE["attack_damage"] = 0.07
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_armor"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_magic_armor"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_armor_pierce"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_spell_pierce"] = 0.05
-Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.05
+Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.15
 Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"] = 0.05
 
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
