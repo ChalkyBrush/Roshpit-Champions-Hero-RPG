@@ -398,6 +398,14 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetHealth(newHealth)
 end
 
+function CDOTA_BaseNPC:IsRegularEnemy()
+	if unit:GetUnitName() == "npc_dummy_unit" then
+		return false
+	else
+		return true
+	end
+end
+
 Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar", "npc_flying_dummy_vision", "water_temple_tentacle_switch"}
 
 function Enemies:ParagonChance(unit)
