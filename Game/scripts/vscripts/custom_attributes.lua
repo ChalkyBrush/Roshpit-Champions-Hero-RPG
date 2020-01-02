@@ -1406,6 +1406,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SORCERESS_W2_MAGIC_ARMOR_LOSS
 	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		magic_armor_modify = magic_armor_modify + w_4_level*EKKAN_W4_MAGIC_ARMOR
+	end
 	if unit:HasModifier("modifier_call_of_earth") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_call_of_earth")
 	end
@@ -1900,6 +1904,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
 		armor_pierce_modify = armor_pierce_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
 	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		armor_pierce_modify = armor_pierce_modify + w_4_level*EKKAN_W4_PIERCES
+	end
 	if unit:HasModifier("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce") then
 		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
@@ -2356,6 +2364,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") then
 		local w_2_level = unit:GetRuneValue("w", 2)
 		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
+	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		spell_pierce_modify = spell_pierce_modify + w_4_level*EKKAN_W4_PIERCES
 	end
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
