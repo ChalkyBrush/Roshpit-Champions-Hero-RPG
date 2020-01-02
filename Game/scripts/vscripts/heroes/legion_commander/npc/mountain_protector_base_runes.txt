@@ -346,6 +346,7 @@
 		"AbilityTextureName"	"magnataur_shockwave_alt"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
