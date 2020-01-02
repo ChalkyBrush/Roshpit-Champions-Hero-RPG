@@ -2956,7 +2956,7 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 	if victim:HasModifier("modifier_exploder_freeze") then
-		filterTable["damage"] = filterTable["damage"] * 5
+		filterTable["damage"] = filterTable["damage"] * 2
 	end
 
 	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
