@@ -2,7 +2,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"元素： <font color=\"#EF4126\">火</font><br>给友方单位施加火焰buff，提高其攻击力并使其在攻击时造成额外魔法伤害。当炽血武器存在时，拥有者造成的  <font color=\"#EF4126\">火</font> 元素伤害增加。"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"额外攻击力 %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"buff持续时间："
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"攻击时额外魔法伤害："
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"攻击时额外魔法伤害："
         "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "火元素伤害增加: %"
         
 

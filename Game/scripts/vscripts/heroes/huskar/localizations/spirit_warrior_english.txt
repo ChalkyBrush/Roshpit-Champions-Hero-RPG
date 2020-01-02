@@ -2,7 +2,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
         "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "FIRE DAMAGE AMP: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"

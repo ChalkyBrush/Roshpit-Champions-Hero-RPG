@@ -33,6 +33,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
 			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"<% BASE_ABILITY_Q %>"
+			}
 		}
 	}
 
@@ -84,7 +89,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
+				"base_ability"			"<% BASE_ABILITY_Q %>"
 			}
 			"03"
 			{
