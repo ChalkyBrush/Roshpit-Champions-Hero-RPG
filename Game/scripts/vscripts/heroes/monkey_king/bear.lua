@@ -110,7 +110,7 @@ function begin_bear_charge(event)
 					for j = 1, #modifiers, 1 do
 						local modifier = modifiers[j]
 						local modifierMaker = modifier:GetCaster()
-						if modifierMaker and modifierMaker.regularEnemy then
+						if modifierMaker and modifierMaker:IsRegularEnemy(caster) then
 							caster:RemoveModifierByName(modifier:GetName())
 							particle = true
 							break

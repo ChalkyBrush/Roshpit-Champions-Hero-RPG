@@ -398,8 +398,11 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetHealth(newHealth)
 end
 
-function CDOTA_BaseNPC:IsRegularEnemy()
-	if unit:GetUnitName() == "npc_dummy_unit" then
+function CDOTA_BaseNPC:IsRegularEnemy(compare_unit)
+	if self:GetTeamNumber() == compare_unit:GetTeamNumber() then
+		return false
+	end
+	if self:GetUnitName() == "npc_dummy_unit" then
 		return false
 	else
 		return true
