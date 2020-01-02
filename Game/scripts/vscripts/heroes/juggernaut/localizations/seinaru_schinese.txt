@@ -51,9 +51,11 @@
     	"Tooltip_seinaru_w"											"圣光之手和卷风"
 	
 		"DOTA_Tooltip_ability_seinaru_rune_w_1"							"[W1] 卷风"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"@Ability2 also unleashes a Circle of Wind that slows attack and movespeed of struck units by <% SEINARU_W1_MOV_SLOW_BASE %> for <% SEINARU_W1_DUR_BASE %> seconds."
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"				"每层税后伤害提高"
-		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					"%"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_Description"				"使用@Ability2 的同时释放一股风之能量，降低范围内敌人的攻击速度和移动速度 <% SEINARU_W1_MOV_SLOW_BASE %> 持续 <% SEINARU_W1_DUR_BASE %> 秒."
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_property_one"			"范围"
+		"DOTA_Tooltip_ability_seinaru_rune_w_1_suffix"					""
+        "DOTA_Tooltip_ability_seinaru_rune_w_1_property_two"            "伤害"
+        "DOTA_Tooltip_ability_seinaru_rune_w_1_suffix_two"              ""
 		
 		"DOTA_Tooltip_ability_seinaru_rune_w_2"							"[W2] 旋风"
 		"DOTA_Tooltip_ability_seinaru_rune_w_2_Description"				" <font color='#CCFF66'>圣光之手</font> 还会释放一股旋风对敌人造成伤害并降低敌人的魔甲"
@@ -63,7 +65,7 @@
         "DOTA_Tooltip_ability_seinaru_rune_w_2_suffix_two"                  ""
 	
 		"DOTA_Tooltip_ability_seinaru_rune_w_3"						"[W3] 光之盾"
-		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 3秒。护盾根据敏捷值吸收伤害。"
+		"DOTA_Tooltip_ability_seinaru_rune_w_3_Description"			"释放 W圣光之手 后，获得一层护盾持续 <% SEINARU_W3_DUR_BASE %>秒。护盾根据敏捷值吸收伤害。"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_property_one"			"伤害吸收"
 		"DOTA_Tooltip_ability_seinaru_rune_w_3_suffix"					"X 敏捷值"
 
@@ -164,7 +166,7 @@
     	"property_seinaru_arcana1_description"								"用拔刀斩替换 @Ability1 和它的全部符文。"
 
   		"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1"						"[Q1] 血刃"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有40%几率暴击。"
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_Description"			"普通攻击有<% SEINARU_ARCANA_Q1_CRIT_CHANCE %>%几率暴击。"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_property_one"			"暴击额外伤害"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_arcana1_suffix"					"%"
 
