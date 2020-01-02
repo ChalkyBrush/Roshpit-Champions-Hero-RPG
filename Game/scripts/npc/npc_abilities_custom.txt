@@ -7370,6 +7370,10 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "10"
+				}
 			}
 			"modifier_ekkan_d_a_alacrity"
 			{
@@ -7926,6 +7930,10 @@
 				"IsHidden"	"0"
 				"IsBuff"	"1"
 				"TextureName"	"ekkan/ekkan_rune_q_3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4"
+				}
 			}
 			"modifier_ekkan_d_a_alacrity"
 			{
@@ -19437,7 +19445,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.3"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -24242,7 +24250,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"135"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"150"
 				}
 		    }
 			"modifier_reaper_slice_shield"
@@ -24375,12 +24383,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"20"
 			}
 			"02"
             {
                     "var_type"                             "FIELD_INTEGER"
-                    "property_two"                         "135"
+                    "property_two"                         "150"
             }
 		}
 	}
@@ -24474,7 +24482,7 @@
 				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -24548,7 +24556,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -24620,7 +24628,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -24641,7 +24649,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"5"
+				"property_one"			"9"
 			}
 			"02"
 			{
@@ -25557,7 +25565,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.3"
 			}
 		}
 	}
@@ -26396,7 +26404,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.13"
+				"property_one"			"13"
 			}
 		}
 	}
@@ -26827,7 +26835,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.13"
+				"property_one"			"13"
 			}
 		}
 	}
@@ -26924,7 +26932,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"flat_damage"				"40 60 80 100 120 140 160"
+				"damage"				"40 60 80 100 120 140 160"
 			}
 			"04"
 			{
@@ -27002,7 +27010,7 @@
 					{
 						"ScriptFile"	"heroes/huskar/flametongue.lua"
 						"Function"		"flametongue_attack_land"
-						"damage"	"%flat_damage"
+						"damage"		"%damage"
 						"mult"			"1"
 					}
 				}
@@ -27743,6 +27751,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
 			}
 		}
 	}
@@ -42812,7 +42825,7 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/monkey_king/wolf"
+						"ScriptFile"	"heroes/monkey_king/wolf.lua"
 						"Function"		"lifesteal_attack"
 					}
 				}
@@ -54041,7 +54054,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 100 140 240 440 1000 1400"
+		"AbilityManaCost"				"80 100 140 160 180 240 300"
 
 		// Special
 		//-------------------------------------------------------
@@ -54295,7 +54308,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"60 110 260 360 460 560 660"
+		"AbilityManaCost"				"60 110 260 360 460 500 550"
 
 		// Special
 		//-------------------------------------------------------
@@ -107886,7 +107899,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 1000 10000"
+		"AbilityDamage"					"100 1000 8000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -110587,7 +110600,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 5000 60000"
+		"AbilityDamage"					"300 5000 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -110824,7 +110837,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"50 200 2000"
+				"damage_per_second"		"50 200 600"
 			}
 			"02"
 			{
@@ -110834,7 +110847,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_total_tooltip"		"150 600 6000"
+				"damage_total_tooltip"		"150 600 1800"
 			}
 			"04"
 			{
@@ -122086,7 +122099,7 @@
 		"AbilityTextureName"			"rubick_fade_bolt"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"3000 9000 45000"
+		"AbilityDamage"					"3000 9000 9000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -122692,9 +122705,17 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"2400 7200 60000"
+		"AbilityDamage"					"2400 4000 6000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"2400 4000 6000"
+			}
+		}
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -122724,7 +122745,7 @@
 			{
 				"Target"		"TARGET"
 				"Type"			"DAMAGE_TYPE_MAGICAL"
-				"Damage"		"%AbilityDamage"
+				"Damage"		"%damage"
 			}
 			"RunScript"
 			{
@@ -126592,7 +126613,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 6000 36000"
+		"AbilityDamage"					"2000 6000 12000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -126724,7 +126745,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"1000 4000 45000"
+				"damage"					"1000 4000 10000"
 			}
 			"02"
 			{
@@ -126972,7 +126993,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"5000 15000 255000"
+				"wave_damage"					"8000"
 			}
 			"05"
 			{
@@ -126982,7 +127003,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"burn_damage"					"2 4 6"
+				"burn_damage"					"6"
 			}
 			"07"
 			{
@@ -127123,7 +127144,6 @@
 		"AbilityTextureName"			"magnataur_skewer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"30000 75000 305000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -127139,8 +127159,15 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
+		"AbilityManaCost"				"0"	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"10000"
+			}
+		}	
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -127155,7 +127182,7 @@
 			{
 				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 				"Function"		"pit_lord_sword_dash"
-				"damage"		"%AbilityDamage"
+				"damage"		"%damage"
 				"target"		"TARGET"
 			}
 		}
@@ -128402,7 +128429,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 7000 70000"
+		"AbilityDamage"					"100 3000 7000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -131932,12 +131959,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"250000"
+				"impact_damage"			"2500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"25000"
+				"burn_damage"			"500"
 			}
 		}
 
@@ -147982,7 +148009,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"50 150 5000"
+				"burn_damage"		"50 100 200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -148232,7 +148259,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 300000"
+				"damage"					"1000 5000 30000"
 			}
 			"02"
 			{
@@ -158283,7 +158310,4 @@
 		"LevelsBetweenUpgrades"  "1"
 		"AbilityCastPoint"       "0.0"
 	}
-	
-	
-	
 }

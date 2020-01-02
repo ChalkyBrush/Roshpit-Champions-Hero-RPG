@@ -4450,7 +4450,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"[T5-a] Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <font color='#ccff66'>1200</font>% for Conjuror and his Summons."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <font color='#ccff66'>1200</font> for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"
@@ -10051,6 +10051,8 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"Enemies struck by Pyroblast also ignite in flames and take burn damage over 6 seconds. Enemies struck by Fireball are ignited for 2 seconds."
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"Damage Per 0.15 seconds"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% of damage taken"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite"					"[R2] Ignite"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite_Description"		"Engulfed in flames"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_r_3"							"[R3] Flamestrike"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_Description"				"Fireball and Pyroblast create a column of fire at the cast point on a 0.5 second delay. Stuns for 0.5 seconds and reduces fire resistance for 6 seconds."
@@ -10273,7 +10275,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Element: <font color=\"#EF4126\">Fire</font><br>Applies a fire buff to a target ally that increases attack damage and adds a flat burst of magic damage on attack land. While flameblood weapon is active, the carrier has increased <font color=\"#EF4126\">Fire</font> damage."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ATTACK DAMAGE BONUS %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"BUFF DURATION:"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"EXTRA MAGIC DAMAGE ON ATTACK:"
         "DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "FIRE DAMAGE AMP: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"
@@ -11129,7 +11131,7 @@
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_movement_speed"			"MOVE SPEED SLOW:"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Each time an enemy is damaged by Frostvenom Grasp they gain a stack of Frostbite Venom. Each stack deals damage on a 0.1 second interval. Max <font color='#ccff66'>30</font> stacks."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Each time an enemy is damaged by Frostvenom Grasp they gain a stack of Frostbite Venom. Each stack deals damage on a <font color='#ccff66'>0.2</font> second interval. Max <font color='#ccff66'>30</font> stacks."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Damage"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					""
 
@@ -11180,7 +11182,7 @@
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
-		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided by 3 and separated into equal instances of Physical, Magical, and Pure damage."
+		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided and separated into weaker instances of damage of different types. Physical and Magical deal 1/<font color='#ccff66'>3</font> of original damage, whole Pure deals only 1/<font color='#ccff66'>15</font> damage."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] Glyph of Delirium"
 		"item_rpc_venomort_glyph_1_2_description" 				"Increases the duration of [W2] by @glyph_property2%. Additionally, enemies caught in the area of each @Ability1 cast have a @glyph_property1% chance to be afflicted with it."
@@ -15989,7 +15991,8 @@
 		"arena_pit_quizmaster"									"Quizmaster"
 
 		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
-		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals 450000 damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_damage"		"DAMAGE:"
 
 		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
 
@@ -16072,7 +16075,8 @@
 		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
 		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord summons 6 captured souls of previous challengers to fight for him."	
 		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
-		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him. Deals 305000 magical damage."
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him."
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_damage"		"DAMAGE:"
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai_Description"			"In forsaken dungeons of Arena, the ancient evil awaits for challengers."
 
@@ -16530,7 +16534,7 @@
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"SHIELD CHARGES:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
-		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 99.9%%"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 90%%"
 
 		"redfall_dialogue_farmer_2_a"											"The Crimsyth aren't just thieves. They also engage in diabolic rituals."
 		"redfall_dialogue_farmer_2_b"											"They are a destructive cult that breeds corruption."
