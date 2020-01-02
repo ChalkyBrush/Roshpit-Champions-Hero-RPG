@@ -120,6 +120,10 @@
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
 		"property_luma_description"					 "被 @Ability1 打击的敌人有 <% LUMA_BEAM_CHANCE %>% 概率被一道月光打击, 造成 <% LUMA_DAMAGE_AMP %>% 此技能的伤害并在敌人的位置提供高空视野 <% LUMA_VISION_DURATION %> 秒. 每秒最多触发 <% LUMA_MAX_PROCS_PER_SECOND %> 次月光."
+		"item_rpc_guard_of_luma_ruby1"	"提高月光的触发概率 @ruby_property1%"
+		"item_rpc_guard_of_luma_emerald1"	"提高每秒最多触发的月光次数 @emerald_property1"
+		"item_rpc_guard_of_luma_sapphire1" "月光效果获得高空视野提高 @sapphire_property1 "
+		"item_rpc_guard_of_luma_amethyst1" "提高月光的伤害 @amethyst_property1% 触发伤害"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_odin_helmet"										"奥丁头盔"
