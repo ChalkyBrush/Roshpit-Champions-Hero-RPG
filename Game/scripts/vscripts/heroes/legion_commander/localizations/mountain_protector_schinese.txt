@@ -56,6 +56,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"开启山丘守卫时，山丘守护者周围500码范围内的敌人将受到基于山丘守护者攻击力的持续伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"每次伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% 攻击力"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] 坚定的守卫者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"施放山丘守卫时增加山丘守护者的护甲，友军也能享受此效果。"

@@ -157,14 +157,19 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% MOUNTAIN_PROTECTOR_W3_HP_PART_PCT %>"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
-			"03"
+			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"1"
 			}
-			"04"
+			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"			"3"

@@ -52,6 +52,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Враги в радиусе 500 от героя во время активной стойки @Ability2 будут поражены молниями, наносящими урон в размере % от основного урона героя."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Урон молний"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% от урона героя"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Урон молний"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% от макс ХП героя"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Дарует герою и ближайшим союзникам дополнительную броню во время активной стойки @Ability2."

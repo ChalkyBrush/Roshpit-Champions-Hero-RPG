@@ -386,7 +386,7 @@
     	"item_rpc_malachite_shade_bracer_ruby1"							"Каждое очко Регенерации Здоровья увеличивает Броню на @ruby_property1"
     	"item_rpc_malachite_shade_bracer_emerald1"							"Каждое очко Ловкости увеличивает Регенерации Здоровья и Маны на @emerald_property1"
     	"item_rpc_malachite_shade_bracer_sapphire1"							"Каждое очко Регенерации Маны увеличивает Магическую Защиту на на @sapphire_property1"
-    	"item_rpc_malachite_shade_bracer_amethyst1"							"Каждое очко Духа Здоровья увеличивает Регенерации Здоровья и Маны на @amethyst_property1"
+    	"item_rpc_malachite_shade_bracer_amethyst1"							"Каждое очко Духа увеличивает Регенерации Здоровья и Маны на @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
 
