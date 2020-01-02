@@ -499,7 +499,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.3"
+				"property_one"			"<% SORCERESS_R2_IGNITE_DAMAGE_PCT %>"
 			}
 			"02"
 			{

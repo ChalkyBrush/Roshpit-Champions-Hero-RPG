@@ -406,7 +406,7 @@ function wyrm_take_damage(event)
 	if not caster.encasesOverflow then
 		caster.encasesOverflow = 0
 	end
-	if damage > caster:GetMaxHealth() * 0.4 then
+	if damage > caster:GetMaxHealth() * 0.5 then
 		if caster.encasesOverflow < 5 then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_lindworm_encased_in_ice", {duration = 5})
 			caster.encasesOverflow = caster.encasesOverflow + 1

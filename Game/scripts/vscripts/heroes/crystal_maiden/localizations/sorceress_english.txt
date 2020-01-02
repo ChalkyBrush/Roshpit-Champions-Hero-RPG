@@ -171,6 +171,8 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"Enemies struck by Pyroblast also ignite in flames and take burn damage over 6 seconds. Enemies struck by Fireball are ignited for 2 seconds."
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"Damage Per 0.15 seconds"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% of damage taken"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite"					"[R2] Ignite"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite_Description"		"Engulfed in flames"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_r_3"							"[R3] Flamestrike"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_Description"				"Fireball and Pyroblast create a column of fire at the cast point on a 0.5 second delay. Stuns for 0.5 seconds and reduces fire resistance for 6 seconds."

@@ -266,11 +266,11 @@ function dominion_unit_kill(event)
 			attacker:SetBaseRoshpitMagicArmor(new_magic_armor)
 			attacker:CalculateAndSaveRoshpitAttributes()
 
-			local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
-			local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
-			local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
-			attacker:SetBaseDamageMin(buffedUnitBaseDamage)
-			attacker:SetBaseDamageMax(buffedUnitBaseDamage)
+			--local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
+			--local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
+			--local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
+			--attacker:SetBaseDamageMin(buffedUnitBaseDamage)
+			--attacker:SetBaseDamageMax(buffedUnitBaseDamage)
 
 			EmitSoundOn("Ekkan.DarkJourney", attacker)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)

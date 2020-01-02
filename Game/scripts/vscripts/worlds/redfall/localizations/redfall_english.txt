@@ -442,7 +442,7 @@
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"SHIELD CHARGES:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
-		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 99.9%%"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 90%%"
 
 		"redfall_dialogue_farmer_2_a"											"The Crimsyth aren't just thieves. They also engage in diabolic rituals."
 		"redfall_dialogue_farmer_2_b"											"They are a destructive cult that breeds corruption."

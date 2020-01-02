@@ -485,7 +485,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Your Earth Aspect is resummoned immediately upon death."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"[T5-a] Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% for Conjuror and his Summons."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Increases Armor Pierce and Spell Pierce by <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %> for Conjuror and his Summons."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"
