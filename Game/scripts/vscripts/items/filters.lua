@@ -1900,9 +1900,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
         end
-        if attacker:HasModifier("modifier_mountain_protector_glyph_3_1") then
-            damageMult = damageMult - (MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE/100)
-        end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
                 damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetIntellect())
@@ -1994,6 +1991,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
+        end
+		if attacker:HasModifier("modifier_mountain_protector_glyph_3_1") then
+            damageMult = damageMult - (MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE/100)
         end
         if attacker:HasModifier("modifier_galaxy_orb") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE2)/100
