@@ -69,7 +69,7 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Элемент: <font color=\"#C25DFC\">Космос</font><br>Jex заряжает и выстреливает галактическим лазером в указанное место. Противники, стоящие ближе к источнику выстрела могут получить несколько порций урона. Противники, получившие урон от лазера, также получат дебафф для Магической Брони."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ПРИБАВКА К УРОНУ ЛАЗЕРА ОТ АТАКИ, ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"%<font color=\"#f4b942\">СНИЖЕНИЕ МАГ. БРОНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"<font color=\"#f4b942\">СНИЖЕНИЕ МАГ. БРОНИ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_damage"							"БАЗОВЫЙ УРОН:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_cast_range"						"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_debuff_duration"					"ДЛИТЕЛЬНОСТЬ ДЕБАФФА:"
