@@ -2048,7 +2048,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * reduction
 	end
 	if victim:HasModifier("modifier_task_armor") then
-		damage = damage * 0.001
+		damage = damage * 0.1
 		if shouldConsumeShields then
 			CustomAbilities:HitTaskShield(victim, attacker)
 		end
