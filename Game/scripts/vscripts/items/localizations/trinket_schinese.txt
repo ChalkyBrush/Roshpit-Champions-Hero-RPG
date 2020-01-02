@@ -459,6 +459,9 @@
 		 
 		 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"波斯猫眼戒指"	
+		"item_property_aquastone_ring"										"铂合金"
+		"property_aquastone_ring_description"								"每点 T 4 符文增加物品伤害和基础技能伤害 <% ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE %>%."
+
 		"item_rpc_aquastone_ring_ruby1"									"提高 [Q4] 符文 @ruby_property1"
 		"item_rpc_aquastone_ring_emerald1"									"提高 [E4] 符文 @emerald_property1"
 		"item_rpc_aquastone_ring_sapphire1"									"提高 [W4] 符文 @sapphire_property1"

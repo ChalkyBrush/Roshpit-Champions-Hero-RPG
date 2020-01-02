@@ -576,7 +576,7 @@
 		
 		 "DOTA_Tooltip_ability_item_rpc_armor_of_atlantis"                       "亚特兰帝斯之甲"
 		"item_property_armor_of_atlantis"								"钢筋铁骨"
-		"property_armor_of_atlantis_Description"					"每1%生命值提供<% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 伤害减免。这个伤害减免不能高于 <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%。"
+		"property_armor_of_atlantis_Description"					"每损失1%生命值提供<% ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT %>% 伤害减免。这个伤害减免不能高于 <% ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT %>%。"
 		"DOTA_Tooltip_modifier_armor_of_atlantis"					"钢筋铁骨"
 		"DOTA_Tooltip_modifier_armor_of_atlantis_Description"		"获得基于丢失生命值百分比的伤害减免"
 
