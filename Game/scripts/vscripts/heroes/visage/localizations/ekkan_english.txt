@@ -39,12 +39,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a 10% chance on attack to damage enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a <% EKKAN_Q1_DAMAGE_CHANCE %>% chance on attack to damage enemies in a line."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Crit Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% of dominated unit's attack damage"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"10% chance on attack to hit enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"<% EKKAN_Q1_DAMAGE_CHANCE %>% chance on attack to hit enemies in a line."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Dominated enemies have increased max health."

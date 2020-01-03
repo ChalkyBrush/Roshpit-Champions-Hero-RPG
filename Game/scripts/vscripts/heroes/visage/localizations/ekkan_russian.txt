@@ -39,12 +39,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"В подчинении у Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с 50% шансом при атаке нанесут магический урон по линии позади цели."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с <% EKKAN_Q1_DAMAGE_CHANCE %>% шансом при атаке нанесут магический урон по линии позади цели."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Доп. магический урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% от урона подчинённого юнита"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С 50% шансом при атаке нанесёт магический урон позади цели."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С <% EKKAN_Q1_DAMAGE_CHANCE %>% шансом при атаке нанесёт магический урон позади цели."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Увеличивает максимальное значение здоровья подчинённых юнитов."
