@@ -1,6 +1,6 @@
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"释放@Ability4后将会向周围释放 <% ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT %> 股旋风，造成 <% ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT %>%攻击力的伤害r"
+		"property_hurricane_description"			"释放@Ability4后将会向周围释放 <% ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT %> 股旋风，造成 <% ITEM_RPC_HURRICANE_VEST_DAMAGE_ATTACK_PWR_PCT %>%攻击力的伤害"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风吹起"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"飓风减速"
