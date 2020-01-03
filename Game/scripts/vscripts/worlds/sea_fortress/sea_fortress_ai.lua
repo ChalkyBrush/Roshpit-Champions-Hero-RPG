@@ -2302,7 +2302,23 @@ function jailer_think(event)
 					end
 				end)
 			else
-				target:ForceKill(false)
+				local throwPoint = Seafortress.JailCenterTable[1]
+				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Seafortress.JailCenterTable[1])
+				for i = 2, #Seafortress.JailCenterTable, 1 do
+					local distanceCheck = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Seafortress.JailCenterTable[i])
+					if distanceCheck < distance then
+						distance = distanceCheck
+						throwPoint = Seafortress.JailCenterTable[i]
+					end
+				end
+				local target = enemies[1]
+				EmitSoundOn("Seafortress.Jailer.Throw", target)
+				EmitSoundOn("Seafortress.Jailer.ThrowVO", caster)
+				local throwVector = ((throwPoint - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				local propulsion = distance / 75 + 5
+				local liftTime = distance / 65 + 10
+				target:SetAbsOrigin(caster:GetAbsOrigin() + throwVector * 120)
+				caster:MoveToPosition(caster:GetAbsOrigin() + throwVector * 20)
 				Timers:CreateTimer(0.5, function()
 					caster.patrolLock = false
 				end)
