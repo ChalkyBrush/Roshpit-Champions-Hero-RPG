@@ -542,7 +542,7 @@
         "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "蓝色占卜神符"
 
         "item_property_blue_divinex"                                    "超强智力"
-        "property_blue_divinex_description"                         "力量值和敏捷值固定为 0 且不能被提高. 智力值翻倍."
+        "property_blue_divinex_description"                         "力量值和敏捷值固定为 0 且不能被提高. 智力值提高<% ITEM_RPC_BLUE_DIVINEX_AMULET_INT_PCT %>%."
         "item_rpc_blue_divinex_amulet_ruby1"            "超强智力效果下，力量值只会下降到 @ruby_property1"
         "item_rpc_blue_divinex_amulet_emerald1"         "超强智力效果下，敏捷值只会下降到 @emerald_property1"
         "item_rpc_blue_divinex_amulet_sapphire1"            "每点智力值提高物品伤害 @sapphire_property1%"
@@ -550,7 +550,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "绿色占卜神符"
         "item_property_green_divinex"                                   "超强敏捷"
-        "property_green_divinex_description"                            "力量值和智力值固定为 0 且不能被提高. 敏捷值翻倍."
+        "property_green_divinex_description"                            "力量值和智力值固定为 0 且不能被提高. 敏捷值提高<% ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_PCT %>%."
 
         "item_rpc_green_divinex_amulet_ruby1"           "超强敏捷效果下，力量值只会下降到 @ruby_property1"
         "item_rpc_green_divinex_amulet_emerald1"            "每点敏捷值提高物品伤害 @emerald_property1%"
@@ -560,7 +560,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "红色占卜神符"
         "item_property_red_divinex"                                 "超强力量"
-        "property_red_divinex_description"                          "敏捷值和智力值固定为 0 且不能被提高. 力量翻倍."   
+        "property_red_divinex_description"                          "敏捷值和智力值固定为 0 且不能被提高. 力量值提高<% ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT %>%."   
         "item_rpc_red_divinex_amulet_ruby1"         "每点力量值提高物品伤害 @ruby_property1%"
         "item_rpc_red_divinex_amulet_emerald1"          "超强力量效果下，敏捷值只会下降到 @emerald_property1"
         "item_rpc_red_divinex_amulet_sapphire1"         "超强力量效果下，智力值只会下降到 @sapphire_property1"

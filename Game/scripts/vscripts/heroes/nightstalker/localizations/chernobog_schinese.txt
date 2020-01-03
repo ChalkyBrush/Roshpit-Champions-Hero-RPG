@@ -19,7 +19,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_q_2"                               "[Q2] 暗夜之爪"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "被@Ability1 影响的敌人每 <% CHERNOBOG_Q2_INTERVAL_THINK %>秒受到一次伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"                  "伤害"
-        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"                        "x 暗夜魔王的等级"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"                        ""
     
         "DOTA_Tooltip_ability_chernobog_rune_q_3"                               "[Q3] 冥河苍凉"
         "DOTA_Tooltip_ability_chernobog_rune_q_3_Description"                   "在卡戎之爪内增加额外的攻击力"

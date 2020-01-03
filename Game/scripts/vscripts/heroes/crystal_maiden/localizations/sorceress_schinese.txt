@@ -29,9 +29,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] 冰霜新星"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。被冻结的敌人所受到的来自魔法巫女的伤害将被加深。（伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"冻结时减伤后伤害加深"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"冻结持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix_two"				" 秒"
 		
@@ -54,10 +54,10 @@
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"魔爆术"
-		"DOTA_Tooltip_ability_arcane_explosion_Description"				"元素： <font color=\"#E1A2E8\">奥术</font><br>一股强大的奥术能量爆发，对附近的敌人造成伤害。"
+		"DOTA_Tooltip_ability_arcane_explosion_Description"				"元素： <font color=\"#E1A2E8\">奥术</font><br>一股强大的奥术能量爆发，根据当前魔法值对附近的敌人造成伤害。"
 		"DOTA_Tooltip_ability_arcane_explosion_Lore"					""
-		"DOTA_Tooltip_ability_arcane_explosion_damage"					"伤害："
-		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围："
+		"DOTA_Tooltip_ability_arcane_explosion_damage"					" % 当前魔法值的伤害:"
+		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] 奥术护盾"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收3次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"

@@ -16,9 +16,9 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"攻击距离增加"
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] 炎阳之怒"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有20% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。坚定对该符文的阈值百分比增加5倍。"
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有 <% ASTRAL_RANGER_Q2_PROC_CHANCE %>% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"炎阳伤害"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% 攻击伤害"
+    	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% 攻击力"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"护甲值降低"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix_two"				""		
 
@@ -124,7 +124,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"抛掷时间："
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] 流星雨"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"当你施放天体爆发时，召唤无数强大的流星对附近的敌人造成伤害。每颗流星降低敌人 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%。"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"当你施放天体爆发时，召唤无数强大的流星对附近的敌人造成伤害。"
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"最大流星数量"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"每个流星伤害"
