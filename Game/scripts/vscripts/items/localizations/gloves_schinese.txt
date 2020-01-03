@@ -122,7 +122,7 @@
     	"item_rpc_hand_of_midas_sapphire1"									"提高贪婪之触的范围 @sapphire_property1 和伤害 @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"提高攻击速度 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% 几率对目标周围所有单位造成 <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>x 总攻击力的纯粹伤害并将敌人变成黄金————定身<% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %>秒。每<% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %>秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有<% ITEM_RPC_HAND_OF_MIDAS_CHANCE %>% 几率对目标周围所有单位造成 <% ITEM_RPC_HAND_OF_MIDAS_ATTACK_DAMAGE_MULT %>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<% ITEM_RPC_HAND_OF_MIDAS_FREEZE_DURATION %>秒。每<% ITEM_RPC_HAND_OF_MIDAS_FREEZE_CD %>秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"
@@ -356,7 +356,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"守墓者手套"
 		"item_property_gravekeeper_gauntlet"				"守墓者"
-		"property_gravekeeper_gauntlet_description"		"对同一目标的攻击吸取它的活力. 每层偷取<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES %> 物理穿透和魔法穿透并且降低敌人相同的数值. 转移目标移除所有层数.每秒最高叠加 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC %> 层 , 总共不能超过 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_TOTAL %>层. 守墓者的负面效果持续 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION %> 秒,对于boss只有 % <ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS %> seconds on bosses."
+		"property_gravekeeper_gauntlet_description"		"对同一目标的攻击吸取它的活力. 每层偷取<% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_PIERCES %> 物理穿透和魔法穿透并且降低敌人相同的数值. 转移目标移除所有层数.每秒最高叠加 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_PER_SEC %> 层 , 总共不能超过 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_MAX_STACKS_TOTAL %>层. 守墓者的负面效果持续 <% ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION %> 秒,对于boss只有 % <ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS %> 秒."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"守墓者目标"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"物理穿透和魔法穿透被偷取."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"守墓者"
