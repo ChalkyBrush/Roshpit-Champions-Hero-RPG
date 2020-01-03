@@ -89,7 +89,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"Pegasus"
-    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Rooted and taking increased post-mitigation damage"
+    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Rooted and has reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
     	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"After casting @Ability3, gain bonus attack speed and base attack damage for <% ASTRAL_RANGER_E2_DURATION %> seconds. Additionally, a free attack will be launched against all enemies struck by the spell."

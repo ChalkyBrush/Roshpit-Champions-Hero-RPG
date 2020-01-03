@@ -119,7 +119,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Taking increased post-mitigation damage from Dinath"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Loses Magic Armor"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Increases the growth rate of a charging Hyperbeam, increasing its potential maximum size."

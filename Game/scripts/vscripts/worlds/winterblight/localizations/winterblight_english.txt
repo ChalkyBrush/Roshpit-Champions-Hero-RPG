@@ -78,13 +78,13 @@
 		"DOTA_Tooltip_modifier_mountain_dweller_regen_Description"	"Increased Health Regen"
 
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive"	"Icicle Skin"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Periodically launch an icicle at all nearby enemies. The projectiles deal damage and stack an infinitely stackable debuff that increases post-mitigation damage taken. Targets heroes only."
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Periodically launch an icicle at all nearby enemies. The projectiles deal damage and stack an infinitely stackable debuff that increases all damage taken. Targets heroes only."
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"POST-MITIGATION AMP PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"DAMAGE AMP PER STACK:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_radius"			"PROJECTILE SEARCH RADIUS:"
 
 		"DOTA_Tooltip_modifier_frostiok_damage_amp"				"Icy Protrusion"
-		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Taking increased post-mitigation damage."
+		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Taking increased damage."
 
 		"DOTA_Tooltip_ability_winterblight_marauder_passive"	"Marauder"
 		"DOTA_Tooltip_ability_winterblight_marauder_passive_Description"	"Attacks ignore armor."
@@ -466,8 +466,8 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"ROOT DURATION:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"Grand Piercer"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Passively increases post-mitigation damage."
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"% POST-MITIGATION DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Passively increases all outgoing damage."
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"% ALL OUTGOING DAMAGE:"
 
 		"DOTA_Tooltip_ability_buzuki_hex"							"Buzuki's Hex"
 		"DOTA_Tooltip_ability_buzuki_hex_Description"				"Transforms an enemy into a critter that can't attack or cast spells."
@@ -864,7 +864,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "QUAKE RADIUS:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, the victim receives <% DRILL_CRUSHER_POSTMITIGATION * 100%>% increased post-mitigation damage from all sources. Debuff lasts <% DRILL_CRUSHER_DURATION %> seconds."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, the victim receives <% DRILL_CRUSHER_POSTMITIGATION * 100%>% increased damage from all sources. Debuff lasts <% DRILL_CRUSHER_DURATION %> seconds."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_disarm_duration"	"DISARM DURATION:"
