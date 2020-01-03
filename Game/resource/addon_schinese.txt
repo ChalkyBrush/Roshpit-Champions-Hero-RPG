@@ -13959,7 +13959,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"光明守卫"
 		"item_property_luma"						"月光"
-		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>150</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
+		"property_luma_description"					 "被 @Ability1 打击的敌人有 <font color='#ccff66'>40</font>% 概率被一道月光打击, 造成 <font color='#ccff66'>70</font>% 此技能的伤害并在敌人的位置提供高空视野 <font color='#ccff66'>4</font> 秒. 每秒最多触发 <font color='#ccff66'>7</font> 次月光."
 		"item_rpc_guard_of_luma_ruby1"	"提高月光的触发概率 @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"提高每秒最多触发的月光次数 @emerald_property1"
 		"item_rpc_guard_of_luma_sapphire1" "月光效果获得高空视野提高 @sapphire_property1 "
