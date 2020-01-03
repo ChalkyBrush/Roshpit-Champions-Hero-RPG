@@ -57681,7 +57681,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_per_miss_health_hero"			"0.5 1.0 3.5"
+				"damage_per_miss_health_hero"			"0.4 0.5 0.6"
 			}
 			"03"
 			{
