@@ -23,6 +23,8 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+	  "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "圣元素伤害提高"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                           "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"明澈之火"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 层将免除神圣之火冷却"
