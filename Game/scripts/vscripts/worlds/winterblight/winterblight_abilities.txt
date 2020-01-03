@@ -2777,7 +2777,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"30 70 99.9"
+				"damage_reduc"			"30 60 90"
 			}
 			"02"
 			{
@@ -3466,7 +3466,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charges"			"5 30 50"
+				"charges"			"5 10 20"
 			}
 		}
 		"Modifiers"
@@ -4339,7 +4339,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduction"	"30 80 100"
+				"damage_reduction"	"30 70 98"
 			}
 		}
 		"OnOwnerDied"
@@ -4617,7 +4617,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"40 85 99.5"
+				"damage_reduc"			"40 60 80"
 			}
 		}
 		"Modifiers"
@@ -4778,7 +4778,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charges"			"50 80 120"
+				"charges"			"8 16 24"
 			}
 		}
 		"Modifiers"
@@ -5503,7 +5503,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"80"
+				"damage_reduc"			"65"
 			}
 		}
 		"Modifiers"
@@ -11187,7 +11187,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"80"
+				"damage_block"			"60"
 			}
 		}
 		"Modifiers"
@@ -11771,7 +11771,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"theshold"			"30 25 20"
+				"theshold"			"40 35 30"
 			}
 		}
 		"Modifiers"
