@@ -282,7 +282,7 @@ function dominion_unit_kill(event)
 				ParticleManager:ReleaseParticleIndex(beamPFX)
 			end)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks", {})
-			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + 1
+			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + q_3_level
 			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks", caster, newStacks)
 		end
 	end
@@ -292,7 +292,7 @@ function dominion_zombie_strike_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local luck = RandomInt(1, 10)
+	local luck = RandomInt(1, EKKAN_Q1_DAMAGE_CHANCE)
 	local origCaster = event.caster.hero
 	if origCaster:GetRuneValue("q", 1) == 0 then --q1
 		return

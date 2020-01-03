@@ -1912,6 +1912,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_possession_enemy_lock") then
 		damage = 0
 	end
+	if victim:HasModifier("modifier_challenge_win_float") then
+		damage = 0
+	end
 	if victim:HasModifier("modifier_rooted_feet_immobile_active") then
 		damage = damage * (100-ITEM_RPC_ROOTED_FEET_DMG_REDUCTION)/100
 	end

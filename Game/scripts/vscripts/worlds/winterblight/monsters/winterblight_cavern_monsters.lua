@@ -25,8 +25,14 @@ function damage_sap_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local damage_sap_enemy = event.damage_sap_enemy
+	local target_damage = OverflowProtectedGetAverageTrueAttackDamage(target)
+	if target_damage + damage_sap_enemy > 0 then
 	caster:ApplyAndIncrementStack(ability, caster, "modifier_damage_sap_stack_owner", 1, 0, 8)
-	target:ApplyAndIncrementStack(ability, caster, "modifier_damage_sap_stack_enemy", 1, 0, 8)	
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_damage_sap_stack_enemy", {duration = 8})
+	local currentStacks = target:GetModifierStackCount("modifier_damage_sap_stack_enemy", caster)
+	target:SetModifierStackCount("modifier_damage_sap_stack_enemy", caster, currentStacks+1)
+	end
 end
 
 function relict_jump_pre_start(event)

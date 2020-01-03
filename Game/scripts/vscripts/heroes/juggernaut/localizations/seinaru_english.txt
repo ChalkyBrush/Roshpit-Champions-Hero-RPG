@@ -223,7 +223,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased post-mitigation damage"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased Spell and Armor Pierces"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce"	"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce_Description"	"Increased Armor Pierce and Spell Pierce"

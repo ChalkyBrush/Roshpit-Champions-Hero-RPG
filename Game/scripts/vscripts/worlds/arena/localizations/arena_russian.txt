@@ -560,6 +560,7 @@
 
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Сжигает врагов, ежесекундно нанося 2% макс. здоровья целей чистым уроном."
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_burn_pct"	"ВЫЖИГАНИЕ ХП, %:"
 		
 		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
 
@@ -592,7 +593,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Наделяет существо повышенной силой."
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ДОП. СКОРОСТЬ АТАКИ:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"ДОП. УРОН %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ДОП. БРОНЯ"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"ДОП. РЕГЕН. ЗДОРОВЬЯ %:"

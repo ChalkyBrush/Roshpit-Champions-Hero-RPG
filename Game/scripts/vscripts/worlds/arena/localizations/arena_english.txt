@@ -570,6 +570,7 @@
 
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Burns all nearby enemies for 2% of their max health as pure damage."
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_burn_pct"	"PURE BURN DAMAGE, %:"
 		
 		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
 
@@ -604,7 +605,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Increases the power level of the ability owner."
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"MOVESPEED:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ATTACK SPEED:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ARMOR BONUS"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"HEALTH REGEN %:"

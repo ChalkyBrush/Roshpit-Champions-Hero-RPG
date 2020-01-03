@@ -270,7 +270,7 @@
 		"item_rpc_voltex_glyph_6_1_description" 				"Увеличивает урон от умения (R) Static Field в <% VOLTEX_GLYPH_6_1_R_DAMAGE_AMP %> раз(а) и руны [R1] в <% VOLTEX_GLYPH_6_1_R1_DAMAGE_AMP %> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"[T7-1] Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <% VOLTEX_GLYPH_7_1_W_CD %> секунд. При этом врагам наносится увеличенный в <% VOLTEX_GLYPH_7_1_DMG_MULT %> раз(а) урон и они оглушаются на <% VOLTEX_GLYPH_7_1_STUN_DURATION %> сек."
+		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <% VOLTEX_GLYPH_7_1_W_CD %> секунды. При этом врагам наносится увеличенный в <% VOLTEX_GLYPH_7_1_DMG_MULT %> раз(а) урон и они оглушаются на <% VOLTEX_GLYPH_7_1_STUN_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на <% VOLTEX_GLYPH_5_A_DURATION_INCREASE_PCT %>%."
