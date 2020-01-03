@@ -2450,7 +2450,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" сек."
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"Pegasus"
-    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и получает увеличенный пост-резистный урон"
+    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и теряет Магическую Защиту"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
     	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на <font color='#ccff66'>6</font> секунд. Дополнительно цели в радиусе 1000 от места падения звезды атакуются стандартным выстрелом."
@@ -4586,7 +4586,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Получает увеличенный пост-резистный урон от Dinath "
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Теряет показатель Магической Защиты"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Увеличивает скорость роста заряжаемого @Ability4, увеличивая его максимальный потенциал."
@@ -5421,12 +5421,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"В подчинении у Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с 50% шансом при атаке нанесут магический урон по линии позади цели."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с <font color='#ccff66'>10</font>% шансом при атаке нанесут магический урон по линии позади цели."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Доп. магический урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% от урона подчинённого юнита"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С 50% шансом при атаке нанесёт магический урон позади цели."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С <font color='#ccff66'>10</font>% шансом при атаке нанесёт магический урон позади цели."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Увеличивает максимальное значение здоровья подчинённых юнитов."
@@ -5609,7 +5609,7 @@
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Получает бонус к урону. По окончании действия этого эффекта выпускает рой ядовитых жуков."
 
     	"DOTA_Tooltip_modifier_swarm_effect"									"Corpse Eater Poison"
-    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Получает увеличенный пост-резистный урон и дополнительный урон каждые 0.5 секунды. В случае смерти с этим эффектом сгенерирует дополнительный труп"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Теряет часть Брони и Маг. Защиты, а также получает урон каждые 0.5 секунды. В случае смерти с этим эффектом сгенерирует дополнительный труп"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"Враги, умирающие в радиусе 1200 от подчинённого юнита навсегда даруют ему бонус к базовому урону и броне."
@@ -7066,6 +7066,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Враги в радиусе 500 от героя во время активной стойки @Ability2 будут поражены молниями, наносящими урон в размере % от основного урона героя."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Урон молний"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% от урона героя"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Урон молний"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% от макс ХП героя"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Дарует герою и ближайшим союзникам дополнительную броню во время активной стойки @Ability2."
@@ -7282,7 +7284,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"Весь входящий урон дополнительно снижается на <font color='#ccff66'>30</font>% во время активного умения (W) @Ability2."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"[T3-1] Glyph of Catastrophe"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 пробивает иммунитет к магии и наносит чистый урон."
+		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 пробивает иммунитет к магии и наносит чистый урон. Базовый Урон способности @Ability4 уменьшен на <font color='#ccff66'>80</font>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] Glyph of Mountain Force"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"С шансом в <font color='#ccff66'>25</font>% с прочтением (Q) @Ability1 герой выпустит две волны."
@@ -8401,7 +8403,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"Amplifier"
-    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font>."
@@ -10847,10 +10849,10 @@
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Урон увеличен"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"[T6-1] Glyph of Vengeful Skies"
-		"item_rpc_voltex_glyph_6_1_description" 				"Увеличивает урон от умения (R) Static Field в <font color='#ccff66'>10</font> раз(а) и руны [R1] в <font color='#ccff66'>30</font> раз(а)."
+		"item_rpc_voltex_glyph_6_1_description" 				"Увеличивает урон от умения (R) Static Field в <font color='#ccff66'>3</font> раз(а) и руны [R1] в <font color='#ccff66'>1.5</font> раз(а)."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"[T7-1] Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <font color='#ccff66'>3</font> секунд. При этом врагам наносится увеличенный в <font color='#ccff66'>15</font> раз(а) урон и они оглушаются на <font color='#ccff66'>2.5</font> сек."
+		"item_rpc_voltex_glyph_7_1_description" 				"Прочтение (W) Static стоит 100% вашей маны и перезаряжается <font color='#ccff66'>3</font> секунды. При этом врагам наносится увеличенный в <font color='#ccff66'>8</font> раз(а) урон и они оглушаются на <font color='#ccff66'>2.5</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"Увеличивает длительность эффекта от (Q) @Ability1 на <font color='#ccff66'>100</font>%."
@@ -11070,7 +11072,7 @@
 
   		"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1"						"[E3] Time Dilation"
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_Description"  		"Пока герой находится в области действия поля, он получает заряды этой руны каждые 0.03 секунды. Каждый заряд увеличивает Базовый Урон @Ability3. Максимум 1000 зарядов."
-    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение пост-резистного урона"	
+    	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_property_one"			"Увеличение урона способностей"	
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% за каждый заряд"
 
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
@@ -13421,7 +13423,7 @@
     	"item_rpc_malachite_shade_bracer_ruby1"							"Каждое очко Регенерации Здоровья увеличивает Броню на @ruby_property1"
     	"item_rpc_malachite_shade_bracer_emerald1"							"Каждое очко Ловкости увеличивает Регенерации Здоровья и Маны на @emerald_property1"
     	"item_rpc_malachite_shade_bracer_sapphire1"							"Каждое очко Регенерации Маны увеличивает Магическую Защиту на на @sapphire_property1"
-    	"item_rpc_malachite_shade_bracer_amethyst1"							"Каждое очко Духа Здоровья увеличивает Регенерации Здоровья и Маны на @amethyst_property1"
+    	"item_rpc_malachite_shade_bracer_amethyst1"							"Каждое очко Духа увеличивает Регенерации Здоровья и Маны на @amethyst_property1"
 
     	"DOTA_Tooltip_ability_item_rpc_marauder_gloves"									"Marauder Gloves"
 
@@ -15599,6 +15601,7 @@
 
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Сжигает врагов, ежесекундно нанося 2% макс. здоровья целей чистым уроном."
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_burn_pct"	"ВЫЖИГАНИЕ ХП, %:"
 		
 		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
 
@@ -15631,7 +15634,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Наделяет существо повышенной силой."
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ДОП. СКОРОСТЬ АТАКИ:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"ДОП. УРОН %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ДОП. БРОНЯ"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"ДОП. РЕГЕН. ЗДОРОВЬЯ %:"
@@ -20115,13 +20117,13 @@
 		"DOTA_Tooltip_modifier_mountain_dweller_regen_Description"	"Значительно увеличена регенерация здоровья"
 
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive"	"Icicle Skin"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Периодически выпускает сосульки в ближайших врагов. При попадании по врагу, сосулька накладывает неограниченный по количеству зарядов дебафф, который увеличивает получаемый пост-резистный урон. Действует только на героев."
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Периодически выпускает сосульки в ближайших врагов. При попадании по врагу, сосулька накладывает неограниченный по количеству зарядов дебафф, который увеличивает получаемый врагом урон. Действует только на героев."
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"ДОП. ПОСТ-РЕЗ. ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"УСИЛЕНИЕ УРОНА ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_radius"			"РАДИУС АТАКИ:"
 
 		"DOTA_Tooltip_modifier_frostiok_damage_amp"				"Icy Protrusion"
-		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Получает увеличенный пост-резистный урон."
+		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Получает увеличенный урон из всех источников"
 
 		"DOTA_Tooltip_ability_winterblight_marauder_passive"	"Marauder"
 		"DOTA_Tooltip_ability_winterblight_marauder_passive_Description"	"Атаки игнорируют броню."
@@ -20503,8 +20505,8 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"Grand Piercer"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Пассивно увеличивает пост-резистный урон."
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"ДОП. ПОСТ-РЕЗ. УРОН, %:"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Пассивно увеличивает весь исходящий урон."
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"МНОЖИТЕЛЬ УРОНА, %:"
 
 		"DOTA_Tooltip_ability_buzuki_hex"							"Buzuki's Hex"
 		"DOTA_Tooltip_ability_buzuki_hex_Description"				"Трансформирует выбранную цель в безобидную зверушку, неспособную атаковать и произносить заклинания."
@@ -20901,7 +20903,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "РАДИУС РАСКОЛА:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <font color='#ccff66'>10</font>, то цель получает на <font color='#ccff66'>2000</font>% больше пост-резистного урона из всех источников. Дебафф длится <font color='#ccff66'>4</font> сек."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <font color='#ccff66'>10</font>, то цель получает на <font color='#ccff66'>2000</font>% больше урона из всех источников. Дебафф длится <font color='#ccff66'>4</font> сек."
 
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Атаки имеют 20% шанс затянуть цель в вспышку ослепительного света, нанося урон и обезоруживая её."	

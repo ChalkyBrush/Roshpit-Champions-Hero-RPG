@@ -4077,7 +4077,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
         return damage
     end
     local threshold = victim:GetMaxHealth()* (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY))/100
-    if damage < victim:GetMaxHealth() * threshold then
+    if damage < threshold then
         local limitKey = attacker:GetPlayerOwnerID() .. '_geode'
         Util.Common:LimitPerTime(6, 1, limitKey, function()
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)

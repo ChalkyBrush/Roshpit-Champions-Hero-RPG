@@ -2437,7 +2437,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" seconds"
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"Pegasus"
-    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Rooted and taking increased post-mitigation damage"
+    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Rooted and has reduced Magic Armor"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
     	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"After casting @Ability3, gain bonus attack speed and base attack damage for <font color='#ccff66'>6</font> seconds. Additionally, a free attack will be launched against all enemies struck by the spell."
@@ -3470,7 +3470,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Post-mitigation damage greatly increased"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Spell Pierce greatly increased"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"Bahamut slows the attack and movespeed of all nearby enemies while channeling Megaflare."
@@ -4611,7 +4611,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_r_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction"								"Cellular Rust"
-    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Taking increased post-mitigation damage from Dinath"
+    	"DOTA_Tooltip_modifier_hyperbeam_magic_armor_reduction_Description"					"Loses Magic Armor"
 
     	"DOTA_Tooltip_ability_dinath_rune_r_3"									"[R3] Energy Node"
     	"DOTA_Tooltip_ability_dinath_rune_r_3_Description"						"Increases the growth rate of a charging Hyperbeam, increasing its potential maximum size."
@@ -4763,7 +4763,7 @@
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"MAGIC ARMOR INCREASE:"
 
 		"DOTA_Tooltip_modifier_mark_of_the_talon"										"Mark of the Talon"
-		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased mana regen and post-mitigation magic damage. Allows shapeshifting into Hawk form."	
+		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased Mana Regen and Magic Armor. Allows shapeshifting into Hawk form."	
 
 		"DOTA_Tooltip_ability_draghor_jin_bo"											"Jin'bo"
 		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"Element: <font color=\"#DDDDDD\">Normal</font><br>Djanghor swings his weapon and pushes back enemies. On the 3rd consecutive strike, the attack is extended and deals its damage in a line with a stun. The 3rd attack also has <font color=\"#69BC71\">Nature</font> damage. Using Jin'bo during Monkey Leap automatically casts the 3rd attack."
@@ -5232,7 +5232,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				" per stack"
 
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible"					"Doom"
-		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible_Description"		"Taking increased post-mitigation damage from each stack."
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible_Description"		"Increased Armor and Spell pierce from each stack."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Each enemy struck by Seven Visions increases Duskbringer's attack damage for <font color='#ccff66'>6</font> seconds."
@@ -5473,12 +5473,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a 10% chance on attack to damage enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a <font color='#ccff66'>10</font>% chance on attack to damage enemies in a line."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Crit Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% of dominated unit's attack damage"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"10% chance on attack to hit enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"<font color='#ccff66'>10</font>% chance on attack to hit enemies in a line."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Dominated enemies have increased max health."
@@ -5661,7 +5661,7 @@
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Gaining attack damage. When this ends, release swarms of poisonous bugs."
 
     	"DOTA_Tooltip_modifier_swarm_effect"									"Corpse Eater Poison"
-    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and taking increased post-mitigation damage. On death, generate an additional corpse"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus."
@@ -7678,9 +7678,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of Mountain Protector's attack damage."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of a sum of Mountain Protector's attack damage and Max HP values."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Damage"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% of attack damage"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Increases the armor of Mountain Protector and nearby allies while in Mountain Guardian stance."
@@ -8922,7 +8924,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased post-mitigation damage"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased Spell and Armor Pierces"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce"	"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce_Description"	"Increased Armor Pierce and Spell Pierce"
@@ -9022,7 +9024,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"Amplifier"
-    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Taking increased post-mitigation damage from Sephyr"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Magic Armor reduced by Sephyr"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"Casting Lightbomb adds stacks of Clearfire. 10 stacks of Clearfire allow Lightbomb to be cast without triggering its cooldown. Lightbombs that do not start cooldown do not add stacks. Each stack of Clearfire increases <font color=\"#F6FFB5\">Holy</font> damage."
@@ -11386,7 +11388,7 @@
         "DOTA_Tooltip_ability_voltex_static_field_magic_armor_reduction_per_stack"  "MAGIC ARMOR REDUCTION PER STACK:"
 
         "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation"                "Static Field"
-        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation_Description"    "Increased post-mitigation damage taken from Voltex per stack"
+        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation_Description"    "Magic Armor reduced"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"When Voltex finishes channeling @Ability4, a storm cell forms around her, electrocuting a random enemy every 0.1 seconds. There is a limit of 40 lightning strikes per @Ability4 cast from this effect."
@@ -11525,10 +11527,10 @@
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"[T6-1] Glyph of Vengeful Skies"
-		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by <font color='#ccff66'>10</font>x and Thunder Storm by <font color='#ccff66'>30</font>x."
+		"item_rpc_voltex_glyph_6_1_description" 				"Increases the damage of Static Field by <font color='#ccff66'>3</font>x and Thunder Storm by <font color='#ccff66'>1.5</font>x."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"[T7-1] Glyph of Explosive Static"
-		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <font color='#ccff66'>3</font> second cooldown, but deals <font color='#ccff66'>15</font>x damage and stuns for <font color='#ccff66'>2.5</font> seconds."
+		"item_rpc_voltex_glyph_7_1_description" 				"Static drains 100% of your mana and has an <font color='#ccff66'>3</font> second cooldown, but deals <font color='#ccff66'>8</font>x damage and stuns for <font color='#ccff66'>2.5</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] Glyph of Conductivity"
 		"item_rpc_voltex_glyph_5_a_description" 			"@Ability1 duration is increased by <font color='#ccff66'>100</font>%."
@@ -11754,7 +11756,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_e_3_arcana1_suffix"				"% per stack"
 
     	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible"					"Time Dilation"
-    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Gaining post-mitigation damage with each stack"
+    	"DOTA_Tooltip_modifier_zhonic_arcana_c_c_visible_Description"		"Gaining Base Ability Damage %% with each stack"
 
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1"								"[E4] Supersonic"
     	"DOTA_Tooltip_ability_zonik_rune_e_4_arcana1_Description"					"All <font color=\"#B5FFB7\">Temporal</font> damage is increased. Additionally, Zhonik keeps the movespeed buff after leaving the Warp Field for a short duration."
@@ -15764,6 +15766,7 @@
 
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Burns all nearby enemies for 2% of their max health as pure damage."
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_burn_pct"	"PURE BURN DAMAGE, %:"
 		
 		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
 
@@ -15798,7 +15801,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Increases the power level of the ability owner."
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"MOVESPEED:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ATTACK SPEED:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ARMOR BONUS"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"HEALTH REGEN %:"
@@ -20362,13 +20364,13 @@
 		"DOTA_Tooltip_modifier_mountain_dweller_regen_Description"	"Increased Health Regen"
 
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive"	"Icicle Skin"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Periodically launch an icicle at all nearby enemies. The projectiles deal damage and stack an infinitely stackable debuff that increases post-mitigation damage taken. Targets heroes only."
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Periodically launch an icicle at all nearby enemies. The projectiles deal damage and stack an infinitely stackable debuff that increases all damage taken. Targets heroes only."
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"POST-MITIGATION AMP PER STACK:"
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"DAMAGE AMP PER STACK:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_radius"			"PROJECTILE SEARCH RADIUS:"
 
 		"DOTA_Tooltip_modifier_frostiok_damage_amp"				"Icy Protrusion"
-		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Taking increased post-mitigation damage."
+		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Taking increased damage."
 
 		"DOTA_Tooltip_ability_winterblight_marauder_passive"	"Marauder"
 		"DOTA_Tooltip_ability_winterblight_marauder_passive_Description"	"Attacks ignore armor."
@@ -20750,8 +20752,8 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"ROOT DURATION:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"Grand Piercer"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Passively increases post-mitigation damage."
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"% POST-MITIGATION DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Passively increases all outgoing damage."
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"% ALL OUTGOING DAMAGE:"
 
 		"DOTA_Tooltip_ability_buzuki_hex"							"Buzuki's Hex"
 		"DOTA_Tooltip_ability_buzuki_hex_Description"				"Transforms an enemy into a critter that can't attack or cast spells."
@@ -21148,7 +21150,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "QUAKE RADIUS:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <font color='#ccff66'>10</font>, the victim receives <font color='#ccff66'>2000</font>% increased post-mitigation damage from all sources. Debuff lasts <font color='#ccff66'>4</font> seconds."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <font color='#ccff66'>10</font>, the victim receives <font color='#ccff66'>2000</font>% increased damage from all sources. Debuff lasts <font color='#ccff66'>4</font> seconds."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_disarm_duration"	"DISARM DURATION:"

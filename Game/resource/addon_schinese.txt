@@ -2780,9 +2780,9 @@
 		"DOTA_Tooltip_modifier_rune_q_1_thinker_description" 			"攻击距离增加"
 		
 		"DOTA_Tooltip_ability_astral_rune_q_2"							"[Q2] 炎阳之怒"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有20% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。坚定对该符文的阈值百分比增加5倍。"
+    	"DOTA_Tooltip_ability_astral_rune_q_2_Description"				"你的普通攻击有 <font color='#ccff66'>20</font>% 几率向目标释放一道炎阳，造成与攻击伤害相关的纯粹伤害并降低目标的护甲值。攻击分裂雕纹也会触发。"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_one"				"炎阳伤害"
-    	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% 攻击伤害"
+    	"DOTA_Tooltip_ability_astral_rune_q_2_suffix"					"% 攻击力"
     	"DOTA_Tooltip_ability_astral_rune_q_2_property_two"				"护甲值降低"
     	"DOTA_Tooltip_ability_astral_rune_q_2_suffix_two"				""		
 
@@ -2888,7 +2888,7 @@
     	"DOTA_Tooltip_ability_ranger_aoe_explosion_duration"			"抛掷时间："
 		
 		"DOTA_Tooltip_ability_astral_rune_r_1"							"[R1] 流星雨"
-    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"当你施放天体爆发时，召唤无数强大的流星对附近的敌人造成伤害。每颗流星降低敌人 <font color=\"#C25DFC\">宇宙</font> 元素伤害抗性 10%。"
+    	"DOTA_Tooltip_ability_astral_rune_r_1_Description"				"当你施放天体爆发时，召唤无数强大的流星对附近的敌人造成伤害。"
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_one"				"最大流星数量"
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix"					""
     	"DOTA_Tooltip_ability_astral_rune_r_1_property_two"				"每个流星伤害"
@@ -4035,7 +4035,7 @@
         "DOTA_Tooltip_ability_chernobog_rune_q_2"                               "[Q2] 暗夜之爪"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_Description"                   "被@Ability1 影响的敌人每 <font color='#ccff66'>0.5</font>秒受到一次伤害。"
         "DOTA_Tooltip_ability_chernobog_rune_q_2_property_one"                  "伤害"
-        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"                        "x 暗夜魔王的等级"
+        "DOTA_Tooltip_ability_chernobog_rune_q_2_suffix"                        ""
     
         "DOTA_Tooltip_ability_chernobog_rune_q_3"                               "[Q3] 冥河苍凉"
         "DOTA_Tooltip_ability_chernobog_rune_q_3_Description"                   "在卡戎之爪内增加额外的攻击力"
@@ -7426,6 +7426,8 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"开启山丘守卫时，山丘守护者周围500码范围内的敌人将受到基于山丘守护者攻击力的持续伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"每次伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% 攻击力"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] 坚定的守卫者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"施放山丘守卫时增加山丘守护者的护甲，友军也能享受此效果。"
@@ -8744,6 +8746,8 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+	  "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "圣元素伤害提高"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                           "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"明澈之火"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 层将免除神圣之火冷却"
@@ -8827,7 +8831,7 @@
 		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] 恢复之风"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"希芙尔和在风神之守护内的友军生命回复速度提高。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"生命回复速度提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x 希芙尔等级"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] 阴冷雾霭"
     	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"风神之守护内的敌人将降低移动和攻击速度。"
@@ -8853,7 +8857,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"被动提高敏捷值和智力值。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"智力值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
-    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"智力值提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"敏捷值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
 		
 		//Arcanas
@@ -9650,9 +9654,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] 冰霜新星"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。被冻结的敌人所受到的来自魔法巫女的伤害将被加深。（伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"冻结时减伤后伤害加深"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"冻结持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix_two"				" 秒"
 		
@@ -9675,10 +9679,10 @@
 
 
 		"DOTA_Tooltip_ability_arcane_explosion"							"魔爆术"
-		"DOTA_Tooltip_ability_arcane_explosion_Description"				"元素： <font color=\"#E1A2E8\">奥术</font><br>一股强大的奥术能量爆发，对附近的敌人造成伤害。"
+		"DOTA_Tooltip_ability_arcane_explosion_Description"				"元素： <font color=\"#E1A2E8\">奥术</font><br>一股强大的奥术能量爆发，根据当前魔法值对附近的敌人造成伤害。"
 		"DOTA_Tooltip_ability_arcane_explosion_Lore"					""
-		"DOTA_Tooltip_ability_arcane_explosion_damage"					"伤害："
-		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围："
+		"DOTA_Tooltip_ability_arcane_explosion_damage"					" % 当前魔法值的伤害:"
+		"DOTA_Tooltip_ability_arcane_explosion_radius"					"范围:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] 奥术护盾"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"施放魔爆术后获得一个奥术护盾吸收3次伤害。任何攻击护盾的目标将受到基于魔法少女智力值的伤害，此伤害还将乘以[W]魔爆术的等级。"
@@ -11195,10 +11199,10 @@
 		"DOTA_Tooltip_modifier_voltex_rune_r_3_buff_glyph_5_1_Description"	"提高攻击力"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_6_1"		"[T6-1] 复仇雕文"
-		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 <font color='#ccff66'>10</font>x 和雷霆风暴的伤害 <font color='#ccff66'>30</font>x"
+		"item_rpc_voltex_glyph_6_1_description" 				"提高静电场的伤害 <font color='#ccff66'>3</font>x 和雷霆风暴的伤害 <font color='#ccff66'>1.5</font>x"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_7_1"		"[T7-1] 静电爆炸雕文"
-		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>3</font>秒，造成 <font color='#ccff66'>15</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
+		"item_rpc_voltex_glyph_7_1_description" 				"静电汲取你100% 的魔法值且冷却时间变为<font color='#ccff66'>3</font>秒，造成 <font color='#ccff66'>8</font>x 伤害并眩晕敌人 <font color='#ccff66'>2.5</font> 秒。"
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_a"	"[T5-a] 离子雕文"
 		"item_rpc_voltex_glyph_5_a_description" 			"延长 @Ability1 的持续时间  <font color='#ccff66'>100</font>%。"
@@ -12501,7 +12505,7 @@
 		"property_crystalline"												"水晶之舞"
         "property_crystalline_Description"                                  "增加承受伤害 <font color='#ccff66'>100</font>% ，增加物品伤害和基础技能伤害<font color='#ccff66'>175</font>%。"
 
-        "item_rpc_crystalline_slippers_ruby1"               "降低护甲@ruby_property1点，增加物理穿透 by @ruby_property2点"
+        "item_rpc_crystalline_slippers_ruby1"               "降低护甲@ruby_property1点，增加物理穿透@ruby_property2点"
         "item_rpc_crystalline_slippers_emerald1"                "移动时获得 @emerald_property1% 闪避，静止不动时将会获得 @emerald_property2% 攻击力加成"
         "item_rpc_crystalline_slippers_sapphire1"               "被缠绕时，受到的伤害将会降低 @sapphire_property1% ，释放 [W] 将会缠绕你，持续 <font color='#ccff66'>1.25</font> 秒"
         "item_rpc_crystalline_slippers_amethyst1"               "降低魔甲 @amethyst_property1 点，增加魔法穿透@amethyst_property2点"
@@ -12587,7 +12591,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hurricane_vest"									"飓风背心"
 		"item_property_hurricane"					"飓风"
-		"property_hurricane_description"			"释放@Ability4后将会向周围释放 <font color='#ccff66'>7</font> 股旋风，造成 <font color='#ccff66'>20</font>%攻击力的伤害r"
+		"property_hurricane_description"			"释放@Ability4后将会向周围释放 <font color='#ccff66'>7</font> 股旋风，造成 <font color='#ccff66'>20</font>%攻击力的伤害"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane"	"飓风"
 		"DOTA_Tooltip_modifier_hurricane_vest_hurricane_Description"	"被强风吹起"
 		"DOTA_Tooltip_modifier_modifier_hurricane_vest_slow"			"飓风减速"
@@ -13185,7 +13189,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"苍穹日出袍"	
-		"item_rpc_empyreal_sunrise_robe_ruby1"					"增加你的最低属性值175@ruby_property1"
+		"item_rpc_empyreal_sunrise_robe_ruby1"					"增加你的最低属性值@ruby_property1"
 		"item_rpc_empyreal_sunrise_robe_emerald1"					"获得数值为@emerald_property1x 最低属性值的基础攻击力"
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"获得数值为@sapphire_property1x 最低属性的魔法穿透"
 		"item_rpc_empyreal_sunrise_robe_amethyst1"					"获得数值为 @amethyst_property1x 最低属性值的魔甲"
@@ -13418,7 +13422,7 @@
     	"item_rpc_hand_of_midas_sapphire1"									"提高贪婪之触的范围 @sapphire_property1 和伤害 @sapphire_property2"
     	"item_rpc_hand_of_midas_amethyst1"									"提高攻击速度 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		"item_property_hand_of_midas"				"贪婪之触"
-		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>15</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>30</font>x 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
+		"property_hand_of_midas_description"		"攻击时有<font color='#ccff66'>15</font>% 几率对目标周围所有单位造成 <font color='#ccff66'>30</font>% 总攻击力的纯粹伤害并将敌人变成黄金————定身<font color='#ccff66'>2</font>秒。每<font color='#ccff66'>5</font>秒最多被定身1次。"
 		
 
     	"DOTA_Tooltip_ability_item_rpc_scarecrow_gloves"								"稻草人手套"
@@ -13652,7 +13656,7 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_gravekeepers_gauntlet"							"守墓者手套"
 		"item_property_gravekeeper_gauntlet"				"守墓者"
-		"property_gravekeeper_gauntlet_description"		"对同一目标的攻击吸取它的活力. 每层偷取<font color='#ccff66'>100</font> 物理穿透和魔法穿透并且降低敌人相同的数值. 转移目标移除所有层数.每秒最高叠加 <font color='#ccff66'>4</font> 层 , 总共不能超过 <font color='#ccff66'>100</font>层. 守墓者的负面效果持续 <font color='#ccff66'>12</font> 秒,对于boss只有 % <ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS %> seconds on bosses."
+		"property_gravekeeper_gauntlet_description"		"对同一目标的攻击吸取它的活力. 每层偷取<font color='#ccff66'>100</font> 物理穿透和魔法穿透并且降低敌人相同的数值. 转移目标移除所有层数.每秒最高叠加 <font color='#ccff66'>4</font> 层 , 总共不能超过 <font color='#ccff66'>100</font>层. 守墓者的负面效果持续 <font color='#ccff66'>12</font> 秒,对于boss只有 % <ITEM_RPC_GRAVEKEEPERS_GAUNTLET_DEBUFF_DURATION_BOSS %> 秒."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target"	"守墓者目标"
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_target_Description"	"物理穿透和魔法穿透被偷取."
 		"DOTA_Tooltip_modifier_gravekeeper_gauntlet_buff"	"守墓者"
@@ -13812,7 +13816,7 @@
 		"item_rpc_swiftspike_bracer_sapphire1"			"提高移速上限 @sapphire_property1"
 		"item_rpc_swiftspike_bracer_amethyst1"			"提高移动速度 @amethyst_property1%"
 		"item_property_swiftspike_bracer"							"音爆"
-		"property_swiftspike_bracer_description"					"每点当前的移动速度提高基础技能伤害 <font color='#ccff66'>25</font>%"
+		"property_swiftspike_bracer_description"					"当前移动速度的 <font color='#ccff66'>25</font>%提高基础技能伤害"
 
 	"DOTA_Tooltip_ability_item_rpc_diamond_claws_of_tiamat"			"提亚马特的钻石之爪"
 		"item_rpc_diamond_claws_of_tiamat_ruby1"			"提高 [Q4] 符文 @ruby_property1"
@@ -15041,7 +15045,7 @@
         "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "蓝色占卜神符"
 
         "item_property_blue_divinex"                                    "超强智力"
-        "property_blue_divinex_description"                         "力量值和敏捷值固定为 0 且不能被提高. 智力值翻倍."
+        "property_blue_divinex_description"                         "力量值和敏捷值固定为 0 且不能被提高. 智力值提高<font color='#ccff66'>50</font>%."
         "item_rpc_blue_divinex_amulet_ruby1"            "超强智力效果下，力量值只会下降到 @ruby_property1"
         "item_rpc_blue_divinex_amulet_emerald1"         "超强智力效果下，敏捷值只会下降到 @emerald_property1"
         "item_rpc_blue_divinex_amulet_sapphire1"            "每点智力值提高物品伤害 @sapphire_property1%"
@@ -15049,7 +15053,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "绿色占卜神符"
         "item_property_green_divinex"                                   "超强敏捷"
-        "property_green_divinex_description"                            "力量值和智力值固定为 0 且不能被提高. 敏捷值翻倍."
+        "property_green_divinex_description"                            "力量值和智力值固定为 0 且不能被提高. 敏捷值提高<font color='#ccff66'>50</font>%."
 
         "item_rpc_green_divinex_amulet_ruby1"           "超强敏捷效果下，力量值只会下降到 @ruby_property1"
         "item_rpc_green_divinex_amulet_emerald1"            "每点敏捷值提高物品伤害 @emerald_property1%"
@@ -15059,7 +15063,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "红色占卜神符"
         "item_property_red_divinex"                                 "超强力量"
-        "property_red_divinex_description"                          "敏捷值和智力值固定为 0 且不能被提高. 力量翻倍."   
+        "property_red_divinex_description"                          "敏捷值和智力值固定为 0 且不能被提高. 力量值提高<font color='#ccff66'>50</font>%."   
         "item_rpc_red_divinex_amulet_ruby1"         "每点力量值提高物品伤害 @ruby_property1%"
         "item_rpc_red_divinex_amulet_emerald1"          "超强力量效果下，敏捷值只会下降到 @emerald_property1"
         "item_rpc_red_divinex_amulet_sapphire1"         "超强力量效果下，智力值只会下降到 @sapphire_property1"
@@ -15661,7 +15665,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"秘密注入"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"增加能力"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"移动速度:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"攻击速度:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"攻击力增加 %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"额外护甲"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"血量回复 %:"
