@@ -282,7 +282,7 @@ function dominion_unit_kill(event)
 				ParticleManager:ReleaseParticleIndex(beamPFX)
 			end)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks", {})
-			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + 1
+			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + q_3_level
 			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks", caster, newStacks)
 		end
 	end
