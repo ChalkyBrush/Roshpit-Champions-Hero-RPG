@@ -598,7 +598,7 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_empyreal_sunrise_robe"					"苍穹日出袍"	
-		"item_rpc_empyreal_sunrise_robe_ruby1"					"增加你的最低属性值175@ruby_property1"
+		"item_rpc_empyreal_sunrise_robe_ruby1"					"增加你的最低属性值@ruby_property1"
 		"item_rpc_empyreal_sunrise_robe_emerald1"					"获得数值为@emerald_property1x 最低属性值的基础攻击力"
 		"item_rpc_empyreal_sunrise_robe_sapphire1"					"获得数值为@sapphire_property1x 最低属性的魔法穿透"
 		"item_rpc_empyreal_sunrise_robe_amethyst1"					"获得数值为 @amethyst_property1x 最低属性值的魔甲"
