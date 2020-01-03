@@ -3398,7 +3398,7 @@ function leon_think(event)
 	local caster = event.caster
 
 	local primeAttribute = target:GetRoshpitPrimaryAttribute()
-	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD)/100
+	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_AMETHYST)/100
 	if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
 		local strStacks = math.floor(target:GetBaseStrength() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
