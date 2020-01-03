@@ -132,7 +132,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"被动提高敏捷值和智力值。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"智力值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
-    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"智力值提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"敏捷值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
 		
 		//Arcanas
