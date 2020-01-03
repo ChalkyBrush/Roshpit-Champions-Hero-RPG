@@ -9791,17 +9791,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"				"10 50 100"
+				"attack_damage_percent"				"10 12 16"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"				"15 30 60"
+				"attack_speed"				"8 10 12"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed"				"20 40 60"
+				"movespeed"				"15 20 30"
 			}
 		}
 		"Modifiers"
@@ -9862,12 +9862,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_sap"				"100 1000 10000"
+				"damage_sap"				"10 20 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_sap_enemy"				"-100 -1000 -10000"
+				"damage_sap_enemy"				"-10 -20 -25"
 			}
 		}
 		"Modifiers"
@@ -9882,6 +9882,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"damage_sap_attack"
+						"damage_sap_enemy"	"%damage_sap_enemy"
 					}
 				}
 			}
@@ -10100,7 +10101,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 200000"
+				"damage"			"500 2000 6000"
 			}
 		}
 		"OnOwnerDied"
@@ -10215,12 +10216,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"30 300 5000"
+				"burn_damage"			"30 300 700"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 200000"
+				"damage"			"500 5000 8000"
 			}
 		}
 		"OnOwnerDied"
@@ -10802,7 +10803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 5000 500000"
+				"damage"			"100 500 5000"
 			}
 			"02"
 			{
@@ -11239,7 +11240,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"1000 8000 90000"
+				"base_damage"			"1000 3000 9000"
 			}
 			"02"
 			{
@@ -12343,7 +12344,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"350 1000 10000"
+				"damage"			"350 1000 3000"
 			}
 		}
 		"OnOwnerDied"
@@ -13164,7 +13165,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_pct_target_max_health"			"4 8 12"
+				"damage_pct_target_max_health"			"2 3 4"
 			}
 		}
 		"Modifiers"
@@ -13207,7 +13208,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 5000 40000"
+				"damage"			"100 500 1000"
 			}
 		}
 		"Modifiers"
@@ -13635,7 +13636,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"750 2500 14000"
+		"AbilityDamage"					"750 2500 7000"
 
 		// Cost
 		//-------------------------------------------------------
@@ -13685,7 +13686,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"main_damage"			"2000 6000 50000"
+				"main_damage"			"2000 6000 12000"
 			}
 		}
 		"Modifiers"
@@ -13957,7 +13958,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 30000 500000"
+				"nova_damage"			"2000 5000 10000"
 			}
 		}
 		"Modifiers"
@@ -14093,7 +14094,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 5000 50000"
+				"damage"			"1200 2000 3000"
 			}
 			"02"
 			{
@@ -14398,7 +14399,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 1350 14000"
+				"damage"				"400 1350 5000"
 			}
 			"02"
 			{
@@ -14497,7 +14498,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"25.0 50.0 75.00"
+				"damage_percent"			"25.0 25.0 25.00"
 			}
 			"03"
 			{
