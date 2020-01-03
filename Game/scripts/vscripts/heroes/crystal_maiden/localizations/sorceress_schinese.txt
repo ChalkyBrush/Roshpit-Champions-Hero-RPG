@@ -29,9 +29,9 @@
     	"DOTA_Tooltip_ability_sorceress_rune_q_1_suffix"					""
 		
 		"DOTA_Tooltip_ability_sorceress_rune_q_2"							"[Q2] 冰霜新星"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。被冻结的敌人所受到的来自魔法巫女的伤害将被加深。（伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"冻结时减伤后伤害加深"
-    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					"%"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_Description"				"连续施放两次魔爆术后魔法少女将释放冰霜新星冻结敌人，被冻结的敌人将被缠绕。冰霜新星冷却时间10s。当女巫施放冰霜新星的同时，所召唤的水精灵也将施放该技能。"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_one"				"伤害"
+    	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix"					""
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_property_two"				"冻结持续时间"
     	"DOTA_Tooltip_ability_sorceress_rune_q_2_suffix_two"				" 秒"
 		
