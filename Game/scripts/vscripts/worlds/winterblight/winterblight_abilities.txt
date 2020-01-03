@@ -369,7 +369,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"5000"
 			}
 		}
 		"Modifiers"
@@ -702,7 +702,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2500 500000"
+				"damage"			"500 2500 12000"
 			}
 			"02"
 			{
@@ -859,7 +859,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 50000 1000000"
+				"damage"				"2000 5000 10000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -913,7 +913,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 5000 500000"
+				"damage"			"100 800 1200"
 			}
 			"02"
 			{
@@ -923,7 +923,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -140 -340"
+				"as_loss"			"-60 -90 -140"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1026,7 +1026,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"1000000"
+				"base_damage"	"8000"
 			}
 		}
 
@@ -1125,7 +1125,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 2000"
+				"damage_per_distance"		"2 20 200"
 			}
 		}
 		"Modifiers"
@@ -1287,17 +1287,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"300 5000 12000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -90 -120"
+				"ms_loss"			"-60 -120 -160"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-150 -340 -840"
+				"as_loss"			"-50 -140 -240"
 			}
 		}
 
@@ -1379,12 +1379,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 1000"
+				"damage_per_distance"		"2 12 60"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dot_damage"		"60 500 5000"
+				"dot_damage"		"60 300 900"
 			}
 		}
 		"Modifiers"
@@ -3443,7 +3443,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"100 3000 500000"
+				"bonus_damage"				"100 1000 5000"
 				"LinkedSpecialBonus"	"special_bonus_unique_luna_3"
 			}
 			"03"
@@ -5329,7 +5329,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_per_missing_hp"			"0.2 0.5 1.5"
+				"damage_per_missing_hp"			"0.2 0.3 0.4"
 			}
 		}
 		"Modifiers"
@@ -6279,7 +6279,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"physical_damage"			"500 50000 5000000"
+				"physical_damage"			"500 8000 16000"
 			}
 			"02"
 			{
@@ -7623,12 +7623,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-100 -200 -400"
+				"as_loss"			"-50 -100 -150"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-150 -300 -500"
+				"ms_loss"			"-150 -200 -200"
 			}
 			"03"
 			{
@@ -7999,7 +7999,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"500 10000 1000000"
+				"bonus_damage"				"500 1000 7000"
 			}
 			"03"
 			{
@@ -8551,7 +8551,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ice_damage"			"300 1000 10000"
+				"ice_damage"			"300 1000 8000"
 			}
 			"02"
 			{
@@ -9356,7 +9356,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 4000 10000"
+				"damage"			"1000 4000 5000"
 			}
 		}
 		"Modifiers"
@@ -9594,7 +9594,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20000"
+				"damage"			"10000"
 			}
 		}
 		"OnOwnerDied"
@@ -9741,7 +9741,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 750 12500"
+				"damage"			"250 2000 12500"
 			}
 		}
 
@@ -11564,7 +11564,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"300 1000 15000"
+				"poison_damage"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -11987,7 +11987,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"450 1400 11000"
+		"AbilityDamage"					"450 1400 8000"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

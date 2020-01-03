@@ -1288,7 +1288,8 @@ end
 function boss_burn_think(event)
 	local caster = event.caster
 	local target = event.target
-	local damage = target:GetMaxHealth()*0.02
+	local burn_pct = event.burn_pct
+	local damage = target:GetMaxHealth()*burn_pct/100
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end

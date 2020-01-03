@@ -36978,7 +36978,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"burn_pct"			"2"
 			}
 		}
 		"Modifiers"
@@ -37024,6 +37024,7 @@
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"boss_burn_think"
 						"target"		"TARGET"
+						"burn_pct"		"%burn_pct"
 					}
 				}
 			}
@@ -37190,7 +37191,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 35000"
+				"chains_damage"					"100 2000 3500"
 			}
 			"04"
 			{
@@ -37227,14 +37228,9 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"damage_percent"	"800"
 			}
-			"04"
+			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"health_regen_percent"		"1.5"
@@ -37257,7 +37253,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
 				}
@@ -50453,7 +50448,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 800 4000"
+				"damage"			"300 700 800"
 			}
 			"02"
 			{
@@ -59981,12 +59976,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 450 3000"
+				"burn_damage"			"70 450 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 2000 12000"
+				"impact_damage"		"300 2000 6000"
 			}
 		}
 
@@ -60076,12 +60071,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"1000 5000 50000"
+				"impact_damage"			"1000 5000 10000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"150 3000 15000"
+				"burn_damage"			"150 3000 1000"
 			}
 		}
 		"OnOwnerDied"

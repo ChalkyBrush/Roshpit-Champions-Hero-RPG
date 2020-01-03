@@ -465,7 +465,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"秘密注入"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"增加能力"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"移动速度:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"攻击速度:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"攻击力增加 %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"额外护甲"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"血量回复 %:"
