@@ -125,6 +125,10 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
 		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	end
+	if property_name == "immortal_weapon_3" and hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
+		property_name = "all_t4_runes"
+		property_value = SEPHYR_IMMORTAL_WEAPON_3_T4_RUNES
+	end
 	-- RECORD PROPERTIES TO HASH
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		if string.match(property_name, "all_attributes") then

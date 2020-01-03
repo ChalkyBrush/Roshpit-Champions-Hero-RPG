@@ -9236,7 +9236,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_sephyr_immortal_weapon_3"            "Divine Highwind Staff"
         "item_property_sephyr_immortal_weapon3"                             "Highwind Grace"
-        "property_sephyr_immortal_weapon3_description"                      "Increases all T4 runes by @special_property1."
+        "property_sephyr_immortal_weapon3_description"                      "Increases all T4 runes by <font color='#ccff66'>4</font>."
 		
 
 		//Abilities

@@ -4938,7 +4938,7 @@ function shark_helmet_attack_land(event)
 	end
 	local extra_stack = 0
 	if ability:GetGemValue("emerald") > 0 then
-		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("emerald", DARK_REEF_SHARK_EMERALD))
+		local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("emerald", DARK_REEF_SHARK_EMERALD))
 		if proc then
 			extra_stack = extra_stack + 1
 		end

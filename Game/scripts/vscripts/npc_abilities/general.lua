@@ -713,7 +713,7 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
-		local max_ms = max_ms + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY2)
+		max_ms = max_ms + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY2)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
 		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS
