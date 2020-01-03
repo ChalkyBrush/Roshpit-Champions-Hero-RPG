@@ -436,7 +436,7 @@
 		"property_crystalline"												"水晶之舞"
         "property_crystalline_Description"                                  "增加承受伤害 <% ITEM_RPC_CRYSTALLINE_SLIPPERS_RESIST_LOSS %>% ，增加物品伤害和基础技能伤害<% ITEM_RPC_CRYSTALLINE_SLIPPERS_BAD_AND_ITEM_AMP %>%。"
 
-        "item_rpc_crystalline_slippers_ruby1"               "降低护甲@ruby_property1点，增加物理穿透 by @ruby_property2点"
+        "item_rpc_crystalline_slippers_ruby1"               "降低护甲@ruby_property1点，增加物理穿透@ruby_property2点"
         "item_rpc_crystalline_slippers_emerald1"                "移动时获得 @emerald_property1% 闪避，静止不动时将会获得 @emerald_property2% 攻击力加成"
         "item_rpc_crystalline_slippers_sapphire1"               "被缠绕时，受到的伤害将会降低 @sapphire_property1% ，释放 [W] 将会缠绕你，持续 <% ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION %> 秒"
         "item_rpc_crystalline_slippers_amethyst1"               "降低魔甲 @amethyst_property1 点，增加魔法穿透@amethyst_property2点"
