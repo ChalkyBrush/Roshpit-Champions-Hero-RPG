@@ -106,7 +106,7 @@
 		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] 恢复之风"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"希芙尔和在风神之守护内的友军生命回复速度提高。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"生命回复速度提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x 希芙尔等级"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] 阴冷雾霭"
     	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"风神之守护内的敌人将降低移动和攻击速度。"
