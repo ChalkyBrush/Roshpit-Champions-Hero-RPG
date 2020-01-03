@@ -14042,7 +14042,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "Enemies hit by @Ability1 have a <font color='#ccff66'>40</font>% chance to be hit by a lucent beam, dealing <font color='#ccff66'>70</font>% of the ability's damage and providing flying vision over the target for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>7</font> procs per second."
+		"property_luma_description"					 "Enemies hit by @Ability1 have a <font color='#ccff66'>40</font>% chance to be hit by a lucent beam, dealing <font color='#ccff66'>100</font>% of the ability's damage and providing flying vision over the target for <font color='#ccff66'>4</font> seconds. Max <font color='#ccff66'>7</font> procs per second."
 
 		"item_rpc_guard_of_luma_ruby1"	"Increases moonbeam proc chance by @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Increases the maximum number of procs per second by @emerald_property1"

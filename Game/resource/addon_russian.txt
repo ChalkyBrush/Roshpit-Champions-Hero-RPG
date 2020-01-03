@@ -13907,7 +13907,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>70</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
+		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>100</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
 
 		"item_rpc_guard_of_luma_ruby1"	"Шанс срабатывания лучей увеличен на @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Максимум срабатываний в секунду увеличен на @emerald_property1"
