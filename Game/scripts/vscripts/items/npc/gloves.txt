@@ -5880,6 +5880,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{

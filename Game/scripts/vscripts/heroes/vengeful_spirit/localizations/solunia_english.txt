@@ -271,7 +271,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" seconds"
 
     	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell"					"Dimension Shell"
-    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Damage taken reduced by <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%, +100 movespeed and unit walking."
+    	"DOTA_Tooltip_modifier_solunia_c_d_arcana_shell_Description"		"Damage taken reduced by <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT * 100 %>%, +100 movespeed and unit walking."
 
   		"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2"						"[R4] Tellarias"
     	"DOTA_Tooltip_ability_solunia_rune_r_4_arcana2_Description"			"Increases all attributes. Increases <font color=\"#EF4126\">Fire</font> damage, <font color=\"#87D9FF\">Ice</font> damage, and <font color=\"#C25DFC\">Cosmic</font> damage."
