@@ -16184,7 +16184,7 @@
 		"redfall_quest_7_reward_Description"					"打开被遗弃的船坞地牢的入口"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"任务护甲"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"盾牌将伤害降低99.9％。每次受到伤害失去一层."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"盾牌将伤害降低90％。每次受到伤害失去一层."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"护盾充能:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"任务护甲"
@@ -20715,7 +20715,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"被麻痹"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"鲜红水晶"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"所有寒霜大厅的怪物增加 500%%的攻击力."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"所有寒霜大厅的怪物增加 100%%的攻击力."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"湛蓝水晶"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"所有寒霜大厅的怪物获得90%%伤害减免."

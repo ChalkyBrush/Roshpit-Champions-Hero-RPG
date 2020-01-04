@@ -16339,7 +16339,7 @@
 		"redfall_quest_7_reward_Description"					"Позволяет открыть проход в Заброшенную Верфь"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 99.9% входящего урона. Щит теряет заряды с каждым полученным уроном."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 90% входящего урона. Щит теряет заряды с каждым полученным уроном."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"ЗАРЯДОВ ЩИТА:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
@@ -20932,7 +20932,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Парализован"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 500%%."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 100%%."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Увеличивает сопротивление к урону всех монстров внутри Замороженного Зала на 90%%."
