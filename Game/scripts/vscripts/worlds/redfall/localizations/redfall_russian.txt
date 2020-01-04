@@ -423,7 +423,7 @@
 		"redfall_quest_7_reward_Description"					"Позволяет открыть проход в Заброшенную Верфь"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 99.9% входящего урона. Щит теряет заряды с каждым полученным уроном."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 90% входящего урона. Щит теряет заряды с каждым полученным уроном."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"ЗАРЯДОВ ЩИТА:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"

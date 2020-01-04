@@ -850,7 +850,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				if crystals < 300 then
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_4d1", 5, false)
-					Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, 1, 500)
+					Glyphs:DropArcaneCrystals(Tutorial.Master:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, 1, 500)
 					Timers:CreateTimer(5, function()
 						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_4d2", 5, false)
 					end)

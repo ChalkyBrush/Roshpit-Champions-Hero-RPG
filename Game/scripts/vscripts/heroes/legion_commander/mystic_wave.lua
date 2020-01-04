@@ -6,12 +6,6 @@ function begin_mystic_wave(event)
 	local target = event.target_points[1]
 	local range = event.range
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
-	if caster:HasModifier("modifier_mountain_protector_glyph_1_1") then
-		local currentCD = ability:GetCooldownTimeRemaining()
-		ability:EndCooldown()
-		local newCD = currentCD - 1
-		ability:StartCooldown(newCD)
-	end
 	EmitSoundOn("MysticAssasin.MysticWaveYell2", caster)
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "MysticAssasin.MysticWave", caster)
 	local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()

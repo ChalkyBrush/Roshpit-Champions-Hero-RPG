@@ -68925,12 +68925,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 900 9000"
+				"damage"			"3000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attribute_loss_percent"			"8"
+				"attribute_loss_percent"			"2"
 			}
 		}
 		"Modifiers"
@@ -69030,7 +69030,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attackspeed" "300"
+				"attackspeed" "200"
 			}
 			"02"
 			{
