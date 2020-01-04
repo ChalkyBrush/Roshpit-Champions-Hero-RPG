@@ -69,7 +69,7 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_rpc_sange_amethyst"
+						"ModifierName"	"modifier_rpc_yasha_amethyst"
 						"Target" 		"TARGET"
 					}
 					"RemoveModifier"
