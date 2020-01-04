@@ -340,7 +340,7 @@
 		"redfall_quest_7_reward_Description"					"打开被遗弃的船坞地牢的入口"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"任务护甲"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"盾牌将伤害降低99.9％。每次受到伤害失去一层."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"盾牌将伤害降低90％。每次受到伤害失去一层."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"护盾充能:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"任务护甲"
