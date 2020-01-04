@@ -893,7 +893,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Paralyzed"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Increases all Frozen Foyer monsters attack power by 500%%."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Increases all Frozen Foyer monsters attack power by 100%%."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Increases all Frozen Foyer monsters damage resistance by 90%%."

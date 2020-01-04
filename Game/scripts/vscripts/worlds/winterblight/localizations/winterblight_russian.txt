@@ -893,7 +893,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Парализован"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 500%%."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 100%%."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Увеличивает сопротивление к урону всех монстров внутри Замороженного Зала на 90%%."

@@ -964,7 +964,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"被麻痹"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"鲜红水晶"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"所有寒霜大厅的怪物增加 500%%的攻击力."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"所有寒霜大厅的怪物增加 100%%的攻击力."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"湛蓝水晶"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"所有寒霜大厅的怪物获得90%%伤害减免."
