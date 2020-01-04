@@ -422,7 +422,7 @@
 
 		"item_rpc_stormcrack_helm_ruby1"	"延长你造成的所有眩晕时间 @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"风暴裂痕效果每秒能多触发 @emerald_property1 次"
-		"item_rpc_stormcrack_helm_sapphire1" "风暴裂痕的伤害提高 @sapphire_propertyx 穿戴者的总属性"
+		"item_rpc_stormcrack_helm_sapphire1" "风暴裂痕的伤害提高 @sapphire_property1x 穿戴者的总属性"
 		"item_rpc_stormcrack_helm_amethyst1" "提高精神值 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		
 		
