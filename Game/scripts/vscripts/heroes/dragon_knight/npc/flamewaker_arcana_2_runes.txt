@@ -15,7 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_Q1_FIRE_AMP_AGAINST_STUNNED %>"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_W1_FIRE_AMP_AGAINST_STUNNED %>"
 			}
 		}
 	}
@@ -36,12 +36,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_Q2_HEALTH_REGEN %>"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_W2_HEALTH_REGEN %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_ARCANA2_Q2_ARMOR %>"
+				"property_two"			"<% FLAMEWAKER_ARCANA2_W2_ARMOR %>"
 			}
 		}
 	}
@@ -61,13 +61,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_Q3_ATK_POWER_ADDED_TO_FLAME %>"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_W3_ATK_POWER_ADDED_TO_FLAME %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% FLAMEWAKER_ARCANA2_Q3_RANGE %>"
+				"property_two"			"<% FLAMEWAKER_ARCANA2_W3_RANGE %>"
 			}
 			"03"
 			{
@@ -98,7 +98,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% FLAMEWAKER_ARCANA2_Q4_AGILITY_TO_DAMAGE %>"
+				"property_one"			"<% FLAMEWAKER_ARCANA2_W4_AGILITY_TO_DAMAGE %>"
 			}
 		}
 	}

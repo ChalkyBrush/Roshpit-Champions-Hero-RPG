@@ -904,7 +904,6 @@ function ash_knight_shield_take_damage(event)
 	local caster = event.caster
 	Events:CreateLightningBeam(caster:GetAbsOrigin() + Vector(0, 0, 90), attacker:GetAbsOrigin() + Vector(0, 0, 90))
 	EmitSoundOn("Redfall.AshKnight.ShieldStrike", attacker)
-	attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.5})
 	local silence_duration = event.silence_duration
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_shield_silence", {duration = silence_duration})
 end

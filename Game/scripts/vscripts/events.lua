@@ -647,6 +647,7 @@ function GameMode:OnPlayerChat(keys)
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, 1))
 		end
+	
 	elseif string.match(text, "-gly") then
 		if Beacons.cheats then
 			local name = string.gsub(text, "-gly ", "")
@@ -807,6 +808,10 @@ function GameMode:OnPlayerChat(keys)
 		end
 	elseif string.match(text, "-log") then
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
+	elseif string.match(text, "-get_abs") then
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local position = hero:GetAbsOrigin()
+		print(position)
 	elseif GameState:GetDifficultyFactor() == 3 then
 		local playerid = keys.playerid
 		if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
