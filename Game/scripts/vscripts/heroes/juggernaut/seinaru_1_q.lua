@@ -101,9 +101,12 @@ function gust_impact(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1", {duration = a_a_duration})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1_invisible", {duration = a_a_duration})
 
-		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1
+		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1 * ability.q_1_level
+		if target.type ~= nil and target.type > 3 then
+			 newStacks = newStacks + (10 - 1) * ability.q_1_level
+		end
 		caster:SetModifierStackCount("modifier_seinaru_rune_q_1", caster, newStacks)
-		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks * ability.q_1_level)
+		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks)
 	end
 	if ability.q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})

@@ -139,7 +139,7 @@
         		"Properties"
         		{
         			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"<% SEINARU_Q1_ATT_SPD_PER_STACK %>"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% SEINARU_Q1_ATT_PCT_PER_STACK * 100 %>"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% SEINARU_Q1_ATT_PCT_PER_STACK %>"
         		}
         	}
         	"modifier_seinaru_q_2_speed"
