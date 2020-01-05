@@ -2155,6 +2155,9 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     if slot == BASE_NONE then
         instances = 1
     end
+    if victim.dummy then
+        instances = 1
+    end
 
     ------------------------------------------------------------------------------------------------------
     -- below is ApplyDamage (aka actual damage applying), do instances calculation before the Maginot Line
