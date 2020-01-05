@@ -695,6 +695,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
 		end
 	end
+	if unit:HasModifier("modifier_flamewaker_arcana_a_a_effect") then
+		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_a_a_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()
+	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
 		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
@@ -707,7 +711,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_b_b_shimmer") then
 		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_Q2_ARMOR
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_W2_ARMOR
 	end
 	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")

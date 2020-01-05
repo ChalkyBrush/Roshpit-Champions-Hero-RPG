@@ -45696,7 +45696,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_per_hit"			"5 15 30"
+				"attack_damage_per_hit"			"5 5 10"
 			}
 			"04"
 			{
@@ -47710,12 +47710,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"50 150 1000"
+				"burn_damage"			"50 150 600"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"400 1200 5000"
+				"impact_damage"		"400 600 1200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47777,7 +47777,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 800 1000"
 			}
 			"02"
 			{
@@ -47889,7 +47889,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 1200 2000"
 			}
 			"02"
 			{
@@ -48358,7 +48358,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 21000"
+		"AbilityDamage"					"1000 3000 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -48428,7 +48428,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 4000"
+				"damage"			"300 1000 2400"
 			}
 			"02"
 			{
@@ -59011,7 +59011,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_attack"			"300 2000 35000"
+				"magic_attack"			"300 2000 4000"
 			}
 		}
 		"Modifiers"
@@ -59251,7 +59251,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"300 1500 8000"
+				"burn_damage"			"300 1500 5000"
 			}
 		}
 		"Modifiers"
@@ -59417,7 +59417,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 1500 8000"
+				"impact_damage"		"300 650 1200"
 			}
 		}
 
@@ -59465,7 +59465,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 2000 10000"
+				"damage"				"800 2000 6000"
 			}
 			"02"
 			{
@@ -59480,7 +59480,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"800 2000 10000"
+				"burn_damage"			"600 800 1000"
 			}
 		}
 		"OnSpellStart"
@@ -59661,7 +59661,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"300 5000 50000"
+				"burn_damage"		"300 800 1100"
 			}
 
 			"03"
@@ -59720,7 +59720,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 200000"
+				"damage"					"2000 8000 17000"
 			}
 			"02"
 			{

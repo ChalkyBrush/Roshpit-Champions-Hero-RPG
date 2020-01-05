@@ -81,7 +81,7 @@
 
     	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"Герой получает бонус к урону, когда к нему возвращается беспокойный дух. Длительность эффекта составляет 9 секунд, а его сила определяется количеством задетых им врагов до возвращения. Каждый беспокойный дух добавляет отдельный бонус, не зависящий с другими подобными. Дополнительно увеличивает урон беспокойного духа от урона героя."
-    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Доп. урон за заряд"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Базовый Урон Атаки за заряд"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Урон духа, % от урона героя"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"

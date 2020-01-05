@@ -81,7 +81,7 @@
 
     	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"When a flurry puck returns to Sephyr, he gains stacks of bonus attack damage for 9 seconds. Stack count is dependent on how many targets the puck hit before returning. Each puck provides a seperate instance of the buff. Attack damage also gets added to puck damage."
-    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Bonus Attack Damage Per Stack"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Base Attack Damage per stack"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Attack Damage Added to Puck"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"

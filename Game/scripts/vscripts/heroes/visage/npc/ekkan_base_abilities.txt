@@ -1337,7 +1337,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"health_regen"	"1.0"
+				"health_regen"	"2.0"
 			}
 		}
 	}
