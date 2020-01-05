@@ -30,7 +30,7 @@ function calculateDamage(event)
         arcane_explosion_damage = arcane_explosion_damage * SORCERESS_GLYPH_7_2_DAMAGE_AMPLIFY
         ability.manacost = ability.manacost + caster:GetMaxMana() * SORCERESS_GLYPH_7_2_MANA_DRAIN_PERCENT / 100
     end
-    ability.damage = arcane_explosion_damage * SORCERESS_GLYPH_5_1_AMPLIFY
+    ability.damage = arcane_explosion_damage
 end
 
 function toggle_on(event)

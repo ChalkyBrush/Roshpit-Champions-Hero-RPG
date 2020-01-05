@@ -96,14 +96,18 @@ function gust_impact(event)
 	Timers:CreateTimer(0.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
+	local enemy_tier = target.roshpit_attributes.enemy_tier
 	if ability.q_1_level > 0 then
 		local a_a_duration = Filters:GetAdjustedBuffDuration(caster, SEINARU_Q1_DUR_BASE, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1", {duration = a_a_duration})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_rune_q_1_invisible", {duration = a_a_duration})
 
-		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1
+		local newStacks = caster:GetModifierStackCount("modifier_seinaru_rune_q_1", caster) + 1 * ability.q_1_level
+		if enemy_tier ~= nil and enemy_tier > 3 then
+			 newStacks = newStacks + (SEINARU_Q1_BOSS_MULT - 1) * ability.q_1_level
+		end
 		caster:SetModifierStackCount("modifier_seinaru_rune_q_1", caster, newStacks)
-		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks * ability.q_1_level)
+		caster:SetModifierStackCount("modifier_seinaru_rune_q_1_invisible", caster, newStacks)
 	end
 	if ability.q_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_seinaru_rune_q_2_slow", {duration = blind_duration})
