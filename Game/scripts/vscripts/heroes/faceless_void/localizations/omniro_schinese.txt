@@ -186,7 +186,7 @@
 		"omniro_water_orb_description"										"一道水之洪流将 <% OMNIRO_WATER_ORB_AOE %> 范围内的敌人冲起。 当他们被冲到空中时，将会眩晕。"
 		"omniro_water_orb_a_pretext"											"攻击力%的伤害："	
 
-		"omniro_demon_orb_description"										"造成一次无视坚定的伤害。"
+		"omniro_demon_orb_description"										"造成一次巨额伤害。"
 		"omniro_demon_orb_a_pretext"											"攻击力 % 的伤害："	
 
 		"omniro_nature_orb_description"										"获得一个护盾来抵挡伤害。基础最大层数为 <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %> 并且随等级提高。持续 <% OMNIRO_NATURE_SHIELD_DURATION %> 秒"
