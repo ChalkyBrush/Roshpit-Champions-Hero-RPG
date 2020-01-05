@@ -2349,7 +2349,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if victim:IsStunned() or victim:IsFakeStunned() then
                     local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
-                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_Q1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
+                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_W1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
                     end
                 end
             end

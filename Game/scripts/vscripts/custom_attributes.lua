@@ -707,7 +707,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_b_b_shimmer") then
 		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_Q2_ARMOR
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_W2_ARMOR
 	end
 	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
