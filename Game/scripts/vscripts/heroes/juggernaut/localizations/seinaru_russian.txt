@@ -8,7 +8,7 @@
     	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
 			
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] Cloudburst"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд. Боссы и мини-боссы учитываются как <% SEINARU_Q1_BOSS_MULT %> противников."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Доп. скорость атаки"
