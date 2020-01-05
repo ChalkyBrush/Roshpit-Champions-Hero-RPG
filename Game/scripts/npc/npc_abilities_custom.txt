@@ -9068,7 +9068,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"health_regen"	"1.0"
+				"health_regen"	"2.0"
 			}
 		}
 	}
@@ -21669,14 +21669,13 @@
                 		"IsHidden"	"1"
                 		"Properties"
                 		{
-                			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "1"
                 		    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
                 		}
                 	}
                 	"modifier_flamewaker_arcana_b_a_effect"
                 	{
                 		"IsHidden"	"0"
-                		"TextureName"	"flamewaker/flamewaker_b_a_arcana1"
+                		"TextureName"	"flamewaker/flamewaker_q_2_arcana1"
                 		"Properties"
                 		{
                 			"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "4"
@@ -21767,7 +21766,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -21817,7 +21816,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -22097,7 +22096,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -22123,7 +22122,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"45"
 			}
 		}
 	}
@@ -22143,8 +22142,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.7"
 			}
 			"02"
 			{
@@ -22180,7 +22179,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.12"
 			}
 		}
 	}
@@ -22236,7 +22235,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"120 240 360 480 600 720 840"
+		"AbilityDamage"					"120 240 400 600 800 1000 1400"
 
 		// Cost
 		//-------------------------------------------------------
@@ -22519,7 +22518,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"50 100 150 250 300 350 400"
+				"damage"					"70 160 300 400 650 800 900"
 			}
 			"03"
 			{
@@ -23309,7 +23308,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 300 500 700 900 1100 1300"
+				"damage"	"100 300 500 700 1000 1300 1700"
 			}
 
 			"03"
@@ -23357,12 +23356,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"45"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"14"
 			}
 
 		}
@@ -23463,7 +23462,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"6"
+				"property_one"			"18"
 			}
 			"02"
 			{
@@ -23670,7 +23669,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"65"
 			}
 			"02"
 			{
@@ -23702,7 +23701,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"55"
 			}
 			"02"
 			{
@@ -23908,7 +23907,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"25"
+				"property_one"			"35"
 			}
 			"03"
 			{
@@ -55346,7 +55345,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -55366,12 +55365,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.08"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.02"
+				"property_two"			"0.08"
 			}
 		}
 	}
@@ -133550,7 +133549,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_per_hit"			"5 15 30"
+				"attack_damage_per_hit"			"5 5 10"
 			}
 			"04"
 			{
@@ -135564,12 +135563,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"50 150 1000"
+				"burn_damage"			"50 150 600"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"400 1200 5000"
+				"impact_damage"		"400 600 1200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -135631,7 +135630,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 800 1000"
 			}
 			"02"
 			{
@@ -135743,7 +135742,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 1200 2000"
 			}
 			"02"
 			{
@@ -136212,7 +136211,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 21000"
+		"AbilityDamage"					"1000 3000 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -136282,7 +136281,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 4000"
+				"damage"			"300 1000 2400"
 			}
 			"02"
 			{
@@ -146865,7 +146864,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_attack"			"300 2000 35000"
+				"magic_attack"			"300 2000 4000"
 			}
 		}
 		"Modifiers"
@@ -147105,7 +147104,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"300 1500 8000"
+				"burn_damage"			"300 1500 5000"
 			}
 		}
 		"Modifiers"
@@ -147271,7 +147270,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 1500 8000"
+				"impact_damage"		"300 650 1200"
 			}
 		}
 
@@ -147319,7 +147318,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 2000 10000"
+				"damage"				"800 2000 6000"
 			}
 			"02"
 			{
@@ -147334,7 +147333,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"800 2000 10000"
+				"burn_damage"			"600 800 1000"
 			}
 		}
 		"OnSpellStart"
@@ -147515,7 +147514,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"300 5000 50000"
+				"burn_damage"		"300 800 1100"
 			}
 
 			"03"
@@ -147574,7 +147573,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 200000"
+				"damage"					"2000 8000 17000"
 			}
 			"02"
 			{

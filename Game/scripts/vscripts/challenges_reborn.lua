@@ -304,16 +304,16 @@ function Challenges:PanoramaInput(msg)
 		local item = nil
 		local playerID = msg.PlayerID
 		local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
-		local amount = 100000
+		local amount = 50000
 		if msg.action == "exp-orb-1" then
-			amount = 100000
+			amount = 50000
 			if mithril >= amount then
 				item = Challenges:CreateEXPOrb()
 			else
 				return false
 			end
 		elseif msg.action == "exp-orb-2" then
-			amount = 1000000
+			amount = 300000
 			if mithril >= amount then
 				item = Challenges:CreateGreaterEXPOrb()
 			else

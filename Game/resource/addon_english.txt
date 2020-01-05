@@ -9085,7 +9085,7 @@
 
     	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"When a flurry puck returns to Sephyr, he gains stacks of bonus attack damage for 9 seconds. Stack count is dependent on how many targets the puck hit before returning. Each puck provides a seperate instance of the buff. Attack damage also gets added to puck damage."
-    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Bonus Attack Damage Per Stack"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Base Attack Damage per stack"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Attack Damage Added to Puck"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"
@@ -11184,7 +11184,7 @@
 		"item_rpc_venomort_glyph_7_1_description" 				"Increases the duration of all units summoned by any of Venomort's spells or runes (but not from other sources) by @glyph_property1 seconds, and increases their base attack speed by @glyph_property2."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
-		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided and separated into weaker instances of damage of different types. Physical and Magical deal 1/<font color='#ccff66'>3</font> of original damage, whole Pure deals only 1/<font color='#ccff66'>15</font> damage."
+		"item_rpc_venomort_glyph_5_a_description" 				"All instances of DoT damage dealt by Venomort's various poisons are divided and separated into weaker instances of damage of different types. Physical and Magical deal 1/<font color='#ccff66'>3</font> of original damage, while Pure deals only 1/<font color='#ccff66'>15</font> damage."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] Glyph of Delirium"
 		"item_rpc_venomort_glyph_1_2_description" 				"Increases the duration of [W2] by @glyph_property2%. Additionally, enemies caught in the area of each @Ability1 cast have a @glyph_property1% chance to be afflicted with it."

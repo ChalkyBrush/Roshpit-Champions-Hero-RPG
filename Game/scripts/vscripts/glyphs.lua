@@ -18,7 +18,7 @@ function Glyphs:DropArcaneCrystals(position, enemyType, level, quantityScale)
 	local crystalQuantity = (maxFactor / 2) * (1 + connectedPlayerCount * 0.5) * quantityScale
 	crystalQuantity = crystalQuantity * (1 + GameState:GetPlayerPremiumStatusCount() * 0.1)
 	crystalQuantity = RPCItems:GetLogarithmicVarianceValue(crystalQuantity, 0, 0, 0, 0)
-	local multiplier = Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[GameState:GetDifficultyFactor()][enemyType]
+	local multiplier = Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[GameState:GetDifficultyFactor()][enemyType] * Enemies.GLOBAL_ARCANE_CRYSTAL_MULT
 	crystalQuantity = crystalQuantity * Enemies.SPIRIT_REALM_CONSTANTS[Enemies:SpiritRealmNumber(Events.SpiritRealm)]["arcane_crystals"]	
 
 	if GameState:IsWinterblight() then

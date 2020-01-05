@@ -5482,7 +5482,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Доп. время жизни скелетов"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" сек."
 		"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Усиление элемента <font color=\"#5C776E\">Нежити</font>"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                    " за каждого активного скелета"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                    "% за каждого активного скелета"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области, снижает магическую защиту у пораженных заклинанием целей и замедляет задетых врагов. Урон принадлежит скелету, но усиливается элементами и силой способностей героя."
@@ -6518,15 +6518,10 @@
 		"DOTA_Tooltip_modifier_searing_heat"									"Searing Heat"
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"Понижает броню"
 		
-		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Splitting Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Враги, задетые [E1] загораются, из-за чего теряют броню и получают ежесекундный урон 5 секунд, основанный на показателе урона от [E1]."
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Урона в секунду"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% от урона Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"Понижение брони"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"					""
-
-		"DOTA_Tooltip_modifier_flamewaker_rune_e_4" 							"Splitting Flame"
-		"DOTA_Tooltip_modifier_flamewaker_rune_e_4_description" 				"Показатель брони понижен и ежесекундно получает урон."
+		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Surge of Fire"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Активация @Ability3 уменьшает текущую перезарядку других способностей героя на указанное значение."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Уменьшение Перезарядок"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						" сек"
 		
 		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
 		"DOTA_Tooltip_ability_cataclysm_Description"						"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#AF843D\">Земля</font><br>Наполняется огнем в течении 2 секунд, после чего образуется мощный взрыв, наносящий урон, замедляющий и отталкивающий всех врагов вокруг себя."
@@ -8464,7 +8459,7 @@
 
     	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"Герой получает бонус к урону, когда к нему возвращается беспокойный дух. Длительность эффекта составляет 9 секунд, а его сила определяется количеством задетых им врагов до возвращения. Каждый беспокойный дух добавляет отдельный бонус, не зависящий с другими подобными. Дополнительно увеличивает урон беспокойного духа от урона героя."
-    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Доп. урон за заряд"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Базовый Урон Атаки за заряд"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Урон духа, % от урона героя"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"
@@ -10272,7 +10267,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Получает периодический урон"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Повторный каст обнуляет прежние заряды, длится <font color='#ccff66'>20</font> секунд. Максимум <font color='#ccff66'>50</font> стаков яда."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Повторный каст обнуляет прежние заряды, длится <font color='#ccff66'>20</font> секунд. Максимум <font color='#ccff66'>50</font> зарядов."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Базовый Урон Способностей"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% за юнита"
 
@@ -10349,9 +10344,9 @@
 		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <font color='#ccff66'>0.1</font> сек, в течение <font color='#ccff66'>5</font> сек. Урон от яда умножается на уровень героя. Пробивает иммунитет к магии."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <font color='#ccff66'>0.1</font> сек, в течение <font color='#ccff66'>5</font> сек. Пробивает иммунитет к магии."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Урон"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x уровень героя"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						""
 
 		
 		
