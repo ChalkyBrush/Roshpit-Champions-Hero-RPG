@@ -850,7 +850,6 @@ function Winterblight:MithrilReward(position, code)
             end
           end)
           reward = reward*WINTERBLIGHT_MITHRIL_MULT_TIAMAT
-          stonesReward = stonesReward*WINTERBLIGHT_MITHRIL_MULT_TIAMAT
           local bonus_mult = Winterblight.TiamatBossLevel*WINTERBLIGHT_MITHRIL_MULT_TIAMAT_PER_LVL
           reward = reward + reward*bonus_mult
         elseif code == "realm_breaker" then
