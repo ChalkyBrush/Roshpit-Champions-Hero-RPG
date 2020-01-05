@@ -2013,7 +2013,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_axe_arcana1") then
             local r_1_level = attacker:GetRuneValue("r", 1)
-            damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT*r_1_level
+            damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT/100*r_1_level
         end
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
