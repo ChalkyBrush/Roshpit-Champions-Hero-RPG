@@ -52,7 +52,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <% EKKAN_Q3_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
@@ -230,7 +230,7 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <% EKKAN_ARCANA_Q3_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"
