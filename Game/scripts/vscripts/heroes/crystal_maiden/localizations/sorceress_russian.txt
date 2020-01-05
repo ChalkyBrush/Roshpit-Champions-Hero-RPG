@@ -60,7 +60,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"РАДИУС:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Прочтение @Ability2 наделит героя щитом, имеющим 3 заряда. Каждый заряд тратится на полное поглощение урона. Противник, атакующий щит, получит урон, основанный на показателе Интеллекта Sorceress. Наносимый урон умножается на уровень способности (W) Arcane Explosion."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Прочтение @Ability2 наделит героя щитом, имеющим <% SORCERESS_W1_STACKS_BASE %> заряда. Каждый заряд тратится на полное поглощение урона. Противник, атакующий щит, получит урон, основанный на показателе Интеллекта Sorceress. Наносимый урон умножается на уровень способности (W) Arcane Explosion."
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" сек."  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Урон"
@@ -305,7 +305,7 @@
 		"item_rpc_sorceress_glyph_4_1_description" 				"Увеличивает скорость атаки героя и ее элементаля на <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"[T5-1] Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) @Ability2. [W1] накладывает <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> щита, а не 3."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Заменяет (W) @Ability2 на (W) Arcane Torrent, который направляется в одного врага на большом расстоянии и наносит урон, равный <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) @Ability2. [W1] накладывает % SORCERESS_GLYPH_4_1_W1_STACKS_GENERATION %> щит за каждый каст, до максимума в <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> щита."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
 		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Активация этого умения позволяет выпускать поток тайной энергии в одного ближайшего врага каждые <% SORCERESS_GLYPH_5_1_INTERVAL %> секунды. Урон снарядов равен <% SORCERESS_GLYPH_5_1_AMPLIFY %>х урона (W) Arcane Explosion, умноженного на % текущей маны в сравнении с макс. маной."

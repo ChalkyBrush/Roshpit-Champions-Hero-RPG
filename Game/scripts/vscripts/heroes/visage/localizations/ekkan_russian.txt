@@ -268,7 +268,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"[T5-1] Glyph of Domination"
 		"item_rpc_ekkan_glyph_5_1_description" 				"Увеличивает максимальное количество подчинённых юнитов на <% EKKAN_GLYPH_5_1_Q_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"[T6-1] (T6)Glyph of Gargoyles"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"[T6-1] Glyph of Gargoyles"
 		"item_rpc_ekkan_glyph_6_1_description" 				"Увеличивает максимальное количество призываемых гаргулий на <% EKKAN_GLYPH_6_1_E_ADD_UNITS %>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"[T7-1] Glyph of Super Skeleton"
