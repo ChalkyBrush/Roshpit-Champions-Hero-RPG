@@ -59011,7 +59011,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_attack"			"300 2000 35000"
+				"magic_attack"			"300 2000 4000"
 			}
 		}
 		"Modifiers"
@@ -59251,7 +59251,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"300 1500 8000"
+				"burn_damage"			"300 1500 5000"
 			}
 		}
 		"Modifiers"
@@ -59417,7 +59417,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 1500 8000"
+				"impact_damage"		"300 650 1200"
 			}
 		}
 
@@ -59465,7 +59465,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 2000 10000"
+				"damage"				"800 2000 6000"
 			}
 			"02"
 			{
@@ -59480,7 +59480,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"800 2000 10000"
+				"burn_damage"			"600 800 1000"
 			}
 		}
 		"OnSpellStart"
@@ -59661,7 +59661,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"300 5000 50000"
+				"burn_damage"		"300 800 1100"
 			}
 
 			"03"
@@ -59720,7 +59720,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 200000"
+				"damage"					"2000 8000 17000"
 			}
 			"02"
 			{
