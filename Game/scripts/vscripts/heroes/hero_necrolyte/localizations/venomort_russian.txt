@@ -89,7 +89,7 @@
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
     	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <% VENOMORT_E2_TICK_RATE %> сек, в течение <% VENONORT_E2_DURATION %> сек. Урон от яда умножается на уровень героя. Пробивает иммунитет к магии."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Урон"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x уровень героя"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						""
 
 		
 		
