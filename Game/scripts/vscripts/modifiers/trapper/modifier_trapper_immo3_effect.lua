@@ -20,3 +20,7 @@ end
 function modifier_trapper_immo3_effect:IsHidden()
     return true
 end
+
+function modifier_trapper_immo3_effect:RemoveOnDeath()
+    return false
+end
