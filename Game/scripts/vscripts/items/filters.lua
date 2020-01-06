@@ -3774,7 +3774,7 @@ function Filters:DemonMask(caster, target, damage)
     local chance = DEMON_MASK_CHANCE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", DEMON_MASK_SAPPHIRE)
     local proc = Filters:GetProc(caster, chance)
     if proc then
-        local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY)
+        local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", DEMON_MASK_RUBY)
         damage = damage * (demon_mask_amp/100)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
         Util.Common:LimitPerTime(DEMON_MASK_MAX_PROCS_PER_SEC, 1, limitKey, function()
