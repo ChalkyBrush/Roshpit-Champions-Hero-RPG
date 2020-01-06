@@ -27,7 +27,7 @@
         "item_rpc_sapphire_lotus_sapphire1"                                 "提高智力值 @sapphire_property1"
         "item_rpc_sapphire_lotus_amethyst1"                                 "每点现有魔法值提高魔法穿透 @amethyst_property1"
 		"item_property_sapphire_lotus"				"蓝色魅力"
-		"property_sapphire_lotus_description"		"每点智力值额外增加<% ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值。"
+		"property_sapphire_lotus_description"		"每点智力值额外增加<% ITEM_RPC_SAPPHIRE_LOTUS_HP_PER_INT %>点最大生命值和 <% ITEM_RPC_SAPPHIRE_LOTUS_MP_PER_INT %>点最大魔法值"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
@@ -267,19 +267,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
-        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 T @ruby_property1符文"
-        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 T @emerald_property1符文"
-        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 T @sapphire_property1符文"
-        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 T @amethyst_property1符文"
+        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石"
+        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石"
+        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石"
+        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石"
 		"item_property_nobility"							"崇高之路"
 		"property_nobility_description"						"提高全属性 <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
         "item_rpc_ring_of_nobility_augmented_ruby1"                     "提高所有 T 1 符文 @ruby_property1"
-        "item_rpc_ring_of_nobility_augmented_emerald1"                      "提高所有 Tier 3 符文 @emerald_property1"
-        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "提高所有 Tier 2 符文 @sapphire_property1"
-        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "提高所有 Tier 4 符文 @amethyst_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "提高所有 T 3 符文 @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "提高所有 T 2 符文 @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "提高所有 T 4 符文 @amethyst_property1"
 		"item_property_nobility_augmented"					"崇高步伐"
 		"property_nobility_augmented_description"			"提高全属性 <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x 你的等级。该装备无法重铸。"
 		

@@ -91,9 +91,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，增加数值为系数X最低的属性除以最高的属性（乘法）"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" 秒"	
 
@@ -102,9 +102,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害，但是会暂时降低你的移动速度，该伤害为雕文的最低要求等级的总合的倍数。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"X 装备的雕文等级总合"		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"对周围的敌人造成伤害并且自身移动速度降低。使用升华后可回复移动速度。"

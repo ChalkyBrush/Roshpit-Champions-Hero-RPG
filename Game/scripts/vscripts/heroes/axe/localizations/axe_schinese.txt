@@ -1,22 +1,11 @@
-		"DOTA_Tooltip_ability_stun_attack"                              "骷髅锤"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。最远飞跃距离：1200。"
-        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
-        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "攻击速度增加："
-        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "溅射伤害："
-        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "骷髅锤buff持续时间："
-        "DOTA_Tooltip_ability_stun_attack_duration"                     "每次攻击眩晕持续时间："
- 
-        "DOTA_Tooltip_modifier_stun_attack"                             "骷髅锤"
-        "DOTA_Tooltip_modifier_stun_attack_Description"                 "对一定范围内敌人造成眩晕和伤害。"
- 
-        "DOTA_Tooltip_ability_red_general_skull_basher"                             "骷髅锤"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。飞跃时狂暴之怒的持续时间将暂停。"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
-        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "攻击速度增加："
-        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "溅射伤害："
-        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "骷髅锤buff持续时间："
-        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "每次攻击眩晕持续时间："
-        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "最远飞跃距离："
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"骷髅锤"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"攻击速度增加:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"溅射伤害:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"骷髅锤buff持续时间:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"每次攻击眩晕持续时间:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"溅射范围:"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] 实力扩张"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "赤色上将的攻击力将提高骷髅锤的伤害。"
@@ -30,8 +19,8 @@
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "每次充能基础攻击力"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix_two"                  ""
  
-        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "Berserker Rage"
-        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "Gaining Attack Speed."
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "狂暴之怒"
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "攻击速度提高."
  
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "狂暴之怒"
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "攻击速度和基础攻击力提高"
@@ -119,7 +108,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "提高魔法抗性和护甲"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] 旋风守护"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7秒。护盾抵挡一次伤害后被消耗，减伤 80%。概率超过 100% 有几率获得多层护盾。"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<% AXE_E4_REDUCTION * 100 %>%。概率超过 100% 有几率获得多层护盾。"
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "获得护盾概率"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
