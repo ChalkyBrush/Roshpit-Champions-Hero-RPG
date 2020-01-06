@@ -8,7 +8,7 @@ function jex_activate_cinderbark(event)
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 
-	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "Q")
+	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "E")
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)
 
@@ -27,7 +27,7 @@ function jex_activate_cinderbark(event)
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_cinderbark", {})
 	ability:ApplyDataDrivenModifier(caster, shroom, "modifier_jex_charged_mushroom_spawning", {duration = 0.3})
 
-	local attack_mult = event.attack_mult_per_tech * tech_level
+	local attack_mult = event.attack_mult_per_tech * ability.tech_level
 	local roshpit_attribute_mult = event.roshpit_attr_per_tech * ability.tech_level
 
 	Events:ColorWearablesAndBase(shroom, Vector(255, 190, 120))
