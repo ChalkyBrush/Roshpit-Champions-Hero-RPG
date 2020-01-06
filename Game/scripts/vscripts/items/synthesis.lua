@@ -571,7 +571,8 @@ function RPCItems:UseArcanaCache(caster, item)
 					RPCItems.LevelRoll = radiance
 					Events.reroll = true
 					for i = 1, 3, 1 do
-						local arcana = RPCItems:RollRandomArcana(radiance)
+						local level_for_arcana = RPCItems:RollItemLevelFromUnit(radiance)
+						local arcana = RPCItems:RollRandomArcana(level_for_arcana)
 						arcana.pickedUp = true
 						RPCItems:BasicDropItem(caster:GetAbsOrigin(), arcana)
 					end

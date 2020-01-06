@@ -355,6 +355,9 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 	if iLevel < original_unit_level - 40 then
 		iLevel = original_unit_level - 40
 	end
+	if iLevel < original_unit_level*0.65 then
+		iLevel = math.floor(original_unit_level*0.65)
+	end
 	print("ILEVEL: "..iLevel)
 	return math.min(math.floor(iLevel), 120)
 end
