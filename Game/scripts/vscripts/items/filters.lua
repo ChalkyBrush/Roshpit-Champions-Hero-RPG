@@ -5800,17 +5800,17 @@ function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
             end
         end
     end
-    dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
-    dummy:AddAbility("dummy_unit")
-    dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-    dummy:SetForwardVector(endFV)
+    local bluerain_dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+    bluerain_dummy:AddAbility("dummy_unit")
+    bluerain_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+    bluerain_dummy:SetForwardVector(endFV)
     local particleName = "particles/roshpit/items/blue_rain_gauntlet.vpcf"
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, dummy)
     ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin() + endFV * range)
     ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin() + endFV * range)
     Timers:CreateTimer(2, function()
-        UTIL_Remove(dummy)
+        UTIL_Remove(bluerain_dummy)
         ParticleManager:DestroyParticle(pfx, false)
     end)
 end
