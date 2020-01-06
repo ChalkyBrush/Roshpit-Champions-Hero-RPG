@@ -398,7 +398,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"		"<% RPC_ELEMENT_HOLY %>"
+				"element_one"			"<% RPC_ELEMENT_HOLY %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"3"
 			}
 		}
 		"Modifiers"

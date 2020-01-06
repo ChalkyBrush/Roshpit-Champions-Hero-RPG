@@ -176,7 +176,7 @@
 		
 		"paladin_disciple"													"Knight's Disciple"
 		"DOTA_Tooltip_ability_knights_disciple_heal"						"Empowering Light"
-		"DOTA_Tooltip_ability_knights_disciple_heal_Description"			"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд, максимальное количество зарядов - 30."
+		"DOTA_Tooltip_ability_knights_disciple_heal_Description"			"Союзники, ставшие целью исцеляющей способности (R) Knight's Disciple наделяются баффом, повышающим урон и броню за каждый тик исцеления. Усиление длится 16 секунд, максимальное количество зарядов - <% PALADIN_R2_MAX_STACKS %>."
 		"DOTA_Tooltip_ability_knights_disciple_bolt"						"Holy Bolt"
 		"DOTA_Tooltip_ability_knights_disciple_bolt_Description"			"(R) Knight's Disciple наделяется способностью ударить врага, нанося чистый урон на основании общего урона Паладина и оглушая цель на 0.1 секунды. Перезаряжается 5 секунд."
 		"DOTA_Tooltip_ability_knights_disciple_purifying_spark"				"Purifying Spark"
