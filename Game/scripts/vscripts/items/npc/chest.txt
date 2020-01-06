@@ -6832,6 +6832,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_violet_guard_armor_loss_visible"
 			{
