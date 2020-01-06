@@ -540,7 +540,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"normal_orb_a"			"70 100 130 160 190 220 250"
+				"normal_orb_a"			"70 85 90 95 100 110 125"
 			}
 			"02"
 			{
@@ -18868,7 +18868,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				"7 10 13 16 19 22 25"
+				"damage"				"10 15 20 25 30 35 40"
 			}
 		}
 	}
@@ -19241,7 +19241,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -32920,7 +32920,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.6"
 				}
 			}
 			"modifier_seinaru_arcana_agility_buff"
@@ -32992,8 +32992,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.6"
 			}
 		}
 	}
@@ -33443,7 +33443,7 @@
         		"Properties"
         		{
         			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"0.3"
-        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.05"
+        		    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.2"
         		}
         	}
         	"modifier_seinaru_q_2_speed"
@@ -34293,7 +34293,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.2"
 			}
 			"02"
 			{

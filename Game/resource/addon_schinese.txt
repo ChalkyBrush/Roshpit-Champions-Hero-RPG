@@ -3382,25 +3382,14 @@
         "DOTA_Tooltip_modifier_auriun_immortal_weapon_3_effect_Description"	"魔法免疫并降低生命回复速度"
 
 
-		"DOTA_Tooltip_ability_stun_attack"                              "骷髅锤"
-        "DOTA_Tooltip_ability_stun_attack_Description"                  "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。最远飞跃距离：1200。"
-        "DOTA_Tooltip_ability_stun_attack_Lore"                         ""
-        "DOTA_Tooltip_ability_stun_attack_attack_speed"                 "攻击速度增加："
-        "DOTA_Tooltip_ability_stun_attack_bolt_damage"                  "溅射伤害："
-        "DOTA_Tooltip_ability_stun_attack_buff_duration"                "骷髅锤buff持续时间："
-        "DOTA_Tooltip_ability_stun_attack_duration"                     "每次攻击眩晕持续时间："
- 
-        "DOTA_Tooltip_modifier_stun_attack"                             "骷髅锤"
-        "DOTA_Tooltip_modifier_stun_attack_Description"                 "对一定范围内敌人造成眩晕和伤害。"
- 
-        "DOTA_Tooltip_ability_red_general_skull_basher"                             "骷髅锤"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Description"                 "元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。飞跃时狂暴之怒的持续时间将暂停。"
-        "DOTA_Tooltip_ability_red_general_skull_basher_Lore"                            ""
-        "DOTA_Tooltip_ability_red_general_skull_basher_attack_speed"                    "攻击速度增加："
-        "DOTA_Tooltip_ability_red_general_skull_basher_bolt_damage"                 "溅射伤害："
-        "DOTA_Tooltip_ability_red_general_skull_basher_buff_duration"               "骷髅锤buff持续时间："
-        "DOTA_Tooltip_ability_red_general_skull_basher_duration"                    "每次攻击眩晕持续时间："
-        "DOTA_Tooltip_ability_red_general_skull_basher_cast_range"                  "最远飞跃距离："
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher"							"骷髅锤"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Description"			"元素： <font color=\"#DDDDDD\">普通</font><br>跳跃至目标地点，获得骷髅锤buff。buff持续时间内每次攻击都可眩晕范围内敌人，造成溅射伤害，并提高攻击速度。<br>飞跃时骷髅锤、复原、狂暴之怒的持续时间将刷新并暂停。"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_Lore"					""
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_attack_speed"			"攻击速度增加:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_damage"			"溅射伤害:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_buff_duration"		"骷髅锤buff持续时间:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_duration"				"每次攻击眩晕持续时间:"
+	"DOTA_Tooltip_ability_red_general_ability_base_q_skull_basher_bolt_aoe"				"溅射范围:"
 		
 		"DOTA_Tooltip_ability_axe_rune_q_1"                             "[Q1] 实力扩张"
         "DOTA_Tooltip_ability_axe_rune_q_1_Description"                 "赤色上将的攻击力将提高骷髅锤的伤害。"
@@ -3414,8 +3403,8 @@
         "DOTA_Tooltip_ability_axe_rune_q_2_property_two"                "每次充能基础攻击力"
         "DOTA_Tooltip_ability_axe_rune_q_2_suffix_two"                  ""
  
-        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "Berserker Rage"
-        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "Gaining Attack Speed."
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker"                  "狂暴之怒"
+        //"DOTA_Tooltip_modifier_axe_rune_q_2_stacker_description"      "攻击速度提高."
  
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible"                    "狂暴之怒"
         "DOTA_Tooltip_modifier_axe_rune_q_2_visible_Description"        "攻击速度和基础攻击力提高"
@@ -3503,7 +3492,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "提高魔法抗性和护甲"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] 旋风守护"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7秒。护盾抵挡一次伤害后被消耗，减伤 80%。概率超过 100% 有几率获得多层护盾。"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<font color='#ccff66'>40</font>%。概率超过 100% 有几率获得多层护盾。"
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "获得护盾概率"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -3798,9 +3787,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_2"							"[E2] 清洁"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。此外，增加[E3]巴哈姆特的脉搏的伤害，增加数值为系数X最低的属性除以最高的属性（乘法）"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_Description"				"当巴哈姆特开始施放升华时，召唤一群神鸟攻击前方的敌人。被击中的敌人将被冻结一段时间。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					"%"	
+    	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix"					""	
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_property_two"			"冻结持续时间"
     	"DOTA_Tooltip_ability_bahamut_rune_e_2_suffix_two"				" 秒"	
 
@@ -3809,9 +3798,9 @@
 		
 		
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害，但是会暂时降低你的移动速度，该伤害为雕文的最低要求等级的总合的倍数。"
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"X 装备的雕文等级总合"		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"对周围的敌人造成伤害并且自身移动速度降低。使用升华后可回复移动速度。"
@@ -11526,6 +11515,7 @@
 	"jex_onibi"		"杰克斯 鬼火"
 	"jex_charged_mushroom"			"充能之芽"
 	"jex_thunder_blossom"			"雷霆之花"
+	"jex_cinderbark_treant"			"Cinderbark Treant"
 
 	"tooltip_jex_q"					"[Q] 技能"
 	"tooltip_jex_w"					"[W] 技能"
@@ -14262,7 +14252,7 @@
 
 		"item_rpc_stormcrack_helm_ruby1"	"延长你造成的所有眩晕时间 @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"风暴裂痕效果每秒能多触发 @emerald_property1 次"
-		"item_rpc_stormcrack_helm_sapphire1" "风暴裂痕的伤害提高 @sapphire_propertyx 穿戴者的总属性"
+		"item_rpc_stormcrack_helm_sapphire1" "风暴裂痕的伤害提高 @sapphire_property1x 穿戴者的总属性"
 		"item_rpc_stormcrack_helm_amethyst1" "提高精神值 @amethyst_property1 和基础攻击力 @amethyst_property2"
 		
 		
@@ -14530,7 +14520,7 @@
         "item_rpc_sapphire_lotus_sapphire1"                                 "提高智力值 @sapphire_property1"
         "item_rpc_sapphire_lotus_amethyst1"                                 "每点现有魔法值提高魔法穿透 @amethyst_property1"
 		"item_property_sapphire_lotus"				"蓝色魅力"
-		"property_sapphire_lotus_description"		"每点智力值额外增加<font color='#ccff66'>10</font>点最大生命值。"
+		"property_sapphire_lotus_description"		"每点智力值额外增加<font color='#ccff66'>10</font>点最大生命值和 <font color='#ccff66'>5</font>点最大魔法值"
 
 		
 		"DOTA_Tooltip_ability_item_rpc_conquest_stone_falcon" 							"征服石猎鹰"
@@ -14770,19 +14760,19 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility"								"崇高戒指"
-        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 T @ruby_property1符文"
-        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 T @emerald_property1符文"
-        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 T @sapphire_property1符文"
-        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 T @amethyst_property1符文"
+        "item_rpc_ring_of_nobility_ruby1"                               "此戒指升级后, 将这个红宝石升级为 @ruby_property1 级宝石"
+        "item_rpc_ring_of_nobility_emerald1"                                "此戒指升级后, 将这个绿宝石升级为 @emerald_property1 级宝石"
+        "item_rpc_ring_of_nobility_sapphire1"                               "此戒指升级后, 将这个蓝宝石升级为 @sapphire_property1 级宝石"
+        "item_rpc_ring_of_nobility_amethyst1"                               "此戒指升级后, 将这个紫宝石升级为 @amethyst_property1 级宝石"
 		"item_property_nobility"							"崇高之路"
 		"property_nobility_description"						"提高全属性 <font color='#ccff66'>1</font>x 你的等级。当你杀死一个敌人时，该属性值提升。提升至10000时此戒指升级。升级后无法重铸。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"						"强力崇高戒指"
         "item_rpc_ring_of_nobility_augmented_ruby1"                     "提高所有 T 1 符文 @ruby_property1"
-        "item_rpc_ring_of_nobility_augmented_emerald1"                      "提高所有 Tier 3 符文 @emerald_property1"
-        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "提高所有 Tier 2 符文 @sapphire_property1"
-        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "提高所有 Tier 4 符文 @amethyst_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "提高所有 T 3 符文 @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "提高所有 T 2 符文 @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_amethyst1"                     "提高所有 T 4 符文 @amethyst_property1"
 		"item_property_nobility_augmented"					"崇高步伐"
 		"property_nobility_augmented_description"			"提高全属性 <font color='#ccff66'>2</font>x 你的等级。该装备无法重铸。"
 		
