@@ -4,6 +4,7 @@
 	"jex_onibi"		"Jex Onibi"
 	"jex_charged_mushroom"			"Charged Sproutling"
 	"jex_thunder_blossom"			"Thunder Blossom"
+	"jex_cinderbark_treant"			"Cinderbark Treant"
 
 	"tooltip_jex_q"					"Способность[Q]"
 	"tooltip_jex_w"					"Способность[W]"

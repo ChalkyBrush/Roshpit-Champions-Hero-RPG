@@ -4,6 +4,7 @@
 	"jex_onibi"		"杰克斯 鬼火"
 	"jex_charged_mushroom"			"充能之芽"
 	"jex_thunder_blossom"			"雷霆之花"
+	"jex_cinderbark_treant"			"Cinderbark Treant"
 
 	"tooltip_jex_q"					"[Q] 技能"
 	"tooltip_jex_w"					"[W] 技能"
