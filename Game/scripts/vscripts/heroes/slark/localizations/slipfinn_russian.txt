@@ -170,8 +170,8 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Бонусная Атака"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон<font color=\"#3894FF\">Воды</font>"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы атаки"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон <font color=\"#3894FF\">Воды</font>"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы Aтаки"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Внутри панциря повышаются показатели Брони и Пробитие Магической Защиты."

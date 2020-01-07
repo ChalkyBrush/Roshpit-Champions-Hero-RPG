@@ -64,7 +64,7 @@ function prone_start(event)
 				local bog_ability = caster:FindAbilityByName("slipfinn_bog_roller")
 				bog_ability.e_1_level = e_1_level
 				if e_1_level > 0 then
-					local stacks = SLIPFINN_E1_SPEED_BASE + e_1_level * SLIPFINN_E1_SPEED
+					local stacks = SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE + e_1_level * SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE
 
 					bog_ability.decay = stacks / (2 / 0.03)
 					bog_ability:ApplyDataDrivenModifier(caster, caster, "modifier_bog_roller_speedburst", {duration = 2})
