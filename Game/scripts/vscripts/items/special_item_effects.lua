@@ -4287,8 +4287,10 @@ function skull_cap_explode(caster, ability, target, position, damage)
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
-	EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
-
+	local key = 'skull_cap_explode_sound'
+	Util.Common:LimitPerTimeAndPlace(1, 2, target:GetAbsOrigin(), 700, key, function()
+		EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
+	end)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do

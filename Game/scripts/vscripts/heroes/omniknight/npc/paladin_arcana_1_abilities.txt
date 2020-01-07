@@ -18,17 +18,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 160 200 240 280 320 360"
+				"damage"				"<% PALADIN_ARCANA_W_DAMAGE %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_percentage"				"10"
+				"heal_percentage"				"<% PALADIN_ARCANA_W_HEAL_PCT %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"1100"
+				"cast_range"			"<% PALADIN_ARCANA_W_CAST_RANGE %>"
 			}
 		}
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
@@ -149,7 +149,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "<% PALADIN_ARCANA_W1_ATT_PCT %>"
 				}
 			}
 			"modifier_paladin_c_b_disarm"

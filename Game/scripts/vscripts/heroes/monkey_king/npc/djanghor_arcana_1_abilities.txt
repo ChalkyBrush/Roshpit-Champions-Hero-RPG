@@ -450,7 +450,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"70 75 80 85 90 95 100"
+				"damage_mult"			"70 80 90 100 125 145 160"
 			}
 			"02"
 			{
@@ -475,17 +475,17 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 120 210 300 390 480 570"
+				"damage"			"30 120 210 300 550 700 900"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"0.80 0.85 0.90 0.95 1.00 1.05 1.1"
+				"int_mult"			"0.8 0.9 1.1 1.4 1.6 1.8 2.0"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
+				"rend_armor_reduction"		"-25 -80 -200 -480 -600 -700 -820"
 			}
 		}
 		"OnAbilityPhaseStart"

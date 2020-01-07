@@ -105,7 +105,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies while it is toggled on."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					" per Hero Level"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
