@@ -188,9 +188,9 @@ function Gems:GetMithrilCostToAddSocket(item)
 	local cost = 0
 	local next_slot = Gems:NextSlotNumber(item)
 	if next_slot == 1 then
-		cost = item.newItemTable.minLevel*120
+		cost = item.newItemTable.minLevel*80
 	elseif next_slot == 2 then
-		cost = item.newItemTable.minLevel*1200
+		cost = item.newItemTable.minLevel*800
 	end
 	return cost
 end
