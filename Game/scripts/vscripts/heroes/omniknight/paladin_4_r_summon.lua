@@ -266,7 +266,7 @@ function disciple_heal_think(event)
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_effect_visible", {duration = healDuration})
 			end
 			local stackCount = target:GetModifierStackCount("modifier_paladin_rune_r_2_effect_visible", caster)
-			local newStacks = math.min(stackCount + 1, 30)
+			local newStacks = math.min(stackCount + 1, PALADIN_R2_MAX_STACKS)
 			target:SetModifierStackCount("modifier_paladin_rune_r_2_effect_visible", caster, newStacks)
 			if not target:HasModifier("modifier_paladin_rune_r_2_invisible") then
 				ability:ApplyDataDrivenModifier(caster, target, "modifier_paladin_rune_r_2_invisible", {duration = healDuration})

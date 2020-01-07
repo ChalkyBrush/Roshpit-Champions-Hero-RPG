@@ -289,7 +289,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% DJANGHOR_R3_BIRD_BAD_PCT %>"
 			}
 		}
