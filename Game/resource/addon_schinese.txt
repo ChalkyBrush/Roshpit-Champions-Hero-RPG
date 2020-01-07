@@ -1385,10 +1385,10 @@
 		"elder_rai_buy_greater_exp_orb"								"购买大型经验球"	
 
 		"DOTA_Tooltip_ability_item_rpc_exp_orb"						"经验球"
-		"item_rpc_exp_orb_description"								"提供 <font color='#ccff66'>100000</font> 经验值."
+		"item_rpc_exp_orb_description"								"提供 <font color='#ccff66'>500000</font> 经验值."
 
 		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"大型经验球"
-		"item_rpc_greater_exp_orb_description"						"提供 <font color='#ccff66'>2000000</font> 经验值."
+		"item_rpc_greater_exp_orb_description"						"提供 <font color='#ccff66'>10000000</font> 经验值."
 		"elder_rai_your_mithril_shards"								"你的秘银水晶"
 		"ui_cost"													"花费"
 
