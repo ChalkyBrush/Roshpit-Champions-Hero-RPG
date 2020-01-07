@@ -104,7 +104,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					" за Уровень Героя"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Наносит урон ближайшим врагам ценой скорости передвижения. Использование умения Ascension восстановит скорость передвижения."

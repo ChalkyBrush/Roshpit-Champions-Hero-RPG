@@ -211,6 +211,7 @@ end
 function bahamut_pulse_calculate_damage(caster)
 	-- local e_2_level = caster:GetRuneValue("e", 2)
 	local e_3_level = caster:GetRuneValue("e", 3)
+	local hero_level = caster::GetLevel()
 	-- local modifiers = caster:FindAllModifiers()
 	-- local glyphs_level = 0
 	-- for _, modifier in pairs(modifiers) do
@@ -221,7 +222,7 @@ function bahamut_pulse_calculate_damage(caster)
 	-- 	end
 	-- end
 	-- local e_2_mult = 1 + (e_2_level * BAHAMUT_E2_MAX_DAMAGE_INCREASE_PCT / 100 * (math.min(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect()) / math.max(caster:GetStrength(), caster:GetAgility(), caster:GetIntellect())))
-	return (e_3_level * BAHAMUT_E3_DAMAGE + BAHAMUT_E3_BASE_DAMAGE)
+	return (e_3_level * hero_level * BAHAMUT_E3_BASE_DAMAGE_PER_LVL)
 end
 
 function rune_e_3(caster, ability)
