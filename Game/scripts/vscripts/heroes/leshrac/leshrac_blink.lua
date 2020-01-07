@@ -211,7 +211,7 @@ end
 function bahamut_pulse_calculate_damage(caster)
 	-- local e_2_level = caster:GetRuneValue("e", 2)
 	local e_3_level = caster:GetRuneValue("e", 3)
-	local hero_level = caster::GetLevel()
+	local hero_level = caster:GetLevel()
 	-- local modifiers = caster:FindAllModifiers()
 	-- local glyphs_level = 0
 	-- for _, modifier in pairs(modifiers) do
