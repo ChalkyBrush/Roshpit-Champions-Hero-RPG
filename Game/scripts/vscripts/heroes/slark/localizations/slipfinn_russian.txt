@@ -145,7 +145,7 @@
         "property_slipfinn_arcana1_description"                               "Заменяет @Ability3 и все ее руны на Bog Roller."
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неузявимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неуязвимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% РАЗРУШЕНИЕ БРОНИ:"
         "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% УРОНА <font color=\"#7F4F84\">ТЕНИ</font> ОТ АТАКИ"
 
@@ -161,7 +161,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Урон"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% от силы Атаки"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Замедление Вращения"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              "%"
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает замедление и наносит урон по противникам поблизости" 
@@ -205,7 +205,7 @@
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Увеличивает длительность оглушения от Ground Pound на <% SLIPFINN_GLYPH_5_1_STUN_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"[T6-1] Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на <% SLIPFINN_GLYPH_6_1_STUN_MULT %>%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на <% SLIPFINN_GLYPH_6_1_STUN_MULT * 100 %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"[T7-1] Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Герой не может быть оглушен во время прыжков и бега в тени."

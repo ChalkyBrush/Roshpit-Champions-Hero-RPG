@@ -241,24 +241,29 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW %>"
+				"property_two"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT %>"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE %>"
+				"property_two_base"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_BASE_PCT %>"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"property_two_max"			"<% SLIPFINN_ARCANA_1_E1_SPEED_SLOW_PCT_CAP %>"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"11"
+				"base_ability"			"3"
 			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"11"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"				"14"

@@ -163,7 +163,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Roll Speed Slow"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              "%"
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
@@ -207,7 +207,7 @@
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to <% SLIPFINN_GLYPH_5_1_STUN_DURATION %> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"[T6-1] Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <% SLIPFINN_GLYPH_6_1_STUN_MULT %>%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <% SLIPFINN_GLYPH_6_1_STUN_MULT * 100 %>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"[T7-1] Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Cannot be stunned while jumping or shadow rushing."
