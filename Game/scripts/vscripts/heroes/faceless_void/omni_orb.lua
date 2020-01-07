@@ -124,6 +124,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		local filteredDamage = 0
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do

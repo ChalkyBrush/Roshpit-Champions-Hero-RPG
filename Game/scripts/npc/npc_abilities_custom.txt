@@ -117,7 +117,7 @@
 			"13"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"arcane_special_a"			"1 2 3 4 5 6 7"
+				"arcane_special_a"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
 			}
 			"14"
 			{
@@ -580,12 +580,12 @@
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"holy_orb_a"			"0.1 0.15 0.2 0.25 0.3 0.35 0.4"
+				"holy_orb_a"			"6 7 8 9 10 11 12"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"holy_orb_b"			"0.05 0.06 0.07 0.08 0.09 0.1 0.11"
+				"holy_orb_b"			"1 1.2 1.4 1.6 1.8 2 2.5"
 			}
 			"11"
 			{
@@ -600,7 +600,7 @@
 			"13"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_orb_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"ice_orb_a"			"2 2.5 3 4.5 4 5 6"
 			}
 			"14"
 			{
@@ -635,7 +635,7 @@
 			"20"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"wind_orb_b"			"0.05 0.06 0.07 0.08 0.09 0.1 0.12"
+				"wind_orb_b"			"6 7 8 9 10 11 12"
 			}
 			"21"
 			{
@@ -41422,7 +41422,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"75"
 			}
 			"02"
 			{
@@ -41459,19 +41459,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"70"
+				"property_one"			"1"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"3"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"
@@ -42121,7 +42116,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"70 75 80 85 90 95 100"
+				"damage_mult"			"70 80 90 100 125 145 160"
 			}
 			"02"
 			{
@@ -42146,17 +42141,17 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 120 210 300 390 480 570"
+				"damage"			"30 120 210 300 550 700 900"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_mult"			"0.80 0.85 0.90 0.95 1.00 1.05 1.1"
+				"int_mult"			"0.8 0.9 1.1 1.4 1.6 1.8 2.0"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"rend_armor_reduction"		"-10 -80 -180 -240 -300 -360 -420"
+				"rend_armor_reduction"		"-25 -80 -200 -480 -600 -700 -820"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -42602,7 +42597,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.02"
 			}
 		}
 	}
@@ -59050,29 +59045,34 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"2"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"			"0"
+				"property_two_base"			"30"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
+				"property_two_max"			"150"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"				"11"
+				"base_ability"			"3"
 			}
 			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"				"11"
+			}
+			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_two"				"14"
@@ -59101,7 +59101,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.4"
+				"property_two"			"1"
 			}
 			"03"
 			{
@@ -69693,12 +69693,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one_base"		"0.8"
+				"property_one_base"		"1"
 			}
 			"03"
 			{
@@ -70252,12 +70252,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 160 200 240 280 320 360"
+				"damage"				"180 450 1100 1300 1500 1700 2000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_percentage"				"10"
+				"heal_percentage"				"8"
 			}
 			"03"
 			{
@@ -70383,7 +70383,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1.2"
 				}
 			}
 			"modifier_paladin_c_b_disarm"
@@ -70516,7 +70516,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"1.2"
 			}
 		}
 	}
@@ -70535,12 +70535,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.6"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"3"
 			}
 			"03"
 			{
@@ -70573,7 +70573,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"0.12"
 			}
 		}
 	}
@@ -124227,7 +124227,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"7000 35000 140000"
+		"AbilityDamage"					"300 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -124240,17 +124240,39 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"140 140 140 140"
+				"radius"					"175"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"spread"					"353 353 353 353"
+				"spread"					"450"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"						"1300 1300 1300 1300"
+				"range"						"1500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"axe_damage"				"300 1000 5000"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"						"10"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_amp"				"6 8 10 12"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_cooldown"		"0"
+				"RequiresScepter"		"1"
 			}
 		}
 	}

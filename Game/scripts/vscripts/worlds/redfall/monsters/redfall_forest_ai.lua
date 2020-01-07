@@ -1291,9 +1291,11 @@ function redfall_unit_die(event)
 	end
 	local unit = event.unit
 	local luck = RandomInt(1, 2200 - GameState:GetPlayerPremiumStatusCount() * 100)
-	if luck == 1 and Redfall.TwigDropped == false then
-		Redfall.TwigDropped = true
-		Redfall:DropAshTwig(event.unit:GetAbsOrigin())
+	if luck == 1 then
+		if not Redfall.TwigDropped then
+			Redfall.TwigDropped = true
+			Redfall:DropAshTwig(event.unit:GetAbsOrigin())
+		end
 	end
 	if luck == 2 then
 		RPCItems:RollAndDropUniqueItem(event.unit, 'item_rpc_redfall_runners')

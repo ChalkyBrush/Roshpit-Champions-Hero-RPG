@@ -3429,7 +3429,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"Пока Ascension перезаряжается, она заменяется на [E3]. Это умение наносит урон всем ближайшим врагам ценой временного замедления героя. Прочтение Ascension возвратит потерянную скорость."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					" за Уровень Героя"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Наносит урон ближайшим врагам ценой скорости передвижения. Использование умения Ascension восстановит скорость передвижения."
@@ -7472,7 +7472,7 @@
 		"DOTA_Tooltip_modifier_omniro_time_freeze"						"Omni Orb: Время"
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"Заморожен во времени, получит урон после разморозки."
 
-		"omniro_holy_orb_description"									"Все противники в радиусе <font color='#ccff66'>550</font> получат урон (множитель от Интеллекта и брони). Герой и союзники будут исцелены на <font color='#ccff66'>2</font>% от урона."
+		"omniro_holy_orb_description"									"Все противники в радиусе <font color='#ccff66'>550</font> получат урон (множитель от Интеллекта и брони). Герой и союзники будут исцелены на <font color='#ccff66'>12</font>% от урона."
 		"omniro_holy_orb_a_pretext"										"УРОН % ИНТЕЛЛЕКТ:"				
 		"omniro_holy_orb_b_pretext"										"УРОН % БРОНЯ:"
 
@@ -8760,7 +8760,7 @@
         "property_slipfinn_arcana1_description"                               "Заменяет @Ability3 и все ее руны на Bog Roller."
 
         "DOTA_Tooltip_ability_slipfinn_bog_roller"                       "Bog Roller"
-        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неузявимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
+        "DOTA_Tooltip_ability_slipfinn_bog_roller_Description"           "Элемент: <font color=\"#7F4F84\">Тень</font><br>Slipfinn заворачивается в прочный панцирь и может перемещаться по местности в нем. Дает неуязвимость к магии. Внутри панциря герой атакует ближайшего противника каждые 0.06 секунды и движется вперед.<br>Bog Roller также даёт базовым атакам разрушение брони противника и пассивно добавляет к ним урон <font color=\"#7F4F84\">Тени</font>. Переключение способности сбрасывает летящие снаряды."
         "DOTA_Tooltip_ability_slipfinn_bog_roller_armor_break_percent"      "% РАЗРУШЕНИЕ БРОНИ:"
         "DOTA_Tooltip_ability_slipfinn_bog_roller_shadow_damage_on_attack"  "% УРОНА <font color=\"#7F4F84\">ТЕНИ</font> ОТ АТАКИ"
 
@@ -8776,7 +8776,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Урон"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% от силы Атаки"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Замедление Вращения"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              "%"
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Получает замедление и наносит урон по противникам поблизости" 
@@ -8785,8 +8785,8 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_Description"              "Дает Бонусную Атаку во время Bog Roller. Атаки нанесут дополнительно удар магическим уроном <font color=\"#3894FF\">Воды</font>."
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_one"             "Бонусная Атака"
         "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix"                   "%"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон<font color=\"#3894FF\">Воды</font>"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы атаки"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_property_two"             "Урон <font color=\"#3894FF\">Воды</font>"
+        "DOTA_Tooltip_ability_slipfinn_rune_e_2_arcana1_suffix_two"               "% от силы Aтаки"
 
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1"                          "[E3] Adamantium Shell"
         "DOTA_Tooltip_ability_slipfinn_rune_e_3_arcana1_Description"              "Внутри панциря повышаются показатели Брони и Пробитие Магической Защиты."
@@ -8820,7 +8820,7 @@
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Увеличивает длительность оглушения от Ground Pound на <font color='#ccff66'>1.8</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"[T6-1] Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на <font color='#ccff66'>1.5</font>%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Враги, которых пытается захватить герой с помощью (R) Possessive Bubble парализуются до конца прочтения. Время оглушения по высвобождению врага из пузыря увеличивается на <font color='#ccff66'>150</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"[T7-1] Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Герой не может быть оглушен во время прыжков и бега в тени."

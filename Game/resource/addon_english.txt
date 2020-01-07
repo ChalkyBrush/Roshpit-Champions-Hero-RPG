@@ -3426,7 +3426,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies while it is toggled on."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					" per Hero Level"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
@@ -8102,7 +8102,7 @@
 		"DOTA_Tooltip_modifier_omniro_time_freeze"						"Omni Orb: Temporal"
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"Frozen in time. Will take damage upon end of freeze"
 
-		"omniro_holy_orb_description"									"All enemies in a <font color='#ccff66'>550</font> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <font color='#ccff66'>2</font>% of the damage."
+		"omniro_holy_orb_description"									"All enemies in a <font color='#ccff66'>550</font> radius around Omniro take damage based on intelligence and armor. Omniro and his allies are healed for <font color='#ccff66'>12</font>% of the damage."
 		"omniro_holy_orb_a_pretext"										"DAMAGE % INTELLIGENCE:"				
 		"omniro_holy_orb_b_pretext"										"DAMAGE % ARMOR:"
 
@@ -9405,7 +9405,7 @@
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_one"         "Damage"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix"               "% of Attack Power"
         "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_property_two"         "Roll Speed Slow"
-        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              ""
+        "DOTA_Tooltip_ability_slipfinn_rune_e_1_arcana1_suffix_two"              "%"
 
         "DOTA_Tooltip_modifier_bog_roller_razor"                            "Turbine"
         "DOTA_Tooltip_modifier_bog_roller_razor_Description"                "Receiving a speed slow and damaging nearby enemies" 
@@ -9449,7 +9449,7 @@
 		"item_rpc_slipfinn_glyph_5_1_description" 				"Increases the stun duration of Ground Pound to <font color='#ccff66'>1.8</font> seconds."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_6_1"		"[T6-1] Glyph of Binding Possession"
-		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <font color='#ccff66'>1.5</font>%."
+		"item_rpc_slipfinn_glyph_6_1_description" 				"Enemies targeted by Possessive Bubble are paralyzed until the channel ends. The stun duration of disorienting pop when the enemy is released is increased by <font color='#ccff66'>150</font>%."
 
 		"DOTA_Tooltip_ability_item_rpc_slipfinn_glyph_7_1"		"[T7-1] Glyph of Slipping"
 		"item_rpc_slipfinn_glyph_7_1_description" 				"Cannot be stunned while jumping or shadow rushing."

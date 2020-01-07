@@ -7831,7 +7831,7 @@
 		"DOTA_Tooltip_modifier_omniro_time_freeze"						"全能之球：时"
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"被冻结。在冻结结束后将会受到一次伤害。"
 
-		"omniro_holy_orb_description"									"周围 <font color='#ccff66'>550</font>范围内的敌人将会受到基于奥尼洛护甲和智力值的伤害。奥尼洛和他的友军将会被治疗，治疗量为造成伤害的<font color='#ccff66'>2</font>%。"
+		"omniro_holy_orb_description"									"周围 <font color='#ccff66'>550</font>范围内的敌人将会受到基于奥尼洛护甲和智力值的伤害。奥尼洛和他的友军将会被治疗，治疗量为造成伤害的<font color='#ccff66'>12</font>%。"
 		"omniro_holy_orb_a_pretext"										"智力倍数的伤害："				
 		"omniro_holy_orb_b_pretext"										"护甲倍数的伤害："
 
