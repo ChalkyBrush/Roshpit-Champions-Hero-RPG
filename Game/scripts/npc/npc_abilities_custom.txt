@@ -42112,7 +42112,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"40 80 120 200 300 420 600"
+		"AbilityManaCost"				"40 80 120 180 220 260 300"
 
 		// Special
 		//-------------------------------------------------------
@@ -42602,7 +42602,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.01"
 			}
 		}
 	}
@@ -42638,7 +42638,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"1.7"
 			}
 			"02"
 			{
@@ -44223,7 +44223,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"40 80 120 200 300 420 600"
+		"AbilityManaCost"				"40 80 120 180 220 260 300"
 
 		// Special
 		//-------------------------------------------------------
@@ -44484,7 +44484,7 @@
 		"AbilityCooldown"				"1.2"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"40 90 150 250 380 550 800"
+		"AbilityManaCost"				"40 90 150 180 250 300 370"
 
 		// Special
 		//-------------------------------------------------------
@@ -44816,7 +44816,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"100 200 350 550 800 1100 1450"
+		"AbilityManaCost"				"100 200 350 550 600 780 900"
 
 		// Special
 		//-------------------------------------------------------
@@ -45266,7 +45266,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.03"
 			}
 		}
 	}
@@ -45301,8 +45301,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -69483,7 +69483,7 @@
 
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.02"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.05"
 				}
 			}
 			"modifier_paladin_rune_r_2_hidden_block"
@@ -70030,7 +70030,12 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"		"7"
+				"element_one"			"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"3"
 			}
 		}
 		"Modifiers"
@@ -70148,7 +70153,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.05"
 			}
 			"02"
 			{

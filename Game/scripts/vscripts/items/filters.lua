@@ -5807,7 +5807,7 @@ function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
     bluerain_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
     bluerain_dummy:SetForwardVector(endFV)
     local particleName = "particles/roshpit/items/blue_rain_gauntlet.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, dummy)
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, bluerain_dummy)
     ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin() + endFV * range)
     ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin() + endFV * range)
