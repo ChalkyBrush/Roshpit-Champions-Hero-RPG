@@ -146,7 +146,7 @@ function ConjureImage(caster, player, ability)
 	overCharge:SetLevel(caster:GetAbilityByIndex(DOTA_Q_SLOT):GetLevel())
 	overCharge:ApplyDataDrivenModifier(illusion, illusion, "modifier_gods_strength_datadriven", {duration = duration})
 
-	local attack_damage_inherit = VOLTEX_E1_ATTACK_POWER/100
+	local attack_damage_inherit = VOLTEX_E1_ATTACK_POWER/100 * e_1_level
 	illusion:AdjustSummon(caster, true, VOLTEX_E1_INHERITED_HEALTH, attack_damage_inherit, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR, VOLTEX_E1_INHERITED_ARMOR)
 
 	if caster:HasModifier("modifier_voltex_rune_r_3_avatar") then
