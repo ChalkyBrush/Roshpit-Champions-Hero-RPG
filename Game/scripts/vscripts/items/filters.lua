@@ -6860,12 +6860,12 @@ function Filters:SignusCast(slot, caster)
         if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
             local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SIGNUS_CHARM_GEM_RUBY)
             local e_ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
-            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
+            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce)
         end
         if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
             local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
             local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce)
+            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
         end
     end
     if slot == BASE_ABILITY_W then
