@@ -943,10 +943,10 @@ function sea_beast_think(event)
 					for i = -1, 1, 1 do
 						local rotatedFV = WallPhysics:rotateVector(fv, 2 * math.pi * i / 16)
 						local particle = "particles/base_attacks/ranged_tower_bad_linear.vpcf"
-						local start_radius = 120
-						local end_radius = 120
+						local start_radius = 80
+						local end_radius = 80
 						local range = 1500
-						local speed = 1200
+						local speed = 1100
 
 						
 
