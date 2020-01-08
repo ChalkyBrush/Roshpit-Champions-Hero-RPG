@@ -605,7 +605,7 @@ end
 
 function Curator:CurateAllGlyphsForHero(heroName)
 	local maxTiers = 1
-	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" then
+	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" or heroName == "paladin" then
 		maxTiers = 2
 	end
 	if heroName == "neutral" then
@@ -904,9 +904,9 @@ end
 
 function Curator:FullCurateHero(hero)
 	Curator:CurateHero(hero:GetPlayerOwnerID())
-	Timers:CreateTimer(5, function()
-		Curator:CurateBasicWeaponsAgain(hero)
-	end)
+	-- Timers:CreateTimer(5, function()
+	-- 	Curator:CurateBasicWeaponsAgain(hero)
+	-- end)
 	Timers:CreateTimer(10, function()
 		local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 		local columns = Glyphs:GetAvailableColumnCount(internalName)

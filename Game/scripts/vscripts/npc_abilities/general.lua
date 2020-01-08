@@ -53,7 +53,7 @@ function general_hero_think(event)
 
 	end
 	target.calculation_interval = target.calculation_interval + 1
-	if target.calculation_interval >= 10 then
+	if target.calculation_interval >= 30 then
 		CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 		target.calculation_interval = 0
 	end
