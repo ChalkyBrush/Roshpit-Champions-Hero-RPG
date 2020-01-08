@@ -57481,12 +57481,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 3000 12000"
+				"damage_per_hit" "1000 3000 5000"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_attack_speed" "-120 -200 -300"
+				"bonus_attack_speed" "-80 -100 -150"
 			}
 			"03"
 			{
