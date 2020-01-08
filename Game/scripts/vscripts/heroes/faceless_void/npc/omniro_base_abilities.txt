@@ -108,7 +108,7 @@
 			}
 			"13"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"arcane_special_a"			"<% OMNIRO_MACE_ARCANE_DMG_PER_MANA %>"
 			}
 			"14"

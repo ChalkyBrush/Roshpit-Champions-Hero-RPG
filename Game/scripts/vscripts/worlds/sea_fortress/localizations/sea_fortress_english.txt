@@ -180,6 +180,8 @@
 
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Waiting silently upon the mountains."
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_damage" "DAMAGE PER FLAME:"
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_pop_damage"	"EXPLOSION DAMAGE:"
 
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive"	"Sparkling Bloom"
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_Description"	"On death, explode and freeze nearby enemies."
