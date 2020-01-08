@@ -7743,7 +7743,7 @@
 		"DOTA_Tooltip_modifier_ice_debuff"								"全能权杖：冰"	
 		"DOTA_Tooltip_modifier_ice_debuff_Description"					"移动速度和攻击速度被降低"									
 
-		"omniro_arcane_special_description"									"汲取 <font color='#ccff66'>20</font>% 的最大魔法值来造成一 次额外伤害。"
+		"omniro_arcane_special_description"									"汲取 <font color='#ccff66'>5</font>% 的最大魔法值来造成一 次额外伤害。"
 		"omniro_arcane_special_a_pretext"										"X魔法汲取量："							
 
 		"omniro_shadow_special_description"									"造成一次额外伤害并且对敌人施加一个减甲的debuff，持续 <font color='#ccff66'>12</font> 秒。"

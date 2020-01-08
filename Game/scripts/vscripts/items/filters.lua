@@ -404,9 +404,12 @@ function Filters:ReduceCooldownAll(caster, ability, baseCD)
     end
 end
 
-function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
+function Filters:ReduceCooldownGeneric(caster, ability, CDreduce, minCD)
     local abilityCooldown = ability:GetCooldownTimeRemaining()
     local abilityCooldown = abilityCooldown - CDreduce
+    if minCD then
+        abilityCooldown = math.max(abilityCooldown, minCD)
+    end
     if abilityCooldown > 0 then
         ability:EndCooldown()
         ability:StartCooldown(abilityCooldown)
@@ -6857,7 +6860,7 @@ function Filters:SignusCast(slot, caster)
         if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
             local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SIGNUS_CHARM_GEM_RUBY)
             local e_ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
-            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce)
+            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
         end
         if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
             local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)

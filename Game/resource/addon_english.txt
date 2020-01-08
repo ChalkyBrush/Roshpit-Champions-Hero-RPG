@@ -4327,7 +4327,7 @@
     	"DOTA_Tooltip_modifier_earth_shock_attack_reduce_Description"		"Reduced Attack Damage"
 
     	"DOTA_Tooltip_ability_earth_deity_grand_guardian"					"Grand Guardian"
-    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +<font color='#ccff66'>50000</font> armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
+    	"DOTA_Tooltip_ability_earth_deity_grand_guardian_Description"		"Roll the target ally into a boulder and pull them towards the Earth Deity. While inside the deity, gain increased health regen and all abilities are disabled. If Conjuror is in the Deity, Earth Shock is not disabled and has increased cast range and no cooldown. The deity is immune to magic and has +<font color='#ccff66'>250000</font> armor while grand guardian is active, and he cannot move. Earth Deity can roll the guarded ally away which ends Grand Guardian. If Conjuror take lethal damage and this ability is not on cooldown, the Earth Deity grabs conjuror immediately and saves his life."
 
     	"DOTA_Tooltip_modifier_deity_grand_guardian"						"Grand Guardian"
     	"DOTA_Tooltip_modifier_deity_grand_guardian_Description"			"Magic Immunity and increased armor."
@@ -4488,7 +4488,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
         "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
-        "property_conjuror_immortal_weapon3_description"                      "Summoned aspects have Steadfast ability."     
+        "property_conjuror_immortal_weapon3_description"                      "Summoned aspects have Steadfast, a passive ability to decrease incoming damage by 20/35/50% depending on game difficulty."
 
 		//Abilities
 		"DOTA_Tooltip_ability_dinath_arctic_burn"								"Wyvern Fire"
@@ -8016,7 +8016,7 @@
 		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Ice"	
 		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Movespeed and Attack Speed slowed"									
 
-		"omniro_arcane_special_description"									"Drains <font color='#ccff66'>20</font>% of max mana to deal an additional instance of damage."
+		"omniro_arcane_special_description"									"Drains <font color='#ccff66'>5</font>% of max mana to deal an additional instance of damage."
 		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
 
 		"omniro_shadow_special_description"									"Deal an additional amplified instance of damage and apply a debuff to the target that reduces their Armor for <font color='#ccff66'>12</font> seconds."
@@ -11203,7 +11203,7 @@
 		"item_rpc_venomort_glyph_5_2_description" 				"Increases the maximum range of @Ability2 by @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"[T6-2] Glyph of Antibiotics"
-		"item_rpc_venomort_glyph_6_2_description" 				"All units summoned by any of Venomort's spells or runes (but not from other sources) have the Steadfast property."
+		"item_rpc_venomort_glyph_6_2_description" 				"All units summoned by any of Venomort's spells or runes (but not from other sources) have the Steadfast, a passive ability to decrease incoming damage by 20/35/50% depending on game difficulty."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"[T7-2] Glyph of Sudden Death"
 		"item_rpc_venomort_glyph_7_2_description" 				"Venomort deals @glyph_property2% increased damage to units whose current health is over @glyph_property1% of their maximum."
@@ -14957,7 +14957,7 @@
         "property_signus_description"               "Decreases cooldown of @Ability4 by <font color='#ccff66'>50</font>%. Increases the cooldown of @Ability3 by <font color='#ccff66'>125</font>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
-        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds"
+        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <font color='#ccff66'>1</font> seconds."
         "item_rpc_signus_charm_sapphire1"                                   "Increase Base Ability Damage by @sapphire_property1%"
         "item_rpc_signus_charm_amethyst1"                                   "Casting [E] applies a <font color='#ccff66'>5</font> second buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
 
@@ -17346,6 +17346,8 @@
 
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Waiting silently upon the mountains."
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_damage" "DAMAGE PER FLAME:"
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_pop_damage"	"EXPLOSION DAMAGE:"
 
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive"	"Sparkling Bloom"
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_Description"	"On death, explode and freeze nearby enemies."

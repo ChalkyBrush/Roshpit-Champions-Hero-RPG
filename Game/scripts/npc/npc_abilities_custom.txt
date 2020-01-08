@@ -116,8 +116,8 @@
 			}
 			"13"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"arcane_special_a"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+				"var_type"			"FIELD_FLOAT"
+				"arcane_special_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"14"
 			{
@@ -39159,7 +39159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2.5"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -48715,7 +48715,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -52149,7 +52149,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -52178,7 +52178,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -53690,7 +53690,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -82254,8 +82254,8 @@
 				"TextureName"	"winterblight/p2/crystal_yellow"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"50"
 				}
 			}
 			"modifier_merkurio_crystal_green"
@@ -116404,7 +116404,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"500 1500 7500"
+		"AbilityDamage"					"500 1500 4000"
 
 
 		// Precache
@@ -116429,7 +116429,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 1500 7500"
+				"damage"			"500 1500 4000"
 			}
 		}
 		"OnSpellStart"
@@ -117845,7 +117845,7 @@
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 6000 20000"
+		"AbilityDamage"					"2000 3000 4000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -145147,7 +145147,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 3200 42000"
+				"damage"			"500 1200 2000"
 			}
 		}
 		"Modifiers"
@@ -145361,12 +145361,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 3000 12000"
+				"damage_per_hit" "1000 3000 5000"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_attack_speed" "-120 -200 -300"
+				"bonus_attack_speed" "-80 -100 -150"
 			}
 			"03"
 			{
@@ -149356,7 +149356,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"10 30 300"
+				"poison_damage"			"10 30 100"
 			}
 		}
 		"Modifiers"
@@ -149680,12 +149680,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2000 5000"
+				"damage"			"500 1000 1500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"pop_damage"			"1000 3000 8000"
+				"pop_damage"			"1000 3000 6000"
 			}
 		}
 		"Modifiers"
@@ -149770,7 +149770,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"freeze_duration"			"1.5"
+				"freeze_duration"			"0.5"
 			}
 			"02"
 			{

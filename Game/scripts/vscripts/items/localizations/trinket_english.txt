@@ -505,7 +505,7 @@
         "property_signus_description"               "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
-        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds"
+        "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <% ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD %> seconds."
         "item_rpc_signus_charm_sapphire1"                                   "Increase Base Ability Damage by @sapphire_property1%"
         "item_rpc_signus_charm_amethyst1"                                   "Casting [E] applies a <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> second buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
 
