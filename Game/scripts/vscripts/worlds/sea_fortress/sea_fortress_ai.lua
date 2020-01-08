@@ -4531,7 +4531,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
-							ApplyDamage({victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+							ApplyDamage({victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster), damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
 							else
 								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
