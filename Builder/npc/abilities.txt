@@ -28546,7 +28546,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"500 1500 7500"
+		"AbilityDamage"					"500 1500 4000"
 
 
 		// Precache
@@ -28571,7 +28571,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 1500 7500"
+				"damage"			"500 1500 4000"
 			}
 		}
 		"OnSpellStart"
@@ -29987,7 +29987,7 @@
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 6000 20000"
+		"AbilityDamage"					"2000 3000 4000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
