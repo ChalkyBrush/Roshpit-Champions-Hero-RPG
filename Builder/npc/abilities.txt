@@ -57267,7 +57267,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 3200 42000"
+				"damage"			"500 1200 2000"
 			}
 		}
 		"Modifiers"
