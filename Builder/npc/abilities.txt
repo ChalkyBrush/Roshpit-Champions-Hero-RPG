@@ -61800,12 +61800,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2000 5000"
+				"damage"			"500 1000 1500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"pop_damage"			"1000 3000 8000"
+				"pop_damage"			"1000 3000 6000"
 			}
 		}
 		"Modifiers"
@@ -61890,7 +61890,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"freeze_duration"			"1.5"
+				"freeze_duration"			"0.5"
 			}
 			"02"
 			{
