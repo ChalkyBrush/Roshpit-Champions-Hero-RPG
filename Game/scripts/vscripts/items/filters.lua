@@ -1092,7 +1092,7 @@ function Filters:ApplyQskills(caster)
                     avatar:AddAbility(ability2:GetAbilityName()):SetLevel(abilityLevel)
                 end
                 avatar.origCaster = caster
-                avatar:AddAbility("normal_steadfast"):SetLevel(1)
+                avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
                 caster:ReduceMana(caster:GetMaxMana() * 0.5)
             end
         end
@@ -1488,7 +1488,7 @@ function Filters:ApplyRskills(caster)
                     avatar:AddAbility(ability2:GetAbilityName()):SetLevel(abilityLevel)
                 end
                 avatar.origCaster = caster
-                avatar:AddAbility("normal_steadfast"):SetLevel(1)
+                avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
                 caster:ReduceMana(caster:GetMaxMana() * 0.5)
             end
         end
