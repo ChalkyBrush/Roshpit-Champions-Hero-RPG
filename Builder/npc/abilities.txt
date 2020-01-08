@@ -61476,7 +61476,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"10 30 300"
+				"poison_damage"			"10 30 100"
 			}
 		}
 		"Modifiers"
