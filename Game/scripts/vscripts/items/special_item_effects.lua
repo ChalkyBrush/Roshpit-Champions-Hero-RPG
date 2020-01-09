@@ -6052,10 +6052,14 @@ function razor_band_take_damage(event)
 		local stacks = #ability.buff_table
 		target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
 	end
-	local self_removal_rate = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD1)
-	local self_health_removal = target:GetMaxHealth()*(self_removal_rate/100)
-	local newHealth = math.max(target:GetHealth() - self_health_removal, 1)
-	target:SetHealth(newHealth)
+	Timers:CreateTimer(0.03, function()
+		if target:IsAlive() then
+			local self_removal_rate = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD1)
+			local self_health_removal = target:GetMaxHealth()*(self_removal_rate/100)
+			local newHealth = math.max(target:GetHealth() - self_health_removal, 1)
+			target:SetHealth(newHealth)
+		end
+	end)
 end
 
 function razor_band_think(event)
