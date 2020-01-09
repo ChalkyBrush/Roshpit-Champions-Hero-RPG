@@ -162,6 +162,7 @@ Enemies.GLOBAL_ARCANE_CRYSTAL_MULT = 2
 
 Enemies.EXP_LEVEL_DIFFERENTIAL = 8
 Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.10
+Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY = 0.1
 
 Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER = 0.35
 
@@ -220,6 +221,7 @@ end
 
 function Enemies:InitializeEnemy(unit)
 	local base_level = unit:GetKeyValue("RoshpitLevel")
+	Enemies:AdjustUnitLevelForMapSpecial(unit, unit.roshpit_attributes.roshpit_level)
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
@@ -346,6 +348,32 @@ Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_spell_pierce"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.15
 Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"] = 0.05
 
+Enemies.LEVEL_ADJUST_PER_WINTERBLIGHT_STONE = 8
+Enemies.LEVEL_ADJUST_PER_SERENGAARD_INFINITE_WAVE = 0.2
+Enemies.LEVEL_ADJUST_FOR_SPIRIT_REALM_OR_EQUINOX = 16
+Enemies.LEVEL_ADJUST_PER_WINTER_CAVERN_CHAMBER_LEVEL = 0.4
+
+function Enemies:AdjustUnitLevelForMapSpecial(enemy, current_level)
+	local adjusted_level = current_level
+	if GameState:IsWinterblight() then
+		adjusted_level = adjusted_level + Winterblight.Stones*Enemies.LEVEL_ADJUST_PER_WINTERBLIGHT_STONE
+	elseif GameState:IsRPCArena() then
+		-- pit already adjusted
+	elseif GameState:IsSeaFortress() then
+		-- sea fortress already adjusted
+	elseif GameState:IsSerengaard() then
+		if Serengaard.InfiniteWaveCount then
+			adjusted_level = adjusted_level + Serengaard.InfiniteWaveCount*Enemies.LEVEL_ADJUST_PER_SERENGAARD_INFINITE_WAVE
+		end
+	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() then
+		if Events.SpiritRealm then
+			adjusted_level = adjusted_level + Enemies.LEVEL_ADJUST_FOR_SPIRIT_REALM_OR_EQUINOX
+		end
+	end
+	adjusted_level = math.floor(math.min(adjusted_level, 120))
+	enemy:SetRoshpitLevel(adjusted_level)
+end
+
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
 	if GameState:IsWinterblight() then
@@ -398,6 +426,9 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetMaxHealth(newHealth)
 	unit:SetBaseMaxHealth(newHealth)
 	unit:SetHealth(newHealth)
+
+	local new_unit_level = math.min(math.floor(unit:GetRoshpitLevel() + chamber_level*Enemies.LEVEL_ADJUST_PER_WINTER_CAVERN_CHAMBER_LEVEL), 120)
+	unit:SetRoshpitLevel(new_unit_level)
 end
 
 function CDOTA_BaseNPC:IsRegularEnemy(compare_unit)
@@ -507,7 +538,7 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	print(exp)
 	print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
-		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), 0.02)
+		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY )
 		print(exp_mult)
 		exp = exp*exp_mult
 	end
