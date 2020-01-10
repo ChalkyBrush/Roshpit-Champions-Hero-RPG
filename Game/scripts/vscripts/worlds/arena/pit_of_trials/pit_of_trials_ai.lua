@@ -294,10 +294,11 @@ end
 
 function mire_keeper_passive_damage(event)
 	local caster = event.caster
-	local modifier = caster:FindModifierByName("modifier_mire_keeper_passive_effect")
-	if modifier then
-		modifier:IncrementStackCount()
-	end
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mire_keeper_passive_effect", {duration = 5})
+    local currentStacks = caster:GetModifierStackCount("modifier_mire_keeper_passive_effect", caster)
+	local newStack = math.min(currentStacks + 1, 100)
+    caster:SetModifierStackCount("modifier_mire_keeper_passive_effect", caster, newStack)
 end
 
 function mountain_crush_cast(event)

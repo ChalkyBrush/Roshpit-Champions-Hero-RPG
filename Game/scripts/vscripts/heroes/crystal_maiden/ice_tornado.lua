@@ -18,7 +18,7 @@ function start_channel(event)
 		channel_complete(event)
 		caster:Stop()
 		ability:EndCooldown()
-		local cooldown = Filters:GetCDNoHood(caster, 0.7)
+		local cooldown = 0.7
 		ability:StartCooldown(cooldown)
 	end
 end
@@ -299,11 +299,11 @@ function tornado_damage_think(event)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
 	if ability.r_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = 3})
-		local newStacks = target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = SORCERESS_ARCANA1_R3_DURATION})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1, SORCERESS_ARCANA1_R3_MAX_STACKS)
 		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster, newStacks)
 
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_invisible", {duration = 3})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_invisible", {duration = SORCERESS_ARCANA1_R3_DURATION})
 		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", caster, newStacks * ability.r_3_level)
 	end
 end

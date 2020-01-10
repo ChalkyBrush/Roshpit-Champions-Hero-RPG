@@ -154,7 +154,7 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"МНОЖИТЕЛЬ УРОНА ОТ АТАКИ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые 0.5 секунды в течение 3 секунд."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые <% VENOMORT_ARCANA_1_R1_TICK_RATE %> секунды в течение <% VENOMORT_ARCANA_1_R1_DURATION %> секунд."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Периодический урон"
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% от Reaper's Judgement"
 
@@ -166,7 +166,7 @@
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформирется в щит, который длится 30 секунд и поглощает входящий урон."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформируется в щит, который длится 30 секунд и поглощает входящий урон."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Лечение"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% от урона"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Ёмкость щита"

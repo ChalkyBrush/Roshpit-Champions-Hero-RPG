@@ -226,7 +226,7 @@
 		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"Оглушает и наносит урон врагам мощным потоком энергии."
 
 		"DOTA_Tooltip_ability_redfall_ghost_mace"				"Ghost Mace"
-		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и снижая значение регенерации здоровья на определённый % на 3.5 секунды."
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и дополнительно снижает значение регенерации здоровья на определённый % на 3.5 секунды, если цель - герой."
 		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"

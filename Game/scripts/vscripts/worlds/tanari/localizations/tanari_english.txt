@@ -1254,7 +1254,7 @@
 		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Buffed by nearby allies who were slain nearby."
 
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Feeding Flame"
-		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Each instance of damage buffs the Flame Wraith"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Each instance of damage buffs the Flame Wraith. Max 100 stacks."
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"DAMAGE % PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"MOVESPEED PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ATTACKSPEED PER STACK:"

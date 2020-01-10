@@ -465,7 +465,7 @@
 		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Reduce movespeed and attack damage."
 
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
-		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage. Max 100 stacks."
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"DAMAGE PER STACK %"
 
 		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"

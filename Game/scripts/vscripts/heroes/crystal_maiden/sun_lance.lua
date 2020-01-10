@@ -94,7 +94,7 @@ function fireball_hit(event)
 		local target = target
 		-- local fireAbility = caster:FindAbilityByName("sorceress_fire_arcana_q")
 		-- local damage = fireAbility:GetLevelSpecialValueFor("damage", fireAbility:GetLevel() - 1) + fireAbility.q_4_level * SORCERESS_ARCANA2_Q4_INT_TO_DAMAGE * caster:GetIntellect()
-		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, SORCERESS_ARCANA2_Q3_DAMAGE_PCT * caster.q_3_level)
+		sorceress_firestorm_impact(caster, target, fireAbility, damage, true, SORCERESS_ARCANA2_Q3_DAMAGE_PCT/100 * caster.q_3_level)
 	end
 end
 

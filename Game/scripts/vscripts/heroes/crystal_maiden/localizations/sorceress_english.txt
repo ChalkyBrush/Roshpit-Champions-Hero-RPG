@@ -216,7 +216,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds, up to maximum of <% SORCERESS_ARCANA1_R3_MAX_STACKS %> stacks. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Ice Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
