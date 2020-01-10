@@ -61138,8 +61138,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"status_mult"		"1 1 1"
+				"var_type"			"FIELD_FLOAT"
+				"status_mult"		"0.2 0.35 0.5"
 			}
 			"02"
 			{

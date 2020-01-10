@@ -403,7 +403,7 @@ function prison_shank_attack(event)
 	local mult = event.status_mult
 	local ability = event.ability
 	if target:IsHero() then
-		local damage = (target:GetAgility() + target:GetStrength() + target:GetIntellect()) * mult
+		local damage = (target:GetAgility() + target:GetStrength() + target:GetIntellect() + target:GetSpirit()) * mult
 		ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_essence_shift.vpcf", target, 1.5)
 	end
