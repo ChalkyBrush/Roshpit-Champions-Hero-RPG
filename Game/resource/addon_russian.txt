@@ -8656,7 +8656,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, снижающий их Магическую Броню. Эффект длится <font color='#ccff66'>10</font> секунд. Враги, получившие урон от [W1] получают по 1 заряду"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, снижающий их Магическую Броню. Эффект длится <font color='#ccff66'>10</font> секунд. Враги, получившие урон от [W1] получают по 1 заряду. Максимум <font color='#ccff66'>10</font> зарядов."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Снижение Магической Брони"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
@@ -9462,7 +9462,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Враги, попадающие в область действия @Ability4 получают заряды этой руны каждые 0.5 секунды. Каждый заряд [R3] увеличивает получаемый врагами стихийный урон <font color=\"#87D9FF\">Льда</font> из всех источников."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Враги, попадающие в область действия @Ability4 получают заряды этой руны каждые 0.5 секунды. Каждый заряд [R3] увеличивает получаемый врагами стихийный урон <font color=\"#87D9FF\">Льда</font> из всех источников. Максимально <font color='#ccff66'>20</font> зарядов."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Урон Льда за заряд"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
@@ -10199,7 +10199,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "Бросает @Ability2 каждые <font color='#ccff66'>1400</font> пройденной дистанции. Smoke Bomb производит газ <font color='#ccff66'>1.5</font> раз дольше и имеет <font color='#ccff66'>1.5</font>x радиус газа."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "Урон <font color=\"#DDDDDD\">Нормальной</font> стихии увеличен на <font color='#ccff66'>100</font>%"
+        "item_rpc_trapper_glyph_6_1_description"                "Урон <font color=\"#DDDDDD\">Нормальной</font> стихии увеличен на <font color='#ccff66'>30</font>%"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 экземпляра каждой из ловушек @Ability1."
@@ -10225,7 +10225,7 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "[T6-2] Glyph of Hair Trigger"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] (T7-2) Glyph of Killer Instinct"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] Glyph of Killer Instinct"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"
@@ -10267,7 +10267,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Получает периодический урон"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Повторный каст обнуляет прежние заряды, длится <font color='#ccff66'>20</font> секунд. Максимум <font color='#ccff66'>50</font> зарядов."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <font color='#ccff66'>5</font> юнитов, боссы считаются за <font color='#ccff66'>20</font>. Повторный каст обнуляет прежние заряды, длится <font color='#ccff66'>20</font> секунд. Максимум <font color='#ccff66'>30</font> зарядов."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Базовый Урон Способностей"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% за юнита"
 
@@ -10411,7 +10411,7 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"МНОЖИТЕЛЬ УРОНА ОТ АТАКИ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые 0.5 секунды в течение 3 секунд."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые <font color='#ccff66'>0.5</font> секунды в течение <font color='#ccff66'>3</font> секунд."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Периодический урон"
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% от Reaper's Judgement"
 
@@ -10423,7 +10423,7 @@
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформирется в щит, который длится 30 секунд и поглощает входящий урон."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформируется в щит, который длится 30 секунд и поглощает входящий урон."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Лечение"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% от урона"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Ёмкость щита"
@@ -15501,11 +15501,11 @@
 		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Скорость передвижения и урон снижены."
 
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
-		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"При получении урона, существо увеличивает свой урон."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"При получении урона, существо увеличивает свой бонус урона атаки. Максимум 100 зарядов."
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"УРОН ЗА КАЖДЫЙ ЗАРЯД %"
 
 		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
-		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Увеличивает урон за кжадый заряд"
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Увеличивает бонусный урон атаки за каждый заряд"
 
 		"DOTA_Tooltip_ability_arena_mountain_crush"							"Mountain Crush"
 		"DOTA_Tooltip_ability_arena_mountain_crush_Description"				"Позволяет прыгнуть к цели, создавая мощное землетрясение по приземлении."	
@@ -16138,7 +16138,7 @@
 		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"Оглушает и наносит урон врагам мощным потоком энергии."
 
 		"DOTA_Tooltip_ability_redfall_ghost_mace"				"Ghost Mace"
-		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и снижая значение регенерации здоровья на определённый % на 3.5 секунды."
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и дополнительно снижает значение регенерации здоровья на определённый % на 3.5 секунды, если цель - герой."
 		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
@@ -19149,7 +19149,7 @@
 		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Усиляет ближайших союзников при смерти."
 
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Пожирающее пламя"
-		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Каждый раз, получая урон, сила существа увеличивается."
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Каждый раз, получая урон, сила существа увеличивается. Максимально 100 зарядов."
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"ДОП.УРОН ЗА ЗАРЯД, %:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"ДОП.СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ДОП. СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"

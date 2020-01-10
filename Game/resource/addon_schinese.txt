@@ -3800,7 +3800,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"X 英雄等级"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"对周围的敌人造成伤害并且自身移动速度降低。使用升华后可回复移动速度。"
@@ -10554,7 +10554,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "每当你移动 <font color='#ccff66'>1400</font> 码时将会自动释放@Ability2。烟幕弹的持续时间增加 <font color='#ccff66'>1.5</font> 并且范围增加 <font color='#ccff66'>1.5</font>。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] 工匠雕文"
-        "item_rpc_trapper_glyph_6_1_description"                "提高所有 <font color=\"#DDDDDD\">普通</font> 元素伤害 <font color='#ccff66'>100</font>%.。"
+        "item_rpc_trapper_glyph_6_1_description"                "提高所有 <font color=\"#DDDDDD\">普通</font> 元素伤害 <font color='#ccff66'>30</font>%.。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] 陷阱雕文"
         "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个同种陷阱。"
@@ -13618,6 +13618,9 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"绿砂铜护手"
+		"item_property_greensand_copper_gauntlets"										"明亮光辉" 
+    	"property_greensand_copper_gauntlets_description"								"镶嵌在此手套上的宝石能够提高穿戴者身上其他相同颜色宝石的效果"
+	
     	"item_rpc_greensand_copper_gauntlets_ruby1"						"所有其他装备上的 <font color=\"#f02929\">红</font> 宝石效果提高 @ruby_property1%"
     	"item_rpc_greensand_copper_gauntlets_emerald1"						"所有其他装备上的 <font color=\"#36d63b\">绿</font> 宝石效果提高 @emerald_property1%"
     	"item_rpc_greensand_copper_gauntlets_sapphire1"						"所有其他装备上的 <font color=\"#388af5\">蓝</font> 宝石效果提高 @sapphire_property1%"

@@ -9284,7 +9284,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% of Attack Power"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which reduces Magic Armor of that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack."
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Jumping on an enemy's head adds 2 stacks of Gloomshade which reduces Magic Armor of that enemy. Lasts <font color='#ccff66'>10</font> seconds. Enemies hit by Dark Bog gain 1 stack. Maximum <font color='#ccff66'>10</font> stacks."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Magic Armor Reduction"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 
@@ -10099,7 +10099,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds, up to maximum of <font color='#ccff66'>20</font> stacks. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Ice Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
@@ -10838,7 +10838,7 @@
         "item_rpc_trapper_glyph_5_1_description"                "Attempt to cast @Ability2 for free every time you move <font color='#ccff66'>1400</font> distance. Smoke Bombs last <font color='#ccff66'>1.5</font> times longer and have <font color='#ccff66'>1.5</font>x radius."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_1"       "[T6-1] Glyph of Craftsmanship"
-        "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=\"#DDDDDD\">Normal</font> damage by <font color='#ccff66'>100</font>%."
+        "item_rpc_trapper_glyph_6_1_description"                "Increases all <font color=\"#DDDDDD\">Normal</font> damage by <font color='#ccff66'>30</font>%."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_1"       "[T7-1] Glyph of Trapping"
         "item_rpc_trapper_glyph_7_1_description"                "You can have 2 traps of each type active at a time."
@@ -10912,7 +10912,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Taking damage over time"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Increases Base Ability Damage based on the number of targets Venomort infected with his most recent casting of Plague Spreader. Paragon enemies count as <font color='#ccff66'>5</font> units, while bosses count as <font color='#ccff66'>20</font>. Casting it again resets this bonus. Maximum <font color='#ccff66'>50</font> stacks. Lasts <font color='#ccff66'>20</font> seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Increases Base Ability Damage based on the number of targets Venomort infected with his most recent casting of Plague Spreader. Paragon enemies count as <font color='#ccff66'>5</font> units, while bosses count as <font color='#ccff66'>20</font>. Casting it again resets this bonus. Maximum <font color='#ccff66'>30</font> stacks. Lasts <font color='#ccff66'>20</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Base Ability Damage"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% per unit"
 
@@ -11089,7 +11089,7 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every 0.5 seconds for 3 seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every <font color='#ccff66'>0.5</font> seconds for <font color='#ccff66'>3</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
@@ -15662,7 +15662,7 @@
 		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Reduce movespeed and attack damage."
 
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
-		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage. Max 100 stacks."
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"DAMAGE PER STACK %"
 
 		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
@@ -19398,7 +19398,7 @@
 		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Buffed by nearby allies who were slain nearby."
 
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Feeding Flame"
-		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Each instance of damage buffs the Flame Wraith"
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Each instance of damage buffs the Flame Wraith. Max 100 stacks."
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"DAMAGE % PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"MOVESPEED PER STACK:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ATTACKSPEED PER STACK:"
