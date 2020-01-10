@@ -464,11 +464,11 @@
 		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Скорость передвижения и урон снижены."
 
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
-		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"При получении урона, существо увеличивает свой урон."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"При получении урона, существо увеличивает свой бонус урона атаки. Максимум 100 зарядов."
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"УРОН ЗА КАЖДЫЙ ЗАРЯД %"
 
 		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
-		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Увеличивает урон за кжадый заряд"
+		"DOTA_Tooltip_modifier_mire_keeper_passive_effect_Description"		"Увеличивает бонусный урон атаки за каждый заряд"
 
 		"DOTA_Tooltip_ability_arena_mountain_crush"							"Mountain Crush"
 		"DOTA_Tooltip_ability_arena_mountain_crush_Description"				"Позволяет прыгнуть к цели, создавая мощное землетрясение по приземлении."	

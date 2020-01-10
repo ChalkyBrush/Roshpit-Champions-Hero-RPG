@@ -86,7 +86,7 @@
 		    "modifier_venomort_arcana2_reaper_dot"
 		    {
 				"IsHidden"	"1"
-				"ThinkInterval" "0.6"
+				"ThinkInterval" "<% VENOMORT_ARCANA_1_R1_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -134,7 +134,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"0.2 0.25 0.3 0.35 0.4 0.45 0.5"
+				"damage_mult"			"<% VENOMORT_ARCANA_1_R_DAMAGE_MULT %>"
 			}
 		}
 	}

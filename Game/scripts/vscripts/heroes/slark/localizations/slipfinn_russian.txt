@@ -41,7 +41,7 @@
     	"DOTA_Tooltip_ability_slipfinn_rune_w_1_suffix_two"							"% от урона героя"
 
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2"									"[W2] Gloomshade Bounce"
-    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, снижающий их Магическую Броню. Эффект длится <% SLIPFINN_W2_DURATION %> секунд. Враги, получившие урон от [W1] получают по 1 заряду"
+    	"DOTA_Tooltip_ability_slipfinn_rune_w_2_Description"						"Прыгая по вражеским головам, герой оставляет на них 2 заряда этой руны, снижающий их Магическую Броню. Эффект длится <% SLIPFINN_W2_DURATION %> секунд. Враги, получившие урон от [W1] получают по 1 заряду. Максимум <% SLIPFINN_W2_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_property_one"						"Снижение Магической Брони"
     	"DOTA_Tooltip_ability_slipfinn_rune_w_2_suffix"								""
 

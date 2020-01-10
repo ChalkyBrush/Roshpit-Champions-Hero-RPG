@@ -3682,7 +3682,7 @@ function guillotine_strike_start(event)
 	local ability = event.ability
 	local target = event.target
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", target, 3)
-	local damage = target:GetHealth() * 0.8
+	local damage = target:GetHealth() * 0.4
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_culling_blade_hit_sparks.vpcf", target, 1)
 	EmitSoundOn("Seafortress.GuillotineStrike.Blood", target)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})

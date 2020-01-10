@@ -2336,7 +2336,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
         end
         if attacker:HasModifier('modifier_trapper_glyph_6_1') then
-            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_AMP
+            normalMult = normalMult + TRAPPER_GLYPH_6_1_NORMAL_AMP
         end
         normalMult = normalMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_normal", 1))/100
         mult = mult + normalMult
@@ -2377,7 +2377,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
                 runesCount = runesCount * SORCERESS_GLYPH_6_2_R3_MULT
             end
-            fireMult = fireMult + 0.1 * runesCount
+            fireMult = fireMult + SORCERESS_R3_FIRE_AMP * runesCount
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.q_4_level then

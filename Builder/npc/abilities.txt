@@ -684,7 +684,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "110"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "35"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"3"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"1"
 				}
 			}
 			"modifier_wind_temple_staff_blue"
@@ -3738,7 +3738,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_loss"			"-100 -1000 -5000"
+				"damage_loss"			"-20 -40 -80"
 			}
 			"02"
 			{
@@ -19383,7 +19383,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
 				}
 			}
 			"modifier_paragon_regen_aura"
@@ -20123,7 +20123,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-45 -300 -3000"
+				"damage_reduction"		"-45 -70 -90"
 			}
 			"02"
 			{
@@ -35049,12 +35049,6 @@
 				"IsHidden"	"1"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mire_keeper_passive_effect"
-						"Target" 		"CASTER"
-						"Duration"		"5"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
@@ -37250,12 +37244,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_percent"	"800"
+				"damage_percent"	"200"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"health_regen_percent"		"1.5"
+				"health_regen_percent"		"0.2"
 			}
 		}
 		"OnOwnerDied"
@@ -38036,12 +38030,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_damage"		"-80"
+				"attack_damage"		"-50"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"-520"
+				"attack_speed"		"-120"
 			}
 			"04"
 			{
@@ -38076,8 +38070,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-2"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-80"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-520"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-120"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
@@ -38523,7 +38517,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"30"
+				"damage_per_instance"			"10"
 			}
 		}
 		"Modifiers"
@@ -40849,7 +40843,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_percentage"				"10 100 400"
+				"damage_percentage"				"10 100 200"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -44034,7 +44028,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"			"1000"
+				"attack_damage_percent"			"200"
 			}
 			"02"
 			{
