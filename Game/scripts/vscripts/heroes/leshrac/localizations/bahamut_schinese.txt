@@ -104,7 +104,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] 巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"当升华冷却时，将被替换为巴哈姆特的脉搏。脉搏会对周围的所有敌人造成伤害。"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"伤害"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					"X 英雄等级"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"巴哈姆特的脉搏"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"对周围的敌人造成伤害并且自身移动速度降低。使用升华后可回复移动速度。"

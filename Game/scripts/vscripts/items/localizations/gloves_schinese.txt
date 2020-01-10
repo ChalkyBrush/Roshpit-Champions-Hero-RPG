@@ -328,6 +328,9 @@
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_greensand_copper_gauntlets"						"绿砂铜护手"
+		"item_property_greensand_copper_gauntlets"										"明亮光辉" 
+    	"property_greensand_copper_gauntlets_description"								"镶嵌在此手套上的宝石能够提高穿戴者身上其他相同颜色宝石的效果"
+	
     	"item_rpc_greensand_copper_gauntlets_ruby1"						"所有其他装备上的 <font color=\"#f02929\">红</font> 宝石效果提高 @ruby_property1%"
     	"item_rpc_greensand_copper_gauntlets_emerald1"						"所有其他装备上的 <font color=\"#36d63b\">绿</font> 宝石效果提高 @emerald_property1%"
     	"item_rpc_greensand_copper_gauntlets_sapphire1"						"所有其他装备上的 <font color=\"#388af5\">蓝</font> 宝石效果提高 @sapphire_property1%"
