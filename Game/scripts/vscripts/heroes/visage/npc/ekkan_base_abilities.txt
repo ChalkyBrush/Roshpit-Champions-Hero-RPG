@@ -1327,7 +1327,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"percent_attack_damage"	"60 85 110 140 160 180 200"
+				"percent_attack_damage"	"40 50 70 90 110 130 150"
 			}
 			"03"
 			{

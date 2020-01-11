@@ -470,7 +470,7 @@ function swarm_poison_think(event)
 	local target = event.target
 	local ability = event.ability
 	if IsValidEntity(caster) then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*EKKAN_ARCANA_Q2_POISON_PER_ATTACK
 		Filters:ApplyDotDamage(caster.hero, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
 	end
 end
