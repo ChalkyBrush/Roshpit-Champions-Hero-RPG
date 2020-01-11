@@ -1258,10 +1258,11 @@ end
 function merkurio_crystal_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
+	local crystal_refresh_duration = 40
 	if not caster:HasModifier("modifier_merkurio_crystal_disabled") then
 		caster:SetRenderColor(50, 50, 50)
 		EmitSoundOn("Winterblight.MerkurioCrystal.Deactivate", caster)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_merkurio_crystal_disabled", {duration = 15})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_merkurio_crystal_disabled", {duration = crystal_refresh_duration})
 		local color = caster.crystal_color
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
