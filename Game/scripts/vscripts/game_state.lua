@@ -1624,6 +1624,9 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_challenge_pure_resist") then
+			damage = damage * (100 - victim:GetModifierStackCount("modifier_challenge_pure_resist", Events.GameMaster))/100
+		end
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
 		end

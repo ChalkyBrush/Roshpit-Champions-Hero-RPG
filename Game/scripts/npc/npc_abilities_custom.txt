@@ -64892,7 +64892,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"5 10 15 20 30 45 60"
+				"damage_mult"			"20 40 60 80 100 120 140"
 			}
 			"02"
 			{
@@ -65024,7 +65024,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
 				}
 			}
 		}
@@ -65048,7 +65048,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -65068,7 +65068,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -99938,6 +99938,10 @@
 						"target"		"TARGET"
 					}
 				}
+			}
+			"modifier_challenge_pure_resist"
+			{
+				"IsHidden"	"1"
 			}
 			"modifier_spike_damage"
 			{
