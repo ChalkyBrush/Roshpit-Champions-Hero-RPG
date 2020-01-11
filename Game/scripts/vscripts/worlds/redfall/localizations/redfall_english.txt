@@ -221,7 +221,7 @@
 		"redfall_canyon_predator"								"Canyon Predator"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor."
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor. Maximum 100 stacks."
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"DAMAGE % PER STACK:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ARMOR PER STACK:"
 
