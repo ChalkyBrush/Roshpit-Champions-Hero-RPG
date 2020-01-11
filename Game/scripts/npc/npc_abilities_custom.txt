@@ -85408,6 +85408,75 @@
 		}
 	}
 
+	"wailing_snow_specter_aura"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"death_prophet_carrion_swarm"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"pierces_reduction"			"-200 -2000 -8000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"maze_specter_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_wailing_snow_specter_aura"
+			{
+				"EffectName"		"particles/roshpit/winterblight/wailing_snow_specter_aura.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"IsPurgable"			"0"
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"0"
+				"Aura"					"modifier_wailing_snow_specter_aura_debuff"
+				"Aura_Radius"			"1500"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_wailing_snow_specter_aura_debuff"
+			{
+				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"		"particles/roshpit/winterblight/wailing_snow_specter_aura_ring.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}	
+			}
+		}
+	}
 
 
 	"soul_ferrier_passive"

@@ -1627,6 +1627,12 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
 		end
+	    if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+	        local threshold = victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1)/100
+	        if victim:GetHealth() < victim:GetMaxHealth()*threshold then
+	            damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST2)/100)
+	        end
+	    end
 		if victim:HasModifier("modifier_guardian_stone") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
 		end
@@ -2959,10 +2965,10 @@ function GameState:FilterDamage(filterTable)
 		end
 	end
 
-	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
+	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") or victim:HasModifier("modifier_rupthold_borrowed_time") and applyEffects then
 		local healAmount = filterTable["damage"]
 		filterTable["damage"] = 0
-		victim:Heal(healAmount, victim)
+		Filters:ApplyHeal(victim, victim, healAmount, true, false, nil)
 	end
 
 	if victim:HasModifier("modifier_in_hydrogen_field") then
@@ -3442,6 +3448,15 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 		end
+		if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") and not rezzed then
+			if victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+				if not victim:HasModifier("modifier_rupthold_borrowed_time_cooldown") then
+					filterTable["damage"] = victim:GetHealth() - 2
+					rezzed = true
+					Filters:RuptholdsTrigger(victim)
+				end
+			end
+		end
 		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
@@ -3567,7 +3582,7 @@ function GameState:FilterDamage(filterTable)
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
-			-- filterTable["damage"] = 0
+			-- filterTable["damage"] = victim:GetHealth() - 10
 		end
 		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if attacker:IsHero() then
@@ -3579,7 +3594,7 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			-- filterTable["damage"] = 999999999999
+			filterTable["damage"] = 999999999999
 		end
 	end
 

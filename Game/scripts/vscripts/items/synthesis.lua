@@ -486,16 +486,16 @@ function RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 	elseif minLevelAVG < 50 then
 		bonus = bonus + RandomInt(1, 5)
 	elseif minLevelAVG < 60 then
-		bonus = bonus + RandomInt(-3, 6)
+		bonus = bonus + RandomInt(-1, 6)
 	elseif minLevelAVG < 70 then
-		bonus = bonus + RandomInt(-3, 5)
+		bonus = bonus + RandomInt(-1, 5)
 	elseif minLevelAVG < 80 then
-		bonus = bonus + RandomInt(-4, 3)
-	elseif minLevelAVG < 90 then
-		bonus = bonus + RandomInt(-3, 2)
+		bonus = bonus + RandomInt(-2, 3)
 	elseif minLevelAVG < 100 then
-		bonus = bonus + RandomInt(-4, 2)
-	elseif minLevelAVG == 100 then
+		bonus = bonus + RandomInt(-3, 3)
+	elseif minLevelAVG < 120 then
+		bonus = bonus + RandomInt(-3, 2)
+	elseif minLevelAVG == 120 then
 		bonus = 0
 	end
 	local new_min_level = math.min(minLevelAVG + bonus, 120)

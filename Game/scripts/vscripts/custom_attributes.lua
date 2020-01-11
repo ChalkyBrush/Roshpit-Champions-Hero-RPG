@@ -585,6 +585,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_arena_grave_chill_target") then
 		armor_modify = armor_modify - CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_target")
 	end
+
 	if unit:HasModifier("modifier_arena_grave_chill_caster") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_caster")
 	end
@@ -2189,6 +2190,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_world_tree_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
+		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2631,6 +2635,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_world_tree_effect") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
+	end
+	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
+		spell_pierce_modify = spell_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3503,6 +3510,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE
+	end
+	if excludedModifier ~= "modifier_ruptholds_helm_of_gluttony" and hero:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*(ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY))
 	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)

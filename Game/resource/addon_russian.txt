@@ -14072,7 +14072,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>6</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>12</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Увеличивает Максимальное Здоровье за единицу Силы дополнительно на @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Увеличивает Базовую Атаку героя за единицу Силы на @emerald_property1"
@@ -14096,7 +14096,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>0.3</font>x от силы Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
+		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>1</font>x от силы Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Скелеты-лучники получают 50% шанс появиться c Огненными стрелами, нанося урон от стрел по области @ruby_property1"
 		"item_rpc_scourge_knights_helm_emerald1"	"Скелеты-лучники получают 50% шанс появиться с Ядовитыми стрелами, нанося @emerald_property1% от силы Атаки героя-призывателя в течение <font color='#ccff66'>3</font> сек"
@@ -14691,7 +14691,7 @@
         "DOTA_Tooltip_ability_item_rpc_lifesource_vessel"                               "Lifesource Vessel"
 
         "item_property_lifesource_vessel"           "Lifesource"
-        "property_lifesource_vessel_description"    "Любой Атрибут увеличивает запас Здоровья на <font color='#ccff66'>3</font>."
+        "property_lifesource_vessel_description"    "Любой Атрибут увеличивает запас Здоровья на <font color='#ccff66'>6</font>."
 
         "item_rpc_lifesource_vessel_ruby1"                              "Восстанавливает @ruby_property1% от запаса Здоровья каждые <font color='#ccff66'>5</font> сек"
         "item_rpc_lifesource_vessel_emerald1"                               "Любой Атрибут увеличивает регенерацию Здоровья на @emerald_property1"

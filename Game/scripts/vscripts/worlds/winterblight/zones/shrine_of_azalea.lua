@@ -57,7 +57,7 @@ end
 
 function Winterblight:SpawnCup4()
 	Timers:CreateTimer(1.6, function()
-		if Winterblight.RuptholdSlain then
+		if Winterblight.RuptholdSlain or Winterblight.AllMazeSpectersSlain then
 			if Winterblight:CupSpawnCondition(4) then
 				Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(0, -1), 4)
 			end
@@ -3286,6 +3286,7 @@ function Winterblight:InitAzaleaMazeRoom()
 	if not Winterblight.AzaleaMazeRoomSpawned then
 		Winterblight.AzaleaMazeRoomSpawned = true
 		local ghostPositionTable = {Vector(-2560, -10368), Vector(-3584, -15872), Vector(-2944, -15232), Vector(-3840, -14848), Vector(-2984, -14464), Vector(-2588, -13440), Vector(-3840, -12800), Vector(-2688, -12416), Vector(-3328, -13824), Vector(-2944, -11776), Vector(-3584, -11103), Vector(-2304, -11104), Vector(-2912, -10368)}
+		local wailingSpecterTable = {Vector(-3840, -15250), Vector(-3840, -14750), Vector(-3840, -14250), Vector(-3840, -13750), Vector(-3840, -13250), Vector(-3840, -12750), Vector(-3840, -12250), Vector(-3840, -11750), Vector(-3840, -11250), Vector(-3840, -10750), Vector(-3840, -15872), Vector(-3262, -15872), Vector(-2729, -15872), Vector(-2729, -15184), Vector(-3268, -15184), Vector(-3269, -14485), Vector(-2729, -14485), Vector(-2729, -13848), Vector(-2729, -13105), Vector(-3251, -13105), Vector(-3251, -12480), Vector(-2729, -12480), Vector(-3277, -11787), Vector(-2586, -11787), Vector(-1930, -11787), Vector(-1930, -11126), Vector(-2612, -11126), Vector(-3297, -11126), Vector(-3297, -10372), Vector(-2582, -10372), Vector(-1934, -10372), Vector(-5969, -15990), Vector(-5969, -15408), Vector(-5285, -15990), Vector(-5285, -15408), Vector(-4608, -15990), Vector(-4608, -15408)}
 		local mazeGhost = CreateUnitByName("azalea_maze_ghost", ghostPositionTable[RandomInt(1, #ghostPositionTable)] + RandomVector(150), false, nil, nil, DOTA_TEAM_NEUTRALS)
 		mazeGhost.food = 0
 		FindClearSpaceForUnit(mazeGhost, mazeGhost:GetAbsOrigin(), false)
@@ -3304,6 +3305,10 @@ function Winterblight:InitAzaleaMazeRoom()
 		local crystalPositions = WallPhysics:ShuffleTable(ghostPositionTable)
 		for i = 1, 3, 1 do
 			Winterblight:SpawnMazeFoodCrystal(crystalPositions[i], i, positionTable)
+		end
+		local wailingSpecterTable = WallPhysics:ShuffleTable(wailingSpecterTable)
+		for i = 1, 3, 1 do
+			Winterblight:SpawnWailingMazeSpecter(wailingSpecterTable[i], RandomVector(1))
 		end
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
@@ -3636,9 +3641,9 @@ function Winterblight:SpawnBladeWielder(position, fv)
 end
 
 function Winterblight:SpawnMazeFoodCrystal(position, index, positionTable)
-	local position = position + Vector(0, 0, 520 + Winterblight.ZFLOAT)
+	local position = position + Vector(0, 0, 620 + Winterblight.ZFLOAT)
 	local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 50))
+	crystal:SetAbsOrigin(crystal:GetAbsOrigin() + Vector(0, 0, 150))
 	local yaw = 345
 	crystal:SetAngles(0, yaw, 0)
 
@@ -3974,6 +3979,7 @@ end
 
 function Winterblight:RuptholdWall()
 	if not Winterblight.RuptholdWallOpened then
+		Winterblight:SpawnCup4()
 		Winterblight.RuptholdWallOpened = true
 		local walls = Entities:FindAllByNameWithin("AzaleaWall7", Vector(-7918, -15008, -4094 + Winterblight.ZFLOAT), 2400)
 		EmitSoundOnLocationWithCaster(Vector(-7918, -15008), "Winterblight.WallOpen", Events.GameMaster)
@@ -5379,4 +5385,9 @@ function Winterblight:GetRandomOrthokPosition()
 		position = Vector(14336, -11826) + Vector(RandomInt(0, 1300), RandomInt(0, 1300))
 	end
 	return position
+end
+
+function Winterblight:SpawnWailingMazeSpecter(position, fv)
+	local stone = Winterblight:SpawnDungeonUnit("azalea_shrine_maze_specter", position, 0, 1, "Winterblight.ShrineSpecter.Aggro", fv, false)
+	return stone
 end
