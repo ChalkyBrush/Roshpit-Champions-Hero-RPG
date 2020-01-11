@@ -5599,7 +5599,7 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Замедлен и теряет здоровье"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются, из-за чего теряют часть Брони и Магической Защиты получают урон со временем, зависящий от урона подчинённого юнита. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются и получают урон от яда, <font color='#ccff66'>100</font>% от урона подчинённого юнита, и теряют часть Брони и Магической Защиты. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Бонус к базовому урону за поглощённый труп"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Снижение Брони и Магической Защиты"
@@ -6299,7 +6299,7 @@
 
     	"DOTA_Tooltip_ability_epoch_arcana_ability"							"Temporal Grip"
     	"DOTA_Tooltip_ability_epoch_arcana_ability_Description"				"Epoch Guardian заключает врагов в вечной пустоте. С каждым срабатыванием этой способности все враги будут незамедлительно атакованы героем."	
-    	"DOTA_Tooltip_ability_epoch_arcana_ability_root_duration"			"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖЕВАНИЯ:"
+    	"DOTA_Tooltip_ability_epoch_arcana_ability_root_duration"			"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖИВАНИЯ:"
 
     	"DOTA_Tooltip_modifier_epoch_arcana_root"							"Temporal Grip"
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Обездвижен"	
@@ -6311,7 +6311,7 @@
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Пробития Брони и Магической Защиты пассивно увеличены."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защитын"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защиты"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"
@@ -15764,7 +15764,7 @@
 		"arena_descent_nightmare"												"Павший Кошмар"
 
 		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа. Максимум 20 зарядов."
 		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"ДОП. УРОН ЗА ЗАРЯД %:"
 
 		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
@@ -16130,7 +16130,7 @@
 		"redfall_canyon_predator"								"Хищник Каньона"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее и выносливее. "
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее. Максимально 100 зарядов, которые увеличивают бонусный урон атаки и броню. "
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"ДОП. УРОН ЗА СТАК, %:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ДОП. БРОНЯ ЗА СТАК:"
 

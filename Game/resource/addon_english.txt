@@ -5652,7 +5652,7 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Slowed and losing life"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on <font color='#ccff66'>100</font>% of the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Base Attack Damage Per Corpse"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Armor and Magic Armor Loss"
@@ -6211,7 +6211,7 @@
     	"DOTA_Tooltip_modifier_eon_channel_enemy_Description"					"Attack damage stolen"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_3"									"[Q3] Aeon Strike"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"Attacking drains <font color='#ccff66'>5</font>% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_Description"						"Attacking drains <font color='#ccff66'>1</font>% of Epoch Guardian's maximum mana to deal an additional instance of damage on impact based on the amount of mana drained."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_property_one"						"Damage"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_suffix"							"x Mana Drained"
 
@@ -6370,7 +6370,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"
-    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"Epoch Guardian's attacks drain <font color='#ccff66'>20</font>% of mana and deal extra pure damage based on mana drained. His maximum mana pool increases his base damage."
+    	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_Description"				"Epoch Guardian's attacks drain <font color='#ccff66'>1</font>% of mana and deal extra pure damage based on mana drained. His maximum mana pool increases his base damage."
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_one"				"Damage Bonus"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_suffix"					"x Mana Drained"
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1_property_two"				"Extra Base Attack Damage"
@@ -15952,7 +15952,7 @@
 		"arena_descent_nightmare"												"Descent Nightmare"
 
 		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage. Maximum 20 stacks."
 		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
 
 		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
@@ -16330,7 +16330,7 @@
 		"redfall_canyon_predator"								"Canyon Predator"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor."
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor. Maximum 100 stacks."
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"DAMAGE % PER STACK:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ARMOR PER STACK:"
 
