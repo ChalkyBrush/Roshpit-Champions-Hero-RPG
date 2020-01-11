@@ -6904,7 +6904,7 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     if type(item.newItemTable.socket1value) == "number" then
         item.newItemTable.socket1value = math.min(item.newItemTable.socket1value + 1, 5)
     end
-    if type(item.newItemTable.socket1value) == "number" then
+    if type(item.newItemTable.socket2value) == "number" then
         item.newItemTable.socket2value = math.min(item.newItemTable.socket2value + 1, 5)
     end
     item.pickedUp = true
