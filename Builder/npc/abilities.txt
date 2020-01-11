@@ -38528,12 +38528,6 @@
 				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_descent_guard_passive_effect"
-						"Target" 		"CASTER"
-						"Duration"		"7"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
