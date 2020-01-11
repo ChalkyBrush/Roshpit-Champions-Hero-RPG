@@ -42272,12 +42272,6 @@
 				"IsHidden"	"1"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_canyon_predator_effect"
-						"Target" 		"CASTER"
-						"Duration"		"5"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
