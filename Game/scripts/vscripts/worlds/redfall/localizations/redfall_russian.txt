@@ -218,7 +218,7 @@
 		"redfall_canyon_predator"								"Хищник Каньона"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее и выносливее. "
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее. Максимально 100 зарядов, которые увеличивают бонусный урон атаки и броню. "
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"ДОП. УРОН ЗА СТАК, %:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ДОП. БРОНЯ ЗА СТАК:"
 
