@@ -52345,6 +52345,14 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/phantom_assassin/arcana/magnet"
+						"Function"		"magnet_end"
+					}
+				}
 			}
 			"modifier_disable_player"
 			{
