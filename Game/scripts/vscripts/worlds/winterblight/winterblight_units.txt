@@ -14839,7 +14839,8 @@
         {
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
-            "particle"  "particles/roshpit/winterblight/tiamat_fire.vpcf"
+            "particle"  "particles/roshpit/winterblight/tiamat_flame_path.vpcf"
+            "particle"  "particles/roshpit/winterblight/tiamat_flame_circle.vpcf"
         }
 
         "ArmorPhysical" "0"

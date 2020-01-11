@@ -7029,4 +7029,5 @@ function Filters:RuptholdsTrigger(hero)
     rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time", {duration = buff_duration})
     rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time_cooldown", {duration = ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN})
     EmitSoundOn("RPCItems.Rupthold.SapphireBorrowedTime", hero)
+    rupthold_helm.apply_time = GameRules:GetGameTime()
 end
