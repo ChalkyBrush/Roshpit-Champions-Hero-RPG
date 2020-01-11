@@ -1053,14 +1053,15 @@ function challenger8ai(caster)
 	end
 	caster.interval = caster.interval + 1
 	--print(caster.interval)
-	if caster.interval == 42 then
-		--print("AXE MODE!")
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		caster.axeEnemy = enemies[1]
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_war_rally_axe_throwing", {duration = 5})
-		caster.interval = 0
-		return
-	end
+	-- AXES ARE CRASHING FIX THIS SHIT
+	-- if caster.interval == 42 then
+	-- 	--print("AXE MODE!")
+	-- 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 3500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	-- 	caster.axeEnemy = enemies[1]
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_war_rally_axe_throwing", {duration = 5})
+	-- 	caster.interval = 0
+	-- 	return
+	-- end
 	local warcryAbility = caster:FindAbilityByName("arena_god_of_war")
 	if warcryAbility:IsFullyCastable() then
 		local newOrder = {
