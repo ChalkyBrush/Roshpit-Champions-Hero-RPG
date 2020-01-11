@@ -35037,8 +35037,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_instance"			"1.5"
 			}
 		}
 		"Modifiers"
@@ -42256,7 +42256,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3 4 5"
+				"damage_per_instance"			"1"
 			}
 			"02"
 			{
