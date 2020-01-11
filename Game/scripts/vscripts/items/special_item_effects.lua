@@ -10275,3 +10275,25 @@ function torch_of_gengar_think(event)
 		end
 	end
 end
+
+function rupthold_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local health_regen_loss_per_stack = 0.1
+	hero:RemoveModifierByName("modifier_rupthold_regen_reduction")
+	local health_regen_loss = hero:GetHealthRegen()
+	if ability:GetGemValue("emerald") > 0 then
+		health_regen_loss = health_regen_loss - (hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_EMERALD))/100)
+	end
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_rupthold_regen_reduction", {})
+	
+	hero:SetModifierStackCount("modifier_rupthold_regen_reduction", caster, health_regen_loss/health_regen_loss_per_stack)
+
+	if hero:HasModifier("modifier_rupthold_borrowed_time") then
+		if ability.apply_time < GameRules:GetGameTime() + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_MAX_DURATION then
+			hero:RemoveModifierByName("modifier_rupthold_borrowed_time")
+		end
+	end
+end

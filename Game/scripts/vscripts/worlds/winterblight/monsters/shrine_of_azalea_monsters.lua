@@ -1829,7 +1829,7 @@ function rupthold_death(event)
 	local ability = event.ability
 	EmitSoundOn("Winterblight.Rupthold.Death", caster)
 	Winterblight.RuptholdSlain = true
-	Winterblight:SpawnCup4()
+	RPCItems:RollAndDropUniqueItem(caster, "item_rpc_ruptholds_helm_of_gluttony")
 	Timers:CreateTimer(3, function()
 		Winterblight:RuptholdWall()
 	end)
@@ -3872,5 +3872,20 @@ function captain_reynar_thinking(event)
 				end)
 			end)
 		end
+	end
+end
+
+function maze_specter_die(event)
+	local caster = event.caster
+	if not Winterblight.MazeSpectersSlain then
+		Winterblight.MazeSpectersSlain = 0
+	end
+	EmitSoundOn("Winterblight.ShrineSpecter.Death", caster)
+	Winterblight.MazeSpectersSlain = Winterblight.MazeSpectersSlain + 1
+	if Winterblight.MazeSpectersSlain == 3 then
+		Winterblight.AllMazeSpectersSlain = true
+		Timers:CreateTimer(3, function()
+			Winterblight:RuptholdWall()
+		end)
 	end
 end

@@ -2298,6 +2298,123 @@
 		}
 	}
 
+	"item_rpc_ruptholds_helm_of_gluttony"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/ruptholds_helm_of_gluttony"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"	"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+			"particle"	"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ruptholds_helm_of_gluttony"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"rupthold_think"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_rupthold_regen_reduction"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_rupthold_borrowed_time"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_rupthold_regen_reduction"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-0.1"
+				}
+			}
+			"modifier_rupthold_borrowed_time"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"StatusEffectName" 		"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+				"StatusEffectPriority"  "150"
+			}
+			"modifier_rupthold_borrowed_time_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"					"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_EMERALD %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"<% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST2 %>"
+			}
+		}
+	}
+
 	"item_rpc_mask_of_tyrius"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2337,7 +2454,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% TYRIUS_SAPPHIRE2 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% TYRIUS_AMETHYST %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"<% TYRIUS_AMETHYST2 %>"
 			}
 		}
 		"OnSpellStart"

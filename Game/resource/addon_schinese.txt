@@ -14027,7 +14027,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"提瑞斯面具"
 		"item_property_tyrius"						"提瑞斯之威"
-		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>6</font>点生命值和<font color='#ccff66'>2</font>点魔法值。"
+		"property_tyrius_description"				"每点力量额外提高<font color='#ccff66'>12</font>点生命值和<font color='#ccff66'>2</font>点魔法值。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
@@ -14082,7 +14082,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"天灾骑士头盔"
 		"item_property_scourge_knight"				"亡灵统帅"
-		"property_scourge_knight_description"		"施放 @Ability4 后，召唤5个骷髅弓箭手。弓箭手拥有 <font color='#ccff66'>0.3</font>x 你的攻击力。持续时间<font color='#ccff66'>15</font>秒，或被攻击<font color='#ccff66'>5</font>次后消失"
+		"property_scourge_knight_description"		"施放 @Ability4 后，召唤5个骷髅弓箭手。弓箭手拥有 <font color='#ccff66'>1</font>x 你的攻击力。持续时间<font color='#ccff66'>15</font>秒，或被攻击<font color='#ccff66'>5</font>次后消失"
 		"item_rpc_scourge_knights_helm_ruby1"	"骷髅弓箭手有 50% 概率射出火箭, 在 @ruby_property1 范围内造成伤害"
 		"item_rpc_scourge_knights_helm_emerald1"	"骷髅弓箭手有 50% 概率射出毒箭, 每秒造成 @emerald_property1% 你的攻击力的伤害，持续 <font color='#ccff66'>3</font> 秒"
 		"item_rpc_scourge_knights_helm_sapphire1" "骷髅弓箭手有 50% 概率射出冰箭, 降低敌人的攻击速度和移动速度@sapphire_property1 ，持续<font color='#ccff66'>5</font> 秒"
@@ -14598,7 +14598,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_lifesource_vessel"								"生命源泉"
 		"item_property_lifesource_vessel"			"生命源泉"
-        "property_lifesource_vessel_description"    "全属性值提高最大生命值 <font color='#ccff66'>3</font>."
+        "property_lifesource_vessel_description"    "全属性值提高最大生命值 <font color='#ccff66'>6</font>."
 
         "item_rpc_lifesource_vessel_ruby1"                              "每 <font color='#ccff66'>5</font> 秒回复 @ruby_property1% 最大生命值 "
         "item_rpc_lifesource_vessel_emerald1"                               "全属性增加生命回复 @emerald_property1"

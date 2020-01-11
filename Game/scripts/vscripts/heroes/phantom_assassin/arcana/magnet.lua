@@ -257,3 +257,8 @@ function magnet_slide_end(event)
 		end
 	end)
 end
+
+function magnet_end(event)
+	local ability = event.ability
+	ability.target_table = false
+end

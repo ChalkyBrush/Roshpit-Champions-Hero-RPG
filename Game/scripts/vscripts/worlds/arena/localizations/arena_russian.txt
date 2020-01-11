@@ -727,7 +727,7 @@
 		"arena_descent_nightmare"												"Павший Кошмар"
 
 		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"С каждой атакой увеличивает урон существа. Максимум 20 зарядов."
 		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"ДОП. УРОН ЗА ЗАРЯД %:"
 
 		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"

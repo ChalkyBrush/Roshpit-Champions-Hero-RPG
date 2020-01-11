@@ -33,28 +33,13 @@ end
 function epoch_glyph_5_1_attack_land(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = attacker:FindAbilityByName("time_genesis_orb")
 	local w_2_level = attacker:GetRuneValue("w", 2)
 	if w_2_level > 0 then
-		local finalStacksCount = w_2_level
-		local currentStacks = 0
-		local currentTargetArmor = target:GetPhysicalArmorValue(false)
-		if target:HasModifier("modifier_epoch_rune_w_2_visible") then
-			currentStacks = target:GetModifierStackCount("modifier_epoch_rune_w_2_visible", attacker)
-			currentTargetArmor = currentTargetArmor + (currentStacks * EPOCH_W2_ARMOR_REDUCTION)
-		end
-		if currentTargetArmor > 0 then
-			local runesToDecrease = (currentTargetArmor + EPOCH_W2_MAX_NEGATIVE_ARMOR) / EPOCH_W2_ARMOR_REDUCTION - w_2_level
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil ((currentTargetArmor + EPOCH_W2_MAX_NEGATIVE_ARMOR) / EPOCH_W2_ARMOR_REDUCTION);
-			end
-		else
-			local runesToDecrease = EPOCH_W2_MAX_NEGATIVE_ARMOR / EPOCH_W2_ARMOR_REDUCTION - w_2_level
-			if runesToDecrease < 0 then
-				finalStacksCount = math.ceil (EPOCH_W2_MAX_NEGATIVE_ARMOR / EPOCH_W2_ARMOR_REDUCTION);
-			end
-		end
-		local abilityToApplyModifier = attacker:FindAbilityByName("time_genesis_orb")
-		abilityToApplyModifier:ApplyDataDrivenModifier(attacker, target, "modifier_epoch_rune_w_2_visible", {duration = 6})
-		target:SetModifierStackCount("modifier_epoch_rune_w_2_visible", attacker, finalStacksCount)
+		local currentStacks = target:GetModifierStackCount("modifier_epoch_rune_w_2_visible", attacker)
+		local new_stacks = math.min(currentStacks + 1, EPOCH_W2_MAX_STACKS)
+		ability:ApplyDataDrivenModifier(attacker, target, "modifier_epoch_rune_w_2_visible", {duration = EPOCH_W2_DURATION})
+		target:SetModifierStackCount("modifier_epoch_rune_w_2_visible", attacker, new_stacks)
+		target:CalculateAndSaveRoshpitAttributes()
 	end
 end

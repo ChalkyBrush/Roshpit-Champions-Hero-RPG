@@ -11999,6 +11999,10 @@
 					}
 				}
 			}
+			"modifier_challenge_pure_resist"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_spike_damage"
 			{
 				"Passive"			"0"
@@ -35037,8 +35041,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_instance"			"1.5"
 			}
 		}
 		"Modifiers"
@@ -37724,12 +37728,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"1000 3000 30000"
+				"damage_min"				"1000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"60000"
+				"damage_max"				"6000"
 			}
 			"03"
 			{
@@ -38528,12 +38532,6 @@
 				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_descent_guard_passive_effect"
-						"Target" 		"CASTER"
-						"Duration"		"7"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
@@ -42256,7 +42254,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3 4 5"
+				"damage_per_instance"			"1"
 			}
 			"02"
 			{
@@ -42272,12 +42270,6 @@
 				"IsHidden"	"1"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_canyon_predator_effect"
-						"Target" 		"CASTER"
-						"Duration"		"5"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
@@ -54988,7 +54980,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -55001,7 +54993,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 1500 15000"
+				"damage"				"100 250 750"
 			}
 		}
 

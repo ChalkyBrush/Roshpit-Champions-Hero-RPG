@@ -9,6 +9,7 @@ if Challenges == nil then
 	Challenges.SpeedMult = 1
 	Challenges.AttackPowerMult = 1
 	Challenges.BossMult = 1
+	Challenges.PureResist = 0
 end
 
 function Challenges:GetChallengeFromRoshpitServer()
@@ -553,6 +554,8 @@ function Challenges:SetChallengeParameters()
 		elseif mod["mod_type"] == "mob_speed" then
 			-- done
 			Challenges.MobSpeed = mod["mod_int1"]
+		elseif mod["mod_type"] == "mob_pure_resist" then
+			Challenges.PureResist = mod["mod_int1"]
 		end
 	end
 end
@@ -617,6 +620,10 @@ function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	if Challenges.MobSpeed then
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_mob_speed", {})
 		unit:SetModifierStackCount("modifier_challenge_mob_speed", Events.GameMaster, Challenges.MobSpeed)
+	end
+	if Challenges.PureResist and Challenges.PureResist > 0 then
+		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_pure_resist", {})
+		unit:SetModifierStackCount("modifier_challenge_pure_resist", Events.GameMaster, Challenges.PureResist)
 	end
 end
 

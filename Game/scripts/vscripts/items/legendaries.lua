@@ -1266,6 +1266,26 @@ function RPCItems:RollMaskOfTyrius(item_level)
     return item
 end
 
+function RPCItems:RollRuptholdsHelmOfGluttony(item_level)
+    local item_slot = RPC_GEAR_SLOT_HEAD
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_ruptholds_helm_of_gluttony", "immortal", "Helm Of The Mountain Giant", "head", true, "Slot: Head")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_ruptholds_helm_of_gluttony"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ruptholds_helm_of_gluttony", "#434589", 1, "#property_ruptholds_helm_of_glutton_description")
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 3)   
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollOceanHelmOfValdun(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -6904,8 +6924,8 @@ function RPCItems:CreateAugmentedRingOfNobility(hero, ability)
     if type(item.newItemTable.socket1value) == "number" then
         item.newItemTable.socket1value = math.min(item.newItemTable.socket1value + 1, 5)
     end
-    if type(item.newItemTable.socket1value) == "number" then
-        item.newItemTable.socket1value = math.min(item.newItemTable.socket1value + 1, 5)
+    if type(item.newItemTable.socket2value) == "number" then
+        item.newItemTable.socket2value = math.min(item.newItemTable.socket2value + 1, 5)
     end
     item.pickedUp = true
     RPCItems:ItemUpdateCustomNetTables(item)
@@ -7876,6 +7896,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollSandTombOrb(item_level)
     elseif itemName == "item_rpc_stargazers_sphere" then
         newItem = RPCItems:RollStargazersSphere(item_level)
+    elseif itemName == "item_rpc_ruptholds_helm_of_gluttony" then
+        newItem = RPCItems:RollRuptholdsHelmOfGluttony(item_level)
     end
     return newItem
 end

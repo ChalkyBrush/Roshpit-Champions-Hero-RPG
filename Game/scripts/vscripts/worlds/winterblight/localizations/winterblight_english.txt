@@ -436,6 +436,10 @@
 		"DOTA_Tooltip_modifier_rupthold_effect"					"Glutton's Malodor"
 		"DOTA_Tooltip_modifier_rupthold_effect_Description"		"Reduced health regen and cannot heal"	
 
+		"DOTA_Tooltip_wailing_snow_specter_aura"		"Banshee Aura"
+		"DOTA_Tooltip_wailing_snow_specter_aura_Description"	"Enemies within range of the aura have reduce Armor Pierce and Spell Pierce"
+		"DOTA_Tooltip_wailing_snow_specter_aura_pierces_reduction"	"PIERCE REDUCTION:"
+
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive"	"Gargoyle Skin"
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive_Description"	"Reduces pure damage taken"
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive_pure_resist"	"PURE RESIST:"
@@ -696,6 +700,7 @@
 		"winterblight_bladewielder"								"Bladewielder"
 		"azalea_shrine_megmus"									"Shrine Megmus"
 		"rupthold_the_glutton"									"Rupthold the Glutton"
+		"azalea_shrine_maze_specter"							"Wailing Snow Specter"
 		"rupthold_ghost"										"Chilling Ghost"
 		"azalea_grave_summoner"									"Azalea Grave Summoner"
 		"winterblight_blue_gargoyle"							"Blue Gargoyle"
@@ -1141,7 +1146,7 @@
 		"winterblight_cavern_room1_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room1_event2"							"Hell on Ice"
-		"winterblight_cavern_room1_event2_description"				"A dozen terrifying Gelid Soultakers patrol the chamber."
+		"winterblight_cavern_room1_event2_description"				"A half dozen Gelid Soultakers patrol the chamber."
 
 		"winterblight_cavern_room1_event3"							"Dimensional Portals"
 		"winterblight_cavern_room1_event3_description"				"Waves of enemies spawn from dimensional portals. All creatures have 1% health regen per event level, up to a max of 20%."

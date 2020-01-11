@@ -2706,10 +2706,12 @@ end
 function descent_guard_passive_damage(event)
 	local caster = event.caster
 	local target = event.target
-	local modifier = caster:FindModifierByName("modifier_descent_guard_passive_effect")
-	if modifier then
-		modifier:IncrementStackCount()
-	end
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_descent_guard_passive_effect", {duration = 7})
+    local currentStacks = caster:GetModifierStackCount("modifier_descent_guard_passive_effect", caster)
+	local newStack = math.min(currentStacks + 1, 20)
+    caster:SetModifierStackCount("modifier_descent_guard_passive_effect", caster, newStack)
+	
 	local particleName = "particles/econ/items/gyrocopter/hero_gyrocopter_atomic_gold/gyro_rocket_barrage_atomic_gold.vpcf"
     local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(lightningBolt,1,caster:GetAbsOrigin()+Vector(0,0,100))  

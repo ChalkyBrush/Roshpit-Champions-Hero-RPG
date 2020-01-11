@@ -103,11 +103,12 @@ end
 
 function predator_passive_damage(event)
 	local caster = event.caster
-	local modifier = caster:FindModifierByName("modifier_canyon_predator_effect")
-	if modifier then
-		modifier:IncrementStackCount()
-		caster:CalculateAndSaveRoshpitAttributes()
-	end
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_canyon_predator_effect", {duration = 5})
+    local currentStacks = caster:GetModifierStackCount("modifier_canyon_predator_effect", caster)
+	local newStack = math.min(currentStacks + 1, 100)
+    caster:SetModifierStackCount("modifier_canyon_predator_effect", caster, newStack)
+
 end
 
 function armored_crab_beast_ability_start(event)
