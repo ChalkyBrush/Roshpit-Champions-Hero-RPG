@@ -1098,6 +1098,7 @@
 		"challenge_mod_mob_armor_pierce"							"Enemies have @int1% increased armor pierce."
 		"challenge_mod_mob_magic_armor"								"Enemies have @int1% increased magic armor."
 		"challenge_mod_mob_spell_pierce"							"Enemies have @int1% increased spell pierce."
+		"challenge_mod_mob_pure_resist"								"Enemies have @int1% resistance to Pure Damage."
 		"challenge_mod_time_limit"									"Must be completed within @time."
 		"challenge_mod_paragon_rate"								"Enemies spawn as paragons @int1% more frequently."
 		"challenge_mod_mob_cooldown_reduction"						"Enemies have @int1% cooldown reduction."
@@ -14212,12 +14213,12 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>6</font> and max mana by <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>12</font> and max mana by <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"
-		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per Spirit by @sapphire_property1"
-		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per Spirit by @amethyst_property1"
+		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per Spirit by @sapphire_property1 and increases Spirit by @sapphire_property2"
+		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per Spirit by @amethyst_property1 and increases Spirit by @amethyst_property2"
 
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
 		"item_rpc_ocean_helm_of_valdun_ruby1"	"Increases Rune [Q3] and Rune [W3] by @ruby_property1"
@@ -14233,10 +14234,23 @@
 		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
 		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "Rupthold's Helm of Gluttony"
+		"item_property_ruptholds_helm_of_gluttony"					"Undying Gluttony"
+		"property_ruptholds_helm_of_glutton_description"			"All attributes increase Max Health by <font color='#ccff66'>15</font>. Health regen cannot go above <font color='#ccff66'>0</font> and all healing received is reduced by <font color='#ccff66'>90</font>%"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"Increases Max Health per Attribute by an additional @ruby_property1"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"Allows health regen to go up to @emerald_property1% of max health"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"On taking lethal damage, gain a @sapphire_property1 second buff where all damage taken heals you instead. <font color='#ccff66'>20</font> second cooldown"
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"While below @amethyst_property1% of Max Health, all healing received is increased by <font color='#ccff66'>300</font>% and Pure Damage taken is reduced by @amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"Undying Gluttony (Sapphire)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"All damage taken heals instead"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"Undying Gluttony (Sapphire) Cooldown"
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <font color='#ccff66'>0.3</font>x your attack damage. Archers last <font color='#ccff66'>15</font> seconds or die after taking damage <font color='#ccff66'>5</font> times."
+		"property_scourge_knight_description"		"After casting @Ability4, summon 5 immobile skeleton archers who have <font color='#ccff66'>1</font>x your attack damage. Archers last <font color='#ccff66'>15</font> seconds or die after taking damage <font color='#ccff66'>5</font> times."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Archers have a 50% chance to spawn with Fire Arrows, which deal their damage in @ruby_property1 AOE"
 		"item_rpc_scourge_knights_helm_emerald1"	"Archers have a 50% chance to spawn with Poison Arrows, which deal @emerald_property1% of the archer owner's attack damage per second for <font color='#ccff66'>3</font> seconds"
@@ -14832,7 +14846,7 @@
         "DOTA_Tooltip_ability_item_rpc_lifesource_vessel"                               "Lifesource Vessel"
 
         "item_property_lifesource_vessel"           "Lifesource"
-        "property_lifesource_vessel_description"    "All attributes increases Max Health by <font color='#ccff66'>3</font>."
+        "property_lifesource_vessel_description"    "All attributes increases Max Health by <font color='#ccff66'>6</font>."
 
         "item_rpc_lifesource_vessel_ruby1"                              "Restore @ruby_property1% of Max Health every <font color='#ccff66'>5</font> seconds"
         "item_rpc_lifesource_vessel_emerald1"                               "All Attributes increase Health Regen by @emerald_property1"
@@ -20725,6 +20739,10 @@
 		"DOTA_Tooltip_modifier_rupthold_effect"					"Glutton's Malodor"
 		"DOTA_Tooltip_modifier_rupthold_effect_Description"		"Reduced health regen and cannot heal"	
 
+		"DOTA_Tooltip_wailing_snow_specter_aura"		"Banshee Aura"
+		"DOTA_Tooltip_wailing_snow_specter_aura_Description"	"Enemies within range of the aura have reduce Armor Pierce and Spell Pierce"
+		"DOTA_Tooltip_wailing_snow_specter_aura_pierces_reduction"	"PIERCE REDUCTION:"
+
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive"	"Gargoyle Skin"
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive_Description"	"Reduces pure damage taken"
 		"DOTA_Tooltip_ability_winterblight_gargoyle_summon_passive_pure_resist"	"PURE RESIST:"
@@ -20985,6 +21003,7 @@
 		"winterblight_bladewielder"								"Bladewielder"
 		"azalea_shrine_megmus"									"Shrine Megmus"
 		"rupthold_the_glutton"									"Rupthold the Glutton"
+		"azalea_shrine_maze_specter"							"Wailing Snow Specter"
 		"rupthold_ghost"										"Chilling Ghost"
 		"azalea_grave_summoner"									"Azalea Grave Summoner"
 		"winterblight_blue_gargoyle"							"Blue Gargoyle"
@@ -21430,7 +21449,7 @@
 		"winterblight_cavern_room1_event1_description"				"The chamber is populated with many non-aggressive mobs."
 
 		"winterblight_cavern_room1_event2"							"Hell on Ice"
-		"winterblight_cavern_room1_event2_description"				"A dozen terrifying Gelid Soultakers patrol the chamber."
+		"winterblight_cavern_room1_event2_description"				"A half dozen Gelid Soultakers patrol the chamber."
 
 		"winterblight_cavern_room1_event3"							"Dimensional Portals"
 		"winterblight_cavern_room1_event3_description"				"Waves of enemies spawn from dimensional portals. All creatures have 1% health regen per event level, up to a max of 20%."

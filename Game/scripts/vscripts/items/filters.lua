@@ -643,6 +643,13 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
     if target:HasModifier("modifier_raven_idol") then
         healAmount = healAmount * (1 - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RAVEN_IDOL_GEM_EMERALD1)/100)
     end
+    if target:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+        healAmount = healAmount * (1 - ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_HEALING_REDUCTION_PCT/100)
+        local threshold = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1)/100
+        if target:GetHealth() < target:GetMaxHealth()*threshold then
+            healAmount = healAmount * (1 + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE/100)
+        end
+    end
     healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
@@ -7014,4 +7021,13 @@ function Filters:WorldTreeFlowerCacheTrigger(victim)
             end
         end
     end)
+end
+
+function Filters:RuptholdsTrigger(hero)
+    local rupthold_helm = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local buff_duration = rupthold_helm:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE)
+    rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time", {duration = buff_duration})
+    rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time_cooldown", {duration = ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN})
+    EmitSoundOn("RPCItems.Rupthold.SapphireBorrowedTime", hero)
+    rupthold_helm.apply_time = GameRules:GetGameTime()
 end

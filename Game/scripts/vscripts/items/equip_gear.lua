@@ -511,6 +511,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", PHANTOM_SORCERER_AMETHYST, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_mask_of_tyrius" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", TYRIUS_SAPPHIRE2, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TYRIUS_AMETHYST2, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		end		
 	elseif item:GetAbilityName() == "item_rpc_ocean_helm_of_valdun" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", OCEAN_HELM_VALDUN_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)

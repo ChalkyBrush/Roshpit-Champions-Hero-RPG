@@ -462,8 +462,8 @@
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"
-		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per Spirit by @sapphire_property1"
-		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per Spirit by @amethyst_property1"
+		"item_rpc_mask_of_tyrius_sapphire1" "Increases Max Health per Spirit by @sapphire_property1 and increases Spirit by @sapphire_property2"
+		"item_rpc_mask_of_tyrius_amethyst1" "Increases Base Attack Damage per Spirit by @amethyst_property1 and increases Spirit by @amethyst_property2"
 
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"Ocean Helm of Val'Dun"	
 		"item_rpc_ocean_helm_of_valdun_ruby1"	"Increases Rune [Q3] and Rune [W3] by @ruby_property1"
@@ -479,6 +479,19 @@
 		"item_rpc_odin_helmet_sapphire1" "Increases Zantetsuken damage by an additional @sapphire_property1% of the triggering damage"
 		"item_rpc_odin_helmet_amethyst1" "Increases Base Ability and Item damage by @amethyst_property1%"
 
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "Rupthold's Helm of Gluttony"
+		"item_property_ruptholds_helm_of_gluttony"					"Undying Gluttony"
+		"property_ruptholds_helm_of_glutton_description"			"All attributes increase Max Health by <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR %>. Health regen cannot go above <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_ALLOWED_HEALTH_REGEN %> and all healing received is reduced by <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_HEALING_REDUCTION_PCT %>%"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"Increases Max Health per Attribute by an additional @ruby_property1"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"Allows health regen to go up to @emerald_property1% of max health"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"On taking lethal damage, gain a @sapphire_property1 second buff where all damage taken heals you instead. <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN %> second cooldown"
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"While below @amethyst_property1% of Max Health, all healing received is increased by <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE %>% and Pure Damage taken is reduced by @amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"Undying Gluttony (Sapphire)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"All damage taken heals instead"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"Undying Gluttony (Sapphire) Cooldown"
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"

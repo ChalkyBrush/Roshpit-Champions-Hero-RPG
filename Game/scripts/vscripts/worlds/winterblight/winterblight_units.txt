@@ -14839,7 +14839,8 @@
         {
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_winter_wyvern.vsndevts"
-            "particle"  "particles/roshpit/winterblight/tiamat_fire.vpcf"
+            "particle"  "particles/roshpit/winterblight/tiamat_flame_path.vpcf"
+            "particle"  "particles/roshpit/winterblight/tiamat_flame_circle.vpcf"
         }
 
         "ArmorPhysical" "0"
@@ -15065,4 +15066,106 @@
         "RoshpitLevel"          "37"
         "RoshpitDominion"       "0"
         "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+    }
+
+    "azalea_shrine_maze_specter"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/death_prophet/death_prophet.vmdl"
+        "ModelScale"    "2"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_DeathProphet"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+            "particle"  "particles/roshpit/winterblight/wailing_snow_specter_aura.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "240"
+        "AttackDamageMax"   "240"
+        "AttackRate"    "0.7"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "900"
+        "ProjectileModel"           "particles/units/heroes/hero_death_prophet/death_prophet_base_attack.vpcf"
+        "AttackRange"   "900"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "110"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "8000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "wailing_snow_specter_aura"
+        "Ability2"              "winterblight_crystal_meditation"
+        "Ability3"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9686"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9658"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9687"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9657"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "568"
+                }
+            }
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+        "RoshpitArmor"          "85"
+        "RoshpitArmorPierce"    "119"
+        "RoshpitSpellPierce"    "144"
+        "RoshpitMagicArmor"     "185"
+        "RoshpitLevel"          "16"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }

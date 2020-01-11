@@ -11999,6 +11999,10 @@
 					}
 				}
 			}
+			"modifier_challenge_pure_resist"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_spike_damage"
 			{
 				"Passive"			"0"

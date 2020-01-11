@@ -1098,6 +1098,7 @@
 		"challenge_mod_mob_armor_pierce"							"Enemies have @int1% increased armor pierce."
 		"challenge_mod_mob_magic_armor"								"Enemies have @int1% increased magic armor."
 		"challenge_mod_mob_spell_pierce"							"Enemies have @int1% increased spell pierce."
+		"challenge_mod_mob_pure_resist"								"Enemies have @int1% resistance to Pure Damage."
 		"challenge_mod_time_limit"									"Must be completed within @time."
 		"challenge_mod_paragon_rate"								"Enemies spawn as paragons @int1% more frequently."
 		"challenge_mod_mob_cooldown_reduction"						"Enemies have @int1% cooldown reduction."
