@@ -58,7 +58,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED %>"
 			}
 			"02"

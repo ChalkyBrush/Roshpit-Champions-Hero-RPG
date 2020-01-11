@@ -217,7 +217,7 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Slowed and losing life"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on <% EKKAN_ARCANA_Q2_POISON_PER_ATTACK *100 %>% of the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Base Attack Damage Per Corpse"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Armor and Magic Armor Loss"

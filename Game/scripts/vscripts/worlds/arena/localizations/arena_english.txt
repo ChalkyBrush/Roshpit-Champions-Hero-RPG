@@ -741,7 +741,7 @@
 		"arena_descent_nightmare"												"Descent Nightmare"
 
 		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage. Maximum 20 stacks."
 		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
 
 		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
