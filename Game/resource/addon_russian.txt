@@ -13623,7 +13623,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
-		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>2</font>x от поглощенной маны Магическим уроном."
+		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>3</font>x от поглощенной маны Магическим уроном."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=\"#E1A2E8\">Тайны</font> на @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"

@@ -9480,7 +9480,9 @@ function bladeslinger_projectile_thinker(event)
 					end
 					if IsValidEntity(vorpal.lock_entity) then
 						EmitSoundOn("RPCItems.SlingerBoot.Impact", vorpal.lock_entity)
-						Filters:ApplyItemDamage(vorpal.lock_entity, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						if not vorpal.lock_entity.dummy then
+							Filters:ApplyItemDamage(vorpal.lock_entity, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						end
 					end
 					if IsValidEntity(new_target) then
 						vorpal.lock_entity = new_target

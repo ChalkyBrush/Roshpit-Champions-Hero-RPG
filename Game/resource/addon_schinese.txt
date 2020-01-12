@@ -14064,7 +14064,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
 		"item_property_arcane_cascade_hat"				"奥术洪流"
-		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>2</font>。"
+		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>3</font>。"
 		"item_rpc_arcane_cascade_hat_ruby1"	"提高所有 <font color=\"#E1A2E8\">奥术</font> 元素伤害 @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "提高最大魔法值 @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"提高奥术洪流效果的魔法损失 @sapphire_property1%"

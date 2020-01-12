@@ -14553,7 +14553,6 @@
 				"IsStunDebuff"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"		"particles/roshpit/winterblight/wailing_snow_specter_aura_ring.vpcf"
 				"EffectAttachType" 	"follow_origin"
 				"OnCreated"

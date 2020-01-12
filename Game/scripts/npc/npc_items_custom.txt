@@ -60893,12 +60893,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"15 30 45 60 75"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"300 600 900 1200 1500"
+				"emerald1"				"500 1000 1500 2000 2500"
 			}
 			"04"
 			{
@@ -60908,7 +60908,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-100 -200 -300 -400 -500"
+				"amethyst1"				"-300 -600 -900 -1200 -1500"
 			}
 		}
 	}	
