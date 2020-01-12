@@ -11966,7 +11966,7 @@
     	"DOTA_Tooltip_ability_item_rpc_boots_of_old_wisdom"								"Boots of Old Wisdom"
 
 		"item_property_old_wisdom"								"Spell Variance"
-		"property_old_wisdom_description"						"Increases Base Ability Damage by <font color='#ccff66'>200</font>%. Using the same ability twice in a row removes this effect for <font color='#ccff66'>0.5</font> seconds."
+		"property_old_wisdom_description"						"Increases Base Ability Damage by <font color='#ccff66'>240</font>%. Using the same ability twice in a row removes this effect for <font color='#ccff66'>8</font> seconds."
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown"				"Spell Variance Cooldown"
 		"DOTA_Tooltip_modifier_boots_of_old_wisdom_cooldown_Description"	"Used same spell twice in a row."
 
@@ -13934,7 +13934,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
 		"item_property_lava_forge"							"Tephra Burst"
-		"property_lava_forge_description"					"When taking damage, <font color='#ccff66'>30</font>% chance to launch a fireball towards the damage source that deals <font color='#ccff66'>20</font>% your attack damage in a small radius on impact. Maximum <font color='#ccff66'>6</font> fireballs every 3 seconds."
+		"property_lava_forge_description"					"When taking damage, <font color='#ccff66'>30</font>% chance to launch a fireball towards the damage source that deals <font color='#ccff66'>30</font>% your attack damage in a small radius on impact. Maximum <font color='#ccff66'>6</font> fireballs every 3 seconds."
 
 		"item_rpc_crown_of_the_lava_forge_ruby1"	"Increases proc chance by @ruby_property1%"
 		"item_rpc_crown_of_the_lava_forge_emerald1"	"Increases Tephra Burst damage by @emerald_property1% of Agility"
