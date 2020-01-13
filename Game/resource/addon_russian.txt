@@ -14274,7 +14274,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>2</font>x от силы Атаки героя и <font color='#ccff66'>25</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
+		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>3</font>x от силы Атаки героя и <font color='#ccff66'>25</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Бонусный Урон Атаки от стаи увеличен"
 

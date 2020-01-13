@@ -127604,7 +127604,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wolfir_druid_ruby"			"2 4 6 8 10"
+				"wolfir_druid_ruby"			"3 6 9 12 15"
 			}
 		}
 		"Modifiers"

@@ -14427,7 +14427,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <font color='#ccff66'>2</font>x your attack power, and <font color='#ccff66'>25</font>% of your max health. Feral Spirits last <font color='#ccff66'>16</font> seconds and only <font color='#ccff66'>3</font> can be active at a time."
+		"property_druids_spirit_description"		"While channeling @Ability4, summon a Feral Spirit Wolf every 0.5 seconds which has <font color='#ccff66'>3</font>x your attack power, and <font color='#ccff66'>25</font>% of your max health. Feral Spirits last <font color='#ccff66'>16</font> seconds and only <font color='#ccff66'>3</font> can be active at a time."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Increased attack damage from Spirit Wolves"
 

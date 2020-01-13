@@ -14110,7 +14110,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"德鲁伊灵魂头盔"
 		"item_property_druids_spirt"				"野性灵魂"
-		"property_druids_spirit_description"		"当你引导 @Ability4 时，每0.5秒召唤出一头幽灵狼。幽灵狼拥有玩家<font color='#ccff66'>2</font>倍总攻击力的基础攻击力，<font color='#ccff66'>25</font>% 玩家的生命值，持续<font color='#ccff66'>16</font> 秒。同时只能存在最多<font color='#ccff66'>3</font>头幽灵狼。"
+		"property_druids_spirit_description"		"当你引导 @Ability4 时，每0.5秒召唤出一头幽灵狼。幽灵狼拥有玩家<font color='#ccff66'>3</font>倍总攻击力的基础攻击力，<font color='#ccff66'>25</font>% 玩家的生命值，持续<font color='#ccff66'>16</font> 秒。同时只能存在最多<font color='#ccff66'>3</font>头幽灵狼。"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"野性灵魂"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"攻击力提高，buff来自于幽灵狼"
 		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"每头幽灵狼提供 @ruby_property1% 可叠加的额外攻击力光环."
