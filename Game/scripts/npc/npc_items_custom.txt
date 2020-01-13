@@ -53545,6 +53545,11 @@
 						"ModifierName"	"modifier_buzuki_finger_lua"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_buzuki_ms_and_as"
+						"Target" 		"TARGET"
+					}
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -53576,14 +53581,6 @@
 							"CASTER"	"attach_attack1"
 						}
 
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_buzuki_ms_and_as"
-						"Target" 		"TARGET"
 					}
 				}
 			}
