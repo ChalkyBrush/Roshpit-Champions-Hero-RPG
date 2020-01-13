@@ -524,7 +524,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% SORCERESS_R3_FIRE_AMP * 100 %>"
 			}
 		}
