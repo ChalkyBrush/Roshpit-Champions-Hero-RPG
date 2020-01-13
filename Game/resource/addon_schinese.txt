@@ -4223,7 +4223,7 @@
         "property_chernobog_arcana2_description"                                "用 恶魔之翼 替换 @Ability3 及其全部符文。"
 
         "DOTA_Tooltip_ability_chernobog_demon_flight"                               "恶魔之翼"
-        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "恶魔猎人张开恶魔之翼升入夜空，穿越地形。 在飞行中执行攻击指令，无论朝向，只要目标仍在 900 码范围内，恶魔猎人都会持续每 0.15 秒攻击一次该目标。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高100%闪避。"
+        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "恶魔猎人张开恶魔之翼升入夜空，穿越地形。 在飞行中执行攻击指令，无论朝向，只要目标仍在 900 码范围内，恶魔猎人都会持续每 0.15 秒攻击一次该目标。被眩晕或被障碍物阻碍将立即结束恶魔飞行。被动提高<font color='#ccff66'>50</font>%闪避。"
         "DOTA_Tooltip_ability_chernobog_demon_flight_duration"                  "持续时间："
 
         "DOTA_Tooltip_modifier_chernobog_demon_flight"                          "恶魔之翼"

@@ -19475,7 +19475,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.3"
 			}
 		}
@@ -24226,7 +24226,7 @@
 		    "modifier_venomort_arcana2_reaper_dot"
 		    {
 				"IsHidden"	"1"
-				"ThinkInterval" "0.5"
+				"ThinkInterval" "0.6"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -24339,8 +24339,8 @@
 			}
 			"02"
 		        {
-			"var_type"				"FIELD_INTEGER"
-			"property_two"			"2"
+			"var_type"				"FIELD_FLOAT"
+			"property_two"			"0.5"
 		        }
 		}
 	}
@@ -33268,16 +33268,6 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"110"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
 			}
 		}
 	}
@@ -48156,7 +48146,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_damage_percent"	"70 75 80 85 90 95 100"
+				"attack_damage_percent"	"55 60 65 70 75 80 85"
 			}
 		}
 	}
@@ -49407,7 +49397,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1.4"
 			}
 			"02"
 			{
@@ -64883,7 +64873,7 @@
 		"AbilityCooldown"				"0"
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"10 30 80 220 400 600 800"
+		"AbilityManaCost"				"10 40 70 100 130 160"
 
 		// Special
 		//-------------------------------------------------------
@@ -64897,7 +64887,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"10 30 80 220 400 600 800"
+				"mana_cost"			"10 40 70 100 130 160"
 			}
 			"03"
 			{

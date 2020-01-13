@@ -3874,7 +3874,7 @@
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"Demon Flight"
 
     	"DOTA_Tooltip_ability_chernobog_demon_walk"								"Shadow Stalk"
-    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants 100% Evasion, even while inactive."
+    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants <font color='#ccff66'>50</font>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"DURATION:"
 
     	"DOTA_Tooltip_modifier_demon_walk"										"Shadow Stalk"
@@ -11090,7 +11090,7 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"ATTACK POWER DAMAGE MULTIPLIER:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every <font color='#ccff66'>0.5</font> seconds for <font color='#ccff66'>3</font> seconds."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"The slashes of @Ability4 sear the souls of their victims, dealing additional damage every <font color='#ccff66'>0.6</font> seconds for <font color='#ccff66'>3</font> seconds."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Damage Over Time"
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% of Reaper's Judgement"
 
@@ -14490,7 +14490,7 @@
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
 
         "item_property_ankh_of_ancients"                        "Immortal Spirit"
-         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <font color='#ccff66'>4</font> and gain a shield for <font color='#ccff66'>4</font> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <font color='#ccff66'>24</font> second cooldown. The shield's duration can never exceed <font color='#ccff66'>12</font> seconds no matter how long it is extended."
+         "property_ankh_of_ancients_description"                "On death, respawn at the same location after a <font color='#ccff66'>4</font> seconds delay and gain a shield for <font color='#ccff66'>4</font> seconds that reduces all damage taken by 100% and grants stun immunity. This effect has a <font color='#ccff66'>24</font> second cooldown. The shield's duration can never exceed <font color='#ccff66'>12</font> seconds no matter how long it is extended."
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield"        "Immortal Spirit"
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"    "Immune to damage and stuns."
          "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"      "Ankh Cooldown"
