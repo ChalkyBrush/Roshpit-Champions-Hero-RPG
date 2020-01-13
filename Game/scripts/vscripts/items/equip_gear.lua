@@ -1702,7 +1702,7 @@ end
 function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	local property_name_to_return = property_name
 	if property_name == "all_t2_runes" then
-		property_name_to_return = all_t3_runes
+		property_name_to_return = "all_t3_runes"
 	elseif property_name == "all_t3_runes" then
 		property_name_to_return = "all_t2_runes"
 	elseif property_name == "rune_q_2" then

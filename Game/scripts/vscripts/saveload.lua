@@ -573,6 +573,9 @@ function SaveLoad:LoadCharacter(msg)
 		if GameState:IsRPCArena() then
 			Arena:LoadChampionsLeagueData(hero, nil)
 		end
+		Timers:CreateTimer(3, function()
+			hero:ReequipAllGear(nil)
+		end)
 		Timers:CreateTimer(5, function()
 			Statistics.dispatch('hero:oracle:load')
 		end)
