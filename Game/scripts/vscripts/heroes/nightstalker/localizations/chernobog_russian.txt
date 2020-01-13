@@ -211,13 +211,13 @@
         "property_chernobog_arcana2_description"                                "Заменяет (E) @Ability3 и все соответствующие руны на (E) Demon Flight."
 
         "DOTA_Tooltip_ability_chernobog_demon_flight"                               "Demon Flight"
-        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "Chernobog взмывает в ночное небо с помощью своих тёмных крыльев, благодаря чему может перелетать через препятствия. Если во время полёта герой получит приказ атаковать цель, находящуюся в радиусе 900, то он будет атаковать ее каждые 0.15 секунды, независимо от направления его взгляда. При оглушении или столкновении с непроходимыми препятствием, полёт прекращается. Пассивно дает 100% уклонения от атак."
+        "DOTA_Tooltip_ability_chernobog_demon_flight_Description"                   "Chernobog взмывает в ночное небо с помощью своих тёмных крыльев, благодаря чему может перелетать через препятствия. Если во время полёта герой получит приказ атаковать цель, находящуюся в радиусе 900, то он будет атаковать ее каждые 0.15 секунды, независимо от направления его взгляда. При оглушении или столкновении с непроходимыми препятствием, полёт прекращается. Пассивно дает <% CHERNOBOG_ARCANA2_EVASION %>% уклонения от атак."
         "DOTA_Tooltip_ability_chernobog_demon_flight_duration"                  "ДЛИТЕЛЬНОСТЬ:"
 
         "DOTA_Tooltip_modifier_chernobog_demon_flight"                          "Demon Flight"
 
         "DOTA_Tooltip_ability_chernobog_demon_walk"                             "Shadow Stalk"
-        "DOTA_Tooltip_ability_chernobog_demon_walk_Description"                 "Chernobog укутывается в абсолютную тьму, ненадолго становясь невидимым для врагов. Герой может свободно атаковать во время невидимости. Пассивно дает 100% уклонения от атак." 
+        "DOTA_Tooltip_ability_chernobog_demon_walk_Description"                 "Chernobog укутывается в абсолютную тьму, ненадолго становясь невидимым для врагов. Герой может свободно атаковать во время невидимости. Пассивно дает <% CHERNOBOG_ARCANA2_EVASION %>% уклонения от атак." 
         "DOTA_Tooltip_ability_chernobog_demon_walk_duration"                    "ДЛИТЕЛЬНОСТЬ:"
 
         "DOTA_Tooltip_modifier_demon_walk"                                      "Shadow Stalk"
