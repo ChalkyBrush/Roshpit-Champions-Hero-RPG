@@ -24,7 +24,7 @@
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
 
         "item_property_ankh_of_ancients"                        "Immortal Spirit"
-         "property_ankh_of_ancients_description"                "При смерти герой возрождается в том же месте через <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> и получает щит длительностью <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> секунд, который поглощает весь урон и даёт неуязвимость к оглушению. Этот эффект имеет <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> секунд перезарядки и длительность действия щита никогда не может превышать <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %>."
+         "property_ankh_of_ancients_description"                "При смерти герой возрождается в том же месте через <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> секунды и получает щит длительностью <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> секунды, который поглощает весь урон и даёт неуязвимость к оглушению. Этот эффект имеет <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> секунды перезарядки и длительность действия щита никогда не может превышать <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %> секунд."
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield"        "Immortal Spirit"
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"    "Неуязвим и невосприимчив к оглушению."
          "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"      "Ankh Cooldown"
@@ -534,10 +534,10 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
-		"item_rpc_stone_of_gordon_ruby1"									"Увеличивает бонусы все рун 1 строки на всех предметах героя на @ruby_property1%"
-		"item_rpc_stone_of_gordon_emerald1"									"Увеличивает бонусы все рун 2 строки на всех предметах героя на @emerald_property1%"
-		"item_rpc_stone_of_gordon_sapphire1"									"Увеличивает бонусы все рун 3 строки на всех предметах героя на @sapphire_property1%"
-		"item_rpc_stone_of_gordon_amethyst1"									"Увеличивает бонусы все рун 4 строки на всех предметах героя на @amethyst_property1%"
+		"item_rpc_stone_of_gordon_ruby1"									"Увеличивает бонусы всех рун 1 строки на всех предметах героя на @ruby_property1%"
+		"item_rpc_stone_of_gordon_emerald1"									"Увеличивает бонусы всех рун 2 строки на всех предметах героя на @emerald_property1%"
+		"item_rpc_stone_of_gordon_sapphire1"									"Увеличивает бонусы всех рун 3 строки на всех предметах героя на @sapphire_property1%"
+		"item_rpc_stone_of_gordon_amethyst1"									"Увеличивает бонусы всех рун 4 строки на всех предметах героя на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
 

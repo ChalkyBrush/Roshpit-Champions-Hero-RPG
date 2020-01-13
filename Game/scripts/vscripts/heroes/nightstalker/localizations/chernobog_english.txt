@@ -231,7 +231,7 @@
     	"DOTA_Tooltip_modifier_chernobog_demon_flight"							"Demon Flight"
 
     	"DOTA_Tooltip_ability_chernobog_demon_walk"								"Shadow Stalk"
-    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants 100% Evasion, even while inactive."
+    	"DOTA_Tooltip_ability_chernobog_demon_walk_Description"					"Chernobog cloaks himself in absolute darkness, making him invisible to enemies for a short duration. Chernobog maintains this invisibility even while attacking.<br>This ability passively grants <% CHERNOBOG_ARCANA2_EVASION %>% Evasion, even while inactive."
     	"DOTA_Tooltip_ability_chernobog_demon_walk_duration"					"DURATION:"
 
     	"DOTA_Tooltip_modifier_demon_walk"										"Shadow Stalk"

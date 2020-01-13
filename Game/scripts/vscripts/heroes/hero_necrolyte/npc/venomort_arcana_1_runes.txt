@@ -57,8 +57,8 @@
 			}
 			"02"
 		        {
-			"var_type"				"FIELD_INTEGER"
-			"property_two"			"2"
+			"var_type"				"FIELD_FLOAT"
+			"property_two"			"<% VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1 %>"
 		        }
 		}
 	}
