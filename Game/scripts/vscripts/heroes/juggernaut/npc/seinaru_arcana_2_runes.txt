@@ -56,16 +56,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"7"
-			}
 		}
 	}
 
