@@ -454,7 +454,7 @@ function Enemies:ParagonChance(unit)
 	if unit.cant_paragon then
 		return false
 	end
-	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS then
+	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_WEAK_CREEP then
 		return false
 	end
 	if unit:GetUnitName() == "arena_training_dummy" then
