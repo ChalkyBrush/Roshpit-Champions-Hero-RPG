@@ -22,13 +22,15 @@ function crystal_arrow_channel_start(event)
 	end
 	if caster:HasModifier("modifier_crystal_arrow_freecast") then
 		local stackCount = caster:GetModifierStackCount("modifier_crystal_arrow_freecast", caster)
-		if stackCount >= 10 then
+		if stackCount >= ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS then
 			ability:EndCooldown()
-			newStacks = stackCount - 10
-			if newStacks > 0 then
-				caster:SetModifierStackCount("modifier_crystal_arrow_freecast", caster, newStacks)
-			else
-				caster:RemoveModifierByName("modifier_crystal_arrow_freecast")
+			if not event.dont_consume_stacks_again then
+				newStacks = stackCount - ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS
+				if newStacks > 0 then
+					caster:SetModifierStackCount("modifier_crystal_arrow_freecast", caster, newStacks)
+				else
+					caster:RemoveModifierByName("modifier_crystal_arrow_freecast")
+				end
 			end
 		end
 	end
@@ -203,6 +205,7 @@ end
 function remove_modifier_channel_start(event)
 	local caster = event.caster
 	if caster:HasModifier("modifier_iron_treads_of_destruction") then
+		event.dont_consume_stacks_again = true
 		crystal_arrow_channel_start(event)
 		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_ATTACK, rate = 5.5})
 	end

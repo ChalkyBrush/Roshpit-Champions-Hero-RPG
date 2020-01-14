@@ -2608,12 +2608,12 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Increased attack damage"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have <font color='#ccff66'>5</font> stacks or more, Crystal Arrow can be cast with no cooldown, and <font color='#ccff66'>5</font> stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Max Stacks"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
     	"DOTA_Tooltip_modifier_crystal_arrow_freecast"							"Crystal Arrow"
-    	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"10 stacks grants a Crystal Arrow cast with no cooldown"
+    	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"<font color='#ccff66'>5</font> stacks grants a Crystal Arrow cast with no cooldown"
 
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3"							"[R4] Frosted Splash"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies standing inside [R1] are slowed. Slow doesn't expire upon leaving the area but lingers."
@@ -10960,9 +10960,14 @@
     	"DOTA_Tooltip_modifier_venomort_demoralize_Description"				"Confused"
 
     	"DOTA_Tooltip_ability_venomort_rune_w_3"							"[W3] Scourge Fervor"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Tagging an enemy with Necrofusion at least once causes it to increase all of Venomort's attributes as long as it lives. Paragon enemies count as <font color='#ccff66'>5</font> units, while bosses count as 20."
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Bonus Attributes"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" per affected enemy"
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Casting @Ability2 adds a Scourge Fervor stack which increases Cast Rate and Attack Speed. Stacks last for <font color='#ccff66'>8</font> seconds and have max <font color='#ccff66'>3</font> stacks."
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Bonus Cast Rate"
+    	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						"%"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_property_two"               "Bonus Attack Speed"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_suffix_two"                 ""
+
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible"             "Scourge Fervor"
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible_Description" "Increased Cast Rate and Attack Speed" 
 		
 		"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] Euthanasia"
     	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Enemies take increased damage from Venomort for each 1% of their maximum health they're missing."

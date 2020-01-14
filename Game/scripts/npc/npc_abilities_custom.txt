@@ -24976,35 +24976,21 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_slow"
 				}
 			}
-		    "modifier_venomort_stats_give"
-		    {
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"IsHidden"  "1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
-						"Function"		"increase_w3_stacks"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_necrolyte/plague_blaster.lua"
-						"Function"		"decrease_w3_stacks"
-						"target"		"TARGET"
-					}
-				}
-		    }
-		    "modifier_venomort_bonus_stats"
-		    {
-				"IsDebuff"	"0"
+			"modifier_venomort_scourge_fervor_visible"
+			{
+				"TextureName"	"pugna_nether_ward_alt"
+				"IsHidden"	"0"
+			}
+			"modifier_venomort_scourge_fervor_invisible"
+			{
+				"TextureName"	"pugna_nether_ward_alt"
 				"IsHidden"	"1"
-		    }
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+				    "MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "0.2"
+				}
+			}
 		}
 	}
 
@@ -25548,7 +25534,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"0.2"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -46119,7 +46110,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"2"
+				"property_two"			"4"
 			}
 		}
 	}

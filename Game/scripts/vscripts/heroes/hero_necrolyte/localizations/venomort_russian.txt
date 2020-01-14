@@ -50,10 +50,15 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_2_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_venomort_rune_w_2_suffix"						" секунд"
 
-    	"DOTA_Tooltip_ability_venomort_rune_w_3"							"[W3] Scourge Fervor"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Враги, задетые @Ability2 единожды, увеличивают атрибуты Venomort до тех пор, пока не умрут (при смерти противника бонус к атрибутам исчезает мгновенно). Монстры Парагона считаются за 5 юнитов, боссы считаются за 20."
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Бонус атрибутов"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" за каждого противника"
+        "DOTA_Tooltip_ability_venomort_rune_w_3"                            "[W3] Scourge Fervor"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_Description"                "Прочтение @Ability2 добавляет заряд руны, ускоряющий атаки и скорость прочтения заклинаний. Заряды длятся <% VENOMORT_W3_STACK_DURATION %> сек, максимально <% VENOMORT_W3_MAX_STACKS %> активных зарядов."
+        "DOTA_Tooltip_ability_venomort_rune_w_3_property_one"                "Ускорение Прочтения Заклинаний"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_suffix"                        "%"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_property_two"               "Бонус Скорости Атаки"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_suffix_two"                 ""
+
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible"               "Scourge Fervor"
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible_Description"   "Ускорение Прочтения Заклинаний и Скорости Атаки"
 		
 		"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] Euthanasia"
     	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Противники получают усиленный урон от Venomort за каждый отсутствующий 1% от их максимального запаса здоровья."

@@ -259,12 +259,12 @@
     	"DOTA_Tooltip_modifier_crystal_arrow_b_d_Description"					"Increased attack damage"	
 
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3"							"[R3] Blessed Quiver"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have 10 stacks or more, Crystal Arrow can be cast with no cooldown, and 10 stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_Description"				"Every 0.5 seconds gain a crystal arrow stack. If you have <% ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS %> stacks or more, Crystal Arrow can be cast with no cooldown, and <% ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS %> stacks are consumed. Amount of stacks gained per interval increases by 1 for every 60 levels this rune has."
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_property_one"				"Max Stacks"
     	"DOTA_Tooltip_ability_astral_rune_r_3_arcana3_suffix"					""
 
     	"DOTA_Tooltip_modifier_crystal_arrow_freecast"							"Crystal Arrow"
-    	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"10 stacks grants a Crystal Arrow cast with no cooldown"
+    	"DOTA_Tooltip_modifier_crystal_arrow_freecast_Description"				"<% ASTRAL_RANGER_R3_ARCANA3_FREECAST_STACKS %> stacks grants a Crystal Arrow cast with no cooldown"
 
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3"							"[R4] Frosted Splash"
     	"DOTA_Tooltip_ability_astral_rune_r_4_arcana3_Description"				"Enemies standing inside [R1] are slowed. Slow doesn't expire upon leaving the area but lingers."
