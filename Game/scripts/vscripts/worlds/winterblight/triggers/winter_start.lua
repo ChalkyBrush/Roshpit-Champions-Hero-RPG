@@ -295,3 +295,13 @@ function CaveGuideSpawn(trigger)
 	print("TRIGGERED1")
 	Winterblight:CaveGuideSpawn()
 end
+
+function WinterMountainTrigger(trigger)
+	local hero = trigger.activator
+	if hero.actual_game_hero then
+		if not Winterblight.MountainInitialized then
+			Winterblight.MountainInitialized = true
+			Winterblight:InitMountain()
+		end
+	end
+end

@@ -574,3 +574,27 @@ function CDOTA_BaseNPC:GetEnemyTier()
 		return 0
 	end
 end
+
+function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
+    local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    local ability = unit:FindAbilityByName("dungeon_creep")
+    if not ability then
+    	ability = unit:AddAbility("dungeon_creep")
+    end
+	ability:SetLevel(1)
+	ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
+	local aggroSound = unit:GetKeyValue("RoshpitAggroSound")
+	if aggroSound then
+	  unit.aggroSound = aggroSound
+	end
+	if GameState:IsWinterblight() then
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_Winterblight_unit", {})
+	end
+	if fv then
+	  unit:SetForwardVector(fv)
+	end
+    if isAggro then
+      Dungeons:AggroUnit(unit)
+    end
+    return unit
+end

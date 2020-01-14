@@ -6,6 +6,9 @@ require('worlds/winterblight/zones/starting_zone')
 require('worlds/winterblight/zones/shrine_of_azalea')
 require('worlds/winterblight/zones/winter_forest')
 require('worlds/winterblight/zones/winter_cave')
+require('worlds/winterblight/zones/mountain')
+
+Winterblight.Winter3Enabled = false
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -185,6 +188,22 @@ function Winterblight:InitProps()
   Timers:CreateTimer(6, function()
     Winterblight:SpawnTrainingDummy(Vector(-11968, -1096))
   end)
+
+  -- MOUNTAIN
+  if Winterblight.Winter3Enabled then
+    Timers:CreateTimer(7, function()
+      local entity = Entities:FindByNameNearest("RemoveBridge1", Vector(-4032, 4293, -50+Winterblight.ZFLOAT), 2000)
+      UTIL_Remove(entity)
+      local entity = Entities:FindByNameNearest("RemoveBridge2", Vector(5619, -2517, -50+Winterblight.ZFLOAT), 2000)
+      UTIL_Remove(entity)
+      local entity = Entities:FindByNameNearest("RemoveBridge3", Vector(1185, -2670, -50+Winterblight.ZFLOAT), 2000)
+      UTIL_Remove(entity)
+      local entity = Entities:FindByNameNearest("RemoveBridge4", Vector(527, -2227, -50+Winterblight.ZFLOAT), 2000)
+      UTIL_Remove(entity)
+      local entity = Entities:FindByNameNearest("RemoveBridge5", Vector(-256, -1662, -50+Winterblight.ZFLOAT), 2000)
+      UTIL_Remove(entity)
+    end)
+  end
 end
 
 function Winterblight:SpawnTrainingDummy(position)

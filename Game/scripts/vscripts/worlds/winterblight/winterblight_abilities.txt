@@ -6822,12 +6822,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_outgoing"			"300 700 1200"
+				"attack_outgoing"			"100 200 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"50 800 8000"
+				"armor"			"100 800 8000"
 			}
 		}
 		"Modifiers"
