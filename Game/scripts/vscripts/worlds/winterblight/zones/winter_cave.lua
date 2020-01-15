@@ -3662,7 +3662,7 @@ function Winterblight:SpawnWintertideMonk(position, fv)
 end
 
 function Winterblight:SpawnWintersChieftain(position, fv)
-  local queen = Winterblight:SpawnDungeonUnit("winterblight_winters_chieftain", position, 0, 3, "Winterblight.MindChatterer.Aggro", fv, false)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_winters_chieftain", position, 0, 3, "Winterblight.WintersChieftain.Aggro", fv, false)
   queen.dominion = true
   Events:ColorWearablesAndBase(queen, Vector(90, 140, 245))
   Events:AdjustBossPower(queen, 8, 8, false)

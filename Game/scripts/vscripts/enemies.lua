@@ -575,6 +575,8 @@ function CDOTA_BaseNPC:GetEnemyTier()
 	end
 end
 
+Enemies.GlobalPrecacheTable = {}
+
 function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
     local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
     local ability = unit:FindAbilityByName("dungeon_creep")
@@ -584,7 +586,7 @@ function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
 	ability:SetLevel(1)
 	ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
 	local aggroSound = unit:GetKeyValue("RoshpitAggroSound")
-	if aggroSound then
+	if aggroSound ~= 0 then
 	  unit.aggroSound = aggroSound
 	end
 	if GameState:IsWinterblight() then
@@ -597,4 +599,25 @@ function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
       Dungeons:AggroUnit(unit)
     end
     return unit
+end
+
+function Enemies:CreateUnitsWithPatrol(unitName, numberOfUnitsPerPosition, positionTable, moveSlowPCT, patrolInterval, randomOffsetPatrol, randomOffsetSpawn, delayBetweenSpawn, delayAtPositionSpawn)
+    for i = 1, #positionTable, 1 do
+      Timers:CreateTimer(i*delayBetweenSpawn, function()
+        local patrolPositionTable = {}
+        for j = 1, #positionTable, 1 do
+          local index = i + j
+          if index > #positionTable then
+            index = index - #positionTable
+          end
+          table.insert(patrolPositionTable, positionTable[index])
+        end
+        for j = 0, (numberOfUnitsPerPosition - 1), 1 do
+          Timers:CreateTimer(j*delayAtPositionSpawn, function()
+            local unit = Enemies:SpawnEnemyUnit(unitName, positionTable[i]+RandomVector(randomOffsetSpawn), RandomVector(1), false)
+            Winterblight:AddPatrolArguments(unit, moveSlowPCT, patrolInterval, randomOffsetPatrol, patrolPositionTable)
+          end)
+        end
+      end)
+    end
 end

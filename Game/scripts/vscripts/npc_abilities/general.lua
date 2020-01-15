@@ -412,11 +412,13 @@ function ability_1_position_think_generic(event)
 	if not caster.targetAbilityCD then
 		caster.aggro = true
 		caster.targetAbilityCD = 1
-		--print("ability_1_position_think_generic caster.targetAbilityCD")
 		return
 	end
 	local cooldown = caster.targetAbilityCD * 2
 	local targetFindOrder = caster.targetFindOrder
+	if not targetFindOrder then
+		targetFindOrder = FIND_ANY_ORDER
+	end
 	if caster.interval % cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false)

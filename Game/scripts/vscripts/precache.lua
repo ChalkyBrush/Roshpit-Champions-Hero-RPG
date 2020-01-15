@@ -712,7 +712,7 @@ end
 
 
 function Precache:WinterPart3()
-	local unitTable = {"winterblight_snowvil_brute"}
+	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])
