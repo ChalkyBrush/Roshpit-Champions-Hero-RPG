@@ -14600,6 +14600,7 @@
         "RoshpitMagicArmor"     "385"
         "RoshpitLevel"          "27"
         "RoshpitDominion"       "1"
+        "RoshpitAggroSound"     "Winterblight.Wintertide.Aggro"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
 

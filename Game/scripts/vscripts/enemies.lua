@@ -4,6 +4,9 @@ if Enemies == nil then
 	Enemies = class({})
 end
 
+Enemies.PrecacheTable = {}
+Enemies.PrecacheHash = {}
+
 Enemies.MOB_TIER_EXP_MULT = {}
 Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_WEAK_CREEP] = 0.5
 Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_NORMAL_CREEP] = 1
@@ -578,8 +581,22 @@ end
 Enemies.GlobalPrecacheTable = {}
 
 function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
+    -- if not WallPhysics:DoesTableHaveValue(Enemies.PrecacheTable, unitName) then
+    -- 	if not Enemies.PrecacheHash[unitName] then
+    -- 		Enemies.PrecacheHash[unitName] = {}
+    -- 		Enemies.PrecacheHash[unitName]["time_start"] = GameRules:GetGameTime()
+    -- 		Enemies.PrecacheHash[unitName]["precache_complete"] = false
+		  --   Timers:CreateTimer(0, function()
+		  --       PrecacheUnitByNameAsync(unitName, function()
+		  --       	Enemies.PrecacheHash[unitName]["time_end"] = GameRules:GetGameTime()
+		  --       	Enemies.PrecacheHash[unitName]["precache_complete"] = true
+		  --       end)
+		  --   end)
+    -- 	end
+    -- end
     local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
     local ability = unit:FindAbilityByName("dungeon_creep")
+
     if not ability then
     	ability = unit:AddAbility("dungeon_creep")
     end

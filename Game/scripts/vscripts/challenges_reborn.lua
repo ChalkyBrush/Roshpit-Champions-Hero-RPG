@@ -270,7 +270,7 @@ function Challenges:PanoramaInput(msg)
 		if msg.challenge_type == "main" and Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
 			Challenges.ActiveChallenge = Challenges.main_challenge
 		end
-		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
+		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) and Challenges:ShouldSpawnForWebPremium() then
 			if Challenges:ShouldSpawnForWebPremium() then
 				Challenges.ActiveChallenge = Challenges.web_challenge
 			else

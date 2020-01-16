@@ -40,6 +40,13 @@ function Winterblight:InitMountain()
 		Enemies:SpawnEnemyUnit("winterblight_winters_chieftain", Vector(3079, 1152), Vector(-1, 0), false)
 		Enemies:SpawnEnemyUnit("winterblight_winters_chieftain", Vector(2938, 2621), Vector(0, -1), false)
 	end)
+	Timers:CreateTimer(15, function()
+		local positionTable = {Vector(3712, 5504), Vector(3874, 5632), Vector(4081, 5888), Vector(4375, 6144), Vector(3421, 5902), Vector(3712, 6144), Vector(3840, 6504)}
+		for i = 1, #positionTable, 1 do
+			local fv = (positionTable[i] - Vector(3840, 5961)):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_wintertide_monk", positionTable[i], fv, false)
+		end
+	end)
 end
 
 
