@@ -174,7 +174,7 @@
 
     	"DOTA_Tooltip_ability_epoch_arcana_ability"							"Temporal Grip"
     	"DOTA_Tooltip_ability_epoch_arcana_ability_Description"				"Epoch Guardian заключает врагов в вечной пустоте. С каждым срабатыванием этой способности все враги будут незамедлительно атакованы героем."	
-    	"DOTA_Tooltip_ability_epoch_arcana_ability_root_duration"			"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖЕВАНИЯ:"
+    	"DOTA_Tooltip_ability_epoch_arcana_ability_root_duration"			"ДЛИТЕЛЬНОСТЬ ОБЕЗДВИЖИВАНИЯ:"
 
     	"DOTA_Tooltip_modifier_epoch_arcana_root"							"Temporal Grip"
     	"DOTA_Tooltip_modifier_epoch_arcana_root_Description"				"Обездвижен"	
@@ -186,7 +186,7 @@
 
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1"							"[Q2] Tachyon Effect"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_Description"				"Пробития Брони и Магической Защиты пассивно увеличены."
-    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защитын"
+    	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_property_one"				"Пробития Брони и Магической Защиты"
     	"DOTA_Tooltip_ability_epoch_rune_q_2_arcana1_suffix"					""
 
     	"DOTA_Tooltip_ability_epoch_rune_q_3_arcana1"							"[Q3] Aeon Blast"

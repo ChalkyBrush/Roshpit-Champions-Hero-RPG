@@ -125,6 +125,10 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
 		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	end
+	if property_name == "immortal_weapon_3" and hero:GetUnitName() == "npc_dota_hero_skywrath_mage" then
+		property_name = "all_t4_runes"
+		property_value = SEPHYR_IMMORTAL_WEAPON_3_T4_RUNES
+	end
 	-- RECORD PROPERTIES TO HASH
 	if not hero.gear_bonuses[gear_slot][property_name] then
 		if string.match(property_name, "all_attributes") then
@@ -258,10 +262,16 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 		elseif string.match(key, "arcana") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
-		elseif string.match(key, "!immortal!") and not hero.equipped_gear[gear_slot].isLuaItem then
-			local modifier_name = key:gsub("!immortal!_", "")
-			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
-			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
+		elseif string.match(key, "!immortal!") then
+			if hero.equipped_gear[gear_slot].isLuaItem then
+				--ApplyDataDrivenModifier doesnt work with lua
+				--Modifier is applied in base.lua
+				--Only needed for the immortal property
+			else
+				local modifier_name = key:gsub("!immortal!_", "")
+				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
+				RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
+			end
 		else
 			if value > 0 then
 				local modifier_name = "modifier_"..RPC_GEAR_SLOT_NAMES[gear_slot].."_"..key
@@ -324,6 +334,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_arcane_cascade_hat" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ARCANE_CASCADE_RUBY, hero, "element_arcane", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ARCANE_CASCADE_RUBY, hero, "item_damage", RPC_GEAR_SLOT_HEAD)
 		end
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ARCANE_CASCADE_EMERALD, hero, "max_mana", RPC_GEAR_SLOT_HEAD)
@@ -501,6 +512,12 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		elseif socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", PHANTOM_SORCERER_AMETHYST, hero, "rune_w_3", RPC_GEAR_SLOT_HEAD)
 		end
+	elseif item:GetAbilityName() == "item_rpc_mask_of_tyrius" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", TYRIUS_SAPPHIRE2, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "amethyst" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", TYRIUS_AMETHYST2, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+		end		
 	elseif item:GetAbilityName() == "item_rpc_ocean_helm_of_valdun" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", OCEAN_HELM_VALDUN_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
@@ -1559,23 +1576,35 @@ end
 
 function CDOTA_BaseNPC_Hero:ReequipAllGear(ignore_slot)
 	if self.equipped_gear then
-		if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_HEAD then
+			if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
+			end
 		end
-		if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_BODY then
+			if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
+			end
 		end
-		if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_WEAPON then
+			if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
+			end
 		end
-		if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_GLOVES then
+			if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
+			end
 		end
-		if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_BOOTS then
+			if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
+			end
 		end
-		if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
-			self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
+		if not ignore_slot == RPC_GEAR_SLOT_TRINKET then
+			if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
+				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
+			end
 		end
 	end
 end
@@ -1673,7 +1702,7 @@ end
 function RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
 	local property_name_to_return = property_name
 	if property_name == "all_t2_runes" then
-		property_name_to_return = all_t3_runes
+		property_name_to_return = "all_t3_runes"
 	elseif property_name == "all_t3_runes" then
 		property_name_to_return = "all_t2_runes"
 	elseif property_name == "rune_q_2" then

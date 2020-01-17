@@ -34,7 +34,7 @@ function turn_toggle_on(event)
 	ability.fv = caster:GetForwardVector()
 	ability.fall_speed = 0
 
-	ability.rollspeed = caster.speed
+	ability.rollspeed = caster.speed*SLIPFINN_ARCANA_1_E_GLOBAL_SLOW
 	local e_2_level = caster:GetRuneValue("e", 2)
 	if e_2_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bog_roller_attack_dmg_pct", {})
@@ -84,10 +84,9 @@ function bog_roller_think(event)
 			else
 				caster:RemoveModifierByName("modifier_bog_roller_speedburst")
 			end
-			speedBonus = speedBonus / 10
 		end
-		ability.rollspeed = math.max(ability.rollspeed - speedBonus, math.max(27 - speedBonus, 0))
-		local rollSpeed = ability.rollspeed
+		ability.rollspeed = math.max(ability.rollspeed - ability.rollspeed*speedBonus/100, math.max(SLIPFINN_ARCANA_1_E_BASE_ROLL_SPEED - SLIPFINN_ARCANA_1_E_BASE_ROLL_SPEED*speedBonus/100, SLIPFINN_ARCANA_1_E_MIN_ROLL_SPEED))
+		local rollSpeed = ability.rollspeed/10
 		caster.speed = rollSpeed
 		if caster:HasModifier("modifier_slipfinn_basic_jump") then
 			rollSpeed = 0

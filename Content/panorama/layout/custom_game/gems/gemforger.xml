@@ -50,6 +50,14 @@
 				</Button>
 			</Panel>
 		</snippet>
+		<snippet name="gemforger_go_home">
+			<Panel class="gemforger_start_button_root" hittest="false">
+				<Button id="gemforger_start_button_collect" class="gemforger_reward_active" hittest="true">
+					<Image id="gemforger_start_image" hittest="false"/>
+					<Label id="gem_forger_start_label" text="gem_forger_start" hittest="false" html="true"/>
+				</Button>
+			</Panel>
+		</snippet>
 	    <snippet name="forge_gems_start">
 	    	<Panel class="forge_gems_start_root" hittest="false">
 	    		<Label id="forge_gems_start_tip" hittest="false" text="gemforge_item_select_help"/>

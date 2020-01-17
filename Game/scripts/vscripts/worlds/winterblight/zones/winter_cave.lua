@@ -464,15 +464,16 @@ end
 
 function Winterblight:FrozenFoyer2(msg)
 	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 468
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 234
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
 	local unitsTable = {}
-	local positionTable = {Vector(-8832, 5888), Vector(-10281, 7509), Vector(-11837, 8406), Vector(-10805, 8535), Vector(-8704, 8182), Vector(-7004, 8602), Vector(-5860, 9984), Vector(-8064, 9984), Vector(-9216, 10539), Vector(-10319, 9487), Vector(-11166, 10144), Vector(-6418, 9856)}
-	for i = 1, 12, 1 do
+	local full_table = {Vector(-8832, 5888), Vector(-10281, 7509), Vector(-11837, 8406), Vector(-10805, 8535), Vector(-8704, 8182), Vector(-7004, 8602), Vector(-5860, 9984), Vector(-8064, 9984), Vector(-9216, 10539), Vector(-10319, 9487), Vector(-11166, 10144), Vector(-6418, 9856)}
+	local positionTable = WallPhysics:ShuffleTable(full_table)
+	for i = 1, 6, 1 do
 		positionTable[i] = positionTable[i] + RandomVector(RandomInt(0, 400))
 	end
-    for i = 1, #positionTable, 1 do
+    for i = 1, 6, 1 do
       Timers:CreateTimer(i*0.5, function()
         local patrolPositionTable = {}
         for j = 1, #positionTable, 1 do
@@ -1032,7 +1033,7 @@ end
 function Winterblight:DisperseRelicFragments(position, crystal_reward, hero, chamber, event_index)
 	local relic_dummy_count = math.ceil(crystal_reward/100)
 	for i = 1, relic_dummy_count, 1 do
-		local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+		local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_BADGUYS)
 		crystal:SetModelScale(0.9)
 		crystal:SetOriginalModel("models/props_gameplay/rune_illusion01.vmdl")
 		crystal:SetModel("models/props_gameplay/rune_illusion01.vmdl")
@@ -3661,7 +3662,7 @@ function Winterblight:SpawnWintertideMonk(position, fv)
 end
 
 function Winterblight:SpawnWintersChieftain(position, fv)
-  local queen = Winterblight:SpawnDungeonUnit("winterblight_winters_chieftain", position, 0, 3, "Winterblight.MindChatterer.Aggro", fv, false)
+  local queen = Winterblight:SpawnDungeonUnit("winterblight_winters_chieftain", position, 0, 3, "Winterblight.WintersChieftain.Aggro", fv, false)
   queen.dominion = true
   Events:ColorWearablesAndBase(queen, Vector(90, 140, 245))
   Events:AdjustBossPower(queen, 8, 8, false)
@@ -3936,9 +3937,9 @@ function Winterblight:EdgeOfWinter3(msg)
 	
 	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local level = Winterblight.CavernData.Chambers[4]["level"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 200 + level*5
+	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
 	Winterblight.ChrolonusUnitsSpawned = 0
-	local amount = math.floor(6 + level*0.5)
+	local amount = math.floor(3)
 	for i = 1, amount, 1 do
 		Timers:CreateTimer(0.3*i, function()
 			Winterblight:SpawnNextChrolonus(spawnphase)

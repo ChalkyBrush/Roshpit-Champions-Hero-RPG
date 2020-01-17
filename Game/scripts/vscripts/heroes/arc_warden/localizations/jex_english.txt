@@ -4,6 +4,7 @@
 	"jex_onibi"		"Jex Onibi"
 	"jex_charged_mushroom"			"Charged Sproutling"
 	"jex_thunder_blossom"			"Thunder Blossom"
+	"jex_cinderbark_treant"			"Cinderbark Treant"
 
 	"tooltip_jex_q"					"[Q] Ability"
 	"tooltip_jex_w"					"[W] Ability"
@@ -69,7 +70,7 @@
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_Description"		"Element: <font color=\"#C25DFC\">Cosmic</font><br>Jex powers up and fires a galactic laser toward the target location. Enemies closer to the starting point of the beam can take multiple instances of damage depending on the beam's total length. Enemies who are hit by the beam receive a debuff that makes them lose Magic Armor."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_attack_damage_added_per_tech"		"%<font color=\"#f4b942\">ATTACK DAMAGE ADDED TO LASER BASE DAMAGE PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"%<font color=\"#f4b942\">MAGIC ARMOR LOSS DEBUFF PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_magic_armor_loss_per_tech"			"<font color=\"#f4b942\">MAGIC ARMOR LOSS DEBUFF PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_damage"							"BASE DAMAGE:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_cast_range"						"CAST RANGE:"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_q_debuff_duration"					"DEBUFF DURATION:"
@@ -180,7 +181,7 @@
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex's elemental modules disrupt natural balance, granting him increased Armor Pierce and Spell Pierce. Additionally provides bonus base attack damage while active. While the equilibrium shift is toggled on, mana is drained each second and also on each ability cast. If mana falls below the mana cost, Equilibrium Shifter is toggled off."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"%<font color=\"#f4b942\">ARMOR PIERCE AND SPELL PIERCE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"<font color=\"#f4b942\">ARMOR PIERCE AND SPELL PIERCE PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">MOVESPEED PER TECH</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"INCREASED BASE ATTACK DAMAGE:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"MANA COST PER CAST:"

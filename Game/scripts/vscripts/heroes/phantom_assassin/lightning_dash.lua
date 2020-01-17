@@ -52,7 +52,7 @@ function add_free_casts(event)
 	local e_3_level = caster:GetRuneValue("e", 3)
 	if e_3_level > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_voltex_lightning_dash_regen", {})
-		local regen = caster:GetAgility()*VOLTEX_ARCANA1_E3_REGEN_PER_AGI
+		local regen = caster:GetAgility()*VOLTEX_ARCANA1_E3_REGEN_PER_AGI*e_3_level
 		caster:SetModifierStackCount("modifier_voltex_lightning_dash_regen", caster, regen)
 	else
 		caster:RemoveModifierByName("modifier_voltex_lightning_dash_regen")

@@ -127,7 +127,7 @@ function paladin_rune_e_2_attacked(event)
 		if not unit.retributions then
 			unit.retributions = 0
 		end
-		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+		Filters:TakeArgumentsAndApplyDamage(attacker, unit, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_E, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 		if unit.retributions < 10 then
 			if attacker:GetMaxHealth() > 200 then
 				unit.retributions = unit.retributions + 1

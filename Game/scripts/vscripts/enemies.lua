@@ -4,13 +4,16 @@ if Enemies == nil then
 	Enemies = class({})
 end
 
+Enemies.PrecacheTable = {}
+Enemies.PrecacheHash = {}
+
 Enemies.MOB_TIER_EXP_MULT = {}
 Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_WEAK_CREEP] = 0.5
 Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_NORMAL_CREEP] = 1
-Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_ELITE_CREEP] = 6
-Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_MINI_BOSS] = 15
-Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_BOSS] = 25
-Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_MAJOR_BOSS] = 35
+Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_ELITE_CREEP] = 10
+Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_MINI_BOSS] = 30
+Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_BOSS] = 100
+Enemies.MOB_TIER_EXP_MULT[ENEMY_TYPE_MAJOR_BOSS] = 100
 
 Enemies.DIFFICULTY_DAMAGE_ADJUST = {}
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL] = {}
@@ -22,19 +25,19 @@ Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_ELITE_CREEP] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_MINI_BOSS] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_BOSS] = 1
 Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_NORMAL][ENEMY_TYPE_MAJOR_BOSS] = 1
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_WEAK_CREEP] = 1.5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_NORMAL_CREEP] = 1.5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_ELITE_CREEP] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MINI_BOSS] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_BOSS] = 2.5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MAJOR_BOSS] = 2.5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 2
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 3
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 3.5
-Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 3.5
-Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL = 10
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_WEAK_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_NORMAL_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_ELITE_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MINI_BOSS] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_BOSS] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_ELITE][ENEMY_TYPE_MAJOR_BOSS] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 1
+Enemies.DIFFICULTY_DAMAGE_ADJUST[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 1
+Enemies.FLAT_DAMAGE_BONUS_PER_LEVEL_AFTER_NORMAL = 7
 Enemies.GLOBAL_DAMAGE_ADJUST = 0.35
 
 Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST = {}
@@ -67,8 +70,8 @@ Enemies.DIFFICULTY_PIERCE_ADJUST[DIFFICULTY_LEGEND] = 1
 
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL = {}
 Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_NORMAL] = 0
-Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_ELITE] = 10
-Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_LEGEND] = 20
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_ELITE] = 8
+Enemies.FLAT_ROSHPIT_ATTRIBUTE_PER_LEVEL[DIFFICULTY_LEGEND] = 16
 
 Enemies.DIFFICULTY_HEALTH_FLAT = {}
 Enemies.DIFFICULTY_HEALTH_FLAT[DIFFICULTY_NORMAL] = {}
@@ -109,17 +112,17 @@ Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_ELITE][ENEMY_TYPE_ELITE_CREEP] = 3
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_ELITE][ENEMY_TYPE_MINI_BOSS] = 4
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_ELITE][ENEMY_TYPE_BOSS] = 5
 Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_ELITE][ENEMY_TYPE_MAJOR_BOSS] = 9
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 12
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 15
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 30
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 60
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 80
-Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 100
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_WEAK_CREEP] = 1
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_NORMAL_CREEP] = 1.2
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_ELITE_CREEP] = 2
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS] = 4
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 6
+Enemies.DIFFICULTY_HEALTH_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 8
 
 Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT = {}
 Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_NORMAL] = 1
 Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_ELITE] = 2
-Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_LEGEND] = 3
+Enemies.DIFFICULTY_GLOBAL_HEALTH_MULT[DIFFICULTY_LEGEND] = 2
 
 Enemies.GLOBAL_HEALTH_MULT = 2
 
@@ -130,7 +133,7 @@ Enemies.SPIRIT_REALM_CONSTANTS[0]["attack_damage"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["roshpit_attribute"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["max_hp"] = 1
 Enemies.SPIRIT_REALM_CONSTANTS[0]["arcane_crystals"] = 1
-Enemies.SPIRIT_REALM_CONSTANTS[1]["attack_damage"] = 2
+Enemies.SPIRIT_REALM_CONSTANTS[1]["attack_damage"] = 1.5
 Enemies.SPIRIT_REALM_CONSTANTS[1]["roshpit_attribute"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["max_hp"] = 2
 Enemies.SPIRIT_REALM_CONSTANTS[1]["arcane_crystals"] = 2
@@ -158,8 +161,11 @@ Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MINI_BOSS]
 Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_BOSS] = 1.35
 Enemies.DIFFICULTY_ARCANE_CRYSTALS_MULT[DIFFICULTY_LEGEND][ENEMY_TYPE_MAJOR_BOSS] = 1.5
 
-Enemies.EXP_LEVEL_DIFFERENTIAL = 5
-Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.16
+Enemies.GLOBAL_ARCANE_CRYSTAL_MULT = 2
+
+Enemies.EXP_LEVEL_DIFFERENTIAL = 8
+Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL = 0.10
+Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY = 0.1
 
 Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER = 0.35
 
@@ -167,8 +173,8 @@ Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER = 0.1
 Enemies.EXTRA_EXP_PER_PASS_PLAYER = 0.2
 Enemies.EXP_SHARE_PERCENTAGE = 0.75
 
-Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MIN = 2
-Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MAX = 2
+Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MIN = 3
+Enemies.MINIMUM_STARTING_ATTACK_DAMAGE_MAX = 3
 
 Enemies.EXP_BASE_TABLE = {}
 for i = 0, 120 , 1 do
@@ -218,6 +224,7 @@ end
 
 function Enemies:InitializeEnemy(unit)
 	local base_level = unit:GetKeyValue("RoshpitLevel")
+	Enemies:AdjustUnitLevelForMapSpecial(unit, unit.roshpit_attributes.roshpit_level)
 	local unit_level = unit.roshpit_attributes.roshpit_level
 	local enemyTier = unit.roshpit_attributes.enemy_tier
 	local difficulty = GameState:GetDifficultyFactor()
@@ -309,13 +316,13 @@ Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.5
 Enemies.WINTERBLIGHT_STONES_BUFFS["arcane_crystals"] = 0.5
 
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL = {}
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"] = 0.1
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"] = 0.1
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"] = 0.1
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.1
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.1
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"] = 0.05
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"] = 0.05
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"] = 0.05
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.05
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.05
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.1
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["arcane_crystals"] = 0.1
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["arcane_crystals"] = 0.05
 
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL = {}
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["attack_damage"] = 0.1
@@ -327,22 +334,48 @@ Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["health"] = 0.3
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL["arcane_crystals"] = 0.25
 
 Enemies.GLOBAL_SEA_FORTRESS_MULT = {}
-Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 0.75
+Enemies.GLOBAL_SEA_FORTRESS_MULT["attack_damage"] = 0.5
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_magic_armor"] = 2
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_armor_pierce"] = 1
 Enemies.GLOBAL_SEA_FORTRESS_MULT["roshpit_spell_pierce"] = 1
-Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 1
+Enemies.GLOBAL_SEA_FORTRESS_MULT["health"] = 1.5
 Enemies.GLOBAL_SEA_FORTRESS_MULT["arcane_crystals"] = 2
 
 Enemies.SERENGAARD_BUFFS_PER_WAVE = {}
-Enemies.SERENGAARD_BUFFS_PER_WAVE["attack_damage"] = 0.05
+Enemies.SERENGAARD_BUFFS_PER_WAVE["attack_damage"] = 0.07
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_armor"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_magic_armor"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_armor_pierce"] = 0.05
 Enemies.SERENGAARD_BUFFS_PER_WAVE["roshpit_spell_pierce"] = 0.05
-Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.05
+Enemies.SERENGAARD_BUFFS_PER_WAVE["health"] = 0.15
 Enemies.SERENGAARD_BUFFS_PER_WAVE["arcane_crystals"] = 0.05
+
+Enemies.LEVEL_ADJUST_PER_WINTERBLIGHT_STONE = 8
+Enemies.LEVEL_ADJUST_PER_SERENGAARD_INFINITE_WAVE = 0.2
+Enemies.LEVEL_ADJUST_FOR_SPIRIT_REALM_OR_EQUINOX = 16
+Enemies.LEVEL_ADJUST_PER_WINTER_CAVERN_CHAMBER_LEVEL = 0.4
+
+function Enemies:AdjustUnitLevelForMapSpecial(enemy, current_level)
+	local adjusted_level = current_level
+	if GameState:IsWinterblight() then
+		adjusted_level = adjusted_level + Winterblight.Stones*Enemies.LEVEL_ADJUST_PER_WINTERBLIGHT_STONE
+	elseif GameState:IsRPCArena() then
+		-- pit already adjusted
+	elseif GameState:IsSeaFortress() then
+		-- sea fortress already adjusted
+	elseif GameState:IsSerengaard() then
+		if Serengaard.InfiniteWaveCount then
+			adjusted_level = adjusted_level + Serengaard.InfiniteWaveCount*Enemies.LEVEL_ADJUST_PER_SERENGAARD_INFINITE_WAVE
+		end
+	elseif GameState:IsTanariJungle() or GameState:IsRedfallRidge() then
+		if Events.SpiritRealm then
+			adjusted_level = adjusted_level + Enemies.LEVEL_ADJUST_FOR_SPIRIT_REALM_OR_EQUINOX
+		end
+	end
+	adjusted_level = math.floor(math.min(adjusted_level, 120))
+	enemy:SetRoshpitLevel(adjusted_level)
+end
 
 function Enemies:AdjustAttributeForMapSpecial(enemy, attribute_type, base_attribute_value)
 	local adjusted_attribute_value = base_attribute_value
@@ -396,10 +429,35 @@ function Enemies:AdjustUnitForCavern(unit)
 	unit:SetMaxHealth(newHealth)
 	unit:SetBaseMaxHealth(newHealth)
 	unit:SetHealth(newHealth)
+
+	local new_unit_level = math.min(math.floor(unit:GetRoshpitLevel() + chamber_level*Enemies.LEVEL_ADJUST_PER_WINTER_CAVERN_CHAMBER_LEVEL), 120)
+	unit:SetRoshpitLevel(new_unit_level)
 end
 
+function CDOTA_BaseNPC:IsRegularEnemy(compare_unit)
+	if self:GetTeamNumber() == compare_unit:GetTeamNumber() then
+		return false
+	end
+	if self:GetUnitName() == "npc_dummy_unit" then
+		return false
+	else
+		return true
+	end
+end
+
+Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar", "npc_flying_dummy_vision", "water_temple_tentacle_switch", "ekkan_corpse", "tanari_wind_spark_dummy", "azalea_maze_food", "conquest_forest_guide", "arena_cliff_spirit"}
+
 function Enemies:ParagonChance(unit)
-	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS then
+	if WallPhysics:DoesTableHaveValue(Enemies.PARAGON_EXCEPTION_TABLE, unit:GetUnitName()) then
+		return false
+	end
+	if unit:GetRoshpitLevel() <= 1 then
+		return false
+	end
+	if unit.cant_paragon then
+		return false
+	end
+	if unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_MINI_BOSS or unit.roshpit_attributes.enemy_tier == ENEMY_TYPE_WEAK_CREEP then
 		return false
 	end
 	if unit:GetUnitName() == "arena_training_dummy" then
@@ -483,7 +541,7 @@ function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEX
 	print(exp)
 	print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
-		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), 0.02)
+		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY )
 		print(exp_mult)
 		exp = exp*exp_mult
 	end
@@ -518,4 +576,65 @@ function CDOTA_BaseNPC:GetEnemyTier()
 	else
 		return 0
 	end
+end
+
+Enemies.GlobalPrecacheTable = {}
+
+function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
+    -- if not WallPhysics:DoesTableHaveValue(Enemies.PrecacheTable, unitName) then
+    -- 	if not Enemies.PrecacheHash[unitName] then
+    -- 		Enemies.PrecacheHash[unitName] = {}
+    -- 		Enemies.PrecacheHash[unitName]["time_start"] = GameRules:GetGameTime()
+    -- 		Enemies.PrecacheHash[unitName]["precache_complete"] = false
+		  --   Timers:CreateTimer(0, function()
+		  --       PrecacheUnitByNameAsync(unitName, function()
+		  --       	Enemies.PrecacheHash[unitName]["time_end"] = GameRules:GetGameTime()
+		  --       	Enemies.PrecacheHash[unitName]["precache_complete"] = true
+		  --       end)
+		  --   end)
+    -- 	end
+    -- end
+    local unit = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    local ability = unit:FindAbilityByName("dungeon_creep")
+
+    if not ability then
+    	ability = unit:AddAbility("dungeon_creep")
+    end
+	ability:SetLevel(1)
+	ability:ApplyDataDrivenModifier(unit, unit, "modifier_dungeon_thinker_creep", {})
+	local aggroSound = unit:GetKeyValue("RoshpitAggroSound")
+	if aggroSound ~= 0 then
+	  unit.aggroSound = aggroSound
+	end
+	if GameState:IsWinterblight() then
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, unit, "modifier_Winterblight_unit", {})
+	end
+	if fv then
+	  unit:SetForwardVector(fv)
+	end
+    if isAggro then
+      Dungeons:AggroUnit(unit)
+    end
+    return unit
+end
+
+function Enemies:CreateUnitsWithPatrol(unitName, numberOfUnitsPerPosition, positionTable, moveSlowPCT, patrolInterval, randomOffsetPatrol, randomOffsetSpawn, delayBetweenSpawn, delayAtPositionSpawn)
+    for i = 1, #positionTable, 1 do
+      Timers:CreateTimer(i*delayBetweenSpawn, function()
+        local patrolPositionTable = {}
+        for j = 1, #positionTable, 1 do
+          local index = i + j
+          if index > #positionTable then
+            index = index - #positionTable
+          end
+          table.insert(patrolPositionTable, positionTable[index])
+        end
+        for j = 0, (numberOfUnitsPerPosition - 1), 1 do
+          Timers:CreateTimer(j*delayAtPositionSpawn, function()
+            local unit = Enemies:SpawnEnemyUnit(unitName, positionTable[i]+RandomVector(randomOffsetSpawn), RandomVector(1), false)
+            Winterblight:AddPatrolArguments(unit, moveSlowPCT, patrolInterval, randomOffsetPatrol, patrolPositionTable)
+          end)
+        end
+      end)
+    end
 end

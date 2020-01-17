@@ -12,13 +12,13 @@ function start_channel(event)
 		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.4})
 		EmitSoundOn("Hero_Jakiro.LiquidFire", caster)
 		ability:EndCooldown()
-		local cooldown = Filters:GetCDNoHood(caster, 0.7)
+		local cooldown = 0.4
 		ability:StartCooldown(cooldown)
 	end
 	if not caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		rune_r_1(caster, ability)
 	end
-	ability.rune_r_2_level = rune_r_2(caster, ability)
+	ability.rune_r_2_level = caster:GetRuneValue("r", 2)
 	caster.r_4_level = caster:GetRuneValue("r", 4)
 	local c_d_level = caster:GetRuneValue("r", 3)
 	local point = event.target_points[1]
@@ -139,17 +139,13 @@ function cooldownEnd(event)
 	end
 end
 
-function rune_r_2(caster, ability)
-	local totalLevel = caster:GetRuneValue("r", 2)
-	return totalLevel
-end
-
 function pyroblast_impact(event)
 	local ability = event.ability
 	local caster = event.caster
 	local stun_duration = event.stun_duration
 	local target = event.target
 	local damage = event.damage
+	local r_2_value = caster:GetRuneValue("r", 2)
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.e_3_amp then
 			damage = damage * ability.e_3_amp
@@ -160,8 +156,8 @@ function pyroblast_impact(event)
 	end
 	-- damage = damage + 0.0001*(caster:GetStrength()+caster:GetAgility()+caster:GetIntellect())/10*ability.r_4_level*damage
 	local filterDamage = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
-	if ability.rune_r_2_level > 0 and filterDamage then
-		applyIgnite(caster, ability, filterDamage, target, ability.rune_r_2_level, 6)
+	if r_2_value > 0 and filterDamage then
+		applyIgnite(caster, ability, filterDamage, target, r_2_value, 6)
 	end
 	Filters:ApplyStun(caster, stun_duration, target)
 
@@ -172,11 +168,11 @@ function ignite_think(event)
 	local target = event.target
 	local ability = event.ability
 	local damage = target.igniteDPS
-	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, -2, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
+	Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, BASE_NONE, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
-function applyIgnite(caster, ability, damage, target, b_d_level, duration)
-	local igniteDPS = damage * 0.033 * b_d_level
+function applyIgnite(caster, ability, damage, target, r_2_value, duration)
+	local igniteDPS = damage * SORCERESS_R2_IGNITE_DAMAGE_PCT/100 * r_2_value
 	if caster:HasModifier("modifier_clear_cast") then
 		if ability.e_3_amp then
 			igniteDPS = igniteDPS * ability.e_3_amp

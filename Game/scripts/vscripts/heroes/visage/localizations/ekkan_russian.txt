@@ -39,12 +39,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"В подчинении у Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с 50% шансом при атаке нанесут магический урон по линии позади цели."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Все подчинённые юниты с <% EKKAN_Q1_DAMAGE_CHANCE %>% шансом при атаке нанесут магический урон по линии позади цели."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Доп. магический урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% от урона подчинённого юнита"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С 50% шансом при атаке нанесёт магический урон позади цели."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"С <% EKKAN_Q1_DAMAGE_CHANCE %>% шансом при атаке нанесёт магический урон позади цели."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Увеличивает максимальное значение здоровья подчинённых юнитов."
@@ -52,7 +52,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону, броне и магической защите."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону, броне и магической защите. Максимум <% EKKAN_Q3_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Доп. броня и магическая защита"
@@ -100,7 +100,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_property_one"					"Доп. время жизни скелетов"
     	"DOTA_Tooltip_ability_ekkan_rune_w_2_suffix"						" сек."
 		"DOTA_Tooltip_ability_ekkan_rune_w_2_property_two"                  "Усиление элемента <font color=\"#5C776E\">Нежити</font>"
-        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                    " за каждого активного скелета"
+        "DOTA_Tooltip_ability_ekkan_rune_w_2_suffix_two"                    "% за каждого активного скелета"
 
     	"DOTA_Tooltip_ability_ekkan_rune_w_3"								"[W3] Skeleton Mages"
     	"DOTA_Tooltip_ability_ekkan_rune_w_3_Description"					"С 30% шансом вместо скелета - воина будет призван скелет - маг, который наносит магический урон по области, снижает магическую защиту у пораженных заклинанием целей и замедляет задетых врагов. Урон принадлежит скелету, но усиливается элементами и силой способностей героя."
@@ -217,7 +217,7 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Замедлен и теряет здоровье"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются, из-за чего теряют часть Брони и Магической Защиты получают урон со временем, зависящий от урона подчинённого юнита. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"Подчинённые юниты могут поглощать трупы, чтобы на 12 секунд получить бонус к своему базовому урону и скорости передвижения. Когда заканчивается время действия баффа, от юнита разойдутся по 2 роя жуков за каждый поглощённый труп. Задетые жуками враги отравляются и получают урон от яда, <% EKKAN_ARCANA_Q2_POISON_PER_ATTACK *100 %>% от урона подчинённого юнита, и теряют часть Брони и Магической Защиты. Отравленные враги не могут исцеляться. В случае, если противник умрёт, пока был отравлен, он сгенерирует дополнительный труп."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Бонус к базовому урону за поглощённый труп"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Снижение Брони и Магической Защиты"
@@ -227,10 +227,10 @@
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Получает бонус к урону. По окончании действия этого эффекта выпускает рой ядовитых жуков."
 
     	"DOTA_Tooltip_modifier_swarm_effect"									"Corpse Eater Poison"
-    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Получает увеличенный пост-резистный урон и дополнительный урон каждые 0.5 секунды. В случае смерти с этим эффектом сгенерирует дополнительный труп"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Теряет часть Брони и Маг. Защиты, а также получает урон каждые 0.5 секунды. В случае смерти с этим эффектом сгенерирует дополнительный труп"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"Враги, умирающие в радиусе 1200 от подчинённого юнита навсегда даруют ему бонус к базовому урону и броне."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"Враги, умирающие в радиусе 1200 от подчинённого юнита навсегда даруют ему бонус к базовому урону и броне. Максимум <% EKKAN_ARCANA_Q3_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Бонус к урону"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Бонус к броне"
@@ -268,7 +268,7 @@
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_5_1"		"[T5-1] Glyph of Domination"
 		"item_rpc_ekkan_glyph_5_1_description" 				"Увеличивает максимальное количество подчинённых юнитов на <% EKKAN_GLYPH_5_1_Q_ADD_UNITS %>."
 
-		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"[T6-1] (T6)Glyph of Gargoyles"
+		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_6_1"		"[T6-1] Glyph of Gargoyles"
 		"item_rpc_ekkan_glyph_6_1_description" 				"Увеличивает максимальное количество призываемых гаргулий на <% EKKAN_GLYPH_6_1_E_ADD_UNITS %>."
 
 		"DOTA_Tooltip_ability_item_rpc_ekkan_glyph_7_1"		"[T7-1] Glyph of Super Skeleton"

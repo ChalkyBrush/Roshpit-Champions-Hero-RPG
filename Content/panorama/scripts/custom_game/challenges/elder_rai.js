@@ -54,7 +54,7 @@ function setElderRaiAction(button, action, phase_2_attacher){
 function elderRaiAction(action, phase_2_attacher){
 	phase_2_attacher.RemoveAndDeleteChildren(0)
 	if (action == "exp-orb-1"){
-		var mithril_cost = 100000
+		var mithril_cost = 20000
 		var playerID = Game.GetLocalPlayerID()
         var shards = CustomNetTables.GetTableValue("player_stats", playerID.toString() + "-mithril").mithril;
 		var rai_detail_panel = $.CreatePanel("Panel", phase_2_attacher, "rai-attach-main")
@@ -76,7 +76,7 @@ function elderRaiAction(action, phase_2_attacher){
 			button.AddClass("button-disabled")
 		}
 	}else if(action == "exp-orb-2"){
-		var mithril_cost = 1000000
+		var mithril_cost = 300000
 		var playerID = Game.GetLocalPlayerID()
         var shards = CustomNetTables.GetTableValue("player_stats", playerID.toString() + "-mithril").mithril;
 		var rai_detail_panel = $.CreatePanel("Panel", phase_2_attacher, "rai-attach-main")

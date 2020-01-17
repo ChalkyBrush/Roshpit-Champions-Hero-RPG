@@ -88,7 +88,7 @@ function earth_aspect(event)
 	end
 	earthquake:SetLevel(ability:GetLevel())
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.earthAspect:AddAbility("normal_steadfast"):SetLevel(1)
+		caster.earthAspect:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	caster:SwapAbilities("summon_earth_aspect", "earthquake", false, true)
 	ability:ApplyDataDrivenModifier(caster, caster.earthAspect, "modifier_earth_aspect_health", {})
@@ -211,7 +211,7 @@ function fire_aspect(event)
 		common_aspect_effects(caster, ability, caster.fireAspect)
 	end)
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.fireAspect:AddAbility("normal_steadfast"):SetLevel(1)
+		caster.fireAspect:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	local w_1_level = get_w_1_level(caster)
 	if w_1_level > 0 then
@@ -269,7 +269,7 @@ function shadow_aspect(event)
 		shadowGate:SetAbilityIndex(2)
 	end
 	if caster:HasModifier("modifier_conjuror_immortal_weapon_3") then
-		caster.shadowAspect:AddAbility("normal_steadfast"):SetLevel(1)
+		caster.shadowAspect:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 	end
 	shadowGate:SetLevel(ability:GetLevel())
 	caster:SwapAbilities("summon_shadow_aspect", "shadow_gate", false, true)
@@ -545,11 +545,15 @@ function aspect_die(event)
 				if earthReviveEvent.caster:HasAbility("summon_earth_aspect") then
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_aspect")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
+					earthReviveEvent.armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_armor")
+					earthReviveEvent.magic_armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_magic_armor")
 					earth_aspect(earthReviveEvent)
 				elseif earthReviveEvent.caster:HasAbility("summon_earth_deity") then
 					earthReviveEvent.ability = earthReviveEvent.caster:FindAbilityByName("summon_earth_deity")
 					earthReviveEvent.aspect_health = earthReviveEvent.ability:GetSpecialValueFor("aspect_health")
 					earthReviveEvent.aspect_damage = earthReviveEvent.ability:GetSpecialValueFor("aspect_damage")
+					earthReviveEvent.armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_armor")
+					earthReviveEvent.magic_armor = earthReviveEvent.ability:GetSpecialValueFor("aspect_magic_armor")
 					conjuror_summon_arcana_earth_deity(earthReviveEvent)
 				end
 			end

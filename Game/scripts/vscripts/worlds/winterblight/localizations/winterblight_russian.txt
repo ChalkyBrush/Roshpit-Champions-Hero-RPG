@@ -78,13 +78,13 @@
 		"DOTA_Tooltip_modifier_mountain_dweller_regen_Description"	"Значительно увеличена регенерация здоровья"
 
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive"	"Icicle Skin"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Периодически выпускает сосульки в ближайших врагов. При попадании по врагу, сосулька накладывает неограниченный по количеству зарядов дебафф, который увеличивает получаемый пост-резистный урон. Действует только на героев."
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_Description"	"Периодически выпускает сосульки в ближайших врагов. При попадании по врагу, сосулька накладывает неограниченный по количеству зарядов дебафф, который увеличивает получаемый врагом урон. Действует только на героев."
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"ДОП. ПОСТ-РЕЗ. ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_winterblight_frostiok_passive_damage_amp_per_stack"	"УСИЛЕНИЕ УРОНА ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_winterblight_frostiok_passive_radius"			"РАДИУС АТАКИ:"
 
 		"DOTA_Tooltip_modifier_frostiok_damage_amp"				"Icy Protrusion"
-		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Получает увеличенный пост-резистный урон."
+		"DOTA_Tooltip_modifier_frostiok_damage_amp_Description"	"Получает увеличенный урон из всех источников"
 
 		"DOTA_Tooltip_ability_winterblight_marauder_passive"	"Marauder"
 		"DOTA_Tooltip_ability_winterblight_marauder_passive_Description"	"Атаки игнорируют броню."
@@ -466,8 +466,8 @@
 		"DOTA_Tooltip_ability_winterblight_ensnare_duration"		"ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive"	"Grand Piercer"
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Пассивно увеличивает пост-резистный урон."
-		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"ДОП. ПОСТ-РЕЗ. УРОН, %:"
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_Description"	"Пассивно увеличивает весь исходящий урон."
+		"DOTA_Tooltip_ability_winterblight_azalea_knife_passive_postmitigation"	"МНОЖИТЕЛЬ УРОНА, %:"
 
 		"DOTA_Tooltip_ability_buzuki_hex"							"Buzuki's Hex"
 		"DOTA_Tooltip_ability_buzuki_hex_Description"				"Трансформирует выбранную цель в безобидную зверушку, неспособную атаковать и произносить заклинания."
@@ -864,7 +864,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "РАДИУС РАСКОЛА:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, то цель получает на <% DRILL_CRUSHER_POSTMITIGATION * 100%>% больше пост-резистного урона из всех источников. Дебафф длится <% DRILL_CRUSHER_DURATION %> сек."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <% DRILL_CRUSHER_MAX_STACKS_COUNT %>, то цель получает на <% DRILL_CRUSHER_POSTMITIGATION * 100%>% больше урона из всех источников. Дебафф длится <% DRILL_CRUSHER_DURATION %> сек."
 
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Атаки имеют 20% шанс затянуть цель в вспышку ослепительного света, нанося урон и обезоруживая её."	
@@ -893,7 +893,7 @@
 		"DOTA_Tooltip_modifier_cavern_spark_paralyze_Description"	"Парализован"
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_red"				"Red Crystal"
-		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 500%%."
+		"DOTA_Tooltip_modifier_merkurio_crystal_red_Description"	"Увеличивает атаку всех монстров внутри Замороженного Зала на 100%%."
 
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue"				"Blue Crystal"
 		"DOTA_Tooltip_modifier_merkurio_crystal_blue_Description"	"Увеличивает сопротивление к урону всех монстров внутри Замороженного Зала на 90%%."

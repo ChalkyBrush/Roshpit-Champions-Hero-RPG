@@ -222,6 +222,7 @@ function falling_end(event)
 		ability.particle = true
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz", {duration = 0.1})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_a_c_dbz_attack_power", {duration = 8})
+		caster:SetModifierStackCount("modifier_seinaru_a_c_dbz_attack_power", caster, ability.e_1_level)
 		ability.startPosition = caster:GetAbsOrigin()
 	else
 	end

@@ -350,6 +350,7 @@ function ancient_boss_die_begin(event)
 		Stars:StarEventSolo("weapon", MAIN_HERO_TABLE[i])
 	end
 	Timers:CreateTimer(1.5, function()
+		Events:MainBossSlain(caster:GetUnitName())
 		local bSpirit = false
 		local paragonBonus = 0
 		if Tanari.BossesSlainSpirit == 3 then

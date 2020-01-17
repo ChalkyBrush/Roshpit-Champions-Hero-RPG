@@ -69,21 +69,23 @@ function dominion_debuff_death(event)
 	if not ability.dominionTable then
 		ability.dominionTable = {}
 	end
+	local q_3_level = caster:GetRuneValue("q", 3)
 	if unit.dominion then
 		local fv = unit:GetForwardVector()
 		local summonPosition = unit:GetAbsOrigin()
 		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
 		local summon = CreateUnitByName(unit:GetUnitName(), summonPosition, false, nil, nil, caster:GetTeamNumber())
+		summon.cant_paragon = true
 		Enemies:InitializeEnemy(summon)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
 		summon:SetAcquisitionRange(1600)
 		summon:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		summon:SetForwardVector(fv)
-		local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
-		local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
-		attacker:SetBaseDamageMin(buffedUnitBaseDamage)
-		attacker:SetBaseDamageMax(buffedUnitBaseDamage)
+		local unitBaseDamage = (unit:GetBaseDamageMax() + unit:GetBaseDamageMin())/2
+		local buffedUnitBaseDamage = unitBaseDamage
+		unit:SetBaseDamageMin(buffedUnitBaseDamage)
+		unit:SetBaseDamageMax(buffedUnitBaseDamage)
 		summon.aggro = true
 		summon.ekkan_unit = true
 		summon.ekkan_dominion = true
@@ -262,19 +264,18 @@ function dominion_unit_kill(event)
 	if not unit.dominionLock then
 		unit.dominionLock = true
 		local q_3_level = caster:GetRuneValue("q", 3)
-		if unit:GetDeathXP() > 10 then
-		if q_3_level > 0 then
+		if q_3_level > 0 and unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 			local new_armor = attacker.roshpit_attributes.roshpit_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
 			local new_magic_armor = attacker.roshpit_attributes.roshpit_magic_armor + q_3_level * EKKAN_ARCANA_Q3_ARMOR
 			attacker:SetBaseRoshpitArmor(new_armor)
 			attacker:SetBaseRoshpitMagicArmor(new_magic_armor)
 			attacker:CalculateAndSaveRoshpitAttributes()
 			
-			local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
-			local getBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
-			local buffedgetBaseDamage = getBaseDamage + q_3_level * damageGainMult
-			attacker:SetBaseDamageMin(buffedgetBaseDamage)
-			attacker:SetBaseDamageMax(buffedgetBaseDamage)
+			--local damageGainMult = EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE
+			--local getBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
+			--local buffedgetBaseDamage = getBaseDamage + q_3_level * damageGainMult
+			--attacker:SetBaseDamageMin(buffedgetBaseDamage)
+			--attacker:SetBaseDamageMax(buffedgetBaseDamage)
 
 			EmitSoundOn("Ekkan.DarkJourney", attacker)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
@@ -286,9 +287,10 @@ function dominion_unit_kill(event)
 				ParticleManager:ReleaseParticleIndex(beamPFX)
 			end)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks_black", {})
-			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + 1
-			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
-		end
+			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + q_3_level
+			if newStacks <= EKKAN_ARCANA_Q3_MAX_STACKS*EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE*q_3_level then
+				attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
+			end
 		end
 	end
 end
@@ -468,7 +470,7 @@ function swarm_poison_think(event)
 	local target = event.target
 	local ability = event.ability
 	if IsValidEntity(caster) then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*EKKAN_ARCANA_Q2_POISON_PER_ATTACK
 		Filters:ApplyDotDamage(caster.hero, ability, target, damage, DAMAGE_TYPE_MAGICAL, 1, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
 	end
 end

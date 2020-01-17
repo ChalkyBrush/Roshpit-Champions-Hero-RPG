@@ -55,9 +55,11 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of Mountain Protector's attack damage."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of a sum of Mountain Protector's attack damage and Max HP values."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Damage"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix"		"% of attack damage"
+		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Increases the armor of Mountain Protector and nearby allies while in Mountain Guardian stance."
@@ -283,7 +285,7 @@
 		"item_rpc_mountain_protector_glyph_2_1_description" 				"All damage taken is reduced by another <% MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION %>% while in @Ability2."
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_3_1"		"[T3-1] Glyph of Catastrophe"
-		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage. @Ability4 Base Ability Damage reduced by <% MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE * 100 %>%"
+		"item_rpc_mountain_protector_glyph_3_1_description" 				"@Ability4 pierces magic immunity and deals pure damage. @Ability4 Base Ability Damage reduced by <% MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE %>%"
 
 		"DOTA_Tooltip_ability_item_rpc_mountain_protector_glyph_4_1"		"[T4-1] Glyph of Mountain Force"
 		"item_rpc_mountain_protector_glyph_4_1_description" 				"<% MOUNTAIN_PROTECTOR_GLYPH_4_1_Q_MULTICAST_CHANCE %>% chance to launch 2 @Ability1s."

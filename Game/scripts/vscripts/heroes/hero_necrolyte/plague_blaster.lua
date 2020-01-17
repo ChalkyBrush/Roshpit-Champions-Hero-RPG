@@ -77,6 +77,9 @@ function cast_necrofusion(event)
     ability.w2_level = w2_level
     ability.w2_duration = w2_duration
 
+    if ability.w3_level > 0 then
+        venomort_w3_init(caster, ability)
+    end
     Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 
 end
@@ -125,55 +128,14 @@ function demoralize_end(event)
     caster:Stop()
 end
 
-function increase_w3_stacks(event)
-    local caster = event.caster
-    local target = event.target
-    local ability = event.ability
+function venomort_w3_init(caster, ability)
+    local current_stacks = caster:GetModifierStackCount("modifier_venomort_scourge_fervor_visible", caster)
+    local new_stacks = math.min(current_stacks + 1, VENOMORT_W3_MAX_STACKS)
+    local duration = Filters:GetAdjustedBuffDuration(caster, VENOMORT_W3_STACK_DURATION, false)
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_scourge_fervor_visible", {duration = duration})
+    caster:SetModifierStackCount("modifier_venomort_scourge_fervor_visible", caster, new_stacks)
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_bonus_stats", nil)
-    local modifier = caster:FindModifierByName('modifier_venomort_bonus_stats')
-    local stacks = modifier:GetStackCount() + 1 * ability.w3_level
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_scourge_fervor_invisible", {duration = duration})
+    caster:SetModifierStackCount("modifier_venomort_scourge_fervor_invisible", caster, new_stacks*ability.w3_level)
 
-    local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
-    local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
-    if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
-    end
-
-    if target.mainBoss then
-        stacks = stacks + (bossesCountAs - 1) * ability.w3_level
-    end
-    if target.paragon then
-        stacks = stacks + (paragonsCountAs - 1) * ability.w3_level
-    end
-
-    modifier:SetStackCount(stacks)
-end
-
-function decrease_w3_stacks(event)
-    local caster = event.caster
-    local target = event.target
-    local ability = event.ability
-
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_venomort_bonus_stats", nil)
-    local modifier = caster:FindModifierByName('modifier_venomort_bonus_stats')
-    local stacks = modifier:GetStackCount() - 1 * ability.w3_level
-
-    local bossesCountAs = VENOMORT_BOSSES_COUNT_AS_ENEMIES
-    local paragonsCountAs = VENOMORT_PARAGONS_COUNT_AS_ENEMIES
-    if caster:HasModifier("modifier_venomort_glyph_2_1") then
-        bossesCountAs = VENOMORT_GLYPH_2_1_BOSSES_COUNT_AS_ENEMIES
-        paragonsCountAs = VENOMORT_GLYPH_2_1_PARAGONS_COUNT_AS_ENEMIES
-    end
-
-    if target.mainBoss then
-        stacks = stacks - (bossesCountAs - 1) * ability.w3_level
-    end
-    if target.paragon then
-        stacks = stacks - (paragonsCountAs - 1) * ability.w3_level
-    end
-
-    stacks = math.max(0, stacks)
-    modifier:SetStackCount(stacks)
 end

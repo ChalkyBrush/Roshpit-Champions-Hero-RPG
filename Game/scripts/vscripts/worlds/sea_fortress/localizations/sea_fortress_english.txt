@@ -180,6 +180,8 @@
 
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability"	"Warden"
 		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_Description"	"Waiting silently upon the mountains."
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_damage" "DAMAGE PER FLAME:"
+		"DOTA_Tooltip_ability_sea_fortress_mountain_beast_ability_pop_damage"	"EXPLOSION DAMAGE:"
 
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive"	"Sparkling Bloom"
 		"DOTA_Tooltip_ability_sea_fortress_exploder_passive_Description"	"On death, explode and freeze nearby enemies."
@@ -294,8 +296,8 @@
 		"DOTA_Tooltip_ability_creature_stormshield_Description"			"Massively increases armor, and reduces ALL physical damage taken by 50%."	
 		"DOTA_Tooltip_ability_creature_stormshield_armor"				"ARMOR:"
 
-		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive"		"Billion Swipe"
-		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive_Description"	"Attacks deal an additional 1 billion physical damage."
+		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive"		"One Hundred Thousand Swipe"
+		"DOTA_Tooltip_ability_seafortress_ancient_ursan_passive_Description"	"Attacks deal an additional 100,000 physical damage."
 
 		"DOTA_Tooltip_ability_water_medusa_passive"					"Sea Witch Arrows"
 		"DOTA_Tooltip_ability_water_medusa_passive_Description"		"Attacks leave a stacking debuff that reduces all stats."

@@ -139,15 +139,17 @@ function dot_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local damage_mult = event.damage_mult
+	local r1_level = caster:GetRuneValue("r", 1)
+	local r2_level = caster:GetRuneValue("r", 2)
 	if target.dummy then
 		print("Target is a dummy.")
 		return
 	end
-	local damage = ability.r1_damage
-	local r2_level = caster:GetRuneValue("r", 2)
-	local procs = Runes:Procs(r2_level, VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1, 1)
-	for i = 1, procs do
-		Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
-	end
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * damage_mult * r1_level * VENOMORT_ARCANA_1_R1_DAMAGE_PERCENT / 100	
+	local procs = 1 + Runes:Procs(r2_level, VENOMORT_ARCANA_1_R2_INSTANCES_FOR_R1, 1)
+		for i = 1, procs, 1 do
+			Filters:ApplyDotDamage(caster, ability, target, damage, DAMAGE_TYPE_MAGICAL, 4, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+		end
 end
 --end

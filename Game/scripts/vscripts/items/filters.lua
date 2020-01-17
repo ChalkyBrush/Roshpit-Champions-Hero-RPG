@@ -81,21 +81,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
         Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
         return
     end
-    if attacker:HasModifier("modifier_solunia_arcana2") then
-        local b_d_level = attacker:GetRuneValue("r", 2)
-        if b_d_level > 0 then
-            local modified_damage = Filters:ElementalDamage(victim, attacker, damage, damage_type, nil, element1, element2, true)
-            if attacker.sunMoon == "moon" then
-                victim.SoluniaBurnLunar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
-                local alphaAbility = attacker:FindAbilityByName("solunia_lunar_alpha_spark")
-                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_lunar_burn", {duration = 8})
-            else
-                victim.SoluniaBurnSolar = modified_damage * SOLUNIA_ARCANA_R2_BURN_PCT/100 * b_d_level
-                local alphaAbility = attacker:FindAbilityByName("solunia_solar_alpha_spark")
-                alphaAbility:ApplyDataDrivenModifier(attacker, victim, "modifier_solunia_solar_burn", {duration = 8})
-            end
-        end
-    end
+
     Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_type, BASE_ITEM, element1, element2)
 end
 
@@ -418,9 +404,12 @@ function Filters:ReduceCooldownAll(caster, ability, baseCD)
     end
 end
 
-function Filters:ReduceCooldownGeneric(caster, ability, CDreduce)
+function Filters:ReduceCooldownGeneric(caster, ability, CDreduce, minCD)
     local abilityCooldown = ability:GetCooldownTimeRemaining()
     local abilityCooldown = abilityCooldown - CDreduce
+    if minCD then
+        abilityCooldown = math.max(abilityCooldown, minCD)
+    end
     if abilityCooldown > 0 then
         ability:EndCooldown()
         ability:StartCooldown(abilityCooldown)
@@ -654,6 +643,13 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
     if target:HasModifier("modifier_raven_idol") then
         healAmount = healAmount * (1 - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_RAVEN_IDOL_GEM_EMERALD1)/100)
     end
+    if target:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+        healAmount = healAmount * (1 - ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_HEALING_REDUCTION_PCT/100)
+        local threshold = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1)/100
+        if target:GetHealth() < target:GetMaxHealth()*threshold then
+            healAmount = healAmount * (1 + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE/100)
+        end
+    end
     healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
@@ -729,30 +725,25 @@ end
 function Filters:ApplyDotDamage(caster, ability, target, damage, damage_type, slot, element1, element2)
     heroes.venomort.onDotDamageDo(caster, target)
     local mult = 1
-    if caster:HasModifier("modifier_glove_of_the_forgotten_ghost") then
-        mult = mult + ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DOT_MULT
-    end
     mult = mult + heroes.venomort.getDotAmplify(caster, target)
     damage = damage * mult
-    local damage_types = {damage_type}
+    local damage_types = { {dot_damage_type = DAMAGE_TYPE_PHYSICAL, dot_damage = 0}, {dot_damage_type = DAMAGE_TYPE_MAGICAL, dot_damage = 0},{dot_damage_type = DAMAGE_TYPE_PURE, dot_damage = 0}  }
+    damage_types[1] = {dot_damage_type = damage_type, dot_damage = damage}
     if caster:HasModifier('modifier_venomort_glyph_5_a') then
-        damage_types = {
-            DAMAGE_TYPE_PURE,
-            DAMAGE_TYPE_PHYSICAL,
-            DAMAGE_TYPE_MAGICAL,
-        }
-        damage = damage / 3
+        damage_types[1] = {dot_damage_type = DAMAGE_TYPE_PHYSICAL, dot_damage = damage / 3}
+        damage_types[2] = {dot_damage_type = DAMAGE_TYPE_MAGICAL, dot_damage = damage / 3}
+        damage_types[3] = {dot_damage_type = DAMAGE_TYPE_PURE, dot_damage = damage / 15}
     end
 
-    for index, dot_damage_type in ipairs(damage_types) do
+    for index, dot in ipairs(damage_types) do
         if slot == BASE_NONE then
-            Filters:ApplyItemDamage(target, caster, damage, dot_damage_type, ability, element1, element2)
+			ApplyDamage({victim = target, attacker = caster, damage = dot.dot_damage, damage_type = dot.dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
         elseif slot == BASE_ITEM then
-            ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = dot_damage_type, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+            Filters:ApplyItemDamage(target, caster, dot.dot_damage, dot.dot_damage_type, ability, element1, element2)
         elseif slot == -2 then
-            Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, -2, element1, element2)
+            Filters:TakeArgumentsAndApplyDamage(target, caster, dot.dot_damage, dot.dot_damage_type, -2, element1, element2)
         else
-            Filters:TakeArgumentsAndApplyDamage(target, caster, damage, dot_damage_type, slot, element1, element2)
+            Filters:TakeArgumentsAndApplyDamage(target, caster, dot.dot_damage, dot.dot_damage_type, slot, element1, element2)
         end
     end
 end
@@ -1111,7 +1102,7 @@ function Filters:ApplyQskills(caster)
                     avatar:AddAbility(ability2:GetAbilityName()):SetLevel(abilityLevel)
                 end
                 avatar.origCaster = caster
-                avatar:AddAbility("normal_steadfast"):SetLevel(1)
+                avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
                 caster:ReduceMana(caster:GetMaxMana() * 0.5)
             end
         end
@@ -1507,7 +1498,7 @@ function Filters:ApplyRskills(caster)
                     avatar:AddAbility(ability2:GetAbilityName()):SetLevel(abilityLevel)
                 end
                 avatar.origCaster = caster
-                avatar:AddAbility("normal_steadfast"):SetLevel(1)
+                avatar:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
                 caster:ReduceMana(caster:GetMaxMana() * 0.5)
             end
         end
@@ -1747,7 +1738,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_ablecore_greaves_effect") then
             damageMult = damageMult + ITEM_RPC_ABLECORE_GREAVES_BAD/100
         end
-        if attacker:HasModifier("item_rpc_scarecrow_gloves") then
+        if attacker:HasModifier("modifier_scarecrow_gloves") then
             damageMult = damageMult + attacker:GetIntellect()*(attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SCARECROW_GLOVES_GEM_RUBY)/100)
         end
         if attacker:HasModifier("modifier_claw_of_azinoth") then
@@ -1904,9 +1895,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2)/100
         end
-        if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-            damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
-        end
+        -- if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
+        --     damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
+        -- end
         if attacker:HasModifier("modifier_cerulean_high_guard") then
             local bad = CERULEAN_HIGHGUARD_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST1)
             damageMult = damageMult + bad/100
@@ -1916,9 +1907,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
 		end
         if attacker:HasModifier("modifier_crest_of_the_umbral_sentinel") then
             Filters:UmbralSentinel(attacker, victim)
-        end
-        if attacker:HasModifier("modifier_mountain_protector_glyph_3_1") then
-            damageMult = damageMult - (MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE/100)
         end
         if attacker:HasModifier("modifier_conjuror_immortal_weapon_2") then
             if attacker:GetUnitName() == "npc_dota_hero_invoker" then
@@ -1977,25 +1965,27 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_wind_deity_crown") then
             if not ignore_effects then
                 if attacker:IsAlive() then
-                    local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
-                    local max_procs_per_second = WIND_DEITY_CROWN_ATTACK_LIMIT + ability:GetFinalGemPropertyValue("sapphire", WIND_DEITY_SAPPHIRE)
-                    local limitKey = attacker:GetPlayerOwnerID() .. '_wind_deity'
-                    Util.Common:LimitPerTime(max_procs_per_second, WIND_DEITY_CROWN_LIMIT_INTERVAL, limitKey, function()
-                        CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
-                        ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_cannot_miss", {duration = 0.2})
-                        Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
-                        if ability:GetGemValue("amethyst") > 0 then
-                            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_AMETHYST_DURATION})
-                            local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
-                            local newStacks = math.min(currentStacks + 1, WIND_DEITY_AMETHYST_MAX_STACKS)
-                            attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, newStacks)
+                    if not victim.dummy then
+                        local ability = attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]
+                        local max_procs_per_second = WIND_DEITY_CROWN_ATTACK_LIMIT + ability:GetFinalGemPropertyValue("sapphire", WIND_DEITY_SAPPHIRE)
+                        local limitKey = attacker:GetPlayerOwnerID() .. '_wind_deity'
+                        Util.Common:LimitPerTime(max_procs_per_second, WIND_DEITY_CROWN_LIMIT_INTERVAL, limitKey, function()
+                            CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/windstrike_weapon_buff_circle_flash.vpcf", victim, 1)
+                            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_cannot_miss", {duration = 0.2})
+                            Filters:PerformAttackSpecial(attacker, victim, true, true, true, false, true, false, false)
+                            if ability:GetGemValue("amethyst") > 0 then
+                                ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff", {duration = WIND_DEITY_AMETHYST_DURATION})
+                                local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit)
+                                local newStacks = math.min(currentStacks + 1, WIND_DEITY_AMETHYST_MAX_STACKS)
+                                attacker:SetModifierStackCount("modifier_wind_deity_damage_buff", attacker.InventoryUnit, newStacks)
 
-                            ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff_effect", {duration = WIND_DEITY_AMETHYST_DURATION})
-                            local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit)
-                            local atk_power_bonus = newStacks*ability:GetFinalGemPropertyValue("amethyst", WIND_DEITY_AMETHYST)
-                            attacker:SetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit, atk_power_bonus)
-                        end
-                    end)
+                                ability:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_wind_deity_damage_buff_effect", {duration = WIND_DEITY_AMETHYST_DURATION})
+                                local currentStacks = attacker:GetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit)
+                                local atk_power_bonus = newStacks*ability:GetFinalGemPropertyValue("amethyst", WIND_DEITY_AMETHYST)
+                                attacker:SetModifierStackCount("modifier_wind_deity_damage_buff_effect", attacker.InventoryUnit, atk_power_bonus)
+                            end
+                        end)
+                    end
                 end
             end
         end
@@ -2011,6 +2001,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     elseif slot == BASE_ABILITY_R then
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
+        end
+		if attacker:HasModifier("modifier_mountain_protector_glyph_3_1") then
+            damageMult = damageMult - (MOUNTAIN_PROTECTOR_GLYPH_3_1_BAD_R_REDUCE/100)
         end
         if attacker:HasModifier("modifier_galaxy_orb") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE2)/100
@@ -2030,9 +2023,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_plate_of_the_watcher4") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST2)/100
         end
-        if attacker:HasModifier("modifier_axe_arcana2") then
+        if attacker:HasModifier("modifier_axe_arcana1") then
             local r_1_level = attacker:GetRuneValue("r", 1)
-            damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT*r_1_level
+            damageMult = damageMult + RED_GENERAL_ARCANA1_R1_AMPLIFY_PERCENT/100*r_1_level
         end
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
@@ -2174,6 +2167,9 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
     if slot == BASE_NONE then
         instances = 1
     end
+    if victim.dummy then
+        instances = 1
+    end
 
     ------------------------------------------------------------------------------------------------------
     -- below is ApplyDamage (aka actual damage applying), do instances calculation before the Maginot Line
@@ -2264,7 +2260,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             )
         end
         if victim:HasModifier("modifier_elemental_resistance") then
-            damage = damage * 0.01
+            damage = damage * 0.5
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_all_elements", 1))/100
         if attacker:HasAbility("arkimus_archon_form") then
@@ -2274,7 +2270,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
         if attacker:HasModifier("modifier_omniro_dragon_buff") then
-            mult = mult + (OMNIRO_DRAGON_MACE_ELEMENTAL_BUFF/100)
+            mult = mult + (OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF/100)
         end
         if attacker:HasModifier("shadow_deity_passive") then
             if bIsRealDamage and slot ~= 0 then
@@ -2347,7 +2343,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             normalMult = normalMult + w_2_level * TRAPPER_ARCANA_W_W2_NORMAL_PCT
         end
         if attacker:HasModifier('modifier_trapper_glyph_6_1') then
-            normalMult = normalMult * TRAPPER_GLYPH_6_1_NORMAL_AMP
+            normalMult = normalMult + TRAPPER_GLYPH_6_1_NORMAL_AMP
         end
         normalMult = normalMult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_normal", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_normal", 1))/100
         mult = mult + normalMult
@@ -2365,7 +2361,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if victim:IsStunned() or victim:IsFakeStunned() then
                     local w_1_level = attacker:GetRuneValue("w", 1)
                     if w_1_level > 0 then
-                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_Q1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
+                        fireMult = fireMult + (FLAMEWAKER_ARCANA2_W1_FIRE_AMP_AGAINST_STUNNED/100) * w_1_level
                     end
                 end
             end
@@ -2388,7 +2384,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_sorceress_glyph_6_2") then
                 runesCount = runesCount * SORCERESS_GLYPH_6_2_R3_MULT
             end
-            fireMult = fireMult + 0.1 * runesCount
+            fireMult = fireMult + SORCERESS_R3_FIRE_AMP * runesCount
         end
         if unitName == "npc_dota_hero_huskar" then
             if attacker.q_4_level then
@@ -2598,11 +2594,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             local stacks = attacker:GetModifierStackCount("modifier_gilded_soul_buff", attacker.InventoryUnit)
             mult = mult + stacks * ITEM_RPC_GILDED_SOUL_CAGE_ELEMENT_HOLY_AMP/100
         end
-
-        if attacker:HasModifier("modifier_sunstrider_holy_amplify") then
-            local stacks = attacker:GetModifierStackCount("modifier_sunstrider_holy_amplify", attacker)
-            mult = mult + stacks * SEINARU_ARCANA_E4_HOLY_PCT
-        end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_holy", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_holy", 1))/100
     end
     if element1 == RPC_ELEMENT_COSMOS or element2 == RPC_ELEMENT_COSMOS then
@@ -2764,7 +2755,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             mult = mult + SPIRIT_WARRIOR_Q4_FIRE_AND_WIND_AMP * q_4_level
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker.w_4_level then
-                mult = mult + SEINARU_W4_WIND_AMP * attacker.w_4_level
+                mult = mult + (SEINARU_W4_WIND_AMP/100) * attacker.w_4_level
             end
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_sephyr_arcana1") then
@@ -2848,6 +2839,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         mult = mult + waterMult
     end
     if element1 == RPC_ELEMENT_DEMON or element2 == RPC_ELEMENT_DEMON then
+        if unitName == "npc_dota_hero_night_stalker" then
+            if attacker:HasModifier("modifier_chernobog_arcana1") then
+                mult = mult + attacker:GetRuneValue("r", 4)*CHERNOBOG_ARCANA1_R4_DEMON_AMP
+            end
+        end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
     end
     if element1 == RPC_ELEMENT_NATURE or element2 == RPC_ELEMENT_NATURE then
@@ -3788,7 +3784,7 @@ function Filters:DemonMask(caster, target, damage)
     local chance = DEMON_MASK_CHANCE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", DEMON_MASK_SAPPHIRE)
     local proc = Filters:GetProc(caster, chance)
     if proc then
-        local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY)
+        local demon_mask_amp = DEMON_MASK_AMP + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", DEMON_MASK_RUBY)
         damage = damage * (demon_mask_amp/100)
         local limitKey = caster:GetPlayerOwnerID() .. '_demon_mask'
         Util.Common:LimitPerTime(DEMON_MASK_MAX_PROCS_PER_SEC, 1, limitKey, function()
@@ -3977,7 +3973,10 @@ end
 
 function Filters:SecretTempleTakeDamage(target, damage)
     local stackCount = target:GetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem)
-    local proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_RUBY))
+    local proc = false
+    if target.equipped_gear then
+        proc = Filters:GetProc(target, target.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_RUBY))
+    end
     if not proc then
         if stackCount > 1 then
             target:SetModifierStackCount("modifier_secret_temple_refraction", target.refractionItem, stackCount - 1)
@@ -4093,7 +4092,7 @@ function Filters:GeodeDealDamage(victim, damage, attacker)
         return damage
     end
     local threshold = victim:GetMaxHealth()* (ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_INSTANCE_THRESHOLD + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FRACTIONAL_ENHANCEMENT_GEODE_GEM_RUBY))/100
-    if damage < victim:GetMaxHealth() * threshold then
+    if damage < threshold then
         local limitKey = attacker:GetPlayerOwnerID() .. '_geode'
         Util.Common:LimitPerTime(6, 1, limitKey, function()
             CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/fractional_geode_effect.vpcf", victim, 0.8)
@@ -4354,6 +4353,14 @@ function Filters:ShatterVoltexShell(victim, attacker)
         Timers:CreateTimer(0.5, function()
             ParticleManager:DestroyParticle(pfx, false)
         end)
+    end
+end
+
+function Filters:IceShellTakeDamage(unit)
+    local newStacks = unit:GetModifierStackCount("modifier_warlord_ice_shell", unit) - 1
+    unit:SetModifierStackCount("modifier_warlord_ice_shell", unit, newStacks)
+    if newStacks <= 0 then
+        unit:RemoveModifierByName("modifier_warlord_ice_shell")
     end
 end
 
@@ -5370,7 +5377,7 @@ function Filters:OdinHelm(caster, victim, damage)
             EmitSoundOn("Jex.CosmicLaser", caster)
             ability:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_odin_beam_pushback", {duration = 0.3})
             EmitSoundOn("RPCItems.OdinHelmet.Proc", caster)    
-            beam.damage = damage * (1 + (ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE)/100))
+            beam.damage = damage * (0 + ((ODIN_HELMET_PCT_DAMAGE + ability:GetFinalGemPropertyValue("sapphire", ODIN_SAPPHIRE))/100))
         end
     end
 end
@@ -5459,7 +5466,7 @@ function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
         ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_sunlight", {})
         hero:SetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster, new_stacks)
         local stacks_for_flare = math.max(ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD), 1)
-        if new_stacks >= ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS then
+        if new_stacks >= stacks_for_flare then
             ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
             hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")
         end
@@ -5805,17 +5812,17 @@ function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
             end
         end
     end
-    dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
-    dummy:AddAbility("dummy_unit")
-    dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-    dummy:SetForwardVector(endFV)
+    local bluerain_dummy = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+    bluerain_dummy:AddAbility("dummy_unit")
+    bluerain_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+    bluerain_dummy:SetForwardVector(endFV)
     local particleName = "particles/roshpit/items/blue_rain_gauntlet.vpcf"
-    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, dummy)
+    local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, bluerain_dummy)
     ParticleManager:SetParticleControl(0, pfx, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(1, pfx, caster:GetAbsOrigin() + endFV * range)
     ParticleManager:SetParticleControl(2, pfx, caster:GetAbsOrigin() + endFV * range)
     Timers:CreateTimer(2, function()
-        UTIL_Remove(dummy)
+        UTIL_Remove(bluerain_dummy)
         ParticleManager:DestroyParticle(pfx, false)
     end)
 end
@@ -6668,7 +6675,7 @@ function Filters:HandleTemporalWarpBootsOrder(orderTable, unit)
         if unit.temporal_warp_boots.last_clicked then
             if unit:IsStunned() or unit:IsFrozen() or unit:IsRooted() then
             else
-                if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) and fow_visible then
+                if (GameRules:GetGameTime() - unit.temporal_warp_boots.last_clicked < 0.3) and (WallPhysics:GetDistance2d(unit.temporal_warp_boots.last_position, Vector(orderTable.position_x, orderTable.position_y)) < 30) then
                     local fow_checker = CreateUnitByName("dummy_unit_vulnerable", Vector(orderTable.position_x, orderTable.position_y), true, nil, nil, DOTA_TEAM_NEUTRALS)
                     fow_checker:AddAbility("dummy_unit"):SetLevel(1)
                     local enemies = FindUnitsInRadius(unit:GetTeamNumber(), Vector(orderTable.position_x, orderTable.position_y), nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
@@ -6865,7 +6872,7 @@ function Filters:SignusCast(slot, caster)
         if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
             local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
             local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce)
+            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
         end
     end
     if slot == BASE_ABILITY_W then
@@ -7014,4 +7021,13 @@ function Filters:WorldTreeFlowerCacheTrigger(victim)
             end
         end
     end)
+end
+
+function Filters:RuptholdsTrigger(hero)
+    local rupthold_helm = hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
+    local buff_duration = rupthold_helm:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE)
+    rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time", {duration = buff_duration})
+    rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time_cooldown", {duration = ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN})
+    EmitSoundOn("RPCItems.Rupthold.SapphireBorrowedTime", hero)
+    rupthold_helm.apply_time = GameRules:GetGameTime()
 end

@@ -20,7 +20,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							""
 
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"Amplifier"
-    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Получает увеличенный пост-резистный урон от Sephyr"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font>."
@@ -81,7 +81,7 @@
 
     	"DOTA_Tooltip_ability_sephyr_rune_e_2"									"[E2] Windbreaker"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_Description"						"Герой получает бонус к урону, когда к нему возвращается беспокойный дух. Длительность эффекта составляет 9 секунд, а его сила определяется количеством задетых им врагов до возвращения. Каждый беспокойный дух добавляет отдельный бонус, не зависящий с другими подобными. Дополнительно увеличивает урон беспокойного духа от урона героя."
-    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Доп. урон за заряд"
+    	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_one"						"Базовый Урон Атаки за заряд"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix"							""
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_property_two"						"Урон духа, % от урона героя"
     	"DOTA_Tooltip_ability_sephyr_rune_e_2_suffix_two"						"%"

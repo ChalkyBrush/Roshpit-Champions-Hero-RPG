@@ -8,7 +8,7 @@
     	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"ДЛИТЕЛЬНОСТЬ ОСЛЕПЛЕНИЯ:"
 			
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] Cloudburst"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"С каждым задетым умением @Ability1 врагом, урон героя и его скорость атаки увеличиваются на <% SEINARU_Q1_DUR_BASE %> секунд. Боссы и мини-боссы учитываются как <% SEINARU_Q1_BOSS_MULT %> противников."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Доп. урон"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Доп. скорость атаки"
@@ -227,8 +227,8 @@
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пробитие Брони и Маг. Брони увеличено."
 
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit"	"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_post_mit_Description"	"Пробитие Брони и Маг. Брони увеличено"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"	"Sunwarrior's Vengeance"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Пробитие Брони и Маг. Брони увеличено"
 
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2"						"[E4] Luminary"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_Description"			"Добавляет шанс, что когда умение @Ability3 начнёт перезарядку, будет возможность снова произнести это умение без перезарядки. Значение выше 100% гарантирует получение нескольких зарядов для прыжка. Дополнительно увеличивает стихийный урон <font color=\"#F6FFB5\">Света</font>."
@@ -237,7 +237,8 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_property_two"			"Увеличение урона Света:"
 		"DOTA_Tooltip_ability_seinaru_rune_e_4_arcana2_suffix_two"				"%"
 
-    	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Герой может свободно произнести (E) Sunstrider"
+    	"DOTA_Tooltip_modifier_sunstrider_freecast"							"Sunstrider Freecast"
+		"DOTA_Tooltip_modifier_sunstrider_freecast_Description"							"Герой может свободно произнести (E) Sunstrider"
 
 		"DOTA_Tooltip_ability_item_rpc_seinaru_glyph_1_1"		"[T1-1] Glyph of Bladethirst"
 		"item_rpc_seinaru_glyph_1_1_description" 				"Атаки восстанавливают здоровье в размере @glyph_property1% от нанесенного урона. Сверхлечение от эффекта применяет щит от [W3], емкость щита основана на руне."

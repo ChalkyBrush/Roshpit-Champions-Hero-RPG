@@ -1972,9 +1972,11 @@ function dimension_spear_impact(event)
 		local target_ability = target:GetAbilityByIndex(i)
 		if target_ability then
 			if target_ability:GetCooldownTimeRemaining() > 0 then
-				local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, 60)
-				target_ability:EndCooldown()
-				target_ability:StartCooldown(cd)
+				local cd = math.min(target_ability:GetCooldownTimeRemaining() + duration, 3)
+				if cd > target_ability:GetCooldownTimeRemaining() then
+					target_ability:EndCooldown()
+					target_ability:StartCooldown(cd)
+				end
 			end
 		end
 	end

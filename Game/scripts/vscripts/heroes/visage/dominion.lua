@@ -74,6 +74,7 @@ function dominion_debuff_death(event)
 		local summonPosition = unit:GetAbsOrigin()
 		unit:SetAbsOrigin(summonPosition - Vector(0, 0, 800))
 		local summon = CreateUnitByName(unitName, summonPosition, false, nil, nil, caster:GetTeamNumber())
+		summon.cant_paragon = true
 		Enemies:InitializeEnemy(summon)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", summon, 3)
 		ability:ApplyDataDrivenModifier(caster, summon, "modifier_ekkan_dominion_unit", {})
@@ -258,18 +259,18 @@ function dominion_unit_kill(event)
 	if not unit.dominionLock then
 		unit.dominionLock = true
 		local q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "ekkan")
-		if q_3_level > 0 then
+		if q_3_level > 0 and unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 			local new_armor = attacker:GetRoshpitArmor() + q_3_level * EKKAN_Q3_ARMOR_ADDED
 			local new_magic_armor = attacker:GetRoshpitMagicArmor() + q_3_level * EKKAN_Q3_ARMOR_ADDED
 			attacker:SetBaseRoshpitArmor(new_armor)
 			attacker:SetBaseRoshpitMagicArmor(new_magic_armor)
 			attacker:CalculateAndSaveRoshpitAttributes()
 
-			local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
-			local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
-			local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
-			attacker:SetBaseDamageMin(buffedUnitBaseDamage)
-			attacker:SetBaseDamageMax(buffedUnitBaseDamage)
+			--local damageGainMult = EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED
+			--local unitBaseDamage = (attacker:GetBaseDamageMax() + attacker:GetBaseDamageMin())/2
+			--local buffedUnitBaseDamage = unitBaseDamage + q_3_level * damageGainMult
+			--attacker:SetBaseDamageMin(buffedUnitBaseDamage)
+			--attacker:SetBaseDamageMax(buffedUnitBaseDamage)
 
 			EmitSoundOn("Ekkan.DarkJourney", attacker)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan_super_charge_buff_circle_flash.vpcf", attacker, 2)
@@ -281,8 +282,10 @@ function dominion_unit_kill(event)
 				ParticleManager:ReleaseParticleIndex(beamPFX)
 			end)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks", {})
-			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + 1
-			attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks", caster, newStacks)
+			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks", caster) + q_3_level
+			if newStacks <= EKKAN_Q3_MAX_STACKS*EKKAN_Q3_BASE_ATTACK_DAMAGE_ADDED*q_3_level then
+				attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks", caster, newStacks)
+			end
 		end
 	end
 end
@@ -291,7 +294,7 @@ function dominion_zombie_strike_attack(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = event.ability
-	local luck = RandomInt(1, 10)
+	local luck = RandomInt(1, EKKAN_Q1_DAMAGE_CHANCE)
 	local origCaster = event.caster.hero
 	if origCaster:GetRuneValue("q", 1) == 0 then --q1
 		return

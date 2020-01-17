@@ -102,6 +102,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"16"
+			}
 		}
 	}
 
@@ -284,7 +289,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% DJANGHOR_R3_BIRD_BAD_PCT %>"
 			}
 		}

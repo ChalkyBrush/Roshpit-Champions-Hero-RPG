@@ -5,7 +5,7 @@ function omni_orb_charge_procced(event, basic_damage)
 	local mace_hit_data = omni_mace_basic_element_data(caster.active_element)
 	local orb_ability = caster:FindAbilityByName("omniro_omni_orb")
 	if caster.active_element == RPC_ELEMENT_NORMAL then
-		local damage = orb_ability:GetSpecialValueFor("normal_orb_a") * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_NORMAL]["level"]
+		local damage = orb_ability:GetSpecialValueFor("normal_orb_a")/100 * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_NORMAL]["level"]
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/omniro/omniro_normal_orb.vpcf", PATTACH_ABSORIGIN, caster)
 		-- local pull_direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 		ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 40))
@@ -112,7 +112,7 @@ function omni_orb_charge_procced(event, basic_damage)
 		end
 		EmitSoundOn("Omniro.Orb.Time.Start", target)
 	elseif caster.active_element == RPC_ELEMENT_HOLY then
-		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a")/100) * caster:GetIntellect() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b")) * caster:GetRoshpitArmor() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
+		local damage = (orb_ability:GetSpecialValueFor("holy_orb_a")/100) * caster:GetIntellect() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"] + (orb_ability:GetSpecialValueFor("holy_orb_b")/100) * caster:GetRoshpitArmor() * caster.omniro_data[RPC_ELEMENT_HOLY]["level"]
 		EmitSoundOn("Omniro.Orb.Holy", caster)
 		local radius = OMNIRO_ORB_HOLY_AOE
 		local particleName = "particles/units/heroes/hero_elder_titan/paladin_holy_nova.vpcf"
@@ -124,17 +124,19 @@ function omni_orb_charge_procced(event, basic_damage)
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		local filteredDamage = 0
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				filteredDamage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_W, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
 			end
 		end
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		local heal = damage * (OMNIRO_ORB_HOLY_HEAL_PCT / 100)
+		local heal = filteredDamage * (OMNIRO_ORB_HOLY_HEAL_PCT / 100)
 		if #allies > 0 then
 			for _, ally in pairs(allies) do
 				Filters:ApplyHeal(caster, ally, heal, false)
+				PopupHealing(ally, heal)
 			end
 		end
 	elseif caster.active_element == RPC_ELEMENT_COSMOS then

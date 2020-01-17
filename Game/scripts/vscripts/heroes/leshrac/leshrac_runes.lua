@@ -265,7 +265,7 @@ function leshrac_w_thinker(event)
 	local ability = event.ability
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		local attack_bonus = caster:GetMana()*BAHAMUT_W4_ATT_PER_MANA
+		local attack_bonus = caster:GetMana()*BAHAMUT_W4_ATT_PER_MANA*w_4_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_bahamut_w_4_attack_power", {})
 		caster:SetModifierStackCount("modifier_bahamut_w_4_attack_power", caster, attack_bonus)
 	else

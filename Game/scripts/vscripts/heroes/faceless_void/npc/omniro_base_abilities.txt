@@ -49,127 +49,127 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"5 10 15 20 25 30 35"
+				"damage_mult"			"<% OMNIRO_MACE_BASE_Q_ATTACK_DAMAGE_PCT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"fire_special_a"			"15"
+				"fire_special_a"			"<% OMNIRO_MACE_FIRE_BASE_ATTACK_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"earth_special_a"			"12 14 16 18 20 22 24"
+				"earth_special_a"			"<% OMNIRO_MACE_EARTH_ARMOR %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"earth_special_b"			"12 14 16 18 20 22 24"
+				"earth_special_b"			"<% OMNIRO_MACE_EARTH_MAGIC_ARMOR %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_special_a"			"0.5 1.0 1.5 2.0 2.5 3.0 3.5"
+				"lightning_special_a"			"<% OMNIRO_MACE_LIGHTING_DAMAGE_PER_CURR_HP_PCT %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_special_a"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+				"poison_special_a"			"<% OMNIRO_MACE_POISON_ATTACK_POWER_MULT_PCT %>"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_a"			"1 1.5 2.0 2.5 3 3.5 4.0"
+				"time_special_a"			"<% OMNIRO_MACE_TIME_MOVE_SPEED %>"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_b"			"2.0 3.0 4.0 5.0 6.0 7.0 8.0"
+				"time_special_b"			"<% OMNIRO_MACE_TIME_ATTACK_SPEED %>"
 			}
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"holy_special_a"			"0.03 0.04 0.05 0.06 0.07 0.08 0.09"
+				"holy_special_a"			"<% OMNIRO_MACE_HOLY_SPELL_IMMUN_DURATION %>"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cosmic_special_a"			"10 20 30 40 50 60 70"
+				"cosmic_special_a"			"<% OMNIRO_MACE_COSMIC_HP %>"
 			}
 			"11"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_special_a"			"-2.0 -2.5 -3 -3.5 -4.0 -4.5 -5.0"
+				"ice_special_a"			"<% OMNIRO_MACE_ICE_MOVE_SLOW %>"
 			}
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_special_b"			"-4 -5 -6 -7 -8 -9 -10"
+				"ice_special_b"			"<% OMNIRO_MACE_ICE_ATTACK_SLOW %>"
 			}
 			"13"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"arcane_special_a"			"1 2 3 4 5 6 7"
+				"var_type"			"FIELD_FLOAT"
+				"arcane_special_a"			"<% OMNIRO_MACE_ARCANE_DMG_PER_MANA %>"
 			}
 			"14"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shadow_special_a"			"20 30 40 50 60 70 80"
+				"shadow_special_a"			"<% OMNIRO_MACE_SHADOW_Q_HIT_MULT_PCT %>"
 			}
 			"15"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shadow_special_b"			"-12 -14 -16 -18 -20 -22 -24"
+				"shadow_special_b"			"<% OMNIRO_MACE_SHADOW_ARMOR_REDUCTION %>"
 			}
 			"16"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wind_special_a"			"1 2 3 4 5 6 7"
+				"wind_special_a"			"<% OMNIRO_MACE_WIND_AGI_BONUS %>"
 			}
 			"17"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ghost_special_a"			"0.15 0.16 0.17 0.18 0.19 0.2 0.21"
+				"ghost_special_a"			"<% OMNIRO_MACE_GHOST_EVASION_DURATION %>"
 			}
 			"18"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"water_special_a"			"20 30 40 50 60 70 80"
+				"water_special_a"			"<% OMNIRO_MACE_WATER_HEAL %>"
 			}
 			"19"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"water_special_b"			"2 3 4 5 6 7 8"
+				"water_special_b"			"<% OMNIRO_MACE_WATER_REGEN %>"
 			}
 			"20"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_special_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"demon_special_a"			"<% OMNIRO_MACE_DEMON_BONUS_ATTACK_DAMAGE %>"
 			}
 			"21"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_special_a"			"0.2"
+				"nature_special_a"			"<% OMNIRO_MACE_NATURE_ROOT_DURATION %>"
 			}
 			"22"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"nature_special_b"			"<% OMNIRO_MACE_NATURE_ATTACK_POWER_MULT_PCT %>"
 			}
 			"23"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"undead_special_a"			"0.3"
+				"undead_special_a"			"<% OMNIRO_MACE_UNDEAD_HP_REGEN_DISABLE_DUR %>"
 			}
 			"24"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"undead_special_b"			"8 10 12 14 16 18 20"
+				"undead_special_b"			"<% OMNIRO_MACE_UNDEAD_ARMOR_PIERCE %>"
 			}
 			"25"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dragon_special_a"			"<% OMNIRO_DRAGON_MACE_ELEMENTAL_BUFF %>"
+				"dragon_special_a"			"<% OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF %>"
 			}
 		}
 		"OnToggleOn"
@@ -532,142 +532,142 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"normal_orb_a"			"0.3 0.4 0.5 0.6 0.7 0.8 0.9"
+				"normal_orb_a"			"<% OMNIRO_ORB_NORMAL_ATTACK_POWER_MULT_PCT %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"fire_orb_a"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+				"fire_orb_a"			"<% OMNIRO_ORB_FIRE_ATTACK_POWER_MULT_PCT %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"earth_orb_a"			"0.2 0.35 0.5 0.65 0.8 0.95 1.1"
+				"earth_orb_a"			"<% OMNIRO_ORB_EARTH_STR_MULT_PCT %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"earth_orb_b"			"0.04"
+				"earth_orb_b"			"<% OMNIRO_ORB_EARTH_STUN_DUR %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.2 0.35 0.5 0.65 0.8 0.95 1.1"
+				"lightning_orb_a"			"<% OMNIRO_ORB_LIGHTNING_AGI_MULT_PCT %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"0.1 0.16 0.22 0.28 0.34 0.4 0.46"
+				"poison_orb_a"			"<% OMNIRO_ORB_POISON_ATTACK_POWER_MULT_PCT %>"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_orb_a"			"0.2 0.4 0.6 0.8 1.0 1.2 1.4"
+				"time_orb_a"			"<% OMNIRO_ORB_TIME_ATTACK_POWER_MULT_PCT %>"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_orb_b"			"0.02"
+				"time_orb_b"			"<% OMNIRO_ORB_TIME_FREEZE_DURATION %>"
 			}
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"holy_orb_a"			"0.2 0.35 0.5 0.65 0.8 0.95 1.1"
+				"holy_orb_a"			"<% OMNIRO_ORB_HOLY_INT_MULT_PCT %>"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"holy_orb_b"			"0.05 0.06 0.07 0.08 0.09 0.1 0.11"
+				"holy_orb_b"			"<% OMNIRO_ORB_HOLY_ARMOR_MULT_PCT %>"
 			}
 			"11"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cosmic_orb_a"			"0.12 0.24 0.36 0.48 0.6 0.72 0.84"
+				"cosmic_orb_a"			"<% OMNIRO_ORB_COSMIC_ATTACK_POWER_MULT_PCT %>"
 			}
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cosmic_orb_b"			"0.01 0.02 0.03 0.04 0.05 0.06 0.07"
+				"cosmic_orb_b"			"<% OMNIRO_ORB_COSMIC_HP_MULT_PCT %>"
 			}
 			"13"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_orb_a"			"0.1 0.2 0.3 0.4 0.5 0.6 0.7"
+				"ice_orb_a"			"<% OMNIRO_ORB_ICE_ALL_ATTRIBUTES_MULT_PCT %>"
 			}
 			"14"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ice_orb_b"			"4"
+				"ice_orb_b"			"<% OMNIRO_ORB_ICE_RADIUS_GROW %>"
 			}
 			"15"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"arcane_orb_a"			"6"
+				"arcane_orb_a"			"<% OMNIRO_ORB_ARCANE_RADIUS_GROW %>"
 			}
 			"16"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"arcane_orb_b"			"-1 -2 -3 -4 -5 -6 -7"
+				"arcane_orb_b"			"<% OMNIRO_ORB_ARCANE_MAGIC_ARMOR_LOSS %>"
 			}
 			"17"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shadow_orb_a"			"0.11 0.13 0.15 0.17 0.19 0.21 0.23"
+				"shadow_orb_a"			"<% OMNIRO_ORB_SHADOW_ATTACK_POWER_MULT_PCT %>"
 			}
 			"18"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"shadow_orb_b"			"7"
+				"shadow_orb_b"			"<% OMNIRO_ORB_RADIUS_GROW %>"
 			}
 			"19"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"wind_orb_a"			"1.0 1.1 1.2 1.3 1.4 1.5 1.6"
+				"wind_orb_a"			"<% OMNIRO_ORB_WIND_ATTACK_POWER_MULT_PCT %>"
 			}
 			"20"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"wind_orb_b"			"0.4 0.6 0.8 1.0 1.2 1.4"
+				"wind_orb_b"			"<% OMNIRO_ORB_WIND_AGI_MULT_PCT %>"
 			}
 			"21"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_a"		"0.8 0.9 1.0 1.1 1.2 1.3 1.4"
+				"ghost_orb_a"		"<% OMNIRO_ORB_GHOST_ATTACK_POWER_MULT_PCT %>"
 			}
 			"22"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_b"			"0.1"
+				"ghost_orb_b"			"<% OMNIRO_ORB_GHOST_ADD_DURATION %>"
 			}
 			"23"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"water_orb_a"			"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
+				"water_orb_a"			"<% OMNIRO_ORB_WATER_ATTACK_POWER_MULT_PCT %>"
 			}
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"2.0 4.0 6.0 8.0 10 12 14"
+				"demon_orb_a"			"<% OMNIRO_ORB_DEMON_ATTACK_POWER_MULT_PCT %>"
 			}
 			"23"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nature_orb_a"			"15"
+				"nature_orb_a"			"<% OMNIRO_ORB_NATURE_SHIELDS_CHANCE %>"
 			}
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_orb_b"			"0.2"
+				"nature_orb_b"			"<% OMNIRO_ORB_NATURE_ADD_SHIELDS %>"
 			}
 			"25"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"undead_orb_a"			"4 5 6 7 8 9 10"
+				"var_type"			"FIELD_FLOAT"
+				"undead_orb_a"			"<% OMNIRO_ORB_UNDEAD_ATTACK_POWER_MULT_PCT %>"
 			}
 			"26"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"undead_orb_b"			"0.5 1.0 1.5 2.0 2.5 3.0 3.5"
+				"undead_orb_b"			"<% OMNIRO_ORB_UNDEAD_DAMAGE_PER_CURR_HERO_HP %>"
 			}
 		}
 		"OnToggleOn"

@@ -221,7 +221,7 @@
 		"redfall_canyon_predator"								"Canyon Predator"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor."
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"With each instance of damage taken, the predator gains attack damage and armor. Maximum 100 stacks."
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"DAMAGE % PER STACK:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ARMOR PER STACK:"
 
@@ -438,11 +438,11 @@
 		"redfall_quest_7_reward_Description"					"Opens the entrance to the Abandoned Shipyard Dungeon"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"The shield reduces damage by 99.9%. Each instance of damage taken removes a stack."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"The shield reduces damage by 90%. Each instance of damage taken removes a stack."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"SHIELD CHARGES:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
-		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 99.9%%"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Reducing damage by 90%%"
 
 		"redfall_dialogue_farmer_2_a"											"The Crimsyth aren't just thieves. They also engage in diabolic rituals."
 		"redfall_dialogue_farmer_2_b"											"They are a destructive cult that breeds corruption."

@@ -24,7 +24,7 @@
         "DOTA_Tooltip_ability_item_rpc_ankh_of_the_ancients"                            "Ankh of the Ancients"
 
         "item_property_ankh_of_ancients"                        "Immortal Spirit"
-         "property_ankh_of_ancients_description"                "При смерти герой возрождается в том же месте через <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> и получает щит длительностью <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> секунд, который поглощает весь урон и даёт неуязвимость к оглушению. Этот эффект имеет <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> секунд перезарядки и длительность действия щита никогда не может превышать <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %>."
+         "property_ankh_of_ancients_description"                "При смерти герой возрождается в том же месте через <% ITEM_RPC_ANKH_OF_ANCIENTS_RESPAWN_DELAY %> секунды и получает щит длительностью <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_SHIELD_DURATION %> секунды, который поглощает весь урон и даёт неуязвимость к оглушению. Этот эффект имеет <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_COOLDOWN %> секунды перезарядки и длительность действия щита никогда не может превышать <% ITEM_RPC_ANKH_OF_THE_ANCIENTS_DURATION_MAX %> секунд."
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield"        "Immortal Spirit"
          "DOTA_Tooltip_modifier_ankh_of_ancients_shield_Description"    "Неуязвим и невосприимчив к оглушению."
          "DOTA_Tooltip_modifier_ankh_of_ancients_cooldown"      "Ankh Cooldown"
@@ -153,7 +153,7 @@
         "DOTA_Tooltip_ability_item_rpc_blue_divinex_amulet"         "Blue Divinex Amulet"
 
         "item_property_blue_divinex"                                    "X-Intelligence"
-        "property_blue_divinex_description"                         "Сила и Ловкость равны 0 и не могут быть увеличены. Интеллект удвоен."
+        "property_blue_divinex_description"                         "Сила и Ловкость равны 0 и не могут быть увеличены. Интеллект увеличен на <% ITEM_RPC_BLUE_DIVINEX_AMULET_INT_PCT %>%."
         "item_rpc_blue_divinex_amulet_ruby1"            "Эффект понижает Силу до @ruby_property1"
         "item_rpc_blue_divinex_amulet_emerald1"         "Эффект понижает Ловкость до @emerald_property1"
         "item_rpc_blue_divinex_amulet_sapphire1"            "Интеллект увеличивает Урон Предметов на @sapphire_property1%"
@@ -161,7 +161,7 @@
         
         "DOTA_Tooltip_ability_item_rpc_green_divinex_amulet"            "Green Divinex Amulet"
         "item_property_green_divinex"                                   "X-Agility"
-        "property_green_divinex_description"                            "Сила и Интеллект равны 0 и не могут быть увеличены. Ловкость удвоена."
+        "property_green_divinex_description"                            "Сила и Интеллект равны 0 и не могут быть увеличены. Ловкость увеличена на <% ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_PCT %>%."
 
         "item_rpc_green_divinex_amulet_ruby1"           "Эффект понижает Силу до @ruby_property1"
         "item_rpc_green_divinex_amulet_emerald1"            "Ловкость увеличивает Урон Предметов на @emerald_property1%"
@@ -171,7 +171,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_red_divinex_amulet"          "Red Divinex Amulet"
         "item_property_red_divinex"                                 "X-Strength"
-        "property_red_divinex_description"                          "Ловкость и Интеллект равны 0 и не могут быть увеличены. Сила удвоена."   
+        "property_red_divinex_description"                          "Ловкость и Интеллект равны 0 и не могут быть увеличены. Сила увеличена на <% ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT %>%."   
         "item_rpc_red_divinex_amulet_ruby1"         "Сила увеличивает Урон Предметов на @ruby_property1%"
         "item_rpc_red_divinex_amulet_emerald1"          "Эффект понижает Ловкость до @emerald_property1"
         "item_rpc_red_divinex_amulet_sapphire1"         "Эффект понижает Интеллект до @sapphire_property1"
@@ -456,8 +456,8 @@
         
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility_augmented"                      "Augmented Ring of Nobility"
         "item_rpc_ring_of_nobility_augmented_ruby1"                     "Повышает все руны 1 строки на @ruby_property1"
-        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Повышает все руны 2 строки на @emerald_property1"
-        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Повышает все руны 3 строки на @sapphire_property1"
+        "item_rpc_ring_of_nobility_augmented_emerald1"                      "Повышает все руны 3 строки на @emerald_property1"
+        "item_rpc_ring_of_nobility_augmented_sapphire1"                     "Повышает все руны 2 строки на @sapphire_property1"
         "item_rpc_ring_of_nobility_augmented_amethyst1"                     "Повышает все руны 4 строки на @amethyst_property1"
         "item_property_nobility_augmented"                  "Strides of Nobility"
         "property_nobility_augmented_description"           "Повышает все Атрибуты героя на <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES_AUGMENTED %>x от Уровня героя. Кольцо не может быть перковано у Кузнеца."
@@ -534,10 +534,10 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_stone_of_gordon"									"Stone of Gordon"
-		"item_rpc_stone_of_gordon_ruby1"									"Увеличивает бонусы все рун 1 строки на всех предметах героя на @ruby_property1%"
-		"item_rpc_stone_of_gordon_emerald1"									"Увеличивает бонусы все рун 2 строки на всех предметах героя на @emerald_property1%"
-		"item_rpc_stone_of_gordon_sapphire1"									"Увеличивает бонусы все рун 3 строки на всех предметах героя на @sapphire_property1%"
-		"item_rpc_stone_of_gordon_amethyst1"									"Увеличивает бонусы все рун 4 строки на всех предметах героя на @amethyst_property1%"
+		"item_rpc_stone_of_gordon_ruby1"									"Увеличивает бонусы всех рун 1 строки на всех предметах героя на @ruby_property1%"
+		"item_rpc_stone_of_gordon_emerald1"									"Увеличивает бонусы всех рун 2 строки на всех предметах героя на @emerald_property1%"
+		"item_rpc_stone_of_gordon_sapphire1"									"Увеличивает бонусы всех рун 3 строки на всех предметах героя на @sapphire_property1%"
+		"item_rpc_stone_of_gordon_amethyst1"									"Увеличивает бонусы всех рун 4 строки на всех предметах героя на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_tempest_falcon_ring"                             "Tempest Falcon Ring"
 

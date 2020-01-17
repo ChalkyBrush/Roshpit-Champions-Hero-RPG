@@ -60,7 +60,7 @@
 		"DOTA_Tooltip_ability_arcane_explosion_radius"					"RADIUS:"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_w_1"							"[W1] Arcane Shell"
-    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next 3 instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
+    	"DOTA_Tooltip_ability_sorceress_rune_w_1_Description"				"Casting Arcane Explosion applies a shell that absorbs the next <% SORCERESS_W1_STACKS_BASE %> instances of damage. Whoever attacks the shell takes damage based on Sorceress' Intelligence. The damage is multiplied by the ability's level."
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_one"				"Duration"
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_suffix"					" seconds"  
     	"DOTA_Tooltip_ability_sorceress_rune_w_1_property_two"				"Damage"
@@ -171,6 +171,8 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_Description"				"Enemies struck by Pyroblast also ignite in flames and take burn damage over 6 seconds. Enemies struck by Fireball are ignited for 2 seconds."
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_property_one"				"Damage Per 0.15 seconds"
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_suffix"					"% of damage taken"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite"					"[R2] Ignite"
+		"DOTA_Tooltip_modifier_modifier_pyroblast_ignite_Description"		"Engulfed in flames"
 		
 		"DOTA_Tooltip_ability_sorceress_rune_r_3"							"[R3] Flamestrike"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_Description"				"Fireball and Pyroblast create a column of fire at the cast point on a 0.5 second delay. Stuns for 0.5 seconds and reduces fire resistance for 6 seconds."
@@ -214,7 +216,7 @@
     	"DOTA_Tooltip_ability_sorceress_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1"						"[R3] Glacial Chill"
-    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
+    	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_Description"			"Enemies within a Glacial Vortex gain a Glacial Chill stack every 0.5 seconds, up to maximum of <% SORCERESS_ARCANA1_R3_MAX_STACKS %> stacks. Glacial Chill stacks cause enemies to take enhanced <font color=\"#87D9FF\">Ice</font> damage from all sources."
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_property_one"			"Ice Damage Amp"
     	"DOTA_Tooltip_ability_sorceress_rune_r_3_arcana1_suffix"					"%"
 
@@ -306,7 +308,7 @@
 		"item_rpc_sorceress_glyph_4_1_description" 				"Increases the attack speed of Sorceress and her Water Elemental by <% SORCERESS_GLYPH_4_1_BONUS_AS %> /<% SORCERESS_GLYPH_4_1_BONUS_AS_ELEMENTAL %>."
 
 		"DOTA_Tooltip_ability_item_rpc_sorceress_glyph_5_1"		"[T5-1] Glyph of Arcane Torrent"
-		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range (<% SORCERESS_GLYPH_5_1_RADIUS %>) and deals damage equal to <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion damage. [W1] applies <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> shields instead of 3."
+		"item_rpc_sorceress_glyph_5_1_description" 				"Replaces Arcane Explosion with Arcane Torrent, which channels onto a single enemy from long range (<% SORCERESS_GLYPH_5_1_RADIUS %>) and deals damage equal to <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion damage. [W1] applies <% SORCERESS_GLYPH_4_1_W1_STACKS_GENERATION %> shield each cast up to maximum of <% SORCERESS_GLYPH_4_1_W1_SHIELDS %> shields."
 
 		"DOTA_Tooltip_ability_arcane_torrent"					"Arcane Torrent"
 		"DOTA_Tooltip_ability_arcane_torrent_Description"		"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on to fire a missle at the closest nearby enemy every <% SORCERESS_GLYPH_5_1_INTERVAL %> seconds. Damage dealt is based on <% SORCERESS_GLYPH_5_1_AMPLIFY %>x Arcane Explosion's damage * the percentage of your mana compared to max mana."

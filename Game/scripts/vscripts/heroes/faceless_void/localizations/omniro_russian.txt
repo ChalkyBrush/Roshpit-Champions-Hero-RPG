@@ -17,18 +17,18 @@
 		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Огонь"	
 		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Увеличен урон атаки"							
 
-		"omniro_earth_special_description"									"Броня и магическое сопротивление увеличеный на <% OMNIRO_EARTH_SPECIAL_DURATION %> секунд."
+		"omniro_earth_special_description"									"Броня и Магическая Защита увеличены на <% OMNIRO_EARTH_SPECIAL_DURATION %> секунд."
 		"omniro_earth_special_a_pretext"									"БРОНЯ:"		
-		"omniro_earth_special_b_pretext"									"МАГ. БРОНЯ:"	
+		"omniro_earth_special_b_pretext"									"МАГ. ЗАЩИТА:"	
 
 		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Земля"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическое сопротивление увеличены."									
+		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическая защита увеличены."									
 
-		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущих ХП цели."
-		"omniro_lightning_special_a_pretext"										"ДОПОЛНИТЕЛЬНЫЙ УРОН ОТ % ЗДОРОВЬЯ ЦЕЛИ: "												
+		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущего процента ХП цели."
+		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ЗДОРОВЬЯ ЦЕЛИ:"										
 
 		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x урона, если цель стоит в луже яда от орб-эффекта."
-		"omniro_poison_special_a_pretext"										"УРОН ЯДА ОТ % СИЛЫ АТАКИ: "
+		"omniro_poison_special_a_pretext"										"УРОН ЯДА % СИЛЫ АТАКИ: "
 
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Яд"
 		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Получает урон каждые 0.5 секунды."
@@ -120,41 +120,41 @@
 		"omniro_orb_effect_title"											"Орб-эффект"
 
 		"omniro_normal_orb_description"										"Наносит урон в большой области, основанный на силе атаки."
-		"omniro_normal_orb_a_pretext"										"МНОЖИТЕЛЬ СИЛЫ АТАКИ:"
+		"omniro_normal_orb_a_pretext"										"УРОН % СИЛА АТАКИ:"
 
 		"omniro_fire_orb_description"										"Огненный взрыв наносит урон в области <% OMNIRO_ORB_FIRE_AOE %>."
-		"omniro_fire_orb_a_pretext"											"УРОН ОТ % СИЛЫ АТАКИ:"	
+		"omniro_fire_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"omniro_earth_orb_description"										"Расщепляет землю и наносит урон в области <% OMNIRO_ORB_EARTH_AOE %>."
-		"omniro_earth_orb_a_pretext"										"УРОН x ПОКАЗАТЕЛЬ СИЛЫ:"				
+		"omniro_earth_orb_a_pretext"										"УРОН % ПОКАЗАТЕЛЬ СИЛЫ:"				
 		"omniro_earth_orb_b_pretext"										"ДЛИТЕЛЬНОСТЬ СТАНА:"			
 
 		"omniro_lightning_orb_description"										"Пораженная цель генерирует цепную молнию на <% OMNIRO_ORB_LIGHTNING_BASE_BOUNCES %> целей. Дополнительные цели добавляются в зависимости от максимального количества зарядов Молнии."
-		"omniro_lightning_orb_a_pretext"										"УРОН x ПОКАЗАТЕЛЬ ЛОВКОСТИ:"			
+		"omniro_lightning_orb_a_pretext"										"УРОН % ПОКАЗАТЕЛЬ ЛОВКОСТИ:"			
 
 		"omniro_poison_orb_description"										"Создает лужу яда радиусом <% OMNIRO_ORB_POISON_POOL_RADIUS %>, длительностью <% OMNIRO_ORB_POISON_POOL_DURATION %> секунд. Противники внутри получают урон каждые 0.5 секунды."
-		"omniro_poison_orb_a_pretext"											"УРОН В % ОТ СИЛЫ АТАКИ:"	
+		"omniro_poison_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy"					"Omni Orb: Яд"
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Получает урон каждые 0.5 секунды"
 
 		"omniro_time_orb_description"									"Все противники в радиусе <% OMNIRO_ORB_TIME_AOE %> от цели замораживаются. После разморозки они получают урон."
-		"omniro_time_orb_a_pretext"										"УРОН В % ОТ СИЛЫ АТАКИ:"				
+		"omniro_time_orb_a_pretext"										"УРОН % ОТ СИЛЫ АТАКИ:"				
 		"omniro_time_orb_b_pretext"										"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
 
 		"DOTA_Tooltip_modifier_omniro_time_freeze"						"Omni Orb: Время"
 		"DOTA_Tooltip_modifier_omniro_time_freeze_Description"			"Заморожен во времени, получит урон после разморозки."
 
 		"omniro_holy_orb_description"									"Все противники в радиусе <% OMNIRO_ORB_HOLY_AOE %> получат урон (множитель от Интеллекта и брони). Герой и союзники будут исцелены на <% OMNIRO_ORB_HOLY_HEAL_PCT %>% от урона."
-		"omniro_holy_orb_a_pretext"										"УРОН x ИНТЕЛЛЕКТ:"				
-		"omniro_holy_orb_b_pretext"										"УРОН x БРОНЯ:"
+		"omniro_holy_orb_a_pretext"										"УРОН % ИНТЕЛЛЕКТ:"				
+		"omniro_holy_orb_b_pretext"										"УРОН % БРОНЯ:"
 
 		"omniro_cosmic_orb_description"									"Падающая звезда наносит урон в радиусе <% OMNIRO_ORB_COSMIC_RADIUS %> через 0.45 секунды. Урон базируется на силе атаки и максимальном здоровье."
 		"omniro_cosmic_orb_a_pretext"										"УРОН % ОТ СИЛЫ АТАКИ:"				
-		"omniro_cosmic_orb_b_pretext"										"УРОН x МАКС ЗДОРОВЬЕ:"
+		"omniro_cosmic_orb_b_pretext"										"УРОН % МАКС ЗДОРОВЬЕ:"
 
 		"omniro_ice_orb_description"									"Создает ледяной взрыв радиусом <% OMNIRO_ICE_ORB_BASE_RADIUS %>, применяет замедление на пораженные цели. Урон базируется на всех атрибутах, а наименьший атрибут рассчитывается как увеличенный в <% OMNIRO_ICE_LOWEST_ATTRIBUTE_MULT %>x раз."
-		"omniro_ice_orb_a_pretext"										"УРОН x ВСЕ АТРИБУТЫ:"				
+		"omniro_ice_orb_a_pretext"										"УРОН % ВСЕ АТРИБУТЫ:"				
 		"omniro_ice_orb_b_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"
 
 		"omniro_arcane_orb_description"										"Противники в <% OMNIRO_ARCANE_BASE_AOE %> AOE поражаются <% OMNIRO_ARCANE_ORB_BASE_PULSES %> пульсами от стандартного эффекта и теряют Магическую Броню на <% OMNIRO_ARCANE_ORB_MR_LOSS_DURATION %> секунд. Количество пульсаций увеличивается от числа зарядов элемента."
@@ -165,25 +165,25 @@
 		"DOTA_Tooltip_modifier_arcane_orb_magic_resist_Description"		"Магическое сопротивление снижено"
 
 		"omniro_shadow_orb_description"									"Создает теневой разрыв <% OMNIRO_SHADOW_ORB_BASE_AOE %> АОЕ и отключает защиту от брони у противников. Наносит урон от силы атаки героя."
-		"omniro_shadow_orb_a_pretext"										"УРОН x СИЛА АТАКИ:"				
+		"omniro_shadow_orb_a_pretext"										"УРОН % СИЛА АТАКИ:"				
 		"omniro_shadow_orb_b_pretext"										"ДОПОЛНИТЕЛЬНЫЙ РАДИУС:"
 
-		"omniro_wind_orb_description"									"Поток ветра наносит урон цели (от силы атаки и Ловкости) и отбрасывает ее."
-		"omniro_wind_orb_a_pretext"										"УРОН x СИЛА АТАКИ:"				
-		"omniro_wind_orb_b_pretext"										"УРОН x ЛОВКОСТЬ:"
+		"omniro_wind_orb_description"									"Поток ветра наносит урон цели (от силы атаки и Ловкости)."
+		"omniro_wind_orb_a_pretext"										"УРОН % СИЛА АТАКИ:"				
+		"omniro_wind_orb_b_pretext"										"УРОН % ЛОВКОСТЬ:"
 
 		"omniro_ghost_orb_description"										"Создает призрачное облако, обезоруживающее противников внутри, радиусом <% OMNIRO_GHOST_ORB_AOE %>. Наносит урон каждую секунду, длительность <% OMNIRO_GHOST_ORB_BASE_DURATION %> секунд."
-		"omniro_ghost_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
+		"omniro_ghost_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 		"omniro_ghost_orb_b_pretext"											"ДОПОЛНИТЕЛЬНАЯ ДЛИТЕЛЬНОСТЬ:"
 
 		"DOTA_Tooltip_modifier_ghost_orb_effect"						"Omni Orb: Призрак"
 		"DOTA_Tooltip_modifier_ghost_orb_effect_Description"			"Обезоружен"
 
 		"omniro_water_orb_description"										"Водный поток подбрасывает и оглушает противников в радиусе <% OMNIRO_WATER_ORB_AOE %>."
-		"omniro_water_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
+		"omniro_water_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"omniro_demon_orb_description"										"Наносит большой урон."
-		"omniro_demon_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
+		"omniro_demon_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"omniro_nature_orb_description"										"Применяет на героя щит, поглощающий урон. Базовое количество щитов <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %>, увеличивается с уровнем рун. Длится <% OMNIRO_NATURE_SHIELD_DURATION %> секунд."
 		"omniro_nature_orb_a_pretext"											"ШАНС НА ДОПОЛНИТЕЛЬНЫЕ ШИТЫ %:"	
@@ -193,8 +193,8 @@
 		"DOTA_Tooltip_modifier_omniro_nature_shield_Description"			"Поглощает урон"
 
 		"omniro_undead_orb_description"										"Выпускает череп за спиной противника, который наносит урон всем попавшим под него и отключает возможность восстанавливать здоровье."
-		"omniro_undead_orb_a_pretext"											"УРОН, % ОТ СИЛЫ АТАКИ:"	
-		"omniro_undead_orb_b_pretext"											"УРОН x ТЕКУЩЕЕ ЗДОРОВЬЕ:"
+		"omniro_undead_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
+		"omniro_undead_orb_b_pretext"											"УРОН % ТЕКУЩЕЕ ЗДОРОВЬЕ:"
 
 		"omniro_dragon_orb_description"										"Перезаряжает все заряды элементов."
 

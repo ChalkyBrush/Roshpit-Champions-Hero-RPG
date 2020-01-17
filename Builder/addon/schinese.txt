@@ -864,7 +864,11 @@
 		"ui_elements"				"元素伤害"
 		"ui_elements_resist"				"对你英雄的元素抗性"
 		"ui_most_mit_and_item_single"		"对你的英雄的物品和税后伤害增加"
-		"ui_most_mit_and_item_global"		"物品和税后伤害增加"
+		"ui_most_mit_and_item_global"		"物品伤害增加"
+			"ui_movement"						"移动能力"
+		"ui_base_movement_speed"			"基础移动速度"
+		"ui_bonus_movement_speed"			"额外移动速度"
+		"ui_max_movement_speed"				"最大移动速度"
 
 		
 		"tooltip_loading_screen_tip_title"	"提示！"
@@ -909,10 +913,18 @@
 		"item_agility"			"敏捷"
 		"item_strength"			"力量"
 		"item_intelligence"		"智力"
+		"item_spirit"			"精神"
 		"item_bonus_damage"		"额外伤害"
 		"item_end_radius"		"影响范围增加"
 		"item_range_increase"	"范围增加"
 		"item_cooldown_reduce"	"冷却时间减少"
+		"item_armor_pierce"			"物理穿透"
+		"item_spell_pierce"			"魔法穿透"
+		"item_magic_armor"			"魔甲"
+		"bonus_magic_armor"			"额外魔甲"
+		"item_status_resist"		"状态抗性"
+	
+		"tooltip_magic_armor"		"魔甲提供的魔法抗性"
 		"item_burn_damage"		"额外烧灼伤害"
 		"item_move_slow"		"额外减速"
 		"item_miss_chance"		"额外攻击丢失"
@@ -970,6 +982,11 @@
 		"item_base_ability"			"基础技能伤害提高 %"
 
 		"item_damage_increase"			"物品伤害提高 % "
+		"item_all_elements"							"所有元素伤害提高 %"
+		
+		"item_item_damage"				"物品伤害提高 %"
+
+		"item_attack_damage"				"基础攻击力"
 		
 		"property_unit_walking_description"			"该单位移动时将不与其他单位产生碰撞。"
 
@@ -1275,6 +1292,9 @@
 
 		"DOTA_Tooltip_Ability_item_reanimation_stone"	"复苏宝石"
 		"reanimation_stone_desc"	"重置所有技能和符文，并返还所有技能点和符文点。"
+		
+		"DOTA_Tooltip_ability_item_rpc_socket_cutter"				"打孔器"
+		"socket_cutter_desc"										"可以在铁匠处使用，为一件物品开凿一个宝石孔位."
 
 		
 		
@@ -1300,9 +1320,89 @@
 
 		"item_row"					"雕文等级"
 		
+		 //------------------------
+		// Challenges
+		//------------------------
+
+		"challenge_title"											"每小时挑战"
+		"challenge_timer_title"										"挑战"
+		"challenge_description"										"每小时刷新的挑战. 所有玩家的挑战是一样的."
+		"challenge_main_title"										"每小时挑战"
+		"challenge_web_title"										"网页会员每日单人挑战"
+		"challenge_main"											"在 @difficulty_name 难度下击败@map_name 的@boss_name."
+		"challenge_mod_no_deaths"									"必须不死完成."
+		"challenge_mod_hero_limit_solo"								"必须单人完成."	
+		"challenge_mod_hero_limit"									"必须与 @int1 个或更少数量的玩家完成."
+		"challenge_mod_hero_spec_5"									"必须只能使用 @string1, @string2, @string3, @string4 和 @string5 组队完成."
+		"challenge_mod_hero_spec_4"									"必须只能使用 @string1, @string2, @string3 和 @string4 组队完成."
+		"challenge_mod_hero_spec_3"									"必须只能使用 @string1, @string2, 和 @string3 组队完成."
+		"challenge_mod_hero_spec_2"									"必须只能使用 @string1 和 @string2 组队完成."
+		"challenge_mod_hero_spec_1"									"必须使用 @string1完成."
+		"challenge_mod_mob_health"									"敌人拥有 @int1% 额外生命值."
+		"challenge_mod_mob_attack_power"							"敌人拥有 @int1% 额外攻击力."
+		"challenge_mod_mob_armor"									"敌人拥有 @int1% 额外护甲."
+		"challenge_mod_mob_armor_pierce"							"敌人拥有 @int1% 额外物理穿透."
+		"challenge_mod_mob_magic_armor"								"敌人拥有 @int1% 额外魔甲."
+		"challenge_mod_mob_spell_pierce"							"敌人拥有 @int1% 额外魔法穿透."
+		"challenge_mod_time_limit"									"必须在 @time时间内完成."
+		"challenge_mod_paragon_rate"								"敌人的精英产生概率提高 @int1% ."
+		"challenge_mod_mob_cooldown_reduction"						"敌人拥有 @int1% 冷却缩减."
+		"challenge_mod_ability_disable"								"所有英雄的@ability_button 技能禁止使用."
+		"challenge_mod_super_boss"									"boss的全属性提高 @int1%."
+		"challenge_mod_mob_speed"									"敌人拥有 @int1% 额外攻击速度和移动速度."
+		"challenge_mod_spirit"										"必须在 @event下完成."
+		"challenge_mod_stones"										"必须使用 @stones 凛冬冰川后完成."
+		"challenge_mod_pit_level"									"必须在等级 @pit_level或以上的竞技场难度完成."
+
+		"challenge_spirit"											"灵魂之境"
+		"challenge_equinox"											"疯狂生长"
+
+		"DOTA_Tooltip_ability_mega_steadfast"							"高级坚定"
+		"DOTA_Tooltip_ability_mega_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_mega_steadfast_damage_reduce"				"% 伤害减免:"
+		"DOTA_Tooltip_modifier_mega_steadfast"									"高级坚定"
+		"DOTA_Tooltip_modifier_mega_steadfast_Description"						"降低受到的伤害"
 		
+		"DOTA_Tooltip_ability_normal_steadfast"							"坚定"
+		"DOTA_Tooltip_ability_normal_steadfast_Description"				"降低受到的伤害"
+		"DOTA_Tooltip_ability_normal_steadfast_damage_reduce"				"% 伤害减免:"
+
+		"ui_start_challenge"										"开始挑战"
+		"ui_challenge_reward"										"奖励"
+		"ui_challenge_started"										"十字军战士的挑战已接受."
+		"ui_challenge_completed"									"挑战完成"
+		"ui_challenge_failed"										"挑战失败"
+
+		"DOTA_Tooltip_ability_item_rpc_unrefined_gemstones"			"未提纯的宝石"
+		"unrefined_gemstones_desc"									"带给村子里的长者拉伊，他会给你棱彩宝石作为回报."
+
+
+		"elder_rai"													"长者拉伊"
+		"dialogue_elder_rai_one"									""
+
+		"elder_rai_refine_gemstones"								"提纯宝石"
+		"elder_rai_buy_exp_orb"										"购买经验球"
+		"elder_rai_buy_greater_exp_orb"								"购买大型经验球"	
+
+		"DOTA_Tooltip_ability_item_rpc_exp_orb"						"经验球"
+		"item_rpc_exp_orb_description"								"提供 <% RPC_EXP_ORB_1 %> 经验值."
+
+		"DOTA_Tooltip_ability_item_rpc_greater_exp_orb"				"大型经验球"
+		"item_rpc_greater_exp_orb_description"						"提供 <% RPC_EXP_ORB_2 %> 经验值."
+		"elder_rai_your_mithril_shards"								"你的秘银水晶"
+		"ui_cost"													"花费"
+
+		"ui_purchase"												"购买"
+		"ui_no_unrefined_gemstones"									"背包里没有宝石"
+		"elder_rai_you_have_x_gemstones_1"							"长者拉伊会提纯你背包里的未提纯的宝石."
+		"elder_rai_you_have_x_gemstones_2"							"长者拉伊会提纯你背包里的两个未提纯的宝石."
+		"elder_rai_you_have_x_gemstones_3"							"长者拉伊会提纯你背包里的所有 @count 个未提纯的宝石."
+
+		"elder_rai_cut"												"切tmd!"
 		
-	    //------------------------
+	   
+	   
+	   //------------------------
 		// Save/Load
 		//------------------------
 		"dialogue_oracle"			"祈祷永恒"
@@ -1554,11 +1654,14 @@
 		"collect_income_info"										"北京时间每天的13:00将刷新秘银水晶的每日收入。"
 
 		"chisel_name"												"装备凿子"
-		"chisel_tooltip"											"脱下身上一件指定的装备。凿子价格取决于该装备的等级要求。武器无法脱下。"
+		"chisel_tooltip"											"脱下身上一件指定的装备。凿子价格取决于该装备的等级要求。"
 
 		"reroll_name"												"重铸属性"
 		"reroll_tooltip"											"可以重铸一件指定不朽物品的属性。重铸时可以花费额外水晶锁住不希望更改的属性。重铸价格取决于物品的内部等级。武器无法重铸。"
+	"socket_name"												"开孔"
+		"socket_tooltip"											"选择1件不是武器的不朽装备，花费一些水晶和1个打孔器为其增加1个孔位. 装备最多可以拥有2个孔."
 
+		"ui_cancel"													"Cancel"
 		"ui_cancel"													"取消"
 
 		"message_chisel_price"										"凿子价格"
@@ -1574,6 +1677,67 @@
 
 		"property_lock_title"										"锁定属性"
 		"property_lock_tooltip"										"点击该行以锁定或解锁该属性"
+"socket_item_select_help"									"选择一件装备中的物品或者将一件背包中的物品拖到该栏位."
+		"cannot_be_socketed_slot"									"这件物品不是 头, 衣, 手, 鞋, 或饰品类型的装备."
+		"cannot_be_socketed_rarity"									"这件物品不是不朽级别的装备."
+		"cannot_be_socketed_full_socket"							"这件物品已经到达2个的孔位上限."
+
+		"next_socket_1"												"这件物品可以开第一个孔. 开孔操作需要一些水晶和一个打孔器."
+		"next_socket_2"												"这件物品可以开第二个孔. 开孔操作需要一些水晶和一个打孔器."
+
+		"item_forger_tip_for_socket"								"请将打孔器拖到此栏位"
+		"final_add_socket"											"开tmd"
+
+		"socket_not_enough_mithril"									"你没有足够的水晶进行操作"
+		
+		
+		
+		//------------------------
+		// GEMS
+		//------------------------
+
+		"gem_forger"												"宝石工匠"
+
+		"gem_forger_fluff"											"我以一种惊心动魄的色彩出现!"
+		"gem_forger_reward_available"								"可获得奖励"
+		"tooltip_prismatic_gemstones"								"棱彩宝石"
+		"ui_click_to_collect"										"点击就送"
+		"gem_forger_start"											"镶嵌宝石"
+
+		"gemforge_item_select_help"									"选择一件装备中的物品或者将一件背包中的物品拖到该栏位以查看宝石镶嵌操作."
+		"gemforge_item_cannot_be_forged"							"这件物品没有任何孔位."
+		"ui_socket"													"Socket"
+		"ui_no_socket"												"无孔位"
+		"ui_open_socket"											"空的孔位"
+
+		"gems_ruby1"												"破碎的 红宝石"
+		"gems_ruby2"												"微裂的 红宝石"
+		"gems_ruby3"												"普通的 红宝石"
+		"gems_ruby4"												"纯净的 红宝石"
+		"gems_ruby5"												"完美的 红宝石"
+
+		"gems_emerald1"												"破碎的 绿宝石"
+		"gems_emerald2"												"微裂的 绿宝石"
+		"gems_emerald3"												"普通的 绿宝石"
+		"gems_emerald4"												"纯净的 绿宝石"
+		"gems_emerald5"												"完美的 绿宝石"
+
+		"gems_sapphire1"												"破碎的 蓝宝石"
+		"gems_sapphire2"												"微裂的 蓝宝石"
+		"gems_sapphire3"												"普通的 蓝宝石"
+		"gems_sapphire4"												"纯净的 蓝宝石"
+		"gems_sapphire5"												"完美的 蓝宝石"
+
+		"gems_amethyst1"												"破碎的 紫宝石"
+		"gems_amethyst2"												"微裂的 紫宝石"
+		"gems_amethyst3"												"普通的 紫宝石"
+		"gems_amethyst4"												"纯净的 紫宝石"
+		"gems_amethyst5"												"完美的 紫宝石"
+
+		"rpc_items_basic_ruby"	"提高力量值 @ruby_property1"
+		"rpc_items_basic_emerald" "提高敏捷值 @emerald_property1"
+		"rpc_items_basic_sapphire" "提高智力值 @sapphire_property1"
+		"rpc_items_basic_amethyst" "提高精神值 @amethyst_property1"
 
 	    //------------------------
 		// World

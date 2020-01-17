@@ -191,7 +191,7 @@
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA2_Q2_HEALTH_REGEN %>"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "<% FLAMEWAKER_ARCANA2_W2_HEALTH_REGEN %>"
 				}
 			}
 			"modifier_d_b_attack_power"

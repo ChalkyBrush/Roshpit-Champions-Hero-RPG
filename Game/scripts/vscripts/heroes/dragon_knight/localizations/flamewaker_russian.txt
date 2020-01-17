@@ -115,15 +115,10 @@
 		"DOTA_Tooltip_modifier_searing_heat"									"Searing Heat"
     	"DOTA_Tooltip_modifier_searing_heat_Description"						"Понижает броню"
 		
-		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Splitting Flame"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Враги, задетые [E1] загораются, из-за чего теряют броню и получают ежесекундный урон 5 секунд, основанный на показателе урона от [E1]."
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Урона в секунду"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						"% от урона Blazing Trail"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_two"					"Понижение брони"
-    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix_two"					""
-
-		"DOTA_Tooltip_modifier_flamewaker_rune_e_4" 							"Splitting Flame"
-		"DOTA_Tooltip_modifier_flamewaker_rune_e_4_description" 				"Показатель брони понижен и ежесекундно получает урон."
+		"DOTA_Tooltip_ability_flamewaker_rune_e_4"								"[E4] Surge of Fire"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_Description"					"Активация @Ability3 уменьшает текущую перезарядку других способностей героя на указанное значение."
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_property_one"					"Уменьшение Перезарядок"
+    	"DOTA_Tooltip_ability_flamewaker_rune_e_4_suffix"						" сек"
 		
 		"DOTA_Tooltip_ability_cataclysm"									"Cataclysm"
 		"DOTA_Tooltip_ability_cataclysm_Description"						"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#AF843D\">Земля</font><br>Наполняется огнем в течении 2 секунд, после чего образуется мощный взрыв, наносящий урон, замедляющий и отталкивающий всех врагов вокруг себя."

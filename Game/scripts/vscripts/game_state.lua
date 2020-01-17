@@ -592,7 +592,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
 					local luck = RandomInt(1, 100)
 					if luck <= target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", CENTAUR_HORNS_SAPPHIRE) then
-						target:GetAbilityByIndex(BASE_ABILITY_E):EndCooldown()
+						target:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
 						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_medusa/carbuncle_ruby_shell_cast.vpcf", target, 0.8)
 					end
 				end
@@ -1272,7 +1272,7 @@ function GameState:OrderFilter(orderTable)
 		end
 		if unit:HasModifier("modifier_zonik_speedball") then
 			unit:RemoveModifierByName("modifier_zonik_speedball")
-			unit:RemoveModifierByName("modifier_zonik_speedball_cap")
+			unit:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 		end
 		if unit:HasModifier("modifier_arkimus_c_b_sprinting") then
 			unit:RemoveModifierByName("modifier_arkimus_c_b_sprinting")
@@ -1607,9 +1607,6 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 		if victim:HasModifier("modifier_bahamut_glyph_1_1") then
 			damage = damage * (100-BAHAMUT_GLYPH_1_1_PHYS_RES_PCT)/100
 		end
-		if victim:HasModifier("modifier_pure_resist") then
-			damage = damage * 6
-		end
 		if victim:HasModifier("modifier_ice_floe_sliding") then
 			damage = 0
 		end
@@ -1627,9 +1624,18 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
+		if victim:HasModifier("modifier_challenge_pure_resist") then
+			damage = damage * (100 - victim:GetModifierStackCount("modifier_challenge_pure_resist", Events.GameMaster))/100
+		end
 		if victim:HasModifier("modifier_emerald_nullification_ring") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_EMERALD_NULLIFICATION_RING_GEM_AMETHYST))/100
 		end
+	    if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+	        local threshold = victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST1)/100
+	        if victim:GetHealth() < victim:GetMaxHealth()*threshold then
+	            damage = damage * (1 - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST2)/100)
+	        end
+	    end
 		if victim:HasModifier("modifier_guardian_stone") then
 			damage = damage * (100-victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GUARDIAN_STONE_GEM_EMERALD))/100
 		end
@@ -1832,7 +1838,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_helm_of_the_mountain_giant") and (victim:GetHealth() > victim:GetMaxHealth() * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD - victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", MOUNTAIN_GIANT_EMERALD)/100)) then
-		damage = damage * (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MOUNTAIN_GIANT_SAPPHIRE))/100
+		damage = damage * (1 - (HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", MOUNTAIN_GIANT_SAPPHIRE))/100)
 	end
 	if victim:HasModifier("modifier_whirlwind") and victim:HasModifier("modifier_axe_glyph_4_2") then
 		damage = damage * (1 - RED_GENERAL_GLYPH_4_2_DAMAGE_REDUCTION_PERCENT)
@@ -1861,7 +1867,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local movespeed = victim:GetBaseMoveSpeed()
 		local movespeedModifier = victim:GetMoveSpeedModifier(movespeed, false)
 		if movespeedModifier > 550 then
-			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KNIGHT_HAWK_EMERALD)/100))
+			damage = damage * (1-(KNIGHT_HAWK_DR_ABOVE_DEFAULT_MAX + victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KNIGHT_HAWK_EMERALD))/100)
 		end
 	end
 	if victim:HasModifier("modifier_stonewall_aura_friendly_effect") then
@@ -1913,6 +1919,9 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
 	end
 	if victim:HasModifier("modifier_possession_enemy_lock") then
+		damage = 0
+	end
+	if victim:HasModifier("modifier_challenge_win_float") then
 		damage = 0
 	end
 	if victim:HasModifier("modifier_rooted_feet_immobile_active") then
@@ -1974,14 +1983,14 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-damage_reduction)/100
 	end
 
-	if victim:HasModifier("modifier_dummy_aura1_effect_zhonik") then
+	if victim:HasModifier("modifier_zhonik_temporal_field_buff") then
 		damage = damage * (100-ZHONIK_E_ARCANA_DMG_REDUCTION_PCT)/100
 	end
-	if victim:HasModifier("modifier_damage_resistance") then
-		if victim.damageReduc then
-			damage = damage * victim.damageReduc
-		end
-	end
+	-- if victim:HasModifier("modifier_damage_resistance") then
+	-- 	if victim.damageReduc then
+	-- 		damage = damage * victim.damageReduc
+	-- 	end
+	-- end
 
 	if victim:HasModifier("modifier_sea_giants_plate") then
 		if victim:IsStunned() then
@@ -2051,7 +2060,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * reduction
 	end
 	if victim:HasModifier("modifier_task_armor") then
-		damage = damage * 0.001
+		damage = damage * 0.1
 		if shouldConsumeShields then
 			CustomAbilities:HitTaskShield(victim, attacker)
 		end
@@ -2132,10 +2141,10 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = 0
 		end
 	end
-	if victim:HasModifier("modifier_triboss_powered_up_single") then
-		local difficultyReduc = {0.7, 0.1, 0.01}
-		damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]
-	end
+	-- if victim:HasModifier("modifier_triboss_powered_up_single") then
+	-- 	local difficultyReduc = {0.7, 0.1, 0.01}
+	-- 	damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]
+	-- end
 	return damage / BASE_VALUE_FOR_CALCULATE
 end
 
@@ -2511,11 +2520,11 @@ function GameState:FilterDamage(filterTable)
 			end
 		end
 	end
-	if attacker:HasModifier("modifier_general_postmitigation") then
-		local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
-		local multIncrease = stacks / 100
-		mult = mult + multIncrease
-	end
+	-- if attacker:HasModifier("modifier_general_postmitigation") then
+	-- 	local stacks = attacker:GetModifierStackCount("modifier_general_postmitigation", Events.GameMaster)
+	-- 	local multIncrease = stacks / 100
+	-- 	mult = mult + multIncrease
+	-- end
 	if attacker:HasModifier("modifier_azalea_knife_postmitigation") then
 		if victim:IsRooted() then
 			local multIncrease = 5
@@ -2737,20 +2746,12 @@ function GameState:FilterDamage(filterTable)
 	end
 	if victim:HasModifier("modifier_ancient_hero_water_god") then
 		if damagetype == DAMAGE_TYPE_PURE then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end
 	end
 	if victim:HasModifier("modifier_ancient_hero_wind_god") then
 		if damagetype == DAMAGE_TYPE_PHYSICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end
@@ -2758,10 +2759,6 @@ function GameState:FilterDamage(filterTable)
 
 	if victim:HasModifier("modifier_ancient_hero_fire_god") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
-			filterTable["damage"] = filterTable["damage"] * 0.8
-			if Events.SpiritRealm then
-				filterTable["damage"] = filterTable["damage"] * 0.7
-			end
 		else
 			filterTable["damage"] = 0
 		end
@@ -2826,7 +2823,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_warlord_ice_shell") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL then
 			filterTable["damage"] = 0
-			Filters:WarlordTakeMagicDamage(victim)
+			Filters:IceShellTakeDamage(victim)
 		end
 	end
 	if victim:HasModifier("modifier_warlord_ice_shell_pure") then
@@ -2879,9 +2876,9 @@ function GameState:FilterDamage(filterTable)
 		local damageReduction = Filters:SpellShieldHit(victim, filterTable["damage"])
 		filterTable["damage"] = filterTable["damage"] - damageReduction
 	end
-	if attacker:HasModifier("modifier_sea_fortress_ai") and (damageType == DAMAGE_TYPE_PURE or damageType == DAMAGE_TYPE_MAGICAL) then
-		filterTable["damage"] = filterTable["damage"] * 3
-	end
+	-- if attacker:HasModifier("modifier_sea_fortress_ai") and (damageType == DAMAGE_TYPE_PURE or damageType == DAMAGE_TYPE_MAGICAL) then
+	-- 	filterTable["damage"] = filterTable["damage"] * 3
+	-- end
 	if victim:HasModifier("modifier_demon_hunter") then
 		filterTable["damage"] = CustomAbilities:ChernobogDemonHunter(victim, filterTable["damage"])
 	end
@@ -2970,14 +2967,11 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = victim:GetMaxHealth() * 0.01
 		end
 	end
-	if victim:HasModifier("modifier_exploder_freeze") then
-		filterTable["damage"] = filterTable["damage"] * 5
-	end
 
-	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") and applyEffects then
+	if victim:HasModifier("modifier_swamp_lady_shield") or victim:HasModifier("modifier_creature_borrowed_time") or victim:HasModifier("modifier_rupthold_borrowed_time") and applyEffects then
 		local healAmount = filterTable["damage"]
 		filterTable["damage"] = 0
-		victim:Heal(healAmount, victim)
+		Filters:ApplyHeal(victim, victim, healAmount, true, false, nil)
 	end
 
 	if victim:HasModifier("modifier_in_hydrogen_field") then
@@ -3177,7 +3171,7 @@ function GameState:FilterDamage(filterTable)
 		elseif GameState:GetDifficultyFactor() == 2 then
 			reductionMult = 0.2
 		end
-		local reduction = reductionMult * (3 - Redfall.Castle.TorchesLit)
+		local reduction = reductionMult/Redfall.Castle.TorchesLit
 		filterTable["damage"] = math.max(filterTable["damage"] - filterTable["damage"] * reduction, 0)
 	end
 	if victim:HasModifier("modifier_seven_visions_striking") or victim:HasModifier("modifier_seven_visions_striking_glyphed") then
@@ -3342,6 +3336,13 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if victim:HasModifier("modifier_frozen_heart") then
+		if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+			if not victim.equipped_gear then
+				victim.equipped_gear = {}
+				victim.equipped_gear[RPC_GEAR_SLOT_TRINKET] = victim:FindAbilityByName("winterblight_azheran_passive")
+				victim.equipped_gear[RPC_GEAR_SLOT_TRINKET].newItemTable = {}
+			end
+		end
 		if damagetype == DAMAGE_TYPE_PURE then
 			filterTable["damage"] = ITEM_RPC_FROZEN_HEART_DAMAGE_PER_PURE - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FROZEN_HEART_GEM_AMETHYST)
 		elseif damagetype == DAMAGE_TYPE_MAGICAL then
@@ -3447,6 +3448,15 @@ function GameState:FilterDamage(filterTable)
 					end)
 					filterTable["damage"] = 0
 					rezzed = true
+				end
+			end
+		end
+		if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") and not rezzed then
+			if victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
+				if not victim:HasModifier("modifier_rupthold_borrowed_time_cooldown") then
+					filterTable["damage"] = victim:GetHealth() - 2
+					rezzed = true
+					Filters:RuptholdsTrigger(victim)
 				end
 			end
 		end
@@ -3587,7 +3597,7 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			-- filterTable["damage"] = 9999999
+			-- filterTable["damage"] = 999999999999
 		end
 	end
 

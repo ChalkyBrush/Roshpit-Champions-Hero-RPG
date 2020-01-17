@@ -49,7 +49,7 @@
     	"DOTA_Tooltip_ability_leshrac_nuke_radius"						"RADIUS"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_w_1"							"[W1] Greatness"
-    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases base attack damage and base ability damage."
+    	"DOTA_Tooltip_ability_bahamut_rune_w_1_Description"				"Increases Attack Power and Base Ability Damage."
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_property_one"			"Damage Bonus"
     	"DOTA_Tooltip_ability_bahamut_rune_w_1_suffix"					"%"	
 
@@ -105,7 +105,7 @@
 		"DOTA_Tooltip_ability_bahamut_rune_e_3"							"[E3] Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with Bahamut Pulse. Pulse deals damage to all nearby enemies while it is toggled on."
     	"DOTA_Tooltip_ability_bahamut_rune_e_3_property_one"			"Damage"
-    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					""		
+    	"DOTA_Tooltip_ability_bahamut_rune_e_3_suffix"					" per Hero Level"		
 
     	"DOTA_Tooltip_ability_bahamut_pulse"							"Bahamut Pulse"
     	"DOTA_Tooltip_ability_bahamut_pulse_Description"				"Deals damage to all nearby enemies at the cost of Movespeed. Using Aberrant Ascension will restore your lost movement speed."
@@ -126,7 +126,7 @@
 		
 		
 		"DOTA_Tooltip_ability_charge_of_light"							"Megaflare"
-    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage. Damage dealt ignores Steadfast."
+    	"DOTA_Tooltip_ability_charge_of_light_Description"				"Element: <font color=\"#F6FFB5\">Holy</font><br>Bahamut charges forward and unleashes an explosion of power to cleanse the inferior. While charging Bamamut is immune to physical and magic damage."
     	"DOTA_Tooltip_ability_charge_of_light_Lore"						""
     	"DOTA_Tooltip_ability_charge_of_light_damage"					"DAMAGE"	
     	"DOTA_Tooltip_ability_charge_of_light_range"					"EXPLOSION RADIUS"
@@ -149,7 +149,7 @@
     	"DOTA_Tooltip_ability_bahamut_rune_r_2_suffix_two"				""	
 
     	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation"	"Crushing Will"
-    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Post-mitigation damage greatly increased"
+    	"DOTA_Tooltip_modifier_bahamut_charge_of_light_postmitigation_Description"	"Spell Pierce greatly increased"
 		
 		"DOTA_Tooltip_ability_bahamut_rune_r_3"							"[R3] Hyperion"
     	"DOTA_Tooltip_ability_bahamut_rune_r_3_Description"				"Bahamut slows the attack and movespeed of all nearby enemies while channeling Megaflare."

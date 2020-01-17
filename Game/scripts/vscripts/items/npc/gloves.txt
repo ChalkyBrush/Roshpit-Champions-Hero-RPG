@@ -4457,6 +4457,7 @@
 			"modifier_depth_demon_claw_emerald_health_regen"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-1"
@@ -4465,6 +4466,7 @@
 			"modifier_depth_demon_claw_emerald_mana_regen"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	  "1"
@@ -4474,6 +4476,7 @@
 			{
 				"IsHidden"	"1"
 				"ThinkInterval"  "0.1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -5378,6 +5381,11 @@
 						"ModifierName"	"modifier_buzuki_finger_lua"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_buzuki_ms_and_as"
+						"Target" 		"TARGET"
+					}
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -5409,14 +5417,6 @@
 							"CASTER"	"attach_attack1"
 						}
 
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_buzuki_ms_and_as"
-						"Target" 		"TARGET"
 					}
 				}
 			}
@@ -5880,6 +5880,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{

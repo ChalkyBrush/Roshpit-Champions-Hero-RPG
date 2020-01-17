@@ -23,3 +23,7 @@ end
 function modifier_vermillion_dream_lua:IsHidden()
     return true
 end
+
+function modifier_vermillion_dream_lua:RemoveOnDeath()
+    return false
+end

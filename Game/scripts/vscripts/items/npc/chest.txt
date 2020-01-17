@@ -840,6 +840,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"ThinkInterval"  "1.0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -3418,6 +3419,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/nightmare_rider_mantle" //"nightmare_rider_mantle"
 		"AbilityCastRange"	"900"
@@ -5597,6 +5599,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/direwolf_bulwark" // "direwolf_bulwark"
 		"AbilityCastRange"	"900"
@@ -6830,6 +6833,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_violet_guard_armor_loss_visible"
 			{

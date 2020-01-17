@@ -1252,7 +1252,7 @@
 		"DOTA_Tooltip_modifier_death_ability_buff_Description"				"Усиляет ближайших союзников при смерти."
 
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability"				"Пожирающее пламя"
-		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Каждый раз, получая урон, сила существа увеличивается."
+		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_Description"	"Каждый раз, получая урон, сила существа увеличивается. Максимально 100 зарядов."
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_damage_percentage"	"ДОП.УРОН ЗА ЗАРЯД, %:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_movespeed_bonus"	"ДОП.СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ЗАРЯД:"
 		"DOTA_Tooltip_ability_fire_temple_flame_wraith_ability_attackspeed_bonus"	"ДОП. СКОРОСТЬ АТАКИ ЗА ЗАРЯД:"

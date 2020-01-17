@@ -18,19 +18,17 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_suffix"				"%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_3"						"[Q3] 回春"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_Description"			"天堂之盾持续时间结束或者被破坏掉之后，将会增加大量的护甲值，持续10秒。每点回春增加的护甲值都将额外提高buff拥有者的基础攻击力。"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_one"			"护甲值提高"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_Description"			"天堂之盾持续时间结束或者被破坏掉之后，将会增加大量的护甲和魔甲，持续10秒。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_one"			"护甲和魔甲提高"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix"				""
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_property_two"			"基础攻击力提高"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_suffix_two"			" 每点护甲值"
-
+    	
     	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect"		"回春"
-    	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect_Description"	"提高护甲值和基础攻击力"
+    	"DOTA_Tooltip_modifier_auriun_rune_q_3_effect_Description"	"提高护甲和魔甲"
 		
 		"DOTA_Tooltip_ability_auriun_rune_q_4"						"[Q4] 心灵指引"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_Description"			"拥有天堂之盾的友军将提高其基础技能伤害。"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_property_one"			"基础技能伤害提高"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_suffix"				"%"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_Description"			"拥有天堂之盾的友军将提高其精神值。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_property_one"			"额外精神值"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_suffix"				""
 		
 		"DOTA_Tooltip_modifier_auriun_rune_q_4_effect"				"心灵指引"
     	"DOTA_Tooltip_modifier_auriun_rune_q_4_effect_Description"	"基础技能伤害提高"
@@ -52,9 +50,9 @@
 		"DOTA_Tooltip_ability_auriun_rune_w_2"						"[W2] 神罚"
    	"DOTA_Tooltip_ability_auriun_rune_w_2_Description"			"每10点智力增加你的治疗量，以及所有的 <font color=\"#7F4F84\">暗</font> 和 <font color=\"#F6FFB5\">圣</font> 伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_one"			"暗/圣伤害加成"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"% 每10点智力 "
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix"				"%"
     	"DOTA_Tooltip_ability_auriun_rune_w_2_property_two"			"治疗加成"
-    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"% 每10点智力"
+    	"DOTA_Tooltip_ability_auriun_rune_w_2_suffix_two"			"%"
 		
 		"DOTA_Tooltip_ability_auriun_rune_w_3"						"[W3] 圣光"
     	"DOTA_Tooltip_ability_auriun_rune_w_3_Description"			"受到快速治疗的友军将获得一个buff，进行持续治疗。每<% AURIUN_W3_TICK_RATE %>秒治疗 %% 快速治疗的治疗量，持续<% AURIUN_W3_BASE_DURATION %>秒。"
@@ -89,12 +87,13 @@
     	"DOTA_Tooltip_modifier_seraph_surge_glyphed_Description"		"无碰撞体积且对敌人隐身"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_1"						"[E1] 天使之翼"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"敌人受到来自俄瑞恩的魔法和纯粹伤害将被提高。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法和纯粹伤害加深"
-    	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				"%"		
+    "DOTA_Tooltip_ability_auriun_rune_e_1_Description"			"获得额外的魔法穿透和魔甲."
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_property_one"			"魔法穿透提高"
+    	"DOTA_Tooltip_ability_auriun_rune_e_1_suffix"				""		
+        "DOTA_Tooltip_ability_auriun_rune_e_1_property_two"         "额外魔甲"
+        "DOTA_Tooltip_ability_auriun_rune_e_1_suffix_two"           ""      
+        
 
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1"						"天使之翼"
-    	//"DOTA_Tooltip_modifier_auriun_rune_e_1_Description"			"每秒获得魔法值。"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_2"						"[E2] 光辉"
     	"DOTA_Tooltip_ability_auriun_rune_e_2_Description"			"天使形态可以提高俄瑞恩的智力值，持续8秒。"
@@ -105,7 +104,7 @@
     	"DOTA_Tooltip_modifier_auriun_rune_e_2_Description"			"获得额外智力"
 		
 		"DOTA_Tooltip_ability_auriun_rune_e_3"						"[E3] 灵魂协同"
-    	"DOTA_Tooltip_ability_auriun_rune_e_3_Description"			"提高力量、敏捷和智力。"
+    	"DOTA_Tooltip_ability_auriun_rune_e_3_Description"			"提高力量、敏捷、智力和精神。"
     	"DOTA_Tooltip_ability_auriun_rune_e_3_property_one"			"全属性提高"
     	"DOTA_Tooltip_ability_auriun_rune_e_3_suffix"				""
 		
@@ -179,9 +178,9 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1"							"[Q3] 神圣复仇"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"俄瑞恩的属性值将提高全部 <font color=\"#F6FFB5\">圣</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_Description"				"提高所有 <font color=\"#F6FFB5\">圣</font> 元素伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_property_one"				"圣元素伤害提高"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"% 每10点属性值"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana1_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1"							"[Q4] 圣灵"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana1_Description"				"施放天堂之力后，获得一个buff，持续<% AURIUN_ARCANA_1_Q4_DURATION %>秒。buff提高魔法恢复速度，并且在玩家做出移动指令时，俄瑞恩将直接传送到目标点，传送技能有<% AURIUN_ARCANA_1_Q4_TP_COOLDOWN %>秒的冷却时间。"
@@ -219,26 +218,26 @@
     	"DOTA_Tooltip_ability_auriun_rune_q_2_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2"							"[Q3] 邪恶之力"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"俄瑞恩的属性值将提高所有 <font color=\"#7F4F84\">暗</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_Description"				"提高所有 <font color=\"#7F4F84\">暗</font> 元素伤害。"
     	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_property_one"				"暗元素伤害提高"
-    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"% 每10点属性值"
+    	"DOTA_Tooltip_ability_auriun_rune_q_3_arcana2_suffix"					"%"
 
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2"							"[Q4] 暗黑形态"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R大招）之后进入暗黑形态<% AURIUN_ARCANA_2_Q4_DURATION %>秒。在暗黑形态下魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"魔法伤害加深"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_Description"				"俄瑞恩在施放终极技能（R）之后进入暗黑形态<% AURIUN_ARCANA_2_Q4_DURATION %>秒。在暗黑形态下魔法恢复速度提高并且获得额外的魔法穿透"
+    	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_one"				"魔法穿透提高"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix"					""  	
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_property_two"				"魔法恢复速度提高"
     	"DOTA_Tooltip_ability_auriun_rune_q_4_arcana2_suffix_two"				""
 
     	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff"							"暗黑形态"
-    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"魔法恢复速度提高并且敌人所受到的全部魔法伤害将加深（计算在敌人减伤之后）"
+    	"DOTA_Tooltip_modifier_shadow_trap_d_a_buff_Description"				"魔法恢复速度提高并且获得额外魔法穿透"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_1_1"		"[T1-1] 灵气雕文"
 		"item_rpc_auriun_glyph_1_1_description" 				"受生命赐福影响的友军提高 <% AURIUN_GLYPH_1_1_MS_BONUS %> 移动速度，持续 <% AURIUN_GLYPH_1_1_DURATION %> 秒"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_2_1"		"[T2-1] 辉耀雕文"
-		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备造成的伤害增加 <% AURIUN_GLYPH_2_1_ITEM_DAMAGE %>%。"
+		"item_rpc_auriun_glyph_2_1_description" 				"所有由装备直接造成的伤害增加 <% AURIUN_GLYPH_2_1_ITEM_DAMAGE %>%。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_3_1"		"[T3-1] 意志雕文"
 		"item_rpc_auriun_glyph_3_1_description" 				"获得天堂之盾时，将清除一个负面的buff。"
@@ -247,7 +246,7 @@
 		"item_rpc_auriun_glyph_4_1_description" 				"提高攻击距离 <% AURIUN_GLYPH_4_1_BONUS_ATTACK_RANGE %>。"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_5_1"		"[T5-1] 天使雕文"
-		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得 <% AURIUN_GLYPH_5_1_MAGIC_RESIST %>% 的魔法抗性。但是会移除隐身效果"
+		"item_rpc_auriun_glyph_5_1_description" 				"天使形态下可以攻击并且获得<% AURIUN_GLYPH_5_1_MAGIC_RESIST %>额外魔甲。但是会移除隐身效果"
 
 		"DOTA_Tooltip_ability_item_rpc_auriun_glyph_6_1"		"[T6-1] 闪光雕文"
 		"item_rpc_auriun_glyph_6_1_description" 				"获得天堂之盾后的前 <% AURIUN_GLYPH_6_1_INVUL_DURATION %> 秒处于无敌状态。"

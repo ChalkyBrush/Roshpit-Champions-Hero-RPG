@@ -39,6 +39,9 @@ function Beacons:CreatePortal(portalVector, portalTeleportLocation, portalName, 
 end
 
 function Beacons:DEBUG()
+	Beacons.cheats = true --This function is automatically called when either Beacons.cheats == true or dev mode is on, so dont remove pls :)
+
+	
 	-- Events.WaveNumber = 200
 	-- Beacons:DesertInitiate()
 	-- Beacons:MakeBeacon(Vector(4884,-2944), "wave", "desertDesert")
@@ -46,7 +49,6 @@ function Beacons:DEBUG()
 	-- Beacons:MakeBeacon(Vector(3136,4480), "wave", "minesMines")
 	-- SaveLoad.key1 = "a"
 	-- SaveLoad.key2 = "b"
-	-- Beacons.cheats = true
 	-- Dungeons.itemLevel = 0
 	-- RPCItems:RollExcavatorsFocusHat(Vector(-14528, 14528), false)
 	-- RPCItems:RollWaterMageRobes(Vector(-14528, 14528))

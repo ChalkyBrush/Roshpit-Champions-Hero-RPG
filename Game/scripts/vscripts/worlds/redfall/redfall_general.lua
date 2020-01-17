@@ -185,7 +185,11 @@ function farmer_barrell_scene(units)
 							hero:RemoveModifierByName("modifier_invisibility_datadriven")
 							hero:RemoveModifierByName("modifier_invisible")
 							local direction = ((thief1:GetAbsOrigin() - hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-							WallPhysics:Jump(hero, Vector(1, 0), 28, 21, 25, 1)
+							local position = hero:GetAbsOrigin()
+							local distance = WallPhysics:GetDistance(Vector(5081, -12094, 1024), hero:GetAbsOrigin())
+							if distance < 200 then
+								WallPhysics:Jump(hero, direction, 28, 21, 25, 1)
+							end
 						end
 					end)
 				end)

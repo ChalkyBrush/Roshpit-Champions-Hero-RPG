@@ -294,10 +294,11 @@ end
 
 function mire_keeper_passive_damage(event)
 	local caster = event.caster
-	local modifier = caster:FindModifierByName("modifier_mire_keeper_passive_effect")
-	if modifier then
-		modifier:IncrementStackCount()
-	end
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_mire_keeper_passive_effect", {duration = 5})
+    local currentStacks = caster:GetModifierStackCount("modifier_mire_keeper_passive_effect", caster)
+	local newStack = math.min(currentStacks + 1, 100)
+    caster:SetModifierStackCount("modifier_mire_keeper_passive_effect", caster, newStack)
 end
 
 function mountain_crush_cast(event)
@@ -562,6 +563,13 @@ function gift_of_karzhun_die(event)
 			function()
 				ParticleManager:DestroyParticle( particle1, false )
 			end)
+			local random_gear_slot = RandomInt(0, 5)
+			if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
+			else
+				local item_level = RPCItems:RollItemLevelFromUnit(99+Arena.PitLevel*3)
+				item = RPCItems:RollRandomItemBySlot(RPC_ITEMS_RARITY_IMMORTAL, item_level, random_gear_slot)
+				RPCItems:BasicDropItem(position, item)
+			end
 			local luck = RandomInt(1, 10)
 			if luck == 1 then
 				RPCItems:RollAndDropUniqueItem(caster, "item_rpc_conquest_stone_falcon")
@@ -1282,7 +1290,8 @@ end
 function boss_burn_think(event)
 	local caster = event.caster
 	local target = event.target
-	local damage = target:GetMaxHealth()*0.02
+	local burn_pct = event.burn_pct
+	local damage = target:GetMaxHealth()*burn_pct/100
 	local ability = event.ability
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
 end
@@ -1557,7 +1566,7 @@ function lies_beetle_passive_think(event)
 	local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 520, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )
 	if #enemies > 0 then
 		for _,enemy in pairs(enemies) do
-			local damage = 25000
+			local damage = event.damage
 			PopupDamage(enemy, damage)
 			ApplyDamage({ victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })	
 			local particleName = "particles/items_fx/green_lightning.vpcf"
@@ -2697,10 +2706,12 @@ end
 function descent_guard_passive_damage(event)
 	local caster = event.caster
 	local target = event.target
-	local modifier = caster:FindModifierByName("modifier_descent_guard_passive_effect")
-	if modifier then
-		modifier:IncrementStackCount()
-	end
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_descent_guard_passive_effect", {duration = 7})
+    local currentStacks = caster:GetModifierStackCount("modifier_descent_guard_passive_effect", caster)
+	local newStack = math.min(currentStacks + 1, 20)
+    caster:SetModifierStackCount("modifier_descent_guard_passive_effect", caster, newStack)
+	
 	local particleName = "particles/econ/items/gyrocopter/hero_gyrocopter_atomic_gold/gyro_rocket_barrage_atomic_gold.vpcf"
     local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
     ParticleManager:SetParticleControl(lightningBolt,1,caster:GetAbsOrigin()+Vector(0,0,100))  
@@ -3405,7 +3416,7 @@ function pit_lord_dash_think(event)
 			caster:RemoveModifierByName("modifier_pit_lord_charging")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		end)
-		ApplyDamage({ victim = enemy, attacker = caster, damage = event.ability.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability })
+		ApplyDamage({ victim = enemy, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	end
 	if WallPhysics:GetDistance(caster:GetAbsOrigin(), event.ability.targetPosition) < 170 then
 		caster:RemoveModifierByName("modifier_pit_lord_charging")

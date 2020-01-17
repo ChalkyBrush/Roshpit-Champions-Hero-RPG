@@ -403,7 +403,7 @@ function prison_shank_attack(event)
 	local mult = event.status_mult
 	local ability = event.ability
 	if target:IsHero() then
-		local damage = (target:GetAgility() + target:GetStrength() + target:GetIntellect()) * mult
+		local damage = (target:GetAgility() + target:GetStrength() + target:GetIntellect() + target:GetSpirit()) * mult
 		ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_slark/slark_essence_shift.vpcf", target, 1.5)
 	end
@@ -933,7 +933,7 @@ function sea_beast_think(event)
 	if #enemies > 0 then
 		local fv = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 		caster:MoveToPosition(caster:GetAbsOrigin() + fv * 240)
-		if caster.interval % 6 == 0 then
+		if caster.interval % 10 == 0 then
 			EmitSoundOn("Seafortress.Beast.ShatterVO", caster)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_beast_attacking", {duration = 0.8})
 			StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_RUN, rate = 1.6})
@@ -943,10 +943,10 @@ function sea_beast_think(event)
 					for i = -1, 1, 1 do
 						local rotatedFV = WallPhysics:rotateVector(fv, 2 * math.pi * i / 16)
 						local particle = "particles/base_attacks/ranged_tower_bad_linear.vpcf"
-						local start_radius = 120
-						local end_radius = 120
+						local start_radius = 80
+						local end_radius = 80
 						local range = 1500
-						local speed = 1200
+						local speed = 1100
 
 						
 
@@ -987,14 +987,14 @@ function sea_beast_think(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		EmitSoundOn("Seafortress.DetonateCreep", caster)
-		local damage = 65000
+		local damage = event.pop_damage
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for i = 1, #enemies, 1 do
 				ApplyDamage({victim = enemies[1], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 				if enemies[1]:HasModifier("modifier_stun_immune") or enemies[1]:HasModifier("modifier_recently_respawned") then
 				else
-					ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = 0.7})
+					ability:ApplyDataDrivenModifier(caster, enemies[1], "modifier_exploder_freeze", {duration = 0.5})
 				end
 			end
 		end
@@ -1706,7 +1706,7 @@ function ursan_attack_land(event)
 	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/econ/items/ursa/ursa_swift_claw/ursa_swift_claw_left.vpcf", target, 1)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lycan/lycan_summon_wolves_cast.vpcf", target, 3)
-	local damage = 1000000000
+	local damage = 100000
 	ApplyDamage({victim = target, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 end
 
@@ -2302,7 +2302,23 @@ function jailer_think(event)
 					end
 				end)
 			else
-				target:ForceKill(false)
+				local throwPoint = Seafortress.JailCenterTable[1]
+				local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Seafortress.JailCenterTable[1])
+				for i = 2, #Seafortress.JailCenterTable, 1 do
+					local distanceCheck = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Seafortress.JailCenterTable[i])
+					if distanceCheck < distance then
+						distance = distanceCheck
+						throwPoint = Seafortress.JailCenterTable[i]
+					end
+				end
+				local target = enemies[1]
+				EmitSoundOn("Seafortress.Jailer.Throw", target)
+				EmitSoundOn("Seafortress.Jailer.ThrowVO", caster)
+				local throwVector = ((throwPoint - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				local propulsion = distance / 75 + 5
+				local liftTime = distance / 65 + 10
+				target:SetAbsOrigin(caster:GetAbsOrigin() + throwVector * 120)
+				caster:MoveToPosition(caster:GetAbsOrigin() + throwVector * 20)
 				Timers:CreateTimer(0.5, function()
 					caster.patrolLock = false
 				end)
@@ -3666,7 +3682,7 @@ function guillotine_strike_start(event)
 	local ability = event.ability
 	local target = event.target
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", target, 3)
-	local damage = target:GetHealth() * 0.8
+	local damage = target:GetHealth() * 0.4
 	-- CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_culling_blade_hit_sparks.vpcf", target, 1)
 	EmitSoundOn("Seafortress.GuillotineStrike.Blood", target)
 	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
@@ -4515,7 +4531,7 @@ function naga_summoner_think(event)
 					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 530, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 					if #enemies > 0 then
 						for _, enemy in pairs(enemies) do
-							ApplyDamage({victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 5, damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
+							ApplyDamage({victim = enemy, attacker = caster, damage = OverflowProtectedGetAverageTrueAttackDamage(caster), damage_type = DAMAGE_TYPE_PHYSICAL, ability = ability, damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR})
 							if enemy:HasModifier("modifier_stun_immune") or enemy:HasModifier("modifier_recently_respawned") then
 							else
 								enemy:AddNewModifier(caster, ability, "modifier_stunned", {duration = 1})
@@ -6063,7 +6079,7 @@ function archon_wizard_die(event)
 		arcanas = 2
 	end
 	for i = 1, arcanas, 1 do
-		RPCItems:RollArkimusArcana2(caster:GetAbsOrigin())
+		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_arkimus_arcana2")
 	end
 	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
 end

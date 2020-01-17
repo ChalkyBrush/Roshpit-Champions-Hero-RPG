@@ -453,7 +453,7 @@ function WallPhysics:UnitLand(unit)
 				ParticleManager:DestroyParticle(pfx, false)
 			end)
 			ScreenShake(position, 200, 0.8, 1, 9000, 0, true)
-			local damage = Events:GetDifficultyScaledDamage(1000, 10000, 100000)
+			local damage = Events:GetDifficultyScaledDamage(100, 300, 1000)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
@@ -486,7 +486,7 @@ function WallPhysics:UnitLand(unit)
 			end)
 
 			ScreenShake(position, 200, 0.4, 0.8, 9000, 0, true)
-			local damage = Events:GetAdjustedAbilityDamage(1400, 10000, 50000)
+			local damage = Events:GetAdjustedAbilityDamage(100, 300, 1000)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do

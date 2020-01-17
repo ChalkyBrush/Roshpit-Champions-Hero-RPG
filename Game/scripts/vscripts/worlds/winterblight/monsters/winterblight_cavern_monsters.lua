@@ -25,8 +25,14 @@ function damage_sap_attack(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
+	local damage_sap_enemy = event.damage_sap_enemy
+	local target_damage = OverflowProtectedGetAverageTrueAttackDamage(target)
+	if target_damage + damage_sap_enemy > 0 then
 	caster:ApplyAndIncrementStack(ability, caster, "modifier_damage_sap_stack_owner", 1, 0, 8)
-	target:ApplyAndIncrementStack(ability, caster, "modifier_damage_sap_stack_enemy", 1, 0, 8)	
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_damage_sap_stack_enemy", {duration = 8})
+	local currentStacks = target:GetModifierStackCount("modifier_damage_sap_stack_enemy", caster)
+	target:SetModifierStackCount("modifier_damage_sap_stack_enemy", caster, currentStacks+1)
+	end
 end
 
 function relict_jump_pre_start(event)
@@ -1252,10 +1258,11 @@ end
 function merkurio_crystal_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
+	local crystal_refresh_duration = 40
 	if not caster:HasModifier("modifier_merkurio_crystal_disabled") then
 		caster:SetRenderColor(50, 50, 50)
 		EmitSoundOn("Winterblight.MerkurioCrystal.Deactivate", caster)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_merkurio_crystal_disabled", {duration = 15})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_merkurio_crystal_disabled", {duration = crystal_refresh_duration})
 		local color = caster.crystal_color
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
@@ -2944,7 +2951,14 @@ function tiamat_charge_start(event)
 	ability.current_fire_thinker = fireThinker
 	arctic_burn:ApplyDataDrivenModifier(caster, fireThinker, "modifier_tiamat_fire_fire_thinker", {duration = fireDuration})
 	ability.fireDuration = fireDuration
+
+	local particleName = "particles/roshpit/winterblight/tiamat_flame_path.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin() + fireThinker.fv*ability.fly_distance)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(fireDuration, fireDuration, fireDuration))
 	Timers:CreateTimer(fireDuration, function()
+		ParticleManager:DestroyParticle(pfx, false)
 		UTIL_Remove(fireThinker)
 	end)
 end
@@ -2967,18 +2981,18 @@ function tiamat_charge_think(event)
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed)
 
 	ability.interval = ability.interval + 1
-	if ability.interval % 3 == 0 then
-		for i = -2, 2, 1 do
-			local perpMult = 90*i
-			local position = caster:GetAbsOrigin() + ability.perpFV * perpMult
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			Timers:CreateTimer(ability.fireDuration, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-		end
-	end
+	-- if ability.interval % 3 == 0 then
+	-- 	for i = -2, 2, 1 do
+	-- 		local perpMult = 90*i
+	-- 		local position = caster:GetAbsOrigin() + ability.perpFV * perpMult
+	-- 		local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	-- 		ParticleManager:SetParticleControl(pfx, 0, position)
+	-- 		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
+	-- 		Timers:CreateTimer(ability.fireDuration, function()
+	-- 			ParticleManager:DestroyParticle(pfx, false)
+	-- 		end)
+	-- 	end
+	-- end
 	if ability.distance_travelled >= (ability.fly_distance - 5) then
 		caster:RemoveModifierByName("modifier_dinath_scorch_charge_flying")
 		local slideDuration = ability.forwardVelocity * 0.03
@@ -2994,24 +3008,24 @@ function tiamat_charge_sliding(event)
 
 	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
 	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
-	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.fv * 45), caster)
+	local blockUnit = false
 	local forwardSpeed = ability.forwardVelocity
 	if blockUnit then
 		forwardSpeed = 0
 	end
 	ability.interval = ability.interval + 1
-	if ability.interval % 3 == 0 then
-		for i = -2, 2, 1 do
-			local perpMult = 60*i
-			local position = caster:GetAbsOrigin() + ability.perpFV * perpMult
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			Timers:CreateTimer(3, function()
-				ParticleManager:DestroyParticle(pfx, false)
-			end)
-		end
-	end
+	-- if ability.interval % 3 == 0 then
+	-- 	for i = -2, 2, 1 do
+	-- 		local perpMult = 60*i
+	-- 		local position = caster:GetAbsOrigin() + ability.perpFV * perpMult
+	-- 		local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	-- 		ParticleManager:SetParticleControl(pfx, 0, position)
+	-- 		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
+	-- 		Timers:CreateTimer(3, function()
+	-- 			ParticleManager:DestroyParticle(pfx, false)
+	-- 		end)
+	-- 	end
+	-- end
 	ability.distance_travelled = ability.distance_travelled + ability.forwardVelocity
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv * forwardSpeed)
 	if ability.forwardVelocity <= 3 then
@@ -3257,54 +3271,17 @@ function tiamat_fire_bomb_explosion(bomb, caster, ability, aoeSize)
 	fireThinker:SetDayTimeVisionRange(radius)
 	fireThinker:SetNightTimeVisionRange(radius)
 	EmitSoundOn("Timat.FireBomb.ImpactSound", bomb)
-	local pfxTable = {}
-	if aoeSize > 1 then
-		local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(pfx, 0, explosionPoint)
-		ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-		table.insert(pfxTable, pfx)
-	else
-		for i = 1, 4, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 4) * 60
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			table.insert(pfxTable, pfx)
-		end
-	end
-	if aoeSize >= 2 then
-		for i = 1, 6, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 6) * 120
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			table.insert(pfxTable, pfx)
-		end
-	end
-	if aoeSize >= 3 then
-		for i = 1, 12, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 12) * 240
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			table.insert(pfxTable, pfx)
-		end
-	end
-	if aoeSize >= 4 then
-		for i = 1, 18, 1 do
-			local position = explosionPoint + WallPhysics:rotateVector(Vector(0, 1), 2 * math.pi * i / 18) * 360
-			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(pfx, 0, position)
-			ParticleManager:SetParticleControl(pfx, 11, Vector(0.3, 0.3, 0.3))
-			table.insert(pfxTable, pfx)
-		end
-	end
+
 	local fireDuration = get_tiamat_fire_fire_duration(caster)
+
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/tiamat_flame_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, explosionPoint)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(500, 1, 1))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(fireDuration, fireDuration, fireDuration))
+
 	ability:ApplyDataDrivenModifier(caster, fireThinker, "modifier_tiamat_fire_fire_thinker", {duration = fireDuration})
 	Timers:CreateTimer(fireDuration, function()
-		for i = 1, #pfxTable, 1 do
-			ParticleManager:DestroyParticle(pfxTable[i], false)
-		end
+		ParticleManager:DestroyParticle(pfx, false)
 		UTIL_Remove(fireThinker)
 	end)
 end
@@ -3336,7 +3313,7 @@ function tiamat_fire_thinker(event)
 		if fire_thinker.distance_travelled < fire_thinker.distance then
 			fire_thinker.distance_travelled = fire_thinker.distance_travelled + 300
 		end
-		enemies = FindUnitsInLine(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), fire_thinker:GetAbsOrigin() + fire_thinker.fv * fire_thinker.distance_travelled, nil, 380, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+		enemies = FindUnitsInLine(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), fire_thinker:GetAbsOrigin() + fire_thinker.fv * fire_thinker.distance_travelled, nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
 	else
 		enemies = FindUnitsInRadius(caster:GetTeamNumber(), fire_thinker:GetAbsOrigin(), nil, fire_thinker.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	end

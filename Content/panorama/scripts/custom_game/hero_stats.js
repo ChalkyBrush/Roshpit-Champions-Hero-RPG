@@ -115,10 +115,10 @@ function UnitStats40(){
 		if ((level_diff < -15)){
 			GameUI.level_label.style.color = "#135924"
 			GameUI.level_label.style.textShadow = "0px 0px 4px #014210"			
-		}else if (level_diff < - 5){
+		}else if (level_diff < - 8){
 			GameUI.level_label.style.color = "#4da845"
 			GameUI.level_label.style.textShadow = "0px 0px 5px #036319"
-		}else if ((level_diff) > 5 && (level_diff < 15)){
+		}else if ((level_diff) > 8 && (level_diff < 15)){
 			GameUI.level_label.style.color = "#cf5723"
 			GameUI.level_label.style.textShadow = "0px 0px 5px #693a00"
 		}else if (level_diff > 15){

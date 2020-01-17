@@ -476,7 +476,7 @@
 		"item_rpc_conjuror_glyph_7_1_description" 				"Когда элементаль земли погибнет, он будет автоматически мгновенно перепризван."
 
 		"DOTA_Tooltip_ability_item_rpc_conjuror_glyph_5_a"		"[T5-a] Glyph of Summoning"
-		"item_rpc_conjuror_glyph_5_a_description" 				"Увеличивает Пробития Брони и Магической Брони на <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %>% для героя и его элементалей."
+		"item_rpc_conjuror_glyph_5_a_description" 				"Увеличивает Пробития Брони и Магической Брони на <% CONJUROR_GLYPH_5_A_ARMOR_AND_SPELL_PIERCE %> для героя и его элементалей."
 		
 		//Weapons
 		"conjuror_weapon_01"			"Earth Orb"
@@ -514,4 +514,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_conjuror_immortal_weapon_3"            "Sphere of Avennia"
         "item_property_conjuror_immortal_weapon3"                             "Elemental Core"
-        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали имеют пассивную способность Steadfast, снижающую входящий урон."     
+        "property_conjuror_immortal_weapon3_description"                      "Призванные элементали имеют пассивную способность Steadfast, снижающую входящий урон на 20/35/50% в зависимости от сложности игры."     

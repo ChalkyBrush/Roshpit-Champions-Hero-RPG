@@ -34,6 +34,21 @@ function OpenGemforger(msg){
 
     }
 
+    if(msg.go_home == 0){
+	    var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
+	    var gemforger_go_home_panel = $.CreatePanel("Panel", attach_point, "gemforger-go-home")
+	    gemforger_go_home_panel.BLoadLayoutSnippet("gemforger_start_button");
+
+	    gemforger_go_home_panel.FindChildTraverse("gemforger_start_image").SetImage("file://{images}/custom_game/ui/gemforger-go-home.png")
+    	gemforger_go_home_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("gem_forger_go_home")
+    	var collect_reward_button = gemforger_go_home_panel.FindChildTraverse('gemforger_start_button_collect')
+    	collect_reward_button.SetPanelEvent('onactivate', function Close() {
+			GameEvents.SendCustomGameEventToServer( "gems", {event_type: "go_home"});
+			Game.EmitSound("Gemforger.UI.CollectReward")
+			CloseGemforger();
+		})   	
+    }
+
     var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
     var forge_start_panel= $.CreatePanel("Panel", attach_point, "gemforger-start")
     forge_start_panel.BLoadLayoutSnippet("gemforger_start_button");

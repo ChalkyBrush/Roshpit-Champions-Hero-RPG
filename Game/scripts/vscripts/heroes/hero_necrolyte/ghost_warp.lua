@@ -107,7 +107,7 @@ function ghost_warp_take_damage(event)
 		return
 	end
 	if has_weapon3 then
-		e2_damage = e2_damage + e2_level * VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100 * caster:GetHealth()
+		e2_damage = e2_damage + (VENOMORT_IMMORTAL_WEAPON_3_E2_DAMAGE_PER_RUNE_FROM_HP_PERCENT / 100) * caster:GetHealth()
 		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/viper_channel_flare.vpcf", attacker:GetAbsOrigin() + Vector(0, 0, attacker:GetBoundingMaxs().z), 1)
 		ParticleManager:SetParticleControl(pfx, 1, Vector(40, 40, 40))
 		ParticleManager:SetParticleControl(pfx, 2, Vector(18, 18, 18))

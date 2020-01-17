@@ -752,7 +752,8 @@ function flame_wraith_damage(event)
 	if currentStacks == 0 then
 		CustomAbilities:QuickAttachParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_cast.vpcf", caster, 3)
 	end
-	caster:SetModifierStackCount("modifier_flame_wraith_buff", caster, currentStacks + 1)
+	local newStack = math.min(currentStacks + 1, 100)
+	caster:SetModifierStackCount("modifier_flame_wraith_buff", caster, newStack)
 end
 
 function flame_wraith_lord_think(event)

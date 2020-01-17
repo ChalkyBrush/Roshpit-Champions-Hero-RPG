@@ -1,5 +1,8 @@
 function general_hero_think(event)
 	local target = event.target
+	if not target.calculation_interval then
+		target.calculation_interval = 0
+	end
 	CustomAttributes:SetAttributes(target)
 	CustomAttributes:ApplyStatBonusesToHero(target)
 	local strength = math.floor(target:GetStrength())
@@ -40,14 +43,19 @@ function general_hero_think(event)
 				if IsValidEntity(item) then
 				else
 					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
-					CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+					-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 				end
 			end
 		else
 			CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(i), {itemIndex = -1})
-			CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+			-- CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
 		end
 
+	end
+	target.calculation_interval = target.calculation_interval + 1
+	if target.calculation_interval >= 30 then
+		CustomGameEventManager:Send_ServerToPlayer(target:GetPlayerOwner(), "update_inventory", {})
+		target.calculation_interval = 0
 	end
 	if GridNav:IsTraversable(target:GetAbsOrigin()) then
 		target.safePos = target:GetAbsOrigin()
@@ -404,11 +412,13 @@ function ability_1_position_think_generic(event)
 	if not caster.targetAbilityCD then
 		caster.aggro = true
 		caster.targetAbilityCD = 1
-		--print("ability_1_position_think_generic caster.targetAbilityCD")
 		return
 	end
 	local cooldown = caster.targetAbilityCD * 2
 	local targetFindOrder = caster.targetFindOrder
+	if not targetFindOrder then
+		targetFindOrder = FIND_ANY_ORDER
+	end
 	if caster.interval % cooldown == 0 and caster.aggro then
 		if castAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, targetFindOrder, false)
@@ -705,7 +715,7 @@ function ms_thinker(event)
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT
 	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
-		local max_ms = max_ms + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY2)
+		max_ms = max_ms + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TEMPEST_FALCON_RING_GEM_RUBY2)
 	end
 	if unit:HasModifier("modifier_pegasus_boots") then
 		max_ms = max_ms + ITEM_RPC_PEGASUS_BOOTS_MAX_MS

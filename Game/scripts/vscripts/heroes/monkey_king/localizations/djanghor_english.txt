@@ -44,7 +44,7 @@
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"MAGIC ARMOR INCREASE:"
 
 		"DOTA_Tooltip_modifier_mark_of_the_talon"										"Mark of the Talon"
-		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased mana regen and post-mitigation magic damage. Allows shapeshifting into Hawk form."	
+		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"Increased Mana Regen and Magic Armor. Allows shapeshifting into Hawk form."	
 
 		"DOTA_Tooltip_ability_draghor_jin_bo"											"Jin'bo"
 		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"Element: <font color=\"#DDDDDD\">Normal</font><br>Djanghor swings his weapon and pushes back enemies. On the 3rd consecutive strike, the attack is extended and deals its damage in a line with a stun. The 3rd attack also has <font color=\"#69BC71\">Nature</font> damage. Using Jin'bo during Monkey Leap automatically casts the 3rd attack."

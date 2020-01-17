@@ -218,7 +218,7 @@
 		"redfall_canyon_predator"								"Хищник Каньона"
 
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability"	"Enrage"
-		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее и выносливее. "
+		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_Description"	"Каждый раз, получая урон, хищник становится сильнее. Максимально 100 зарядов, которые увеличивают бонусный урон атаки и броню. "
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_damage_per_instance"	"ДОП. УРОН ЗА СТАК, %:"
 		"DOTA_Tooltip_ability_redfall_canyon_predator_ability_armor_per_instance"	"ДОП. БРОНЯ ЗА СТАК:"
 
@@ -226,7 +226,7 @@
 		"DOTA_Tooltip_ability_redfall_bigwave_Description"		"Оглушает и наносит урон врагам мощным потоком энергии."
 
 		"DOTA_Tooltip_ability_redfall_ghost_mace"				"Ghost Mace"
-		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и снижая значение регенерации здоровья на определённый % на 3.5 секунды."
+		"DOTA_Tooltip_ability_redfall_ghost_mace_Description"	"При каждом попадании по цели проклинает её, лишая возможности восстанавливать здоровье и дополнительно снижает значение регенерации здоровья на определённый % на 3.5 секунды, если цель - герой."
 		"DOTA_Tooltip_ability_redfall_ghost_mace_health_regen_percent"	"СНИЖЕНИЕ РЕГЕНЕРАЦИИ ЗДОРОВЬЯ, %:"
 
 		"DOTA_Tooltip_modifier_ghost_mace_debuff"				"Ghost Mace"
@@ -423,11 +423,11 @@
 		"redfall_quest_7_reward_Description"					"Позволяет открыть проход в Заброшенную Верфь"
 
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai"									"Task Armor"
-		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 99.9% входящего урона. Щит теряет заряды с каждым полученным уроном."
+		"DOTA_Tooltip_ability_redfall_taskmaster_ai_Description"						"Щит поглощает 90% входящего урона. Щит теряет заряды с каждым полученным уроном."
 		"DOTA_Tooltip_ability_redfall_taskmaster_ai_charges"							"ЗАРЯДОВ ЩИТА:"
 
 		"DOTA_Tooltip_modifier_task_armor"												"Task Armor"
-		"DOTA_Tooltip_modifier_task_armor_Description"									"Входящий урон снижен на 99.9%%"
+		"DOTA_Tooltip_modifier_task_armor_Description"									"Входящий урон снижен на 90%%"
 
 		"redfall_dialogue_farmer_2_a"											"Армия Кримсита - это не просто шайка воров. Они проводят демонические ритуалы."
 		"redfall_dialogue_farmer_2_b"											"Они объединены в губительный культ, оставляющий после себя лишь разруху."

@@ -64,11 +64,11 @@ function Gems:GetRewardAndSpawnPositionByEventName(event_name)
 		spawn_args["position"] = Vector(6272, -8384)
 		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 7	
-	elseif event_name == "fire_temple_spirit_boss" then
+	elseif event_name == "tanari_fire_spirit_boss" then
 		spawn_args["position"] = Vector(-15040, -3904)
 		spawn_args["fv"] = Vector(1,0)
 		spawn_args["reward"] = 9		
-	elseif event_name == "water_temple_spirit_boss" then
+	elseif event_name == "tanari_water_spirit_boss" then
 		spawn_args["position"] = Vector(14400, -2432)
 		spawn_args["fv"] = Vector(-1,1)
 		spawn_args["reward"] = 9	
@@ -166,11 +166,11 @@ function Gems:CanItemBeSocketed(item)
 	local slot = item.newItemTable.item_slot
 	if slot == "amulet" or slot == "body" or slot == "feet" or slot == "hands" or slot == "head" then
 	else
-		allowed = false
+		return false
 	end
 	if item.newItemTable.rarity == "immortal" or item.newItemTable.rarity == "mythical" or item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "uncommon" or item.newItemTable.rarity == "common" then
 	else
-		allowed = false
+		return false
 	end
 	if not item.newItemTable.socket2 then
 	else
@@ -188,9 +188,9 @@ function Gems:GetMithrilCostToAddSocket(item)
 	local cost = 0
 	local next_slot = Gems:NextSlotNumber(item)
 	if next_slot == 1 then
-		cost = item.newItemTable.minLevel*120
+		cost = item.newItemTable.minLevel*80
 	elseif next_slot == 2 then
-		cost = item.newItemTable.minLevel*1200
+		cost = item.newItemTable.minLevel*800
 	end
 	return cost
 end
@@ -239,7 +239,7 @@ function Gems:SpawnGemForger(position, endFV, gem_reward)
 		Gems.GemForger = CreateUnitByName("gem_forger", position, true, nil, nil, DOTA_TEAM_GOODGUYS)
 		Gems.GemForger:SetAbsOrigin(Gems.GemForger:GetAbsOrigin()+Vector(0,0,1000))
 		Gems.GemForger.endFV = endFV
-
+		Gems.GemForger.go_home = 0
 		Gems.GemForger:FindAbilityByName("town_unit"):SetLevel(1)
 		Gems.GemForger:FindAbilityByName("npc_dialogue"):SetLevel(1)
 		Gems.GemForger.dialogueName = "gem_forger"
@@ -286,6 +286,39 @@ function Gems:PanoramaInput(msg)
 		Gems:ItemUpForForging(msg)
 	elseif msg.event_type == "insert_gem" then
 		Gems:InsertGem(msg)
+	elseif msg.event_type == "go_home" then
+		Gems:GemforgerGoHome(msg)
+	end
+end
+
+function Gems:GemforgerGoHome(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	if player then
+		local hero = GameState:GetHeroByPlayerID(playerID)
+		if Gems.GemForger.go_home == 0 then
+			Gems.GemForger.go_home = 1
+			local gem_ability = Gems.GemForger:FindAbilityByName("gem_forger_ability")
+			gem_ability:ApplyDataDrivenModifier(Gems.GemForger, Gems.GemForger, "modifier_gem_forger_going_home", {})
+			gem_ability:ApplyDataDrivenModifier(Gems.GemForger, hero, "modifier_gem_forger_going_home_hero", {})
+
+			Events:LockCamera(hero)
+			Gems.GemForger.going_home_buddy = hero
+			Gems.GemForger.going_home_phase = 0
+			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
+
+			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, Gems.GemForger:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Gems.GemForger:GetAbsOrigin())
+			Gems.GemForger.home_pfx = pfx
+			StartAnimation(Gems.GemForger, {duration = 3, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
+			EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
+
+			local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin())
+			Gems.GemForger.hero_home_pfx = pfx
+		end
 	end
 end
 
@@ -471,7 +504,7 @@ function Gems:CreateUnrefinedGemstones(reward)
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	item.pickedUp = true
-	item.newItemTable.property1 = reward
+	item.newItemTable.property1 = tonumber(reward)
 	item.newItemTable.property1name = "tooltip_prismatic_gemstones"
 	item.newItemTable.property1color = "#EEEEEE"
 	item.newItemTable.property1tooltip = "tooltip_prismatic_gemstones"

@@ -11,28 +11,28 @@
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_property_one"						"提高智力值"
     	"DOTA_Tooltip_ability_sephyr_rune_q_1_suffix"							""
 
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] 放大"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"被神圣之光击中的敌人将受到debuff，加深其所受到的来自希芙尔的伤害。（伤害加深计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"减伤后伤害加深"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2"									"[Q2] 强光"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_Description"						"被神圣之光击中的敌人将降低魔甲，持续7秒"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_property_one"						"魔甲降低"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_2_suffix"							""
 
-    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"放大"
-    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"加深所受到的来自希芙尔的伤害"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss"								"强光"
+    	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"魔甲降低"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] 明澈之火"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"每次施放神圣之光后都将获得多层 明澈之火 的buff。拥有超过 10 层 明澈之火 buff后，神圣之光可以自由释放而不触发冷却，自由释放的神圣之光每次将消耗 10 层 明澈之火 buff，并且不增加新的明澈之火层数。每一层明澈之火增加 <font color=\"#F6FFB5\">圣</font> 伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"每次获得明澈之火层数"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
+	  "DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "圣元素伤害提高"
+        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                           "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"明澈之火"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 层将免除神圣之火冷却"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_4"									"[Q4] 晴明烈性"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						"被动提高 <font color=\"#F6FFB5\">圣</font> 元素伤害。一部分 <font color=\"#F6FFB5\">圣</font> 元素伤害提高值将同时提高攻击力。"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"圣元素伤害提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"%"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_two"						"圣元素伤害提高值的一部分将同时提高攻击力"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix_two"						"%"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_Description"						" <font color=\"#F6FFB5\">圣</font> 元素伤害将同时提高攻击力。"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_property_one"						"攻击力提高 %"
+    	"DOTA_Tooltip_ability_sephyr_rune_q_4_suffix"							"x 圣元素伤害"
 		
 		"DOTA_Tooltip_ability_piercing_gale"										"风之触"
     	"DOTA_Tooltip_ability_piercing_gale_Description"							"元素： <font color=\"#7AE2A7\">风</font><br>希芙尔在面前召唤一束锋利的疾风。"
@@ -41,7 +41,7 @@
 		"DOTA_Tooltip_ability_sephyr_rune_w_1"									"[W1] 明眸"
     	"DOTA_Tooltip_ability_sephyr_rune_w_1_Description"						"智力值将提高魔法恢复速度。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_1_property_one"						"魔法恢复速度提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"% 智力值"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_1_suffix"								"每点智力值"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_2"									"[W2] 侧风"
     	"DOTA_Tooltip_ability_sephyr_rune_w_2_Description"						"风之触有 20% 的概率造成一次暴击伤害。"
@@ -54,9 +54,9 @@
     	"DOTA_Tooltip_ability_sephyr_rune_w_3_suffix"								"%"
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4"									"[W4] 宇宙风"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"希芙尔的智力值将提高 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_Description"						"提高所有<font color=\"#7AE2A7\">风</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_property_one"						"风元素伤害提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"% 每 10 点智力值"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_sephyr_strafe"										"风舞"
     	"DOTA_Tooltip_ability_sephyr_strafe_Description"							"当开启时，希芙尔的朝向将锁定，此时执行移动操作，希芙尔将乘着微风向移动方向滑翔，每次滑翔消耗一点点微小的魔法值。移动并拾起物品将自动关闭风舞技能。"
@@ -108,7 +108,7 @@
 		"DOTA_Tooltip_ability_sephyr_rune_r_1"									"[R1] 恢复之风"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_Description"						"希芙尔和在风神之守护内的友军生命回复速度提高。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_1_property_one"						"生命回复速度提高"
-    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							"x 希芙尔等级"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_1_suffix"							""
 
     	"DOTA_Tooltip_ability_sephyr_rune_r_2"									"[R2] 阴冷雾霭"
     	"DOTA_Tooltip_ability_sephyr_rune_r_2_Description"						"风神之守护内的敌人将降低移动和攻击速度。"
@@ -134,7 +134,7 @@
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_Description"						"被动提高敏捷值和智力值。"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_one"						"智力值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix"							""
-    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"智力值提高"
+    	"DOTA_Tooltip_ability_sephyr_rune_r_4_property_two"						"敏捷值提高"
     	"DOTA_Tooltip_ability_sephyr_rune_r_4_suffix_two"						""
 		
 		//Arcanas
@@ -171,7 +171,7 @@
     	"DOTA_Tooltip_modifier_icewind_shield_Description"						"吸收伤害"		
 
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1"							"[W4] 冰风宗师"
-    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"希芙尔的全属性可以提高 <font color=\"#7AE2A7\">风</font> 元素伤害。"
+    	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_Description"				"提高所有 <font color=\"#7AE2A7\">风</font> 元素伤害。"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_property_one"				"风元素伤害提高"
     	"DOTA_Tooltip_ability_sephyr_rune_w_4_arcana1_suffix"					"% 每10点全属性值"
 		

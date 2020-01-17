@@ -18,7 +18,7 @@ function start_channel(event)
 		channel_complete(event)
 		caster:Stop()
 		ability:EndCooldown()
-		local cooldown = Filters:GetCDNoHood(caster, 0.7)
+		local cooldown = 0.7
 		ability:StartCooldown(cooldown)
 	end
 end
@@ -166,7 +166,7 @@ function tornado_thinker(event)
 	end
 	if ability.r_1_level > 0 then
 		if dummy.interval % 15 == 0 then
-			local radius = 600 + 3 * ability.r_1_level
+			local radius = SORCERESS_ARCANA_R1_RADIUS_SEARCH_BASE + SORCERESS_ARCANA_R1_RADIUS_SEARCH_PER_LVL * ability.r_1_level
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local enemy = enemies[1]
@@ -212,7 +212,7 @@ function splinter_hit(event)
 	if caster:HasModifier("modifier_sorceress_immortal_fire_avatar") then
 		caster = caster.origCaster
 	end
-	local damage = caster:GetIntellect() * 7 * ability.r_1_level
+	local damage = caster:GetIntellect() * SORCERESS_ARCANA_R1_DMG_X_INT_PER_LVL * ability.r_1_level
 	if caster:HasModifier("modifier_sorceress_glyph_7_1") then
 		damage = damage * SORCERESS_GLYPH_7_1_R_DAMAGE_MULTIPLIER
 	end
@@ -275,7 +275,9 @@ function tornado_damage_end(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	if not target.pushLock then
+		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	end
 end
 
 function tornado_damage_think(event)
@@ -297,11 +299,11 @@ function tornado_damage_think(event)
 	end
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
 	if ability.r_3_level > 0 then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = 3})
-		local newStacks = target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_visible", {duration = SORCERESS_ARCANA1_R3_DURATION})
+		local newStacks = math.min(target:GetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster) + 1, SORCERESS_ARCANA1_R3_MAX_STACKS)
 		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_visible", caster, newStacks)
 
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_invisible", {duration = 3})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_tornado_ice_resist_loss_invisible", {duration = SORCERESS_ARCANA1_R3_DURATION})
 		target:SetModifierStackCount("modifier_tornado_ice_resist_loss_invisible", caster, newStacks * ability.r_3_level)
 	end
 end

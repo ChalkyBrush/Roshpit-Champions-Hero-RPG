@@ -23,7 +23,7 @@ function cast_soul_thrust(event)
 	local damage = event.damage
 	if caster:HasModifier("modifier_flametongue") then
 		local flametongue = caster:FindAbilityByName("spirit_warrior_flametongue")
-		local extraFlametongueDamage = flametongue:GetSpecialValueFor("flat_pure_damage")
+		local extraFlametongueDamage = flametongue:GetSpecialValueFor("damage")
 		damage = damage + extraFlametongueDamage
 	end
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "spirit_warrior")

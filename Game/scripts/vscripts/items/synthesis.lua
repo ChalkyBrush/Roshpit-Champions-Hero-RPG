@@ -147,7 +147,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			local randomItem = possibilityTable[RandomInt(1, #possibilityTable)]
 			local minLevelAVG = math.floor((item1.newItemTable.minLevel + item2.newItemTable.minLevel) / 2)
 			local newMinLevel = RPCItems:GetImmortalLevelForSynth(minLevelAVG)
-			newMinLevel = math.max(math.min(newMinLevel, 100), 3)
+			newMinLevel = math.max(math.min(newMinLevel, 120), 3)
 			RPCItems.LevelRoll = newMinLevel
 			local newItem = RPCItems:RollArcanaByName(randomItem:GetAbilityName(), newMinLevel)
 			RPCItems.LevelRoll = nil
@@ -188,9 +188,12 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 				local maxWeaponLevel = math.floor((item1.newItemTable.maxLevel + item2.newItemTable.maxLevel) / 2)
 				maxWeaponLevel = math.min(maxWeaponLevel, 10)
 				RPCItems.LevelRoll = newMinLevel
-				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), maxWeaponLevel, position, true)
+				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(randomItem:GetAbilityName(), position)
 				RPCItems.LevelRoll = nil
 				if newItem and IsValidEntity(newItem) then
+					if IsValidEntity(newItem:GetContainer()) then
+						UTIL_Remove(newItem:GetContainer())
+					end
 					newItem.pickedUp = true
 					newItem.newItemTable.minLevel = newMinLevel
 					local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(randomItem:GetEntityIndex()))
@@ -483,16 +486,16 @@ function RPCItems:GetImmortalLevelForSynth(minLevelAVG)
 	elseif minLevelAVG < 50 then
 		bonus = bonus + RandomInt(1, 5)
 	elseif minLevelAVG < 60 then
-		bonus = bonus + RandomInt(-3, 6)
+		bonus = bonus + RandomInt(-1, 6)
 	elseif minLevelAVG < 70 then
-		bonus = bonus + RandomInt(-3, 5)
+		bonus = bonus + RandomInt(-1, 5)
 	elseif minLevelAVG < 80 then
-		bonus = bonus + RandomInt(-4, 3)
-	elseif minLevelAVG < 90 then
-		bonus = bonus + RandomInt(-3, 2)
+		bonus = bonus + RandomInt(-2, 3)
 	elseif minLevelAVG < 100 then
-		bonus = bonus + RandomInt(-4, 2)
-	elseif minLevelAVG == 100 then
+		bonus = bonus + RandomInt(-3, 3)
+	elseif minLevelAVG < 120 then
+		bonus = bonus + RandomInt(-3, 2)
+	elseif minLevelAVG == 120 then
 		bonus = 0
 	end
 	local new_min_level = math.min(minLevelAVG + bonus, 120)
@@ -568,7 +571,8 @@ function RPCItems:UseArcanaCache(caster, item)
 					RPCItems.LevelRoll = radiance
 					Events.reroll = true
 					for i = 1, 3, 1 do
-						local arcana = RPCItems:RollRandomArcana(radiance)
+						local level_for_arcana = RPCItems:RollItemLevelFromUnit(radiance)
+						local arcana = RPCItems:RollRandomArcana(level_for_arcana)
 						arcana.pickedUp = true
 						RPCItems:BasicDropItem(caster:GetAbsOrigin(), arcana)
 					end

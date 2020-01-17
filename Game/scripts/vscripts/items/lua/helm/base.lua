@@ -1,4 +1,5 @@
 require('items/lua/base')
+require('items/constants/helm')
 BaseHelm = class(BaseItem, nil, BaseItem)
 local class = BaseHelm
 function class:GetSlotTextShort()

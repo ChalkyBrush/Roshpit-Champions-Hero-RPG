@@ -257,7 +257,7 @@
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_6_2"       "[T6-2] Glyph of Hair Trigger"
         "item_rpc_trapper_glyph_6_2_description"                "Иллюзия от руны Decoy уничтожается с @glyph_property1 удара(ов), но наносит на @glyph_property2% больше урона."
  
-        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] (T7-2) Glyph of Killer Instinct"
+        "DOTA_Tooltip_ability_item_rpc_trapper_glyph_7_2"       "[T7-2] Glyph of Killer Instinct"
         "item_rpc_trapper_glyph_7_2_description"                "[R3] становится пассивной способностью в невидимости."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_book"		"Книга Глифов Trapper"

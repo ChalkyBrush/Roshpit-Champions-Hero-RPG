@@ -192,10 +192,11 @@ end
 function lifesteal_attack(event)
 	local attacker = event.attacker
 	local ability = event.ability
-	local damage = event.attack_damage
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
 	local lifesteal = math.floor(damage * 0.05)
 
 	Filters:ApplyHeal(attacker, attacker, lifesteal, true)
+	PopupHealing(attacker, lifesteal)
 	local particleName = "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
 	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
 	ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)

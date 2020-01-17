@@ -39,12 +39,12 @@
    		"DOTA_Tooltip_modifier_ekkan_dominion_unit_Description"				"Serving Ekkan"
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_1"								"[Q1] Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a 10% chance on attack to damage enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_1_Description"					"Dominated units have a <% EKKAN_Q1_DAMAGE_CHANCE %>% chance on attack to damage enemies in a line."
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_property_one"					"Crit Damage"
     	"DOTA_Tooltip_ability_ekkan_rune_q_1_suffix"						"% of dominated unit's attack damage"
 		
 		"DOTA_Tooltip_ability_ekkan_zombie_strike"							"Zombie Strike"
-    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"10% chance on attack to hit enemies in a line."
+    	"DOTA_Tooltip_ability_ekkan_zombie_strike_Description"				"<% EKKAN_Q1_DAMAGE_CHANCE %>% chance on attack to hit enemies in a line."
 		
 		"DOTA_Tooltip_ability_ekkan_rune_q_2"								"[Q2] Gloomy Awakening"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_Description"					"Dominated enemies have increased max health."
@@ -52,7 +52,7 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <% EKKAN_Q3_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
@@ -217,7 +217,7 @@
     	"DOTA_Tooltip_modifier_black_dominion_lifesteal_Description"		"Slowed and losing life"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1"							"[Q2] Corpse Eater"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_Description"				"The Aphotic Dominion unit can consume corpses off the ground to gain a 12 second bonus to base attack power and movespeed. When the buff wears off, 2 swarms of bugs are released for each corpse that was held. Enemies hit by the bugs take damage over time based on <% EKKAN_ARCANA_Q2_POISON_PER_ATTACK *100 %>% of the Aphotic Dominion unit's attack power and have reduced Armor and Magic Armor. They also cannot heal while the poison is active. Enemies who die while the poison is active generate an additional corpse."
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_one"				"Base Attack Damage Per Corpse"
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_arcana1_property_two"				"Armor and Magic Armor Loss"
@@ -227,10 +227,10 @@
     	"DOTA_Tooltip_modifier_corpse_picked_up_visible_Description"			"Gaining attack damage. When this ends, release swarms of poisonous bugs."
 
     	"DOTA_Tooltip_modifier_swarm_effect"									"Corpse Eater Poison"
-    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and taking increased post-mitigation damage. On death, generate an additional corpse"
+    	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <% EKKAN_ARCANA_Q3_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"

@@ -330,10 +330,7 @@ function grizzly_helper_flash_heal(event)
 	local target = event.target
 	local caster = event.caster
 	EmitSoundOn("Grizzly.AllyHeal", target)
-	local healMult = 0.3
-	if target.paragon then
-		healMult = 0.07
-	end
+	local healMult = 0.02
 	local healAmount = caster:GetMaxHealth() * healMult
 	target:Heal(healAmount, caster)
 	PopupHealing(target, healAmount)

@@ -3398,7 +3398,7 @@ function leon_think(event)
 	local caster = event.caster
 
 	local primeAttribute = target:GetRoshpitPrimaryAttribute()
-	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_EMERALD)/100
+	local prime_mult = ITEM_RPC_GOLD_PLATE_OF_LEON_PRIMARY_ATTRIBUTE_INCREASE/100 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLD_PLATE_OF_LEON_GEM_AMETHYST)/100
 	if primeAttribute == ROSHPIT_ATTRIBUTE_STRENGTH then
 		local strStacks = math.floor(target:GetBaseStrength() * prime_mult, 0)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_gold_plate_of_leon_str", {})
@@ -3454,8 +3454,8 @@ function ablecore_greaves_think(event)
 		end
 	else
 		--fast move speed
-		if hero:HasModifier("modifier_ablecore_greaves_effect") then
-			if hero:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 and ability:GetGemValue("ruby") > 0  then
+		if hero:HasModifier("modifier_ablecore_greaves_effect") and hero:FindModifierByName("modifier_ablecore_greaves_effect"):GetDuration() == -1 then
+			if ability:GetGemValue("ruby") > 0  then
 				event.ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_greaves_effect", {duration = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY2)})
 			else
 				hero:RemoveModifierByName("modifier_ablecore_greaves_effect")
@@ -4287,8 +4287,10 @@ function skull_cap_explode(caster, ability, target, position, damage)
 	Timers:CreateTimer(1.5, function()
 		ParticleManager:DestroyParticle(particle2, false)
 	end)
-	EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
-
+	local key = 'skull_cap_explode_sound'
+	Util.Common:LimitPerTimeAndPlace(1, 2, target:GetAbsOrigin(), 700, key, function()
+		EmitSoundOn("RPCItem.CrimsonSkullCap.Explode", target)
+	end)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
@@ -4938,7 +4940,7 @@ function shark_helmet_attack_land(event)
 	end
 	local extra_stack = 0
 	if ability:GetGemValue("emerald") > 0 then
-		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("emerald", DARK_REEF_SHARK_EMERALD))
+		local proc = Filters:GetProc(attacker, ability:GetFinalGemPropertyValue("emerald", DARK_REEF_SHARK_EMERALD))
 		if proc then
 			extra_stack = extra_stack + 1
 		end
@@ -5774,7 +5776,7 @@ function gravelfoot_think(event)
 		local modifierMaker = modifier:GetCaster()
 		if WallPhysics:DoesTableHaveValue(Filters:GetUnpurgableDebuffNames(), modifier:GetName()) then
 		else
-			if modifierMaker and modifierMaker.regularEnemy then
+			if modifierMaker and modifierMaker:IsRegularEnemy(hero) then
 				hero:RemoveModifierByName(modifier:GetName())
 				procced = true
 				break
@@ -6050,10 +6052,14 @@ function razor_band_take_damage(event)
 		local stacks = #ability.buff_table
 		target:SetModifierStackCount("modfier_razor_band_stacks", caster, stacks)
 	end
-	local self_removal_rate = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD1)
-	local self_health_removal = target:GetMaxHealth()*(self_removal_rate/100)
-	local newHealth = math.max(target:GetHealth() - self_health_removal, 1)
-	target:SetHealth(newHealth)
+	Timers:CreateTimer(0.03, function()
+		if target:IsAlive() then
+			local self_removal_rate = ITEM_RPC_GALVANIZED_RAZOR_BAND_MAX_HEALTH_REMOVAL - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_EMERALD1)
+			local self_health_removal = target:GetMaxHealth()*(self_removal_rate/100)
+			local newHealth = math.max(target:GetHealth() - self_health_removal, 1)
+			target:SetHealth(newHealth)
+		end
+	end)
 end
 
 function razor_band_think(event)
@@ -7038,8 +7044,14 @@ end
 
 function odin_beam_pushback(event)
 	local hero = event.target
+	local caster = event.caster
 	local ability = event.ability
-	hero:SetAbsOrigin(hero:GetAbsOrigin()+ability.pushBack*50)
+	local obstruction = WallPhysics:FindNearestObstruction(hero:GetAbsOrigin())
+	local newPosition = hero:GetAbsOrigin()+ability.pushBack*50
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, newPosition, hero)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
 	StartAnimation(hero, {duration = 0.25, activity = ACT_DOTA_FLAIL, rate = 1.6, translate="forcestaff_friendly"})
 end
 
@@ -8006,9 +8018,12 @@ function sorceres_regalia_think(event)
 	local caster = event.caster
 	local target = event.target
 	if ability:GetGemValue("amethyst") > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sorcerers_regalia_spirit", {})
-		local spr_stacks = hero:GetStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SORCERERS_REGALIA_GEM_AMETHYST)/100
-		hero:SetModifierStackCount("modifier_sorcerers_regalia_spirit", caster, spr_stacks)
+		-- print("entity name hero: "..tostring(hero:GetName()))
+		-- print("entity name caster: "..tostring(caster:GetName()))
+		-- print("entity name target: "..tostring(target:GetName()))
+		ability:ApplyDataDrivenModifier(hero, hero, "modifier_sorcerers_regalia_spirit", {})
+		local spr_stacks = hero:GetIntellect()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SORCERERS_REGALIA_GEM_AMETHYST)/100
+		hero:SetModifierStackCount("modifier_sorcerers_regalia_spirit", hero, spr_stacks)
 	end	
 end
 
@@ -9465,7 +9480,9 @@ function bladeslinger_projectile_thinker(event)
 					end
 					if IsValidEntity(vorpal.lock_entity) then
 						EmitSoundOn("RPCItems.SlingerBoot.Impact", vorpal.lock_entity)
-						Filters:ApplyItemDamage(vorpal.lock_entity, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						if not vorpal.lock_entity.dummy then
+							Filters:ApplyItemDamage(vorpal.lock_entity, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
+						end
 					end
 					if IsValidEntity(new_target) then
 						vorpal.lock_entity = new_target
@@ -10257,6 +10274,28 @@ function torch_of_gengar_think(event)
 		if atk_penalty > 0 then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_torch_of_gengar_attack_penalty", {})
 			hero:SetModifierStackCount("modifier_torch_of_gengar_attack_penalty", caster, atk_penalty)
+		end
+	end
+end
+
+function rupthold_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local health_regen_loss_per_stack = 0.1
+	hero:RemoveModifierByName("modifier_rupthold_regen_reduction")
+	local health_regen_loss = hero:GetHealthRegen()
+	if ability:GetGemValue("emerald") > 0 then
+		health_regen_loss = health_regen_loss - (hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_EMERALD))/100)
+	end
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_rupthold_regen_reduction", {})
+	
+	hero:SetModifierStackCount("modifier_rupthold_regen_reduction", caster, health_regen_loss/health_regen_loss_per_stack)
+
+	if hero:HasModifier("modifier_rupthold_borrowed_time") then
+		if ability.apply_time < GameRules:GetGameTime() + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_MAX_DURATION then
+			hero:RemoveModifierByName("modifier_rupthold_borrowed_time")
 		end
 	end
 end

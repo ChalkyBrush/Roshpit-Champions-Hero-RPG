@@ -55,7 +55,7 @@ CustomAttributes.DJANGHOR_R4_STATS = DJANGHOR_R4_BONUS_ATTRIBUTE
 CustomAttributes.DJANGHOR_R4_ARCANA_STATS = DJANGHOR_ARCANA_R_R4_BONUS_ATTRIBUTE
 CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 
-CustomAttributes.SORCERESS_ARCANE_INTELLECT = 50
+
 CustomAttributes.BAHAMUT_Q4_INT = BAHAMUT_Q4_INT_BONUS
 CustomAttributes.BAHAMUT_R4_STATS = BAHAMUT_R4_STATS_PER_TICK
 CustomAttributes.AURIUN_E2_INT = AURIUN_E2_INT_INCREASE
@@ -63,7 +63,7 @@ CustomAttributes.AURIUN_E3_STATS = AURIUN_E3_ATTRIBUTES_INCREASE
 CustomAttributes.MOUNTAIN_PROTECTOR_E2_STR = MOUNTAIN_PROTECTOR_E2_BONUS_STR
 CustomAttributes.AXE_E1_STATS = RED_GENERAL_E1_ATTRIBUTES_GAIN
 CustomAttributes.AXE_ARCANA2_W2_STRENGTH = RED_GENERAL_ARCANA2_W2_STRENGTH
-CustomAttributes.SORCERESS_ARCANE_INT = 50
+
 CustomAttributes.TRAPPER_R4_AGI = TRAPPER_R4_BONUS_AGI
 CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH = JEX_OAK_INFUSION_Q4_STR
 
@@ -585,6 +585,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_arena_grave_chill_target") then
 		armor_modify = armor_modify - CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_target")
 	end
+
 	if unit:HasModifier("modifier_arena_grave_chill_caster") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_steal", "modifier_arena_grave_chill_caster")
 	end
@@ -695,6 +696,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 			armor_modify = armor_modify + unit:GetRuneValue("q", 1)*FLAMEWAKER_Q1_ARMOR
 		end
 	end
+	if unit:HasModifier("modifier_flamewaker_arcana_a_a_effect") then
+		local modifier = unit:FindModifierByName("modifier_flamewaker_arcana_a_a_effect")
+		armor_modify = armor_modify + modifier:GetStackCount()
+	end
 	if unit:HasModifier("modifier_searing_heat") then
 		local modifier = unit:FindModifierByName("modifier_searing_heat")
 		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_W3_ARMOR_SHRED_PER_STACK
@@ -707,7 +712,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_b_b_shimmer") then
 		local modifier = unit:FindModifierByName("modifier_b_b_shimmer")
-		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_Q2_ARMOR
+		armor_modify = armor_modify + modifier:GetStackCount()*FLAMEWAKER_ARCANA2_W2_ARMOR
 	end
 	if unit:HasModifier("modifier_voltex_rune_q_1_buff") then
 		local modifier = unit:FindModifierByName("modifier_voltex_rune_q_1_buff")
@@ -1220,14 +1225,14 @@ function CustomAttributes:AdjustDamageForRoshpitAttributes(attacker, victim, dam
 		end
 	end
 	if damage_type == DAMAGE_TYPE_PHYSICAL then
-		local mult = math.min(255 / (armor * ( 255 / (255 + armor_pierce))), max_physical_mult)
+		local mult = math.min(255 / (255 + armor * (255 / (255+armor_pierce))), max_physical_mult)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_MAGICAL then
-		local mult = math.min(255 / (magic_armor * ( 255 / (255 + spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+		local mult = math.min(255 / (255 + magic_armor * (255 / (255+spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 		return damage*mult
 	elseif damage_type == DAMAGE_TYPE_PURE then
 		if victim:HasModifier("modifier_ancient_waterstone") then
-			local mult = math.min(255 / (magic_armor * ( 255 / (255 + spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
+			local mult = math.min(255 / (255 + magic_armor * (255 / (255+spell_pierce))), RPC_MAX_DAMAGE_MULT_WHEN_PIERCE_EXCEEDS_ARMOR)
 			return damage*mult
 		end
 		return damage
@@ -1263,7 +1268,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+	if unit:HasModifier("modifier_dark_arts_vestments") then
 		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
@@ -1406,6 +1411,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_sorceress_rune_w_2_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SORCERESS_W2_MAGIC_ARMOR_LOSS
 	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		magic_armor_modify = magic_armor_modify + w_4_level*EKKAN_W4_MAGIC_ARMOR
+	end
 	if unit:HasModifier("modifier_call_of_earth") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "magic_armor", "modifier_call_of_earth")
 	end
@@ -1508,7 +1517,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     	end
     end
     if unit:HasModifier("modifier_mountain_protector_arcana3") then
-    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)
     	local e_1_level = unit:GetRuneValue("e", 1)
     	magic_armor_modify = magic_armor_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
@@ -1548,8 +1557,8 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_tachyon_amp")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_Q3_MAGIC_ARMOR_RED
 	end
-	if unit:HasModifier("modifier_zonik_lightspeed") then
-		local modifier = unit:FindModifierByName("modifier_zonik_lightspeed")
+	if unit:HasModifier("modifier_zhonik_lightspeed") then
+		local modifier = unit:FindModifierByName("modifier_zhonik_lightspeed")
 		local e_3_level = unit:GetRuneValue("e", 3)
 		magic_armor_modify = magic_armor_modify + ZHONIK_E3_MAGIC_ARMOR*e_3_level
 	end
@@ -1900,6 +1909,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_seinaru_glyph_7_1") then
 		armor_pierce_modify = armor_pierce_modify + SEINARU_GLYPH_7_1_ARMOR_PIERCE_AND_MAGIC_ARMOR_PER_STR*unit:GetStrength()
 	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		armor_pierce_modify = armor_pierce_modify + w_4_level*EKKAN_W4_PIERCES
+	end
 	if unit:HasModifier("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce") then
 		local modifier = unit:FindModifierByName("modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SEINARU_ARCANA_E3_ARMOR_PIERCE_AND_SPELL_PIERCE
@@ -1961,9 +1974,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
 	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 		if not ability.tech_level then
-			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
 		end
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		armor_pierce_modify = armor_pierce_modify + pierces
@@ -2177,6 +2190,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_world_tree_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
+		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2224,7 +2240,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("item_rpc_dark_arts_vestments") then
+	if unit:HasModifier("modifier_dark_arts_vestments") then
 		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
@@ -2316,7 +2332,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		spell_pierce_modify = spell_pierce_modify + w_2_level*MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE
 	end
     if unit:HasModifier("modifier_mountain_protector_arcana3") then
-    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)/100
+    	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)
     	local e_1_level = unit:GetRuneValue("e", 1)
     	spell_pierce_modify = spell_pierce_modify + missingHP_pct*MOUNTAIN_PROTECTOR_ARCANA3_E1_MAGIC_ARMOR_AND_SPELL_PIERCE_PER_MISSING_PCT_HP*e_1_level
     end
@@ -2357,6 +2373,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local w_2_level = unit:GetRuneValue("w", 2)
 		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
 	end
+	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
+		local w_4_level = unit:GetRuneValue("w", 4)
+		spell_pierce_modify = spell_pierce_modify + w_4_level*EKKAN_W4_PIERCES
+	end
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
@@ -2367,9 +2387,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		end
 	end
 	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = attacker:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
+		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
 		if not ability.tech_level then
-			ability.tech_level = attacker.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
+			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
 		end
 		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
 		spell_pierce_modify = spell_pierce_modify + pierces
@@ -2616,6 +2636,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_world_tree_effect") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_RUBY)
 	end
+	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
+		spell_pierce_modify = spell_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_arcane_charm") then
@@ -2797,7 +2820,7 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_WINDSTEEL_ARMOR_GEM_EMERALD)
 	end
 	if hero:HasModifier("modifier_sea_giant_spirit") then
-		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_sea_giant_spirit", 1)
+		spr_bonus = spr_bonus + hero:GetModifierStackCount("modifier_sea_giant_spirit", hero.InventoryUnit)
 	end
 	if hero:HasModifier("modifier_skyforge_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_skyforge_agility", 1)
@@ -2920,9 +2943,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_E4_ALL_ATTRIBUTES
 	end
-	-- if hero:HasModifier("modifier_arcane_intellect_visible") then
-	-- int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INTELLECT)
-	-- end
+
 	if heroName == "npc_dota_hero_beastmaster" then
 		if hero:HasModifier("modifier_warlord_rune_q_4_strength") then
 			str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_warlord_rune_q_4_strength", WARLORD_Q4_ALL_ATTRIBUTES)
@@ -3181,11 +3202,13 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff", CustomAttributes.RING_OF_NOBILITY)
 	end
 	if hero:HasModifier("modifier_ring_of_nobility_augmented") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ring_of_nobility_buff_augmented", CustomAttributes.RING_OF_NOBILITY2)
 	end
 	if hero:HasModifier("modifier_azure_empire") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_azure_empire_strength", ITEM_RPC_AZURE_EMPIRE_RED_STR)
@@ -3223,7 +3246,7 @@ function CustomAttributes:SetAttributes(hero)
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_solunia_d_d_stats", SOLUNIA_ARCANA_R4_ATTRIBUTES)
 	end
 	if hero:HasModifier("modifier_arcane_intellect_visible") then
-		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", CustomAttributes.SORCERESS_ARCANE_INT)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_arcane_intellect_visible", SORCERESS_W3_INTELLECT)
 	end
 	if hero:HasModifier("modifier_flamewaker_weapon_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_flamewaker_weapon_agility", CustomAttributes.FLAMEWAKER_WEAPON_2_AGI)
@@ -3242,7 +3265,7 @@ function CustomAttributes:SetAttributes(hero)
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
-		local stat_bonus = hero:GetBaseStrength()
+		local stat_bonus = hero:GetBaseStrength()*ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT/100
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		str_bonus = str_bonus + stat_bonus
@@ -3251,7 +3274,7 @@ function CustomAttributes:SetAttributes(hero)
 		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RED_DIVINEX_AMULET_GEM_SAPPHIRE)
 		int_bonus = 0
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
-		local stat_bonus = hero:GetBaseAgility()
+		local stat_bonus = hero:GetBaseAgility()*ITEM_RPC_GREEN_DIVINEX_AMULET_AGI_PCT/100
 		local modifier = hero:FindModifierByName('modifier_green_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		agi_bonus = agi_bonus + stat_bonus
@@ -3260,7 +3283,7 @@ function CustomAttributes:SetAttributes(hero)
 		int_bonus = 0
 		intelligence = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
-		local stat_bonus = hero:GetBaseIntellect()
+		local stat_bonus = hero:GetBaseIntellect()*ITEM_RPC_BLUE_DIVINEX_AMULET_INT_PCT/100
 		local modifier = hero:FindModifierByName('modifier_blue_divinex_amulet')
 		modifier.stat_bonus = stat_bonus
 		int_bonus = int_bonus + stat_bonus
@@ -3488,6 +3511,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*ITEM_RPC_LIFESOURCE_VESSEL_MAX_HEALTH_PER_ATTRIBUTE
 	end
+	if excludedModifier ~= "modifier_ruptholds_helm_of_gluttony" and hero:HasModifier("modifier_ruptholds_helm_of_gluttony") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*(ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY))
+	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
 			flatHealthBonus = flatHealthBonus + result
@@ -3697,9 +3723,8 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	modifier_disciple_bonus_movespeed = 800,
 	modifier_seinaru_glyph_t21_movespeed_cap = "modifier_seinaru_glyph_t21_movespeed_cap",
 	slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
-	modifier_zonik_lightspeed_cap = "modifier_zonik_lightspeed_cap",
-	modifier_zonik_speedball_cap = "modifier_zonik_speedball_cap",
-	modifier_zonik_temporal_field_cap = "modifier_zonik_temporal_field_cap",
+	modifier_zhonik_speedball_invisible = "modifier_zhonik_speedball_invisible",
+	modifier_zhonik_temporal_field_buff = "modifier_zhonik_temporal_field_buff",
 	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
@@ -3753,29 +3778,7 @@ function CustomAttributes:MSCap(unit)
 					local decay = modifier:GetRemainingTime() / unit.baseShadowRushDuration
 					local msBonus = unit:FindAbilityByName("slipfinn_shadow_rush"):GetLevelSpecialValueFor("ms_bonus_and_max", modifier:GetAbility():GetLevel())
 					local_max_ms = math.max(msBonus * decay, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_lightspeed_cap" then
-					local cap = 600
-					cap = modifier:GetAbility():GetSpecialValueFor("movespeed_cap") + modifier_ability.e_4_level * ZHONIK_E4_MS_CAP_INCREASE
-					if unit:HasModifier("modifier_zonik_speedball") then
-						cap = cap + 600
-					end
-					if unit:HasModifier("modifier_zonik_glyph_5_1") then
-						cap = cap + 200
-					end
-					local_max_ms = math.max(cap, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_speedball_cap" then
-					local cap = 550 + modifier_ability:GetSpecialValueFor("movespeed_cap")
-					if unit:HasModifier("modifier_zonik_lightspeed") then
-						cap = cap + unit:FindAbilityByName("zonik_lightspeed"):GetSpecialValueFor("movespeed_cap") - 550
-					end
-					if unit:FindAbilityByName("zonik_lightspeed") and unit:FindAbilityByName("zonik_lightspeed").e_4_level and unit:HasModifier("modifier_zonik_lightspeed") then
-						cap = cap + ZHONIK_E4_MS_CAP_INCREASE * unit:FindAbilityByName("zonik_lightspeed").e_4_level
-					end
-					if unit:HasModifier("modifier_zonik_lightspeed") and unit:HasModifier("modifier_zonik_glyph_5_1") then
-						cap = cap + 200
-					end
-					local_max_ms = math.max(cap, local_max_ms)
-				elseif ms_cap_modifier == "modifier_zonik_temporal_field_cap" then
+				elseif ms_cap_modifier == "modifier_zhonik_temporal_field_buff" then
 					local_max_ms = math.max(modifier_ability:GetSpecialValueFor("movespeed_cap"), local_max_ms)
 				end
 			end

@@ -1347,6 +1347,19 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sapphire_lotus_buff"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sapphire_lotus_buff_mana"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_sapphire_lotus_buff"
 			{
@@ -1358,6 +1371,7 @@
 			{
 			    "Passive"			"0"
 				"IsHidden"			"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "1"
@@ -5763,6 +5777,7 @@
 				{
 					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDestroy"
 				{

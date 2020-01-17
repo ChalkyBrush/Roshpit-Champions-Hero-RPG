@@ -89,7 +89,7 @@
     	"DOTA_Tooltip_ability_astral_rune_e_1_suffix_two"				" сек."
 
     	"DOTA_Tooltip_modifier_astral_rune_e_1_visible"					"Pegasus"
-    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и получает увеличенный пост-резистный урон"
+    	"DOTA_Tooltip_modifier_astral_rune_e_1_visible_Description"		"Обездвижен и теряет Магическую Защиту"
 		
 		"DOTA_Tooltip_ability_astral_rune_e_2"							"[E2] Astral Empowerment"
     	"DOTA_Tooltip_ability_astral_rune_e_2_Description"				"Применение @Ability3 увеличит скорость атаки и урон на <% ASTRAL_RANGER_E2_DURATION %> секунд. Дополнительно цели в радиусе 1000 от места падения звезды атакуются стандартным выстрелом."

@@ -34,12 +34,13 @@
 		"DOTA_Tooltip_modifier_mark_of_the_claw_Description"							"提高护甲值和生命回复速度。释放后可以变身成为熊形态。"
 
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon"								"鹰隼"
-		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"提高魔法回复速度并且使敌人所受到的魔法伤害加深（计算在减伤之后）。释放后可以变身成为鹰形态。"
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_Description"					"提高魔法回复速度和魔甲。释放后可以变身成为鹰形态。"
 		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_mana_regen"						"魔法回复速度提高："
-		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_post_mitigation_magic"			"敌人减伤后魔法伤害加深："
+		"DOTA_Tooltip_ability_draghor_mark_of_the_talon_magic_armor_increase"			"魔甲提高:"
+
 
 		"DOTA_Tooltip_modifier_mark_of_the_talon"										"鹰隼"
-		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"提高魔法回复速度并且使敌人所受到的魔法伤害加深（计算在减伤之后）。释放后可以变身成为鹰形态。"	
+		"DOTA_Tooltip_modifier_mark_of_the_talon_Description"							"提高魔法回复速度和魔甲。释放后可以变身成为鹰形态。"	
 
 		"DOTA_Tooltip_ability_draghor_jin_bo"											"金箍棒"
 		"DOTA_Tooltip_ability_draghor_jin_bo_Description"								"元素： <font color=\"#DDDDDD\">普通</font><br>孙悟空挥舞金箍棒，将敌人击退。连续第三次打击时，金箍棒将伸长，打击一条直线上的所有敌人，并造成眩晕。第三次打击时，伤害拥有 <font color=\"#69BC71\">自然</font> 元素属性。在施放筋斗云时施放金箍棒将自动造成第三次打击。"
@@ -75,10 +76,11 @@
 		"DOTA_Tooltip_modifier_wolf_sprint_Description"									"提高移动速度和移动速度上限"
 
 		"DOTA_Tooltip_ability_draghor_wolf_rend"										"撕裂"
-		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人 50% 的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"
+		"DOTA_Tooltip_ability_draghor_wolf_rend_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br>攻击面前的敌人，根据攻击力造成伤害。每次撕裂减少敌人的护甲值，最多叠加 2 层。如果敌人被撕裂了两次（获得两层撕裂debuff），敌人将会流血，受到持续的流血伤害。"
 		"DOTA_Tooltip_ability_draghor_wolf_rend_damage_mult"							"伤害为 % 的攻击力："
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_damage"							"流血伤害为 % 的攻击力："	
 		"DOTA_Tooltip_ability_draghor_wolf_rend_bleed_duration"							"流血持续时间："
+"DOTA_Tooltip_ability_draghor_wolf_rend_rend_armor_reduction"					"护甲减少:"
 
 		"DOTA_Tooltip_modifier_wolf_rend_stack"											"撕裂"
 		"DOTA_Tooltip_modifier_wolf_rend_stack_Description"								"护甲值降低。当 2 层时，下一次撕裂将造成流血。"
@@ -109,13 +111,13 @@
 		"DOTA_Tooltip_modifier_bear_charging"										"战争冲锋"
 
 		"DOTA_Tooltip_ability_draghor_hawk_screech"									"超声波"
-		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方锥形区域施放超声波上海敌人，并且敌人将获得一个debuff，使敌人受到的所有来源的伤害加深（计算在减伤之后）。"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方锥形区域施放超声波上海敌人，并且敌人将获得一个debuff，使敌人的魔甲在一定时间内降低。"
 		"DOTA_Tooltip_ability_draghor_hawk_screech_damage"							"伤害："
-		"DOTA_Tooltip_ability_draghor_hawk_screech_postmitigation"					"减伤后伤害加深 % ："
-		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"DEBUFF持续时间："
-
+		"DOTA_Tooltip_ability_draghor_hawk_screech_magic_armor_reduction"					"魔甲降低:"
+		"DOTA_Tooltip_ability_draghor_hawk_screech_debuff_duration"					"持续时间:"
+		
 		"DOTA_Tooltip_modifier_draghor_hawk_screech"								"超声波"
-		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"受到全部来源的伤害加深（计算在减伤之后）"
+		"DOTA_Tooltip_modifier_draghor_hawk_screech_Description"					"魔甲降低"
 
 		"DOTA_Tooltip_ability_draghor_hawk_tornado"									"苍穹龙卷"
 		"DOTA_Tooltip_ability_draghor_hawk_tornado_Description"						"元素：<font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br> 翅膀扇动召唤致命的龙卷风，席卷前方。被龙卷风击中的敌人将被减速。"
@@ -170,9 +172,9 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_1_suffix"								"% 所造成的伤害"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_2"									"[W2] 碎裂"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"受到撕裂流血debuff的敌人，所受到来自齐天大圣的伤害将被加深。（计算在敌人减伤之后）"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"减伤后伤害加深："
-    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								"%"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_Description"						"受到撕裂流血debuff的敌人生命恢复降低"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_property_one"						"生命恢复降低："
+    	"DOTA_Tooltip_ability_djanghor_rune_w_2_suffix"								""
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_3"									"[W3] 自然之怒"
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_Description"						"齐天大圣的攻击力将加入到 苍穹龙卷和战争践踏 的伤害中。"
@@ -180,17 +182,17 @@
     	"DOTA_Tooltip_ability_djanghor_rune_w_3_suffix"								"% 攻击力"
 
     	"DOTA_Tooltip_ability_djanghor_rune_w_4"									"[W4] 自然选择"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"齐天大圣的属性值将提高所有 <font color=\"#69BC71\">自然</font> 元素的伤害。"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_Description"						"提高所有 <font color=\"#69BC71\">自然</font> 元素的伤害。"
     	"DOTA_Tooltip_ability_djanghor_rune_w_4_property_one"						"自然元素伤害提高"
-    	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"% 每10点属性值"
+    	"DOTA_Tooltip_ability_djanghor_rune_w_4_suffix"								"%"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_1"									"[E1] 沼泽"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"筋斗云着陆之后，将在落地点制造一片沼泽，处于沼泽地中的敌人所受到的所有 <font color=\"#69BC71\">自然</font> 元素伤害将提高。和其他 <font color=\"#69BC71\">自然</font> 加成为乘法叠加。"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"自然元素伤害提高"
-    	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								"%"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_Description"						"筋斗云着陆之后，将在落地点制造一片沼泽，处于沼泽地中的敌人护甲和魔甲将被降低"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_property_one"						"护甲和魔甲降低"
+    	"DOTA_Tooltip_ability_djanghor_rune_e_1_suffix"								""
 
     	"DOTA_Tooltip_modifier_monkey_a_c_effect"									"沼泽"
-    	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"自然元素伤害抗性减少"
+    	"DOTA_Tooltip_modifier_monkey_a_c_effect_Description"						"护甲和魔甲降低"
 
     	"DOTA_Tooltip_ability_djanghor_rune_e_2"									"[E2] 杜松藤"
     	"DOTA_Tooltip_ability_djanghor_rune_e_2_Description"						"在施放筋斗云过程中，金箍棒的伤害将提高。如果金箍棒的第三次打击击中至少1个敌人，齐天大圣将会有概率能够自由释放@Ability4 ，自由释放不需要进行施法时间（读条）。 如果概率大于100%，齐天大圣将会获得多次自由释放的机会。"
@@ -243,15 +245,15 @@
     	"DOTA_Tooltip_ability_draghor_shapeshift_year_beast_all_attributes_bonus"						"年兽形态全属性提高："
 
     	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar"									"嗔怒"
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方释放超声波，被击中的敌人获得 debuff，加深所受到的伤害。（伤害加深计算在减伤之后）同时，被击中的敌人受到嘲讽，强制攻击 齐天大圣 一段时间。嘲讽期间提高护甲值。"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_Description"						"元素： <font color=\"#B5FFB7\">时</font> / <font color=\"#69BC71\">自然</font><br>向前方释放超声波，被击中的敌人魔甲降低。同时，被击中的敌人受到嘲讽，强制攻击 齐天大圣 一段时间。嘲讽期间提高护甲值。"
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_damage"							"伤害："
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_postmitigation"					"减伤后伤害加深："
-		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"伤害加深持续时间："
+	"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_magic_armor_reduction"					"魔甲降低:"
+		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_debuff_duration"					"持续时间："
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_duration"							"嘲讽持续时间："
 		"DOTA_Tooltip_ability_draghor_year_beast_thunderous_roar_armor_bonus"						"护甲值提高："
 
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale"										"飓风"
-		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br><font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少 50% 的护甲值，叠加 2 次。如果敌人两次或以上 被利爪或旋风 击中，将会流血，受到持续伤害，同时被减速。"
+		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_Description"							"元素： <font color=\"#DDDDDD\">普通</font><br><font color=\"#7AE2A7\">风</font> / <font color=\"#69BC71\">自然</font><br>用利爪攻击前方，强有力的一击卷起旋风，伤害基于总攻击力。敌人每次被利爪将减少护甲值，叠加 2 次。如果敌人两次或以上被利爪或旋风击中，将会流血，受到持续伤害，同时被减速。"
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage_mult"							"利爪伤害为 % 攻击力："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_damage"							"流血伤害为 % 攻击力："	
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_bleed_duration"						"流血持续时间："
@@ -259,6 +261,7 @@
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_attack_speed"							"旋风造成攻击速度减少："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_damage"								"旋风基础伤害："
 		"DOTA_Tooltip_ability_draghor_year_beast_rending_gale_int_mult"								"旋风额外伤害为智力值的倍数："
+			"DOTA_Tooltip_ability_draghor_year_beast_rending_rend_armor_reduction"						"护甲降低:"
 
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge"									"神龙摆尾"
 		"DOTA_Tooltip_ability_djanghor_year_beast_charge_Description"						"向目标点冲刺，撞晕冲刺路径上的敌人。冲刺结束后，获得额外的 移动速度和移动速度上限。"
@@ -287,7 +290,7 @@
     	"DOTA_Tooltip_modifier_year_beast_b_d_health_Description"								"生命值提高"
 
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1"									"[R3] 翡翠之声"
-    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"在@Ability4状态中时，所有受到的伤害将减少。上限90%。"
+    	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_Description"						"在@Ability4状态中时，所有受到的伤害将减少。上限<% DJANGHOR_ARCANA_R_R3_RESIST_MAX_PCT * 100%>% 。"
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_property_one"						"额外抗性："
     	"DOTA_Tooltip_ability_djanghor_rune_r_3_arcana1_suffix"								"%"
 

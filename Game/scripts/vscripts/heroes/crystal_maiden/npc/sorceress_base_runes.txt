@@ -499,7 +499,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.3"
+				"property_one"			"<% SORCERESS_R2_IGNITE_DAMAGE_PCT %>"
 			}
 			"02"
 			{
@@ -524,8 +524,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% SORCERESS_R3_FIRE_AMP * 100 %>"
 			}
 		}
 		"Modifiers"

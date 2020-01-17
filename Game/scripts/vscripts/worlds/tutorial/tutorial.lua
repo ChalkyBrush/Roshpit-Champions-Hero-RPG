@@ -850,7 +850,7 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 				if crystals < 300 then
 					Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Talk", ACT_DOTA_CAST_ABILITY_1, 1.0, 4.0)
 					Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_4d1", 5, false)
-					Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, 1, 500)
+					Glyphs:DropArcaneCrystals(Tutorial.Master:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, 1, 500)
 					Timers:CreateTimer(5, function()
 						Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_3_4d2", 5, false)
 					end)
@@ -1725,11 +1725,12 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					local question = "tutorial_quiz_question_5"
 					local choice = RandomInt(1, 3)
 					local baseDamage = 100000
-					local verifier = CDOTA_BaseNPC_Hero:GetBaseAbilityAmpForSlot(choice)
+					local verifier = hero:GetBaseAbilityAmpForSlot(choice)
 					if choice == 4 then
 						choice = DOTA_R_SLOT + 1
 					end
 					local sub = "DOTA_Tooltip_Ability_"..hero:GetAbilityByIndex(choice - 1):GetAbilityName()
+					print("WHY NOTHING")
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "2_2", quiz_question = question, sequence = 0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 3})
 					CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"})
 				end)

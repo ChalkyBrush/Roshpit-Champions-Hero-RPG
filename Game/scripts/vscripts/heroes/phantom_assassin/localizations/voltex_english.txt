@@ -132,7 +132,7 @@
         "DOTA_Tooltip_ability_voltex_static_field_magic_armor_reduction_per_stack"  "MAGIC ARMOR REDUCTION PER STACK:"
 
         "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation"                "Static Field"
-        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation_Description"    "Increased post-mitigation damage taken from Voltex per stack"
+        "DOTA_Tooltip_modifier_voltex_static_field_post_mitigation_Description"    "Magic Armor reduced"
 		
 		"DOTA_Tooltip_ability_voltex_rune_r_1"								"[R1] Thunder Storm"
     	"DOTA_Tooltip_ability_voltex_rune_r_1_Description"					"When Voltex finishes channeling @Ability4, a storm cell forms around her, electrocuting a random enemy every 0.1 seconds. There is a limit of 40 lightning strikes per @Ability4 cast from this effect."

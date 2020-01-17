@@ -10,7 +10,7 @@
     	"DOTA_Tooltip_modifier_gale_nova_target_Description"					"Получает периодический урон"
 
     	"DOTA_Tooltip_ability_venomort_rune_q_1"							"[Q1] Mass Hysteria"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> юнитов, боссы считаются за <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Повторный каст обнуляет прежние заряды, длится <% VENOMORT_Q1_DURATION %> секунд. Максимум <% VENOMORT_Q1_MAX_STACKS %> стаков яда."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_Description"				"Увеличивает Базовый Урон Способностей за каждого задетого @Ability1 противника. Монстры Парагона считаются за <% VENOMORT_PARAGONS_COUNT_AS_ENEMIES %> юнитов, боссы считаются за <% VENOMORT_BOSSES_COUNT_AS_ENEMIES %>. Повторный каст обнуляет прежние заряды, длится <% VENOMORT_Q1_DURATION %> секунд. Максимум <% VENOMORT_Q1_MAX_STACKS %> зарядов."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_property_one"				"Базовый Урон Способностей"
     	"DOTA_Tooltip_ability_venomort_rune_q_1_suffix"						"% за юнита"
 
@@ -50,10 +50,15 @@
     	"DOTA_Tooltip_ability_venomort_rune_w_2_property_one"				"Длительность"
     	"DOTA_Tooltip_ability_venomort_rune_w_2_suffix"						" секунд"
 
-    	"DOTA_Tooltip_ability_venomort_rune_w_3"							"[W3] Scourge Fervor"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_Description"				"Враги, задетые @Ability2 единожды, увеличивают атрибуты Venomort до тех пор, пока не умрут (при смерти противника бонус к атрибутам исчезает мгновенно). Монстры Парагона считаются за 5 юнитов, боссы считаются за 20."
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_property_one"				"Бонус атрибутов"
-    	"DOTA_Tooltip_ability_venomort_rune_w_3_suffix"						" за каждого противника"
+        "DOTA_Tooltip_ability_venomort_rune_w_3"                            "[W3] Scourge Fervor"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_Description"                "Прочтение @Ability2 добавляет заряд руны, ускоряющий атаки и скорость прочтения заклинаний. Заряды длятся <% VENOMORT_W3_STACK_DURATION %> сек, максимально <% VENOMORT_W3_MAX_STACKS %> активных зарядов."
+        "DOTA_Tooltip_ability_venomort_rune_w_3_property_one"                "Ускорение Прочтения Заклинаний"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_suffix"                        "%"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_property_two"               "Бонус Скорости Атаки"
+        "DOTA_Tooltip_ability_venomort_rune_w_3_suffix_two"                 ""
+
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible"               "Scourge Fervor"
+        "DOTA_Tooltip_modifier_venomort_scourge_fervor_visible_Description"   "Ускорение Прочтения Заклинаний и Скорости Атаки"
 		
 		"DOTA_Tooltip_ability_venomort_rune_w_4"							"[W4] Euthanasia"
     	"DOTA_Tooltip_ability_venomort_rune_w_4_Description"				"Противники получают усиленный урон от Venomort за каждый отсутствующий 1% от их максимального запаса здоровья."
@@ -87,9 +92,9 @@
 		"DOTA_Tooltip_modifier_venomort_rune_e_1_description" 				"Venomort's old E1 applied this buff, but the rune was entirely changed in an update. If you see this message, please report it to RPC's development team."
 		
 		"DOTA_Tooltip_ability_venomort_rune_e_2"							"[E2] Acid Armor"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <% VENOMORT_E2_TICK_RATE %> сек, в течение <% VENONORT_E2_DURATION %> сек. Урон от яда умножается на уровень героя. Пробивает иммунитет к магии."
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_Description"				"Противники, наносящие урон Venomort покрываются кислотным ядом, который наносит урон каждые <% VENOMORT_E2_TICK_RATE %> сек, в течение <% VENONORT_E2_DURATION %> сек. Пробивает иммунитет к магии."
     	"DOTA_Tooltip_ability_venomort_rune_e_2_property_one"				"Урон"
-    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						"x уровень героя"
+    	"DOTA_Tooltip_ability_venomort_rune_e_2_suffix"						""
 
 		
 		
@@ -154,7 +159,7 @@
     	"DOTA_Tooltip_ability_venom_reaper_slice_damage_mult"					"МНОЖИТЕЛЬ УРОНА ОТ АТАКИ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1"						"[R1] Purgatory"
-    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые 0.5 секунды в течение 3 секунд."
+    	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_Description"			"Косы Жнецов рассекают души врагов, нанося периодический урон каждые <% VENOMORT_ARCANA_1_R1_TICK_RATE %> секунды в течение <% VENOMORT_ARCANA_1_R1_DURATION %> секунд."
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_property_one"			"Периодический урон"
     	"DOTA_Tooltip_ability_venomort_rune_r_1_arcana1_suffix"					"% от Reaper's Judgement"
 
@@ -166,7 +171,7 @@
         "DOTA_Tooltip_ability_venomort_rune_r_2_arcana1_suffix_two"				"%"
 
   		"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1"						"[R3] Death's Embrace"
-    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформирется в щит, который длится 30 секунд и поглощает входящий урон."
+    	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_Description"			"Часть урона от базового удара @Ability4 лечит Venomort. Избыток восстановления здоровья дополнительно трансформируется в щит, который длится 30 секунд и поглощает входящий урон."
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_one"			"Лечение"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_suffix"					"% от урона"
     	"DOTA_Tooltip_ability_venomort_rune_r_3_arcana1_property_two"			"Ёмкость щита"
@@ -198,9 +203,9 @@
     	"DOTA_Tooltip_ability_venomort_frostvenom_grasp_bonus_movement_speed"			"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2"						"[Q1] Frostbite Venom"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Каждое нанесение урона от @Ability1 заражает противника токсином Frostbite Venom, наносящего периодический урон. Дебафф стакается."
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_Description"			"Каждое нанесение урона от @Ability1 заражает противника токсином Frostbite Venom, наносящего периодический урон. Дебафф стакается до <% VENOMORT_ARCANA2_Q1_MAX_STACKS %> раз."
     	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_property_one"			"Урон"
-    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" каждые 0.1 секунды"
+    	"DOTA_Tooltip_ability_venomort_rune_q_1_arcana2_suffix"					" каждые <% VENOMORT_ARCANA2_Q1_TICK_RATE %> секунды"
 
   		"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2"						"[Q2] Icemeter"
     	"DOTA_Tooltip_ability_venomort_rune_q_2_arcana2_Description"			"Радиус поиска цели @Ability1 увеличивается, а сама способность немного толкает Venomort вперед."
@@ -249,7 +254,7 @@
 		"item_rpc_venomort_glyph_7_1_description" 				"Увеличивает длительность жизни существ, призванных с помощью способностей и рун Venomort (но не из остальных источников) на @glyph_property1 секунд, и увеличивает их скорость атаки на @glyph_property2."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_5_a"		"[T5-a] Glyph of Insidious Toxins"
-		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на 3 равные порции Физического, Магического и Чистого урона."
+		"item_rpc_venomort_glyph_5_a_description" 				"Все порции урона, нанесенные ядами Venomort разделены на три порции Физического, Магического и Чистого урона. Физический и Магический разделенный урон наносит 1/<% VENOMORT_GLYPH_5_A_DIV_MAGIC %> от первоначального урона, а Чистый 1/<% VENOMORT_GLYPH_5_A_DIV_PURE %> от него."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_1_2"		"[T1-2] Glyph of Delirium"
 		"item_rpc_venomort_glyph_1_2_description" 				"Увеличивает длительность [W2] на @glyph_property2%. К тому же, противники, задетые @Ability1 имеют @glyph_property1% шанс потерять ориентацию в пространстве."
@@ -267,7 +272,7 @@
 		"item_rpc_venomort_glyph_5_2_description" 				"Максимальная дальность @Ability2 увеличена на @glyph_property1%."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_6_2"		"[T6-2] Glyph of Antibiotics"
-		"item_rpc_venomort_glyph_6_2_description" 				"Все призванные юниты от рун и способностей Venomort (но не из других источников) имеют пассивную способность Steadfast, снижающую входящий урон."
+		"item_rpc_venomort_glyph_6_2_description" 				"Все призванные юниты от рун и способностей Venomort (но не из других источников) имеют пассивную способность Steadfast, снижающую входящий урон на 20/35/50% в зависимости от сложности игры."
 
 		"DOTA_Tooltip_ability_item_rpc_venomort_glyph_7_2"		"[T7-2] Glyph of Sudden Death"
 		"item_rpc_venomort_glyph_7_2_description" 				"Venomort наносит дополнительно @glyph_property2% увеличенный урон по юнитам с уровнем здоровья выше @glyph_property1% от их максимума."

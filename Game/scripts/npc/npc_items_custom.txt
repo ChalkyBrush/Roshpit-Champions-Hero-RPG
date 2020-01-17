@@ -10899,7 +10899,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -10946,7 +10946,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"		"100"
+				"property_one"		"1"
 			}
 		}
 	}
@@ -13324,7 +13324,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -18448,7 +18448,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"16"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -19062,7 +19062,7 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%property_one"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1000"
 				}
 			}
 		}
@@ -19071,7 +19071,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"400000"
+				"property_one"			"1000"
 			}
 		}
 	}
@@ -35091,7 +35091,7 @@
 				{
 					"RemoveModifier"
 					{
-						"ModifierName"	"modifier_rpc_sange_amethyst"
+						"ModifierName"	"modifier_rpc_yasha_amethyst"
 						"Target" 		"TARGET"
 					}
 					"RemoveModifier"
@@ -39688,7 +39688,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"500 1000 1500 2000 2500"
+				"amethyst1"			"700 1400 2100 2800 3500"
 			}
 			"06"
 			{
@@ -41590,6 +41590,7 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"ThinkInterval"  "1.0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -44168,6 +44169,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/nightmare_rider_mantle" //"nightmare_rider_mantle"
 		"AbilityCastRange"	"900"
@@ -46347,6 +46349,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"rpc/direwolf_bulwark" // "direwolf_bulwark"
 		"AbilityCastRange"	"900"
@@ -47580,6 +47583,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 			"modifier_violet_guard_armor_loss_visible"
 			{
@@ -52618,6 +52622,7 @@
 			"modifier_depth_demon_claw_emerald_health_regen"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-1"
@@ -52626,6 +52631,7 @@
 			"modifier_depth_demon_claw_emerald_mana_regen"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	  "1"
@@ -52635,6 +52641,7 @@
 			{
 				"IsHidden"	"1"
 				"ThinkInterval"  "0.1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -53539,6 +53546,11 @@
 						"ModifierName"	"modifier_buzuki_finger_lua"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_buzuki_ms_and_as"
+						"Target" 		"TARGET"
+					}
 				}
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
@@ -53570,14 +53582,6 @@
 							"CASTER"	"attach_attack1"
 						}
 
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_buzuki_ms_and_as"
-						"Target" 		"TARGET"
 					}
 				}
 			}
@@ -54041,6 +54045,7 @@
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnAttackLanded"
 				// "%attack_damage" is set to the damage value before mitigation
 				{
@@ -54561,7 +54566,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"2 4 6 8 10"
+				"ruby1"					"3 6 9 12 15"
 			}
 			"04"
 			{
@@ -54576,7 +54581,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"8 16 24 32 40"
+				"sapphire1"				"10 20 30 40 50"
 			}
 			"07"
 			{
@@ -56423,7 +56428,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"20 40 60 80 100"
+				"sapphire1"				"30 60 90 120 150"
 			}
 			"04"
 			{
@@ -56602,6 +56607,123 @@
 		}
 	}
 
+	"item_rpc_ruptholds_helm_of_gluttony"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"rpc/ruptholds_helm_of_gluttony"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"	"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+			"particle"	"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ruptholds_helm_of_gluttony"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"rupthold_think"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_rupthold_regen_reduction"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_rupthold_borrowed_time"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_rupthold_regen_reduction"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "-0.1"
+				}
+			}
+			"modifier_rupthold_borrowed_time"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"StatusEffectName" 		"particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
+				"StatusEffectPriority"  "150"
+			}
+			"modifier_rupthold_borrowed_time_cooldown"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"					"1 2 3 4 5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"1.5 3.0 4.5 6.0 7.5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"20 25 30 35 40"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"50 55 60 65 70"
+			}
+		}
+	}
+
 	"item_rpc_mask_of_tyrius"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -56631,7 +56753,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
 			}
 			"03"
 			{
@@ -56641,7 +56763,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"20 40 60 80 100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"0.3 0.6 0.9 1.2 1.5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"20 40 60 80 100"
 			}
 		}
 		"OnSpellStart"
@@ -58232,7 +58364,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"10 20 30 40 50"
 			}
 		}
 		"Modifiers"
@@ -59082,7 +59214,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"500 1000 1500 2000 2500"
+				"ruby1"				"2000 4000 6000 8000 10000"
 			}
 			"02"
 			{
@@ -59092,12 +59224,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"180 360 540 720 900"
+				"sapphire1"				"400 800 1200 1600 2000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"2 4 6 8 10"
+				"amethyst1"				"3 6 9 12 15"
 			}
 		}
 		"Modifiers"
@@ -59165,17 +59297,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"20 40 60 80 100"
+				"emerald1"				"30 60 90 120 150"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"160 320 480 640 800"
+				"sapphire1"				"350 700 1050 1400 1750"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"10 20 30 40 50"
+				"amethyst1"				"15 30 45 60 75"
 			}
 		}
 		"OnSpellStart"
@@ -60759,12 +60891,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"15 30 45 60 75"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"300 600 900 1200 1500"
+				"emerald1"				"500 1000 1500 2000 2500"
 			}
 			"04"
 			{
@@ -60774,7 +60906,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-100 -200 -300 -400 -500"
+				"amethyst1"				"-300 -600 -900 -1200 -1500"
 			}
 		}
 	}	
@@ -62203,6 +62335,19 @@
 						"target"		"TARGET"
 					}
 				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sapphire_lotus_buff"
+						"Target" 		"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sapphire_lotus_buff_mana"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_sapphire_lotus_buff"
 			{
@@ -62214,6 +62359,7 @@
 			{
 			    "Passive"			"0"
 				"IsHidden"			"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "1"
@@ -66619,6 +66765,7 @@
 				{
 					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDestroy"
 				{

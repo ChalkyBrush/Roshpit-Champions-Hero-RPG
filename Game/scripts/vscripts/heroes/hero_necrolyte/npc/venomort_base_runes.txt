@@ -144,7 +144,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% VENOMORT_W3_BONUS_ATTRIBUTES %>"
+				"property_one"			"<% VENOMORT_W3_CAST_RATE %>"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% VENOMORT_W3_ATTACK_SPEED %>"
 			}
 		}
 	}

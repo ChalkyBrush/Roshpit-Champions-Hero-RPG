@@ -8,7 +8,7 @@
     	"DOTA_Tooltip_ability_seinaru_konokaze_blind_duration"			"BLIND DURATION:"
 
     	"DOTA_Tooltip_ability_seinaru_rune_q_1"							"[Q1] Cloudburst"
-    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"Each enemy hit by @Ability1 increases Seinaru's attack damage and attack speed for <% SEINARU_Q1_DUR_BASE %> seconds."
+    	"DOTA_Tooltip_ability_seinaru_rune_q_1_Description"				"Each enemy hit by @Ability1 increases Seinaru's attack damage and attack speed for <% SEINARU_Q1_DUR_BASE %> seconds. Bosses and mini-bosses count as <% SEINARU_Q1_BOSS_MULT %> enemies."
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_one"			"Attack Damage"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_suffix"					"%"
     	"DOTA_Tooltip_ability_seinaru_rune_q_1_property_two"			"Attack Speed"
@@ -223,7 +223,7 @@
 		"DOTA_Tooltip_ability_seinaru_rune_e_3_arcana2_suffix"					""
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack"		"Sunwarrior's Vengeance"
-		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased post-mitigation damage"
+		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_attack_Description"	"Increased Spell and Armor Pierces"
 
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce"	"Sunwarrior's Vengeance"
 		"DOTA_Tooltip_modifier_sunstrider_sunwarrior_vengeance_armor_and_spell_pierce_Description"	"Increased Armor Pierce and Spell Pierce"

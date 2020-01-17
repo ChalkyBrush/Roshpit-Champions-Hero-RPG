@@ -904,7 +904,6 @@ function ash_knight_shield_take_damage(event)
 	local caster = event.caster
 	Events:CreateLightningBeam(caster:GetAbsOrigin() + Vector(0, 0, 90), attacker:GetAbsOrigin() + Vector(0, 0, 90))
 	EmitSoundOn("Redfall.AshKnight.ShieldStrike", attacker)
-	attacker:AddNewModifier(caster, nil, "modifier_stunned", {duration = 0.5})
 	local silence_duration = event.silence_duration
 	ability:ApplyDataDrivenModifier(caster, attacker, "modifier_shield_silence", {duration = silence_duration})
 end
@@ -1292,9 +1291,11 @@ function redfall_unit_die(event)
 	end
 	local unit = event.unit
 	local luck = RandomInt(1, 2200 - GameState:GetPlayerPremiumStatusCount() * 100)
-	if luck == 1 and Redfall.TwigDropped == false then
-		Redfall.TwigDropped = true
-		Redfall:DropAshTwig(event.unit:GetAbsOrigin())
+	if luck == 1 then
+		if not Redfall.TwigDropped then
+			Redfall.TwigDropped = true
+			Redfall:DropAshTwig(event.unit:GetAbsOrigin())
+		end
 	end
 	if luck == 2 then
 		RPCItems:RollAndDropUniqueItem(event.unit, 'item_rpc_redfall_runners')

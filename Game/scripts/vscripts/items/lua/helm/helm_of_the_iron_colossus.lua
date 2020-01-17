@@ -80,8 +80,12 @@ function modifierClass:GetModifierModelScale(params)
 end
 
 function modifierClass:GetModifierMaxAttackRange(params)
-	local target_range = IRON_COLOSSUS_ATT_RNG
+    local target_range = IRON_COLOSSUS_ATT_RNG
     return target_range
+end
+
+function modifierClass:GetModifierAttackRangeBonus()
+    return -99999999999999
 end
 
 function modifierClass:GetModifierAttackSpeedBaseOverride()
@@ -102,6 +106,9 @@ end
 
 function modifierClass:OnAttackLanded(event)
     local attacker = event.attacker
+    if attacker ~= self:GetParent() then
+        return
+    end
     local target = event.target
     local ability = event.ability
     local damage = OverflowProtectedGetAverageTrueAttackDamage(attacker) * (IRON_COLOSSUS_DMG_PER_ATT + self:GetAbility():GetFinalGemPropertyValue("amethyst", IRON_COLOSSUS_AMETHYST))

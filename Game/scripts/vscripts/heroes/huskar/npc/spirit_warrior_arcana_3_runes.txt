@@ -194,7 +194,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP %>"
+				"property_one"			"<% SPIRIT_WARRIOR_ARCANA_E4_WIND_AMP * 100 %>"
 			}
 		}
 	}

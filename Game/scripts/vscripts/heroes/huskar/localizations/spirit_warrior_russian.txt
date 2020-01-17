@@ -2,7 +2,7 @@
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_Description"	"Стихия: <font color=\"#EF4126\">Огонь</font><br>Накладывает на себя или выбранную союзную цель огненные чары, которые увеличивают урон и добавляют к атакам бонус магического урона. Пока активно, носитель получает увеличение <font color=\"#EF4126\">Огненного</font> урона."
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage_increase"	"ДОП.УРОН, %"
     	"DOTA_Tooltip_ability_spirit_warrior_flametongue_duration"			"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
-    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_flat_pure_damage"	"ДОП.МАГИЧЕСКИЙ УРОН:"
+    	"DOTA_Tooltip_ability_spirit_warrior_flametongue_damage"	"ДОП.МАГИЧЕСКИЙ УРОН:"
 		"DOTA_Tooltip_ability_spirit_warrior_flametongue_fire_damage_amp"   "УСИЛЕНИЕ ОГНЕННОГО УРОНА: %"
 
     	"DOTA_Tooltip_modifier_flametongue"							"Flameblood Weapon"

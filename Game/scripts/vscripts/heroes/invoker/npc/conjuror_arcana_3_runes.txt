@@ -15,7 +15,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% CONJUROR_ARCANA_Q1_DMG_PERCENT_MAX_HEALTH %>"
 			}
 			"02"

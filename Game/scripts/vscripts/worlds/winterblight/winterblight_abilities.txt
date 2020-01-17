@@ -369,7 +369,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300000"
+				"damage"			"5000"
 			}
 		}
 		"Modifiers"
@@ -702,7 +702,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 2500 500000"
+				"damage"			"500 2500 12000"
 			}
 			"02"
 			{
@@ -859,7 +859,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000 50000 1000000"
+				"damage"				"2000 5000 10000"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -913,7 +913,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 5000 500000"
+				"damage"			"100 800 1200"
 			}
 			"02"
 			{
@@ -923,7 +923,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-60 -140 -340"
+				"as_loss"			"-60 -90 -140"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -1026,7 +1026,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"	"1000000"
+				"base_damage"	"8000"
 			}
 		}
 
@@ -1125,7 +1125,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 2000"
+				"damage_per_distance"		"2 20 200"
 			}
 		}
 		"Modifiers"
@@ -1287,17 +1287,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"300 5000 12000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -90 -120"
+				"ms_loss"			"-60 -120 -160"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-150 -340 -840"
+				"as_loss"			"-50 -140 -240"
 			}
 		}
 
@@ -1379,12 +1379,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 1000"
+				"damage_per_distance"		"2 12 60"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dot_damage"		"60 500 5000"
+				"dot_damage"		"60 300 900"
 			}
 		}
 		"Modifiers"
@@ -2777,7 +2777,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"30 70 99.9"
+				"damage_reduc"			"30 60 90"
 			}
 			"02"
 			{
@@ -3443,7 +3443,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"100 3000 500000"
+				"bonus_damage"				"100 1000 5000"
 				"LinkedSpecialBonus"	"special_bonus_unique_luna_3"
 			}
 			"03"
@@ -3466,7 +3466,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charges"			"5 30 50"
+				"charges"			"5 10 20"
 			}
 		}
 		"Modifiers"
@@ -3507,12 +3507,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_per_stack"			"2 10 20"
+				"as_per_stack"			"5 6 7"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"range_per_stack"			"3 8 15"
+				"range_per_stack"			"3 8 10"
 			}
 		}
 		"Modifiers"
@@ -4339,7 +4339,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduction"	"30 80 100"
+				"damage_reduction"	"30 70 98"
 			}
 		}
 		"OnOwnerDied"
@@ -4617,7 +4617,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"40 85 99.5"
+				"damage_reduc"			"40 60 80"
 			}
 		}
 		"Modifiers"
@@ -4778,7 +4778,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"charges"			"50 80 120"
+				"charges"			"8 16 24"
 			}
 		}
 		"Modifiers"
@@ -5329,7 +5329,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_per_missing_hp"			"0.2 0.5 1.5"
+				"damage_per_missing_hp"			"0.2 0.3 0.4"
 			}
 		}
 		"Modifiers"
@@ -5503,7 +5503,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduc"			"80"
+				"damage_reduc"			"65"
 			}
 		}
 		"Modifiers"
@@ -6279,7 +6279,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"physical_damage"			"500 50000 5000000"
+				"physical_damage"			"500 8000 16000"
 			}
 			"02"
 			{
@@ -6822,12 +6822,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_outgoing"			"300 700 1200"
+				"attack_outgoing"			"100 200 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor"			"50 800 8000"
+				"armor"			"100 800 8000"
 			}
 		}
 		"Modifiers"
@@ -7623,12 +7623,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"as_loss"			"-100 -200 -400"
+				"as_loss"			"-50 -100 -150"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-150 -300 -500"
+				"ms_loss"			"-150 -200 -200"
 			}
 			"03"
 			{
@@ -7999,7 +7999,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"500 10000 1000000"
+				"bonus_damage"				"500 1000 7000"
 			}
 			"03"
 			{
@@ -8551,7 +8551,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ice_damage"			"300 1000 10000"
+				"ice_damage"			"300 1000 8000"
 			}
 			"02"
 			{
@@ -9356,7 +9356,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 4000 10000"
+				"damage"			"1000 4000 5000"
 			}
 		}
 		"Modifiers"
@@ -9594,7 +9594,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"20000"
+				"damage"			"10000"
 			}
 		}
 		"OnOwnerDied"
@@ -9741,7 +9741,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"250 750 12500"
+				"damage"			"250 2000 12500"
 			}
 		}
 
@@ -9791,17 +9791,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"				"10 50 100"
+				"attack_damage_percent"				"10 12 16"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"				"15 30 60"
+				"attack_speed"				"8 10 12"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed"				"20 40 60"
+				"movespeed"				"15 20 30"
 			}
 		}
 		"Modifiers"
@@ -9862,12 +9862,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_sap"				"100 1000 10000"
+				"damage_sap"				"10 20 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_sap_enemy"				"-100 -1000 -10000"
+				"damage_sap_enemy"				"-10 -20 -25"
 			}
 		}
 		"Modifiers"
@@ -9882,6 +9882,7 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"damage_sap_attack"
+						"damage_sap_enemy"	"%damage_sap_enemy"
 					}
 				}
 			}
@@ -10100,7 +10101,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 200000"
+				"damage"			"500 2000 6000"
 			}
 		}
 		"OnOwnerDied"
@@ -10215,12 +10216,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"30 300 5000"
+				"burn_damage"			"30 300 700"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 5000 200000"
+				"damage"			"500 5000 8000"
 			}
 		}
 		"OnOwnerDied"
@@ -10588,7 +10589,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_drain_percent"			"35 50 65"
+				"mana_drain_percent"			"1 3 5"
 			}
 		}
 		"Modifiers"
@@ -10802,7 +10803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 5000 500000"
+				"damage"			"100 500 5000"
 			}
 			"02"
 			{
@@ -11187,7 +11188,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"80"
+				"damage_block"			"60"
 			}
 		}
 		"Modifiers"
@@ -11227,7 +11228,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"0.5"
+		"AbilityCooldown"				"1.5"
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"100"
@@ -11239,7 +11240,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_damage"			"1000 8000 90000"
+				"base_damage"			"50 200 300"
 			}
 			"02"
 			{
@@ -11249,7 +11250,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"percent_attack_power"			"10"
+				"percent_attack_power"			"50"
 			}
 
 		}
@@ -11344,7 +11345,7 @@
 				"TextureName"	"winterblight/p2/crystal_red"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "500"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
 				}
 			}
 			"modifier_merkurio_crystal_blue"
@@ -11358,8 +11359,8 @@
 				"TextureName"	"winterblight/p2/crystal_yellow"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"50"
 				}
 			}
 			"modifier_merkurio_crystal_green"
@@ -11563,7 +11564,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"300 1000 15000"
+				"poison_damage"			"300 1000 5000"
 			}
 		}
 		"Modifiers"
@@ -11771,7 +11772,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"theshold"			"30 25 20"
+				"theshold"			"40 35 30"
 			}
 		}
 		"Modifiers"
@@ -11986,7 +11987,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"450 1400 11000"
+		"AbilityDamage"					"450 1400 8000"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -12343,7 +12344,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"350 1000 10000"
+				"damage"			"350 1000 3000"
 			}
 		}
 		"OnOwnerDied"
@@ -13164,7 +13165,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_pct_target_max_health"			"4 8 12"
+				"damage_pct_target_max_health"			"2 3 4"
 			}
 		}
 		"Modifiers"
@@ -13207,7 +13208,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1000 5000 40000"
+				"damage"			"100 500 1000"
 			}
 		}
 		"Modifiers"
@@ -13635,7 +13636,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"750 2500 14000"
+		"AbilityDamage"					"750 2500 7000"
 
 		// Cost
 		//-------------------------------------------------------
@@ -13685,7 +13686,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"main_damage"			"2000 6000 50000"
+				"main_damage"			"2000 6000 12000"
 			}
 		}
 		"Modifiers"
@@ -13957,7 +13958,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 30000 500000"
+				"nova_damage"			"2000 5000 10000"
 			}
 		}
 		"Modifiers"
@@ -14093,7 +14094,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1200 5000 50000"
+				"damage"			"1200 2000 3000"
 			}
 			"02"
 			{
@@ -14398,7 +14399,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 1350 14000"
+				"damage"				"400 1350 5000"
 			}
 			"02"
 			{
@@ -14497,12 +14498,81 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"25.0 50.0 75.00"
+				"damage_percent"			"25.0 25.0 25.00"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"10"
+			}
+		}
+	}
+
+	"wailing_snow_specter_aura"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"death_prophet_carrion_swarm"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"pierces_reduction"			"-200 -2000 -8000"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/shrine_of_azalea_monsters.lua"
+				"Function"		"maze_specter_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_wailing_snow_specter_aura"
+			{
+				"EffectName"		"particles/roshpit/winterblight/wailing_snow_specter_aura.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"IsPurgable"			"0"
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"0"
+				"Aura"					"modifier_wailing_snow_specter_aura_debuff"
+				"Aura_Radius"			"1500"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_wailing_snow_specter_aura_debuff"
+			{
+				"IsDebuff"				"1"
+				"IsStunDebuff"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				"EffectName"		"particles/roshpit/winterblight/wailing_snow_specter_aura_ring.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}	
 			}
 		}
 	}

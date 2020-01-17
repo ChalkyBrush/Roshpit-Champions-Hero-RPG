@@ -606,7 +606,32 @@
 					}
 				}
 			}
-
+			"modifier_gem_forger_going_home"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/friendly_npcs.lua"
+						"Function"		"gem_forger_going_home_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_gem_forger_going_home_hero"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+			}
 		}
 
 	}
@@ -659,7 +684,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "110"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "35"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "100"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"3"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"1"
 				}
 			}
 			"modifier_wind_temple_staff_blue"
@@ -3713,7 +3738,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_loss"			"-100 -1000 -5000"
+				"damage_loss"			"-20 -40 -80"
 			}
 			"02"
 			{
@@ -11974,6 +11999,10 @@
 					}
 				}
 			}
+			"modifier_challenge_pure_resist"
+			{
+				"IsHidden"	"1"
+			}
 			"modifier_spike_damage"
 			{
 				"Passive"			"0"
@@ -12392,6 +12421,8 @@
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"ThinkInterval"  "0.03"
 				"OnIntervalThink"
@@ -19356,7 +19387,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "300"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "150"
 				}
 			}
 			"modifier_paragon_regen_aura"
@@ -20033,7 +20064,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 1000 10000"
+		"AbilityDamage"					"100 1000 8000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -20096,7 +20127,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-45 -300 -3000"
+				"damage_reduction"		"-45 -70 -90"
 			}
 			"02"
 			{
@@ -22734,7 +22765,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"300 5000 60000"
+		"AbilityDamage"					"300 5000 9000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22971,7 +23002,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"50 200 2000"
+				"damage_per_second"		"50 200 600"
 			}
 			"02"
 			{
@@ -22981,7 +23012,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_total_tooltip"		"150 600 6000"
+				"damage_total_tooltip"		"150 600 1800"
 			}
 			"04"
 			{
@@ -28519,7 +28550,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"500 1500 7500"
+		"AbilityDamage"					"500 1500 4000"
 
 
 		// Precache
@@ -28544,7 +28575,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 1500 7500"
+				"damage"			"500 1500 4000"
 			}
 		}
 		"OnSpellStart"
@@ -29960,7 +29991,7 @@
 		"AbilityTextureName"			"dragon_knight_breathe_fire"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"2000 6000 20000"
+		"AbilityDamage"					"2000 3000 4000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -34233,7 +34264,7 @@
 		"AbilityTextureName"			"rubick_fade_bolt"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"3000 9000 45000"
+		"AbilityDamage"					"3000 9000 9000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -34839,9 +34870,17 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityTextureName"			"antimage_mana_void"
 		"AOERadius"						"1300"
-		"AbilityDamage"					"2400 7200 60000"
+		"AbilityDamage"					"2400 4000 6000"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"2400 4000 6000"
+			}
+		}
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -34871,7 +34910,7 @@
 			{
 				"Target"		"TARGET"
 				"Type"			"DAMAGE_TYPE_MAGICAL"
-				"Damage"		"%AbilityDamage"
+				"Damage"		"%damage"
 			}
 			"RunScript"
 			{
@@ -35002,8 +35041,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3"
+				"var_type"			"FIELD_FLOAT"
+				"damage_per_instance"			"1.5"
 			}
 		}
 		"Modifiers"
@@ -35014,12 +35053,6 @@
 				"IsHidden"	"1"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mire_keeper_passive_effect"
-						"Target" 		"CASTER"
-						"Duration"		"5"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
@@ -35912,7 +35945,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastRange"				"1000"
-		"AbilityDamage"					"200 800 7000"
+		"AbilityDamage"					"5000 5000 5000"
 
 
 		// Precache
@@ -35936,7 +35969,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000 30000 200000"
+				"damage"				"5000 5000 5000"
 			}
 			"02"
 			{
@@ -36203,7 +36236,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 2000 18000"
+				"damage"				"500 2000 12000"
 			}
 			"03"
 			{
@@ -36276,7 +36309,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"3000 15000 240000"
+		"AbilityDamage"					"300 1000 9000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -36334,7 +36367,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"7000 35000 140000"
+		"AbilityDamage"					"300 1000 5000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -36347,17 +36380,39 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"radius"					"140 140 140 140"
+				"radius"					"175"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"spread"					"353 353 353 353"
+				"spread"					"450"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"						"1300 1300 1300 1300"
+				"range"						"1500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"axe_damage"				"300 1000 5000"
+				"LinkedSpecialBonus"		"special_bonus_unique_beastmaster"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"						"10"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_amp"				"6 8 10 12"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_cooldown"		"0"
+				"RequiresScepter"		"1"
 			}
 		}
 	}
@@ -36943,7 +36998,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bleed_damage"			"2000 10000 100000"
+				"burn_pct"			"2"
 			}
 		}
 		"Modifiers"
@@ -36989,6 +37044,7 @@
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 						"Function"		"boss_burn_think"
 						"target"		"TARGET"
+						"burn_pct"		"%burn_pct"
 					}
 				}
 			}
@@ -37155,7 +37211,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"chains_damage"					"100 2000 35000"
+				"chains_damage"					"100 2000 3500"
 			}
 			"04"
 			{
@@ -37192,17 +37248,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"400"
+				"damage_percent"	"200"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_percent"	"800"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_regen_percent"		"1.5"
+				"health_regen_percent"		"0.2"
 			}
 		}
 		"OnOwnerDied"
@@ -37222,7 +37273,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed"
-				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%damage_percent"
 				    "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"			"%health_regen_percent"
 				}
@@ -37678,12 +37728,12 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_min"				"1000 3000 30000"
+				"damage_min"				"1000"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_max"				"60000"
+				"damage_max"				"6000"
 			}
 			"03"
 			{
@@ -37984,12 +38034,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_damage"		"-80"
+				"attack_damage"		"-50"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed"		"-520"
+				"attack_speed"		"-120"
 			}
 			"04"
 			{
@@ -38024,8 +38074,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "-2"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-80"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-520"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-120"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
@@ -38353,12 +38403,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"move_slow_per_stack"			"-100"
+				"move_slow_per_stack"			"-2"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_slow_per_stack"			"-100"
+				"attack_slow_per_stack"			"-2"
 			}
 		}
 		"Modifiers"
@@ -38471,7 +38521,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"30"
+				"damage_per_instance"			"10"
 			}
 		}
 		"Modifiers"
@@ -38482,12 +38532,6 @@
 				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_descent_guard_passive_effect"
-						"Target" 		"CASTER"
-						"Duration"		"7"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
@@ -38739,7 +38783,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"2000 6000 36000"
+		"AbilityDamage"					"2000 6000 12000"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -38871,7 +38915,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"1000 4000 45000"
+				"damage"					"1000 4000 10000"
 			}
 			"02"
 			{
@@ -39119,7 +39163,7 @@
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"wave_damage"					"5000 15000 255000"
+				"wave_damage"					"8000"
 			}
 			"05"
 			{
@@ -39129,7 +39173,7 @@
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"burn_damage"					"2 4 6"
+				"burn_damage"					"6"
 			}
 			"07"
 			{
@@ -39270,7 +39314,6 @@
 		"AbilityTextureName"			"magnataur_skewer"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityDamage"					"30000 75000 305000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -39286,8 +39329,15 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
+		"AbilityManaCost"				"0"	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"10000"
+			}
+		}	
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -39302,7 +39352,7 @@
 			{
 				"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
 				"Function"		"pit_lord_sword_dash"
-				"damage"		"%AbilityDamage"
+				"damage"		"%damage"
 				"target"		"TARGET"
 			}
 		}
@@ -40549,7 +40599,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 7000 70000"
+		"AbilityDamage"					"100 3000 7000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -40791,7 +40841,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_percentage"				"10 100 400"
+				"damage_percentage"				"10 100 200"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -41413,7 +41463,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"14 11 8"
+		"AbilityCooldown"				"12"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -41434,12 +41484,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"regen_in_shield"		"0 2.0 4.0"
+				"regen_in_shield"		"0.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_loss"		"-30 -100 -240"
+				"damage_loss"		"-50 -75 -90"
 			}
 			"03"
 			{
@@ -41449,7 +41499,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"silence_duration"	"2 3 4"
+				"silence_duration"	"2 3 4"	
 			}
 		}
 		"Modifiers"
@@ -41994,7 +42044,7 @@
 		"AbilityTextureName"			"brewmaster_thunder_clap"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityDamage"					"500 2000 10000"
+		"AbilityDamage"					"300 1500 9000"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -42204,7 +42254,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_instance"			"3 4 5"
+				"damage_per_instance"			"1"
 			}
 			"02"
 			{
@@ -42220,12 +42270,6 @@
 				"IsHidden"	"1"
 				"OnTakeDamage"
 				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_canyon_predator_effect"
-						"Target" 		"CASTER"
-						"Duration"		"5"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/redfall/monsters/autumn_mist_cavern_ai.lua"
@@ -43729,7 +43773,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attacK_damage_increase"				"50 200 600"
+				"attacK_damage_increase"				"30 60 90"
 			}
 		}
 		"Modifiers"
@@ -43976,7 +44020,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_percent"			"1000"
+				"attack_damage_percent"			"200"
 			}
 			"02"
 			{
@@ -44079,12 +44123,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"250000"
+				"impact_damage"			"2500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"25000"
+				"burn_damage"			"500"
 			}
 		}
 
@@ -44199,7 +44243,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hp_regen_percent"			"0.3"
+				"hp_regen_percent"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -44501,7 +44545,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"				"70 80 90"
+				"damage_reduce"				"40 60 80"
 			}
 		}
 		"Modifiers"
@@ -44557,7 +44601,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"tidehunter_gush"
-		"AbilityDamage"		"3000 25000 180000"
+		"AbilityDamage"		"3000 5000 10000"
 		"AbilitySpecial"
 		{
 			"01"
@@ -44568,7 +44612,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_slow"		"-80 -160 -300"
+				"attack_slow"		"-80 -160 -200"
 			}
 		}
 		"MaxLevel"	"3"
@@ -45660,7 +45704,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_damage_per_hit"			"5 15 30"
+				"attack_damage_per_hit"			"5 5 10"
 			}
 			"04"
 			{
@@ -47674,12 +47718,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"50 150 1000"
+				"burn_damage"			"50 150 600"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"400 1200 5000"
+				"impact_damage"		"400 600 1200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -47741,7 +47785,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 800 1000"
 			}
 			"02"
 			{
@@ -47853,7 +47897,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"700 1200 3000"
+				"damage"				"700 1200 2000"
 			}
 			"02"
 			{
@@ -48322,7 +48366,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"1000 3000 21000"
+		"AbilityDamage"					"1000 3000 6000"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -48392,7 +48436,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 1000 4000"
+				"damage"			"300 1000 2400"
 			}
 			"02"
 			{
@@ -50412,7 +50456,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 800 4000"
+				"damage"			"300 700 800"
 			}
 			"02"
 			{
@@ -51657,7 +51701,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"pure_resist"			"50 80 99"
+				"pure_resist"			"20 35 50"
 			}
 			"02"
 			{
@@ -54936,7 +54980,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -54949,7 +54993,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 1500 15000"
+				"damage"				"100 250 750"
 			}
 		}
 
@@ -57231,7 +57275,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 3200 42000"
+				"damage"			"500 1200 2000"
 			}
 		}
 		"Modifiers"
@@ -57303,7 +57347,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_block"			"10 50 98"
+				"damage_block"			"50 55 60"
 			}
 		}
 		"Modifiers"
@@ -57445,12 +57489,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 3000 12000"
+				"damage_per_hit" "1000 3000 5000"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_attack_speed" "-120 -200 -300"
+				"bonus_attack_speed" "-80 -100 -150"
 			}
 			"03"
 			{
@@ -57645,7 +57689,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_per_miss_health_hero"			"0.5 1.0 3.5"
+				"damage_per_miss_health_hero"			"0.4 0.5 0.6"
 			}
 			"03"
 			{
@@ -58038,7 +58082,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"40000"
+				"damage"			"15000"
 			}
 		}
 
@@ -58149,17 +58193,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent"			"20"
+				"heal_percent"			"5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_percent_boss"		"6"
+				"heal_percent_boss"		"1"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_tick"		"3000"
+				"damage_per_tick"		"500"
 			}
 		}
 
@@ -58975,7 +59019,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"magic_attack"			"300 2000 35000"
+				"magic_attack"			"300 2000 4000"
 			}
 		}
 		"Modifiers"
@@ -59215,7 +59259,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"300 1500 8000"
+				"burn_damage"			"300 1500 5000"
 			}
 		}
 		"Modifiers"
@@ -59381,7 +59425,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 1500 8000"
+				"impact_damage"		"300 650 1200"
 			}
 		}
 
@@ -59429,7 +59473,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 2000 10000"
+				"damage"				"800 2000 6000"
 			}
 			"02"
 			{
@@ -59444,7 +59488,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"burn_damage"			"800 2000 10000"
+				"burn_damage"			"600 800 1000"
 			}
 		}
 		"OnSpellStart"
@@ -59625,7 +59669,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"300 5000 50000"
+				"burn_damage"		"300 800 1100"
 			}
 
 			"03"
@@ -59684,7 +59728,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 200000"
+				"damage"					"2000 8000 17000"
 			}
 			"02"
 			{
@@ -59940,12 +59984,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"70 450 3000"
+				"burn_damage"			"70 450 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"		"300 2000 12000"
+				"impact_damage"		"300 2000 6000"
 			}
 		}
 
@@ -60035,12 +60079,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"impact_damage"			"1000 5000 50000"
+				"impact_damage"			"1000 5000 10000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"			"150 3000 15000"
+				"burn_damage"			"150 3000 1000"
 			}
 		}
 		"OnOwnerDied"
@@ -60129,7 +60173,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"50 150 5000"
+				"burn_damage"		"50 100 200"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -60379,7 +60423,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"2000 30000 300000"
+				"damage"					"1000 5000 30000"
 			}
 			"02"
 			{
@@ -61080,8 +61124,8 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"status_mult"		"1 1 1"
+				"var_type"			"FIELD_FLOAT"
+				"status_mult"		"0.2 0.35 0.5"
 			}
 			"02"
 			{
@@ -61440,7 +61484,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"poison_damage"			"10 30 300"
+				"poison_damage"			"10 30 100"
 			}
 		}
 		"Modifiers"
@@ -61764,7 +61808,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"2500"
+				"damage"			"500 1000 1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"pop_damage"			"1000 3000 6000"
 			}
 		}
 		"Modifiers"
@@ -61794,6 +61843,7 @@
 						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
 						"Function"		"sea_beast_think"
 						"target"		"TARGET"
+						"pop_damage"	"%pop_damage"
 					}
 				}
 			}
@@ -61848,7 +61898,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"freeze_duration"			"1.5"
+				"freeze_duration"			"0.5"
 			}
 			"02"
 			{
@@ -61909,7 +61959,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"elemental_resistance"				"99"
+				"elemental_resistance"				"50"
 			}
 		}
 
@@ -68883,12 +68933,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 900 9000"
+				"damage"			"3000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attribute_loss_percent"			"8"
+				"attribute_loss_percent"			"2"
 			}
 		}
 		"Modifiers"
@@ -68988,7 +69038,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attackspeed" "300"
+				"attackspeed" "200"
 			}
 			"02"
 			{
@@ -70424,7 +70474,4 @@
 		"LevelsBetweenUpgrades"  "1"
 		"AbilityCastPoint"       "0.0"
 	}
-	
-	
-	
 }

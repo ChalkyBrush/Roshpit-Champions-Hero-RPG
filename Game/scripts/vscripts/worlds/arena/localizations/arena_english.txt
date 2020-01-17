@@ -465,7 +465,7 @@
 		"DOTA_Tooltip_modifier_arena_shadow_sniper_slow_Description"		"Reduce movespeed and attack damage."
 
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive"					"Inner Surge"
-		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage."
+		"DOTA_Tooltip_ability_arena_mire_keeper_passive_Description"		"Whenever damage is taken, increase attack damage. Max 100 stacks."
 		"DOTA_Tooltip_ability_arena_mire_keeper_passive_damage_per_instance"	"DAMAGE PER STACK %"
 
 		"DOTA_Tooltip_modifier_mire_keeper_passive_effect"					"Inner Surge"
@@ -570,6 +570,7 @@
 
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability"			"Soul Decay"
 		"DOTA_Tooltip_ability_conquest_boss_burn_ability_Description"	"Burns all nearby enemies for 2% of their max health as pure damage."
+		"DOTA_Tooltip_ability_conquest_boss_burn_ability_burn_pct"	"PURE BURN DAMAGE, %:"
 		
 		"DOTA_Tooltip_modifier_conquest_boss_burn_ability"			"Soul Decay"
 
@@ -604,7 +605,6 @@
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive"			"Mystery Infusion"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_Description"	"Increases the power level of the ability owner."
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_movespeed"	"MOVESPEED:"
-		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_attack_speed"	"ATTACK SPEED:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_damage_percent"	"DAMAGE INCREASE %:"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_armor_bonus"	"ARMOR BONUS"
 		"DOTA_Tooltip_ability_arena_lies_supreme_ogre_passive_health_regen_percent"	"HEALTH REGEN %:"
@@ -741,7 +741,7 @@
 		"arena_descent_nightmare"												"Descent Nightmare"
 
 		"DOTA_Tooltip_ability_arena_descent_guard_passive"						"Desolation"
-		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage."
+		"DOTA_Tooltip_ability_arena_descent_guard_passive_Description"			"Each attack landed increases attack damage. Maximum 20 stacks."
 		"DOTA_Tooltip_ability_arena_descent_guard_passive_damage_per_instance"	"DAMAGE PER STACK %:"
 
 		"DOTA_Tooltip_modifier_descent_guard_passive_effect"					"Desolation"
@@ -797,7 +797,8 @@
 		"arena_pit_quizmaster"									"Quizmaster"
 
 		"DOTA_Tooltip_ability_arena_quizmaster_blast"				"Inquiry Burst"
-		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals 450000 damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_Description"	"Blast of sinister energy deals damage in 1300 radius around Quizmaster, stuns targets on hit."
+		"DOTA_Tooltip_ability_arena_quizmaster_blast_damage"		"DAMAGE:"
 
 		"arena_descent_terror_striker_ultra"					"Gravestriker Ultra"
 
@@ -880,7 +881,8 @@
 		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters"				"Release"
 		"DOTA_Tooltip_ability_arena_pit_boss_summon_specters_Description"	"Pit Lord summons 6 captured souls of previous challengers to fight for him."	
 		"DOTA_Tooltip_ability_arena_pit_boss_dash"				"Furious Charge"
-		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him. Deals 305000 magical damage."
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_Description"	"Pit Lord dashes forward, crushing foes before him."
+		"DOTA_Tooltip_ability_arena_pit_boss_dash_damage"		"DAMAGE:"
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai"			"Lord of the Pit"
 		"DOTA_Tooltip_ability_arena_pit_final_boss_ai_Description"			"In forsaken dungeons of Arena, the ancient evil awaits for challengers."
 

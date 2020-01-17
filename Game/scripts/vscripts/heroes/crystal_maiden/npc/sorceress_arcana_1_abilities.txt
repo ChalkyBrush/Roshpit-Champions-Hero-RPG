@@ -194,7 +194,7 @@
 			}
 			"modifier_tornado_ice_resist_loss_invisible"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsDebuff"	"1"
 			}
 			"modifier_ice_avatar"

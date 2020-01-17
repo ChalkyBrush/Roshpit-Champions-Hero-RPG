@@ -1760,6 +1760,7 @@ function wind_tree_die(event)
 	local caster = event.caster
 	EmitSoundOn("Tanari.WindTreant.Death", caster)
 	Tanari.WindSpiritFinalAreaAllowed = true
+	WindSpiritFinalArea(nil)
 end
 
 function WindSpiritFinalArea(trigger)

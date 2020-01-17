@@ -137,7 +137,7 @@
 		"DOTA_Tooltip_ability_duskbringer_rune_r_2_suffix"				" per stack"
 
 		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible"					"Doom"
-		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible_Description"		"Taking increased post-mitigation damage from each stack."
+		"DOTA_Tooltip_modifier_duskbringer_rune_r_2_visible_Description"		"Increased Armor and Spell pierce from each stack."
 		
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3"						"[R3] Spirit Plunder"
 		"DOTA_Tooltip_ability_duskbringer_rune_r_3_Description"			"Each enemy struck by Seven Visions increases Duskbringer's attack damage for <% DUSKBRINGER_R3_BASE_DUR %> seconds."

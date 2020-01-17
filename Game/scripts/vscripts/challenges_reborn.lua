@@ -9,6 +9,7 @@ if Challenges == nil then
 	Challenges.SpeedMult = 1
 	Challenges.AttackPowerMult = 1
 	Challenges.BossMult = 1
+	Challenges.PureResist = 0
 end
 
 function Challenges:GetChallengeFromRoshpitServer()
@@ -102,12 +103,16 @@ function Challenges:HeroMatch(challenge_table)
 		end
 		if mod["mod_type"] == "hero_spec" then
 			print("CHALLENGES: HERO SPEC")
-			for i = 1, #MAIN_HERO_TABLE, 1 do
-				if MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string1"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string2"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string3"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string4"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string5"] then
-					print("HERO CHECK FAIL")
-					proceed = false
-					break
+			if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) >= #MAIN_HERO_TABLE then
+				for i = 1, #MAIN_HERO_TABLE, 1 do
+					if MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string1"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string2"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string3"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string4"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string5"] then
+						print("HERO CHECK FAIL")
+						proceed = false
+						break
+					end
 				end
+			else
+				proceed = false
 			end
 		end
 	end
@@ -201,6 +206,9 @@ end
 
 function Challenges:SpawnCrusaderNow(position, fv)
 	print("SPAWN CRUSADER")
+	if Challenges.CrusaderDisabled then
+		return false
+	end
  	if Challenges.Crusader then
  		UTIL_Remove(Challenges.Crusader)
  	end
@@ -239,6 +247,9 @@ function Challenges:PanoramaInput(msg)
 		if Challenges.ActiveChallenge then
 			return false
 		end
+		if Challenges.CrusaderDisabled then
+			return false
+		end
 		if Challenges.Crusader.disabled then
 			return false
 		end
@@ -259,7 +270,7 @@ function Challenges:PanoramaInput(msg)
 		if msg.challenge_type == "main" and Challenges:AreConditionsValidForChallenge(Challenges.main_challenge) then
 			Challenges.ActiveChallenge = Challenges.main_challenge
 		end
-		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) then
+		if msg.challenge_type == "web" and Challenges:AreConditionsValidForChallenge(Challenges.web_challenge) and Challenges:ShouldSpawnForWebPremium() then
 			if Challenges:ShouldSpawnForWebPremium() then
 				Challenges.ActiveChallenge = Challenges.web_challenge
 			else
@@ -294,16 +305,16 @@ function Challenges:PanoramaInput(msg)
 		local item = nil
 		local playerID = msg.PlayerID
 		local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
-		local amount = 100000
+		local amount = 20000
 		if msg.action == "exp-orb-1" then
-			amount = 100000
+			amount = 20000
 			if mithril >= amount then
 				item = Challenges:CreateEXPOrb()
 			else
 				return false
 			end
 		elseif msg.action == "exp-orb-2" then
-			amount = 1000000
+			amount = 300000
 			if mithril >= amount then
 				item = Challenges:CreateGreaterEXPOrb()
 			else
@@ -388,7 +399,7 @@ function Challenges:MainBossSlainEvent(boss_name)
 		Challenges.ChallengeCompleted = true
 		Challenges:SetChallengeClears()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
-			if MAIN_HERO_TABLE[i].hero.challenge_cleared then
+			if MAIN_HERO_TABLE[i].challenge_cleared then
 				Notifications:Top(MAIN_HERO_TABLE[i]:GetPlayerOwnerID(), {text="You have already cleared this Challenge", duration=4, style={color="#FFDDAA"}, continue=true})
 			else
 				local hero = MAIN_HERO_TABLE[i]
@@ -413,7 +424,8 @@ function Challenges:RewardSequenceForHero(hero)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/challenge_complete.vpcf", hero, 4)
 		CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
 	end)
-	local reward = 10
+	-- local reward = 10
+	local reward = Challenges.ActiveChallenge["challenge"]["reward"]
 	Timers:CreateTimer(5, function()
 		CustomAbilities:QuickAttachParticle("particles/roshpit/challenges/win_pop.vpcf", hero, 3)
 		EmitSoundOn("Challenges.RewardPopEnd", hero)
@@ -433,9 +445,9 @@ function Challenges:SpawnElderRai(position, fv)
 end
 
 function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
-	if not Challenges.Crusader then
-		return false
-	end
+	-- if not Challenges.Crusader then
+	-- 	return false
+	-- end
 	if not Challenges.units_slain then
 		Challenges.units_slain = 0
 	end
@@ -445,9 +457,13 @@ function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 		Challenges.units_slain = Challenges.units_slain - 1
 	end
 	if Challenges.units_slain == 40 then
-		Challenges.Crusader.disabled = true
-		CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
-		Challenges:DespawnCrusader()
+		if Challenges.Crusader then
+			Challenges.Crusader.disabled = true
+			CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
+			Challenges:DespawnCrusader()
+		else
+			Challenges.CrusaderDisabled = true
+		end
 	end
 end
 
@@ -461,7 +477,7 @@ function Challenges:CreateEXPOrb()
 end
 
 function Challenges:CreateGreaterEXPOrb()
-	local item = RPCItems:CreateConsumable("item_rpc_greater_exp_orb", "mythical", "Unrefined Gemstones", "consumable", false, "Consumable", "item_rpc_greater_exp_orb_description")
+	local item = RPCItems:CreateConsumable("item_rpc_greater_exp_orb", "mythical", "Greater EXP Orb", "consumable", false, "Consumable", "item_rpc_greater_exp_orb_description")
 	item.newItemTable.stashable = true
 	item.newItemTable.consumable = true
 	item.pickedUp = true
@@ -483,6 +499,7 @@ function Challenges:SetChallengeClears()
 	print(steamIDS)
 	url = url.."steam_ids="..steamIDS
 	url = url.."&challenge_id="..Challenges.ActiveChallenge["challenge"]["id"]
+	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		local resultTable = {}
 		--print( "GET response:\n" )
@@ -537,11 +554,14 @@ function Challenges:SetChallengeParameters()
 		elseif mod["mod_type"] == "mob_speed" then
 			-- done
 			Challenges.MobSpeed = mod["mod_int1"]
+		elseif mod["mod_type"] == "mob_pure_resist" then
+			Challenges.PureResist = mod["mod_int1"]
 		end
 	end
 end
 
 function Challenges:DisableHeroAbilityInit()
+	print("ABILITY DISABLE")
 	Timers:CreateTimer(0, function()
 		local index = Challenges.AbilityDisable
 		if index == 3 then
@@ -550,9 +570,11 @@ function Challenges:DisableHeroAbilityInit()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local hero = MAIN_HERO_TABLE[i]
 			local ability_to_disable = hero:GetAbilityByIndex(index)
-			if ability_disable and IsValidEntity(ability_to_disable) then
-				if ability_disable:IsActivated() then
-					ability_disable:SetActivated(false)
+			if ability_to_disable and IsValidEntity(ability_to_disable) then
+				print(ability_to_disable:IsActivated())
+				if ability_to_disable:IsActivated() then
+					print("final step")
+					ability_to_disable:SetActivated(false)
 				end
 			end
 		end
@@ -598,6 +620,10 @@ function Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier)
 	if Challenges.MobSpeed then
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_mob_speed", {})
 		unit:SetModifierStackCount("modifier_challenge_mob_speed", Events.GameMaster, Challenges.MobSpeed)
+	end
+	if Challenges.PureResist and Challenges.PureResist > 0 then
+		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_challenge_pure_resist", {})
+		unit:SetModifierStackCount("modifier_challenge_pure_resist", Events.GameMaster, Challenges.PureResist)
 	end
 end
 

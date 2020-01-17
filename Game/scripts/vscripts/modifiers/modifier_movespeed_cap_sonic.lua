@@ -16,3 +16,7 @@ end
 function modifier_movespeed_cap_sonic:IsHidden()
 	return true
 end
+
+function modifier_movespeed_cap_sonic:RemoveOnDeath()
+	return false
+end

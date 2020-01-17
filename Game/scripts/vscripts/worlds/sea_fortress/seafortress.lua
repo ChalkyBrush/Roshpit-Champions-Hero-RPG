@@ -678,6 +678,7 @@ function Seafortress:SpawnBehindMountainArea()
       local staff = CreateUnitByName("seafortress_torment_staff", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
       staff:SetForwardVector(RandomVector(1))
       staff:SetAbsOrigin(staff:GetAbsOrigin() - Vector(0, 0, 40))
+      staff:SetMaxHPandHealToFull(120)
     end
     Seafortress:SpawnSeaPortal(Vector(-16064, -11584), Vector(1, -0.2))
   end)
@@ -934,6 +935,7 @@ function Seafortress:SwampTriggerSpawn2()
         local staff = CreateUnitByName("seafortress_torment_staff", Vector(-13568, -8576) + Vector(randomX, randomY), false, nil, nil, DOTA_TEAM_NEUTRALS)
         staff:SetForwardVector(RandomVector(1))
         staff:SetAbsOrigin(staff:GetAbsOrigin() - Vector(0, 0, 40))
+        staff:SetMaxHPandHealToFull(120)
       end
     end)
   end
@@ -948,6 +950,7 @@ function Seafortress:SwampTriggerSpawn2()
         local staff = CreateUnitByName("seafortress_torment_staff", Vector(-13568, -8576) + Vector(randomX, randomY), false, nil, nil, DOTA_TEAM_NEUTRALS)
         staff:SetForwardVector(RandomVector(1))
         staff:SetAbsOrigin(staff:GetAbsOrigin() - Vector(0, 0, 40))
+        staff:SetMaxHPandHealToFull(120)
       end
     end)
   end

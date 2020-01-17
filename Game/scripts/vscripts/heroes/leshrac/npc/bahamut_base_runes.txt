@@ -332,19 +332,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% BAHAMUT_E3_DAMAGE %>"
+				"property_one"			"<% BAHAMUT_E3_BASE_DAMAGE_PER_LVL %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"<% BAHAMUT_E3_BASE_DAMAGE %>"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"3"
 			}
-			"04"
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"7"

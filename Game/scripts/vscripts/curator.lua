@@ -18,6 +18,9 @@ function Curator:Curate(msg)
 
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	Quests:ShowDialogueText({hero}, Events.curator, "#curator_dialogue_2", 5, true)
+	if item.newItemTable.version == "3.9" then
+		return false
+	end
 	Curator:GetItemInfoFromClientAndSendToWeb(item, playerID)
 end
 
@@ -343,6 +346,9 @@ function Curator:FinishGettingClientData(msg)
 	local playerID = msg.playerID
 	local item = EntIndexToHScript(msg.item)
 	local language = msg.language
+	if language ~= "english" then
+		return false
+	end
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
 	--print("[Curator:FinishGettingClientData] ")
@@ -505,7 +511,7 @@ function Curator:FinishGettingClientData(msg)
 	url = url.."&propertySpecialLocalized4="..property4specialLocalized
 	url = url.."&propertyValue4="..property4value
 
-	if msg.gem_data.ruby then
+	if msg.gem_data.ruby and language == "english" then
 		url = url.."&ruby1="..Curator:urlencode(msg.gem_data.ruby["0"])
 		url = url.."&ruby2="..Curator:urlencode(msg.gem_data.ruby["1"])
 		url = url.."&ruby3="..Curator:urlencode(msg.gem_data.ruby["2"])
@@ -599,7 +605,7 @@ end
 
 function Curator:CurateAllGlyphsForHero(heroName)
 	local maxTiers = 1
-	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" then
+	if heroName == "trapper" or heroName == "sorceress" or heroName == "axe" or heroName == "duskbringer" or heroName == "paladin" then
 		maxTiers = 2
 	end
 	if heroName == "neutral" then
@@ -898,9 +904,9 @@ end
 
 function Curator:FullCurateHero(hero)
 	Curator:CurateHero(hero:GetPlayerOwnerID())
-	Timers:CreateTimer(5, function()
-		Curator:CurateBasicWeaponsAgain(hero)
-	end)
+	-- Timers:CreateTimer(5, function()
+	-- 	Curator:CurateBasicWeaponsAgain(hero)
+	-- end)
 	Timers:CreateTimer(10, function()
 		local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 		local columns = Glyphs:GetAvailableColumnCount(internalName)
