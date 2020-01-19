@@ -611,18 +611,6 @@ function CustomAbilities:WeaponMelt(damageType, damage)
 	return damage
 end
 
-LinkLuaModifier("modifier_arkimus_speed_dash", "modifiers/arkimus/modifier_arkimus_speed_dash", LUA_MODIFIER_MOTION_NONE)
-
-function CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, w_3_level)
-	local duration = 3
-	local caster = unit
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_c_b_sprinting", {duration = duration})
-	caster:AddNewModifier(caster, ability, "modifier_arkimus_speed_dash", {duration = duration})
-	caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "haste"})
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_c_b_attack_power", {duration = duration})
-	caster:SetModifierStackCount("modifier_arkimus_c_b_attack_power", caster, w_3_level)
-end
-
 function CustomAbilities:AddAndOrSwapSkill(caster, originalSkillName, newSkillName, index)
 	local newAbility = caster:FindAbilityByName(newSkillName)
 	if not newAbility then

@@ -743,9 +743,9 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1 + ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT/100)
 			if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
 				local magic_res_duration = modifierGainedTable["duration"] * (ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT/100)
-				print("LOS MAGIC RESIST FOR "..magic_res_duration)
-				print(modifierGainedTable["name_const"])
-				print("----")
+				--print("LOS MAGIC RESIST FOR "..magic_res_duration)
+				--print(modifierGainedTable["name_const"])
+				--print("----")
 				caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_glove_of_forgotten_ghost_magic_armor_sapphire", {duration = magic_res_duration})
 			end
 		end
@@ -825,7 +825,7 @@ function GameState:OrderFilter(orderTable)
 
 					local current_fv = unit:GetForwardVector()
 					local angle_between = WallPhysics:angle_between_vectors(current_fv, fv)
-					print(angle_between)
+					--print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
 						local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
@@ -1298,38 +1298,6 @@ function GameState:OrderFilter(orderTable)
 			unit:RemoveModifierByName("modifier_zonik_speedball")
 			unit:RemoveModifierByName("modifier_zhonik_speedball_invisible")
 		end
-		if unit:HasModifier("modifier_arkimus_c_b_sprinting") then
-			unit:RemoveModifierByName("modifier_arkimus_c_b_sprinting")
-			unit:RemoveModifierByName("modifier_arkimus_speed_dash")
-		end
-		if unit:HasModifier("modifier_arkimus_storm_weapon_passive") then
-			if orderTable.entindex_target then
-				if not unit:IsRooted() and not unit:IsStunned() then
-					local ability = unit:FindAbilityByName("arkimus_storm_weapon")
-					local w_3_level = unit:GetRuneValue("w", 3)
-
-					if w_3_level > 0 and unit:HasModifier("modifier_arkimus_storm_weapon") then
-						local enemy = EntIndexToHScript(orderTable.entindex_target)
-						if IsValidEntity(enemy) then
-							if orderTable.entindex_target == 0 then
-							else
-								local distance = WallPhysics:GetDistance2d(enemy:GetAbsOrigin(), unit:GetAbsOrigin())
-								if distance >= 400 then
-									--DeepPrintTable(orderTable)
-									if enemy.dummy then
-									elseif enemy:GetClassname() == "dota_item_drop" then
-									elseif enemy:GetTeamNumber() == unit:GetTeamNumber() then
-									else
-										CustomAbilities:ArkimusSpeedDash(unit, enemy, ability, w_3_level)
-									end
-								end
-							end
-						end
-					end
-
-				end
-			end
-		end
 		if unit:HasModifier("modifier_teleporter_aura") then
 			if not unit:HasModifier("modifier_recently_teleported_portal") then
 				local movementPosition = Vector(orderTable.position_x, orderTable.position_y)
@@ -1618,12 +1586,13 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	local BASE_VALUE_FOR_CALCULATE = 1000000
 	local damage = BASE_VALUE_FOR_CALCULATE
 
-    Util.Modifier:SimpleEvent(victim, 'GetDamageReduction', { damagetype }, { }, 
-        function(result, data)
-            damage = damage * (1 - result)
-        end
-    )
-if damagetype == DAMAGE_TYPE_PHYSICAL then
+
+	if damagetype == DAMAGE_TYPE_PHYSICAL then
+		Util.Modifier:SimpleEvent(victim, 'GetPhysicalDamageReduction', { MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION }, { }, 
+			function(result, data)
+				damage = damage * (1 - result)
+			end
+		)
 		if victim:HasModifier("modifier_stormshield_active_shields") then
 			local shields_count = victim:GetModifierStackCount("modifier_stormshield_active_shields", victim.InventoryUnit)
 			damage = damage * (1 - (shields_count * ITEM_RPC_STORMSHIELD_CLOAK_PHYS_REDUCTION))
@@ -1635,6 +1604,11 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = 0
 		end
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
+		Util.Modifier:SimpleEvent(victim, 'GetMagicalDamageReduction', { MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION }, { }, 
+			function(result, data)
+				damage = damage * (1 - result)
+			end
+		)
 		if victim:HasModifier("modifier_starseeker_passive") then
 			damage = 0
 		end
@@ -1648,6 +1622,11 @@ if damagetype == DAMAGE_TYPE_PHYSICAL then
 			damage = damage * (100 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_AMETHYST))/100
 		end
 	elseif damagetype == DAMAGE_TYPE_PURE then
+		Util.Modifier:SimpleEvent(victim, 'GetPureDamageReduction', { MODIFIER_ROSHPIT_PURE_DMG_REDUCTION }, { }, 
+			function(result, data)
+				damage = damage * (1 - result)
+			end
+		)
 		if victim:HasModifier("modifier_challenge_pure_resist") then
 			damage = damage * (100 - victim:GetModifierStackCount("modifier_challenge_pure_resist", Events.GameMaster))/100
 		end
@@ -1902,11 +1881,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local reduction = victim:FindModifierByName("modifier_natures_path_master_buff"):GetAbility():GetSpecialValueFor("damage_reduction")
 		damage = damage * (1 - (reduction / 100))
 	end
-	if victim:HasModifier("modifier_arkimus_arcana1_q3") then
-		local stacks = victim:GetModifierStackCount("modifier_arkimus_arcana1_q3", victim)
-		local reduction = (1 - ARKIMUS_ARCANA1_Q3_DMG_RED_PER_STACK_EXP_BASE) ^ stacks
-		damage = damage * reduction
-	end
 	if victim:HasModifier("modifier_arkimus_w_4_shield") then
 		damage = 0
 		if shouldConsumeShields then
@@ -1938,9 +1912,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 			damage = damage * reduction
 		end
-	end
-	if victim:HasModifier("modifier_energy_field_c_d_shield") then
-		damage = damage * (1 - ARKIMUS_R3_DMG_RED)
 	end
 	if victim:HasModifier("modifier_possession_enemy_lock") then
 		damage = 0
@@ -2875,7 +2846,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ironbound_gloves") and applyEffects and damagetype == DAMAGE_TYPE_PHYSICAL then
 		local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_IRONBOUND_GLOVES_GEM_EMERALD))
 		if proc then
-			print("BLOCK:"..filterTable["damage"])
+			--print("BLOCK:"..filterTable["damage"])
 			PopupDamageBlock2(victim, math.floor(filterTable["damage"]))
 			damage = 0
 		end
@@ -2949,7 +2920,7 @@ function GameState:FilterDamage(filterTable)
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
 			if applyEffects then
-				print("damage = 0")
+				--print("damage = 0")
 				filterTable["damage"] = 0
 			end
 		end
@@ -3628,7 +3599,6 @@ function GameState:FilterDamage(filterTable)
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then
 		filterTable["damage"] = StartingDamage
 	end
-
 
 	return true
 

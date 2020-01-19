@@ -198,8 +198,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
-		"item_property_cerulean_highguard"			"浓缩魔力"
-		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <% CERULEAN_HIGHGUARD_MANA_INCREASE %>%，其基础技能伤害提高 <% CERULEAN_HIGHGUARD_BAD %>%。"
+		"item_property_veil_of_the_cerulean_high_guard"			"浓缩魔力"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 耗蓝增加 <% CERULEAN_HIGHGUARD_MANA_INCREASE %>%，其基础技能伤害提高 <% CERULEAN_HIGHGUARD_BAD %>%。"
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"
@@ -512,7 +512,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"城主的兜帽"
 		"item_property_hood_of_lords"									"命令视域"
-		 "property_hood_of_lords_description"							"技能冷却时间减少 <% HOOD_OF_LORDS_CD_RED %> 秒并且拥有 <% HOOD_OF_LORDS_BONUS_RANGE %> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。"
+		 "property_hood_of_lords_description"							"技能冷却时间减少 <% HOOD_OF_LORDS_CD_MOD %> 秒并且拥有 <% HOOD_OF_LORDS_BONUS_RANGE %> 码额外的施法距离。施法时甚至不需要完全面对施法方向就可以开始引导技能。"
 		 "item_rpc_hood_of_lords_ruby1"	"提高 [Q4] 符文 @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"提高 [E4] 符文 @emerald_property1"
 		"item_rpc_hood_of_lords_sapphire1" "提高 [W4] 符文 @sapphire_property1"
@@ -549,8 +549,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
-		"property_twisted_mask_of_ahnqhir_a"												"超级施法 A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%。"
+		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"提高 [Q3] 符文 @emerald_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_sapphire1" "提高 [Q2] 符文 @sapphire_property1"
@@ -558,8 +558,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
-		"property_twisted_mask_of_ahnqhir_b"												"超级施法 B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> 秒。"
+		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"提高 [W3] 符文 @emerald_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_sapphire1" "提高 [W2] 符文 @sapphire_property1"
@@ -567,13 +567,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
-		"property_twisted_mask_of_ahnqhir_c"												"超级施法 C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%。"
+		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"提高 [E3] 符文 @emerald_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_sapphire1" "提高 [E2] 符文 @sapphire_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_amethyst1" "提高 [E4] 符文 @amethyst_property1"
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"瓦尔顿深海之盔"	
 		"property_all_elements"												"提高所有元素伤害 %"

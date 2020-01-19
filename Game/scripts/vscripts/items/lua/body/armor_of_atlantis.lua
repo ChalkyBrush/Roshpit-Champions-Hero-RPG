@@ -44,7 +44,16 @@ function modifierClass:DeclareFunctions()
     }
     return funcs
 end
-
+function modifierClass:OnCreated()
+    if not IsServer() then
+        return
+    end
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_PURE_DMG_REDUCTION
+    })
+end
 function modifierClass:GetModifierBaseAttack_BonusDamage()
     local hero = self:GetCaster()
     if IsServer() then
@@ -58,13 +67,21 @@ function modifierClass:GetModifierBaseAttack_BonusDamage()
 end
 
 function modifierClass:GetDamageReduction()
-    local hero = self:GetCaster()
-    local missingHealthPercent = math.floor((1 - hero:GetHealth() / hero:GetMaxHealth()) * 100)
-    local damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT
     if IsServer() then
-        damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_RUBY)
+        local hero = self:GetCaster()
+        local missingHealthPercent = math.floor((1 - hero:GetHealth() / hero:GetMaxHealth()) * 100)
+        local damage_reduction_per_missing_health_pct = ITEM_RPC_ARMOR_OF_ATLANTIS_DMG_REDUCTION_PCT_PER_MISSING_HP_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_RUBY)
+        return math.min(damage_reduction_per_missing_health_pct * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
     end
-    return math.min(damage_reduction_per_missing_health_pct * missingHealthPercent, ITEM_RPC_ARMOR_OF_ATLANTIS_MAX_DMG_REDUCTION_PCT) / 100
+end
+function modifierClass:GetPhysicalDamageReduction()
+    return modifierClass:GetDamageReduction()
+end
+function modifierClass:GetMagicalDamageReduction()
+    return modifierClass:GetDamageReduction()
+end
+function modifierClass:GetPureDamageReduction()
+    return modifierClass:GetDamageReduction()
 end
 
 function modifierClass:IsHidden()

@@ -179,14 +179,14 @@
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Уклонение во время движения"
 
-        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
-        "item_property_dunetread"                   "Dunewalker"
-        "property_dunetread_description"            "Снижает перезарядку @Ability3 на <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> сек."
+        "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
+        "item_property_dunetreads"                   "Dunewalker"
+        "property_dunetreads_description"            "Снижает перезарядку @Ability3 на <% ITEM_RPC_DUNETREADS_CD_RED %> сек."
 
-        "item_rpc_dunetread_boots_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
-        "item_rpc_dunetread_boots_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
-        "item_rpc_dunetread_boots_sapphire1"                                    "Когда [E] не перезаряжается, герой получает @sapphire_property1 бонус Скорости Передвижения и Лимита Скорости"
-        "item_rpc_dunetread_boots_amethyst1"                                    "Ловкость увеличивает Броню и Магическую Защиту на @amethyst_property1"
+        "item_rpc_dunetreads_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
+        "item_rpc_dunetreads_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
+        "item_rpc_dunetreads_sapphire1"                                    "Когда [E] не перезаряжается, герой получает @sapphire_property1 бонус Скорости Передвижения и Лимита Скорости"
+        "item_rpc_dunetreads_amethyst1"                                    "Ловкость увеличивает Броню и Магическую Защиту на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 

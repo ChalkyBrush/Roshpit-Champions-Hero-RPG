@@ -21,13 +21,13 @@
         "item_rpc_sange_boots_amethyst1"                                        "每点敏捷提供 @amethyst_property1点基础攻击力"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
-        "item_rpc_dunetread_boots_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
-        "item_rpc_dunetread_boots_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
-        "item_rpc_dunetread_boots_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
-        "item_rpc_dunetread_boots_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
-		"item_property_dunetread"					"沙丘行者"
-		"property_dunetread_description"			"减少 @Ability3 的冷却时间<% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %>秒。"
+		"DOTA_Tooltip_ability_item_rpc_dunetreads"									"沙丘之靴"
+        "item_rpc_dunetreads_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
+        "item_rpc_dunetreads_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
+        "item_rpc_dunetreads_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
+        "item_rpc_dunetreads_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
+		"item_property_dunetreads"					"沙丘行者"
+		"property_dunetreads_description"			"减少 @Ability3 的冷却时间<% ITEM_RPC_DUNETREADS_CD_RED %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"紫罗兰卫士之靴"

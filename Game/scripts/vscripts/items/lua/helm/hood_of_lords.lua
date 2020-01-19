@@ -69,8 +69,17 @@ end
 function modifierClass:GetModifierCastRangeBonus()
     return HOOD_OF_LORDS_BONUS_RANGE
 end
-function modifierClass:GetRoshpitFlatCdRed()
-    return HOOD_OF_LORDS_CD_RED
+function modifierClass:GetRoshpitQFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitWFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitEFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitRFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
 end
 function modifierClass:IsHidden()
     return true

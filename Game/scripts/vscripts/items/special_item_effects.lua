@@ -7,7 +7,6 @@ LinkLuaModifier("modifier_swiftspike_sapphire", "modifiers/modifier_swiftspike_s
 LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodstone_boot_amethyst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_dunetreads_sapphire", "modifiers/modifier_dunetreads_sapphire", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sandstream_slippers_emerald", "modifiers/modifier_sandstream_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_voyager_boots_emerald", "modifiers/modifier_voyager_boots_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_epsilon", "modifiers/modifier_epsilon", LUA_MODIFIER_MOTION_NONE)
@@ -1143,7 +1142,7 @@ function azure_hawk_dead_end(event)
 		bird.pfx = ParticleManager:CreateParticle("particles/econ/generic/generic_buff_1/azure_empire.vpcf", PATTACH_ABSORIGIN_FOLLOW, bird)
 		ParticleManager:SetParticleControlEnt(bird.pfx, 0, bird, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", bird:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(bird.pfx, 15, Vector(185, 80, 255))
-		print("APPLY PURPLE BUFF?")
+		--print("APPLY PURPLE BUFF?")
 		-- ability:ApplyDataDrivenModifier(caster, bird, "modifier_azure_hawk_red", {})
 	end
 	local birdStacks = 0
@@ -3189,9 +3188,9 @@ function pure_waters_attack_land(event)
 	local ability = event.ability
 	local caster = event.caster
 	local hero = caster.hero
-	print("PURE WATER ATTACK")
+	--print("PURE WATER ATTACK")
 	if ability:GetGemValue("ruby") > 0 then
-		print("RUBY")
+		--print("RUBY")
 		local proc_chance = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_BOOTS_OF_PURE_WATERS_GEM_RUBY2)
 		local proc = Filters:GetProc(hero, proc_chance)
 		if proc then
@@ -3447,7 +3446,7 @@ function ablecore_greaves_think(event)
 	--slow move speed
 	if movespeed <= threshold then
 		event.ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_greaves_effect", {})
-		print("apply")
+		--print("apply")
 		if ability:GetGemValue("amethyst") > 0 then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_ablecore_attack_power", {})
 			hero:SetModifierStackCount("modifier_ablecore_attack_power", castear, ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ABLECORE_GREAVES_GEM_AMETHYST))
@@ -5216,7 +5215,7 @@ function eyeglass_attack(event)
 	end
 	if ability:GetGemValue("ruby") > 0 then
 		local distance = math.min(WallPhysics:GetDistance2d(attacker:GetAbsOrigin(), target:GetAbsOrigin()), ITEM_RPC_EPSILONS_EYEGLASS_MAX_RANGE_FOR_DAMAGE)
-		print(distance)
+		--print(distance)
 		local damage = distance * ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_EPSILONS_EYEGLASS_GEM_RUBY)
 		Filters:ApplyItemDamage(target, attacker, damage, DAMAGE_TYPE_PHYSICAL, event.ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_COSMOS)
 		CustomAbilities:QuickAttachParticle("particles/roshpit/items/epsilon_impact.vpcf", target, 0.5)
@@ -6405,7 +6404,7 @@ function rubick_apprentice_reset(event)
 		local stolen_ability = caster:GetAbilityByIndex(i)
 		local spell_steal_index = i + 1
 		local stolen_ability_name = stolen_ability:GetAbilityName()
-		print(stolen_ability_name)
+		--print(stolen_ability_name)
 		if not string.match(stolen_ability_name, "apprentice_spell_steal_") then
 			CustomAbilities:AddAndOrSwapSkill(caster, stolen_ability:GetAbilityName(), "apprentice_spell_steal_"..spell_steal_index, i)
 			if IsValidEntity(stolen_ability) then
@@ -6468,7 +6467,7 @@ function pivotal_swift_think(event)
 		local movespeed_bonus = ITEM_RPC_PIVOTAL_SWIFTBOOTS_MS + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY1)
 		local new_stacks = current_stacks - (movespeed_bonus/(speed_duration*10))
 		hero:SetModifierStackCount("modifier_pivotal_swiftboots_speed_decay", caster, new_stacks)
-		print(current_stacks)
+		--print(current_stacks)
 	end
 		
 end
@@ -6608,7 +6607,7 @@ function nethergrasp_grip_thinker(event)
 			end
 			local pullDirection = (hero:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
 			target:SetAbsOrigin(target:GetAbsOrigin()+pullDirection*pullSpeed)
-			print(pullSpeed)
+			--print(pullSpeed)
 		end
 	end
 end
@@ -6906,8 +6905,8 @@ function ruby_dragon_fire_breath_burn(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	print("BURN THINK?")
-	print(ability.burn_damage)
+	--print("BURN THINK?")
+	--print(ability.burn_damage)
 	Filters:ApplyItemDamage(target, caster.hero, ability.burn_damage, DAMAGE_TYPE_MAGICAL, caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD], RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
@@ -7000,7 +6999,7 @@ function odin_beam_casting_thinker(event)
 				-- local enemies = FindUnitsInRadius( caster:GetTeamNumber(), beam.position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
 				local vStartPos = beam.startPoint
 				local vEndPos = beam.position
-				print("HERE?")
+				--print("HERE?")
 				local width = 140
 				local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 				local types = DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
@@ -7008,7 +7007,7 @@ function odin_beam_casting_thinker(event)
 				local enemies = FindUnitsInLine(caster:GetTeamNumber(), vStartPos, vEndPos, nil, 120, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
-						print("DAMAGE SOMEONE")
+						--print("DAMAGE SOMEONE")
 						Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_DRAGON, RPC_ELEMENT_NONE)	
 					end
 				end
@@ -7283,7 +7282,7 @@ function scoundrel_invis_countdown_end(event)
 	local ability = event.ability
 	if IsValidEntity(caster) then
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), caster.hero:GetAbsOrigin())
-		print("COUNTDOWN END")
+		--print("COUNTDOWN END")
 		if distance <= ability.radius then
 			local hero = caster.hero
 			if not hero:HasModifier("modifier_invisible") then
@@ -8907,16 +8906,6 @@ function crystalline_slippers_think(event)
 	end
 end
 
-function dunetreads_init(event)
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	if ability:GetGemValue("sapphire") > 0 then
-		hero:AddNewModifier(caster, ability, "modifier_dunetreads_sapphire", {})
-	end
-	
-end
-
 function emerald_speedrunners_think(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -9958,7 +9947,7 @@ function firelock_think(event)
 	local hero = caster.hero
 	if ability:GetGemValue("sapphire") > 0 then
 		local as_bonus = (hero:GetStrength() + hero:GetAgility())*ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FIRELOCK_PENDANT_GEM_SAPPHIRE)
-		print("AS BONUS: "..as_bonus)
+		--print("AS BONUS: "..as_bonus)
 		hero:ApplyModifierAndSetStacks(ability, caster, "modifier_firelock_sapphire_attackspeed", as_bonus, 0)
 	end
 	if ability:GetGemValue("amethyst") > 0 then

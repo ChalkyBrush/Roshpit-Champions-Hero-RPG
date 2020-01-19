@@ -12415,6 +12415,86 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
+			"modifier_q_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
 			"modifier_challenge_win_float"
 			{
 				"IsHidden"	"1"

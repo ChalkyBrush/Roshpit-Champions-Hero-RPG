@@ -1534,69 +1534,6 @@ function RPCItems:RollTricksterMask(item_level)
     return item
 end
 
-function RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_blue_mask_of_ahnqhir", "immortal", "Twisted Blue Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_blue"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_c", "#6BB5F9", 1, "#property_twisted_mask_of_ahnqhir_c_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_e_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_purple_mask_of_ahnqhir", "immortal", "Twisted Purple Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_purple"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_a", "#BC60F2", 1, "#property_twisted_mask_of_ahnqhir_a_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_q_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollTwistedMaskOfAhnqhirYellow(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_yellow_mask_of_ahnqhir", "immortal", "Twisted Yellow Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_yellow"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_b", "#EBFF6D", 1, "#property_twisted_mask_of_ahnqhir_b_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollUndertakersHood(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -1623,26 +1560,6 @@ function RPCItems:RollUndertakersHood(item_level)
     return item
 end
 
-function RPCItems:RollCeruleanHighguard(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_veil_of_the_cerulean_high_guard", "immortal", "Veil of the Cerulean Highguard", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_cerulean_high_guard"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cerulean_highguard", "#1D35D1", 1, "#property_cerulean_highguard_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 
 function RPCItems:RollWindDeityCrown(item_level)
@@ -5084,27 +5001,6 @@ function RPCItems:RollCrystallineSlippers(item_level)
     return item
 end
 
-function RPCItems:RollDunetreadBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_dunetread_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dunetread", "#8A8546", 1, "#property_dunetread_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollEmeraldSpeedRunners(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7521,8 +7417,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollRoknarEmperor(item_level)
     elseif itemName == "item_rpc_swamp_doctors_tribal_mask" then
         newItem = RPCItems:RollSwampDoctorMask(item_level)
-    elseif itemName == "item_rpc_dunetread_boots" then
-        newItem = RPCItems:RollDunetreadBoots(item_level)
     elseif itemName == "item_rpc_voyager_boots" then
         newItem = RPCItems:RollVoyagerBoots(item_level)
     elseif itemName == "item_rpc_redrock_footwear" then
@@ -7812,12 +7706,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollTokenOfOceanis(item_level)
     elseif itemName == "item_rpc_templar_light_seers_robe" then
         newItem = RPCItems:RollLightSeersRobes(item_level)
-    elseif itemName == "item_rpc_twisted_blue_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
-    elseif itemName == "item_rpc_twisted_yellow_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirYellow(item_level)
-    elseif itemName == "item_rpc_twisted_purple_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
     elseif itemName == "item_rpc_steamboots" then
         newItem = RPCItems:RollSteamboots(item_level)
     elseif itemName == "item_rpc_monkey_paw" then
@@ -8059,7 +7947,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
-        "item_rpc_crusader_boots", "item_rpc_dunetread_boots", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
+        "item_rpc_crusader_boots", "item_rpc_dunetreads", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
         "item_rpc_neptunes_water_gliders", "item_rpc_pathfinders_resonant_boots", "item_rpc_redrock_footwear", "item_rpc_resplendent_rubber_boots", "item_rpc_rooted_feet", "item_rpc_sandstream_slippers",
         "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots", "item_rpc_voyager_boots",
         "item_rpc_yasha_boots"}
@@ -8096,7 +7984,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_carbuncles_helm_of_reflection", "item_rpc_wraith_hunters_steel_helm", "item_rpc_emerald_douli", "item_rpc_mask_of_tyrius", "item_rpc_veil_of_the_cerulean_high_guard",
         "item_rpc_blackfeather_crown", "item_rpc_super_ascendency_mask", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_arcane_cascade_hat", "item_rpc_adamantine_samurai_helmet",
         "item_rpc_scourge_knights_helm", "item_rpc_mask_of_the_desert_necromancer", "item_rpc_undertakers_hood", "item_rpc_shroud_of_eternal_night", "item_rpc_wolfir_druids_spirit_helm",
-        "item_rpc_blinded_glint_of_onu", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_swamp_doctors_tribal_mask", "item_rpc_dunetread_boots", "item_rpc_voyager_boots", "item_rpc_redrock_footwear",
+        "item_rpc_blinded_glint_of_onu", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_swamp_doctors_tribal_mask", "item_rpc_dunetreads", "item_rpc_voyager_boots", "item_rpc_redrock_footwear",
         "item_rpc_pathfinders_resonant_boots", "item_rpc_neptunes_water_gliders", "item_rpc_boots_of_the_violet_guard", "item_rpc_slinger_boots", "item_rpc_guardian_greaves",
         "item_rpc_blue_dragon_greaves", "item_rpc_sange_boots", "item_rpc_boots_of_old_wisdom", "item_rpc_resplendent_rubber_boots", "item_rpc_ghost_slippers", "item_rpc_yasha_boots",
         "item_rpc_tranquil_boots", "item_rpc_fire_walkers", "item_rpc_mana_striders", "item_rpc_moon_tech_runners", "item_rpc_sonic_boots", "item_rpc_falcon_boots", "item_rpc_crusader_boots",

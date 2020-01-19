@@ -3953,12 +3953,13 @@
 		}
 	}
 
-	"item_rpc_dunetread_boots"
+	"item_rpc_dunetreads"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/dunetreads.lua"
 		"AbilityTextureName"	"rpc/dunetread_boots" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -3981,56 +3982,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_DUNETREAD_BOOTS_GEM_RUBY %>"
+				"ruby1"				"<% ITEM_RPC_DUNETREADS_GEM_RUBY %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_DUNETREAD_BOOTS_GEM_EMERALD %>"
+				"emerald1"			"<% ITEM_RPC_DUNETREADS_GEM_EMERALD %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_DUNETREAD_BOOTS_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_DUNETREADS_GEM_SAPPHIRE %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_dunetread_boots"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"dunetreads_init"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_dunetreads_sapphire"
-						"Target" 		"TARGET"
-					}
-				}
+				"amethyst1"			"<% ITEM_RPC_DUNETREADS_GEM_AMETHYST %>"
 			}
 		}
 	}

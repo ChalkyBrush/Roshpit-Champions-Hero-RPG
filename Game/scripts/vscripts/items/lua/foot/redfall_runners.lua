@@ -42,7 +42,10 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
         MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
     })
@@ -51,15 +54,45 @@ function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
-        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
-        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
     }
 
     return funcs
 end
 
-function modifierClass:GetRoshpitBaseAbilityDmgBonus(params)
+function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitWBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitEBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
     if not IsServer() then
         return
     end

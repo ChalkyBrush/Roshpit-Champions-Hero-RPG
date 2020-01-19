@@ -18,6 +18,10 @@ function class:SetSpecialTypes(types)
     end
 end
 
+function class:CheckOnDamageTaken(event)
+    return event.attacker ~= self:GetParent() and event.inflictor == nil and event.damage > 0 
+end
+
 function class:GetRadius(baseRadius)
     return baseRadius
 end
