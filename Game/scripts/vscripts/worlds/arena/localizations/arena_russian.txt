@@ -844,7 +844,8 @@
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Порождение Глубин протыкает жертв в 2000 радиусе, оглушая их, подкидывая в воздух и нанося магический урон."
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"							"Unstable Ground"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_Description"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"УРОН:"
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
