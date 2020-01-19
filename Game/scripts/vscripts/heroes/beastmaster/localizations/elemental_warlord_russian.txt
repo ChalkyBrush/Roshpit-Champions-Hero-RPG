@@ -268,11 +268,9 @@
     	"DOTA_Tooltip_modifier_tomahawk_ice_effect_Description"				"Получает периодический урон стихии Льда. Урон значительно увеличится как только уровень здоровья цели будет слишком низок."	
 
   		"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1"						"[R3] Tectonic Pressure"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути. Дополнительно увеличивается максимальное количество зарядов Огня."
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Доп. зарядов Огня к максимуму"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"				""
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_two"		"Урон"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix_two"			"% от Макс. Здоровья"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути."			""
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Урон"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"			"% от Макс. Здоровья"
 
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure"					"Tectonic Pressure"
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure_Description"		"При получении урона, в сторону атакующего отправляется огненный шар."
