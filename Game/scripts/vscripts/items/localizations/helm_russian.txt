@@ -655,7 +655,7 @@
 		"item_rpc_white_mage_hat_ruby1"		"Увеличивает Регенерацию Здоровья на @ruby_property1% от Максимального Запаса Здоровья"
 		"item_rpc_white_mage_hat_emerald1"	"Увеличивает эффективность любого восстановления здоровья (кроме стандартной регенерации здоровья) на @emerald_property1%"
 		"item_rpc_white_mage_hat_sapphire1" 	"Лечение от эффекта наложит щит на героя или его союзника, если оно восстановит больше Максимального Запаса Здоровья. Ёмкость щита равна @sapphire_property1% от Максимального Запаса Здоровья цели."
-		"item_rpc_white_mage_hat_amethyst1" 	"Лечение от эффекта увеличивается на @amethyst1x от показателя Духа героя"	
+		"item_rpc_white_mage_hat_amethyst1" 	"Лечение от эффекта увеличивается на @amethyst_property1x от показателя Духа героя"	
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
