@@ -13603,7 +13603,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"str_mult"					"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"str_mult"					"3.6 4.0 4.4 4.8 5.2 5.6 6.0"
 			}
 		}
 		"Modifiers"
@@ -13693,7 +13693,7 @@
 			"09"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"int_mult"					"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"int_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
 			}
 		}
 		"precache"
@@ -13888,7 +13888,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"agi_mult"					"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"agi_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
 			}
 			"05"
 			{
@@ -14053,7 +14053,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"70"
 			}
 			"02"
 			{
@@ -34460,7 +34460,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.25"
 			}
 		}
 		"Modifiers"
