@@ -215,7 +215,7 @@ function pressure_fireball_impact(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = ability.r_3_level * caster:GetMaxHealth() * 0.1
+	local damage = ability.r_3_level * caster:GetMaxHealth() * WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
