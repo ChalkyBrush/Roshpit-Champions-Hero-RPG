@@ -24,25 +24,13 @@ function begin_explosion(event)
   if soundChance == 3 then
     EmitSoundOn("Astral.CelestialBurst.ExplosionVO", caster)
   end
-  -- EmitSoundOn("Hero_Leshrac.Split_Earth.Tormented", caster)
-  -- local smashLevel = caster:GetRuneValue("r",2)
-  -- if smashLevel > 0 then
-  --    local b_d_damage = smashLevel*R2_DAMAGE
-  --    -- b_d_damage = b_d_damage + 0.002*caster:GetStrength()/10*d_d_level*b_d_damage
-  --    if caster:HasModifier("modifier_astral_glyph_7_1") then
-  --      b_d_damage = b_d_damage*10
-  --    end
-  -- local duration = ability:GetSpecialValueFor("duration")
-  --   Timers:CreateTimer(duration + 0.2,
-  --   function()
-  --   EmitSoundOn("Hero_Leshrac.Split_Earth", caster)
-  -- for i=-3, 3, 1 do
-  -- rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)*Vector(200, 200, 0)
-  -- targetPoint = rotatedVector + location*Vector(1,1,0)
-  -- create_individual_explosion(abilityLevel, caster, targetPoint, location, "dummy_aoe_explosion_rune_r_2", smashLevel, b_d_damage)
-  -- end
-  --   end)
-  -- end
+  local r_2_level = caster:GetRuneValue("r", 2)
+  if r_2_level > 0 then
+    Timers:CreateTimer(2, function()
+      r_2_quake_original(ability, caster, r_2_level) 
+    end)
+  end
+
   rune_r_3(caster, ability)
   Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
@@ -131,6 +119,9 @@ end
 function rune_r_3(caster, mainAbility)
   local runeUnit = caster.runeUnit3
   local ability = runeUnit:FindAbilityByName("astral_rune_r_3")
+  if ability.phoenix then
+    return false
+  end
   local totalLevel = caster:GetRuneValue("r", 3)
   ability.astral = caster
   ability.totalLevel = totalLevel
@@ -138,7 +129,7 @@ function rune_r_3(caster, mainAbility)
     ability.origCaster = caster
     ability.r_3_level = totalLevel
     local dummy = CreateUnitByName("phoenix_summon", caster:GetAbsOrigin() - Vector(100, 100, 0), true, caster, caster, caster:GetTeamNumber())
-    dummy:SetModelScale(1)
+    dummy:SetModelScale(0.8)
     EmitSoundOn("phoenix_phoenix_bird_attack", dummy)
     dummy.owner = caster:GetPlayerOwnerID()
     dummy:AddAbility("replica")
@@ -280,11 +271,11 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
       if enemy:IsAlive() and ability.r_1_level > 0 then
         Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
       end
-      if caster:GetRuneValue("r", 2) > 0 then
-        r_2_quake(damage, ability, caster, caster:GetRuneValue("r", 2), enemy)
-      end
-      -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
-      -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
+      -- if caster:GetRuneValue("r", 2) > 0 then
+      --   r_2_quake(damage, ability, caster, caster:GetRuneValue("r", 2), enemy)
+      -- end
+      ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
+      enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
     end
     local localKey = 'astral_ranger_r_1_sound'
     Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
@@ -322,5 +313,36 @@ function r_2_quake(damage, ability, caster, r_2_level, target)
   for _, enemy in pairs(enemies) do
     Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
     Filters:ApplyStun(caster, ASTRAL_RANGER_R2_STUN_DURATION, target)
+  end
+end
+
+function r_2_quake_original(ability, caster, r_2_level) 
+  local r_2_damage = caster:GetSumOfAllAttributes()*ASTRAL_RANGER_R2_DAMAGE_X_STATS*r_2_level
+  local r_2_stun_duration = ASTRAL_RANGER_R2_STUN_DURATION*r_2_level
+  if caster:HasModifier("modifier_astral_glyph_7_1") then
+    r_2_damage = r_2_damage*ASTRAL_RANGER_GLYPH_7_1_R_DAMAGE_MULT
+  end
+  local radius = ASTRAL_RANGER_R2_EXPLOSION_RADIUS_CONSTANT
+  local forwardVector = caster:GetForwardVector()
+  for i=-3, 3, 1 do
+    Timers:CreateTimer((i+3)*0.05, function()
+      EmitSoundOn("Astral.CelesialBurst.R2", caster)
+      local rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)
+      local targetPoint = rotatedVector*Vector(240, 240, 0) + caster:GetAbsOrigin()
+      local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf", PATTACH_CUSTOMORIGIN, nil)
+      ParticleManager:SetParticleControl(pfx, 0, targetPoint)
+      ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, 0))
+      ParticleManager:SetParticleControl(pfx, 2, Vector(radius, radius, 0))
+      ParticleManager:SetParticleControl(pfx, 3, Vector(0, 0, 0))
+      Timers:CreateTimer(4, function()
+        ParticleManager:DestroyParticle(pfx, true)
+      end)        
+      local enemies = FindUnitsInRadius(caster:GetTeamNumber(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+      for _, enemy in pairs(enemies) do
+        Filters:TakeArgumentsAndApplyDamage(enemy, caster, r_2_damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)
+        Filters:ApplyStun(caster, r_2_stun_duration, enemy)
+      end        
+
+    end)
   end
 end

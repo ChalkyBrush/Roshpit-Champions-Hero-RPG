@@ -327,21 +327,21 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 		iLevel = iLevel + 10
 	end
 	if iLevel >= 80 and iLevel <= 90 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(69, 0, 0, 0, 0)
-	elseif iLevel > 90 and iLevel <= 100 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(71, 0, 0, 0, 0)
-	elseif iLevel > 100 and iLevel <= 110 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(73, 0, 0, 0, 0)
-	elseif iLevel > 110 and iLevel <= 120 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(76, 0, 0, 0, 0)
-	elseif iLevel > 120 and iLevel <= 130 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(79, 0, 0, 0, 0)
-	elseif iLevel > 130 and iLevel <= 140 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(81, 0, 0, 0, 0)
-	elseif iLevel > 140 and iLevel <= 145 then
+	elseif iLevel > 90 and iLevel <= 100 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(78, 0, 0, 0, 0)
+	elseif iLevel > 100 and iLevel <= 110 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(80, 0, 0, 0, 0)
+	elseif iLevel > 110 and iLevel <= 120 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(82, 0, 0, 0, 0)
+	elseif iLevel > 120 and iLevel <= 130 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(84, 0, 0, 0, 0)
+	elseif iLevel > 130 and iLevel <= 140 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(86, 0, 0, 0, 0)
+	elseif iLevel > 140 and iLevel <= 145 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(88, 0, 0, 0, 0)
 	elseif iLevel > 145 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(83, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(90, 0, 0, 0, 0)
 	end
 	if unit_level <= 20 and iLevel > unit_level then
 		iLevel = unit_level
@@ -352,8 +352,8 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 	elseif unit_level <= 80 and iLevel > unit_level + 15 then
 		iLevel = unit_level + 15
 	end
-	if iLevel < original_unit_level - 40 then
-		iLevel = original_unit_level - 40
+	if iLevel < original_unit_level - 35 then
+		iLevel = original_unit_level - 35
 	end
 	if iLevel < original_unit_level*0.65 then
 		iLevel = math.floor(original_unit_level*0.65)

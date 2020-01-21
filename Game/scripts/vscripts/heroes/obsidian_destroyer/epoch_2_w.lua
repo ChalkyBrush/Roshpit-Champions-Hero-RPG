@@ -193,7 +193,7 @@ function epoch_w_4(caster, ability)
 			manaDrain = caster:GetMana()
 		end
 		caster:ReduceMana(manaDrain)
-		ability.damageAmp = manaDrain * EPOCH_W4_DMG_MULTI_PCT * w_4_level / 10000 + 1 -- /10000 -> % mana * % rune
+		ability.damageAmp = manaDrain * EPOCH_W4_DMG_MULTI_PCT * w_4_level / 100 + 1
 	else
 		ability.damageAmp = 1
 	end

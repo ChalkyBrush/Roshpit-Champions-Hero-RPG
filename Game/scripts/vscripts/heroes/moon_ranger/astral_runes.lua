@@ -4,6 +4,7 @@ function c_d_end(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
+	ability.phoenix = nil
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_rune_r_3_phoenix_leaving", {duration = 5})
 	target:SetMoveCapability(DOTA_UNIT_CAP_MOVE_NONE)
 	EmitSoundOn("phoenix_phoenix_bird_denied", target)
@@ -24,7 +25,7 @@ function c_d_enter(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = ability.origCaster
-
+	ability.phoenix = target
 	local damage = ability.r_3_level * (ASTRAL_RANGER_R3_ATTACK_DAMAGE_PERCENT * OverflowProtectedGetAverageTrueAttackDamage(caster) + ASTRAL_RANGER_R3_FLAT_DAMAGE)
 	--print(caster:GetUnitName())
 	if caster:HasModifier("modifier_astral_glyph_2_1") then

@@ -2488,14 +2488,14 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Increases the damage of [R1]. Each star also slams the ground on impact, dealing its damage in a small area around the primary target and stunning all affected enemies for 0.03 seconds."
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "2 seconds after a successful Celestial Burst channel, 7 additional explosions deal damage in a circle around Astral Ranger"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "x Sum of All Attributes"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Stun Duration"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1200</font> around her. These attacks deal damage based on the Ranger's total attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1200</font> around her. These attacks deal damage based on the Ranger's total attack power. Only 1 Phoenix can be active at a time."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
@@ -3105,7 +3105,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
 	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>40</font>%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>50</font>%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -6080,7 +6080,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>50</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>75</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Linger Duration:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " seconds"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Bonus Intelligence"
@@ -6219,7 +6219,7 @@
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"Attacks drain mana and deal extra damage"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] Overtime"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"Casting @Ability1 drains <font color='#ccff66'>50</font>% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana [Q3] drains per attack."
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"Casting @Ability1 drains <font color='#ccff66'>100</font>% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana [Q3] drains per attack."
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"Damage Bonus"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% for each 100 Mana Drained"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"Additional Aeon Strike mana drain"
@@ -6256,7 +6256,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"@Ability2 drains an additional <font color='#ccff66'>5</font>% maximum mana on cast, increasing its damage based on mana drained."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% for each 100 Mana Drained"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% of Mana Drained"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."
@@ -16079,7 +16079,8 @@
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Abomination impales enemies in 2000 range, stunning them, throwing in the air and dealing magical damage."
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"STUN DURATION:"
-		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"							"Unstable Ground"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_Description"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"DAMAGE:"
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"STUN DURATION:"
 		

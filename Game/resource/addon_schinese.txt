@@ -3492,7 +3492,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "提高魔法抗性和护甲"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] 旋风守护"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<font color='#ccff66'>40</font>%。概率超过 100% 有几率获得多层护盾。"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<font color='#ccff66'>50</font>%。概率超过 100% 有几率获得多层护盾。"
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "获得护盾概率"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -6414,7 +6414,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] 霜结破损"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>50</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>75</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "粘滞时间:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " 秒"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "额外智力"
@@ -6538,7 +6538,7 @@
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"每次攻击汲取你的部分魔法值并造成额外伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] 时光节点"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<font color='#ccff66'>50</font>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<font color='#ccff66'>100</font>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% 每汲取100点魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"永世打击 每次攻击的魔法汲取量提高"

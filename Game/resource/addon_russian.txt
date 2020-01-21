@@ -3114,7 +3114,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Увеличено магическое сопротивление и броня."
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на <font color='#ccff66'>40</font>% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "С прочтением @Ability3 есть шанс, что герой получит заряды щита. Пока активны заряды щита, герой получает на <font color='#ccff66'>50</font>% меньше урона из всех источников. Длительность каждого заряда щита - 7 секунд. Значение шанса выше 100% гарантирует получение нескольких зарядов."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Шанс получения щита"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -5958,11 +5958,9 @@
     	"DOTA_Tooltip_modifier_tomahawk_ice_effect_Description"				"Получает периодический урон стихии Льда. Урон значительно увеличится как только уровень здоровья цели будет слишком низок."	
 
   		"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1"						"[R3] Tectonic Pressure"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути. Дополнительно увеличивается максимальное количество зарядов Огня."
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Доп. зарядов Огня к максимуму"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"				""
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_two"		"Урон"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix_two"			"% от Макс. Здоровья"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути."
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Урон"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"			"% от Макс. Здоровья"
 
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure"					"Tectonic Pressure"
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure_Description"		"При получении урона, в сторону атакующего отправляется огненный шар."
@@ -6026,7 +6024,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <font color='#ccff66'>50</font>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "Пока герой стоит в ледяной зоне от Frost Scathe, он получает прибавку к Интеллекту и весь получаемый урон снижается на <font color='#ccff66'>75</font>%. Щит имеет задержку исчезновения, после того как герой покинет ледяную зону."
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Задержка:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " сек"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Бонус Интеллекта"
@@ -14275,7 +14273,7 @@
 		"item_rpc_white_mage_hat_ruby1"		"Увеличивает Регенерацию Здоровья на @ruby_property1% от Максимального Запаса Здоровья"
 		"item_rpc_white_mage_hat_emerald1"	"Увеличивает эффективность любого восстановления здоровья (кроме стандартной регенерации здоровья) на @emerald_property1%"
 		"item_rpc_white_mage_hat_sapphire1" 	"Лечение от эффекта наложит щит на героя или его союзника, если оно восстановит больше Максимального Запаса Здоровья. Ёмкость щита равна @sapphire_property1% от Максимального Запаса Здоровья цели."
-		"item_rpc_white_mage_hat_amethyst1" 	"Лечение от эффекта увеличивается на @amethyst1x от показателя Духа героя"	
+		"item_rpc_white_mage_hat_amethyst1" 	"Лечение от эффекта увеличивается на @amethyst_property1x от показателя Духа героя"	
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
@@ -14745,12 +14743,12 @@
 
         "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
         "item_property_puzzler"                                     "Anagram"
-        "property_puzzler_description"                              "Снаряжение, имеющее бонус рун Т2 применяет его к рунам Т3, и наоборот, бонус рун Т2 применяется к рунам Т2."
+        "property_puzzler_description"                              "Снаряжение, имеющее бонус рун Т2 (второго ряда) применяет его к рунам Т3 (третьего ряда), и наоборот, бонус рун Т2 применяется к рунам Т3."
 
         "item_rpc_puzzlers_locket_ruby1"                "Увеличивает [Q2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_emerald1"             "Увеличивает [E2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_sapphire1"                "Увеличивает [W2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_amethyst1"                "Увеличивает [R2] на @ruby_property1"
+        "item_rpc_puzzlers_locket_emerald1"             "Увеличивает [E2] на @emerald_property1"
+        "item_rpc_puzzlers_locket_sapphire1"                "Увеличивает [W2] на @sapphire_property1"
+        "item_rpc_puzzlers_locket_amethyst1"                "Увеличивает [R2] на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 
@@ -15887,7 +15885,8 @@
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Порождение Глубин протыкает жертв в 2000 радиусе, оглушая их, подкидывая в воздух и нанося магический урон."
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
-		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"							"Unstable Ground"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_Description"				"Порождение Глубин бьет по земле, нанося урон целям и оглушая их."
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"УРОН:"
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		
