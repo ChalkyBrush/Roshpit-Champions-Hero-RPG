@@ -720,7 +720,8 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"Archon Blaze"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"Shocks the ground damaging and stunning enemies in an area"
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form_Description"		"The Archon Wizard is able to use the power from another dimension to boost his physical powers. This allows him to attack faster and even summon duplicate attacks and arcane energies from alternative universes."
 
 		"sea_fortress_paladin_golem"									"Hollow One"
 		"seafortress_archon_wizard"										"Archon Wizard"

@@ -1,5 +1,6 @@
 require('heroes/antimage/arkimus_constants')
 require('heroes/base_ability')
+require('heroes/antimage/arkimus_orbital_leap')
 
 arkimus_archon_form = class(base_ability)
 
@@ -122,8 +123,9 @@ function modifier_arkimus_archon_form:OnCreated()
     Events:ColorWearablesAndBase(hero, Vector(0, 0, 0))
     hero:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
-        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
+        MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_PURE_DMG_REDUCTION 
     })
 end
 function modifier_arkimus_archon_form:DeclareFunctions()
@@ -150,6 +152,16 @@ end
 
 function modifier_arkimus_archon_form:GetModifierProjectileSpeedBonus(params)
     return 800
+end
+
+function modifier_arkimus_archon_form:GetPhysicalDamageReduction()
+    return ARKIMUS_ARCANA2_R_DMG_REDUCTION[self:GetAbility():GetLevel()] / 100
+end
+function modifier_arkimus_archon_form:GetMagicalDamageReduction()
+    return ARKIMUS_ARCANA2_R_DMG_REDUCTION[self:GetAbility():GetLevel()] / 100
+end
+function modifier_arkimus_archon_form:GetPureDamageReduction()
+    return ARKIMUS_ARCANA2_R_DMG_REDUCTION[self:GetAbility():GetLevel()] / 100
 end
 
 function modifier_arkimus_archon_form:GetModifierBaseAttackTimeConstant()
@@ -201,9 +213,6 @@ function modifier_arkimus_archon_form:OnAttackLanded(event)
         ability.pushVelocity = 20
     end
     local r_1_level = attacker:GetRuneValue("r", 1)
-    if attacker:GetUnitName() == "seafortress_archon_wizard" then
-        r_1_level = 10
-    end
 
     if r_1_level > 0 then
         attacker:AddNewModifier(attacker, ability, "modifier_arkimus_arcana_r_1_field_thinker", {duration = ARKIMUS_ARCANA2_R1_DURATION})

@@ -724,7 +724,7 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"暗黑审判之焰"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"震击地面并对区域内敌人造成眩晕和大量伤害"
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"执政官形态"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"执政官形态"
 
 		"sea_fortress_paladin_golem"									"虚声恫吓"
 		"seafortress_archon_wizard"										"执政官巫师"

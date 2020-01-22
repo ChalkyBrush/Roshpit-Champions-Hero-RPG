@@ -69876,80 +69876,21 @@
 
 	}
 
-	"seafortress_archon_form"
+	"seafortress_archon_wizard_archon_form"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"arkimus/arkimus_archon_form"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"0"
-		"AbilityCastRange"				"580"
-		"AOERadius"						"580"
-		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"worlds/sea_fortress/abilities/seafortress_archon_wizard_archon_form.lua"
+		"AbilityTextureName"			"arkimus/arkimus_archon_form"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"				 		"1"
+		"Level"							"1"
 		"precache"
 		{
 
 		}
 
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"start_channel"
-
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_complete"
-				"duration"	"%duration"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -69958,116 +69899,18 @@
 				"Function"		"archon_wizard_die"
 			}
 		}
-		"Modifiers"
-		{
-
-			"modifier_arkimus_archon_form_seafortress"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_init_seafortress"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_form_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_mana_regen"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_attack_power"
-						"Target" 		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1000"
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_attack_land"
-					}
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
-						"Function"		"archon_wizard_think"
-					}
-				}
-			}
-			"modifier_archon_pushback"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"ThinkInterval"  	"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_slide_think"
-					}
-				}
-			}
-			"modifier_archon_a_d_field_thinker"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"a_d_field_thinker_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_a_d_end"
-					}
-				}
-			}
-		}
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_range"			"500 550 600 650 700 750 800"
+				"attack_range"			"800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"58 60 62 64 66 68 70"
+				"damage_resist"			"70"
 			}
 		}
 	}

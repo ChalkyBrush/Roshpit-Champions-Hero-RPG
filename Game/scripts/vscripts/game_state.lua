@@ -1931,15 +1931,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		reduction = (100 - reduction) / 100
 		damage = damage * reduction
 	end
-
-	if victim:HasModifier("modifier_arkimus_archon_form") then
-		local archonForm = victim:FindModifierByName("modifier_arkimus_archon_form"):GetAbility()
-		if archonForm then
-			local reduction = archonForm:GetLevelSpecialValueFor("damage_resist", archonForm:GetLevel())
-			reduction = (100 - reduction) / 100
-			damage = damage * reduction
-		end
-	end
 	if victim:HasModifier("modifier_axe_rune_e_4_shield") then
 		damage = damage * (1 - AXE_E4_REDUCTION)
 		if victim:HasModifier("modifier_axe_glyph_6_2") then

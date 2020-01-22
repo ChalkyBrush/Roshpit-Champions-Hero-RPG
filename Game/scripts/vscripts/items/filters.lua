@@ -5681,9 +5681,6 @@ end
 function Filters:TwilightVestments(hero, damage, damagetype)
     local twilight_vest = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
     local threshold = (ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD - twilight_vest:GetFinalGemPropertyValue("ruby", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_RUBY))/100
-    print("----")
-    print(damage)
-    print(hero:GetMaxHealth() * threshold)
     if damage > hero:GetMaxHealth() * threshold then
         EmitSoundOn("RPCItems.TwilightVestments.Heal", hero)
         local heal_pct = (ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT + twilight_vest:GetFinalGemPropertyValue("emerald", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_EMERALD))
