@@ -12495,6 +12495,16 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
 			}
+			"modifier_r_flat_channeltime_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_channeltime_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
 			"modifier_challenge_win_float"
 			{
 				"IsHidden"	"1"

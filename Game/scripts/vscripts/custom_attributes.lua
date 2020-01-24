@@ -554,6 +554,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	if self:IsRealHero() then
 		self:CalculateAndSaveCooldownModifier()
 		self:CalculateAndSaveManacostModifier()
+		self:CalculateAndSaveChanneltimeModifier()
 	end
 end
 
@@ -3877,6 +3878,30 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
 	end
 end
 
+function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		local channeltimeModifier, channeltimeMultiplier = GetRChanneltimeModifier(self)
+		if not self:HasModifier("modifier_r_flat_channeltime_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_channeltime_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_pct_channeltime_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_channeltime_modifier", {})
+		end
+		if channeltimeModifier ~= 0 then
+			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, channeltimeModifier)
+		else
+			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, 0)
+		end
+		if channeltimeMultiplier ~= 0 then
+			local modifierStacks = math.floor((channeltimeMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_r_pct_channeltime_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_r_pct_channeltime_modifier", self, 0)
+		end
+	end
+end
+
 function GetQCooldownModifier(caster)
 	local manaCostModifier = 0
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
@@ -4004,4 +4029,20 @@ function GetRManaCostModifier(caster)
 		end
 	)
 	return manaCostModifier, manaCostMultiplier - 1
+end
+function GetRChanneltimeModifier(caster)
+	local channeltimeModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatChanneltimeModifier', { MODIFIER_ROSHPIT_R_FLAT_CHANNELTIME_MOD }, { }, 
+		function(result, data)
+			channeltimeModifier = channeltimeModifier + result
+		end
+	)
+
+	local channeltimeMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctChanneltimeModifier', { MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD }, { }, 
+		function(result, data)
+			channeltimeMultiplier = channeltimeMultiplier * (1 + result)
+		end
+	)
+	return channeltimeModifier, channeltimeMultiplier - 1
 end

@@ -15,7 +15,9 @@ function base_ability:GetBaseCooldown(level)
 end
 
 function base_ability:GetBaseChannelTime()
-    error('Define GetBaseChannelTime() and not GetChannelTime()')
+    if self:GetAbilitySlot() == DOTA_R_SLOT then
+        error('Define GetBaseChannelTime() and not GetChannelTime()')
+    end
 end
 
 function base_ability:GetManaCost(level)
@@ -65,10 +67,11 @@ function base_ability:GetCooldown(level)
 end
 
 function base_ability:GetChannelTime()
-    local hero = self:GetCaster()
-    if hero:HasModifier("modifier_iron_treads_of_destruction") then
-        return 0.03
-    else
-        return self:GetBaseChannelTime()
+    if self:GetAbilitySlot() == DOTA_R_SLOT then
+        local hero = self:GetCaster()
+        local flat = hero:GetModifierStackCount("modifier_r_flat_channeltime_modifier", hero)
+        local pct = hero:GetModifierStackCount("modifier_r_pct_channeltime_modifier", hero)    
+        local channeltime = (self:GetBaseChannelTime() + flat) * (1 + pct / 10000)
+        return math.max(channeltime, 0.03)
     end
 end

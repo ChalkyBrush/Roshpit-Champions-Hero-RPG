@@ -47,7 +47,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_STRENGTH_BONUS,
         MODIFIER_ROSHPIT_AGILITY_BONUS,
         MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
-        MODIFIER_ROSHPIT_SPIRIT_BONUS
+        MODIFIER_ROSHPIT_SPIRIT_BONUS,
+        MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD
     })
 end
 function modifierClass:DeclareFunctions()
@@ -73,6 +74,9 @@ function modifierClass:GetRoshpitIntelligenceBonus()
 end
 function modifierClass:GetRoshpitSpiritBonus()
     return self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE)
+end
+function modifierClass:GetRoshpitRPctChanneltimeModifier()
+    return - ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_PCT_CHANNELTIME_MOD
 end
 function modifierClass:IsHidden()
     return true
