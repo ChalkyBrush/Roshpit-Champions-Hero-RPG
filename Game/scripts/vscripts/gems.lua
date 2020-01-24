@@ -468,6 +468,7 @@ function Gems:SalvageGemsFromitem(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
 	local item = player.salvaging_item
+	local hero = GameState:GetHeroByPlayerID(playerID)
 	if item and IsValidEntity(item) and Gems:CanItemBeSalvaged(item) then
 		local refund = 0
 		local base_gem_values = Gems:GetTotalItemGemCost(item)
@@ -499,7 +500,7 @@ function Gems:SalvageGemsFromitem(msg)
 		RPCItems:ItemUpdateCustomNetTables(item)
 		refund = math.ceil(refund)
 		Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
-		local hero = GameState:GetHeroByPlayerID(playerID)
+		
 		EmitSoundOn("UI.Gemforger.Salvage1", hero)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
 		ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
