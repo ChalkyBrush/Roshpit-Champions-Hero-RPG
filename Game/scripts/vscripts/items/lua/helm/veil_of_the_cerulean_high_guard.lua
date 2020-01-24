@@ -14,7 +14,7 @@ function itemClass:GetClassName()
     return itemClassName
 end
 function itemClass:GetName()
-    return 'Helm of the Iron Colossus'
+    return 'Veil of the Cerulean Highguard'
 end
 function itemClass:GetModifierName()
     return modifierName

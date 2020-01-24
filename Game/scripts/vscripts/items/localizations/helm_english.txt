@@ -448,8 +448,8 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Toggle on for Thorok to have default behaviour"
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
+		"item_property_mask_of_the_phantom_sorcerer"			"Phantom Gaze"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 has <% PHANTOM_SORCERER_BAD %>% more Base Ability Damage and has an extra <% PHANTOM_SORCERER_CD_INCREASE %> seconds added to its cooldown."
 
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Increases [W] Base Ability damage by an additional @ruby_property1% and increases the cooldown penalty by an additional @ruby_property2 seconds"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Increases [W2] Rune by @emerald_property1"

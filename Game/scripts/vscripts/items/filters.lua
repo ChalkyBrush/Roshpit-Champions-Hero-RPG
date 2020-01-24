@@ -422,7 +422,7 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CdFlatModifier = 0
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
             function(result, data)
                 CdFlatModifier = CdFlatModifier + result
             end
@@ -431,7 +431,7 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown + CdFlatModifier
 
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
             end
@@ -445,7 +445,7 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CdFlatModifier = 0
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_MOD }, { }, 
             function(result, data)
                 CdFlatModifier = CdFlatModifier + result
             end
@@ -454,7 +454,7 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown + CdFlatModifier
 
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
             end
@@ -481,7 +481,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         end
     end
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_MOD }, { }, 
             function(result, data)
                 CdFlatModifier = CdFlatModifier + result
             end
@@ -500,7 +500,7 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
 
     
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
             end
@@ -523,7 +523,7 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local CdFlatModifier = 0
 
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
             function(result, data)
                 CdFlatModifier = CdFlatModifier + result
             end
@@ -532,7 +532,7 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = abilityCooldown + CdFlatModifier
 
     if not ability.BaseClass then
-        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_RED }, { }, 
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
             end
@@ -1233,14 +1233,6 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_sacred_trials_armor") then
         Filters:SacredTrialActivate(caster)
     end
-    if caster:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
-        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        local cdRemaining = ability:GetCooldownTimeRemaining()
-        local cd_increase = PHANTOM_SORCERER_CD_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY2)
-        local newCD = math.min(cdRemaining + cd_increase, ability:GetCooldown(ability:GetLevel() - 1) + cd_increase)
-        ability:EndCooldown()
-        ability:StartCooldown(newCD)
-    end
     if caster:HasModifier("modifier_cytopian_laser") then
         Filters:CytopianLaser(caster)
     end
@@ -1915,9 +1907,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_plate_of_the_watcher2") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_SAPPHIRE2)/100
-        end
-        if attacker:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
-            damageMult = damageMult + PHANTOM_SORCERER_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY1)/100
         end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2)/100

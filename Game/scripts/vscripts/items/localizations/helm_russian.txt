@@ -448,8 +448,8 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Активируйте для стандартной схемы поведения миньона."
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 получает <% PHANTOM_SORCERER_BAD %>% Базового Урона Способности, но <% PHANTOM_SORCERER_CD_INCREASE %> дополнительные секунды добавляются к перезарядке способности."
+		"item_property_mask_of_the_phantom_sorcerer"			"Phantom Gaze"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 получает <% PHANTOM_SORCERER_BAD %>% Базового Урона Способности, но <% PHANTOM_SORCERER_CD_INCREASE %> дополнительные секунды добавляются к перезарядке способности."
 
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Увеличивает [W] Базовый Урон Способности на @ruby_property1%, а штраф перезарядки на @ruby_property2 сек"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Увеличивает показатель руны [W2] на @emerald_property1"

@@ -47,7 +47,7 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_E_PCT_CD_RED,
+        MODIFIER_ROSHPIT_E_PCT_CD_MOD,
     })  
     self:StartIntervalThink(1)
 end

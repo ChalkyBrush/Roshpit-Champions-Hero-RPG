@@ -221,8 +221,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"
-		"item_property_phantom_sorcerer"			"幻影凝视"
-		"property_phantom_sorcerer_description"		"@Ability2 伤害提高 <% PHANTOM_SORCERER_BAD %>%，但冷却时间增加<% PHANTOM_SORCERER_CD_INCREASE %>秒。"
+		"item_property_mask_of_the_phantom_sorcerer"			"幻影凝视"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 伤害提高 <% PHANTOM_SORCERER_BAD %>%，但冷却时间增加<% PHANTOM_SORCERER_CD_INCREASE %>秒。"
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"提高 [W] 基础技能伤害 @ruby_property1% 但是提高其冷却时间 @ruby_property2 秒"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"提高 [W2] 符文 @emerald_property1"
 		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "提高 [W1] 符文 @sapphire_property1"

@@ -3885,14 +3885,14 @@ end
 
 function GetQCooldownModifier(caster)
 	local manaCostModifier = 0
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostModifier = manaCostModifier + result
 		end
 	)
 
 	local manaCostMultiplier = 1
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
@@ -3901,14 +3901,14 @@ function GetQCooldownModifier(caster)
 end
 function GetWCooldownModifier(caster)
 	local manaCostModifier = 0
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostModifier = manaCostModifier + result
 		end
 	)
 
 	local manaCostMultiplier = 1
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
@@ -3917,14 +3917,14 @@ function GetWCooldownModifier(caster)
 end
 function GetECooldownModifier(caster)
 	local manaCostModifier = 0
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostModifier = manaCostModifier + result
 		end
 	)
 
 	local manaCostMultiplier = 1
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
@@ -3933,14 +3933,14 @@ function GetECooldownModifier(caster)
 end
 function GetRCooldownModifier(caster)
 	local manaCostModifier = 0
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostModifier = manaCostModifier + result
 		end
 	)
 
 	local manaCostMultiplier = 1
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_RED }, { }, 
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
 		function(result, data)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end

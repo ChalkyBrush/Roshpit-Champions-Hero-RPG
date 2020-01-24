@@ -48,10 +48,10 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_Q_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_W_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_E_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_R_FLAT_CD_RED
+        MODIFIER_ROSHPIT_Q_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_W_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_E_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_R_FLAT_CD_MOD
     })
 end
 function modifierClass:DeclareFunctions()

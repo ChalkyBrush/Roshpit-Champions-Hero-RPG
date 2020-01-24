@@ -1217,33 +1217,6 @@ function RPCItems:RollNecromancerMask(item_level)
     return item
 end
 
-function RPCItems:RollPhantomSorcererMask(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_mask_of_the_phantom_sorcerer", "immortal", "Mask of the Phantom Sorcerer", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_the_phantom_sorcerer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phantom_sorcerer", "#02F21E", 1, "#property_phantom_sorcerer_description")
-
-    local luck = RandomInt(1, 7)
-    if luck < 7 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t3_rune", 1)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollMaskOfTyrius(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7395,8 +7368,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollBlackfeatherCrown(item_level)
     elseif itemName == "item_rpc_super_ascendency_mask" then
         newItem = RPCItems:RollSuperAscendency(item_level)
-    elseif itemName == "item_rpc_mask_of_the_phantom_sorcerer" then
-        newItem = RPCItems:RollPhantomSorcererMask(item_level)
     elseif itemName == "item_rpc_arcane_cascade_hat" then
         newItem = RPCItems:RollArcaneCascadeHat(item_level)
     elseif itemName == "item_rpc_adamantine_samurai_helmet" then
