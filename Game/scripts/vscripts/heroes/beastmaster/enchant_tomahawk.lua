@@ -132,12 +132,19 @@ function tomahawk_ice_dot_think(event)
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		EmitSoundOn("Ability.FrostNova", target)
+		local localKey = 'elemental_warlord_arcana_1_r_2_sound'
+			Util.Common:LimitPerTimeAndPlace(1, 0.5, caster:GetAbsOrigin(), 700, localKey, function()
+			EmitSoundOn("Ability.FrostNova", target)
+		end)
 		damage = damage * WARLORD_ARCANA1_R2_THRESHOLD_MULTIPLIER
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
+				if enemy:HasModifier("modifier_tomahawk_ice_effect") then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tomahawk_ice_effect", {})
+				else
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tomahawk_ice_effect", {duration = 6})
+				end
 			end
 		end
 	end
@@ -215,7 +222,7 @@ function pressure_fireball_impact(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = ability.r_3_level * caster:GetMaxHealth() * 0.1
+	local damage = ability.r_3_level * caster:GetMaxHealth() * WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 
