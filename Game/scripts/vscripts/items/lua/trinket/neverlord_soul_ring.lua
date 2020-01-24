@@ -103,5 +103,4 @@ function modifierClass:OnCastWAbility()
         local pfx = CustomAbilities:QuickAttachParticle("particles/items2_fx/soul_ring.vpcf", hero, 1)
         ParticleManager:SetParticleControl(pfx, 1, Vector(1,1,1))
     end
-
 end
