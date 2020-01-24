@@ -2150,9 +2150,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
 		end
 	end
-	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
-		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
-	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_MAGICAL then
 			armor_pierce_modify = armor_pierce_modify + unit:GetLevel()*ITEM_RPC_TEMPEST_FALCON_RING_PIERCE_PER_LEVEL
@@ -2584,9 +2581,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sapphire_lotus") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_LOTUS_GEM_RUBY)*unit:GetHealth()
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_LOTUS_GEM_AMETHYST)*unit:GetMana()
-	end
-	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
 	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_PHYSICAL then

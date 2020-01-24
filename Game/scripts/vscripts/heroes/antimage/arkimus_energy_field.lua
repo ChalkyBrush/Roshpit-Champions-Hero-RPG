@@ -32,7 +32,7 @@ function arkimus_energy_field:GetTexture()
     return "arkimus/arkimus_energy_field"
 end
 
-function arkimus_energy_field:GetChannelTime()
+function arkimus_energy_field:GetBaseChannelTime()
     return ARKIMUS_R_CHANNEL_TIME
 end
 

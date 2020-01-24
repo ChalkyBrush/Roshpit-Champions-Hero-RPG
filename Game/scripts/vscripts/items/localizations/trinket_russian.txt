@@ -499,7 +499,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
         "item_property_signus"                      "Authority"
-        "property_signus_description"               "Уменьшает перезарядку @Ability4 на <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Увеличивает перезарядку @Ability3 на <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%."
+        "property_signus_description"               "Уменьшает перезарядку @Ability4 на <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%. Увеличивает перезарядку @Ability3 на <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Прочтение [Q] снижает текущую перезарядку [E] на @ruby_property1"
         "item_rpc_signus_charm_emerald1"                                    "Добавляет @emerald_property1 секунд к перезарядке [W]. Снижает перезарядку [Q] на @emerald_property2 сек"

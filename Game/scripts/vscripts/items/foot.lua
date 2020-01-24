@@ -215,8 +215,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "ice_floe" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_ice_floe_slippers", item)
 		RPCItems:PreacheArcanaResources(item)
-	elseif propertyName == "destruction" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_iron_treads_of_destruction", item)
 	elseif propertyName == "pegasus" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_pegasus_boots", item)
 	elseif propertyName == "pivotal" then
@@ -318,7 +316,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_chernobog_arcana2")
 	hero:RemoveModifierByName("modifier_gravelfoot_treads")
 	hero:RemoveModifierByName("modifier_ice_floe_slippers")
-	hero:RemoveModifierByName("modifier_iron_treads_of_destruction")
 	hero:RemoveModifierByName("modifier_conjuror_arcana4")
 	hero:RemoveModifierByName("modifier_slipfinn_arcana1")
 	hero:RemoveModifierByName("modifier_pegasus_boots")

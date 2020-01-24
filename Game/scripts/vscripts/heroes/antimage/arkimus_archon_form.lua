@@ -36,7 +36,7 @@ function arkimus_archon_form:GetTexture()
     return "arkimus/arkimus_archon_form"
 end
 
-function arkimus_archon_form:GetChannelTime()
+function arkimus_archon_form:GetBaseChannelTime()
     return ARKIMUS_ARCANA2_R_CHANNEL_TIME
 end
 

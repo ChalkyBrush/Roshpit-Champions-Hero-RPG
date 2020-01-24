@@ -14,6 +14,10 @@ function base_ability:GetBaseCooldown(level)
     error('Define GetBaseCooldown(level) and not GetCooldown(level)')
 end
 
+function base_ability:GetBaseChannelTime()
+    error('Define GetBaseChannelTime() and not GetChannelTime()')
+end
+
 function base_ability:GetManaCost(level)
     local hero = self:GetCaster()
     local index = self:GetAbilitySlot()
@@ -58,4 +62,13 @@ function base_ability:GetCooldown(level)
 
     local cooldown = (self:GetBaseCooldown(level) + flat) * (1 + pct / 10000)
     return math.max(cooldown, 0)
+end
+
+function base_ability:GetChannelTime()
+    local hero = self:GetCaster()
+    if hero:HasModifier("modifier_iron_treads_of_destruction") then
+        return 0.03
+    else
+        return self:GetBaseChannelTime()
+    end
 end

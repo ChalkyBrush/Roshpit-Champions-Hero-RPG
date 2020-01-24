@@ -1153,11 +1153,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_4", RPC_GEAR_SLOT_BOOTS)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "amethyst", RPC_GEAR_SLOT_BOOTS)
 		end		
 	elseif item:GetAbilityName() == "item_rpc_mana_striders" then
 		if socket_type == "emerald" then
@@ -1490,10 +1485,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SERENGAARD_SUN_CRYSTAL_GEM_AMETHYST, hero, "element_undead", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SERENGAARD_SUN_CRYSTAL_GEM_AMETHYST, hero, "element_dragon", RPC_GEAR_SLOT_TRINKET)
 		end		
-	elseif item:GetAbilityName() == "item_rpc_signus_charm" then	
-		if socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SIGNUS_CHARM_GEM_SAPPHIRE, hero, "base_ability", RPC_GEAR_SLOT_TRINKET)
-		end	
 	elseif item:GetAbilityName() == "item_rpc_sparkling_token_of_oceanis" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)

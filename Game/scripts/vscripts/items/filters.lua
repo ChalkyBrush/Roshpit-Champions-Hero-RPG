@@ -493,9 +493,6 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     if caster:HasModifier("modifier_bear_silencer") then
         CdFlatModifier = CdFlatModifier + 30
     end
-    if caster:HasModifier("modifier_signus_charm") then
-        CdFlatModifier = CdFlatModifier + (baseCD * ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE/100)
-    end
     local abilityCooldown = abilityCooldown + CdFlatModifier
 
     
@@ -831,9 +828,6 @@ function Filters:CastSkillArguments(slot, caster)
             caster:ReduceMana(manaDrain)
         end
     end
-    if caster:HasModifier("modifier_signus_charm") then
-        Filters:SignusCast(slot, caster)
-    end
     if caster:HasModifier("modifier_antique_mana_relic") then
         local mana_drain = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
         caster:ReduceMana(caster:GetMaxMana() * mana_drain/100)
@@ -909,7 +903,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+    if not ability.BaseClass and caster:HasModifier("modifier_iron_treads_of_destruction") then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
@@ -953,11 +947,6 @@ function Filters:BeginRChannel(caster)
         if Runes:ProcsByTotalChance(chance) >= 1 then
             ability:EndCooldown()
         end
-    end
-    if caster:HasModifier("modifier_signus_charm") then
-        ability:EndCooldown()
-        baseCd = baseCd * (100-ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION)/100
-        ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
         StartSoundEvent("RPCItem.BurningSpiritHelm", caster)
@@ -1412,13 +1401,6 @@ function Filters:ApplyRskills(caster)
         local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
         local percentageReduction = ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT/100
         Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
-    end
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
-        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
-            local percentageReduction = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_AMETHYST)/100
-            Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
-        end
     end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
@@ -2026,9 +2008,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_galaxy_orb") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE2)/100
-        end
-        if attacker:HasModifier("modifier_iron_treads_of_destruction") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_RUBY)/100
         end
         if attacker:HasModifier("modifier_violet_boots") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST)/100
@@ -6844,33 +6823,6 @@ function Filters:FortunesTalismanItemProc(caster)
     end
     if talisman:GetGemValue("amethyst") > 0 then
         talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_amethyst_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
-    end
-end
-
-function Filters:SignusCast(slot, caster)
-    if slot == BASE_ABILITY_Q then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SIGNUS_CHARM_GEM_RUBY)
-            local e_ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
-            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce)
-        end
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
-            local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
-        end
-    end
-    if slot == BASE_ABILITY_W then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD1)*-1
-            local w_ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-            Filters:ReduceCooldownGeneric(caster, w_ability, cd_reduce)
-        end
-    end
-    if slot == BASE_ABILITY_E then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
-            caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_signus_charm_amethyst_buff", {duration = ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION})
-        end
     end
 end
 

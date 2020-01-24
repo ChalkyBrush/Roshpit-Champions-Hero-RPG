@@ -144,8 +144,6 @@ function Amulet:action(propertyName, propertyValue, hero, inventory_unit, trinke
 		hero.galaxy_orb = item
 	elseif propertyName == "azure_empire" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_azure_empire", item)
-	elseif propertyName == "signus" then
-		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_signus_charm", item)
 	elseif propertyName == "avernus" then
 		Amulet:addItemModifier(0, hero, inventory_unit, "modifier_eye_of_avernus", item)
 	elseif propertyName == "tome_of_chaos" then

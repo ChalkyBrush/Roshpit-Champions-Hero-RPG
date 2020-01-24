@@ -5212,28 +5212,6 @@ function RPCItems:RollIceFloeSlippers(item_level)
     return item
 end
 
-function RPCItems:RollIronTreadsOfDestruction(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_iron_treads_of_destruction", "immortal", "Iron Treads of Destruction", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_iron_treads_of_destruction"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_iron_treads_of_destruction", "#4259F4", 1, "#property_iron_treads_of_destruction_description")
-
-    local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.75)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.75)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-
 function RPCItems:RollManaStriders(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -6882,26 +6860,6 @@ function RPCItems:RollSunCrystal(item_level)
     return item
 end
 
-function RPCItems:RollSignusCharm(item_level)
-    local item_slot = RPC_GEAR_SLOT_TRINKET
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_signus_charm", "immortal", "Signus Charm", "amulet", true, "Slot: Trinket")
-    item.newItemTable.property1name = "!immortal!_modifier_signus_charm"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_signus", "#ED217D", 1, "#property_signus_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollTokenOfOceanis(item_level)
     local item_slot = RPC_GEAR_SLOT_TRINKET
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7474,8 +7432,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollRingOfNobility(item_level)
     elseif itemName == "item_rpc_azure_empire" then
         newItem = RPCItems:RollAzureEmpire(item_level)
-    elseif itemName == "item_rpc_signus_charm" then
-        newItem = RPCItems:RollSignusCharm(item_level)
     elseif itemName == "item_rpc_eye_of_avernus" then
         newItem = RPCItems:RollEyeOfAvernus(item_level)
     elseif itemName == "item_rpc_twig_of_the_enlightened" then
