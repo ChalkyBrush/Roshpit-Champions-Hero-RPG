@@ -478,6 +478,20 @@
 		"item_rpc_odin_helmet_emerald1"	"Увеличивает дальность потока на @emerald_property1"
 		"item_rpc_odin_helmet_sapphire1" "Увеличивает урон Zantetsuken дополнительно на @sapphire_property1% от урона Способности или Предмета"
 		"item_rpc_odin_helmet_amethyst1" "Увеличивает Базовый Урон Способностей и Урон Предметов на @amethyst_property1%"
+		
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "Rupthold's Helm of Gluttony"
+		"item_property_ruptholds_helm_of_gluttony"					"Undying Gluttony"
+		"property_ruptholds_helm_of_glutton_description"			"Все Атрибуты увеличивают максимальное Здоровье на <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR %>. Регенерация здоровья не может быть выше <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_ALLOWED_HEALTH_REGEN %>, а все получаемое лечение уменьшено на <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_HEALING_REDUCTION_PCT %>%"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"Увеличивает количество Здоровья за каждый Атрибут на @ruby_property1"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"Позволяет регенерировать здоровье до @emerald_property1% от максимального показателя Здоровья"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"Получение смертельного удара обращает весь получаемый урон в лечение на @sapphire_property1 сек. <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN %> перезарядка."
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"Когда показатель здоровья ниже @amethyst_property1% от максимума, всё получаемое лечение увеличивается на <% ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE %>%, а сопротивление Чистому урону повышается на @amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"Undying Gluttony (Sapphire)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"Получаемый урон лечит персонажа, а не отнимает здоровье"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"Undying Gluttony (Sapphire) - Перезарядка"
 
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
