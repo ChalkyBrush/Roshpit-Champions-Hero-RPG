@@ -469,7 +469,7 @@ function Gems:SalvageGemsFromitem(msg)
 	local player = PlayerResource:GetPlayer(playerID)
 	local item = player.salvaging_item
 	local hero = GameState:GetHeroByPlayerID(playerID)
-	if item and IsValidEntity(item) and Gems:CanItemBeSalvaged(item) then
+	if item and IsValidEntity(item) and Gems:CanItemBeSalvaged(item, hero) then
 		local refund = 0
 		local base_gem_values = Gems:GetTotalItemGemCost(item)
 		refund = refund + base_gem_values[1] + base_gem_values[2]
@@ -706,11 +706,12 @@ end
 function Gems:ItemUpForSalvaging(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
 	print("UP FOR FORGING")
 	if player then
 		local item = EntIndexToHScript(msg.itemIndex)
 		print("GO")
-		if Gems:CanItemBeSalvaged(item) then
+		if Gems:CanItemBeSalvaged(item, hero) then
 			print("SALVAGE")
 			local total_gems_value = Gems:GetTotalItemGemCost(item)
 			local regular_premium = 0
@@ -729,15 +730,19 @@ function Gems:ItemUpForSalvaging(msg)
 	end
 end
 
-function Gems:CanItemBeSalvaged(item)
+function Gems:CanItemBeSalvaged(item, hero)
 	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
 		if item:GetAbilityName() == "item_rpc_ring_of_nobility_augmented" then
 			return false
 		else
-			if item.newItemTable.socket1 and item.newItemTable.socket1value > 0 then
-				return true
-			elseif item.newItemTable.socket2 and item.newItemTable.socket2value > 0 then
-				return true
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item or Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
+				if item.newItemTable.socket1 and item.newItemTable.socket1value > 0 then
+					return true
+				elseif item.newItemTable.socket2 and item.newItemTable.socket2value > 0 then
+					return true
+				else
+					return false
+				end
 			else
 				return false
 			end
