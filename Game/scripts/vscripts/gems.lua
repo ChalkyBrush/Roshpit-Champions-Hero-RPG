@@ -481,7 +481,7 @@ function Gems:SalvageGemsFromitem(msg)
 		if web_prem == 1 then
 			tax = tax - Gems.SALVAGE_TAX/2
 		end
-		refund = refund - tax
+		refund = refund* (1 - tax)
 		if item.newItemTable.socket1 and base_gem_values[1] > 0 then
 			if item.newItemTable.socket1 == "open" or item.newItemTable.socket1 == "none" then
 			else
@@ -509,7 +509,6 @@ function Gems:SalvageGemsFromitem(msg)
 		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
-		Gems:ModifyPrismaticGemstones(playerID, refund, "forge_gem", "subtract")
 		if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 			hero:EquipItem(item, true)
 			local save_message = {}
