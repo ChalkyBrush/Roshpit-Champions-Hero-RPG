@@ -61,6 +61,8 @@ function Tutorial:SpawnAllTownNPCs()
 			Events:SpawnCurator(Vector(-320, -1472), Vector(0, -1))
 			Tutorial:BlacksmithSounds()
 			Challenges:SpawnElderRai(Vector(-576, -2368), Vector(0,1))
+			Gems:SpawnGemForger(Vector(-2496, -3456), Vector(-1,1), 0)
+			Gems.GemForger.go_home = 1
 		end)
 		Tutorial.NPCSspawned = true
 	end

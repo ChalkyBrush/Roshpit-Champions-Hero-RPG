@@ -256,8 +256,9 @@ function Gems:SpawnGemForger(position, endFV, gem_reward)
 		Gems.GemForger.entering_pfx = pfx
 		StartAnimation(Gems.GemForger, {duration = 3, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
 		EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
-
-		gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		if gem_reward > 0 then
+			gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		end
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, Gems.GemForger:GetAbsOrigin(), 800, 10, false)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i].gem_reward = gem_reward
