@@ -36746,7 +36746,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "10"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "110"
 			    }
 
 			    "OnAttackLanded"
@@ -37173,7 +37173,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"6"
+				"property_one"				"5"
 			}
 			"02"
 			{
@@ -37354,6 +37354,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"100"
 			}
 		}
 	}
@@ -47744,7 +47749,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"8"
+				"property_two"			"20"
 			}
 			"04"
 			{

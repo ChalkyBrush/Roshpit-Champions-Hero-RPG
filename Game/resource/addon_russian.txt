@@ -2499,14 +2499,14 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Звезды от [R1] создают кристальный взрыв при приземлении, нанося урон и оглушая цели в небольшой области на 0.03 секунды."
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Множитель урона [R1]"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Радиус"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Через две секунды после прочтения @Ability4 вокруг героя образуются еще 7 взрывов, наносящих урон от суммы Атрибутов героя."
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Урон"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "х сумма всех Атрибутов"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Длительность Оглушения"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				" сек"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе (<font color='#ccff66'>1200</font>) последующие 20 секунд. Урон зависит от общей силы атаки героя."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"После успешного применения @Ability4 Astral Ranger призывает космического Феникса, который будет следовать за героем и атаковать врагов в значительном радиусе (<font color='#ccff66'>1200</font>) последующие 20 секунд. Урон зависит от общей силы атаки героя. Одновременно существует только один Феникс."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Урон феникса"
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Урон феникса"
 		"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					" от силы атаки"
@@ -5950,7 +5950,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% от урона героя"
 
   		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] Chilling Edge"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"При попадании по врагу, атаки накладывают замораживающий эффект на 6 секунд, который постоянно наносит урон каждые 0.5 секунды, основанный на атрибутах героя. Дополнительно скорость передвижения врагов снижается на 20%. Если уровень здоровья поражённых целей опускается ниже 30% от максимума (15% для боссов), урон умножается на 10'000 и происходит взрыв, задевающий ближайших врагов и накладывающих замораживающий эффект на них."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Во время @Ability4 обычные атаки будут наносить урон льда врагам в течение 6 секунд, каждые 0.5 секунды и дополнительно снизят скорость передвижения врагов на 20%. Если уровень здоровья поражённых целей опускается ниже <font color='#ccff66'>30</font>% от максимума (<font color='#ccff66'>15</font>% для боссов), урон умножается на <font color='#ccff66'>2</font> и происходит взрыв, задевающий ближайших врагов и накладывающих замораживающий эффект на них."
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"Урон за каждые 0.5 секунды"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x от суммы всех атрибутов"
 
@@ -6202,7 +6202,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"При прочтении @Ability2 теряется 5% макс. маны. героя, при этом урон от этого умения увеличивается в зависимости от количества затраченной маны."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Доп. урон"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% за каждые 100 ед. затраченной маны"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% за каждую ед. затраченной маны"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Стихия: <font color=\"#B5FFB7\">Время</font><br>Герой выпускает перед собой Distortion Orb, искажающий пространство. Повторное использование умения до исчезновения шара переместит Epoch Guardian в точку, где был шар. <br><font color='#6cbfe2'>(W) Genesis Orb</font> нанесёт двойной урон соединенным <font color='#6cbfe2'>(Q) Time Binder</font> врагам. <br>Первое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка нанесёт двойной урон."
@@ -14096,6 +14096,20 @@
 		"item_rpc_odin_helmet_emerald1"	"Увеличивает дальность потока на @emerald_property1"
 		"item_rpc_odin_helmet_sapphire1" "Увеличивает урон Zantetsuken дополнительно на @sapphire_property1% от урона Способности или Предмета"
 		"item_rpc_odin_helmet_amethyst1" "Увеличивает Базовый Урон Способностей и Урон Предметов на @amethyst_property1%"
+		
+		"DOTA_Tooltip_ability_item_rpc_ruptholds_helm_of_gluttony"  "Rupthold's Helm of Gluttony"
+		"item_property_ruptholds_helm_of_gluttony"					"Undying Gluttony"
+		"property_ruptholds_helm_of_glutton_description"			"Все Атрибуты увеличивают максимальное Здоровье на <font color='#ccff66'>15</font>. Регенерация здоровья не может быть выше <font color='#ccff66'>0</font>, а все получаемое лечение уменьшено на <font color='#ccff66'>90</font>%"
+
+		"item_rpc_ruptholds_helm_of_gluttony_ruby1"				"Увеличивает количество Здоровья за каждый Атрибут на @ruby_property1"
+		"item_rpc_ruptholds_helm_of_gluttony_emerald1"			"Позволяет регенерировать здоровье до @emerald_property1% от максимального показателя Здоровья"
+		"item_rpc_ruptholds_helm_of_gluttony_sapphire1"			"Получение смертельного удара обращает весь получаемый урон в лечение на @sapphire_property1 сек. <font color='#ccff66'>20</font> перезарядка."
+		"item_rpc_ruptholds_helm_of_gluttony_amethyst1"			"Когда показатель здоровья ниже @amethyst_property1% от максимума, всё получаемое лечение увеличивается на <font color='#ccff66'>300</font>%, а сопротивление Чистому урону повышается на @amethyst_property2%"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time"			"Undying Gluttony (Sapphire)"
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_Description"	"Получаемый урон лечит персонажа, а не отнимает здоровье"
+
+		"DOTA_Tooltip_modifier_rupthold_borrowed_time_cooldown"			"Undying Gluttony (Sapphire) - Перезарядка"
 
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
