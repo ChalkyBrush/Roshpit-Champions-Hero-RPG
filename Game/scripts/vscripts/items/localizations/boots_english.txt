@@ -121,8 +121,8 @@
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"Reduces cooldown of @Ability4 by <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT %>%."
+		"item_property_boots_of_the_violet_guard"					"Violet Light"
+		"property_boots_of_the_violet_guard_description"			"Reduces cooldown of @Ability4 by <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT * 100 %>%."
 
     	"item_rpc_boots_of_the_violet_guard_ruby1"						"Increases movespeed @ruby_property1 and attack speed by @ruby_property2"
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"

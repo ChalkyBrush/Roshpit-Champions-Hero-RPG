@@ -4386,7 +4386,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/boots_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/boots_of_the_violet_guard" //"boots_of_the_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -4438,14 +4439,14 @@
 		}
 		"Modifiers"
 		{
-			"modifier_violet_boots"
+			"modifier_boots_of_the_violet_guards"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_violet_boot_cooldown"
+			"modifier_boots_of_the_violet_guard_cooldown"
 			{
 				"IsHidden"	"1"
 			}
@@ -4456,7 +4457,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/special_item_effects.lua"
-				"Function"		"violet_boot_impact"
+				"Function"		"boots_of_the_violet_guard_impact"
 				"target"		"TARGET"
 			}
 		}

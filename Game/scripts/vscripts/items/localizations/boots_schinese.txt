@@ -35,8 +35,8 @@
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"增加 @emerald_property1 点敏捷"
 		"item_rpc_boots_of_the_violet_guard_sapphire1"							"增加物理穿透 @sapphire_property1点"
 		"item_rpc_boots_of_the_violet_guard_amethyst1"							"增加 [R] 的基础技能伤害 @amethyst_property1%"
-		"item_property_violet_boot"					"紫罗兰之光"
-		"property_violet_boot_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
+		"item_property_boots_of_the_violet_guard"					"紫罗兰之光"
+		"property_boots_of_the_violet_guard_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"卫士胫甲"
     	"item_rpc_guardian_greaves_ruby1"								"每移动 @ruby_property1 点距离都会触发一次卫士胫甲"

@@ -105,10 +105,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addBasicModifier(foot_ability.attack_damage, hero, inventory_unit, "modifier_foot_attack_damage", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)
-	elseif propertyName == "violet_boots" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_violet_boots", item)
-		item.hero = hero
-		hero.violetBoot = item
 	elseif propertyName == "slinger" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_slinger_boots", item)
 	elseif propertyName == "guardian_greaves" then
@@ -259,8 +255,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_foot_item_damage_inc")
 	hero:RemoveModifierByName("modifier_foot_max_health")
 	hero:RemoveModifierByName("modifier_foot_attack_damage")
-
-	hero:RemoveModifierByName("modifier_violet_boots")
 	hero:RemoveModifierByName("modifier_slinger_boots")
 	hero:RemoveModifierByName("modifier_guardian_greaves")
 	hero:RemoveModifierByName("modifier_tranquil_boots")

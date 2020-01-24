@@ -133,8 +133,8 @@
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"Снижает перезарядку @Ability4 на <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT %>%."
+		"item_property_boots_of_the_violet_guard"					"Violet Light"
+		"property_boots_of_the_violet_guard_description"			"Снижает перезарядку @Ability4 на <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT * 100 %>%."
 
     	"item_rpc_boots_of_the_violet_guard_ruby1"						"Увеличивает Скорость Передвижения на @ruby_property1 и Скорость Атаки на @ruby_property2"
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"Повышает Ловкость на @emerald_property1"

@@ -787,16 +787,6 @@ function phoenix_gloves_think(event)
 	end
 end
 
-function violet_boot_impact(event)
-	local target = event.target
-	local origCaster = event.ability.hero
-	local damage = origCaster:GetAgility() * 20
-	if target.paragon then
-		damage = damage * 60
-	end
-	Filters:ApplyItemDamage(target, origCaster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
-end
-
 function guardian_greaves_think(event)
 	local target = event.target
 	local ability = event.ability

@@ -1394,11 +1394,6 @@ function Filters:ApplyRskills(caster)
     if caster:HasModifier("modifier_plate_of_the_watcher4") then
         Filters:WatcherCast(caster, BASE_ABILITY_R)
     end
-    if caster:HasModifier("modifier_violet_boots") then
-        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        local percentageReduction = ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT/100
-        Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
-    end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
     end
@@ -2005,9 +2000,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_galaxy_orb") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE2)/100
-        end
-        if attacker:HasModifier("modifier_violet_boots") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST)/100
         end
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
@@ -3368,48 +3360,6 @@ function Filters:IsPrimaryAttribute(hero, attr)
     end
 end
 
-function Filters:VioletBoot(caster)
-    if not caster:HasModifier("modifier_violet_boot_cooldown") then
-        caster.violetBoot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_violet_boot_cooldown", {duration = 1})
-        local fv = caster:GetForwardVector()
-        fv = WallPhysics:rotateVector(fv, math.pi)
-        Filters:VioletProjectile(caster, fv)
-        Filters:VioletProjectile(caster, WallPhysics:rotateVector(fv, math.pi / 9))
-        Filters:VioletProjectile(caster, WallPhysics:rotateVector(fv, -math.pi / 9))
-        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Tinker.LaserImpact", caster)
-    end
-end
-
-function Filters:VioletProjectile(caster, fv)
-    local projectileParticle = "particles/econ/items/mirana/mirana_crescent_arrow/violet_boots.vpcf"
-
-    local projectileOrigin = caster:GetAbsOrigin()
-    local start_radius = 160
-    local end_radius = 160
-    local range = 1200
-    local speed = 850
-    local info =
-    {
-        Ability = caster.violetBoot,
-        EffectName = projectileParticle,
-        vSpawnOrigin = projectileOrigin + Vector(0, 0, 200),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = caster,
-        StartPosition = "attach_hitloc",
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 4.0,
-        bDeleteOnHit = false,
-        vVelocity = fv * speed,
-        bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info)
-end
 
 function Filters:SonicBoot(caster)
     local inventoryUnit = caster.InventoryUnit

@@ -4856,26 +4856,6 @@ function RPCItems:RollBootsOfPureWaters(item_level)
     return item
 end
 
-function RPCItems:RollVioletTreads(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_boots_of_the_violet_guard", "immortal", "Boots of the Violet Guard", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_violet_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_boot", "#A337E6", 1, "#property_violet_boot_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2.0)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollCrimsythEliteGreavesLV1(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7332,8 +7312,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollResonantPathfinderBoots(item_level)
     elseif itemName == "item_rpc_neptunes_water_gliders" then
         newItem = RPCItems:RollNeptunesWaterGliders(item_level)
-    elseif itemName == "item_rpc_boots_of_the_violet_guard" then
-        newItem = RPCItems:RollVioletTreads(item_level)
     elseif itemName == "item_rpc_slinger_boots" then
         newItem = RPCItems:SlingerBoots(item_level)
     elseif itemName == "item_rpc_guardian_greaves" then
