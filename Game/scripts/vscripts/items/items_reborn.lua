@@ -716,8 +716,8 @@ function RPCItems:RollGearAttributeValue(item_level, property_type, property_slo
 	else
 		max_value = item_level_consider_for_rolling * multiple
 	end
-	local min_attempt = math.floor((max_value/1.5)/1.35)
-	local max_attempt = math.floor(max_value/1.35)
+	local min_attempt = math.floor((max_value/1.5)/1.2)
+	local max_attempt = math.floor(max_value/1.2)
 	local roll_attempt = RandomInt(min_attempt, max_attempt)
 	local roll = math.max(RPCItems:GetLogarithmicVarianceValue(roll_attempt, 0, 0, 0, 0), 1)
 	roll = math.min(roll, max_value)

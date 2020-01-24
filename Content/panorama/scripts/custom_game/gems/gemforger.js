@@ -59,6 +59,18 @@ function OpenGemforger(msg){
 		forge_gem_step_1(gemforger_main)
 	})
 
+	// salvage
+    var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
+    var salvage_start_panel= $.CreatePanel("Panel", attach_point, "gemforger-start")
+    salvage_start_panel.BLoadLayoutSnippet("gemforger_start_button");
+    salvage_start_panel.FindChildTraverse("gemforger_start_image").SetImage("file://{images}/custom_game/ui/salvage_gems.png")
+    salvage_start_panel.FindChildTraverse('gem_forger_start_label').text = $.Localize("gem_forger_salvage")
+    salvage_start_button = salvage_start_panel.FindChildTraverse('gemforger_start_button_collect')
+	salvage_start_button.SetPanelEvent('onactivate', function Close() {
+		Game.EmitSound("UI.Gemforger.Click")
+		salvage_gems_step_1(gemforger_main)
+	})
+
     mCloseButton = gemforger_main.FindChildTraverse('close_button')
     mCloseButton.FindChildTraverse('close_button_label').text = $.Localize("ui_close")
    
@@ -67,6 +79,34 @@ function OpenGemforger(msg){
 		CloseGemforger();
 	})
 
+}
+
+function salvage_gems_step_1(gemforger_main){
+	var attach_point = gemforger_main.FindChildTraverse('gemforger_attach_contents')
+	attach_point.RemoveAndDeleteChildren(0)
+    var gemforger_item_start = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
+    gemforger_item_start.BLoadLayoutSnippet("forge_gems_start");
+    gemforger_item_start.FindChildTraverse('forge_gems_item_attacher').BLoadLayout( "file://{resources}/layout/custom_game/gems/gemforger_salvage_slot.xml", false, false );    
+    gemforger_item_start.FindChildTraverse('forge_gems_start_tip').text = $.Localize("gemforge_salvage_select_help")
+    var mainParent = GameUI.CustomUIConfig().equipmentContainer;
+    var helmPanel = mainParent.FindChild("helm_main_container").FindChild("helm_container");
+    var chestPanel = mainParent.FindChild("armor_main_container").FindChild("armor_container");
+    var glovePanel = mainParent.FindChild("weapon_glove_main_container").FindChild("glove_container");
+    var bootPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("boot_container");
+    var amuletPanel = mainParent.FindChild("boot_amulet_main_container").FindChild("amulet_container");
+    var weaponPanel = mainParent.FindChild("weapon_glove_main_container").FindChild("weapon_container");
+
+    GameUI.CustomUIConfig().socket = 0;
+    GameUI.CustomUIConfig().chisel = 0;
+    GameUI.CustomUIConfig().gemforge = 0;
+    GameUI.CustomUIConfig().gem_salvage = 1;
+
+    helmPanel.AddClass("chiselable_gear");
+    chestPanel.AddClass("chiselable_gear");
+    glovePanel.AddClass("chiselable_gear");
+    bootPanel.AddClass("chiselable_gear");
+    amuletPanel.AddClass("chiselable_gear");
+    weaponPanel.AddClass("chiselable_gear");
 }
 
 function forge_gem_step_1(gemforger_main){
@@ -86,7 +126,8 @@ function forge_gem_step_1(gemforger_main){
 
     GameUI.CustomUIConfig().socket = 0;
     GameUI.CustomUIConfig().chisel = 0;
-    GameUI.CustomUIConfig().gemforge = 1
+    GameUI.CustomUIConfig().gemforge = 1;
+    GameUI.CustomUIConfig().gem_salvage = 0;
 
     helmPanel.AddClass("chiselable_gear");
     chestPanel.AddClass("chiselable_gear");
@@ -306,6 +347,92 @@ function CloseGemforger(){
 	mTooltipPanel = null
 }
 
+function ItemGemSalvageMenu(msg){
+	var item = msg.item_index
+	clearGearHighlighter()
+	Game.EmitSound("UI.Gemforger.Click")
+	if (msg.success == 0){
+		var parent = $('#gemforger_container')
+		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var gemforger_fail = $.CreatePanel("Panel", attach_point, "gemforger-item-start")
+	    gemforger_fail.BLoadLayoutSnippet("forge_gems_item_fail"); 
+	    gemforger_fail.FindChildTraverse('forge_gems_fail_tip').text = $.Localize("gem_forger_salvage_fail")
+	    var item_panel = gemforger_fail.FindChildTraverse('socket_item_fail')
+        item_panel.contextEntityIndex = item;
+        item_panel.SetAttributeInt("item", item)  
+
+        gemforger_fail.FindChildTraverse('socket_item_name').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ))
+	}else if(msg.success == 1){
+		var parent = $('#gemforger_container')
+		var attach_point = parent.FindChildTraverse('gemforger_attach_contents')
+		attach_point.RemoveAndDeleteChildren(0)
+	    var gemforger_item_main = $.CreatePanel("Panel", attach_point, "gemforger-item-start-main")
+	    gemforger_item_main.BLoadLayoutSnippet("forge_gems_item_main"); 
+
+	    var item_panel = gemforger_item_main.FindChildTraverse('socket_item_main')
+        item_panel.contextEntityIndex = item;
+        item_panel.SetAttributeInt("item", item)  
+
+        gemforger_item_main.FindChildTraverse('socket_item_name_main').text = $.Localize("DOTA_Tooltip_ability_"+Abilities.GetAbilityName( item ));
+        gemforge_item = item
+        manageSocketsWithRoot(item_panel, item)
+        mTooltipPanel = item_panel
+
+        var item_table = CustomNetTables.GetTableValue( "item_basics", item.toString() );
+        var socket_attacher = gemforger_item_main.FindChildTraverse('gemforging_main_socket_attacher')
+
+    	var salvage_main_panel = $.CreatePanel("Panel", socket_attacher, "salvage_main_panel")
+    	salvage_main_panel.BLoadLayoutSnippet('gem_salvage_main')
+    	
+    	if (msg.gems1value > 0){
+    		salvage_main_panel.FindChildTraverse('salvage_gem1').RemoveClass("invisible")
+    		salvage_main_panel.FindChildTraverse('gem_salvage_image_1').SetImage("file://{images}/items/gems/"+item_table.socket1+item_table.socket1value+".png")
+   			var substitution_color = get_gem_color(item_table.socket1)
+    		salvage_main_panel.FindChildTraverse('gem_salvage_name_1').text = "<font color='"+substitution_color+"'>" + $.Localize("gems_"+item_table.socket1+item_table.socket1value) + "</font>"
+    		salvage_main_panel.FindChildTraverse('gem_salvage_value_1').text = msg.gems1value
+    	}
+    	if (msg.gems2value > 0){
+    		salvage_main_panel.FindChildTraverse('salvage_gem2').RemoveClass("invisible")
+    		salvage_main_panel.FindChildTraverse('gem_salvage_image_2').SetImage("file://{images}/items/gems/"+item_table.socket2+item_table.socket2value+".png")
+   			var substitution_color = get_gem_color(item_table.socket2)
+    		salvage_main_panel.FindChildTraverse('gem_salvage_name_2').text = "<font color='"+substitution_color+"'>" + $.Localize("gems_"+item_table.socket2+item_table.socket2value) + "</font>"
+    		salvage_main_panel.FindChildTraverse('gem_salvage_value_2').text = msg.gems2value
+    	}
+
+    	salvage_main_panel.FindChildTraverse('salvage_gems_subtotal').text = msg.gems1value + msg.gems2value
+
+    	var tax = (msg.gems1value + msg.gems2value)*0.08
+    	salvage_main_panel.FindChildTraverse('salvage_gems_tax_value').text = "-"+tax
+
+    	if (msg.regular_premium == 1){
+    		salvage_main_panel.FindChildTraverse('salvage_discount1').RemoveClass('invisible')
+    		var tax_reduction = (msg.gems1value + msg.gems2value)*0.04
+    		salvage_main_panel.FindChildTraverse('salvage_gems_premium_discount').text = "+"+tax_reduction
+    		tax = tax - tax_reduction
+    	}
+    	if (msg.web_prem == 1){
+    		salvage_main_panel.FindChildTraverse('salvage_discount2').RemoveClass('invisible')
+    		var tax_reduction = (msg.gems1value + msg.gems2value)*0.04
+    		salvage_main_panel.FindChildTraverse('salvage_gems_premium_discount_web').text = "+"+tax_reduction
+    		tax = tax - tax_reduction
+    	}
+    	var final_salvage = msg.gems1value + msg.gems2value - tax
+
+    	salvage_main_panel.FindChildTraverse('salvage_gems_final_value').text = final_salvage
+    	salvage_main_panel.FindChildTraverse('gemforger_salvage_image').SetImage("file://{images}/custom_game/ui/prismatic_gemstone.png")
+
+    	var final_salvage_button = salvage_main_panel.FindChildTraverse('gemforger_final_salvage_button')
+
+		final_salvage_button.SetPanelEvent("onactivate", function FinalSalvage() {
+			GameEvents.SendCustomGameEventToServer( "gems", {event_type: "salvage_gems_final", item: item});
+			Game.EmitSound("Gemforger.UI.CollectReward")
+			CloseGemforger()
+		})
+
+	}
+}
+
 function clearGearHighlighter()
 {
 	var mainParent = GameUI.CustomUIConfig().equipmentContainer;
@@ -342,4 +469,5 @@ function ItemHideTooltipInit()
 {
 	GameEvents.Subscribe( "open_gemforger", OpenGemforger );
 	GameEvents.Subscribe( "item_gemforge_menu", ItemGemforgeMenu );
+	GameEvents.Subscribe( "item_gem_salvage_menu", ItemGemSalvageMenu );
 })();
