@@ -477,9 +477,7 @@ function Gems:SalvageGemsFromitem(msg)
 		if GameState:GetPlayerPremiumStatus(playerID) then
 			tax = tax - Gems.SALVAGE_TAX/2
 		end
-		local web_prem = CustomNetTables:GetTableValue("premium_pass", "web-"..tostring(playerID))
-		web_prem = web_prem.premium		
-		if web_prem == 1 then
+		if GameState:IsPlayerWebPremium(playerID) then
 			tax = tax - Gems.SALVAGE_TAX/2
 		end
 		refund = refund* (1 - tax)
@@ -720,8 +718,7 @@ function Gems:ItemUpForSalvaging(msg)
 			end
 			print("-----")
 			DeepPrintTable(total_gems_value)
-			local web_prem = CustomNetTables:GetTableValue("premium_pass", "web-"..tostring(playerID))
-			web_prem = web_prem.premium
+			local web_prem = GameState:PlayerWebPremiumAsInt(playerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "item_gem_salvage_menu", {item_index = item:GetEntityIndex(), success = 1, gems1value = total_gems_value[1], gems2value = total_gems_value[2], regular_premium = regular_premium, web_prem = web_prem})
 			player.salvaging_item = item
 		else

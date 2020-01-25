@@ -27730,7 +27730,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -27740,7 +27740,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-4"
+				"property_two"			"-6"
 			}
 			"04"
 			{

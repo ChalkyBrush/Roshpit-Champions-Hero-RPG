@@ -309,6 +309,30 @@ function GameState:GetPlayerPremiumStatus(playerID)
 	return PlayerResource:HasCustomGameTicketForPlayerID(playerID)
 end
 
+function GameState:IsPlayerWebPremium(playerID)
+	local web_prem = CustomNetTables:GetTableValue("premium_pass", "web-"..tostring(playerID))
+	if web_prem then
+		web_prem = web_prem.premium
+	else
+		web_prem = 0
+	end
+	if web_prem == 1 then
+		return true
+	else
+		return false
+	end
+end
+
+function GameState:PlayerWebPremiumAsInt(playerID)
+	local web_prem = CustomNetTables:GetTableValue("premium_pass", "web-"..tostring(playerID))
+	if web_prem then
+		web_prem = web_prem.premium
+	else
+		web_prem = 0
+	end
+	return web_prem
+end
+
 function GameState:GetPlayerPremiumStatusCount()
 	if GameState.premium_count then
 		return GameState.premium_count
