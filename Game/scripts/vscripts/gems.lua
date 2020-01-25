@@ -758,7 +758,7 @@ function Gems:GetTotalItemGemCost(item)
 	local value1 = 0
 	local value2 = 0
 	if item.newItemTable.socket1 then
-		if item.newItemTable.socket1 == "open" or item.newItemTable.socket1 == "open" then
+		if item.newItemTable.socket1 == "open" or item.newItemTable.socket1 == "none" then
 		else
 			for i = 1, item.newItemTable.socket1value, 1 do
 				value1 = value1 + gems_cost[i+1]
@@ -766,7 +766,7 @@ function Gems:GetTotalItemGemCost(item)
 		end
 	end
 	if item.newItemTable.socket2 then
-		if item.newItemTable.socket2 == "open" or item.newItemTable.socket2 == "open" then
+		if item.newItemTable.socket2 == "open" or item.newItemTable.socket2 == "none" then
 		else
 			for i = 1, item.newItemTable.socket2value, 1 do
 				value2 = value2 + gems_cost[i+1]
