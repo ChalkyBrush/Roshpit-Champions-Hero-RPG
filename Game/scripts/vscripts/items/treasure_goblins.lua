@@ -206,9 +206,14 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 			if socket2_chance <= TreasureGoblins.SOCKET_2_CHANCE then
 				Gems:AddSocket(item)
 				socket_count = socket_count + 1
-			end		
+			end
+			local max_gem_roll = 10000
+			if goblin.tier == "special" then
+				max_gem_roll = 3000
+			end	
 			if socket_count >= 1 then
-				local gem_chance = RandomInt(1, 10000)
+
+				local gem_chance = RandomInt(1, max_gem_roll)
 				if gem_chance < TreasureGoblins.BONUS_GEMS_CHANCES[1] then
 					local random_gem_type = Gems.GEM_TYPES[RandomInt(1, #Gems.GEM_TYPES)]
 					gem1 = random_gem_type
@@ -222,7 +227,7 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 					end
 				end
 				if socket_count >= 2 then
-					local gem_chance = RandomInt(1, 10000)
+					local gem_chance = RandomInt(1, max_gem_roll)
 					if gem_chance < TreasureGoblins.BONUS_GEMS_CHANCES[1] then
 						local random_gem_type = Gems.GEM_TYPES[RandomInt(1, #Gems.GEM_TYPES)]
 						if not random_gem_type == gem1 then
