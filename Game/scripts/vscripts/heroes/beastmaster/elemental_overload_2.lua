@@ -145,7 +145,7 @@ function overload_start(event)
 		local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "warlord")
 		if d_d_level > 0 then
 			local d_d_ability = caster.runeUnit4:FindAbilityByName("warlord_rune_r_4")
-			local d_d_duration = Filters:GetAdjustedBuffDuration(caster, 16, false)
+			local d_d_duration = Filters:GetAdjustedBuffDuration(caster, WARLORD_R4_DURATION, false)
 			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_invisible", {duration = d_d_duration})
 			d_d_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_warlord_rune_r_4_visible", {duration = d_d_duration})
 			caster:SetModifierStackCount("modifier_warlord_rune_r_4_visible", caster.runeUnit4, totalCharges)

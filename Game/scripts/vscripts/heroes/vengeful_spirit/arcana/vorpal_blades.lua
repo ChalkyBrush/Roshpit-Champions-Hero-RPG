@@ -147,7 +147,7 @@ function vorpal_blades_thinking(event)
 						local damage = vorpal.damage
 						if vorpal.w_3_level > 0 then
 							local luck = RandomInt(1, 100)
-							if luck <= 20 then
+							if luck <= SOLUNIA_ARCANA_W3_CRIT_CHANCE then
 								damage = damage + damage*(SOLUNIA_ARCANA_W3_CRIT_DMG/100)*vorpal.w_3_level
 								CustomAbilities:QuickAttachParticle("particles/roshpit/solunia/vorpal_crit_blur.vpcf", vorpal.lock_entity, 3)
 								if caster:HasModifier("modifier_solunia_immortal_weapon_2") then

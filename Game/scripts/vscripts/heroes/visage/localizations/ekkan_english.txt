@@ -52,14 +52,14 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <% EKKAN_Q3_MAX_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <% EKKAN_Q3_MAX_STACKS %> stacks of bonus Damage."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Dark Journey Stacks"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"Harvested the souls of enemies, increasing armor and attack power."
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible"						"Dark Journey Stacks"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible_Description"			"Harvested the souls of enemies, increasing armor and attack power."
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] Grim Alacrity"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"Dominated enemies have increased movespeed and attack speed."
@@ -230,14 +230,14 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <% EKKAN_ARCANA_Q3_MAX_STACKS %> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <% EKKAN_ARCANA_Q3_MAX_STACKS %> stacks for Damage Bonus."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage, Armor and Magic Armor"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible"						"Aphotic Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible_Description"			"Permanently increased Base Attack Damage."	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage %, Armor and Magic Armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
