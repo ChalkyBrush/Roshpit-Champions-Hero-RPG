@@ -2036,7 +2036,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		end
 	end
 	if victim:HasModifier("modifier_overload_damage_resistance") then
-		damage = damage * WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION
+		damage = damage * (100-WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION)/100
 	end
 
 	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
