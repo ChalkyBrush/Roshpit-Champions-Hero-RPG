@@ -102,7 +102,7 @@ function TreasureGoblins:SpawnTreasureGoblin(position)
 			ability:SetLevel(1)
 			ability:ApplyDataDrivenModifier(goblin, goblin, "modifier_dungeon_thinker_creep", {})
 			goblin.aggroSound = "RPCItems.TreasureGoblin.Die"
-
+			goblin:SetForwardVector(RandomVector(1))
 			goblin:AddAbility("treasure_goblin_ability"):SetLevel(1)
 			local goblin_ability = goblin:FindAbilityByName("treasure_goblin_ability")
 
