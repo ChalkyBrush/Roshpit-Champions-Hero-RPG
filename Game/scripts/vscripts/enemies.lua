@@ -304,6 +304,7 @@ function Enemies:InitializeEnemy(unit)
 			ability:SetLevel(difficulty)
 		end
 	end
+	TreasureGoblins:SpawnChance(unit:GetAbsOrigin())
 end
 
 Enemies.WINTERBLIGHT_STONES_BUFFS = {}
