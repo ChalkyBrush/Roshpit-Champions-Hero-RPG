@@ -83,7 +83,7 @@ function TreasureGoblins:SpawnChance(base_position)
 		local max_roll = math.max(1, 2000 - Challenges.units_slain)
 		local luck = RandomInt(1, max_roll)
 		if luck < 5 then
-			local position = base_position + RandomVector(RandomInt(150, 900))
+			local position = base_position + RandomVector(RandomInt(150, 300))
 			TreasureGoblins:SpawnTreasureGoblin(position)
 		end
 	end

@@ -3621,7 +3621,7 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			filterTable["damage"] = 1000000
+			-- filterTable["damage"] = 1000000
 		end
 	end
 
