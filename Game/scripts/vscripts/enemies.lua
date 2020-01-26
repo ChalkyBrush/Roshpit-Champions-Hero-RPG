@@ -304,7 +304,9 @@ function Enemies:InitializeEnemy(unit)
 			ability:SetLevel(difficulty)
 		end
 	end
-	TreasureGoblins:SpawnChance(unit:GetAbsOrigin())
+	if unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
+		TreasureGoblins:SpawnChance(unit:GetAbsOrigin())
+	end
 end
 
 Enemies.WINTERBLIGHT_STONES_BUFFS = {}

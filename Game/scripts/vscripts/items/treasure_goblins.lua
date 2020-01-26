@@ -144,6 +144,7 @@ function TreasureGoblins:SpawnTreasureGoblin(position)
 			end
 			goblin_level = math.min(120, goblin_level)
 			goblin:SetRoshpitLevel(goblin_level)
+			FindClearSpaceForUnit(goblin, goblin:GetAbsOrigin(), false)
 		end)
 	end
 end

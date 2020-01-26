@@ -453,7 +453,9 @@ function Challenges:UnitDiedForCrusader(killedUnit, killerEntity)
 	if not Challenges.units_slain then
 		Challenges.units_slain = 0
 	end
-	Challenges.units_slain = Challenges.units_slain + 1
+	if killedUnit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
+		Challenges.units_slain = Challenges.units_slain + 1
+	end
 	local unitName = killedUnit:GetUnitName()
 	if unitName == "winterblight_living_ice" or unitName == "winterblight_heartfreezer" or unitName == "winterblight_mountain_lord" then
 		Challenges.units_slain = Challenges.units_slain - 1
