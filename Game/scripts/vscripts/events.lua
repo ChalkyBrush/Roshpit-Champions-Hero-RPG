@@ -624,21 +624,23 @@ function GameMode:OnPlayerChat(keys)
 			Gems:CollectReward(msg)
 		end
 	elseif string.match(text, "-map_keys") then
-		local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		local item = CreateItem("item_debug_blink", nil, nil)
-		local drop = CreateItemOnPositionSync(vector, item)
-		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		if GameState:IsRedfallRidge() then
-			Redfall:GiveSpiritRuby(hero, vector)
-			Redfall:GiveVermillionBundle(hero, vector)
-			Redfall:GiveShipyardKey(hero, vector)
-			Redfall:GiveDemonRelic(hero, vector)
-		elseif GameState:IsWinterblight() then
-			for i = 1, 3 do
-				Winterblight:DropGlacierStone(vector)
+		if Beacons.cheats then
+			local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local item = CreateItem("item_debug_blink", nil, nil)
+			local drop = CreateItemOnPositionSync(vector, item)
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			if GameState:IsRedfallRidge() then
+				Redfall:GiveSpiritRuby(hero, vector)
+				Redfall:GiveVermillionBundle(hero, vector)
+				Redfall:GiveShipyardKey(hero, vector)
+				Redfall:GiveDemonRelic(hero, vector)
+			elseif GameState:IsWinterblight() then
+				for i = 1, 3 do
+					Winterblight:DropGlacierStone(vector)
+				end
+			elseif GameState:IsSerengaard() then
+				Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
 			end
-		elseif GameState:IsSerengaard() then
-			Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
 		end
 	elseif string.match(text, "-arc") then
 		if Beacons.cheats then
