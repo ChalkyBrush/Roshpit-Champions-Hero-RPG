@@ -236,7 +236,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for 16 seconds after casting Elemental Overload depending on the number of charges consumed."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for <% WARLORD_R4_DURATION %> seconds after casting Elemental Overload depending on the number of charges consumed."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Attack Damage Per Charge"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 

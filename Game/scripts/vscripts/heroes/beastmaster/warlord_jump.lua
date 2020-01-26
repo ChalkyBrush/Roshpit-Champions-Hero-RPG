@@ -298,7 +298,7 @@ function iceSprintThink(event)
 	position = GetGroundPosition(position, caster)
 
 	local obstruction = WallPhysics:FindNearestObstruction(position)
-	local forwardSpeed = 25
+	local forwardSpeed = WARLORD_E_ICE_SPRINT_FORWARD_SPEED
 	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
 	local newPosition = position + caster:GetForwardVector() * forwardSpeed
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + caster:GetForwardVector() * 95), caster)

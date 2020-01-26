@@ -234,7 +234,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Значение урона увеличено"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на 16 секунд в зависимости от поглощённых зарядов."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на <% WARLORD_R4_DURATION %> секунд в зависимости от поглощённых зарядов."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Доп. урон за каждый поглощённый заряд"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 
