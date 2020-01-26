@@ -1,3 +1,8 @@
+function RPCItems:SocketsChance(item)
+	Gems:AddSocket(item)
+	Gems:AddSocket(item)
+end
+
 function Seafortress:Init()
 	--print("Initialize Sea Fortress")
 	Dungeons.phoenixCollision = true
@@ -1009,6 +1014,29 @@ function GameMode:OnPlayerChat(keys)
 		-- 	RPCItems:RollDuskbringerArcana2(vector)
 		-- end
 	end
+
+	if string.match(text, "-immo") then
+		local strings = string.gmatch(text, "%S+")
+		local command = strings()
+		local name = strings()
+		local level = tonumber(strings(), 10)
+		if not level then
+			level = 1
+		end
+		name = "item_rpc_"..name
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		local item = RPCItems:RollImmortalByName(name, level)
+		Gems:AddSocket(item)
+		Gems:AddSocket(item)
+		RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
+	end
+	if string.match(text, "-arc") and not string.match(text, "-arcanas") then
+		local name = string.gsub(text, "-arc ", "")
+		name = "item_rpc_"..name
+		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, 1))
+	end	
+
 	if string.match(text, "-mp weapon2 stacks") then
 		-- local textToParse = string.gsub(text, "-mp weapon2 stacks", "")
 		-- local finalStacks = tonumber(textToParse)
