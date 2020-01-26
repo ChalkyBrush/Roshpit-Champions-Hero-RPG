@@ -499,7 +499,7 @@ function Gems:SalvageGemsFromitem(msg)
 		end
 		RPCItems:ItemUpdateCustomNetTables(item)
 		refund = math.ceil(refund)
-		Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
+		
 		
 		EmitSoundOn("UI.Gemforger.Salvage1", hero)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
@@ -510,15 +510,18 @@ function Gems:SalvageGemsFromitem(msg)
 		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
-		if hero.equipped_gear[item.newItemTable.gear_slot] == item then
-			hero:EquipItem(item, true)
-			local save_message = {}
-			save_message.playerID = playerID
-			save_message.slot = hero.saveSlot
-			save_message.heroIndex = hero:GetEntityIndex()
-			save_message.ignore_callback = true
-			SaveLoad:SaveCharacter(save_message)
-		end
+		Timers:CreateTimer(1, function()
+			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
+				hero:EquipItem(item, true)
+				local save_message = {}
+				save_message.playerID = playerID
+				save_message.slot = hero.saveSlot
+				save_message.heroIndex = hero:GetEntityIndex()
+				save_message.ignore_callback = true
+				SaveLoad:SaveCharacter(save_message)
+			end
+		end)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
 	end
 end
