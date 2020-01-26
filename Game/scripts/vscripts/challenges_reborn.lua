@@ -12,6 +12,8 @@ if Challenges == nil then
 	Challenges.PureResist = 0
 end
 
+Challenges.units_slain = 0
+
 function Challenges:GetChallengeFromRoshpitServer()
 	if Challenges.main_challenge then
 		return false
