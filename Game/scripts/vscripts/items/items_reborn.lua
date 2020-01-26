@@ -216,10 +216,22 @@ end
 
 function RPCItems:RollRandomItem(unit_level, roll_boost)
 	local item = nil
-	local rarityChance = RandomInt(0+roll_boost, 10000)
+	local random_type_boost = math.floor(roll_boost / 2)
+	local random_type_chance = RandomInt(0 + random_type_boost, 10000)
+	-- print("[RPCItems:RollRandomItem] random_type_chance: "..tostring(random_type_chance))
+	if random_type_chance <= 9960 then
+		print("im too sleepy")
+	elseif random_type_chance <= 9996 then
+		item = RPCItems:RebornGlyph()
+	elseif random_type_chance <= 10000 then
+		item = RPCItems:RebornSpecialItem()
+	end
+	if item then return item end
+
+	local rarityChance = RandomInt(0 + roll_boost, 10000)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	if rarityChance < RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] then
-		rarityChance = math.min(rarityChance + (GameState:GetPlayerPremiumStatusCount()*40), RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL])
+		rarityChance = math.min(rarityChance + (GameState:GetPlayerPremiumStatusCount() * 40), RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL])
 	end
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance >= value and rarity <= key then
@@ -238,12 +250,10 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	end
 	if rarity < 5 and GameMode.VoteSystem.junk_loot_disabled then
 		return
-	end 
+	end
 
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
 
-	local random_type_boost = math.floor(roll_boost/2)
-	local random_type_chance = RandomInt(0+random_type_boost, 10000)
 	if random_type_chance <= 9960 then
 		local random_gear_slot = RandomInt(0, 5)
 		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
@@ -251,10 +261,6 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		else
 			item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
 		end
-	elseif random_type_chance <= 9996 then
-		item = RPCItems:RebornGlyph()
-	elseif random_type_chance <= 10000 then
-		item = RPCItems:RebornSpecialItem()
 	end
 	return item
 end

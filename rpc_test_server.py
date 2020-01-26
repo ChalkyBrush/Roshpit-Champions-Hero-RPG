@@ -16,6 +16,7 @@ filesToCheck = [
   "Game\\scripts\\vscripts\\items\\special_item_effects.lua", 
   "Game\\scripts\\vscripts\\worlds\\tutorial\\tutorial.lua", 
   "Game\\scripts\\vscripts\\worlds\\sea_fortress\\seafortress.lua",
+  "Game\\scripts\\vscripts\\items\\items_reborn.lua",
 ]
 resourceFile = "rpc_test_server_resources.txt"
 
