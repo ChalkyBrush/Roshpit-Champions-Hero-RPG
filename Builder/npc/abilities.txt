@@ -70474,4 +70474,65 @@
 		"LevelsBetweenUpgrades"  "1"
 		"AbilityCastPoint"       "0.0"
 	}
+
+	"treasure_goblin_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"     "rubick_empty1"
+
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+				"Function"		"treasure_goblin_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_treasure_goblin_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+						"Function"		"treasure_goblin_thinker"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+						"Function"		"treasure_goblin_take_damage"
+					}
+				}
+			}
+			"modifier_treasure_goblin_regular"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/courier/courier_beetlejaw/courier_beetlejaw_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_treasure_goblin_special"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/courier/courier_hermit_crab/hermit_crab_aegis_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+		}
+	}
 }

@@ -78,6 +78,7 @@ function Tanari:Debug()
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
+    TreasureGoblins:SpawnTreasureGoblin(Vector(-5528, 2048))
     -- local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_epsilons_eyeglass")
 
     -- helm = Gems:AddSocket(helm)

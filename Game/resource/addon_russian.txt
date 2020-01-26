@@ -5434,14 +5434,14 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону, броне и магической защите. Максимум <font color='#ccff66'>1000</font> зарядов."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"Когда призванный юнит совершает убийство, он получает постоянный бонус к урону, броне и магической защите. Максимум <font color='#ccff66'>1000</font> зарядов Урона."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Доп. урон"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Доп. броня и магическая защита"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Заряды [Q3] Dark Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"Собраны души врагов. Урон и броня увеличены."
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible"						"Заряды [Q3] Dark Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible_Description"			"Собраны души врагов. Урон и броня увеличены."
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] Grim Alacrity"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"Увеличивает скорость атаки и передвижения подчинённых юнитов."
@@ -5612,14 +5612,14 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Теряет часть Брони и Маг. Защиты, а также получает урон каждые 0.5 секунды. В случае смерти с этим эффектом сгенерирует дополнительный труп"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"Враги, умирающие в радиусе 1200 от подчинённого юнита навсегда даруют ему бонус к базовому урону и броне. Максимум <font color='#ccff66'>1000</font> зарядов."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"Враги, умирающие в радиусе 1200 от подчинённого юнита навсегда даруют ему бонус к базовому урону и броне. Максимум <font color='#ccff66'>1000</font> зарядов. Заряды бонуса к броне неограничены."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Бонус к урону"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Бонус к броне"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Навсегда получает бонус к урону и броне"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible"						"Aphotic Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible_Description"			"Навсегда получает бонус к урону. Максимум зарядов для урона - <font color='#ccff66'>1000</font>."	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"Подчинённые юниты распространяют ауру, которая увеличивает урон, магическую защиту и броню другим юнитам из армии и самому Ekkan. Аура пульсирует каждые 5 секунд, с каждым пульсом добавляя 2 заряда щита, позволяющего полностью поглотить урон."
@@ -5885,7 +5885,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на 90%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на <font color='#ccff66'>60</font>%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"ЛЕЧЕНИЕ ЗА ЗАРЯД ЗЕМЛИ:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"ДЛИТЕЛЬНОСТЬ ЩИТА ЗА КАЖДЫЙ ЗАРЯД ЗЕМЛИ:" 
@@ -5895,7 +5895,7 @@
 		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"УРОН ОГНЕННЫХ ШАРОВ:" 
 
 		"DOTA_Tooltip_modifier_overload_damage_resistance"					"Earth Shield"
-		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Входящий урон снижен на 90%"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Входящий урон снижен на <font color='#ccff66'>60</font>%%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Каждую секунду в течении 8 секунд восстанавливает здоровье в размере % от значения регенерации здоровья на момент прочтения (R) Elemental Overload. Дополнительно на время действия в радиусе 1000 все ближайшие враги будут получать урон."
@@ -5924,7 +5924,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Значение урона увеличено"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на 16 секунд в зависимости от поглощённых зарядов."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на <font color='#ccff66'>25</font> секунд в зависимости от поглощённых зарядов."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Доп. урон за каждый поглощённый заряд"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 
@@ -6078,7 +6078,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Увеличивает максимальное количество зарядов Земли, Льда и Огня на <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>30</font>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <font color='#ccff66'>460</font>. Считается Уроном Предметов."
+		"item_rpc_warlord_glyph_7_1_description" 				"Каждая базовая атака становится взрывом, нанося <font color='#ccff66'>90</font>% от урона героя Магическим <font color=\"#EF4126\">Огонь</font>/<font color=\"#87D9FF\">Лёд</font> АОЕ радиусом <font color='#ccff66'>340</font>. Считается Уроном Предметов."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Получаемый урон конвертируется в <font color='#ccff66'>2</font> Заряд(а) Огня. Каждый Заряд Льда увеличивает Пробитие Магической Брони на <font color='#ccff66'>40</font>."
@@ -9168,7 +9168,7 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% от текущей маны" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Лезвия имеют 20% шанс нанести критический удар с увеличенным уроном."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Лезвия имеют <font color='#ccff66'>20</font>% шанс нанести критический удар с увеличенным уроном."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Критический Урон"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 

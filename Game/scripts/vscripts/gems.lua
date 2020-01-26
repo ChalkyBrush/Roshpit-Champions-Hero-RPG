@@ -10,6 +10,8 @@ Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 18
 Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
 Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}
 
+Gems.GEM_TYPES = {"ruby", "emerald", "sapphire", "amethyst"}
+
 function Gems:GemForgerPossibleSpawnEvent(event_name)
 	if Gems.GemForgerSpawned then
 		return false

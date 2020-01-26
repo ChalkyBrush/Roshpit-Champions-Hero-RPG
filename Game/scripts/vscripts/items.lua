@@ -26,6 +26,7 @@ require('heroes/heros_custom')
 require('items/trades')
 require('items/arcanas')
 require('items/synthesis')
+require('items/treasure_goblins')
 require('curator')
 
 --- Wrapper function to Valve's "UTIL_Remove", only referred to items

@@ -5500,14 +5500,14 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <font color='#ccff66'>1000</font> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <font color='#ccff66'>1000</font> stacks of bonus Damage."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Dark Journey Stacks"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"Harvested the souls of enemies, increasing armor and attack power."
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible"						"Dark Journey Stacks"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible_Description"			"Harvested the souls of enemies, increasing armor and attack power."
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] Grim Alacrity"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"Dominated enemies have increased movespeed and attack speed."
@@ -5678,14 +5678,14 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <font color='#ccff66'>1000</font> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <font color='#ccff66'>1000</font> stacks for Damage Bonus."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage, Armor and Magic Armor"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible"						"Aphotic Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible_Description"			"Permanently increased Base Attack Damage."	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage %, Armor and Magic Armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
@@ -5954,7 +5954,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide 90% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide <font color='#ccff66'>60</font>% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"HEAL PER EARTH CHARGE:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"EARTH SHIELD DURATION PER EARTH CHARGE:" 
@@ -5964,7 +5964,7 @@
 		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"FIREBALL DAMAGE:" 
 
 		"DOTA_Tooltip_modifier_overload_damage_resistance"					"Earth Shield"
-		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by 90%"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by <font color='#ccff66'>60</font>%%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take damage each second."
@@ -5993,7 +5993,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for 16 seconds after casting Elemental Overload depending on the number of charges consumed."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for <font color='#ccff66'>25</font> seconds after casting Elemental Overload depending on the number of charges consumed."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Attack Damage Per Charge"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 
@@ -6145,7 +6145,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>30</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>460</font> AOE around main target. Damage is considered as item damage."
+		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>90</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>340</font> AOE around main target. Damage is considered as item damage."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases Spell Pierce <font color='#ccff66'>40</font>."
@@ -9810,12 +9810,12 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana to Solunia when striking an enemy, and deal additional damage based on her current mana."
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restored"
-        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  "per hit" 
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  " per hit" 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a <font color='#ccff66'>20</font>% chance to deal a critical strike."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 

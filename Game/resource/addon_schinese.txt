@@ -6467,7 +6467,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<font color='#ccff66'>5</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] 战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>30</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>90</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>340</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] 生态雕文"
 		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害增加 <font color='#ccff66'>2</font> 火焰能量. 每层寒冰能量增加魔法穿透 <font color='#ccff66'>40</font>."
@@ -9559,7 +9559,7 @@
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3" "[W3] 二元裂隙"
 
-		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得20% 的概率造成致命一击。"
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得<font color='#ccff66'>20</font>% 的概率造成致命一击。"
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one" "致命一击伤害"
 
