@@ -193,13 +193,19 @@
 			}
 			"modifier_ekkan_dominion_stacks_black"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE %>"
 				}
+			}
+			"modifier_ekkan_dominion_stacks_black_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
 			}
 			"modifier_ekkan_d_a_alacrity"
 			{
