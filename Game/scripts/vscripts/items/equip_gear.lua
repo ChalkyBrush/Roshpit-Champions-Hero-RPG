@@ -40,9 +40,6 @@ function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup, bInitial)
 	RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 
 	hero:ApplyGearBonusesByGearSlot(gear_slot)
-	if item.isLuaItem then
-		item:AddSpecialModifiers(hero)
-	end
 	
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(gear_slot), {itemIndex = item:GetEntityIndex()})
 	if bDoPopup then
@@ -263,12 +260,10 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 		elseif string.match(key, "!immortal!") then
+			local modifier_name = key:gsub("!immortal!_", "")
 			if hero.equipped_gear[gear_slot].isLuaItem then
-				--ApplyDataDrivenModifier doesnt work with lua
-				--Modifier is applied in base.lua
-				--Only needed for the immortal property
+				hero:AddNewModifier(inventory_unit, hero.equipped_gear[gear_slot], modifier_name, {})
 			else
-				local modifier_name = key:gsub("!immortal!_", "")
 				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 				RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 			end
@@ -609,12 +604,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_armor_of_secret_temple" then
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BODY)
-		end
-	elseif item:GetAbilityName() == "item_rpc_armor_of_violet_guard" then
-		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BODY)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_BODY)
 		end
 	elseif item:GetAbilityName() == "item_rpc_avalanche_plate" then
 		if socket_type == "emerald" then

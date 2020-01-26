@@ -7554,14 +7554,6 @@ function dragon_ceremony_take_damage(event)
 	end
 end
 
-function enchanted_solar_cape_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	Filters:AddSolarCapeStacks(hero, caster, ability, 1)
-end
-
 function ivory_griffin_init(event)
 	local hero = event.caster.hero
 	local caster = event.caster

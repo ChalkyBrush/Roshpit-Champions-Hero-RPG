@@ -3,30 +3,30 @@ require('npc_abilities/base_modifier')
 
 item_rpc_storm_pacer_sabatons = class(BaseFoot, nil, BaseFoot)
 modifier_storm_pacer_sabatons = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_storm_pacer_sabatons
-local className = 'item_rpc_storm_pacer_sabatons'
+local itemClass = item_rpc_storm_pacer_sabatons
+local itemClassName = 'item_rpc_storm_pacer_sabatons'
 
 local modifierClass = modifier_storm_pacer_sabatons
 local modifierName = 'modifier_storm_pacer_sabatons'
 LinkLuaModifier(modifierName, "items/lua/foot/storm_pacer_sabatons", LUA_MODIFIER_MOTION_NONE)
 
-function class:GetClassName()
-    return className
+function itemClass:GetClassName()
+    return itemClassName
 end
-function class:GetName()
+function itemClass:GetName()
     return 'Pace of storm'
 end
-function class:GetModifierName()
+function itemClass:GetModifierName()
     return modifierName
 end
-function class:RollArmor(item_level)
+function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 2)
 end
-function class:RollMagicArmor(item_level)
+function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1.5)
 end
 
-function class:RollProperty1()
+function itemClass:RollProperty1()
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_storm_pacer_sabatons"
     self:SetSpecialValue("storm_pacer_sabatons", "#8fd8f7")

@@ -1005,10 +1005,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local igneous_helm = modifier:GetAbility()
 		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
 	end
-	if unit:HasModifier("modifier_violet_guard_armor_loss_visible") then
-		local modifier = unit:FindModifierByName("modifier_violet_guard_armor_loss_visible")
-		armor_modify = armor_modify + modifier:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)
-	end
 	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
 		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
 		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
@@ -1647,10 +1643,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_empyreal_magic_armor") then
 		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_empyreal_magic_armor"):GetStackCount()
 	end
-    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
-        magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
-    end
 	if unit:HasModifier("modifier_infused_mageplate") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
@@ -2406,10 +2398,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_empyreal_spell_pierce") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_empyreal_spell_pierce"):GetStackCount()
 	end
-    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
-        spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
-    end
     if unit:HasModifier("modifier_golden_war_plate") then
     	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
 		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)

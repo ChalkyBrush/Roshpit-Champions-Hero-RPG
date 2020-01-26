@@ -16,6 +16,19 @@ function class:SetSpecialTypes(types)
     for _,type in pairs(types) do
         self.specialTypes[type] = true
     end
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
+end
+
+function class:OnRefresh()
+    if IsServer() then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
+end
+function class:OnRemoved()
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
+end
+function class:OnDestroy()
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
 end
 
 function class:CheckOnDamageTaken(event)

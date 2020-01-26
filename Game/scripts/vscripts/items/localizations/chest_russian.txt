@@ -42,17 +42,17 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"Пока щит активен, даёт @sapphire_property1% бонусного урона атаки"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"Прочтение [Q] имеет @amethyst_property1% шанс добавить к действующим зарядам щита 1 заряд (если активен хотя бы один). Максимум <% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS %> зарядов."
 
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
-		"item_property_violet_guard_armor"			"Violet Conqueror"
-		"property_violet_guard_armor_description"	"Уменьшает перезарядку @Ability1 на <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE %>%"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Броня снижена."
+		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"property_armor_of_the_violet_guard_description"	"Уменьшает перезарядку @Ability1 на <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Броня снижена."
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"Противники, пораженные [Q] теряют @ruby_property1 брони на <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> сек."
-		"item_rpc_armor_of_violet_guard_emerald1"							"@emerald_property1 Ловкости"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"Увеличивает Базовый Урон Способности [Q] на @amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"Противники, пораженные [Q] теряют @ruby_property1 брони на <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> сек."
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"@emerald_property1 Ловкости"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"Увеличивает Пробитие Брони на @sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"Увеличивает Базовый Урон Способности [Q] на @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
@@ -197,11 +197,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Каждые <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> сек дает заряд предмета. <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> заменятся на бафф Solar Flare на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> сек. Во время него все способности перезаряжаются <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>% быстрее, скорость каста тоже повышена на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Заряды не накапливаются во время Solar Flare."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>%% уменьшеная перезарядка и на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% ускоренный каст."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+		"item_property_enchanted_solar_cape"				"Solar Flare"
+		"property_enchanted_solar_cape_description"		"Каждые <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> сек дает заряд предмета. <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> заменятся на бафф Solar Flare на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> сек. Во время него все способности перезаряжаются <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>% быстрее, скорость каста тоже повышена на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Заряды не накапливаются во время Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>%% уменьшеная перезарядка и на <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% ускоренный каст."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"Прочтение [R] пока Solar Flare неактивна добавляет @ruby_property1 заряд(а/ов)"
 		"item_rpc_enchanted_solar_cape_emerald1"							"Уменьшает необходимый порог зарядов для активации Solar Flare на @emerald_property1"
@@ -391,14 +391,14 @@
 
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Увеличивает перезарядку способности @Ability1 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Увеличивает перезарядку способности @Ability2 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Увеличивает перезарядку способности @Ability3 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Увеличивает перезарядку способности @Ability4 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+		"item_property_plate_of_the_watcher_one"					"Watcher I"
+		"property_plate_of_the_watcher_one_description"			"Увеличивает перезарядку способности @Ability1 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
+		"item_property_plate_of_the_watcher_two"					"Watcher II"
+		"property_plate_of_the_watcher_two_description"			"Увеличивает перезарядку способности @Ability2 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
+		"item_property_plate_of_the_watcher_three"				"Watcher III"
+		"property_plate_of_the_watcher_three_description"		"Увеличивает перезарядку способности @Ability3 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
+		"item_property_plate_of_the_watcher_four"				"Watcher IV"
+		"property_plate_of_the_watcher_four_description"			"Увеличивает перезарядку способности @Ability4 на <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% и увеличивает её Базовый Урон на <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"Увеличивает перезарядку [Q] на @ruby_property1% и увеличивает её Базовый Урон на @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"Увеличивает перезарядку [E] на @emerald_property1% и увеличивает её Базовый Урон на @emerald_property2%"

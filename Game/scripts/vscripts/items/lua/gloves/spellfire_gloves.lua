@@ -84,7 +84,7 @@ function modifierClass:OnCastQAbility()
     local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
     local ruby_proc = Filters:GetProc(hero, self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY))
     if ruby_proc then
-        modifierClass:SpellfireProc(q_ability, hero, self:GetAbility())
+        SpellfireProc(q_ability, hero, self:GetAbility())
     end
 end
 function modifierClass:OnCastWAbility()
@@ -92,7 +92,7 @@ function modifierClass:OnCastWAbility()
     local w_ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
     local ruby_proc = Filters:GetProc(hero, self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY))
     if ruby_proc then
-        modifierClass:SpellfireProc(w_ability, hero, self:GetAbility())
+        SpellfireProc(w_ability, hero, self:GetAbility())
     end
 end
 function modifierClass:OnCastEAbility()
@@ -100,11 +100,11 @@ function modifierClass:OnCastEAbility()
     local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
     local ruby_proc = Filters:GetProc(hero, self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY))
     if ruby_proc then
-        modifierClass:SpellfireProc(e_ability, hero, self:GetAbility())
+        SpellfireProc(e_ability, hero, self:GetAbility())
     end
 end
 
-function modifierClass:SpellfireProc(ability, hero, item)
+function SpellfireProc(ability, hero, item)
     if not hero:HasModifier("modifier_spellfire_ruby_block") then
         Timers:CreateTimer(ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY, function()
             hero:AddNewModifier(hero.InventoryUnit, item, "modifier_spellfire_ruby_block", {duration = 0.3})

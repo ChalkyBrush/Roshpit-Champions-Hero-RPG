@@ -1,37 +1,37 @@
 require('items/equipment')
 BaseItem = class({})
-local class = BaseItem
+local itemClass = BaseItem
 local normalPropertiesTable = {
     vision = {
         name = '#item_vision_bonus',
         color = '#96D1D9',
     }
 }
-function class:RollProperty1(item_level)
+function itemClass:RollProperty1(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 1, item_level, nil, 1)
 end
-function class:RollProperty2(item_level)
+function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, nil, 1)
 end
-function class:RollProperty3(item_level)
+function itemClass:RollProperty3(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 3, item_level, nil, 1)
 end
-function class:RollProperty4(item_level)
+function itemClass:RollProperty4(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 4, item_level, nil, 1)
 end
-function class:RollArmor(item_level)
+function itemClass:RollArmor(item_level)
     error('Define armor roll')
 end
-function class:RollMagicArmor(item_level)
+function itemClass:RollMagicArmor(item_level)
     error('Define magic armor roll')
 end
-function class:GetAllowedRuneLetters()
+function itemClass:GetAllowedRuneLetters()
     return {'q', 'w', 'e', 'r'}
 end
-function class:GetAllowedRuneTiers()
+function itemClass:GetAllowedRuneTiers()
     return {1, 2}
 end
-function class:RollRuneProperty(slot, rollAmplifiesPerTier)
+function itemClass:RollRuneProperty(slot, rollAmplifiesPerTier)
     local letters = self:GetAllowedRuneLetters()
     local tiers = self:GetAllowedRuneTiers()
 
@@ -52,33 +52,33 @@ function class:RollRuneProperty(slot, rollAmplifiesPerTier)
     self.newItemTable['property' .. slot .. 'name'] = propertyName
     RPCItems:SetPropertyValues(self, self.newItemTable['property' .. slot], "rune", "#7DFF12", slot)
 end
-function class:RollRune(rollAmplify)
+function itemClass:RollRune(rollAmplify)
     local tier, value, propertyName = RPCItems:RollMagebaneRuneProperty()
     return math.ceil(value * rollAmplify)
 end
 
-function class:GetName()
+function itemClass:GetName()
     error('Define item name')
 end
-function class:GetSlotTextShort()
+function itemClass:GetSlotTextShort()
     error('Define slot text short')
 end
-function class:GetSlotText()
+function itemClass:GetSlotText()
     error('Define slot text')
 end
-function class:GetModifierName()
+function itemClass:GetModifierName()
     error('Define modifier name')
 end
-function class:GetClassName()
+function itemClass:GetClassName()
     error('Define class name')
 end
-function class:GetSlotNumber()
+function itemClass:GetSlotNumber()
     error('Define slot number')
 end
-function class:HasRuneSlots()
+function itemClass:HasRuneSlots()
     return false
 end
-function class:CreateLuaItem(item_level)
+function itemClass:CreateLuaItem(item_level)
     self = RPCItems:CreateVariant(self:GetClassName(), "immortal", self:GetName(), self:GetSlotTextShort(), true, self:GetSlotText())
     self.isLuaItem = true
 
@@ -96,7 +96,7 @@ function class:CreateLuaItem(item_level)
     return self
 end
 
-function class:OnSpellStart()
+function itemClass:OnSpellStart()
     local caster = self:GetCaster()
     self.isLuaItem = true
     equip_item({
@@ -104,22 +104,26 @@ function class:OnSpellStart()
         caster = caster,
     })
 end
-function class:OnLoadItem()
+function itemClass:OnLoadItem()
     self.isLuaItem = true
 end
-function class:SetSpecialValue(name, color)
+function itemClass:SetSpecialValue(name, color)
     RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_" .. name, color, 1, "#property_"..name.."_description")
 end
-function class:SetNormalValue(propertyNumber)
+function itemClass:SetSpecialValue(name, color, slot)
+    slot = slot or 1
+    RPCItems:SetPropertyValuesSpecial(self, "★", "#item_property_" .. name, color, slot, "#property_"..name.."_description")
+end
+function itemClass:SetNormalValue(propertyNumber)
     local info = normalPropertiesTable[self.newItemTable["property" .. propertyNumber .. 'name']]
     if info == nil then
         error('property ' .. self.newItemTable["property" .. propertyNumber .. 'name'] .. ' unknown. Add it to table')
     end
     RPCItems:SetPropertyValues(self, self.newItemTable["property" .. propertyNumber], info.name, info.color, propertyNumber)
     end
-function class:AddSpecialModifiers(caster)
+function itemClass:AddSpecialModifiers(caster)
     caster:AddNewModifier(caster, self, self:GetModifierName(), {})
 end
-function class:RemoveSpecialModifiers(caster)
+function itemClass:RemoveSpecialModifiers(caster)
     caster:RemoveModifierByName(self:GetModifierName())
 end

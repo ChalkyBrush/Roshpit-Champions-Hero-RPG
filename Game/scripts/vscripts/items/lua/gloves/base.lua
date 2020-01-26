@@ -1,12 +1,12 @@
 require('items/lua/base')
 BaseGloves = class(BaseItem, nil, BaseItem)
-local class = BaseGloves
-function class:GetSlotTextShort()
+local itemClass = BaseGloves
+function itemClass:GetSlotTextShort()
     return 'feet'
 end
-function class:GetSlotText()
+function itemClass:GetSlotText()
     return 'Slot: Feet'
 end
-function class:GetSlotNumber()
+function itemClass:GetSlotNumber()
     return RPC_GEAR_SLOT_GLOVES
 end

@@ -3,37 +3,37 @@ require('npc_abilities/base_modifier')
 
 item_rpc_boots_of_the_violet_guard = class(BaseFoot, nil, BaseFoot)
 modifier_boots_of_the_violet_guard = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_boots_of_the_violet_guard
-local className = 'item_rpc_boots_of_the_violet_guard'
+local itemClass = item_rpc_boots_of_the_violet_guard
+local itemClassName = 'item_rpc_boots_of_the_violet_guard'
 
 local modifierClass = modifier_boots_of_the_violet_guard
 local modifierName = 'modifier_boots_of_the_violet_guard'
 LinkLuaModifier(modifierName, "items/lua/foot/boots_of_the_violet_guard", LUA_MODIFIER_MOTION_NONE)
 
-function class:GetClassName()
-    return className
+function itemClass:GetClassName()
+    return itemClassName
 end
-function class:GetName()
+function itemClass:GetName()
     return 'boots_of_the_violet_guard'
 end
-function class:GetModifierName()
+function itemClass:GetModifierName()
     return modifierName
 end
-function class:HasRuneSlots()
+function itemClass:HasRuneSlots()
     return true
 end
-function class:RollProperty1(item_level)
+function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_boots_of_the_violet_guard"
     self:SetSpecialValue("boots_of_the_violet_guard", "#A337E6")
 end
-function class:RollProperty2(item_level)
+function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "agility", 2.0)
 end
-function class:RollArmor(item_level)
+function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 1.25)
 end
-function class:RollMagicArmor(item_level)
+function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 2.25)
 end
 function modifierClass:OnCreated()

@@ -3,43 +3,43 @@ require('npc_abilities/base_modifier')
 
 item_rpc_dunetreads = class(BaseFoot, nil, BaseFoot)
 modifier_dunetreads = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_dunetreads
-local className = 'item_rpc_dunetreads'
+local itemClass = item_rpc_dunetreads
+local itemClassName = 'item_rpc_dunetreads'
 
 local modifierClass = modifier_dunetreads
 local modifierName = 'modifier_dunetreads'
 LinkLuaModifier(modifierName, "items/lua/foot/dunetreads", LUA_MODIFIER_MOTION_NONE)
 
-function class:GetClassName()
-    return className
+function itemClass:GetClassName()
+    return itemClassName
 end
-function class:GetName()
+function itemClass:GetName()
     return 'Dunetreads'
 end
-function class:GetModifierName()
+function itemClass:GetModifierName()
     return modifierName
 end
-function class:HasRuneSlots()
+function itemClass:HasRuneSlots()
     return true
 end
-function class:RollProperty1(item_level)
+function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_dunetreads"
     self:SetSpecialValue("dunetreads", "#8A8546")
 end
-function class:RollProperty2(item_level)
+function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, nil, 1.25)
 end
-function class:RollProperty3(item_level)
+function itemClass:RollProperty3(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 3, item_level, nil, 1.25)
 end
-function class:RollProperty4(item_level)
+function itemClass:RollProperty4(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 4, item_level, nil, 1.25)
 end
-function class:RollArmor(item_level)
+function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 1.5)
 end
-function class:RollMagicArmor(item_level)
+function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1.5)
 end
 function modifierClass:OnCreated()
@@ -124,8 +124,4 @@ end
 
 function modifierClass:RemoveOnDeath()
     return false
-end
-
-function modifierClass:GetTexture()
-    return "itemicons/dunetreads"
 end
