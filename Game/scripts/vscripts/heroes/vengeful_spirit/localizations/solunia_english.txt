@@ -310,12 +310,12 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana to Solunia when striking an enemy, and deal additional damage based on her current mana."
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restored"
-        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  "per hit" 
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  " per hit" 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a <% SOLUNIA_ARCANA_W3_CRIT_CHANCE %>% chance to deal a critical strike."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 
