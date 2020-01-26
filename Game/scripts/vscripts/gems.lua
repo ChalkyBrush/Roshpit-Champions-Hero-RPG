@@ -490,7 +490,7 @@ function Gems:SalvageGemsFromitem(msg)
 				item.newItemTable.socket1value = 0
 			end
 		end
-		if item.newItemTable.socket2 and base_gem_values[1] > 0 then
+		if item.newItemTable.socket2 and base_gem_values[2] > 0 then
 			if item.newItemTable.socket2 == "open" or item.newItemTable.socket2 == "none" then
 			else
 				item.newItemTable.socket2 = "open"
@@ -510,7 +510,7 @@ function Gems:SalvageGemsFromitem(msg)
 		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
 		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(0.1, function()
 			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
