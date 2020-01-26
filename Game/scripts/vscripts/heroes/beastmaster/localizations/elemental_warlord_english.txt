@@ -197,7 +197,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide 90% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"HEAL PER EARTH CHARGE:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"EARTH SHIELD DURATION PER EARTH CHARGE:" 
@@ -207,7 +207,7 @@
 		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"FIREBALL DAMAGE:" 
 
 		"DOTA_Tooltip_modifier_overload_damage_resistance"					"Earth Shield"
-		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by 90%"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>%%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take damage each second."

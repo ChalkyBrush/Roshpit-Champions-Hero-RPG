@@ -2034,7 +2034,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"protection_per_earth_charge"	"0.1"
+				"protection_per_earth_charge"	"<% WARLORD_R_EARTH_SHIELD_DURATION_PER_CHARGE %>"
 			}
 			"03"
 			{
