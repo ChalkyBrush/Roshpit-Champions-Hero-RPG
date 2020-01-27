@@ -78,15 +78,24 @@ TreasureGoblins.BONUS_GEMS_CHANCES[3] = 1500
 TreasureGoblins.BONUS_GEMS_CHANCES[4] = 150
 TreasureGoblins.BONUS_GEMS_CHANCES[5] = 1
 
-function TreasureGoblins:SpawnChance(base_position)
-	if TreasureGoblins.SpawnedCount == 0 then
-		local max_roll = math.max(1, 2000 - Challenges.units_slain)
-		local luck = RandomInt(1, max_roll)
-		if luck < 5 then
-			local position = base_position + RandomVector(RandomInt(150, 300))
-			TreasureGoblins:SpawnTreasureGoblin(position)
+function TreasureGoblins:SpawnChance(treasure_unit)
+	Timers:CreateTimer(0.2, function()
+		base_position = treasure_unit:GetAbsOrigin()
+		if TreasureGoblins.SpawnedCount == 0 then
+			local maxRoll = 2000
+			if GameState:IsRPCArena() then
+				maxRoll = 1800
+			end
+			if Challenges.units_slain > 100 then
+				local max_roll = math.max(1, maxRoll - Challenges.units_slain)
+				local luck = RandomInt(1, max_roll)
+				if luck < 5 then
+					local position = base_position + RandomVector(RandomInt(150, 300))
+					TreasureGoblins:SpawnTreasureGoblin(position)
+				end
+			end
 		end
-	end
+	end)
 end
 
 function TreasureGoblins:SpawnTreasureGoblin(position)
@@ -95,7 +104,7 @@ function TreasureGoblins:SpawnTreasureGoblin(position)
 		Timers:CreateTimer(0.05, function()
 			PrecacheUnitByNameAsync("treasure_goblin_"..GetMapName(), function(...) end)
 		end)
-		Timers:CreateTimer(5, function()
+		Timers:CreateTimer(2.5, function()
 			local goblin = CreateUnitByName("treasure_goblin_"..GetMapName(), position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 			goblin:AddAbility("dungeon_creep")	
 			local ability = goblin:FindAbilityByName("dungeon_creep")

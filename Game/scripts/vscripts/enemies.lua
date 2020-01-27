@@ -305,7 +305,7 @@ function Enemies:InitializeEnemy(unit)
 		end
 	end
 	if unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
-		TreasureGoblins:SpawnChance(unit:GetAbsOrigin())
+		TreasureGoblins:SpawnChance(unit)
 	end
 end
 

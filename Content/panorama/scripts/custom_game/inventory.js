@@ -3,7 +3,7 @@
 var m_InventoryPanels = []
 
 // Currently hardcoded: first 6 are inventory, next 6 are stash items
-var DOTA_ITEM_STASH_MIN = 9;
+var DOTA_ITEM_STASH_MIN = 8;
 var DOTA_ITEM_STASH_MAX = 15;
 
 function UpdateInventory()
@@ -39,9 +39,9 @@ function CreateInventoryPanels()
 		if (( i > 2 ) && (i <= 5))
 		{
 			parentPanel = secondRowPanel;
-		}else if(( i > 5 ) && (i <= 9)){
+		}else if(( i > 5 ) && (i <= 8)){
 			parentPanel = thirdRowPanel;
-		}else if (i > 9){
+		}else if (i > 8){
 			parentPanel = stashPanel;
 		}
 
@@ -49,7 +49,7 @@ function CreateInventoryPanels()
 		inventoryPanel.BLoadLayout( "file://{resources}/layout/custom_game/inventory_item.xml", false, false );
 		inventoryPanel.SetItemSlot( i );
 		inventoryPanel.m_inventory_from_slot = i
-		if(( i > 5 ) && (i <= 9)){
+		if(( i > 5 ) && (i <= 8)){
 			inventoryPanel.AddClass("backpack_item")
 		}
 		m_InventoryPanels.push( inventoryPanel );
