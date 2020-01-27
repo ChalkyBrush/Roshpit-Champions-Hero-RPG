@@ -274,8 +274,8 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
       -- if caster:GetRuneValue("r", 2) > 0 then
       --   r_2_quake(damage, ability, caster, caster:GetRuneValue("r", 2), enemy)
       -- end
-      ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
-      enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
+      -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall_a_d_invisible", {duration = 7})
+      -- enemy:SetModifierStackCount("modifier_starfall_a_d_invisible", caster, newStacks*ability.r_1_level)
     end
     local localKey = 'astral_ranger_r_1_sound'
     Util.Common:LimitPerTimeAndPlace(1, 0.1, caster:GetAbsOrigin(), 700, localKey, function()
