@@ -8,7 +8,7 @@ if Challenges == nil then
 	Challenges.BonusHPMult = 1
 	Challenges.SpeedMult = 1
 	Challenges.AttackPowerMult = 1
-	Challenges.BossMult = 1
+	Challenges.BossMult = 0
 	Challenges.PureResist = 0
 end
 
@@ -554,7 +554,7 @@ function Challenges:SetChallengeParameters()
 			Challenges:DisableHeroAbilityInit()
 		elseif mod["mod_type"] == "super_boss" then
 			-- done
-			Challenges.BossMult = 1 + mod["mod_int1"]/100
+			Challenges.BossMult = mod["mod_int1"]/100
 		elseif mod["mod_type"] == "mob_speed" then
 			-- done
 			Challenges.MobSpeed = mod["mod_int1"]
