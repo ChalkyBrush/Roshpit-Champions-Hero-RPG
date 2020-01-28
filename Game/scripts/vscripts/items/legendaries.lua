@@ -5442,32 +5442,6 @@ function RPCItems:RollSteamboots(item_level)
     return item
 end
 
-function RPCItems:RollSwampWaders(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_swamp_waders", "immortal", "Swamp Waders", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_swamp_waders"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swamp_waders", "#658337", 1, "#property_swamp_waders_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "magic_armor", 2)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollTemporalWarpBoots(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7220,8 +7194,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollCrusaderBoots(item_level)
     elseif itemName == "item_rpc_arcanys_slipper" then
         newItem = RPCItems:RollArcanysSlipper(item_level)
-    elseif itemName == "item_rpc_swamp_waders" then
-        newItem = RPCItems:RollSwampWaders(item_level)
     elseif itemName == "item_rpc_admiral_boots" then
         newItem = RPCItems:RollAdmiralBoot(item_level)
     elseif itemName == "item_rpc_rooted_feet" then

@@ -586,7 +586,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/swamp_waders.lua"
 		"AbilityTextureName"	"rpc/swamp_waders" //"swamp_waders"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -654,87 +655,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_swamp_waders"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-<% ITEM_RPC_SWAMP_WADERS_MOVESPEED_LOSS %>"
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_think"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_aura"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_swamp_waders_emerald_in_poison_cloud"
-				"Aura_Radius"   	"<% ITEM_RPC_SWAMP_WADERS_EMERALD_RADIUS %>"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_poison_cloud_aura_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_in_poison_cloud"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "<% ITEM_RPC_SWAMP_WADERS_EMERALD_THINK_INTERVAL %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_in_poison_cloud_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swamp_waders_emerald_poison_cloud_slow"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_enter_poison_cloud"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_cloud_slow"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1" 
-				}
 			}
 		}
 	}

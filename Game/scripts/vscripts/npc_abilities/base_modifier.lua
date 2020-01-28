@@ -16,21 +16,23 @@ function class:SetSpecialTypes(types)
     for _,type in pairs(types) do
         self.specialTypes[type] = true
     end
-    self:GetParent():CalculateAndSaveRoshpitAttributes()
+    if not self:GetParent():GetUnitName() == "npc_dummy_unit" then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
 end
 
 function class:OnRefresh()
-    if IsServer() then
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
         self:GetParent():CalculateAndSaveRoshpitAttributes()
     end
 end
 function class:OnRemoved()
-    if IsServer() then
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
         self:GetParent():CalculateAndSaveRoshpitAttributes()
     end
 end
 function class:OnDestroy()
-    if IsServer() then
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
         self:GetParent():CalculateAndSaveRoshpitAttributes()
     end
 end

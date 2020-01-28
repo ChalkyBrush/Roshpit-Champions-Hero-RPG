@@ -1305,9 +1305,6 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_sonic_boots") then
         Filters:SonicBoot(caster)
     end
-    if caster:HasModifier("modifier_swamp_waders") then
-        Filters:SwampWadersECast(caster)
-    end
     if caster:HasModifier("modifier_sandstream_slippers") then
         Filters:SandstreamECast(caster)
     end
@@ -1941,9 +1938,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         )
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ITEM_RPC_ADMIRAL_BOOTS_BAD_E/100
-        end
-        if attacker:HasModifier("modifier_swamp_waders") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SWAMP_WADERS_GEM_SAPPHIRE)/100
         end
 		if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 			local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
@@ -6388,15 +6382,6 @@ function Filters:ReindexSandstreamsTable(ability)
         end
     end
     ability.sandstorm_table = new_sandstorm_table
-end
-
-function Filters:SwampWadersECast(caster)
-    local ability = Filters:SkillArgumentSlotToHeroAbility(caster, BASE_ABILITY_E)
-    local swamp_waders = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
-    if swamp_waders:GetGemValue("sapphire") > 0 then
-        local percentage_increase = (ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE/100)*-1
-        Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
-    end
 end
 
 function Filters:TimeWarp(caster)
