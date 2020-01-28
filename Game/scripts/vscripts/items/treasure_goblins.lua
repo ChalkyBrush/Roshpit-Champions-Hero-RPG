@@ -74,19 +74,21 @@ TreasureGoblins.SOCKET_2_CHANCE = 50
 TreasureGoblins.BONUS_GEMS_CHANCES = {}
 TreasureGoblins.BONUS_GEMS_CHANCES[1] = 7500
 TreasureGoblins.BONUS_GEMS_CHANCES[2] = 4000
-TreasureGoblins.BONUS_GEMS_CHANCES[3] = 1500
-TreasureGoblins.BONUS_GEMS_CHANCES[4] = 150
+TreasureGoblins.BONUS_GEMS_CHANCES[3] = 1200
+TreasureGoblins.BONUS_GEMS_CHANCES[4] = 70
 TreasureGoblins.BONUS_GEMS_CHANCES[5] = 1
+
+TreasureGoblins.MIN_KILLS_TO_SPAWN = 240
 
 function TreasureGoblins:SpawnChance(treasure_unit)
 	Timers:CreateTimer(0.2, function()
 		base_position = treasure_unit:GetAbsOrigin()
 		if TreasureGoblins.SpawnedCount == 0 then
-			local maxRoll = 2000
+			local maxRoll = 3000
 			if GameState:IsRPCArena() then
-				maxRoll = 1800
+				maxRoll = 2000
 			end
-			if Challenges.units_slain > 100 then
+			if Challenges.units_slain > TreasureGoblins.MIN_KILLS_TO_SPAWN then
 				local max_roll = math.max(1, maxRoll - Challenges.units_slain)
 				local luck = RandomInt(1, max_roll)
 				if luck < 5 then
