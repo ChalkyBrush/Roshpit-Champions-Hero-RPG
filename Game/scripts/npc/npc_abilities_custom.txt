@@ -41462,7 +41462,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -47761,7 +47761,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"8"
 			}
 			"04"
 			{
