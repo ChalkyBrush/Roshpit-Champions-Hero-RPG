@@ -185,8 +185,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_foot_ice", foot_ability)
 	elseif propertyName == "alarana" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_alaranas_ice_boot", item)
-	elseif propertyName == "emerald_speed" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_emerald_speed_runners", item)
 	elseif propertyName == "spirit_warrior_arcana3" then
 		RPCItems:PreacheArcanaResources(item)
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_spirit_warrior_arcana3", item)
@@ -296,7 +294,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_temporal_warp_boots")
 	hero:RemoveModifierByName("modifier_foot_ice")
 	hero:RemoveModifierByName("modifier_alaranas_ice_boot")
-	hero:RemoveModifierByName("modifier_emerald_speed_runners")
 	hero:RemoveModifierByName("modifier_spirit_warrior_arcana3")
 	hero:RemoveModifierByName("modifier_voltex_arcana1")
 	hero:RemoveModifierByName("modifier_red_october_boots")

@@ -3758,87 +3758,83 @@ end
 function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
 	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)
 	if q_ability and q_ability.BaseClass and q_ability:GetLevel() > 0 then
-		local flatCooldownModifier, percentCooldownModifier = GetQCooldownModifier(self)
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetQCooldownModifier(self)
 		if not self:HasModifier("modifier_q_flat_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_flat_cooldown_modifier", {})
 		end
 		if not self:HasModifier("modifier_q_pct_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_pct_cooldown_modifier", {})
 		end
-		if flatCooldownModifier ~= 0 then
-			self:SetModifierStackCount("modifier_q_flat_cooldown_modifier", self, flatCooldownModifier)
-		else
-			self:SetModifierStackCount("modifier_q_flat_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_q_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_min_cooldown_modifier", {})
 		end
-		if percentCooldownModifier ~= 0 then
-			local modifierStacks = math.floor((percentCooldownModifier) * 10000)
-			self:SetModifierStackCount("modifier_q_pct_cooldown_modifier", self, modifierStacks)
-		else
-			self:SetModifierStackCount("modifier_q_pct_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_q_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_max_cooldown_modifier", {})
 		end
+		self:SetModifierStackCount("modifier_q_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_q_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_q_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_q_max_cooldown_modifier", self, cooldownMaxModifier * 100)
 	end
 	local w_ability = self:GetAbilityByIndex(DOTA_W_SLOT)
 	if w_ability and w_ability.BaseClass and w_ability:GetLevel() > 0 then
-		local flatCooldownModifier, percentCooldownModifier = GetWCooldownModifier(self)
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetWCooldownModifier(self)
 		if not self:HasModifier("modifier_w_flat_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_flat_cooldown_modifier", {})
 		end
 		if not self:HasModifier("modifier_w_pct_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_pct_cooldown_modifier", {})
 		end
-		if flatCooldownModifier ~= 0 then
-			self:SetModifierStackCount("modifier_w_flat_cooldown_modifier", self, flatCooldownModifier)
-		else
-			self:SetModifierStackCount("modifier_w_flat_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_w_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_min_cooldown_modifier", {})
 		end
-		if percentCooldownModifier ~= 0 then
-			local modifierStacks = math.floor((percentCooldownModifier) * 10000)
-			self:SetModifierStackCount("modifier_w_pct_cooldown_modifier", self, modifierStacks)
-		else
-			self:SetModifierStackCount("modifier_w_pct_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_w_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_max_cooldown_modifier", {})
 		end
+		self:SetModifierStackCount("modifier_w_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_w_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_w_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_w_max_cooldown_modifier", self, cooldownMaxModifier * 100)
 	end
 	local e_ability = self:GetAbilityByIndex(DOTA_E_SLOT)
 	if e_ability and e_ability.BaseClass and e_ability:GetLevel() > 0 then
-		local flatCooldownModifier, percentCooldownModifier = GetECooldownModifier(self)
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetECooldownModifier(self)
 		if not self:HasModifier("modifier_e_flat_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_flat_cooldown_modifier", {})
 		end
 		if not self:HasModifier("modifier_e_pct_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_pct_cooldown_modifier", {})
 		end
-		if flatCooldownModifier ~= 0 then
-			self:SetModifierStackCount("modifier_e_flat_cooldown_modifier", self, flatCooldownModifier)
-		else
-			self:SetModifierStackCount("modifier_e_flat_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_e_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_min_cooldown_modifier", {})
 		end
-		if percentCooldownModifier ~= 0 then
-			local modifierStacks = math.floor((percentCooldownModifier) * 10000)
-			self:SetModifierStackCount("modifier_e_pct_cooldown_modifier", self, modifierStacks)
-		else
-			self:SetModifierStackCount("modifier_e_pct_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_e_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_max_cooldown_modifier", {})
 		end
+		self:SetModifierStackCount("modifier_e_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_e_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_e_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_e_max_cooldown_modifier", self, cooldownMaxModifier * 100)
 	end
 	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
 	if r_ability and r_ability.BaseClass and r_ability:GetLevel() > 0 then
-		local flatCooldownModifier, percentCooldownModifier = GetRCooldownModifier(self)
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetRCooldownModifier(self)
 		if not self:HasModifier("modifier_r_flat_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_cooldown_modifier", {})
 		end
 		if not self:HasModifier("modifier_r_pct_cooldown_modifier") then
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_cooldown_modifier", {})
 		end
-		if flatCooldownModifier ~= 0 then
-			self:SetModifierStackCount("modifier_r_flat_cooldown_modifier", self, flatCooldownModifier)
-		else
-			self:SetModifierStackCount("modifier_r_flat_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_r_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_min_cooldown_modifier", {})
 		end
-		if percentCooldownModifier ~= 0 then
-			local modifierStacks = math.floor((percentCooldownModifier) * 10000)
-			self:SetModifierStackCount("modifier_r_pct_cooldown_modifier", self, modifierStacks)
-		else
-			self:SetModifierStackCount("modifier_r_pct_cooldown_modifier", self, 0)
+		if not self:HasModifier("modifier_r_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_max_cooldown_modifier", {})
 		end
+		self:SetModifierStackCount("modifier_r_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_r_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_r_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_r_max_cooldown_modifier", self, cooldownMaxModifier * 100)
 	end
 end
 
@@ -3891,68 +3887,128 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
 end
 
 function GetQCooldownModifier(caster)
-	local manaCostModifier = 0
+	local cooldownFlatModifier = 0
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostModifier = manaCostModifier + result
+			cooldownFlatModifier = cooldownFlatModifier + result
 		end
 	)
 
-	local manaCostMultiplier = 1
+	local cooldownPctModifier = 1
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostMultiplier = manaCostMultiplier * (1 + result)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+
+	local cooldownMinModifier = GLOBAL_Q_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_Q_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMaxCdModifier', { MODIFIER_ROSHPIT_Q_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
 end
 function GetWCooldownModifier(caster)
-	local manaCostModifier = 0
+	local cooldownFlatModifier = 0
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostModifier = manaCostModifier + result
+			cooldownFlatModifier = cooldownFlatModifier + result
 		end
 	)
 
-	local manaCostMultiplier = 1
+	local cooldownPctModifier = 1
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostMultiplier = manaCostMultiplier * (1 + result)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+
+	local cooldownMinModifier = GLOBAL_W_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_W_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMaxCdModifier', { MODIFIER_ROSHPIT_W_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
 end
 function GetECooldownModifier(caster)
-	local manaCostModifier = 0
+	local cooldownFlatModifier = 0
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostModifier = manaCostModifier + result
+			cooldownFlatModifier = cooldownFlatModifier + result
 		end
 	)
 
-	local manaCostMultiplier = 1
+	local cooldownPctModifier = 1
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_MOD }, { }, 
 		function(result, data)
-			manaCostMultiplier = manaCostMultiplier * (1 + result)
-		end
-	)
-	return manaCostModifier, manaCostMultiplier - 1
-end
-function GetRCooldownModifier(caster)
-	local manaCostModifier = 0
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
-		function(result, data)
-			manaCostModifier = manaCostModifier + result
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
 		end
 	)
 
-	local manaCostMultiplier = 1
-	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
+	local cooldownMinModifier = GLOBAL_E_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
 		function(result, data)
-			manaCostMultiplier = manaCostMultiplier * (1 + result)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+
+	local cooldownMaxModifier = GLOBAL_E_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMaxCdModifier', { MODIFIER_ROSHPIT_E_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
+end
+function GetRCooldownModifier(caster)
+	local cooldownFlatModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownFlatModifier = cooldownFlatModifier + result
+		end
+	)
+
+	local cooldownPctModifier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
+		end
+	)
+
+	local cooldownMinModifier = GLOBAL_R_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_R_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMaxCdModifier', { MODIFIER_ROSHPIT_R_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
 end
 function GetQManaCostModifier(caster)
 	local manaCostModifier = 0
@@ -3968,7 +4024,7 @@ function GetQManaCostModifier(caster)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+	return manaCostModifier, manaCostMultiplier
 end
 function GetWManaCostModifier(caster)
 	local manaCostModifier = 0
@@ -3984,7 +4040,7 @@ function GetWManaCostModifier(caster)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+	return manaCostModifier, manaCostMultiplier
 end
 function GetEManaCostModifier(caster)
 	local manaCostModifier = 0
@@ -4000,7 +4056,7 @@ function GetEManaCostModifier(caster)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+	return manaCostModifier, manaCostMultiplier
 end
 function GetRManaCostModifier(caster)
 	local manaCostModifier = 0
@@ -4016,7 +4072,7 @@ function GetRManaCostModifier(caster)
 			manaCostMultiplier = manaCostMultiplier * (1 + result)
 		end
 	)
-	return manaCostModifier, manaCostMultiplier - 1
+	return manaCostModifier, manaCostMultiplier
 end
 function GetRChanneltimeModifier(caster)
 	local channeltimeModifier = 0
@@ -4032,5 +4088,5 @@ function GetRChanneltimeModifier(caster)
 			channeltimeMultiplier = channeltimeMultiplier * (1 + result)
 		end
 	)
-	return channeltimeModifier, channeltimeMultiplier - 1
+	return channeltimeModifier, channeltimeMultiplier
 end

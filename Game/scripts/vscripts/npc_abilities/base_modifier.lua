@@ -25,10 +25,14 @@ function class:OnRefresh()
     end
 end
 function class:OnRemoved()
-    self:GetParent():CalculateAndSaveRoshpitAttributes()
+    if IsServer() then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
 end
 function class:OnDestroy()
-    self:GetParent():CalculateAndSaveRoshpitAttributes()
+    if IsServer() then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
 end
 
 function class:CheckOnDamageTaken(event)

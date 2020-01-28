@@ -11,11 +11,6 @@ function cast(event)
 	StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.3})
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 
-	if caster:HasModifier("modifier_venomort_glyph_1_1") then
-		ability:EndCooldown()
-		ability:StartCooldown(VENOMORT_GLYPH_1_1_COOLDOWN)
-	end
-
 	local q1_level = caster:GetRuneValue("q", 1)
 	local q1_duration = VENOMORT_Q1_DURATION
 

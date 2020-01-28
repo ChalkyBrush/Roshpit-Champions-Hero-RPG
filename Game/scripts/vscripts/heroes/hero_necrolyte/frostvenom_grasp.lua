@@ -17,10 +17,6 @@ function frostvenom_grasp_start(event)
 	if not event.amp then
 		event.amp = 1
 	end
-	if caster:HasModifier("modifier_venomort_glyph_1_1") then
-		ability:EndCooldown()
-		ability:StartCooldown(VENOMORT_GLYPH_1_1_COOLDOWN)
-	end
 	local damage = event.damage * event.amp
 	EmitSoundOn("Venomort.FrostVenomGrasp.Cast", caster)
 	local q_1_level = caster:GetRuneValue("q", 1)

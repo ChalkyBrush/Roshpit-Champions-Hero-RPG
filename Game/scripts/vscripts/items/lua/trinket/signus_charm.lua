@@ -40,6 +40,7 @@ function itemClass:RollMagicArmor(item_level)
 end
 function modifierClass:OnCreated()
     self:SetSpecialTypes({
+        MODIFIER_ROSHPIT_Q_MIN_CD_MOD,
         MODIFIER_ROSHPIT_Q_FLAT_CD_MOD,
         MODIFIER_ROSHPIT_W_FLAT_CD_MOD,
         MODIFIER_ROSHPIT_E_PCT_CD_MOD,
@@ -64,19 +65,14 @@ function modifierClass:IsHidden()
 end
 
 function modifierClass:GetRoshpitQFlatCdModifier()
-    local hero = self:GetParent()
-    local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-    local cooldownReduction = self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
-    if not q_ability.BaseClass then
-        if q_ability:GetCooldown(-1) - cooldownReduction < ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD then
-            cooldownReduction = q_ability:GetCooldown(-1) - ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD
-        end
+    return - self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
+end
+function modifierClass:GetRoshpitQMinCdModifier()
+    if self:GetAbility():GetGemValue("emerald") > 0 then
+        return ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD
     else
-        if q_ability:GetBaseCooldown(-1) - cooldownReduction < ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD then
-            cooldownReduction = q_ability:GetBaseCooldown(-1) - ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD
-        end
+        return nil
     end
-    return - cooldownReduction
 end
 function modifierClass:GetRoshpitWFlatCdModifier()
     return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD1)

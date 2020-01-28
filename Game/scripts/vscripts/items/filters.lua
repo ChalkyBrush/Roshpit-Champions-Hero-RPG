@@ -417,6 +417,9 @@ end
 function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CdFlatModifier = 0
+    if caster:HasModifier("modifier_venomort_glyph_1_1") then
+        abilityCooldown = VENOMORT_GLYPH_1_1_COOLDOWN
+	end
     if not ability.BaseClass then
         Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
             function(result, data)
@@ -425,11 +428,22 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
         )
     end
     local abilityCooldown = abilityCooldown + CdFlatModifier
-
     if not ability.BaseClass then
         Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMaxCdModifier', { MODIFIER_ROSHPIT_Q_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
             end
         )
     end
@@ -453,6 +467,18 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
         Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMaxCdModifier', { MODIFIER_ROSHPIT_W_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
             end
         )
     end
@@ -498,15 +524,26 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
                 abilityCooldown = abilityCooldown * (1 + result)
             end
         )
+    end    
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMaxCdModifier', { MODIFIER_ROSHPIT_E_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
+            end
+        )
     end
     if caster:HasModifier("modifier_bloodstone_boots") then
         if Filters:IsAtBloodstoneThreshold(caster) then
             abilityCooldown = ITEM_RPC_BLOODSTONE_BOOTS_E_CD
         end
     end
-    if abilityCooldown < 0.1 then
-        abilityCooldown = 0.1
-    end
+
+    abilityCooldown = math.max(abilityCooldown, 0.1)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
@@ -528,6 +565,18 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
         Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
             function(result, data)
                 abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMaxCdModifier', { MODIFIER_ROSHPIT_R_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
             end
         )
     end
