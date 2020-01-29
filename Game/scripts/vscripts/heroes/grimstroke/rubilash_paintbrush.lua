@@ -1,6 +1,13 @@
+require('heroes/grimstroke/rubilash_w_ability')
+require('heroes/grimstroke/rubilash_self_portrait')
+
 function paintbrush_phase_start(event)
 	local caster = event.caster
 	local ability = event.ability
+	if event.illusion then
+		local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
+		caster = illusion_ability.illusion
+	end
 	StartSoundEvent("Rubilash.Paintbrush.Pre", caster)
 end
 
@@ -13,21 +20,32 @@ end
 function start_paintbrush(event)
 	local caster = event.caster
 	local ability = event.ability
-	EmitSoundOn("Rubilash.Paintbrush.Cast.Highlight", caster)
-	EmitSoundOn("Rubilash.Paintbrush.Cast.Inky", caster)
-    local fv = ((event.target_points[1] - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-    local spellOrigin = caster:GetAbsOrigin()
+
+	local actual_event_caster = caster
+	if event.illusion then
+		local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
+		actual_event_caster = illusion_ability.illusion
+		local facing_vector = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		actual_event_caster:MoveToPosition(actual_event_caster:GetAbsOrigin() + facing_vector)
+	else
+		ability.caster = caster
+	end
+
+	EmitSoundOn("Rubilash.Paintbrush.Cast.Highlight", actual_event_caster)
+	EmitSoundOn("Rubilash.Paintbrush.Cast.Inky", actual_event_caster)
+    local fv = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local spellOrigin = actual_event_caster:GetAbsOrigin()
     local range = 1500
     local speed = 3000
     local info =
     {
         Ability = ability,
-        EffectName = "particles/roshpit/rubilash/paintbrush_proj_"..caster.color..".vpcf",
+        EffectName = "particles/roshpit/rubilash/paintbrush_proj_"..actual_event_caster.color..".vpcf",
         vSpawnOrigin = spellOrigin,
         fDistance = range,
-        fStartRadius = 220,
-        fEndRadius = 220,
-        Source = caster,
+        fStartRadius = 150,
+        fEndRadius = 150,
+        Source = actual_event_caster,
         StartPosition = "attach_brush_end",
         bHasFrontalCone = false,
         bReplaceExisting = false,
@@ -43,8 +61,33 @@ function start_paintbrush(event)
     }
     ProjectileManager:CreateLinearProjectile(info)
 
-    CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/rubilash_cast_"..caster.color.."_blur.vpcf", caster, 3)
+    CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/rubilash_cast_"..actual_event_caster.color.."_blur.vpcf", actual_event_caster, 3)
     Timers:CreateTimer((range/speed)/2, function()
     	AddFOWViewer(caster:GetTeamNumber(), spellOrigin+fv*range, 300, 1.5, false)
     end)
+	if not actual_event_caster:HasModifier("modifier_rubilash_illusion_base") then
+		local illusion_cast_table = event
+		illusion_cast_table.illusion = true
+		local delay = get_rubilash_portrait_delay_time(actual_event_caster)
+		Timers:CreateTimer(delay, function()
+			local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
+			if illusion_ability.illusion and IsValidEntity(illusion_ability.illusion) and illusion_ability.illusion:IsAlive() and not illusion_ability.illusion:IsStunned() then
+				StartAnimation(illusion_ability.illusion, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1})
+				paintbrush_phase_start(illusion_cast_table)
+				Timers:CreateTimer(ability:GetCastPoint(), function()
+					if illusion_ability.illusion and IsValidEntity(illusion_ability.illusion) and illusion_ability.illusion:IsAlive() and not illusion_ability.illusion:IsStunned() then
+						start_paintbrush(illusion_cast_table)
+					end
+				end)
+			end
+		end)
+	end
+end
+
+function paintbrush_impact(event)
+	local caster = event.ability.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 end
