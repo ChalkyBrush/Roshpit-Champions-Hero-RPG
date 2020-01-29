@@ -1688,9 +1688,9 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_grimstroke"
-		"Ability1"	"rubilash_paint"
+		"Ability1"	"rubilash_paintbrush"
 		"Ability2"	"rubilash_w_ability"
-		"Ability3"	""
+		"Ability3"	"rubilash_ink_splatter"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
 		"Ability6"	"rubilash_self_portrait"

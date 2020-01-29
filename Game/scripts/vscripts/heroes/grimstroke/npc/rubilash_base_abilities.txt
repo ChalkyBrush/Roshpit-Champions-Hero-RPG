@@ -1,4 +1,4 @@
-	"rubilash_paint"
+	"rubilash_paintbrush"
 	{
 		// General
 		//-------------------------------------------------------
@@ -11,6 +11,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"precache"
 		{
 
@@ -21,11 +22,11 @@
 		//-------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.8"
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2.5"
+		"AbilityCooldown"				"3"
 
 		// Cost
 		//-------------------------------------------------------
@@ -46,14 +47,30 @@
 				"stun_duration"			"0.5"
 			}
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
-	    		"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
-	    		"Function"		"prepareAxeLaunch"
-	    		"type"			"earth"
-	    		"stun_duration"		"%duration"
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
 	    		"Target"		"POINT"
 			}
 		}
@@ -62,11 +79,10 @@
 			"DeleteOnHit"	"1"
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/beastmaster/warlord_axe_throw"
-				"Function"		"earthAxeStrike"
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
 				"target"		"TARGET"
 				"damage"		"%damage"
-				"stun_duration"	"%stun_duration"
 			}
 		}
 		"Modifiers"
@@ -148,6 +164,93 @@
 			}
 		}
 	}
+
+	"rubilash_ink_splatter"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"grimstroke_ink_swell"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"60 360 660 960 1260 1560 1860"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.5"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+		}
+	}
+
 
 	"rubilash_self_portrait"
     {
