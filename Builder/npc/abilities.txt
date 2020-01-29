@@ -5,6 +5,9 @@
 "DOTAAbilities"
 {
 	//hero section
+	##RUBILASH_BASE_ABILITIES##
+	##RUBILASH_BASE_RUNES##
+
 	##OMNIRO_BASE_ABILITIES##
 	##OMNIRO_BASE_RUNES##
 
