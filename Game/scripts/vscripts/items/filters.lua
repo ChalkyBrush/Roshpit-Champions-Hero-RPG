@@ -607,6 +607,9 @@ function Filters:ApplyStun(caster, duration, target)
     if target:HasModifier("modifier_stun_immune") or target:HasModifier("modifier_recently_respawned") then
         duration = 0
     end
+    if target:HasModifier("modifier_treasure_goblin_passive") then
+        duration = duration * 0.1
+    end
     if caster:HasModifier("modifier_mountain_protector_glyph_1_1") then
         local glyph_ability = caster:FindModifierByName("modifier_mountain_protector_glyph_1_1"):GetAbility()
         glyph_ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_glyph_1_1_cant_heal", {duration = duration})
