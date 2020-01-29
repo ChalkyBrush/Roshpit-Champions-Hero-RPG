@@ -304,32 +304,39 @@ function Challenges:PanoramaInput(msg)
 		end
 		Challenges:SetChallengeParameters()
 	elseif msg.event_type == "purchase_exp_orb" then
-		local item = nil
 		local playerID = msg.PlayerID
-		local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
-		local amount = 20000
-		if msg.action == "exp-orb-1" then
-			amount = 20000
-			if mithril >= amount then
-				item = Challenges:CreateEXPOrb()
-			else
-				return false
-			end
-		elseif msg.action == "exp-orb-2" then
-			amount = 300000
-			if mithril >= amount then
-				item = Challenges:CreateGreaterEXPOrb()
-			else
-				return false
-			end
-		end
 		local hero = GameState:GetHeroByPlayerID(playerID)
-		local cost = amount*-1
-		Challenges:ModifyMithril(cost, hero, "exp-orb")
-		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
-		CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
-		EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
-		StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
+		if not hero.exp_orb_lock then
+			local item = nil
+			local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
+			local amount = 20000
+			if msg.action == "exp-orb-1" then
+				amount = 20000
+				if mithril >= amount then
+					item = Challenges:CreateEXPOrb()
+				else
+					return false
+				end
+			elseif msg.action == "exp-orb-2" then
+				amount = 300000
+				if mithril >= amount then
+					item = Challenges:CreateGreaterEXPOrb()
+				else
+					return false
+				end
+			end
+			
+			local cost = amount*-1
+			Challenges:ModifyMithril(cost, hero, "exp-orb")
+			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
+			CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
+			EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
+			StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
+			hero.exp_orb_lock = true
+			Timers:CreateTimer(2, function()
+				hero.exp_orb_lock = false
+			end)
+		end
 	elseif msg.event_type == "refine_inventory_gemstones" then
 		local playerID = msg.PlayerID
 		local amount = 0

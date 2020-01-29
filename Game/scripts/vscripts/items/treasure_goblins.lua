@@ -68,7 +68,7 @@ TreasureGoblins.SPECIAL_GOBLIN_LEVEL_BOOST = 25
 
 TreasureGoblins.ARCANA_CHANCE = 1
 
-TreasureGoblins.SOCKET_1_CHANCE = 80
+TreasureGoblins.SOCKET_1_CHANCE = 75
 TreasureGoblins.SOCKET_2_CHANCE = 50
 
 TreasureGoblins.BONUS_GEMS_CHANCES = {}
@@ -131,7 +131,7 @@ function TreasureGoblins:SpawnTreasureGoblin(position)
 			goblin:SetModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
 			goblin:SetOriginalModel(TreasureGoblins.Data[GetMapName()][goblin.tier]["model"])
 			goblin:SetModelScale(TreasureGoblins.Data[GetMapName()][goblin.tier]["scale"])
-			goblin.item_drops = RandomInt(6, 8)
+			goblin.item_drops = RandomInt(4, 6)
 
 			local goblin_health = TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["health"]
 			if goblin.tier == "special" then
@@ -180,7 +180,7 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 	local item = nil
 	local item_level = RPCItems:RollItemLevelFromUnit(goblin:GetRoshpitLevel())
 	if goblin.tier == "special" then
-		item_level = math.min(item_level + 12, RPCItems.MAX_ITEM_LEVEL)
+		item_level = math.min(item_level + 10, RPCItems.MAX_ITEM_LEVEL)
 	end
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	while item_slot == RPC_GEAR_SLOT_WEAPON do
@@ -264,7 +264,7 @@ end
 
 function TreasureGoblins:TreasureGoblinDie(goblin)
 	local remaining_drops = goblin.item_drops
-	local death_drops_extra = RandomInt(2, 4+GameState:GetPlayerPremiumStatusCount())
+	local death_drops_extra = RandomInt(2, 3+GameState:GetPlayerPremiumStatusCount())
 	if goblin.tier == "special" then
 		death_drops_extra = death_drops_extra*2
 	end
