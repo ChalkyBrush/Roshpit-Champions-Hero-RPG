@@ -26,12 +26,55 @@ function rubilash_init(event)
 	toggle_rubilash_color(caster)
 end
 
-function rubilash_w_cast(event)
+function rubilash_ink_blot_phase(event)
+	local caster = event.caster
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.6})
+	EmitSoundOn("Rubilash.InkBlot.Throw", caster)
+end
+
+function rubilash_ink_blot(event)
 	local caster = event.caster
 	local ability = event.ability
+	local point = event.target_points[1]
+    local fv = ((point - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+    local spellOrigin = caster:GetAbsOrigin()
+    local range = WallPhysics:GetDistance2d(spellOrigin, point)
+    local speed = 1600
+    print("IN HERE?")
+    local info =
+    {
+        Ability = ability,
+        EffectName = "particles/roshpit/rubilash/ink_blot_"..caster.color..".vpcf",
+        vSpawnOrigin = spellOrigin + Vector(0,0,140),
+        fDistance = range,
+        fStartRadius = 220,
+        fEndRadius = 220,
+        Source = caster,
+        StartPosition = "attach_brush_end",
+        bHasFrontalCone = false,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        fExpireTime = GameRules:GetGameTime() + 6,
+        bDeleteOnHit = true,
+        vVelocity = fv * speed,
+        bProvidesVision = false,
+    }
+    ProjectileManager:CreateLinearProjectile(info)
 
-	toggle_rubilash_color(caster)
-
+    local travel_time = range/speed
+    local soundDelay = math.max(travel_time - 0.21, 0.1)
+    Timers:CreateTimer(soundDelay, function()
+    	local explosionPosition = spellOrigin + fv*range
+    	EmitSoundOnLocationWithCaster(explosionPosition, "Rubilash.InkBlot.Splash", caster)
+    end)
+    Timers:CreateTimer(travel_time, function()
+    	local explosionPosition = spellOrigin + fv*range
+    	AddFOWViewer(caster:GetTeamNumber(), explosionPosition, 220, 1.5, false)
+    	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..caster.color..".vpcf", explosionPosition, 3)
+    	
+    end)
 end
 
 function toggle_rubilash_color(caster)

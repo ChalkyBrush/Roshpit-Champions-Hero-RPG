@@ -1,4 +1,4 @@
-	"rubilash_paintbrush"
+	"rubilash_phantom_brush"
 	{
 		// General
 		//-------------------------------------------------------
@@ -76,7 +76,7 @@
 		}
 		"OnProjectileHitUnit"
 		{
-			"DeleteOnHit"	"1"
+			"DeleteOnHit"	"0"
 			"RunScript"
 			{
 				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
@@ -90,12 +90,12 @@
 		}
 	}
 
-	"rubilash_w_ability"
+	"rubilash_ink_blot"
 	{
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"rpc/axe_throw_earth"
 		"RequiredLevel"          		"-5"
@@ -113,11 +113,11 @@
 		//-------------------------------------------------------
 		// Casting
 		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.1"
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"2.5"
+		"AbilityCooldown"				"0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -138,12 +138,22 @@
 				"stun_duration"			"0.5"
 			}
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
 			{
 	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
-	    		"Function"		"rubilash_w_cast"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
 			}
 		}
 		"Modifiers"
@@ -165,7 +175,7 @@
 		}
 	}
 
-	"rubilash_ink_splatter"
+	"rubilash_paint_splatter"
 	{
 		// General
 		//-------------------------------------------------------

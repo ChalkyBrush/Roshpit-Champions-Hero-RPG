@@ -37,9 +37,14 @@ function start_paintbrush(event)
         fExpireTime = GameRules:GetGameTime() + 6,
         bDeleteOnHit = true,
         vVelocity = fv * speed,
-        bProvidesVision = false,
+		bProvidesVision = true,
+		iVisionRadius = 200,
+		iVisionTeamNumber = caster:GetTeamNumber()
     }
     ProjectileManager:CreateLinearProjectile(info)
 
     CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/rubilash_cast_"..caster.color.."_blur.vpcf", caster, 3)
+    Timers:CreateTimer((range/speed)/2, function()
+    	AddFOWViewer(caster:GetTeamNumber(), spellOrigin+fv*range, 300, 1.5, false)
+    end)
 end
