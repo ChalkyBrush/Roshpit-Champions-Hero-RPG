@@ -173,6 +173,30 @@
 					}
 				}
 			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+			}
 		}
 	}
 

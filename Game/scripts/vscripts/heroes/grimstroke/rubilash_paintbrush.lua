@@ -88,6 +88,7 @@ function paintbrush_impact(event)
 	local caster = event.ability.caster
 	local ability = event.ability
 	local target = event.target
-	local damage = event.damage
+
+	local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 end

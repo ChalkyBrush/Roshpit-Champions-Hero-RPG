@@ -1,3 +1,5 @@
+require('heroes/grimstroke/rubilash_constants')
+
 RUBILASH_COLORS = {"red", "yellow", "blue"}
 RUBILASH_COLORS_DATA = {}
 RUBILASH_COLORS_DATA["red"] = Vector(255, 0, 0)
@@ -86,10 +88,10 @@ function rubilash_ink_blot(event)
     	local explosionPosition = GetGroundPosition(spellOrigin + fv*range, actual_event_caster) 
     	AddFOWViewer(caster:GetTeamNumber(), explosionPosition, 220, 1.5, false)
     	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..actual_event_caster.color..".vpcf", explosionPosition, 3)
-    	local damage = event.damage
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
+				local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 			end
 		end	
@@ -137,5 +139,18 @@ function set_rubilash_color_visual(caster)
 end
 
 function get_rubilash_portrait_delay_time(rubilash)
-	return 0.5
+	return RUBILASH_ILLUSION_CAST_DELAY
+end
+
+function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
+	local mult = 1
+	local color = "red"
+	-- TODO: USE ABILITY NAME TO GET ACTUAL PAINT COLOR
+	local color = caster.color
+
+	local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
+	painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..color, {duration = 3})
+
+	local mult = 0
+	return damage*mult
 end
