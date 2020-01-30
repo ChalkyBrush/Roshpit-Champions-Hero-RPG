@@ -188,6 +188,16 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
 				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_rubilash_painted_yellow"
 			{
@@ -196,6 +206,16 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
 				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
 			}
 			"modifier_rubilash_painted_blue"
 			{
@@ -204,6 +224,88 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
 				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}

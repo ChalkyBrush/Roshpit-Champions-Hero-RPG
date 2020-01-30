@@ -147,10 +147,90 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	local color = "red"
 	-- TODO: USE ABILITY NAME TO GET ACTUAL PAINT COLOR
 	local color = caster.color
+	if target.rubilash_paint_total_color then
+		if RUBILASH_MULTS[color][target.rubilash_paint_total_color] then
+			mult = RUBILASH_MULTS[color][target.rubilash_paint_total_color]
+		end
+	end
 
-	local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
-	painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..color, {duration = 3})
+	if not target.rubilash_paint then
+		target.rubilash_paint = {}
+		target.rubilash_paint["red"] = 0
+		target.rubilash_paint["blue"] = 0
+		target.rubilash_paint["yellow"] = 0
+		target.rubilash_paint_total_color = "none"
+	end
+	target.rubilash_paint[color] = (get_rubilash_paint_duration(caster))*10
+	DeepPrintTable(target.rubilash_paint)
+	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
+	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
+	apply_actual_paint_buff(caster, target)
 
-	local mult = 0
 	return damage*mult
+end
+
+function get_rubilash_paint_duration(caster)
+	return RUBILASH_PAINTED_DURATION_BASE
+end
+
+function get_remaining_paint_duration(target)
+	local max = 1
+	for key, value in pairs(target.rubilash_paint) do
+		if target.rubilash_paint[key] >= max then
+			max = value
+		end
+	end
+	return max*0.1
+end
+
+function get_new_rubilash_paint_color(target)
+	if target.rubilash_paint["red"] > 0 and target.rubilash_paint["yellow"] > 0 and target.rubilash_paint["blue"] > 0 then
+		return "black"
+	elseif target.rubilash_paint["red"] > 0 and target.rubilash_paint["yellow"] > 0 then
+		return "orange"
+	elseif target.rubilash_paint["red"] > 0 and target.rubilash_paint["blue"] > 0 then
+		return "purple"	
+	elseif target.rubilash_paint["yellow"] > 0 and target.rubilash_paint["blue"] > 0 then
+		return "green"	
+	elseif target.rubilash_paint["yellow"] > 0 then
+		return "yellow"	
+	elseif target.rubilash_paint["red"] > 0 then
+		return "red"	
+	elseif target.rubilash_paint["blue"] > 0 then
+		return "blue"
+	else
+		return "none"	
+	end
+end
+
+function rubilash_painted_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	for key, value in pairs(target.rubilash_paint) do
+		target.rubilash_paint[key] = math.max(value - 1, 0)
+	end
+	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
+	apply_actual_paint_buff(caster, target)
+end
+
+function apply_actual_paint_buff(caster, target)
+	local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
+	local paint_duration = get_remaining_paint_duration(target)
+
+	for i = 1, #RUBILASH_ALL_COLORS, 1 do
+		if RUBILASH_ALL_COLORS[i] == target.rubilash_paint_total_color then
+		else
+			if target:HasModifier("modifier_rubilash_painted_"..RUBILASH_ALL_COLORS[i]) then
+				target:RemoveModifierByName("modifier_rubilash_painted_"..RUBILASH_ALL_COLORS[i])
+			end
+		end
+	end
+	if target.rubilash_paint_total_color == "none" then
+	else
+		if not target:HasModifier("modifier_rubilash_painted_"..target.rubilash_paint_total_color) then
+			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..target.rubilash_paint_total_color, {duration = paint_duration})
+		end
+	end
 end
