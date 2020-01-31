@@ -68,6 +68,7 @@ function InitializeHeroMenu(){
 	$('#herolist-row-3').RemoveAndDeleteChildren()
 	$('#herolist-row-4').RemoveAndDeleteChildren()
 	$('#herolist-row-5').RemoveAndDeleteChildren()
+	$('#herolist-row-6').RemoveAndDeleteChildren()
 	var availabileHeroArray = getHeroList();
 	
 	for (var i = 1; i <= availabileHeroArray.length; i++) {

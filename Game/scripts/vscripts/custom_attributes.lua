@@ -3526,6 +3526,10 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_ruptholds_helm_of_gluttony" and hero:HasModifier("modifier_ruptholds_helm_of_gluttony") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*(ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY))
 	end
+	if excludedModifier ~= "modifier_rubilash_e_4_max_health" and hero:HasModifier("modifier_rubilash_e_4_max_health") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*hero:GetRuneValue("e", 4)*RUBILASH_RUNE_E4_HEALTH_PER_ATTR
+	end
+
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
 			flatHealthBonus = flatHealthBonus + result

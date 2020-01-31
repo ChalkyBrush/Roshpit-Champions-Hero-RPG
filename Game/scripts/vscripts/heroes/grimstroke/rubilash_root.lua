@@ -25,6 +25,19 @@ function rubilash_main_thinker(event)
 		caster:RemoveModifierByName("modifier_rubilash_w_3_attack_speed")
 	end
 
+	if caster:HasModifier("modifier_rubilash_arcana1") then
+		hero:RemoveModifierByName("modifier_rubilash_e_4_max_health")
+	else
+		local e_4_level = caster:GetRuneValue("e", 4)
+		if e_4_level > 0 then
+			if not caster:HasModifier("modifier_rubilash_e_4_max_health") then
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_e_4_max_health", {})
+			end
+		else
+			caster:RemoveModifierByName("modifier_rubilash_e_4_max_health")
+		end
+	end
+
 end
 
 function rubilash_quick_thinker(event)

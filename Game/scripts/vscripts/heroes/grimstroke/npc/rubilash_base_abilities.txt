@@ -163,7 +163,7 @@
 
 		// Cost
 		//-------------------------------------------------------
-		"AbilityManaCost"				"80 160 240 320 400 480 560"
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
 		"AbilityCastRange"				"1200"
 
 		// Special
@@ -689,6 +689,10 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_W4_SLOW %>"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_W4_SLOW %>" 
 				}
+			}
+			"modifier_rubilash_e_4_max_health"
+			{
+				"IsHidden"	"1"
 			}
 		}
 	}

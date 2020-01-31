@@ -8741,23 +8741,22 @@
 "DOTA_Tooltip_Ability_rubilash_phantom_brush"			"Phantom Brush"
 
 
-	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] Maestro"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] Brushwork"
 	"DOTA_Tooltip_ability_rubilash_rune_q_1_Description"			"Increases Cast Range for Rubilash's spells."
 	"DOTA_Tooltip_ability_rubilash_rune_q_1_property_one"			"Cast Range"
 	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
 	
-	
-	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Accursed Red"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Marked Red"
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Enemies painted <font color=\"#FF0000\">Red</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#AA00DD\">Purple</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor."
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"Armor and Magic Armor Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
 
-	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] Dreadful Impression"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] Haunting Impression"
 	"DOTA_Tooltip_ability_rubilash_rune_q_3_Description"				"Enemies hit by @Ability1 run away in fear."
 	"DOTA_Tooltip_ability_rubilash_rune_q_3_property_one"			"Fear Duration"
 	"DOTA_Tooltip_ability_rubilash_rune_q_3_suffix"					" seconds"
 
-	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"Dreadful Impression"
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"Haunting Impression"
 	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"Feared"
 	
 	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] Malevolent Artistry"
@@ -8771,14 +8770,14 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"Paint Duration Increase"
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" seconds"	
 	
-	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Haunting Yellow"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Enemies painted <font color=\"#FFFF00\">Yellow</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor Pierce."
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Magic Armor and Armor Pierce Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
 
 	
-	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand"
-	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"Rubilash's basic attacks create an Ink Blot explosion beneath the targetted enemy, and increases Attack Speed."
+	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand Piece"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"increases Attack Speed, and Rubilash's basic attacks create an @Ability2 explosion beneath the targetted enemy."
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Attack Speed Bonus"
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
     "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Damage"
@@ -8803,42 +8802,67 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Magic Armor and Spell Pierce Loss"
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
 	
+	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"All enemies damaged by Paint heals Rubilash."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% of Base Paint damage before Base Ability and Elemental Amplfication"		
 	
-	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] rubilash Pulse"
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"While Ascension is on cooldown it is replaced with rubilash Pulse. Pulse deals damage to all nearby enemies while it is toggled on."
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Damage"
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					" per Hero Level"		
+	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] Phantom Palette"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"All Attributes increase Max Health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"Max Health Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" per Attribute"
 	
-	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] Harmony"
-	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"Increases all <font color=\"#F6FFB5\">Holy</font> damage."
-	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"Holy Amp"
-	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					"%"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Virtuoso"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"All damage dealt by the Self Portrait is enhanced."
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Self Portrait additional Paint Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					"%"	
 	
-	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Hyper State"
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"Charging through a Wall of Impunity with Megaflare activates Hyper State which increases rubilash's Attack and Movespeed for 12 seconds."
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Attack Speed"
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					""		
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_two"			"Movespeed"
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix_two"				""
+	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4, gain unbreakable invisibility. Gain Item Damage and Base Ability Damage while invisible by any means."
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Invisible Duration"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Base Ability and Item Damage Enhance"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				"% while invisible"	
 	
-	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Crushing Will"
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"Charg"
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Damage"
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					"% of Megaflare"		
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Spell Pierce"
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				""	
-	
-	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] Hyperion"
-	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"rubilash slows the attack and movespeed of all nearby enemies while channeling Megaflare."
-	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"Move Slow"
-	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					""		
-	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"Attack Slow"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] Dripping Brush"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"The Self Portrait casts a bonus @Ability2 at the nearest enemy within range on an interval."
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"Cast Interval"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"Cast Range"
 	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix_two"				""		
 	
-	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] Solitary Shell"
-	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"Upon completion of Megaflare's charge, rubilash enters an impenetrable shield for 3 seconds that makes him immune to all damage and preserves buff durations. While in the shell rubilash gains bonus attributes that last for 9 seconds."
-	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"Bonus Attributes"
-	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" every 0.1 seconds"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] Depiction"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"Self Portrait has increased movespeed and its mirror actions are on a shorter delay."
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"Self Portrait Action Delay"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" seconds"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_two"			"Self Portrait Movespeed"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix_two"				""	
+
+	//Glyphs
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] Glyph of Etching"
+	"item_rpc_rubilash_glyph_1_1_description" 				"Increases the travel speed of @Ability2 by <font color='#ccff66'>150</font>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
+	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 toggles Rubilash's color and has <font color='#ccff66'>100</font>% Base Ability Damage"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Portrayal"
+	"item_rpc_rubilash_glyph_3_1_description" 				"Rubilash's Self Portrait casts @Ability3 at a nearby random location within <font color='#ccff66'>300</font> range every <font color='#ccff66'>2</font> seconds"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of the Adapted Phantom"
+	"item_rpc_rubilash_glyph_4_1_description" 				"Increases Magic Armor by <font color='#ccff66'>5000</font>."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
+	"item_rpc_rubilash_glyph_5_1_description" 				"All Blue Paint breaks Magic Immunity."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
+	"item_rpc_rubilash_glyph_6_1_description" 				"All Red Paint deals <font color='#ccff66'>400</font>% more damage and has Physical damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
+	"item_rpc_rubilash_glyph_7_1_description" 				"All Yellow Paint deals <font color='#ccff66'>-50</font>% reduced damage and has Pure damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
+	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>400</font>% Attack Power."
 
     	//Abilities
 

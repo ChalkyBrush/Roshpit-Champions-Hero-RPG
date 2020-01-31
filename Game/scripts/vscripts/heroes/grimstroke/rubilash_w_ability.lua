@@ -174,8 +174,10 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
 	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
-	damage = 0
-	return damage*mult
+	-- damage = 0
+	local adjusted_damage = damage*mult
+	rubilash_base_e_3(caster, adjusted_damage)
+	return adjusted_damage
 end
 
 function get_rubilash_paint_duration(caster)
@@ -289,5 +291,15 @@ function update_w_4_movespeed(caster, target, paint_duration)
 			mult = 2
 		end
 		target:SetModifierStackCount("modifier_rubilash_w_4_slow", caster, stacks*mult)
+	end
+end
+
+function rubilash_base_e_3(caster, adjusted_damage)
+	if not caster:HasModifier("modifier_rubilash_arcana1") then
+		local e_3_level = caster:GetRuneValue("e", 3)
+		if e_3_level > 0 then
+			heal_amount = adjusted_damage*(RUBILASH_RUNE_E3_PAINT_HEAL_PCT/100)*e_3_level
+			Filters:ApplyHeal(caster, caster, heal_amount, true, false, nil)
+		end
 	end
 end

@@ -6,7 +6,7 @@ function InitializeStarsMenu()
 
 mActiveCategoryButton = false
 
-mButtonRows = 3
+mButtonRows = 4
 mButtonsPerRow = 10
 TOTAL_HERO_CATEGORIES = 12
 MAX_STARS = 1425
