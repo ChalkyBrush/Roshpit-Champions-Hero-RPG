@@ -1793,11 +1793,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	if victim:HasModifier("modifier_hope_of_saytaru_effect") then
 		damage = (1 - victim.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_HOPE_OF_SAYTARU_GEM_AMETHYST)/100) * damage
 	end
-	if victim:HasModifier("modifier_bloodstone_boots") then
-		if victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 and Filters:IsAtBloodstoneThreshold(victim) then
-			damage = damage * (1 - (victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD)/100))
-		end
-	end
 	if victim:HasModifier("modifier_inside_swamp_doctor") then
 		local ability = victim:FindModifierByName("modifier_inside_swamp_doctor"):GetAbility()
 		damage = damage * (1 - ability:GetFinalGemPropertyValue("ruby", SWAMP_DOCTOR_RUBY)/100)

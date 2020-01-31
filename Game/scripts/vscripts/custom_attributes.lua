@@ -2064,9 +2064,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_ablecore_greaves_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
 	end
-	if unit:HasModifier("modifier_bloodstone_boots") then
-		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
-	end
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1)
 	end
@@ -2483,9 +2480,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_arcanys_slipper_buff") then
 		local modifier = unit:FindModifierByName("modifier_arcanys_slipper_buff")
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD)*modifier:GetStackCount()
-	end
-	if unit:HasModifier("modifier_bloodstone_boots") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
 	end
 	if unit:HasModifier("modifier_old_wisdom_sapphire_stacks") then
 		local modifier = unit:FindModifierByName("modifier_old_wisdom_sapphire_stacks")

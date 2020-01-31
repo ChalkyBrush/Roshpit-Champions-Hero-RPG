@@ -8,7 +8,6 @@ LinkLuaModifier("modifier_bloodstone_boot_amethyst", "modifiers/modifier_bloodst
 LinkLuaModifier("modifier_boots_of_ashara_ruby", "modifiers/modifier_boots_of_ashara_ruby", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_crystalline_slippers_emerald", "modifiers/modifier_crystalline_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sandstream_slippers_emerald", "modifiers/modifier_sandstream_slippers_emerald", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_voyager_boots_emerald", "modifiers/modifier_voyager_boots_emerald", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_epsilon", "modifiers/modifier_epsilon", LUA_MODIFIER_MOTION_NONE)
 
 
@@ -8809,19 +8808,6 @@ function stormcloth_amethyst_projectile_hit(event)
 	Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_WIND)
 end
 
-function bloodstone_boot_thinker(event)
-	local ability = event.ability
-	local caster = event.caster
-	local hero = caster.hero
-	if ability:GetGemValue("amethyst") > 0 then
-		if Filters:IsAtBloodstoneThreshold(hero) then
-			hero:AddNewModifier(caster, ability, "modifier_bloodstone_boot_amethyst", {})
-		else
-			hero:RemoveModifierByName("modifier_bloodstone_boot_amethyst")
-		end
-	end
-end
-
 function boots_of_great_fortune_init(event)
 	local ability = event.ability
 	local caster = event.caster
@@ -9688,55 +9674,6 @@ function tranquil_boots_amethyst_end(event)
 	end
 end
 
-function voyager_boots_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	local hero = caster.hero
-
-	if not ability.lastPos then
-		ability.lastPos = hero:GetAbsOrigin()
-	end
-	if not ability.distanceMoved then
-		ability.distanceMoved = 0
-	end
-	ability.newPos = hero:GetAbsOrigin()
-	local distance = WallPhysics:GetDistance2d(ability.newPos, ability.lastPos)
-	ability.distanceMoved = ability.distanceMoved + distance
-	if ability.distanceMoved > ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE then
-		voyager_boots_cd_reduce_base(caster, ability, hero)
-		ability.distanceMoved = ability.distanceMoved % ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE
-	end
-
-	ability.lastPos = hero:GetAbsOrigin()
-
-
-	if ability:GetGemValue("sapphire") > 0 then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_voyager_boots_sapphire", {})
-		local atk_power_stacks = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_VOYAGER_BOOTS_GEM_SAPPHIRE)*Filters:GetNumberOfSkillsNotOnCooldownVoyager(hero)
-		if atk_power_stacks > 0 then
-			hero:SetModifierStackCount("modifier_voyager_boots_sapphire", caster, atk_power_stacks)
-		else
-			hero:RemoveModifierByName("modifier_voyager_boots_sapphire")
-		end
-	end
-	if ability:GetGemValue("emerald") > 0 then
-		ability.abilities_on_cd = Filters:GetNumberOfSkillsOnCooldownVoyager(hero)
-		if ability.abilities_on_cd > 0 then
-			hero:AddNewModifier(caster, ability, "modifier_voyager_boots_emerald", {})
-		else
-			hero:RemoveModifierByName("modifier_voyager_boots_emerald")
-		end
-	end
-end
-
-function voyager_boots_cd_reduce_base(caster, ability, hero)
-	for i = 1, 4, 1 do
-		local cd_ability = Filters:SkillArgumentSlotToHeroAbility(hero, i)
-		if cd_ability:GetCooldownTimeRemaining() > 0 then
-			Filters:ReduceCDByPercentage(caster, cd_ability, ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER/100)
-		end
-	end
-end
 
 function aeriths_tear_thinker(event)
 	local caster = event.caster

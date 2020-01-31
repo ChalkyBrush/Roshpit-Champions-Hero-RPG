@@ -136,8 +136,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "arcanys" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_arcanys_slipper", item)
 		hero.arcanys = item
-	elseif propertyName == "voyager" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_voyager_boots", item)
 	elseif propertyName == "redrock" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_redrock_footwear", item)
 		hero.redrock = item
@@ -167,8 +165,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_crimsyth_elite_greaves", item)
 	elseif propertyName == "great_fortune" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_boots_of_great_fortune", item)
-	elseif propertyName == "bloodstone" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_bloodstone_boots", item)
 	elseif propertyName == "cosmos" then
 		Foot:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_foot_cosmos", foot_ability)
 	elseif propertyName == "arcane" then
@@ -269,7 +265,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_rooted_feet")
 	hero:RemoveModifierByName("modifier_devotion_aura")
 	hero:RemoveModifierByName("modifier_arcanys_slipper")
-	hero:RemoveModifierByName("modifier_voyager_boots")
 	hero:RemoveModifierByName("modifier_redrock_footwear")
 	hero:RemoveModifierByName("modifier_pathfinder_resonant")
 	hero:RemoveModifierByName("modifier_neptunes_water_gliders")
@@ -285,7 +280,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_sandstream_slippers")
 	hero:RemoveModifierByName("modifier_crimsyth_elite_greaves")
 	hero:RemoveModifierByName("modifier_boots_of_great_fortune")
-	hero:RemoveModifierByName("modifier_bloodstone_boots")
 	hero:RemoveModifierByName("modifier_foot_cosmos")
 	hero:RemoveModifierByName("modifier_foot_arcane")
 	hero:RemoveModifierByName("modifier_foot_fire")

@@ -4610,25 +4610,6 @@ function RPCItems:RollArcanysSlipper(item_level)
     return item
 end
 
-function RPCItems:RollBloodstoneBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_bloodstone_boots", "immortal", "Bloodstone Boots", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_bloodstone_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bloodstone_boots", "#E2371D", 1, "#property_bloodstone_boots_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 function RPCItems:RollBlueDragonGreaves(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
@@ -5526,35 +5507,6 @@ function RPCItems:RollTranquilBoots(item_level)
     return item
 end
 
-function RPCItems:RollVoyagerBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_voyager_boots", "immortal", "Voyager Boots", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_voyager_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_voyager", "#AB9091", 1, "#property_voyager_description")
-
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_speed", 1.5)
-    elseif luck == 2 or luck == 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    elseif luck == 4 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    elseif luck == 5 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "movespeed", 1.5)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 function RPCItems:RollYashaBoots(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
@@ -7154,8 +7106,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollRoknarEmperor(item_level)
     elseif itemName == "item_rpc_swamp_doctors_tribal_mask" then
         newItem = RPCItems:RollSwampDoctorMask(item_level)
-    elseif itemName == "item_rpc_voyager_boots" then
-        newItem = RPCItems:RollVoyagerBoots(item_level)
     elseif itemName == "item_rpc_redrock_footwear" then
         newItem = RPCItems:RollRedrockFootwear(item_level)
     elseif itemName == "item_rpc_pathfinders_resonant_boots" then
@@ -7367,8 +7317,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollClawOfTheEtherealRevenant(item_level)
     elseif itemName == "item_rpc_crimson_skull_cap" then
         newItem = RPCItems:RollCrimsonSkullCap(item_level)
-    elseif itemName == "item_rpc_bloodstone_boots" then
-        newItem = RPCItems:RollBloodstoneBoots(item_level)
     elseif itemName == "item_rpc_igneous_canine_helm" then
         newItem = RPCItems:RollIgneousCanineHelm(item_level)
     elseif itemName == "item_rpc_barons_storm_armor" then

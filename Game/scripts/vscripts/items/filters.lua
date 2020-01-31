@@ -537,11 +537,6 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
             end
         )
     end
-    if caster:HasModifier("modifier_bloodstone_boots") then
-        if Filters:IsAtBloodstoneThreshold(caster) then
-            abilityCooldown = ITEM_RPC_BLOODSTONE_BOOTS_E_CD
-        end
-    end
 
     abilityCooldown = math.max(abilityCooldown, 0.1)
 
@@ -888,9 +883,6 @@ function Filters:CastSkillArguments(slot, caster)
             caster:SetModifierStackCount("modifier_bladestorm_vest_buff", caster.body, newStacks)
             Filters:ModifyBladestormVestSwordCount(caster, newStacks, caster.equipped_gear[RPC_GEAR_SLOT_BODY], caster.InventoryUnit, -1)
         end
-    end
-    if caster:HasModifier("modifier_voyager_boots") then
-        Filters:VoyagerBootsAllCast(caster, slot)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         Filters:MordiggusEvent(caster, "cast")
@@ -1357,9 +1349,6 @@ function Filters:ApplyEskills(caster)
         ability:EndCooldown()
         baseCd = baseCd + 15
         ability:StartCooldown(baseCd)
-    end
-    if caster:HasModifier("modifier_voyager_boots") then
-        Filters:VoyagerBoots(caster)
     end
     if caster:HasModifier("modifier_arcanys_slipper") then
         Timers:CreateTimer(0.45, function()
@@ -3531,18 +3520,6 @@ function Filters:CytopianLaser(caster)
             enemy:SetModifierStackCount("modifier_cytopian_stacks", caster.InventoryUnit, newStacks)
             enemy:CalculateAndSaveRoshpitAttributes()
         end
-    end
-end
-
-function Filters:VoyagerBoots(caster)
-    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
-        local cd_reduce_percentage = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VOYAGER_BOOTS_GEM_RUBY)/100
-        local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability1, cd_reduce_percentage)
-        local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability2, cd_reduce_percentage)
-        local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability4, cd_reduce_percentage)
     end
 end
 
@@ -5981,15 +5958,6 @@ function Filters:AlaranaInit(caster, duration)
     end
 end
 
-function Filters:IsAtBloodstoneThreshold(caster)
-    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
-    if caster:GetHealth() <= caster:GetMaxHealth() * (threshold / 100) then
-        return true
-    else
-        return false
-    end
-end
-
 function Filters:ApplyBlueDragonGreavesBuff(caster, base_duration)
     print("BLUE DRAGON")
     local dragon_effect = caster:FindModifierByName("modifier_blue_dragon_greaves_effect")
@@ -6580,14 +6548,6 @@ function Filters:GetNumberOfSkillsNotOnCooldownVoyager(hero)
         end
     end
     return count
-end
-
-function Filters:VoyagerBootsAllCast(caster, slot)
-    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
-        local cd_ability = Filters:SkillArgumentSlotToHeroAbility(caster, slot)
-        local percentage_increase = (caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1)/100)*-1
-        Filters:ReduceCDByPercentage(caster, cd_ability, percentage_increase)
-    end
 end
 
 function Filters:AnkhOfAncientsValidDeath(hero)

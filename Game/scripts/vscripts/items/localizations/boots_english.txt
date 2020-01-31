@@ -551,8 +551,8 @@
         "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Restoring health on <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> second intervals"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
-        "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time."
+        "item_property_voyager_boots"                     "Voyager"
+        "property_voyager_boots_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time. Can't trigger more than once every <% ITEM_RPC_VOYAGER_BOOTS_THINK_INTERVAL %>s."
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"

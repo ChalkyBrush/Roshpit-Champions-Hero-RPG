@@ -45,11 +45,13 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_E_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_PHYSICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_PURE_DMG_REDUCTION,
+        MODIFIER_ROSHPIT_E_MIN_CD_MOD,
+        MODIFIER_ROSHPIT_E_MAX_CD_MOD,
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
-        MODIFIER_ROSHPIT_ARMOR_BONUS,
-        MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS,
-        MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY
+        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS
     })
 end
 function modifierClass:DeclareFunctions()
@@ -60,57 +62,82 @@ function modifierClass:DeclareFunctions()
     return funcs
 end
 
-
+function modifierClass:GetPhysicalDamageReduction()
+    if IsServer() then
+        local hero = self:GetParent()
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+            return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
+        end
+        return nil
+    end
+end
+function modifierClass:GetMagicalDamageReduction()
+    if IsServer() then
+        local hero = self:GetParent()
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+            return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
+        end
+        return nil
+    end
+end
+function modifierClass:GetPureDamageReduction()
+    if IsServer() then
+        local hero = self:GetParent()
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+            return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
+        end
+        return nil
+    end
+end
 function modifierClass:GetRoshpitArmorPierceBonus(params)
     local hero = self:GetParent()
-    if hero:GetAbilityByIndex(DOTA_E_SLOT):IsCooldownReady() then
-        return hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_bloodstone_boots_GEM_EMERALD)
-    end
-    return 0
+    return self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE) * (hero:GetMaxHealth() - hero:GetHealth())
 end
-function modifierClass:OnCastEAbility()
+function modifierClass:GetRoshpitSpellPierceBonus(params)
     local hero = self:GetParent()
-    local bloodstone_boots = self:GetAbility()
-    if bloodstone_boots:GetGemValue("ruby") > 0 then
-        local proc = Filters:GetProc(hero, bloodstone_boots:GetFinalGemPropertyValue("ruby", ITEM_RPC_bloodstone_boots_GEM_RUBY))
-        if proc then
-            hero:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
-            CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_cast_water_spiral.vpcf", hero, 3)
-        end
-    end
-end
-
-function modifierClass:GetRoshpitArmorBonus()
-    local hero = self:GetParent()
-    return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_bloodstone_boots_GEM_AMETHYST) * hero:GetAgility()
-end
-
-function modifierClass:GetRoshpitMagicArmorBonus()
-    local hero = self:GetParent()
-    return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_bloodstone_boots_GEM_AMETHYST) * hero:GetAgility()
+    return self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE) * (hero:GetMaxHealth() - hero:GetHealth())
 end
 
 function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
     if IsServer() then
         local hero = self:GetParent()
-        if hero:GetAbilityByIndex(DOTA_E_SLOT):IsCooldownReady() then
-            return self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_bloodstone_boots_GEM_SAPPHIRE)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+            return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST1)
         end
-        return 0
+        return nil
     end
 end
 
 function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
     if IsServer() then
         local hero = self:GetParent()
-        if hero:GetAbilityByIndex(DOTA_E_SLOT):IsCooldownReady() then
-            return self:GetAbility():GetFinalGemPropertyValue("sapphire", ITEM_RPC_bloodstone_boots_GEM_SAPPHIRE)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+            return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST2)
         end
-        return 0
+        return nil
     end
 end
-function modifierClass:GetRoshpitEFlatCdModifier()
-    return - ITEM_RPC_bloodstone_boots_CD_RED
+
+function modifierClass:GetRoshpitEMaxCdModifier()
+    local hero = self:GetParent()
+    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+    if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+        return ITEM_RPC_BLOODSTONE_BOOTS_E_CD
+    end
+    return nil
+end
+function modifierClass:GetRoshpitEMinCdModifier()
+    local hero = self:GetParent()
+    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+    if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
+        return ITEM_RPC_BLOODSTONE_BOOTS_E_CD
+    end
+    return nil
 end
 
 function modifierClass:IsHidden()
