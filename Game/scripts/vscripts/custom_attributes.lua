@@ -2651,6 +2651,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_rubilash_base_painted") then
 		spell_pierce_modify = spell_pierce_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "spell_pierce")
 	end
+	if unit:HasModifier("modifier_rubilash_core_passive") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("r", 1)*unit:GetAgility()*RUBILASH_RUNE_R1_SPELL_PIERCE_PER_AGI
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_arcane_charm") then

@@ -211,6 +211,9 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_space_tech_buff_invisible") then
         mult = mult + 0.01 * caster:GetModifierStackCount("modifier_space_tech_buff_invisible", caster.InventoryUnit)
     end
+    if caster:HasModifier("modifier_rubilash_r_2_bad_and_item") then
+        mult = mult + (caster:GetRuneValue("r", 2)*RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS)/100
+    end
     if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
         local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         mult = mult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
@@ -1716,6 +1719,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:IsHero() then
             damageMult = damageMult + 0.01 * (CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_head_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_weapon_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_hands_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_feet_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_body_base_ability", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, nil, "modifier_amulet_base_ability", 1))
+        end
+        if attacker:HasModifier("modifier_rubilash_r_2_bad_and_item") then
+            damageMult = damageMult + (attacker:GetRuneValue("r", 2)*RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS)/100
         end
         if attacker:HasModifier("modifier_aquastone_ring") then
             damageMult = damageMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100

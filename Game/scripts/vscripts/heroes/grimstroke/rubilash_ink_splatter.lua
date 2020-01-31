@@ -60,6 +60,7 @@ function ink_splatter_start(event)
 			end
 		end)
 	end
+	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function ink_splatter_emerging_think(event)

@@ -312,22 +312,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"property_one"			"<% RUBILASH_RUNE_R1_SPELL_PIERCE_PER_AGI %>"
 			}
 		}
 	}
@@ -347,14 +332,20 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% RUBILASH_RUNE_R2_INVIS_DURATION_SCALE %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% RUBILASH_RUNE_R2_INVIS_DURATION_BASE %>"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS %>"
+			}
+			
 		}
 	}
 
@@ -373,13 +364,28 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% RUBILASH_RUNE_R3_INTERVAL_BASE %>"
 			}
 			"02"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% RUBILASH_RUNE_R3_INTERVAL_REDUCTION %>"
+			}
+			"03"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_two_base"			"<% RUBILASH_RUNE_R3_RANGE_BASE %>"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"<% RUBILASH_RUNE_R3_RANGE_SCALE %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"<% BASE_ABILITY_W %>"
 			}
 		}
 	}
@@ -400,7 +406,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"<% RUBILASH_RUNE_R4_PORTRAIT_DELAY_REDUCTION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% RUBILASH_RUNE_R4_PORTRAIT_MS_BONUS %>"
 			}
 		}
 	}

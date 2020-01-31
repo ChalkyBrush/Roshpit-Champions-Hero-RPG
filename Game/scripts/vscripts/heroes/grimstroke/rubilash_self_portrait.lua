@@ -68,7 +68,14 @@ function rubilash_illusion(caster, ability, duration)
     illusion.agi_bonus = caster.agi_bonus
     illusion.int_bonus = caster.int_bonus
     illusion.spirit_bonus = caster.spirit_bonus
+    illusion.r_3_level = caster:GetRuneValue("r", 3)
+    illusion.r_3_cast_interval = math.ceil(math.max(RUBILASH_RUNE_R3_MIN_INTERVAL/0.03, (RUBILASH_RUNE_R3_INTERVAL_BASE + RUBILASH_RUNE_R3_INTERVAL_REDUCTION*illusion.r_3_level)/0.03))
 
+    local r_4_level = caster:GetRuneValue("r", 4)
+    if r_4_level > 0 then
+    	ability:ApplyDataDrivenModifier(caster, illusion, "modifier_rubilash_r_4_ms", {})
+    	illusion:SetModifierStackCount("modifier_rubilash_r_4_ms", caster, r_4_level)
+    end
     ability:ApplyDataDrivenModifier(caster, illusion, "modifier_rubilash_illusion_spawning", {})
     ability:ApplyDataDrivenModifier(caster, illusion, "modifier_rubilash_illusion_base", {})
     
@@ -116,7 +123,7 @@ function rubilash_self_portrait_success(event)
 		print(caster.color)
 		Events:ColorWearablesAndBase(ability.illusion, RUBILASH_COLORS_DATA[caster.color])
 		set_rubilash_color_visual(ability.illusion)
-		CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..ability.illusion.color..".vpcf", ability.illusion, event.duration)
+		ability.illusion.effectPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..ability.illusion.color..".vpcf", ability.illusion, event.duration)
 		StartSoundEvent("Rubilash.SelfPortrait.Summoned", ability.illusion)
 		local illusion = ability.illusion
 		Timers:CreateTimer(8, function()
@@ -124,6 +131,39 @@ function rubilash_self_portrait_success(event)
 				StopSoundEvent("Rubilash.SelfPortrait.Summoned", illusion)
 			end
 		end)
+		if ability.illusion.r_3_level > 0 then
+			ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_r_3_thinker", {})
+		end
+	end
+	local r_2_level = caster:GetRuneValue("r", 2)
+	if r_2_level > 0 then
+        local r_2_duration = RUBILASH_RUNE_R2_INVIS_DURATION_BASE + RUBILASH_RUNE_R2_INVIS_DURATION_SCALE*r_2_level
+        local invis_duration = Filters:GetAdjustedBuffDuration(caster, r_2_duration, false)
+
+        local pfx2 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", caster, 2)
+        ParticleManager:SetParticleControl(pfx2, 1, Vector(200, 200, 200))
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_invisibility_datadriven", {duration = invis_duration})
+        caster:AddNewModifier(caster, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+        Timers:CreateTimer(2, function()
+        	ParticleManager:DestroyParticle(pfx2, false)
+        end)
+
+        -- local pfx3 = CustomAbilities:QuickAttachParticle("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", ability.illusion, 2)
+        -- ParticleManager:SetParticleControl(pfx3, 1, Vector(200, 200, 200))
+        -- ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_invisibility_datadriven", {duration = invis_duration})
+        -- ability.illusion:AddNewModifier(ability.illusion, ability, "modifier_persistent_invisibility", {duration = invis_duration})
+        -- Timers:CreateTimer(2, function()
+        -- 	ParticleManager:DestroyParticle(pfx3, false)
+        -- end)
+	end
+	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
+end
+
+function self_portrait_die(event)
+	local illusion = event.target
+	if illusion.effectPFX then
+		ParticleManager:DestroyParticle(illusion.effectPFX, false)
+		illusion.effectPFX = nil
 	end
 end
 
@@ -153,3 +193,36 @@ function self_portrait_illusion_think(event)
 	end
 end
 
+function self_portrait_r_3_thinker(event)
+	local illusion = event.target
+	if not illusion.r_3_interval then
+		illusion.r_3_interval = 0
+	end
+	
+	illusion.r_3_interval = illusion.r_3_interval + 1
+	if illusion.r_3_interval >= illusion.r_3_cast_interval then
+		illusion.r_3_interval = 0
+		local radius = RUBILASH_RUNE_R3_RANGE_BASE + RUBILASH_RUNE_R3_RANGE_SCALE*illusion.r_3_level
+		local enemies = FindUnitsInRadius(event.caster:GetTeamNumber(), illusion:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			local illusion_cast_table = {}
+			illusion_cast_table.caster = event.caster
+			illusion_cast_table.ability = event.caster:FindAbilityByName("rubilash_ink_blot")
+			-- illusion_cast_table.ability = event.caster:FindAbilityByName("rubilash_ink_blot_"..event.caster.color)
+			illusion_cast_table.target_points = {}
+			illusion_cast_table.target_points[1] = enemies[1]:GetAbsOrigin()
+			illusion_cast_table.damage = illusion_cast_table.ability:GetSpecialValueFor("damage")
+			illusion_cast_table.damage_radius = illusion_cast_table.ability:GetSpecialValueFor("damage_radius")
+			illusion_cast_table.illusion = true
+
+			if illusion and IsValidEntity(illusion) and illusion:IsAlive() and not illusion:IsStunned() then
+				rubilash_ink_blot_phase(illusion_cast_table)
+				Timers:CreateTimer(illusion_cast_table.ability:GetCastPoint(), function()
+					if illusion and IsValidEntity(illusion) and illusion:IsAlive() and not illusion:IsStunned() then
+						rubilash_ink_blot(illusion_cast_table)
+					end
+				end)
+			end			
+		end	
+	end
+end

@@ -120,6 +120,7 @@ function rubilash_ink_blot(event)
 			end
 		end)
 	end
+	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 end
 
 function toggle_rubilash_color(caster)
@@ -142,12 +143,16 @@ function set_rubilash_color_visual(caster)
 	ParticleManager:SetParticleControlEnt(caster.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_brush_end", caster:GetAbsOrigin(), true)
 	if caster:HasModifier("modifier_rubilash_illusion_base") then
 		Events:ColorWearablesAndBase(caster, RUBILASH_COLORS_DATA[caster.color])
+		if caster.effectPFX then
+			ParticleManager:DestroyParticle(caster.effectPFX, false)
+			caster.effectPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..caster.color..".vpcf", caster, 180)
+		end
 	end
 	caster:SetRangedProjectileName("particles/roshpit/rubilash/rubilash_base_attack_"..caster.color..".vpcf")
 end
 
 function get_rubilash_portrait_delay_time(rubilash)
-	return RUBILASH_ILLUSION_CAST_DELAY
+	return RUBILASH_ILLUSION_CAST_DELAY + (rubilash:GetRuneValue("r", 4)*RUBILASH_RUNE_R4_PORTRAIT_DELAY_REDUCTION)
 end
 
 function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)

@@ -84,6 +84,8 @@ function start_paintbrush(event)
 			end
 		end)
 	end
+
+	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function paintbrush_impact(event)

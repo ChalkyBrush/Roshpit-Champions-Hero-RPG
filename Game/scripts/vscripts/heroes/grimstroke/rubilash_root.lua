@@ -38,6 +38,7 @@ function rubilash_main_thinker(event)
 		end
 	end
 
+
 end
 
 function rubilash_quick_thinker(event)
@@ -54,5 +55,16 @@ function rubilash_quick_thinker(event)
 		else
 			caster:RemoveModifierByName("modifier_rubilash_e_1_attack_damage")
 		end
+	end
+
+	-- if caster has standard r ability
+	local r_2_level = caster:GetRuneValue("r", 2)
+	if r_2_level > 0 and caster:IsInvisible() then
+		if not caster:HasModifier("modifier_rubilash_r_2_bad_and_item") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_r_2_bad_and_item", {})
+		end
+		-- caster:SetModifierStackCount("modifier_rubilash_r_2_bad_and_item", caster, r_2_level)
+	else
+		caster:RemoveModifierByName("modifier_rubilash_r_2_bad_and_item")
 	end
 end

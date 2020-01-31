@@ -97,9 +97,9 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" per Attribute"
 	
 	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Virtuoso"
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"All damage dealt by the Self Portrait is enhanced."
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Self Portrait additional Paint Damage"
-	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					"%"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"Rubilash gains Spell Pierce from Agility."
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Spell Pierce Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" per Agility"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
 	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4, gain unbreakable invisibility. Gain Item Damage and Base Ability Damage while invisible by any means."

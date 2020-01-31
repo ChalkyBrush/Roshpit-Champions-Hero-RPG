@@ -178,7 +178,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_radius"				"250"
+				"damage_radius"				"225"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -473,9 +473,7 @@
         "MaxLevel"                      "7"
         "precache"
         {
-        	"particle"				"particles/roshpit/omniro/omniro_ult_indicator_ring.vpcf"
-        	"particle"				"particles/roshpit/omniro/dimension_stalk_attack.vpcf"
-        	"particle"				"particles/roshpit/omniro/dimension_status.vpcf"
+        	"particle"				"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
         }
 
         "AbilityManaCost"   "0"
@@ -589,6 +587,37 @@
             			"target"		"TARGET"
             		}
             	}
+            	"OnDeath"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_die"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_3_thinker"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_r_3_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_4_ms"
+            {
+            	"IsHidden"	"1"
+            	"Properties"
+            	{
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_R4_PORTRAIT_MS_BONUS %>" 
+            	}
             }
         }
 
@@ -691,6 +720,10 @@
 				}
 			}
 			"modifier_rubilash_e_4_max_health"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_rubilash_r_2_bad_and_item"
 			{
 				"IsHidden"	"1"
 			}
