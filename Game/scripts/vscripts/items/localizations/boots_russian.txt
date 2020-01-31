@@ -190,8 +190,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 
-        "item_property_emerald_speed"                           "Stable Pace"
-        "property_emerald_speed_description"                    "Скорость Передвижения героя не может быть ниже <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
+        "item_property_emerald_speed_runners"                           "Stable Pace"
+        "property_emerald_speed_runners_description"                    "Скорость Передвижения героя не может быть ниже <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Увеличивает минимум скорости еще на @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Повышает Ловкость на @emerald_property1, и Ловкость не может быть ниже @emerald_property2"
@@ -551,8 +551,8 @@
         "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Восстанавливает здоровье каждые <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> сек"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
-        "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Каждые <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% от их базовой Перезарядки."
+        "item_property_voyager_boots"                     "Voyager"
+        "property_voyager_boots_description"              "Каждые <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% от их базовой Перезарядки."
         "item_rpc_voyager_boots_ruby1"                                  "Прочтение [E] уменьшает Перезарядку всех остальных способностей на @ruby_property1% от их базовой Перезарядки."
         "item_rpc_voyager_boots_emerald1"                                   "Даёт @emerald_property1 Скорости Передвижения и Лимита Скорости за каждую из способностей, которая в данный момент на перезарядке."
         "item_rpc_voyager_boots_sapphire1"                                  "Даёт @sapphire_property1% Бонус Силы Атаки за каждую из способностей, которая в данный момент не на перезарядке."

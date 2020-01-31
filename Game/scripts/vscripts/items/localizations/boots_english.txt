@@ -178,8 +178,8 @@
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 
-        "item_property_emerald_speed"                           "Stable Pace"
-        "property_emerald_speed_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
+        "item_property_emerald_speed_runners"                           "Stable Pace"
+        "property_emerald_speed_runners_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Increases Stable Pace minimum movespeed by an additional @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
