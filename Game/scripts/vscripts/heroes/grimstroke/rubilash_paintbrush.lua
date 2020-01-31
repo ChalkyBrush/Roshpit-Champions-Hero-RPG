@@ -1,5 +1,6 @@
 require('heroes/grimstroke/rubilash_w_ability')
 require('heroes/grimstroke/rubilash_self_portrait')
+require('heroes/grimstroke/rubilash_root')
 
 function paintbrush_phase_start(event)
 	local caster = event.caster
@@ -36,7 +37,8 @@ function start_paintbrush(event)
     local fv = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     local spellOrigin = actual_event_caster:GetAbsOrigin()
     local range = 1500
-    local speed = 3000
+    range = range + Filters:CalculateTotalCastRangeBonus(caster)
+    local speed = range*2
     local info =
     {
         Ability = ability,
@@ -90,5 +92,39 @@ function paintbrush_impact(event)
 	local target = event.target
 
 	local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, target)
-	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+	Timers:CreateTimer(0.03, function()
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+	end)
+	local q_3_level = caster:GetRuneValue("q", 3)
+	if q_3_level > 0 then
+		local duration = RUBILASH_RUNE_Q3_FEAR_DURATION_BASE + RUBILASH_RUNE_Q3_FEAR_DURATION*q_3_level
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_q_3_fear", {duration = duration})
+	end
+end
+
+function rubilash_q_3_fear_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local directionModified = WallPhysics:rotateVector(direction, 2*math.pi*RandomInt(-5, 5)/90)
+	target:MoveToPosition(target:GetAbsOrigin() + directionModified*400)
+end
+
+function rubilash_q_3_fear_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local directionModified = WallPhysics:rotateVector(direction, 2*math.pi*RandomInt(-5, 5)/90)
+	target:MoveToPosition(target:GetAbsOrigin() + directionModified*400)
+end
+
+function rubilash_q_3_fear_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	target:Stop()
 end

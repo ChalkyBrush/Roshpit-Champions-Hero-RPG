@@ -15,12 +15,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"<% RUBILASH_RUNE_Q1_CAST_RANGE %>"
 			}
 		}
 	}
@@ -42,17 +37,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"property_one"			"<% RUBILASH_RUNE_Q2_ARMOR_AND_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -72,8 +57,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% RUBILASH_RUNE_Q3_FEAR_DURATION %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% RUBILASH_RUNE_Q3_FEAR_DURATION_BASE %>"
 			}
 		}
 	}
@@ -94,7 +84,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"<% RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP %>"
 			}
 		}
 	}
@@ -109,29 +99,13 @@
 		"AbilityTextureName"	"ogre_magi/antipodeanabilityicons/ogre_magi_ignite"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"<% RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION %>"
 			}
 		}
 	}
@@ -152,12 +126,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"<% RUBILASH_RUNE_W2_ARMOR_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}
@@ -179,12 +148,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"<% RUBILASH_RUNE_W3_ATTACK_SPEED %>"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_two"			"<% RUBILASH_RUNE_W3_W_AMP %>"
 			}
 			"03"
 			{
@@ -215,22 +184,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_one"			"<% RUBILASH_RUNE_W4_SLOW %>"
 			}
 		}
 	}
@@ -251,12 +205,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"<% RUBILASH_RUNE_E1_MANA_RESTORE %>"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"<% RUBILASH_RUNE_E1_ATTACK_PER_MANA %>"
 			}
 		}
 	}
@@ -278,27 +232,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
+				"property_one"			"<% RUBILASH_RUNE_E2_SPELL_PIERCE_AND_MAGIC_ARMOR_LOSS %>"
 			}
 		}
 	}

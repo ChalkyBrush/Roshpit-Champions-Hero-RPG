@@ -1,4 +1,5 @@
 require('heroes/grimstroke/rubilash_w_ability')
+require('heroes/grimstroke/rubilash_root')
 
 function rubilash_dark_portrait_channel_start(event)
 	local caster = event.caster
@@ -152,6 +153,3 @@ function self_portrait_illusion_think(event)
 	end
 end
 
-function get_rubilash_portrait_delay_time(rubilash)
-	return 0.5
-end

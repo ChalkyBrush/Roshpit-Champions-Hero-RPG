@@ -1,5 +1,6 @@
 require('heroes/grimstroke/rubilash_w_ability')
 require('heroes/grimstroke/rubilash_self_portrait')
+require('heroes/grimstroke/rubilash_root')
 
 function ink_splatter_start(event)
 	local caster = event.caster
@@ -26,14 +27,27 @@ function ink_splatter_start(event)
 	EmitSoundOn("Rubilash.VO.Grunt", actual_event_caster)
 	ability:ApplyDataDrivenModifier(actual_event_caster, actual_event_caster, "modifier_ink_splatter_emerging", {duration = 0.24})
 	StartAnimation(actual_event_caster, {duration = 2, activity = ACT_DOTA_TELEPORT_END, rate = 1})
-
+	ProjectileManager:ProjectileDodge(caster)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), particlePos, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do  
 			local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)  
-			Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+			Timers:CreateTimer(0.03, function()
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+			end)
 		end
 	end	
+
+	local e_1_level = caster:GetRuneValue("e", 1)
+	if e_1_level > 0 then
+		if not caster:HasModifier("modifier_rubilash_arcana1") then
+			local mana_restore = RUBILASH_RUNE_E1_MANA_RESTORE*e_1_level
+			caster:GiveMana(mana_restore)
+			Timers:CreateTimer(0.24, function()
+				PopupMana(caster, mana_restore)
+			end)
+		end
+	end
 	if not actual_event_caster:HasModifier("modifier_rubilash_illusion_base") then
 		local illusion_cast_table = event
 		illusion_cast_table.illusion = true

@@ -2782,6 +2782,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         if attacker:GetUnitName() == "npc_dota_hero_spirit_breaker" then
             local r_4_level = attacker:GetRuneValue("r", 4)
             mult = mult + DUSKBRINGER_R4_GHOST_AMP * r_4_level
+        elseif unitName == "npc_dota_hero_grimstroke" then
+            mult = mult + attacker:GetRuneValue("q", 4)*RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP/100
         end
         if attacker:HasModifier("modifier_hand_ghost") then
             local stacks = attacker:GetModifierStackCount("modifier_hand_ghost", attacker.InventoryUnit)
@@ -2846,6 +2848,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasModifier("modifier_chernobog_arcana1") then
                 mult = mult + attacker:GetRuneValue("r", 4)*CHERNOBOG_ARCANA1_R4_DEMON_AMP
             end
+        elseif unitName == "npc_dota_hero_grimstroke" then
+            mult = mult + attacker:GetRuneValue("q", 4)*RUBILASH_RUNE_Q4_DEMON_AND_GHOST_AMP/100
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_demon", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_demon", 1))/100
     end
@@ -7033,4 +7037,16 @@ function Filters:RuptholdsTrigger(hero)
     rupthold_helm:ApplyDataDrivenModifier(hero.InventoryUnit, hero, "modifier_rupthold_borrowed_time_cooldown", {duration = ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_COOLDOWN})
     EmitSoundOn("RPCItems.Rupthold.SapphireBorrowedTime", hero)
     rupthold_helm.apply_time = GameRules:GetGameTime()
+end
+
+function Filters:CalculateTotalCastRangeBonus(hero)
+    local range_bonus = 0
+    if hero:HasModifier("modifier_vermillion_dream_robes") then
+        range_bonus = range_bonus + ITEM_RPC_VERMILLION_DREAM_ROBES_CAST_RANGE_INCREASE
+        range_bonus = range_bonus + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VERMILLION_DREAM_ROBES_GEM_RUBY)
+    end
+    if hero:GetUnitName() == "npc_dota_hero_grimstroke" then
+        range_bonus = range_bonus + hero:GetRuneValue("q", 1)*RUBILASH_RUNE_Q1_CAST_RANGE
+    end
+    return range_bonus
 end

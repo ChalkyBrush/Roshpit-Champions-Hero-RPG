@@ -1151,6 +1151,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local tome = caster.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
 		armor_modify = armor_modify + tome:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST2)
 	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		armor_modify = armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor")
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1800,6 +1803,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     if unit:HasModifier("modifier_torch_of_gengar_inactive") then
         magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD2)
     end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		magic_armor_modify = magic_armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "magic_armor")
+	end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2192,6 +2198,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
 		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
+	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		armor_pierce_modify = armor_pierce_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor_pierce")
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2638,6 +2647,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
 		spell_pierce_modify = spell_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
+	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		spell_pierce_modify = spell_pierce_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "spell_pierce")
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

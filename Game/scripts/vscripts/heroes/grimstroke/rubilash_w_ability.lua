@@ -1,4 +1,5 @@
 require('heroes/grimstroke/rubilash_constants')
+require('heroes/grimstroke/rubilash_root')
 
 RUBILASH_COLORS = {"red", "yellow", "blue"}
 RUBILASH_COLORS_DATA = {}
@@ -10,22 +11,26 @@ function rubilash_init(event)
 	local caster = event.caster
 	if not caster.color then
 		caster.color = "blue"
-	end
-	for k, v in pairs(caster:GetChildren()) do
-		if v:GetClassname() == "dota_item_wearable" then
-			if string.match(v:GetModelName(), "weapon") then
-				print(v:GetModelName())
-				caster.weaponFX = v
-				caster.origWeapon = v:GetModelName()
-				break
+		for k, v in pairs(caster:GetChildren()) do
+			if v:GetClassname() == "dota_item_wearable" then
+				if string.match(v:GetModelName(), "weapon") then
+					print(v:GetModelName())
+					caster.weaponFX = v
+					caster.origWeapon = v:GetModelName()
+					break
+				end
 			end
 		end
-	end
 
-	local force_weapon_model = "models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
-	caster.weaponInit = true
-	caster.weaponFX:SetModel(force_weapon_model)
-	toggle_rubilash_color(caster)
+		local force_weapon_model = "models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
+		caster.weaponInit = true
+		caster.weaponFX:SetModel(force_weapon_model)
+		toggle_rubilash_color(caster)
+
+		if not caster:HasAbility("rubilash_hidden_passive") then
+			caster:AddAbility("rubilash_hidden_passive"):SetLevel(1)
+		end
+	end
 end
 
 function rubilash_ink_blot_phase(event)
@@ -92,7 +97,9 @@ function rubilash_ink_blot(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
 				local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+				Timers:CreateTimer(0.03, function()
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+				end)
 			end
 		end	
     end)
@@ -136,6 +143,7 @@ function set_rubilash_color_visual(caster)
 	if caster:HasModifier("modifier_rubilash_illusion_base") then
 		Events:ColorWearablesAndBase(caster, RUBILASH_COLORS_DATA[caster.color])
 	end
+	caster:SetRangedProjectileName("particles/roshpit/rubilash/rubilash_base_attack_"..caster.color..".vpcf")
 end
 
 function get_rubilash_portrait_delay_time(rubilash)
@@ -158,6 +166,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 		target.rubilash_paint["red"] = 0
 		target.rubilash_paint["blue"] = 0
 		target.rubilash_paint["yellow"] = 0
+		target.rubilash_paint["white"] = 0
 		target.rubilash_paint_total_color = "none"
 	end
 	target.rubilash_paint[color] = (get_rubilash_paint_duration(caster))*10
@@ -165,12 +174,12 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
 	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
-
+	damage = 0
 	return damage*mult
 end
 
 function get_rubilash_paint_duration(caster)
-	return RUBILASH_PAINTED_DURATION_BASE
+	return RUBILASH_PAINTED_DURATION_BASE + caster:GetRuneValue("w", 1)*RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION
 end
 
 function get_remaining_paint_duration(target)
@@ -198,6 +207,8 @@ function get_new_rubilash_paint_color(target)
 		return "red"	
 	elseif target.rubilash_paint["blue"] > 0 then
 		return "blue"
+	elseif target.rubilash_paint["white"] > 0 then
+		return "white"
 	else
 		return "none"	
 	end
@@ -207,18 +218,16 @@ function rubilash_painted_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-
-	for key, value in pairs(target.rubilash_paint) do
-		target.rubilash_paint[key] = math.max(value - 1, 0)
+	if target:IsAlive() then
+		for key, value in pairs(target.rubilash_paint) do
+			target.rubilash_paint[key] = math.max(value - 1, 0)
+		end
+		target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
+		apply_actual_paint_buff(caster, target)
 	end
-	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
-	apply_actual_paint_buff(caster, target)
 end
 
 function apply_actual_paint_buff(caster, target)
-	local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
-	local paint_duration = get_remaining_paint_duration(target)
-
 	for i = 1, #RUBILASH_ALL_COLORS, 1 do
 		if RUBILASH_ALL_COLORS[i] == target.rubilash_paint_total_color then
 		else
@@ -228,9 +237,57 @@ function apply_actual_paint_buff(caster, target)
 		end
 	end
 	if target.rubilash_paint_total_color == "none" then
+		target:RemoveModifierByName("modifier_rubilash_base_painted")
+		target:RemoveModifierByName("modifier_rubilash_w_4_slow")
 	else
 		if not target:HasModifier("modifier_rubilash_painted_"..target.rubilash_paint_total_color) then
+			local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
+			local paint_duration = get_remaining_paint_duration(target)
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..target.rubilash_paint_total_color, {duration = paint_duration})
+			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_base_painted", {duration = paint_duration})
+			target:CalculateAndSaveRoshpitAttributes()
+			update_w_4_movespeed(caster, target, paint_duration)
 		end
+	end
+end
+
+function rubilash_w_ability_attack_land(event)
+	local caster = event.caster
+	local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+	local target = event.target
+
+	local w_3_level = caster:GetRuneValue("w", 3)
+	if w_3_level > 0 then
+    	local explosionPosition = target:GetAbsOrigin()
+    	AddFOWViewer(caster:GetTeamNumber(), explosionPosition, 220, 1.5, false)
+    	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..caster.color..".vpcf", explosionPosition, 3)
+    	local radius = ability:GetSpecialValueFor("damage_radius")
+    	local base_ability_damage = ability:GetSpecialValueFor("damage")*(RUBILASH_RUNE_W3_W_AMP/100)*w_3_level
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do    
+				local damage = rubilash_apply_paint_and_get_damage(caster, ability, base_ability_damage, enemy)
+				print(damage)
+				Timers:CreateTimer(0.03, function()
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+				end)
+			end
+		end
+	end
+end
+
+function update_w_4_movespeed(caster, target, paint_duration)
+	local w_4_level = caster:GetRuneValue("w", 4)
+	if w_4_level > 0 then
+		local master_ability = caster:FindAbilityByName("rubilash_hidden_passive")
+		master_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_w_4_slow", {duration = paint_duration})
+		local stacks = w_4_level
+		local mult = 1
+		if target:HasModifier("modifier_rubilash_painted_white") or target:HasModifier("modifier_rubilash_painted_black") then
+			mult = 3
+		elseif target:HasModifier("modifier_rubilash_painted_orange") or target:HasModifier("modifier_rubilash_painted_purple") or target:HasModifier("modifier_rubilash_painted_green") then
+			mult = 2
+		end
+		target:SetModifierStackCount("modifier_rubilash_w_4_slow", caster, stacks*mult)
 	end
 end

@@ -28,6 +28,10 @@
 
 		// Precache
 		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
 		// Casting
 		//-------------------------------------------------------
 		"AbilityCastPoint"				"0.8"
@@ -90,6 +94,49 @@
 		}
 		"Modifiers"
 		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
@@ -125,6 +172,7 @@
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"80 160 240 320 400 480 560"
+		"AbilityCastRange"				"1200"
 
 		// Special
 		//-------------------------------------------------------
@@ -178,6 +226,19 @@
 					{
 						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
 						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
 					}
 				}
 			}
@@ -307,6 +368,7 @@
 					}
 				}
 			}
+
 		}
 	}
 
@@ -323,7 +385,7 @@
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastRange"				"700 800 900 1000 1100 1200 1300"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"precache"
@@ -359,6 +421,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
 			}
 		}
 		"OnSpellStart"
@@ -543,6 +610,97 @@
         }
     }
 
+	"rubilash_hidden_passive"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_earth"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"Modifiers"
+		{
+			"modifier_rubilash_core_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_main_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_quick_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_quick_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_q_1_cast_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING" "1"
+				}
+			}
+			"modifier_rubilash_w_3_attack_speed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_w_ability_attack_land"
+					}
+				}
+			}
+			"modifier_rubilash_e_1_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_rubilash_w_4_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-9"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-9" 
+				}
+			}
+		}
+	}
+
 
 	"rubilash_rune_q_1"
 	{
@@ -560,12 +718,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -587,17 +740,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"3"
+				"property_one"			"-70"
 			}
 		}
 	}
@@ -617,8 +760,13 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"0.6"
 			}
 		}
 	}
@@ -639,7 +787,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -654,29 +802,13 @@
 		"AbilityTextureName"	"ogre_magi/antipodeanabilityicons/ogre_magi_ignite"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -697,12 +829,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"property_one"			"-70"
 			}
 		}
 	}
@@ -724,12 +851,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"15"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_two"			"5"
 			}
 			"03"
 			{
@@ -760,22 +887,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"2"
+				"property_one"			"-9"
 			}
 		}
 	}
@@ -796,12 +908,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0"
+				"property_one"			"100"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"0"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
 			}
 		}
 	}
@@ -823,27 +935,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one_base"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"base_ability"			"3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"11"
+				"property_one"			"-70"
 			}
 		}
 	}
