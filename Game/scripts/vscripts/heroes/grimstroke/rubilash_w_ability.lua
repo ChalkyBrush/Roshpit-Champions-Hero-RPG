@@ -308,6 +308,14 @@ function apply_actual_paint_buff(caster, target)
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_base_painted", {duration = paint_duration})
 			target:CalculateAndSaveRoshpitAttributes()
 			update_w_4_movespeed(caster, target, paint_duration)
+			if target.rubilash_paint_total_color == "black" or target.rubilash_paint_total_color == "white" then
+				local passive_ability = caster:FindAbilityByName("rubilash_hidden_passive")
+				passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_glyph_5_a_buff", {})
+				if not passive_ability.paint_table then
+					passive_ability.paint_table = {}
+				end
+				passive_ability.paint_table[target:GetEntityIndex()] = target
+			end
 		end
 	end
 end
@@ -360,5 +368,22 @@ function rubilash_base_e_3(caster, adjusted_damage)
 			heal_amount = adjusted_damage*(RUBILASH_RUNE_E3_PAINT_HEAL_PCT/100)*e_3_level
 			Filters:ApplyHeal(caster, caster, heal_amount, true, false, nil)
 		end
+	end
+end
+
+function glyph_5_a_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local keep_paint = false
+	for key, value in pairs(ability.paint_table) do
+		if value and IsValidEntity(value) and (value:HasModifier("modifier_rubilash_painted_black") or value:HasModifier("modifier_rubilash_painted_white")) then
+			keep_paint = true
+		else
+			ability.paint_table[key] = nil
+		end
+	end
+	if not keep_paint then
+		caster:RemoveModifierByName("modifier_rubilash_glyph_5_a_buff")
+		ability.paint_table = nil
 	end
 end

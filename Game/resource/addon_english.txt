@@ -8921,7 +8921,7 @@
 	"item_rpc_rubilash_glyph_7_1_description" 				"All Yellow Paint deals <font color='#ccff66'>-50</font>% reduced damage and has Pure damage type."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
-	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>400</font>% Attack Power."
+	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>300</font>% Attack Power."
 
     	//Abilities
 

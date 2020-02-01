@@ -2182,6 +2182,23 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_rubilash_glyph_5_a_buff"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"300"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"glyph_5_a_thinker"
+					}
+				}
+			}
 		}
 	}
 
