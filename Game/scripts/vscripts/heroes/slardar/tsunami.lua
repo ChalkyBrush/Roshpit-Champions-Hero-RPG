@@ -12,7 +12,7 @@ function start_channel(event)
 	end
 	caster.e_4_level = caster:GetRuneValue("e", 4)
 
-	if caster:HasModifier("modifier_hydroxis_glyph_6_1") then
+	if caster:HasModifier("modifier_hydroxis_glyph_6_1") and not caster:HasModifier("modifier_iron_treads_of_destruction") then
 		channel_complete(event)
 		caster:Stop()
 	else
