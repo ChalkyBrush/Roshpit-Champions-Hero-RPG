@@ -25,18 +25,22 @@
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"PAINT DISTANCE:"
 
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Yellow</font>]"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"PAINT DISTANCE:"
 
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>]"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"PAINT DISTANCE:"
 
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"PAINT DISTANCE:"
 
 "DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
 "DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Throws a little glob of paint that damages enemies at the target location once it reaches its destination."

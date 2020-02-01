@@ -36,7 +36,7 @@ function start_paintbrush(event)
 	EmitSoundOn("Rubilash.Paintbrush.Cast.Inky", actual_event_caster)
     local fv = ((event.target_points[1] - actual_event_caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
     local spellOrigin = actual_event_caster:GetAbsOrigin()
-    local range = 1500
+    local range = event.range
     range = range + Filters:CalculateTotalCastRangeBonus(caster)
     local speed = range*2
     local info =

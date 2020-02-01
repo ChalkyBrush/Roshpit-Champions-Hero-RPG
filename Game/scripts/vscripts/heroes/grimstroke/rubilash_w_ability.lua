@@ -89,10 +89,11 @@ function rubilash_ink_blot(event)
     	local explosionPosition = spellOrigin + fv*range
     	EmitSoundOnLocationWithCaster(explosionPosition, "Rubilash.InkBlot.Splash", actual_event_caster)
     end)
+    local color = actual_event_caster.color
     Timers:CreateTimer(travel_time, function()
     	local explosionPosition = GetGroundPosition(spellOrigin + fv*range, actual_event_caster) 
     	AddFOWViewer(caster:GetTeamNumber(), explosionPosition, 220, 1.5, false)
-    	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..actual_event_caster.color..".vpcf", explosionPosition, 3)
+    	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..color..".vpcf", explosionPosition, 3)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
@@ -164,9 +165,17 @@ end
 
 function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	local mult = 1
-	local color = "red"
 	-- TODO: USE ABILITY NAME TO GET ACTUAL PAINT COLOR
 	local color = caster.color
+	if string.match(ability:GetAbilityName(), "_red") then
+		color = "red"
+	elseif string.match(ability:GetAbilityName(), "_yellow") then
+		color = "yellow"
+	elseif string.match(ability:GetAbilityName(), "_blue") then
+		color = "blue"
+	elseif string.match(ability:GetAbilityName(), "white") then
+		color = "white"
+	end
 	if target.rubilash_paint_total_color then
 		if RUBILASH_MULTS[color][target.rubilash_paint_total_color] then
 			mult = RUBILASH_MULTS[color][target.rubilash_paint_total_color]
@@ -184,6 +193,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	target.rubilash_paint[color] = (get_rubilash_paint_duration(caster))*10
 	DeepPrintTable(target.rubilash_paint)
 	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
+
 	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
 	-- damage = 0

@@ -23,6 +23,21 @@
 		"precache"
 		{
 			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/green.vpcf"	  	   
+			"particle"	"particles/roshpit/rubilash/paint_status/black.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_yellow.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_blue.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_red_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_yellow_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_blue_blur.vpcf"
+			"model"		"models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
+
 		}
 		// Casting
 		//-------------------------------------------------------
@@ -44,6 +59,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -71,6 +91,7 @@
 	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
 	    		"Function"		"start_paintbrush"
 	    		"Target"		"POINT"
+	    		"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -179,6 +200,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -205,6 +231,7 @@
 	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
 	    		"Function"		"start_paintbrush"
 	    		"Target"		"POINT"
+	    		"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -313,6 +340,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -339,6 +371,7 @@
 	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
 	    		"Function"		"start_paintbrush"
 	    		"Target"		"POINT"
+	    		"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -447,6 +480,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE_WHITE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -473,6 +511,7 @@
 	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
 	    		"Function"		"start_paintbrush"
 	    		"Target"		"POINT"
+	    		"range"			"%range"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -550,7 +589,18 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
-
+			"particle"	"particles/roshpit/rubilash/ink_blot_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_blue.vpcf"
 		}
 
 		// Precache
@@ -1480,8 +1530,12 @@
 		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
 		"precache"
 		{
-
-
+			"particle"	"particles/roshpit/rubilash/ink_splatter_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_blue.vpcf"
 		}
 
 		// Precache
@@ -1850,6 +1904,9 @@
         "precache"
         {
         	"particle"				"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_red.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_yellow.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_blue.vpcf"
         }
 
         "AbilityManaCost"   "0"
