@@ -10,7 +10,7 @@ RUBILASH_COLORS_DATA["blue"] = Vector(255, 255, 255)
 function rubilash_init(event)
 	local caster = event.caster
 	if not caster.color then
-		caster.color = "blue"
+		caster.color = "red"
 		for k, v in pairs(caster:GetChildren()) do
 			if v:GetClassname() == "dota_item_wearable" then
 				if string.match(v:GetModelName(), "weapon") then
@@ -25,7 +25,7 @@ function rubilash_init(event)
 		local force_weapon_model = "models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
 		caster.weaponInit = true
 		caster.weaponFX:SetModel(force_weapon_model)
-		toggle_rubilash_color(caster)
+		set_rubilash_color_visual(caster)
 
 		if not caster:HasAbility("rubilash_hidden_passive") then
 			caster:AddAbility("rubilash_hidden_passive"):SetLevel(1)
@@ -124,12 +124,19 @@ function rubilash_ink_blot(event)
 end
 
 function toggle_rubilash_color(caster)
+	local original_color = caster.color
 	if caster.color == "red" then
 		caster.color = "yellow"
 	elseif caster.color == "yellow" then
 		caster.color = "blue"
 	elseif caster.color == "blue" then
 		caster.color = "red"
+	end
+
+	if not caster.illusion then
+		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_phantom_brush_"..original_color, "rubilash_phantom_brush_"..caster.color, DOTA_Q_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_ink_blot_"..original_color, "rubilash_ink_blot_"..caster.color, DOTA_W_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_paint_splatter_"..original_color, "rubilash_paint_splatter_"..caster.color, DOTA_E_SLOT)
 	end
 	set_rubilash_color_visual(caster)
 end
@@ -182,11 +189,12 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	-- damage = 0
 	local adjusted_damage = damage*mult
 	rubilash_base_e_3(caster, adjusted_damage)
+	print(adjusted_damage)
 	return adjusted_damage
 end
 
 function get_rubilash_paint_duration(caster)
-	return RUBILASH_PAINTED_DURATION_BASE + caster:GetRuneValue("w", 1)*RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION
+	return math.max(RUBILASH_PAINTED_DURATION_BASE + caster:GetRuneValue("w", 1)*RUBILASH_RUNE_W1_EXTRA_PAINT_DURATION, 0)
 end
 
 function get_remaining_paint_duration(target)
@@ -248,7 +256,7 @@ function apply_actual_paint_buff(caster, target)
 		target:RemoveModifierByName("modifier_rubilash_w_4_slow")
 	else
 		if not target:HasModifier("modifier_rubilash_painted_"..target.rubilash_paint_total_color) then
-			local painting_ability = caster:FindAbilityByName("rubilash_ink_blot")
+			local painting_ability = caster:FindAbilityByName("rubilash_ink_blot_"..caster.color)
 			local paint_duration = get_remaining_paint_duration(target)
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..target.rubilash_paint_total_color, {duration = paint_duration})
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_base_painted", {duration = paint_duration})

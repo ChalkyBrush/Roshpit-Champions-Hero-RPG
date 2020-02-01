@@ -52,6 +52,7 @@ function rubilash_illusion(caster, ability, duration)
     local illusion = illusions[1]
     illusion.owner = caster
     illusion.hero = caster
+    illusion.illusion = true
 
     StartAnimation(illusion, {duration = 2, activity = ACT_DOTA_VERSUS, rate = 5})
     local newPos = caster:GetAbsOrigin()+caster:GetForwardVector()*320
@@ -160,7 +161,7 @@ function rubilash_self_portrait_success(event)
 end
 
 function self_portrait_die(event)
-	local illusion = event.target
+	local illusion = event.unit
 	if illusion.effectPFX then
 		ParticleManager:DestroyParticle(illusion.effectPFX, false)
 		illusion.effectPFX = nil
@@ -207,7 +208,7 @@ function self_portrait_r_3_thinker(event)
 		if #enemies > 0 then
 			local illusion_cast_table = {}
 			illusion_cast_table.caster = event.caster
-			illusion_cast_table.ability = event.caster:FindAbilityByName("rubilash_ink_blot")
+			illusion_cast_table.ability = event.caster:FindAbilityByName("rubilash_ink_blot_"..illusion.color)
 			-- illusion_cast_table.ability = event.caster:FindAbilityByName("rubilash_ink_blot_"..event.caster.color)
 			illusion_cast_table.target_points = {}
 			illusion_cast_table.target_points[1] = enemies[1]:GetAbsOrigin()
