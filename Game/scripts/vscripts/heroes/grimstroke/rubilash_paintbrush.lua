@@ -9,7 +9,9 @@ function paintbrush_phase_start(event)
 		local illusion_ability = caster:FindAbilityByName("rubilash_self_portrait")
 		caster = illusion_ability.illusion
 	end
-	StartSoundEvent("Rubilash.Paintbrush.Pre", caster)
+	if not caster:HasModifier("modifier_rubilash_immortal_weapon_1") then
+		StartSoundEvent("Rubilash.Paintbrush.Pre", caster)
+	end
 end
 
 function paintbrush_phase_interrupt(event)

@@ -656,6 +656,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
             healAmount = healAmount * (1 + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_AMETHYST_HEALING_INCREASE/100)
         end
     end
+    if target:HasModifier("modifier_rubilash_immortal_weapon_2") then
+        healAmount = healAmount * (1 - RUBILASH_IMMORTAL_WEAPON_2_HEAL_REDUCTION/100)
+    end
     healAmount = OverflowProtectedMaxHealingValue(healAmount)
     if bCap then
         healAmount = math.min(healAmount, target:GetMaxHealth())
@@ -1833,6 +1836,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_rubilash_glyph_2_1") then
             damageMult = damageMult + RUBILASH_GLYPH_2_1_Q_BAD/100
+        end
+        if attacker:HasModifier("modifier_rubilash_immortal_weapon_1") then
+            damageMult = damageMult + RUBILASH_IMMORTAL_WEAPON_1_Q_BAD/100
         end
         if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then

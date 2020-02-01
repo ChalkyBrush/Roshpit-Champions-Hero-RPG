@@ -8923,6 +8923,33 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
 	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>300</font>% Attack Power."
 
+	//Weapons
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_01"		"Broom Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_02"		"Novice Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_03"		"Ink Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_11"		"Paint Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_12"		"Artist's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_13"		"Palette Stick"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_14"		"Paint Mixer"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_21"		"Master's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_22"		"Vision Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_23"		"Acrylic Rod"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
+	"property_rubilash_immortal_weapon_description"                      "@Ability1 has no cast point and <font color='#ccff66'>100</font>% increased Base Ability Damage."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
+	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <font color='#ccff66'>250</font>%, and reduces all healing effects received by <font color='#ccff66'>60</font>%."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
+	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
+	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <font color='#ccff66'>1</font>x Agility and Intelligence and <font color='#ccff66'>5</font>% of Attack Power."
+
     	//Abilities
 
     	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"

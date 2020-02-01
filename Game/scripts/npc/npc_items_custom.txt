@@ -30813,11 +30813,7 @@
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"property_one"			"66"
-			}
+
 		}
 	}
 

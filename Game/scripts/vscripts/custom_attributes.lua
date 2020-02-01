@@ -3561,6 +3561,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
 		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIFESOURCE_VESSEL_GEM_SAPPHIRE)/100
 	end
+	if excludedModifier ~= "modifier_rubilash_immortal_weapon_2" and hero:HasModifier("modifier_rubilash_immortal_weapon_2") then
+		percentHealthMultiplier = percentHealthMultiplier + RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE/100
+	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 
 		function(result, data)

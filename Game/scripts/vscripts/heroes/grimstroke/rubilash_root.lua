@@ -67,4 +67,13 @@ function rubilash_quick_thinker(event)
 	else
 		caster:RemoveModifierByName("modifier_rubilash_r_2_bad_and_item")
 	end
+
+	local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
+	if caster:HasModifier("modifier_rubilash_immortal_weapon_1") then
+		q_ability:SetOverrideCastPoint(0)
+	else
+		if not caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
+			q_ability:SetOverrideCastPoint(RUBILASH_PHANTOM_BRUSH_CAST_POINT)
+		end
+	end
 end
