@@ -84,7 +84,9 @@ function start_paintbrush(event)
 			end
 		end)
 	end
-
+	if caster:HasModifier("modifier_rubilash_glyph_2_1") then
+		toggle_rubilash_color(actual_event_caster)
+	end
 	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
@@ -93,9 +95,9 @@ function paintbrush_impact(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, target)
+	local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, target)
 	Timers:CreateTimer(0.03, function()
-		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, damagetype, BASE_ABILITY_Q, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 	end)
 	local q_3_level = caster:GetRuneValue("q", 3)
 	if q_3_level > 0 then

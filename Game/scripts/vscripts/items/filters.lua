@@ -1831,6 +1831,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_plate_of_the_watcher1") then
             damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY2)/100
         end
+        if attacker:HasModifier("modifier_rubilash_glyph_2_1") then
+            damageMult = damageMult + RUBILASH_GLYPH_2_1_Q_BAD/100
+        end
         if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then
                 Filters:DeathWhisperApply(attacker, victim)

@@ -31,9 +31,9 @@ function ink_splatter_start(event)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), particlePos, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do  
-			local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)  
+			local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)  
 			Timers:CreateTimer(0.03, function()
-				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damagetype, BASE_ABILITY_E, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 			end)
 		end
 	end	
@@ -71,4 +71,25 @@ end
 function ink_splatter_emerging_end(event)
 	local caster = event.caster
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+end
+
+function rubilash_glyph_3_1_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local illusion = event.target
+	local illusion_cast_table = event
+	illusion_cast_table.ability = caster:FindAbilityByName("rubilash_paint_splatter_"..illusion.color)
+	if not illusion_cast_table.ability then
+		illusion_cast_table.ability = caster:FindAbilityByName("rubilash_paint_splatter_red")
+	end
+	illusion_cast_table.illusion = true
+	illusion_cast_table.damage_radius = illusion_cast_table.ability:GetSpecialValueFor("damage_radius")
+	illusion_cast_table.target_points = {}
+	illusion_cast_table.target_points[1] = illusion:GetAbsOrigin() + RandomVector(RandomInt(100, RUBILASH_GLYPH_3_1_RANGE))
+	local delay = get_rubilash_portrait_delay_time(caster)
+	Timers:CreateTimer(delay, function()
+		if illusion and IsValidEntity(illusion) and illusion:IsAlive() and not illusion:IsStunned() then
+			ink_splatter_start(illusion_cast_table)
+		end
+	end)
 end

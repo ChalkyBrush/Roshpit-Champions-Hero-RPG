@@ -2060,6 +2060,20 @@
             	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "10" 
             	}
             }
+            "modifier_rubilash_self_portrait_glyph_3_1"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "2"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+            			"Function"		"rubilash_glyph_3_1_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
         }
 
         "AbilitySpecial"

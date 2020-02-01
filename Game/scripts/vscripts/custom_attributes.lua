@@ -1806,6 +1806,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_rubilash_base_painted") then
 		magic_armor_modify = magic_armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "magic_armor")
 	end
+	if unit:HasModifier("modifier_rubilash_glyph_4_1") then
+		magic_armor_modify = magic_armor_modify + RUBILASH_GLYPH_4_1_MAGIC_ARMOR
+	end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then

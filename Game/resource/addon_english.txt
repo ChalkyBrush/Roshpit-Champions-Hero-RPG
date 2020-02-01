@@ -8900,7 +8900,7 @@
 	//Glyphs
 	
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] Glyph of Etching"
-	"item_rpc_rubilash_glyph_1_1_description" 				"Increases the travel speed of @Ability2 by <font color='#ccff66'>150</font>%"
+	"item_rpc_rubilash_glyph_1_1_description" 				"Increases the travel speed of @Ability2 by <font color='#ccff66'>120</font>%"
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
 	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 toggles Rubilash's color and has <font color='#ccff66'>100</font>% Base Ability Damage"

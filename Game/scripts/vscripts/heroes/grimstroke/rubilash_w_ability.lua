@@ -60,6 +60,9 @@ function rubilash_ink_blot(event)
     local spellOrigin = actual_event_caster:GetAbsOrigin()
     local range = WallPhysics:GetDistance2d(spellOrigin, point)
     local speed = 1600
+    if caster:HasModifier("modifier_rubilash_glyph_1_1") then
+    	speed = speed * (1 + RUBILASH_GLYPH_1_1_PROJECTILE_SPEED_PCT/100)
+    end
     print("IN HERE?")
     local info =
     {
@@ -97,9 +100,9 @@ function rubilash_ink_blot(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
-				local damage = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
+				local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
 				Timers:CreateTimer(0.03, function()
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damagetype, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 				end)
 			end
 		end	
@@ -181,7 +184,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 			mult = RUBILASH_MULTS[color][target.rubilash_paint_total_color]
 		end
 	end
-
+	local damagetype = DAMAGE_TYPE_MAGICAL
 	if not target.rubilash_paint then
 		target.rubilash_paint = {}
 		target.rubilash_paint["red"] = 0
@@ -199,8 +202,41 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	-- damage = 0
 	local adjusted_damage = damage*mult
 	rubilash_base_e_3(caster, adjusted_damage)
-	print(adjusted_damage)
-	return adjusted_damage
+	local glyph_mult = 1
+	local white_damage_types = nil
+	if color == "white" then
+		white_damage_types = {DAMAGE_TYPE_MAGICAL, DAMAGE_TYPE_MAGICAL, DAMAGE_TYPE_MAGICAL}
+	end
+	if caster:HasModifier("modifier_rubilash_glyph_5_1") then
+		if color == "blue" or color == "white" then
+			Filters:MagicImmuneBreak(caster, target)
+		end
+	end
+	if caster:HasModifier("modifier_rubilash_glyph_6_1") then
+		if color == "red" or color == "white" then
+			glyph_mult = glyph_mult + RUBILASH_GLYPH_6_1_DAMAGE_INCREASE_PCT/100
+			if color == "white" then
+				white_damage_types[2] = DAMAGE_TYPE_PHYSICAL
+			else
+				damagetype = DAMAGE_TYPE_PHYSICAL
+			end
+		end
+	end
+	if caster:HasModifier("modifier_rubilash_glyph_7_1") then
+		if color == "yellow" or color == "white" then
+			glyph_mult = glyph_mult + RUBILASH_GLYPH_7_1_DAMAGE_REDUCE_PCT/100
+			if color == "white" then
+				white_damage_types[3] = DAMAGE_TYPE_PURE
+			else
+				damagetype = DAMAGE_TYPE_PURE
+			end
+		end
+	end
+	if color == "white" then
+		damagetype = white_damage_types[RandomInt(1, #white_damage_types)]
+	end
+	adjusted_damage = adjusted_damage*glyph_mult
+	return adjusted_damage, damagetype
 end
 
 function get_rubilash_paint_duration(caster)
@@ -291,10 +327,10 @@ function rubilash_w_ability_attack_land(event)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
-				local damage = rubilash_apply_paint_and_get_damage(caster, ability, base_ability_damage, enemy)
+				local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, base_ability_damage, enemy)
 				print(damage)
 				Timers:CreateTimer(0.03, function()
-					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
+					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damagetype, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 				end)
 			end
 		end

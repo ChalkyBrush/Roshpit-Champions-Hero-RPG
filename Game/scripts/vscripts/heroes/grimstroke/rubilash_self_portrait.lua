@@ -1,5 +1,6 @@
 require('heroes/grimstroke/rubilash_w_ability')
 require('heroes/grimstroke/rubilash_root')
+require('heroes/grimstroke/rubilash_root')
 
 function rubilash_dark_portrait_channel_start(event)
 	local caster = event.caster
@@ -156,6 +157,9 @@ function rubilash_self_portrait_success(event)
         -- Timers:CreateTimer(2, function()
         -- 	ParticleManager:DestroyParticle(pfx3, false)
         -- end)
+	end
+	if caster:HasModifier("modifier_rubilash_glyph_3_1") then
+		ability:ApplyDataDrivenModifier(caster, ability.illusion, "modifier_rubilash_self_portrait_glyph_3_1", {})
 	end
 	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 end
