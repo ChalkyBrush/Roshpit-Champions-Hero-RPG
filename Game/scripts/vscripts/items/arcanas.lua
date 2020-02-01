@@ -1344,6 +1344,29 @@ function RPCItems:RollSlipfinnArcana1(item_level)
     return item
 end
 
+function RPCItems:RollRubilashArcana1(item_level)
+    local item_slot = RPC_GEAR_SLOT_BOOTS
+    local rarity = RPC_ITEMS_RARITY_ARCANA
+
+    local item = RPCItems:CreateArcanaBasic("item_rpc_rubilash_arcana1", "arcana", "Rubilash Arcana 1", "feet", true, "Slot: Feet", "npc_dota_hero_grimstroke", 0)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "arcana1"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_rubilash_arcana1", "#FFFFFF", 1, "#property_rubilash_arcana1_description")
+
+    local rune_property = RPCItems:RollArcanaRuneForSlot("e")
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "all_attributes", 2.5)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 0)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3.5)
+    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1435,6 +1458,8 @@ function RPCItems:GetAvailableArcanaData(hero)
         table.insert(arcanaData, {1, 1})
     elseif unitName == "npc_dota_hero_arc_warden" then
         table.insert(arcanaData, {1, 1})
+    elseif unitName == "npc_dota_hero_grimstroke" then
+        table.insert(arcanaData, {1, 2})
     end
     return arcanaData
 end
@@ -1453,7 +1478,7 @@ function RPCItems:GetAllArcanaNames()
         "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
         "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
         "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1"}
+    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1", "item_rpc_rubilash_arcana1"}
     return arcanaTable
 end
 
@@ -1464,7 +1489,7 @@ function RPCItems:WorldDropArcanas()
         "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
         "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
         "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1"}
+    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_rubilash_arcana1"}
     return arcanaTable
 end
 
@@ -1585,6 +1610,8 @@ function RPCItems:RollArcanaByName(arcana_name, item_level)
         arcana = RPCItems:RollSlipfinnArcana1(item_level)
     elseif arcana_name == "item_rpc_duskbringer_arcana2" then
         arcana = RPCItems:RollDuskbringerArcana2(item_level)
+    elseif arcana_name == "item_rpc_rubilash_arcana1" then
+        arcana = RPCItems:RollRubilashArcana1(item_level)
     end
     return arcana
 end

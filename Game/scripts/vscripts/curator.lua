@@ -904,9 +904,9 @@ end
 
 function Curator:FullCurateHero(hero)
 	Curator:CurateHero(hero:GetPlayerOwnerID())
-	-- Timers:CreateTimer(5, function()
-	-- 	Curator:CurateBasicWeaponsAgain(hero)
-	-- end)
+	Timers:CreateTimer(5, function()
+		Curator:CurateBasicWeaponsAgain(hero)
+	end)
 	Timers:CreateTimer(10, function()
 		local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 		local columns = Glyphs:GetAvailableColumnCount(internalName)

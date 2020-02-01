@@ -1,0 +1,2220 @@
+	"rubilash_phantom_brush_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/green.vpcf"	  	   
+			"particle"	"particles/roshpit/rubilash/paint_status/black.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_yellow.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_blue.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_red_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_yellow_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_blue_blur.vpcf"
+			"model"		"models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
+
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"<% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"<% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"<% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"<% RUBILASH_PHANTOM_BRUSH_CAST_POINT %>"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_PHANTOM_BRUSH_DAMAGE_WHITE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_ink_blot_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+			"particle"	"particles/roshpit/rubilash/ink_blot_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_blue.vpcf"
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"<% RUBILASH_INK_BLOT_DAMAGE_WHITE %>"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_white"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/white.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+			"particle"	"particles/roshpit/rubilash/ink_splatter_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_blue.vpcf"
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_self_portrait"
+    {
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "BaseClass" "ability_datadriven"
+        "AbilityTextureName"    "rubilash/self_portrait"
+        "AbilityCastPoint"  "0.0"
+        "AbilityCooldown"   "60"
+        "AbilityChannelTime"    "2"
+        "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
+        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "precache"
+        {
+        	"particle"				"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_red.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_yellow.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_blue.vpcf"
+        }
+
+        "AbilityManaCost"   "0"
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+                "Duration"      "1.5"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_dark_portrait_channel_start"
+                "duration"		"%duration"
+            }
+        }
+
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+            }
+
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_self_portrait_success"
+                "duration"		"%duration"
+            }
+
+        }
+
+        "OnChannelFinish"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "OnChannelInterrupted"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_self_portrait_fail"
+            }
+
+        }
+
+        "Modifiers"
+        {
+            "modifier_channel_start"
+            {
+                "IsHidden"  "1"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "beginChannel"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "endChannel"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                        "Function"      "rubilash_self_portrait_channel_end"
+                    }
+                }
+            }
+            "modifier_rubilash_illusion_spawning"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_rubilash_illusion_base"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            	"ThinkInterval"  "0.5"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_illusion_think"
+            			"target"		"TARGET"
+            		}
+            	}
+            	"OnDeath"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_die"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_3_thinker"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_r_3_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_4_ms"
+            {
+            	"IsHidden"	"1"
+            	"Properties"
+            	{
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_R4_PORTRAIT_MS_BONUS %>" 
+            	}
+            }
+            "modifier_rubilash_self_portrait_glyph_3_1"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "<% RUBILASH_GLYPH_3_1_INTERVAL %>"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+            			"Function"		"rubilash_glyph_3_1_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "duration"                    "30 40 50 60 70 80 90"
+            }
+        }
+    }
+
+	"rubilash_hidden_passive"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_earth"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"Modifiers"
+		{
+			"modifier_rubilash_core_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_main_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_quick_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_quick_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_q_1_cast_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING" "1"
+				}
+			}
+			"modifier_rubilash_w_3_attack_speed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_W3_ATTACK_SPEED %>"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_w_ability_attack_land"
+					}
+				}
+			}
+			"modifier_rubilash_e_1_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_rubilash_w_4_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_W4_SLOW %>"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% RUBILASH_RUNE_W4_SLOW %>" 
+				}
+			}
+			"modifier_rubilash_e_4_max_health"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_rubilash_r_2_bad_and_item"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_rubilash_glyph_5_a_buff"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% RUBILASH_GLYPH_5_A_ATTACK_POWER_BONUS %>"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"glyph_5_a_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_arcana_e_4_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}

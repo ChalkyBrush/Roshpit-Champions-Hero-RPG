@@ -1151,6 +1151,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local tome = caster.hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
 		armor_modify = armor_modify + tome:GetFinalGemPropertyValue("amethyst", ITEM_RPC_TOME_OF_CHAOS_GEM_AMETHYST2)
 	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		armor_modify = armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor")
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1800,6 +1803,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
     if unit:HasModifier("modifier_torch_of_gengar_inactive") then
         magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TORCH_OF_GENGAR_GEM_EMERALD2)
     end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		magic_armor_modify = magic_armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "magic_armor")
+	end
+	if unit:HasModifier("modifier_rubilash_glyph_4_1") then
+		magic_armor_modify = magic_armor_modify + RUBILASH_GLYPH_4_1_MAGIC_ARMOR
+	end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2193,6 +2202,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
 		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
 	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		armor_pierce_modify = armor_pierce_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor_pierce")
+	end
+	if unit:HasModifier("modifier_rubilash_arcana1") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
+
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_golden_war_plate") then
@@ -2639,6 +2655,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_wailing_snow_specter_aura_debuff") then
 		spell_pierce_modify = spell_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "pierces_reduction", "modifier_wailing_snow_specter_aura_debuff")
 	end
+	if unit:HasModifier("modifier_rubilash_base_painted") then
+		spell_pierce_modify = spell_pierce_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "spell_pierce")
+	end
+	if unit:HasModifier("modifier_rubilash_core_passive") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("r", 1)*unit:GetAgility()*RUBILASH_RUNE_R1_SPELL_PIERCE_PER_AGI
+	end
+	if unit:HasModifier("modifier_rubilash_arcana1") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
 	if unit:HasModifier("modifier_arcane_charm") then
@@ -2793,6 +2818,14 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		int_bonus = int_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
 		spr_bonus = spr_bonus + stacks * ASTRAL_RANGER_ARCANA2_W_1_ATTRIBUTES
+	end
+	if hero:HasModifier("modifier_rubilash_arcana1") then
+		local e_4_level = hero:GetRuneValue("e", 4)
+		str_bonus = str_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
+		agi_bonus = agi_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
+		int_bonus = int_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
+		spr_bonus = spr_bonus + e_4_level * RUBILASH_ARCANA1_RUNE_E4_ALL_ATTRIBUTES
+		
 	end
 	if hero:GetUnitName() == "npc_dota_hero_juggernaut" then
 		if hero:HasAbility("seinaru_hands_of_hikari") and hero.w_4_level then
@@ -3514,6 +3547,10 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_ruptholds_helm_of_gluttony" and hero:HasModifier("modifier_ruptholds_helm_of_gluttony") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*(ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_MAX_HEALTH_PER_ATTR + hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_RUBY))
 	end
+	if excludedModifier ~= "modifier_rubilash_e_4_max_health" and hero:HasModifier("modifier_rubilash_e_4_max_health") then
+		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*hero:GetRuneValue("e", 4)*RUBILASH_RUNE_E4_HEALTH_PER_ATTR
+	end
+	
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
 			flatHealthBonus = flatHealthBonus + result
@@ -3538,6 +3575,9 @@ function CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_lifesource_vessel" and hero:HasModifier("modifier_lifesource_vessel") then
 		percentHealthMultiplier = percentHealthMultiplier + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_LIFESOURCE_VESSEL_GEM_SAPPHIRE)/100
+	end
+	if excludedModifier ~= "modifier_rubilash_immortal_weapon_2" and hero:HasModifier("modifier_rubilash_immortal_weapon_2") then
+		percentHealthMultiplier = percentHealthMultiplier + RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE/100
 	end
 
 	Util.Modifier:SimpleEvent(hero, 'GetPercentHealthBonus', { MODIFIER_ROSHPIT_PERCENT_HEALTH_BONUS }, { }, 

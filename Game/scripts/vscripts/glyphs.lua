@@ -670,6 +670,7 @@ function Glyphs:RollGlyphAll(variantName, position, heroIndex)
 	local tier = tonumber(string.sub(variantName, nameLength - 2, nameLength - 2))
 	--print(tier)
 	local index = string.sub(variantName, nameLength, nameLength)
+	print(variantName)
 	local rarityName = Glyphs:GetRarityFromGlyphTier(tier, index)
 	--print(rarityName)
 	local itemName = "Basic Glyph"

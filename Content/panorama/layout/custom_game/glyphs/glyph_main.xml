@@ -102,6 +102,8 @@
 						</Panel>
 						<Panel id="herolist-row-5" class="herolist-row">
 						</Panel>
+						<Panel id="herolist-row-6" class="herolist-row">
+						</Panel>
 					</Panel>
 					<Panel id="reanimation-box">
 						<Panel id="reanimation-box-bg" class="reanimation_no_hover">
