@@ -159,6 +159,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"base_ability"			"2"
 			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_DEMON %>"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"<% RPC_ELEMENT_GHOST %>"
+			}
 		}
 		"Modifiers"
 		{
