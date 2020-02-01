@@ -122,7 +122,7 @@
 
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand"
-	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"increases Attack Speed, and Rubilash's basic attacks create an @Ability2 explosion beneath the targetted enemy."
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"Increases Attack Speed, and Rubilash's basic attacks create an @Ability2 explosion beneath the targetted enemy."
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Attack Speed Bonus"
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
     "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Damage"
