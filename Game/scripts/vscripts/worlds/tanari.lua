@@ -84,7 +84,7 @@ function Tanari:Debug()
     -- helm = Gems:AddSocket(helm)
     -- helm = Gems:AddSocket(helm)
 
-    -- Curator:CurateALLHeroes()
+    Curator:CurateALLHeroes()
     -- local body = item_rpc_armor_of_atlantis:CreateLuaItem(1)
     -- body = Gems:AddSocket(body)
     -- body = Gems:AddSocket(body)

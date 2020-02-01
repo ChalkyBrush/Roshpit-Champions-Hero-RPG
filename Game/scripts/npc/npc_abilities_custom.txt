@@ -473,7 +473,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"4"
+		"AbilityCooldown"				"1.5"
 
 		// Cost
 		//-------------------------------------------------------
@@ -1516,7 +1516,24 @@
 					}
 				}
 			}
-
+			"modifier_rubilash_painted_white"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/white.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -1833,7 +1850,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"9"
+		"AbilityCooldown"				"3"
 
 		// Cost
 		//-------------------------------------------------------
@@ -2197,6 +2214,14 @@
 						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
 						"Function"		"glyph_5_a_thinker"
 					}
+				}
+			}
+			"modifier_rubilash_arcana_e_4_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
 				}
 			}
 		}
@@ -2606,6 +2631,97 @@
 	}
 
 
+
+	"rubilash_rune_e_1_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"rubilash_rune_e_2_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"120"
+			}
+		}
+	}
+
+	"rubilash_rune_e_3_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"300"
+			}
+		}
+	}
+
+	"rubilash_rune_e_4_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
+			}
+		}
+	}
 
 
 	"omniro_omni_mace"

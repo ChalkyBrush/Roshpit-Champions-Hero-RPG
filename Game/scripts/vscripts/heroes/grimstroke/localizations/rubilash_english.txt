@@ -235,3 +235,32 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
 	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
 	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <% RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT %>x Agility and Intelligence and <% RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT %>% of Attack Power."
+
+	//ARCANAS
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"Masterstroke Trappings"
+
+	"item_property_rubilash_arcana1"										"White Paint"
+	"property_rubilash_arcana1_description"									"Replaces @Ability3 and all of its runes with Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font>]."
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] Fresh Coat"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"Casting @Ability3 restores health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_suffix"					"% of Max Health"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1"						"[E2] Masterpiece"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_Description"			"Greatly increases Armor Pierce and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_property_one"			"Armor Pierce & Spell Pierce"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Increases all base paint damage by a flat amount."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Paint Damage Increase"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
+
+		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_Description"			"Increases all attributes, and all attributes increase Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_one"			"Attribute Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_two"			"Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix_two"				" per attribute"

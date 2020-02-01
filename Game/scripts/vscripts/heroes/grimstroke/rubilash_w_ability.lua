@@ -6,6 +6,7 @@ RUBILASH_COLORS_DATA = {}
 RUBILASH_COLORS_DATA["red"] = Vector(255, 0, 0)
 RUBILASH_COLORS_DATA["yellow"] = Vector(255, 255, 0)
 RUBILASH_COLORS_DATA["blue"] = Vector(255, 255, 255)
+RUBILASH_COLORS_DATA["white"] = Vector(0, 0, 0)
 
 function rubilash_init(event)
 	local caster = event.caster
@@ -135,12 +136,16 @@ function toggle_rubilash_color(caster)
 		caster.color = "blue"
 	elseif caster.color == "blue" then
 		caster.color = "red"
+	elseif caster.color == "white" then
+		caster.color = "white"
 	end
 
 	if not caster.illusion then
-		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_phantom_brush_"..original_color, "rubilash_phantom_brush_"..caster.color, DOTA_Q_SLOT)
-		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_ink_blot_"..original_color, "rubilash_ink_blot_"..caster.color, DOTA_W_SLOT)
-		CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_paint_splatter_"..original_color, "rubilash_paint_splatter_"..caster.color, DOTA_E_SLOT)
+		if original_color ~= caster.color then
+			CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_phantom_brush_"..original_color, "rubilash_phantom_brush_"..caster.color, DOTA_Q_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_ink_blot_"..original_color, "rubilash_ink_blot_"..caster.color, DOTA_W_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(caster, "rubilash_paint_splatter_"..original_color, "rubilash_paint_splatter_"..caster.color, DOTA_E_SLOT)
+		end
 	end
 	set_rubilash_color_visual(caster)
 end
@@ -198,6 +203,9 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
 	if caster:HasModifier("modifier_rubilash_immortal_weapon_3") then
 		damage = damage + (caster:GetAgility() + caster:GetIntellect())*(RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT) + OverflowProtectedGetAverageTrueAttackDamage(caster)*RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT/100
+	end
+	if caster:HasModifier("modifier_rubilash_arcana1") then
+		damage = damage + caster:GetRuneValue("e", 3)*RUBILASH_ARCANA1_RUNE_E3_FLAT_DMG
 	end
 	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
@@ -312,13 +320,15 @@ function apply_actual_paint_buff(caster, target)
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_base_painted", {duration = paint_duration})
 			target:CalculateAndSaveRoshpitAttributes()
 			update_w_4_movespeed(caster, target, paint_duration)
-			if target.rubilash_paint_total_color == "black" or target.rubilash_paint_total_color == "white" then
-				local passive_ability = caster:FindAbilityByName("rubilash_hidden_passive")
-				passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_glyph_5_a_buff", {})
-				if not passive_ability.paint_table then
-					passive_ability.paint_table = {}
+			if caster:HasModifier("modifier_rubilash_glyph_5_a") then
+				if target.rubilash_paint_total_color == "black" or target.rubilash_paint_total_color == "white" then
+					local passive_ability = caster:FindAbilityByName("rubilash_hidden_passive")
+					passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_glyph_5_a_buff", {})
+					if not passive_ability.paint_table then
+						passive_ability.paint_table = {}
+					end
+					passive_ability.paint_table[target:GetEntityIndex()] = target
 				end
-				passive_ability.paint_table[target:GetEntityIndex()] = target
 			end
 		end
 	end
@@ -390,4 +400,16 @@ function glyph_5_a_thinker(event)
 		caster:RemoveModifierByName("modifier_rubilash_glyph_5_a_buff")
 		ability.paint_table = nil
 	end
+end
+
+function rubilash_arcana1_init(event)
+	local caster = event.target
+	caster.color = "white"
+	set_rubilash_color_visual(caster)
+end
+
+function rubilash_arcana1_end(event)
+	local caster = event.target
+	caster.color = "red"
+	set_rubilash_color_visual(caster)
 end

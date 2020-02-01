@@ -40,7 +40,10 @@ function ink_splatter_start(event)
 
 	local e_1_level = caster:GetRuneValue("e", 1)
 	if e_1_level > 0 then
-		if not caster:HasModifier("modifier_rubilash_arcana1") then
+		if caster:HasModifier("modifier_rubilash_arcana1") then
+			local health_restore = caster:GetMaxHealth()*(RUBILASH_ARCANA1_RUNE_E1_HEALTH_RESTORE_PCT/100)
+			Filters:ApplyHeal(caster, caster, health_restore, true, true, ability)
+		else
 			local mana_restore = RUBILASH_RUNE_E1_MANA_RESTORE*e_1_level
 			caster:GiveMana(mana_restore)
 			Timers:CreateTimer(0.24, function()
