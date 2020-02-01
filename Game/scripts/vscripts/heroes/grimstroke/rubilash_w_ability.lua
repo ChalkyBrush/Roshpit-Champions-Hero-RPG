@@ -202,6 +202,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
 	-- damage = 0
+	print("PAINT MULT: "..mult)
 	local adjusted_damage = damage*mult
 	rubilash_base_e_3(caster, adjusted_damage)
 	local glyph_mult = 1
@@ -303,9 +304,10 @@ function apply_actual_paint_buff(caster, target)
 		target:RemoveModifierByName("modifier_rubilash_base_painted")
 		target:RemoveModifierByName("modifier_rubilash_w_4_slow")
 	else
-		if not target:HasModifier("modifier_rubilash_painted_"..target.rubilash_paint_total_color) then
+		local painted_modifier = target:FindModifierByName("modifier_rubilash_painted_"..target.rubilash_paint_total_color)
+		local paint_duration = get_remaining_paint_duration(target)
+		if not target:HasModifier("modifier_rubilash_painted_"..target.rubilash_paint_total_color) or (paint_duration > painted_modifier:GetRemainingTime() + 0.1) then
 			local painting_ability = caster:FindAbilityByName("rubilash_ink_blot_"..caster.color)
-			local paint_duration = get_remaining_paint_duration(target)
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_painted_"..target.rubilash_paint_total_color, {duration = paint_duration})
 			painting_ability:ApplyDataDrivenModifier(caster, target, "modifier_rubilash_base_painted", {duration = paint_duration})
 			target:CalculateAndSaveRoshpitAttributes()
