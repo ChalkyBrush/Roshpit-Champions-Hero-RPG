@@ -22,6 +22,10 @@
 "DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">White</font> Paint"
 "DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"Soaked in Rubilash's Paint"
 
+"rubilash_q_base_name"										"Phantom Brush"
+"rubilash_w_base_name"										"Ink Blot"
+"rubilash_e_base_name"										"Paint Splatter"			
+
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Red</font>]"
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Winds up for <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
 "DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"DAMAGE:"
