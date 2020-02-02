@@ -46,7 +46,7 @@ function ink_splatter_start(event)
 	local e_1_level = caster:GetRuneValue("e", 1)
 	if e_1_level > 0 then
 		if caster:HasModifier("modifier_rubilash_arcana1") then
-			local health_restore = caster:GetMaxHealth()*(RUBILASH_ARCANA1_RUNE_E1_HEALTH_RESTORE_PCT/100)
+			local health_restore = caster:GetMaxHealth()*(RUBILASH_ARCANA1_RUNE_E1_HEALTH_RESTORE_PCT*e_1_level/100)
 			Filters:ApplyHeal(caster, caster, health_restore, true, true, ability)
 		else
 			local mana_restore = RUBILASH_RUNE_E1_MANA_RESTORE*e_1_level
@@ -81,7 +81,6 @@ end
 
 function ink_splatter_emerging_end(event)
 	local caster = event.caster
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 end
 
 function rubilash_glyph_3_1_thinker(event)
