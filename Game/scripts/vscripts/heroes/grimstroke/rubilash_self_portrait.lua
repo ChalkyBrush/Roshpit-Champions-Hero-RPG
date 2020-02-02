@@ -40,7 +40,12 @@ function rubilash_self_portrait_fail(event)
 	local ability = event.ability
 	EndAnimation(caster)
 	StopSoundEvent("Rubilash.SelfPortraitStart", caster)
-	UTIL_Remove(ability.illusion)
+	if not caster:HasModifier("modifier_iron_treads_of_destruction") then
+		UTIL_Remove(ability.illusion)
+	else
+		EndAnimation(ability.illusion)
+		StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_3, rate = 4})
+	end
 end
 
 function rubilash_illusion(caster, ability, duration)
@@ -110,6 +115,10 @@ function rubilash_self_portrait_success(event)
 	local caster = event.caster
 	local ability = event.ability
 	CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/rubilash_cast_"..caster.color.."_blur.vpcf", caster, 3)
+	-- if caster:HasModifier("modifier_iron_treads_of_destruction") then
+	-- 	local duration = ability:GetSpecialValueFor("duration")
+	-- 	ability.illusion = rubilash_illusion(caster, ability, duration)
+	-- end
 	if ability.illusion and IsValidEntity(ability.illusion) then
 		ability.illusion:RemoveModifierByName("modifier_rubilash_illusion_spawning")
 		ability.illusion:SetRenderColor(255, 255, 255)
