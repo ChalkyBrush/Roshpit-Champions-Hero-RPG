@@ -18,17 +18,22 @@ function ink_splatter_start(event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/e_start_"..actual_event_caster.color..".vpcf", actual_event_caster, 4)
 	ParticleManager:SetParticleControl(pfx, 2, newPosition)
 
-	actual_event_caster:SetAbsOrigin(newPosition - Vector(0,0,300))
+	actual_event_caster:SetAbsOrigin(newPosition)
 	toggle_rubilash_color(actual_event_caster)
 	local particlePos = GetGroundPosition(newPosition, actual_event_caster)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_splatter_"..actual_event_caster.color..".vpcf", particlePos, 3)
 	EmitSoundOn("Rubilash.InkSplatter.Highlight", actual_event_caster)
 	EmitSoundOn("Rubilash.InkSplatter.Splatter", actual_event_caster)
 	EmitSoundOn("Rubilash.VO.Grunt", actual_event_caster)
-	ability:ApplyDataDrivenModifier(actual_event_caster, actual_event_caster, "modifier_ink_splatter_emerging", {duration = 0.24})
+	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging", {duration = 0.24})
+	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging_z", {duration = 0.24})
+	actual_event_caster:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, 300)
+	-- print(actual_event_caster:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster))
+	-- print(actual_event_caster:HasModifier("modifier_ink_splatter_emerging_z"))
+	
 	StartAnimation(actual_event_caster, {duration = 2, activity = ACT_DOTA_TELEPORT_END, rate = 1})
 	ProjectileManager:ProjectileDodge(caster)
-	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), particlePos, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), particlePos, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do  
 			local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)  
@@ -68,7 +73,10 @@ end
 
 function ink_splatter_emerging_think(event)
 	local caster = event.caster
-	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,37.5))
+	local target = event.target
+	local stacks = target:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster)
+	-- print(stacks)
+	target:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, stacks - 300/8)
 end
 
 function ink_splatter_emerging_end(event)

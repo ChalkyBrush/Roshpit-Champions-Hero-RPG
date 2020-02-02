@@ -1612,6 +1612,7 @@
 					{
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
 					}
 				}
 				"OnDestroy"
@@ -1621,6 +1622,14 @@
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_end"
 					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
 				}
 			}
 		}
@@ -1705,6 +1714,7 @@
 					{
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
 					}
 				}
 				"OnDestroy"
@@ -1714,6 +1724,14 @@
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_end"
 					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
 				}
 			}
 		}
@@ -1798,6 +1816,7 @@
 					{
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
 					}
 				}
 				"OnDestroy"
@@ -1807,6 +1826,14 @@
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_end"
 					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
 				}
 			}
 		}
@@ -1891,6 +1918,7 @@
 					{
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
 					}
 				}
 				"OnDestroy"
@@ -1900,6 +1928,14 @@
 						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
 						"Function"		"ink_splatter_emerging_end"
 					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
 				}
 			}
 		}

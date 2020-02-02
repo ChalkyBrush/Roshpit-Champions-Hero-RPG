@@ -98,7 +98,7 @@ function rubilash_ink_blot(event)
     	local explosionPosition = GetGroundPosition(spellOrigin + fv*range, actual_event_caster) 
     	AddFOWViewer(caster:GetTeamNumber(), explosionPosition, 220, 1.5, false)
     	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..color..".vpcf", explosionPosition, 3)
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, event.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
 				local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, event.damage, enemy)
@@ -346,7 +346,7 @@ function rubilash_w_ability_attack_land(event)
     	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_"..caster.color..".vpcf", explosionPosition, 3)
     	local radius = ability:GetSpecialValueFor("damage_radius")
     	local base_ability_damage = ability:GetSpecialValueFor("damage")*(RUBILASH_RUNE_W3_W_AMP/100)*w_3_level
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), explosionPosition, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
 				local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, base_ability_damage, enemy)
