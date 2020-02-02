@@ -235,7 +235,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	end
 	if caster:HasModifier("modifier_rubilash_glyph_7_1") then
 		if color == "yellow" or color == "white" then
-			glyph_mult = glyph_mult + RUBILASH_GLYPH_7_1_DAMAGE_REDUCE_PCT/100
+			glyph_mult = glyph_mult * (1 - RUBILASH_GLYPH_7_1_DAMAGE_REDUCE_PCT/100)
 			if color == "white" then
 				white_damage_types[3] = DAMAGE_TYPE_PURE
 			else
