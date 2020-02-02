@@ -74,7 +74,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP %>"
+				"property_two"			"<% ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP * 100 %>"
 			}
 		}
 	}

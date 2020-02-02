@@ -3,37 +3,37 @@ require('npc_abilities/base_modifier')
 
 item_rpc_redfall_runners = class(BaseFoot, nil, BaseFoot)
 modifier_redfall_runners = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_redfall_runners
-local className = 'item_rpc_redfall_runners'
+local itemClass = item_rpc_redfall_runners
+local itemClassName = 'item_rpc_redfall_runners'
 
 local modifierClass = modifier_redfall_runners
 local modifierName = 'modifier_redfall_runners'
 LinkLuaModifier(modifierName, "items/lua/foot/redfall_runners", LUA_MODIFIER_MOTION_NONE)
 
-function class:GetClassName()
-    return className
+function itemClass:GetClassName()
+    return itemClassName
 end
-function class:GetName()
+function itemClass:GetName()
     return 'Whatever the fuck this is for'
 end
-function class:GetModifierName()
+function itemClass:GetModifierName()
     return modifierName
 end
-function class:HasRuneSlots()
+function itemClass:HasRuneSlots()
     return true
 end
-function class:RollProperty1(item_level)
+function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_redfall_runners"
     self:SetSpecialValue("redfall_runners", "#E87B7B")
 end
-function class:RollProperty2(item_level)
+function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "t1_rune", 2)
 end
-function class:RollArmor(item_level)
+function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 1)
 end
-function class:RollMagicArmor(item_level)
+function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1)
 end
 
@@ -42,7 +42,10 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
         MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
     })
@@ -51,15 +54,45 @@ function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS,
-        MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
-        MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS 
     }
 
     return funcs
 end
 
-function modifierClass:GetRoshpitBaseAbilityDmgBonus(params)
+function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitWBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitEBaseAbilityDmgBonus()
+    if not IsServer() then
+        return
+    end
+    local boots = self:GetAbility()
+    if boots:GetGemValue("emerald") > 0 then
+        return boots:GetFinalGemPropertyValue("emerald", ITEM_RPC_REDFALL_RUNNERS_GEM_EMERALD) / 100 * self:GetParent():GetActualMovespeed()
+    else
+        return 0
+    end
+end
+function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
     if not IsServer() then
         return
     end

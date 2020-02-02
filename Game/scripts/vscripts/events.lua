@@ -592,6 +592,10 @@ function GameMode:OnPlayerChat(keys)
 			Gems:AddSocket(item)
 			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
 		end
+	elseif string.match(text, "-archon") then
+		if Beacons.cheats then
+			Seafortress:InitArchon()
+		end
 	elseif string.match(text, "-myth40") then
 		if Beacons.cheats then
 			local random_gear_slot = RandomInt(0, 5)

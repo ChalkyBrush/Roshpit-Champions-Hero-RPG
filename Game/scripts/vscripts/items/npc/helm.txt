@@ -706,7 +706,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/veil_of_the_cerulean_high_guard.lua"
 		"AbilityTextureName"	"rpc/veil_of_the_cerulean_high_guard" //"veil_of_the_cerulean_high_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -910,7 +911,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_blue_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_blue_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -930,50 +932,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_blue"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_blue"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_blue"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -1006,7 +964,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_purple_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_purple_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -1026,50 +985,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_purple"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_purple"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_purple"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -1102,7 +1017,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_yellow_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_yellow_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -1122,50 +1038,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_yellow"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_yellow"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_yellow"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -2546,7 +2418,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/mask_of_the_phantom_sorcerer.lua"
 		"AbilityTextureName"	"rpc/mask_of_the_phantom_sorcerer" //"mask_of_the_phantom_sorcerer"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"

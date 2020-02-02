@@ -48,10 +48,10 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_Q_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_W_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_E_FLAT_CD_RED,
-        MODIFIER_ROSHPIT_R_FLAT_CD_RED
+        MODIFIER_ROSHPIT_Q_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_W_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_E_FLAT_CD_MOD,
+        MODIFIER_ROSHPIT_R_FLAT_CD_MOD
     })
 end
 function modifierClass:DeclareFunctions()
@@ -69,8 +69,17 @@ end
 function modifierClass:GetModifierCastRangeBonus()
     return HOOD_OF_LORDS_BONUS_RANGE
 end
-function modifierClass:GetRoshpitFlatCdRed()
-    return HOOD_OF_LORDS_CD_RED
+function modifierClass:GetRoshpitQFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitWFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitEFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
+end
+function modifierClass:GetRoshpitRFlatCdModifier()
+    return - HOOD_OF_LORDS_CD_MOD
 end
 function modifierClass:IsHidden()
     return true

@@ -16,8 +16,9 @@ function start_channel(event)
 	caster:RemoveModifierByName("modifier_solunia_warp_flare_falling")
 	local d_d_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "solunia")
 	if d_d_level > 0 then
+		local newCD = ability:GetCooldownTimeRemaining() - d_d_level * SOLUNIA_R4_CD_RED
 		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) - d_d_level * SOLUNIA_R4_CD_RED)
+		ability:StartCooldown(newCD)
 	end
 end
 

@@ -60,16 +60,16 @@
 		"item_rpc_avalanche_plate_amethyst1"								"增加山崩的伤害@amethyst_property1"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"
-		"item_property_violet_guard_armor"			"紫罗兰征服者"
-		"property_violet_guard_armor_description"	"降低@Ability1的冷却时间 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE %>%。"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服者"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲被降低"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"紫罗兰卫士之甲"
+		"item_property_armor_of_the_violet_guard"			"紫罗兰征服者"
+		"property_armor_of_the_violet_guard_description"	"降低@Ability1的冷却时间 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%。"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"紫罗兰征服者"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"护甲被降低"
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> 秒"
-		"item_rpc_armor_of_violet_guard_emerald1"							"增加敏捷 @emerald_property1"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"增加物理穿透@sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"增加 [Q] 的基础技能伤害@amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> 秒"
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"增加敏捷 @emerald_property1"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"增加物理穿透@sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"增加 [Q] 的基础技能伤害@amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"
@@ -85,14 +85,14 @@
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
 
-		"item_property_watcher_one"					"守望者 I"
-		"property_watcher_one_description"			"增加@Ability1冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>%及基础技能伤害<% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
-		"item_property_watcher_two"					"守望者 II"
-		"property_watcher_two_description"			"增加@Ability2 的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% 及基础技能伤害 <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
-		"item_property_watcher_three"				"守望者 III"
-		"property_watcher_three_description"		"增加@Ability3 的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% 及基础技能伤害 <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
-		"item_property_watcher_four"				"守望者 IV"
-		"property_watcher_four_description"			"增加@Ability4的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% 及基础技能伤害  <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+		"item_property_plate_of_the_watcher_one"					"守望者 I"
+		"property_plate_of_the_watcher_one_description"			"增加@Ability1冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>%及基础技能伤害<% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
+		"item_property_plate_of_the_watcher_two"					"守望者 II"
+		"property_plate_of_the_watcher_two_description"			"增加@Ability2 的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% 及基础技能伤害 <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
+		"item_property_plate_of_the_watcher_three"				"守望者 III"
+		"property_plate_of_the_watcher_three_description"		"增加@Ability3 的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% 及基础技能伤害 <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
+		"item_property_plate_of_the_watcher_four"				"守望者 IV"
+		"property_plate_of_the_watcher_four_description"			"增加@Ability4的冷却时间 <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% 及基础技能伤害  <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"额外增加 [Q] 的冷却时间@ruby_property1%及基础技能伤害 @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"额外增加[E] 的冷却时间@emerald_property1% 及基础技能伤害 @emerald_property2%"
@@ -285,11 +285,11 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
-		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"每 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> 秒获得一层日光，到达 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> 层后获得耀斑效果，持续  <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> 秒，处于耀斑状态下时，你的所有技能的冷却时间将会降低  <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %> %并且施法速度将会提高 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%。处于耀斑状态下时不能获得日光层数。"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"降低冷却时间<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>%%并且提高施法速度<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% "
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"日光"
+		"item_property_enchanted_solar_cape"				"耀斑"
+		"property_enchanted_solar_cape_description"		"每 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> 秒获得一层日光，到达 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> 层后获得耀斑效果，持续  <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> 秒，处于耀斑状态下时，你的所有技能的冷却时间将会降低  <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %> %并且施法速度将会提高 <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%。处于耀斑状态下时不能获得日光层数。"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"耀斑"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"降低冷却时间<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>%%并且提高施法速度<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% "
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"日光"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"在非耀斑状态下释放 [R]将会获得  @ruby_property1层日光层数 "
 		"item_rpc_enchanted_solar_cape_emerald1"							"降低触发耀斑所需的日光层数@emerald_property1"

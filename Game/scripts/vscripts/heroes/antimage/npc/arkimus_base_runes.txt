@@ -92,7 +92,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT %>"
+				"property_one"			"<% ARKIMUS_Q4_ADD_DMG_PCT * 100 %>"
 			}
 			"02"
 			{

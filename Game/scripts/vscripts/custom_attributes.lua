@@ -4,7 +4,6 @@ end
 
 require('/heroes/legion_commander/mountain_protector_constants')
 require('/heroes/obsidian_destroyer/epoch_constants')
-require('/heroes/antimage/arkimus_constants')
 require('/heroes/juggernaut/seinaru_constants')
 
 require('/heroes/dark_seer/zhonik_constants')
@@ -552,6 +551,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 	self:CalculateAndSaveRoshpitMagicArmor()
 	self:CalculateAndSaveRoshpitArmorPierce()
 	self:CalculateAndSaveRoshpitSpellPierce()
+	if self:IsRealHero() then
+		self:CalculateAndSaveCooldownModifier()
+		self:CalculateAndSaveManacostModifier()
+		self:CalculateAndSaveChanneltimeModifier()
+	end
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
@@ -909,10 +913,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
 		armor_modify = armor_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_ARMOR_BONUS
 	end
-	if unit:HasModifier("modifier_zonis_a_a_armor_loss") then
-		local modifier = unit:FindModifierByName("modifier_zonis_a_a_armor_loss")
-		armor_modify = armor_modify + modifier:GetStackCount()*ARKIMUS_Q1_ARMOR_REDUCTION
-	end
 	if unit:HasModifier("modifier_slipfinn_bog_roller_armor_break") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_break", "modifier_slipfinn_bog_roller_armor_break")
 	end
@@ -1005,10 +1005,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local igneous_helm = modifier:GetAbility()
 		armor_modify = armor_modify + igneous_helm:GetFinalGemPropertyValue("amethyst", IGNEOUS_CANINE_AMETHYST)
 	end
-	if unit:HasModifier("modifier_violet_guard_armor_loss_visible") then
-		local modifier = unit:FindModifierByName("modifier_violet_guard_armor_loss_visible")
-		armor_modify = armor_modify + modifier:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)
-	end
 	if unit:HasModifier("modifier_doomplate_doom_enemy_debuff") then
 		local doomplate = unit:FindModifierByName("modifier_doomplate_doom_enemy_debuff"):GetAbility()
 		armor_modify = armor_modify + doomplate:GetFinalGemPropertyValue("emerald", ITEM_RPC_DOOMPLATE_GEM_EMERALD)
@@ -1081,9 +1077,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		armor_modify = armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY1)
 	end
-	if unit:HasModifier("modifier_dunetread_boots") then
-		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
-	end
 	if unit:HasModifier("modifier_fire_walkers_in_fire") then
 		local modifier_caster = unit:FindModifierByName("modifier_fire_walkers_in_fire"):GetCaster()
 		armor_modify = armor_modify + modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_FIRE_WALKERS_GEM_RUBY2)
@@ -1111,9 +1104,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	end
 	if unit:HasModifier("modifier_rpc_sange_boots") then
 		armor_modify = armor_modify + ITEM_RPC_SANGE_BOOTS_ARMOR_PER_AGI*unit:GetAgility()
-	end
-	if unit:HasModifier("modifier_swamp_waders") then
-		armor_modify = armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
 	end
 	if unit:HasModifier("modifier_blue_divinex_amulet") then
 		armor_modify = armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
@@ -1577,15 +1567,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_W2_MAGIC_ARMOR_REDUCTION
 	end
-	if unit:HasModifier("modifier_zonis_c_a_magic_resist") then
-		local modifier = unit:FindModifierByName("modifier_zonis_c_a_magic_resist")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION
-	end
-	if unit:HasModifier("modifier_zonis_stun_arcana1") then
-		local caster = unit:FindModifierByName("modifier_zonis_stun_arcana1"):GetCaster()
-		local q_2_level = caster:GetRuneValue("q", 2)
-		magic_armor_modify = magic_armor_modify + q_2_level*ARKIMUS_ARCANA1_Q2_MAGIC_ARMOR_REDUCTION
-	end
 	if unit:HasModifier("modifier_shimmer_cape") then
 		local modifier = unit:FindModifierByName("modifier_shimmer_cape")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*SLIPFINN_Q2_ARMORS
@@ -1662,10 +1643,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_empyreal_magic_armor") then
 		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_empyreal_magic_armor"):GetStackCount()
 	end
-    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
-        magic_armor_modify = magic_armor_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
-    end
 	if unit:HasModifier("modifier_infused_mageplate") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_INFUSED_MAGEPLATE_GEM_RUBY)*unit:GetStrength()
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_INFUSED_MAGEPLATE_GEM_SAPPHIRE)*unit:GetIntellect()
@@ -1729,9 +1706,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		magic_armor_modify = magic_armor_modify - unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_AMETHYST1)
 	end
-	if unit:HasModifier("modifier_dunetread_boots") then
-		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DUNETREAD_BOOTS_GEM_AMETHYST)*unit:GetAgility()
-	end
 	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_AMETHYST)
 	end
@@ -1753,9 +1727,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_rpc_steamboots") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
-	end
-	if unit:HasModifier("modifier_swamp_waders") then
-		magic_armor_modify = magic_armor_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2), 0)
 	end
 	if unit:HasModifier("modifier_tranquil_boots") then
 		magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
@@ -1966,14 +1937,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*HYDROXIS_R4_ARMOR_PIERCE
 	end
-	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
-		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
-		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
-	end
-	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") and unit:HasModifier("modifier_arkimus_immortal_weapon_1") then
-		local w_2_level = unit:GetRuneValue("w", 2)
-		armor_pierce_modify = armor_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
-	end
 	if unit:HasModifier("modifier_slipfinn_e_4_assassin") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_e_4_assassin")
 		armor_pierce_modify = armor_pierce_modify + modifier:GetStackCount()*SLIPFINN_E4_ARMOR_AND_SPELL_PIERCE_AFTER_KILL
@@ -2110,19 +2073,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_ablecore_greaves_effect") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ABLECORE_GREAVES_GEM_EMERALD2)
 	end
-	if unit:HasModifier("modifier_bloodstone_boots") then
-		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
-	end
 	if unit:HasModifier("modifier_crimsyth_elite_greaves_armor") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_CRIMSYTH_ELITE_GREAVES_LV1_GEM_EMERALD1)
 	end
 	if unit:HasModifier("modifier_crystalline_slippers") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_CRYSTALLINE_SLIPPERS_GEM_RUBY2)
-	end
-	if unit:HasModifier("modifier_dunetread_boots") then
-		if unit:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownTimeRemaining() == 0 then
-			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DUNETREAD_BOOTS_GEM_EMERALD)
-		end
 	end
 	if unit:HasModifier("modifier_giant_hunter_boss_nearby") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_GIANT_HUNTERS_BOOTS_OF_RESILIENCE_GEM_EMERALD)
@@ -2147,9 +2102,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_rooted_feet_immobile_active") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ROOTED_FEET_GEM_SAPPHIRE)
-	end
-	if unit:HasModifier("modifier_swamp_waders") then
-		armor_pierce_modify = armor_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
 	end
 	if unit:HasModifier("modifier_rpc_yasha_boots") then
 		armor_pierce_modify = armor_pierce_modify + ITEM_RPC_YASHA_BOOTS_ARMOR_PIERCE_PER_STR*unit:GetStrength()
@@ -2187,9 +2139,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		if not unit:HasModifier("modifier_hope_of_saytaru_effect") then
 			armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_HOPE_OF_SAYTARU_GEM_EMERALD)
 		end
-	end
-	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
-		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
 	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_MAGICAL then
@@ -2381,14 +2330,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_slipfinn_bog_roller_e3")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*SLIPFINN_ARCANA_1_E3_SPELL_PIERCE
 	end
-	if unit:HasModifier("modifier_machinal_jump_c_c_amp") then
-		local modifier = unit:FindModifierByName("modifier_machinal_jump_c_c_amp")
-		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*ARKIMUS_E3_PIERCES
-	end
-	if unit:HasModifier("modifier_arkimus_storm_weapon_toggle") then
-		local w_2_level = unit:GetRuneValue("w", 2)
-		spell_pierce_modify = spell_pierce_modify + w_2_level*ARKIMUS_W2_SPELL_PIERCE
-	end
 	if unit:GetUnitName() == "npc_dota_hero_visage" and unit:HasAbility("ekkan_summon_skeleton") then
 		local w_4_level = unit:GetRuneValue("w", 4)
 		spell_pierce_modify = spell_pierce_modify + w_4_level*EKKAN_W4_PIERCES
@@ -2461,10 +2402,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_empyreal_spell_pierce") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modifier_empyreal_spell_pierce"):GetStackCount()
 	end
-    if unit:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local solar_cape = unit.equipped_gear[RPC_GEAR_SLOT_BODY]
-        spell_pierce_modify = spell_pierce_modify + solar_cape:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
-    end
     if unit:HasModifier("modifier_golden_war_plate") then
     	local warplate = unit:FindModifierByName("modifier_golden_war_plate"):GetAbility()
 		spell_pierce_modify = spell_pierce_modify - warplate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GOLDEN_WAR_PLATE_GEM_AMETHYST)
@@ -2560,9 +2497,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		local modifier = unit:FindModifierByName("modifier_arcanys_slipper_buff")
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARCANYS_SLIPPER_GEM_EMERALD)*modifier:GetStackCount()
 	end
-	if unit:HasModifier("modifier_bloodstone_boots") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_BLOODSTONE_BOOTS_GEM_SAPPHIRE)*(unit:GetMaxHealth() - unit:GetHealth())
-	end
 	if unit:HasModifier("modifier_old_wisdom_sapphire_stacks") then
 		local modifier = unit:FindModifierByName("modifier_old_wisdom_sapphire_stacks")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()
@@ -2596,9 +2530,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_rpc_steamboots") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_STEAMBOOTS_GEM_SAPPHIRE)*unit:GetAgility()
-	end
-	if unit:HasModifier("modifier_swamp_waders") then
-		spell_pierce_modify = spell_pierce_modify + math.max(unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1) - unit:GetActualMovespeed()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2), 0)
 	end
 	if unit:HasModifier("modifier_tranquil_boots") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TRANQUIL_BOOTS_GEM_EMERALD)
@@ -2637,9 +2568,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_sapphire_lotus") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SAPPHIRE_LOTUS_GEM_RUBY)*unit:GetHealth()
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SAPPHIRE_LOTUS_GEM_AMETHYST)*unit:GetMana()
-	end
-	if unit:HasModifier("modifier_signus_charm_amethyst_buff") then
-		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
 	end
 	if unit:HasModifier("modifier_tempest_falcon_ring") then
 		if unit.equipped_gear[RPC_GEAR_SLOT_TRINKET].damage_type == DAMAGE_TYPE_PHYSICAL then
@@ -2900,12 +2828,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_arcana_missles_d_d_agility") then
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arcana_missles_d_d_agility", CustomAttributes.ZHONIK_ARCANA_R4_AGI)
 	end
-	if hero:HasModifier("modifier_arkimus_arcana1_q4") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_arkimus_arcana1_q4", ARKIMUS_ARCANA1_Q4_AGI)
-	end
-	if hero:HasModifier("modifier_machinal_jump_d_c_effect") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_machinal_jump_d_c_effect", ARKIMUS_E4_AGI)
-	end
 	if hero:HasModifier("modifier_gorudo_r_4_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_gorudo_r_4_strength", SEINARU_R4_STRENGTH)
 	end
@@ -3050,12 +2972,6 @@ function CustomAttributes:SetAttributes(hero)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", JEX_RUNE_ROW_3_VALUE)
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", JEX_RUNE_ROW_3_VALUE)
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_onibi_all_attributes", JEX_RUNE_ROW_3_VALUE)
-	end
-	if heroName == "npc_dota_hero_antimage" then
-		if hero:HasAbility('arkimus_zap_ring') then
-			local q1_level = hero:GetRuneValue('q', 1)
-			int_bonus = int_bonus + q1_level * ARKIMUS_ARCANA1_Q1_INT
-		end
 	end
 	if hero:HasModifier("modifier_jex_oak_infusion_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_jex_oak_infusion_strength", CustomAttributes.JEX_OAK_INFUSION_RUNE_STRENGTH)
@@ -3752,7 +3668,6 @@ function CustomAttributes:CalculatedElementBonuses(victim, attacker)
 end
 
 CustomAttributes.MS_CAP_MODIFIERS = {
-	modifier_arkimus_speed_dash = 1300,
 	modifier_axe_immortal_weapon_2_cap = 820,
 	modifier_dinath_passive_ms_cap = "modifier_dinath_passive_ms_cap",
 	modifier_draghor_feral_sprint = "modifier_draghor_feral_sprint",
@@ -3860,4 +3775,340 @@ end
 
 function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
+end
+
+function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
+	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)
+	if q_ability and q_ability.BaseClass and q_ability:GetLevel() > 0 then
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetQCooldownModifier(self)
+		if not self:HasModifier("modifier_q_flat_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_flat_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_q_pct_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_pct_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_q_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_min_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_q_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_max_cooldown_modifier", {})
+		end
+		self:SetModifierStackCount("modifier_q_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_q_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_q_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_q_max_cooldown_modifier", self, cooldownMaxModifier * 100)
+	end
+	local w_ability = self:GetAbilityByIndex(DOTA_W_SLOT)
+	if w_ability and w_ability.BaseClass and w_ability:GetLevel() > 0 then
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetWCooldownModifier(self)
+		if not self:HasModifier("modifier_w_flat_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_flat_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_w_pct_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_pct_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_w_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_min_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_w_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_max_cooldown_modifier", {})
+		end
+		self:SetModifierStackCount("modifier_w_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_w_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_w_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_w_max_cooldown_modifier", self, cooldownMaxModifier * 100)
+	end
+	local e_ability = self:GetAbilityByIndex(DOTA_E_SLOT)
+	if e_ability and e_ability.BaseClass and e_ability:GetLevel() > 0 then
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetECooldownModifier(self)
+		if not self:HasModifier("modifier_e_flat_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_flat_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_e_pct_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_pct_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_e_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_min_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_e_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_max_cooldown_modifier", {})
+		end
+		self:SetModifierStackCount("modifier_e_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_e_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_e_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_e_max_cooldown_modifier", self, cooldownMaxModifier * 100)
+	end
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass and r_ability:GetLevel() > 0 then
+		local cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier = GetRCooldownModifier(self)
+		if not self:HasModifier("modifier_r_flat_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_pct_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_min_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_min_cooldown_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_max_cooldown_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_max_cooldown_modifier", {})
+		end
+		self:SetModifierStackCount("modifier_r_flat_cooldown_modifier", self, cooldownFlatModifier * 100)
+		self:SetModifierStackCount("modifier_r_pct_cooldown_modifier", self, math.floor((cooldownPctModifier) * 10000))
+		self:SetModifierStackCount("modifier_r_min_cooldown_modifier", self, cooldownMinModifier * 100)
+		self:SetModifierStackCount("modifier_r_max_cooldown_modifier", self, cooldownMaxModifier * 100)
+	end
+end
+
+function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
+	local w_ability = self:GetAbilityByIndex(DOTA_W_SLOT)
+	if w_ability and w_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetWManaCostModifier(self)
+		if not self:HasModifier("modifier_w_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_w_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_w_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_w_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_w_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, 0)
+		end
+	end
+end
+
+function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		local channeltimeModifier, channeltimeMultiplier = GetRChanneltimeModifier(self)
+		if not self:HasModifier("modifier_r_flat_channeltime_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_channeltime_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_pct_channeltime_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_channeltime_modifier", {})
+		end
+		if channeltimeModifier ~= 0 then
+			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, channeltimeModifier)
+		else
+			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, 0)
+		end
+		if channeltimeMultiplier ~= 0 then
+			local modifierStacks = math.floor((channeltimeMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_r_pct_channeltime_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_r_pct_channeltime_modifier", self, 0)
+		end
+	end
+end
+
+function GetQCooldownModifier(caster)
+	local cooldownFlatModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownFlatModifier = cooldownFlatModifier + result
+		end
+	)
+
+	local cooldownPctModifier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
+		end
+	)
+
+	local cooldownMinModifier = GLOBAL_Q_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_Q_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMaxCdModifier', { MODIFIER_ROSHPIT_Q_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
+end
+function GetWCooldownModifier(caster)
+	local cooldownFlatModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownFlatModifier = cooldownFlatModifier + result
+		end
+	)
+
+	local cooldownPctModifier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
+		end
+	)
+
+	local cooldownMinModifier = GLOBAL_W_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_W_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMaxCdModifier', { MODIFIER_ROSHPIT_W_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
+end
+function GetECooldownModifier(caster)
+	local cooldownFlatModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownFlatModifier = cooldownFlatModifier + result
+		end
+	)
+
+	local cooldownPctModifier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
+		end
+	)
+
+	local cooldownMinModifier = GLOBAL_E_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_E_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMaxCdModifier', { MODIFIER_ROSHPIT_E_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
+end
+function GetRCooldownModifier(caster)
+	local cooldownFlatModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownFlatModifier = cooldownFlatModifier + result
+		end
+	)
+
+	local cooldownPctModifier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
+		function(result, data)
+			cooldownPctModifier = cooldownPctModifier * (1 + result)
+		end
+	)
+
+	local cooldownMinModifier = GLOBAL_R_MIN_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMinModifier = math.min(cooldownMinModifier, result)
+		end
+	)
+
+	local cooldownMaxModifier = GLOBAL_R_MAX_CD
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMaxCdModifier', { MODIFIER_ROSHPIT_R_MAX_CD_MOD }, { }, 
+		function(result, data)
+			cooldownMaxModifier = math.min(cooldownMaxModifier, result)
+		end
+	)
+
+	return cooldownFlatModifier, cooldownPctModifier, cooldownMinModifier, cooldownMaxModifier
+end
+function GetQManaCostModifier(caster)
+	local manaCostModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatManaCostModifier', { MODIFIER_ROSHPIT_Q_FLAT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostModifier = manaCostModifier + result
+		end
+	)
+
+	local manaCostMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctManaCostModifier', { MODIFIER_ROSHPIT_Q_PCT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostMultiplier = manaCostMultiplier * (1 + result)
+		end
+	)
+	return manaCostModifier, manaCostMultiplier
+end
+function GetWManaCostModifier(caster)
+	local manaCostModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatManaCostModifier', { MODIFIER_ROSHPIT_W_FLAT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostModifier = manaCostModifier + result
+		end
+	)
+
+	local manaCostMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctManaCostModifier', { MODIFIER_ROSHPIT_W_PCT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostMultiplier = manaCostMultiplier * (1 + result)
+		end
+	)
+	return manaCostModifier, manaCostMultiplier
+end
+function GetEManaCostModifier(caster)
+	local manaCostModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatManaCostModifier', { MODIFIER_ROSHPIT_E_FLAT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostModifier = manaCostModifier + result
+		end
+	)
+
+	local manaCostMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctManaCostModifier', { MODIFIER_ROSHPIT_E_PCT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostMultiplier = manaCostMultiplier * (1 + result)
+		end
+	)
+	return manaCostModifier, manaCostMultiplier
+end
+function GetRManaCostModifier(caster)
+	local manaCostModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatManaCostModifier', { MODIFIER_ROSHPIT_R_FLAT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostModifier = manaCostModifier + result
+		end
+	)
+
+	local manaCostMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctManaCostModifier', { MODIFIER_ROSHPIT_R_PCT_MANA_COST }, { }, 
+		function(result, data)
+			manaCostMultiplier = manaCostMultiplier * (1 + result)
+		end
+	)
+	return manaCostModifier, manaCostMultiplier
+end
+function GetRChanneltimeModifier(caster)
+	local channeltimeModifier = 0
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatChanneltimeModifier', { MODIFIER_ROSHPIT_R_FLAT_CHANNELTIME_MOD }, { }, 
+		function(result, data)
+			channeltimeModifier = channeltimeModifier + result
+		end
+	)
+
+	local channeltimeMultiplier = 1
+	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctChanneltimeModifier', { MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD }, { }, 
+		function(result, data)
+			channeltimeMultiplier = channeltimeMultiplier * (1 + result)
+		end
+	)
+	return channeltimeModifier, channeltimeMultiplier
 end

@@ -1644,7 +1644,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -3079,7 +3079,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"

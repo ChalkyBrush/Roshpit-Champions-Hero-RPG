@@ -51,7 +51,7 @@ function modifierClass:OnCreated()
     end
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_BASE_ARMOR_BONUS,
-        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY 
+        MODIFIER_ROSHPIT_W_PCT_MANA_COST
     })
 end
 function modifierClass:DeclareFunctions()
@@ -97,11 +97,11 @@ function modifierClass:GetRoshpitBaseArmorBonus()
 	local armor_per_str = IRON_COLOSSUS_AMR_PER_STR + self:GetAbility():GetFinalGemPropertyValue("emerald", IRON_COLOSSUS_EMERALD)
 	return hero:GetStrength()*armor_per_str
 end
-function modifierClass:OnCastWAbility()
+
+function modifierClass:GetRoshpitWPctManaCostModifier()
     local hero = self:GetParent()
-    local ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
-    local manaCost = ability:GetManaCost(-1) * (IRON_COLOSSUS_INCR_W_MANA_COST_PCT - self:GetAbility():GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)) / 100
-    self:GetParent():ReduceMana(manaCost)
+    local manaCostMultiplier = (IRON_COLOSSUS_INCR_W_MANA_COST_PCT - self:GetAbility():GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)) / 100
+    return manaCostMultiplier
 end
 
 function modifierClass:OnAttackLanded(event)

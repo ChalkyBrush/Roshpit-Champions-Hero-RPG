@@ -718,7 +718,7 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"Archon Blaze"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"Бьёт по земле, нанося урон всем врагам в облати действия и оглушая их."
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"Archon Form"
 
 		"sea_fortress_paladin_golem"									"Пустотелый"
 		"seafortress_archon_wizard"										"Верховный маг"

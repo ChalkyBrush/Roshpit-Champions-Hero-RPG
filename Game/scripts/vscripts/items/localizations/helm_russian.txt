@@ -354,7 +354,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_lords"									"Hood of Lords"
 		"item_property_hood_of_lords"									"Commanding Sight"
-		"property_hood_of_lords_description"							"Перезарядка способностей снижена на <% HOOD_OF_LORDS_CD_RED %> сек. Способности имеют <% HOOD_OF_LORDS_BONUS_RANGE %> дополнительной дальности каста и начинают прочтение до того как герой полностью развернется в выбранную точку."
+		"property_hood_of_lords_description"							"Перезарядка способностей снижена на <% HOOD_OF_LORDS_CD_MOD %> сек. Способности имеют <% HOOD_OF_LORDS_BONUS_RANGE %> дополнительной дальности каста и начинают прочтение до того как герой полностью развернется в выбранную точку."
 		
 		"item_rpc_hood_of_lords_ruby1"	"Увеличивает показатель руны [Q4] на @ruby_property1"
 		"item_rpc_hood_of_lords_emerald1"	"Увеличивает показатель руны [E4] на @emerald_property1"
@@ -448,8 +448,8 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Активируйте для стандартной схемы поведения миньона."
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 получает <% PHANTOM_SORCERER_BAD %>% Базового Урона Способности, но <% PHANTOM_SORCERER_CD_INCREASE %> дополнительные секунды добавляются к перезарядке способности."
+		"item_property_mask_of_the_phantom_sorcerer"			"Phantom Gaze"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 получает <% PHANTOM_SORCERER_BAD %>% Базового Урона Способности, но <% PHANTOM_SORCERER_CD_INCREASE %> дополнительные секунды добавляются к перезарядке способности."
 
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Увеличивает [W] Базовый Урон Способности на @ruby_property1%, а штраф перезарядки на @ruby_property2 сек"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Увеличивает показатель руны [W2] на @emerald_property1"
@@ -589,8 +589,8 @@
 		"item_rpc_tricksters_mask_amethyst1" "Если герой стоит неподвижно внутри области действия @amethyst_property1 секунд, он станет невидимым. Невидимость развеется при любом действии."
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
+		"property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"property_twisted_purple_mask_of_ahnqhir_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
@@ -598,8 +598,8 @@
 		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [Q4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> сек."
+		"property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"property_twisted_yellow_mask_of_ahnqhir_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> сек."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [W3] на @emerald_property1"
@@ -607,8 +607,8 @@
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [W4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
+		"property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"property_twisted_blue_mask_of_ahnqhir_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [E1] на @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [E3] на @emerald_property1"
@@ -628,8 +628,8 @@
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Снижение Магическую Защиты"
 
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 стоит <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% больше Маны и получает <% CERULEAN_HIGHGUARD_BAD %>% усиленный Урон Способности."
+		"item_property_veil_of_the_cerulean_high_guard"			"Concentrated Mana"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 стоит <% CERULEAN_HIGHGUARD_MANA_INCREASE %>% больше Маны и получает <% CERULEAN_HIGHGUARD_BAD %>% усиленный Урон Способности."
 
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Увеличивает Максимальную Ману на @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Увеличивает Пробитие Магической Защиты на @emerald_property1"
