@@ -108,6 +108,12 @@ function getSkillSlot2(queryUnit, slot)
         abilityName = "DOTA_Tooltip_ability_dinath_arctic_burn";
     } else if (abilityName === "voltex_e_3_heavens_charge") {
         abilityName = "DOTA_Tooltip_Ability_voltex_azure_leap";
+    } else if (abilityName === "rubilash_phantom_brush_red" || abilityName === "rubilash_phantom_brush_blue" || abilityName === "rubilash_phantom_brush_yellow" || abilityName === "rubilash_phantom_brush_white") {
+        abilityName = "rubilash_q_base_name";
+    } else if (abilityName === "rubilash_ink_blot_red" || abilityName === "rubilash_ink_blot_blue" || abilityName === "rubilash_ink_blot_yellow" || abilityName === "rubilash_ink_blot_white") {
+        abilityName = "rubilash_w_base_name";
+    } else if (abilityName === "rubilash_paint_splatter_red" || abilityName === "rubilash_paint_splatter_blue" || abilityName === "rubilash_paint_splatter_yellow" || abilityName === "rubilash_paint_splatter_white") {
+        abilityName = "rubilash_e_base_name";
     } else{
         abilityName = "DOTA_Tooltip_Ability_" + abilityName;
 	}
@@ -176,7 +182,9 @@ function getSkillSlot(heroName, slot){
 		skillName = getJexSkill(slot)
 	}else if (heroName == "npc_dota_hero_faceless_void"){
 		skillName = getOmniroSkill(slot)
-	}
+	}else if (heroName == "npc_dota_hero_grimstroke"){
+        skillName = getRubilashSkill(slot)
+    }
 	return skillName
 }
 
@@ -586,6 +594,20 @@ function getOmniroSkill(slot){
 	return skillName
 }
 
+function getRubilashSkill(slot){
+    var skillName = ""
+    if (slot == 1){
+        skillName = "rubilash_q_base_name"
+    }else if(slot == 2){
+        skillName = "rubilash_w_base_name"
+    }else if(slot == 3){
+        skillName = "rubilash_e_base_name"
+    }else if(slot == 4){
+        skillName = "DOTA_Tooltip_Ability_rubilash_self_portrait"
+    }
+    return skillName
+}
+
 function testing(){
     $.Msg("did we load?");
 }
@@ -621,7 +643,8 @@ function getHeroList(){
             "npc_dota_hero_skywrath_mage",
             "npc_dota_hero_winter_wyvern",
             "npc_dota_hero_arc_warden",
-            "npc_dota_hero_faceless_void"];
+            "npc_dota_hero_faceless_void",
+            "npc_dota_hero_grimstroke"];
     return heroList;
 }
 
@@ -712,6 +735,8 @@ function convertFullHeroNameToRPC(heroName){
 		rpcName = "jex"
 	}else if (heroName == "npc_dota_hero_faceless_void"){
 		rpcName = "omniro"
+    }else if (heroName == "npc_dota_hero_grimstroke"){
+        rpcName = "rubilash"
 	}else if (heroName == "tooltip_neutral"){
 		rpcName = "neutral"
 	}

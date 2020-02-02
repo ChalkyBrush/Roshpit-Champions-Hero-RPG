@@ -51,6 +51,7 @@
 		"npc_dota_hero_winter_wyvern"				"Dinath"
 		"npc_dota_hero_arc_warden"					"Jex"
 		"npc_dota_hero_faceless_void"				"Omniro"
+		"npc_dota_hero_grimstroke"					"Rubilash"
 
 		//--------------------
 		//Hero Lore
@@ -85,6 +86,7 @@
 		"npc_dota_hero_winter_wyvern_lore" "Bitter cold and searing heat are just two of the weapons in ancient Dinath's arsenal."
 		"npc_dota_hero_arc_warden_lore" "The scientist Jex harvests and adapts natural elements to customize his own unique battery of spells."
 		"npc_dota_hero_faceless_void_lore" "Omniro has just one weapon, but a hundred ways to use it."
+		"npc_dota_hero_grimstroke_lore"		""
 		//--------------------
 		//Units
 		//--------------------
@@ -2104,6 +2106,7 @@
         ##MOUNTAIN_PROTECTOR_ENGLISH##
         ##OMNIRO_ENGLISH##
     	##PALADIN_ENGLISH##
+    	##RUBILASH_ENGLISH##
 		##SEINARU_ENGLISH##
         ##SEPHYR_ENGLISH##
         ##SLIPFINN_ENGLISH##

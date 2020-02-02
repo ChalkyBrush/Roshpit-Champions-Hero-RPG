@@ -10135,7 +10135,7 @@ function rupthold_think(event)
 	hero:SetModifierStackCount("modifier_rupthold_regen_reduction", caster, health_regen_loss/health_regen_loss_per_stack)
 
 	if hero:HasModifier("modifier_rupthold_borrowed_time") then
-		if ability.apply_time < GameRules:GetGameTime() + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_MAX_DURATION then
+		if ability.apply_time + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_MAX_DURATION > GameRules:GetGameTime() then
 			hero:RemoveModifierByName("modifier_rupthold_borrowed_time")
 		end
 	end

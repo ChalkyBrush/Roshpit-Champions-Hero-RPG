@@ -1310,6 +1310,33 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveAbility("slipfinn_shadow_warp")
 			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
+	elseif hero:GetUnitName() == "npc_dota_hero_grimstroke" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
+			if abilityCheck:GetAbilityName() ~= "rubilash_paint_splatter_red" then
+				local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, q_ability:GetAbilityName(), "rubilash_phantom_brush_red", 0)
+				local w_ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, w_ability:GetAbilityName(), "rubilash_ink_blot_red", 1)
+				local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, e_ability:GetAbilityName(), "rubilash_paint_splatter_red", 2)
+			end
+			local other_colors = {"blue", "yellow"}
+			for i = 1, #other_colors, 1 do
+				if hero:HasAbility("rubilash_phantom_brush_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_phantom_brush_"..other_colors[i])
+				end
+				if hero:HasAbility("rubilash_ink_blot_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_ink_blot_"..other_colors[i])
+				end
+				if hero:HasAbility("rubilash_paint_splatter_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_paint_splatter_"..other_colors[i])
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 2, "rubilash_paint_splatter_red", "rubilash_paint_splatter_white", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_phantom_brush_red", "rubilash_phantom_brush_white", DOTA_Q_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_ink_blot_red", "rubilash_ink_blot_white", DOTA_W_SLOT)
+		end
 	end
 end
 
@@ -2024,6 +2051,12 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_bog_roller_passive")
 			hero:RemoveModifierByName("modifier_slipfinn_bog_roller")
 			Runes:EasyRevertArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_grimstroke" then
+		if index == 1 then
+			Runes:EasySwapArcanaSkills(hero, 2, "rubilash_paint_splatter_white", "rubilash_paint_splatter_red", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_phantom_brush_white", "rubilash_phantom_brush_red", DOTA_Q_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_ink_blot_white", "rubilash_ink_blot_red", DOTA_W_SLOT)
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId = hero:GetPlayerOwnerID()})

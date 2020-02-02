@@ -1022,3 +1022,36 @@ function CDOTA_BaseNPC:ApplyModifierAndSetStacks(ability, caster, modifier_name,
 	end
 	self:SetModifierStackCount(modifier_name, caster, stacks)
 end
+
+function CustomAbilities:RubilashPaintRoshpitAttributes(unit, roshpit_attribute)
+	local modify = 0
+	local caster = unit:FindModifierByName("modifier_rubilash_base_painted"):GetCaster()
+	local q_2_level = caster:GetRuneValue("q", 2)
+	local w_2_level = caster:GetRuneValue("w", 2)
+	local e_2_level = caster:GetRuneValue("e", 2)
+	if caster:HasModifier("modifier_rubilash_arcana1") then
+		e_2_level = 0
+	end
+	if q_2_level > 0 then
+		if unit:HasModifier("modifier_rubilash_painted_red") or unit:HasModifier("modifier_rubilash_painted_orange") or unit:HasModifier("modifier_rubilash_painted_purple") or unit:HasModifier("modifier_rubilash_painted_black") or unit:HasModifier("modifier_rubilash_painted_white") then
+			if roshpit_attribute == "armor" or roshpit_attribute == "magic_armor" then
+				modify = modify + RUBILASH_RUNE_Q2_ARMOR_AND_MAGIC_ARMOR_LOSS*q_2_level
+			end
+		end
+	end
+	if w_2_level > 0 then
+		if unit:HasModifier("modifier_rubilash_painted_yellow") or unit:HasModifier("modifier_rubilash_painted_orange") or unit:HasModifier("modifier_rubilash_painted_green") or unit:HasModifier("modifier_rubilash_painted_black") or unit:HasModifier("modifier_rubilash_painted_white") then
+			if roshpit_attribute == "armor_pierce" or roshpit_attribute == "magic_armor" then
+				modify = modify + RUBILASH_RUNE_W2_ARMOR_PIERCE_AND_MAGIC_ARMOR_LOSS*w_2_level
+			end
+		end
+	end
+	if e_2_level > 0 then
+		if unit:HasModifier("modifier_rubilash_painted_blue") or unit:HasModifier("modifier_rubilash_painted_purple") or unit:HasModifier("modifier_rubilash_painted_green") or unit:HasModifier("modifier_rubilash_painted_black") or unit:HasModifier("modifier_rubilash_painted_white") then
+			if roshpit_attribute == "spell_pierce" or roshpit_attribute == "magic_armor" then
+				modify = modify + RUBILASH_RUNE_E2_SPELL_PIERCE_AND_MAGIC_ARMOR_LOSS*e_2_level
+			end
+		end
+	end	
+	return modify
+end

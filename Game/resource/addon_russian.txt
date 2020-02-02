@@ -8069,6 +8069,273 @@
     	"property_paladin_immortal_weapon3_description"						"Каждое очко Силы дополнительно увеличивает максимальное здоровье на <font color='#ccff66'>12</font>."
 
 
+"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"#FF0000\">Red</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"#0000FF\">Blue</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"#FFFF00\">Yellow</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"#FF8800\">Orange</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"#00FF00\">Green</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"#AA00DD\">Purple</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"#000000\">Black</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"#FFFFFF\">White</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"Soaked in Rubilash's Paint"
+
+"rubilash_q_base_name"										"Phantom Brush"
+"rubilash_w_base_name"										"Ink Blot"
+"rubilash_e_base_name"										"Paint Splatter"			
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"Ink Blot [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"Ink Blot [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"Ink Blot [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"Paint Splatter [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FF0000\">Red</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#FFFF00\">Yellow</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"Paint Splatter [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FFFF00\">Yellow</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#0000FF\">Blue</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"Paint Splatter [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#0000FF\">Blue</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#FF0000\">Red</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"Paint Splatter [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FFFFFF\">White</font>] paint. White paint gains the benefits of ALL other paint colors. Enemies covered in [<font color=\"#FFFFFF\">White</font>] paint take 2x damage from [<font color=\"#FFFFFF\">White</font>] paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_self_portrait"			"Self Portrait"
+"DOTA_Tooltip_Ability_rubilash_self_portrait_Description"			"Rubilash paints a masterpiece portrait of himself that follows him around and copies all his spell casts. The Self Portrait mirrors Rubilash's ability casts on a <font color='#ccff66'>0.5</font> second delay."
+"DOTA_Tooltip_Ability_rubilash_self_portrait_duration"	"DURATION:"
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] Brushwork"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_Description"			"Increases Cast Range for Rubilash's spells."
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_property_one"			"Cast Range"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Marked Red"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Enemies painted <font color=\"#FF0000\">Red</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#AA00DD\">Purple</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor."
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"Armor and Magic Armor Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] Haunting Impression"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_Description"				"Enemies hit by @Ability1 run away in fear."
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_property_one"			"Fear Duration"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_suffix"					" seconds"
+
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"Haunting Impression"
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"Feared"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] Malevolent Artistry"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"Increases all <font color=\"#5B648C\">Demon</font> and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage."
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"Elemental Amp"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] Sticky Paint"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_Description"				"Increases how long paint sticks to enemies. Base Paint Duration is <font color='#ccff66'>9</font> seconds."
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"Paint Duration Increase"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" seconds"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Enemies painted <font color=\"#FFFF00\">Yellow</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Magic Armor and Armor Pierce Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
+
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"increases Attack Speed, and Rubilash's basic attacks create an @Ability2 explosion beneath the targetted enemy."
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Attack Speed Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Damage"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% of Ink Blot damage"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"Enemies who are painted have reduced attack speed and move speed. The debuff is amplified 2x when painted <font color=\"#FF8800\">Orange</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#AA00DD\">Purple</font>, and 3x when painted <font color=\"#000000\">Black</font>."
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"Attackspeed and Movespeed Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					" while Painted"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_1"							"[E1] Refill"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_Description"				"Restore Mana when casting @Ability3. Each point of current mana increases Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_one"			"Mana Restore"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_two"			"Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" per mana"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] Eerie Blue"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Enemies painted <font color=\"#0000FF\">Blue</font>, <font color=\"#AA00DD\">Purple</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Magic Armor and Spell Pierce Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"All enemies damaged by Paint heals Rubilash."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% of Base Paint damage before Base Ability and Elemental Amplfication"		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] Phantom Palette"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"All Attributes increase Max Health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"Max Health Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" per Attribute"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Virtuoso"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"Rubilash gains Spell Pierce from Agility."
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Spell Pierce Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" per Agility"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4, gain unbreakable invisibility. Gain Item Damage and Base Ability Damage while invisible by any means."
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Invisible Duration"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Base Ability and Item Damage Enhance"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				"% while invisible"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] Dripping Brush"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"The Self Portrait casts a bonus @Ability2 at the nearest enemy within range on an interval."
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"Cast Interval"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"Cast Range"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix_two"				""		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] Depiction"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"Self Portrait has increased movespeed and its mirror actions are on a shorter delay."
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"Self Portrait Action Delay"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" seconds"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_two"			"Self Portrait Movespeed"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix_two"				""	
+
+	//Glyphs
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] Glyph of Etching"
+	"item_rpc_rubilash_glyph_1_1_description" 				"Increases the travel speed of @Ability2 by <font color='#ccff66'>120</font>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
+	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 toggles Rubilash's color and has <font color='#ccff66'>100</font>% Base Ability Damage"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Portrayal"
+	"item_rpc_rubilash_glyph_3_1_description" 				"Rubilash's Self Portrait casts @Ability3 at a nearby random location within <font color='#ccff66'>300</font> range every <font color='#ccff66'>2</font> seconds"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of the Adapted Phantom"
+	"item_rpc_rubilash_glyph_4_1_description" 				"Increases Magic Armor by <font color='#ccff66'>5000</font>."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
+	"item_rpc_rubilash_glyph_5_1_description" 				"All Blue Paint breaks Magic Immunity."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
+	"item_rpc_rubilash_glyph_6_1_description" 				"All Red Paint deals <font color='#ccff66'>400</font>% more damage and has Physical damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
+	"item_rpc_rubilash_glyph_7_1_description" 				"All Yellow Paint deals <font color='#ccff66'>-50</font>% reduced damage and has Pure damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
+	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>300</font>% Attack Power."
+
+	//Weapons
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_01"		"Broom Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_02"		"Novice Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_03"		"Ink Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_11"		"Paint Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_12"		"Artist's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_13"		"Palette Stick"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_14"		"Paint Mixer"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_21"		"Master's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_22"		"Vision Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_23"		"Acrylic Rod"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
+	"property_rubilash_immortal_weapon_description"                      "@Ability1 has no cast point and <font color='#ccff66'>100</font>% increased Base Ability Damage."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
+	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <font color='#ccff66'>250</font>%, and reduces all healing effects received by <font color='#ccff66'>60</font>%."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
+	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
+	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <font color='#ccff66'>1</font>x Agility and Intelligence and <font color='#ccff66'>5</font>% of Attack Power."
+
+	//ARCANAS
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"Masterstroke Trappings"
+
+	"item_property_rubilash_arcana1"										"White Paint"
+	"property_rubilash_arcana1_description"									"Replaces @Ability3 and all of its runes with Paint Splatter [<font color=\"#FFFFFF\">White</font>]."
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] Fresh Coat"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"Casting @Ability3 restores health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_suffix"					"% of Max Health"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1"						"[E2] Masterpiece"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_Description"			"Greatly increases Armor Pierce and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_property_one"			"Armor Pierce & Spell Pierce"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Increases all base paint damage by a flat amount."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Paint Damage Increase"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
+
+		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_Description"			"Increases all attributes, and all attributes increase Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_one"			"Attribute Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_two"			"Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix_two"				" per attribute"
+
     	//Abilities
 		
     	"DOTA_Tooltip_ability_seinaru_konokaze"							"Konokaze"

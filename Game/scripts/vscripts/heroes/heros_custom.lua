@@ -61,6 +61,8 @@ function HerosCustom:GetInternalHeroName(heroName)
 		return "jex"
 	elseif heroName == "npc_dota_hero_faceless_void" then
 		return "omniro"
+	elseif heroName == "npc_dota_hero_grimstroke" then
+		return "rubilash"
 	end
 end
 
@@ -123,6 +125,8 @@ function HerosCustom:GetInternalHeroNameMain(heroName)
 		return "jex"
 	elseif heroName == "npc_dota_hero_faceless_void" then
 		return "omniro"
+	elseif heroName == "npc_dota_hero_grimstroke" then
+		return "rubilash"
 	end
 end
 
@@ -186,6 +190,8 @@ function HerosCustom:ConvertRPCNameToStringHeroName(RPCName)
 		name = "npc_dota_hero_arc_warden"
 	elseif RPCName == "omniro" then
 		name = "npc_dota_hero_faceless_void"
+	elseif RPCName == "rubilash" then
+		name = "npc_dota_hero_grimstroke"
 	end
 	return name
 end
@@ -250,6 +256,8 @@ function HerosCustom:ConvertRPCNameToStringHeroNameSeinaru(RPCName)
 		name = "npc_dota_hero_arc_warden"
 	elseif RPCName == "omniro" then
 		name = "npc_dota_hero_faceless_void"
+	elseif RPCName == "rubilash" then
+		name = "npc_dota_hero_grimstroke"
 	end
 	return name
 end
@@ -313,19 +321,21 @@ function HerosCustom:GetHeroIndex(heroName)
 		return 28
 	elseif heroName == "npc_dota_hero_faceless_void" then
 		return 29
+	elseif heroName == "npc_dota_hero_grimstroke" then
+		return 30
 	end
 end
 
 function HerosCustom:GetHeroNameTable()
-	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro"}
+	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "rubilash"}
 end
 
 function HerosCustom:GetInternalNameTable()
-	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro"}
+	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "rubilash"}
 end
 
 function HerosCustom:GetAvailableHerosTable()
-	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern", "npc_dota_hero_arc_warden", "npc_dota_hero_faceless_void"}
+	return {"npc_dota_hero_dragon_knight", "npc_dota_hero_phantom_assassin", "npc_dota_hero_necrolyte", "npc_dota_hero_axe", "npc_dota_hero_drow_ranger", "npc_dota_hero_obsidian_destroyer", "npc_dota_hero_omniknight", "npc_dota_hero_crystal_maiden", "npc_dota_hero_invoker", "npc_dota_hero_juggernaut", "npc_dota_hero_beastmaster", "npc_dota_hero_leshrac", "npc_dota_hero_spirit_breaker", "npc_dota_hero_zuus", "npc_dota_hero_templar_assassin", "npc_dota_hero_huskar", "npc_dota_hero_legion_commander", "npc_dota_hero_night_stalker", "npc_dota_hero_vengefulspirit", "npc_dota_hero_slardar", "npc_dota_hero_visage", "npc_dota_hero_dark_seer", "npc_dota_hero_antimage", "npc_dota_hero_monkey_king", "npc_dota_hero_slark", "npc_dota_hero_skywrath_mage", "npc_dota_hero_winter_wyvern", "npc_dota_hero_arc_warden", "npc_dota_hero_faceless_void", "npc_dota_hero_grimstroke"}
 end
 
 function HerosCustom:GetAvailableRunes(heroName)
