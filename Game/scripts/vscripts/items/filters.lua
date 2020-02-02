@@ -450,6 +450,8 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
             end
         )
     end
+    abilityCooldown = math.min(abilityCooldown, GLOBAL_Q_MAX_CD)
+    abilityCooldown = math.max(abilityCooldown, GLOBAL_Q_MIN_CD)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
@@ -485,6 +487,8 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
             end
         )
     end
+    abilityCooldown = math.min(abilityCooldown, GLOBAL_W_MAX_CD)
+    abilityCooldown = math.max(abilityCooldown, GLOBAL_W_MIN_CD)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
@@ -541,7 +545,8 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         )
     end
 
-    abilityCooldown = math.max(abilityCooldown, 0.1)
+    abilityCooldown = math.min(abilityCooldown, GLOBAL_E_MAX_CD)
+    abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
@@ -578,6 +583,9 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
             end
         )
     end
+
+    abilityCooldown = math.min(abilityCooldown, GLOBAL_R_MAX_CD)
+    abilityCooldown = math.max(abilityCooldown, GLOBAL_R_MIN_CD)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
