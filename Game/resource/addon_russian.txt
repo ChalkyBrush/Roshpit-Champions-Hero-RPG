@@ -2097,15 +2097,15 @@
 		//WINTERBLIGHT ABILITIES AND BUFFS
 		
 
-		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на <font color='#ccff66'>7</font> секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"УРОН:"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"Dimension Coil"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus прорывается через пространственные барьеры перед собой, мгновенно появляясь в указанной точке. От места начала прыжка до конечной точки на <font color='#ccff66'>7</font> секунд появляется энергетический канал. Враги, задетые молнией будут постоянно оглушены на время действия и получат урон. Каждые 6 секунд герой получает заряд этого умения, который позволяет прочитать заклинание без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"УРОН:"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
     	"DOTA_Tooltip_modifier_zonis_stun"										"Оглушение от (Q) Dimension Coil"
 
-    	"DOTA_Tooltip_modifier_zonis_freecast"									"Свободное прочтение (Q) Dimension Coil"
-    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"Следующее прочтение (Q) Dimension Coil не потребует перезарядки этого умения."
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"Свободное прочтение (Q) Dimension Coil"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"Следующее прочтение (Q) Dimension Coil не потребует перезарядки этого умения."
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Враги, задетые молнией от @Ability1 теряют часть своей брони на 8 секунд."
@@ -2124,8 +2124,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Снижение магического сопротивления"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"Malleable Fabric"
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"Сопротивление магии снижено"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"Сопротивление магии снижено"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Увеличивает урон @Ability1 и [Q2], дополнительно увеличивается длительность существования молний."
@@ -2134,12 +2134,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Доп. длительность молний"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"УРОН, % ОТ УРОНА ГЕРОЯ:"
+    	"DOTA_Tooltip_ability_arkimus_flash_source"								"Flash Source"
+    	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"Стихия: <font color=\"#E1A2E8\">Тайна</font><br>Arkimus зачаровывает свое оружие потоком тайной энергии, который высвобождается мощным взрывом при успешной атаке по цели. На каждый удар тратится мана. Когда заканчивается запас маны, умение отключается."
+    	"DOTA_Tooltip_ability_arkimus_flash_source_damage_mult"					"УРОН, % ОТ УРОНА ГЕРОЯ:"
 
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"Flash Source"
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"Следующая атака высвободит взрывную волну тайной энергии."
+    	"DOTA_Tooltip_modifier_arkimus_flash_source"							"Flash Source"
+    	"DOTA_Tooltip_modifier_arkimus_flash_source_Description"				"Следующая атака высвободит взрывную волну тайной энергии."
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Удар по противнику дает бонус к Базовому Урону Атаки на <font color='#ccff66'>3</font> секунд."
@@ -2166,12 +2166,12 @@
     	"DOTA_Tooltip_modifier_arkimus_w_4_shield"								"[W4]Source Relay"
     	"DOTA_Tooltip_modifier_arkimus_w_4_shield_Description"					"Щит, способный поглотить любой входящий урон"	
 
-    	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
-    	"DOTA_Tooltip_ability_ark_jump_Description"								"Arkimus совершает акробатический прыжок в указанную точку. Каждые 6 секунд герою даётся заряд этого умения, который позволяет использовать Orbital Leap без перезарядки. Максимум 2 заряда."
-    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap"											"Orbital Leap"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_Description"								"Arkimus совершает акробатический прыжок в указанную точку. Каждые 6 секунд герою даётся заряд этого умения, который позволяет использовать Orbital Leap без перезарядки. Максимум 2 заряда."
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_cast_range"								"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
 
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"Свободное применение (E) Orbital Leap"
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"Следующее прочтение (E) Oribtal Leap не потребует перезарядки умения."
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast"							"Свободное применение (E) Orbital Leap"
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast_Description"				"Следующее прочтение (E) Oribtal Leap не потребует перезарядки умения."
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] Grounding Spark"
     	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"Повергает врагов рядом с точкой приземления от @Ability3 электрошоком тайной энергии."
@@ -2190,8 +2190,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Увеличение Физического и Магического Пробития"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Физическое и Магическое Пробития увеличены"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff"							"Elevated System"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff_Description"				"Физическое и Магическое Пробития увеличены"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] Boundless Edge"
     	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"Пассивно увеличивает Ловкость и уклонение героя."
@@ -2223,8 +2223,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Длительность"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" сек."
 
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"Forcefield"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"Весь входящий урон снижен на 90%%"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield"							"Forcefield"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield_Description"				"Весь входящий урон снижен на <font color='#ccff66'>80</font>%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"Весь стихийный урон <font color=\"#E1A2E8\">Тайны</font> пассивно увеличен."
@@ -2235,11 +2235,11 @@
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
     	"property_arkimus_arcana1_description"								"Заменяет (Q) @Ability1 и все соответствующие руны на (Q) Magnetic Flux."
 
-    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"Magnetic Flux"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus создаёт мощное магнитное поле, которое следует за ним. Враги, задетые полем поражаются электрическим разрядом, из-за чего получают урон и оглушаются на 0.2 секунды."
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"УРОН:"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"ДЛИТЕЛЬНОСТЬ:"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"ДОП. УРОН ОТ ИНТЕЛЛЕКТА:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux"									"Magnetic Flux"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_Description"						"Стихия: <font color=\"#E1A2E8\">Тайна</font> / <font color=\"#5CCDF9\">Молния</font><br>Arkimus создаёт мощное магнитное поле, которое следует за ним. Враги, задетые полем поражаются электрическим разрядом, из-за чего получают урон и оглушаются на 0.2 секунды."
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_damage"							"УРОН:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_duration"						"ДЛИТЕЛЬНОСТЬ:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_int_damage"						"ДОП. УРОН ОТ ИНТЕЛЛЕКТА:"
 
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
 
@@ -2258,8 +2258,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Макс. зарядов"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Каждый заряд независимо от других снижает входящий урон на <font color='#ccff66'>1</font>%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff"										"Induction"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff_Description"							"Каждый заряд независимо от других снижает входящий урон на <font color='#ccff66'>1</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"Пока действует @Ability1, Arkimus получает дополнительные очки Ловкости и наносит увеличенный стихийный урон <font color=\"#5CCDF9\">Молнии</font>."
@@ -2268,8 +2268,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Увеличение стихийного урона Молнии"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"%"
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"Arcane Channel"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"Бонусные очки Ловкости и увеличенный урон Молнии."
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff"										"Arcane Channel"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff_Description"							"Бонусные очки Ловкости и увеличенный урон Молнии."
 
     	"item_property_arkimus_arcana2"										"Archon Form"
     	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
@@ -12135,8 +12135,8 @@
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"Снижает перезарядку @Ability4 на <font color='#ccff66'>35</font>%."
+		"item_property_boots_of_the_violet_guard"					"Violet Light"
+		"property_boots_of_the_violet_guard_description"			"Снижает перезарядку @Ability4 на <font color='#ccff66'>35</font>%."
 
     	"item_rpc_boots_of_the_violet_guard_ruby1"						"Увеличивает Скорость Передвижения на @ruby_property1 и Скорость Атаки на @ruby_property2"
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"Повышает Ловкость на @emerald_property1"
@@ -12181,19 +12181,19 @@
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Уклонение во время движения"
 
-        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
-        "item_property_dunetread"                   "Dunewalker"
-        "property_dunetread_description"            "Снижает перезарядку @Ability3 на <font color='#ccff66'>2</font> сек."
+        "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
+        "item_property_dunetreads"                   "Dunewalker"
+        "property_dunetreads_description"            "Снижает перезарядку @Ability3 на <font color='#ccff66'>2</font> сек."
 
-        "item_rpc_dunetread_boots_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
-        "item_rpc_dunetread_boots_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
-        "item_rpc_dunetread_boots_sapphire1"                                    "Когда [E] не перезаряжается, герой получает @sapphire_property1 бонус Скорости Передвижения и Лимита Скорости"
-        "item_rpc_dunetread_boots_amethyst1"                                    "Ловкость увеличивает Броню и Магическую Защиту на @amethyst_property1"
+        "item_rpc_dunetreads_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
+        "item_rpc_dunetreads_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
+        "item_rpc_dunetreads_sapphire1"                                    "Когда [E] не перезаряжается, герой получает @sapphire_property1 бонус Скорости Передвижения и Лимита Скорости"
+        "item_rpc_dunetreads_amethyst1"                                    "Ловкость увеличивает Броню и Магическую Защиту на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 
-        "item_property_emerald_speed"                           "Stable Pace"
-        "property_emerald_speed_description"                    "Скорость Передвижения героя не может быть ниже <font color='#ccff66'>500</font>"
+        "item_property_emerald_speed_runners"                           "Stable Pace"
+        "property_emerald_speed_runners_description"                    "Скорость Передвижения героя не может быть ниже <font color='#ccff66'>500</font>"
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Увеличивает минимум скорости еще на @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Повышает Ловкость на @emerald_property1, и Ловкость не может быть ниже @emerald_property2"
@@ -12553,8 +12553,8 @@
         "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Восстанавливает здоровье каждые <font color='#ccff66'>2</font> сек"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
-        "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Каждые <font color='#ccff66'>100</font> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <font color='#ccff66'>2</font>% от их базовой Перезарядки."
+        "item_property_voyager_boots"                     "Voyager"
+        "property_voyager_boots_description"              "Каждые <font color='#ccff66'>100</font> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <font color='#ccff66'>2</font>% от их базовой Перезарядки."
         "item_rpc_voyager_boots_ruby1"                                  "Прочтение [E] уменьшает Перезарядку всех остальных способностей на @ruby_property1% от их базовой Перезарядки."
         "item_rpc_voyager_boots_emerald1"                                   "Даёт @emerald_property1 Скорости Передвижения и Лимита Скорости за каждую из способностей, которая в данный момент на перезарядке."
         "item_rpc_voyager_boots_sapphire1"                                  "Даёт @sapphire_property1% Бонус Силы Атаки за каждую из способностей, которая в данный момент не на перезарядке."
@@ -12612,17 +12612,17 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"Пока щит активен, даёт @sapphire_property1% бонусного урона атаки"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"Прочтение [Q] имеет @amethyst_property1% шанс добавить к действующим зарядам щита 1 заряд (если активен хотя бы один). Максимум <font color='#ccff66'>7</font> зарядов."
 
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
-		"item_property_violet_guard_armor"			"Violet Conqueror"
-		"property_violet_guard_armor_description"	"Уменьшает перезарядку @Ability1 на <font color='#ccff66'>35</font>%"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Броня снижена."
+		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"property_armor_of_the_violet_guard_description"	"Уменьшает перезарядку @Ability1 на <font color='#ccff66'>35</font>%"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Броня снижена."
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"Противники, пораженные [Q] теряют @ruby_property1 брони на <font color='#ccff66'>10</font> сек."
-		"item_rpc_armor_of_violet_guard_emerald1"							"@emerald_property1 Ловкости"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"Увеличивает Пробитие Брони на @sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"Увеличивает Базовый Урон Способности [Q] на @amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"Противники, пораженные [Q] теряют @ruby_property1 брони на <font color='#ccff66'>10</font> сек."
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"@emerald_property1 Ловкости"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"Увеличивает Пробитие Брони на @sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"Увеличивает Базовый Урон Способности [Q] на @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
@@ -12767,11 +12767,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Каждые <font color='#ccff66'>0.5</font> сек дает заряд предмета. <font color='#ccff66'>24</font> заменятся на бафф Solar Flare на <font color='#ccff66'>12</font> сек. Во время него все способности перезаряжаются <font color='#ccff66'>66</font>% быстрее, скорость каста тоже повышена на <font color='#ccff66'>60</font>%. Заряды не накапливаются во время Solar Flare."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<font color='#ccff66'>66</font>%% уменьшеная перезарядка и на <font color='#ccff66'>60</font>%% ускоренный каст."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+		"item_property_enchanted_solar_cape"				"Solar Flare"
+		"property_enchanted_solar_cape_description"		"Каждые <font color='#ccff66'>0.5</font> сек дает заряд предмета. <font color='#ccff66'>24</font> заменятся на бафф Solar Flare на <font color='#ccff66'>12</font> сек. Во время него все способности перезаряжаются <font color='#ccff66'>66</font>% быстрее, скорость каста тоже повышена на <font color='#ccff66'>60</font>%. Заряды не накапливаются во время Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<font color='#ccff66'>66</font>%% уменьшеная перезарядка и на <font color='#ccff66'>60</font>%% ускоренный каст."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"Прочтение [R] пока Solar Flare неактивна добавляет @ruby_property1 заряд(а/ов)"
 		"item_rpc_enchanted_solar_cape_emerald1"							"Уменьшает необходимый порог зарядов для активации Solar Flare на @emerald_property1"
@@ -12961,14 +12961,14 @@
 
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Увеличивает перезарядку способности @Ability1 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Увеличивает перезарядку способности @Ability2 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Увеличивает перезарядку способности @Ability3 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Увеличивает перезарядку способности @Ability4 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_one"					"Watcher I"
+		"property_plate_of_the_watcher_one_description"			"Увеличивает перезарядку способности @Ability1 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_two"					"Watcher II"
+		"property_plate_of_the_watcher_two_description"			"Увеличивает перезарядку способности @Ability2 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_three"				"Watcher III"
+		"property_plate_of_the_watcher_three_description"		"Увеличивает перезарядку способности @Ability3 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_four"				"Watcher IV"
+		"property_plate_of_the_watcher_four_description"			"Увеличивает перезарядку способности @Ability4 на <font color='#ccff66'>50</font>% и увеличивает её Базовый Урон на <font color='#ccff66'>175</font>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"Увеличивает перезарядку [Q] на @ruby_property1% и увеличивает её Базовый Урон на @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"Увеличивает перезарядку [E] на @emerald_property1% и увеличивает её Базовый Урон на @emerald_property2%"
@@ -13781,7 +13781,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"При получении урона с шансом <font color='#ccff66'>15</font>% Герой становится невидимым на <font color='#ccff66'>5</font>. Обычная атака или прочтение заклинания прекращают невидимость."
+		"property_shadow_armlet_description"	"При получении урона с шансом <font color='#ccff66'>15</font>% Герой становится невидимым на <font color='#ccff66'>5</font> сек. Обычная атака или прочтение заклинания прекращают невидимость."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% при получении урона мгновенно исцелиться на такое же значение"
     	"item_rpc_shadow_armlet_emerald1"									"Увеличивает урон <font color=\"#7F4F84\">Тени</font> и Урон Предметов на @emerald_property1%"
@@ -13825,8 +13825,8 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Скорость каста заклинаний увеличена на <font color='#ccff66'>60</font>%."
+		 "item_property_spellfire_gloves"								"Spellfire"
+		 "property_spellfire_gloves_description"						"Скорость каста заклинаний увеличена на <font color='#ccff66'>60</font>%."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Прочтение [Q], [W] или [E] имеет шанс @ruby_property1% автоматически произнести это же заклинание через <font color='#ccff66'>0.5</font> секунды"
     	"item_rpc_spellfire_gloves_emerald1"								"Уменьшает базовую перезарядку всех способностей на @emerald_property1%"
@@ -14333,8 +14333,8 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Активируйте для стандартной схемы поведения миньона."
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 получает <font color='#ccff66'>240</font>% Базового Урона Способности, но <font color='#ccff66'>4</font> дополнительные секунды добавляются к перезарядке способности."
+		"item_property_mask_of_the_phantom_sorcerer"			"Phantom Gaze"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 получает <font color='#ccff66'>240</font>% Базового Урона Способности, но <font color='#ccff66'>4</font> дополнительные секунды добавляются к перезарядке способности."
 
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Увеличивает [W] Базовый Урон Способности на @ruby_property1%, а штраф перезарядки на @ruby_property2 сек"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Увеличивает показатель руны [W2] на @emerald_property1"
@@ -14474,8 +14474,8 @@
 		"item_rpc_tricksters_mask_amethyst1" "Если герой стоит неподвижно внутри области действия @amethyst_property1 секунд, он станет невидимым. Невидимость развеется при любом действии."
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <font color='#ccff66'>40</font>%."
+		"property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"property_twisted_purple_mask_of_ahnqhir_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [Q3] на @emerald_property1"
@@ -14483,8 +14483,8 @@
 		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [Q4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <font color='#ccff66'>1</font> сек."
+		"property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"property_twisted_yellow_mask_of_ahnqhir_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <font color='#ccff66'>1</font> сек."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [W3] на @emerald_property1"
@@ -14492,8 +14492,8 @@
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_amethyst1" "Увеличивает показатель руны [W4] на @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <font color='#ccff66'>40</font>%."
+		"property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"property_twisted_blue_mask_of_ahnqhir_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [E1] на @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"Увеличивает показатель руны [E3] на @emerald_property1"
@@ -14513,8 +14513,8 @@
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Снижение Магическую Защиты"
 
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 стоит <font color='#ccff66'>240</font>% больше Маны и получает <font color='#ccff66'>180</font>% усиленный Урон Способности."
+		"item_property_veil_of_the_cerulean_high_guard"			"Concentrated Mana"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 стоит <font color='#ccff66'>240</font>% больше Маны и получает <font color='#ccff66'>180</font>% усиленный Урон Способности."
 
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Увеличивает Максимальную Ману на @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Увеличивает Пробитие Магической Защиты на @emerald_property1"
@@ -17946,7 +17946,7 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"Archon Blaze"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"Бьёт по земле, нанося урон всем врагам в облати действия и оглушая их."
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"Archon Form"
 
 		"sea_fortress_paladin_golem"									"Пустотелый"
 		"seafortress_archon_wizard"										"Верховный маг"

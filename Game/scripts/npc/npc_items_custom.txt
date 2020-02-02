@@ -36027,7 +36027,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/voyager_boots.lua"
 		"AbilityTextureName"	"rpc/voyager_boots" //"voyager_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -36494,7 +36495,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/swamp_waders.lua"
 		"AbilityTextureName"	"rpc/swamp_waders" //"swamp_waders"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -36562,87 +36564,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_swamp_waders"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-250"
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_think"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_aura"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_swamp_waders_emerald_in_poison_cloud"
-				"Aura_Radius"   	"280"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_poison_cloud_aura_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_in_poison_cloud"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_in_poison_cloud_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swamp_waders_emerald_poison_cloud_slow"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_enter_poison_cloud"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_cloud_slow"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1" 
-				}
 			}
 		}
 	}
@@ -38812,7 +38733,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/iron_treads_of_destruction.lua"
 		"AbilityTextureName"	"winterblight/iron_treads_of_destruction" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39767,7 +39689,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/emerald_speed_runners.lua"
 		"AbilityTextureName"	"rpc/emerald_speed_runners" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39861,12 +39784,13 @@
 		}
 	}
 
-	"item_rpc_dunetread_boots"
+	"item_rpc_dunetreads"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/dunetreads.lua"
 		"AbilityTextureName"	"rpc/dunetread_boots" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39905,40 +39829,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_dunetread_boots"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"dunetreads_init"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_dunetreads_sapphire"
-						"Target" 		"TARGET"
-					}
-				}
 			}
 		}
 	}
@@ -40326,7 +40216,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/boots_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/boots_of_the_violet_guard" //"boots_of_the_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -40378,14 +40269,14 @@
 		}
 		"Modifiers"
 		{
-			"modifier_violet_boots"
+			"modifier_boots_of_the_violet_guards"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_violet_boot_cooldown"
+			"modifier_boots_of_the_violet_guard_cooldown"
 			{
 				"IsHidden"	"1"
 			}
@@ -40396,7 +40287,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/special_item_effects.lua"
-				"Function"		"violet_boot_impact"
+				"Function"		"boots_of_the_violet_guard_impact"
 				"target"		"TARGET"
 			}
 		}
@@ -41116,7 +41007,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/bloodstone_boots.lua"
 		"AbilityTextureName"	"rpc/bloodstone_boots" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -44637,7 +44529,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/plate_of_the_watcher.lua"
 		"AbilityTextureName"	"rpc/plate_of_the_watcher" //"plate_of_the_watcher"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -46727,7 +46620,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/enchanted_solar_cape.lua"
 		"AbilityTextureName"	"rpc/enchanted_solar_cape" //"enchanted_solar_cape"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -46774,53 +46668,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_enchanted_solar_cape"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"EffectAttachType"	"follow_origin"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"enchanted_solar_cape_think"
-					}
-				}
-			}
-			"modifier_enchanted_solar_cape_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/enchanted_solar_cape"
-				"Duration"			"7"
-				"EffectName"		"particles/units/heroes/hero_ogre_magi/solar_cape_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"RPCItem.EnchantedSolarCape"
-						"Target"		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "60"
-				}
-			}
-			"modifier_enchanted_solar_cape_sunlight"
-			{
-				"TextureName"		"earthshaker_aftershock"
-				"Passive"			"0"
-				"IsHidden"			"0"
 			}
 		}
 	}
@@ -48409,12 +48256,13 @@
 		}
 	}
 
-	"item_rpc_armor_of_violet_guard"
+	"item_rpc_armor_of_the_violet_guard"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/armor_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/armor_of_violet_guard" //"armor_of_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -48462,37 +48310,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_armor_of_violet_guard"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_violet_guard_armor_loss_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/violet_guard_armor_loss"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_violet_guard_armor_loss_invisible"
-			{
-				"IsHidden"	"1"
 			}
 		}
 	}
@@ -49591,7 +49408,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/gloves/spellfire_gloves.lua"
 		"AbilityTextureName"	"rpc/spellfire_gloves" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55902,7 +55720,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/veil_of_the_cerulean_high_guard.lua"
 		"AbilityTextureName"	"rpc/veil_of_the_cerulean_high_guard" //"veil_of_the_cerulean_high_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -56106,7 +55925,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_blue_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_blue_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -56126,50 +55946,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_blue"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_blue"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_blue"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -56202,7 +55978,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_purple_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_purple_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -56222,50 +55999,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_purple"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_purple"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_purple"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -56298,7 +56031,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_yellow_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_yellow_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -56318,50 +56052,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_yellow"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_yellow"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_yellow"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -57742,7 +57432,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/mask_of_the_phantom_sorcerer.lua"
 		"AbilityTextureName"	"rpc/mask_of_the_phantom_sorcerer" //"mask_of_the_phantom_sorcerer"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -63025,7 +62716,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/trinket/signus_charm.lua"
 		"AbilityTextureName"	"rpc/signus_charm"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"

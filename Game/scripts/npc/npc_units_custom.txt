@@ -82704,7 +82704,7 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"              "seafortress_archon_form"
+        "Ability1"              "seafortress_archon_wizard_archon_form"
         "Ability2"              "dungeon_creep"
         "Creature"
         {
