@@ -190,7 +190,7 @@ function HerosCustom:ConvertRPCNameToStringHeroName(RPCName)
 		name = "npc_dota_hero_arc_warden"
 	elseif RPCName == "omniro" then
 		name = "npc_dota_hero_faceless_void"
-	elseif RPCName == "rubliash" then
+	elseif RPCName == "rubilash" then
 		name = "npc_dota_hero_grimstroke"
 	end
 	return name
@@ -327,11 +327,11 @@ function HerosCustom:GetHeroIndex(heroName)
 end
 
 function HerosCustom:GetHeroNameTable()
-	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "grimstroke"}
+	return {"neutral", "flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "rubilash"}
 end
 
 function HerosCustom:GetInternalNameTable()
-	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "grimstroke"}
+	return {"flamewaker", "voltex", "venomort", "axe", "astral", "epoch", "paladin", "sorceress", "conjuror", "seinaru", "warlord", "bahamut", "duskbringer", "auriun", "trapper", "spirit_warrior", "mountain_protector", "chernobog", "solunia", "hydroxis", "ekkan", "zonik", "arkimus", "djanghor", "slipfinn", "sephyr", "dinath", "jex", "omniro", "rubilash"}
 end
 
 function HerosCustom:GetAvailableHerosTable()

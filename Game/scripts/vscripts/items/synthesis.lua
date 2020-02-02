@@ -572,7 +572,7 @@ function RPCItems:UseArcanaCache(caster, item)
 					Events.reroll = true
 					for i = 1, 3, 1 do
 						local level_for_arcana = RPCItems:RollItemLevelFromUnit(radiance)
-						level_for_arcana = math.max(level_for_arcana, radiance - 10)
+						level_for_arcana = math.max(level_for_arcana, radiance)
 						level_for_arcana = math.min(level_for_arcana, 120)
 						local arcana = RPCItems:RollRandomArcana(level_for_arcana)
 						arcana.pickedUp = true
