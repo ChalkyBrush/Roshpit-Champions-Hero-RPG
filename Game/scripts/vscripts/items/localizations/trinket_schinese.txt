@@ -144,7 +144,7 @@
         "item_rpc_signus_charm_sapphire1"                                   "提高基础技能伤害 @sapphire_property1%"
         "item_rpc_signus_charm_amethyst1"                                   "施放 [E] 获得一层持续 <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> 秒的buff，能提高你的物理穿透和魔法穿透 @amethyst_property1"
 		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%。 @Ability3 冷却时间提高<% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%。"
+		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%。 @Ability3 冷却时间提高<% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"

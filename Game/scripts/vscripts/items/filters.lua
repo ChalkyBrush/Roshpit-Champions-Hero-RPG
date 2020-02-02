@@ -214,10 +214,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_rubilash_r_2_bad_and_item") then
         mult = mult + (caster:GetRuneValue("r", 2)*RUBILASH_RUNE_R2_BAD_AND_ITEM_WHILE_INVIS)/100
     end
-    if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
-        mult = mult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
-    end
     if caster:HasModifier("modifier_tranquil_boots") then
         mult = mult + ((caster:GetHealth()/caster:GetMaxHealth())*100)*caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY2)/100
     end
@@ -423,37 +419,79 @@ end
 
 function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
-    local CDreduce = 0
-    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_Q_FLAT_CD_RED }, { }, 
-        function(result, data)
-            CDreduce = CDreduce + result
-        end
-    )
-    local abilityCooldown = abilityCooldown - CDreduce
-
-    --Percent based reduction here
+    local CdFlatModifier = 0
+    if caster:HasModifier("modifier_venomort_glyph_1_1") then
+        abilityCooldown = VENOMORT_GLYPH_1_1_COOLDOWN
+	end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
+            function(result, data)
+                CdFlatModifier = CdFlatModifier + result
+            end
+        )
+    end
+    local abilityCooldown = abilityCooldown + CdFlatModifier
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQPctCdModifier', { MODIFIER_ROSHPIT_Q_PCT_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMaxCdModifier', { MODIFIER_ROSHPIT_Q_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
+            end
+        )
+    end
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
 end
 function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
-    local CDreduce = 0
-    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_W_FLAT_CD_RED }, { }, 
-        function(result, data)
-            CDreduce = CDreduce + result
-        end
-    )
-    local abilityCooldown = abilityCooldown - CDreduce
+    local CdFlatModifier = 0
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWFlatCdModifier', { MODIFIER_ROSHPIT_W_FLAT_CD_MOD }, { }, 
+            function(result, data)
+                CdFlatModifier = CdFlatModifier + result
+            end
+        )
+    end
+    local abilityCooldown = abilityCooldown + CdFlatModifier
 
-    --Percent based reduction here
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWPctCdModifier', { MODIFIER_ROSHPIT_W_PCT_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMaxCdModifier', { MODIFIER_ROSHPIT_W_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
+            end
+        )
+    end
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
 end
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
-    local CDreduce = 0
+    local CdFlatModifier = 0
 
     if caster:HasModifier("modifier_sandstream_slippers_stack") then
         if baseCD > 0 then
@@ -467,55 +505,82 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
             return
         end
     end
-    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_E_FLAT_CD_RED }, { }, 
-        function(result, data)
-            CDreduce = CDreduce + result
-        end
-    )
-    if caster:HasModifier("modifier_dunetread_boots") then
-        CDreduce = CDreduce + ITEM_RPC_DUNETREAD_BOOTS_CD_RED
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEFlatCdModifier', { MODIFIER_ROSHPIT_E_FLAT_CD_MOD }, { }, 
+            function(result, data)
+                CdFlatModifier = CdFlatModifier + result
+            end
+        )
     end
     if caster:HasModifier('modifier_venomort_glyph_3_1') then
-        CDreduce = CDreduce + VENOMORT_GLYPH_3_1_E_CD_RED
+        CdFlatModifier = CdFlatModifier - VENOMORT_GLYPH_3_1_E_CD_RED
     end
     if caster:HasModifier("modifier_bear_silencer") then
-        CDreduce = CDreduce - 30
+        CdFlatModifier = CdFlatModifier + 30
     end
-    if caster:HasModifier("modifier_signus_charm") then
-        CDreduce = CDreduce - (baseCD * ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE/100)
-    end
-    local abilityCooldown = abilityCooldown - CDreduce
+    local abilityCooldown = abilityCooldown + CdFlatModifier
 
-    if caster:HasModifier("modifier_mask_of_ahnqhir_blue") then
-        abilityCooldown = abilityCooldown * (100-TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT)/100
+    
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEPctCdModifier', { MODIFIER_ROSHPIT_E_PCT_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end    
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMaxCdModifier', { MODIFIER_ROSHPIT_E_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
+            end
+        )
     end
-    if caster:HasModifier("modifier_bloodstone_boots") then
-        if Filters:IsAtBloodstoneThreshold(caster) then
-            abilityCooldown = ITEM_RPC_BLOODSTONE_BOOTS_E_CD
-        end
-    end
-    if abilityCooldown < 0.1 then
-        abilityCooldown = 0.1
-    end
+
+    abilityCooldown = math.max(abilityCooldown, 0.1)
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
 end
 function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
-    local CDreduce = 0
-    Util.Modifier:SimpleEvent(caster, 'GetRoshpitFlatCdRed', { MODIFIER_ROSHPIT_R_FLAT_CD_RED }, { }, 
-        function(result, data)
-            CDreduce = CDreduce + result
-        end
-    )
-    local abilityCooldown = abilityCooldown - CDreduce
+    local CdFlatModifier = 0
 
-    --Percent based reduction here
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRFlatCdModifier', { MODIFIER_ROSHPIT_R_FLAT_CD_MOD }, { }, 
+            function(result, data)
+                CdFlatModifier = CdFlatModifier + result
+            end
+        )
+    end
+    local abilityCooldown = abilityCooldown + CdFlatModifier
+
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRPctCdModifier', { MODIFIER_ROSHPIT_R_PCT_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = abilityCooldown * (1 + result)
+            end
+        )
+    end
+    if not ability.BaseClass then
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMaxCdModifier', { MODIFIER_ROSHPIT_R_MAX_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.min(abilityCooldown, result)
+            end
+        )
+        Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
+            function(result, data)
+                abilityCooldown = math.max(abilityCooldown, result)
+            end
+        )
+    end
 
     ability:EndCooldown()
     ability:StartCooldown(abilityCooldown)
-    print("new CD: "..abilityCooldown)
 end
 
 
@@ -790,9 +855,6 @@ function Filters:CastSkillArguments(slot, caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
 
     end
-    if caster:HasModifier("modifier_spellfire_gloves") then
-        Filters:SpellfireAbilityCast(caster, slot)
-    end
     if caster:HasModifier("modifier_torch_of_gengar_effect") then
         Filters:GengarCast(caster)
     end
@@ -809,9 +871,6 @@ function Filters:CastSkillArguments(slot, caster)
             caster:ReduceMana(manaDrain)
         end
     end
-    if caster:HasModifier("modifier_signus_charm") then
-        Filters:SignusCast(slot, caster)
-    end
     if caster:HasModifier("modifier_antique_mana_relic") then
         local mana_drain = ITEM_RPC_ANTIQUE_MANA_RELIC_MANA_DRAIN - caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANTIQUE_MANA_RELIC_GEM_AMETHYST)
         caster:ReduceMana(caster:GetMaxMana() * mana_drain/100)
@@ -819,11 +878,6 @@ function Filters:CastSkillArguments(slot, caster)
     end
     Events:TutorialServerEvent(caster, "2_1", 1)
     Challenges:AbilityUsed(slot)
-    if caster:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local cd_reduc_ability = Filters:SkillArgumentSlotToHeroAbility(caster, slot)
-        local percentageReduction = ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT/100
-        Filters:ReduceCDByPercentage(caster, cd_reduc_ability, percentageReduction)
-    end
     if caster:HasModifier("modifier_bladestorm_vest_buff") then
         local proc = false
         if caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("amethyst") > 0 then
@@ -835,9 +889,6 @@ function Filters:CastSkillArguments(slot, caster)
             caster:SetModifierStackCount("modifier_bladestorm_vest_buff", caster.body, newStacks)
             Filters:ModifyBladestormVestSwordCount(caster, newStacks, caster.equipped_gear[RPC_GEAR_SLOT_BODY], caster.InventoryUnit, -1)
         end
-    end
-    if caster:HasModifier("modifier_voyager_boots") then
-        Filters:VoyagerBootsAllCast(caster, slot)
     end
     if caster:HasModifier("modifier_mordiggus_gauntlet") then
         Filters:MordiggusEvent(caster, "cast")
@@ -887,12 +938,17 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
+    if not ability.BaseClass and caster:HasModifier("modifier_iron_treads_of_destruction") then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
             Filters:EndRChannel(caster)
         end)
+    end
+    if not ability.BaseClass and caster:HasModifier("modifier_spellfire_gloves") then
+        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("amethyst") > 0 then
+            caster:AddNewModifier(caster.InventoryUnity, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], "modifier_spellfire_gloves_channeling_think", {duration = ability:GetChannelTime()})
+        end
     end
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceRCooldown(caster, ability, baseCd, false)
@@ -910,11 +966,6 @@ function Filters:BeginRChannel(caster)
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drain_pct = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST)
         caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = ability:GetChannelTime()})
     end
-    if caster:HasModifier("modifier_spellfire_gloves") then
-        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("amethyst") > 0 then
-            caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_spellfire_gloves_channeling_think", {duration = ability:GetChannelTime()})
-        end
-    end
     if caster:HasModifier("modifier_space_tech_vest") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
         caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_space_tech_channel", {duration = ability:GetChannelTime()})
@@ -931,11 +982,6 @@ function Filters:BeginRChannel(caster)
         if Runes:ProcsByTotalChance(chance) >= 1 then
             ability:EndCooldown()
         end
-    end
-    if caster:HasModifier("modifier_signus_charm") then
-        ability:EndCooldown()
-        baseCd = baseCd * (100-ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION)/100
-        ability:StartCooldown(baseCd)
     end
     if caster:HasModifier("modifier_burning_spirit_helmet") then
         StartSoundEvent("RPCItem.BurningSpiritHelm", caster)
@@ -997,11 +1043,6 @@ function Filters:ApplyQskills(caster)
     if caster:HasModifier("modifier_secret_temple") then
         Filters:SecretTempleQ(caster)
     end
-    if caster:HasModifier("modifier_armor_of_violet_guard") then
-        local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        local percentageReduction = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE/100
-        Filters:ReduceCDByPercentage(caster, q_ability, percentageReduction)
-    end
     if caster:HasModifier("modifier_alaranas_ice_boot") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
             Filters:AlaranaInit(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_EMERALD))
@@ -1024,9 +1065,6 @@ function Filters:ApplyQskills(caster)
             caster:RemoveModifierByName("modifier_terrasic_magma_break_stacks")
         end
         ability:EndCooldown()
-    end
-    if caster:HasModifier("modifier_plate_of_the_watcher1") then
-        Filters:WatcherCast(caster, BASE_ABILITY_Q)
     end
     if caster:HasModifier("modifier_djanghor_glyph_5_1") then
         if caster:GetUnitName() == "npc_dota_hero_monkey_king" then
@@ -1178,9 +1216,6 @@ function Filters:ApplyWskills(caster)
     if caster:HasModifier("modifier_igneous_canine_helm") then
         Filters:IgneousCanine(caster)
     end
-    if caster:HasModifier("modifier_plate_of_the_watcher2") then
-        Filters:WatcherCast(caster, BASE_ABILITY_W)
-    end
     if caster:HasModifier("modifier_rpc_wraith_crown") then
         Filters:WraithCrown(caster)
     end
@@ -1210,14 +1245,6 @@ function Filters:ApplyWskills(caster)
     end
     if caster:HasModifier("modifier_sacred_trials_armor") then
         Filters:SacredTrialActivate(caster)
-    end
-    if caster:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
-        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        local cdRemaining = ability:GetCooldownTimeRemaining()
-        local cd_increase = PHANTOM_SORCERER_CD_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY2)
-        local newCD = math.min(cdRemaining + cd_increase, ability:GetCooldown(ability:GetLevel() - 1) + cd_increase)
-        ability:EndCooldown()
-        ability:StartCooldown(newCD)
     end
     if caster:HasModifier("modifier_cytopian_laser") then
         Filters:CytopianLaser(caster)
@@ -1276,12 +1303,6 @@ function Filters:ApplyEskills(caster)
     if caster:HasModifier("modifier_sonic_boots") then
         Filters:SonicBoot(caster)
     end
-    if caster:HasModifier("modifier_plate_of_the_watcher3") then
-        Filters:WatcherCast(caster, BASE_ABILITY_E)
-    end
-    if caster:HasModifier("modifier_swamp_waders") then
-        Filters:SwampWadersECast(caster)
-    end
     if caster:HasModifier("modifier_sandstream_slippers") then
         Filters:SandstreamECast(caster)
     end
@@ -1310,9 +1331,6 @@ function Filters:ApplyEskills(caster)
             Filters:InitGravelFootEffect(caster.InventoryUnit, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS], caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GRAVELFOOT_TREADS_GEM_AMETHYST))
         end
     end
-    if caster:HasModifier("modifier_dunetread_boots") then
-        Filters:DunetreadECast(caster)
-    end
     if caster:HasModifier("modifier_blue_dragon_greaves") then
         if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
             Filters:ApplyBlueDragonGreavesBuff(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DRAGON_GREAVES_GEM_RUBY1))
@@ -1337,9 +1355,6 @@ function Filters:ApplyEskills(caster)
         ability:EndCooldown()
         baseCd = baseCd + 15
         ability:StartCooldown(baseCd)
-    end
-    if caster:HasModifier("modifier_voyager_boots") then
-        Filters:VoyagerBoots(caster)
     end
     if caster:HasModifier("modifier_arcanys_slipper") then
         Timers:CreateTimer(0.45, function()
@@ -1377,12 +1392,6 @@ function Filters:ApplyEskills(caster)
 end
 
 function Filters:ApplyRskills(caster)
-    if caster:HasModifier("modifier_enchanted_solar_cape") then
-        local solar_cape = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
-        if solar_cape:GetGemValue("ruby") > 0 then
-            Filters:AddSolarCapeStacks(caster, caster.InventoryUnit, solar_cape, solar_cape:GetFinalGemPropertyValue("ruby", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_RUBY))
-        end
-    end
     if caster:HasModifier("modifier_hurricane_vest") then
         local tornado_count = ITEM_RPC_HURRICANE_VEST_HURRICANE_COUNT + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_HURRICANE_VEST_GEM_RUBY1)
         Filters:HurricaneVest(caster, tornado_count)
@@ -1393,21 +1402,6 @@ function Filters:ApplyRskills(caster)
     end
     if caster:HasModifier("modifier_robe_of_flooding") then
         Filters:FloodRobe(caster)
-    end
-    if caster:HasModifier("modifier_plate_of_the_watcher4") then
-        Filters:WatcherCast(caster, BASE_ABILITY_R)
-    end
-    if caster:HasModifier("modifier_violet_boots") then
-        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        local percentageReduction = ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT/100
-        Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
-    end
-    if caster:HasModifier("modifier_iron_treads_of_destruction") then
-        local r_ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
-            local percentageReduction = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_AMETHYST)/100
-            Filters:ReduceCDByPercentage(caster, r_ability, percentageReduction)
-        end
     end
     if caster:HasModifier("modifier_avalanche_plate") then
         Filters:AvalanchePlate(caster)
@@ -1619,11 +1613,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         attacker = attacker.origCaster
     end
     if Util.BaseType:IsAbilityBaseType(slot) then
-        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS }, { }, 
-            function(result, data)
-                damageMult = damageMult + result
-            end
-        )
 
         damageMult = damageMult + heroes.venomort.getBad(attacker)
         if attacker:IsRealHero() then
@@ -1763,10 +1752,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local stacks = attacker:GetModifierStackCount("modifier_nightmare_rider_stacks", attacker.InventoryUnit)
             damageMult = damageMult + (stacks * attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_NIGHTMARE_RIDER_MANTLE_GEM_AMETHYST2)) / 100
         end
-        if attacker:HasModifier("modifier_enchanted_solar_cape_effect") then
-            local solar_cape = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
-            damageMult = damageMult + solar_cape:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_SAPPHIRE)/100
-        end
         if attacker:HasModifier("modifier_jex_orbital_flame_effect") then
             local fireAbility = attacker:FindAbilityByName("jex_fire_cosmic_w")
             damageMult = damageMult + (fireAbility:GetSpecialValueFor("base_ability_damage_per_flame_tech") / 100) * attacker:GetModifierStackCount("modifier_jex_orbital_flame_effect", attacker) * fireAbility.tech_level
@@ -1809,6 +1794,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
     end
     if slot == BASE_ABILITY_Q then
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitQBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS }, { }, 
+            function(result, data)
+                damageMult = damageMult + result
+            end
+        )
         if not ignore_effects then
             if attacker:HasModifier("modifier_cap_of_wild_nature1") or attacker:HasModifier("modifier_cap_of_wild_nature2") then
                 Filters:WildNatureTwo(attacker, victim, slot)
@@ -1819,9 +1809,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + TRAPPER_Q4_AMPLIFY_PERCENT*attacker:GetRuneValue("q", 4)
             end
         end
-        if attacker:HasModifier("modifier_armor_of_violet_guard") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_AMETHYST)/100
-        end
         if attacker:HasModifier("modifier_boreal_granite_vest") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOREAL_GRANITE_VEST_GEM_AMETHYST)/100
         end
@@ -1830,9 +1817,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_terrasic_stone_plate") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_TERRASIC_STONE_PLATE_GEM_SAPPHIRE)/100
-        end
-        if attacker:HasModifier("modifier_plate_of_the_watcher1") then
-            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY2)/100
         end
         if attacker:HasModifier("modifier_rubilash_glyph_2_1") then
             damageMult = damageMult + RUBILASH_GLYPH_2_1_Q_BAD/100
@@ -1843,12 +1827,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_death_whisper_helm") then
             if not ignore_effects then
                 Filters:DeathWhisperApply(attacker, victim)
-            end
-        end
-        if attacker:GetUnitName() == "npc_dota_hero_antimage" then
-            if attacker:HasAbility("arkimus_zonis_spark") then
-                local q_4_level = attacker:GetRuneValue("q", 4)
-                damageMult = damageMult + ARKIMUS_Q4_ADD_DMG_PCT/100
             end
         end
 
@@ -1876,6 +1854,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:ApplyQdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == BASE_ABILITY_W then
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitWBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS }, { }, 
+            function(result, data)
+                damageMult = damageMult + result
+            end
+        )
         if attacker:HasModifier("modifier_magistrates_hood") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", MAGISTRATE_AMETHYST)/100
         end
@@ -1904,21 +1887,8 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_arkimus_immortal_weapon_1") then
             damageMult = damageMult + ARKIMUS_IMMORTAL_WEAPON_1_W_MULT
         end
-        if attacker:HasModifier("modifier_plate_of_the_watcher2") then
-            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_SAPPHIRE2)/100
-        end
-        if attacker:HasModifier("modifier_mask_of_the_phantom_sorcerer") then
-            damageMult = damageMult + PHANTOM_SORCERER_BAD/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", PHANTOM_SORCERER_RUBY1)/100
-        end
         if attacker:HasModifier("modifier_shadowflame_fist") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWFLAME_FIST_GEM_SAPPHIRE2)/100
-        end
-        -- if attacker:HasModifier("modifier_wraith_hunters_steel_helm") then
-        --     damageMult = damageMult + WRAITH_HUNTER_W_BAD/100
-        -- end
-        if attacker:HasModifier("modifier_cerulean_high_guard") then
-            local bad = CERULEAN_HIGHGUARD_BAD + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST1)
-            damageMult = damageMult + bad/100
         end
 		if attacker:HasModifier("modifier_zonik_immortal_weapon_1") then
 			damageMult = damageMult + ZHONIK_IMMORTAL_WEAPON_1_W_BAD/100
@@ -1965,14 +1935,13 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:ApplyWdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == BASE_ABILITY_E then
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitEBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS }, { }, 
+            function(result, data)
+                damageMult = damageMult + result
+            end
+        )
         if attacker:HasModifier("modifier_admiral_boots") then
             damageMult = damageMult + ITEM_RPC_ADMIRAL_BOOTS_BAD_E/100
-        end
-        if attacker:HasModifier("modifier_swamp_waders") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SWAMP_WADERS_GEM_SAPPHIRE)/100
-        end
-        if attacker:HasModifier("modifier_plate_of_the_watcher3") then
-            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD2)/100
         end
 		if attacker:HasModifier("modifier_zhonic_arcana_c_c_invisible") then
 			local stacks = attacker:GetModifierStackCount("modifier_zhonic_arcana_c_c_invisible", attacker)
@@ -2017,6 +1986,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:ApplyEdamage(victim, attacker, damage, damage_type)
         end
     elseif slot == BASE_ABILITY_R then
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitRBaseAbilityDmgBonus', { MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS }, { }, 
+            function(result, data)
+                damageMult = damageMult + result
+            end
+        )
         if attacker:HasModifier("modifier_master_gloves") then
             damageMult = damageMult + ITEM_RPC_MASTER_GLOVES_BAD/100
         end
@@ -2026,20 +2000,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_galaxy_orb") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GALAXY_ORB_GEM_SAPPHIRE2)/100
         end
-        if attacker:HasModifier("modifier_iron_treads_of_destruction") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_RUBY)/100
-        end
-        if attacker:HasModifier("modifier_violet_boots") then
-            damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_AMETHYST)/100
-        end
         if attacker:HasModifier("modifier_doomplate") then
             Filters:DoomplateApply(attacker, victim)
         end
         if attacker:HasModifier("modifier_aquasteel_bracers") then
             Filters:AquaSteelRHit(attacker, victim)
-        end
-        if attacker:HasModifier("modifier_plate_of_the_watcher4") then
-            damageMult = damageMult + ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R/100 + attacker.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST2)/100
         end
         if attacker:HasModifier("modifier_axe_arcana1") then
             local r_1_level = attacker:GetRuneValue("r", 1)
@@ -2114,11 +2079,9 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
+    Util.Modifier:SimpleEvent(attacker, 'OnHitQAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     if attacker:HasModifier("modifier_vampiric_breastplate") then
         Filters:VampiricBreastplate(attacker, damage, "q_ability", "modifier_vampiric_breastplate")
-    end
-    if attacker:HasModifier("modifier_armor_of_violet_guard") then
-        Filters:VioletGuardArmorHit(victim, attacker, damage)
     end
     if attacker:HasModifier("modifier_mountain_vambraces") then
         local vambrace = attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]
@@ -2131,14 +2094,17 @@ function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyWdamage(victim, attacker, damage, damage_type)
+    Util.Modifier:SimpleEvent(attacker, 'OnHitWAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 1)
 end
 
 function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
+    Util.Modifier:SimpleEvent(attacker, 'OnHitEAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_E_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 2)
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
+    Util.Modifier:SimpleEvent(attacker, 'OnHitRAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_R_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
 end
 
@@ -2281,12 +2247,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             damage = damage * 0.5
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_all_elements", 1))/100
-        if attacker:HasAbility("arkimus_archon_form") then
-            local r_3_level = attacker:GetRuneValue("r", 3)
-            if r_3_level > 0 then
-                mult = mult + ARKIMUS_ARCANA_R_R3_ELEMENTS_PCT * r_3_level
-            end
-        end
         if attacker:HasModifier("modifier_omniro_dragon_buff") then
             mult = mult + (OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF/100)
         end
@@ -2517,10 +2477,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_antimage" then
             if attacker:HasModifier("modifier_arkimus_glyph_7_1") then
                 mult = mult + ARKIMUS_GLYPH_7_1_LIGHTNING_AMP/100
-            end
-            if attacker:HasModifier("modifier_arkimus_arcana1_q4") then
-                local stacks = attacker:GetModifierStackCount("modifier_arkimus_arcana1_q4", attacker)
-                mult = mult + ARKIMUS_ARCANA1_Q4_LIGHTNING_AMP /100 * stacks
             end
         end
         if unitName == "npc_dota_hero_arc_warden" then
@@ -3405,48 +3361,6 @@ function Filters:IsPrimaryAttribute(hero, attr)
     end
 end
 
-function Filters:VioletBoot(caster)
-    if not caster:HasModifier("modifier_violet_boot_cooldown") then
-        caster.violetBoot:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_violet_boot_cooldown", {duration = 1})
-        local fv = caster:GetForwardVector()
-        fv = WallPhysics:rotateVector(fv, math.pi)
-        Filters:VioletProjectile(caster, fv)
-        Filters:VioletProjectile(caster, WallPhysics:rotateVector(fv, math.pi / 9))
-        Filters:VioletProjectile(caster, WallPhysics:rotateVector(fv, -math.pi / 9))
-        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Tinker.LaserImpact", caster)
-    end
-end
-
-function Filters:VioletProjectile(caster, fv)
-    local projectileParticle = "particles/econ/items/mirana/mirana_crescent_arrow/violet_boots.vpcf"
-
-    local projectileOrigin = caster:GetAbsOrigin()
-    local start_radius = 160
-    local end_radius = 160
-    local range = 1200
-    local speed = 850
-    local info =
-    {
-        Ability = caster.violetBoot,
-        EffectName = projectileParticle,
-        vSpawnOrigin = projectileOrigin + Vector(0, 0, 200),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = caster,
-        StartPosition = "attach_hitloc",
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        fExpireTime = GameRules:GetGameTime() + 4.0,
-        bDeleteOnHit = false,
-        vVelocity = fv * speed,
-        bProvidesVision = false,
-    }
-    projectile = ProjectileManager:CreateLinearProjectile(info)
-end
 
 function Filters:SonicBoot(caster)
     local inventoryUnit = caster.InventoryUnit
@@ -3485,13 +3399,6 @@ function Filters:EternalFrost(caster)
             ability:ApplyDataDrivenModifier(caster, enemy, "modifier_eternal_frost_nova", {duration = freezeDuration})
         end
     end
-end
-
-function Filters:CeruleanHighguard(caster)
-    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-    local manaCost = ability:GetManaCost(-1)
-    local finalManaCost = manaCost * (CERULEAN_HIGHGUARD_MANA_INCREASE + caster.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("amethyst", CERULEAN_HIGHGUARD_AMETHYST2))/100
-    caster:ReduceMana(finalManaCost)
 end
 
 function Filters:AscensionTrigger(caster)
@@ -3635,20 +3542,8 @@ function Filters:CytopianLaser(caster)
     end
 end
 
-function Filters:VoyagerBoots(caster)
-    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("ruby") > 0 then
-        local cd_reduce_percentage = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_VOYAGER_BOOTS_GEM_RUBY)/100
-        local ability1 = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability1, cd_reduce_percentage)
-        local ability2 = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability2, cd_reduce_percentage)
-        local ability4 = caster:GetAbilityByIndex(DOTA_R_SLOT)
-        Filters:ReduceCDByPercentage(caster, ability4, cd_reduce_percentage)
-    end
-end
-
 function Filters:GetSpecialAttackRangeModifiers()
-    return {"modifier_tomahawk_buffs", "modifier_chernobog_demonform_lua", "modifier_arkimus_archon_form", "modifier_demon_flight_flying"}
+    return {"modifier_tomahawk_buffs", "modifier_chernobog_demonform_lua", "modifier_demon_flight_flying"}
 end
 
 function Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
@@ -3897,7 +3792,6 @@ function Filters:FarSeerGloves(attacker, damage, inflictor)
         
         local maximum = attacker:GetIntellect()*(ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_INT_CAP + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_AMETHYST)) + attacker:GetAgility()*ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_GEM_EMERALD)
         local attack_power_bonus = math.min(math.floor(damage * ITEM_RPC_FAR_SEERS_ENCHANTED_GLOVES_MAGIC_DMG_TO_ATK_PCT/100), maximum)
-        print("FAR SEER: "..attack_power_bonus)
         attacker:SetModifierStackCount("modifier_far_seer_attack_damage", attacker.InventoryUnit, attack_power_bonus)
     end
 end
@@ -3911,8 +3805,6 @@ function Filters:EmeraldDouliHit(victim, damage)
         local normalDamage = damage * (1 - douli_damage_absorb_pct / 100)
         local availableMana = victim:GetMana()
         if availableMana > manaDamage then
-            print("MANA DAMAGE: "..manaDamage)
-            print("NORMAL DAMAGE: "..normalDamage)
             victim:ReduceMana(manaDamage)
             return normalDamage
         else
@@ -4737,14 +4629,6 @@ function Filters:PhoenixEmblem(victim)
     end
 end
 
-function Filters:VioletGuardArmorHit(victim, attacker, damage)
-    local violet_guard = attacker.equipped_gear[RPC_GEAR_SLOT_BODY]
-    if violet_guard:GetGemValue("ruby") > 0 then
-        violet_guard:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_violet_guard_armor_loss_visible", {duration = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION})
-        victim:CalculateAndSaveRoshpitAttributes()
-    end
-end
-
 function Filters:BombThrow(caster)
     local bomb = caster.waterBomb
     if not bomb.thrown then
@@ -5482,19 +5366,6 @@ function Filters:DepthCrestArmor(caster, ability, chance)
     end
 end
 
-function Filters:AddSolarCapeStacks(hero, caster, ability, stacks_count)
-    if not hero:HasModifier("modifier_enchanted_solar_cape_effect") then
-        local new_stacks = hero:GetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster) + stacks_count
-        ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_sunlight", {})
-        hero:SetModifierStackCount("modifier_enchanted_solar_cape_sunlight", caster, new_stacks)
-        local stacks_for_flare = math.max(ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_EMERALD), 1)
-        if new_stacks >= stacks_for_flare then
-            ability:ApplyDataDrivenModifier(caster, hero, "modifier_enchanted_solar_cape_effect", {duration = ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION})
-            hero:RemoveModifierByName("modifier_enchanted_solar_cape_sunlight")
-        end
-    end
-end
-
 function Filters:ApplyFeronia(caster, slot, bReapply)
     local duration = 0
     local feronia = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
@@ -5560,23 +5431,6 @@ function Filters:HurricaneVest(caster, tornado_count)
         }
         ProjectileManager:CreateLinearProjectile(info)
     end
-end
-
-function Filters:WatcherCast(caster, base_ability_slot)
-    local ability = Filters:SkillArgumentSlotToHeroAbility(caster, base_ability_slot)
-    local watcher_plate = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
-    local percentage_increase = 0
-    if base_ability_slot == BASE_ABILITY_Q then
-        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q/100 - watcher_plate:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_RUBY1)/100
-    elseif base_ability_slot == BASE_ABILITY_W then
-        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W/100 - watcher_plate:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_SAPPHIRE1)/100
-    elseif base_ability_slot == BASE_ABILITY_E then
-        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E/100 - watcher_plate:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_EMERALD1)/100
-    elseif base_ability_slot == BASE_ABILITY_R then
-        percentage_increase = percentage_increase - ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R/100 - watcher_plate:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLATE_OF_THE_WATCHER_GEM_AMETHYST1)/100
-    end
-
-    Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
 end
 
 function Filters:FloodRobe(caster)
@@ -5693,9 +5547,6 @@ end
 function Filters:TwilightVestments(hero, damage, damagetype)
     local twilight_vest = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
     local threshold = (ITEM_RPC_TWILIGHT_VESTMENTS_HP_THRESHOLD - twilight_vest:GetFinalGemPropertyValue("ruby", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_RUBY))/100
-    print("----")
-    print(damage)
-    print(hero:GetMaxHealth() * threshold)
     if damage > hero:GetMaxHealth() * threshold then
         EmitSoundOn("RPCItems.TwilightVestments.Heal", hero)
         local heal_pct = (ITEM_RPC_TWILIGHT_VESTMENTS_HEAL_PCT + twilight_vest:GetFinalGemPropertyValue("emerald", ITEM_RPC_TWILIGHT_VESTMENTS_GEM_EMERALD))
@@ -6104,96 +5955,6 @@ function Filters:IncrementSkullDiggerStacks(caster, ability, hero)
     end
 end
 
-function Filters:SpellfireAbilityCast(caster, slot)
-    local spellfire_gloves = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
-    local ability = nil
-    if slot == 1 then
-        ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-    elseif slot == 2 then
-        ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-    elseif slot == 3 then
-        ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
-    end
-    local ruby_proc = Filters:GetProc(caster, spellfire_gloves:GetFinalGemPropertyValue("ruby", ITEM_RPC_SPELLFIRE_GLOVES_GEM_RUBY))
-    if spellfire_gloves:GetGemValue("ruby") > 0 and ability and ruby_proc then
-        local continue = true
-        if caster:HasModifier("modifier_spellfire_ruby_block") then
-            continue = false
-            caster:RemoveModifierByName("modifier_spellfire_ruby_block")
-        end
-        Timers:CreateTimer(ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY, function()
-            if continue then
-                spellfire_gloves:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_spellfire_ruby_block", {duration = 0.3})
-                ability:EndCooldown()
-                if ability:IsFullyCastable() then
-                    local manaRestore = ability:GetManaCost(ability:GetLevel())
-                    caster:GiveMana(manaRestore)
-                    local castPointSave = ability:GetCastPoint()
-                    if slot == 1 then
-                        ability.castPointSave = caster.castPointQ
-                    elseif slot == 2 then
-                        ability.castPointSave = caster.castPointW
-                    elseif slot == 3 then
-                        ability.castPointSave = caster.castPointE
-                    end
-                    ability:SetOverrideCastPoint(0)
-                    local behavior = ability:GetBehavior()
-                    --print(bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET))
-                    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) == DOTA_ABILITY_BEHAVIOR_NO_TARGET then
-                        local order =
-                        {
-                            UnitIndex = caster:entindex(),
-                            OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-                            AbilityIndex = ability:entindex(),
-                            Queue = true
-                        }
-                        caster:Stop()
-                        ExecuteOrderFromTable(order)
-                    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
-                        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ability:GetCastRange(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-                        if #enemies > 0 then
-                            local order = {
-                                UnitIndex = caster:entindex(),
-                                OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-                                TargetIndex = enemies[1]:entindex(),
-                                AbilityIndex = ability:entindex(),
-                                Queue = true
-                            }
-                            caster:Stop()
-                            ExecuteOrderFromTable(order)
-                        else
-                            if ability.castPointSave then
-                                ability:SetOverrideCastPoint(ability.castPointSave)
-                                ability.castPointSave = nil
-                                caster:RemoveModifierByName("modifier_spellfire_ruby_block")
-                            end
-                        end
-                    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
-                        local order =
-                        {
-                            UnitIndex = caster:entindex(),
-                            OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-                            AbilityIndex = ability:entindex(),
-                            Position = caster:GetAbsOrigin() + caster:GetForwardVector()*ability:GetCastRange(),
-                            Queue = true
-                        }
-                        caster:Stop()
-                        ExecuteOrderFromTable(order)
-                    end
-                end
-            end
-        end)
-    end
-    if slot == 4 then
-        ability = caster:GetAbilityByIndex(DOTA_R_SLOT)
-    end
-    if spellfire_gloves:GetGemValue("emerald") > 0 and ability then
-        local percentageReduction = spellfire_gloves:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD)/100
-        print(percentageReduction)
-        Filters:ReduceCDByPercentage(caster, ability, percentageReduction)
-    end
-end
-
 function Filters:SpiritualEmpowermentStackUpdate(hero)
     local caster = hero.InventoryUnit
     local ability = hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]
@@ -6213,15 +5974,6 @@ function Filters:AlaranaInit(caster, duration)
         caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_alarana_ice_freeze_amethyst_hp_regen", {duration = duration})
         local health_regen_stacks = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_AMETHYST)/0.1
         caster:SetModifierStackCount("modifier_alarana_ice_freeze_amethyst_hp_regen", caster.InventoryUnit, health_regen_stacks)
-    end
-end
-
-function Filters:IsAtBloodstoneThreshold(caster)
-    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
-    if caster:GetHealth() <= caster:GetMaxHealth() * (threshold / 100) then
-        return true
-    else
-        return false
     end
 end
 
@@ -6252,17 +6004,6 @@ function Filters:CrystallineWCast(caster)
     local slippers = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
     if slippers:GetGemValue("sapphire") > 0 then
         slippers:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_crystalline_sapphire_root", {duration = ITEM_RPC_CRYSTALLINE_SLIPPERS_SAPPHIRE_ROOT_DURATION})
-    end
-end
-
-function Filters:DunetreadECast(caster)
-    local dunetreads = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
-    if dunetreads:GetGemValue("ruby") > 0 then
-        local proc = Filters:GetProc(caster, dunetreads:GetFinalGemPropertyValue("ruby", ITEM_RPC_DUNETREAD_BOOTS_GEM_RUBY))
-        if proc then
-            caster:GetAbilityByIndex(DOTA_E_SLOT):EndCooldown()
-            CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_cast_water_spiral.vpcf", caster, 3)
-        end
     end
 end
 
@@ -6630,15 +6371,6 @@ function Filters:ReindexSandstreamsTable(ability)
     ability.sandstorm_table = new_sandstorm_table
 end
 
-function Filters:SwampWadersECast(caster)
-    local ability = Filters:SkillArgumentSlotToHeroAbility(caster, BASE_ABILITY_E)
-    local swamp_waders = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
-    if swamp_waders:GetGemValue("sapphire") > 0 then
-        local percentage_increase = (ITEM_RPC_SWAMP_WADERS_SAPPHIRE_CD_INCREASE/100)*-1
-        Filters:ReduceCDByPercentage(caster, ability, percentage_increase)
-    end
-end
-
 function Filters:TimeWarp(caster)
     local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
         if ability:GetGemValue("ruby") > 0 then
@@ -6837,14 +6569,6 @@ function Filters:GetNumberOfSkillsNotOnCooldownVoyager(hero)
     return count
 end
 
-function Filters:VoyagerBootsAllCast(caster, slot)
-    if caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("amethyst") > 0 then
-        local cd_ability = Filters:SkillArgumentSlotToHeroAbility(caster, slot)
-        local percentage_increase = (caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST1)/100)*-1
-        Filters:ReduceCDByPercentage(caster, cd_ability, percentage_increase)
-    end
-end
-
 function Filters:AnkhOfAncientsValidDeath(hero)
     local ankh = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]
 
@@ -6881,33 +6605,6 @@ function Filters:FortunesTalismanItemProc(caster)
     end
     if talisman:GetGemValue("amethyst") > 0 then
         talisman:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_fortunes_talisman_amethyst_buff", {duration = ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS})
-    end
-end
-
-function Filters:SignusCast(slot, caster)
-    if slot == BASE_ABILITY_Q then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("ruby") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_SIGNUS_CHARM_GEM_RUBY)
-            local e_ability = caster:GetAbilityByIndex(DOTA_E_SLOT)
-            Filters:ReduceCooldownGeneric(caster, e_ability, cd_reduce)
-        end
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD2)
-            local q_ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-            Filters:ReduceCooldownGeneric(caster, q_ability, cd_reduce, ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD)
-        end
-    end
-    if slot == BASE_ABILITY_W then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("emerald") > 0 then
-            local cd_reduce = caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SIGNUS_CHARM_GEM_EMERALD1)*-1
-            local w_ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-            Filters:ReduceCooldownGeneric(caster, w_ability, cd_reduce)
-        end
-    end
-    if slot == BASE_ABILITY_E then
-        if caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
-            caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_signus_charm_amethyst_buff", {duration = ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION})
-        end
     end
 end
 

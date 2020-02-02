@@ -1288,9 +1288,9 @@
 	{
 		"AbilityLayout"	"4"
 		"override_hero"	"npc_dota_hero_antimage"
-		"Ability1"	"arkimus_zonis_spark"
-		"Ability2"	"arkimus_storm_weapon"
-		"Ability3"	"ark_jump"
+		"Ability1"	"arkimus_dimension_coil"
+		"Ability2"	"arkimus_flash_source"
+		"Ability3"	"arkimus_orbital_leap"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
 		"Ability6"	"arkimus_energy_field"

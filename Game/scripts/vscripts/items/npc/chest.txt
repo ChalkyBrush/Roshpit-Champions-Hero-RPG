@@ -3000,7 +3000,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/plate_of_the_watcher.lua"
 		"AbilityTextureName"	"rpc/plate_of_the_watcher" //"plate_of_the_watcher"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -5090,7 +5091,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/enchanted_solar_cape.lua"
 		"AbilityTextureName"	"rpc/enchanted_solar_cape" //"enchanted_solar_cape"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -5137,53 +5139,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_enchanted_solar_cape"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"EffectAttachType"	"follow_origin"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"enchanted_solar_cape_think"
-					}
-				}
-			}
-			"modifier_enchanted_solar_cape_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/enchanted_solar_cape"
-				"Duration"			"7"
-				"EffectName"		"particles/units/heroes/hero_ogre_magi/solar_cape_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"RPCItem.EnchantedSolarCape"
-						"Target"		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>"
-				}
-			}
-			"modifier_enchanted_solar_cape_sunlight"
-			{
-				"TextureName"		"earthshaker_aftershock"
-				"Passive"			"0"
-				"IsHidden"			"0"
 			}
 		}
 	}
@@ -6772,12 +6727,13 @@
 		}
 	}
 
-	"item_rpc_armor_of_violet_guard"
+	"item_rpc_armor_of_the_violet_guard"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/armor_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/armor_of_violet_guard" //"armor_of_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -6825,37 +6781,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_armor_of_violet_guard"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_violet_guard_armor_loss_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/violet_guard_armor_loss"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_violet_guard_armor_loss_invisible"
-			{
-				"IsHidden"	"1"
 			}
 		}
 	}

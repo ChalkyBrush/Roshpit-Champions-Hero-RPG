@@ -184,8 +184,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_skulldigger_gauntlet", item)
 	elseif propertyName == "ethereal_revenant" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_claws_of_the_ethereal_revenant", item)
-	elseif propertyName == "spellfire" then
-		Hand:addItemModifier(0, hero, inventory_unit, "modifier_spellfire_gloves", item)
 	elseif propertyName == "duskbringer_arcana1" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_duskbringer_arcana1", item)
 	elseif propertyName == "wind" then
@@ -406,7 +404,6 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_malachite_shade_bracer")
 	hero:RemoveModifierByName("modifier_skulldigger_gauntlet")
 	hero:RemoveModifierByName("modifier_claws_of_the_ethereal_revenant")
-	hero:RemoveModifierByName("modifier_spellfire_gloves")
 	hero:RemoveModifierByName("modifier_duskbringer_arcana1")
 	hero:RemoveModifierByName("modifier_hand_wind")
 	hero:RemoveModifierByName("modifier_hand_ghost")

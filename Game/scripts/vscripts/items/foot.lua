@@ -105,12 +105,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addBasicModifier(foot_ability.attack_damage, hero, inventory_unit, "modifier_foot_attack_damage", foot_ability)
 	elseif propertyName == "ghost_walk" then
 		Foot:addBasicModifier(1, hero, inventory_unit, "modifier_foot_unit_walk", foot_ability)
-	elseif propertyName == "dunetread" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_dunetread_boots", item)
-	elseif propertyName == "violet_boots" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_violet_boots", item)
-		item.hero = hero
-		hero.violetBoot = item
 	elseif propertyName == "slinger" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_slinger_boots", item)
 	elseif propertyName == "guardian_greaves" then
@@ -142,8 +136,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "arcanys" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_arcanys_slipper", item)
 		hero.arcanys = item
-	elseif propertyName == "voyager" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_voyager_boots", item)
 	elseif propertyName == "redrock" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_redrock_footwear", item)
 		hero.redrock = item
@@ -173,8 +165,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_crimsyth_elite_greaves", item)
 	elseif propertyName == "great_fortune" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_boots_of_great_fortune", item)
-	elseif propertyName == "bloodstone" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_bloodstone_boots", item)
 	elseif propertyName == "cosmos" then
 		Foot:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_foot_cosmos", foot_ability)
 	elseif propertyName == "arcane" then
@@ -191,8 +181,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 		Foot:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_foot_ice", foot_ability)
 	elseif propertyName == "alarana" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_alaranas_ice_boot", item)
-	elseif propertyName == "emerald_speed" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_emerald_speed_runners", item)
 	elseif propertyName == "spirit_warrior_arcana3" then
 		RPCItems:PreacheArcanaResources(item)
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_spirit_warrior_arcana3", item)
@@ -217,8 +205,6 @@ function Foot:action(propertyName, propertyValue, hero, inventory_unit, foot_abi
 	elseif propertyName == "ice_floe" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_ice_floe_slippers", item)
 		RPCItems:PreacheArcanaResources(item)
-	elseif propertyName == "destruction" then
-		Foot:addItemModifier(0, hero, inventory_unit, "modifier_iron_treads_of_destruction", item)
 	elseif propertyName == "pegasus" then
 		Foot:addItemModifier(0, hero, inventory_unit, "modifier_pegasus_boots", item)
 	elseif propertyName == "pivotal" then
@@ -263,9 +249,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_foot_item_damage_inc")
 	hero:RemoveModifierByName("modifier_foot_max_health")
 	hero:RemoveModifierByName("modifier_foot_attack_damage")
-
-	hero:RemoveModifierByName("modifier_dunetread_boots")
-	hero:RemoveModifierByName("modifier_violet_boots")
 	hero:RemoveModifierByName("modifier_slinger_boots")
 	hero:RemoveModifierByName("modifier_guardian_greaves")
 	hero:RemoveModifierByName("modifier_tranquil_boots")
@@ -282,7 +265,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_rooted_feet")
 	hero:RemoveModifierByName("modifier_devotion_aura")
 	hero:RemoveModifierByName("modifier_arcanys_slipper")
-	hero:RemoveModifierByName("modifier_voyager_boots")
 	hero:RemoveModifierByName("modifier_redrock_footwear")
 	hero:RemoveModifierByName("modifier_pathfinder_resonant")
 	hero:RemoveModifierByName("modifier_neptunes_water_gliders")
@@ -298,7 +280,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_sandstream_slippers")
 	hero:RemoveModifierByName("modifier_crimsyth_elite_greaves")
 	hero:RemoveModifierByName("modifier_boots_of_great_fortune")
-	hero:RemoveModifierByName("modifier_bloodstone_boots")
 	hero:RemoveModifierByName("modifier_foot_cosmos")
 	hero:RemoveModifierByName("modifier_foot_arcane")
 	hero:RemoveModifierByName("modifier_foot_fire")
@@ -307,7 +288,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_temporal_warp_boots")
 	hero:RemoveModifierByName("modifier_foot_ice")
 	hero:RemoveModifierByName("modifier_alaranas_ice_boot")
-	hero:RemoveModifierByName("modifier_emerald_speed_runners")
 	hero:RemoveModifierByName("modifier_spirit_warrior_arcana3")
 	hero:RemoveModifierByName("modifier_voltex_arcana1")
 	hero:RemoveModifierByName("modifier_red_october_boots")
@@ -321,7 +301,6 @@ function Foot:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_chernobog_arcana2")
 	hero:RemoveModifierByName("modifier_gravelfoot_treads")
 	hero:RemoveModifierByName("modifier_ice_floe_slippers")
-	hero:RemoveModifierByName("modifier_iron_treads_of_destruction")
 	hero:RemoveModifierByName("modifier_conjuror_arcana4")
 	hero:RemoveModifierByName("modifier_slipfinn_arcana1")
 	hero:RemoveModifierByName("modifier_pegasus_boots")

@@ -11,31 +11,31 @@
 
 -- item_rpc_stargazers_sphere = class(BaseTrinket, nil, BaseTrinket)
 -- modifier_stargazers_sphere = class(npc_base_modifier, nil, npc_base_modifier)
--- local class = item_rpc_stargazers_sphere
--- local className = 'item_rpc_stargazers_sphere'
+-- local itemClass = item_rpc_stargazers_sphere
+-- local itemClassName = 'item_rpc_stargazers_sphere'
 -- local modifierClass = modifier_stargazers_sphere
 
--- function class:GetClassName()
---     return className
+-- function itemClass:GetClassName()
+--     return itemClassName
 -- end
--- function class:GetName()
+-- function itemClass:GetName()
 --     return 'Stargazers sphere'
 -- end
--- function class:GetModifierName()
+-- function itemClass:GetModifierName()
 --     return modifierName
 -- end
--- function class:RollProperty1()
+-- function itemClass:RollProperty1()
 --     self.newItemTable.property1 = 1
 --     self.newItemTable.property1name = "stargazer"
 --     self:SetSpecialValue(self.newItemTable.property1name, "#7A5C8E")
 -- end
--- function class:RollProperty2()
+-- function itemClass:RollProperty2()
 --     local visionBonus = RPCItems:GetLogarithmicVarianceValue(RandomInt(500, 700), 0, 0, 0, 0)
 --     self.newItemTable.property2 = visionBonus
 --     self.newItemTable.property2name = "vision"
 --     self:SetNormalValue(2)
 -- end
--- function class:RollProperty3()
+-- function itemClass:RollProperty3()
 --     local luck = RandomInt(1, 2)
 --     if luck == 1 then
 --         Elements:RollElementAttribute(self, RPC_ELEMENT_COSMOS, 2.6, 1, 30, 3)

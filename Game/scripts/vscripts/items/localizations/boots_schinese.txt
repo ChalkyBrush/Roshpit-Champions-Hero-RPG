@@ -21,13 +21,13 @@
         "item_rpc_sange_boots_amethyst1"                                        "每点敏捷提供 @amethyst_property1点基础攻击力"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
-        "item_rpc_dunetread_boots_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
-        "item_rpc_dunetread_boots_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
-        "item_rpc_dunetread_boots_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
-        "item_rpc_dunetread_boots_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
-		"item_property_dunetread"					"沙丘行者"
-		"property_dunetread_description"			"减少 @Ability3 的冷却时间<% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %>秒。"
+		"DOTA_Tooltip_ability_item_rpc_dunetreads"									"沙丘之靴"
+        "item_rpc_dunetreads_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
+        "item_rpc_dunetreads_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
+        "item_rpc_dunetreads_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
+        "item_rpc_dunetreads_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
+		"item_property_dunetreads"					"沙丘行者"
+		"property_dunetreads_description"			"减少 @Ability3 的冷却时间<% ITEM_RPC_DUNETREADS_CD_RED %>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"紫罗兰卫士之靴"
@@ -35,8 +35,8 @@
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"增加 @emerald_property1 点敏捷"
 		"item_rpc_boots_of_the_violet_guard_sapphire1"							"增加物理穿透 @sapphire_property1点"
 		"item_rpc_boots_of_the_violet_guard_amethyst1"							"增加 [R] 的基础技能伤害 @amethyst_property1%"
-		"item_property_violet_boot"					"紫罗兰之光"
-		"property_violet_boot_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
+		"item_property_boots_of_the_violet_guard"					"紫罗兰之光"
+		"property_boots_of_the_violet_guard_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"卫士胫甲"
     	"item_rpc_guardian_greaves_ruby1"								"每移动 @ruby_property1 点距离都会触发一次卫士胫甲"
@@ -173,8 +173,8 @@
 		
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
-		"item_property_voyager"						"航海家"
-        "property_voyager_description"              "每移动 <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> 距离降低所有其他技能的冷却时间降低数值为<% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>%的技能的基础冷却时间"
+		"item_property_voyager_boots"						"航海家"
+        "property_voyager_boots_description"              "每移动 <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> 距离降低所有其他技能的冷却时间降低数值为<% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>%的技能的基础冷却时间"
         "item_rpc_voyager_boots_ruby1"                                  "释放 [E] 后，降低其他技能的冷却时间，数值为 @ruby_property1% 技能基础冷却时间"
         "item_rpc_voyager_boots_emerald1"                                   "每有一个技能处于冷却中时，你的移动速度和最大移动速度将会提高 @emerald_property1"
         "item_rpc_voyager_boots_sapphire1"                                  "每有一个技能不在冷却中时，你的攻击力将会提高 @sapphire_property1% 攻击力加成，每一个非冷却状态技能都会增加一层这个效果"
@@ -394,8 +394,8 @@
         "item_rpc_emerald_speed_runners_emerald1"                           "增加敏捷 @emerald_property1点并且你的敏捷不能低于 @emerald_property2点"
         "item_rpc_emerald_speed_runners_sapphire1"                          "被缠绕时，发出移动指令将会将你传送至目标地点。跳跃距离为 @sapphire_property1，内置冷却时间 @sapphire_property2 秒"
         "item_rpc_emerald_speed_runners_amethyst1"                          "[E] 的冷却时间不能低于 @amethyst_property1 秒"
-		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %> 。"
+		"item_property_emerald_speed_runners"							"稳定步伐"
+		"property_emerald_speed_runners_description"					"移动速度不会低于 <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %> 。"
 		
         
         "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "永恒丛林之靴"

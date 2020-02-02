@@ -476,6 +476,7 @@ function ChatDropItems(keys)
 	if string.match(text, "-arcanas") then
 		local timer = 1
 
+		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollRubilashArcana1(itemlevelDrop)) end) timer = timer + 1
 		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollFlamewakerArcana1(itemlevelDrop)) end) timer = timer + 1
 		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSeinaruArcana1(itemlevelDrop)) end) timer = timer + 1
 		Timers:CreateTimer(timer, function() RPCItems:BasicDropItem(positionVector, RPCItems:RollSeinaruArcana2(itemlevelDrop)) end) timer = timer + 1
@@ -834,6 +835,7 @@ function ChatDropItems(keys)
 	--TO DO
 	local wepClass
 
+	wepClass = "rubilash" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, positionVector, string.gsub(text, "-"..wepClass, " ")) end
 	wepClass = "conjuror" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, positionVector, string.gsub(text, "-"..wepClass, " ")) end
 	wepClass = "flamewaker" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, positionVector, string.gsub(text, "-"..wepClass, " ")) end
 	wepClass = "voltex" if string.match(text, "-"..wepClass) then ChatDropWep(wepClass, positionVector, string.gsub(text, "-"..wepClass, " ")) end

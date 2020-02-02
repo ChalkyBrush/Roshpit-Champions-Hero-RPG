@@ -121,8 +121,8 @@
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"Reduces cooldown of @Ability4 by <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT %>%."
+		"item_property_boots_of_the_violet_guard"					"Violet Light"
+		"property_boots_of_the_violet_guard_description"			"Reduces cooldown of @Ability4 by <% ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_R_CD_REDUCE_PCT * 100 %>%."
 
     	"item_rpc_boots_of_the_violet_guard_ruby1"						"Increases movespeed @ruby_property1 and attack speed by @ruby_property2"
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
@@ -167,19 +167,19 @@
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Increased Evasion while in motion"
 
-        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
-        "item_property_dunetread"                   "Dunewalker"
-        "property_dunetread_description"            "Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREAD_BOOTS_CD_RED %> seconds."
+        "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
+        "item_property_dunetreads"                   "Dunewalker"
+        "property_dunetreads_description"            "Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREADS_CD_RED %> seconds."
 
-        "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
-        "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
-        "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
-        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
+        "item_rpc_dunetreads_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
+        "item_rpc_dunetreads_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
+        "item_rpc_dunetreads_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
+        "item_rpc_dunetreads_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 
-        "item_property_emerald_speed"                           "Stable Pace"
-        "property_emerald_speed_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
+        "item_property_emerald_speed_runners"                           "Stable Pace"
+        "property_emerald_speed_runners_description"                    "Movespeed can not fall below <% ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP %>"
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Increases Stable Pace minimum movespeed by an additional @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
@@ -551,8 +551,8 @@
         "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Restoring health on <% ITEM_RPC_TRANQUIL_BOOTS_AMETHYST_INTERVAL %> second intervals"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
-        "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time."
+        "item_property_voyager_boots"                     "Voyager"
+        "property_voyager_boots_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time. Can't trigger more than once every <% ITEM_RPC_VOYAGER_BOOTS_THINK_INTERVAL %>s."
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"

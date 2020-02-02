@@ -416,8 +416,8 @@
     	"item_rpc_spellfire_gloves_emerald1"								"降低基础技能的冷却时间 @emerald_property1%"
     	"item_rpc_spellfire_gloves_sapphire1"								"提高所有 T3 符文@sapphire_property1"
     	"item_rpc_spellfire_gloves_amethyst1"								"[R] 的持续施法在还有 @amethyst_property1 秒完成的时候就能释放完毕"
-		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%"
+		 "item_property_spellfire_gloves"								"法术"
+		 "property_spellfire_gloves_description"						"施法速率提高 <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"

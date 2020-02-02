@@ -684,7 +684,7 @@ function Redfall:SpawnShipyardFerry()
 end
 
 function Redfall:SpawnShipyardPt2()
-	print("SHIPYARD PART 2")
+	--print("SHIPYARD PART 2")
 	local lookSpot = Vector(14976, -3392)
 	local fishSpawnTable = {Vector(14720, -3264), Vector(14720, -3072), Vector(14720, -2880), Vector(14720, -2688), Vector(14784, -2496), Vector(14848, -2240), Vector(15360, -2240), Vector(15296, -2496), Vector(15296, -2688), Vector(15232, -2880), Vector(15168, -3072), Vector(15040, -3264)}
 	for i = 1, #fishSpawnTable, 1 do

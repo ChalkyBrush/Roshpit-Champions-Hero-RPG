@@ -702,14 +702,6 @@ function ms_thinker(event)
 	unit:AddNewModifier(unit, nil, "modifier_ignore_ms_cap", {})
 	local movespeed = unit:GetBaseMoveSpeed()
 	local actual_movespeed = unit:GetMoveSpeedModifier(movespeed, false)
-
-	local modifier_emerald_speed_runners = unit:FindModifierByName("modifier_emerald_speed_runners")
-	if modifier_emerald_speed_runners then
-		local msValue = ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY)
-		--print("modifier_emerald_speed_runners "..tostring(msValue))
-		max_ms = math.max(msValue, max_ms)
-		actual_movespeed = math.max(msValue, actual_movespeed)
-	end
 	
 	if unit:HasModifier("modifier_knight_hawk_helm") then
 		max_ms = max_ms + KNIGHT_HAWK_MAX_MOVESPEED_LIMIT

@@ -1,13 +1,13 @@
 require('items/lua/base')
 require('items/constants/helm')
 BaseHelm = class(BaseItem, nil, BaseItem)
-local class = BaseHelm
-function class:GetSlotTextShort()
+local itemClass = BaseHelm
+function itemClass:GetSlotTextShort()
     return 'head'
 end
-function class:GetSlotText()
+function itemClass:GetSlotText()
     return 'Slot: Head'
 end
-function class:GetSlotNumber()
+function itemClass:GetSlotNumber()
     return RPC_GEAR_SLOT_HEAD
 end

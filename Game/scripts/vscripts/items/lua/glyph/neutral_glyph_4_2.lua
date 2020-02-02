@@ -27,11 +27,23 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_BASE_ABILITY_DMG_BONUS
+        MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
     })
 end
 
-function modifierClass:GetRoshpitBaseAbilityDmgBonus()
+function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG
+end
+function modifierClass:GetRoshpitWBaseAbilityDmgBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG
+end
+function modifierClass:GetRoshpitEBaseAbilityDmgBonus()
+    return ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG
+end
+function modifierClass:GetRoshpitRBaseAbilityDmgBonus()
     return ITEM_RPC_NEUTRAL_GLYPH_4_2_BASE_ABILITY_DMG
 end
 function modifierClass:IsHidden()

@@ -6116,68 +6116,6 @@ function archon_ground_slam_cast(event)
 	end)
 end
 
-function archon_wizard_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	ability.r_4_level = 20
-	if not caster.golems then
-		caster.interval = 0
-		caster.golemsSpawned = 0
-		caster.golems = Entities:FindAllByNameWithin("ArchonGolem", Vector(3876, 15028, 100 + Seafortress.ZFLOAT), 3800)
-	end
-	if (caster:GetHealth() / caster:GetMaxHealth()) * 100 < 100 - caster.golemsSpawned * 10 then
-		local golemIndex = RandomInt(1, #caster.golems)
-		caster.golemsSpawned = caster.golemsSpawned + 1
-		local newTable = {}
-		for i = 1, #caster.golems, 1 do
-			if i == golemIndex then
-
-			else
-				table.insert(newTable, caster.golems[i])
-			end
-		end
-		local golem = caster.golems[golemIndex]
-		caster.golems = newTable
-		-- if golem then
-		CreateZonisBeamSeafort(caster:GetAbsOrigin() + Vector(0, 0, 60), golem:GetAbsOrigin() + Vector(0, 0, 60))
-		Seafortress:objectShake(golem, 60, 10, true, true, false, "Seafortress.ArchonGolemShaking", 20)
-		Seafortress:smoothColorTransition(golem, Vector(75, 53, 88), Vector(207, 94, 255), 60)
-		Timers:CreateTimer(1.9, function()
-			Seafortress:SpawnArchonGolem(golem:GetAbsOrigin(), RandomVector(1))
-			Timers:CreateTimer(0.1, function()
-				UTIL_Remove(golem)
-			end)
-		end)
-		-- end
-	end
-	if caster.aggro then
-		caster.interval = caster.interval + 1
-		if caster.interval == 14 then
-			caster.interval = 0
-			CustomAbilities:QuickAttachParticle("particles/items_fx/blink_dagger_start.vpcf", caster, 3)
-			FindClearSpaceForUnit(caster, Vector(3876, 15028, 128) + RandomVector(RandomInt(0, 1000)), false)
-			ProjectileManager:ProjectileDodge(caster)
-			CustomAbilities:QuickAttachParticle("particles/items_fx/blink_dagger_end.vpcf", caster, 3)
-			StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_SPAWN, rate = 1.6})
-			EmitSoundOn("Seafortress.MountainBeast.Blink", caster)
-		end
-	end
-end
-
-function CreateZonisBeamSeafort(attachPointA, attachPointB)
-	for i = 0, 4, 1 do
-		Timers:CreateTimer(0.2 * i, function()
-			local particleName = "particles/roshpit/arkimus/zonis_lightning.vpcf"
-			local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-			ParticleManager:SetParticleControl(lightningBolt, 0, Vector(attachPointA.x, attachPointA.y, attachPointA.z))
-			ParticleManager:SetParticleControl(lightningBolt, 1, Vector(attachPointB.x, attachPointB.y, attachPointB.z))
-			Timers:CreateTimer(2, function()
-				ParticleManager:DestroyParticle(lightningBolt, false)
-				ParticleManager:ReleaseParticleIndex(lightningBolt)
-			end)
-		end)
-	end
-end
 
 function begin_crusader_comet(event)
 	local caster = event.caster

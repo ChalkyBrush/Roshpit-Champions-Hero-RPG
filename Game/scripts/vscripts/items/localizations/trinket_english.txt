@@ -501,8 +501,8 @@
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Water</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Demon</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Nature</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Undead</font>, and <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
-        "item_property_signus"                      "Authority"
-        "property_signus_description"               "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%."
+        "item_property_signus_charm"                      "Authority"
+        "property_signus_charm_description"               "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
         "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <% ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD %> seconds."
