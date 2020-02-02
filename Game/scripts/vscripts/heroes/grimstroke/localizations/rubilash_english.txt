@@ -110,7 +110,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
 	
 	
-	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] Sticky Paint"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] Adhesion"
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_Description"				"Increases how long paint sticks to enemies. Base Paint Duration is <% RUBILASH_PAINTED_DURATION_BASE %> seconds."
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"Paint Duration Increase"
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" seconds"	
@@ -191,10 +191,10 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
 	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 toggles Rubilash's color and has <% RUBILASH_GLYPH_2_1_Q_BAD %>% Base Ability Damage"
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Portrayal"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Graffiti"
 	"item_rpc_rubilash_glyph_3_1_description" 				"Rubilash's Self Portrait casts @Ability3 at a nearby random location within <% RUBILASH_GLYPH_3_1_RANGE %> range every <% RUBILASH_GLYPH_3_1_INTERVAL %> seconds"
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of the Adapted Phantom"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of Sealant"
 	"item_rpc_rubilash_glyph_4_1_description" 				"Increases Magic Armor by <% RUBILASH_GLYPH_4_1_MAGIC_ARMOR %>."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
@@ -224,11 +224,11 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quicksilver Font"
 	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
 	"property_rubilash_immortal_weapon_description"                      "@Ability1 has no cast point and <% RUBILASH_IMMORTAL_WEAPON_1_Q_BAD %>% increased Base Ability Damage."
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Bloody Pinion"
 	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
 	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <% RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE %>%, and reduces all healing effects received by <% RUBILASH_IMMORTAL_WEAPON_2_HEAL_REDUCTION %>%."
 
