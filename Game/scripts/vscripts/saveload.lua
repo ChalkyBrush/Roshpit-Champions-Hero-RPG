@@ -629,6 +629,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 	if not gearTable.item_variant then
 		return false
 	end
+	gearTable = SaveLoad:CheckForOldNames(gearTable)
 	if gearTable.build_number > -1 then
 		local gearSlot = RPCItems:GetGearSlotName(gearTable.item_slot)
 		--print("LOADED ITEM GEARSLOT")
@@ -1002,280 +1003,379 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 	end
 end
 
-	function SaveLoad:FixLoadedRuneProperties(propertyName)
-		if propertyName then
-			--print("propertyName: "..propertyName)
-			if propertyName == "rune_a_a" then
-				return "rune_q_1"
-			end
-			if propertyName == "rune_b_a" then
-				return "rune_q_2"
-			end
-			if propertyName == "rune_c_a" then
-				return "rune_q_3"
-			end
-			if propertyName == "rune_d_a" then
-				return "rune_q_4"
-			end
-			if propertyName == "rune_a_b" then
-				return "rune_w_1"
-			end
-			if propertyName == "rune_b_b" then
-				return "rune_w_2"
-			end
-			if propertyName == "rune_c_b" then
-				return "rune_w_3"
-			end
-			if propertyName == "rune_d_b" then
-				return "rune_w_4"
-			end
-			if propertyName == "rune_a_c" then
-				return "rune_e_1"
-			end
-			if propertyName == "rune_b_c" then
-				return "rune_e_2"
-			end
-			if propertyName == "rune_c_c" then
-				return "rune_e_3"
-			end
-			if propertyName == "rune_d_c" then
-				return "rune_e_4"
-			end
-			if propertyName == "rune_a_d" then
-				return "rune_r_1"
-			end
-			if propertyName == "rune_b_d" then
-				return "rune_r_2"
-			end
-			if propertyName == "rune_c_d" then
-				return "rune_r_3"
-			end
-			if propertyName == "rune_d_d" then
-				return "rune_r_4"
-			end
-			return propertyName
+itemConverterTable = {
+	["item_rpc_dunetread_boots"] = "item_rpc_dunetreads",
+	["item_rpc_armor_of_violet_guard"] = "item_rpc_armor_of_the_violet_guard",
+}
+propertyConverterTable = {
+	["!immortal!_modifier_plate_of_the_watcher1"] = "!immortal!_modifier_plate_of_the_watcher_one",
+	["!immortal!_modifier_plate_of_the_watcher2"] = "!immortal!_modifier_plate_of_the_watcher_two",
+	["!immortal!_modifier_plate_of_the_watcher3"] = "!immortal!_modifier_plate_of_the_watcher_three",
+	["!immortal!_modifier_plate_of_the_watcher4"] = "!immortal!_modifier_plate_of_the_watcher_four",
+	["!immortal!_modifier_dunetread_boots"] = "!immortal!_modifier_dunetreads",
+	["!immortal!_modifier_violet_boots"] = "!immortal!_modifier_boots_of_the_violet_guard",
+	["!immortal!_modifier_mask_of_ahnqhir_blue"] = "!immortal!_modifier_twisted_blue_mask_of_ahnqhir",
+	["!immortal!_modifier_mask_of_ahnqhir_purple"] = "!immortal!_modifier_twisted_purple_mask_of_ahnqhir",
+	["!immortal!_modifier_mask_of_ahnqhir_yellow"] = "!immortal!_modifier_twisted_yellow_mask_of_ahnqhir",
+	["!immortal!_modifier_cerulean_high_guard"] = "!immortal!_modifier_veil_of_the_cerulean_high_guard",
+	["!immortal!_modifier_armor_of_violet_guard"] = "!immortal!_modifier_armor_of_the_violet_guard",
+}
+tooltipConverterTable = {
+	["#item_property_watcher_one"] = "#item_property_plate_of_the_watcher_one",
+	["#item_property_watcher_two"] = "#item_property_plate_of_the_watcher_two",
+	["#item_property_watcher_three"] = "#item_property_plate_of_the_watcher_three",
+	["#item_property_watcher_four"] = "#item_property_plate_of_the_watcher_four",
+	["#item_property_dunetread"] = "#item_property_dunetreads",
+	["#item_property_violet_boot"] = "#item_property_boots_of_the_violet_guard",
+	["#item_property_signus"] = "#item_property_signus_charm",
+	["#item_property_phantom_sorcerer"] = "#item_property_mask_of_the_phantom_sorcerer",
+	["#property_twisted_mask_of_ahnqhir_a"] = "#item_property_twisted_purple_mask_of_ahnqhir",
+	["#property_twisted_mask_of_ahnqhir_b"] = "#item_property_twisted_yellow_mask_of_ahnqhir",
+	["#property_twisted_mask_of_ahnqhir_c"] = "#item_property_twisted_blue_mask_of_ahnqhir",
+	["#item_property_cerulean_highguard"] = "#item_property_veil_of_the_cerulean_high_guard",
+	["#item_property_spellfire"] = "#item_property_spellfire_gloves",
+	["#item_property_violet_guard_armor"] = "#item_property_armor_of_the_violet_guard",
+	["#item_property_enchanted_solar"] = "#item_property_enchanted_solar_cape",
+	["#item_property_emerald_speed"] = "#item_property_emerald_speed_runners",
+	["#item_property_voyager"] = "#item_property_voyager_boots",
+}
+specialConverterTable = {
+	["#property_watcher_one_description"] = "#property_plate_of_the_watcher_one_description",
+	["#property_watcher_two_description"] = "#property_plate_of_the_watcher_two_description",
+	["#property_watcher_three_description"] = "#property_plate_of_the_watcher_three_description",
+	["#property_watcher_four_description"] = "#property_plate_of_the_watcher_four_description",
+	["#property_dunetread_description"] = "#property_dunetreads_description",
+	["#property_violet_boot_description"] = "#property_boots_of_the_violet_guard_description",
+	["#property_signus_description"] = "#property_signus_charm_description",
+	["#property_phantom_sorcerer_description"] = "#property_mask_of_the_phantom_sorcerer_description",
+	["#property_twisted_mask_of_ahnqhir_a_Description"] = "#property_twisted_purple_mask_of_ahnqhir_Description",
+	["#property_twisted_mask_of_ahnqhir_b_Description"] = "#property_twisted_yellow_mask_of_ahnqhir_Description",
+	["#property_twisted_mask_of_ahnqhir_c_Description"] = "#property_twisted_blue_mask_of_ahnqhir_Description",
+	["#property_cerulean_highguard_description"] = "#property_veil_of_the_cerulean_high_guard_description",
+	["#property_spellfire_description"] = "#property_spellfire_gloves_description",
+	["#property_violet_guard_armor_description"] = "#property_armor_of_the_violet_guard_description",
+	["#property_enchanted_solar_description"] = "#property_enchanted_solar_cape_description",
+	["#property_emerald_speed_description"] = "#property_emerald_speed_runners_description",
+	["#property_voyager_description"] = "#property_voyager_boots_description",
+}
+
+function SaveLoad:CheckForOldNames(item)
+	
+	if itemConverterTable[item.item_variant] then
+		item.item_variant = itemConverterTable[item.item_variant]
+	end
+	if propertyConverterTable[item.property1name] then
+		item.property1name = propertyConverterTable[item.property1name]
+	end
+	if propertyConverterTable[item.property2name] then
+		item.property2name = propertyConverterTable[item.property2name]
+	end
+	if propertyConverterTable[item.property3name] then
+		item.property3name = propertyConverterTable[item.property3name]
+	end
+	if propertyConverterTable[item.property4name] then
+		item.property4name = propertyConverterTable[item.property4name]
+	end
+	if tooltipConverterTable[item.property1tooltip] then
+		item.property1tooltip = tooltipConverterTable[item.property1tooltip]
+	end
+	if tooltipConverterTable[item.property2tooltip] then
+		item.property2tooltip = tooltipConverterTable[item.property2tooltip]
+	end
+	if tooltipConverterTable[item.property3tooltip] then
+		item.property3tooltip = tooltipConverterTable[item.property3tooltip]
+	end
+	if tooltipConverterTable[item.property4tooltip] then
+		item.property4tooltip = tooltipConverterTable[item.property4tooltip]
+	end
+	if specialConverterTable[item.property1special] then
+		item.property1special = specialConverterTable[item.property1special]
+	end
+	if specialConverterTable[item.property2special] then
+		item.property2special = specialConverterTable[item.property2special]
+	end
+	if specialConverterTable[item.property3special] then
+		item.property3special = specialConverterTable[item.property3special]
+	end
+	if specialConverterTable[item.property4special] then
+		item.property4special = specialConverterTable[item.property4special]
+	end
+	return item
+end
+function SaveLoad:FixLoadedRuneProperties(propertyName)
+	if propertyName then
+		--print("propertyName: "..propertyName)
+		if propertyName == "rune_a_a" then
+			return "rune_q_1"
 		end
+		if propertyName == "rune_b_a" then
+			return "rune_q_2"
+		end
+		if propertyName == "rune_c_a" then
+			return "rune_q_3"
+		end
+		if propertyName == "rune_d_a" then
+			return "rune_q_4"
+		end
+		if propertyName == "rune_a_b" then
+			return "rune_w_1"
+		end
+		if propertyName == "rune_b_b" then
+			return "rune_w_2"
+		end
+		if propertyName == "rune_c_b" then
+			return "rune_w_3"
+		end
+		if propertyName == "rune_d_b" then
+			return "rune_w_4"
+		end
+		if propertyName == "rune_a_c" then
+			return "rune_e_1"
+		end
+		if propertyName == "rune_b_c" then
+			return "rune_e_2"
+		end
+		if propertyName == "rune_c_c" then
+			return "rune_e_3"
+		end
+		if propertyName == "rune_d_c" then
+			return "rune_e_4"
+		end
+		if propertyName == "rune_a_d" then
+			return "rune_r_1"
+		end
+		if propertyName == "rune_b_d" then
+			return "rune_r_2"
+		end
+		if propertyName == "rune_c_d" then
+			return "rune_r_3"
+		end
+		if propertyName == "rune_d_d" then
+			return "rune_r_4"
+		end
+		return propertyName
 	end
+end
 
-	function SaveLoad:RemoveProperties(item)
-		-- for i = 1, 4, 1 do
-		-- RPCItems:SetPropertyValues(item, nil, nil, nil, i)
-		-- end
+function SaveLoad:RemoveProperties(item)
+	-- for i = 1, 4, 1 do
+	-- RPCItems:SetPropertyValues(item, nil, nil, nil, i)
+	-- end
+end
+
+function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
+	--local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
+	-- if bRequiredLevel then
+	-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel} )
+	-- elseif bHeroRequirement then
+	-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, requiredHero = itemInfo.requiredHero  } )
+	-- else
+	-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor } )
+	-- end
+end
+
+function SaveLoad:ApplyDataToHero(results, playerID)
+	-- --print(results.current_xp)
+	-- --print(hero)
+	-- --print(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	hero:AddExperience(results.current_xp - hero:GetCurrentXP(), 0, false, false)
+	CustomGameEventManager:Send_ServerToAllClients("xp_earned", {})
+	-- Timers:CreateTimer(0.05, function()
+	-- hero:AddExperience(results.current_xp, 0, false, false)
+	-- end)
+	hero.roshpitID = results.id
+	hero.saveSlot = results.save_slot
+
+	local rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT)
+	rune_ability.rune_level = math.min(results.rune_a_a, Runes.MAX_LEVEL_T1)
+	rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT)
+	rune_ability.rune_level = math.min(results.rune_a_b, Runes.MAX_LEVEL_T1)
+	rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT)
+	rune_ability.rune_level = math.min(results.rune_a_c, Runes.MAX_LEVEL_T1)
+	rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT)
+	rune_ability.rune_level = math.min(results.rune_a_d, Runes.MAX_LEVEL_T1)
+
+	local rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT)
+	rune_ability.rune_level = math.min(results.rune_b_a, Runes.MAX_LEVEL_T2)
+	rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT)
+	rune_ability.rune_level = math.min(results.rune_b_b, Runes.MAX_LEVEL_T2)
+	rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT)
+	rune_ability.rune_level = math.min(results.rune_b_c, Runes.MAX_LEVEL_T2)
+	rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT)
+	rune_ability.rune_level = math.min(results.rune_b_d, Runes.MAX_LEVEL_T2)
+
+	local rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT)
+	rune_ability.rune_level = math.min(results.rune_c_a, Runes.MAX_LEVEL_T3)
+	rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT)
+	rune_ability.rune_level = math.min(results.rune_c_b, Runes.MAX_LEVEL_T3)
+	rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT)
+	rune_ability.rune_level = math.min(results.rune_c_c, Runes.MAX_LEVEL_T3)
+	rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT)
+	rune_ability.rune_level = math.min(results.rune_c_d, Runes.MAX_LEVEL_T3)
+
+	local rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT)
+	rune_ability.rune_level = math.min(results.rune_d_a, Runes.MAX_LEVEL_T4)
+	rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT)
+	rune_ability.rune_level = math.min(results.rune_d_b, Runes.MAX_LEVEL_T4)
+	rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT)
+	rune_ability.rune_level = math.min(results.rune_d_c, Runes.MAX_LEVEL_T4)
+	rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT)
+	rune_ability.rune_level = math.min(results.rune_d_d, Runes.MAX_LEVEL_T4)
+
+	SaveLoad:ApplyAllRunes(hero, playerID)
+	
+
+	hero:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.ability1level)
+	hero:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.ability2level)
+	hero:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.ability3level)
+	hero:GetAbilityByIndex(DOTA_R_SLOT):SetLevel(results.ability4level)
+
+
+	Runes:UpdateHeroSkillAndRunePoints(hero, false)
+end
+
+function SaveLoad:ApplyAllRunes(hero, playerID)
+	Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit, playerID)
+	Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit, playerID)
+	Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit, playerID)
+	Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit, playerID)
+	Timers:CreateTimer(0.5, function()
+		Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit2, playerID)
+		Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit2, playerID)
+		Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit2, playerID)
+		Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit2, playerID)
+	end)
+
+	Timers:CreateTimer(1, function()
+		Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit3, playerID)
+		Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit3, playerID)
+		Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit3, playerID)
+		Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit3, playerID)
+	end)
+	Timers:CreateTimer(1.5, function()
+		Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit4, playerID)
+		Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit4, playerID)
+		Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit4, playerID)
+		Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit4, playerID)
+	end)
+end
+
+function SaveLoad:StashOpen(keys)
+	local playerID = keys.playerID
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	local url = ROSHPIT_URL.."/champions/getStash?"
+	url = url.."steam_id="..steamID
+	CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
+	-- Weapons:ValidateGear(hero)
+	if hero.stashTable then
+		for i = 1, #hero.stashTable, 1 do
+			if IsValidEntity(hero.stashTable[i]) then
+				-- --print("------")
+				-- --print(hero.stashTable[i]:GetEntityIndex())
+				-- --print(hero.pullStashItem)
+				if hero.stashTable[i]:GetEntityIndex() == hero.pullStashItem then
+					hero.pullStashItem = nil
+				else
+					UTIL_Remove(hero.stashTable[i])
+				end
+			end
+		end
+		hero.stashTable = nil
 	end
-
-	function SaveLoad:RemoveAdditionalData(item, bRequiredLevel, bHeroRequirement)
-		--local itemInfo = CustomNetTables:GetTableValue("item_basics", tostring(item:GetEntityIndex()))
-		-- if bRequiredLevel then
-		-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, minLevel = newItem.minLevel} )
-		-- elseif bHeroRequirement then
-		-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor, requiredHero = itemInfo.requiredHero  } )
-		-- else
-		-- CustomNetTables:SetTableValue( "item_basics", tostring(item:GetEntityIndex()), {itemName = itemInfo.item_name, consumable = itemInfo.consumable, itemDescription = itemInfo.itemDescription, qualityColor = itemInfo.qualityColor, qualityName = itemInfo.qualityName, itemPrefix = itemInfo.itemPrefix, itemSuffix = itemInfo.itemSuffix, rarityFactor = itemInfo.rarityFactor } )
-		-- end
-	end
-
-	function SaveLoad:ApplyDataToHero(results, playerID)
-		-- --print(results.current_xp)
-		-- --print(hero)
-		-- --print(playerID)
-		local hero = GameState:GetHeroByPlayerID(playerID)
-		hero:AddExperience(results.current_xp - hero:GetCurrentXP(), 0, false, false)
-		CustomGameEventManager:Send_ServerToAllClients("xp_earned", {})
-		-- Timers:CreateTimer(0.05, function()
-		-- hero:AddExperience(results.current_xp, 0, false, false)
-		-- end)
-		hero.roshpitID = results.id
-		hero.saveSlot = results.save_slot
-
-		local rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = math.min(results.rune_a_a, Runes.MAX_LEVEL_T1)
-		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = math.min(results.rune_a_b, Runes.MAX_LEVEL_T1)
-		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = math.min(results.rune_a_c, Runes.MAX_LEVEL_T1)
-		rune_ability = hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = math.min(results.rune_a_d, Runes.MAX_LEVEL_T1)
-
-		local rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = math.min(results.rune_b_a, Runes.MAX_LEVEL_T2)
-		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = math.min(results.rune_b_b, Runes.MAX_LEVEL_T2)
-		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = math.min(results.rune_b_c, Runes.MAX_LEVEL_T2)
-		rune_ability = hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = math.min(results.rune_b_d, Runes.MAX_LEVEL_T2)
-
-		local rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = math.min(results.rune_c_a, Runes.MAX_LEVEL_T3)
-		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = math.min(results.rune_c_b, Runes.MAX_LEVEL_T3)
-		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = math.min(results.rune_c_c, Runes.MAX_LEVEL_T3)
-		rune_ability = hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = math.min(results.rune_c_d, Runes.MAX_LEVEL_T3)
-
-		local rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT)
-		rune_ability.rune_level = math.min(results.rune_d_a, Runes.MAX_LEVEL_T4)
-		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT)
-		rune_ability.rune_level = math.min(results.rune_d_b, Runes.MAX_LEVEL_T4)
-		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT)
-		rune_ability.rune_level = math.min(results.rune_d_c, Runes.MAX_LEVEL_T4)
-		rune_ability = hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT)
-		rune_ability.rune_level = math.min(results.rune_d_d, Runes.MAX_LEVEL_T4)
-
-		SaveLoad:ApplyAllRunes(hero, playerID)
-		
-
-		hero:GetAbilityByIndex(DOTA_Q_SLOT):SetLevel(results.ability1level)
-		hero:GetAbilityByIndex(DOTA_W_SLOT):SetLevel(results.ability2level)
-		hero:GetAbilityByIndex(DOTA_E_SLOT):SetLevel(results.ability3level)
-		hero:GetAbilityByIndex(DOTA_R_SLOT):SetLevel(results.ability4level)
-
-
-		Runes:UpdateHeroSkillAndRunePoints(hero, false)
-	end
-
-	function SaveLoad:ApplyAllRunes(hero, playerID)
-		Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit, playerID)
-		Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit, playerID)
-		Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit, playerID)
-		Runes:apply_runes(hero.runeUnit:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit, playerID)
-		Timers:CreateTimer(0.5, function()
-			Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit2, playerID)
-			Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit2, playerID)
-			Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit2, playerID)
-			Runes:apply_runes(hero.runeUnit2:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit2, playerID)
-		end)
-
-		Timers:CreateTimer(1, function()
-			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit3, playerID)
-			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit3, playerID)
-			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit3, playerID)
-			Runes:apply_runes(hero.runeUnit3:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit3, playerID)
-		end)
-		Timers:CreateTimer(1.5, function()
-			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_Q_SLOT), hero.runeUnit4, playerID)
-			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_W_SLOT), hero.runeUnit4, playerID)
-			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_E_SLOT), hero.runeUnit4, playerID)
-			Runes:apply_runes(hero.runeUnit4:GetAbilityByIndex(DOTA_D_SLOT), hero.runeUnit4, playerID)
-		end)
-	end
-
-	function SaveLoad:StashOpen(keys)
-		local playerID = keys.playerID
-		local steamID = PlayerResource:GetSteamAccountID(playerID)
-		local player = PlayerResource:GetPlayer(playerID)
-		local hero = GameState:GetHeroByPlayerID(playerID)
-		local url = ROSHPIT_URL.."/champions/getStash?"
-		url = url.."steam_id="..steamID
-		CustomGameEventManager:Send_ServerToPlayer(player, "close_swap_ui", {})
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
+		local resultTable = {}
+		--print( "GET response:\n" )
+		for k, v in pairs(result) do
+			--print( string.format( "%s : %s\n", k, v ) )
+		end
+		--print( "Done." )
+		local resultTable = JSON:decode(result.Body)
 		-- Weapons:ValidateGear(hero)
-		if hero.stashTable then
-			for i = 1, #hero.stashTable, 1 do
-				if IsValidEntity(hero.stashTable[i]) then
-					-- --print("------")
-					-- --print(hero.stashTable[i]:GetEntityIndex())
-					-- --print(hero.pullStashItem)
-					if hero.stashTable[i]:GetEntityIndex() == hero.pullStashItem then
-						hero.pullStashItem = nil
-					else
-						UTIL_Remove(hero.stashTable[i])
-					end
-				end
-			end
-			hero.stashTable = nil
-		end
-		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
-			local resultTable = {}
-			--print( "GET response:\n" )
-			for k, v in pairs(result) do
-				--print( string.format( "%s : %s\n", k, v ) )
-			end
-			--print( "Done." )
-			local resultTable = JSON:decode(result.Body)
-			-- Weapons:ValidateGear(hero)
-			-- DeepPrintTable(resultTable)
-			local delay = #resultTable * 0.03 + 0.15
-			SaveLoad:GenerateStashItems(resultTable, playerID, hero)
-			-- SaveLoad:GetCharacterDataFromJSON(resultTable)
-			Timers:CreateTimer(delay, function()
-				CustomGameEventManager:Send_ServerToPlayer(player, "stash_loaded", {playerID = playerID, stashTable = hero.stash_view})
-			end)
-			-- CustomGameEventManager:Send_ServerToPlayer(player, "load_characters_loaded", {result=resultTable, message="collapse"} )
-		end)
-	end
-
-	function SaveLoad:GenerateStashItems(resultTable, playerID, hero)
-		local MAX_STASH_SLOTS = 48
-		local slotsUsed = {}
-		hero.stashTable = {}
-		for i = 1, #resultTable, 1 do
-			Timers:CreateTimer(i * 0.03, function()
-				-- local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(player:GetPlayerID()).."-"..tostring(slot))
-				local itemData = resultTable[i]
-				-- local stashItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(i))
-				local itemEntity = SaveLoad:LoadGear(itemData, playerID, bEquip)
-
-				if itemEntity then
-					itemEntity.stash_slot = itemData.stash_slot
-					-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(itemData.stash_slot), {itemIndex = itemEntity:GetEntityIndex()} )
-					table.insert(slotsUsed, itemData.stash_slot)
-					table.insert(hero.stashTable, itemEntity)
-				end
-				-- else
-				-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(i), {itemIndex = 0} )
-				-- end
-			end)
-
-		end
-		-- local unusedSlots = {}
-		-- for i = 1, MAX_STASH_SLOTS, 1 do
-		-- table.insert(unusedSlots, i)
-		-- end
-		-- local t = unusedSlots
-
-		-- for i = 1, #slotsUsed, 1 do
-		-- local index = 1
-		-- local size = #t
-		-- while index <= size do
-		--     if t[index] == slotsUsed[i] then
-		--         t[index] = t[size]
-		--         t[size] = nil
-		--         size = size - 1
-		--     else index = index + 1
-		--     end
-		-- end
-		-- end
-		-- for i = 1, #t, 1 do
-		-- -- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(t[i]), {itemIndex = 0} )
-		-- end
-		local delay = #resultTable * 0.03 + 0.05
+		-- DeepPrintTable(resultTable)
+		local delay = #resultTable * 0.03 + 0.15
+		SaveLoad:GenerateStashItems(resultTable, playerID, hero)
+		-- SaveLoad:GetCharacterDataFromJSON(resultTable)
 		Timers:CreateTimer(delay, function()
-			local stash_table = {}
-			local lastSlotUsed = 0
-			for i = 1, MAX_STASH_SLOTS, 1 do
-				local attributed = false
-				for j = 1, #hero.stashTable, 1 do
-					local stashItem = hero.stashTable[j]
-					if stashItem.stash_slot == i then
-						table.insert(stash_table, stashItem:GetEntityIndex())
-						attributed = true
-						break
-					end
-				end
-				if not attributed then
-					table.insert(stash_table, 0)
-				end
-			end
-			hero.stash_view = stash_table
+			CustomGameEventManager:Send_ServerToPlayer(player, "stash_loaded", {playerID = playerID, stashTable = hero.stash_view})
 		end)
-		-- for i = 1, hero.stashTable, 1 do
-		-- local stashItem = hero.stashTable[i]
-		-- if stashItem.stash_slot == i then
-		-- table.insert(stash_table)
-		-- end
+		-- CustomGameEventManager:Send_ServerToPlayer(player, "load_characters_loaded", {result=resultTable, message="collapse"} )
+	end)
+end
+
+function SaveLoad:GenerateStashItems(resultTable, playerID, hero)
+	local MAX_STASH_SLOTS = 48
+	local slotsUsed = {}
+	hero.stashTable = {}
+	for i = 1, #resultTable, 1 do
+		Timers:CreateTimer(i * 0.03, function()
+			-- local item_basics = CustomNetTables:GetTableValue("item_basics", tostring(player:GetPlayerID()).."-"..tostring(slot))
+			local itemData = resultTable[i]
+			-- local stashItem = CustomNetTables:GetTableValue("stash", tostring(playerID).."-"..tostring(i))
+			local itemEntity = SaveLoad:LoadGear(itemData, playerID, bEquip)
+
+			if itemEntity then
+				itemEntity.stash_slot = itemData.stash_slot
+				-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(itemData.stash_slot), {itemIndex = itemEntity:GetEntityIndex()} )
+				table.insert(slotsUsed, itemData.stash_slot)
+				table.insert(hero.stashTable, itemEntity)
+			end
+			-- else
+			-- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(i), {itemIndex = 0} )
+			-- end
+		end)
 
 	end
+	-- local unusedSlots = {}
+	-- for i = 1, MAX_STASH_SLOTS, 1 do
+	-- table.insert(unusedSlots, i)
+	-- end
+	-- local t = unusedSlots
+
+	-- for i = 1, #slotsUsed, 1 do
+	-- local index = 1
+	-- local size = #t
+	-- while index <= size do
+	--     if t[index] == slotsUsed[i] then
+	--         t[index] = t[size]
+	--         t[size] = nil
+	--         size = size - 1
+	--     else index = index + 1
+	--     end
+	-- end
+	-- end
+	-- for i = 1, #t, 1 do
+	-- -- CustomNetTables:SetTableValue("stash", tostring(playerID).."-"..tostring(t[i]), {itemIndex = 0} )
+	-- end
+	local delay = #resultTable * 0.03 + 0.05
+	Timers:CreateTimer(delay, function()
+		local stash_table = {}
+		local lastSlotUsed = 0
+		for i = 1, MAX_STASH_SLOTS, 1 do
+			local attributed = false
+			for j = 1, #hero.stashTable, 1 do
+				local stashItem = hero.stashTable[j]
+				if stashItem.stash_slot == i then
+					table.insert(stash_table, stashItem:GetEntityIndex())
+					attributed = true
+					break
+				end
+			end
+			if not attributed then
+				table.insert(stash_table, 0)
+			end
+		end
+		hero.stash_view = stash_table
+	end)
+	-- for i = 1, hero.stashTable, 1 do
+	-- local stashItem = hero.stashTable[i]
+	-- if stashItem.stash_slot == i then
+	-- table.insert(stash_table)
+	-- end
+
+end
 
 	-- for i = 1, MAX_SAVE_SLOTS, 1 do
 	-- characters[i] = {}
