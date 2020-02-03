@@ -148,7 +148,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"All enemies damaged by Paint heals Rubilash."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"Rubilash is healed each time any Paint effect is applied to an enemy unit."
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Heal"
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% of Base Paint damage before Base Ability and Elemental Amplfication"		
 	
@@ -163,7 +163,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" per Agility"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
-	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4, gain unbreakable invisibility. Gain Item Damage and Base Ability Damage while invisible by any means."
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4 gain invisibility. This invisibility is only broken briefly when attacking or casting a spell. Gain Item Damage and Base Ability Damage while invisible by any means."
 	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Invisible Duration"
 	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" seconds"		
 	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Base Ability and Item Damage Enhance"

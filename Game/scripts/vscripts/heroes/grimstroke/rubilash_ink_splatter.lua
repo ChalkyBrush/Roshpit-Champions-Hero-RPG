@@ -18,7 +18,7 @@ function ink_splatter_start(event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/e_start_"..actual_event_caster.color..".vpcf", actual_event_caster, 4)
 	ParticleManager:SetParticleControl(pfx, 2, newPosition)
 
-	actual_event_caster:SetAbsOrigin(newPosition)
+	FindClearSpaceForUnit(actual_event_caster, newPosition, false)
 	toggle_rubilash_color(actual_event_caster)
 	local particlePos = GetGroundPosition(newPosition, actual_event_caster)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_splatter_"..actual_event_caster.color..".vpcf", particlePos, 3)
@@ -98,7 +98,7 @@ function rubilash_glyph_3_1_thinker(event)
 	illusion_cast_table.damage = illusion_cast_table.ability:GetSpecialValueFor("damage")
 	illusion_cast_table.damage_radius = illusion_cast_table.ability:GetSpecialValueFor("damage_radius")
 	illusion_cast_table.target_points = {}
-	illusion_cast_table.target_points[1] = illusion:GetAbsOrigin() + RandomVector(RandomInt(100, RUBILASH_GLYPH_3_1_RANGE))
+	illusion_cast_table.target_points[1] = caster:GetAbsOrigin() + RandomVector(RandomInt(100, RUBILASH_GLYPH_3_1_RANGE))
 	local delay = get_rubilash_portrait_delay_time(caster)
 	Timers:CreateTimer(delay, function()
 		if illusion and IsValidEntity(illusion) and illusion:IsAlive() and not illusion:IsStunned() then
