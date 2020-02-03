@@ -75,7 +75,7 @@ end
 function modifierClass:GetRoshpitArmorPierceBonus(params)
     local hero = self:GetParent()
     if hero:GetAbilityByIndex(DOTA_E_SLOT):IsCooldownReady() then
-        return hero.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_spellfire_gloves_GEM_EMERALD)
+        return hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SPELLFIRE_GLOVES_GEM_EMERALD)
     end
     return 0
 end
