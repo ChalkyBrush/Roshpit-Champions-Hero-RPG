@@ -24,7 +24,9 @@ function ink_splatter_start(event)
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_splatter_"..actual_event_caster.color..".vpcf", particlePos, 3)
 	EmitSoundOn("Rubilash.InkSplatter.Highlight", actual_event_caster)
 	EmitSoundOn("Rubilash.InkSplatter.Splatter", actual_event_caster)
-	EmitSoundOn("Rubilash.VO.Grunt", actual_event_caster)
+	if not actual_event_caster.illusion then
+		EmitSoundOn("Rubilash.VO.Grunt", actual_event_caster)
+	end
 	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging", {duration = 0.24})
 	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging_z", {duration = 0.24})
 	actual_event_caster:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, 300)
@@ -93,6 +95,7 @@ function rubilash_glyph_3_1_thinker(event)
 		illusion_cast_table.ability = caster:FindAbilityByName("rubilash_paint_splatter_red")
 	end
 	illusion_cast_table.illusion = true
+	illusion_cast_table.damage = illusion_cast_table.ability:GetSpecialValueFor("damage")
 	illusion_cast_table.damage_radius = illusion_cast_table.ability:GetSpecialValueFor("damage_radius")
 	illusion_cast_table.target_points = {}
 	illusion_cast_table.target_points[1] = illusion:GetAbsOrigin() + RandomVector(RandomInt(100, RUBILASH_GLYPH_3_1_RANGE))
