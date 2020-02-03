@@ -82,7 +82,7 @@ function rubilash_quick_thinker(event)
 	if caster:HasModifier("modifier_rubilash_immortal_weapon_1") then
 		q_ability:SetOverrideCastPoint(0)
 	else
-		if not caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
+		if not caster:HasModifier("modifier_twisted_purple_mask_of_ahnqhir") then
 			q_ability:SetOverrideCastPoint(RUBILASH_PHANTOM_BRUSH_CAST_POINT)
 		end
 	end
