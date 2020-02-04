@@ -11,6 +11,23 @@ function seafortress_archon_wizard_archon_form:GetIntrinsicModifierName()
     return "modifier_seafortress_archon_wizard_archon_form"
 end
 
+function seafortress_archon_wizard_archon_form:OnOwnerDied()
+    local caster = self:GetCaster()
+    if IsServer() then
+        Seafortress.ArchonSlain = true
+        local arcanas = 1
+        if caster.paragon then
+            arcanas = 2
+        end
+        for i = 1, arcanas, 1 do
+            RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_arkimus_arcana2")
+        end
+    else
+        EmitSoundOn("Seafortress.ArchonWizardDie", caster)
+        Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
+    end
+end
+
 modifier_seafortress_archon_wizard_archon_form = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_seafortress_archon_wizard_archon_form", "worlds/sea_fortress/abilities/seafortress_archon_wizard_archon_form", LUA_MODIFIER_MOTION_NONE)
 
