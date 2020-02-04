@@ -514,12 +514,14 @@ function Gems:SalvageGemsFromitem(msg)
 			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
-				local save_message = {}
-				save_message.playerID = playerID
-				save_message.slot = hero.saveSlot
-				save_message.heroIndex = hero:GetEntityIndex()
-				save_message.ignore_callback = true
-				SaveLoad:SaveCharacter(save_message)
+				if hero.saveSlot then
+					local save_message = {}
+					save_message.playerID = playerID
+					save_message.slot = hero.saveSlot
+					save_message.heroIndex = hero:GetEntityIndex()
+					save_message.ignore_callback = true
+					SaveLoad:SaveCharacter(save_message)
+				end
 			end
 		end)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
