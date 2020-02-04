@@ -6070,20 +6070,6 @@ function pure_resist_take_damage(event)
 	end
 end
 
-function archon_wizard_die(event)
-	local caster = event.caster
-	Seafortress.ArchonSlain = true
-	EmitSoundOn("Seafortress.ArchonWizardDie", caster)
-	local arcanas = 1
-	if caster.paragon then
-		arcanas = 2
-	end
-	for i = 1, arcanas, 1 do
-		RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_arkimus_arcana2")
-	end
-	Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
-end
-
 function archon_ground_slam_cast(event)
 	local caster = event.caster
 	local ability = event.ability
