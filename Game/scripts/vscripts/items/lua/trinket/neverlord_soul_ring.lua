@@ -104,3 +104,7 @@ function modifierClass:OnCastWAbility()
         ParticleManager:SetParticleControl(pfx, 1, Vector(1,1,1))
     end
 end
+
+function modifierClass:RemoveOnDeath()
+    return false
+end
