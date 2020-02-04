@@ -1547,32 +1547,34 @@ end
 
 function CDOTA_BaseNPC_Hero:ReequipAllGear(ignore_slot)
 	if self.equipped_gear then
-		if not ignore_slot == RPC_GEAR_SLOT_HEAD then
+		if ignore_slot ~= RPC_GEAR_SLOT_HEAD then
+			print("REEQUIP 3")
 			if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+				print("REEQUIP 4")
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BODY then
+		if ignore_slot ~= RPC_GEAR_SLOT_BODY then
 			if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_WEAPON then
+		if ignore_slot ~= RPC_GEAR_SLOT_WEAPON then
 			if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_GLOVES then
+		if ignore_slot ~= RPC_GEAR_SLOT_GLOVES then
 			if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BOOTS then
+		if ignore_slot ~= RPC_GEAR_SLOT_BOOTS then
 			if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_TRINKET then
+		if ignore_slot ~= RPC_GEAR_SLOT_TRINKET then
 			if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
 			end

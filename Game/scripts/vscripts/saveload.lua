@@ -802,7 +802,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			if item.newItemTable.version == "3.9" then
 				Curator:UpdateItemToCurrentVersion(item, hero, true)
 			else
-				hero:EquipItem(item, false, true)
+				hero:EquipItem(item, false, false)
 			end
 		else
 			return item

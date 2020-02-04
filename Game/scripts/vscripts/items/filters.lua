@@ -1928,7 +1928,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
 
         if attacker:HasModifier("modifier_hood_of_defiler") then
-            Filters:DefilerHit(attacker, victim)
+            if not ignore_effects then
+                Filters:DefilerHit(attacker, victim)
+            end
         end
         if attacker:HasModifier("modifier_astral_glyph_1_1") then
             damage = 0
