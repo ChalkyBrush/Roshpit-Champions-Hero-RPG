@@ -173,6 +173,9 @@ end
 
 function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	local mult = 1
+	if target.dummy then
+		return 1
+	end
 	-- TODO: USE ABILITY NAME TO GET ACTUAL PAINT COLOR
 	local color = caster.color
 	if string.match(ability:GetAbilityName(), "_red") then
