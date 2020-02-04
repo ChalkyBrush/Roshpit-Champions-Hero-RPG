@@ -308,6 +308,7 @@ function Challenges:PanoramaInput(msg)
 		local hero = GameState:GetHeroByPlayerID(playerID)
 		if not hero.exp_orb_lock then
 			local item = nil
+			StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
 			local mithril = CustomNetTables:GetTableValue("player_stats", tostring(playerID) .. "-mithril").mithril
 			local amount = 20000
 			if msg.action == "exp-orb-1" then
@@ -331,7 +332,6 @@ function Challenges:PanoramaInput(msg)
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 			CustomAbilities:QuickAttachParticle("particles/roshpit/exp_orb.vpcf", hero, 3)
 			EmitSoundOn("RPCItems.PurchaseExpOrb", hero)
-			StartAnimation(Events.ElderRai, {duration = 1.5, activity = ACT_DOTA_RUN, rate = 1.2})
 			hero.exp_orb_lock = true
 			Timers:CreateTimer(2, function()
 				hero.exp_orb_lock = false
