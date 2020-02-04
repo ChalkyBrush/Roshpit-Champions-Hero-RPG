@@ -271,7 +271,7 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	if ability.e_1_level > 0 then
+	if ability.e_1_level and ability.e_1_level > 0 then
 		local searchRadius = 300 + ability.e_1_level * 2
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.e_1_level
 
@@ -291,7 +291,7 @@ function jump_end(event)
 		end
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
 	end
-	if ability.e_3_level > 0 then
+	if ability.e_3_level and ability.e_3_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_3_buff", {duration = duration})
 		caster:SetModifierStackCount("modifier_arkimus_e_3_buff", caster, ability.e_3_level)
