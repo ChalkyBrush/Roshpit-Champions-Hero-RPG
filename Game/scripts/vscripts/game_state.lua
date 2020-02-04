@@ -1716,7 +1716,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	end
 	if victim:HasModifier("modifier_maiden_armor") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			damage = damage * (1 - victim:GetModifierStackCount("modifier_maiden_armor", victim) * 0.01)
+			damage = damage * (1 - victim:GetModifierStackCount("modifier_maiden_armor", victim) * 0.08)
 			if shouldConsumeShields then
 				CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
 			end

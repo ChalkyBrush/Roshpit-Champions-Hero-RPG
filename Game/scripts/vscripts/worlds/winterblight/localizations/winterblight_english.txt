@@ -189,7 +189,7 @@
 		"DOTA_Tooltip_ability_winterblight_luna_blessing_bonus_damage"		"BONUS DAMAGE:"
 
 		"DOTA_Tooltip_ability_luna_taskmaster_shield"				"Moon Shield"
-		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 99% until shield is broken. Lose 1 charge each time damage is taken."
+		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 92% until shield is broken. Lose 1 charge each time damage is taken."
 		"DOTA_Tooltip_ability_luna_taskmaster_shield_charges"		"STARTING CHARGES:"
 
 		"DOTA_Tooltip_modifier_luna_armor"						"Moon Shield"
