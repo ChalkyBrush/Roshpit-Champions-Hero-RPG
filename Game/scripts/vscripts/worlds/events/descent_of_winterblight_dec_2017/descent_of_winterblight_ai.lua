@@ -659,7 +659,7 @@ function winterblight_boss_dying_particle(event)
 end
 
 function winterblight_boss_final_death_animation(caster)
-	print("ANIMATION")
+	--print("ANIMATION")
 	local realm_breaker_death = false
 	if caster.boss_chamber <= 4 then
 		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2

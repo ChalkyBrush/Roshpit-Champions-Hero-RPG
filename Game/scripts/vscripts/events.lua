@@ -448,7 +448,7 @@ function GameMode:OnPlayerChat(keys)
 		local playerHero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local modifier_recently_respawned = playerHero:HasModifier("modifier_recently_respawned")
 		if modifier_recently_respawned or not playerHero:IsAlive() then
-			print("! dead !")
+			--print("! dead !")
 		else
 			playerHero:ForceKill(true)
 		end
@@ -818,7 +818,7 @@ function GameMode:OnPlayerChat(keys)
 	elseif string.match(text, "-get_abs") then
 		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local position = hero:GetAbsOrigin()
-		print(position)
+		--print(position)
 	elseif GameState:GetDifficultyFactor() == 3 then
 		local playerid = keys.playerid
 		if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
@@ -1117,8 +1117,8 @@ function GameMode:OnPlayerPickHero(keys)
 		CustomGameEventManager:Send_ServerToPlayer(player, "correct_dota_ui", {})
 		table.insert(GameState.HeroPlayerTable, {heroEntity:GetPlayerOwnerID(), keys.heroindex})
 		Events:SetupHeroes(heroEntity)
-		print(#MAIN_HERO_TABLE)
-		print(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
+		--print(#MAIN_HERO_TABLE)
+		--print(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
 		if #MAIN_HERO_TABLE == PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) then
 			Challenges:GetChallengeFromRoshpitServer()
 		end
@@ -1477,17 +1477,17 @@ function Events:SetupHeroes(heroEntity)
 		Tutorial:GetTutorialFromServer(heroEntity)
 	end
 	if Events.GameMaster then
-		print("APPLY THINKER")
-		print("QQQQ")
+		--print("APPLY THINKER")
+		--print("QQQQ")
 		Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
 	else
 		Timers:CreateTimer(3, function()
 			if Events.GameMaster then
 				Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, heroEntity, "modifier_hero_thinker", {})
-				print("APPLY THINKER")
-				print("QQQQ")
+				--print("APPLY THINKER")
+				--print("QQQQ")
 			else
-				print("TRY AGAIN")
+				--print("TRY AGAIN")
 				return 3
 			end
 		end)

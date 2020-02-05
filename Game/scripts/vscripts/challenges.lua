@@ -231,7 +231,7 @@ function Challenges:ModifyMithril(amount, hero, reason)
 	url = url.."&amount="..amount
 	url = url.."&reason="..reason
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print("CHANGE MITHRIL: "..amount)
+	--print("CHANGE MITHRIL: "..amount)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		local resultTable = {}

@@ -62,7 +62,6 @@ function modifierClass:OnCreated()
 end
 function modifierClass:OnHitQAbility(data)
     if IsServer() then
-        DeepPrintTable(data)
         local hero = data.attacker
         local violet_guard = self:GetAbility()
         local victim = data.victim

@@ -50,7 +50,7 @@ function red_general_ability_arcana1_r_startChannel(event)
 			ParticleManager:DestroyParticle(pfx2, false)
 			ParticleManager:ReleaseParticleIndex(pfx2)			end)
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), startPoint, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		print(#enemies)
+		--print(#enemies)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
 				red_general_rune_arcana1_r_3_applyDebuff(caster, enemy, ability)

@@ -807,7 +807,7 @@ function canyon_boss_think(event)
 			or bossPosition.y < 12000
 			or (bossPosition.x < -15521 and bossPosition.y < 12702)
 			then
-			print("Going back to middle!")
+			--print("Going back to middle!")
 			local castPoint = Vector(-14114, 13688, 1024)
 			local newOrder = {
 				UnitIndex = caster:entindex(),
@@ -858,12 +858,12 @@ function canyon_boss_blink_start(event)
 	local direction = boss:GetForwardVector()
 	local distance = WallPhysics:GetDistance2d(boss:GetAbsOrigin(), jumpToPosition)
 	if distance > maxRange then
-		print("Distance: "..distance)
-		print("Previous target Vector: "..tostring(jumpToPosition))
-		print("Multiplying direction ("..tostring(direction) .. ") with maxRange ("..maxRange..")")
+		--print("Distance: "..distance)
+		--print("Previous target Vector: "..tostring(jumpToPosition))
+		--print("Multiplying direction ("..tostring(direction) .. ") with maxRange ("..maxRange..")")
 		jumpToPosition = boss:GetAbsOrigin() + maxRange * direction
 		jumpToPosition.z = 1024
-		print("New target Vector: "..tostring(jumpToPosition))
+		--print("New target Vector: "..tostring(jumpToPosition))
 	end
 	local moveVector = (jumpToPosition - boss:GetAbsOrigin()) / 25
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_walking", {duration = 2.1})
@@ -1109,11 +1109,11 @@ function redfall_spirit_of_ashara_die(event)
 		return false
 	end
 	for i = 1, #MAIN_HERO_TABLE, 1 do
-		print("Adding modifier to hero "..i)
+		--print("Adding modifier to hero "..i)
 		MAIN_HERO_TABLE[i].RedfallQuests[5].objective = "redfall_quest_5_objective_3"
 		CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "newQuest", {})
 		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, MAIN_HERO_TABLE[i], "modifier_blessing_of_ashara", {})
-		print("Hero has modifier? "..tostring(MAIN_HERO_TABLE[i]:HasModifier("modifier_blessing_of_ashara")))
+		--print("Hero has modifier? "..tostring(MAIN_HERO_TABLE[i]:HasModifier("modifier_blessing_of_ashara")))
 		createSummonParticle(unit:GetAbsOrigin(), unit, MAIN_HERO_TABLE[i])
 	end
 
