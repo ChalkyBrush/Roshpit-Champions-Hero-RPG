@@ -290,7 +290,6 @@ function blinking_think(event)
 			return false
 		end
 	end
-	--print("blinkingthink2")
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 740, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		local enemy = enemies[1]

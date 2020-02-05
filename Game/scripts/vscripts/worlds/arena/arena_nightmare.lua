@@ -142,10 +142,6 @@ function Arena:InitArenaNightmare(caster, hero, scoreR)
 		table.insert(caster.summonTable, unit)
 	end)
 	Timers:CreateTimer(20, function()
-		--print('--------')
-		--print("SCORER")
-		--print(scoreR)
-		--print(Arena.scoreR)
 		if Arena.scoreR > scoreR then
 			return
 		end

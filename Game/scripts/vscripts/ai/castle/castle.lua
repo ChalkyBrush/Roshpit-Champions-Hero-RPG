@@ -327,7 +327,6 @@ function groundskeeper_warlordLand(event)
 	Timers:CreateTimer(2.5, function()
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
-	--print("BOOM")
 	EmitSoundOn("Hero_Treant.LeechSeed.Target", caster)
 	if caster.tree then
 		EmitSoundOn("Hero_Leshrac.Split_Earth", caster.tree)

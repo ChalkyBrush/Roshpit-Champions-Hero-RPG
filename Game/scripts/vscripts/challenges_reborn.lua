@@ -32,13 +32,10 @@ function Challenges:GetChallengeFromRoshpitServer()
 		url = url.."steam_ids="..steamIDS
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
-			--print(resultTable)
 			Challenges:ProcessChallengeResult(resultTable)
 		end)
 	end
@@ -91,24 +88,19 @@ end
 
 function Challenges:HeroMatch(challenge_table)
 	local proceed = true
-	print("--------")
 	DeepPrintTable(challenge_table["mods"])
 	for i = 1, #challenge_table["mods"], 1 do
 		local mod = challenge_table["mods"][i]
 		if mod["mod_type"] == "hero_limit" then
-			print("CHALLENGES: HERO LIMIT")
 			if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) > mod["mod_int1"] then
-				print("LIMIT PASS FAIL")
 				proceed = false
 				break
 			end
 		end
 		if mod["mod_type"] == "hero_spec" then
-			print("CHALLENGES: HERO SPEC")
 			if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) >= #MAIN_HERO_TABLE then
 				for i = 1, #MAIN_HERO_TABLE, 1 do
 					if MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string1"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string2"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string3"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string4"] and MAIN_HERO_TABLE[i]:GetUnitName() ~= mod["mod_string5"] then
-						print("HERO CHECK FAIL")
 						proceed = false
 						break
 					end
@@ -207,7 +199,6 @@ function Challenges:ChallengeWinEvent(event)
 end
 
 function Challenges:SpawnCrusaderNow(position, fv)
-	print("SPAWN CRUSADER")
 	if Challenges.CrusaderDisabled then
 		return false
 	end
@@ -242,8 +233,6 @@ function Challenges:ProcessEvent(event_name)
 end
 
 function Challenges:PanoramaInput(msg)
-	print("START CHALLENGE")
-	print(msg.challenge_type)
 	CustomGameEventManager:Send_ServerToAllClients("close_crusader", {} )
 	if msg.event_type == "start" then
 		if Challenges.ActiveChallenge then
@@ -264,7 +253,6 @@ function Challenges:PanoramaInput(msg)
 		for _, mod in pairs(msg.mod_array) do
 			challenge_text = challenge_text .. "<br>"..mod
 		end
-		print(challenge_text)
 		Timers:CreateTimer(4.2, function()
 			Notifications:BottomToAll({text = challenge_text, duration = 10.0})
 		end)
@@ -421,7 +409,6 @@ function Challenges:MainBossSlainEvent(boss_name)
 end
 
 function Challenges:RewardSequenceForHero(hero)
-	print("REWARD SEQUENCE")
 	CustomAbilities:QuickAttachParticle("particles/econ/taunts/ursa/ursa_unicycle/ursa_unicycle_taunt_spotlight.vpcf", hero, 10)
 	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_challenge_win_float", {duration = 5})
 	EmitSoundOn("UI.Challenge.WinStart", hero)
@@ -507,19 +494,15 @@ function Challenges:SetChallengeClears()
 			steamIDS = steamIDS.."-"
 		end
 	end
-	print(steamIDS)
 	url = url.."steam_ids="..steamIDS
 	url = url.."&challenge_id="..Challenges.ActiveChallenge["challenge"]["id"]
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
-		print(resultTable)
 	end)
 end
 
@@ -572,7 +555,6 @@ function Challenges:SetChallengeParameters()
 end
 
 function Challenges:DisableHeroAbilityInit()
-	print("ABILITY DISABLE")
 	Timers:CreateTimer(0, function()
 		local index = Challenges.AbilityDisable
 		if index == 3 then
@@ -584,7 +566,6 @@ function Challenges:DisableHeroAbilityInit()
 			if ability_to_disable and IsValidEntity(ability_to_disable) then
 				print(ability_to_disable:IsActivated())
 				if ability_to_disable:IsActivated() then
-					print("final step")
 					ability_to_disable:SetActivated(false)
 				end
 			end

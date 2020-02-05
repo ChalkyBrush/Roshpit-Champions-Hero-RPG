@@ -615,14 +615,12 @@ function RPCItems:SkillTranslateBasic(heroEntity, itemEntity, slot, tooltipName)
         itemEntity.newItemTable.property4 = propertyValue
     end
     if propertyName == nil then
-        --print("[RPCItems:SkillTranslateBasic] propertyName == nil")
         return
     end
     local runeCheck = string.find(propertyName, "rune_")
     if runeCheck then
         -- runeName = tooltipName..propertyName
         runeName = propertyName
-        --print(runeName)
         RPCItems:SetPropertyValues(itemEntity, propertyValue, runeName, "#7DFF12", slot)
     end
 end

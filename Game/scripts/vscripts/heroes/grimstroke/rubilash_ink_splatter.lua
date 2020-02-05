@@ -77,7 +77,6 @@ function ink_splatter_emerging_think(event)
 	local caster = event.caster
 	local target = event.target
 	local stacks = target:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster)
-	-- print(stacks)
 	target:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, stacks - 300/8)
 end
 

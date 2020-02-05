@@ -103,7 +103,6 @@ end
 
 function GameState:DifficultySelect(msg)
 	local difficulty = msg.difficulty
-	--print("DIFFICULTY SELECT?")
 	if GameRules:State_Get() < DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local bHost = false
 		if msg.playerID == -10 then
@@ -270,7 +269,6 @@ end
 
 function GameState:IsPVPLineWarWork()
 	local mapName = Events.MapName
-	--print(mapName)
 	if mapName == "rpc_pvp_linewar_no_oracle_work" or mapName == "rpc_pvp_linewar_no_oracle" then
 		return true
 	else
@@ -360,14 +358,11 @@ end
 
 function GameState:ItemDragFromBackpack(msg)
 	local item = EntIndexToHScript(msg.itemIndex)
-	--print(msg.itemIndex)
 	item:StartCooldown(6)
 end
 
 function GameState:GetDefaultDifficulty()
 	local mapName = GetMapName()
-	--print("MAP NAME::")
-	--print(mapName)
 	if mapName == "rpc_roshpit_arena_legend" or mapName == "rpc_roshpit_arena" or mapName == "rpc_sea_fortress" then
 		return 3
 	else
@@ -405,9 +400,6 @@ function GameState:SetDifficultyFactor()
 	-- return 1
 	-- end
 	-- local difficultyData = CustomNetTables:GetTableValue("game_state", "difficulty_data")
-	----print("---DIFFICULTY DATA---")
-	----print(difficultyData)
-	----print("^---DIFFICULTY DATA---^")
 	-- local difficulty = 1
 	-- if difficultyData then
 	-- difficulty = difficultyData.difficulty
@@ -451,7 +443,6 @@ function GameState:InitializeGameState()
 	-- local ent = Entities:FindAllByClassname("npc_dota_creep_lane")
 	-- if #ent > 0 then
 	-- GameState.cheats = true
-	-- --print("CHEATS DETECTED. NO STAT COLLECTION")
 	-- UTIL_Remove(ent[1])
 	-- end
 	-- end)
@@ -563,11 +554,9 @@ function GameState:RecordMatch()
 		url = url.."&avernus="..GameState.count
 		url = url.."&keeper="..GameState.keeper
 		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			--print( "POST response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 		end)
 	end
 end
@@ -579,7 +568,6 @@ function GameState:GetPostReductionPhysicalDamage(damage, armor)
 end
 
 function GameState:GoldEarnFilter(goldEarnTable)
-	----print("MODIFY GOLD?")
 	-- DeepPrintTable(goldEarnTable)
 	local gold = goldEarnTable["gold"]
 	local playerID = goldEarnTable["player_id_const"]
@@ -743,9 +731,6 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 			modifierGainedTable["duration"] = modifierGainedTable["duration"]*(1 + ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_DURATION_INCREASE_PCT/100)
 			if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("sapphire") > 0 then
 				local magic_res_duration = modifierGainedTable["duration"] * (ITEM_RPC_GLOVE_OF_THE_FORGOTTEN_GHOST_SAPPHIRE_DURATION_PCT/100)
-				--print("LOS MAGIC RESIST FOR "..magic_res_duration)
-				--print(modifierGainedTable["name_const"])
-				--print("----")
 				caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_glove_of_forgotten_ghost_magic_armor_sapphire", {duration = magic_res_duration})
 			end
 		end
@@ -775,7 +760,6 @@ function GameState:OrderFilter(orderTable)
 		break
 	end
 	-- for k,v in pairs(orderTable) do
-	-- --print("K:",k,"V:",v)
 	-- end
 	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
@@ -825,7 +809,6 @@ function GameState:OrderFilter(orderTable)
 
 					local current_fv = unit:GetForwardVector()
 					local angle_between = WallPhysics:angle_between_vectors(current_fv, fv)
-					--print(angle_between)
 					if angle_between >= 160 and angle_between <= 200 then
 						CustomAbilities:QuickParticleAtPoint("particles/econ/items/rubick/rubick_force_gold_ambient/rubick_telekinesis_land_force_gold.vpcf", unit:GetAbsOrigin(), 3)
 						local speed_duration =  ITEM_RPC_PIVOTAL_SWIFTBOOTS_BURST_DURATION + unit.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_PIVOTAL_SWIFTBOOTS_GEM_RUBY2)
@@ -873,7 +856,6 @@ function GameState:OrderFilter(orderTable)
 		if unit:HasModifier("modifier_jex_portal_aura_inside") then
 			if unit:HasModifier("modifier_jex_portal_aura_inside") then
 				if not unit:HasModifier("modifier_jex_portal_teleporting") then
-					--print("RDG")
 					local portal_caster = unit:FindModifierByName("modifier_jex_portal_aura_inside"):GetAbility():GetCaster()
 					local ability = portal_caster:FindAbilityByName("jex_nature_cosmic_e")
 					if portal_caster:HasModifier("modifier_jex_glyph_2_1") or portal_caster:GetEntityIndex() == unit:GetEntityIndex() then
@@ -948,7 +930,6 @@ function GameState:OrderFilter(orderTable)
 			end
 		end
 		if unit:HasModifier("modifier_stormcloth_bracer") then
-			--print(orderTable.order_type)
 			if orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or orderTable.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or orderTable.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 
 				local targetVector = Vector(0, 0)
@@ -1089,7 +1070,6 @@ function GameState:OrderFilter(orderTable)
 				if unit:IsStunned() or unit:IsRooted() or unit:IsFrozen() or unit:HasModifier("modifier_strafe_cooldown") or unit:HasModifier("modifier_strafe_sprinting") then
 					local strafe = unit:FindAbilityByName("sephyr_strafe")
 					strafe:ApplyDataDrivenModifier(unit, unit, "modifier_strafe_dont_twist", {duration = 0.5})
-					--print("MOVE FORWARD")
 					-- Timers:CreateTimer(0.03, function()
 					-- unit:MoveToPosition(unit:GetAbsOrigin()+strafe.fvLock*2)
 					-- end)
@@ -1129,7 +1109,6 @@ function GameState:OrderFilter(orderTable)
 					local distance = WallPhysics:GetDistance2d(movementPosition, unit:GetAbsOrigin())
 					if distance > 120 then
 						local abilityDistance = math.min(distance, strafe:GetLevelSpecialValueFor("max_distance", strafe:GetLevel()))
-						--print(abilityDistance)
 						local e_4_level = unit:GetRuneValue("e", 4)
 						if e_4_level > 0 then
 							abilityDistance = abilityDistance + e_4_level * SEPHYR_E4_STRAFE_DISTANCE
@@ -1986,7 +1965,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 				reduction = reduction * 2
 			end
 			reduction = math.min(reduction, ZHONIK_Q4_DMG_TAKEN_REDUCTION_MAX_PCT / 100)
-			----print("zhonic q4 "..reduction)
 			damage = damage * (1 - reduction)
 		end
 	end
@@ -2248,7 +2226,6 @@ function GameState:FilterDamage(filterTable)
 				if attacker:HasAbility("epoch_arcana_ability") then
 					local affectedByQ1 = victim:FindModifierByName("modifier_epoch_arcana_q_1_effect")
 					if not affectedByQ1 then
-						----print("affectedByQ1 true")
 						attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_q_1_effect", {duration = 3})
 					end
 					-- attacker:FindAbilityByName("epoch_arcana_ability"):ApplyDataDrivenModifier(attacker, victim, "modifier_epoch_arcana_a_a_effect", {duration = 3})
@@ -2258,8 +2235,6 @@ function GameState:FilterDamage(filterTable)
 					if not victim.epochArcanaAA then
 						victim.epochArcanaAA = 0
 					end
-					----print("od q1 arcana test damage per hit Hit "..victim.epochArcanaAA)
-					----print("od q1 arcana test damage per hit Damage "..damage)
 					-- victim.epochArcanaAA = math.max(victim.epochArcanaAA,damage)
 					victim.epochArcanaAA = victim.epochArcanaAA + damage
 				end
@@ -2808,7 +2783,6 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_ironbound_gloves") and applyEffects and damagetype == DAMAGE_TYPE_PHYSICAL then
 		local proc = Filters:GetProc(victim, victim.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_IRONBOUND_GLOVES_GEM_EMERALD))
 		if proc then
-			--print("BLOCK:"..filterTable["damage"])
 			PopupDamageBlock2(victim, math.floor(filterTable["damage"]))
 			damage = 0
 		end
@@ -2882,7 +2856,6 @@ function GameState:FilterDamage(filterTable)
 		if Winterblight:IsWithinChamber(attacker, victim.chamber) then
 		else
 			if applyEffects then
-				--print("damage = 0")
 				filterTable["damage"] = 0
 			end
 		end
@@ -2948,10 +2921,8 @@ function GameState:FilterDamage(filterTable)
 			if filterTable["damage"] > 1 then--monkey paw tweak
 				local ability = victim:FindAbilityByName("arkimus_energy_field")
 				if ability then
-					----print("arkimus_energy_field true")
 					filterTable["damage"] = Filters:ArkimusGlyph5a(victim, filterTable["damage"])
 					-- else
-					-- --print("arkimus_energy_field false")
 				end
 			end
 		end
@@ -3118,7 +3089,6 @@ function GameState:FilterDamage(filterTable)
 		if victim.scythe_shield_absorb < 1 then
 			victim:RemoveModifierByName("modifier_reaper_slice_shield")
 		end
-		--print("SHIELD ABSORB REMAINING "..victim.scythe_shield_absorb)
 		filterTable["damage"] = filterTable["damage"] - damageReduce
 	end
 	if victim:HasModifier("modifier_perdition_passive") then
@@ -3379,7 +3349,6 @@ function GameState:FilterDamage(filterTable)
 		end
 		if victim:HasModifier("modifier_epoch_glyph_5_a_effect") and not rezzed then
 			if not victim:HasModifier("modifier_epoch_glyph_5_a_cooldown") then
-				--print("EpochTimeTravelGlyph shield trigger - game state")
 				filterTable["damage"] = victim:GetHealth() - 2
 				CustomAbilities:EpochTimeTravelGlyph(victim)
 				rezzed = true
@@ -3536,7 +3505,6 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			-- if victim:IsHero() then
-			-- 	-- print("TAKE DAMAGE: "..filterTable["damage"])
 			-- 	filterTable["damage"] = 0
 			-- end
 			if victim:GetUnitName() == "rubick_apprentice" then

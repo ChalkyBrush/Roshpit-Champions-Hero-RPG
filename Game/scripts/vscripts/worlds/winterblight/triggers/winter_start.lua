@@ -201,7 +201,6 @@ function PlatformSpawnTrigger(trigger)
 end
 
 function AltarOfIceTrigger(trigger)
-	--print("ICE TRIGGER")
 	local hero = trigger.activator
 	if Winterblight.AltarDisabled then
 		return false
@@ -292,7 +291,6 @@ function OutsideCaveTrigger(trigger)
 end
 
 function CaveGuideSpawn(trigger)
-	print("TRIGGERED1")
 	Winterblight:CaveGuideSpawn()
 end
 

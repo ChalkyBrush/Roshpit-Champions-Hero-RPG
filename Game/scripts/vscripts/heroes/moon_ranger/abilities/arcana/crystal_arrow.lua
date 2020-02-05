@@ -269,7 +269,6 @@ function arrows_thinking(event)
 			if arrow.pending then
 				arrow.position = arrow.position + arrow.fv * arrow.velocity * 0.03
 				local distance = WallPhysics:GetDistance(arrow.position, arrow.target_point)
-				--print(distance)
 				if distance < 250 and arrow.sound then
 					arrow.sound = false
 					EmitSoundOnLocationWithCaster(arrow.target_point, "Astral.CrystalArrow.Impact", caster)

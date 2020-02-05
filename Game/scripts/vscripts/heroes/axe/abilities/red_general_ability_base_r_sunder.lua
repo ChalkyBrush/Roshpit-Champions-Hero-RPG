@@ -114,14 +114,10 @@ function red_general_rune_base_r_2_takeDamage(event)
 
             local position = attacker:GetAbsOrigin()
             local radius = 260
-
-            --print("incoming damage = " .. event.damage)
             local damage = caster.r_1_level * RED_GENERAL_R1_DAMAGE
             if caster:HasModifier("modifier_axe_glyph_5_a") then
                 damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
             end
-
-            --print("damage from r1 = " .. damage)
             Filters:TakeArgumentsAndApplyDamage(attacker, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
         end
     end

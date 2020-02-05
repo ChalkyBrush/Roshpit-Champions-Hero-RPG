@@ -63,7 +63,6 @@ function slipfinn_main_thinker(event)
 		caster:RemoveModifierByName("modifier_jump_not_attackable")
 	end
 	caster.speed = math.min(caster.speed + speedGain, caster.max_slip_speed)
-	--print(caster.speed)
 	if distance > 300 then
 		caster.speed = 0
 	end
@@ -94,7 +93,6 @@ function slipfinn_main_thinker(event)
 		end
 		--print(caster.direction*caster.speed)
 		local angleDiff = math.abs(AngleDiff(WallPhysics:vectorToAngle(caster.direction), WallPhysics:vectorToAngle(caster:GetForwardVector())))
-		--print(angleDiff)
 		if AngleDiff(WallPhysics:vectorToAngle(caster.direction), WallPhysics:vectorToAngle(caster:GetForwardVector())) > 15 and onGround then
 		else
 			local newPos = caster:GetAbsOrigin() + caster.direction * caster.speed
@@ -203,7 +201,6 @@ function slipfinn_jump_start(event)
 		jump_force(caster, ability, event.bog_roll)
 		ability.consecutive_bounces = 0
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_basic_jump", {duration = 6})
-		--print("YO JUMPING DUDE")
 		caster.jumpPhase = caster.jumpPhase + 1
 		caster.jumpLock = true
 		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
@@ -213,7 +210,6 @@ function slipfinn_jump_start(event)
 end
 
 function jump_force(caster, ability, bog_roll)
-	--print(caster.jumpPhase)
 	local jumpDelay = 0
 	if caster:HasModifier("modifier_slipfinn_prone") then
 		caster:RemoveModifierByName("modifier_slipfinn_prone")
@@ -305,9 +301,6 @@ function jump_force(caster, ability, bog_roll)
 		end
 
 	end)
-
-	--print("JUMP FORCE")
-	--print(caster.jump_force)
 end
 
 function slipfinn_jump_think(event)
@@ -336,7 +329,6 @@ function slipfinn_jump_think(event)
 					local headPos = enemy:GetAbsOrigin().z + enemy:GetBoundingMaxs().z
 					if (height > (headPos - 50)) and (height < (headPos + 50)) then
 						jumpEnemy = enemy
-						--print("FOUND ENEMY")
 						break
 					end
 				end
@@ -361,7 +353,6 @@ function slipfinn_jump_think(event)
 				caster.jump_force = math.max(math.min(caster.jump_force + 40 + ability.consecutive_bounces * 4 + glyphBonus, 40 + ability.consecutive_bounces * 4 + glyphBonus), 10)
 				caster.direction = caster:GetForwardVector()
 				caster.speed = caster.speed + 0.5
-				--print(caster.speed)
 				caster.speed = math.max(1, caster.speed)
 				EmitSoundOn("Slipfinn.Bounce", jumpEnemy)
 				local animation_duration = 1.9
@@ -438,7 +429,6 @@ function slipfinn_jump_think(event)
 end
 
 function jump_land(caster, ability)
-	--print("LAND")
 	caster:RemoveModifierByName("modifier_slipfinn_basic_jump")
 	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
 	caster.max_slip_speed = MAX_SLIP_SPEED
@@ -470,16 +460,13 @@ function jump_land(caster, ability)
 		else
 			EmitSoundOn("Slipfinn.Ground3", caster)
 		end
-		--print("HEAVY")
 	elseif caster.jump_force < -35 then
 		if caster:HasModifier("slipfinn_bog_roller_lua") then
 			EmitSoundOn("Slipfinn.BogRoller.CollisionLand2", caster)
 		else
 			EmitSoundOn("Slipfinn.Ground2", caster)
 		end
-		--print("MED")
 	else
-		--print("LIGHT")
 		if caster:HasModifier("slipfinn_bog_roller_lua") then
 			EmitSoundOn("Slipfinn.BogRoller.CollisionLand1", caster)
 		else
@@ -492,7 +479,6 @@ function jump_land(caster, ability)
 	end
 	caster.jumpLock = false
 	EndAnimation(caster)
-	--print(caster.jumpPhase)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_jump_phase", {duration = 0.8})
 	caster:RemoveModifierByName("modifier_jump_not_attackable")
 end

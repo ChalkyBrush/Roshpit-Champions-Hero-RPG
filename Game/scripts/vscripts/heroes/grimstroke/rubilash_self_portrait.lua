@@ -131,7 +131,6 @@ function rubilash_self_portrait_success(event)
 		end
 		
 		ability.illusion.color = caster.color
-		print(caster.color)
 		Events:ColorWearablesAndBase(ability.illusion, RUBILASH_COLORS_DATA[caster.color])
 		set_rubilash_color_visual(ability.illusion)
 		ability.illusion.effectPFX = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/self_portrait_buff_"..ability.illusion.color..".vpcf", ability.illusion, event.duration)

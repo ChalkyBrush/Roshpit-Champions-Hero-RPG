@@ -31,7 +31,6 @@ function BehaviorNone:Begin()
 	local enemy = AICore:RandomEnemyHeroInRange(thisEntity, 10000)
 
 	if enemy and not thisEntity.dead then
-		--print("order_attack_move")
 		self.order =
 		{
 			UnitIndex = thisEntity:entindex(),
@@ -57,7 +56,6 @@ BasicSkill = {}
 
 function BasicSkill:Evaluate()
 	local desire = 0
-	--print("evaluate basic skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -72,7 +70,6 @@ function BasicSkill:Evaluate()
 end
 
 function BasicSkill:Begin()
-	--print("fire basic")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -94,7 +91,6 @@ DiveSkill = {}
 
 function DiveSkill:Evaluate()
 	local desire = 0
-	--print("evaluate dive skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -109,7 +105,6 @@ function DiveSkill:Evaluate()
 end
 
 function DiveSkill:Begin()
-	--print("fire dive")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -130,7 +125,6 @@ SplitterSkill = {}
 
 function SplitterSkill:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -145,7 +139,6 @@ function SplitterSkill:Evaluate()
 end
 
 function SplitterSkill:Begin()
-	--print("fire Splitter")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -166,7 +159,6 @@ Die = {}
 DEATH_SOUND_TABLE = {"nevermore_nev_arc_death_12"}
 function Die:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if thisEntity:GetHealth() < 20 and not thisEntity.dead then
 		desire = 15
@@ -176,7 +168,6 @@ function Die:Evaluate()
 end
 
 function Die:Begin()
-	--print("Dying")
 	self.endTime = GameRules:GetGameTime() + 13
 	--ParticleCity(thisEntity)
 	thisEntity.dead = true

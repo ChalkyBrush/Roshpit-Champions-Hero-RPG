@@ -70,7 +70,6 @@ function flying_portion_think(event)
 	local buff = caster:FindModifierByName("modifier_slipfinn_shadow_rush_flying_portion")
 	if buff:GetRemainingTime() < 0.2 then
 		if caster:HasModifier("modifier_slipfinn_basic_jump") or caster:HasModifier("modifier_slipfinn_buttstomp") then
-			--print("FLYING PORTION")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slipfinn_shadow_rush_flying_portion", {duration = 0.2})
 		end
 	end

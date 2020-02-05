@@ -164,7 +164,6 @@ function Arena:Debug2()
 end
 
 function Arena:Init()
-	--print("Initialize Arena")
 	Arena.ChampionsLeague = {}
 	Arena.ZFLOAT = 200
 	Dungeons.phoenixCollision = true
@@ -198,7 +197,6 @@ function Arena:Init()
 	end)
 
 	Arena.NumPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	--print(Arena.NumPlayers)
 	Timers:CreateTimer(9, function()
 		Arena:SpawnArenaOutsideEntities()
 	end)
@@ -814,17 +812,13 @@ function Arena:ArenaDialogue(msg)
 				return false
 			end
 			local rank = msg.rank
-			--print(rank)
 			Arena:ChampionsLeagueRegisterForBattle(hero, rank)
 		elseif npc == "pit_terminal" then
 			Arena:PitSetup(hero, msg.starLevel)
 		elseif npc == "skip" then
 			Arena.skipIntro = 1
 		elseif npc == "arena_pit_conquest_shrine_of_karzhun" then
-			--print("GO?")
 			local input_value = msg.input_value
-			print("KARZHUN LETS GO")
-			print(input_value)
 			if not input_value then
 				input_value = 0
 			end
@@ -844,7 +838,6 @@ function Arena:DummyFromClient(playerID, hero, msg)
 		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
 		dummyAbility:ApplyDataDrivenModifier(dummy, hero, "modifier_dummy_timer", {duration = 7})
 		dummy.timerDamage = 0
-		--print("DUMMY TIMER START")
 		for i = 1, 35, 1 do
 			Timers:CreateTimer(i * 0.2, function()
 				local DPS = math.floor(dummy.timerDamage / (i * 0.2))
@@ -852,8 +845,6 @@ function Arena:DummyFromClient(playerID, hero, msg)
 			end)
 		end
 	elseif msg.armor then
-		--print("UPDATE ARMOR")
-		--print(msg.armor)
 		local dummy = hero.targetDummy
 		dummy:SetPhysicalArmorBaseValue(tonumber(msg.armor))
 	end
@@ -1018,11 +1009,9 @@ function Arena:SaveChampionsLeagueData(hero, battleRank, score)
 		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 			--SaveLoad:NewKey()
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Timers:CreateTimer(16, function()
 				Arena:LoadChampionsLeagueData(hero, resultTable)
@@ -1039,11 +1028,9 @@ function Arena:ResetArenaData(hero)
 	url = url.."&hero_name="..hero:GetUnitName()
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		Timers:CreateTimer(8, function()
 			Arena:LoadChampionsLeagueData(hero, resultTable)
@@ -1056,7 +1043,6 @@ function Arena:LoadChampionsLeagueData(hero, results)
 		if results == 0 then
 			return
 		end
-		--print("LOAD CHAMP LEAGUE DATA")
 		if results.hero_name then
 			if not results.hero_name == hero:GetUnitName() then
 				if results.hero_name == "" then
@@ -1093,10 +1079,8 @@ function Arena:LoadChampionsLeagueData(hero, results)
 			hero.pit = {}
 		end
 		hero.pit.pit_level = results.pit_level
-		--print(results.pit_open_time)
 		hero.pit.pit_open_time = results.pit_open_time
 		Arena:SetUpArenaForChampionsLeagueRank(hero.ChampionsLeague.rank)
-		--print("BEFORE STAR CHECK")
 		Timers:CreateTimer(7, function()
 			Stars:StarEventPlayer("champleague", hero)
 		end)
@@ -1109,11 +1093,9 @@ function Arena:LoadChampionsLeagueData(hero, results)
 		url = url.."hero_id="..hero.roshpitID
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Arena:LoadChampionsLeagueData(hero, resultTable)
 		end)

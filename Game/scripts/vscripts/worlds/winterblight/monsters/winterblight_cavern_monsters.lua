@@ -166,7 +166,6 @@ function rock_guardian_attack_land(event)
 		ability.pushVector = false
 		ability.pushVelocity = 30
 		ability.tossPosition = caster:GetAbsOrigin()
-		print("PUSH?")
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_heavy_boulder_pushback", {duration = 0.6})
 	end
 end
@@ -915,7 +914,6 @@ function ultra_ice_spawn_unit_die(event)
 		caster.spawnUnitsSlain = 0
 	end
 	caster.spawnUnitsSlain = caster.spawnUnitsSlain + 1
-	print(caster.spawnUnitsSlain)
 	if caster.spawnPhase == 2 and caster.spawnUnitsSlain == 8*caster.spawnMult then
 		caster.spawnPhase = 3
 		caster.spawnUnitsSlain = 0
@@ -1219,7 +1217,6 @@ function apply_merkurio_crystal_buffs(caster, ability)
 		for i = 1, #Winterblight.CavernUnits[1], 1 do
 			local unit = Winterblight.CavernUnits[1][i]
 			if IsValidEntity(unit) and unit:GetUnitName() ~= "npc_dummy_unit" then
-				print("apply modifier")
 				ability:ApplyDataDrivenModifier(caster, unit, "modifier_merkurio_crystal_red", {})
 			end
 		end
@@ -1360,7 +1357,6 @@ function tweaking_arrow_hit(event)
 			}
 			target:Stop()
 			ExecuteOrderFromTable(order)
-			--print("IN HERE")
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET then
 			local order = {
 				UnitIndex = target:entindex(),
@@ -1370,7 +1366,6 @@ function tweaking_arrow_hit(event)
 				Queue = true
 			}
 			target:Stop()
-			--print("HERE?")
 			ExecuteOrderFromTable(order)
 		elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == DOTA_ABILITY_BEHAVIOR_POINT then
 			local order =
@@ -2048,7 +2043,6 @@ function aurora_boss_think(event)
 		return false
 	end
 	if caster:IsChanneling() then
-		print("IS CHANNELING")
 		return false
 	end
 	for i = 1, #ability_list, 1 do
@@ -2085,7 +2079,6 @@ function aurora_boss_think(event)
 				Timers:CreateTimer(delay, function()
 					caster.castLock = false
 				end)
-				--print("IN HERE")
 			elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET and #enemies > 0 then
 				local order = {
 					UnitIndex = caster:entindex(),
@@ -2271,7 +2264,6 @@ function ellipsis_wave_cast(event)
 	EmitSoundOn("Winterblight.EllipsisWave", caster)
 	local fv = (point - caster:GetAbsOrigin())*Vector(1,1,0)
 	fv = fv:Normalized()
-	print("WAVE")
 	local info =
 	{
 		Ability = ability,

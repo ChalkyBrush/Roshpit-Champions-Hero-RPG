@@ -70,7 +70,6 @@ function comet_think(event)
 		caster:RemoveModifierByName("modifier_comet_storming")
 	elseif caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 340 then
 		if not ability.landAnimated then
-			--print("ANIMATE")
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
 			ability.landAnimated = true
 			StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.3})

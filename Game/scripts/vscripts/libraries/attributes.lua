@@ -117,7 +117,6 @@ function Attributes:ModifyBonuses(hero)
             -- end
 
             -- local spellpower_stacks = intellect
-            --print(spellpower_stacks)
             -- hero:SetModifierStackCount("modifier_spell_damage_constant", Attributes.applier, spellpower_stacks)
 
         end
@@ -129,7 +128,6 @@ function Attributes:ModifyBonuses(hero)
 
         hero:CalculateStatBonus()
         if hero:GetMaxMana() < intellect * 5 then
-            --print("REMOVE MANA MOD")
             hero:RemoveModifierByName("modifier_mana_bonus")
         end
         return 0.03

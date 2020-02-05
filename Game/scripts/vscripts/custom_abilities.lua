@@ -53,8 +53,6 @@ function CustomAbilities:EpochTimeTravelGlyph(victim)
 
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_cooldown", {duration = EPOCH_GLYPH_5_A_SECOND_LIFE_CD})
 	glyph:ApplyDataDrivenModifier(glyphUnit, victim, "modifier_epoch_glyph_5_a_little_shield", {duration = 2})
-
-	--print("EpochTimeTravelGlyph shield trigger - custom abilities")
 	EmitSoundOn("RPC.MagicImmuneBreakAttacker", victim)
 	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf", victim, 2)
 	ProjectileManager:ProjectileDodge(victim)
@@ -103,7 +101,6 @@ function CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, particleN
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_visible", {duration = 7})
 				local current_stacks = enemy:GetModifierStackCount("modifier_axe_rune_r_4_visible", runeAbility)
 				local newStacks = current_stacks + 1
-				--print(newStacks)
 				enemy:SetModifierStackCount("modifier_axe_rune_r_4_visible", runeAbility, newStacks)
 
 				runeAbility:ApplyDataDrivenModifier(caster.runeUnit4, enemy, "modifier_axe_rune_r_4_invisible", {duration = 7})
@@ -231,8 +228,6 @@ function CustomAbilities:QuickAttachThinker(ability, caster, position, thinkerNa
 		end)
 		return thinker
 	else
-		--print("Err CustomAbilities:QuickAttachThinker")
-		--print(thinkerName)
 	end
 end
 
@@ -280,7 +275,6 @@ end
 function CustomAbilities:Warlord_Ambush(caster, warlord_ambush_target)
 	if IsValidEntity(warlord_ambush_target) then
 		if warlord_ambush_target:IsAlive() then
-			--print("blockMAIN")
 			EmitSoundOn("Hero_Beastmaster.Attack", warlord_ambush_target)
 			local target = warlord_ambush_target
 
@@ -390,7 +384,6 @@ function CustomAbilities:ChernobogDemonHunter(victim, damage)
 	local ability = victim:FindAbilityByName("chernobog_demon_hunter")
 	local threshold = ability:GetSpecialValueFor("max_damage_taken_percent_of_health")
 	--print("THRESHOLD!!")
-	--print(threshold)
 	if victim:HasModifier("modifier_chernobog_immortal_weapon_1") then
 		threshold = threshold - CHERNOBOG_IMMORTAL_WEAPON_1_W_THRESHOLD_REDUCTION
 	end

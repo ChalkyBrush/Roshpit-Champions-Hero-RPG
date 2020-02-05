@@ -120,7 +120,6 @@ function fire_aspect_attack_land(event)
 	-- end
 	-- return false
 	-- end
-	--print("aspect_attack")
 	local luck = RandomInt(1, 10)
 	if luck <= 3 then
 		local w_3_level = 0
@@ -129,9 +128,7 @@ function fire_aspect_attack_land(event)
 		else
 			w_3_level = attacker:GetRuneValue("w", 3)
 		end
-		--print("luck passed")
 		if w_3_level > 0 then
-			--print("w_3_level is good lets go")
 			local critmult = CONJUROR_W3_CRIT_DMG_PCT/100
 			if attacker.fireDeity then
 				critmult = CONJUROR_ARCANA_W3_CRIT_DMG_PCT/100

@@ -68,7 +68,6 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			if parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
 				local adjusted_damage = CustomAttributes:AdjustDamageForRoshpitAttributes(parent, event.target, DAMAGE_TYPE_PHYSICAL, damage, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetEntityIndex())
 				local lifesteal = math.floor(adjusted_damage * parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", DESERT_NECROMANCER_EMERALD)/100)
-				print(lifesteal)
 				Filters:ApplyHeal(parent.hero, parent.hero, lifesteal, true, true)
 				Filters:ApplyHeal(parent, parent, lifesteal, true, true)
 

@@ -18,7 +18,6 @@ function mach_punch_cancel(event)
 	local caster = event.caster
 	local ability = event.ability
 	EndAnimation(caster)
-	--print("punch cancel")
 	if ability.pfx1 then
 		ParticleManager:DestroyParticle(ability.pfx1, false)
 		ParticleManager:ReleaseParticleIndex(ability.pfx1)
@@ -63,7 +62,6 @@ function mach_punch_cast(event)
 		local particleRadius2 = 270
 		local searchRadius = 300
 		if caster:HasModifier("modifier_zonik_glyph_4_1") then
-			--print('glyphed')
 			particleRadius = particleRadius * (1 + ZHONIK_GLYPH_4_1_SONIC_RADIUS / 100)
 			searchRadius = searchRadius * (1 + ZHONIK_GLYPH_4_1_SONIC_RADIUS / 100)
 			particleRadius2 = particleRadius2 * (1 + ZHONIK_GLYPH_4_1_SONIC_RADIUS / 100)
@@ -100,7 +98,6 @@ function mach_punch_cast(event)
 							eventTable.cancelAnim = true
 							eventTable.ability = caster:FindAbilityByName("zonik_mach_punch")
 							eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-							--print(eventTable.damage_mult)
 							eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 							Timers:CreateTimer(0.1, function()
 								mach_punch_cast(eventTable)
@@ -126,7 +123,6 @@ function mach_punch_think(event)
 		if ability.lastPos then
 			local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 			ability.distanceMoved = ability.distanceMoved + distance
-			--print(ability.distanceMoved)
 			ability.lastPos = caster:GetAbsOrigin()
 			if ability.distanceMoved >= ZHONIK_W2_DISTANCE_THRESHOLD then
 				ability.distanceMoved = ability.distanceMoved % ZHONIK_W2_DISTANCE_THRESHOLD
@@ -185,7 +181,6 @@ function mach_punch_attack_land(event)
 				target.zonikEcho = 0
 			end
 			target.zonikEcho = target.zonikEcho + attack_damage * w_4_level * ZHONIK_W4_ECHO_DMG_PCT / 100
-			--print(target.zonikEcho)
 			--print(target:GetEntityIndex())
 		end
 	end

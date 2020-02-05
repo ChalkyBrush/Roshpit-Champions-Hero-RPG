@@ -9,7 +9,6 @@ function start_channel(event)
 	ability.fallVelocity = 1
 	ability.startRotation = vectorToAngle(caster:GetForwardVector())
 	--print(caster:GetForwardVector())
-	--print(ability.startRotation)
 	caster:RemoveModifierByName("modifier_solunia_in_between_flare")
 	ability.r_3_level = Runes:GetTotalRuneLevel(caster, 3, "r_3", "solunia")
 	ability.r_3_damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * SOLUNIA_R3_WAVE_DMG_PCT/100 * ability.r_3_level

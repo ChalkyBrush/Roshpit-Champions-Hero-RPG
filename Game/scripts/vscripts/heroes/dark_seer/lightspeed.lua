@@ -63,7 +63,6 @@ function lightspeed_think(event)
 	if ability.lastPos then
 		local distance = WallPhysics:GetDistance2d(ability.lastPos, caster:GetAbsOrigin())
 		ability.distanceMoved = ability.distanceMoved + distance
-		--print(ability.distanceMoved)
 		ability.lastPos = caster:GetAbsOrigin()
 		if ability.distanceMoved >= 60 then
 			local DistanceMult = (ability.distanceMoved - ability.distanceMoved % 60) / 60
@@ -95,7 +94,6 @@ function lightspeed_think(event)
 					local pfx = ParticleManager:CreateParticle("particles/roshpit/zonik_remant_spirit_static_remnant.vpcf", PATTACH_WORLDORIGIN, caster)
 					ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
 					local angle = WallPhysics:vectorToAngle(caster:GetForwardVector()) * 2
-					--print("Angle"..angle)
 					ParticleManager:SetParticleControl(pfx, 1, caster:GetForwardVector() * 180)
 					ParticleManager:SetParticleControl(pfx, 2, Vector(0.8, 0.8, 0.8))
 					-- Timers:CreateTimer(2.5, function()

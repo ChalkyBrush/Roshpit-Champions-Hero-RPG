@@ -82,7 +82,6 @@ function Redfall:InitiateCastleTiles()
   while tileIndex1 == tileIndex2 do
     tileIndex2 = RandomInt(1, #tilePositionTable)
   end
-  --print(tilePositionTable[tileIndex1])
   tile1:SetAbsOrigin(tilePositionTable[tileIndex1] + Vector(0, 0, -127))
   tile2:SetAbsOrigin(tilePositionTable[tileIndex2] + Vector(0, 0, -127))
   Redfall.Castle.TileLocationTable = {tileIndex1, tileIndex2}
@@ -1601,7 +1600,6 @@ function Redfall:SpawnFortuneRoom()
   Redfall.Castle.FortuneChestsOpened = 0
 
   --print("FORTUNE CHEST INDEX!")
-  --print(Redfall.Castle.FortuneChestBoss)
 end
 
 function Redfall:SpawnFortuneRoomChest(position, i, j)
@@ -2069,7 +2067,6 @@ function Redfall:ActivateBossStatue(position)
           EmitSoundOnLocationWithCaster(Vector(-2154, 3249), "Redfall.TreeHealed", Events.GameMaster)
           local blockers = Entities:FindAllByNameWithin("BossBlocker", Vector(-1408, 3264, 263 + Redfall.ZFLOAT), 2400)
           --print(#blockers)
-          --print("NUM BLOCKERS")
           for i = 1, #blockers, 1 do
             UTIL_Remove(blockers[i])
           end

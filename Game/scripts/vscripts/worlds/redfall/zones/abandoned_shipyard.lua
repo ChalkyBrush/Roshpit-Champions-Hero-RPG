@@ -490,7 +490,6 @@ end
 function Redfall:Switch2Pressed()
 	Redfall.shipyardSpawnPortalTable = {}
 	local spawnPositionTable = {Vector(14275, -6679), Vector(15723, -6489), Vector(15093, -7482)}
-	--print("SPAWN BATTLE??")
 	Timers:CreateTimer(2, function()
 		for i = 1, #spawnPositionTable, 1 do
 			local pfx = ParticleManager:CreateParticle("particles/econ/events/ti4/teleport_end_counter_ti4.vpcf", PATTACH_WORLDORIGIN, Redfall.RedfallMaster)
@@ -684,7 +683,6 @@ function Redfall:SpawnShipyardFerry()
 end
 
 function Redfall:SpawnShipyardPt2()
-	--print("SHIPYARD PART 2")
 	local lookSpot = Vector(14976, -3392)
 	local fishSpawnTable = {Vector(14720, -3264), Vector(14720, -3072), Vector(14720, -2880), Vector(14720, -2688), Vector(14784, -2496), Vector(14848, -2240), Vector(15360, -2240), Vector(15296, -2496), Vector(15296, -2688), Vector(15232, -2880), Vector(15168, -3072), Vector(15040, -3264)}
 	for i = 1, #fishSpawnTable, 1 do

@@ -52,7 +52,6 @@ function warlord_cataclysm_shaker:OnSpellStart()
 	EmitSoundOnLocationWithCaster(endPoint, "Warlord.Cataclysm.Highlight", caster)
 	EmitSoundOn("Warlord.Cataclysm.VO", caster)
 	Timers:CreateTimer(7, function()
-		print("REMOVE BLOCKERS")
 		for i = 1, #blockers, 1 do
 			UTIL_Remove(blockers[i])
 		end

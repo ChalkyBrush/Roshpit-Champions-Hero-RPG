@@ -1629,7 +1629,6 @@ function Dungeons:AggroUnit(caster)
 	end
 	if caster.special then
 		if caster.special == "gazbinAlch" then
-			--print("lets fire this skill")
 			EmitSoundOn("alchemist_alch_laugh_04", caster)
 			EmitSoundOn("alchemist_alch_laugh_04", caster)
 			EmitSoundOn("alchemist_alch_laugh_04", caster)

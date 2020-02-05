@@ -47,21 +47,17 @@ function Winterblight:GetCaveMetaData()
 		url = url.."&steam_id"..i.."="..steamID
 		url = url.."&hero"..i.."="..hero_name
 	end
-	print(url)
 	CreateHTTPRequestScriptVM( "GET", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
 			for k,v in pairs( result ) do
 				print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Winterblight.CavernMetaData = resultTable
 			for i = 1, #MAIN_HERO_TABLE, 1 do
 				Stars:StarEventPlayer("cavern_master", MAIN_HERO_TABLE[i])
 			end
-			print(Winterblight.CavernMetaData)
 		end
 	end )
 end
@@ -112,8 +108,6 @@ function Winterblight:ProcessUIMessage(msg)
 end
 
 function Winterblight:ReturnRecordsToUI(msg)
-	print(Winterblight.CavernMetaData)
-	print(msg.playerID)
 	local player = PlayerResource:GetPlayer(msg.PlayerID)
 	local steamID = tostring(PlayerResource:GetSteamAccountID(msg.PlayerID))
 	local steamID_long = tostring(PlayerResource:GetSteamID(msg.PlayerID))
@@ -649,11 +643,8 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	steam_id = tostring(steam_id)
 	DeepPrintTable(Winterblight.CavernMetaData[chamber_index][event_index])
 	if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
-		print("tuyuyu")
 		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 5
 	end
-	print("----")
-	print(your_hero_max)
 	local game_settings_max = 1
 	local difficulty = GameState:GetDifficultyFactor()
 	if difficulty == 2 then
@@ -1073,15 +1064,12 @@ function Winterblight:CavernCompletionToServer(hero, chamber, event_index, level
 	url = url.."&chamber_index".."="..chamber
 	url = url.."&level".."="..level
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print(url)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			print( "GET response:\n" )
 			for k,v in pairs( result ) do
 				print( string.format( "%s : %s\n", k, v ) )
 			end
-			print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Winterblight:GetCaveMetaData()
 		end
@@ -4012,13 +4000,11 @@ function Winterblight:SpawnGravityBlackHole(position, spawnphase)
 end
 
 function Winterblight:GravityBlackHolesSpawns(kills)
-	print(kills)
 	if kills == 0 then
 		for i = 1, #Winterblight.EdgeOfWinterBlackHoles, 1 do
 			local black_hole = Winterblight.EdgeOfWinterBlackHoles[i]
 			local black_hole_unit_index = RandomInt(1, 75)
 			for k = 1, 4, 1 do
-				print("WE GONNA SPAWN?")
 				Timers:CreateTimer(k*0.2, function()
 					Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
 				end)
@@ -4034,7 +4020,6 @@ function Winterblight:GravityBlackHolesSpawns(kills)
 				local black_hole_unit_index = RandomInt(1, 76)
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, black_hole:GetAbsOrigin(), 800, 5, false)
 				for k = 1, 4, 1 do
-					print("SPAWN - "..index.." : "..k .. "----" .. black_hole_unit_index)
 					local unit = Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
 					print(unit:GetAbsOrigin())
 					print(Winterblight:IsWithinChamber(unit, 4))
@@ -4209,7 +4194,6 @@ function Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_inde
 			unit = Winterblight:SpawnSpectralWitch(position, Vector(0,-1))
 		end
 		if IsValidEntity(unit) then
-			print("SPAWN")
 			EmitSoundOn("Winterblight.BlackHoleUnit.Spawn", unit)
 			local colorVector = Vector(0.8, 0.1, 0.8)
 			CustomAbilities:QuickAttachParticle("particles/econ/events/ti9/shovel/shovel_baby_roshan_spawn.vpcf", unit, 4)
@@ -4754,7 +4738,6 @@ function Winterblight:GetStarValueForCavernMaster(hero)
 			end
 		end
 	end
-	print(total_chamber_clear_count)
 	if total_chamber_clear_count >= total_chamber_count then
 		local average_clear_level = total_completion_level/total_chamber_clear_count
 		if average_clear_level >= 10 then
@@ -4767,8 +4750,5 @@ function Winterblight:GetStarValueForCavernMaster(hero)
 			star_value_to_return = 3
 		end
 	end
-	print(total_completion_level)
-	print("RETURN STAR VALUE")
-	print(star_value_to_return)
 	return star_value_to_return
 end

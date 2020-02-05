@@ -15,7 +15,6 @@ function jinbo_phase(event)
 		elseif caster:HasModifier("modifier_mark_of_the_talon") then
 			colorVector = Vector(0, 0, 255)
 		end
-		--print(colorVector)
 		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/dreghor/jinbo_precast.vpcf", caster, 3)
 		ParticleManager:SetParticleControl(pfx, 8, colorVector)
 		local rate = 1.4

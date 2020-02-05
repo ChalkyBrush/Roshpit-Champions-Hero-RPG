@@ -18,11 +18,9 @@ function Quests:ReceiveQuestmenuStatusFromClient(msg)
 	url = url.."&hero_slot="..slot
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		resultTable = Quests:GetQuestDataFromJSON(resultTable)
 		CustomGameEventManager:Send_ServerToPlayer(player, "crusader_quests_loaded", {result = resultTable, player = playerID, gameProgress = Quests:GetGameProgressTable(), challenge = Challenges.challenge})
@@ -54,14 +52,11 @@ function Quests:DeleteQuest(msg)
 	url = url.."steam_id="..steamID
 	url = url.."&hero_slot="..slot
 	url = url.."&quest_id="..questID
-	--print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 		resultTable = Quests:GetQuestDataFromJSON(resultTable)
 		if msg.complete == 1 then
@@ -98,7 +93,6 @@ function Quests:GetQuestRewardXP(quest_level)
 	local currentXP = CustomNetTables:GetTableValue("xp_table", tostring(quest_level)).xpNeeded
 	local previousXP = CustomNetTables:GetTableValue("xp_table", tostring(quest_level - 1)).xpNeeded
 	local XP_needed = currentXP - previousXP
-	--print(XP_needed)
 	local questXP = 0
 	if (quest_level < 20) then
 		questXP = XP_needed * 2
@@ -273,7 +267,6 @@ function Quests:DummyFromClient(msg)
 	if playerID then
 		hero = GameState:GetHeroByPlayerID(playerID)
 	end
-	--print("ANYTHNG?")
 	if msg.exit then
 		local dummy = hero.targetDummy
 		hero:RemoveModifierByName("modifier_attacking_dummy")
@@ -289,7 +282,6 @@ function Quests:DummyFromClient(msg)
 		local dummyAbility = dummy:FindAbilityByName("training_dummy_ability")
 		dummyAbility:ApplyDataDrivenModifier(dummy, hero, "modifier_dummy_timer", {duration = 7})
 		dummy.timerDamage = 0
-		--print("DUMMY TIMER START")
 		for i = 1, 35, 1 do
 			Timers:CreateTimer(i * 0.2, function()
 				local DPS = math.floor(dummy.timerDamage / (i * 0.2))
@@ -382,7 +374,6 @@ function Quests:ShowDialogueText(activators, unit, unitText, time, bLeash)
 		return false
 	end
 	for i = 1, #activators, 1 do
-		--print("DIALOGUE TEST?")
 		local hero = activators[i]
 		local headerText = unit:GetUnitName()
 		local messageText = unitText
@@ -390,7 +381,6 @@ function Quests:ShowDialogueText(activators, unit, unitText, time, bLeash)
 		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			nameColorClass = "allied_name"
 		end
-		--print(headerText)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "basic_dialogue", {portraitHero = portraitHero, unitName = headerText, messageText = messageText, nameColorClass = nameColorClass, timeLock = time})
 		hero.dialogueTime = GameRules:GetGameTime() + time
 
@@ -412,7 +402,6 @@ function Quests:ShowDialogueTextAzalea(activators, unit, unitText, time, bLeash)
 		return false
 	end
 	for i = 1, #activators, 1 do
-		--print("DIALOGUE TEST?")
 		local hero = activators[i]
 		local headerText = unit:GetUnitName()
 		local messageText = unitText
@@ -420,7 +409,6 @@ function Quests:ShowDialogueTextAzalea(activators, unit, unitText, time, bLeash)
 		if unit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			nameColorClass = "allied_name"
 		end
-		--print(headerText)
 		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "basic_dialogue", {portraitHero = portraitHero, unitName = headerText, messageText = messageText, nameColorClass = nameColorClass, timeLock = time, azalea = true})
 		hero.dialogueTime = GameRules:GetGameTime() + time
 	end

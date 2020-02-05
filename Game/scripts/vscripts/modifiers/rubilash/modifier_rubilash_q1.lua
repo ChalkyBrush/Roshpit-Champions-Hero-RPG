@@ -13,7 +13,6 @@ end
 function modifier_rubilash_q1:GetModifierCastRangeBonus(params)
     local hero = self:GetParent()
     local range = 0
-    print("rubilash_modifier")
     if IsServer() then
         range = range + self:GetAbility().cast_range
     end

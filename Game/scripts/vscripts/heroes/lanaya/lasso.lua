@@ -148,7 +148,6 @@ end
 -- ParticleManager:SetParticleControlEnt( pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true )
 -- local distance = WallPhysics:GetDistance(targetPoint*Vector(1,1,0), caster:GetAbsOrigin()*Vector(1,1,0))
 -- local jumpFV = ((targetPoint-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
---print(jumpFV)
 -- ability.jump_velocity = distance/30 + 15
 -- ability.jumpFV = jumpFV
 -- ability.distance = distance

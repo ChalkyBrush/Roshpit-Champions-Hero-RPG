@@ -97,7 +97,6 @@ function dominion_debuff_death(event)
 			summon:AddAbility("black_dominion_lifesteal"):SetLevel(1)
 		end
 		if caster.q_2_level > 0 then
-			--print("ADD CORPSE PICKUP ABILITY")
 			summon:AddAbility("black_dominion_corpse_pickup"):SetLevel(1)
 		end
 		if caster.q_4_level > 0 then
@@ -406,7 +405,6 @@ function dominion_corpse_pickup_end(event)
 	local ability = event.ability
 	local origCaster = caster.hero
 	local q_2_level = origCaster:GetRuneValue("q", 2)
-	--print(q_2_level)
 	if q_2_level == 0 then
 		caster.immortalSouls = 0
 		dominion_corpse_remove_modifier(caster)

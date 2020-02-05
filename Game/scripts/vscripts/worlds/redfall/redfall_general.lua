@@ -692,7 +692,6 @@ function summon_leech_seed_heal(event)
 	if target:GetUnitName() == "redfall_ancient_tree" then
 		healAmount = target:GetMaxHealth() * 0.06
 	end
-	--print(healAmount)
 	Filters:ApplyHeal(target, target, healAmount, true)
 end
 

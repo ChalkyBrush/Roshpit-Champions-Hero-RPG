@@ -55,7 +55,6 @@ function drop_think(keys)
 	caster.holy_lift_velocity = math.min(caster.holy_lift_velocity + 5, 40)
 	caster:SetAbsOrigin(newPosition)
 	--value = newPosition.z - GetGroundPosition(newPosition, caster).z
-	--print(value)
 	if newPosition.z - GetGroundPosition(newPosition, caster).z < -50 then
 		caster:RemoveModifierByName("modifier_creep_jump_drop")
 	end
@@ -86,7 +85,6 @@ function slide_think(keys)
 	if not caster.holy_slide_velocity then
 		caster.holy_slide_velocity = 75
 	end
-	--print(caster.holy_slide_velocity)
 	local newPosition = origin + ability.forwardVector * caster.holy_slide_velocity
 	caster.holy_slide_velocity = math.max(caster.holy_slide_velocity - 9, 0)
 	caster:SetAbsOrigin(newPosition)

@@ -79,7 +79,6 @@ function GameMode:PostLoadPrecache()
       local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid", "doomguard_a", "doomguard_b", "doomguard_c", "obsidian_golem", "depth_demon", "arabor_cultist", "exploding_warrior", "forest_boss", "rockjaw", "wastelands_archer", "desert_ghost", "goremaw_brute", "goremaw_shaman", "bone_horror", "wandering_mage", "scarab", "skittering_beetle", "satyr_doctor", "hammersaur", "alpha_wolf", "general_wolfenstein", "wolf_ally", "mountain_destroyer", "desert_warlord", "blood_fiend", "dune_crasher", "experimenter_jonuous", "twisted_soldier", "experimental_minion", "tortured_beast", "abomination", "hell_hound", "chaos_warrior", "raging_shaman", "crawler", "crafter", "nibohg", "satyr_behemoth", "firebat", "dire_ranged", "dire_melee", "minion_of_twilight", "spectral_assassin", "shadow_hunter", "betrayer_of_time", "arabor_spellweaver", "mines_boss"}
       for i = 1, #unitTable, 1 do
         Timers:CreateTimer(i * 0, function()
-          --print("precaching: "..unitTable[i])
           PrecacheUnitByNameAsync(unitTable[i], function(...) end)
         end)
       end
@@ -89,7 +88,6 @@ function GameMode:PostLoadPrecache()
       local unitTable = {"dark_fighter", "icy_venge", "sorc_water_elemental", "time_walker", "rabid_walker", "npc_dota_creature_basic_zombie_exploding", "gargoyle", "hook_flinger", "human_rifleman", "blood_jumper", "mekanoid_disruptor", "epoch_summon", "furion_brute", "freeze_fiend", "the_butcher", "forest_broodmother", "spiderling", "spiderling2", "rare_ghost", "rolling_earth_spirit", "little_meepo", "furion_mystic", "twitch_lone_druid"}
       for i = 1, #unitTable, 1 do
         Timers:CreateTimer(i * 0, function()
-          --print("precaching: "..unitTable[i])
           PrecacheUnitByNameAsync(unitTable[i], function(...) end)
         end)
       end
@@ -205,7 +203,6 @@ function superPrecache()
   local unitTable = {"crow_eater"}
   for i = 1, #unitTable, 1 do
     Timers:CreateTimer(i * 2, function()
-      --print("precaching: "..unitTable[i])
       PrecacheUnitByNameAsync(unitTable[i], function(...) end)
     end)
   end
@@ -228,7 +225,6 @@ function GameMode:OnPlayerReconnect(msg)
 end
 
 function GameMode:PlayerConnect(msg)
-  --print(msg)
   if DIFFICULTY_FACTOR then
     CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR})
   end
@@ -255,7 +251,6 @@ function GameMode:OnAllPlayersLoaded()
   Events.HEROKV = LoadKeyValues("scripts/npc/npc_heroes_custom.txt")
   Events:InitGameEntities()
   VectorTarget:Init()
-  --print("ALL PLAYERS LOADED")
   CustomGameEventManager:Send_ServerToAllClients("update_selected_difficulty", {difficulty = DIFFICULTY_FACTOR})
   CustomNetTables:SetTableValue("hero_index", "taken_heroes", {})
 

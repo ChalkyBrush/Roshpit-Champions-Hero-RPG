@@ -15,7 +15,6 @@ function begin_ghost_hallow(event)
 end
 
 function ghost_trap_enter(event)
-	--print("test duskbringer w1")
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster

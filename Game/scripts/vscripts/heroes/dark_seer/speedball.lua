@@ -162,7 +162,6 @@ function speedball_explode(caster, ability, damage, stun_duration)
 			ability:StartCooldown(cd - ZHONIK_R_CD_RED_ON_HIT)
 			if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 				if caster:HasAbility("tachyon_shell") then
-					--print("HERE?")
 					local eventTable = {}
 					eventTable.caster = caster
 					eventTable.target = enemy
@@ -170,7 +169,6 @@ function speedball_explode(caster, ability, damage, stun_duration)
 					eventTable.duration = eventTable.ability:GetLevelSpecialValueFor("duration", eventTable.ability:GetLevel())
 					eventTable.bNoCast = true
 					if eventTable.ability then
-						--print("CAST TACHYON")
 						tachyon_shield_cast(eventTable)
 					end
 				end
@@ -214,7 +212,6 @@ function mach_ready_thinking(event)
 								eventTable.ability = caster:FindAbilityByName("zonik_comet_punch")
 							end
 							eventTable.damage_mult = eventTable.ability:GetLevelSpecialValueFor("damage_mult", eventTable.ability:GetLevel())
-							--print(eventTable.damage_mult)
 							eventTable.stun_duration = eventTable.ability:GetLevelSpecialValueFor("stun_duration", eventTable.ability:GetLevel())
 							mach_punch_cast(eventTable)
 						end

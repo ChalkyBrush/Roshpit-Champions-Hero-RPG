@@ -143,7 +143,6 @@ function dot_think(event)
 	local r1_level = caster:GetRuneValue("r", 1)
 	local r2_level = caster:GetRuneValue("r", 2)
 	if target.dummy then
-		print("Target is a dummy.")
 		return
 	end
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * damage_mult * r1_level * VENOMORT_ARCANA_1_R1_DAMAGE_PERCENT / 100	

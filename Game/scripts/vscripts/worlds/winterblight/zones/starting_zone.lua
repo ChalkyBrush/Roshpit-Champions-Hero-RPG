@@ -932,7 +932,6 @@ function Winterblight:FinishCaveWaves()
 		if Winterblight.caveSpawnRotateAccel > 0 then
 			return FrameTime()
 		else
-			--print("REMOVE PARTICLES")
 			for i = 1, #Winterblight.CaveSpawnParticleTable, 1 do
 				ParticleManager:DestroyParticle(Winterblight.CaveSpawnParticleTable[i], false)
 			end
@@ -1729,7 +1728,6 @@ function Winterblight:StartOrbSequence()
 			Timers:CreateTimer(0.3 * (i - 1) + (j - 1) * 3, function()
 				local orbPos = GetGroundPosition(basePos + Vector(differenceI * (i - 0.5) + RandomInt(-200, 200), differenceJ * (j - 0.5) + RandomInt(-400, 400)), Events.GameMaster)
 				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
-				--print(orbPos)
 				local startHeight = 900 + RandomInt(0, 200)
 				local endHeight = 380 + RandomInt(0, 210)
 				ParticleManager:SetParticleControl(pfx, 0, orbPos + Vector(0, 0, startHeight))

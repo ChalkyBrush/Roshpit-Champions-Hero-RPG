@@ -173,11 +173,6 @@ function RPCItems:ItemRemoveFromTrade(msg)
 	local item = EntIndexToHScript(itemIndex)
 	local droppingHero = GameState:GetHeroByPlayerID(droppingPlayerID)
 	local otherHero = EntIndexToHScript(droppingHero.tradingWith)
-	
-
-	--print(msg.bReturnItem)
-	--print("RETURN ITEM BOYS")
-	--print(droppingHero.tradeTable[slot])
 	if droppingHero.tradeTable[slot] == -1 then
 	else
 		droppingHero.tradeTable[slot] = -1

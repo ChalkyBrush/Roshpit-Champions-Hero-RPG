@@ -1614,9 +1614,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     attacker.element1 = element1
     attacker.element2 = element2
     local damageMult = 0
-    -- print("Damage: "..damage)
-    -- print("Element1: "..element1)
-    -- print("Element2: "..element2)
     if attacker:HasModifier("modifier_sorceress_immortal_fire_avatar") or attacker:HasModifier("modifier_sorceress_immortal_ice_avatar") then
         attacker = attacker.origCaster
     end
@@ -2190,7 +2187,6 @@ function Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, slo
                 if attacker.element1 then
                     colorVector = Elements:RGBVectorFromElementIndex(attacker.element1)
                 end
-                print(colorVector)
                 local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/magistrate_hood_gold.vpcf", victim:GetAbsOrigin(), 3)
                 ParticleManager:SetParticleControl(pfx, 12, colorVector)
             end
@@ -2521,10 +2517,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + ZHONIK_E4_ARCANA_TEMPORAL_AMP_PCT / 100 * e_4_level
             end
         elseif unitName == "npc_dota_hero_obsidian_destroyer" then
-            ----print("OD HERE")
             local d_d_level = attacker:GetRuneValue("r", 4)
             if d_d_level > 0 then
-                ----print("OD HERE2 r4: "..r_4_level)
                 mult = mult + d_d_level * EPOCH_R4_TIME_AMP
             end
         end
@@ -2951,7 +2945,6 @@ function Filters:AvalanchePlate(caster)
     Timers:CreateTimer(4, function()
         ParticleManager:DestroyParticle(pfx, false)
     end)
-    print("AVALANCHE TRIGGER")
 end
 
 function Filters:SeraphicVest(caster, ability_slot)
@@ -2973,7 +2966,6 @@ function Filters:SeraphicVest(caster, ability_slot)
             EmitSoundOn("RPCItem.Seraphic.Amethyst", caster)
             projectile_count = soul_vest:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SERAPHIC_SOULVEST_GEM_AMETHYST)
         end
-        print(projectile_count)
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, ITEM_RPC_SERAPHIC_SOULVEST_RADIUS_OF_SEARCH, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES+DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             local cycles = math.ceil(projectile_count/#enemies)
@@ -3878,14 +3870,12 @@ function Filters:EarthGuardian(victim, damage)
         elseif caster.earthAspect.linkParticleCount > 20 then
             caster.earthAspect.linkParticleCount = 0
         end
-        --print(splitDamage)
         ApplyDamage({victim = aspect, attacker = aspect, damage = splitDamage, damage_type = DAMAGE_TYPE_PURE})
     end
 
 end
 
 function Filters:WindSteelTakeDamage(victim, damage)
-    --print("WINDSTEEL HIT")
     local stackCount = victim:GetModifierStackCount("modifier_windsteel_effect", victim.body)
     if stackCount >= 1 then
         victim:SetModifierStackCount("modifier_windsteel_effect", victim.body, stackCount - 1)
@@ -4943,7 +4933,6 @@ function Filters:AlienArmor(caster)
                     if IsValidEntity(modifier_ability) then
                         local duration = modifier:GetRemainingTime()
                         local modifier_name = modifier:GetName()
-                        print(modifier_name)
                         if modifier_name == "modifier_shapeshift_cat" or modifier_name == "modifier_shapeshift_crow" or modifier_name == "modifier_shapeshift_year_beast" or modifier_name == "modifier_shapeshift_bear" or modifier_name == "modifier_draghor_shapeshift_bear_lua" or modifier_name == "modifier_draghor_shapeshift_hawk_lua" or modifier_name == "modifier_draghor_shapeshift_cat_lua" then
                             modifier_ability:ApplyDataDrivenModifier(modifier:GetCaster(), illusion, modifier:GetName(), {duration = duration})
                             illusion:SetModifierStackCount(modifier:GetName(), modifier:GetCaster(), modifier:GetStackCount())
@@ -5688,7 +5677,6 @@ function Filters:BlueRainLance(caster, ability, endFV, damage_mult)
     local range = ITEM_RPC_BLUE_RAIN_GAUNTLET_RANGE
     local enemies = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster:GetAbsOrigin() + endFV * range, caster, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
     if #enemies > 0 then
-        --print("ENEMIES??")
         for _, enemy in pairs(enemies) do
             if not enemy.dummy then
                 Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
@@ -5719,7 +5707,6 @@ function Filters:EternalEssenceGauntlet(hero, healAmount)
         eternal_essence_gauntlet.last_heal = 0
     end
     local heal_to_consider_for_eternal_essence_gauntlet = math.min(healAmount, hero:GetMaxHealth() - hero:GetHealth())
-    print(eternal_essence_gauntlet.last_heal)
     if heal_to_consider_for_eternal_essence_gauntlet > eternal_essence_gauntlet.last_heal then
         eternal_essence_gauntlet.last_heal = heal_to_consider_for_eternal_essence_gauntlet
         local attack_power_cap = hero:GetSpirit()*(ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_SPIRIT_CAP + eternal_essence_gauntlet:GetFinalGemPropertyValue("sapphire", ITEM_RPC_ETERNAL_ESSENCE_GAUNTLET_GEM_SAPPHIRE))
@@ -5988,7 +5975,6 @@ function Filters:AlaranaInit(caster, duration)
 end
 
 function Filters:ApplyBlueDragonGreavesBuff(caster, base_duration)
-    print("BLUE DRAGON")
     local dragon_effect = caster:FindModifierByName("modifier_blue_dragon_greaves_effect")
     if dragon_effect and dragon_effect:GetRemainingTime() > base_duration then
         return false
@@ -6018,7 +6004,6 @@ function Filters:CrystallineWCast(caster)
 end
 
 function Filters:FalconBoot(caster)
-    --print("falcon boot?")
     if not caster:HasModifier("modifier_falcon_immune") then
         local ability = caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]
         ability.hero = caster
@@ -6153,7 +6138,6 @@ function Filters:InitGravelFootEffect(caster, ability, hero, duration)
     local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/gravelfoot_dispel.vpcf", hero, 1.2)
     ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_buff", {duration = duration})
     local ms_loss = ITEM_RPC_GRAVELFOOT_TREADS_SELF_SLOW - ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GRAVELFOOT_TREADS_GEM_EMERALD)
-    print(ms_loss)
     ability:ApplyDataDrivenModifier(caster, hero, "modifier_gravelfoot_slow", {duration = duration})
     hero:SetModifierStackCount("modifier_gravelfoot_slow", caster, ms_loss)
 end

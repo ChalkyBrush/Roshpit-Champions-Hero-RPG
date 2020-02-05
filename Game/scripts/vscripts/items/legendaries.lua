@@ -246,9 +246,7 @@ function RPCItems:RollMagebaneRuneProperty()
         propertyName = "rune_r_2"
         tier = 2
     end
-    ----print("VALUE".. value)
     value = value + RandomInt(math.floor(maxFactor / 15), math.floor(maxFactor / 7))
-    ----print("ADJUSTED VALUE".. value)
     return tier, value, propertyName
 end
 
@@ -6860,7 +6858,6 @@ function RPCItems:RollWinterblightSkullRing(item_level)
     -- else
     --     item.newItemTable.requiredHero = glyphName[2]
     -- end
-    ----print(item.newItemTable.requiredHero)
     local glyphTitle = "#DOTA_Tooltip_ability_"..glyphName[1]
     local glyphDescrip = "#"..glyphName[1] .. "_description"
     RPCItems:SetPropertyValuesSpecial(item, "★", glyphTitle, "#b383d1", 1, glyphDescrip)
@@ -6871,7 +6868,6 @@ function RPCItems:RollWinterblightSkullRing(item_level)
     else
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
     end
-    ----print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
     -- item.newItemTable.requiredHero = glyphName[2]
     -- DeepPrintTable(glyphName)
 
@@ -6915,7 +6911,6 @@ end
 function RPCItems:RollImmortalByName(itemName, item_level)
     local deathLocation = Vector(0,0)
     local newItem = nil
-    --print(immortalName)
     if _G[itemName] then
         newItem = _G[itemName]:CreateLuaItem(item_level)
     elseif itemName == "item_rpc_magebane_gloves" then
@@ -7263,7 +7258,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
     elseif itemName == "item_rpc_epsilons_eyeglass" then
         newItem = RPCItems:RollEpsilonsEyeglass(item_level)
     elseif itemName == "item_rpc_heroic_conqueror_vestments" then
-        --print("GIMME DAT")
         newItem = RPCItems:RollHeroicConquerorVestments(item_level)
     elseif itemName == "item_rpc_autumn_sleeper_mask" then
         newItem = RPCItems:RollAutumnSleeperMask(item_level)
@@ -7468,9 +7462,7 @@ function RPCItems:RollImmortalByName(itemName, item_level)
 end
 
 function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, slotLock4, itemLevel, oldItemProperties)
-    --print("[RPCItems:RerollImmortal]")
     local itemName = item:GetAbilityName()
-    ----print(itemName)
     local newItem = false
     local isShop = false
     local giveBackOldItem = false
@@ -7485,7 +7477,6 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
     else
         newItem = RPCItems:RollImmortalByName(item:GetAbilityName(), item_level)
     end
-    --print(newItem)
     if newItem then
     else
         newItem = false
@@ -7583,7 +7574,6 @@ function RPCItems:RerollImmortal(hero, item, slotLock1, slotLock2, slotLock3, sl
         end
 
         if item:GetAbilityName() == newItem:GetAbilityName() then
-            --print("NEW ITEM IS ACCEPTABLE")
 
         end
         if IsValidEntity(newItem) then

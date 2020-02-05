@@ -304,7 +304,6 @@ function release_falling_think(event)
 	target.possessionFallSpeed = target.possessionFallSpeed + 1
 	--print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
 	if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < target.possessionFallSpeed then
-		--print("LAND")
 		target:RemoveModifierByName("modifier_release_falling")
 	end
 end

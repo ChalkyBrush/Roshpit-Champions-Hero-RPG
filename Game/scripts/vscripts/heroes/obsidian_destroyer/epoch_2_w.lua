@@ -10,7 +10,6 @@ function begin_genesis_orb(event)
 	ability.w_2_level = caster:GetRuneValue("w", 2)
 	local w_3_level = caster:GetRuneValue("w", 3)
 	ability.w_3_level = w_3_level
-	--print(w_3_level)
 	if w_3_level > 0 then
 		local stackIncrease = 1
 		if caster:HasModifier("modifier_epoch_immortal_weapon_1") then
@@ -66,7 +65,6 @@ function genesis_orb_impact(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	--print("GENESIS IMPACT??")
 	local damage = event.damage
 	if caster:HasModifier("modifier_time_warp_buff") then
 		damage = damage * 2
@@ -98,13 +96,11 @@ function genesis_orb_impact(event)
 		end)
 
 		local manaRestore = caster:GetMaxMana() * ability.w_1_level * EPOCH_W1_MANA_RESTORE_PCT / 100
-		--print(manaRestore)
 		caster:GiveMana(manaRestore)
 		PopupMana(caster, manaRestore)
 	end
 
 	local w_2_level = ability.w_2_level
-	--print("w_2_level: "..w_2_level)
 	if w_2_level > 0 then
 		local currentStacks = target:GetModifierStackCount("modifier_epoch_rune_w_2_visible", caster)
 		local new_stacks = math.min(currentStacks + 1, EPOCH_W2_MAX_STACKS)

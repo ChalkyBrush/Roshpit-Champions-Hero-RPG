@@ -1195,7 +1195,6 @@ function winterblight_wave_unit_die(event)
 			Winterblight.CaveUnitsSlain = 0
 		end
 		Winterblight.CaveUnitsSlain = Winterblight.CaveUnitsSlain + 1
-		--print(Winterblight.CaveUnitsSlain)
 		if Winterblight.CaveUnitsSlain == 34 then
 			local delay = 1.2 - 0.15 * GameState:GetDifficultyFactor()
 			for i = 1, #Winterblight.CaveSpawnerInnerTable, 1 do
@@ -1758,7 +1757,6 @@ function sword_lifting_think(event)
 		return false
 	end
 	if caster:GetAbsOrigin().z > 3000 then
-		--print("spawn sven")
 		caster:RemoveModifierByName("modifier_sword_lifting")
 		caster.locked = true
 		local titan = Winterblight:SpawnFrostTitan(caster:GetAbsOrigin(), caster:GetForwardVector())
@@ -2281,7 +2279,6 @@ end
 function heartfreezer_blink(event)
 	local caster = event.caster
 	local ability = event.ability
-	--print("ANYTHING?")
 	EmitSoundOn("Winterblight.IceBlink", caster)
 	local position = event.target_points[1]
 	local particleName = "particles/econ/events/winter_major_2017/blink_dagger_start_wm07.vpcf"

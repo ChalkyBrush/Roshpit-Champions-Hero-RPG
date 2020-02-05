@@ -67,7 +67,6 @@ function red_general_ability_base_w_start(event)
 end
 
 function red_general_ability_base_w_projectileHit(event)
-	-- print("red_general_ability_base_w_projectileHit")
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
@@ -87,7 +86,6 @@ function red_general_ability_base_w_projectileHit(event)
 end
 
 function red_general_rune_base_w_1_applyDebuff(target, caster, ability)
-	-- print("red_general_rune_base_w_1_applyDebuff")
 	local stackCount = target:GetModifierStackCount("modifier_axe_rune_w_1_visible", caster)
 	if stackCount == 0 then
 		ability.stackLoseTimes = {}
@@ -120,7 +118,6 @@ function red_general_rune_base_w_1_think(event)
 end
 
 function red_general_rune_base_w_2_applyDebuff(target, caster, ability)
-	-- print("red_general_rune_base_w_2_applyDebuff")
 	local runesCount = caster.w_2_level
 	if runesCount <= 0 then
 		return

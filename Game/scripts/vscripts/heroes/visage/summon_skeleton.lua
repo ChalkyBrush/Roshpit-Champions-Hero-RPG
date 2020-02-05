@@ -77,8 +77,6 @@ function cast_raise_skeleton(event)
 
 					local skele_armor_pierce = caster:GetRoshpitArmorPierce() + w_4_level*EKKAN_W4_PIERCES
 					local skele_spell_pierce = caster:GetRoshpitSpellPierce() + w_4_level*EKKAN_W4_PIERCES
-					print(skeleArmor)
-					print("------")
 					skeleton:SetBaseRoshpitArmor(skeleArmor)
 					skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
 					skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)
@@ -178,7 +176,6 @@ function skeleton_die(event)
 	local ability = event.ability
 	local caster = event.caster
 	reindexSkeleTable(ability)
-	--print("SKELETON DIE")
 	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)
@@ -195,7 +192,6 @@ function skeleton_expire(event)
 	local caster = event.caster
 	local ability = event.ability
 	reindexSkeleTable(ability)
-	--print("SKELETON DIE")
 	--print(#ability.skeleTable)
 	if #ability.skeleTable > 0 then
 		caster:SetModifierStackCount("modifier_summon_skeleton_counter", caster, #ability.skeleTable)

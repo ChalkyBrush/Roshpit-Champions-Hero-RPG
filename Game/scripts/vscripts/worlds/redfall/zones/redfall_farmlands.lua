@@ -325,7 +325,6 @@ function Redfall:EndFarmerSceneA()
 		Timers:CreateTimer(8, function()
 			Redfall.Farmlands.farmNPCa:MoveToPosition(Redfall.Farmlands.farmNPCa:GetAbsOrigin() + Vector(40, 0, 0))
 			Redfall.Farmlands.farmNPCa.dialogueName = "farmer1a"
-			--print("CHANGE DIALOGUE STYLE")
 		end)
 	end)
 end
@@ -402,8 +401,6 @@ function Redfall:FarmlandsCenterTrigger1()
 end
 
 function Redfall:IncrementFarmlandsQuest()
-	--print("--_QUEST STATE_--")
-	--print(MAIN_HERO_TABLE[1].RedfallQuests[7].state)
 	if MAIN_HERO_TABLE[1].RedfallQuests[7].state == -1 then
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i].RedfallQuests[7].state = 1
@@ -798,7 +795,6 @@ function Redfall:FarmlandsLastHouseSpawn(hero)
 	if not Redfall.Farmlands then
 		Redfall.Farmlands = {}
 	end
-	--print("SPAWN HOUSE?")
 	if not Redfall.Farmlands.LastFarmSpawned then
 		if hero.RedfallQuests[7].state == 3 then
 			Redfall.Farmlands.LastFarmSpawned = true

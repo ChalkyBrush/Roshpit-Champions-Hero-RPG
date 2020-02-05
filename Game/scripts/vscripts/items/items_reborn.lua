@@ -220,7 +220,6 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	local random_type_chance = RandomInt(0 + random_type_boost, 10000)
 	-- print("[RPCItems:RollRandomItem] random_type_chance: "..tostring(random_type_chance))
 	if random_type_chance <= 9960 then
-		print("im too sleepy")
 	elseif random_type_chance <= 9996 then
 		item = RPCItems:RebornGlyph()
 	elseif random_type_chance <= 10000 then
@@ -364,7 +363,6 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 	if iLevel < original_unit_level*0.65 then
 		iLevel = math.floor(original_unit_level*0.65)
 	end
-	print("ILEVEL: "..iLevel)
 	return math.min(math.floor(iLevel), 120)
 end
 

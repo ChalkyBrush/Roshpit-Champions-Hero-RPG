@@ -213,7 +213,6 @@ function tornado_hit(event)
 	local rendStacks = enemy:GetModifierStackCount("modifier_wolf_rend_stack", caster)
 	local newStacks = math.min(2, rendStacks + 1)
 	enemy:SetModifierStackCount("modifier_wolf_rend_stack", caster, newStacks)
-	--print("RUN THIS??")
 
 	local armorLoss = (enemy:GetPhysicalArmorValue(false) + enemy:GetModifierStackCount("modifier_wolf_rend_armor_loss", caster)) * 0.5
 	ability:ApplyDataDrivenModifier(caster, enemy, "modifier_wolf_rend_armor_loss", {duration = 8})
@@ -359,11 +358,9 @@ function charge_slide_think(event)
 	if ability.slideVelocity > 0 then
 		ability.slideVelocity = ability.slideVelocity - 2
 	end
-	--print("slide think")
 end
 
 function charge_slide_end(event)
-	--print("slide END")
 	local caster = event.caster
 	caster.EFV = nil
 end
@@ -485,7 +482,6 @@ function jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_monkey_jump")
 		end

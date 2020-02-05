@@ -159,7 +159,6 @@ function bomb_explode(unit)
     local stun_duration = unit.stun_duration
     local w_1_level = unit.w_1_level
     local w_3_level = unit.w_3_level
-    --print("BOMB EXPLODE??")
     local position = unit:GetAbsOrigin()
     local localKey = caster:GetEntityIndex() .. '_trapper_w'
     Util.Common:LimitPerTime(1, 1, localKey .. '_sound', function()
@@ -464,7 +463,6 @@ end
 --    local caster = unit.origCaster
 --    local ability = unit.origAbility
 --    local blind_duration = unit.blind_duration
---   --print("BOMB EXPLODE??")
 --    Timers:CreateTimer(0.9, function()
 --                local position = unit:GetAbsOrigin()
 --                StopSoundEvent("Trapper.BombTicking", unit)

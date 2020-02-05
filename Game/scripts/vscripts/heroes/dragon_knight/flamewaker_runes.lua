@@ -288,7 +288,6 @@ function rune_q_3_start(event)
 	ability.q_3_level = caster:GetRuneValue("q", 3)
 	if ability.q_3_level > 0 then
 		ability.tauntDuration = ability.q_3_level * 0.15 + 2.0
-		--print(ability.tauntDuration)
 		ability.runeAbility = runeAbility
 		ability.runeUnit = runeUnit
 		runeAbility:ApplyDataDrivenModifier(runeUnit, caster, "flamewaker_rune_q_3_buff", {duration = ability.tauntDuration})

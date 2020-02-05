@@ -56,7 +56,6 @@
 --             Projectiles.timers[k] = v
 --           end
 --         else
---          --print('[PROJECTILES] Timer error:' .. nextCall)
 --         end
 --       end
 --     end
@@ -67,7 +66,6 @@
 
 -- function Projectiles:CreateTimer(name, args)
 --   if not args.endTime or not args.callback then
---    --print("Invalid timer created: "..name)
 --     return
 --   end
 
@@ -360,7 +358,6 @@
 --         local groundConnect = ground.z > pos.z -- ground
 --         if navConnect then
 --           if GridNav:IsNearbyTree(subpos, 30, true) and pos.z < ground.z + 280 + radius - projectile.fGroundOffset and pos.z + radius + projectile.fGroundOffset > ground.z then
---             --print('tree hit')
 --             local vec = Vector(GridNav:GridPosToWorldCenterX(GridNav:WorldToGridPosX(subpos.x)), GridNav:GridPosToWorldCenterY(GridNav:WorldToGridPosY(subpos.y)), ground.z - projectile.fGroundOffset)
 --             --DebugDrawCircle(vec, Vector(200,200,200), 100, 10, true, .5)
 --             local ents = Entities:FindAllByClassnameWithin("ent_dota_tree", vec, 70)
@@ -395,7 +392,6 @@
 --         end
 --         if projectile.WallBehavior ~= PROJECTILES_NOTHING and groundConnect then--ground.z > projectile.prevPos.z then
 --           local normal = Projectiles:CalcNormal(ground, projectile.Source, 32)
---           --print(normal)
 --           if normal.z < .6 then
 --             local vec = Vector(GridNav:GridPosToWorldCenterX(GridNav:WorldToGridPosX(subpos.x)), GridNav:GridPosToWorldCenterY(GridNav:WorldToGridPosY(subpos.y)), ground.z)
 --             local status, action = pcall(projectile.OnWallHit, projectile, vec)
@@ -426,7 +422,6 @@
 --           end
 --         end
 --         if projectile.GroundBehavior ~= PROJECTILES_NOTHING and groundConnect then
---             --print('groundConnect')
 --             if projectile.GroundBehavior == PROJECTILES_DESTROY then
 --               ParticleManager:DestroyParticle(projectile.id, false)
 --               local status, action = pcall(projectile.OnGroundHit, projectile, ground)
@@ -464,7 +459,6 @@
 --                  --print('[PROJECTILES] Collision OnGroundHit Failure!: ' .. action)
 --                 end
 --                 --projectile.fGroundOffset = projectile.fGroundOffset - 10
---                 --print('follow under')
 --                 projectile:SetVelocity(velLength * 30 * slope, subpos)
 --               end
 --               break

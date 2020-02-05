@@ -1,5 +1,4 @@
 function ShipyardWater(trigger)
-	--print("ENTER?")
 	local hero = trigger.activator
 	if hero:HasModifier("modifier_redfall_shipyard_water") then
 		return false
@@ -427,7 +426,6 @@ end
 function shipyard_aoe_phase_start(event)
 	local caster = event.caster
 	local particle1 = ParticleManager:CreateParticle("particles/frostivus_gameplay/wraith_king_hellfire_eruption_tell.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
-	--print("eruption?")
 	for i = 0, 9, 1 do
 		ParticleManager:SetParticleControl(particle1, i, caster:GetAbsOrigin())
 	end
@@ -490,8 +488,6 @@ function shipyard_gatekeeper_die(event)
 end
 
 function BoatTriggerA(trigger)
-	----print(Redfall.Shipyard.boatsEnabled)
-	----print(Redfall.Shipyard.boatAlock)
 	if Redfall.Shipyard.boatsEnabled then
 		if not Redfall.Shipyard.boatAlock then
 			local hero = trigger.activator
@@ -535,8 +531,6 @@ function BoatTriggerA(trigger)
 end
 
 function BoatTriggerB(trigger)
-	----print(Redfall.Shipyard.boatsEnabled)
-	----print(Redfall.Shipyard.boatAlock)
 	if Redfall.Shipyard.boatsEnabled then
 		if not Redfall.Shipyard.boatBlock then
 			local hero = trigger.activator
@@ -946,7 +940,6 @@ function shipyard_boss_aura_end(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	--print("BREAK AURA??")
 	if IsValidEntity(caster) then
 		if target:IsHero() and target:IsAlive() then
 			local roomCenter = Vector(14825, 10613)

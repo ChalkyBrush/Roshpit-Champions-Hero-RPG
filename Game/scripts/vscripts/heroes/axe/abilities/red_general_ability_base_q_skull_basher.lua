@@ -2,7 +2,6 @@ require("heroes/axe/red_general_constants")
 local Helper = require("heroes/util/helper")
 
 function red_general_ability_base_q_skull_basher(event)
-	--print("red_general_ability_base_q_skull_basher")
 	local caster = event.caster
 	local ability = event.ability
 	local abilityLevel = ability:GetLevel()
@@ -50,7 +49,6 @@ function red_general_ability_base_q_skull_basher(event)
 end
 
 function red_general_ability_base_q_jump_think(event)
-	--print("red_general_ability_base_q_jump_think")
 	local caster = event.caster
 	local ability = event.ability
 
@@ -84,7 +82,6 @@ function red_general_ability_base_q_jump_think(event)
 end
 
 function red_general_ability_base_q_jump_landing(event)
-	--print("red_general_ability_base_q_jump_landing")
 	local caster = event.caster
 	local ability = event.ability
 	local location = caster:GetAbsOrigin()
@@ -101,7 +98,6 @@ function red_general_ability_base_q_jump_landing(event)
 end
 
 function red_general_ability_base_q_attackLand(event, q2_think)
-	-- print("red_general_ability_base_q_attackLand")
 	local caster = event.caster
 	if not q2_think and caster:HasModifier("modifier_stun_attack") then
 		red_general_rune_base_q_1_attackLand(event)
@@ -161,7 +157,6 @@ function red_general_ability_base_q_attackLand(event, q2_think)
 end
 
 function red_general_rune_base_q_1_attackLand(event)
-	-- print("red_general_rune_base_q_1_attackLand")
 	local caster = event.attacker
 	local ability = event.ability
 	local hero = caster
@@ -195,7 +190,6 @@ function red_general_rune_base_q_1_attackLand(event)
 end
 
 function red_general_rune_base_q_1_getAdditionalDamage(caster)
-	-- print("red_general_rune_base_q_1_getAdditionalDamage")
 	if caster.q_1_level > 0 then
 		return caster.q_1_level * OverflowProtectedGetAverageTrueAttackDamage(caster) * RED_GENERAL_Q1_ATTACK_DAMAGE_PROCENT / 100
 	else
@@ -204,14 +198,12 @@ function red_general_rune_base_q_1_getAdditionalDamage(caster)
 end
 
 function red_general_rune_base_q_2_think(event)
-	--print("red_general_rune_base_q_2_think")
 	if event.caster:HasModifier("modifier_axe_glyph_7_2") then
 		red_general_ability_base_q_attackLand(event, true)
 	end
 end
 
 function red_general_rune_base_q_3_start(caster, ability)
-	--print("red_general_rune_base_q_3_start")
 
 	if caster.q_3_level <= 0 then
 		return false
@@ -219,7 +211,6 @@ function red_general_rune_base_q_3_start(caster, ability)
 
 	local damageAmp = caster.q_3_level * RED_GENERAL_Q3_AMPLIFY_PERCENT / 100
 	if caster:HasAbility("red_general_ability_base_r_sunder") then
-		print("HasAbility red_general_ability_base_r_sunder")
 		local sunderAbility = caster:FindAbilityByName("red_general_ability_base_r_sunder")
 		local damage = sunderAbility:GetSpecialValueFor("main_damage") / 100 * caster:GetHealth() * damageAmp
 		local procsCount = 1
@@ -258,7 +249,6 @@ function red_general_rune_base_q_3_start(caster, ability)
 end
 
 function red_general_rune_base_q_4_applyDebuff(caster, target, ability)
-	-- print("red_general_rune_base_q_4_applyDebuff")
 	if caster.q_4_level > 0 then
 		local runesCount = caster.q_4_level
 		Helper.updateStackModifier(target, caster, ability, 'axe_rune_q_4', RED_GENERAL_Q4_DURATION, RED_GENERAL_Q4_MAX_STACKS_COUNT, runesCount)

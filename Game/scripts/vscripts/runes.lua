@@ -139,9 +139,7 @@ end
 function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID)
 	local heroName = hero:GetUnitName()
 	local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
-	--print(roshpit_name)
 	Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
-	--print("COLECTED RUNES")
 	runeUnit:AddAbility("town_unit"):SetLevel(1)
 	runeUnit2:AddAbility("town_unit"):SetLevel(1)
 	runeUnit3:AddAbility("town_unit"):SetLevel(1)
@@ -313,7 +311,6 @@ function Runes:LevelUpRune(keys)
 	local player = PlayerResource:GetPlayer(PlayerID)
 	local ability = EntIndexToHScript(keys.ability)
 	local unit = EntIndexToHScript(keys.unit)
-	--print("LEVELUP RUNE")
 	local hero = player:GetAssignedHero()
 	local current_points = Runes:CalculateAvailableRunePointsAndAbilityPoints(hero)
 	local current_rune_points = current_points.rune_points
@@ -325,7 +322,6 @@ function Runes:LevelUpRune(keys)
 		end
 	end
 	--print(unit:GetPlayerOwnerID())
-	--print(PlayerID)
 	local max_rune_level = Runes:GetMaxRuneLevel(ability, hero)
 	local rune_point_cost = Runes:GetRuneCostPerLevel(ability, hero)
 	if current_rune_points >= rune_point_cost and ability.rune_level < max_rune_level and hero:IsAlive() and bAllow then
@@ -682,7 +678,6 @@ function Runes:apply_runes(ability, unit, PlayerID)
 end
 
 function Runes:EquipArcana(hero, index)
-	--print("--------APPLY ARCANA HERO NAME-------")
 	--print(hero:GetUnitName())
 	if hero:HasModifier("modifier_respawned_equip") then
 		return false
@@ -878,7 +873,6 @@ function Runes:EquipArcana(hero, index)
 			Runes:EasySwapArcanaSkills(hero, 0, "whirling_flail", "duskbringer_arcana_terrorize", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_invoker" then
-		--print("-----HELLO----")
 		if index == 1 then
 			local origAbility = hero:GetAbilityByIndex(DOTA_R_SLOT)
 			local abilityLevel = hero:GetAbilityByIndex(DOTA_R_SLOT):GetLevel()
@@ -1168,7 +1162,6 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
-			--print(hero.sunMoon)
 			if hero.sunMoon == "moon" then
 				if hero:HasAbility("solunia_solar_glow") then
 					hero:RemoveAbility("solunia_solar_glow")
@@ -1294,7 +1287,6 @@ function Runes:EquipArcana(hero, index)
 					calculate_onibi_element_levels(onibi)
 				end
 			else
-				--print("retrying arcana equip")
 				return 0.5
 			end
 		end)
@@ -1795,7 +1787,6 @@ function Runes:UnequipArcana(hero, index)
 		if index == 1 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			--print("HERE?????????")
 			if hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
 				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_walk" then
@@ -1916,7 +1907,6 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_vengefulspirit" then
 		if index == 1 then
-			--print(hero.sunMoon)
 			hero:RemoveModifierByName("modifier_solar_comet_free_cast")
 			hero:RemoveModifierByName("modifier_lunar_comet_free_cast")
 			hero:RemoveModifierByName("modifier_solar_comet_passive")

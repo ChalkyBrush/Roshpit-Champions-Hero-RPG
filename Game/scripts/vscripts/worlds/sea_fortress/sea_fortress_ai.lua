@@ -1416,7 +1416,6 @@ function lady_summoner_think(event)
 				Seafortress.RevenantTicks = Seafortress.RevenantTicks + 0.5
 				Seafortress.RevenantBoss:SetModelScale(0.01 + (Seafortress.RevenantTicks / 20))
 			end)
-			--print(Seafortress.RevenantTicks)
 			if Seafortress.RevenantTicks > 60 then
 				caster.state = 6
 				if not Seafortress.RevenantBoss.init then
@@ -1568,7 +1567,6 @@ function bombadier_ability_start(event)
 	local baseFV = (target * Vector(1, 1, 0) - caster:GetAbsOrigin() * Vector(1, 1, 0)):Normalized()
 	local divisor = 28
 	local forwardVelocity = WallPhysics:GetDistance2d(target, caster:GetAbsOrigin()) / divisor + 6
-	--print(baseFV)
 	local bombCount = event.num_bombs
 	local damage = event.damage
 	for i = 0, bombCount - 1, 1 do
@@ -2720,12 +2718,10 @@ function depth_warper_ai(caster)
 			if warpAbility:IsFullyCastable() then
 				for i = 0, 20, 1 do
 					Timers:CreateTimer(i * 0.09, function()
-						--print("GO CAST DELAY")
 						if warpAbility:IsFullyCastable() then
 							local enemyFV = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 							local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), enemies[1]:GetAbsOrigin())
 							local castAngle = WallPhysics:rotateVector(enemyFV, 2 * math.pi * RandomInt(-5, 5) / 50)
-							--print(castAngle)
 							local magnitude = distance / 20
 							local targetPoint = caster:GetAbsOrigin() + (castAngle * RandomInt(28, 40) * magnitude)
 							local order =
@@ -2890,7 +2886,6 @@ function end_warp_flare(ability, caster)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_solunia_warp_flare_falling", {duration = 4})
 	end
 	ability.fallVelocity = 3
-	--print(ability.flareCount)
 	EmitSoundOn("Seafortress.WarpExplosion", caster)
 	local maxFlares = 3
 
@@ -4325,7 +4320,6 @@ function naga_summoner_think(event)
 	elseif luck == 4 then
 		spawnPos = spawnPos + Vector(RandomInt(-200, 200), RandomInt(0, 1792))
 	end
-	--print("STATE"..caster.state)
 	if caster.state == 1 then
 		if caster.summonState <= 14 then
 			if caster.summonState == 0 then
@@ -4401,7 +4395,6 @@ function naga_summoner_think(event)
 			caster:RemoveModifierByName("modifier_naga_summoner_summoning")
 		end
 	elseif caster.state == 5 then
-		--print("HELLO?")
 		if caster.summonState <= 12 then
 			if caster.summonState == 0 then
 				EmitSoundOn("Seafortress.Skultoth.SummonAmbient", caster)
@@ -4570,7 +4563,6 @@ function naga_summon_unit_die(caster, bCount)
 	if bCount then
 		Seafortress.NagaSummonsSlain = Seafortress.NagaSummonsSlain + 1
 	end
-	--print("UNITS SLIAN: "..Seafortress.NagaSummonsSlain)
 
 	if Seafortress.NagaSummonsSlain == 12 then
 		if Seafortress.NagaSummonerReefBoss:HasModifier("modifier_naga_summoner_summoning") then
@@ -4994,7 +4986,6 @@ function sea_giant_ult(event)
 
 						local particleName = "particles/units/heroes/hero_elder_titan/elder_titan_earth_splitter.vpcf"
 						local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
-						--print("DOING ANYTHING?")
 						ParticleManager:SetParticleControl(pfx, 0, startPoint - direction * 50 + forkDirection * 50)
 						ParticleManager:SetParticleControl(pfx, 1, startPoint + forkDirection * 3000)
 						ParticleManager:SetParticleControl(pfx, 3, Vector(200, 3.5, 200)) -- y COMPONENT = duration
@@ -5563,7 +5554,6 @@ function boss_attack_land(event)
 			-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2)
 			local targetAngle = ((enemy:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 			local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
-			--print(angleDifferential)
 			if angleDifferential < math.pi / 2 then
 				ApplyDamage({victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 			end
@@ -5636,7 +5626,6 @@ function lightning_ball_think(event)
 					if not ally:HasModifier("modifier_electric_ball_immunity") then
 						if ally.backHits < ally.backHitsMax then
 							ally.backHits = ally.backHits + 1
-							--print(ally.backHits)
 							local towardEnemy = ((ally:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 							ally:SetForwardVector(towardEnemy *- 1)
 							StartAnimation(ally, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1.1})
@@ -5677,7 +5666,6 @@ end
 function lightning_ball_take_damage(event)
 	local caster = event.caster
 	local attacker = event.attacker
-	--print("TAKE DAMAGE?")
 	local pushDirection = ((caster:GetAbsOrigin() - attacker:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	caster.speed = math.min(caster.speed + 6, 55)
 	caster.fv = (caster.fv + pushDirection * 4):Normalized()
@@ -6171,7 +6159,6 @@ function comet_think(event)
 		caster:RemoveModifierByName("modifier_comet_storming")
 	elseif caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 340 then
 		if not ability.landAnimated then
-			--print("ANIMATE")
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
 			ability.landAnimated = true
 			StartAnimation(caster, {duration = 0.7, activity = ACT_DOTA_ATTACK, rate = 1.3})

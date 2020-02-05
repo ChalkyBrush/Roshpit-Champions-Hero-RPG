@@ -94,9 +94,7 @@ function createWall(event)
 		for i = 1, #ability.wallThinkerTable, 1 do
 			wallThinker = ability.wallThinkerTable[i]
 			if wallThinker.index == intervalForFunction then
-				--print("remove one with walindex: "..wallThinker.index)
 			else
-				--print("INSERT..."..wallThinker.index)
 				table.insert(newTable, wallThinker)
 			end
 		end

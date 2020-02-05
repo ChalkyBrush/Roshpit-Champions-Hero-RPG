@@ -108,7 +108,6 @@ local Notify = function(player, msg, duration)
     local table = {text = msg, duration = duration, style = {color = "red"}}
     Notifications:Bottom(player, table)
   else
-    --print('[Attachments.lua] ' .. msg)
   end
 end
 
@@ -152,12 +151,10 @@ end
 
 function Attachments:ActivateAttachmentSetup(addon)
   if addon == nil or addon == "" then
-    --print("[Attachments.lua] Addon name must be specified.")
     return
   end
 
   if not io then
-    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
   if not Attachments.activated then
@@ -173,7 +170,6 @@ function Attachments:ActivateAttachmentSetup(addon)
     if not file then
       file = io.open(Attachments.dbFilePath, 'w')
       WriteKV(file, "Attachments", {})
-      --print("[Attachments.lua] Created file: 'dota_addons/" .. addon .. "/scripts/attachments.txt'.")
     end
     file:close()
 
@@ -301,12 +297,10 @@ function Attachments:Attachment_SaveAttach(args)
   Attachments:Attachment_UpdateAttach(args)
 
   if not io then
-    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
   if Attachments.dbFilePath == nil or Attachments.dbFilePath == "" then
-    --print("[Attachments.lua] Attachments database file must be set.")
     return
   end
 
@@ -331,7 +325,6 @@ function Attachments:Attachment_LoadAttach(args)
   local model = properties.model
 
   if not io then
-    --print("[Attachments.lua] Attachments Setup is only available in tools mode.")
     return
   end
 
@@ -483,7 +476,6 @@ function Attachments:AttachProp(unit, attachPoint, model, scale, properties)
   angles = QAngle(angles.x, angles.y, angles.z)
   --angles = RotationDelta(angles,QAngle(pitch, yaw, roll))
   --print(prop:GetAngles())
-  --print(angles)
   --print(RotationDelta(RotationDelta(angles,QAngle(pitch, yaw, roll)),QAngle(0,0,0)))
   --angles = QAngle(pitch, yaw, roll)
 
@@ -513,13 +505,11 @@ function Attachments:AttachProp(unit, attachPoint, model, scale, properties)
   if db['Particles'] then particle_data = db['Particles'][propModel] end
   if particle_data then
     local particleName = particle_data['EffectName']
-    --print("Found particle",particleName)
     prop.fx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN, prop)
 
     -- Loop through the Control Point Entities
     local control_points = particle_data['ControlPointEntities']
     for k, ent_point in pairs(control_points) do
-      --print("Making Particle",particleName,prop.fx,k,prop,ent_point)
       ParticleManager:SetParticleControlEnt(prop.fx, tonumber(k), prop, PATTACH_POINT_FOLLOW, ent_point, prop:GetAbsOrigin(), true)
     end
   end

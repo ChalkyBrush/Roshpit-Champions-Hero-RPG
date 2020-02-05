@@ -17,8 +17,6 @@ function blade_dash_start(event)
 		ability.target = false
 		ability.targetPoint = event.target_points[1]
 	end
-	--print(ability.target)
-	--print(ability.targetPoint)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_seinaru_arcana_dashing", {duration = 4})
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 80))
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Juggernaut.PreAttack", caster)

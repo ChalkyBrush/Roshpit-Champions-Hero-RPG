@@ -323,7 +323,6 @@ function omni_orb_charge_procced(event, basic_damage)
 		local max_shield_stacks = OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS + orb_ability:GetSpecialValueFor("nature_orb_b") * caster.omniro_data[RPC_ELEMENT_NATURE]["level"]
 		local current_stacks = caster:GetModifierStackCount("modifier_omniro_nature_shield", caster)
 		local additional_stacks = Runes:Procs(caster.omniro_data[RPC_ELEMENT_NATURE]["level"], orb_ability:GetSpecialValueFor("nature_orb_a"), 1)
-		--print(additional_stacks)
 		local final_new_stacks = math.min(current_stacks + additional_stacks, max_shield_stacks)
 
 		local shield_duration = Filters:GetAdjustedBuffDuration(caster, OMNIRO_NATURE_SHIELD_DURATION, false)

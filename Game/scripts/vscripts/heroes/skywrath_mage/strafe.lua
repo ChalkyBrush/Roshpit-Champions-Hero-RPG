@@ -168,13 +168,11 @@ function boomerang_think(event)
 				UTIL_Remove(boomerang)
 				reindexBoomerangs(strafe)
 				if strafe.countPFX then
-					--print("IN HERE?")
 					--print(#strafe.boomerangTable)
 					--print("&&&&&&&&&&&&&&&&&&&")
 					if #strafe.boomerangTable > 0 then
 						ParticleManager:SetParticleControl(strafe.countPFX, 1, Vector(0, #strafe.boomerangTable, #strafe.boomerangTable))
 					else
-						--print("DESTRY IT")
 						ParticleManager:DestroyParticle(strafe.countPFX, false)
 						strafe.countPFX = false
 					end

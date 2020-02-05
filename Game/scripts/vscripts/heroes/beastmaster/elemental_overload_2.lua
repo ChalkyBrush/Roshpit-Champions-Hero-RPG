@@ -229,7 +229,6 @@ function warlord_a_d_think(event)
 	local aoeDamage = WARLORD_R1_DMG_PER_CHARGE * ability.earthCharges * r_1_level
 	local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		--print("WARLORD A_D")
 		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Warlord.ADAoeSound", caster)
 		for _, enemy in pairs(enemies) do	
 			Filters:TakeArgumentsAndApplyDamage(enemy, target, aoeDamage, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)

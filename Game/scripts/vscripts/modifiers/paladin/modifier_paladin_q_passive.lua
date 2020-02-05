@@ -15,7 +15,6 @@ function class:DeclareFunctions()
 end
 
 function class:OnAttackLanded(event)
-	--print("HERE modifier_paladin_q_passive")
 	local caster = self:GetParent()
 	if event.attacker ~= caster then 
 		return 

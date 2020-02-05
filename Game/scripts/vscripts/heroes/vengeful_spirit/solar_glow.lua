@@ -312,7 +312,6 @@ function a_a_projectile_hit(event)
 	end
 	local targetPoint = ability.targetPoint
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_solunia_a_a_root", {duration = 0.6})
-	--print("TARGET HIT")
 	local distanceToPoint = WallPhysics:GetDistance2d(targetPoint, target:GetAbsOrigin())
 	local pushVector = (((targetPoint + ability.baseFV * 200) - target:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
 	local divider = math.max(4000 - ability.rune_q_1_level * SOLUNIA_Q1_PUSH_FORCE * 10, 1500)

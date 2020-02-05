@@ -9,7 +9,6 @@ function Arena:PreparePitSwitches()
 			table.insert(Arena.PitSwitchTable, s1)
 		end
 	end
-	--print("Prepare Pit Switches")
 	Arena.PitSwitchColorTable = {}
 	local colorTable = {"red", "blue", "yellow"}
 	for i = 1, #Arena.PitSwitchTable, 1 do
@@ -56,7 +55,6 @@ end
 
 function Arena:PitSetup(hero, starLevel)
 	if not Arena.PitActive then
-		--print(starLevel)
 		Arena:OpenPit(starLevel)
 		Arena:UpdatePitLockout(hero)
 	end
@@ -78,11 +76,9 @@ function Arena:UpdatePitLockout(hero)
 	CreateHTTPRequestScriptVM( "POST", url ):Send( function( result )
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k,v in pairs( result ) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
 	end )	
 end
@@ -98,17 +94,13 @@ function Arena:UpdatePitLevels()
 				individualURL = individualURL.."&hero_id="..MAIN_HERO_TABLE[i].roshpitID
 				individualURL = individualURL.."&pit_level="..Arena.PitLevel
 				individualURL = individualURL.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-				--print(individualURL)
-				--print(MAIN_HERO_TABLE[i])
 				if MAIN_HERO_TABLE[i].pit.pit_level < Arena.PitLevel then
 					CreateHTTPRequestScriptVM( "POST", individualURL ):Send( function( result )
 						--SaveLoad:NewKey()
 						local resultTable = {}
-						--print( "GET response:\n" )
 						for k,v in pairs( result ) do
 							--print( string.format( "%s : %s\n", k, v ) )
 						end
-						--print( "Done." )
 						local resultTable = JSON:decode(result.Body)
 					end )	
 				end
@@ -1555,7 +1547,6 @@ function Arena:SetUpNumbersPuzzle()
 
 	local numberTable = {Arena.numberPuzzle1, Arena.numberPuzzle2, Arena.numberPuzzle3, Arena.numberPuzzle4}
 	Arena.SwitchOrder = Arena:shuffle(numberTable)
-	--print(numberTable)
 
 	-- for i = 1, #Arena.SwitchOrder, 1 do
 	-- 	if Arena.SwitchOrder[i] == Arena.Switch
@@ -1589,8 +1580,6 @@ end
 function Arena:CheckSwitchOrderConditions()
 	local conditionGood = true
 	for i = 1, #Arena.ButtonsPressedTable, 1 do
-		--print(Arena.SwitchOrderNumber[Arena.ButtonsPressedTable[i]])
-		--print(i)
 		----print(Arena.SwitchOrder[i]:Attribute_GetIntValue("nbro", 0))
 		if i == Arena.SwitchOrderNumber[Arena.ButtonsPressedTable[i]] then
 		else

@@ -10,7 +10,6 @@ function Serengaard:Debug()
 	-- Serengaard:TimerEnd()
 	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient)
 	-- Serengaard:SubmitStats()
-	--print("SERENGAARD DEBUG")
 	--print(MAIN_HERO_TABLE[1]:GetUnitName())
 	-- RPCItems:DropSynthesisVessel(MAIN_HERO_TABLE[1]:GetAbsOrigin())
 	-- Serengaard:GiveSunstone(MAIN_HERO_TABLE[1], Serengaard.mainAncient:GetAbsOrigin())
@@ -30,7 +29,6 @@ function Serengaard:Debug2()
 end
 
 function Serengaard:Init()
-	--print("Initialize Redfall")
 	Dungeons.phoenixCollision = false
 	RPCItems.DROP_LOCATION = Vector(0, 0)
 	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -143,7 +141,6 @@ function Serengaard:LinewarIncomeFunction(timerActivate)
 			end
 		end)
 	end
-	--print("MAKE VOTE?")
 	Serengaard.SkipVotes = 0
 	if Beacons.cheats then
 		CustomGameEventManager:Send_ServerToAllClients("serengaard_vote_skip", {playerCount = 3})
@@ -170,7 +167,6 @@ end
 
 function Serengaard:Vote(msg)
 	local player = PlayerResource:GetPlayer(msg.player)
-	--print("SERENGAARD VOTE???")
 	Serengaard.SkipVotes = Serengaard.SkipVotes + 1
 	if Serengaard.SkipVotes > RPCItems:GetConnectedPlayerCount() / 2 then
 		Serengaard.IncomeTimer = 0
@@ -276,7 +272,6 @@ end
 
 function Serengaard:NextWave()
 	--print("WAVE!!")
-	--print(Serengaard.wave)
 	if Serengaard.wave == 1 then
 		Serengaard.wave = Serengaard.wave + 1
 		Serengaard.waveProgress = 0
@@ -1237,7 +1232,6 @@ end
 function Serengaard:SubmitStats()
 	local url = ""
 	for i, v in pairs(Serengaard.CachedPlayers) do
-		--print("Players: "..i.." "..v[1] .. " "..v[2] .. " "..v[3] .. " "..v[4])
 	end
 	if Serengaard.InfiniteWaveCount and SaveLoad:GetAllowSaving() then
 		url = ROSHPIT_URL.."/champions/save_serengaard?"
@@ -1250,32 +1244,25 @@ function Serengaard:SubmitStats()
 			local steamID = Serengaard.CachedPlayers[i][2]
 			local playerName = Serengaard.CachedPlayers[i][3]
 			local steamIDlong = Serengaard.CachedPlayers[i][4]
-			--print(steamIDlong)
 			url = url.."&steam_id"..i.."="..steamID
 			url = url.."&hero"..i.."="..heroName
 			url = url.."&steam_name"..i.."="..playerName
 			url = url.."&steam_id_long"..i.."="..steamIDlong
 		end
 		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
-			--print("POST" .. " response infWaves:")
 			if result.StatusCode then
-				--print(result.StatusCode)
 			end
 		end)
 	end
 	Timers:CreateTimer(5, function()
 		url = ROSHPIT_URL.."/champions/get_serengaard?"
-		--print("serengaard url: "..url)
 		CreateHTTPRequestScriptVM("GET", url):Send(function(result)
-			--print("GET" .. " response stats:")
 			local resultTable = {}
 			if result.StatusCode then
-				--print(result.StatusCode)
 			end
 			for k, v in pairs(result) do
 				--print(string.format("%s : %s\n", k, v))
 			end
-			--print("Done.")
 			local resultTable = JSON:decode(result.Body)
 			CustomGameEventManager:Send_ServerToAllClients("serengaard_leaderboard", {resultTable = resultTable})
 		end)

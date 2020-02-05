@@ -15,7 +15,6 @@ function star_blink_impact(event)
   rune_e_1(caster, target, ability)
   rune_e_2(caster)
   rune_e_3(caster, target)
-  --print("particle attached")
   caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "astral")
   caster.r_4_level = Runes:GetTotalRuneLevel(caster, 4, "r_4", "astral")
   local delay = 2
@@ -165,11 +164,7 @@ function rune_e_1_strike(event)
     target:SetModifierStackCount("modifier_astral_rune_e_1_visible", caster, newStacks)
     target:SetModifierStackCount("modifier_astral_rune_e_1_invisible", caster, newStacks * ability.level)
     target:CalculateAndSaveRoshpitAttributes()
-    --print('stacksCount')
-    --print(newStacks)
     --print(newStacks * ability.level)
-    --print('duration')
-    --print(ability.rootDuration)
   end
 end
 

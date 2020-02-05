@@ -18,7 +18,6 @@ function beginChannel(event)
 		end)
 	end
 	if caster:HasModifier("modifier_apollo_channel") then
-		--print("WHAT??")
 		local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
 		ParticleManager:SetParticleControlEnt(pfx2, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 		for i = 0, 60, 1 do

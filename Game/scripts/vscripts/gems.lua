@@ -282,7 +282,6 @@ function Gems:DropSocketForger(position)
 end
 
 function Gems:PanoramaInput(msg)
-	print("GEM PANORAMA INPUT")
 	if msg.event_type == "collect_reward" then
 		Gems:CollectReward(msg)
 	elseif msg.event_type == "item_up_for_forging" then
@@ -366,11 +365,9 @@ function Gems:ModifyPrismaticGemstones(playerID, amount, reason, add_or_subtract
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		--SaveLoad:NewKey()
 		local resultTable = {}
-		--print( "GET response:\n" )
 		for k, v in pairs(result) do
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
-		--print( "Done." )
 		if result.StatusCode == 200 then
 			local resultTable = JSON:decode(result.Body)
 			local gemstones_from_json = resultTable.prismatic_gemstones
@@ -389,10 +386,8 @@ end
 function Gems:ItemUpForForging(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
-	print("UP FOR FORGING")
 	if player then
 		local item = EntIndexToHScript(msg.itemIndex)
-		print("GO")
 		if Gems:CanItemTakeGems(item) then
 			CustomGameEventManager:Send_ServerToPlayer(player, "item_gemforge_menu", {item_index = item:GetEntityIndex(), success = 1})
 		else
@@ -417,7 +412,6 @@ end
 
 function Gems:CanItemTakeGems(item)
 	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
-		print("VALID ENTITY")
 		if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "none" then
 			return true
 		elseif item.newItemTable.socket2 and item.newItemTable.socket2 ~= "none" then
@@ -536,7 +530,6 @@ function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	elseif socket_number == 2 then
 		current_level = item.newItemTable.socket2value
 	end
-	print("CURRENT LEVEL: "..current_level)
 	if not current_level then
 		current_level = 0
 	end
@@ -712,18 +705,14 @@ function Gems:ItemUpForSalvaging(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
-	print("UP FOR FORGING")
 	if player then
 		local item = EntIndexToHScript(msg.itemIndex)
-		print("GO")
 		if Gems:CanItemBeSalvaged(item, hero) then
-			print("SALVAGE")
 			local total_gems_value = Gems:GetTotalItemGemCost(item)
 			local regular_premium = 0
 			if GameState:GetPlayerPremiumStatus(playerID) then
 				regular_premium = 1
 			end
-			print("-----")
 			DeepPrintTable(total_gems_value)
 			local web_prem = GameState:PlayerWebPremiumAsInt(playerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "item_gem_salvage_menu", {item_index = item:GetEntityIndex(), success = 1, gems1value = total_gems_value[1], gems2value = total_gems_value[2], regular_premium = regular_premium, web_prem = web_prem})

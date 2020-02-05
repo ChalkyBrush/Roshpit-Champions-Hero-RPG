@@ -3,10 +3,8 @@ if Hand == nil then
 end
 
 function Hand:add_modifiers(hero, inventory_unit, item)
-	--print("[Hand:add_modifiers] ++++++++++++++++++++++++++++++++++++++++++++")
 	--DeepPrintTable(item)
 	if not item.newItemTable then
-		--print("[Error] Hand:add_modifiers item.newItemTable is null")
 		RPCItems:ItemUTIL_Remove(item)
 		return
 	end
@@ -108,7 +106,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "scorched_gauntlet" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_scorched_earth", item)
 	elseif propertyName == "pride" then
-		print("Applied Proud Gloves modifier")
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_proud_gloves", hand_ability)
 	elseif propertyName == "azinoth" then
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_azinoth", hand_ability)
@@ -226,7 +223,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		RPCItems:PreacheArcanaResources(item)
 		local suffix = propertyName:gsub("!arcana!_", "")
 		local modifierName = "modifier_"..suffix
-		--print(modifierName)
 		Head:addItemModifier(0, hero, inventory_unit, modifierName, item)
 	elseif propertyName == "lobster" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_chitinous_lobster_claw", item)
@@ -272,7 +268,6 @@ end
 		end
 	end
 	if type(propertyValue) == "string" then
-		--print("[Hand:runeProperty] propertyValue:"..propertyValue)
 		return
 	end
 	if propertyName == "rune_q_1" then
@@ -333,12 +328,10 @@ end
 
 function Hand:setRuneBonusNetTable(value, rune, hero)
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "_"..rune.."_hand", {bonus = value})
-	--print("Setting Rune Net Table: ")
 	--print(tostring(hero:GetEntityIndex()).."_"..rune.."_hand")
 end
 
 function Hand:addBasicModifier(propertyValue, hero, inventory_unit, modifier_name, hand_ability)
-	--print(inventory_unit)
 	--local stacks = hero:GetModifierStackCount(modifierName, inventory_unit)
 	hand_ability = inventory_unit:FindAbilityByName("hand_slot")
 	hand_ability:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})

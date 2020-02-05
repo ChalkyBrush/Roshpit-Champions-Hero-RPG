@@ -278,7 +278,6 @@ function InitializeHermit(caster)
 	caster.jumpEnd = "hermit"
 	Timers:CreateTimer(1, function()
 		local fv = (Vector(9280, -9728) - hermit:GetAbsOrigin()):Normalized()
-		--print(fv)
 		StartAnimation(hermit, {duration = 3, activity = ACT_DOTA_SPAWN, rate = 0.6})
 		WallPhysics:Jump(hermit, fv, 66, 50, 30, 1)
 		for i = 1, 45, 1 do

@@ -54,13 +54,11 @@ end
 
 function flamewaker_rune_e_4(caster, ability)
     local e_4_level = caster:GetRuneValue("e", 4)
-    print("E 4")
     if e_4_level > 0 then
         for i = 0, 6, 1 do
             local check_ability = caster:GetAbilityByIndex(i)
             if check_ability and IsValidEntity(check_ability) then
                 if check_ability:GetAbilityName() ~= ability:GetAbilityName() then
-                    print("REDUCE CD")
                     local CDreduce = FLAMEWAKER_E4_CD_REDUCTION*e_4_level
                     Filters:ReduceCooldownGeneric(caster, check_ability, CDreduce)
                 end
@@ -265,7 +263,6 @@ end
     Stop a sound.
 ]]
 function StopSound(event)
-    --print("CALLED?")
     StopSoundEvent(event.sound_name, event.caster)
 end
 

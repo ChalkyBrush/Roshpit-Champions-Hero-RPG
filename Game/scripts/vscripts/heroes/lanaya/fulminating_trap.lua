@@ -130,7 +130,6 @@ function trap_start_poison(event)
 	trapAbility.poisonDamage = q_1_level * TRAPPER_Q1_DAMAGE
 	-- local q_4_level = Runes:GetTotalRuneLevel(caster, 4, "q_4", "trapper")
 	-- trapAbility.poisonDamage = trapAbility.poisonDamage + TRAPPER_Q4_DAMAGE_AMP_PER_INT_PCT/100 * caster:GetIntellect() * q_4_level * trapAbility.poisonDamage
-	--print("poison damage " .. trapAbility.poisonDamage)
 	-- Plays the sounds
 	-- EmitSoundOn(keys.sound, caster)
 	-- EmitSoundOn(keys.sound2, trap)

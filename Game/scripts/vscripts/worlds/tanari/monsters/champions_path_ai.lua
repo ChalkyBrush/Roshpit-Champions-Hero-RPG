@@ -157,7 +157,6 @@ function kraken_king_think(event)
 	if caster:HasAbility("king_kraken_aoe_ability") then
 		local aoeAbility = caster:FindAbilityByName("king_kraken_aoe_ability")
 		if aoeAbility:IsFullyCastable() then
-			--print("AOE AIBLITY IS CASTABLE")
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local newOrder = {

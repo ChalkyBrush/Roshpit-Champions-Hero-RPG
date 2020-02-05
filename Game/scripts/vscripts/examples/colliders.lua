@@ -349,18 +349,13 @@
 --     return IsPhysicsUnit(collided) or (collided.IsRealHero and collided:IsRealHero())
 --   end
 -- end
-
---print(testCount)
 -- testCount = testCount + 1
 
 -- --PrintTable(Physics.Colliders)
-
---print('0--0')
 -- --print(testUnit:GetModelRadius())
 -- --print(testUnit:BoundingRadius2D())
 -- --print(testUnit:GetHullRadius())
 -- --print(testUnit:GetPaddedCollisionRadius())
 -- PrintTable(Physics.Colliders)
---print('0--0')
 
 -- hero:Hibernate(false)

@@ -62,7 +62,6 @@ function Dungeons:InitializePhoenixNest()
 
 	Timers:CreateTimer(0.5, function()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
-			--print("MOVE HERO")
 			MAIN_HERO_TABLE[i]:SetAbsOrigin(GetGroundPosition(spawnTable[i], MAIN_HERO_TABLE[i]))
 			gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, MAIN_HERO_TABLE[i], "modifier_disable_player", {duration = 20.5})
 		end
@@ -259,15 +258,6 @@ function Dungeons:PhoenixCollisionCalc(unit, point, isDistanceSearch)
 		groundClockwise = GetGroundPosition(point + WallPhysics:rotateVector(forwardVector, math.pi / 2) * 150, unit)
 		groundCounterClockwise = GetGroundPosition(point + WallPhysics:rotateVector(forwardVector, -math.pi / 2) * 150, unit)
 	end
-
-	----print("-----------")
-	----print("NORMAL: ")
-	----print(normal)
-	----print(groundPos)
-	----print(groundStraight)
-	----print("rotats:")
-	----print(groundClockwise)
-	----print(groundCounterClockwise)
 	if currentPosition.z < groundStraight.z - 180 or currentPosition.z < groundClockwise.z - 200 or currentPosition.z < groundCounterClockwise.z - 200 then
 
 		return true
@@ -374,7 +364,6 @@ function Dungeons:IncrementPhoenixWave()
 		Dungeons.phoenixWave = Dungeons.phoenixWave + 1
 		Dungeons:PhoenixWaveSpawn()
 		Dungeons.phoenixMobsThreshold = 40
-		--print("INCREMENT PHOENIX WAVE")
 		local difficultyMax = 0
 		if GameState:GetDifficultyFactor() == 2 then
 			difficultyMax = 45

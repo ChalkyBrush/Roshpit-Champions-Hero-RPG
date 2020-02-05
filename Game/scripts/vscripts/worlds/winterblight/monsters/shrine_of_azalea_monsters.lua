@@ -439,7 +439,6 @@ function azalea_explosion_pushback(event)
 
 	target:SetAbsOrigin(GetGroundPosition(target:GetAbsOrigin() + fv * target.pushVelocity, target))
 	target.pushVelocity = math.max(target.pushVelocity - 1, 0)
-	--print("PUSH??")
 end
 
 function azalea_cup_sequence_think(event)
@@ -507,17 +506,13 @@ function azalea_cup_sequence_think(event)
 			ParticleManager:SetParticleControl(target.cupSequenceData.pfx, 2, colorVector)
 			ParticleManager:SetParticleControl(target.cupSequenceData.pfx, 3, colorVector)
 			CustomAbilities:QuickParticleAtPoint("particles/act_2/siltbreaker_beam_channel.vpcf", Vector(-219, -14701, 150 + Winterblight.ZFLOAT), 3)
-			--print("SEQUENCE 3 START")
 		end
 	elseif target.cupSequence == 3 then
-		--print("SEQUENCE 3 GOING")
 		target:RemoveModifierByName("modifier_black_portal_shrink")
 		target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed - 0.35, 10)
-		--print(target.cupSequenceData.fallSpeed)
 		target:SetOrigin(target:GetAbsOrigin() - Vector(0, 0, target.cupSequenceData.fallSpeed))
 		--print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
 		if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
-			--print("SEQUENCE 3 END")
 			target:RemoveModifierByName("modifier_azalea_cup_use")
 			local playerID = target:GetPlayerID()
 			if playerID then
@@ -951,14 +946,12 @@ end
 function candy_crush_crystal_hit(event)
 	local caster = event.caster
 	local attacker = event.attacker
-	--print("HIT1")
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
 		return false
 	end
 	if not attacker:IsRealHero() then
 		return false
 	end
-	--print("HIT2")
 	if Winterblight.CandyCrushLocked then
 		return false
 	end
@@ -993,10 +986,6 @@ function candy_crush_unit_hit(event)
 	local ability = event.ability
 	local target = event.target
 	local attacker = event.attacker
-	--print("target x coord")
-	--print(target.x_coord)
-	--print("target y coord")
-	--print(target.y_coord)
 	if not Winterblight.CandyCrushLocked then
 		if target.black then
 			return false
@@ -1949,7 +1938,6 @@ function azalea_jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_azalea_jump")
 		end
@@ -1987,9 +1975,7 @@ end
 
 function torphet_summoning_think(event)
 	local target = event.target
-	--print("SEQUENCE 3 GOING")
 	target.cupSequenceData.fallSpeed = math.max(target.cupSequenceData.fallSpeed - 0.35, 10)
-	--print(target.cupSequenceData.fallSpeed)
 	target:SetOrigin(target:GetAbsOrigin() - Vector(0, 0, target.cupSequenceData.fallSpeed))
 	--print(target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target))
 	if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 40 then
@@ -2697,7 +2683,6 @@ function star_prophecy_spell_cast(event)
 	local attacker = event.unit
 	local modifier = attacker:FindModifierByName("modifier_star_prophecy_debuff")
 	local current_duration = modifier:GetRemainingTime()
-	--print(current_duration)
 	local duration = current_duration + 0.8
 	modifier:SetDuration(duration, true)
 	local newstacks = modifier:GetStackCount() + tonumber(event.stack_add)
@@ -3332,11 +3317,9 @@ function azalea_boss_take_damage(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
-	--print("HELLO?")
 	if not attacker:HasModifier("modifier_giga_ice_pulling") then
 		if WallPhysics:IsWithinRegionA(attacker:GetAbsOrigin(), Vector(-2341, -16256), Vector(2126, -12703)) then
 		else
-			--print("HELLO2?")
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lone_druid/lone_druid_savage_roar_f.vpcf", attacker, 3)
 			EmitSoundOn("Winterblight.GigaIce.Pull", attacker)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_giga_ice_pulling", {duration = 5})

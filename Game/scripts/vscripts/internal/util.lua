@@ -6,7 +6,6 @@ function DebugPrint(...)
   end
 
   if spew == 1 then
-    --print(...)
   end
 end
 

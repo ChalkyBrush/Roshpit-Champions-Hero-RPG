@@ -76,7 +76,6 @@ function jump_think(event)
 	-- end
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
-		--print(height)
 		if not ability.rising then
 			caster:RemoveModifierByName("modifier_monkey_jump")
 		end

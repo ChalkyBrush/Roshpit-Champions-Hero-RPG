@@ -171,13 +171,11 @@ function Stars:StarEventSolo(starEventName, hero)
 end
 
 function Stars:StarEventPlayer(starEventName, hero)
-	--print("STAR EVENT PLAYER")
 	if SaveLoad:GetAllowSaving() then
 		local playerID = hero:GetPlayerOwnerID()
 		if not RPCItems:GetIsPlayerConnected(playerID) then
 			return false
 		end
-		--print("STAR EVENT PLAYER AND CONNECTED")
 		local starAmount = 0
 		local starData = Stars:GetOrganizedStarData(hero:GetPlayerOwnerID())
 		if starData then
@@ -385,16 +383,12 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 	url = url.."&stars="..starAmount
 	url = url.."&hero_name="..heroName
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	--print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
-			--print("STARS UPDATED")
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 		end
@@ -436,15 +430,12 @@ function Stars:GetPlayerStars(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/getStars?"
 	url = url.."steam_id="..steamID
-	--print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			-- for k,v in pairs( result ) do
 			-- --print( string.format( "%s : %s\n", k, v ) )
 			-- end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Stars:parseHeroData(player, resultTable)
 			Timers:CreateTimer(3, function()

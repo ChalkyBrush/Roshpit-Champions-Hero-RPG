@@ -358,8 +358,6 @@ function wind_temple_staff_take_damage(event)
 end
 
 function link_wind_temple_staffs()
-	--print(Tanari.WindTemple.staff1)
-	--print(Tanari.WindTemple.staff1.color)
 	if Tanari.WindTemple.staff1.pfx then
 		ParticleManager:DestroyParticle(Tanari.WindTemple.staff1.pfx, false)
 		Tanari.WindTemple.staff1.pfx = false
@@ -397,7 +395,6 @@ function attachParticle(color, staff1, staff2)
 	elseif color == "blue" then
 		particleName = blueParticle
 	end
-	--print(particleName)
 	local eonPfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, staff1)
 	ParticleManager:SetParticleControl(eonPfx, 0, staff1:GetAbsOrigin() + Vector(0, 0, 300))
 	ParticleManager:SetParticleControl(eonPfx, 1, staff2:GetAbsOrigin() + Vector(0, 0, 300))
@@ -662,7 +659,6 @@ function revitalizing_winds_think(event)
 		local allyTable = Tanari.WindTemple.finalEncounter
 		local parallelTable = Tanari.WindTemple.parallelTable
 		for i = 1, #allyTable, 1 do
-			--print(allyTable[i])
 			if not IsValidEntity(allyTable[i]) then
 				ability.allyIndex = i
 				local newOrder = {
@@ -977,7 +973,6 @@ function wind_temple_boss_think(event)
 			Tanari:SpawnWindGuardian(positionTable[i], Vector(0, -1))
 		end
 	end
-	--print("THINKING?"..caster.interval)
 	if caster.interval % 4 == 0 then
 		local enemyTable = Dungeons:GetTargetTable()
 		for i = 1, #enemyTable, 1 do
@@ -1936,8 +1931,6 @@ function ball_switch_moving_think(event)
 	ball.interval = ball.interval + 1
 	if ball.interval % 3 == 0 then
 		local goalDistance = WallPhysics:GetDistance(Vector(11551, 4595, 670), ball:GetAbsOrigin())
-		--print("GOAL DISTANCE:")
-		--print(goalDistance)
 		if goalDistance < 120 then
 			ball:RemoveModifierByName("modifier_ball_switch_moving")
 			ball:FindAbilityByName("tanari_wind_ball_prop"):ApplyDataDrivenModifier(ball, ball, "modifier_water_shield_no_more_attack", {})
@@ -2282,7 +2275,6 @@ function spirit_boss_fighting_think(event)
 	if castAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
-			--print("CAST TORNADO")
 			local castPoint = enemies[1]:GetAbsOrigin() + RandomVector(240)
 			local newOrder = {
 				UnitIndex = caster:entindex(),
@@ -2391,7 +2383,6 @@ function cast_wind_tornado(event)
 	ability.velocity = 1000
 	ability.rotationDelta = 20
 	--DeepPrintTable(event.target_points)
-	--print(startPoint)
 	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
 	ability.velocity = distance * 1
 
@@ -2427,7 +2418,6 @@ function cast_wind_tornado(event)
 	if bAvatar then
 		max_tornados = 3
 	end
-	--print(max_tornados)
 	if #ability.tornadoTable > max_tornados then
 		ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
 	end

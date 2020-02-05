@@ -1052,7 +1052,6 @@ function challenger8ai(caster)
 		caster.interval = 0
 	end
 	caster.interval = caster.interval + 1
-	--print(caster.interval)
 	-- AXES ARE CRASHING FIX THIS SHIT
 	-- if caster.interval == 42 then
 	-- 	--print("AXE MODE!")
@@ -1351,7 +1350,6 @@ function challenger2ai(caster)
 			ExecuteOrderFromTable(newOrder)
 		end
 	end
-	--print("HELLO?")
 	local boltAbility = caster:FindAbilityByName("arena_challenger_2_sword_dash")
 	if boltAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)

@@ -33,7 +33,6 @@ function tachyon_create(event)
 			radius = math.floor(radius + radius * ZHONIK_GLYPH_1_1_TACHYON_SHELL_RADIUS / 100)
 		end
 	end
-	--print(radius)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
 	target.tachyonPFX = pfx
 end

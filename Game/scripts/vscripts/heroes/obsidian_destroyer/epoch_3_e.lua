@@ -98,9 +98,6 @@ function fire_main_orb(event)
 end
 
 function jaunt(ability, caster)
-	--print("jaunt calculated distance:")
-
-	--print(ability.orb_distance)
 	if ability.orb_distance then
 		ProjectileManager:ProjectileDodge(caster)
 		EmitSoundOn("Hero_ElderTitan.AncestralSpirit.Cast", caster)
@@ -176,7 +173,6 @@ function epoch_e_1(caster)
 		if caster:HasModifier("modifier_epoch_glyph_2_1") then
 			e_1_duration = e_1_duration * EPOCH_GLYPH_2_1_E2_DURATION_AMP
 		end
-		--print("e_1_duration "..e_1_duration)
 		ability:ApplyDataDrivenModifier(runeUnit, caster, "modifier_epoch_rune_e_1", {duration = e_1_duration})
 	end
 end

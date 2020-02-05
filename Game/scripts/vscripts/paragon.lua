@@ -152,8 +152,6 @@ function Paragon:AddParagonUnit(unit)
 	paragonAbility:SetLevel(1)
 	Timers:CreateTimer(0.5, function()
 		for i = 1, #affixIndexTable, 1 do
-			--print("APPLY??")
-			--print(Paragon.affixModifierTable[affixIndexTable[i]])
 			paragonAbility:ApplyDataDrivenModifier(unit, unit, Paragon.affixModifierTable[affixIndexTable[i]], {})
 			table.insert(unit.affixes, Paragon.affixModifierTable[affixIndexTable[i]])
 		end

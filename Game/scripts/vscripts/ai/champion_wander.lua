@@ -57,7 +57,6 @@ end
 BehaviorWander = {}
 
 function BehaviorWander:Evaluate()
-	--print("Evaluating Wander")
 	local desire = 0
 	local enemies = FindUnitsInRadius(DOTA_TEAM_BADGUYS, thisEntity:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 	if #enemies == 0 then

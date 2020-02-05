@@ -11,7 +11,6 @@ function TerrasicGuardTrigger(trigger)
 end
 
 function terrasic_guard_die(event)
-	--print("GUARD DIE")
 	local caster = event.caster
 	if not caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		return false
@@ -289,7 +288,6 @@ function black_dragon_die(event)
 		return false
 	end
 	caster:SetMoveCapability(DOTA_UNIT_CAP_MOVE_GROUND)
-	--print("BLACK DRAGON DIE")
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOnLocationWithCaster(Vector(-3976, -8613, 700), "Tanari.StatueRise", Events.GameMaster)
 	end)
@@ -1002,7 +1000,6 @@ function FireKeyHolderInitTrigger(event)
 		return
 	end
 	Tanari.FireKeyBossStart = true
-	--print("FIRED?")
 	Dungeons.respawnPoint = Vector(-1920, -4736)
 
 	Tanari.fireKeyBlock1 = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = Vector(-2233, -4224, 160), name = "wallObstruction"})
@@ -1112,7 +1109,6 @@ end
 
 function steam_end(event)
 	local victim = event.caster
-	--print("STEAm END?")
 	if event.type == DAMAGE_TYPE_PHYSICAL then
 		victim.physicalStacks = 0
 	elseif event.type == DAMAGE_TYPE_MAGICAL then

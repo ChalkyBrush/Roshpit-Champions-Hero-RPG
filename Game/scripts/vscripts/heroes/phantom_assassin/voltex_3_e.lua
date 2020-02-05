@@ -19,7 +19,6 @@ function voltex_azure_leap_onspellstart(event)
 	local targetPoint = event.target_points[1]
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	--print(jumpFV)
 	ability.jump_velocity = distance / 30 + 15
 	ability.jumpFV = jumpFV
 	ability.distance = distance
@@ -51,7 +50,6 @@ function voltex_azure_leap_jumping_think(event)
 	local vertical_deceleration = 3.3
 	vertical_deceleration = Filters:GetAdjustedESpeed(caster, vertical_deceleration, false)
 	ability.jump_velocity = ability.jump_velocity - vertical_deceleration
-	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modfier_voltex_jumping")
 	elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 200 and not ability.animation and not ability.lifting then

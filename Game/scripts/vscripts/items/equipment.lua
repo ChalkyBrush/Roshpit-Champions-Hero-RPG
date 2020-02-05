@@ -1,5 +1,4 @@
 function equip_item(event)
-	--print("[equip_item] start")
 	local item = event.ability
 	local itemIndex = item:GetEntityIndex()
 	local itemTable = CustomNetTables:GetTableValue("item_basics", tostring(itemIndex))
@@ -7,13 +6,8 @@ function equip_item(event)
 		Curator:UpdateItemToCurrentVersion(item, event.caster, false)
 		return false
 	end
-	--print("[equip_item] 1caster")
-	--print(event.caster)
-	--print("[equip_item] 2caster")
 	-- DeepPrintTable(event.caster)
-	--print("[equip_item] 3caster")
 	if not itemTable then
-		--print("[equip_item] err itemTable")
 		return false
 	end
 	item.newItemTable = itemTable
@@ -58,7 +52,6 @@ end
 
 function save_character(event)
 	local hero = event.target
-	print("SAVING CHARACTER FOR 4.0")
 	print(hero:GetUnitName())
 	local save_message = {}
 	save_message.playerID = hero:GetPlayerOwnerID()

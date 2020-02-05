@@ -711,7 +711,6 @@ function Redfall:SpawnAutumnMageBoss(position, fv)
 end
 
 function Redfall:SpawnCanyonBoss()
-	--print("SPAWN CANYON BOSS")
 	Redfall.BossBattle = true
 	local boss = CreateUnitByName("redfall_canyon_boss", Vector(-14826, 14310), true, nil, nil, DOTA_TEAM_NEUTRALS)
 	Events:GetGameMasterAbility():ApplyDataDrivenModifier(Events.GameMaster, boss, "modifier_disable_player", {duration = 4.2})

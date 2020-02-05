@@ -79,7 +79,6 @@ function onBlink(caster,ability, startPoint, endPoint)
             canCreateAura = false
         end
     end
-    print('blink radius was' .. radius)
     if canCreateAura then
         Util.Ability:MakeThinker(caster, ability, shadowsModifiers.aura, startPoint, getShadowsDuration(caster, CHERNOBOG_T11_DURATION))
         Util.Ability:MakeThinker(caster, ability, shadowsModifiers.aura, endPoint, getShadowsDuration(caster, CHERNOBOG_T11_DURATION))

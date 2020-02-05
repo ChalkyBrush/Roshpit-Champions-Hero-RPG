@@ -195,7 +195,6 @@ function red_general_rune_base_e_4_applyShield(caster, ability)
             procChance = RED_GENERAL_GLYPH_6_2_SHIELD_CHANCE_PERCENT
         end
         local shieldsCount = Runes:Procs(caster.e_4_level, procChance, 1)
-        --print("runes count " .. caster.e_4_level)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_rune_e_4_shield", {duration = duration})
         caster:SetModifierStackCount("modifier_axe_rune_e_4_shield", caster, shieldsCount)
     end

@@ -132,7 +132,6 @@ function Elements:RollElementAttribute(item, element_code, rollMult, minRoll, ma
 	local name, color = Elements:GetElementNameAndColorByCode(element_code)
 	value, prefixLevel = RPCItems:RollAttribute(100, minRoll, maxRoll, 0, 0, item.rarity, false, maxFactor * rollMult)
 	value = math.floor(value)
-	--print("[Elements:RollElementAttribute] "..name)
 	if attributeSlot == 1 then
 		item.newItemTable.property1name = name
 		RPCItems:SetPropertyValues(item, value, "#rpc_item_element"..element_code, color, 1)

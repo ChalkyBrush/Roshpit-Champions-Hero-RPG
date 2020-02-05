@@ -55,7 +55,6 @@ function prone_start(event)
 				ability.magnitude = 2
 			end
 			ability.height = height
-			--print(height)
 		end)
 	else
 		if not caster:HasModifier("modifier_slipfinn_prone") then
@@ -92,7 +91,6 @@ function prone_start(event)
 			if caster:HasAbility("slipfinn_shadow_rush") then
 				CustomAbilities:AddAndOrSwapSkill(caster, "slipfinn_shadow_rush", "slipfinn_shadow_warp", 2)
 			end
-			--print("APPLY PRONE")
 			local q_2_level = caster:GetRuneValue("q", 2)
 			if q_2_level > 0 then
 				caster:RemoveModifierByName("modifier_shimmer_cape")

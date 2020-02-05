@@ -52,7 +52,6 @@ function tanari_ancient_think(event)
 end
 
 function water_shield_attack(event)
-	--print("ATTACKED SHIELD")
 	local caster = event.caster
 	local ability = event.ability
 	if not caster.attackCount then
@@ -400,8 +399,6 @@ function GetPositionsByIndex(index)
 end
 
 function pressButtonAndLowerWall(wallPosition, buttonPosition1, buttonPosition2, wallIndex)
-	--print(Tanari.WaterTemple.wallDown)
-	--print("-^^_WALLDOWN_^^-")
 	Tanari.WaterTemple.wallDropping = true
 	Timers:CreateTimer(2.65, function()
 		Tanari.WaterTemple.wallDropping = false
@@ -417,9 +414,7 @@ function pressButtonAndLowerWall(wallPosition, buttonPosition1, buttonPosition2,
 		Tanari:LowerWaterTempleWall(6, "WaterTempleMazeDoor", wallPositionA, "MazeBlocker", wallPositionA + Vector(0, 0, 96 + 1228), 380, false, true)
 		moveButtons(buttonPosition1A, buttonPosition2A, false)
 	end
-	--print("NOW DO WALLDOWN")
 	Tanari.WaterTemple.wallDown = wallIndex
-	--print(Tanari.WaterTemple.wallDown)
 
 end
 
@@ -1248,7 +1243,6 @@ function boss_statue_hit_final(event)
 				statue.startingAngle = statue.startingAngle + 1
 				statue:SetAngles(0, statue.startingAngle, 0)
 				statue:SetAbsOrigin(statue:GetAbsOrigin() - Vector(0, 0, 2))
-				--print("STATUE POSITION:")
 				--print(statue:GetAbsOrigin())
 			end)
 		end
@@ -2464,7 +2458,6 @@ function water_temple_unit_die(event)
 end
 
 function WaterTempleBigDoorTrigger(trigger)
-	--print("HIT TRIGGER")
 	if Tanari.WaterTemple.SwitchesActive then
 		Tanari:ActivateSwitchGeneric(Vector(-15512, 3860, 280), "WaterSwitch", true)
 		Tanari:ActivateSwitchGeneric(Vector(-11950, 4800, 380), "WaterSwitch", true)
@@ -2908,12 +2901,10 @@ function water_temple_spirit_boss_die_begin(event)
 	caster:BossDrops(13)
 	Timers:CreateTimer(3, function()
 		local itemName = "item_tanari_spirit_stones_"..Tanari:ConvertDifficultyNumberToName(GameState:GetDifficultyFactor())
-		--print(itemName)
 		local stones = RPCItems:CreateConsumable(itemName, "immortal", "tanari_spirit_stones", "consumable", false, "Consumable", itemName.."_desc")
 		CreateItemOnPositionSync(bossOrigin, stones)
 		--stones:LaunchLoot(false, RandomInt(100,600), 0.75, bossOrigin)
 		RPCItems:LaunchLoot(stones, RandomInt(100, 600), 0.5, bossOrigin, bossOrigin)
-		--print("STONES DROPPED")
 
 		local luck = RandomInt(1, 3)
 		if luck == 1 then

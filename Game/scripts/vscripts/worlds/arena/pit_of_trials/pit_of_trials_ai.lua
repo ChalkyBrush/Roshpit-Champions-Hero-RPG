@@ -5,7 +5,6 @@ function PitTerminal(trigger)
 			-- local lockoutStatus = getLockoutStatus(os:TimeStamp(hero.pit.pit_open_time), os:ServerTimeToTable())
 			--DeepPrintTable(os:TimeStamp(hero.pit.pit_open_time))
 			--DeepPrintTable(os:ServerTimeToTable())
-			--print(lockoutStatus)
 			hero.pit.pit_level = 7
 			lockoutStatus = 0--removed cd check
 			if Arena.PitActive or Arena.PitLocked then
@@ -1372,7 +1371,6 @@ function LiesMainSwitch(trigger)
 		return
 	end
 	Arena.LiesOpen = true
-	--print("LIES SWITCH")
 	Dungeons.respawnPoint = Vector(-2113, 10418)
 	Arena:ActivateSwitchGeneric(Vector(-2113, 10418), "LiesSwitch", true, 0.35)
 	Timers:CreateTimer(1.2, function()
@@ -1829,7 +1827,6 @@ end
 function LiesNumberSwitchA()
 	--print("NUMBER SWITCH!?")
 	--print(Arena.numberSwitch1:Attribute_GetIntValue("pressed", 0))
-	--print(Arena.NumberSwitchLock)
 	if not Arena.ButtonsPressedTable then
 		Arena.ButtonsPressedTable = {}
 	end
@@ -2071,7 +2068,6 @@ function DescentMainSwitch(trigger)
 		return
 	end
 	Arena.DescentOpen = true
-	--print("DESCENT SWITCH")
 	Dungeons.respawnPoint = Vector(-672, 9787)
 	Arena:ActivateSwitchGeneric(Vector(-672, 9787, 262+Arena.ZFLOAT), "DescentSwitch", true, 0.35)
 	Timers:CreateTimer(1.2, function()
@@ -2239,7 +2235,6 @@ end
 
 function widow_die(event)
 	local caster = event.caster
-	--print("THIS CALLED?")
 	EmitSoundOn("Arena.Descent.WidowDeath", caster)
 	Arena.AllowNemesis = true
 	Timers:CreateTimer(2, function()
@@ -2547,7 +2542,6 @@ function nemesis_think(event)
 			ExecuteOrderFromTable(newOrder)	
 		end
 	end
-	--print("HELLO?")
 	local boltAbility = caster:FindAbilityByName("arena_challenger_2_sword_dash")
 	if boltAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
@@ -3139,7 +3133,6 @@ function pit_boss_think(event)
 				end)
 				local castPoint = enemies[1]:GetAbsOrigin() + enemies[1]:GetForwardVector()*100
 				caster.firestormPosition = castPoint
-				--print(castPoint)
 				caster.walking = false
 				if not caster.castSound then
 					caster.castSound = true
@@ -3219,7 +3212,6 @@ function pit_ability_cast(event)
 
 	if abilityCast:GetAbilityName() == "pit_boss_firestorm" then
 		local point = GetGroundPosition(caster.firestormPosition, caster) + Vector(0,0,10)
-		--print(point)
 		local pfx = ParticleManager:CreateParticle("particles/roshpit/boss/pit_firestorm_indicator_portrait.vpcf", PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(pfx, 0, point)
 		ParticleManager:SetParticleControl(pfx, 1, point)

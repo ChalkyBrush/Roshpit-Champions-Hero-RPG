@@ -176,7 +176,6 @@ function red_general_ability_arcana1_r_take_damage(event)
 	local caster = event.caster
 	local damage = event.damage
 	local ability = event.ability
-	--print(damage)
 	local b_d_level = caster:GetRuneValue("r", 2)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_axe_arcana_b_d_attack_power", {duration = 4})
 	local currentStacks = caster:GetModifierStackCount("modifier_axe_arcana_b_d_attack_power", caster)

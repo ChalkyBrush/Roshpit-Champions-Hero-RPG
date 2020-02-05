@@ -680,7 +680,6 @@ function forest_ranger_think(event)
 			if arrowAbility:IsFullyCastable() then
 				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 				if #enemies > 0 then
-					--print("HEAVY ARROW")
 					local castPoint = enemies[1]:GetAbsOrigin()
 					local newOrder = {
 						UnitIndex = caster:entindex(),
@@ -1117,7 +1116,6 @@ function redfall_crimsyth_cultist_die(event)
 		return
 	end
 	treeDummy.cultistsSlain = treeDummy.cultistsSlain + 1
-	print("Cultists slain: "..treeDummy.cultistsSlain)
 	if treeDummy.boss then
 		if treeDummy.cultistsSlain == 20 then
 			Redfall:SpawnCanyonBossParagonTest()
@@ -1218,7 +1216,6 @@ function crimsith_cult_master_pull(event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	--print("PULL??")
 	EmitSoundOn("Redfall.CultBoss.PullAbilityEffect", target)
 	CustomAbilities:QuickAttachParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova_g.vpcf", caster, 3)
 	local particleName = "particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
@@ -1259,7 +1256,6 @@ function use_autumnleaf_firefly(event)
 			EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 		end
 	else
-		--print("MIN MAP EVENT")
 		MinimapEvent(caster:GetTeamNumber(), caster, -15352, -8303, DOTA_MINIMAP_EVENT_BASE_UNDER_ATTACK, 4)
 		EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
 	end
@@ -1783,7 +1779,6 @@ end
 function begin_splitshot(event)
 	-- Dungeons:Debug()
 	-- local cheats = Convars:GetBool("developer")
-	----print(cheats)
 	local caster = event.caster
 	local ability = event.ability
 	local abilityLevel = ability:GetLevel()
@@ -1823,11 +1818,8 @@ function create_shot2(ability, caster, fv, arrowOrigin)
 	local end_radius = 60
 	local speed = 1100
 	local projectileParticle = "particles/frostivus_gameplay/astral_rune_c_b_linear_frost_arrow.vpcf"
-	--print(fv)
-	--print(arrowOrigin)
 	--print(caster:GetUnitName())
 	--print(ability:GetAbilityName())
-	--print("ASHARA ARROW")
 	local info =
 	{
 		Ability = ability,

@@ -139,7 +139,6 @@ function elemental_die(event)
 	local caster = event.caster
 	local hero = caster.hero
 	hero.elemental = nil
-	--print("ELEMENTAL DIES")
 	Events:TutorialServerEvent(hero, "4_4", 2)
 end
 

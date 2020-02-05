@@ -81,7 +81,6 @@ function hailstorm_thinker_think(event)
 	local damage = event.damage + event.damage_from_strength * caster:GetStrength()
 	hailstorm_explosion(caster, randomExplosionLocation, damage, 1, 300, ability, true, 0)
 	-- if target:HasModifier("modifier_hailstorm_aura_friendly") then
-	-- --print("I HAVE THE AURA")
 	-- end
 end
 

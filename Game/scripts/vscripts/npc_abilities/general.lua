@@ -363,7 +363,6 @@ function ability_1_no_target_ai(event)
 	if not caster.autoAbilityCD then
 		caster.aggro = true
 		caster.autoAbilityCD = 1
-		--print("ability_1_no_target_ai caster.autoAbilityCD")
 		return
 	end
 	local cooldown = caster.autoAbilityCD * 2
@@ -514,7 +513,6 @@ function rubick_apprentice_think(caster)
 					Timers:CreateTimer(delay, function()
 						caster.castLock = false
 					end)
-					--print("IN HERE")
 				elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == DOTA_ABILITY_BEHAVIOR_UNIT_TARGET and #enemies > 0 then
 					local order = {
 						UnitIndex = caster:entindex(),
@@ -661,7 +659,6 @@ end
 
 function dungeon_thinker_activate(event)
 	local caster = event.caster
-	--print("DUNGEON THINKER ACTIVATE")
 	if caster.name == "crimsythCastleSwitch" then
 		Redfall:CastleWaterRoomSwitch(caster)
 	elseif caster.name == "waterTempleSnakeSwitch" then

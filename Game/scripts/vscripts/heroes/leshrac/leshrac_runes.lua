@@ -47,7 +47,6 @@ function WallAllyBuff(event)
 					if distance <= 270 then
 						table.insert(acceptable_particle_thinkers, wallThinker)
 					end
-					--print(wallThinker.index)
 				end
 				local wallCenter = ability.wallCenter
 				local wallNinety = ability.ninetyDegrees
@@ -251,7 +250,6 @@ function d_d_shell_think(event)
 
 				local durationRemaining = modifier:GetRemainingTime()
 				if durationRemaining > 0 then
-					--print("INCREASING:")
 					--print(modifier:GetName())
 					modifier:SetDuration(durationRemaining + 0.1, true)
 				end

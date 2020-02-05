@@ -81,7 +81,6 @@ function red_general_ability_arcana2_w_stonewall_start(event)
 	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		--print("IN HERE?")
 		local radius = RED_GENERAL_ARCANA2_W3_RADIUS_BASE + RED_GENERAL_ARCANA2_W3_RADIUS_GROWTH * w_4_level
 		-- local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_axe/axe_beserkers_call_owner.vpcf", caster, 2)
 		-- ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())

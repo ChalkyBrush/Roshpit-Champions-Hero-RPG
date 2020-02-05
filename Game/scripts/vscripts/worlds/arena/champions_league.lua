@@ -809,8 +809,6 @@ function Arena:WinChampionsLeague(hero)
 		PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), nil)
 	end)
 	FindClearSpaceForUnit(Arena.Coach, Vector(-7680, -2432), false)
-	--print(hero.ChampionsLeague.rank)
-	--print(Arena.ChampionsLeague.currentBattleRank)
 	Timers:CreateTimer(0.7, function()
 		FindClearSpaceForUnit(hero, Vector(-7680, -2732), false)
 		if hero.ChampionsLeague.rank == 21 and Arena.ChampionsLeague.currentBattleRank == 20 then

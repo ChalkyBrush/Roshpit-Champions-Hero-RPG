@@ -67,7 +67,6 @@ end
 function paladin_rune_e_1_die(event)
 	local caster = event.caster
 	local deathLocation = caster:GetAbsOrigin()
-	--print("a_c_death")
 	local e_1_level = caster:GetRuneValue("e", 1)
 	local runeUnit = caster.runeUnit
 	local runeAbility = runeUnit:FindAbilityByName("paladin_rune_e_1")

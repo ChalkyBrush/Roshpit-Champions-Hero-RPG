@@ -9,9 +9,7 @@ function Spawning:SetDropModifier(unit, deathModifier)
 			print("Applying Modifier "..deathModifier.." to unit "..unit:GetUnitName())
 			Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, deathModifier, {})
 			if unit:HasModifier(deathModifier) then
-				print("Modifier successfully applied")
 			else
-				print("Modifier was not applied")
 			end
 		end
 	elseif GameState:IsRPCArena() then

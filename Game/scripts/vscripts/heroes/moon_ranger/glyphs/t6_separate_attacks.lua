@@ -37,8 +37,6 @@ end
 
 function projectileHit(event)
     local ability = event.ability
-
-    --print(ability.damage)
     Filters:TakeArgumentsAndApplyDamage(event.target, ability.attacker, ability.damage, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
     local eventTable = {}
     eventTable.attacker = ability.attacker

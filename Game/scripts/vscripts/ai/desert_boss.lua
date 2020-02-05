@@ -7,7 +7,6 @@ function Spawn(entityKeyValues)
 	thisEntity.owner = "desert_boss"
 
 	local name = thisEntity:GetUnitName()
-	--print(name)
 	if name == "experimenter_jonuous_boss" then
 		thisEntity.phase = 0
 	elseif name == "experimenter_jonuous_boss_phase_two" then
@@ -44,7 +43,6 @@ function BehaviorNone:Begin()
 	local enemy = AICore:RandomEnemyHeroInRange(thisEntity, 10000)
 
 	if enemy and not thisEntity.dead then
-		--print("order_attack_move")
 		self.order =
 		{
 			UnitIndex = thisEntity:entindex(),
@@ -70,7 +68,6 @@ BasicSkill = {}
 
 function BasicSkill:Evaluate()
 	local desire = 0
-	--print("evaluate basic skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -85,7 +82,6 @@ function BasicSkill:Evaluate()
 end
 
 function BasicSkill:Begin()
-	--print("fire basic")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -107,7 +103,6 @@ DiveSkill = {}
 
 function DiveSkill:Evaluate()
 	local desire = 0
-	--print("evaluate dive skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -122,7 +117,6 @@ function DiveSkill:Evaluate()
 end
 
 function DiveSkill:Begin()
-	--print("fire teleport")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -143,7 +137,6 @@ Army = {}
 
 function Army:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -158,7 +151,6 @@ function Army:Evaluate()
 end
 
 function Army:Begin()
-	--print("fire Splitter")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{
@@ -179,7 +171,6 @@ Missle = {}
 
 function Missle:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if currentBehavior == self then return desire end
 
@@ -216,7 +207,6 @@ Die = {}
 DEATH_SOUND_TABLE = {"tinker_tink_lose_01", "tinker_tink_lose_04", "tinker_tink_death_12"}
 function Die:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if thisEntity:GetHealth() < 30 and not thisEntity.dead and thisEntity.phase == 3 then
 		desire = 15
@@ -226,7 +216,6 @@ function Die:Evaluate()
 end
 
 function Die:Begin()
-	--print("Dying")
 	self.endTime = GameRules:GetGameTime() + 20
 	--ParticleCity(thisEntity)
 	thisEntity.dead = true
@@ -274,7 +263,6 @@ Die.Continue = Die.Begin
 PhaseChange = {}
 function PhaseChange:Evaluate()
 	local desire = 0
-	--print("evaluate Splitter skill")
 	-- let's not choose this twice in a row
 	if thisEntity:GetHealth() < 200000 and thisEntity.phase == 0 and not thisEntity.phaseChanging and not thisEntity.dead then
 		desire = 15
@@ -290,7 +278,6 @@ end
 function PhaseChange:Begin()
 	self.endTime = GameRules:GetGameTime() + 2
 	if thisEntity.phase == 0 then
-		--print("Phase2")
 		StartAnimation(thisEntity, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1})
 		local teleportAbility = thisEntity:FindAbilityByName("jonuous_teleport")
 		teleportAbility:ApplyDataDrivenModifier(thisEntity, thisEntity, "modifier_jonuous_phase_shift", {duration = 2.0})
@@ -310,7 +297,6 @@ function PhaseChange:Begin()
 			ability:StartCooldown(4)
 		end)
 	elseif thisEntity.phase == 1 then
-		--print("Phase3")
 		StartAnimation(thisEntity, {duration = 3.5, activity = ACT_DOTA_SPAWN, rate = 0.7})
 		local teleportAbility = thisEntity:FindAbilityByName("jonuous_teleport")
 		teleportAbility:ApplyDataDrivenModifier(thisEntity, thisEntity, "modifier_jonuous_phase_shift", {duration = 3.5})
@@ -331,7 +317,6 @@ function PhaseChange:Begin()
 			ability:StartCooldown(4)
 		end)
 	elseif thisEntity.phase == 2 then
-		--print("Phase4")
 		StartAnimation(thisEntity, {duration = 2, activity = ACT_DOTA_SPAWN, rate = 1})
 		local teleportAbility = thisEntity:FindAbilityByName("jonuous_teleport")
 		teleportAbility:ApplyDataDrivenModifier(thisEntity, thisEntity, "modifier_jonuous_phase_shift", {duration = 3.0})

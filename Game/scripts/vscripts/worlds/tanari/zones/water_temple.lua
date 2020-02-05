@@ -403,7 +403,6 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 			end
 		end
 	end)
-	--print(bGeneric)
 	Timers:CreateTimer(2.6, function()
 		if bOpen then
 			local blockers = Entities:FindAllByNameWithin(blockerName, blockerPosition, blockerSearchRadius)
@@ -417,13 +416,9 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 				end
 			end
 			-- if bGeneric then
-			-- --print("IN B GENERIC")
 			-- --print(Vector(wallPosition.x,wallPosition.y, 128))
-			-- --print(blockerSearchRadius)
 			-- blockers = Entities:FindAllByClassnameWithin("point_simple_obstruction", Vector(wallPosition.x,wallPosition.y, 128), blockerSearchRadius)
 			-- end
-			--print("blockers")
-			--print(blockers)
 			for i = 1, #blockers, 1 do
 				--print(blockers[i]:GetClassname())
 				if blockers[i]:GetClassname() == "point_simple_obstruction" then
@@ -444,7 +439,6 @@ function Tanari:LowerWaterTempleWall(movementZ, wallName, wallPosition, blockerN
 		end
 
 		for i = -2, 2, 1 do
-			--print("SPAWN BLOCKERS AT VV")
 			--print(Vector(wallPosition.x,wallPosition.y+(i*128), 128))
 			local entity = SpawnEntityFromTableSynchronous("point_simple_obstruction", {origin = Vector(wallPosition.x, wallPosition.y + (i * 128), 128), name = "MazeBlocker"})
 			if wallPosition.y == 14540 then
@@ -1914,7 +1908,6 @@ function Tanari:SpiritWaterSection2()
 		thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 		thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 		if thinker:HasAbility("modifier_dungeon_thinker2") then
-			--print("HAS DUNGEON THINKER")
 		end
 		thinker.statue = Entities:FindByNameNearest("SerpentStatue1", Vector(-12129 + ((i - 1) * 580), 10549), 1000)
 		table.insert(Tanari.WaterTemple.SerpentSwitchTable, thinker)
@@ -2431,7 +2424,6 @@ function Tanari:SetupRubicksSwitches()
 		thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 		thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 		if thinker:HasAbility("modifier_dungeon_thinker2") then
-			--print("HAS DUNGEON THINKER")
 		end
 		table.insert(Tanari.WaterTemple.RubicksSwitchTable, thinker)
 	end
@@ -2451,7 +2443,6 @@ function Tanari:SetupRubicksSwitches()
 		thinker:FindAbilityByName("dungeon_thinker2"):SetLevel(1)
 		thinker:FindAbilityByName("dungeon_thinker2"):ApplyDataDrivenModifier(thinker, thinker, "modifier_dungeon_thinker2", {})
 		if thinker:HasAbility("modifier_dungeon_thinker2") then
-			--print("HAS DUNGEON THINKER")
 		end
 		table.insert(Tanari.WaterTemple.RubicksSwitchTable, thinker)
 	end
@@ -2484,7 +2475,6 @@ function Tanari:WaterTempleRubicksSwitch(switch)
 			elseif switch.side == 1 then
 				local newRowTable = {}
 				local row = switch.index + 1
-				--print("Row: "..row)
 				for i = 0, 3, 1 do
 					local addition = i
 					if i == 0 then

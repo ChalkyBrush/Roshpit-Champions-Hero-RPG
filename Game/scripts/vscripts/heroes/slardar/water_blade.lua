@@ -187,7 +187,6 @@ function hydroxis_attack_land(event)
 				-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, 2)
 				-- local targetAngle = ((enemy:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 				-- local angleDifferential = math.acos(fv:Dot(targetAngle, fv))
-				--print(angleDifferential)
 				-- if angleDifferential < math.pi/2 then
 				Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
 				if crit then
@@ -212,10 +211,8 @@ end
 
 function weapon_particle_buff(event)
 	local caster = event.caster
-	--print("WEAPON PARTICLE BUFF")
 	local ability = event.ability
 	if not ability.w_2_particle then
-		--print("ATTACH PARTICLE")
 		local index = ParticleManager:CreateParticle("particles/roshpit/hydroxis/b_b_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(index, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControlEnt(index, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)

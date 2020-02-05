@@ -131,7 +131,6 @@ function a_a_search(caster, target, ability)
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local links = 3 + Runes:Procs(ability.q_1_level, EPOCH_Q1_ADDITIONAL_LINKS_CHANCE, 1)
 	for _, enemy in pairs(enemies) do
-		--print("A A SEARCH")
 		if ability.jump_count >= links then
 			break
 			-- apply dmg overtime debuff even if only one target
@@ -139,7 +138,6 @@ function a_a_search(caster, target, ability)
 			if enemy:GetEntityIndex() == target:GetEntityIndex() then
 			else
 				if not enemy:HasModifier("modifier_space_link") then
-					--print("DO A LINK")
 					local stacks = enemy:GetModifierStackCount("modifier_space_link", ability)
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_space_link", {duration = 7})
 					ability:ApplyDataDrivenModifier(caster, target, "modifier_space_link", {duration = 7})
@@ -273,13 +271,10 @@ function epoch_q_3_get_damage(attacker, caster, reduceMana)
 	local ability = caster:FindAbilityByName("epoch_rune_q_3")
 	local manaDrain = attacker:GetMaxMana() * EPOCH_Q3_BASE_MANA_DRAIN_PCT / 100
 	local damage = 0
-	--print("man drain before "..manaDrain)
 	local q_4_level = attacker:GetRuneValue("q", 4)
-	--print("q_4_level: "..q_4_level)
 	if q_4_level > 0 then
 		manaDrain = manaDrain + attacker:GetMaxMana() * q_4_level * EPOCH_Q4_Q3_BONUS_MANA_DRAIN_PCT / 100
 	end
-	--print("man drain after "..manaDrain)
 	if not ability then
 		return false
 	end
@@ -287,7 +282,6 @@ function epoch_q_3_get_damage(attacker, caster, reduceMana)
 		return nil
 	end
 	local q_3_level = attacker:GetRuneValue("q", 3)
-	--print("q_3_level: "..q_3_level)
 	if q_3_level > 0 then
 		if not attacker:HasModifier("modifier_epoch_q_3_lock") and reduceMana then
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_epoch_q_3_lock", {duration = 0.1})
@@ -295,7 +289,6 @@ function epoch_q_3_get_damage(attacker, caster, reduceMana)
 		end
 		damage = manaDrain * q_3_level * EPOCH_Q3_TIMES_MANA_DRAINED
 	end
-	--print("q_3_damage: "..damage)
 	return damage
 end
 

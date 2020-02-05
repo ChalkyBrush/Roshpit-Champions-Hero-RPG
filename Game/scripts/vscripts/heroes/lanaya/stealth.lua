@@ -281,7 +281,6 @@ function backstab_channel_succeed(event)
 	Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 	local moveToPosition = target:GetAbsOrigin() - target:GetForwardVector() * 110
 	local casterFV = (target:GetAbsOrigin() * Vector(1, 1, 0) - moveToPosition * Vector(1, 1, 0)):Normalized() * Vector(1, 1, 0)
-	--print(casterFV)
 	caster:SetForwardVector(casterFV)
 	caster:SetAbsOrigin(moveToPosition)
 	WallPhysics:Jump(caster, caster:GetForwardVector(), 0, 40, 10, 0.3)

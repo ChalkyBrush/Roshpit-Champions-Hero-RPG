@@ -47,9 +47,7 @@ function begin_rockfall(event)
 						enemy:CalculateAndSaveRoshpitAttributes()
 						if enemy.dummy then
 						else
-							--print("SELF DAMAGE")
 							local self_damage = caster:GetMaxHealth() * self_damage_percent / 100
-							--print(self_damage)
 							Filters:ApplyDamageBasic(caster, caster, self_damage, DAMAGE_TYPE_PURE)
 						end
 					end

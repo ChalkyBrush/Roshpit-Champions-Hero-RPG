@@ -38,7 +38,6 @@ local queue = class({}) -- sparse queue implementation
 -- call this in your Precache() function to precache vector targeting particles
 function VectorTarget:Precache(context)
     if self.initializedPrecache then return end
-    --print("[VECTORTARGET] precaching assets")
     --PrecacheResource("particle", "particles/vector_target_ring.vpcf", context)
     PrecacheResource("particle", "particles/vector_target/vector_target_range_finder_line.vpcf", context)
     self.initializedPrecache = true
@@ -46,9 +45,7 @@ end
 
 -- call this in your init function to initialize for default use-case behavior
 function VectorTarget:Init(opts)
-    --print("[VECTORTARGET] initializing")
     if not self.initializedPrecache then
-        --print("[VECTORTARGET] warning: VectorTarget:Precache was not called before Init.")
     end
     opts = opts or {}
     if not opts.noEventListeners then
@@ -66,7 +63,6 @@ end
 -- call this in your init function to start listening to events
 function VectorTarget:InitEventListeners()
     if self.initializedEventListeners then return end
-    --print("[VECTORTARGET] registering event listeners")
     -- Note: wrapping the calls in an anonymous function allows reloading to work properly
     --ListenToGameEvent("npc_spawned", function(...) self:_OnNpcSpawned(...) end, {})
     CustomGameEventManager:RegisterListener("vector_target_order_cancel", function(...) self:_OnVectorTargetOrderCancel(...) end)
@@ -223,7 +219,6 @@ function VectorTarget:WrapAbility(abil, reloading)
     local abiName = abil:GetAbilityName()
     local cName = abil:GetClassname()
     if "ability_lua" ~= cName and "item_lua" ~= cName then
-        --print("[VECTORTARGET] Warning: " .. abiName .. " is not a Lua ability/item and cannot be vector targeted.")
         return
     end
     if not reloading and abil.isVectorTarget then
@@ -386,7 +381,6 @@ function VectorTarget:OrderFilter(data)
     if nUnits == 0 then
         return true
     end
-    --print("seq num: ", seqNum, "order type: ", data.order_type, "queue: ", data.queue)
     if abilId ~= nil and abilId > 0 then
         local abil = EntIndexToHScript(abilId)
         if abil ~= nil then
@@ -395,7 +389,6 @@ function VectorTarget:OrderFilter(data)
                 local unitId = units["0"] or units[0]
                 local targetPos = {x = data.position_x, y = data.position_y, z = data.position_z}
                 if inProgress == nil or inProgress.abilId ~= abilId or inProgress.unitId ~= unitId then -- if no in-progress order, this order selects the initial point of a vector cast
-                    --print("inProgress", playerId, abilId, unitId)
                     local cpMap = abil._vectorTargetKeys.cpMap
                     local orderData = {
                         initialPosition = targetPos,
@@ -462,13 +455,11 @@ function VectorTarget:_OnVectorTargetOrderCancel(eventSource, keys)
     local pId = eventSource - 1
     local inProgress = self.inProgressOrders[pId]
     if inProgress ~= nil and inProgress.seqNum == keys.seqNum then
-        --print("canceling")
         self.inProgressOrders[pId] = nil
     end
 end
 
 function VectorTarget:_OnVectorTargetQueueFull(eventSource, keys)
-    --print("queue full")
     --util.printTable(keys)
 end
 
@@ -611,9 +602,7 @@ function queue.constructor(q)
 end
 
 function queue.push(q, value, seqN)
-    --print("push", q.first, q.last, q.len)
     --[[if q:length() >= MAX_ORDER_QUEUE then
-       --print("[VECTORTARGET] warning: order queue has reached limit of " .. MAX_ORDER_QUEUE)
         return
     end]]
     if seqN == nil then
@@ -648,7 +637,6 @@ function queue.popLast(q)
 end
 
 function queue.popFirst(q)
-    --print("pop", q.first, q.last, q.len)
     local first = q.first
     if first > q.last then error("queue is empty") end
     local value = q[first]

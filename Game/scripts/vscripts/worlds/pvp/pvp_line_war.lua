@@ -94,7 +94,6 @@ function PVP:RollRandomGlyph(position)
 		rowItem = RandomInt(1, 3)
 	end
 	local glyphName = "item_rpc_"..heroName.."_glyph_"..tier.."_"..rowItem
-	--print(glyphName)
 	Glyphs:RollGlyphAll(glyphName, position, 0)
 end
 
@@ -704,8 +703,6 @@ function PVP:pvp_summon_unit(caster, unitCode, bounty, playerID, regionCode)
 	local casterOrigin = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
 	local unit = nil
-	--print("REGION CODE")
-	--print(regionCode)
 	if regionCode == "tanari" then
 		if unitCode == "A0" then
 			unit = PVP:LineWarSummonMountainBully(casterOrigin, fv, caster:GetTeamNumber())

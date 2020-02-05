@@ -125,7 +125,6 @@ function temporal_field_enter(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
-	--print("DID THIS TRIGGER?")
 
 	if target:GetEntityIndex() == caster:GetEntityIndex() then
 		target:RemoveModifierByName("modifier_zhonik_temporal_field_buff")

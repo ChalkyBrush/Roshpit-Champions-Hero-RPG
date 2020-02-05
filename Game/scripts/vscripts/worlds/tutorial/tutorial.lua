@@ -1,7 +1,6 @@
 print("---[TUTORIAL SCRIPT LOAD]---")
 
 function Tutorial:InitTutorialMap()
-	--print("Initialize Tutorial")
 	Dungeons.phoenixCollision = true
 	RPCItems.DROP_LOCATION = Vector(-16000, 492)
 	Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -242,15 +241,12 @@ function Tutorial:GetTutorialFromServer(hero)
 			local player = PlayerResource:GetPlayer(playerID)
 			local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
 			url = url.."steam_id="..steamID
-			--print(url)
 			CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 				if result.StatusCode == 200 then
 					local resultTable = {}
-					--print( "GET response:\n" )
 					for k, v in pairs(result) do
 						--print( string.format( "%s : %s\n", k, v ) )
 					end
-					--print( "Done." )
 					local resultTable = JSON:decode(result.Body)
 					Tutorial:LoadTutorialDataForHero(hero, resultTable)
 				end
@@ -530,7 +526,6 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 	end
 	hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 	local speech_phase = hero.tutorial_speech_phase
-	--print(code)
 	Timers:CreateTimer(8, function()
 		hero:RemoveModifierByName("modifier_tutorial_open")
 	end)
@@ -1311,15 +1306,12 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
 								return 6
 							end
 							if hero.special_key == 2 then
-								print("input")
 								Tutorial:TutorialServerEvent(hero, "6_2", 0)
 							end
 						else
-							print("return 6")
 							return 6
 						end
 					end
@@ -1363,15 +1355,12 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
 								return 6
 							end
 							if hero.special_key == 4 then
-								print("Got it")
 								Tutorial:TutorialServerEvent(hero, "6_3", 0)
 							end
 						else
-							print("return 6")
 							return 6
 						end
 					end
@@ -1405,15 +1394,12 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
 								return 6
 							end
 							if hero.special_key == 6 then
-								print("got it")
 								Tutorial:TutorialServerEvent(hero, "6_4", 0)
 							end
 						else
-							print("return 6")
 							return 6
 						end
 					end
@@ -1454,15 +1440,12 @@ function Tutorial:CheckSpecialKeyAndLoop(hero)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/get_tutorial_status?"
 	url = url.."steam_id="..steamID
-	--print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			hero.special_key = resultTable.special_key
 			DeepPrintTable(resultTable)
@@ -1475,10 +1458,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 		return false
 	end
 	if hero.tutorial.active_challenge == code1 then
-		--print("-----TUTORIAL SERVER EVENT------")
-		--print(hero.active_challenge_progress)
-		--print(code2)
-		--print("------------")
 		if code1 == "1_1" then
 			if code2 == 0 and hero.active_challenge_progress == code2 then
 				Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_1_1e", 5, false)
@@ -1732,7 +1711,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						choice = DOTA_R_SLOT + 1
 					end
 					local sub = "DOTA_Tooltip_Ability_"..hero:GetAbilityByIndex(choice - 1):GetAbilityName()
-					print("WHY NOTHING")
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "2_2", quiz_question = question, sequence = 0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 3})
 					CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"})
 				end)
@@ -1848,7 +1826,6 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 					hero.master_is_talking = false
 				end)
 			elseif code2 == 2 and hero.active_challenge_progress == code2 then
-				--print("in here?")
 				hero.active_challenge_progress = hero.active_challenge_progress + 1
 				hero.tutorial_speech_phase = hero.tutorial_speech_phase + 1
 				local speech_phase = hero.tutorial_speech_phase
@@ -2646,21 +2623,17 @@ function Tutorial:SaveTutorialProgressOnWeb(hero, section_index, newProgress)
 	local steamID = PlayerResource:GetSteamAccountID(playerID)
 	local player = PlayerResource:GetPlayer(playerID)
 	local url = ROSHPIT_URL.."/champions/update_tutorial?"
-	--print(section_index)
 	url = url.."steam_id="..steamID
 	url = url.."&type=" .. "progress"
 	url = url.."&section="..section_index
 	url = url.."&progress="..newProgress
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	--print(url)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Tutorial:LoadTutorialDataForHero(hero, resultTable)
 		end
@@ -2709,15 +2682,12 @@ function Tutorial:UpdateRewardProgressOnWeb(hero, section_index)
 	url = url.."&type=" .. "reward"
 	url = url.."&section="..section_index
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	--print(url)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			Tutorial:LoadTutorialDataForHero(hero, resultTable)
 			if section_index == 1 then
@@ -2762,15 +2732,12 @@ function Tutorial:UpdateSpecialKeyOnWeb(hero, special_key)
 	url = url.."&type=" .. "special_key"
 	url = url.."&special_key="..special_key
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	--print(url)
 	CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		if result.StatusCode == 200 then
 			local resultTable = {}
-			--print( "GET response:\n" )
 			for k, v in pairs(result) do
 				--print( string.format( "%s : %s\n", k, v ) )
 			end
-			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			local special_key = resultTable.special_key
 		end
@@ -2781,8 +2748,6 @@ function Tutorial:SubmitQuiz(msg)
 	local hero = EntIndexToHScript(msg.hero)
 	local playerID = hero:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(playerID)
-	--print("---SUBMIT QUIZ---")
-	--print(hero.tutorial.active_challenge)
 	if hero.tutorial.active_challenge == msg.challenge_index then
 		if hero.tutorial.active_challenge == "2_1" then
 			msg.verifier = Tutorial:RemoveRunePrefix(msg.verifier)
@@ -2804,7 +2769,6 @@ function Tutorial:SubmitQuiz(msg)
 			correct_answer = msg.verifier == msg.answer
 		elseif hero.tutorial.active_challenge == "4_2" then
 			if msg.challenge_progress == 0 then
-				print(msg.verifier)
 				if tonumber(msg.answer) - 1 < tonumber(msg.verifier) and tonumber(msg.answer) + 1 > tonumber(msg.verifier) then
 					correct_answer = true
 				end

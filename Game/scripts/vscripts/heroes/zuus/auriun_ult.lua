@@ -71,9 +71,7 @@ end
 function auriun_channel_think(event)
 	local caster = event.caster
 	local ability = event.ability
-	--print("CHANNEL THINK??")
 	if ability.initialized == 1 then
-		--print("SOUND?")
 		ability.initialized = 0
 		StartSoundEvent("Auriun.UltFinish", caster)
 	end

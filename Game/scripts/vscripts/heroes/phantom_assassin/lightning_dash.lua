@@ -163,7 +163,6 @@ function regen_think(event)
 	local ability = event.ability
 	local modifier = caster:FindModifierByName("modifier_voltex_lightning_dash_regen")
 	local timeLeft = modifier:GetRemainingTime()
-	--print(timeLeft)
 	local portion = timeLeft / 3
 	ability.regen = math.ceil(ability.regen * portion)
 end

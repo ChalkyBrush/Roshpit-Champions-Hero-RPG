@@ -147,7 +147,6 @@ function Redfall:Debug2()
       -- local pfx = CustomAbilities:QuickAttachParticle("particles/econ/generic/generic_buff_1/generic_buff_1.vpcf", dummy, 10)
       -- ParticleManager:SetParticleControl(pfx, 14, Vector(1,1,1))
       -- ParticleManager:SetParticleControl(pfx, 15, Vector(0,30,255))
-      -- print("SPAWN LILY")
       -- WallPhysics:Jump(dummy, Vector(1, 1), 0, 0, 0, 0.05)
       -- Timers:CreateTimer(10, function()
       --   local unit = Redfall:SpawnWaterLily(dummy:GetAbsOrigin(), RandomVector(1), false)
@@ -160,7 +159,6 @@ function Redfall:Debug2()
       -- end)
 -- Redfall:SpawnShipyardPt2()
     -- Redfall:SpawnBigFlower(MAIN_HERO_TABLE[1]:GetAbsOrigin(), Vector(1,0))
-  -- print("HELLO?")
   -- Events:MainBossSlain("redfall_crimsyth_castle_boss")
   -- Redfall:InitiateCrimsythCastleIntro()
   -- Redfall:InitiateDebugRedfall()
@@ -192,7 +190,6 @@ function Redfall:Debug2()
 
   -- local hero = MAIN_HERO_TABLE[1]
   -- for i = 0, 11, 1 do
-  --  --print("-----loop----"..i)
   --   local item = hero:GetItemInSlot(i)
   --   if IsValidEntity(item) then
   --    --print(item:GetAbilityName())
@@ -397,7 +394,6 @@ function Redfall:QuestComplete(hero, questIndex)
 end
 
 function Redfall:InitCamp()
-  --print("Initialize Redfall")
   Dungeons.phoenixCollision = true
   RPCItems.DROP_LOCATION = Vector(6656, -16128)
   Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -755,14 +751,9 @@ function Redfall:CreateAutumnParticlesForRegion(region)
   -- local yLoops = math.ceil((region[2].y - region[1].y)/1000)
   -- for i = 1, xLoops, 1 do
   --   for j = 1, yLoops, 1 do
-  --        --print("----LOOP----")
-  --        --print(i)
-  --        --print(j)
   --         local particleName = "particles/rain_fx/autumn_terrain.vpcf"
   --         local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-  --        --print("POSITION:")
   --         local position = Vector(region[1].x + (i-1)*1000, region[1].y + (j-1)*1000, 1000+Redfall.ZFLOAT)
-  --        --print(position)
   --         ParticleManager:SetParticleControl(pfx,0,position)
   --         ParticleManager:SetParticleControl(pfx,1,position)
   --         table.insert(Redfall.WeatherParticles, pfx)
@@ -771,9 +762,7 @@ function Redfall:CreateAutumnParticlesForRegion(region)
   for i = 1, #region, 1 do
     local particleName = "particles/rain_fx/autumn_terrain.vpcf"
     local pfx = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, Events.GameMaster)
-    ----print("POSITION:")
     -- local position = Vector(region[1].x + (i-1)*1000, region[1].y + (j-1)*1000, 1000+Redfall.ZFLOAT)
-    ----print(position)
     local position = region[i] + Vector(1300, 1300, 1000 + Redfall.ZFLOAT)
     ParticleManager:SetParticleControl(pfx, 0, position)
     ParticleManager:SetParticleControl(pfx, 1, position)

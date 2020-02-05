@@ -56,7 +56,6 @@ function channel_complete(event)
 	ability.velocity = 1000
 	ability.rotationDelta = 20
 	--DeepPrintTable(event.target_points)
-	--print(startPoint)
 	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
 	ability.velocity = distance * 1
 	if event.noSound then
@@ -118,7 +117,6 @@ function channel_complete(event)
 	if bAvatar then
 		max_tornados = 3
 	end
-	--print(max_tornados)
 	if #ability.tornadoTable > max_tornados then
 		ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
 	end

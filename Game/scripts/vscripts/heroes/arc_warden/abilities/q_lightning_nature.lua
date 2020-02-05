@@ -69,7 +69,6 @@ function jex_thundershroom_attack_land(event)
 	if ability.w_4_level then
 		damage = damage + damage * (event.w_4_lightning_damage_increase / 100) * ability.w_4_level
 	end
-	--print("HELLO?")
 	if luck <= 3 then
 		for i = 1, targets_to_hit, 1 do
 			Timers:CreateTimer((i - 1) * 0.15, function()

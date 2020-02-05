@@ -297,7 +297,6 @@ function WallPhysics:JumpFixedDistanceWithBlocking(unit, forwardVector, distance
 			if not blockUnit then
 				unit:SetOrigin(newPosition)
 			else
-				--print("SHOULD BE BLOCKING?")
 				gameMasterAbil:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_mobility_blocked", {duration = 1.5})
 				unit:SetOrigin(newPosition - forwardVector * propulsion)
 			end
@@ -580,10 +579,8 @@ function WallPhysics:UnitLand(unit)
 			local damageAmp = 0.5 + q_3_level * 0.1
 			CustomAbilities:AxeSunder(caster, ability, damage, damageAmp, "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start.vpcf")
 		elseif caster.flamewaker_d_b_target then
-			--print("block1")
 			if IsValidEntity(caster.flamewaker_d_b_target) then
 				if caster.flamewaker_d_b_target:IsAlive() then
-					--print("blockMAIN")
 					EmitSoundOn("Flamewaker.SpecialCrit", caster.flamewaker_d_b_target)
 					local target = caster.flamewaker_d_b_target
 

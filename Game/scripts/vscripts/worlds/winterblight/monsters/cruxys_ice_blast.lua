@@ -6,7 +6,6 @@ function cruxal_ice_blast_launch(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-	--print("GREETER")
 	local main_ability_name = keys.main_ability_name
 	local sub_ability_name = keys.sub_ability_name
 
@@ -110,8 +109,6 @@ function cruxal_ice_blast_launch(keys)
 			local projectile_direction = (ability.ice_blast_tracer_location - caster_location):Normalized()
 
 			-- Launch the projectile
-			--print("LAUNCH")
-			--print(projectile_particle)
 			ProjectileManager:CreateLinearProjectile({
 				Ability = ability,
 				EffectName = "particles/roshpit/winterblight/cruxys_ice_blast.vpcf",
@@ -143,7 +140,6 @@ function cruxal_ice_blast_launch(keys)
 					return 1 / 30
 				else
 					-- End path area vision
-					--print("TRACERINO")
 					ability.ice_blast_tracer:RemoveSelf()
 					AddFOWViewer(caster:GetTeamNumber(), hail_location, area_vision, area_vision_duration, false)
 					ice_blast_explode(keys)
@@ -184,7 +180,6 @@ function ice_blast_explode(keys)
 	local modifier = keys.modifier
 	local sound = keys.sound
 	local explosion_particle = keys.explosion_particle
-	--print("EXPLOSE")
 	local damage_table = {}
 	damage_table.attacker = caster
 	damage_table.damage_type = ability:GetAbilityDamageType()

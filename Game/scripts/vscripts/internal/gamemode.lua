@@ -27,7 +27,6 @@ end
 
 function GameMode:_InitGameMode()
   -- Setup rules
-  --print("init game mode")
   GameRules:SetHeroRespawnEnabled(ENABLE_HERO_RESPAWN)
   GameRules:SetUseUniversalShopMode(UNIVERSAL_SHOP_MODE)
   GameRules:SetSameHeroSelectionEnabled(ALLOW_SAME_HERO_SELECTION)

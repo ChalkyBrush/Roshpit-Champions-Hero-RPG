@@ -181,7 +181,6 @@ function passive_think(event)
 							end
 							if caster:HasModifier("modifier_zonik_immortal_weapon_3") then
 								if caster:HasAbility("tachyon_shell") then
-									--print("HERE?")
 									local eventTable = {}
 									eventTable.caster = caster
 									eventTable.target = missle.lockEnemy

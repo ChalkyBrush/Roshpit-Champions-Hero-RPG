@@ -82,7 +82,6 @@ function alpha_dash_think(event)
 	--print(caster:GetAbsOrigin().z)
 	--print((caster:GetAbsOrigin()+caster:GetForwardVector()*200).z)
 	if caster:GetAbsOrigin().z < (caster:GetAbsOrigin() + caster:GetForwardVector() * 200).z - 20 then
-		--print("REMOVE FLIGHT")
 		caster.attacked = true
 		caster:RemoveModifierByName("modifier_redfall_alpha_charging")
 	end
@@ -858,7 +857,6 @@ function canyon_boss_blink_start(event)
 	local direction = boss:GetForwardVector()
 	local distance = WallPhysics:GetDistance2d(boss:GetAbsOrigin(), jumpToPosition)
 	if distance > maxRange then
-		print("Distance: "..distance)
 		print("Previous target Vector: "..tostring(jumpToPosition))
 		print("Multiplying direction ("..tostring(direction) .. ") with maxRange ("..maxRange..")")
 		jumpToPosition = boss:GetAbsOrigin() + maxRange * direction
@@ -1109,7 +1107,6 @@ function redfall_spirit_of_ashara_die(event)
 		return false
 	end
 	for i = 1, #MAIN_HERO_TABLE, 1 do
-		print("Adding modifier to hero "..i)
 		MAIN_HERO_TABLE[i].RedfallQuests[5].objective = "redfall_quest_5_objective_3"
 		CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "newQuest", {})
 		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, MAIN_HERO_TABLE[i], "modifier_blessing_of_ashara", {})

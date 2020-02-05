@@ -65,7 +65,6 @@ end
 
 
 function Winterblight:InitCamp()
- --print("Initialize Winterblight")
       Dungeons.phoenixCollision = true
       RPCItems.DROP_LOCATION = Vector(-16000,492)
       Events:SpawnGamemaster(RPCItems.DROP_LOCATION)
@@ -230,8 +229,6 @@ end
 function Winterblight:Debug2()
   Events.DifficultyFactor = 3
   Winterblight.Stones = 3
-  print("DEBUG2")
-  print(MAIN_HERO_TABLE[1].challenge_cleared)
   -- Challenges:SetChallengeClears()
   -- Challenges:RewardSequenceForHero(MAIN_HERO_TABLE[1])
   -- if not Winterblight.GuideBasePos then
@@ -683,7 +680,6 @@ end
 
 function Winterblight:CloseAltarOfIce(msg)
   local hero = EntIndexToHScript(msg.heroIndex)
- --print("CLOSE ALTAR")
   hero.WinterblightAltar = false
   local closeAltar = true
   for i = 1, #MAIN_HERO_TABLE, 1 do

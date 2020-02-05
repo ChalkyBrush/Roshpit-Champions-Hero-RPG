@@ -238,7 +238,6 @@ end
 function modifier_arkimus_arcana_q_3:OnTakeDamage(event)
     local hero = self:GetParent()
     if IsServer() and self:CheckOnDamageTaken(event) then
-        print(event.damage)
         local ability = self:GetAbility()
         if not ability.pfxCount then
             ability.pfxCount = 0
@@ -249,9 +248,7 @@ function modifier_arkimus_arcana_q_3:OnTakeDamage(event)
             local duration = Filters:GetAdjustedBuffDuration(hero, ARKIMUS_ARCANA1_Q3_DUR_BASE, false)
             hero:AddNewModifier(hero, ability, "modifier_arkimus_arcana_q_3_buff", {duration = duration})
             local currentStacks = hero:GetModifierStackCount("modifier_arkimus_arcana_q_3_buff", hero)
-            print(currentStacks)
             local newStacks = math.min(currentStacks + 1, q_3_level * ARKIMUS_ARCANA1_Q3_STACKS)
-            print(newStacks)
             hero:SetModifierStackCount("modifier_arkimus_arcana_q_3_buff", hero, newStacks)
         end
     end

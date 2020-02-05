@@ -234,8 +234,6 @@ function Enemies:InitializeEnemy(unit)
 		unit_level = 120
 	end
 	-- exp
-	-- print(unit_level)
-	-- print(enemyTier)
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
 	if GameState:IsSerengaard() then
@@ -540,12 +538,8 @@ end
 function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEXP)
 	local exp = baseEXP
 	local level_differential = math.abs(hero:GetLevel() - level_of_slain_enemy)
-	print("GRANT EXP")
-	print(exp)
-	print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
 		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY )
-		print(exp_mult)
 		exp = exp*exp_mult
 	end
 	if exp > 0 then

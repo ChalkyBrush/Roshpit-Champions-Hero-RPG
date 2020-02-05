@@ -30,7 +30,6 @@ function BehaviorNone:Begin()
 	local enemy = AICore:RandomEnemyHeroInRange(thisEntity, 10000)
 
 	if enemy and not thisEntity.dead then
-		--print("order_attack_move")
 		self.order =
 		{
 			UnitIndex = thisEntity:entindex(),
@@ -70,7 +69,6 @@ function BasicSkill:Evaluate()
 end
 
 function BasicSkill:Begin()
-	--print("fire basic")
 	self.endTime = GameRules:GetGameTime() + 1
 	self.order =
 	{

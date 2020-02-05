@@ -80,7 +80,6 @@ function attack(event)
     if creator.e_4_level and creator.e_4_level > 0 then
         print(OverflowProtectedGetAverageTrueAttackDamage(attacker))
         damage = ((SORCERESS_E4_DAMAGE_AS_PCT_OF_ELEMENTAL_ATK_POWER*creator.e_4_level / 100) * OverflowProtectedGetAverageTrueAttackDamage(attacker))
-        print(damage)
     end
     local frozenDamage = damage
     if creator.e_3_level > 0 then

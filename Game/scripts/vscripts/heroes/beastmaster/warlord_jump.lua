@@ -16,7 +16,6 @@ function jumpStart(event)
 	end
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	--print(jumpFV)
 	ability.jump_velocity = distance / 30 + 15
 	-- ability.jump_velocity = Filters:GetAdjustedESpeed(caster, ability.jump_velocity, false)
 	ability.jumpFV = jumpFV
@@ -24,7 +23,6 @@ function jumpStart(event)
 	ability.targetPoint = targetPoint
 	ability.lifting = true
 	local animationRate = math.min(1100 / distance, 2.5)
-	--print(animationRate)
 	StartAnimation(caster, {duration = 0.3 + distance / 1000, activity = ACT_DOTA_SPAWN, rate = animationRate})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_jumping", {duration = 4})
 	Timers:CreateTimer(0.3, function()
@@ -70,7 +68,6 @@ function fireJumpStart(event)
 	end
 	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
 	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-	--print(jumpFV)
 	local jump_velocity = distance/20 + 10
 	jump_velocity = Filters:GetAdjustedESpeed(caster, jump_velocity, false)
 	ability.jump_velocity = jump_velocity
@@ -79,7 +76,6 @@ function fireJumpStart(event)
 	ability.targetPoint = targetPoint
 	ability.lifting = true
 	-- local animationRate = math.min(1100/distance, 2.5)
-	--print(animationRate)
 	-- StartAnimation(caster, {duration=0.3+distance/1000, activity=ACT_DOTA_SPAWN, rate=animationRate})
 	-- ability:ApplyDataDrivenModifier(caster, caster, "modifier_warlord_jumping", {duration = 4})
 	Timers:CreateTimer(0.3, function()
@@ -103,7 +99,6 @@ function new_jumping_think(event)
 	acceleration = Filters:GetAdjustedESpeed(caster, acceleration, false)
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
 	ability.jump_velocity = ability.jump_velocity - acceleration
-	--print(ability.jumpFV)
 	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 and not ability.lifting then
 		caster:RemoveModifierByName("modifier_warlord_jumping")
 		-- caster:RemoveModifierByName("modifier_ignore_cast_angle")
@@ -221,8 +216,6 @@ function fireDashThink(event)
 	local position = caster:GetAbsOrigin()
 	local fv = caster:GetForwardVector()
 	local searchPos = Vector(position.x, position.y, GetGroundHeight(position, caster))
-	--print("SAERCH POS")
-	--print(searchPos)
 	local obstruction = WallPhysics:FindNearestObstruction(searchPos + (fv * 30))
 	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, searchPos + (fv * 30), caster)
 	if blockUnit then

@@ -270,7 +270,6 @@ function comet_think(event)
 		caster:RemoveModifierByName("modifier_comet_storming")
 	elseif caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 340 then
 		if not ability.landAnimated then
-			--print("ANIMATE")
 			-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Paladin.CometLand", caster)
 			-- ability.landAnimated = true
 			-- StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_ATTACK, rate=1.3})
@@ -495,8 +494,6 @@ function winterblight_summon_ability(event)
 	end
 	local loops = 1 + GameState:GetDifficultyFactor()
 	local summoned = false
-	--print(caster.maxSummons)
-	--print("MAX SUMMONS")
 	for i = 1, loops, 1 do
 		if caster.summonCount < caster.maxSummons then
 			summoned = true
@@ -659,7 +656,6 @@ function winterblight_boss_dying_particle(event)
 end
 
 function winterblight_boss_final_death_animation(caster)
-	print("ANIMATION")
 	local realm_breaker_death = false
 	if caster.boss_chamber <= 4 then
 		Winterblight.CavernData.Chambers[caster.boss_chamber]["boss_status"] = 2

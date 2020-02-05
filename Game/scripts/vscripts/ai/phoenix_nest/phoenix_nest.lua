@@ -195,8 +195,6 @@ end
 
 function phoenix_mob_die(event)
 	Dungeons.phoenixMobsKilled = Dungeons.phoenixMobsKilled + 1
-	--print("KILLED "..Dungeons.phoenixMobsKilled)
-	--print("Thresh "..Dungeons.phoenixMobsThreshold)
 	if Dungeons.phoenixMobsKilled == Dungeons.phoenixMobsThreshold then
 		Dungeons:IncrementPhoenixWave()
 	end
@@ -673,7 +671,6 @@ function phoenix_boss_think(event)
 			end
 		end
 		caster.interval = caster.interval + 1
-		--print(caster.interval)
 		if caster.interval >= 106 then
 			caster.interval = -20
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_phoenix_boss_pyromaniac", {duration = 4})

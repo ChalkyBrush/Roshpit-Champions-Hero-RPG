@@ -3,7 +3,6 @@ require('heroes/spirit_breaker/duskbringer_3_e')
 require('heroes/spirit_breaker/duskbringer_glyphs')
 
 function seven_visions_channel(event)
-	--print('channel function')
 	duskbringer_rune_e_1_refresh(event.caster, 4)
 	duskbringer_glyph_4_2_refresh(event.caster, 4)
 end

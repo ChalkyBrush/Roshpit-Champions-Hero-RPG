@@ -139,7 +139,6 @@ function modifier_arkimus_leaping:OnIntervalThink()
         -- end
         local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
         if height < math.abs(ability.liftVelocity) then
-            --print(height)
             if not ability.rising then
                 caster:RemoveModifierByName("modifier_arkimus_leaping")
             end

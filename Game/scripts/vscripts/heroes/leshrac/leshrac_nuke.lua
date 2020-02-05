@@ -113,7 +113,6 @@ function rune_w_3(caster, ability, fv)
 			bProvidesVision = false,
 		}
 		projectile = ProjectileManager:CreateLinearProjectile(info)
-		--print("projectile fire")
 	end
 end
 

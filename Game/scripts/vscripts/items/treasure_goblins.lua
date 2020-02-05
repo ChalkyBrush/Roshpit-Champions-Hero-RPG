@@ -193,12 +193,8 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 	end
 	local luck = RandomInt(1, max_arcana_roll)
 	if luck <= TreasureGoblins.ARCANA_CHANCE then
-		print("roll arcana")
 		item = RPCItems:RollRandomWorldArcana(item_level)
 	else
-		print("roll immortal")
-		print("ITEM_SLOT:"..item_slot)
-		print("ITEM_LEVEL:"..item_level)
 		item = RPCItems:RollRandomWorldImmortal(item_slot, item_level)
 		print(item:GetAbilityName())
 	end
@@ -257,7 +253,6 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 			end
 		end
 		RPCItems:ItemUpdateCustomNetTables(item)
-		print("DROP ITEM?")
 		RPCItems:BasicDropItem(goblin:GetAbsOrigin(), item)
 	end
 end

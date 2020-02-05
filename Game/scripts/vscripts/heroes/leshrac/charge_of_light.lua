@@ -9,7 +9,6 @@ function startChannel(event)
 	caster.e_4_level = Runes:GetTotalRuneLevel(caster, 4, "e_4", "bahamut")
 	local wallAbility = caster:FindAbilityByName("leshrac_wall")
 	wallAbility.r_1_level = Runes:GetTotalRuneLevel(caster, 1, "r_1", "bahamut")
-	--print(ability.r_3_level)
 end
 
 function set_c_d_level(event)

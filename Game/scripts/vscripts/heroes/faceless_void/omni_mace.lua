@@ -361,9 +361,6 @@ function omniro_mace_attack_land(event)
 			end
 		end
 	end
-	--print("---")
-	--print(active_element)
-	--print(next_element)
 	local basic_damage = omni_mace_basic_hit(caster, ability, target, event)
 	if caster:HasModifier("modifier_omniro_immortal_weapon_1") then
 		omni_mace_basic_hit(caster, ability, target, event)
@@ -443,7 +440,6 @@ end
 function omni_mace_basic_hit(caster, ability, target, event)
 	local mace_hit_data = omni_mace_basic_element_data(caster.active_element)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/omniro/omni_mace.vpcf", target, 0.4)
-	--print(mace_hit_data["color"])
 	ParticleManager:SetParticleControl(pfx, 1, mace_hit_data["color"])
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (event.damage_mult / 100)
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, mace_hit_data["damage_type"], BASE_ABILITY_Q, caster.active_element, RPC_ELEMENT_NONE)

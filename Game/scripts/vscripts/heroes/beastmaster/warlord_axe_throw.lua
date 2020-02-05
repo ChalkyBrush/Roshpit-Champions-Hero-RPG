@@ -180,7 +180,6 @@ function axe_moving_think(event)
 	local ability = event.ability
 	local target = event.target
 	local distance = WallPhysics:GetDistance(target.original_position, target:GetAbsOrigin())
-	--print("AXE THROWING: ")
 	--print(target:GetAbsOrigin())
 	-- if target.downShot then
 	if target:GetAbsOrigin().z - GetGroundHeight(target:GetAbsOrigin(), target) < 20 then
@@ -327,10 +326,8 @@ function rune_w_1(caster, target, ability, element)
 	local totalLevel = abilityLevel + bonusLevel
 	local projectile = "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
 	if totalLevel > 0 then
-		--print("past first if")
 		local procs = Runes:Procs(totalLevel, 10, 1)
 		if procs > 0 then
-			--print("past procs")
 			if element == "earth" then
 				projectile = "particles/units/heroes/hero_troll_warlord/warlord_range_axe_earth.vpcf"
 			elseif element == "fire" then
@@ -339,7 +336,6 @@ function rune_w_1(caster, target, ability, element)
 				projectile = "particles/units/heroes/elemental_warlord/warlord_range_axe_ice.vpcf"
 			end
 			for i = 1, procs, 1 do
-				--print("fire some axes")
 				local randomDirection = RandomVector(1)
 				local launchPosition = target:GetAbsOrigin() + randomDirection * 40
 				launchAxe(ability, caster, projectile, randomDirection, launchPosition, false)
@@ -473,7 +469,6 @@ end
 
 function glyph_4_1(caster, ability, target)
 	if not caster:HasModifier("modifier_warlord_glyph_4_1_cooldown") then
-		--print("IN HERE?")
 		if caster:HasModifier("modifier_warlord_glyph_4_1") then
 			--print("IN THERE!")
 			if IsValidEntity(target) then
