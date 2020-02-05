@@ -124,7 +124,7 @@ function getCasterItemsTotalLevel(caster, lvl_100_as_lvl)
 		level = lvl_100_as_lvl
 	end
 	total_level = total_level + level
-	print("[getCasterItemsTotalLevel] total_level:"..tostring(total_level))
+	--print("[getCasterItemsTotalLevel] total_level:"..tostring(total_level))
 	return total_level
 end
 

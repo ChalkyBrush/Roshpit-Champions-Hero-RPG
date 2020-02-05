@@ -6,12 +6,12 @@ function Spawning:SetDropModifier(unit, deathModifier)
 	if GameState:IsRedfallRidge() then
 		Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, "modifier_redfall_unit", {})
 		if deathModifier ~= nil and deathModifier ~= "" then
-			print("Applying Modifier "..deathModifier.." to unit "..unit:GetUnitName())
+			--print("Applying Modifier "..deathModifier.." to unit "..unit:GetUnitName())
 			Redfall.RedfallMasterAbility:ApplyDataDrivenModifier(Redfall.RedfallMaster, unit, deathModifier, {})
 			if unit:HasModifier(deathModifier) then
-				print("Modifier successfully applied")
+				--print("Modifier successfully applied")
 			else
-				print("Modifier was not applied")
+				--print("Modifier was not applied")
 			end
 		end
 	elseif GameState:IsRPCArena() then

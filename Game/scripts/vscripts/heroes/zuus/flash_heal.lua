@@ -101,7 +101,7 @@ function c_b_effect(caster, ability, target, healAmount)
 	local w_3_level = Runes:GetTotalRuneLevel(caster, 3, "w_3", "auriun")
 	if w_3_level > 0 then
 		ability.auriun_c_b_heal = w_3_level * AURIUN_W3_PART_OF_HEAL_PER_TICK * healAmount
-		print(ability.auriun_c_b_heal)
+		--print(ability.auriun_c_b_heal)
 		local duration = Filters:GetAdjustedBuffDuration(caster, AURIUN_W3_BASE_DURATION, false)
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_auriun_c_b_heal", {duration = duration})
 	end

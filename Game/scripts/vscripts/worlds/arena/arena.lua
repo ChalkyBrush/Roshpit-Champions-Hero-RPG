@@ -823,8 +823,8 @@ function Arena:ArenaDialogue(msg)
 		elseif npc == "arena_pit_conquest_shrine_of_karzhun" then
 			--print("GO?")
 			local input_value = msg.input_value
-			print("KARZHUN LETS GO")
-			print(input_value)
+			--print("KARZHUN LETS GO")
+			--print(input_value)
 			if not input_value then
 				input_value = 0
 			end

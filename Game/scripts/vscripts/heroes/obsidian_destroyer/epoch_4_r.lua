@@ -13,7 +13,7 @@ function Vacuum(keys)
   local radius = ability:GetLevelSpecialValueFor("radius", ability_level)
   local vacuum_modifier = keys.vacuum_modifier
   local remaining_duration = duration - (GameRules:GetGameTime() - target.vacuum_start_time)
-  print("Vacuum "..tostring(duration))
+  --print("Vacuum "..tostring(duration))
   -- Targeting variables
   local target_teams = ability:GetAbilityTargetTeam()
   local target_types = ability:GetAbilityTargetType()

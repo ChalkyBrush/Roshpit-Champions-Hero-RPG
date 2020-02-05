@@ -333,11 +333,11 @@ function enemy_near_ancient_think(event)
 		if distance >= 1600 then
 			enemies[i]:Stop()
 			enemies[i]:MoveToPositionAggressive(caster:GetAbsOrigin())
-			-- print("MoveToPositionAggressive, mob:"..tostring(enemies[i]:GetUnitName()))
-			-- print("Distance:"..tostring(distance))
+			-- --print("MoveToPositionAggressive, mob:"..tostring(enemies[i]:GetUnitName()))
+			-- --print("Distance:"..tostring(distance))
 			-- else
-			-- print("Out of range, mob:"..tostring(enemies[i]:GetUnitName()))
-			-- print("Distance:"..tostring(distance))
+			-- --print("Out of range, mob:"..tostring(enemies[i]:GetUnitName()))
+			-- --print("Distance:"..tostring(distance))
 		end
 	end
 end

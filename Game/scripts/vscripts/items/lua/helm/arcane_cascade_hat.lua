@@ -112,7 +112,7 @@ function debuffModifierClass:OnIntervalThink()
     local target = self:GetParent()
     local ability = self:GetAbility()
     if ability.damage then
-        print("Damage: "..ability.damage)
+        --print("Damage: "..ability.damage)
 		local damage = ability.damage
 		Filters:ApplyItemDamage(target, self:GetCaster(), damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
 	end
