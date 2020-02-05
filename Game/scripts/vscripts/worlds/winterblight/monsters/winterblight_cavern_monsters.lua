@@ -3039,7 +3039,9 @@ function tiamat_fly_out_phase(event)
 	ability.flyout_phase_interval = ability.flyout_phase_interval + 1
 	caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.001)
 	if ability.flyout_main_phase == 0 then
-		caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*20 + Vector(0,0,32))
+		if caster:GetAbsOrigin().z < 2000 then
+			caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*20 + Vector(0,0,32))
+		end
 		if ability.flyout_phase_interval >= 100 then
 			ability.flyout_main_phase = 1
 			caster:SetSkin(3)

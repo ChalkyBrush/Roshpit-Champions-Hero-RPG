@@ -1162,6 +1162,9 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 			local hero = heroEntity
 			local inventory_unit = heroEntity.InventoryUnit
 			hero:EquipItem(itemEntity, true, true)
+			Timers:CreateTimer(0.5, function()
+				SaveLoad:SaveCharacterGeneric(hero)
+			end)
 		end
 	end
 	Statistics.dispatch('items:equip')

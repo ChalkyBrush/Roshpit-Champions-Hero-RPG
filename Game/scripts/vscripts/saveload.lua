@@ -1959,3 +1959,16 @@ end
 		end
 	end
 
+	function SaveLoad:SaveCharacterGeneric(hero)
+		if SaveLoad:GetAllowSaving() then
+			local playerID = hero:GetPlayerOwnerID()
+			if hero.saveSlot and hero.saveSlot > 0 then
+				local save_message = {}
+				save_message.playerID = playerID
+				save_message.slot = hero.saveSlot
+				save_message.heroIndex = hero:GetEntityIndex()
+				save_message.ignore_callback = true
+				SaveLoad:SaveCharacter(save_message)
+			end
+		end
+	end
