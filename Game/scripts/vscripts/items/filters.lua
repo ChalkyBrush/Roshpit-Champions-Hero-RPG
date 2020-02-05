@@ -5077,7 +5077,7 @@ function Filters:InpsirationRing(caster, skillIndex)
             break
         end
     end
-    DeepPrintTable(ring.abilities_cast)
+    --DeepPrintTable(ring.abilities_cast)
     if condition_met then
         ring.abilities_cast = {false, false, false, false}
         EmitSoundOn("Items.InspirationRing.Activate", caster)
