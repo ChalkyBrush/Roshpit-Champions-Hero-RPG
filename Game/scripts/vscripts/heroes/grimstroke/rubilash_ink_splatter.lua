@@ -30,8 +30,8 @@ function ink_splatter_start(event)
 	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging", {duration = 0.24})
 	ability:ApplyDataDrivenModifier(caster, actual_event_caster, "modifier_ink_splatter_emerging_z", {duration = 0.24})
 	actual_event_caster:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, 300)
-	-- print(actual_event_caster:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster))
-	-- print(actual_event_caster:HasModifier("modifier_ink_splatter_emerging_z"))
+	--print(actual_event_caster:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster))
+	--print(actual_event_caster:HasModifier("modifier_ink_splatter_emerging_z"))
 	
 	StartAnimation(actual_event_caster, {duration = 2, activity = ACT_DOTA_TELEPORT_END, rate = 1})
 	ProjectileManager:ProjectileDodge(caster)
@@ -77,7 +77,7 @@ function ink_splatter_emerging_think(event)
 	local caster = event.caster
 	local target = event.target
 	local stacks = target:GetModifierStackCount("modifier_ink_splatter_emerging_z", caster)
-	-- print(stacks)
+	--print(stacks)
 	target:SetModifierStackCount("modifier_ink_splatter_emerging_z", caster, stacks - 300/8)
 end
 

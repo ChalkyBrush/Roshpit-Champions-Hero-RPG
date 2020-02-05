@@ -52,7 +52,7 @@ function begin_firestorm(event)
 		if ability:GetCooldownTimeRemaining() > 0 then
 			caster.sunlance = true
 			CustomAbilities:AddAndOrSwapSkill(caster, "sorceress_fire_arcana_q", "sorceress_sun_lance", 0)
-			print(" REPLACE SUN LANCE?")
+			--print(" REPLACE SUN LANCE?")
 		end
 	end
 	ability.q_4_level = caster:GetRuneValue("q", 4)
@@ -163,10 +163,10 @@ function sorceress_firestorm_impact(caster, target, ability, damage, bBurn, amp)
 		if not ability.particle_count then
 			ability.particle_count = 0
 		end
-		print(ability.particle_count)
+		--print(ability.particle_count)
 		if ability.particle_count < 10 then
 			CustomAbilities:QuickAttachParticle("particles/roshpit/sorceress/firestorm_impact.vpcf", target, 3)
-			print("particle")
+			--print("particle")
 			ability.particle_count = ability.particle_count + 1
 			Timers:CreateTimer(2, function()
 				ability.particle_count = ability.particle_count - 1

@@ -89,7 +89,7 @@ Weapons.STARTING_ATTACK_DMG = 10
 Weapons.STARTING_ASPECT_HEALTH = 50
 
 function Weapons:InitialWeapon(hero, item_variant, itemName)
-	print("[Weapons:InitialWeapon]")
+	--print("[Weapons:InitialWeapon]")
 	local item = RPCItems:CreateItem(item_variant, nil, nil)
 	local item_slot = RPC_GEAR_SLOT_WEAPON
 	local rarity = RPC_ITEMS_RARITY_COMMON
@@ -117,36 +117,36 @@ function Weapons:InitialWeapon(hero, item_variant, itemName)
 end
 
 function Weapons:ValidateGear(hero)
-	print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++++++++++++")
+	--print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++++++++++++")
 	local playerID = hero:GetPlayerOwnerID()
 	for i = 0, 5, 1 do
 		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
 		if gearTable then
-			print("[Weapons:ValidateGear] gear "..i)
+			--print("[Weapons:ValidateGear] gear "..i)
 			DeepPrintTable(gearTable)
-			print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++ ")
+			--print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++ ")
 			local index = gearTable.itemIndex
 			local itemEntity = EntIndexToHScript(index)
 			if IsValidEntity(itemEntity) then
-				print(itemEntity:GetAbilityName())
-				print("[Weapons:ValidateGear] VALID ENTITY")
+				--print(itemEntity:GetAbilityName())
+				--print("[Weapons:ValidateGear] VALID ENTITY")
 				if itemEntity.newItemTable and itemEntity.newItemTable.item_slot then
 					if RPCItems:getGearSlot(itemEntity.newItemTable.item_slot) == i then
-						print("[Weapons:ValidateGear] SLOT CORRECT")
+						--print("[Weapons:ValidateGear] SLOT CORRECT")
 					else
-						print("[Weapons:ValidateGear] INCORRECT SLOT")
+						--print("[Weapons:ValidateGear] INCORRECT SLOT")
 						RPCItems:ItemUTIL_Remove(itemEntity)
 						CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
 						CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 					end
 				else
-					print("[Weapons:ValidateGear} NO SLOT!")
+					--print("[Weapons:ValidateGear} NO SLOT!")
 					RPCItems:ItemUTIL_Remove(itemEntity)
 					CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
 					CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 				end
 			else
-				print("[Weapons:ValidateGear} 111 NO SLOT!")
+				--print("[Weapons:ValidateGear} 111 NO SLOT!")
 				CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = -1})
 				CustomGameEventManager:Send_ServerToAllClients("update_inventory", {})
 			end
@@ -243,7 +243,7 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["element_dragon"] = 8
 function Weapons:LevelUpWeapon(hero, weapon)
 	--DeepPrintTable(weapon)
 	if not weapon.newItemTable then
-		print("[Error] Weapons:LevelUpWeapon - newItemTable is null")
+		--print("[Error] Weapons:LevelUpWeapon - newItemTable is null")
 		return
 	end
 	if weapon.newItemTable.property1 and type(weapon.newItemTable.property1) == "number" then
@@ -438,9 +438,9 @@ function Weapons:SetWeaponTableValues(item, itemName, consumableBoolean, descrip
 			item.newItemTable.minLevel = 100
 		end
 	end
-	print("SET WEAPON TABLE VALUES")
-	-- print("consumableBoolean")
-	-- print(consumableBoolean)
+	--print("SET WEAPON TABLE VALUES")
+	-- --print("consumableBoolean")
+	-- --print(consumableBoolean)
 	-- if not consumableBoolean then
 	-- consumableBoolean = nil
 	-- end
@@ -463,11 +463,11 @@ end
 
 function Weapons:GetMaxWeaponLevel(item_level)
 	local maxLevel = RPCItems:RollGearAttributeValue(item_level, nil, nil, 0.2)
-	print("MAX LEVEL "..maxLevel)
+	--print("MAX LEVEL "..maxLevel)
 	maxLevel = math.min(maxLevel, Weapons.MAX_WEAPON_LEVEL)
 	maxLevel = math.max(maxLevel, 2)
-	print("MAX LEVEL AFTER MINS AND MAXES"..maxLevel)
-	print("------")
+	--print("MAX LEVEL AFTER MINS AND MAXES"..maxLevel)
+	--print("------")
 	return maxLevel
 end
 

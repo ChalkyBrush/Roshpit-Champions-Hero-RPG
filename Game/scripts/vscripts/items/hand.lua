@@ -108,7 +108,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "scorched_gauntlet" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_scorched_earth", item)
 	elseif propertyName == "pride" then
-		print("Applied Proud Gloves modifier")
+		--print("Applied Proud Gloves modifier")
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_proud_gloves", hand_ability)
 	elseif propertyName == "azinoth" then
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_azinoth", hand_ability)

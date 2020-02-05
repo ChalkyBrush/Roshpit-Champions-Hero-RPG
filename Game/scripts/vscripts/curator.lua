@@ -545,8 +545,8 @@ function Curator:FinishGettingClientData(msg)
 	end
 
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print("CURATE")
-	print(url)
+	--print("CURATE")
+	--print(url)
 	----print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then

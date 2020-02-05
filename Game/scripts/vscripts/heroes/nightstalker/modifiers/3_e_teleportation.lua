@@ -138,7 +138,7 @@ function class:OnOrderAttack(data)
 
     Timers:CreateTimer(0.15, function()
         -- self:ApplyE3Debuff(enemy, nil)
-        print("ANYTHING?")
+        --print("ANYTHING?")
         self:ApplyE3Buff()
         StartAnimation(parent, {duration = 0.3, activity = ACT_DOTA_ATTACK, rate = 3})
         Filters:PerformAttackSpecial(parent, enemy, true, true, true, true, false, false, false)

@@ -52,7 +52,7 @@ function RPCItems:CombineItems(msg)
 				Notifications:Top(playerID, {text = "Item Not Found", duration = 5, style = {color = "#EE2211"}, continue = true})
 				return false
 			end
-			print(vessel.itemTable[i]:GetAbilityName())
+			--print(vessel.itemTable[i]:GetAbilityName())
 		end
 		Events.reroll = true
 		local newItem = nil
@@ -80,11 +80,11 @@ function RPCItems:CombineItems(msg)
 end
 
 function RPCItems:SynthCheckCombination2(item1, item2, position)
-	print("-------")
+	--print("-------")
 	local core_of_fire_table = {"item_tanari_core_of_fire_normal", "item_tanari_core_of_fire_elite", "item_tanari_core_of_fire_legend"}
 	local jex_weapon_table = {"item_rpc_jex_immortal_weapon_1", "item_rpc_jex_immortal_weapon_2", "item_rpc_jex_immortal_weapon_3"}
 	if (WallPhysics:DoesTableHaveValue(core_of_fire_table, item1:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item2:GetAbilityName())) or (WallPhysics:DoesTableHaveValue(core_of_fire_table, item2:GetAbilityName()) and WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName())) then
-		print("WE'RE IN")
+		--print("WE'RE IN")
 		local newItem = nil
 		local maxWeaponLevel = 50
 		if WallPhysics:DoesTableHaveValue(jex_weapon_table, item1:GetAbilityName()) then
@@ -280,12 +280,12 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			end
 			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
 			if not itemData then
-				print("[RPCItems:SynthCheckCombination] Error itemData is null")
+				--print("[RPCItems:SynthCheckCombination] Error itemData is null")
 				return false
 			end
 			if itemData.level and itemData.maxLevel and itemData.level < itemData.maxLevel then
 				local weaponAdditionalLevels = itemData.maxLevel - itemData.level
-				print("[RPCItems:SynthCheckCombination] weaponAdditionalLevels:"..tostring(weaponAdditionalLevels))
+				--print("[RPCItems:SynthCheckCombination] weaponAdditionalLevels:"..tostring(weaponAdditionalLevels))
 				RPCItems.LevelRoll = newMinLevel
 				local newItem = Weapons:RollLegendWeaponVariantWithAbilityName(targetItem:GetAbilityName(), itemData.maxLevel, position, true)
 				RPCItems.LevelRoll = nil
@@ -319,7 +319,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 			end
 			local itemData = CustomNetTables:GetTableValue("item_basics", tostring(targetItem:GetEntityIndex()))
 			if not itemData then
-				print("[RPCItems:SynthCheckCombination] Error itemData is null")
+				--print("[RPCItems:SynthCheckCombination] Error itemData is null")
 				return false
 			end
 			RPCItems.LevelRoll = itemData.minLevel
@@ -349,43 +349,43 @@ function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, atte
 
 	for i = 1, attempts do
 		if not newProperty1Value or not newProperty2Value or not newProperty3Value or not newProperty4Value then
-			print("[RPCItems:RerollArcanaItem] attempt:"..tostring(i))
+			--print("[RPCItems:RerollArcanaItem] attempt:"..tostring(i))
 			local newItem = RPCItems:RollArcanaByName(abilityName, 1)
 
 			if not newProperty1Value and (type(originalItemData.property1) == "string" or type(newItem.newItemTable.property1) == "string") then
-				print("[RPCItems:RerollArcanaItem] type(originalItemData.property1) == \"string\"")
+				--print("[RPCItems:RerollArcanaItem] type(originalItemData.property1) == \"string\"")
 				newProperty1Value = true
 			end
 			if not newProperty1Value and newItem.newItemTable.property1tooltip == originalItemData.property1tooltip and newItem.newItemTable.property1 > originalItemData.property1 then
 				newProperty1Value = newItem.newItemTable.property1
-				print("[RPCItems:RerollArcanaItem] newProperty1Value == "..tostring(newProperty1Value))
+				--print("[RPCItems:RerollArcanaItem] newProperty1Value == "..tostring(newProperty1Value))
 			end
 
 			if not newProperty2Value and (type(originalItemData.property2) == "string" or type(newItem.newItemTable.property2) == "string") then
-				print("[RPCItems:RerollArcanaItem] type(originalItemData.property2) == \"string\"")
+				--print("[RPCItems:RerollArcanaItem] type(originalItemData.property2) == \"string\"")
 				newProperty2Value = true
 			end
 			if not newProperty2Value and newItem.newItemTable.property2tooltip == originalItemData.property2tooltip and newItem.newItemTable.property2 > originalItemData.property2 then
 				newProperty2Value = newItem.newItemTable.property2
-				print("[RPCItems:RerollArcanaItem] newProperty2Value == "..tostring(newProperty2Value))
+				--print("[RPCItems:RerollArcanaItem] newProperty2Value == "..tostring(newProperty2Value))
 			end
 
 			if not newProperty3Value and (type(originalItemData.property3) == "string" or type(newItem.newItemTable.property3) == "string") then
-				print("[RPCItems:RerollArcanaItem] type(originalItemData.property3) == \"string\"")
+				--print("[RPCItems:RerollArcanaItem] type(originalItemData.property3) == \"string\"")
 				newProperty3Value = true
 			end
 			if not newProperty3Value and newItem.newItemTable.property3tooltip == originalItemData.property3tooltip and newItem.newItemTable.property3 > originalItemData.property3 then
 				newProperty3Value = newItem.newItemTable.property3
-				print("[RPCItems:RerollArcanaItem] newProperty3Value == "..tostring(newProperty3Value))
+				--print("[RPCItems:RerollArcanaItem] newProperty3Value == "..tostring(newProperty3Value))
 			end
 
 			if not newProperty4Value and (type(originalItemData.property4) == "string" or type(newItem.newItemTable.property4) == "string") then
-				print("[RPCItems:RerollArcanaItem] type(originalItemData.property4) == \"string\"")
+				--print("[RPCItems:RerollArcanaItem] type(originalItemData.property4) == \"string\"")
 				newProperty4Value = true
 			end
 			if not newProperty4Value and newItem.newItemTable.property4tooltip == originalItemData.property4tooltip and newItem.newItemTable.property4 > originalItemData.property4 then
 				newProperty4Value = newItem.newItemTable.property4
-				print("[RPCItems:RerollArcanaItem] newProperty4Value == "..tostring(newProperty4Value))
+				--print("[RPCItems:RerollArcanaItem] newProperty4Value == "..tostring(newProperty4Value))
 			end
 
 			if IsValidEntity(newItem:GetContainer()) then
@@ -561,11 +561,11 @@ function RPCItems:UseArcanaCache(caster, item)
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
 		CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 			if result.StatusCode == 200 then
-				print("POST response:\n")
+				--print("POST response:\n")
 				for k, v in pairs(result) do
-					print(string.format("%s : %s\n", k, v))
+					--print(string.format("%s : %s\n", k, v))
 				end
-				print("Done.")
+				--print("Done.")
 				local resultTable = JSON:decode(result.Body)
 				if resultTable.success == 1 then
 					RPCItems.LevelRoll = radiance

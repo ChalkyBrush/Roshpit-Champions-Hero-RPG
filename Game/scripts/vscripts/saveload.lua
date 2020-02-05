@@ -303,11 +303,11 @@ function SaveLoad:DebugGear(playerID)
 end
 
 function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gearSlot, item)
-	print("---------")
-	print("[SaveLoad:AttachItemToURL] Start")
-	print("ATTACHING ITEM FOR GEAR SLOT: "..gearSlot)
+	--print("---------")
+	--print("[SaveLoad:AttachItemToURL] Start")
+	--print("ATTACHING ITEM FOR GEAR SLOT: "..gearSlot)
 	if not item then
-		print("NO ITEM")
+		--print("NO ITEM")
 		return url
 	end
 	local itemIndex = item:GetEntityIndex()
@@ -325,7 +325,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 	end
 
 	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= true then
-		print("[SaveLoad:AttachItemToURL] Item Table and property1 exists")
+		--print("[SaveLoad:AttachItemToURL] Item Table and property1 exists")
 		--DeepPrintTable(item.newItemTable)
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
 		local item_name = ""
@@ -441,7 +441,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			url = url.."&socket2"..gearSlot.."=".."none"
 			url = url.."&socket2value"..gearSlot.."="..0
 		end
-		print(url)
+		--print(url)
 		-- url = url.."&min_level"..gearSlot.."="..itemTable.minLevel
 	elseif itemTable.stashable then
 		--print("[SaveLoad:AttachItemToURL] 4")
@@ -588,19 +588,19 @@ function SaveLoad:LoadGlyphs(character, hero)
 	if character.glyph_a == "" or character.glyph_a == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_a, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
+		--print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 1, glyph:GetEntityIndex())
 	end
 	if character.glyph_b == "" or character.glyph_b == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_b, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
+		--print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 2, glyph:GetEntityIndex())
 	end
 	if character.glyph_c == "" or character.glyph_c == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_c, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
+		--print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 3, glyph:GetEntityIndex())
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
@@ -1803,7 +1803,7 @@ end
 		url = url.."&change=1"
 		url = url.."&keyIndex="..msg.keyIndex
 		url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-		print(url)
+		--print(url)
 		if SaveLoad:GetAllowSaving() then
 			local itemEntity = EntIndexToHScript(itemIndex)
 			hero:TakeItem(itemEntity)

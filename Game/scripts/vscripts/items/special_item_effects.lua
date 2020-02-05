@@ -6462,7 +6462,7 @@ function pivotal_swift_think(event)
 end
 
 function magistrates_hood_thinker(event)
-	-- print("magistrates_hood_thinker")
+	-- --print("magistrates_hood_thinker")
 	local ability = event.ability
 	local caster = event.caster
 	local hero = event.target
@@ -7998,9 +7998,9 @@ function sorceres_regalia_think(event)
 	local caster = event.caster
 	local target = event.target
 	if ability:GetGemValue("amethyst") > 0 then
-		-- print("entity name hero: "..tostring(hero:GetName()))
-		-- print("entity name caster: "..tostring(caster:GetName()))
-		-- print("entity name target: "..tostring(target:GetName()))
+		-- --print("entity name hero: "..tostring(hero:GetName()))
+		-- --print("entity name caster: "..tostring(caster:GetName()))
+		-- --print("entity name target: "..tostring(target:GetName()))
 		ability:ApplyDataDrivenModifier(hero, hero, "modifier_sorcerers_regalia_spirit", {})
 		local spr_stacks = hero:GetIntellect()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SORCERERS_REGALIA_GEM_AMETHYST)/100
 		hero:SetModifierStackCount("modifier_sorcerers_regalia_spirit", hero, spr_stacks)

@@ -230,8 +230,8 @@ end
 function Winterblight:Debug2()
   Events.DifficultyFactor = 3
   Winterblight.Stones = 3
-  print("DEBUG2")
-  print(MAIN_HERO_TABLE[1].challenge_cleared)
+  --print("DEBUG2")
+  --print(MAIN_HERO_TABLE[1].challenge_cleared)
   -- Challenges:SetChallengeClears()
   -- Challenges:RewardSequenceForHero(MAIN_HERO_TABLE[1])
   -- if not Winterblight.GuideBasePos then
@@ -282,7 +282,7 @@ function Winterblight:Debug2()
     --     Winterblight.CavernData.Chambers[i]["events"][j]["level"] = 5
     --   end
     -- end
-  --   print(Winterblight:realm_breaker_level())
+  --   --print(Winterblight:realm_breaker_level())
   --   if Winterblight:realm_breaker_level() > 0 then
   --     Winterblight.CavernData.realm_breaker_status = 0
   --     Winterblight.CavernData.realm_breaker_level = Winterblight:realm_breaker_level()
