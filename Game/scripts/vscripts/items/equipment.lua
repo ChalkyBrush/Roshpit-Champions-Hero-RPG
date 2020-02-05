@@ -51,7 +51,6 @@ end
 
 function save_character(event)
 	local hero = event.target
-	print(hero:GetUnitName())
 	local save_message = {}
 	save_message.playerID = hero:GetPlayerOwnerID()
 	save_message.slot = hero.saveSlot

@@ -561,7 +561,6 @@ function Challenges:DisableHeroAbilityInit()
 			local hero = MAIN_HERO_TABLE[i]
 			local ability_to_disable = hero:GetAbilityByIndex(index)
 			if ability_to_disable and IsValidEntity(ability_to_disable) then
-				print(ability_to_disable:IsActivated())
 				if ability_to_disable:IsActivated() then
 					ability_to_disable:SetActivated(false)
 				end

@@ -4020,8 +4020,6 @@ function Winterblight:GravityBlackHolesSpawns(kills)
 				AddFOWViewer(DOTA_TEAM_GOODGUYS, black_hole:GetAbsOrigin(), 800, 5, false)
 				for k = 1, 4, 1 do
 					local unit = Winterblight:SpawnBlackHoleUnitByIndex(black_hole, black_hole_unit_index)
-					print(unit:GetAbsOrigin())
-					print(Winterblight:IsWithinChamber(unit, 4))
 				end
 			end)
 		end

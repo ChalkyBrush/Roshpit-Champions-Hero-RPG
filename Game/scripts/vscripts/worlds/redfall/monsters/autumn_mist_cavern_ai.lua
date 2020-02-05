@@ -856,11 +856,8 @@ function canyon_boss_blink_start(event)
 	local direction = boss:GetForwardVector()
 	local distance = WallPhysics:GetDistance2d(boss:GetAbsOrigin(), jumpToPosition)
 	if distance > maxRange then
-		print("Previous target Vector: "..tostring(jumpToPosition))
-		print("Multiplying direction ("..tostring(direction) .. ") with maxRange ("..maxRange..")")
 		jumpToPosition = boss:GetAbsOrigin() + maxRange * direction
 		jumpToPosition.z = 1024
-		print("New target Vector: "..tostring(jumpToPosition))
 	end
 	local moveVector = (jumpToPosition - boss:GetAbsOrigin()) / 25
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_walking", {duration = 2.1})

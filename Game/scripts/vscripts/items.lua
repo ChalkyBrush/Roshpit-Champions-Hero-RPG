@@ -888,21 +888,15 @@ function RPCItems:SetPropertyValuesSpecial(item, propertyValue, propertyName, pr
 		item.newItemTable = {}
 	end
 	if propertyName and type(propertyName) == "string" and propertyName == "rune" then
-		print("debug rune1:"..tostring(propertyName))
 		if propertyNumber == 1 and item.newItemTable.property1name and type(item.newItemTable.property1name) == "string" and item.newItemTable.property1name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property1name
-			print("debug rune2:"..tostring(propertyName))
 		elseif propertyNumber == 2 and item.newItemTable.property2name and type(item.newItemTable.property2name) == "string" and item.newItemTable.property2name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property2name
-			print("debug rune3:"..tostring(propertyName))
 		elseif propertyNumber == 3 and item.newItemTable.property3name and type(item.newItemTable.property3name) == "string" and item.newItemTable.property3name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property3name
-			print("debug rune4:"..tostring(propertyName))
 		elseif propertyNumber == 4 and item.newItemTable.property4name and type(item.newItemTable.property4name) == "string" and item.newItemTable.property4name:sub(1, 5) == "rune_" then
 			propertyName = item.newItemTable.property4name
-			print("debug rune5:"..tostring(propertyName))
 		end
-		print("debug rune6:"..tostring(propertyName))
 	end
 	if propertyNumber == 1 then
 		item.newItemTable.property1 = propertyValue
@@ -1014,8 +1008,6 @@ function RPCItems:ItemSwapInput(msg)
 	hero:RemoveModifierByName("modifier_equip_ui_open")
 	if input == 1 then
 		local newGear = hero.gear_equip_new
-		print(newGear:GetEntityIndex())
-		print(newGear:GetAbilityName())
 		if IsValidEntity(newGear) then
 			RPCItems:GiveItemToHeroWithSlotCheck(hero, newGear)
 		end
@@ -1255,7 +1247,6 @@ end
 
 function RPCItems:RecalculateStatsBasic(hero)
 	local playerID = hero:GetPlayerOwnerID()
-	print(hero:GetUnitName())
 	local respawnAbility = Events.GameMaster:FindAbilityByName("respawn_abilities")
 	respawnAbility:ApplyDataDrivenModifier(Events.GameMaster, hero, "modifier_respawned_equip", {duration = 2})
 	for i = 0, 5, 1 do
@@ -1282,7 +1273,6 @@ function RPCItems:RecalculateStats(keys)
 	local playerID = keys.playerId
 	local player = PlayerResource:GetPlayer(playerID)
 	local hero = GameState:GetHeroByPlayerID(playerID)
-	print(hero:GetUnitName())
 	for i = 0, 5, 1 do
 		Timers:CreateTimer(0.8 * i, function()
 			local itemEntity = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))

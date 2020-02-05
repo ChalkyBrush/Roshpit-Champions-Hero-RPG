@@ -123,7 +123,6 @@ function Weapons:ValidateGear(hero)
 			local index = gearTable.itemIndex
 			local itemEntity = EntIndexToHScript(index)
 			if IsValidEntity(itemEntity) then
-				print(itemEntity:GetAbilityName())
 				if itemEntity.newItemTable and itemEntity.newItemTable.item_slot then
 					if RPCItems:getGearSlot(itemEntity.newItemTable.item_slot) == i then
 					else

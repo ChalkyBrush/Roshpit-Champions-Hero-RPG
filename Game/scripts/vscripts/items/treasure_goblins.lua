@@ -196,9 +196,7 @@ function TreasureGoblins:TreasureGoblinItemDrop(goblin)
 		item = RPCItems:RollRandomWorldArcana(item_level)
 	else
 		item = RPCItems:RollRandomWorldImmortal(item_slot, item_level)
-		print(item:GetAbilityName())
 	end
-	print(item:GetAbilityName())
 	if item then
 		if Gems:CanItemBeSocketed(item) then
 			local gem1 = nil

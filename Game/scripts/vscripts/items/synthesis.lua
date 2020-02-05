@@ -52,7 +52,6 @@ function RPCItems:CombineItems(msg)
 				Notifications:Top(playerID, {text = "Item Not Found", duration = 5, style = {color = "#EE2211"}, continue = true})
 				return false
 			end
-			print(vessel.itemTable[i]:GetAbilityName())
 		end
 		Events.reroll = true
 		local newItem = nil
@@ -343,8 +342,7 @@ function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, atte
 	local newProperty4Value = nil
 
 	for i = 1, attempts do
-		if not newProperty1Value or not newProperty2Value or not newProperty3Value or not newProperty4Value then
-			print("[RPCItems:RerollArcanaItem] attempt:"..tostring(i))
+		if not newProperty1Value or not newProperty2Value or not newProperty3Value or not newProperty4Value then)
 			local newItem = RPCItems:RollArcanaByName(abilityName, 1)
 
 			if not newProperty1Value and (type(originalItemData.property1) == "string" or type(newItem.newItemTable.property1) == "string") then

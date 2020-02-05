@@ -561,19 +561,16 @@ function SaveLoad:LoadGlyphs(character, hero)
 	if character.glyph_a == "" or character.glyph_a == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_a, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 1, glyph:GetEntityIndex())
 	end
 	if character.glyph_b == "" or character.glyph_b == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_b, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 2, glyph:GetEntityIndex())
 	end
 	if character.glyph_c == "" or character.glyph_c == "empty" then
 	else
 		local glyph = Glyphs:RollGlyphAll(character.glyph_c, Vector(0, 0), -1)
-		print("APPLY GLYPH: "..glyph:GetAbilityName())
 		Glyphs:ApplyGlyph(hero, 3, glyph:GetEntityIndex())
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})

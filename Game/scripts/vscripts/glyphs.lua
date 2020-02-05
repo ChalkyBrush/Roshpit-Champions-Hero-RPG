@@ -277,7 +277,6 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 		item.pickedUp = true
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 	end
-	print(item:GetAbilityName())
 	return item
 end
 

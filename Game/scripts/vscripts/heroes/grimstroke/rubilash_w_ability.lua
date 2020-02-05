@@ -15,7 +15,6 @@ function rubilash_init(event)
 		for k, v in pairs(caster:GetChildren()) do
 			if v:GetClassname() == "dota_item_wearable" then
 				if string.match(v:GetModelName(), "weapon") then
-					print(v:GetModelName())
 					caster.weaponFX = v
 					caster.origWeapon = v:GetModelName()
 					break
