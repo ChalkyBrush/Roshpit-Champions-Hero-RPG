@@ -197,9 +197,6 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 	if type(property_value) == "number" then
 		property_value = property_value + property_bonus_mult*property_value
 	end
-
-	-- 
-	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	if string.match(property_name, "immortal_weapon") or string.match(property_name, "arcana") or string.match(property_name, "!immortal!") then
 		hero.gear_bonuses[gear_slot][property_name] = 1
 	elseif string.match(property_name, "all_attributes") then
@@ -248,7 +245,6 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	local inventory_unit = hero.InventoryUnit
 	local ability_name = "equipment_"..RPC_GEAR_SLOT_NAMES[gear_slot]
 	local ability = inventory_unit:FindAbilityByName(ability_name)
-	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
 		if string.match(key, "immortal_weapon") then
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
@@ -1525,7 +1521,6 @@ end
 function RPCItems:RecordSpecificGemBonusForImmortalItem(item, gem_name, value_table, hero, property_name, gear_slot)
 	local gem_value = item:GetGemValue(gem_name)
 	if gem_value > 0 then
-		DeepPrintTable(value_table)
 		local property_value = item:GetFinalGemPropertyValue(gem_name, value_table)
 		if property_value > 0 then
 			RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)

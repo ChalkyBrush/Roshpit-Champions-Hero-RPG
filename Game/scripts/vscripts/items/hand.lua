@@ -3,7 +3,6 @@ if Hand == nil then
 end
 
 function Hand:add_modifiers(hero, inventory_unit, item)
-	--DeepPrintTable(item)
 	if not item.newItemTable then
 		RPCItems:ItemUTIL_Remove(item)
 		return

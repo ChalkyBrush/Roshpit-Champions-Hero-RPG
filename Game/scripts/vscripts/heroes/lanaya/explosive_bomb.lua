@@ -51,7 +51,6 @@ function createBomb(event, caster, ability, fv)
     end
     ability.total_bombs = ability.total_bombs + 1
     table.insert(ability.bombs, bomb)
-    --DeepPrintTable(ability.bombs)
     --    if caster:HasModifier("modifier_trapper_glyph_6_1") then
     --        bomb.detonate = false
     --        if ability.total_bombs > 5 then

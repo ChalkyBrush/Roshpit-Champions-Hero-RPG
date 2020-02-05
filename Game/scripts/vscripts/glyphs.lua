@@ -267,7 +267,6 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 	RPCItems:RemovePropertyValues(item)
 
 	RPCItems:ItemUpdateCustomNetTables(item)
-	-- DeepPrintTable(item)
 	if dropIndex == 0 and deathLocation then
 		local drop = CreateItemOnPositionSync(deathLocation, item)
 		local position = deathLocation
@@ -295,7 +294,6 @@ function Glyphs:PlaceGlyphInSlot(msg)
 	local item = EntIndexToHScript(msg.itemIndex)
 	local glyphSlot = msg.glyphSlot
 	hero:Stop()
-	--DeepPrintTable(msg)
 	if item.newItemTable.glyph then
 		local applicable = Glyphs:CheckApplicable(item, hero)
 		if applicable == 1 and Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
@@ -772,7 +770,6 @@ function Glyphs:GetGlyphAvailability(msg)
 		local resultTable = JSON:decode(result.Body)
 		-- resultTable = Quests:GetQuestDataFromJSON(resultTable)
 		local recipeResults = Glyphs:FormatRecipeResults(resultTable)
-		--DeepPrintTable(recipeResults)
 		if not hero.glyphRecipes then
 			hero.glyphRecipes = {}
 		end
@@ -800,7 +797,6 @@ function Glyphs:GetGlyphAvailability(msg)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data = recipeResults, glyphDisplay = hero.loadedGlyphDisplay})
 			end
 		end)
-		--DeepPrintTable(hero.glyphRecipes)
 	end)
 end
 
@@ -808,7 +804,6 @@ function Glyphs:FormatRecipeResults(resultTable)
 	if not resultTable then
 		return {}
 	end
-	--DeepPrintTable(resultTable)
 	if next(resultTable) == nil then
 		return {}
 	end

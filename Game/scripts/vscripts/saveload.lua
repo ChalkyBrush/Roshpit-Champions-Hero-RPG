@@ -293,7 +293,6 @@ end
 function SaveLoad:DebugGear(playerID)
 	for i = 0, 5, 1 do
 		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
-		--DeepPrintTable(gearTable)
 	end
 end
 
@@ -315,7 +314,6 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 	end
 
 	if itemTable and itemTable.property1 and not itemTable.glyph and itemTable.consumable ~= true then
-		DeepPrintTable(item.newItemTable)
 		-- local itemName = string.gsub(itemTable.item_name, "%s+", '%%20')
 		local item_name = ""
 		if itemTable.item_name then
@@ -362,7 +360,6 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 			local propertyName = ""
 			local saveTooltip = 1
 			if i == 1 then
-				DeepPrintTable(itemTable)
 				property = itemTable.property1
 				propertyName = itemTable.property1name
 				saveColor = itemTable.property1color
@@ -532,7 +529,6 @@ function SaveLoad:LoadCharacter(msg)
 			--print( string.format( "%s : %s\n", k, v ) )
 		end
 		local resultTable = JSON:decode(result.Body)
-		-- DeepPrintTable(resultTable)
 		SaveLoad:ApplyDataToHero(resultTable.character, playerID)
 		for i = 1, 6, 1 do
 			Timers:CreateTimer((0.1 * i), function()
@@ -596,7 +592,6 @@ function SaveLoad:LoadPortalKeys(character, hero)
 end
 
 function SaveLoad:LoadGear(gearTable, playerID, bEquip)
-	--DeepPrintTable(gearTable)
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	if not gearTable then
 		return false
@@ -607,7 +602,6 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 	gearTable = SaveLoad:CheckForOldNames(gearTable)
 	if gearTable.build_number > -1 then
 		local gearSlot = RPCItems:GetGearSlotName(gearTable.item_slot)
-		-- DeepPrintTable(gearTable)
 		local item = nil
 		if gearTable.is_weapon == 1 then
 			-- item = Weapons:CreateWeaponVariant(gearTable.item_variant,
@@ -1252,8 +1246,7 @@ function SaveLoad:StashOpen(keys)
 		end
 		local resultTable = JSON:decode(result.Body)
 		-- Weapons:ValidateGear(hero)
-		-- DeepPrintTable(resultTable)
-		local delay = #resultTable * 0.03 + 0.15
+		-- DeepPrintTable(resultTable.03 + 0.15
 		SaveLoad:GenerateStashItems(resultTable, playerID, hero)
 		-- SaveLoad:GetCharacterDataFromJSON(resultTable)
 		Timers:CreateTimer(delay, function()

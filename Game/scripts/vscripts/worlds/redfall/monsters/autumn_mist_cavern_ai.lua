@@ -289,7 +289,6 @@ function redfall_guide_think(event)
 				end
 			end
 		end
-		-- DeepPrintTable(caster.pickupTable)
 		if distance < 80 then
 			caster.lock = true
 			local release = false

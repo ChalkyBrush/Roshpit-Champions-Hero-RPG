@@ -71,7 +71,6 @@ function Paragon:GetUniqueAffixIndexTable(difficulty)
 		end
 		table.insert(affixIndexTable, affixIndex)
 	end
-	--DeepPrintTable(affixIndexTable)
 	return affixIndexTable
 end
 

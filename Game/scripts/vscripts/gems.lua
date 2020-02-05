@@ -713,7 +713,6 @@ function Gems:ItemUpForSalvaging(msg)
 			if GameState:GetPlayerPremiumStatus(playerID) then
 				regular_premium = 1
 			end
-			DeepPrintTable(total_gems_value)
 			local web_prem = GameState:PlayerWebPremiumAsInt(playerID)
 			CustomGameEventManager:Send_ServerToPlayer(player, "item_gem_salvage_menu", {item_index = item:GetEntityIndex(), success = 1, gems1value = total_gems_value[1], gems2value = total_gems_value[2], regular_premium = regular_premium, web_prem = web_prem})
 			player.salvaging_item = item

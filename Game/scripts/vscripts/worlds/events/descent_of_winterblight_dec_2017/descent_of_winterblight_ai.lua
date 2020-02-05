@@ -558,7 +558,6 @@ function winterblight_boss_think(event)
 		-- CreateHTTPRequestScriptVM("POST", url):Send(function(result)
 		-- 	if result.StatusCode == 200 then
 		-- 		local resultTable = JSON:decode(result.Body)
-		-- 		--DeepPrintTable(resultTable)
 		-- 		caster.rewardMult = 1
 		-- 		caster.rewardsGranted = 0
 		-- 		if bossName == "ozubu" then

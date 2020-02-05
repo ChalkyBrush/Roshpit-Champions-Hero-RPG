@@ -1448,7 +1448,6 @@ function Tutorial:CheckSpecialKeyAndLoop(hero)
 			end
 			local resultTable = JSON:decode(result.Body)
 			hero.special_key = resultTable.special_key
-			DeepPrintTable(resultTable)
 		end
 	end)
 end

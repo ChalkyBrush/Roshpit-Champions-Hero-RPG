@@ -2382,7 +2382,6 @@ function cast_wind_tornado(event)
 	local startPoint = event.target_points[1]
 	ability.velocity = 1000
 	ability.rotationDelta = 20
-	--DeepPrintTable(event.target_points)
 	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
 	ability.velocity = distance * 1
 

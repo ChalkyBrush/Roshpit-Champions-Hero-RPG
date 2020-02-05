@@ -14,7 +14,6 @@ function Stars:ActivateStarsMenu(msg)
 	-- table.insert(starsData.categories, {herosTable[i], 1, 2, 3, 1, 2, 3, 1, 2, 3, 0})
 	-- end
 	local starsData = Stars:GetOrganizedStarData(playerID)
-	--DeepPrintTable(starsData)
 	local openingPlayer = PlayerResource:GetPlayer(msg.openingPlayerID)
 	CustomGameEventManager:Send_ServerToPlayer(openingPlayer, "open_stars", {playerID = playerID, starsData = starsData, grandTotalStars = hero.grandTotalStars})
 	Events:TutorialServerEvent(hero, "1_4", 0)
@@ -396,7 +395,6 @@ function Stars:UpdateStarsOnServer(heroName, type, starAmount, playerID)
 end
 
 function Stars:parseHeroData(player, resultTable)
-	--DeepPrintTable(resultTable)
 	local herosTable = HerosCustom:GetAvailableHerosTable()
 	local heroCount = #herosTable
 	table.insert(herosTable, "solo_stars")
@@ -418,7 +416,6 @@ function Stars:parseHeroData(player, resultTable)
 	local hero = GameState:GetHeroByPlayerID(player:GetPlayerID())
 	hero.starsData = starsData
 	hero.grandTotalStars = grandTotalStars
-	-- DeepPrintTable(hero.starsData)
 end
 
 function Stars:GetPlayerStars(playerID)

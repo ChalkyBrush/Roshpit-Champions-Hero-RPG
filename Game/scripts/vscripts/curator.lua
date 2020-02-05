@@ -349,8 +349,6 @@ function Curator:FinishGettingClientData(msg)
 	end
 	local localizedItemName = Curator:urlencode(msg.localizedName)
 	local itemTexture = msg.itemTexture
-	-- DeepPrintTable(msg)
-	-- DeepPrintTable(msg.property1)
 	if msg.property1 then
 		if next(msg.property1) == nil then
 			property1color = ""
@@ -367,7 +365,6 @@ function Curator:FinishGettingClientData(msg)
 			if type(property1special) == "table" then
 				property1special = ""
 			else
-				-- DeepPrintTable(property1special)
 				property1special = property1special:gsub('#', "")
 			end
 			property1specialLocalized = msg.property1["4"]
@@ -415,7 +412,6 @@ function Curator:FinishGettingClientData(msg)
 			property3specialLocalized = ""
 			property3value = ""
 		else
-			--DeepPrintTable(msg.property3)
 			property3color = msg.property3["0"]:gsub('#', "")
 			property3name = item.newItemTable.property3name
 			property3localized = Curator:urlencode(msg.property3["2"])
@@ -692,7 +688,6 @@ function Curator:CurateArcanaAbilities(hero)
 				local internalHeroName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 				local item_reference = "item_rpc_"..internalHeroName.."_arcana"..available_arcanas[i][1]
 				-- for _,kv in pairs(abilitySpecial) do
-				-- DeepPrintTable(kv)
 				-- end
 				--print(ability:GetEntityIndex())
 				CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = index, item_reference = item_reference})
@@ -716,7 +711,6 @@ function Curator:CurateAbility(hero, index)
 	local rune3 = hero.runeUnit3:GetAbilityByIndex(index)
 	local rune4 = hero.runeUnit4:GetAbilityByIndex(index)
 	-- for _,kv in pairs(abilitySpecial) do
-	-- DeepPrintTable(kv)
 	-- end
 	--print(ability:GetEntityIndex())
 	CustomGameEventManager:Send_ServerToPlayer(player, "get_ability_curator", {heroIndex = hero:GetEntityIndex(), abilityIndex = ability:GetEntityIndex(), abilitySpecial = abilitySpecial, rune1 = rune1:GetEntityIndex(), rune2 = rune2:GetEntityIndex(), rune3 = rune3:GetEntityIndex(), rune4 = rune4:GetEntityIndex(), abilitySlotIndex = index, arcanaIndex = -1, item_reference = ""})

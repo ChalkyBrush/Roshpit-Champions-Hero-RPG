@@ -641,7 +641,6 @@ function Winterblight:ValidateChamberMaxLevel(hero, chamber_index, event_index, 
 	local chamber_index = tostring(chamber_index)
 	local event_index = tostring(event_index)
 	steam_id = tostring(steam_id)
-	DeepPrintTable(Winterblight.CavernMetaData[chamber_index][event_index])
 	if Winterblight.CavernMetaData[chamber_index][event_index][steam_id] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"] and Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] then
 		your_hero_max = Winterblight.CavernMetaData[chamber_index][event_index][steam_id]["hero_record"]["level"] + 5
 	end
@@ -4721,7 +4720,6 @@ function Winterblight:GetStarValueForCavernMaster(hero)
 	local steam_id = tostring(PlayerResource:GetSteamAccountID(playerID))
 	
 	local event_index = tostring(event_index)
-	DeepPrintTable(Winterblight.CavernMetaData)
 	for i = 1, 4, 1 do
 		local chamber_index = tostring(i)
 		for j = 1, 4, 1 do

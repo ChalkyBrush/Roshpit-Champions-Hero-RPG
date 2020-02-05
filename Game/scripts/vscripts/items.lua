@@ -253,7 +253,6 @@ function RPCItems:RollGold(xpBounty, deathLocation)
 	--    RPCItems:DropGold(item, position)
 	--    local maxFactor = RPCItems:GetMaxFactor()
 	--    item.gold_amount = RandomInt(100, maxFactor*25) + RandomInt(0, 100)
-	--    -- DeepPrintTable(item)
 	--    end)
 end
 
@@ -703,7 +702,6 @@ end
 -- if item.gear then
 -- for i = 1, affixCount, 1 do
 -- local affixTable = CustomNetTables:GetTableValue("item_properties", tostring(item:GetEntityIndex()).."-"..tostring(i))
--- DeepPrintTable(affixTable)
 -- local property = 0
 -- local propertyName = ""
 -- if i == 1 then
@@ -878,7 +876,6 @@ function RPCItems:ItemUpdateCustomNetTables(item)
 	if not item.newItemTable.item_slot and type(item.newItemTable.slot) == "string" and item.newItemTable.slot then
 		item.newItemTable.item_slot = item.newItemTable.slot
 	end
-	--DeepPrintTable(item.newItemTable)
 	CustomNetTables:SetTableValue("item_basics", tostring(itemIndex), item.newItemTable)
 end
 
@@ -1143,7 +1140,6 @@ function RPCItems:GearPickup(heroEntity, itemEntity)
 end
 
 function RPCItems:EquipItem(slot, hero, inventory_unit, itemEntity)
-	-- DeepPrintTable(itemEntity)
 	Events:TutorialServerEvent(hero, "3_1", 0)
 	Weapons:ValidateGear(hero)
 	if slot == 0 then
@@ -1304,15 +1300,12 @@ end
 function RPCItems:AcceptNewItem(keys)
 	local playerID = keys.PlayerID
 	local oldItem = EntIndexToHScript(keys.oldItem)
-	-- DeepPrintTable(oldItem)
 	local newItem = EntIndexToHScript(keys.newItem)
-	-- DeepPrintTable(newItem)
 	local hero, inventory_unit = RPCItems:GetHeroAndInventoryByID(keys.PlayerID)
 	hero.cant_use_items = true
 	Timers:CreateTimer(0.75, function()
 		hero.cant_use_items = false
 	end)
-	DeepPrintTable(keys)
 	local slot = RPCItems:getGearSlot(newItem.newItemTable.item_slot)
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()})
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})

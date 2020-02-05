@@ -392,7 +392,6 @@ function add_resources_to_onibi(caster, element, amount)
 	amount = math.floor(amount)
 	if amount > 0 then
 		local player = caster:GetPlayerOwner()
-		--DeepPrintTable(caster.onibi.stats_table[element])
 		local level = get_level_by_sum_exp(caster.onibi.stats_table[element]["exp"])
 		if level < 100 then
 			caster.onibi.stats_table[element]["exp"] = caster.onibi.stats_table[element]["exp"] + amount

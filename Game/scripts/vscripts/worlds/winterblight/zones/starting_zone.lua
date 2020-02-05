@@ -1907,7 +1907,6 @@ function Winterblight:StatueSlotStart(statue_index)
 	local delay = 0
 	local colorRotats = 25 + RandomInt(1, 6)
 	local delay = 0
-	--DeepPrintTable(potentialColors)
 	for i = 1, colorRotats, 1 do
 		delay = delay + 0.03 * i
 		Timers:CreateTimer(delay, function()

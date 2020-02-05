@@ -3,7 +3,6 @@ if Foot == nil then
 end
 
 function Foot:add_modifiers(hero, inventory_unit, item)
-	--DeepPrintTable(item)
 	if not item.newItemTable then
 		RPCItems:ItemUTIL_Remove(item)
 		return

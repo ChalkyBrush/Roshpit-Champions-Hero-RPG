@@ -179,7 +179,6 @@ function Redfall:Debug2()
   -- Redfall:RaiseShipyardBridge()
   -- Redfall:SpawnShipyardFerry()
   -- Paragon:SpawnParagonUnit("shipyard_armored_bear_guard", Vector(-15168, -14976))
-  -- DeepPrintTable(GameState.HeroPlayerTable)
   -- local hero = GameState:GetHeroByPlayerID(0)
   ----print(hero:GetEntityIndex())
   -- local caster = MAIN_HERO_TABLE[1].shredder

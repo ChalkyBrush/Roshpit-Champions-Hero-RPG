@@ -272,7 +272,6 @@ function odachi_a_c_think(event)
 		end
 		if distance <= ability.movespeed + 5 then
 			ability.particle = true
-			--DeepPrintTable(ability.e_1_unit_table)
 			-- CustomAbilities:QuickAttachParticle("particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf", target, 1.5)
 			local particleName = "particles/econ/items/riki/riki_immortal_ti6/riki_immortal_ti6_blinkstrike_gold.vpcf"
 			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)

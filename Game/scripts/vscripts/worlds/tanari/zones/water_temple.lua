@@ -2383,7 +2383,6 @@ function Tanari:InitializeRubicksPuzzle()
 		table.insert(Tanari.WaterTemple.RubicksPuzzleColors, RandomInt(1, 4))
 	end
 	local shuffledTable = Tanari:shuffTable(Tanari.WaterTemple.RubicksPuzzleColors)
-	--DeepPrintTable(shuffledTable)
 	Tanari.WaterTemple.RubicksPuzzleColors = shuffledTable
 	Tanari:SetupRubicksSwitches()
 	Tanari:RecolorPuzzleBlocks()

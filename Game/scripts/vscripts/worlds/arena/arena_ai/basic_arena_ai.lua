@@ -762,7 +762,6 @@ function challenger16ai(caster)
 	local stompAbility = caster:FindAbilityByName("fire_temple_hoof_stomp")
 	if stompAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		--DeepPrintTable(enemies)
 		if #enemies > 0 then
 			local newOrder = {
 				UnitIndex = caster:entindex(),
@@ -810,7 +809,6 @@ function challenger15ai(caster)
 	local stompAbility = caster:FindAbilityByName("arena_riki_ult")
 	if stompAbility:IsFullyCastable() then
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		--DeepPrintTable(enemies)
 		if #enemies > 0 then
 			local newOrder = {
 				UnitIndex = caster:entindex(),
@@ -855,7 +853,6 @@ function challenger14ai(caster)
 	end
 
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1420, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	--DeepPrintTable(enemies)
 	if #enemies > 0 then
 		local maxBound = 2
 		if caster:GetHealth() < caster:GetMaxHealth() * 0.6 then

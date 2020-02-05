@@ -120,7 +120,6 @@ function Weapons:ValidateGear(hero)
 	for i = 0, 5, 1 do
 		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
 		if gearTable then
-			DeepPrintTable(gearTable)
 			local index = gearTable.itemIndex
 			local itemEntity = EntIndexToHScript(index)
 			if IsValidEntity(itemEntity) then
@@ -234,7 +233,6 @@ Weapons.STAT_ADD_PER_LEVEL_TABLE["element_dragon"] = 8
 
 
 function Weapons:LevelUpWeapon(hero, weapon)
-	--DeepPrintTable(weapon)
 	if not weapon.newItemTable then
 		return
 	end

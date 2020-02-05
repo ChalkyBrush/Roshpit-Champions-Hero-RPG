@@ -2090,7 +2090,6 @@ function Seafortress:SpawnAfterJailRoom()
   Seafortress.RoomsMoved = 0
   Seafortress.lastPortToPos = Vector(15432, -5342)
   Seafortress:CreateBlackPortalUnit(Vector(15432, -5342), true)
-  --DeepPrintTable(Seafortress.blackPortalRoomTable)
   -- Seafortress:InitAPortalRoom(Seafortress.RoomsMoved, Seafortress.blackPortalRoomTable[Seafortress.RoomsMoved])
 end
 

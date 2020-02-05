@@ -568,7 +568,6 @@ function GameState:GetPostReductionPhysicalDamage(damage, armor)
 end
 
 function GameState:GoldEarnFilter(goldEarnTable)
-	-- DeepPrintTable(goldEarnTable)
 	local gold = goldEarnTable["gold"]
 	local playerID = goldEarnTable["player_id_const"]
 	goldEarnTable["gold"] = 0
@@ -761,7 +760,6 @@ function GameState:OrderFilter(orderTable)
 	end
 	-- for k,v in pairs(orderTable) do
 	-- end
-	-- DeepPrintTable(orderTable)
 	local unit = EntIndexToHScript(unitNumber)
 	if IsValidEntity(unit) and not unit:IsChanneling() then
 		if orderTable.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET and orderTable.entindex_ability and EntIndexToHScript(orderTable.entindex_ability):IsItem() and unit.cant_use_items then
@@ -1045,7 +1043,6 @@ function GameState:OrderFilter(orderTable)
 		end
 		if unit:HasModifier("modifier_strafe_toggle") then
 			unit.lastOrder = orderTable.order_type
-			-- DeepPrintTable(orderTable)
 			if orderTable.entindex_ability > 0 then
 				local orderAbility = EntIndexToHScript(orderTable.entindex_ability)
 				if IsValidEntity(orderAbility) then
@@ -1284,7 +1281,6 @@ function GameState:OrderFilter(orderTable)
 		end
 		if GameState:IsPVPAlpha() then
 			if unit:GetUnitName() == "rpc_pvp_tanari_builder" then
-				--DeepPrintTable(orderTable)
 				CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(orderTable.issuer_player_id_const), "openBuilderMenu", {})
 			end
 		end
@@ -1437,7 +1433,6 @@ function GameState:OrderFilter(orderTable)
 					-- end
 					-- end
 					if orderAbility:GetAbilityName() == "ekkan_river_of_souls" then
-						--DeepPrintTable(orderTable)
 						unit.corpseExplosionIndex = 0
 						if orderTable.entindex_target > 0 then
 							local e_1_level = unit:GetRuneValue("e", 1)

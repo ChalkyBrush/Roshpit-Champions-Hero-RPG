@@ -15,7 +15,6 @@ function RedfallQuest1Trigger(trigger)
 			questGuy.talking = false
 		end)
 	end
-	--DeepPrintTable(hero.RedfallQuests)
 	if hero.RedfallQuests[1].state == -1 then
 		hero.RedfallQuests[1].state = 0
 		Timers:CreateTimer(5, function()

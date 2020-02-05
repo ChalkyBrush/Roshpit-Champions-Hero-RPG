@@ -2450,7 +2450,6 @@ function CastleTileTrigger11(trigger)
 end
 
 function castle_tile_hit(tileIndex)
-	--DeepPrintTable(Redfall.Castle.TileLocationTable)
 	for i = 1, #Redfall.Castle.TileLocationTable, 1 do
 		if Redfall.Castle.TileLocationTable[i] == tileIndex then
 			if Redfall.Castle.TileLocationTable[i] == 0 then

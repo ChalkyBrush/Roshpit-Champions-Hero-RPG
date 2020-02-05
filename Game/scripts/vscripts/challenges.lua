@@ -26,7 +26,6 @@ function Challenges:ChiselItem(msg)
 	local item = nil
 	local itemSlot = msg.slot
 	----print("Challenges:ChiselItem:"..tostring(itemSlot))
-	-- DeepPrintTable(msg)
 	if not itemSlot then
 		return false
 	end
@@ -87,7 +86,6 @@ function Challenges:ChiselItem(msg)
 end
 
 function Challenges:FinalReroll(msg)
-	--DeepPrintTable(msg)
 	local playerID = msg.playerID
 	local hero = GameState:GetHeroByPlayerID(playerID)
 	local player = hero:GetPlayerOwner()
@@ -152,8 +150,6 @@ function Challenges:FinalReroll(msg)
 	Events.reroll = false
 
 	Statistics.dispatch('items:reroll')
-
-	-- DeepPrintTable(msg)
 	if newItem then
 		if Beacons.cheats then
 			if Challenges:CheckIfHeroHasItemByItemIndex(hero, newItem:GetEntityIndex()) then
@@ -399,7 +395,6 @@ function Challenges:DragIntoRerollSlot(msg)
 		-- UTIL_Remove(item:GetContainer())
 		-- end
 		-- end)
-		--DeepPrintTable(msg)
 		CustomGameEventManager:Send_ServerToPlayer(player, "load_item_for_reroll", {itemIndex = itemIndex, player = playerID, ignoreLock = ignoreLock, lock1 = msg.lock1, lock2 = msg.lock2, lock3 = msg.lock3, lock4 = msg.lock4})
 	end
 end
@@ -438,7 +433,6 @@ function Challenges:CommitChallengeToGame(resultTable)
 	-- Challenges.challenge.disallowed_hero = resultTable.disallowed_hero
 	-- Challenges.challenge.no_deaths = resultTable.no_deaths
 	-- Challenges.challenge.reward = resultTable.reward
-	--DeepPrintTable(Challenges.challenge)
 end
 
 function Challenges:InitializeChallengeVariables()

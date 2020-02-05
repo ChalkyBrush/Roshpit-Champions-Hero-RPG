@@ -5,7 +5,6 @@ function blade_dash_start(event)
 	local ability = event.ability
 	ability.interval = 0
 	local target = event.targetUnit
-	--DeepPrintTable(event.target_points)
 	if target then
 		ability.target = event.target
 		ability.targetPoint = false

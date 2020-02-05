@@ -10,7 +10,6 @@ if Weaponmodifiers == nil then
 end
 
 function Weaponmodifiers:add_modifiers(hero, inventory_unit, item)
-	--DeepPrintTable(item)
 	if not item.newItemTable then
 		RPCItems:ItemUTIL_Remove(item)
 		return

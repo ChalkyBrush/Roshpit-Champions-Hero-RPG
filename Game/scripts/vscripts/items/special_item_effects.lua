@@ -905,7 +905,6 @@ function falcon_boot_impact(event)
 	local target = event.target
 	local ability = event.ability
 	----print(event.target_entities[1]:GetUnitName())
-	-- DeepPrintTable(event)
 	if target:HasModifier("modifier_falcon_out") or target:HasModifier("modifier_falcon_lift_immune") then
 		return false
 	end
@@ -6241,7 +6240,6 @@ function erudite_teacher_start(event)
 		end)
 		if ability.apprentice_abilities_table then
 			Timers:CreateTimer(0.03, function()
-				DeepPrintTable(ability.apprentice_abilities_table)
 				for i = 1, #ability.apprentice_abilities_table, 1 do
 					local ability_check_name = ability.apprentice_abilities_table[i]
 					local steal_index = i - 1

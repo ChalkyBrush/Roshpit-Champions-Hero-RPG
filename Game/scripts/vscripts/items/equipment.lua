@@ -6,7 +6,6 @@ function equip_item(event)
 		Curator:UpdateItemToCurrentVersion(item, event.caster, false)
 		return false
 	end
-	-- DeepPrintTable(event.caster)
 	if not itemTable then
 		return false
 	end

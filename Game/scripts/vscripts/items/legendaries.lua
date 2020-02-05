@@ -6869,7 +6869,6 @@ function RPCItems:RollWinterblightSkullRing(item_level)
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
     end
     -- item.newItemTable.requiredHero = glyphName[2]
-    -- DeepPrintTable(glyphName)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)

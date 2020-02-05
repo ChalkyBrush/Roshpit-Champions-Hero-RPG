@@ -15,7 +15,6 @@ function Amulet:AdjustAttackPowerBonus(hero, value)
 end
 
 function Amulet:add_modifiers(hero, inventory_unit, item)
-	--DeepPrintTable(item)
 	if not item.newItemTable then
 		RPCItems:ItemUTIL_Remove(item)
 		return

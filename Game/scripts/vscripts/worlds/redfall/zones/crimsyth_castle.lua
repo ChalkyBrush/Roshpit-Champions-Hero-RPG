@@ -901,7 +901,6 @@ function Redfall:WaterPlatformRoom()
   Redfall:SpawnCrimsonSamurai(Vector(-64, 8926), Vector(1, 0))
   Redfall:SpawnCrimsonSamurai(Vector(-1279, 8917), Vector(1, 0))
   Redfall:SpawnCrimsonSamurai(Vector(-1152, 10048), Vector(1, 0))
-  --DeepPrintTable(Redfall.Castle.WaterPlatformColorTable)
   Timers:CreateTimer(2, function()
     local basePosition = Vector(448, 9664)
     for i = 1, 3, 1 do
