@@ -15,7 +15,7 @@ function rubilash_init(event)
 		for k, v in pairs(caster:GetChildren()) do
 			if v:GetClassname() == "dota_item_wearable" then
 				if string.match(v:GetModelName(), "weapon") then
-					print(v:GetModelName())
+					--print(v:GetModelName())
 					caster.weaponFX = v
 					caster.origWeapon = v:GetModelName()
 					break
@@ -64,7 +64,7 @@ function rubilash_ink_blot(event)
     if caster:HasModifier("modifier_rubilash_glyph_1_1") then
     	speed = speed * (1 + RUBILASH_GLYPH_1_1_PROJECTILE_SPEED_PCT/100)
     end
-    print("IN HERE?")
+    --print("IN HERE?")
     local info =
     {
         Ability = ability,
@@ -210,10 +210,10 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 	if caster:HasModifier("modifier_rubilash_arcana1") then
 		damage = damage + caster:GetRuneValue("e", 3)*RUBILASH_ARCANA1_RUNE_E3_FLAT_DMG
 	end
-	print("MY PAINT COLOR "..target.rubilash_paint_total_color)
+	--print("MY PAINT COLOR "..target.rubilash_paint_total_color)
 	apply_actual_paint_buff(caster, target)
 	-- damage = 0
-	print("PAINT MULT: "..mult)
+	--print("PAINT MULT: "..mult)
 	local adjusted_damage = damage*mult
 	rubilash_base_e_3(caster, adjusted_damage)
 	local glyph_mult = 1
@@ -353,7 +353,7 @@ function rubilash_w_ability_attack_land(event)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do    
 				local damage, damagetype = rubilash_apply_paint_and_get_damage(caster, ability, base_ability_damage, enemy)
-				print(damage)
+				--print(damage)
 				Timers:CreateTimer(0.03, function()
 					Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, damagetype, BASE_ABILITY_W, RPC_ELEMENT_DEMON, RPC_ELEMENT_GHOST)
 				end)

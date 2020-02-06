@@ -22,9 +22,9 @@ function seafortress_archon_wizard_archon_form:OnOwnerDied()
         for i = 1, arcanas, 1 do
             RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_arkimus_arcana2")
         end
+        Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
     else
         EmitSoundOn("Seafortress.ArchonWizardDie", caster)
-        Beacons:CreateActiveParticle("particles/portals/green_portal.vpcf", Vector(3104, 14272, 110 + Seafortress.ZFLOAT), Events.GameMaster, 0, Vector(0.45, 0.45, 0.45))
     end
 end
 

@@ -45,7 +45,7 @@ function update_treasure_goblin_speed(goblin)
 	new_ms = new_ms + (1 - goblin:GetHealth()/goblin:GetMaxHealth())*speedmult
 	new_ms = math.min(TreasureGoblins.Stats[GameState:GetDifficultyFactor()]["max_ms"], new_ms)
 	goblin.run_speed = new_ms
-	print(goblin.run_speed)
+	--print(goblin.run_speed)
 end
 
 function treasure_goblin_die(event)

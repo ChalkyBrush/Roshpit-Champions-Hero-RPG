@@ -1716,7 +1716,7 @@ function GameState:IncomingDamageDecreaseWithType(victim, attacker, shouldConsum
 	end
 	if victim:HasModifier("modifier_maiden_armor") then
 		if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-			damage = damage * (1 - victim:GetModifierStackCount("modifier_maiden_armor", victim) * 0.01)
+			damage = damage * (1 - victim:GetModifierStackCount("modifier_maiden_armor", victim) * 0.08)
 			if shouldConsumeShields then
 				CustomAbilities:HitWinterblightMaidenShield(victim, attacker)
 			end
@@ -3536,7 +3536,7 @@ function GameState:FilterDamage(filterTable)
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			-- if victim:IsHero() then
-			-- 	-- print("TAKE DAMAGE: "..filterTable["damage"])
+			-- 	-- --print("TAKE DAMAGE: "..filterTable["damage"])
 			-- 	filterTable["damage"] = 0
 			-- end
 			if victim:GetUnitName() == "rubick_apprentice" then

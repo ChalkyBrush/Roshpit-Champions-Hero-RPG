@@ -117,7 +117,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
-	-- print("PROPERTY NAME: "..property_name)
+	-- --print("PROPERTY NAME: "..property_name)
 	-- PROPERTY TYPE MODIFIERS:
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
 		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
@@ -158,7 +158,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 		end
 	end
 
-	print("--RECORDING PROPERTY--")
+	--print("--RECORDING PROPERTY--")
 	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
 	-- TATTERED NOVICE ARMOR AMETHYST:
 	local property_bonus_mult = 0
@@ -250,7 +250,7 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	local internal_hero_name = HerosCustom:GetInternalHeroNameMain(hero:GetClassname())
 	local inventory_unit = hero.InventoryUnit
 	local ability_name = "equipment_"..RPC_GEAR_SLOT_NAMES[gear_slot]
-	print("ABILITY NAME: "..ability_name)
+	--print("ABILITY NAME: "..ability_name)
 	local ability = inventory_unit:FindAbilityByName(ability_name)
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
@@ -1547,32 +1547,34 @@ end
 
 function CDOTA_BaseNPC_Hero:ReequipAllGear(ignore_slot)
 	if self.equipped_gear then
-		if not ignore_slot == RPC_GEAR_SLOT_HEAD then
+		if ignore_slot ~= RPC_GEAR_SLOT_HEAD then
+			--print("REEQUIP 3")
 			if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+				--print("REEQUIP 4")
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BODY then
+		if ignore_slot ~= RPC_GEAR_SLOT_BODY then
 			if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_WEAPON then
+		if ignore_slot ~= RPC_GEAR_SLOT_WEAPON then
 			if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_GLOVES then
+		if ignore_slot ~= RPC_GEAR_SLOT_GLOVES then
 			if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BOOTS then
+		if ignore_slot ~= RPC_GEAR_SLOT_BOOTS then
 			if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_TRINKET then
+		if ignore_slot ~= RPC_GEAR_SLOT_TRINKET then
 			if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
 			end

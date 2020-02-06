@@ -200,7 +200,7 @@ function Glyphs:GetPlayerResources(playerID)
 		local resultTable = {}
 		--print( "GET response:\n" )
 		for k, v in pairs(result) do
-			print( string.format( "%s : %s\n", k, v ) )
+			--print( string.format( "%s : %s\n", k, v ) )
 		end
 		--print( "Done." )
 		local resultTable = JSON:decode(result.Body)
@@ -284,7 +284,7 @@ function Glyphs:CreateGlyphItem(variantName, rarityName, itemNameText, slotText,
 		item.pickedUp = true
 		RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 	end
-	print(item:GetAbilityName())
+	--print(item:GetAbilityName())
 	return item
 end
 
@@ -670,7 +670,7 @@ function Glyphs:RollGlyphAll(variantName, position, heroIndex)
 	local tier = tonumber(string.sub(variantName, nameLength - 2, nameLength - 2))
 	--print(tier)
 	local index = string.sub(variantName, nameLength, nameLength)
-	print(variantName)
+	--print(variantName)
 	local rarityName = Glyphs:GetRarityFromGlyphTier(tier, index)
 	--print(rarityName)
 	local itemName = "Basic Glyph"

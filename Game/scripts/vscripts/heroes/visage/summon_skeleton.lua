@@ -77,8 +77,8 @@ function cast_raise_skeleton(event)
 
 					local skele_armor_pierce = caster:GetRoshpitArmorPierce() + w_4_level*EKKAN_W4_PIERCES
 					local skele_spell_pierce = caster:GetRoshpitSpellPierce() + w_4_level*EKKAN_W4_PIERCES
-					print(skeleArmor)
-					print("------")
+					--print(skeleArmor)
+					--print("------")
 					skeleton:SetBaseRoshpitArmor(skeleArmor)
 					skeleton:SetBaseRoshpitMagicArmor(skeleMagicArmor)
 					skeleton:SetBaseRoshpitArmorPierce(skele_armor_pierce)

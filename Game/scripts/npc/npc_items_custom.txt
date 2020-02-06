@@ -39882,7 +39882,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"20 40 60 80 100"
+				"sapphire1"			"16 32 48 64 80"
 			}
 			"06"
 			{

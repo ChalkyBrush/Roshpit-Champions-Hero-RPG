@@ -72,7 +72,7 @@
 
     function abilityClass:OnSpellStart()
         if not self:Initialized() then
-            print('ability ' .. self:GetName() .. ' not initialized')
+            --print('ability ' .. self:GetName() .. ' not initialized')
             return
         end
 

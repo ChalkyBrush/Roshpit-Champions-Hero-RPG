@@ -99300,7 +99300,7 @@
         "MovementTurnRate"  "0.6"
         "StatusHealth"  "100"
         "StatusHealthRegen" "0.25"
-        "StatusMana"    "100"
+        "StatusMana"    "25"
         "StatusManaRegen"   "0"
         "VisionDaytimeRange"    "2400"
         "VisionNighttimeRange"  "2400"
