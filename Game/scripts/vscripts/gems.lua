@@ -514,7 +514,7 @@ function Gems:SalvageGemsFromitem(msg)
 			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
 			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
 				hero:EquipItem(item, true)
-				if hero.saveSlot then
+				if hero.saveSlot and hero.saveSlot > 0 then
 					local save_message = {}
 					save_message.playerID = playerID
 					save_message.slot = hero.saveSlot
