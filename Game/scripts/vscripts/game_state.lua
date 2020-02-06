@@ -1763,10 +1763,6 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 	local BASE_VALUE_FOR_CALCULATE = 1000000 -- for prevent calc errors with small values
 	local damage = BASE_VALUE_FOR_CALCULATE
 
-	local modifier = victim:FindModifierByName("modifier_armor_of_atlantis")
-	if modifier then
-		damage = damage * (1 - modifier:GetDamageReduction())
-	end
 	if victim:HasModifier("modifier_ablecore_greaves_effect") then
 		local reduction = ITEM_RPC_ABLECORE_GREAVES_DMG_RED + victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ABLECORE_GREAVES_GEM_RUBY1)
 		damage = damage * (100-reduction)/100
@@ -3250,16 +3246,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = 0
 		Winterblight:PixieSummonTakeDamage(victim)
 	end
-	if victim:HasModifier("modifier_armor_of_atlantis") then
-		if filterTable["damage"] > victim:GetHealth() then
-			if victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("emerald") > 0 then
-				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_EMERALD)
-				filterTable["damage"] = filterTable["damage"] * (100 - reduction) / 100
-				local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
-				ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
-			end
-		end
-	end
 	if attacker:HasModifier("modifier_line_tower_passive") then
 		-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 		if victim:IsHero() then
@@ -3331,18 +3317,30 @@ function GameState:FilterDamage(filterTable)
 
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
-		local rezzed = false
-		if victim:HasModifier("modifier_phoenix_emblem") then
+		local death_prevented = false
+		if victim:HasModifier('modifier_armor_of_atlantis') then
+			if victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("emerald") > 0 then
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ARMOR_OF_ATLANTIS_GEM_EMERALD)
+				filterTable["damage"] = math.ceil(filterTable["damage"] * (100 - reduction) / 100)
+				local pfxA = CustomAbilities:QuickAttachParticle("particles/act_2/ogre_seal_icebreak_flash.vpcf", victim, 0.5)
+				ParticleManager:SetParticleControl(pfxA, 1, victim:GetAbsOrigin())
+
+				if filterTable["damage"] < victim:GetHealth() then
+					death_prevented = true
+				end
+			end
+		end
+		if victim:HasModifier("modifier_phoenix_emblem") and not death_prevented then
 			if victim:HasModifier("modifier_phoenix_rebirthing") then
 				filterTable["damage"] = 0
 			end
 			if not victim:HasModifier("modifier_phoenix_emblem_cooldown") then
 				filterTable["damage"] = 0
 				Filters:PhoenixEmblem(victim)
-				rezzed = true
+				death_prevented = true
 			end
 		end
-		if victim:HasModifier("modifier_conjuror_arcana3") and not rezzed then
+		if victim:HasModifier("modifier_conjuror_arcana3") and not death_prevented then
 			if victim.earthAspect and victim.earthAspect.earthDeity then
 				if victim.earthAspect:HasAbility("earth_deity_grand_guardian") then
 					local grand_guardian_ability = victim.earthAspect:FindAbilityByName("earth_deity_grand_guardian")
@@ -3355,37 +3353,37 @@ function GameState:FilterDamage(filterTable)
 							AbilityIndex = grand_guardian_ability:entindex(),
 						}
 						ExecuteOrderFromTable(newOrder)
-						rezzed = true
+						death_prevented = true
 					end
 				end
 			end
 		end
-		if victim:HasModifier("modifier_hailstorm_passive") and not rezzed then
+		if victim:HasModifier("modifier_hailstorm_passive") and not death_prevented then
 			if not victim:HasModifier("modifier_hailstorm_ice_case_cooldown") then
 				local hailstormAbility = victim:FindAbilityByName("mountain_protector_hailstorm")
 				local r_2_level = victim:GetRuneValue("r", 2)
 				if r_2_level > 0 then
 					hailstormAbility:ApplyDataDrivenModifier(victim, victim, "modifier_frozen_stand", nil)
-					rezzed = true
+					death_prevented = true
 				end
 			end
 		end
-		if victim:HasModifier("modifier_solunia_glyph_5_a") and not rezzed then
+		if victim:HasModifier("modifier_solunia_glyph_5_a") and not death_prevented then
 			if not victim:HasModifier("modifier_solunia_glyph_5_a_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
 				CustomAbilities:Protostar(victim)
-				rezzed = true
+				death_prevented = true
 			end
 		end
-		if victim:HasModifier("modifier_epoch_glyph_5_a_effect") and not rezzed then
+		if victim:HasModifier("modifier_epoch_glyph_5_a_effect") and not death_prevented then
 			if not victim:HasModifier("modifier_epoch_glyph_5_a_cooldown") then
 				--print("EpochTimeTravelGlyph shield trigger - game state")
 				filterTable["damage"] = victim:GetHealth() - 2
 				CustomAbilities:EpochTimeTravelGlyph(victim)
-				rezzed = true
+				death_prevented = true
 			end
 		end
-		if victim:HasModifier("modifier_paladin_arcana2_passive") and not rezzed then
+		if victim:HasModifier("modifier_paladin_arcana2_passive") and not death_prevented then
 			local e_1_level = victim:GetRuneValue("e", 1)
 			if e_1_level > 0 then
 				if not victim:HasModifier("modifier_paladin_heal_on_lethal_cooldown") then
@@ -3404,34 +3402,34 @@ function GameState:FilterDamage(filterTable)
 						ParticleManager:DestroyParticle(pfx, false)
 					end)
 					filterTable["damage"] = 0
-					rezzed = true
+					death_prevented = true
 				end
 			end
 		end
-		if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") and not rezzed then
+		if victim:HasModifier("modifier_ruptholds_helm_of_gluttony") and not death_prevented then
 			if victim.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("sapphire") > 0 then
 				if not victim:HasModifier("modifier_rupthold_borrowed_time_cooldown") then
 					filterTable["damage"] = victim:GetHealth() - 2
-					rezzed = true
+					death_prevented = true
 					Filters:RuptholdsTrigger(victim)
 				end
 			end
 		end
-		if victim:HasModifier("modifier_ankh_of_the_ancients") and not rezzed then
+		if victim:HasModifier("modifier_ankh_of_the_ancients") and not death_prevented then
 			if not victim:HasModifier("modifier_ankh_of_ancients_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				rezzed = true
+				death_prevented = true
 				Filters:AnkhOfAncientsValidDeath(victim)
 			end
 		end
-		if victim:HasModifier("modifier_world_trees_flower_cache") and not rezzed then
+		if victim:HasModifier("modifier_world_trees_flower_cache") and not death_prevented then
 			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
-				rezzed = true
+				death_prevented = true
 				Filters:WorldTreeFlowerCacheTrigger(victim)
 			end
 		end
-		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not rezzed then
+		if victim:HasModifier('modifier_duskbringer_ghost_form_checker') and not death_prevented then
 			local caster = victim:FindModifierByName('modifier_duskbringer_ghost_form_checker'):GetCaster()
 			local e_4_level = caster:GetRuneValue("e", 4)
 			if e_4_level > 0 then
@@ -3450,7 +3448,7 @@ function GameState:FilterDamage(filterTable)
 				EmitSoundOn("Duskbringer.Wraithform", victim)
 				filterTable["damage"] = 0
 				victim.KILLER = attacker
-				rezzed = true
+				death_prevented = true
 			end
 		end
 	end
