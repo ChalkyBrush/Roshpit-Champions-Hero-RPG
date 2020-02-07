@@ -4486,28 +4486,6 @@ function RPCItems:RollStormclothBracer(item_level)
     return item
 end
 
-function RPCItems:RollSwiftspikeBracer(item_level)
-    local item_slot = RPC_GEAR_SLOT_GLOVES
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_swiftspike_bracer", "immortal", "Swiftspike Bracer", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_swiftspike_bracer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swiftspike_bracer", "#3F74A8", 1, "#property_swiftspike_bracer_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "movespeed", 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 
 -- BOOTS
 
@@ -7415,8 +7393,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollTatteredNoviceArmor(item_level)
     elseif itemName == "item_rpc_buzukis_finger" then
         newItem = RPCItems:RollBuzukisFinger(item_level)
-    elseif itemName == "item_rpc_swiftspike_bracer" then
-        newItem = RPCItems:RollSwiftspikeBracer(item_level)
     elseif itemName == "item_rpc_red_divinex_amulet" then
         newItem = RPCItems:RollRedDivinexAmulet(item_level)
     elseif itemName == "item_rpc_green_divinex_amulet" then
