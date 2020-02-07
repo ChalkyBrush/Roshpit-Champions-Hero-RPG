@@ -242,8 +242,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "buzuki" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_buzukis_finger", item)
 		RPCItems:PreacheArcanaResources(item)
-	elseif propertyName == "swiftspike" then
-		Hand:addItemModifier(0, hero, inventory_unit, "modifier_swiftspike_bracer", item)
 	elseif propertyName == "movespeed" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_movespeed", hand_ability)
 	elseif propertyName == "all_elements" then

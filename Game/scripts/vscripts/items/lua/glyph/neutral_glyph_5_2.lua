@@ -27,19 +27,22 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        DAMAGE_TYPE_MAGICAL
+        MODIFIER_ROSHPIT_MAGICAL_DMG_REDUCTION
     })
 end
 
-function modifierClass:GetDamageReduction()
+function modifierClass:GetMagicalDamageReduction()
     return ITEM_RPC_NEUTRAL_GLYPH_5_1_MAG_RES
 end
+
 function modifierClass:IsHidden()
     return true
 end
+
 function modifierClass:IsBuff()
     return true
 end
+
 function modifierClass:RemoveOnDeath()
     return false
 end
