@@ -2217,6 +2217,20 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         require('heroes/faceless_void/omni_mace')
         mult = mult + omniro_elemental_bonus(element1, element2, attacker)
     end
+    if element1 == RPC_ELEMENT_NORMAL then
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element2 = RPC_ELEMENT_NATURE
+            end
+        end
+    end
+    if element2 == RPC_ELEMENT_NORMAL then
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element1 = RPC_ELEMENT_NATURE
+            end
+        end
+    end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
@@ -2271,13 +2285,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
-    if element1 == RPC_ELEMENT_NORMAL then
-        if bIsRealDamage then
-            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
-                element2 = RPC_ELEMENT_NATURE
-            end
-        end
-    end
 
     local elements = {}
     if element1 ~= RPC_ELEMENT_NONE then
@@ -2317,13 +2324,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 
 
 
-    if element2 == RPC_ELEMENT_NORMAL then
-        if bIsRealDamage then
-            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
-                element1 = RPC_ELEMENT_NATURE
-            end
-        end
-    end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         local normalMult = 0
         if attacker:HasModifier("modifier_trapper_arcana1") then
