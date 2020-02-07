@@ -32,7 +32,8 @@ function rubilash_main_thinker(event)
 			if not caster:HasModifier("modifier_rubilash_arcana_e_4_attack_damage") then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_rubilash_arcana_e_4_attack_damage", {})
 			end
-			caster:SetModifierStackCount("modifier_rubilash_arcana_e_4_attack_damage", caster, e_4_level*RUBILASH_ARCANA1_RUNE_E4_ATK_PER_ATTR)
+			local sumOfAttributes = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()
+			caster:SetModifierStackCount("modifier_rubilash_arcana_e_4_attack_damage", caster, e_4_level*RUBILASH_ARCANA1_RUNE_E4_ATK_PER_ATTR*sumOfAttributes)
 		else
 			caster:RemoveModifierByName("modifier_rubilash_arcana_e_4_attack_damage")
 		end

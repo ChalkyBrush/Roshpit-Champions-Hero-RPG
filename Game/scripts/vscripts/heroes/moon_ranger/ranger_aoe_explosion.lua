@@ -262,7 +262,7 @@ function dropStar(enemy, caster, damage, ability, hit_mult)
   -- ability:ApplyDataDrivenModifier(caster, enemy, "modifier_starfall", {duration = 2})
   local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
   local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
-  ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_OVERHEAD_FOLLOW, "attach_hitlock", enemy:GetAbsOrigin(), true)
+  ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
   Timers:CreateTimer(0.6, function()
     ParticleManager:DestroyParticle(pfx, false)
   end)
