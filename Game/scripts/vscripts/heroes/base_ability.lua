@@ -80,8 +80,8 @@ function base_ability:GetChannelTime()
     if self:GetAbilitySlot() == DOTA_R_SLOT then
         local hero = self:GetCaster()
         local flat = hero:GetModifierStackCount("modifier_r_flat_channeltime_modifier", hero)
-        local pct = hero:GetModifierStackCount("modifier_r_pct_channeltime_modifier", hero)    
-        local channeltime = (self:GetBaseChannelTime() + flat / 100) * (1 + pct / 10000)
+        local pct = hero:GetModifierStackCount("modifier_r_pct_channeltime_modifier", hero)   
+        local channeltime = (self:GetBaseChannelTime() + flat / 100) * (pct / 10000)
         return math.max(channeltime, 0.03)
     end
 end
