@@ -174,13 +174,6 @@ function Filters:AdjustItemDamage(caster, damage, victim)
     if caster:HasModifier("modifier_aquastone_ring") then
         mult = mult + (caster:GetRuneValue("q", 4) + caster:GetRuneValue("w", 4) + caster:GetRuneValue("e", 4) + caster:GetRuneValue("r", 4))*ITEM_RPC_AQUASTONE_RING_BAD_AND_ITEM_DMG_PER_T4_RUNE/100
     end
-    if caster:HasModifier("modifier_swiftspike_bad") then
-        if caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
-            local current_stack = caster:GetModifierStackCount("modifier_swiftspike_bad", caster.InventoryUnit)
-            local item_damage_per_ms = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD2)
-            damageMult = damageMult + (item_damage_per_ms/100) * current_stack
-        end
-    end
     if caster:HasModifier("modifier_red_divinex_amulet") then
         mult = mult + caster.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_RED_DIVINEX_AMULET_GEM_RUBY)/100 * (caster:GetStrength())
     end
@@ -1686,10 +1679,6 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local missingHealthPercent = math.floor((1 - (attacker:GetHealth() / attacker:GetMaxHealth())) * 100)
             damageMult = damageMult + missingHealthPercent * CHERNOBOG_IMMORTAL_WEP2_BAD_AND_ITEM_PCT_PER_MISSING_HP_PCT / 100
         end
-        if attacker:HasModifier("modifier_swiftspike_bad") then
-            local current_stack = attacker:GetModifierStackCount("modifier_swiftspike_bad", attacker.InventoryUnit)
-            damageMult = damageMult + (ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS/100) * current_stack
-        end
         if attacker:HasModifier("modifier_bahamut_a_b_buff") then
             local current_stack = attacker:GetModifierStackCount("modifier_bahamut_a_b_buff", attacker.runeUnit:FindAbilityByName("bahamut_rune_w_1"))
             damageMult = damageMult + BAHAMUT_W1_BONUS_DMG_AND_BAD_PCT/100 * current_stack
@@ -2217,6 +2206,20 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         require('heroes/faceless_void/omni_mace')
         mult = mult + omniro_elemental_bonus(element1, element2, attacker)
     end
+    if element1 == RPC_ELEMENT_NORMAL then
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element2 = RPC_ELEMENT_NATURE
+            end
+        end
+    end
+    if element2 == RPC_ELEMENT_NORMAL then
+        if bIsRealDamage then
+            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
+                element1 = RPC_ELEMENT_NATURE
+            end
+        end
+    end
     if element1 > 1 or element2 > 1 then
         if attacker:HasModifier("modifier_demonfire_stack") then
             local stacks = attacker:GetModifierStackCount("modifier_demonfire_stack", attacker.InventoryUnit)
@@ -2271,13 +2274,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             end
         end
     end
-    if element1 == RPC_ELEMENT_NORMAL then
-        if bIsRealDamage then
-            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
-                element2 = RPC_ELEMENT_NATURE
-            end
-        end
-    end
 
     local elements = {}
     if element1 ~= RPC_ELEMENT_NONE then
@@ -2317,13 +2313,6 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
 
 
 
-    if element2 == RPC_ELEMENT_NORMAL then
-        if bIsRealDamage then
-            if attacker:HasModifier("modifier_djanghor_glyph_5_a") then
-                element1 = RPC_ELEMENT_NATURE
-            end
-        end
-    end
     if element1 == RPC_ELEMENT_NORMAL or element2 == RPC_ELEMENT_NORMAL then
         local normalMult = 0
         if attacker:HasModifier("modifier_trapper_arcana1") then

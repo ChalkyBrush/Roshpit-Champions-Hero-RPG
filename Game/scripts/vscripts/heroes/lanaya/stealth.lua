@@ -450,5 +450,5 @@ function crit_attack_start(event)
 	local ability = event.ability
 	local runesCount = Runes:GetTotalRuneLevel(caster, 3, "r_3", "trapper")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_trapper_c_d_crit", {})
-	caster:SetModifierStackCount("modifier_trapper_c_d_crit", caster, runesCount)
+	caster:SetModifierStackCount("modifier_trapper_c_d_crit", caster, TRAPPER_R3_CRIT_DAMAGE_BASE + TRAPPER_R3_CRIT_DAMAGE * runesCount)
 end
