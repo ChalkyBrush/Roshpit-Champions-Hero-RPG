@@ -13423,7 +13423,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"5"
+				"duration"	"4"
 			}
 		}
 		"OnSpellStart"
@@ -13453,7 +13453,7 @@
 				"IsDebuff"			"0"
 			
 				"Aura"          	"modifier_brain_freeze"
-				"Aura_Radius"   	"300"
+				"Aura_Radius"   	"220"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
