@@ -2263,7 +2263,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"20"
+				"damage_attack_power_per_tech"			"1"
 			}
 			"02"
 			{
