@@ -35,19 +35,25 @@
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"ДОП. БРОНЯ И МАГИЧЕСКАЯ ЗАЩИТА:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"МАНЫ/СЕК. :"
 
-    	"DOTA_Tooltip_modifier_energy_channel"									"Mountain Guardian"
-    	"DOTA_Tooltip_modifier_energy_channel_Description"						""
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian"									"Mountain Guardian"
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] Mountain Echoes"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Пассивно увеличивает регенерацию здоровья в стойке @Ability2."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"Регенерация в секунду"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% от макс. ХП"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_1"					"Mountain Echoes"
+		"DOTA_Tooltip_modifier_mountain_protector_w_1_Description"		"Health regeneration increased by a %% of maximum health"
+	
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Пробитие Магической Брони увеличено в @Ability2."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Пробитие Магической Брони"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_2"					"Guardian's Wrath"
+		"DOTA_Tooltip_modifier_mountain_protector_w_2_Description"		"Spell Pierce increased"
+
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Враги в радиусе 500 от героя во время активной стойки @Ability2 будут поражены молниями, наносящими урон в размере % от основного урона героя."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Урон молний"
@@ -55,11 +61,21 @@
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Урон молний"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% от макс ХП героя"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura_Description"		"Zaps nearby enemies"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap_Description"		"Getting zapped by Mountain Protector"
+		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Дарует герою и ближайшим союзникам дополнительную броню во время активной стойки @Ability2."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_property_one"	"Доп. броня"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_suffix"		""
 
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_Description"		"Gives nearby allies additional armor"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff_Description"		"Armor increased"
+		
     	"DOTA_Tooltip_ability_mountain_protector_emberstone"					"Emberstone"
     	"DOTA_Tooltip_ability_mountain_protector_emberstone_Description"		"Бросает горящий камень в указанную точку, в которую герой телепортируется спустя 0.4 секунды."
     	"DOTA_Tooltip_ability_mountain_protector_emberstone_range"				"РАДИУС:"
