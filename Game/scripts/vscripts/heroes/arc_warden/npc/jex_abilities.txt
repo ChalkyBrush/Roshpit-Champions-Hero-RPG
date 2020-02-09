@@ -1827,12 +1827,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"aoe_per_tech_level"			"50"
+				"aoe_per_tech_level"			"30"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_power_added_per_tech"			"10"
+				"attack_power_added_per_tech"			"2"
 			}
 			"04"
 			{
@@ -1842,7 +1842,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"aoe_base"			"450"
+				"aoe_base"			"250"
 			}
 
 			"06"
