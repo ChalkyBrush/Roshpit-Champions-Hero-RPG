@@ -1295,7 +1295,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"3"
+				"attack_damage_per_tech"				"2"
 			}	
 			"02"
 			{
@@ -2135,7 +2135,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"14"
+				"damage_attack_power_per_tech"			"3"
 			}
 			"04"
 			{
