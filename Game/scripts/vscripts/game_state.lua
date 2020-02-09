@@ -2621,10 +2621,6 @@ function GameState:FilterDamage(filterTable)
 		Filters:ShatterVoltexShell(victim, attacker)
 	end
 
-	if attacker:HasModifier("modifier_flurry_aura_debuff") then
-		filterTable["damage"] = filterTable["damage"] * (100-ITEM_RPC_SKYFORGE_FLURRY_PLATE_DMG_REDUCTION)/100
-	end
-
 	if victim:HasModifier("modifier_emerald_douli") then
 		local healthDamage = Filters:EmeraldDouliHit(victim, filterTable["damage"])
 		filterTable["damage"] = healthDamage
