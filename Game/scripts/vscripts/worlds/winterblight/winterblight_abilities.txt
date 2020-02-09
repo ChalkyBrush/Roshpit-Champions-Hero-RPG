@@ -913,7 +913,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 800 1200"
+				"damage"			"100 200 400"
 			}
 			"02"
 			{
@@ -1125,7 +1125,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 200"
+				"damage_per_distance"		"2 20 40"
 			}
 		}
 		"Modifiers"
@@ -10803,7 +10803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 5000"
+				"damage"			"100 200 500"
 			}
 			"02"
 			{
