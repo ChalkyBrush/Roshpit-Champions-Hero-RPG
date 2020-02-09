@@ -1968,7 +1968,7 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		damage = damage * (100-WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION)/100
 	end
 
-	if victim:HasModifier("modifier_energy_channel") or victim:HasModifier("modifier_steelforge_stance") then
+	if victim:HasModifier("modifier_mountain_protector_mountain_guardian") or victim:HasModifier("modifier_mountain_protector_steelforge_stance") then
 		if victim:HasModifier("modifier_mountain_protector_glyph_2_1") then
 			damage = damage * (100-MOUNTAIN_PROTECTOR_GLYPH_2_1_W_DAMAGE_REDUCTION)/100
 		end

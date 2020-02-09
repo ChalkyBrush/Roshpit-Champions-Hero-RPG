@@ -160,13 +160,13 @@
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"AT立场"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且降低受到的伤害。余烬之石也转化为钢铁，提高投掷速度。"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"护甲值提高："
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"				"护甲值提高："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害抗性："
 	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"每秒消耗魔法值："
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"AT立场"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"AT立场"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] 立场打击"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"展开AT立场的同时将打击800码内的全部敌人，造成基于攻击力和力量值的伤害并眩晕敌人0.5秒。无视魔免。"
@@ -181,6 +181,10 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "攻击速度减少"
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
+		
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
+
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] 朗基努斯之槍"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害并且造成0.03秒的眩晕。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_property_one"			"伤害"

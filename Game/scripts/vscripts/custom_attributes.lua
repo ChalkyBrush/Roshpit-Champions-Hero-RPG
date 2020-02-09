@@ -850,12 +850,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
             armor_modify = armor_modify + DJANGHOR_E1_ARMOR_AND_MAGIC_ARMOR_REDUCE* e_1_level
         end
     end
-    if unit:HasModifier("modifier_energy_channel") then
-    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
-    end
-    if unit:HasModifier("modifier_steelforge_stance") then
-    	armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
-    end
     if unit:HasModifier("modifier_protector_d_b_armor_aura_effect") then
 		local modifier = unit:FindModifierByName("modifier_protector_d_b_armor_aura_effect")
 		armor_modify = armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_W4
@@ -1491,12 +1485,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_ancient_rain") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_ancient_rain")
 	end
-    if unit:HasModifier("modifier_energy_channel") then
-    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_energy_channel")
-    end
-    if unit:HasModifier("modifier_steelforge_stance") then
-    	magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_and_magic_armor", "modifier_steelforge_stance")
-    end
     if unit:HasModifier("modifier_hailstorm_armor_and_magic_armor_loss") then
 		local modifier = unit:FindModifierByName("modifier_hailstorm_armor_and_magic_armor_loss")
 		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*MOUNTAIN_PROTECTOR_ARCANA2_R3_ARMOR_AND_MAGIC_ARMOR_LOSS
@@ -2291,10 +2279,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_trapper_d_c_post_amp") then
 		local modifier = unit:FindModifierByName("modifier_trapper_d_c_post_amp")
 		spell_pierce_modify = spell_pierce_modify + modifier:GetStackCount()*TRAPPER_E4_PIERCES
-	end
-	if unit:HasModifier("modifier_energy_channel") then
-		local w_2_level = unit:GetRuneValue("w", 2)
-		spell_pierce_modify = spell_pierce_modify + w_2_level*MOUNTAIN_PROTECTOR_W2_SPELL_PIERCE
 	end
     if unit:HasModifier("modifier_mountain_protector_arcana3") then
     	local missingHP_pct = math.floor(((unit:GetMaxHealth() - unit:GetHealth()) / unit:GetMaxHealth())*100)

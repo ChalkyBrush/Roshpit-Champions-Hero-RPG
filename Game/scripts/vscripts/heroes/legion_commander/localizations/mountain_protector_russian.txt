@@ -156,13 +156,13 @@
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"Steelforge Stance"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"Mountain Protector закаляет своё тело горной сталью, увеличивая свою броню, регенерацию здоровья и снижая весь входящий урон. Камень от (E) Emberstones состоит из стали, что позволяет ему лететь быстрее."
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"ДОП. БРОНЯ:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"				"ДОП. БРОНЯ:"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"СНИЖЕНИЕ ВХОДЯШЕГО УРОНА:"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"		"% РЕГЕНЕРАЦИЯ ХП:"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"ЗАТРАТЫ МАНЫ В СЕКУНДУ:"
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"Steelforge Stance"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"Бонус к броне. Весь входящий урон снижен."
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"Steelforge Stance"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"Бонус к броне. Весь входящий урон снижен."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] Steelforge Shock"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"В момент активации @Ability2 наносит урон всем врагам в радиусе 800 и оглушает их на 0.5 секунды. Игнорирует иммунитет к магии."
@@ -176,6 +176,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_one"			"Замедление передвижения"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "Замедление атаки"
+
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] Steelforge Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"При получении урона во время активной стойки @Ability2, выпускает холодный луч, наносящий урон в зависимости от урона героя. Оглушает атакующего на 0.03 секунды."

@@ -1002,7 +1002,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_legion_commander" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_energy_channel")
+			hero:RemoveModifierByName("modifier_mountain_protector_mountain_guardian")
 			Runes:EasySwapArcanaSkills(hero, 1, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			-- Events:ColorWearables(hero, Vector(0, 0, 255))
@@ -1757,7 +1757,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_legion_commander" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_steelforge_stance")
+			hero:RemoveModifierByName("modifier_mountain_protector_steelforge_stance")
 			hero:RemoveModifierByName("modifier_steelforge_passive")
 			Runes:EasyRevertArcanaSkills(hero, 1, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then

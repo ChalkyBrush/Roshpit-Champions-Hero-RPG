@@ -683,10 +683,6 @@ function Filters:ApplyStun(caster, duration, target)
         local glyph_ability = caster:FindModifierByName("modifier_mountain_protector_glyph_1_1"):GetAbility()
         glyph_ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_glyph_1_1_cant_heal", {duration = duration})
     end
-    if caster:HasModifier("modifier_steelforge_passive") then
-        local ability = caster:FindModifierByName("modifier_steelforge_passive"):GetAbility()
-        ability:ApplyDataDrivenModifier(caster, target, "modifier_mountain_protector_arcana1_w_2_slow", {duration = duration*MOUNTAIN_PROTECTOR_ARCANA1_W2_DURATION_MULT})
-    end
     if caster:HasModifier("modifier_knight_crusher_armor") and duration > 0 then
         local crusher_armor = caster.equipped_gear[RPC_GEAR_SLOT_BODY]
         if crusher_armor:GetGemValue("ruby") > 0 then
@@ -696,6 +692,7 @@ function Filters:ApplyStun(caster, duration, target)
             crusher_armor:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_knight_crusher_armor_pierce", {duration = duration})
         end
     end
+    Util.Modifier:SimpleEvent(caster, 'OnStun', { MODIFIER_SPECIAL_TYPE_ON_STUN }, {target = target, stunDuration = duration}, nil)
     if duration > 0 then
         target:AddNewModifier(caster, nil, "modifier_stunned", {duration = duration})
     end

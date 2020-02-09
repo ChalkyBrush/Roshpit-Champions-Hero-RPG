@@ -37,7 +37,7 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
 		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"							"Mountain Guardian"
-		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"				"Harnesses the protection of the mountains to defend against aggressors. While in this stance, Mountain Protector has increased armor and magic armor, and cannot move. Drains <% MOUNTAIN_PROTECTOR_W_MANA_DRAIN_MULT %> times base mana cost every <% MOUNTAIN_PROTECTOR_W_MANA_DRAIN_TICKRATE %>s. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
+		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"				"Harnesses the protection of the mountains to defend against aggressors. While in this stance, Mountain Protector has increased armor and magic armor, and cannot move. Drains <% MOUNTAIN_PROTECTOR_W_MANA_DRAIN_MULT %> times mana cost every <% MOUNTAIN_PROTECTOR_W_MANA_DRAIN_TICKRATE %>s. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"	"ARMOR AND MAGIC ARMOR:"
 
     	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian"									"Mountain Guardian"
@@ -158,16 +158,15 @@
 		"item_property_mountain_protector_arcana1"										"Steelforge Stance"
     	"property_mountain_protector_arcana1_description"								"Replaces @Ability2 and all of its runes with Steelforge Stance."
 
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"Steelforge Stance"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"Mountain Protector forges her body with Mountain Steel, increasing armor and health regen and reducing all damage taken. Emberstones are made of steel, making them travel faster."
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"DAMAGE RESIST:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"		"% HEALTH REGEN:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"MANA DRAIN PER SECOND:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"							"Steelforge Stance"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"				"Mountain Protector forges her body with Mountain Steel, increasing armor and health regen and reducing all damage taken. Emberstones are made of steel, making them travel faster. Drains <% MOUNTAIN_PROTECTOR_ARCANA1_W_MANA_DRAIN_MULT %> times mana cost every <% MOUNTAIN_PROTECTOR_ARCANA1_W_MANA_DRAIN_TICKRATE %>s."
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"					""
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"	"ARMOR:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"			"% DAMAGE RESIST:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"			"% HEALTH REGEN:"
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"Steelforge Stance"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"Increased armor and reduced damage taken."
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"Steelforge Stance"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"Increased armor and reduced damage taken."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] Steelforge Shock"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"When switching into Steelforge Stance, damage and stun all enemies for 0.5 seconds in an 800 radius around the caster. Pierces magic immunity."
@@ -182,6 +181,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "Attack Slow"
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
+
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] Steelforge Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"When taking damage during Steelforge Stance, fire a cold beam that deals damage based on attack power that also applies a 0.03s ministun."
