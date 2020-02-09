@@ -96,7 +96,7 @@ function begin_mystic_wave(event)
 	ability.q_1_level = q_1_level
 	ability.q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "mountain_protector")
 	ability.q_3_level = Runes:GetTotalRuneLevel(caster, 3, "q_3", "mountain_protector")
-	if caster:HasModifier("modifier_energy_channel") then
+	if caster:HasModifier("modifier_mountain_protector_mountain_guardian") then
 		local manaCost = caster:GetMaxMana() * 0.01 * ability:GetLevel()
 		caster:ReduceMana(manaCost)
 	end
