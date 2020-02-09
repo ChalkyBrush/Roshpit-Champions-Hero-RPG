@@ -7398,19 +7398,25 @@
  	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"护甲和魔甲提高:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"每秒消耗魔法量"
 
-    	"DOTA_Tooltip_modifier_energy_channel"									"山丘守卫"
-    	"DOTA_Tooltip_modifier_energy_channel_Description"						""
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian"									"山丘守卫"
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] 山丘回响"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"被动增加生命恢复，增加量为最大生命值百分比"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"生命恢复速率"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_1"					"Mountain Echoes"
+		"DOTA_Tooltip_modifier_mountain_protector_w_1_Description"		"Health regeneration increased by a %% of maximum health"
+	
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"在山丘守卫状态下时提高魔法穿透"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"魔法穿透提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_2"					"Guardian's Wrath"
+		"DOTA_Tooltip_modifier_mountain_protector_w_2_Description"		"Spell Pierce increased"
+
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] 盛怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"开启山丘守卫时，山丘守护者周围500码范围内的敌人将受到基于山丘守护者攻击力的持续伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"每次伤害"
@@ -7418,13 +7424,20 @@
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura_Description"		"Zaps nearby enemies"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap_Description"		"Getting zapped by Mountain Protector"
+		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] 坚定的守卫者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"施放山丘守卫时增加山丘守护者的护甲，友军也能享受此效果。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_property_one"	"护甲值提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_suffix"		""
 		
-		"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect"			"坚定的守卫者"
-    	"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect_Description"	"护甲值被山丘守护者提高"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_Description"		"Gives nearby allies additional armor"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff"					"坚定的守卫者"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff_Description"		"护甲值被山丘守护者提高"
 
     	"DOTA_Tooltip_ability_mountain_protector_emberstone"					"余烬之石"
     	"DOTA_Tooltip_ability_mountain_protector_emberstone_Description"		"向前面丢出火焰石头，山丘守护者在0.4后闪烁到该石头的位置。"
@@ -7506,13 +7519,13 @@
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"AT立场"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且降低受到的伤害。余烬之石也转化为钢铁，提高投掷速度。"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"护甲值提高："
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"				"护甲值提高："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害抗性："
 	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"每秒消耗魔法值："
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"AT立场"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"AT立场"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] 立场打击"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"展开AT立场的同时将打击800码内的全部敌人，造成基于攻击力和力量值的伤害并眩晕敌人0.5秒。无视魔免。"
@@ -7527,6 +7540,10 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "攻击速度减少"
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
+		
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
+
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] 朗基努斯之槍"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害并且造成0.03秒的眩晕。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_property_one"			"伤害"
@@ -9827,7 +9844,7 @@
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3" "[W3] 二元裂隙"
 
-		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得<font color='#ccff66'>20</font>% 的概率造成致命一击。"
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得<font color='#ccff66'>25</font>% 的概率造成致命一击。"
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one" "致命一击伤害"
 
