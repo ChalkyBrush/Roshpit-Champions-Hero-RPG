@@ -188,6 +188,19 @@ function modifier_energy_channel_animating:IsHidden()
     return true
 end
 
+modifier_mountain_protector_steelforge_stone = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_mountain_protector_steelforge_stone", "heroes/legion_commander/mountain_protector_steelforge_stance", LUA_MODIFIER_MOTION_NONE)
+
+function modifier_mountain_protector_steelforge_stone:IsHidden()
+    return true
+end
+function modifier_mountain_protector_steelforge_stone:GetStatusEffectName()
+    return "particles/roshpit/mountain_protector/status_steel.vpcf"
+end
+function modifier_mountain_protector_steelforge_stone:StatusEffectPriority()
+    return 100
+end
+	
 modifier_mountain_protector_arcana_w_2 = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_mountain_protector_arcana_w_2", "heroes/legion_commander/mountain_protector_steelforge_stance", LUA_MODIFIER_MOTION_NONE)
 
