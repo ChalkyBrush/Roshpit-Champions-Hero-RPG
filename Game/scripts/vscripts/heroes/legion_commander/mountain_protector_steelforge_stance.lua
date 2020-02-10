@@ -46,6 +46,18 @@ function mountain_protector_steelforge_stance:OnToggle()
             caster:AddNewModifier(caster, ability, "modifier_mountain_protector_steelforge_stance", {})
             caster:SetModifierStackCount("modifier_mountain_protector_steelforge_stance", caster, MOUNTAIN_PROTECTOR_ARCANA1_W_HP_REGEN_PCT[self:GetLevel()])
         
+            local w_3_level = caster:GetRuneValue("w", 3)
+            if w_3_level > 0 then
+                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_3", {})
+            end
+        
+            local w_4_level = caster:GetRuneValue("w", 4)
+            if w_4_level > 0 then
+                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_4", {})
+                local bonus_damage = caster:GetStrength() * MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR * w_4_level
+                caster:SetModifierStackCount("modifier_mountain_protector_arcana_w_4", caster, bonus_damage)
+            end
+            --W1 after W4, so that it can benefit from Attack Damage bonus
             local w_1_level = caster:GetRuneValue("w", 1)
             if w_1_level > 0 then
                 local position = caster:GetAbsOrigin()
@@ -65,17 +77,6 @@ function mountain_protector_steelforge_stance:OnToggle()
                         Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_EARTH, RPC_ELEMENT_ICE)
                     end
                 end
-            end
-            local w_3_level = caster:GetRuneValue("w", 3)
-            if w_3_level > 0 then
-                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_3", {})
-            end
-        
-            local w_4_level = caster:GetRuneValue("w", 4)
-            if w_4_level > 0 then
-                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_4", {})
-                local bonus_damage = caster:GetStrength() * MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR * w_4_level
-                caster:SetModifierStackCount("modifier_mountain_protector_arcana_w_4", caster, bonus_damage)
             end
         
             caster:AddNewModifier(caster, ability, "modifier_energy_channel_animating", {duration = 6})
