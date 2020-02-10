@@ -86,7 +86,7 @@ function Filters:ApplyItemDamageBasedOnAbility(victim, attacker, damage, damage_
 end
 
 function Filters:GetUnpurgableDebuffNames()
-    local unpurgable = {"modifier_shipyard_boss_aura_effect", "modifier_hero_candy_crush", "modifier_attack_land_basic"}
+    local unpurgable = {"modifier_shipyard_boss_aura_effect", "modifier_hero_candy_crush", "modifier_attack_land_basic", "modifier_dummy_timer", "modifier_boomerang_attack_damage_visible", "modifier_boomerang_attack_damage_invisible"}
     return unpurgable
 end
 
