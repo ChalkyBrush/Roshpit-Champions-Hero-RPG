@@ -413,6 +413,9 @@ end
 function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
     local CdFlatModifier = 0
+    if ability:GetCooldownTimeRemaining() == 0 then
+        return
+    end
     if caster:HasModifier("modifier_venomort_glyph_1_1") then
         abilityCooldown = VENOMORT_GLYPH_1_1_COOLDOWN
 	end
