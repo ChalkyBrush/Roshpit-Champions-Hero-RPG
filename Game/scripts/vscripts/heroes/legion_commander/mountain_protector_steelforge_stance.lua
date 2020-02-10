@@ -46,6 +46,18 @@ function mountain_protector_steelforge_stance:OnToggle()
             caster:AddNewModifier(caster, ability, "modifier_mountain_protector_steelforge_stance", {})
             caster:SetModifierStackCount("modifier_mountain_protector_steelforge_stance", caster, MOUNTAIN_PROTECTOR_ARCANA1_W_HP_REGEN_PCT[self:GetLevel()])
         
+            local w_3_level = caster:GetRuneValue("w", 3)
+            if w_3_level > 0 then
+                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_3", {})
+            end
+        
+            local w_4_level = caster:GetRuneValue("w", 4)
+            if w_4_level > 0 then
+                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_4", {})
+                local bonus_damage = caster:GetStrength() * MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR * w_4_level
+                caster:SetModifierStackCount("modifier_mountain_protector_arcana_w_4", caster, bonus_damage)
+            end
+            --W1 after W4, so that it can benefit from Attack Damage bonus
             local w_1_level = caster:GetRuneValue("w", 1)
             if w_1_level > 0 then
                 local position = caster:GetAbsOrigin()
@@ -66,17 +78,6 @@ function mountain_protector_steelforge_stance:OnToggle()
                     end
                 end
             end
-            local w_3_level = caster:GetRuneValue("w", 3)
-            if w_3_level > 0 then
-                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_3", {})
-            end
-        
-            local w_4_level = caster:GetRuneValue("w", 4)
-            if w_4_level > 0 then
-                caster:AddNewModifier(caster, ability, "modifier_mountain_protector_arcana_w_4", {})
-                local bonus_damage = caster:GetStrength() * MOUNTAIN_PROTECTOR_ARCANA1_W4_ATTACK_PER_STR * w_4_level
-                caster:SetModifierStackCount("modifier_mountain_protector_arcana_w_4", caster, bonus_damage)
-            end
         
             caster:AddNewModifier(caster, ability, "modifier_energy_channel_animating", {duration = 6})
             Timers:CreateTimer(0.05, function()
@@ -95,6 +96,7 @@ function mountain_protector_steelforge_stance:OnToggle()
         else
             StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.4})
             caster:RemoveModifierByName("modifier_mountain_protector_steelforge_stance")
+            caster:RemoveModifierByName("modifier_mountain_protector_arcana_w_3")
             caster:RemoveModifierByName("modifier_mountain_protector_arcana_w_4")
         end
     end
@@ -117,7 +119,6 @@ function modifier_mountain_protector_steelforge_stance:OnCreated()
 end
 function modifier_mountain_protector_steelforge_stance:CheckState()
     local state = {
-        [MODIFIER_STATE_ROOTED] = true,
         [MODIFIER_STATE_DISARMED] = true
     }
 
@@ -188,6 +189,19 @@ function modifier_energy_channel_animating:IsHidden()
     return true
 end
 
+modifier_mountain_protector_steelforge_stone = class(npc_base_modifier, nil, npc_base_modifier)
+LinkLuaModifier("modifier_mountain_protector_steelforge_stone", "heroes/legion_commander/mountain_protector_steelforge_stance", LUA_MODIFIER_MOTION_NONE)
+
+function modifier_mountain_protector_steelforge_stone:IsHidden()
+    return true
+end
+function modifier_mountain_protector_steelforge_stone:GetStatusEffectName()
+    return "particles/roshpit/mountain_protector/status_steel.vpcf"
+end
+function modifier_mountain_protector_steelforge_stone:StatusEffectPriority()
+    return 100
+end
+	
 modifier_mountain_protector_arcana_w_2 = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_mountain_protector_arcana_w_2", "heroes/legion_commander/mountain_protector_steelforge_stance", LUA_MODIFIER_MOTION_NONE)
 

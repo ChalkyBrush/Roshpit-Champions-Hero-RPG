@@ -69,7 +69,7 @@ function rock_start(caster, ability, target_location)
     local liftDuration = distance / propulsion / 2
     if caster:HasModifier("modifier_mountain_protector_steelforge_stance") then
         local steelforgeAbility = caster:FindAbilityByName("mountain_protector_steelforge_stance")
-        steelforgeAbility:ApplyDataDrivenModifier(caster, bomb, "modifier_steelforge_stone", {})
+        caster:AddNewModifier(bomb, steelforgeAbility, "modifier_mountain_protector_steelforge_stone", {})
         propulsion = propulsion * math.sqrt(2)
         distance = distance / math.sqrt(2)
         liftForce = liftForce * math.sqrt(2)
