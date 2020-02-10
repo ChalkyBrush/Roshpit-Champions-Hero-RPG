@@ -118,7 +118,6 @@ function modifier_mountain_protector_steelforge_stance:OnCreated()
 end
 function modifier_mountain_protector_steelforge_stance:CheckState()
     local state = {
-        [MODIFIER_STATE_ROOTED] = true,
         [MODIFIER_STATE_DISARMED] = true
     }
 
