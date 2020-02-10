@@ -96,6 +96,7 @@ function mountain_protector_steelforge_stance:OnToggle()
         else
             StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT_END, rate = 1.4})
             caster:RemoveModifierByName("modifier_mountain_protector_steelforge_stance")
+            caster:RemoveModifierByName("modifier_mountain_protector_arcana_w_3")
             caster:RemoveModifierByName("modifier_mountain_protector_arcana_w_4")
         end
     end
