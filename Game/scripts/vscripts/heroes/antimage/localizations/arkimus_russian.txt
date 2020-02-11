@@ -145,8 +145,8 @@
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Reverse Polarity"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Пассивно дарует интеллект Arkimus."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"бонусного Интеллекта"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Пассивно увеличивает интеллект Arkimus."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"Бонусного Интеллекта"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
@@ -176,7 +176,7 @@
     	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<% ARKIMUS_ARCANA2_R_BONUS_AS %> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Физический. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<% ARKIMUS_ARCANA2_R_BONUS_AS %> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Чистый, но и весь урон уменьшается на <% ARKIMUS_ARCANA2_R_DAMAGE_OUT_REDUCTION %>%. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ДАЛЬНОСТЬ АТАКИ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"СОПРОТИВЛЕНИЕ УРОНУ, %:"
@@ -205,7 +205,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Позволяет атаковать противника дважды с небольшим шансом. Снижает базовое время атаки во время действия @Ability4."
 		"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"                    "Шанс на дополнительную атаку"
         "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"                      "%"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property"					"Снижение базового времени атаки"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_two"					"Снижение базового времени атаки"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"							"сек."
 		
 		//Glyphs

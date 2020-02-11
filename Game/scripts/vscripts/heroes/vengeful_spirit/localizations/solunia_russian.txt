@@ -263,7 +263,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%, прохождение сквозь юнитов и +100 к скорости передвижения."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT * 100 %>%, прохождение сквозь юнитов и +100 к скорости передвижения."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Длительность"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" сек."
 
