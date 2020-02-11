@@ -79,7 +79,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"@Ability2 drains an additional <% EPOCH_W4_MANA_DRAIN_BASE_PCT * 100 %>% maximum mana on cast, increasing its damage based on mana drained."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% for each 100 Mana Drained"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% of Mana Drained"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."

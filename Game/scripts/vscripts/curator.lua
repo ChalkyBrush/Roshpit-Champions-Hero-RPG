@@ -545,8 +545,8 @@ function Curator:FinishGettingClientData(msg)
 	end
 
 	url = url.."&key1="..GetDedicatedServerKeyV2(SaveLoad.KeyVersion)
-	print("CURATE")
-	print(url)
+	--print("CURATE")
+	--print(url)
 	----print(url)
 	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
 		if result.StatusCode == 200 then
@@ -904,9 +904,9 @@ end
 
 function Curator:FullCurateHero(hero)
 	Curator:CurateHero(hero:GetPlayerOwnerID())
-	-- Timers:CreateTimer(5, function()
-	-- 	Curator:CurateBasicWeaponsAgain(hero)
-	-- end)
+	Timers:CreateTimer(5, function()
+		Curator:CurateBasicWeaponsAgain(hero)
+	end)
 	Timers:CreateTimer(10, function()
 		local internalName = HerosCustom:GetInternalHeroName(hero:GetUnitName())
 		local columns = Glyphs:GetAvailableColumnCount(internalName)

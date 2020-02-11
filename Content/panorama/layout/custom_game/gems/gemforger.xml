@@ -64,6 +64,12 @@
 				<Panel id="forge_gems_item_attacher"/>
 	    	</Panel>
 	    </snippet>
+	    <snippet name="salvage_gems_button">
+	    	<Panel class="forge_gems_start_root" hittest="false">
+	    		<Label id="forge_gems_start_tip" hittest="false" text="gemforge_item_select_help"/>
+				<Panel id="forge_gems_item_attacher"/>
+	    	</Panel>
+	    </snippet>
 	    <snippet name="forge_gems_item_fail">
 	    	<Panel class="forge_gem_fail_root">
 		    	<Label id="socket_item_name" hittest="false" text="none"/>
@@ -128,6 +134,46 @@
 	    	<Panel class="socket_gem_root">
 	    		<Image id="socket_gem_image" hittest="false"/>
 	    		<Image id="socket_gem_overlay" hittest="false"/>
+	    	</Panel>
+	    </snippet>
+	    <snippet name="gem_salvage_main">
+	    	<Panel class="gem_salvage_root">
+	    		<Label id="salvage_gems_title" text="gem_forger_salvage" hittest="false" html="true"/>
+	    		<Panel id="salvage_gem1" class="gem_salvage_gem invisible">
+					<Image id="gem_salvage_image_1" class="gem_salvage_gem_image" hittest="false"/>
+					<Label id="gem_salvage_name_1" class="gem_salvage_gem_name" hittest="false" html="true"/>
+					<Label id="gem_salvage_value_1" class="gem_salvage_value" hittest="false" html="true"/>
+	    		</Panel>
+	    		<Panel id="salvage_gem2" class="gem_salvage_gem invisible">
+					<Image id="gem_salvage_image_2" class="gem_salvage_gem_image" hittest="false"/>
+					<Label id="gem_salvage_name_2" class="gem_salvage_gem_name" hittest="false" html="true"/>
+					<Label id="gem_salvage_value_2" class="gem_salvage_value" hittest="false" html="true"/>
+	    		</Panel>
+	    		<Panel id="salvage_subtotal" class="gem_salvage_gem_subtotal_row">
+	    			<Label id="salvage_gems_subtotal_label" text="gemforge_salvage_subtotal"/>
+	    			<Label id="salvage_gems_subtotal"/>
+	    		</Panel>
+	    		<Panel id="salvage_gem_loss" class="gem_salvage_gem_subtotal_row">
+	    			<Label id="salvage_gems_tax_text" text="gemforge_salvage_tax"/>
+	    			<Label id="salvage_gems_tax_value"/>
+	    		</Panel>
+	    		<Panel id="salvage_discount1" class="gem_salvage_gem_subtotal_row invisible">
+	    			<Label id="salvage_gems_premium_discount_text" text="gemforge_salvage_premium1"/>
+	    			<Label id="salvage_gems_premium_discount"/>
+	    		</Panel>
+	    		<Panel id="salvage_discount2" class="gem_salvage_gem_subtotal_row invisible">
+	    			<Label id="salvage_gems_premium_discount_text_web" text="gemforge_salvage_premium2"/>
+	    			<Label id="salvage_gems_premium_discount_web"/>
+	    		</Panel>
+	    		<Panel id="salvage_final_cost" class="gem_salvage_gem_subtotal_row">
+	    			<Label id="salvage_gems_final_label" text="gemforge_final_salvage_label"/>
+	    			<Label id="salvage_gems_final_value"/>
+	    		</Panel>
+				<Button id="gemforger_final_salvage_button" hittest="true">
+					<Image id="gemforger_salvage_image" hittest="false"/>
+					<Label id="gem_forger_final_salvage_label" text="gem_forger_final_salvage" hittest="false" html="true"/>
+				</Button>
+				<Label id="gem_forger_salvage_warning" text="gemforge_final_salvage_warning" hittest="false"/>
 	    	</Panel>
 	    </snippet>
 

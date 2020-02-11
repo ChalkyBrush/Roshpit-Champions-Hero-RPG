@@ -27,12 +27,12 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        MODIFIER_ROSHPIT_E_FLAT_CD_RED
+        MODIFIER_ROSHPIT_E_FLAT_CD_MOD
     })
 end
 
-function modifierClass:GetRoshpitFlatCdRed()
-    return ITEM_RPC_NEUTRAL_GLYPH_3_3_E_CD_RED
+function modifierClass:GetRoshpitEFlatCdModifier()
+    return - ITEM_RPC_NEUTRAL_GLYPH_3_3_E_CD_RED
 end
 function modifierClass:IsHidden()
     return true

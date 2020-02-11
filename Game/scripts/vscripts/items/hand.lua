@@ -108,7 +108,7 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "scorched_gauntlet" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_hand_scorched_earth", item)
 	elseif propertyName == "pride" then
-		print("Applied Proud Gloves modifier")
+		--print("Applied Proud Gloves modifier")
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_proud_gloves", hand_ability)
 	elseif propertyName == "azinoth" then
 		Hand:addBasicModifier(1, hero, inventory_unit, "modifier_hand_azinoth", hand_ability)
@@ -184,8 +184,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_skulldigger_gauntlet", item)
 	elseif propertyName == "ethereal_revenant" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_claws_of_the_ethereal_revenant", item)
-	elseif propertyName == "spellfire" then
-		Hand:addItemModifier(0, hero, inventory_unit, "modifier_spellfire_gloves", item)
 	elseif propertyName == "duskbringer_arcana1" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_duskbringer_arcana1", item)
 	elseif propertyName == "wind" then
@@ -244,8 +242,6 @@ function Hand:action(propertyName, propertyValue, hero, inventory_unit, hand_abi
 	elseif propertyName == "buzuki" then
 		Hand:addItemModifier(0, hero, inventory_unit, "modifier_buzukis_finger", item)
 		RPCItems:PreacheArcanaResources(item)
-	elseif propertyName == "swiftspike" then
-		Hand:addItemModifier(0, hero, inventory_unit, "modifier_swiftspike_bracer", item)
 	elseif propertyName == "movespeed" then
 		Hand:addBasicModifier(propertyValue, hero, inventory_unit, "modifier_hand_movespeed", hand_ability)
 	elseif propertyName == "all_elements" then
@@ -406,7 +402,6 @@ function Hand:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_malachite_shade_bracer")
 	hero:RemoveModifierByName("modifier_skulldigger_gauntlet")
 	hero:RemoveModifierByName("modifier_claws_of_the_ethereal_revenant")
-	hero:RemoveModifierByName("modifier_spellfire_gloves")
 	hero:RemoveModifierByName("modifier_duskbringer_arcana1")
 	hero:RemoveModifierByName("modifier_hand_wind")
 	hero:RemoveModifierByName("modifier_hand_ghost")

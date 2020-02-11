@@ -1,15 +1,16 @@
 
-	"arkimus_zap_ring"
+	"arkimus_magnetic_flux"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_magnetic_flux.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_magnetic_flux"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"<% ARKIMUS_ARCANA1_Q_DAMAGE_TYPE %>"
 
 		// Precache
 		//-------------------------------------------------------
@@ -18,17 +19,6 @@
 			"particle"	"particles/roshpit/arkimus/arcana_zap_field.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"10"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -36,108 +26,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"<% ARKIMUS_ARCANA_Q_DURATION %>"
+				"duration"			"<% ARKIMUS_ARCANA1_Q_DURATION %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"<% ARKIMUS_ARCANA_Q_DAMAGE %>"
+				"damage"			"<% ARKIMUS_ARCANA1_Q_DAMAGE %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_damage"		"<% ARKIMUS_ARCANA_Q_DAMAGE_INT_MULT %>"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-				"Function"		"arcana_zap_field_start"
-				"duration"		"%duration"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_zap_field"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"ThinkInterval"  "0.03"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_start"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_thinker"
-						"damage"		"%damage"
-						"int_damage"    "%int_damage"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_end"
-					}
-				}
-			}
-			"modifier_zonis_stun_arcana1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-			}
-			"modifier_arkimus_arcana1_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-
-				"OnTakeDamage"
-				// "%attack_damage" is set to the damage value after mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"damage_taken"
-						"damage"		"%attack_damage"
-					}
-				}
-			}
-			"modifier_arkimus_arcana1_q3"
-			{
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_q_3_arcana1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"q3_destroy"
-					}
-				}
-			}
-			"modifier_arkimus_arcana1_q4"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_q_4_arcana1"
+				"int_damage"		"<% ARKIMUS_ARCANA1_Q_DAMAGE_INT_MULT %>"
 			}
 		}
 	}

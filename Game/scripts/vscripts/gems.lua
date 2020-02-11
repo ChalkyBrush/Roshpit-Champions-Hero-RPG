@@ -3,12 +3,14 @@ if Gems == nil then
 end
 
 Gems.BaseRewardDifficultyMult = {}
-Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 3
-Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 6
-Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 9
+Gems.BaseRewardDifficultyMult[DIFFICULTY_NORMAL] = 6
+Gems.BaseRewardDifficultyMult[DIFFICULTY_ELITE] = 12
+Gems.BaseRewardDifficultyMult[DIFFICULTY_LEGEND] = 18
 
 Gems.GEMS_COST = {0, 30, 150, 750, 3750, 18750}
 Gems.ITEM_MIN_LEVEL_PER_GEM = {0, 15, 30, 45, 60}
+
+Gems.GEM_TYPES = {"ruby", "emerald", "sapphire", "amethyst"}
 
 function Gems:GemForgerPossibleSpawnEvent(event_name)
 	if Gems.GemForgerSpawned then
@@ -256,8 +258,9 @@ function Gems:SpawnGemForger(position, endFV, gem_reward)
 		Gems.GemForger.entering_pfx = pfx
 		StartAnimation(Gems.GemForger, {duration = 3, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
 		EmitSoundOn("NPC.Gemforger.Enter.Start", Gems.GemForger)
-
-		gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		if gem_reward > 0 then
+			gem_reward = math.ceil(RPCItems:GetLogarithmicVarianceValue(gem_reward, 0, 0, 0, 0))
+		end
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, Gems.GemForger:GetAbsOrigin(), 800, 10, false)
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			MAIN_HERO_TABLE[i].gem_reward = gem_reward
@@ -279,7 +282,7 @@ function Gems:DropSocketForger(position)
 end
 
 function Gems:PanoramaInput(msg)
-	print("GEM PANORAMA INPUT")
+	--print("GEM PANORAMA INPUT")
 	if msg.event_type == "collect_reward" then
 		Gems:CollectReward(msg)
 	elseif msg.event_type == "item_up_for_forging" then
@@ -288,6 +291,10 @@ function Gems:PanoramaInput(msg)
 		Gems:InsertGem(msg)
 	elseif msg.event_type == "go_home" then
 		Gems:GemforgerGoHome(msg)
+	elseif msg.event_type == "item_up_for_salvaging" then
+		Gems:ItemUpForSalvaging(msg)
+	elseif msg.event_type == "salvage_gems_final" then
+		Gems:SalvageGemsFromitem(msg)
 	end
 end
 
@@ -373,7 +380,7 @@ function Gems:ModifyPrismaticGemstones(playerID, amount, reason, add_or_subtract
 
 		else
 			for k, v in pairs(result) do
-				print( string.format( "%s : %s\n", k, v ) )
+				--print( string.format( "%s : %s\n", k, v ) )
 			end
 		end
 	end)	
@@ -382,10 +389,10 @@ end
 function Gems:ItemUpForForging(msg)
 	local playerID = msg.PlayerID
 	local player = PlayerResource:GetPlayer(playerID)
-	print("UP FOR FORGING")
+	--print("UP FOR FORGING")
 	if player then
 		local item = EntIndexToHScript(msg.itemIndex)
-		print("GO")
+		--print("GO")
 		if Gems:CanItemTakeGems(item) then
 			CustomGameEventManager:Send_ServerToPlayer(player, "item_gemforge_menu", {item_index = item:GetEntityIndex(), success = 1})
 		else
@@ -410,7 +417,7 @@ end
 
 function Gems:CanItemTakeGems(item)
 	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
-		print("VALID ENTITY")
+		--print("VALID ENTITY")
 		if item.newItemTable.socket1 and item.newItemTable.socket1 ~= "none" then
 			return true
 		elseif item.newItemTable.socket2 and item.newItemTable.socket2 ~= "none" then
@@ -457,6 +464,70 @@ function Gems:InsertGem(msg)
 	end
 end
 
+Gems.SALVAGE_TAX = 0.08
+
+function Gems:SalvageGemsFromitem(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local item = player.salvaging_item
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	if item and IsValidEntity(item) and Gems:CanItemBeSalvaged(item, hero) then
+		local refund = 0
+		local base_gem_values = Gems:GetTotalItemGemCost(item)
+		refund = refund + base_gem_values[1] + base_gem_values[2]
+		local tax = Gems.SALVAGE_TAX
+		if GameState:GetPlayerPremiumStatus(playerID) then
+			tax = tax - Gems.SALVAGE_TAX/2
+		end
+		if GameState:IsPlayerWebPremium(playerID) then
+			tax = tax - Gems.SALVAGE_TAX/2
+		end
+		refund = refund* (1 - tax)
+		if item.newItemTable.socket1 and base_gem_values[1] > 0 then
+			if item.newItemTable.socket1 == "open" or item.newItemTable.socket1 == "none" then
+			else
+				item.newItemTable.socket1 = "open"
+				item.newItemTable.socket1value = 0
+			end
+		end
+		if item.newItemTable.socket2 and base_gem_values[2] > 0 then
+			if item.newItemTable.socket2 == "open" or item.newItemTable.socket2 == "none" then
+			else
+				item.newItemTable.socket2 = "open"
+				item.newItemTable.socket2value = 0
+			end
+		end
+		RPCItems:ItemUpdateCustomNetTables(item)
+		refund = math.ceil(refund)
+		
+		
+		EmitSoundOn("UI.Gemforger.Salvage1", hero)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_luna/luna_eclipse.vpcf", hero, 5)
+		ParticleManager:SetParticleControl(pfx, 1, hero:GetAbsOrigin()+Vector(0,0,1000))
+		Timers:CreateTimer(0.1, function()
+			EmitSoundOn("UI.Gemforger.Salvage", hero)
+		end)
+		EmitSoundOn("Gemforger.UI.CollectReward.Game", hero)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", hero, 0.03)
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_stormspirit/stormspirit_static_remnant.vpcf", Gems.GemForger, 0.03)
+		Timers:CreateTimer(0.1, function()
+			Gems:ModifyPrismaticGemstones(playerID, refund, "salvage", "add")
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item then
+				hero:EquipItem(item, true)
+				if hero.saveSlot and hero.saveSlot > 0 then
+					local save_message = {}
+					save_message.playerID = playerID
+					save_message.slot = hero.saveSlot
+					save_message.heroIndex = hero:GetEntityIndex()
+					save_message.ignore_callback = true
+					SaveLoad:SaveCharacter(save_message)
+				end
+			end
+		end)
+		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
+	end
+end
+
 function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	local current_level = 0
 	local desired_level = gem_level
@@ -465,7 +536,7 @@ function Gems:GetCostFromItem(gem_level, item, gem, socket_number)
 	elseif socket_number == 2 then
 		current_level = item.newItemTable.socket2value
 	end
-	print("CURRENT LEVEL: "..current_level)
+	--print("CURRENT LEVEL: "..current_level)
 	if not current_level then
 		current_level = 0
 	end
@@ -635,4 +706,80 @@ function Gems:InscriptionInput(msg)
 			CustomAbilities:QuickAttachParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_g_cowlofice_b.vpcf", hero, 2)
 		end
 	end
+end
+
+function Gems:ItemUpForSalvaging(msg)
+	local playerID = msg.PlayerID
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = GameState:GetHeroByPlayerID(playerID)
+	--print("UP FOR FORGING")
+	if player then
+		local item = EntIndexToHScript(msg.itemIndex)
+		--print("GO")
+		if Gems:CanItemBeSalvaged(item, hero) then
+			--print("SALVAGE")
+			local total_gems_value = Gems:GetTotalItemGemCost(item)
+			local regular_premium = 0
+			if GameState:GetPlayerPremiumStatus(playerID) then
+				regular_premium = 1
+			end
+			--print("-----")
+			DeepPrintTable(total_gems_value)
+			local web_prem = GameState:PlayerWebPremiumAsInt(playerID)
+			CustomGameEventManager:Send_ServerToPlayer(player, "item_gem_salvage_menu", {item_index = item:GetEntityIndex(), success = 1, gems1value = total_gems_value[1], gems2value = total_gems_value[2], regular_premium = regular_premium, web_prem = web_prem})
+			player.salvaging_item = item
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "item_gem_salvage_menu", {item_index = item:GetEntityIndex(), success = 0})
+		end
+	end
+end
+
+function Gems:CanItemBeSalvaged(item, hero)
+	if IsValidEntity(item) and Gems:CanItemProceedToGemMenu(item) then
+		if item:GetAbilityName() == "item_rpc_ring_of_nobility_augmented" then
+			return false
+		else
+			if hero.equipped_gear[item.newItemTable.gear_slot] == item or Challenges:CheckIfHeroHasItemByItemIndex(hero, item:GetEntityIndex()) then
+				if item.newItemTable.socket1 and item.newItemTable.socket1value > 0 then
+					return true
+				elseif item.newItemTable.socket2 and item.newItemTable.socket2value > 0 then
+					return true
+				else
+					return false
+				end
+			else
+				return false
+			end
+		end
+	else
+		return false
+	end
+end
+
+function Gems:GetTotalItemGemCost(item)
+	local item_rarity = item.newItemTable.rarityFactor
+	local gems_cost = Gems.GEMS_COST
+	local value1 = 0
+	local value2 = 0
+	if item.newItemTable.socket1 then
+		if item.newItemTable.socket1 == "open" or item.newItemTable.socket1 == "none" then
+		else
+			for i = 1, item.newItemTable.socket1value, 1 do
+				value1 = value1 + gems_cost[i+1]
+			end
+		end
+	end
+	if item.newItemTable.socket2 then
+		if item.newItemTable.socket2 == "open" or item.newItemTable.socket2 == "none" then
+		else
+			for i = 1, item.newItemTable.socket2value, 1 do
+				value2 = value2 + gems_cost[i+1]
+			end
+		end
+	end
+	if item_rarity < RPC_ITEMS_RARITY_IMMORTAL then
+		value1 = value1/5
+		value2 = value2/5
+	end
+	return {value1, value2}
 end

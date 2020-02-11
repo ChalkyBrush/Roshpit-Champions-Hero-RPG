@@ -148,7 +148,7 @@ end
 function glyph_7_1_damage(event)
     local attacker = event.attacker
     local caster = event.unit
-    if caster:HasModifier("modifier_energy_channel") or caster:HasModifier("modifier_steelforge_stance") then
+    if caster:HasModifier("modifier_mountain_protector_mountain_guardian") or caster:HasModifier("modifier_mountain_protector_steelforge_stance") then
         local luck = RandomInt(1, 10)
         if luck <= 3 then
             Filters:ApplyStun(caster, MOUNTAIN_PROTECTOR_GLYPH_7_1_W_RETURN_STUN, attacker)

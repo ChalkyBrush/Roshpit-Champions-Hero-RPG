@@ -427,12 +427,12 @@
 
         "DOTA_Tooltip_ability_item_rpc_puzzlers_locket"             "Puzzler's Locket"
         "item_property_puzzler"                                     "Anagram"
-        "property_puzzler_description"                              "Снаряжение, имеющее бонус рун Т2 применяет его к рунам Т3, и наоборот, бонус рун Т2 применяется к рунам Т2."
+        "property_puzzler_description"                              "Снаряжение, имеющее бонус рун Т2 (второго ряда) применяет его к рунам Т3 (третьего ряда), и наоборот, бонус рун Т2 применяется к рунам Т3."
 
         "item_rpc_puzzlers_locket_ruby1"                "Увеличивает [Q2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_emerald1"             "Увеличивает [E2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_sapphire1"                "Увеличивает [W2] на @ruby_property1"
-        "item_rpc_puzzlers_locket_amethyst1"                "Увеличивает [R2] на @ruby_property1"
+        "item_rpc_puzzlers_locket_emerald1"             "Увеличивает [E2] на @emerald_property1"
+        "item_rpc_puzzlers_locket_sapphire1"                "Увеличивает [W2] на @sapphire_property1"
+        "item_rpc_puzzlers_locket_amethyst1"                "Увеличивает [R2] на @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 
@@ -499,7 +499,7 @@
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
         "item_property_signus"                      "Authority"
-        "property_signus_description"               "Уменьшает перезарядку @Ability4 на <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION %>%. Увеличивает перезарядку @Ability3 на <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE %>%."
+        "property_signus_description"               "Уменьшает перезарядку @Ability4 на <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%. Увеличивает перезарядку @Ability3 на <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Прочтение [Q] снижает текущую перезарядку [E] на @ruby_property1"
         "item_rpc_signus_charm_emerald1"                                    "Добавляет @emerald_property1 секунд к перезарядке [W]. Снижает перезарядку [Q] на @emerald_property2 сек"

@@ -16,11 +16,38 @@ function class:SetSpecialTypes(types)
     for _,type in pairs(types) do
         self.specialTypes[type] = true
     end
+    if not self:GetParent():GetUnitName() == "npc_dummy_unit" then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
+end
+
+function class:OnRefresh()
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
+end
+function class:OnRemoved()
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
+end
+function class:OnDestroy()
+    if IsServer() and not self:GetParent():GetUnitName() == "npc_dummy_unit" then
+        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    end
+end
+
+function class:CheckOnDamageTaken(event)
+    return event.attacker ~= self:GetParent() and event.inflictor == nil and event.damage > 0 
 end
 
 function class:GetRadius(baseRadius)
     return baseRadius
 end
 function class:IsDebuff()
+    return false
+end
+
+function class:RemoveOnDeath()
     return false
 end

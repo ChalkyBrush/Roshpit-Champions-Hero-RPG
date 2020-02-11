@@ -73,9 +73,9 @@ function tomahawk_attack_land(event)
 		caster:RemoveModifierByName("modifier_enchant_tomahawk_buff")
 	end
 
-	local a_d_level = caster:GetRuneValue("r", 1)
-	if a_d_level > 0 then
-		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_ARCANA1_DMG_PCT * a_d_level
+	local r_1_level = caster:GetRuneValue("r", 1)
+	if r_1_level > 0 then
+		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * WARLORD_ARCANA1_R1_DMG_PCT * r_1_level
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 220, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -92,18 +92,18 @@ function tomahawk_attack_land(event)
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 	end
-	local b_d_level = caster:GetRuneValue("r", 2)
-	if b_d_level > 0 then
-		ability.r_2_level = b_d_level
+	local r_2_level = caster:GetRuneValue("r", 2)
+	if r_2_level > 0 then
+		ability.r_2_level = r_2_level
 		if not target:HasModifier("modifier_tomahawk_ice_effect") then
 			CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch.vpcf", target, 2)
 
 		end
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_tomahawk_ice_effect", {duration = 6})
 	end
-	local c_d_level = caster:GetRuneValue("r", 3)
-	if c_d_level > 0 then
-		ability.r_3_level = c_d_level
+	local r_3_level = caster:GetRuneValue("r", 3)
+	if r_3_level > 0 then
+		ability.r_3_level = r_3_level
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_tomahawk_tectonic_pressure", {duration = 15})
 		local newStacks = caster:GetModifierStackCount("modifier_tomahawk_tectonic_pressure", caster) + 1
 		caster:SetModifierStackCount("modifier_tomahawk_tectonic_pressure", caster, newStacks)
@@ -132,12 +132,19 @@ function tomahawk_ice_dot_think(event)
 		Timers:CreateTimer(3, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
-		EmitSoundOn("Ability.FrostNova", target)
+		local localKey = 'elemental_warlord_arcana_1_r_2_sound'
+			Util.Common:LimitPerTimeAndPlace(1, 0.5, caster:GetAbsOrigin(), 700, localKey, function()
+			EmitSoundOn("Ability.FrostNova", target)
+		end)
 		damage = damage * WARLORD_ARCANA1_R2_THRESHOLD_MULTIPLIER
 		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
+				if enemy:HasModifier("modifier_tomahawk_ice_effect") then
+				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tomahawk_ice_effect", {})
+				else
 				ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tomahawk_ice_effect", {duration = 6})
+				end
 			end
 		end
 	end
@@ -215,7 +222,7 @@ function pressure_fireball_impact(event)
 	local ability = event.ability
 	local target = event.target
 
-	local damage = ability.r_3_level * caster:GetMaxHealth() * 0.1
+	local damage = ability.r_3_level * caster:GetMaxHealth() * WARLORD_ARCANA1_R3_DMG_PCT_MAX_HEALTH
 	Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_FIRE, RPC_ELEMENT_NONE)
 end
 

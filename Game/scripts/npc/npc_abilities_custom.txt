@@ -6,6 +6,2766 @@
 {
 	//hero section
 
+	"rubilash_phantom_brush_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	  
+			"particle"	"particles/roshpit/rubilash/paint_status/green.vpcf"	  	   
+			"particle"	"particles/roshpit/rubilash/paint_status/black.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_yellow.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_blue.vpcf"	 
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_red_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_yellow_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_blue_blur.vpcf"
+			"model"		"models/items/grimstroke/grimstroke_ti9_immortal_weapon/grimstroke_ti9_immortal_weapon.vmdl"
+
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1600 2700 3800 4900 6000 7100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1600 2700 3800 4900 6000 7100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 1600 2700 3800 4900 6000 7100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_phantom_brush_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/phantom_brush_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+		}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"1000 3200 5400 7600 9800 12000 14200"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_start"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnAbilityPhaseInterrupted"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"paintbrush_phase_interrupt"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+	    		"Function"		"start_paintbrush"
+	    		"Target"		"POINT"
+	    		"range"			"%range"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+				"Function"		"paintbrush_impact"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_q_3_fear"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_init"
+						"target"		"TARGET"
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_grimstroke/grimstroke_phantom_marker.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_paintbrush"
+						"Function"		"rubilash_q_3_fear_end"
+						"target"		"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"rubilash_ink_blot_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+			"particle"	"particles/roshpit/rubilash/ink_blot_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_blue.vpcf"
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 800 1400 2000 2600 3200 3800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 800 1400 2000 2600 3200 3800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 800 1400 2000 2600 3200 3800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"rubilash_ink_blot_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/ink_blot_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_rubilash.vsndevts"
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"60 140 220 300 380 460 540"
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 1600 2800 4000 5200 6400 7600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"225"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot_phase"
+	    		"Target"		"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+	    		"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+	    		"Function"		"rubilash_ink_blot"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_base_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_init"
+					}
+				}
+			}
+			"modifier_rubilash_base_painted"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_red"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/red.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_yellow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/yellow.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_orange"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/orange.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_green"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/green.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_purple"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/purple.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_black"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_rubilash_painted_white"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/white.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_painted_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_red"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_red"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+			"particle"	"particles/roshpit/rubilash/ink_splatter_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_yellow.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_blue.vpcf"
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_yellow"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_yellow"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_blue"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_blue"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
+				}
+			}
+		}
+	}
+
+	"rubilash_paint_splatter_white"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rubilash/paint_splatter_white"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"				"600 680 760 840 920 1000 1080"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_SPAWN"
+		"precache"
+		{
+
+
+		}
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 2000 3500 5000 6500 8000 9500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_radius"				"400"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"				"600 680 760 840 920 1000 1080"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+				"Function"		"ink_splatter_start"
+	    		"Target"		"POINT"
+	    		"damage"		"%damage"
+	    		"damage_radius"	"%damage_radius"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ink_splatter_emerging"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+						"Function"		"ink_splatter_emerging_end"
+					}
+				}
+			}
+			"modifier_ink_splatter_emerging_z"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-1"
+				}
+			}
+		}
+	}
+
+	"rubilash_self_portrait"
+    {
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+        "BaseClass" "ability_datadriven"
+        "AbilityTextureName"    "rubilash/self_portrait"
+        "AbilityCastPoint"  "0.0"
+        "AbilityCooldown"   "60"
+        "AbilityChannelTime"    "2"
+        "AbilityCastAnimation"  "ACT_DOTA_TAUNT"
+        "AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+        "RequiredLevel"                 "-5"
+        "LevelsBetweenUpgrades"         "10"
+        "MaxLevel"                      "7"
+        "precache"
+        {
+        	"particle"				"particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_red.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_yellow.vpcf"
+        	"particle"				"particles/roshpit/rubilash/self_portrait_buff_blue.vpcf"
+        }
+
+        "AbilityManaCost"   "0"
+        "OnSpellStart"
+        {
+            "ApplyModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+                "Duration"      "1.5"
+            }
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_dark_portrait_channel_start"
+                "duration"		"%duration"
+            }
+        }
+
+        "OnChannelSucceeded"
+        {
+            "RemoveModifier"
+            {
+                "Target"    "CASTER"
+                "ModifierName"  "modifier_channel_start"
+            }
+
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_self_portrait_success"
+                "duration"		"%duration"
+            }
+
+        }
+
+        "OnChannelFinish"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "remove_modifier_channel_start"
+            }
+
+        }
+
+        "OnChannelInterrupted"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                "Function"      "rubilash_self_portrait_fail"
+            }
+
+        }
+
+        "Modifiers"
+        {
+            "modifier_channel_start"
+            {
+                "IsHidden"  "1"
+                "OnCreated"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "beginChannel"
+                    }
+                }
+                "OnDestroy"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/util/channeling.lua"
+                        "Function"      "endChannel"
+                    }
+                    "RunScript"
+                    {
+                        "ScriptFile"    "heroes/grimstroke/rubilash_self_portrait"
+                        "Function"      "rubilash_self_portrait_channel_end"
+                    }
+                }
+            }
+            "modifier_rubilash_illusion_spawning"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            }
+            "modifier_rubilash_illusion_base"
+            {
+            	"IsHidden"	"1"
+            	"States"
+            	{
+            		"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+            		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+            	}
+            	"ThinkInterval"  "0.5"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_illusion_think"
+            			"target"		"TARGET"
+            		}
+            	}
+            	"OnDeath"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_die"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_3_thinker"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "0.03"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_self_portrait"
+            			"Function"		"self_portrait_r_3_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+            "modifier_rubilash_r_4_ms"
+            {
+            	"IsHidden"	"1"
+            	"Properties"
+            	{
+            	    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "10" 
+            	}
+            }
+            "modifier_rubilash_self_portrait_glyph_3_1"
+            {
+            	"IsHidden"	"1"
+            	"ThinkInterval"  "2"
+            	"OnIntervalThink"
+            	{
+            		"RunScript"
+            		{
+            			"ScriptFile"	"heroes/grimstroke/rubilash_ink_splatter"
+            			"Function"		"rubilash_glyph_3_1_thinker"
+            			"target"		"TARGET"
+            		}
+            	}
+            }
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "duration"                    "30 40 50 60 70 80 90"
+            }
+        }
+    }
+
+	"rubilash_hidden_passive"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/axe_throw_earth"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"Modifiers"
+		{
+			"modifier_rubilash_core_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_main_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_quick_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"			"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_root"
+						"Function"		"rubilash_quick_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_q_1_cast_range"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING" "1"
+				}
+			}
+			"modifier_rubilash_w_3_attack_speed"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_w_ability_attack_land"
+					}
+				}
+			}
+			"modifier_rubilash_e_1_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+			"modifier_rubilash_w_4_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-9"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-9" 
+				}
+			}
+			"modifier_rubilash_e_4_max_health"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_rubilash_r_2_bad_and_item"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_rubilash_glyph_5_a_buff"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"300"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"glyph_5_a_thinker"
+					}
+				}
+			}
+			"modifier_rubilash_arcana_e_4_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+		}
+	}
+
+
+	"rubilash_rune_q_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_q_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"10"
+			}
+		}
+	}
+
+	"rubilash_rune_q_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_q_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-70"
+			}
+		}
+	}
+
+	"rubilash_rune_q_3"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_q_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.12"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"0.6"
+			}
+		}
+	}
+
+	"rubilash_rune_q_4"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_q_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+		}
+	}
+
+	"rubilash_rune_w_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_w_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+		}
+	}
+
+	"rubilash_rune_w_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_w_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-70"
+			}
+		}
+	}
+
+	"rubilash_rune_w_3"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_w_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"15"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"13"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"rubilash_rune_w_4"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_w_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-9"
+			}
+		}
+	}
+
+	"rubilash_rune_e_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_e_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.01"
+			}
+		}
+	}
+
+	"rubilash_rune_e_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_e_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"-70"
+			}
+		}
+	}
+
+	"rubilash_rune_e_3"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_e_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"rubilash_rune_e_4"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_e_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.8"
+			}
+		}
+	}
+
+	"rubilash_rune_r_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_r_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
+			}
+		}
+	}
+
+	"rubilash_rune_r_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_r_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"0.3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"2"
+			}
+			
+		}
+	}
+
+	"rubilash_rune_r_3"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_r_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-0.03"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two_base"			"600"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"12"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_ability"			"2"
+			}
+		}
+	}
+
+	"rubilash_rune_r_4"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/rubilash_rune_r_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"-0.02"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"10"
+			}
+		}
+	}
+
+
+
+	"rubilash_rune_e_1_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_1_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"rubilash_rune_e_2_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_2_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"120"
+			}
+		}
+	}
+
+	"rubilash_rune_e_3_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_3_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"300"
+			}
+		}
+	}
+
+	"rubilash_rune_e_4_arcana1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"rubilash/arcana1/rubilash_rune_e_4_arcana1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.3"
+			}
+		}
+	}
+
+
 	"omniro_omni_mace"
 	{
 		// General
@@ -540,7 +3300,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"normal_orb_a"			"70 85 90 95 100 110 125"
+				"normal_orb_a"			"20 25 35 40 45 50 65"
 			}
 			"02"
 			{
@@ -3051,7 +5811,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_damage_per_tech"				"3"
+				"attack_damage_per_tech"				"2"
 			}	
 			"02"
 			{
@@ -3583,12 +6343,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"aoe_per_tech_level"			"50"
+				"aoe_per_tech_level"			"30"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_power_added_per_tech"			"10"
+				"attack_power_added_per_tech"			"2"
 			}
 			"04"
 			{
@@ -3598,7 +6358,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"aoe_base"			"450"
+				"aoe_base"			"250"
 			}
 
 			"06"
@@ -3891,7 +6651,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"14"
+				"damage_attack_power_per_tech"			"3"
 			}
 			"04"
 			{
@@ -4019,7 +6779,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power_per_tech"			"20"
+				"damage_attack_power_per_tech"			"1"
 			}
 			"02"
 			{
@@ -6098,7 +8858,7 @@
 		//-------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/fire/fire_fire_e"
 		"LevelsBetweenUpgrades"  "0"
@@ -7367,13 +10127,19 @@
 			}
 			"modifier_ekkan_dominion_stacks_black"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.15"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.2"
 				}
+			}
+			"modifier_ekkan_dominion_stacks_black_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"ekkan/ekkan_rune_q_3_arcana1"
 			}
 			"modifier_ekkan_d_a_alacrity"
 			{
@@ -7694,7 +10460,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.15"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -7927,13 +10693,19 @@
 			}
 			"modifier_ekkan_dominion_stacks"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"IsBuff"	"1"
 				"TextureName"	"ekkan/ekkan_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.2"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.3"
 				}
+			}
+			"modifier_ekkan_dominion_stacks_visible"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"TextureName"	"ekkan/ekkan_rune_q_3"
 			}
 			"modifier_ekkan_d_a_alacrity"
 			{
@@ -9134,7 +11906,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.3"
 			}
 			"02"
 			{
@@ -9503,11 +12275,12 @@
 
 
 
-	"arkimus_zap_ring"
+	"arkimus_magnetic_flux"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_magnetic_flux.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_magnetic_flux"
@@ -9521,17 +12294,6 @@
 		{
 			"particle"	"particles/roshpit/arkimus/arcana_zap_field.vpcf"
 		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"10"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------
@@ -9551,97 +12313,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"int_damage"		"0.2"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-				"Function"		"arcana_zap_field_start"
-				"duration"		"%duration"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_zap_field"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"ThinkInterval"  "0.03"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_start"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_thinker"
-						"damage"		"%damage"
-						"int_damage"    "%int_damage"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"zap_field_modifier_end"
-					}
-				}
-			}
-			"modifier_zonis_stun_arcana1"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-			}
-			"modifier_arkimus_arcana1_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-
-				"OnTakeDamage"
-				// "%attack_damage" is set to the damage value after mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"damage_taken"
-						"damage"		"%attack_damage"
-					}
-				}
-			}
-			"modifier_arkimus_arcana1_q3"
-			{
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_q_3_arcana1"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/arcana_zap_field.lua"
-						"Function"		"q3_destroy"
-					}
-				}
-			}
-			"modifier_arkimus_arcana1_q4"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_q_4_arcana1"
 			}
 		}
 	}
@@ -9734,16 +12405,16 @@
 
 	"arkimus_archon_form"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"arkimus/arkimus_archon_form"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"24"
-		"AbilityChannelTime"	"2.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_archon_form.lua"
+		"AbilityTextureName"			"arkimus/arkimus_archon_form"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"24"
 		"AbilityCastRange"				"580"
 		"AOERadius"						"580"
-		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -9753,215 +12424,6 @@
 			"particle"			"particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
 			"particle"			"particles/econ/items/wisp/wisp_guardian_explosion_ti7.vpcf"
 		}
-
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"start_channel"
-
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_complete"
-				"duration"	"%duration"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/roshpit/arkimus/channel_energy.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"160 160 255"
-						"EffectAlphaScale"			"0.85"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_arkimus_archon_form"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_form_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_mana_regen"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_attack_power"
-						"Target" 		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "250"
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_attack_land"
-					}
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_form_thinking"
-					}
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_form_attack_start"
-					}
-				}
-			}
-			"modifier_archon_pushback"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"ThinkInterval"  	"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_slide_think"
-					}
-				}
-			}
-			"modifier_archon_a_d_field_thinker"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"a_d_field_thinker_think"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"a_d_field_thinker_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_a_d_end"
-					}
-				}
-			}
-			"modifier_archone_b_d_mana_regen"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"1"
-				}
-			}
-			"modifier_archone_b_d_attack_power"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-		}
-
 		"AbilitySpecial"
 		{
 			"01"
@@ -10027,7 +12489,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -10073,7 +12535,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.01"
+				"property_two"			"1"
 			}
 		}
 	}
@@ -10081,20 +12543,20 @@
 
 
 
-	"arkimus_zonis_spark"
+	"arkimus_dimension_coil"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_dimension_coil.lua"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_dimension_coil"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"1200 1250 1300 1350 1400 1450 1500"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 
 		// Precache
 		"precache"
@@ -10105,18 +12567,6 @@
 			"particle"	"particles/roshpit/heroes/arkimus/a_a_amp_damage.vpcf"
 			"particle"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
 		}
-		//-------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"8"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------
@@ -10133,129 +12583,14 @@
 				"cast_range"		"1200 1250 1300 1350 1400 1450 1500"
 			}
 		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/antimage/zonis_spark"
-        		"Function"		"zonis_precast"
-        		"Target"		"POINT"
-        	}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/antimage/zonis_spark"
-        		"Function"		"spark_start"
-        		"Target"		"POINT"
-        		"damage"		"%damage"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_zonis_stun"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-			}
-			"modifier_zonis_buff"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-		        		"ScriptFile"	"heroes/antimage/zonis_spark"
-		        		"Function"		"zonis_think"
-					}
-				}
-			}
-			"modifier_zonis_freecast"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-			}
-			"modifier_zonis_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "6.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/zonis_spark"
-						"Function"		"zonis_passive_think"
-					}
-				}
-			}
-			"modifier_zonis_a_a_armor_loss"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"		"arkimus/arkimus_rune_q_1"
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/zonis_spark"
-						"Function"		"AmplifyDamageParticle"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/zonis_spark"
-						"Function"		"EndAmplifyDamageParticle"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_zonis_c_a_magic_resist"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_q_3"
-				"EffectName"	"particles/items2_fx/veil_of_discord_debuff.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-		}
 	}
 
-	"arkimus_storm_weapon"
+	"arkimus_flash_source"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_flash_source.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_flash_source"
@@ -10277,17 +12612,6 @@
 			"particle"	"particles/roshpit/arkimus/source_relay.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"50 120 190 260 340 410 480"
-
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -10297,190 +12621,15 @@
 				"var_type"			"FIELD_INTEGER"
 				"damage_mult"			"28 30 32 34 36 38 40"
 			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"50 120 190 260 340 410 480"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_arkimus_storm_weapon_toggle"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_arkimus_storm_weapon_toggle"
-				"Target" 		"CASTER"
-			}
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_arkimus_storm_weapon"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_arkimus_storm_weapon_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-			}
-			"modifier_arkimus_storm_weapon_toggle"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"storm_weapon_cast"
-						"drain_mana"	"0"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"storm_weapon_cast"
-						"drain_mana"	"%mana_cost"
-					}
-				}
-			}
-			"modifier_arkimus_storm_weapon"
-			{
-				"IsBuff"	"1"
-
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"storm_weapon_strike"
-						"attack_damage"		"%attack_damage"
-						"damage_mult"		"%damage_mult"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"storm_weapon_end"
-					}
-				}
-			}
-			"modifier_damage_boost_a_a_visible"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_w_1"
-				"EffectName"	"particles/roshpit/arkimus/arcane_a_b_buff.vpcf"
-				"EffectAttachType" "follow_origin"
-			}
-			"modifier_damage_boost_a_a_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
-				}
-			}
-			"modifier_storm_weapon_b_b_visible"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_w_2"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"storm_weapon_b_b_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_storm_weapon_b_b_invisible"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-			}
-			"modifier_arkimus_c_b_attack_power"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
-				}
-			}
-			"modifier_arkimus_c_b_sprinting"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_w_3"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1300"
-					"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE" "1300"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				//"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				//{
-				//	"RunScript"
-				//	{
-				//		"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-				//		"Function"		"c_b_attack_landed"
-				//	}
-				//}
-				"ThinkInterval"  "0.09"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"arkimus_sprinting_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/storm_weapon.lua"
-						"Function"		"arkimus_spring_end"
-					}
-				}
-			}
-			"modifier_arkimus_w_4_shield"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/arkimus/source_relay.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"		"arkimus/arkimus_rune_w_4"
-			}
 		}
 	}
 
-	"ark_jump"
+	"arkimus_orbital_leap"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_orbital_leap.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"arkimus/arkimus_orbital_leap"
@@ -10488,7 +12637,6 @@
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastRange"				"1100 1150 1200 1250 1300 1350 1400"
 
 		// Precache
 		"precache"
@@ -10496,18 +12644,6 @@
 			"particle"  "particles/roshpit/arkimus/jump_fade.vpcf"
 			"soundfile"	"soundevents/game_sounds_arkimus.vsndevts"
 		}
-		//-------------------------------------------------------
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"6.2 5.9 5.6 5.3 5.0 4.7 4.3"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
 
 		// Special
 		//-------------------------------------------------------
@@ -10519,118 +12655,16 @@
 				"cast_range"			"1100 1150 1200 1250 1300 1350 1400"
 			}
 		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-        		"ScriptFile"	"heroes/antimage/machinal_jump"
-        		"Function"		"arkimus_jump_start"
-        		"Target"		"POINT"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_machinal_jump"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"ThinkInterval"  "0.03"
-				"EffectName"	"particles/roshpit/arkimus/jump_fade.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"arkimus_jump_think"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"jump_end"
-					}
-				}
-			}
-			"modifier_machinal_jump_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "6.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"jump_passive_think"
-					}
-				}
-			}
-			"modifier_machinal_jump_passive2"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/machinal_jump"
-						"Function"		"jump_passive_think_2"
-					}
-				}
-			}
-			"modifier_machinal_jump_freecast"
-			{
-				"IsBuff"	"1"
-
-			}
-			"modifier_zonis_stun"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OverrideAnimation"     "ACT_DOTA_FLAIL"
-				"TextureName"	"arkimus/arkimus_dimension_coil"
-			}
-			"modifier_machinal_jump_c_c_amp"
-			{
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_e_3"
-			}
-			"modifier_machinal_jump_d_c_effect"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT" "1.5"
-				}
-			}
-		}
 	}
 
 	"arkimus_energy_field"
 	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"arkimus/arkimus_energy_field"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"24"
-		"AbilityChannelTime"	"2.0"
-		"AbilityCastRange"				"580"
-		"AOERadius"						"580"
-		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/antimage/arkimus_energy_field.lua"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"arkimus/arkimus_energy_field"
 		"RequiredLevel"          		"-5"
 		"LevelsBetweenUpgrades"  		"10"
 		"MaxLevel"				 		"7"
@@ -10639,166 +12673,6 @@
 			"particle"			"particles/roshpit/arkimus/channel_energy.vpcf"
 			"particle"			"particles/base_attacks/astral_glyph_2_1_projectile.vpcf"
 			"particle"			"particles/econ/items/wisp/wisp_guardian_explosion_ti7.vpcf"
-		}
-
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/energy_field.lua"
-				"Function"		"start_channel"
-
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/energy_field.lua"
-				"Function"		"channel_complete"
-				"spirits"	"%spirits"
-				"damage"	"%damage"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/energy_field.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_channel_start"
-			{
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"					"TARGET"
-						"EffectName"				"particles/roshpit/arkimus/channel_energy.vpcf"
-						"EffectAttachType"			"attach_hitloc"
-						"EffectLifeDurationScale"	"1"
-						"EffectColorA"				"160 160 255"
-						"EffectAlphaScale"			"0.85"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"beginChannel"
-					}
-
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/util/channeling.lua"
-						"Function"		"endChannel"
-					}
-				}
-
-			}
-			"modifier_energy_field_damage_reduce"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-%damage_reduce"
-				}
-			}
-			"modifier_energy_field_thinker"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/energy_field.lua"
-						"Function"		"energy_thinker"
-						"target"		"TARGET"
-						"damage"		"%damage"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/energy_field.lua"
-						"Function"		"energy_thinker_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_energy_shield_a_a_buff_visible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"TextureName"	"arkimus/arkimus_rune_r_1"
-			}
-			"modifier_energy_shield_a_a_buff_invisible"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.1"
-				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "1"
-				}
-			}
-			"modifier_energy_field_c_d_shield"
-			{
-				"IsHidden"	"0"
-				"TextureName"	"arkimus/arkimus_rune_r_3"
-				"EffectName"	"particles/roshpit/arkimus/c_d_shield_reflect_energy.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-			}
 		}
 
 		"AbilitySpecial"
@@ -11437,7 +13311,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -11455,7 +13329,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -11473,7 +13347,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-100"
+				"property_one"			"-200"
 			}
 		}
 	}
@@ -11649,7 +13523,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-40"
+				"property_one"			"-80"
 			}
 		}
 	}
@@ -11667,12 +13541,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"60"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -11691,7 +13565,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -11760,7 +13634,7 @@
 		//-------------------------------------------------------
 		"AbilityCooldown"				"7"
 		"AbilityDuration"				"4.0 4.3 4.6 4.9 5.2 5.5 5.8"
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"500 600 700 800 900 1000 1100"
 
 		// Cost
 		//-------------------------------------------------------
@@ -11798,7 +13672,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cast_range"		"900 1000 1100 1200 1300 1400 1500"
+				"cast_range"		"500 600 700 800 900 1000 1100"
 			}
 		}
 
@@ -11927,7 +13801,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"1"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -12319,7 +14193,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
 				}
 			}
 		}
@@ -12503,7 +14377,7 @@
 				"TextureName"		"axe/axe_rune_r_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"180"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"300"
 				}
 			}
 
@@ -12606,7 +14480,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -12629,7 +14503,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"1"
+				"property_two"			"2"
 			}
 		}
 		"Modifiers"
@@ -12656,7 +14530,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.5"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"1"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -12682,7 +14556,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -12789,7 +14663,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -12926,7 +14800,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"0.4"
 			}
 		}
 		"Modifiers"
@@ -12959,7 +14833,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -12978,7 +14852,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.8"
+				"property_one"			"1.2"
 			}
 			"02"
 			{
@@ -13046,7 +14920,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"50"
 			}
 			"02"
 			{
@@ -13108,12 +14982,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"180"
+				"property_one"			"300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"100"
+				"property_two"			"150"
 			}
 		}
 		"Modifiers"
@@ -13142,7 +15016,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"140"
+				"property_one"			"400"
 			}
 		}
 	}
@@ -13391,7 +15265,7 @@
 				"TextureName"	"warlord/warlord_rune_r_4_arcana1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.2"
 				}
 			}
 		}
@@ -13439,7 +15313,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -13503,7 +15377,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -13538,7 +15412,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.1"
+				"property_two"			"0.2"
 			}
 		}
 	}
@@ -13551,7 +15425,7 @@
 		//-------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"warlord/arcana2/cataclysm_shaker"
 		"LevelsBetweenUpgrades" 		"0"
@@ -13603,7 +15477,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"str_mult"					"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"str_mult"					"3.6 4.0 4.4 4.8 5.2 5.6 6.0"
 			}
 		}
 		"Modifiers"
@@ -13693,7 +15567,7 @@
 			"09"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"int_mult"					"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"int_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
 			}
 		}
 		"precache"
@@ -13888,7 +15762,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"agi_mult"					"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"agi_mult"					"1.8 2.0 2.2 2.4 2.6 2.8 3.0"
 			}
 			"05"
 			{
@@ -13952,8 +15826,8 @@
 				"TextureName"	"warlord/arcana2/warlord_rune_q_3_arcana2"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "12"
-				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2" 
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "4" 
 				}
 			}
 		}
@@ -13976,7 +15850,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"100"
 			}
 		}
 	}
@@ -14007,7 +15881,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"30"
 			}
 		}
 	}
@@ -14028,12 +15902,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"12"
+				"property_two"			"15"
 			}
 		}
 	}
@@ -14053,7 +15927,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"35"
+				"property_one"			"70"
 			}
 			"02"
 			{
@@ -14950,7 +16824,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 120 180 240 300 360 420"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 		"02"
 			{
@@ -15120,7 +16994,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 100 150 200 250 300 350"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 			"02"
 			{
@@ -15298,12 +17172,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 130 190 250 310 370 430"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"armor_reduction"		"-50 -150 -250 -350 -450 -550 -650"
+				"armor_reduction"		"-50 -350 -650 -950 -1250 -1550 -1850"
 			}
 			"03"
 			{
@@ -16101,7 +17975,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"protection_per_earth_charge"	"0.1"
+				"protection_per_earth_charge"	"1"
 			}
 			"03"
 			{
@@ -16145,7 +18019,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 
 		}
@@ -16182,7 +18056,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"45"
+				"property_one"			"60"
 			}
 		}
 
@@ -16219,7 +18093,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-10"
+				"property_one"			"-15"
 			}
 		}
 
@@ -16281,7 +18155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"70"
 			}
 		}
 		"Modifiers"
@@ -16386,7 +18260,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"3"
 			}
 		}
 	}
@@ -16407,12 +18281,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.5"
+				"property_one"			"5"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.2"
+				"property_two"			"2"
 			}
 		}
 	}
@@ -16433,7 +18307,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -16459,7 +18333,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"10"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -16554,7 +18428,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"4"
+				"property_two"			"20"
 			}
 			"03"
 			{
@@ -16599,7 +18473,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-50"
+				"property_one"			"-100"
 			}
 		}
 	}
@@ -16620,7 +18494,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"2"
 			}
 		}
 		"Modifiers"
@@ -16633,7 +18507,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"0.2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"2"
 				}
 			}
 		}
@@ -16655,7 +18529,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"5"
 			}
 		}
 		"Modifiers"
@@ -16668,7 +18542,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "5"
 				}
 			}
 			"modifier_warlord_rune_r_4_visible"
@@ -19476,7 +21350,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"3"
 			}
 		}
 		"Modifiers"
@@ -20257,7 +22131,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"10 30 50 90 120 140 160"
+				"damage"				"10 130 250 370 490 610 730"
 			}
 			"03"
 			{
@@ -21239,7 +23113,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-45"
+				"property_one"			"-80"
 			}
 		}
 	}
@@ -21257,7 +23131,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -21281,7 +23155,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -21333,7 +23207,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"200"
 			}
 			"02"
 			{
@@ -21404,7 +23278,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -21501,12 +23375,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"16"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"5"
+				"property_two"			"8"
 			}
 		}
 	}
@@ -21542,7 +23416,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"60"
 			}
 			"02"
 			{
@@ -21842,7 +23716,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -23264,7 +25138,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"0"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
 				}
@@ -23415,7 +25289,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -23892,7 +25766,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -26135,7 +28009,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.3"
 			}
 			"02"
 			{
@@ -26710,7 +28584,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"70"
+				"property_one"			"220"
 			}
 			"02"
 			{
@@ -27684,7 +29558,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
 				}
 			}
 		}
@@ -27730,7 +29604,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -27740,7 +29614,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-4"
+				"property_two"			"-6"
 			}
 			"04"
 			{
@@ -27771,7 +29645,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"20"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -27798,7 +29672,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -27829,7 +29703,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -27850,7 +29724,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.01"
+				"property_one"			"0.02"
 			}
 		}
 		"Modifiers"
@@ -27885,7 +29759,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 		}
 		"Modifiers"
@@ -27934,7 +29808,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -28122,7 +29996,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"55"
+				"property_one"			"110"
 			}
 			"02"
 			{
@@ -28243,7 +30117,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"35"
+				"property_one"			"50"
 			}
 		}
 	}
@@ -28285,7 +30159,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -28307,7 +30181,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -28769,7 +30643,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"600 1200 2400 4200 6600 9600 13200"
+				"aspect_health"				"6000 12000 24000 42000 66000 96000 132000"
 			}
 			"02"
 			{
@@ -29280,7 +31154,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"1000 3000 6000 10000 15000 21000 28000"
+				"aspect_health"				"10000 30000 60000 100000 150000 210000 280000"
 			}
 			"02"
 			{
@@ -29861,7 +31735,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.4"
+				"property_one"			"0.03"
 			}
 			"02"
 			{
@@ -29902,7 +31776,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"100"
+				"property_one"			"500"
 			}
 			"02"
 			{
@@ -29991,7 +31865,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"400 1000 1800 2800 4000 5400 7000"
+				"aspect_health"				"4000 10000 18000 28000 40000 54000 70000"
 			}
 			"02"
 			{
@@ -30639,7 +32513,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"500 1500 3000 5000 7500 10500 14000"
+				"aspect_health"				"2500 7500 15000 25000 37500 52500 70000"
 			}
 			"02"
 			{
@@ -30863,7 +32737,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"300 600 1200 2100 3300 4800 6600"
+				"aspect_health"				"1500 3000 6000 10500 17000 24000 33000"
 			}
 			"02"
 			{
@@ -31054,7 +32928,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"aspect_health"				"300 400 900 1900 3200 4400 5600"
+				"aspect_health"				"1500 2000 4500 8000 16000 22000 35000"
 			}
 			"02"
 			{
@@ -33009,7 +34883,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"50"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -33067,7 +34941,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"att_to_dmg"			"4 5 6 7 8 9 10"
+				"att_to_dmg"			"1 2 3 4 5 6 7"
 			}
 		}
 		// Precache
@@ -34332,7 +36206,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -34386,7 +36260,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"15"
+				"property_two"			"30"
 			}
 			"04"
 			{
@@ -34460,7 +36334,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"0.25"
 			}
 		}
 		"Modifiers"
@@ -34567,7 +36441,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"200"
 			}
 		}
 	}
@@ -34616,7 +36490,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"40"
+				"property_one"			"60"
 			}
 		}
 	}
@@ -34984,7 +36858,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"4"
 			}
 		}
 	}
@@ -35004,7 +36878,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -36746,7 +38620,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "10"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "1"
 			    }
 
 			    "OnAttackLanded"
@@ -36862,7 +38736,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -36894,7 +38768,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"110"
+				"property_one"			"170"
 			}
 			"02"
 			{
@@ -36935,7 +38809,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-60"
+				"property_one"			"-100"
 			}
 		}
 	}
@@ -36956,7 +38830,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"12"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -37057,7 +38931,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"12"
+				"property_one"			"40"
 			}
 		}
 	}
@@ -37173,7 +39047,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"property_one"				"6"
+				"property_one"				"5"
 			}
 			"02"
 			{
@@ -37355,6 +39229,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"10"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"100"
+			}
 		}
 	}
 
@@ -37385,9 +39264,8 @@
 
 	"mountain_protector_steelforge_stance"
 	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/legion_commander/mountain_protector_steelforge_stance.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"mountain_protector/steelforge_stance"
@@ -37401,18 +39279,6 @@
 
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.5"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -37420,173 +39286,17 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"						"200 600 1000 1400 1800 2200 2600"
+				"armor_and_magic_armor"		"260 650 1040 1430 1820 2210 2600"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_resist"				"30"
+				"damage_resist"				"30 30 30 30 30 30 30"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"regen_percent"		    "5 6 7 8 9 10 11"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"30 60 90 120 150 180 210"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_steelforge_stance"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_steelforge_stance"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-
-			"modifier_protector_steelforge_regen"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"
-				}
-			}
-			"modifier_steelforge_stance"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_think"
-						"mana_drain"	"%mana_drain_per_second"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_create"
-				        "regen_percent" "%regen_percent"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"energy_shield_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_energy_channel_animating"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
-				"StatusEffectPriority"  "50"
-			}
-			"modifier_steelforge_stone"
-			{
-				"IsHidden"	"1"
-				"StatusEffectName" 		"particles/roshpit/mountain_protector/status_steel.vpcf"
-				"StatusEffectPriority"  "100"
-			}
-			"modifier_energy_channel_no_cast_filter"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_energy_channel_animating"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_protector_rune_c_b_aura"
-			{
-				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_w_3_zap"
-				"Aura_Radius"			"500"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_w_3_zap"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.8"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_c_b_zap"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_mountain_protector_arcana1_w_2_slow"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
-				"StatusEffectPriority"  "20"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
-				}
-			}
-			"modifier_steelforge_passive"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/steelforge_stance.lua"
-						"Function"		"steelforge_take_damage"
-					}
-				}
-
-			}
-			"modifier_protector_rune_w4_bonus_damage"
-			{
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
+				"regen_percent"		    	"5 6 7 8 9 10 11"
 			}
 		}
 	}
@@ -38570,9 +40280,8 @@
 
 	"mountain_protector_mountain_guardian"
 	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/legion_commander/mountain_protector_mountain_guardian.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"mountain_protector/mountain_protector_mountain_guardian"
@@ -38589,18 +40298,6 @@
 			"particle"	"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.10"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -38608,164 +40305,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"						"200 500 800 1100 1400 1700 2000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"20 40 60 80 120 160 200"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_energy_channel"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_think"
-						"mana_drain"	"%mana_drain_per_second"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_create"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_energy_channel_animating"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"EffectName"	"particles/roshpit/mystic_assasin/energy_channel.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_move_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-			}
-			"modifier_energy_channel_no_cast_filter"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_energy_channel_animating"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_protector_rune_w_3_aura"
-			{
-				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_w_3_zap"
-				"Aura_Radius"			"500"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_w_3_zap"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_c_b_zap"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_rune_w_4_aura"
-			{
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_w_4_armor_aura_invisible"
-				"Aura_Radius"			"1000"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_w_4_armor_aura_invisible"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_d_b_aura_init"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_protector_d_b_armor_aura_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_d_b_armor_aura_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-			}
-			"modifier_protector_w1_regen"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0.3"
-				}
+				"armor_and_magic_armor"		"200 500 800 1100 1400 1700 2000"
 			}
 		}
 	}
@@ -41445,7 +42985,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -43728,7 +45268,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"70 75 80 85 90 95 100"
+				"damage_mult"			"70 90 100 120 130 160 180"
 			}
 			"02"
 			{
@@ -45088,7 +46628,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -45188,7 +46728,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -45514,7 +47054,7 @@
                 "TextureName"       "astral_ranger/astral_rune_q_3"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "6"
                 }
             }
             "modifier_astral_rune_q_4"
@@ -45547,7 +47087,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -45566,12 +47106,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"4"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"-80"
+				"property_two"			"-100"
 			}
 			"03"
 			{
@@ -45599,7 +47139,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -45617,7 +47157,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.07"
+				"property_one"			"0.1"
 			}
 		}
 	}
@@ -45726,7 +47266,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"1"
 			}
 			"02"
 			{
@@ -46033,7 +47573,7 @@
                 "EffectAttachType" "follow_origin"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "3"
+                    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "4"
                 }
             }
             "modifier_crystal_arrow_chilled"
@@ -46065,7 +47605,7 @@
             "01"
             {
                 "var_type"                  "FIELD_INTEGER"
-                "damage"                    "200 450 800 1050 1300 1550 1800"
+                "damage"                    "500 1500 2500 3500 4500 5500 6500"
             }
         }
     }
@@ -46088,7 +47628,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-60"
+				"property_one"			"-80"
 			}
 		}
 	}
@@ -46105,12 +47645,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"3"
+				"property_one"			"4"
 			}
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"4"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -47432,7 +48972,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -47604,7 +49144,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-8"
+				"property_one"			"-16"
 			}
 		}
 	}
@@ -47622,7 +49162,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-20"
+				"property_one"			"-40"
 			}
 			"02"
 			{
@@ -47772,18 +49312,23 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.05"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two_base"		"50"
+				"base_ability"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
 			}
 		}
 	}
@@ -47802,7 +49347,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -48835,7 +50380,7 @@
 				"TextureName"	"chernobog/chernobog_rune_q_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
 				}
 			}
 		}
@@ -49012,7 +50557,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "15"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "20"
 				}
 			}
 			"modifier_chernobog_rune_w_3_fervor_enemy_visible"
@@ -49046,7 +50591,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4"
 				}
 			}
 			"modifier_chernobog_rune_w_4_active"
@@ -49187,7 +50732,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"-16"
+				"property_one"			"-30"
 			}
 		}
 	}
@@ -49239,7 +50784,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"3.5"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -49291,7 +50836,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.03"
+				"property_two"			"0.05"
 			}
 			"03"
 			{
@@ -49319,12 +50864,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"60"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"15"
+				"property_two"			"20"
 			}
 		}
 	}
@@ -49342,12 +50887,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-12"
+				"property_one"			"-18"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"4"
 			}
 		}
 	}
@@ -49365,12 +50910,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"65"
+				"property_one"			"75"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"65"
+				"property_two"			"75"
 			}
 		}
 	}
@@ -49496,7 +51041,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 
 		}
@@ -50113,7 +51658,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "30"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "100"
 				}
 			}
 			"modifier_eon_channel_enemy"
@@ -50121,7 +51666,7 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-30"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "-100"
 				}
 			}
 			"modifier_epoch_glyph_1_1_effect"
@@ -51487,7 +53032,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -51521,12 +53066,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"30"
+				"property_one"			"100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"1"
+				"property_two"			"2"
 			}
 			"03"
 			{
@@ -51550,7 +53095,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 			"02"
 			{
@@ -51668,7 +53213,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"-15"
 			}
 		}
 	}
@@ -51686,7 +53231,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 			"02"
 			{
@@ -51779,7 +53324,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"40"
 			}
 			"04"
 			{
@@ -51852,7 +53397,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -51870,7 +53415,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.1"
 			}
 			"02"
 			{
@@ -51893,7 +53438,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -51933,7 +53478,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 			"02"
 			{
@@ -51961,7 +53506,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -52164,7 +53709,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -52217,7 +53762,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"18"
 			}
 		}
 	}
@@ -52478,7 +54023,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"80"
+				"property_one"			"150"
 			}
 		}
 	}
@@ -53439,7 +54984,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"60"
 			}
 		}
 		"Modifiers"
@@ -53468,7 +55013,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.05"
+				"property_one"			"0.1"
 			}
 		}
 
@@ -53491,7 +55036,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"property_one"			"2"
 			}
 			"02"
 			{
@@ -53656,7 +55201,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-120"
+				"property_one"			"-300"
 			}
 		}
 	}
@@ -53859,7 +55404,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"20"
+				"property_two"			"-80"
 			}
 			"04"
 			{
@@ -53892,7 +55437,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"50"
+				"property_two"			"100"
 			}
 		}
 		"Modifiers"
@@ -53995,7 +55540,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 		}
 		"Modifiers"
@@ -54013,7 +55558,7 @@
 				"IsDebuff"			"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.1"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.2"
 				}
 			}
 		}
@@ -57537,7 +59082,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"6"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -59130,7 +60675,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"30"
+				"property_two"			"60"
 			}
 		}
 	}
@@ -62570,7 +64115,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.3"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -62593,7 +64138,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.5"
+				"property_two"			"2"
 			}
 		}
 	}
@@ -62611,7 +64156,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -64542,7 +66087,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.8"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -64873,7 +66418,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"20 40 60 80 100 120 140"
+				"damage_mult"			"40 80 120 160 200 240 280"
 			}
 			"02"
 			{
@@ -65005,7 +66550,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
 				}
 			}
 		}
@@ -65029,7 +66574,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"2"
 			}
 		}
 	}
@@ -65049,7 +66594,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.2"
 			}
 		}
 	}
@@ -65253,7 +66798,7 @@
 				"TextureName"	"dinath/dinath_rune_e_3"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "20"
 				}
 			}
 			"modifier_dinath_postdive_slide"
@@ -65292,7 +66837,7 @@
 				"TextureName"	"dinath/dinath_rune_e_1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
 				}
 			}
 			"modifier_dinath_dive_attack_immune"
@@ -65603,7 +67148,7 @@
 				"IsStunDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-5"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-6"
 				}
 			}
 			"modifier_arctic_burn_casttime"
@@ -65628,7 +67173,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_attack_power"	"55 60 65 70 75 80 85"
+				"damage_attack_power"	"100 120 140 160 180 200 220"
 			}
 		}
 	}
@@ -65757,7 +67302,7 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "0.5"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1.5"
 				}
 			}
 			"modifier_drake_ring_root"
@@ -65896,7 +67441,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-5"
+				"property_one"			"-6"
 			}
 		}
 	}
@@ -65936,7 +67481,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -65996,7 +67541,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"1.5"
 			}
 		}
 	}
@@ -66016,7 +67561,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-15"
+				"property_one"			"-80"
 			}
 		}
 	}
@@ -66041,7 +67586,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"0.15"
 			}
 		}
 	}
@@ -66061,7 +67606,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"12"
 			}
 		}
 	}
@@ -66081,7 +67626,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"property_one"			"6"
 			}
 		}
 	}
@@ -66101,7 +67646,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -66121,7 +67666,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"15"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -66167,7 +67712,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"20"
+				"property_one"			"30"
 			}
 			"02"
 			{
@@ -66202,7 +67747,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"-25"
+				"property_one"			"-50"
 			}
 		}
 	}
@@ -69875,7 +71420,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.2"
+				"property_one"			"0.5"
 			}
 			"02"
 			{
@@ -70529,12 +72074,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.6"
+				"property_one"			"0.3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"3"
+				"property_two"			"1.5"
 			}
 			"03"
 			{
@@ -71802,7 +73347,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 800 1200"
+				"damage"			"100 200 400"
 			}
 			"02"
 			{
@@ -72014,7 +73559,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 200"
+				"damage_per_distance"		"2 20 40"
 			}
 		}
 		"Modifiers"
@@ -72533,7 +74078,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -73456,7 +75001,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/snowshaker_passive"
-		"AbilityCooldown"		"1.0 0.3 0.06"
+		"AbilityCooldown"		"1.2 0.75 0.3"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -73968,7 +75513,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -81380,7 +82925,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"9.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -81692,7 +83237,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 5000"
+				"damage"			"100 200 500"
 			}
 			"02"
 			{
@@ -84312,7 +85857,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"5"
+				"duration"	"4"
 			}
 		}
 		"OnSpellStart"
@@ -84342,7 +85887,7 @@
 				"IsDebuff"			"0"
 			
 				"Aura"          	"modifier_brain_freeze"
-				"Aura_Radius"   	"300"
+				"Aura_Radius"   	"220"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -84957,6 +86502,7 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnIntervalThink"
 				{
@@ -100331,6 +101877,136 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"	
 			}
 			"modifier_roshpit_level"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_min_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_max_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_min_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_max_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_min_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_max_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_flat_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_min_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_max_cooldown_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_q_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_w_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_e_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_flat_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_manacost_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_flat_channeltime_modifier"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
+			}
+			"modifier_r_pct_channeltime_modifier"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"			
@@ -157716,80 +159392,21 @@
 
 	}
 
-	"seafortress_archon_form"
+	"seafortress_archon_wizard_archon_form"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"arkimus/arkimus_archon_form"
-		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"0"
-		"AbilityCastRange"				"580"
-		"AOERadius"						"580"
-		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"RequiredLevel"          		"-5"
-		"LevelsBetweenUpgrades"  		"10"
-		"MaxLevel"				 		"7"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"worlds/sea_fortress/abilities/seafortress_archon_wizard_archon_form.lua"
+		"AbilityTextureName"			"arkimus/arkimus_archon_form"
+		"AbilityCastAnimation"			"ACT_DOTA_TELEPORT"
+		"AbilityType"            		"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"				 		"1"
+		"Level"							"1"
 		"precache"
 		{
 
 		}
 
-		"AbilityManaCost"	"0"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"start_channel"
-
-			}
-
-		}
-		"OnChannelSucceeded"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_complete"
-				"duration"	"%duration"
-			}
-		}
-
-		"OnChannelFinish"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-
-		}
-
-		"OnChannelInterrupted"
-		{
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_channel_start"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/antimage/archon_form.lua"
-				"Function"		"channel_interrupt"
-			}
-		}
 		"OnOwnerDied"
 		{
 			"RunScript"
@@ -157798,116 +159415,18 @@
 				"Function"		"archon_wizard_die"
 			}
 		}
-		"Modifiers"
-		{
-
-			"modifier_arkimus_archon_form_seafortress"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"EffectName"		"particles/roshpit/arkimus/channel_energy.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_init_seafortress"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_form_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_mana_regen"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_archone_b_d_attack_power"
-						"Target" 		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1000"
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_attack_land"
-					}
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"worlds/sea_fortress/sea_fortress_ai"
-						"Function"		"archon_wizard_think"
-					}
-				}
-			}
-			"modifier_archon_pushback"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-			
-				"ThinkInterval"  	"0.03"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_slide_think"
-					}
-				}
-			}
-			"modifier_archon_a_d_field_thinker"
-			{
-				"IsHidden"	"1"
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"a_d_field_thinker_think"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/antimage/archon_form.lua"
-						"Function"		"archon_a_d_end"
-					}
-				}
-			}
-		}
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_range"			"500 550 600 650 700 750 800"
+				"attack_range"			"800"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_resist"			"58 60 62 64 66 68 70"
+				"damage_resist"			"70"
 			}
 		}
 	}
@@ -158393,5 +159912,66 @@
 		"RequiredLevel"          "-10"
 		"LevelsBetweenUpgrades"  "1"
 		"AbilityCastPoint"       "0.0"
+	}
+
+	"treasure_goblin_ability"
+	{
+		// General  
+		// ----------------------------------------------------------------------------------------
+		"BaseClass"              "ability_datadriven"
+		"AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"     "rubick_empty1"
+
+		"MaxLevel"               "1"
+		"RequiredLevel"          "-10"
+		"LevelsBetweenUpgrades"  "1"
+		"AbilityCastPoint"       "0.0"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+				"Function"		"treasure_goblin_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_treasure_goblin_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  	"4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+						"Function"		"treasure_goblin_thinker"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/treasure_goblin_ai.lua"
+						"Function"		"treasure_goblin_take_damage"
+					}
+				}
+			}
+			"modifier_treasure_goblin_regular"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/courier/courier_beetlejaw/courier_beetlejaw_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_treasure_goblin_special"
+			{
+				"IsHidden"	"1"
+				"EffectName"	"particles/econ/courier/courier_hermit_crab/hermit_crab_aegis_ambient.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+		}
 	}
 }

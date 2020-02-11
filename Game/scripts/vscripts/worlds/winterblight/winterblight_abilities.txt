@@ -913,7 +913,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 800 1200"
+				"damage"			"100 200 400"
 			}
 			"02"
 			{
@@ -1125,7 +1125,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_per_distance"		"2 20 200"
+				"damage_per_distance"		"2 20 40"
 			}
 		}
 		"Modifiers"
@@ -1644,7 +1644,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -2567,7 +2567,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/snowshaker_passive"
-		"AbilityCooldown"		"1.0 0.3 0.06"
+		"AbilityCooldown"		"1.2 0.75 0.3"
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
@@ -3079,7 +3079,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_machinal_jump"
+			"modifier_arkimus_e_free_cast"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -10491,7 +10491,7 @@
 
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"9.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -10803,7 +10803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 500 5000"
+				"damage"			"100 200 500"
 			}
 			"02"
 			{
@@ -13423,7 +13423,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"5"
+				"duration"	"4"
 			}
 		}
 		"OnSpellStart"
@@ -13453,7 +13453,7 @@
 				"IsDebuff"			"0"
 			
 				"Aura"          	"modifier_brain_freeze"
-				"Aura_Radius"   	"300"
+				"Aura_Radius"   	"220"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -14068,6 +14068,7 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnIntervalThink"
 				{

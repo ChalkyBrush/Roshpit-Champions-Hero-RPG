@@ -195,7 +195,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на 90%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Стихия: <font color=\"#EF4126\">Огонь</font> / <font color=\"#87D9FF\">Лёд</font><br>Высвобождает энергию накопленных зарядов: элемент Земли - восстанавливают здоровье и сокращают весь входящий урон на <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>%, Льда - радиус действия ледяных осколков, а заряды Огня выпускают огненные шары. Заряды накапливаются, когда герой атакует врагов или попадает по ним брошенными топорами. При прочтении поглощается половина зарядов."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"ЛЕЧЕНИЕ ЗА ЗАРЯД ЗЕМЛИ:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"ДЛИТЕЛЬНОСТЬ ЩИТА ЗА КАЖДЫЙ ЗАРЯД ЗЕМЛИ:" 
@@ -205,7 +205,7 @@
 		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"УРОН ОГНЕННЫХ ШАРОВ:" 
 
 		"DOTA_Tooltip_modifier_overload_damage_resistance"					"Earth Shield"
-		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Входящий урон снижен на 90%"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Входящий урон снижен на <% WARLORD_R_EARTH_SHIELD_DAMAGE_REDUCTION %>%%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Каждую секунду в течении 8 секунд восстанавливает здоровье в размере % от значения регенерации здоровья на момент прочтения (R) Elemental Overload. Дополнительно на время действия в радиусе 1000 все ближайшие враги будут получать урон."
@@ -234,7 +234,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Значение урона увеличено"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на 16 секунд в зависимости от поглощённых зарядов."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"После прочтения (R) Elemental Overload, герой усиливает свой урон на <% WARLORD_R4_DURATION %> секунд в зависимости от поглощённых зарядов."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Доп. урон за каждый поглощённый заряд"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 
@@ -260,7 +260,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_r_1_arcana1_suffix"				"% от урона героя"
 
   		"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1"						"[R2] Chilling Edge"
-    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"При попадании по врагу, атаки накладывают замораживающий эффект на 6 секунд, который постоянно наносит урон каждые 0.5 секунды, основанный на атрибутах героя. Дополнительно скорость передвижения врагов снижается на 20%. Если уровень здоровья поражённых целей опускается ниже 30% от максимума (15% для боссов), урон умножается на 10'000 и происходит взрыв, задевающий ближайших врагов и накладывающих замораживающий эффект на них."
+    	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_Description"			"Во время @Ability4 обычные атаки будут наносить урон льда врагам в течение 6 секунд, каждые 0.5 секунды и дополнительно снизят скорость передвижения врагов на 20%. Если уровень здоровья поражённых целей опускается ниже <% WARLORD_ARCANA1_R2_THRESHOLD * 100 %>% от максимума (<% WARLORD_ARCANA1_R2_BOSS_THRESHOLD * 100 %>% для боссов), урон умножается на <% WARLORD_ARCANA1_R2_THRESHOLD_MULTIPLIER %> и происходит взрыв, задевающий ближайших врагов и накладывающих замораживающий эффект на них."
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_property_one"		"Урон за каждые 0.5 секунды"
     	"DOTA_Tooltip_ability_warlord_rune_r_2_arcana1_suffix"				"x от суммы всех атрибутов"
 
@@ -268,11 +268,9 @@
     	"DOTA_Tooltip_modifier_tomahawk_ice_effect_Description"				"Получает периодический урон стихии Льда. Урон значительно увеличится как только уровень здоровья цели будет слишком низок."	
 
   		"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1"						"[R3] Tectonic Pressure"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути. Дополнительно увеличивается максимальное количество зарядов Огня."
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Доп. зарядов Огня к максимуму"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"				""
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_two"		"Урон"
-    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix_two"			"% от Макс. Здоровья"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_Description"			"Во время активного умения @Ability4 c каждой успешной атакой герой получает заряд этой руны. При получении урона тратится заряд, отправляя в сторону атаковавшего врага огненный шар, нанося урон всем на своём пути."
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_property_one"		"Урон"
+    	"DOTA_Tooltip_ability_warlord_rune_r_3_arcana1_suffix"			"% от Макс. Здоровья"
 
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure"					"Tectonic Pressure"
     	"DOTA_Tooltip_modifier_tomahawk_tectonic_pressure_Description"		"При получении урона, в сторону атакующего отправляется огненный шар."

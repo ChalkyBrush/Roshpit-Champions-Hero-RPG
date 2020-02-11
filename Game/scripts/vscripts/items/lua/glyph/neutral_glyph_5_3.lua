@@ -27,19 +27,22 @@ function modifierClass:OnCreated()
         return
     end
     self:SetSpecialTypes({ 
-        DAMAGE_TYPE_PURE
+        MODIFIER_ROSHPIT_PURE_DMG_REDUCTION
     })
 end
 
-function modifierClass:GetDamageReduction()
+function modifierClass:GetPureDamageReduction()
     return ITEM_RPC_NEUTRAL_GLYPH_5_1_PURE_RES
 end
+
 function modifierClass:IsHidden()
     return true
 end
+
 function modifierClass:IsBuff()
     return true
 end
+
 function modifierClass:RemoveOnDeath()
     return false
 end

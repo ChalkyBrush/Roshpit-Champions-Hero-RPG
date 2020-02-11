@@ -61,6 +61,8 @@ function Tutorial:SpawnAllTownNPCs()
 			Events:SpawnCurator(Vector(-320, -1472), Vector(0, -1))
 			Tutorial:BlacksmithSounds()
 			Challenges:SpawnElderRai(Vector(-576, -2368), Vector(0,1))
+			Gems:SpawnGemForger(Vector(-2496, -3456), Vector(-1,1), 0)
+			Gems.GemForger.go_home = 1
 		end)
 		Tutorial.NPCSspawned = true
 	end
@@ -1309,15 +1311,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
+								--print("return 6")
 								return 6
 							end
 							if hero.special_key == 2 then
-								print("input")
+								--print("input")
 								Tutorial:TutorialServerEvent(hero, "6_2", 0)
 							end
 						else
-							print("return 6")
+							--print("return 6")
 							return 6
 						end
 					end
@@ -1361,15 +1363,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
+								--print("return 6")
 								return 6
 							end
 							if hero.special_key == 4 then
-								print("Got it")
+								--print("Got it")
 								Tutorial:TutorialServerEvent(hero, "6_3", 0)
 							end
 						else
-							print("return 6")
+							--print("return 6")
 							return 6
 						end
 					end
@@ -1403,15 +1405,15 @@ function Tutorial:MasterSequenceWithLocks(hero, code)
 									Tutorial:SoundAndAnimationForMaster("Tutorial.Master.Greeting2", ACT_DOTA_ATTACK, 0.9, 2.0)
 									Quests:ShowDialogueText({hero}, Tutorial.Master, "tutorial_master_dialogue_6_2g", 5, false)
 								end
-								print("return 6")
+								--print("return 6")
 								return 6
 							end
 							if hero.special_key == 6 then
-								print("got it")
+								--print("got it")
 								Tutorial:TutorialServerEvent(hero, "6_4", 0)
 							end
 						else
-							print("return 6")
+							--print("return 6")
 							return 6
 						end
 					end
@@ -1730,7 +1732,7 @@ function Tutorial:TutorialServerEvent(hero, code1, code2)
 						choice = DOTA_R_SLOT + 1
 					end
 					local sub = "DOTA_Tooltip_Ability_"..hero:GetAbilityByIndex(choice - 1):GetAbilityName()
-					print("WHY NOTHING")
+					--print("WHY NOTHING")
 					CustomGameEventManager:Send_ServerToPlayer(player, "call_quiz", {hero = hero:GetEntityIndex(), identifier = "2_2", quiz_question = question, sequence = 0, verifier = verifier, gsub1 = sub, localize_verifier = 0, challenge_progress = 3})
 					CustomGameEventManager:Send_ServerToPlayer(player, "quiz_sound", {sound = "Tutorial.Hint"})
 				end)
@@ -2802,7 +2804,7 @@ function Tutorial:SubmitQuiz(msg)
 			correct_answer = msg.verifier == msg.answer
 		elseif hero.tutorial.active_challenge == "4_2" then
 			if msg.challenge_progress == 0 then
-				print(msg.verifier)
+				--print(msg.verifier)
 				if tonumber(msg.answer) - 1 < tonumber(msg.verifier) and tonumber(msg.answer) + 1 > tonumber(msg.verifier) then
 					correct_answer = true
 				end

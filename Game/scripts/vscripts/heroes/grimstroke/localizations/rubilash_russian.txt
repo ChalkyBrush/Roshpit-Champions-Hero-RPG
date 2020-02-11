@@ -1,0 +1,266 @@
+	"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевая</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёная</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовая</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрная</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"Окрашен краской Rubilash"
+
+	"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белая</font> Краска"
+	"DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"Окрашен краской Rubilash"
+
+	"rubilash_q_base_name"										"Phantom Brush"
+	"rubilash_w_base_name"										"Ink Blot"
+	"rubilash_e_base_name"										"Paint Splatter"			
+
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>]"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Замахивается кистью, и через <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> сек выбрасывает порцию краски в указанную сторону. Бонусы к дальности каста увеличивают дальность броска краски."
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"ДАЛЬНОСТЬ:"
+
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Замахивается кистью, и через <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> сек выбрасывает порцию краски в указанную сторону. Бонусы к дальности каста увеличивают дальность броска краски."
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"ДАЛЬНОСТЬ:"
+
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font>]"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Замахивается кистью, и через <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> сек выбрасывает порцию краски в указанную сторону. Бонусы к дальности каста увеличивают дальность броска краски."
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"ДАЛЬНОСТЬ:"
+
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Замахивается кистью, и через <% RUBILASH_PHANTOM_BRUSH_CAST_POINT %> сек выбрасывает порцию краски в указанную сторону. Бонусы к дальности каста увеличивают дальность броска краски."
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"ДАЛЬНОСТЬ:"
+
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>]"
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Бросает небольшой шар с краской, который окрашивает противников и наносит им урон в небольшой зоне."
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"УРОН:"
+
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Бросает небольшой шар с краской, который окрашивает противников и наносит им урон в небольшой зоне."
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"УРОН:"
+
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font>]"
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Бросает небольшой шар с краской, который окрашивает противников и наносит им урон в небольшой зоне."
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"УРОН:"
+
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"Ink Blot [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Бросает небольшой шар с краской, который окрашивает противников и наносит им урон в небольшой зоне."
+	"DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"УРОН:"
+
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>]"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Телепортирует к выбранному месту и окрашивает попавших в зону действия противников в [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красную</font>] краску. Эта способность переключает текущий активный цвет в палитре на [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтый</font>].<br><br>Противники, окрашенные в определенные цвета, будут получать больше урона от атак героя с теми же цветами. Смешение красок на противниках увеличивает множитель урона еще больше. Окрашивание каждого отдельного цвета имеет независимую продолжительность.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёная</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрная</font>] Краска -> Получает 8x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски."
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Телепортирует к выбранному месту и окрашивает попавших в зону действия противников в [<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтую</font>] краску. Эта способность переключает текущий активный цвет в палитре на [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синий</font>].<br><br>Противники, окрашенные в определенные цвета, будут получать больше урона от атак героя с теми же цветами. Смешение красок на противниках увеличивает множитель урона еще больше. Окрашивание каждого отдельного цвета имеет независимую продолжительность.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёная</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрная</font>] Краска -> Получает 8x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски."
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Blue</font>]"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Телепортирует к выбранному месту и окрашивает попавших в зону действия противников в [<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синюю</font>] краску. Эта способность переключает текущий активный цвет в палитре на [<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красный</font>].<br><br>Противники, окрашенные в определенные цвета, будут получать больше урона от атак героя с теми же цветами. Смешение красок на противниках увеличивает множитель урона еще больше. Окрашивание каждого отдельного цвета имеет независимую продолжительность.<br><br>[<font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красная</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтая</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синяя</font>] Краска -> Получает 2x урона от <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёная</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовая</font>] Краска -> Получает 4x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font> и <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> Краски.<br>[<font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрная</font>] Краска -> Получает 8x урона от <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font>, <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font> и <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font> Краски."
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белая</font>]"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"Элемент: <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демон</font> / <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрак</font><br>Телепортирует к выбранному месту и окрашивает попавших в зону действия противников в [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белую</font>] краску. Противники, покрытые [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белой</font>] краской получают 2х урона от [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белой</font>] краски и на них действуют все бонусы, относящиеся к краскам других цветов."
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"УРОН:"
+	"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+
+	"DOTA_Tooltip_Ability_rubilash_self_portrait"			"Self Portrait"
+	"DOTA_Tooltip_Ability_rubilash_self_portrait_Description"			"Rubilash мастерски создает портрет самого себя, который оживает и сопровождает его повсюду, повторяя все способности героя спустя задержку в <% RUBILASH_ILLUSION_CAST_DELAY %> сек."
+	"DOTA_Tooltip_Ability_rubilash_self_portrait_duration"	"ДЛИТЕЛЬНОСТЬ:"
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] Brushwork"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_Description"			"Увеличивает Дальность Применения всех способностей героя."
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_property_one"			"Дальность Применения"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Marked Red"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_RED %>\">Красной</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовой</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Броню и Магическую Защиту."
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"Снижение Брони и Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] Haunting Impression"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_Description"				"Противники, задетые @Ability1, убегают в страхе."
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_property_one"			"Длительность Паники"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_suffix"					" сек"
+
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"Haunting Impression"
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"Паника"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] Malevolent Artistry"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"Увеличивает урон <font color=\"<% RPC_ELEMENT_DEMON_COLOR %>\">Демона</font> и <font color=\"<% RPC_ELEMENT_GHOST_COLOR %>\">Призрака</font>."
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"Урон Элементов"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] Sticky Paint"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_Description"				"Увеличивает время окрашивания противника. Базовая длительность окрашивания равна <% RUBILASH_PAINTED_DURATION_BASE %> сек."
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"Увеличение длительности"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" сек"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Броню и Магическую Защиту."
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Снижение Брони и Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
+
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"Увеличивает Скорость Атаки, а сами атаки создают взрыв шара @Ability2 при попадании."
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Скорость Атаки"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Урон"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% от урона @Ability2"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"Противники, покрытые любой краской, имеют сниженные скорости атаки и перемещения. Этот штраф увеличивается в 2 раза, если противники окрашен в <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевый</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёный</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовый</font>, и в 3 раза, когда окрашен в <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрный</font>."
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"Потеря Скорости Атаки и Скорости Передвижения"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					""
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_1"							"[E1] Refill"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_Description"				"Прочтение @Ability3 восстанавливает Ману. Каждое очко текущей Маны увеличивает Базовый Урон Атаки."
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_one"			"Восстановление Маны"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_two"			"Базовый Урон Атаки"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" за ед. Маны"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] Eerie Blue"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Броню и Магическую Защиту."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Снижение Брони и Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"Все противники, получившие урон от краски, восстанавливают здоровье герою. Лечение рассчитывается от урона способности до усиления Уроном Базовых Способностей и Уроном Элементов."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Лечение"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% от урона"		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] Phantom Palette"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"Каждый Атрибут дополнительно увеличивает показатель Здоровья."
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"Здоровье"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" за Атрибут"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Virtuoso"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"Rubilash получает бонус к Пробитию Магической Защиты от показателя Ловкости."
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Пробитие Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" за Ловкость"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"После прочтения @Ability4 герой получает невидимость. Урон Предметов и Урон Способностей увеличен, когда герой невидим (учитывается невидимость от любого эффекта)."
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Длительность"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" сек"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Урон Предметов и Способностей"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				"% пока невидим"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] Dripping Brush"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"Портрет героя выпускает @Ability2 в ближайшего противника в указанном радиусе, с определенным интервалом."
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"Интервал"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					" сек"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"Радиус"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix_two"				""		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] Depiction"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"Портрет имеет повышенную скорость передвижения и задержка повторенных им заклинаний снижается."
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"Снижение задержки"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" сек"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_two"			"Повышение Скорости Передвижения"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix_two"				""	
+
+	//Glyphs
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] Glyph of Etching"
+	"item_rpc_rubilash_glyph_1_1_description" 				"Увеличивает скорость броска @Ability2 на <% RUBILASH_GLYPH_1_1_PROJECTILE_SPEED_PCT %>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
+	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 тоже переключает цветовую палитру и получает бонус у Урону Способности в <% RUBILASH_GLYPH_2_1_Q_BAD %>%."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Portrayal"
+	"item_rpc_rubilash_glyph_3_1_description" 				"Портрет героя применяет @Ability3 в случайную точку в радиусе <% RUBILASH_GLYPH_3_1_RANGE %> каждые <% RUBILASH_GLYPH_3_1_INTERVAL %> сек"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of the Adapted Phantom"
+	"item_rpc_rubilash_glyph_4_1_description" 				"Увеличивает Магическую Защиту на <% RUBILASH_GLYPH_4_1_MAGIC_ARMOR %>."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
+	"item_rpc_rubilash_glyph_5_1_description" 				"Вся Синяя краска разрушает Иммунитек к Магии."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
+	"item_rpc_rubilash_glyph_6_1_description" 				"Вся Красная краска наносит на <% RUBILASH_GLYPH_6_1_DAMAGE_INCREASE_PCT %>% больше урона и имеет Физический тип урона."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
+	"item_rpc_rubilash_glyph_7_1_description" 				"Вся Жёлтая краска наносит на <% RUBILASH_GLYPH_7_1_DAMAGE_REDUCE_PCT %>% меньше урона и имеет Чистый тип урона."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
+	"item_rpc_rubilash_glyph_5_a_description" 				"Если хотя бы 1 противник покрашен в Чёрный цвет, герой получает <% RUBILASH_GLYPH_5_A_ATTACK_POWER_BONUS %>% бонус к Силе Атаки."
+
+	//Weapons
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_01"		"Broom Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_02"		"Novice Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_03"		"Ink Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_11"		"Paint Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_12"		"Artist's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_13"		"Palette Stick"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_14"		"Paint Mixer"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_21"		"Master's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_22"		"Vision Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_23"		"Acrylic Rod"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
+	"property_rubilash_immortal_weapon_description"                      "@Ability1 не имеет анимации каста и получает <% RUBILASH_IMMORTAL_WEAPON_1_Q_BAD %>% увеличение Урона Способности."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
+	"property_rubilash_immortal_weapon2_description"                      "Увеличивает Здоровье на <% RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE %>%, но снижает все лечащие эффекты на <% RUBILASH_IMMORTAL_WEAPON_2_HEAL_REDUCTION %>%."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
+	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
+	"property_rubilash_immortal_weapon3_description"                      "Урон способностей увеличивается на <% RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT %>x от Ловкости и Интеллекта, и на <% RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT %>% от Силы Атаки."
+
+	//ARCANAS
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"Masterstroke Trappings"
+
+	"item_property_rubilash_arcana1"										"White Paint"
+	"property_rubilash_arcana1_description"									"Заменяет @Ability3 и все её руны на Paint Splatter [<font color=\"<% RUBILASH_TEXT_COLOR_WHITE %>\">Белая</font>]."
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] Fresh Coat"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"Прочтение @Ability3 восстанавливает здоровье."
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_property_one"			"Лечение"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_suffix"					"% от Максимального Запаса Здоровья"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1"						"[E2] Masterpiece"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_Description"			"Увеличивает Пробитие Брони и Магической Защиты."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_property_one"			"Бонусные Пробития"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Увеличивает Урон всех способностей."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Увеличение Урона"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
+
+		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_Description"			"Даёт бонус ко всем Атрибутам, и каждый Атрибут увеличивает Базовый Урон Атаки."
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_one"			"Бонус Атрибутов"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_two"			"Базовый Урон Атаки"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix_two"				" за ед. Атрибутов"

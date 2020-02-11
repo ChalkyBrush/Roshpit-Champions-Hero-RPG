@@ -78,6 +78,7 @@ function Tanari:Debug()
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
+    -- TreasureGoblins:SpawnTreasureGoblin(Vector(-5528, 2048))
     -- local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_epsilons_eyeglass")
 
     -- helm = Gems:AddSocket(helm)
@@ -323,7 +324,7 @@ function Tanari:Debug()
     -- Curator:CurateHero(MAIN_HERO_TABLE[1]:GetPlayerOwnerID())
 
     -- Timers:CreateTimer(10, function()
-    --     Curator:CurateAllGlyphsForHero("solunia")
+    --     Curator:CurateAllGlyphsForHero("rubilash")
     -- end)
     -- Timers:CreateTimer(20, function()
     -- Curator:CurateArcanaAbilities(MAIN_HERO_TABLE[1])

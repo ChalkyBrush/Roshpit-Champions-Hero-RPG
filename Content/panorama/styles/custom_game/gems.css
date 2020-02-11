@@ -458,3 +458,158 @@
 .too-poor-for-gem:hover{
 	background-color: #111111;
 }
+
+.gem_salvage_root{
+	width:100%;
+	flow-children:down;
+}
+
+#salvage_gems_title{
+	text-align: center;
+	font-size:30px;
+	color:white;
+	width:100%;
+	margin-top:10px;
+}
+
+.gem_salvage_gem_image{
+	width:48px;
+	height:48px;
+}
+
+.gem_salvage_gem{
+	flow-children:right;
+	width:100%;
+	padding-left:40px;
+	padding-right:80px;
+}
+
+.gem_salvage_value{
+	horizontal-align:right;
+	margin-top:8px;
+	font-size:28px;
+	color:#FFCCAA;
+}
+
+.gem_salvage_gem_name{
+	font-size:24px;
+	margin-top:10px;
+	margin-left:10px;
+}
+
+.gem_salvage_gem_subtotal_row{
+	margin-top:10px;
+	width:100%;
+	flow-children:right;
+}
+
+#salvage_gems_subtotal{
+	font-size:28px;
+	margin-right:80px;
+	horizontal-align:right;
+	color:white;
+	border-top:1px solid white;
+}
+
+#salvage_gems_subtotal_label{
+	color:white;
+	font-size:24px;
+	margin-left:96px;
+
+
+}
+
+#salvage_gems_tax_text{
+	color:white;
+	font-size:20px;
+	margin-left:96px;
+	color:#DD4444;
+}
+
+#salvage_gems_tax_value{
+	font-size:20px;
+	margin-right:80px;
+	horizontal-align:right;
+	color:#DD4444;
+}
+
+#salvage_gems_premium_discount_text{
+	color:white;
+	font-size:20px;
+	margin-left:96px;
+	color:#f8fc03;
+}
+
+#salvage_gems_premium_discount{
+	font-size:20px;
+	margin-right:80px;
+	horizontal-align:right;
+	color:white;
+	color:#f8fc03;
+}
+
+#salvage_gems_premium_discount_text_web{
+	color:white;
+	font-size:20px;
+	margin-left:96px;
+	color:#a2efef;
+}
+
+#salvage_gems_premium_discount_web{
+	font-size:20px;
+	margin-right:80px;
+	horizontal-align:right;
+	color:white;
+	color:#a2efef;
+}
+
+#salvage_gems_final_label{
+	color:white;
+	font-size:24px;
+	margin-left:96px;
+}
+
+#salvage_gems_final_value{
+	font-size:28px;
+	margin-right:80px;
+	horizontal-align:right;
+	color:white;
+	border-top:1px solid white;
+}
+
+#salvage_final_cost{
+	margin-top:30px;
+}
+
+#gemforger_final_salvage_button{
+	margin-top:40px;
+	horizontal-align:center;
+	padding-left:40px;
+	padding-right:40px;
+	flow-children:right;
+	background-color: #21285c;
+	padding-top:5px;
+	padding-bottom:5px;
+	border-radius:8px;
+	border:1px solid #000000;
+	box-shadow: 1px 1px 2px #000000;
+}
+
+#gem_forger_final_salvage_label{
+	color:white;
+	font-size:28px;
+}
+
+#gemforger_final_salvage_button:hover{
+	background-color: #444f9e;
+	border:1px solid #666666;
+	box-shadow: -1px -1px 2px #000000;
+}
+
+#gem_forger_salvage_warning{
+	text-align: center;
+	horizontal-align:center;
+	color:white;
+	font-size:16px;
+	margin-top:30px;
+}

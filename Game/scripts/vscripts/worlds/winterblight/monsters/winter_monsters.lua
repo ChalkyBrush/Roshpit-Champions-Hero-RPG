@@ -193,7 +193,7 @@ function wb_bandit_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump", {duration = 4})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_free_cast", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 20
 	ability.liftVelocity = 20
@@ -207,13 +207,13 @@ function wb_bandit_jump_start(event)
 		StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1})
 		EmitSoundOn("Winterblight.Assassin.Aggro", caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Assassin.Jump", caster)
-		if caster:HasModifier("modifier_machinal_jump_freecast") then
+		if caster:HasModifier("modifier_arkimus_e_free_cast") then
 			ability:EndCooldown()
-			local newStacks = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster) - 1
+			local newStacks = caster:GetModifierStackCount("modifier_arkimus_e_free_cast", caster) - 1
 			if newStacks > 0 then
-				caster:SetModifierStackCount("modifier_machinal_jump_freecast", caster, newStacks)
+				caster:SetModifierStackCount("modifier_arkimus_e_free_cast", caster, newStacks)
 			else
-				caster:RemoveModifierByName("modifier_machinal_jump_freecast")
+				caster:RemoveModifierByName("modifier_arkimus_e_free_cast")
 			end
 		end
 		if caster:HasAbility("arkimus_energy_field") then
@@ -240,7 +240,7 @@ function jump_think(event)
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
 		if not ability.rising then
-			caster:RemoveModifierByName("modifier_machinal_jump")
+			caster:RemoveModifierByName("modifier_arkimus_e_free_cast")
 		end
 	end
 
@@ -271,7 +271,7 @@ function jump_end(event)
 	Timers:CreateTimer(0.03, function()
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 	end)
-	if ability.e_1_level > 0 then
+	if ability.e_1_level and ability.e_1_level > 0 then
 		local searchRadius = 300 + ability.e_1_level * 2
 		local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * 0.3 * ability.e_1_level
 
@@ -291,10 +291,10 @@ function jump_end(event)
 		end
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.JumpLightning", caster)
 	end
-	if ability.e_3_level > 0 then
+	if ability.e_3_level and ability.e_3_level > 0 then
 		local duration = Filters:GetAdjustedBuffDuration(caster, 3, false)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump_c_c_amp", {duration = duration})
-		caster:SetModifierStackCount("modifier_machinal_jump_c_c_amp", caster, ability.e_3_level)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_3_buff", {duration = duration})
+		caster:SetModifierStackCount("modifier_arkimus_e_3_buff", caster, ability.e_3_level)
 	end
 end
 
@@ -319,7 +319,7 @@ function mountain_assassin_think(event)
 				return false
 			end
 		end
-		if not caster:HasModifier("modifier_machinal_jump") then
+		if not caster:HasModifier("modifier_arkimus_e_free_cast") then
 			if caster:HasAbility("assassin_charge_blast") then
 				local chargeBlast = caster:FindAbilityByName("assassin_charge_blast")
 				if chargeBlast:IsFullyCastable() then
@@ -1036,7 +1036,7 @@ function blade_jump_start(event)
 	local caster = event.caster
 	local ability = event.ability
 	ability.targetPoint = event.target_points[1]
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_machinal_jump", {duration = 4})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_arkimus_e_free_cast", {duration = 4})
 	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
 	ability.jumpVelocity = distance / 18
 	ability.liftVelocity = 15
@@ -1050,13 +1050,13 @@ function blade_jump_start(event)
 		StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_FLAIL, rate = 1, translate = "forcestaff_friendly"})
 		EmitSoundOn("Winterblight.BladeDancer.JumpVO", caster)
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.BladeDancer.Jump", caster)
-		if caster:HasModifier("modifier_machinal_jump_freecast") then
+		if caster:HasModifier("modifier_arkimus_e_free_cast") then
 			ability:EndCooldown()
-			local newStacks = caster:GetModifierStackCount("modifier_machinal_jump_freecast", caster) - 1
+			local newStacks = caster:GetModifierStackCount("modifier_arkimus_e_free_cast", caster) - 1
 			if newStacks > 0 then
-				caster:SetModifierStackCount("modifier_machinal_jump_freecast", caster, newStacks)
+				caster:SetModifierStackCount("modifier_arkimus_e_free_cast", caster, newStacks)
 			else
-				caster:RemoveModifierByName("modifier_machinal_jump_freecast")
+				caster:RemoveModifierByName("modifier_arkimus_e_free_cast")
 			end
 		end
 	end
@@ -1077,7 +1077,7 @@ function blade_jump_think(event)
 	local height = (caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster))
 	if height < math.abs(ability.liftVelocity) then
 		if not ability.rising then
-			caster:RemoveModifierByName("modifier_machinal_jump")
+			caster:RemoveModifierByName("modifier_arkimus_e_free_cast")
 		end
 	end
 

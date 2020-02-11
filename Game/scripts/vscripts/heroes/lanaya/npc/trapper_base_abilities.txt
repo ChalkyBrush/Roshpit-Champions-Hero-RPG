@@ -1703,7 +1703,7 @@
 			    "IsHidden"  "1"
 			    "Properties"
 			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "<% TRAPPER_R3_CRIT_DAMAGE %>"
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "1"
 			    }
 
 			    "OnAttackLanded"

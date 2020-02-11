@@ -234,8 +234,8 @@ function Enemies:InitializeEnemy(unit)
 		unit_level = 120
 	end
 	-- exp
-	-- print(unit_level)
-	-- print(enemyTier)
+	--print(unit_level)
+	--print(enemyTier)
 	local deathXP = Enemies.EXP_BASE_TABLE[unit_level] * Enemies.MOB_TIER_EXP_MULT[enemyTier]
 	local deathXP = deathXP + (deathXP * (math.max(0, RPCItems:GetConnectedPlayerCount() - 1)*Enemies.ADDITIONAL_MOB_EXP_PER_PLAYER)) + deathXP*GameState:GetPlayerPremiumStatusCount()*Enemies.EXTRA_EXP_PER_PASS_PLAYER
 	if GameState:IsSerengaard() then
@@ -304,6 +304,9 @@ function Enemies:InitializeEnemy(unit)
 			ability:SetLevel(difficulty)
 		end
 	end
+	if unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
+		TreasureGoblins:SpawnChance(unit)
+	end
 end
 
 Enemies.WINTERBLIGHT_STONES_BUFFS = {}
@@ -316,12 +319,12 @@ Enemies.WINTERBLIGHT_STONES_BUFFS["health"] = 0.5
 Enemies.WINTERBLIGHT_STONES_BUFFS["arcane_crystals"] = 0.5
 
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL = {}
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"] = 0.05
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"] = 0.05
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"] = 0.05
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.05
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.05
-Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.1
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["attack_damage"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_magic_armor"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_armor_pierce"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["roshpit_spell_pierce"] = 0.2
+Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["health"] = 0.5
 Enemies.WINTERBLIGHT_CAVERN_BUFFS_PER_CHAMBER_LEVEL["arcane_crystals"] = 0.05
 
 Enemies.PIT_OF_TRIALS_BUFFS_PER_LEVEL = {}
@@ -445,7 +448,7 @@ function CDOTA_BaseNPC:IsRegularEnemy(compare_unit)
 	end
 end
 
-Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar", "npc_flying_dummy_vision", "water_temple_tentacle_switch", "ekkan_corpse", "tanari_wind_spark_dummy", "azalea_maze_food", "conquest_forest_guide", "arena_cliff_spirit"}
+Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblight_zefnar", "npc_flying_dummy_vision", "water_temple_tentacle_switch", "ekkan_corpse", "tanari_wind_spark_dummy", "azalea_maze_food", "conquest_forest_guide", "arena_cliff_spirit", "treasure_goblin_rpc_redfall_ridge", "treasure_goblin_rpc_tanari_jungle", "treasure_goblin_rpc_winterblight_mountain", "treasure_goblin_rpc_roshpit_arena", "treasure_goblin_rpc_sea_fortress"}
 
 function Enemies:ParagonChance(unit)
 	if WallPhysics:DoesTableHaveValue(Enemies.PARAGON_EXCEPTION_TABLE, unit:GetUnitName()) then
@@ -537,12 +540,12 @@ end
 function Enemies:GrantHeroAdjustedEXPForLevel(hero, level_of_slain_enemy, baseEXP)
 	local exp = baseEXP
 	local level_differential = math.abs(hero:GetLevel() - level_of_slain_enemy)
-	print("GRANT EXP")
-	print(exp)
-	print(level_differential)
+	--print("GRANT EXP")
+	--print(exp)
+	--print(level_differential)
 	if level_differential > Enemies.EXP_LEVEL_DIFFERENTIAL then
 		local exp_mult = math.max((1 - Enemies.EXP_DECAY_PER_LEVEL_BEYOND_DIFFERENTIAL*(level_differential-Enemies.EXP_LEVEL_DIFFERENTIAL)), Enemies.MINIMUM_EXP_PERCENTAGE_AFTER_FULL_DECAY )
-		print(exp_mult)
+		--print(exp_mult)
 		exp = exp*exp_mult
 	end
 	if exp > 0 then

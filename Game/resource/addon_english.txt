@@ -51,6 +51,7 @@
 		"npc_dota_hero_winter_wyvern"				"Dinath"
 		"npc_dota_hero_arc_warden"					"Jex"
 		"npc_dota_hero_faceless_void"				"Omniro"
+		"npc_dota_hero_grimstroke"					"Rubilash"
 
 		//--------------------
 		//Hero Lore
@@ -85,6 +86,7 @@
 		"npc_dota_hero_winter_wyvern_lore" "Bitter cold and searing heat are just two of the weapons in ancient Dinath's arsenal."
 		"npc_dota_hero_arc_warden_lore" "The scientist Jex harvests and adapts natural elements to customize his own unique battery of spells."
 		"npc_dota_hero_faceless_void_lore" "Omniro has just one weapon, but a hundred ways to use it."
+		"npc_dota_hero_grimstroke_lore"		""
 		//--------------------
 		//Units
 		//--------------------
@@ -1203,12 +1205,25 @@
 		"gem_forger_fluff"											"I arrive in a thrilling spectacle of color!"
 		"gem_forger_reward_available"								"Reward Available"
 		"gem_forger_go_home"										"Go Home"
+		"gem_forger_salvage"										"Gem Salvage"
+		"gem_forger_salvage_fail"									"Gems can not be salvaged from this item"
 		"tooltip_prismatic_gemstones"								"Prismatic Gemstones"
 		"ui_click_to_collect"										"Click to Collect"
 		"gem_forger_start"											"Forge Gems"
+		"gem_forger_final_salvage"									"Salvage Gems"
+
 
 		"gemforge_item_select_help"									"Select an equipped item or drag an item from your inventory into the slot to view gem forging options."
 		"gemforge_item_cannot_be_forged"							"This item does not have any sockets."
+
+		"gemforge_salvage_select_help"								"Select an equipped item or drag an item from your inventory into the slot to view gem salvage options."
+		"gemforge_salvage_tax"										"Salvage Tax (8%)"
+		"gemforge_salvage_subtotal"									"Subtotal"
+		"gemforge_salvage_premium1"									"Premium Pass Discount (4%)"
+		"gemforge_salvage_premium2"									"Web Premium Discount (4%)"
+		"gemforge_final_salvage_label"								"Final Salvage Value"
+		"gemforge_final_salvage_warning"							"Note: Salvaging an equipped item will automatically save your character."
+
 		"ui_socket"													"Socket"
 		"ui_no_socket"												"No Socket"
 		"ui_open_socket"											"Empty Socket"
@@ -2073,23 +2088,24 @@
 		
 
 
-		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"Dimension Coil"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <font color='#ccff66'>7</font> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every 6 seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"DAMAGE:"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"CAST RANGE:"
+		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"Dimension Coil"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus twists through the dimensional fabric in front of him, immediately appearing in a new location. The dimensional tear creates a beam of focused arcane lightning between the two points that lasts for <font color='#ccff66'>7</font> seconds. Enemies who touch the lightning beam are perpetually stunned and damaged. Every <font color='#ccff66'>6</font> seconds, gain a stack of Dimension Coil that allows a free cast, up to 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"CAST RANGE:"
 
-    	"DOTA_Tooltip_modifier_zonis_stun"										"Dimension Coil Shock"
+    	"DOTA_Tooltip_modifier_arkimus_stun"										"Shock"
+		"DOTA_Tooltip_modifier_arkimus_stun_Description"							"Shocked by Arkimus"
 
-    	"DOTA_Tooltip_modifier_zonis_freecast"									"Dimension Coil Free Cast"
-    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"Dimension Coil Free Cast"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"Your next cast of Dimension Coil will not activate its cooldown."
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] Shell Shock"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"Enemies who touch a Dimension Coil have their armor reduced for 8 seconds."
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_property_one"					"Armor Reduction"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss"							"Shell Shock"
-    	"DOTA_Tooltip_modifier_zonis_q_1_armor_loss_Description"				"Reduced Armor"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss"							"Shell Shock"
+    	"DOTA_Tooltip_modifier_arkimus_q_1_armor_loss_Description"				"Reduced Armor"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_2"									"[Q2] Zonal Net"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_Description"						"After casting Dimension Coil, an electronic net of arcane energy damages and briefly stuns enemies every <font color='#ccff66'>0.2</font> seconds in an area around Arkimus. Lasts <font color='#ccff66'>1</font> second."
@@ -2099,12 +2115,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_suffix_two"						""
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_3"									"[Q3] Malleable Fabric"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic resist reduced for 8 seconds."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Resist Reduction"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_Description"						"Enemies who touch a Dimension Coil have their magic armor reduced for 8 seconds."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"Magic Armor Reduction"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"Malleable Fabric"
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"Reduced magic resist"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"Malleable Fabric"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"Reduced magic armor"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] Arcane Coil"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"Increases the damage of Dimension Coil and Zonal Net (Base Ability Q), and increases the duration of the lightning beams."
@@ -2113,20 +2129,20 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"Coil Duration Increase"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						"%"
 
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"Flash Source"
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"DAMAGE AS % OF ATTACK POWER:"
+    	"DOTA_Tooltip_ability_arkimus_flash_source"								"Flash Source"
+    	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"Element: <font color=\"#E1A2E8\">Arcane</font><br>Toggle on for a flood of arcane energy to enchant Arkimus' weapons, causing his attacks to deal extra arcane damage in an area around the target. Each attack drains mana. Ability is toggled off when mana is too low."
+    	"DOTA_Tooltip_ability_arkimus_flash_source_damage_mult"					"DAMAGE AS % OF ATTACK POWER:"
 
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"Flash Source"
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"Next attack deals AOE arcane damage."
+    	"DOTA_Tooltip_modifier_arkimus_flash_source"							"Flash Source"
+    	"DOTA_Tooltip_modifier_arkimus_flash_source_Description"				"Next attack deals AOE arcane damage."
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] Archon Weapons"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"Striking an enemy with @Ability2 increases base attack damage for <font color='#ccff66'>3</font> seconds."
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_property_one"					"Base Attack Damage"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_suffix"							""
 
-    	"DOTA_Tooltip_modifier_damage_boost_q_1_visible"						"Archon Weapons"
-    	"DOTA_Tooltip_modifier_damage_boost_q_1_visible_Description"			"Increased attack damage."
+    	"DOTA_Tooltip_modifier_arkimus_w_1_damage_buff"						"Archon Weapons"
+    	"DOTA_Tooltip_modifier_arkimus_w_1_damage_buff_Description"			"Increased attack damage."
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_2"									"[W2] Arcane Splice"
     	"DOTA_Tooltip_ability_arkimus_rune_w_2_Description"						"Gain Spell Pierce while @Ability2 is toggled on."
@@ -2151,12 +2167,12 @@
     	"DOTA_Tooltip_modifier_arkimus_w_4_shield"								"Source Relay"
     	"DOTA_Tooltip_modifier_arkimus_w_4_shield_Description"					"Shield negates damage"	
 
-    	"DOTA_Tooltip_ability_ark_jump"											"Orbital Leap"
-    	"DOTA_Tooltip_ability_ark_jump_Description"								"Acrobatically jump to the target location. Every 6 seconds, gain a stack allowing Arkimus to cast this without activating the cooldown, up to a maximum of 2 stacks."
-    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"CAST RANGE:"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap"											"Orbital Leap"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_Description"								"Acrobatically jump to the target location. Every <font color='#ccff66'>6</font> seconds, gain a stack allowing Arkimus to cast this without activating the cooldown, up to a maximum of 2 stacks."
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_cast_range"								"CAST RANGE:"
 
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"Orbital Leap Free Cast"
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"The next cast of Oribtal Leap will not trigger its cooldown."
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast"							"Orbital Leap Free Cast"
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast_Description"				"The next cast of Oribtal Leap will not trigger its cooldown."
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] Grounding Spark"
     	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"Enemies near the landing point of Orbital leap are electrocuted by arcane energy."
@@ -2175,8 +2191,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"Armor Pierce and Spell Pierce"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"Elevated System"
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"Increased Armor Pierce and Spell Pierce"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff"								"Elevated System"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff_Description"					"Increased Armor Pierce and Spell Pierce"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] Boundless Edge"
     	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"Passively increases Agility and Evasion."
@@ -2198,8 +2214,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_property_two"					"Mana Regen per Cell"
     	"DOTA_Tooltip_ability_arkimus_rune_r_1_suffix_two"						""
 
-    	"DOTA_Tooltip_modifier_energy_shield_q_1_buff_visible"					"Vibrational Potency"
-    	"DOTA_Tooltip_modifier_energy_shield_q_1_buff_visible_Description"		"Increased attack power and mana regen"
+    	"DOTA_Tooltip_modifier_arkimus_r_1_buff_visible"						"Vibrational Potency"
+    	"DOTA_Tooltip_modifier_arkimus_r_1_buff_visible_Description"			"Increased attack power and mana regen"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_2"									"[R2] Adaptable Pressure"
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_Description"						"A portion of Arkimus' attack damage is added to Energy Field's damage."
@@ -2211,8 +2227,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"Duration"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" seconds"
 
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"Forcefield"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"All damage taken reduced by 95%%"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield"								"Forcefield"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield_Description"					"All damage taken reduced by <font color='#ccff66'>80</font>%%"
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] Helical Magic"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_Description"						"All <font color=\"#E1A2E8\">Arcane</font> damage passively increased."
@@ -2223,11 +2239,14 @@
     	"item_property_arkimus_arcana1"										"Magnetic Flux"
     	"property_arkimus_arcana1_description"								"Replaces @Ability1 and all of its runes with Magnetic Flux."
 
-    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"Magnetic Flux"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus creates a field of magnetic energy that follows him. Enemies who get within the area are electrocuted, causing them to be stunned for 0.2 seconds."
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"DAMAGE:"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"DURATION:"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"EXTRA DAMAGE PER INTELLIGENCE:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux"									"Magnetic Flux"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_Description"						"Element: <font color=\"#E1A2E8\">Arcane</font> / <font color=\"#5CCDF9\">Lightning</font><br>Arkimus creates a field of magnetic energy that follows him. Enemies who get within the area are electrocuted, causing them to be stunned for 0.2 seconds."
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_damage"							"DAMAGE:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_duration"						"DURATION:"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_int_damage"						"EXTRA DAMAGE PER INTELLIGENCE:"
+
+    	"DOTA_Tooltip_modifier_arkimus_magnetic_flux_buff"									"Magnetic Flux"
+    	"DOTA_Tooltip_modifier_arkimus_magnetic_flux_buff_Description"						"Shocks enemies in the vicinity"
 
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
 
@@ -2241,13 +2260,16 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_property_one"					"Magic Armor Loss"
     	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1_suffix"							""
 
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_2_debuff"										"Power Surge"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_2_debuff_Description"							"Reduced Magic Armor."
+
      	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1"									"[Q3] Induction"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_Description"						"Taking damage adds an Induction stack. Each stack reduces damage taken by <font color='#ccff66'>1</font>% independently (meaning there is diminishing returns). Lasts <font color='#ccff66'>60</font> seconds and persists through death"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"Max Stacks"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"Induction"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"Each stack independently reduces damage taken by <font color='#ccff66'>1</font>%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff"										"Induction"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff_Description"							"Each stack independently reduces damage taken by <font color='#ccff66'>1</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] Arcane Channel"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"While Magnetic Flux is active, Arkimus gains bonus agility and enhanced <font color=\"#5CCDF9\">Lightning</font> damage based on Agility."
@@ -2256,15 +2278,15 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"Lighting Amp"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"%"
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"Arcane Channel"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"Increased agility and lightning damage."
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff"										"Arcane Channel"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff_Description"							"Increased agility and lightning damage."
 
     	"item_property_arkimus_arcana2"										"Archon Form"
     	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
 
-    	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"After a 2 second channel Arkimus merges into Archon Form, where he has +<font color='#ccff66'>250</font> attack speed, ranged attacks and takes reduced damage. All damage is converted to PHYSICAL damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
-    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE:"
+    	"DOTA_Tooltip_ability_arkimus_archon_form"										"Archon Form"
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"							"After a 2 second channel Arkimus merges into Archon Form, where he has <font color='#ccff66'>20</font>% reduced base attack time, +<font color='#ccff66'>250</font> attack speed, ranged attacks and takes reduced damage. All damage is converted to PHYSICAL damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE BONUS:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
 
@@ -2293,7 +2315,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"					"Extra Attack Chance"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"							"%"
         "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_two"                    "Base Attack Time Reduction"
-        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"                      "s"
+        "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"                      "%"
 		
 		//Glyphs
 		"DOTA_Tooltip_ability_item_rpc_arkimus_glyph_1_1"		"[T1-1] Glyph of Energy Focus"
@@ -2488,14 +2510,14 @@
     	"DOTA_Tooltip_ability_astral_rune_r_1_suffix_two"				""
 		
 		"DOTA_Tooltip_ability_astral_rune_r_2"                          "[R2] Star Quake"
-        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "Increases the damage of [R1]. Each star also slams the ground on impact, dealing its damage in a small area around the primary target and stunning all affected enemies for 0.03 seconds."
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage of [R1] Starstorm"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "%"
-        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Radius"
-        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				""
+        "DOTA_Tooltip_ability_astral_rune_r_2_Description"              "2 seconds after a successful Celestial Burst channel, 7 additional explosions deal damage in a circle around Astral Ranger"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_one"             "Damage"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix"                   "x Sum of All Attributes"
+        "DOTA_Tooltip_ability_astral_rune_r_2_property_two"             "Stun Duration"
+        "DOTA_Tooltip_ability_astral_rune_r_2_suffix_two"				" seconds"
 		
 		"DOTA_Tooltip_ability_astral_rune_r_3"							"[R3] Phoenix"
-    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1200</font> around her. These attacks deal damage based on the Ranger's total attack power."
+    	"DOTA_Tooltip_ability_astral_rune_r_3_Description"				"Summon an aspect of the Phoenix Constellation when @Ability4 is successfully cast. The aspect will attend the Astral Ranger for <font color='#ccff66'>20</font> seconds, constantly bombarding all enemies in an extreme radius (<font color='#ccff66'>1200</font> around her. These attacks deal damage based on the Ranger's total attack power. Only 1 Phoenix can be active at a time."
     	"DOTA_Tooltip_ability_astral_rune_r_3_property_one"				"Phoenix Damage"
     	"DOTA_Tooltip_ability_astral_rune_r_3_suffix"					"% of attack power"
 		"DOTA_Tooltip_ability_astral_rune_r_3_property_two"				"Phoenix Damage"
@@ -3105,7 +3127,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "Increased Magic Resistance and Armor."
 		
 	"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] Cyclone Shield"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>40</font>%, and 1 stack is lost every time damage is taken."
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "Casting Redmist Cyclone has a chance of applying stacks of temporary shielding that last 7 seconds. While the shield is active all incoming damage is reduced by <font color='#ccff66'>50</font>%, and 1 stack is lost every time damage is taken."
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "Shield Chance"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -5487,14 +5509,14 @@
     	"DOTA_Tooltip_ability_ekkan_rune_q_2_suffix"						"%"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3"								"[Q3] Dark Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <font color='#ccff66'>1000</font> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_Description"					"When a dominated unit gets a killing blow on an enemy, it gains permanent attack damage, armor and magic armor bonus. Max <font color='#ccff66'>1000</font> stacks of bonus Damage."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_one"					"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix"						""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_property_two"					"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_suffix_two"					""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks"						"Dark Journey Stacks"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_Description"			"Harvested the souls of enemies, increasing armor and attack power."
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible"						"Dark Journey Stacks"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_visible_Description"			"Harvested the souls of enemies, increasing armor and attack power."
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4"								"[Q4] Grim Alacrity"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_Description"					"Dominated enemies have increased movespeed and attack speed."
@@ -5665,14 +5687,14 @@
     	"DOTA_Tooltip_modifier_swarm_effect_Description"						"Taking damage every 0.5 seconds and losing Armor and Magic Armor. On death, generate an additional corpse"
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1"							"[Q3] Aphotic Journey"
-    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <font color='#ccff66'>1000</font> stacks."
+    	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_Description"				"When an enemy unit dies within 1200 range of the Aphotic Dominion unit, it gains permanent Attack amage, Armor, and Magic Armor bonus. Max <font color='#ccff66'>1000</font> stacks for Damage Bonus."
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_one"				"Attack Damage Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix"					""
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_property_two"				"Armor and Magic Armor Bonus"
     	"DOTA_Tooltip_ability_ekkan_rune_q_3_arcana1_suffix_two"				""
 
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black"						"Aphotic Journey"
-    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_Description"			"Permanently increased Attack Damage, Armor and Magic Armor"	
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible"						"Aphotic Journey"
+    	"DOTA_Tooltip_modifier_ekkan_dominion_stacks_black_visible_Description"			"Permanently increased Base Attack Damage."	
 
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1"							"[Q4] Gravekeeper Aura"
     	"DOTA_Tooltip_ability_ekkan_rune_q_4_arcana1_Description"				"The Aphotic Dominion unit has an aura that provides bonus attack damage %, Armor and Magic Armor to nearby summons and Ekkan. Every 5 seconds, the aura pulses, adding a 2 stack shield to all units in range that absorbs 1 instance of damage per stack."
@@ -5941,7 +5963,7 @@
     	"DOTA_Tooltip_ability_warlord_rune_e_4_suffix"					"%"
 
  		"DOTA_Tooltip_ability_elemental_overload_2"							"Elemental Overload"
-		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide 90% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
+		"DOTA_Tooltip_ability_elemental_overload_2_Description"				"Element: <font color=\"#EF4126\">Fire</font> / <font color=\"#87D9FF\">Ice</font><br>Releases your elemental charges - Ice charges increase the radius of the Ice Blast, Fire charges release fireballs, and Earth Charges restore health and provide <font color='#ccff66'>60</font>% damage reduction. Charges are gained by attacking enemies or by hitting them with throwing axes. Half of all elemental charges are consumed."
 		"DOTA_Tooltip_ability_elemental_overload_2_Lore"					""
 		"DOTA_Tooltip_ability_elemental_overload_2_heal_per_earth_charge"	"HEAL PER EARTH CHARGE:" 
 		"DOTA_Tooltip_ability_elemental_overload_2_protection_per_earth_charge"	"EARTH SHIELD DURATION PER EARTH CHARGE:" 
@@ -5951,7 +5973,7 @@
 		"DOTA_Tooltip_ability_elemental_overload_2_fireball_damage"				"FIREBALL DAMAGE:" 
 
 		"DOTA_Tooltip_modifier_overload_damage_resistance"					"Earth Shield"
-		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by 90%"
+		"DOTA_Tooltip_modifier_overload_damage_resistance_Description"		"Damage taken reduced by <font color='#ccff66'>60</font>%%"
 
       	"DOTA_Tooltip_ability_warlord_rune_r_1"							"[R1] Earthen Overload"
     	"DOTA_Tooltip_ability_warlord_rune_r_1_Description"				"Restore a % of the initial heal every 1 second for 8 seconds after casting Elemental Overload. Additionally for the duration, all enemies in a 1000 radius take damage each second."
@@ -5980,7 +6002,7 @@
     	"DOTA_Tooltip_modifier_warlord_rune_r_3_effect_Description"		"Increased Attack Damage"
 
 		"DOTA_Tooltip_ability_warlord_rune_r_4"							"[R4] Uproar"
-    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for 16 seconds after casting Elemental Overload depending on the number of charges consumed."
+    	"DOTA_Tooltip_ability_warlord_rune_r_4_Description"				"Warlord gains Attack Damage for <font color='#ccff66'>25</font> seconds after casting Elemental Overload depending on the number of charges consumed."
     	"DOTA_Tooltip_ability_warlord_rune_r_4_property_one"			"Attack Damage Per Charge"
     	"DOTA_Tooltip_ability_warlord_rune_r_4_suffix"					""
 
@@ -6080,7 +6102,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] Enveloping Cold"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>50</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "While the Warlord is standing in a Frost Scathe area, a frosty coat condenses around him, which increases Intelligence and reduces damage taken by <font color='#ccff66'>75</font>%. The shield has a scaling linger duration after leaving an Ice Scathe area."
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "Linger Duration:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " seconds"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "Bonus Intelligence"
@@ -6132,7 +6154,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"Increases the maximum Fire, Ice, and Earth charges by <font color='#ccff66'>5</font>."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] Glyph of Warfare"
-		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>30</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>460</font> AOE around main target. Damage is considered as item damage."
+		"item_rpc_warlord_glyph_7_1_description" 				"Basic attacks explode and deal <font color='#ccff66'>90</font>% of your attack damage as magical <font color=\"#EF4126\">Fire</font>/<font color=\"#87D9FF\">Ice</font> in <font color='#ccff66'>340</font> AOE around main target. Damage is considered as item damage."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] Glyph of Thermogenesis"
 		"item_rpc_warlord_glyph_5_a_description" 				"Taking damage adds <font color='#ccff66'>2</font> Fire Charges. Each active Ice Charge increases Spell Pierce <font color='#ccff66'>40</font>."
@@ -6219,7 +6241,7 @@
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"Attacks drain mana and deal extra damage"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] Overtime"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"Casting @Ability1 drains <font color='#ccff66'>50</font>% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana [Q3] drains per attack."
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"Casting @Ability1 drains <font color='#ccff66'>100</font>% of Epoch Guardian's maximum mana to increase the spell's impact damage, and damage over time, based on the amount of mana drained. Additionally, increases the amount of mana [Q3] drains per attack."
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"Damage Bonus"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% for each 100 Mana Drained"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"Additional Aeon Strike mana drain"
@@ -6256,7 +6278,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"@Ability2 drains an additional <font color='#ccff66'>5</font>% maximum mana on cast, increasing its damage based on mana drained."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Damage Bonus"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% for each 100 Mana Drained"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% of Mana Drained"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Element: <font color=\"#B5FFB7\">Temporal</font><br>Creates a distortion of space that travels directly in front of the Epoch Guardian. Activating the ability again before the orb expires moves the Guardian to the Orb's location. Distortion orb deals double damage to Time Bound targets. Your first Genesis Orb after jaunting deals double damage."
@@ -7661,24 +7683,29 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_q_4_property_two" "Magic Immunity Break Chance"
         "DOTA_Tooltip_ability_mountain_protector_rune_q_4_suffix_two"   "%"
 		
-		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"					"Mountain Guardian"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"		"Harnesses the protection of the mountains to defend against aggressors. While in this stance, Mountain Protector has increased armor and magic armor, and cannot move. Mana is drained each second while it is active. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"ARMOR AND MAGIC ARMOR:"
-    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"MANA DRAINED PER SECOND:"
+		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian"							"Mountain Guardian"
+		"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_Description"				"Harnesses the protection of the mountains to defend against aggressors. While in this stance, Mountain Protector has increased armor and magic armor, and cannot move. Drains <font color='#ccff66'>1</font> times mana cost every <font color='#ccff66'>1</font>s. Shockwave consumes 1% of max mana per ability level while in Mountain Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"	"ARMOR AND MAGIC ARMOR:"
 
-    	"DOTA_Tooltip_modifier_energy_channel"									"Mountain Guardian"
-    	"DOTA_Tooltip_modifier_energy_channel_Description"						""
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian"									"Mountain Guardian"
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] Mountain Echoes"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Increases health regeneration by a % of maximum health while channeling @Ability2."	
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"Increases health regeneration by a % of maximum health while @Ability2 is toggled on."	
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"Health Regen"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"% of max health"
+
+		"DOTA_Tooltip_modifier_mountain_protector_w_1"					"Mountain Echoes"
+		"DOTA_Tooltip_modifier_mountain_protector_w_1_Description"		"Health regeneration increased by a %% of maximum health"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] Guardian's Wrath"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Spell Pierce is enhanced while in Mountain's Guardian stance."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"Spell Pierce is enhanced while @Ability2 is toggled on."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"Spell Pierce"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_2"					"Guardian's Wrath"
+		"DOTA_Tooltip_modifier_mountain_protector_w_2_Description"		"Spell Pierce increased"
+
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] Guardian's Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"Enemies within 500 range of Mountain Guardian are periodically zapped, taking a % of a sum of Mountain Protector's attack damage and Max HP values."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"Damage"
@@ -7686,13 +7713,20 @@
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura_Description"		"Zaps nearby enemies"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap_Description"		"Getting zapped by Mountain Protector"
+		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] Prevailing Guardian"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"Increases the armor of Mountain Protector and nearby allies while in Mountain Guardian stance."
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_property_one"	"Armor"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_suffix"		""
 		
-		"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect"			"Prevailing Guardian"
-    	"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect_Description"	"Increased Armor from Mountain Protector"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_Description"		"Gives nearby allies additional armor"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff_Description"		"Armor increased"
 
     	"DOTA_Tooltip_ability_mountain_protector_emberstone"					"Emberstone"
     	"DOTA_Tooltip_ability_mountain_protector_emberstone_Description"		"Tosses a fiery stone toward the target location. The Mountain Protector moves to the stone's position 0.4 seconds after impact."
@@ -7771,16 +7805,15 @@
 		"item_property_mountain_protector_arcana1"										"Steelforge Stance"
     	"property_mountain_protector_arcana1_description"								"Replaces @Ability2 and all of its runes with Steelforge Stance."
 
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"Steelforge Stance"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"Mountain Protector forges her body with Mountain Steel, increasing armor and health regen and reducing all damage taken. Emberstones are made of steel, making them travel faster."
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"ARMOR:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"DAMAGE RESIST:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"		"% HEALTH REGEN:"
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"MANA DRAIN PER SECOND:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"							"Steelforge Stance"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"				"Mountain Protector forges her body with Mountain Steel, increasing armor and health regen and reducing all damage taken. Emberstones are made of steel, making them travel faster. Drains <font color='#ccff66'>1</font> times mana cost every <font color='#ccff66'>1</font>s."
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"					""
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"	"ARMOR:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"			"% DAMAGE RESIST:"
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"			"% HEALTH REGEN:"
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"Steelforge Stance"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"Increased armor and reduced damage taken."
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"Steelforge Stance"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"Increased armor and reduced damage taken."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] Steelforge Shock"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"When switching into Steelforge Stance, damage and stun all enemies for 0.5 seconds in an 800 radius around the caster. Pierces magic immunity."
@@ -7795,6 +7828,9 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "Attack Slow"
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
+
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] Steelforge Fury"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"When taking damage during Steelforge Stance, fire a cold beam that deals damage based on attack power that also applies a 0.03s ministun."
@@ -8700,6 +8736,273 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"Hammer of Auriel"
     	"item_property_paladin_immortal_weapon3"								"Might of Auriel"
     	"property_paladin_immortal_weapon3_description"						"Each point of strength additionally increases Max Health by <font color='#ccff66'>12</font>."
+
+"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"#FF0000\">Red</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"#0000FF\">Blue</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"#FFFF00\">Yellow</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"#FF8800\">Orange</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"#00FF00\">Green</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"#AA00DD\">Purple</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"#000000\">Black</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"Soaked in Rubilash's Paint"
+
+"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"#FFFFFF\">White</font> Paint"
+"DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"Soaked in Rubilash's Paint"
+
+"rubilash_q_base_name"										"Phantom Brush"
+"rubilash_w_base_name"										"Ink Blot"
+"rubilash_e_base_name"										"Paint Splatter"			
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"Phantom Brush [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"Phantom Brush [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Winds up for <font color='#ccff66'>0.8</font> seconds and throws a powerful brushstroke of thick paint towards the target location. Cast Range buffs increase the paint's distance."
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"PAINT DISTANCE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"Ink Blot [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"Ink Blot [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"Ink Blot [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"Ink Blot [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Throws a little glob of paint that damages enemies at the target location once it reaches its destination."
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"DAMAGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"Paint Splatter [<font color=\"#FF0000\">Red</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FF0000\">Red</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#FFFF00\">Yellow</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"Paint Splatter [<font color=\"#FFFF00\">Yellow</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FFFF00\">Yellow</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#0000FF\">Blue</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"Paint Splatter [<font color=\"#0000FF\">Blue</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#0000FF\">Blue</font>] paint. Using this ability toggles Rubilash's current paint color to [<font color=\"#FF0000\">Red</font>].<br><br>When an enemy is covered in paint, they take increased damage from that same paint color. When an enemy is covered in multiple different paints, the paints mix and create a larger damage multiple. All base paint colors have their own independant durations on enemies.<br><br>[<font color=\"#FF0000\">Red</font>] Paint -> Take 2x damage from <font color=\"#FF0000\">Red</font> Paint.<br>[<font color=\"#FFFF00\">Yellow</font>] Paint -> Take 2x damage from <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#0000FF\">Blue</font>] Paint -> Take 2x damage from <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#FF8800\">Orange</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#FFFF00\">Yellow</font> Paint.<br>[<font color=\"#00FF00\">Green</font>] Paint -> Take 4x damage from <font color=\"#FFFF00\">Yellow</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#AA00DD\">Purple</font>] Paint -> Take 4x damage from <font color=\"#FF0000\">Red</font> and <font color=\"#0000FF\">Blue</font> Paint.<br>[<font color=\"#000000\">Black</font>] Paint -> Take 8x damage from <font color=\"#FF0000\">Red</font>, <font color=\"#0000FF\">Blue</font> and <font color=\"#FFFF00\">Yellow</font> Paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"Paint Splatter [<font color=\"#FFFFFF\">White</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"Element: <font color=\"#5B648C\">Demon</font> / <font color=\"#9ACCD1\">Ghost</font><br>Teleports to the target location and soaks enemies at the destination in [<font color=\"#FFFFFF\">White</font>] paint. White paint gains the benefits of ALL other paint colors. Enemies covered in [<font color=\"#FFFFFF\">White</font>] paint take 2x damage from [<font color=\"#FFFFFF\">White</font>] paint."
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"DAMAGE:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"CAST RANGE:"
+
+"DOTA_Tooltip_Ability_rubilash_self_portrait"			"Self Portrait"
+"DOTA_Tooltip_Ability_rubilash_self_portrait_Description"			"Rubilash paints a masterpiece portrait of himself that follows him around and copies all his spell casts. The Self Portrait mirrors Rubilash's ability casts on a <font color='#ccff66'>0.5</font> second delay."
+"DOTA_Tooltip_Ability_rubilash_self_portrait_duration"	"DURATION:"
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] Brushwork"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_Description"			"Increases Cast Range for Rubilash's spells."
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_property_one"			"Cast Range"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] Marked Red"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"Enemies painted <font color=\"#FF0000\">Red</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#AA00DD\">Purple</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor."
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"Armor and Magic Armor Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] Haunting Impression"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_Description"				"Enemies hit by @Ability1 run away in fear."
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_property_one"			"Fear Duration"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_suffix"					" seconds"
+
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"Haunting Impression"
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"Feared"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] Malevolent Artistry"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"Increases all <font color=\"#5B648C\">Demon</font> and <font color=\"#9ACCD1\">Ghost</font> Elemental Damage."
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"Elemental Amp"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] Adhesion"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_Description"				"Increases how long paint sticks to enemies. Base Paint Duration is <font color='#ccff66'>9</font> seconds."
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"Paint Duration Increase"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" seconds"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Enemies painted <font color=\"#FFFF00\">Yellow</font>, <font color=\"#FF8800\">Orange</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Armor Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Magic Armor and Armor Pierce Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
+
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] Freehand"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"Increases Attack Speed, and Rubilash's basic attacks create an @Ability2 explosion beneath the targetted enemy."
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Attack Speed Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Damage"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% of Ink Blot damage"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"Enemies who are painted have reduced attack speed and move speed. The debuff is amplified 2x when painted <font color=\"#FF8800\">Orange</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#AA00DD\">Purple</font>, and 3x when painted <font color=\"#000000\">Black</font>."
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"Attackspeed and Movespeed Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					" while Painted"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_1"							"[E1] Refill"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_Description"				"Restore Mana when casting @Ability3. Each point of current mana increases Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_one"			"Mana Restore"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_two"			"Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" per mana"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] Eerie Blue"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Enemies painted <font color=\"#0000FF\">Blue</font>, <font color=\"#AA00DD\">Purple</font>, <font color=\"#00FF00\">Green</font>, or <font color=\"#000000\">Black</font> have reduced Magic Armor and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Magic Armor and Spell Pierce Loss"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"Rubilash is healed each time any Paint effect is applied to an enemy unit."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% of Base Paint damage before Base Ability and Elemental Amplfication"		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] Phantom Palette"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"All Attributes increase Max Health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"Max Health Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" per Attribute"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] Virtuoso"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"Rubilash gains Spell Pierce from Agility."
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"Spell Pierce Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" per Agility"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] Shadow Painter"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"After casting @Ability4 gain invisibility. This invisibility is only broken briefly when attacking or casting a spell. Gain Item Damage and Base Ability Damage while invisible by any means."
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"Invisible Duration"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"Base Ability and Item Damage Enhance"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				"% while invisible"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] Dripping Brush"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"The Self Portrait casts a bonus @Ability2 at the nearest enemy within range on an interval."
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"Cast Interval"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					" seconds"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"Cast Range"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix_two"				""		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] Depiction"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"Self Portrait has increased movespeed and its mirror actions are on a shorter delay."
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"Self Portrait Action Delay"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" seconds"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_two"			"Self Portrait Movespeed"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix_two"				""	
+
+	//Glyphs
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] Glyph of Etching"
+	"item_rpc_rubilash_glyph_1_1_description" 				"Increases the travel speed of @Ability2 by <font color='#ccff66'>120</font>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] Glyph of Finesse"
+	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 toggles Rubilash's color and has <font color='#ccff66'>100</font>% Base Ability Damage"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] Glyph of Graffiti"
+	"item_rpc_rubilash_glyph_3_1_description" 				"Rubilash's Self Portrait casts @Ability3 at a nearby random location within <font color='#ccff66'>300</font> range every <font color='#ccff66'>2</font> seconds"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] Glyph of Sealant"
+	"item_rpc_rubilash_glyph_4_1_description" 				"Increases Magic Armor by <font color='#ccff66'>5000</font>."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
+	"item_rpc_rubilash_glyph_5_1_description" 				"All Blue Paint breaks Magic Immunity."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
+	"item_rpc_rubilash_glyph_6_1_description" 				"All Red Paint deals <font color='#ccff66'>400</font>% more damage and has Physical damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] Glyph of Yellow Paint"
+	"item_rpc_rubilash_glyph_7_1_description" 				"All Yellow Paint deals <font color='#ccff66'>-50</font>% reduced damage and has Pure damage type."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] Glyph of Black Paint"
+	"item_rpc_rubilash_glyph_5_a_description" 				"While at least 1 enemy is painted black, gain <font color='#ccff66'>300</font>% Attack Power."
+
+	//Weapons
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_01"		"Broom Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_02"		"Novice Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_03"		"Ink Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_11"		"Paint Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_12"		"Artist's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_13"		"Palette Stick"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_14"		"Paint Mixer"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_21"		"Master's Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_22"		"Vision Sweeper"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_23"		"Acrylic Rod"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quicksilver Font"
+	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
+	"property_rubilash_immortal_weapon_description"                      "@Ability1 has no cast point and <font color='#ccff66'>100</font>% increased Base Ability Damage."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Bloody Pinion"
+	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
+	"property_rubilash_immortal_weapon2_description"                      "Increases Max Health by <font color='#ccff66'>250</font>%, and reduces all healing effects received by <font color='#ccff66'>60</font>%."
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "Masterwork Brush"
+	"item_property_rubilash_immortal_weapon3"                             "Paint Mastery"
+	"property_rubilash_immortal_weapon3_description"                      "All Base Paint damage is increased by <font color='#ccff66'>1</font>x Agility and Intelligence and <font color='#ccff66'>5</font>% of Attack Power."
+
+	//ARCANAS
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"Masterstroke Trappings"
+
+	"item_property_rubilash_arcana1"										"White Paint"
+	"property_rubilash_arcana1_description"									"Replaces @Ability3 and all of its runes with Paint Splatter [<font color=\"#FFFFFF\">White</font>]."
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] Fresh Coat"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"Casting @Ability3 restores health."
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_property_one"			"Heal"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_suffix"					"% of Max Health"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1"						"[E2] Masterpiece"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_Description"			"Greatly increases Armor Pierce and Spell Pierce."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_property_one"			"Armor Pierce & Spell Pierce"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Increases all base paint damage by a flat amount."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Paint Damage Increase"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
+
+		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_Description"			"Increases all attributes, and all attributes increase Base Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_one"			"Attribute Bonus"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_two"			"Attack Damage"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix_two"				" per attribute"
 
     	//Abilities
 
@@ -9797,12 +10100,12 @@
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3"                     "[W2] Blades of Neptune"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_Description"             "Vorpal Blades restore mana to Solunia when striking an enemy, and deal additional damage based on her current mana."
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_one"            "Mana Restored"
-        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  "per hit" 
+        "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix"                  " per hit" 
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_property_two"            "Additional Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_2_arcana3_suffix_two"              "% of current mana" 
 
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3"                     "[W3] Binary Rift"
-        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a 20% chance to deal a critical strike."
+        "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description"         "Grants Vorpal Blades a <font color='#ccff66'>25</font>% chance to deal a critical strike."
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one"        "Critical Damage"
         "DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_suffix"              "%"
 
@@ -11995,8 +12298,8 @@
 
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"Boots of the Violet Guard"
 
-		"item_property_violet_boot"					"Violet Light"
-		"property_violet_boot_description"			"Reduces cooldown of @Ability4 by <font color='#ccff66'>35</font>%."
+		"item_property_boots_of_the_violet_guard"					"Violet Light"
+		"property_boots_of_the_violet_guard_description"			"Reduces cooldown of @Ability4 by <font color='#ccff66'>35</font>%."
 
     	"item_rpc_boots_of_the_violet_guard_ruby1"						"Increases movespeed @ruby_property1 and attack speed by @ruby_property2"
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
@@ -12041,19 +12344,19 @@
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion"	"Glass Dancer (Emerald)"
 		"DOTA_Tooltip_modifier_crystalline_emerald_in_motion_Description"	"Increased Evasion while in motion"
 
-        "DOTA_Tooltip_ability_item_rpc_dunetread_boots"                                 "Dunetreads"
-        "item_property_dunetread"                   "Dunewalker"
-        "property_dunetread_description"            "Reduces the cooldown of @Ability3 by <font color='#ccff66'>2</font> seconds."
+        "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
+        "item_property_dunetreads"                   "Dunewalker"
+        "property_dunetreads_description"            "Reduces the cooldown of @Ability3 by <font color='#ccff66'>2</font> seconds."
 
-        "item_rpc_dunetread_boots_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
-        "item_rpc_dunetread_boots_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
-        "item_rpc_dunetread_boots_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
-        "item_rpc_dunetread_boots_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
+        "item_rpc_dunetreads_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
+        "item_rpc_dunetreads_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
+        "item_rpc_dunetreads_sapphire1"                                    "While [E] is not on cooldown, gain @sapphire_property1 movement speed and max movement speed"
+        "item_rpc_dunetreads_amethyst1"                                    "Each point of Agility increases Armor and Magic Armor by @amethyst_property1"
 
         "DOTA_Tooltip_ability_item_rpc_emerald_speed_runners"                           "Emerald Speed Runners"
 
-        "item_property_emerald_speed"                           "Stable Pace"
-        "property_emerald_speed_description"                    "Movespeed can not fall below <font color='#ccff66'>500</font>"
+        "item_property_emerald_speed_runners"                           "Stable Pace"
+        "property_emerald_speed_runners_description"                    "Movespeed can not fall below <font color='#ccff66'>500</font>"
 
         "item_rpc_emerald_speed_runners_ruby1"                          "Increases Stable Pace minimum movespeed by an additional @ruby_property1"
         "item_rpc_emerald_speed_runners_emerald1"                           "Increases Agility by @emerald_property1, and your Agility can not be less than @emerald_property2"
@@ -12425,8 +12728,8 @@
         "DOTA_Tooltip_modifier_tranquil_boots_amethyst_Description" "Restoring health on <font color='#ccff66'>2</font> second intervals"
 
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
-        "item_property_voyager"                     "Voyager"
-        "property_voyager_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time."
+        "item_property_voyager_boots"                     "Voyager"
+        "property_voyager_boots_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time. Can't trigger more than once every <font color='#ccff66'>0.2</font>s."
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
@@ -12487,17 +12790,17 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"While Refraction is active, increase attack power by @sapphire_property1%"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"Casting [Q] has a @amethyst_property1% chance to add a Refraction stack as long as there is at least 1 stack already. Max of <font color='#ccff66'>7</font> shield stacks."
 
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
-		"item_property_violet_guard_armor"			"Violet Conqueror"
-		"property_violet_guard_armor_description"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
+		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"property_armor_of_the_violet_guard_description"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Reduced Armor."
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <font color='#ccff66'>10</font> seconds."
-		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <font color='#ccff66'>10</font> seconds."
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
@@ -12642,11 +12945,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldowns are reduced by <font color='#ccff66'>66</font>% and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+		"item_property_enchanted_solar_cape"				"Solar Flare"
+		"property_enchanted_solar_cape_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldowns are reduced by <font color='#ccff66'>66</font>% and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
 		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
@@ -12836,14 +13139,14 @@
 
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_one"					"Watcher I"
+		"property_plate_of_the_watcher_one_description"			"Increases cooldown of @Ability1 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_two"					"Watcher II"
+		"property_plate_of_the_watcher_two_description"			"Increases cooldown of @Ability2 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_three"				"Watcher III"
+		"property_plate_of_the_watcher_three_description"		"Increases cooldown of @Ability3 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_four"				"Watcher IV"
+		"property_plate_of_the_watcher_four_description"			"Increases cooldown of @Ability4 by <font color='#ccff66'>50</font>% and increases its Base Ability Damage by <font color='#ccff66'>175</font>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"
@@ -13656,7 +13959,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font>. Attacking or casting removes the invisibility."
+		"property_shadow_armlet_description"	"<font color='#ccff66'>15</font>% chance on taking damage to go invisible for <font color='#ccff66'>5</font> seconds. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
     	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=\"#7F4F84\">Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
@@ -13700,8 +14003,8 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by <font color='#ccff66'>60</font>%."
+		 "item_property_spellfire_gloves"								"Spellfire"
+		 "property_spellfire_gloves_description"						"Cast rate is increased by <font color='#ccff66'>60</font>%."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <font color='#ccff66'>0.5</font> second delay"
     	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"
@@ -14208,8 +14511,8 @@
 		"DOTA_Tooltip_ability_thorok_toggle_ai_Description"	"Toggle on for Thorok to have default behaviour"
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"Mask of the Phantom Sorcerer"
-		"item_property_phantom_sorcerer"			"Phantom Gaze"
-		"property_phantom_sorcerer_description"		"@Ability2 has <font color='#ccff66'>240</font>% more Base Ability Damage and has an extra <font color='#ccff66'>4</font> seconds added to its cooldown."
+		"item_property_mask_of_the_phantom_sorcerer"			"Phantom Gaze"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 has <font color='#ccff66'>240</font>% more Base Ability Damage and has an extra <font color='#ccff66'>4</font> seconds added to its cooldown."
 
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"Increases [W] Base Ability damage by an additional @ruby_property1% and increases the cooldown penalty by an additional @ruby_property2 seconds"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"Increases [W2] Rune by @emerald_property1"
@@ -14348,8 +14651,8 @@
 		"item_rpc_tricksters_mask_amethyst1" "Standing still in the Scoundrel's range for @amethyst_property1 seconds applies invisibility. Invisibility breaks from performing an action."
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_a"												"Hypercast A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <font color='#ccff66'>40</font>%."
+		"item_property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Increases Rune [Q1] by @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"Increases Rune [Q3] by @emerald_property1"
@@ -14357,8 +14660,8 @@
 		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Increases Rune [Q4] by @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_b"												"Hypercast B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <font color='#ccff66'>1</font> second."
+		"item_property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <font color='#ccff66'>1</font> second."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Increases Rune [W1] by @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Increases Rune [W3] by @emerald_property1"
@@ -14366,8 +14669,8 @@
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_amethyst1" "Increases Rune [W4] by @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
-		"property_twisted_mask_of_ahnqhir_c"												"Hypercast C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <font color='#ccff66'>40</font>%."
+		"item_property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Increases Rune [E1] by @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"Increases Rune [E3] by @emerald_property1"
@@ -14387,13 +14690,13 @@
 		"DOTA_Tooltip_modifier_undertaker_magic_armor_loss_Description"	"Reduced Magic Armor"
 
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"Veil of the Cerulean Highguard"
-		"item_property_cerulean_highguard"			"Concentrated Mana"
-		"property_cerulean_highguard_description"	"@Ability2 costs <font color='#ccff66'>240</font>% more mana and deals <font color='#ccff66'>180</font>% increased damage."
+		"item_property_veil_of_the_cerulean_high_guard"			"Concentrated Mana"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 costs <font color='#ccff66'>240</font>% more mana and deals <font color='#ccff66'>180</font>% increased damage."
 
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"Increases Max Mana by @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"Increases Spell Pierce by @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "Increases Mana Regen by @sapphire_property1"
-		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "Increases [W] damage by an additional @amethyst_property1, and increases mana cost by an additional @amethyst_property2"
+		"item_rpc_veil_of_the_cerulean_high_guard_amethyst1" "Increases [W] damage by an additional @amethyst_property1%, and increases mana cost by an additional @amethyst_property2%"
 
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
@@ -14972,8 +15275,8 @@
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='#3894FF'>Water</font>, <font color='#5B648C'>Demon</font>, <font color='#69BC71'>Nature</font>, <font color='#5C776E'>Undead</font>, and <font color='#3289C7'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
-        "item_property_signus"                      "Authority"
-        "property_signus_description"               "Decreases cooldown of @Ability4 by <font color='#ccff66'>50</font>%. Increases the cooldown of @Ability3 by <font color='#ccff66'>125</font>%."
+        "item_property_signus_charm"                      "Authority"
+        "property_signus_charm_description"               "Decreases cooldown of @Ability4 by <font color='#ccff66'>50</font>%. Increases the cooldown of @Ability3 by <font color='#ccff66'>125</font>%."
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
         "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <font color='#ccff66'>1</font> seconds."
@@ -16079,7 +16382,8 @@
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage"				"Ravage of Abyss"
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_Description"	"Abomination impales enemies in 2000 range, stunning them, throwing in the air and dealing magical damage."
 		"DOTA_Tooltip_ability_arena_descent_boss_ravage_duration"		"STUN DURATION:"
-		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam"							"Unstable Ground"
+		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_Description"				"Abomination slams the ground, stunning inflicted targets and dealing damage."
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_damage"			"DAMAGE:"
 		"DOTA_Tooltip_ability_arena_descent_boss_fist_slam_stun_duration"	"STUN DURATION:"
 		
@@ -17905,7 +18209,8 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"Archon Blaze"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"Shocks the ground damaging and stunning enemies in an area"
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"Archon Form"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form_Description"		"The Archon Wizard is able to use the power from another dimension to boost his physical powers. This allows him to attack faster and even summon duplicate attacks and arcane energies from alternative universes."
 
 		"sea_fortress_paladin_golem"									"Hollow One"
 		"seafortress_archon_wizard"										"Archon Wizard"
@@ -20497,7 +20802,7 @@
 		"DOTA_Tooltip_ability_winterblight_luna_blessing_bonus_damage"		"BONUS DAMAGE:"
 
 		"DOTA_Tooltip_ability_luna_taskmaster_shield"				"Moon Shield"
-		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 99% until shield is broken. Lose 1 charge each time damage is taken."
+		"DOTA_Tooltip_ability_luna_taskmaster_shield_Description"	"Reduces damage taken by 92% until shield is broken. Lose 1 charge each time damage is taken."
 		"DOTA_Tooltip_ability_luna_taskmaster_shield_charges"		"STARTING CHARGES:"
 
 		"DOTA_Tooltip_modifier_luna_armor"						"Moon Shield"

@@ -750,7 +750,7 @@ function forest_ranger_die(event)
 		Redfall.ForestRangersDied = 0
 	end
 	Redfall.ForestRangersDied = Redfall.ForestRangersDied + 1
-	print("Forest Ranger Died!")
+	--print("Forest Ranger Died!")
 	if Redfall.ForestRangersDied == 7 then
 		Redfall:SpawnRedRaven(Vector(-3456, -8057), Vector(0, 1, 0))
 	end
@@ -1117,7 +1117,7 @@ function redfall_crimsyth_cultist_die(event)
 		return
 	end
 	treeDummy.cultistsSlain = treeDummy.cultistsSlain + 1
-	print("Cultists slain: "..treeDummy.cultistsSlain)
+	--print("Cultists slain: "..treeDummy.cultistsSlain)
 	if treeDummy.boss then
 		if treeDummy.cultistsSlain == 20 then
 			Redfall:SpawnCanyonBossParagonTest()

@@ -42,17 +42,17 @@
 		"item_rpc_armor_of_secret_temple_sapphire1"							"While Refraction is active, increase attack power by @sapphire_property1%"
 		"item_rpc_armor_of_secret_temple_amethyst1"							"Casting [Q] has a @amethyst_property1% chance to add a Refraction stack as long as there is at least 1 stack already. Max of <% ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_SHIELDS %> shield stacks."
 
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"Armor of the Violet Guard"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
-		"item_property_violet_guard_armor"			"Violet Conqueror"
-		"property_violet_guard_armor_description"	"Reduces cooldown of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE %>%"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"Violet Subjugation"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"Reduced Armor."
+		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"property_armor_of_the_violet_guard_description"	"Reduces cooldown of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Reduced Armor."
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> seconds."
-		"item_rpc_armor_of_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"Enemies hit by [Q] lose @ruby_property1 armor for <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> seconds."
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"Increases Agility by @emerald_property1"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"Increases Armor Pierce by @sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"Increases [Q] Base Ability Damage by @amethyst_property1%"
 
 		"DOTA_Tooltip_ability_item_rpc_avalanche_plate"								"Avalanche Plate"
 		"item_property_avalanche"					"Avalanche"
@@ -197,11 +197,11 @@
 
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"Enchanted Solar Cape"
 
-		"item_property_enchanted_solar"				"Solar Flare"
-		"property_enchanted_solar_description"		"Every <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> seconds, gain a Sunlight stack. Upon reaching <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> stacks, gain the Solar Flare buff for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> seconds. During Solar Flare, all cooldowns are reduced by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>% and cast rate is increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Cannot gain Sunlight stacks during Solar Flare."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"Solar Flare"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT %>%% reduced cooldowns and <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% increased cast rate."
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"Sunlight"
+		"item_property_enchanted_solar_cape"				"Solar Flare"
+		"property_enchanted_solar_cape_description"		"Every <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> seconds, gain a Sunlight stack. Upon reaching <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> stacks, gain the Solar Flare buff for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> seconds. During Solar Flare, all cooldowns are reduced by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>% and cast rate is increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Cannot gain Sunlight stacks during Solar Flare."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>%% reduced cooldowns and <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% increased cast rate."
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"Casting [R] while Solar Flare is inactive adds @ruby_property1 Sunlight Stacks"
 		"item_rpc_enchanted_solar_cape_emerald1"							"Reduces the required number of Sunlight stacks to trigger Solar Flare by @emerald_property1"
@@ -391,14 +391,14 @@
 
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"Plate of the Watcher"
 
-		"item_property_watcher_one"					"Watcher I"
-		"property_watcher_one_description"			"Increases cooldown of @Ability1 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
-		"item_property_watcher_two"					"Watcher II"
-		"property_watcher_two_description"			"Increases cooldown of @Ability2 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
-		"item_property_watcher_three"				"Watcher III"
-		"property_watcher_three_description"		"Increases cooldown of @Ability3 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
-		"item_property_watcher_four"				"Watcher IV"
-		"property_watcher_four_description"			"Increases cooldown of @Ability4 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
+		"item_property_plate_of_the_watcher_one"					"Watcher I"
+		"property_plate_of_the_watcher_one_description"			"Increases cooldown of @Ability1 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_CD_INCREASE_Q %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_I_BAD_Q %>%."
+		"item_property_plate_of_the_watcher_two"					"Watcher II"
+		"property_plate_of_the_watcher_two_description"			"Increases cooldown of @Ability2 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_CD_INCREASE_W %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_II_BAD_W %>%."
+		"item_property_plate_of_the_watcher_three"				"Watcher III"
+		"property_plate_of_the_watcher_three_description"		"Increases cooldown of @Ability3 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_CD_INCREASE_E %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_III_BAD_E %>%."
+		"item_property_plate_of_the_watcher_four"				"Watcher IV"
+		"property_plate_of_the_watcher_four_description"			"Increases cooldown of @Ability4 by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_CD_INCREASE_R %>% and increases its Base Ability Damage by <% ITEM_RPC_PLATE_OF_THE_WATCHER_IV_BAD_R %>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"Increases cooldown of [Q] by an additional @ruby_property1% and increases its Base Ability Damage by an additional @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"Increases cooldown of [E] by an additional @emerald_property1% and increases its Base Ability Damage by an additional @emerald_property2%"

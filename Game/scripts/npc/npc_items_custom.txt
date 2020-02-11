@@ -30056,6 +30056,892 @@
 
 
 
+	"item_rpc_rubilash_glyph_1_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_1_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_1_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"item_rpc_rubilash_glyph_2_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_2_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_2_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"item_rpc_rubilash_glyph_3_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_3_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_3_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"item_rpc_rubilash_glyph_4_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_4_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_4_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"item_rpc_rubilash_glyph_5_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_5_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_5_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"1"
+			}
+			
+		}
+	}
+
+	"item_rpc_rubilash_glyph_6_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_6_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_6_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"12"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_glyph_7_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_7_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_7_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"3"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_glyph_5_a"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"glyphs/rubilash/glyph_rubilash_5_a"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/tpscroll01.vmdl"
+		"Modifiers"
+		{
+			"modifier_rubilash_glyph_5_a"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+
+
+
+	"item_rpc_rubilash_weapon_00"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_01"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_02"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_03"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_11"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_12"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_13"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_14"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_21"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_22"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_23"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_24"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_weapon_25"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/rubilash/rubilash_weapon_00"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_immortal_weapon_1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/legends/rubilash_immortal_weapon_1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_immortal_weapon_1"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"item_rpc_rubilash_immortal_weapon_2"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/legends/rubilash_immortal_weapon_2"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_immortal_weapon_2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"item_rpc_rubilash_immortal_weapon_3"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"weapons/legends/rubilash_immortal_weapon_3"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/red_box.vmdl"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_immortal_weapon_3"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+
+
+	"item_rpc_rubilash_arcana1"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"arcana/rubilash_arcana1"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"ItemKillable" "0"
+		"precache"
+		{
+			"particle"	"particles/roshpit/rubilash/paintbrush_white.vpcf"
+			"particle"	"particles/roshpit/rubilash/paintbrush_proj_white.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_cast_white_blur.vpcf"
+			"particle"	"particles/roshpit/rubilash/e_start_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_splatter_red.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_white.vpcf"
+			"particle"	"particles/roshpit/rubilash/ink_blot_explosion_white.vpcf"
+			"particle"	"particles/roshpit/rubilash/rubilash_base_attack_white.vpcf"
+			"particle"	"particles/roshpit/rubilash/self_portrait_buff_white.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubilash_arcana1"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"equip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_arcana1_init"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/equipment.lua"
+						"Function"		"unequip_arcana"
+						"target"		"TARGET"
+						"index"			"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/grimstroke/rubilash_w_ability"
+						"Function"		"rubilash_arcana1_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+
 
 
 
@@ -35141,7 +36027,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/voyager_boots.lua"
 		"AbilityTextureName"	"rpc/voyager_boots" //"voyager_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -35608,7 +36495,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/swamp_waders.lua"
 		"AbilityTextureName"	"rpc/swamp_waders" //"swamp_waders"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -35676,87 +36564,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_swamp_waders"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-250"
-				}
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_think"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_aura"
-			{
-				"IsHidden"	"1"
-				"Aura"          	"modifier_swamp_waders_emerald_in_poison_cloud"
-				"Aura_Radius"   	"280"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_poison_cloud_aura_end"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_in_poison_cloud"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_in_poison_cloud_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swamp_waders_emerald_poison_cloud_slow"
-						"Target" 		"TARGET"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swamp_waders_enter_poison_cloud"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_swamp_waders_emerald_poison_cloud_slow"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1" 
-				}
 			}
 		}
 	}
@@ -37926,7 +38733,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/iron_treads_of_destruction.lua"
 		"AbilityTextureName"	"winterblight/iron_treads_of_destruction" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -38881,7 +39689,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/emerald_speed_runners.lua"
 		"AbilityTextureName"	"rpc/emerald_speed_runners" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -38975,12 +39784,13 @@
 		}
 	}
 
-	"item_rpc_dunetread_boots"
+	"item_rpc_dunetreads"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/dunetreads.lua"
 		"AbilityTextureName"	"rpc/dunetread_boots" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39019,40 +39829,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
-			}
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/equipment.lua"
-				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_dunetread_boots"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"0"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"dunetreads_init"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_dunetreads_sapphire"
-						"Target" 		"TARGET"
-					}
-				}
 			}
 		}
 	}
@@ -39106,7 +39882,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"20 40 60 80 100"
+				"sapphire1"			"16 32 48 64 80"
 			}
 			"06"
 			{
@@ -39440,7 +40216,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/boots_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/boots_of_the_violet_guard" //"boots_of_the_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39492,14 +40269,14 @@
 		}
 		"Modifiers"
 		{
-			"modifier_violet_boots"
+			"modifier_boots_of_the_violet_guards"
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-			"modifier_violet_boot_cooldown"
+			"modifier_boots_of_the_violet_guard_cooldown"
 			{
 				"IsHidden"	"1"
 			}
@@ -39510,7 +40287,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/special_item_effects.lua"
-				"Function"		"violet_boot_impact"
+				"Function"		"boots_of_the_violet_guard_impact"
 				"target"		"TARGET"
 			}
 		}
@@ -39937,6 +40714,7 @@
 			{
 				"IsHidden"	"1"
 				"ThinkInterval"  "1.0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -40229,7 +41007,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/bloodstone_boots.lua"
 		"AbilityTextureName"	"rpc/bloodstone_boots" //"dunetread_boots"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -43750,7 +44529,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/plate_of_the_watcher.lua"
 		"AbilityTextureName"	"rpc/plate_of_the_watcher" //"plate_of_the_watcher"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -45840,7 +46620,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/enchanted_solar_cape.lua"
 		"AbilityTextureName"	"rpc/enchanted_solar_cape" //"enchanted_solar_cape"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -45887,53 +46668,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_enchanted_solar_cape"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"EffectAttachType"	"follow_origin"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"enchanted_solar_cape_think"
-					}
-				}
-			}
-			"modifier_enchanted_solar_cape_effect"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/enchanted_solar_cape"
-				"Duration"			"7"
-				"EffectName"		"particles/units/heroes/hero_ogre_magi/solar_cape_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"RPCItem.EnchantedSolarCape"
-						"Target"		"TARGET"
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "60"
-				}
-			}
-			"modifier_enchanted_solar_cape_sunlight"
-			{
-				"TextureName"		"earthshaker_aftershock"
-				"Passive"			"0"
-				"IsHidden"			"0"
 			}
 		}
 	}
@@ -47522,12 +48256,13 @@
 		}
 	}
 
-	"item_rpc_armor_of_violet_guard"
+	"item_rpc_armor_of_the_violet_guard"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/armor_of_the_violet_guard.lua"
 		"AbilityTextureName"	"rpc/armor_of_violet_guard" //"armor_of_violet_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -47575,37 +48310,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_armor_of_violet_guard"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-			}
-			"modifier_violet_guard_armor_loss_visible"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"		"itemicons/violet_guard_armor_loss"
-				"EffectName"		"particles/roshpit/items/violet_guard_2.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_violet_guard_armor_loss_invisible"
-			{
-				"IsHidden"	"1"
 			}
 		}
 	}
@@ -48168,7 +48872,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/swiftspike_bracer.lua"
 		"AbilityTextureName"	"winterblight/swiftspike_bracer"	//"wraps_of_the_grand_arcanist"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -48225,59 +48930,6 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "0.2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects.lua"
-						"Function"		"swiftspike_think"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swiftspike_bad"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swiftspike_atk_damage"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swiftspike_ms_pct"
-						"Target" 		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_swiftspike_sapphire"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_swiftspike_bad"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_swiftspike_atk_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
-			}
-			"modifier_swiftspike_ms_pct"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "1" 
-				}
 			}
 		}
 	}
@@ -48704,7 +49356,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/gloves/spellfire_gloves.lua"
 		"AbilityTextureName"	"rpc/spellfire_gloves" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55015,7 +55668,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/veil_of_the_cerulean_high_guard.lua"
 		"AbilityTextureName"	"rpc/veil_of_the_cerulean_high_guard" //"veil_of_the_cerulean_high_guard"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55219,7 +55873,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_blue_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_blue_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55239,50 +55894,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_blue"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_blue"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_blue"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "2"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -55315,7 +55926,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_purple_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_purple_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55335,50 +55947,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_purple"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_purple"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_purple"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "0"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -55411,7 +55979,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/twisted_yellow_mask_of_ahnqhir.lua"
 		"AbilityTextureName"	"seafortress/twisted_yellow_mask_of_ahnqhir" //"power_ranger_gloves"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -55431,50 +56000,6 @@
 			{
 				"ScriptFile"	"items/equipment.lua"
 				"Function"		"equip_item"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_mask_of_ahnqhir_yellow"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_mask_off_yellow"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_mask_off_yellow"
-			{
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
-				"ThinkInterval"  "5.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/special_item_effects"
-						"Function"		"ahnqhir_mask_off_think"
-						"index"         "1"
-						"target"        "TARGET"
-					}
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -56855,7 +57380,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/helm/mask_of_the_phantom_sorcerer.lua"
 		"AbilityTextureName"	"rpc/mask_of_the_phantom_sorcerer" //"mask_of_the_phantom_sorcerer"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -62138,7 +62664,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/trinket/signus_charm.lua"
 		"AbilityTextureName"	"rpc/signus_charm"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"

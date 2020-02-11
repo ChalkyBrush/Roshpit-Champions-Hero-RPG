@@ -40,9 +40,6 @@ function CDOTA_BaseNPC_Hero:EquipItem(item, bDoPopup, bInitial)
 	RPCItems:SpecialGearInitialization(item, hero, gear_slot)
 
 	hero:ApplyGearBonusesByGearSlot(gear_slot)
-	if item.isLuaItem then
-		item:AddSpecialModifiers(hero)
-	end
 	
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(gear_slot), {itemIndex = item:GetEntityIndex()})
 	if bDoPopup then
@@ -120,7 +117,7 @@ function CDOTA_BaseNPC_Hero:ResetGearBonusesForSlot(gear_slot)
 end
 
 function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, property_value, gear_slot)
-	-- print("PROPERTY NAME: "..property_name)
+	-- --print("PROPERTY NAME: "..property_name)
 	-- PROPERTY TYPE MODIFIERS:
 	if hero:HasModifier("modifier_puzzlers_locket") or item:GetAbilityName() == "item_rpc_puzzlers_locket" then
 		property_name = RPCItems:AdjustPropertyNameForPuzzler(hero, item, property_value, property_name)
@@ -161,7 +158,7 @@ function RPCItems:RecordGearBonusToHeroBySlot(item, hero, property_name, propert
 		end
 	end
 
-	print("--RECORDING PROPERTY--")
+	--print("--RECORDING PROPERTY--")
 	-- HANDLE SPECIAL GEAR BOOST MODIFIERS IN HERE
 	-- TATTERED NOVICE ARMOR AMETHYST:
 	local property_bonus_mult = 0
@@ -253,7 +250,7 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 	local internal_hero_name = HerosCustom:GetInternalHeroNameMain(hero:GetClassname())
 	local inventory_unit = hero.InventoryUnit
 	local ability_name = "equipment_"..RPC_GEAR_SLOT_NAMES[gear_slot]
-	print("ABILITY NAME: "..ability_name)
+	--print("ABILITY NAME: "..ability_name)
 	local ability = inventory_unit:FindAbilityByName(ability_name)
 	DeepPrintTable(hero.gear_bonuses[gear_slot])
 	for key, value in pairs(hero.gear_bonuses[gear_slot]) do
@@ -263,12 +260,10 @@ function CDOTA_BaseNPC_Hero:ApplyGearBonusesByGearSlot(gear_slot)
 			hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, "modifier_"..internal_hero_name.."_"..key, {})
 			RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 		elseif string.match(key, "!immortal!") then
+			local modifier_name = key:gsub("!immortal!_", "")
 			if hero.equipped_gear[gear_slot].isLuaItem then
-				--ApplyDataDrivenModifier doesnt work with lua
-				--Modifier is applied in base.lua
-				--Only needed for the immortal property
+				hero:AddNewModifier(inventory_unit, hero.equipped_gear[gear_slot], modifier_name, {})
 			else
-				local modifier_name = key:gsub("!immortal!_", "")
 				hero.equipped_gear[gear_slot]:ApplyDataDrivenModifier(inventory_unit, hero, modifier_name, {})
 				RPCItems:PreacheArcanaResources(hero.equipped_gear[gear_slot])
 			end
@@ -436,9 +431,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EXCAVATOR_AMETHYST, hero, "rune_r_3", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_eye_of_seasons" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
-		elseif socket_type == "emerald" then
+		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_e_1", RPC_GEAR_SLOT_HEAD)
@@ -609,12 +602,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_armor_of_secret_temple" then
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARMOR_OF_SECRET_TEMPLE_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BODY)
-		end
-	elseif item:GetAbilityName() == "item_rpc_armor_of_violet_guard" then
-		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BODY)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_BODY)
 		end
 	elseif item:GetAbilityName() == "item_rpc_avalanche_plate" then
 		if socket_type == "emerald" then
@@ -1049,11 +1036,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 	elseif item:GetAbilityName() == "item_rpc_spirit_glove" then	
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SPIRIT_GLOVE_GEM_AMETHYST1, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
-		end	
-	elseif item:GetAbilityName() == "item_rpc_swiftspike_bracer" then
-		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_EMERALD1, hero, "agility", RPC_GEAR_SLOT_GLOVES)
-		end	
+		end
 	elseif item:GetAbilityName() == "item_rpc_admiral_boots" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ADMIRAL_BOOTS_GEM_RUBY, hero, "rune_e_1", RPC_GEAR_SLOT_BOOTS)
@@ -1102,16 +1085,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_OLD_WISDOM_GEM_EMERALD, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
-		end	
+		end		
 	elseif item:GetAbilityName() == "item_rpc_boots_of_the_violet_guard" then
 		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY1, hero, "movespeed", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_RUBY2, hero, "attack_speed", RPC_GEAR_SLOT_BOOTS)
-		elseif socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_EMERALD, hero, "agility", RPC_GEAR_SLOT_BOOTS)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_BOOTS_OF_THE_VIOLET_GUARD_GEM_SAPPHIRE, hero, "armor_pierce", RPC_GEAR_SLOT_BOOTS)
-		end		
+		end
 	elseif item:GetAbilityName() == "item_rpc_crusader_boots" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_CRUSADER_BOOTS_GEM_RUBY1, hero, "strength", RPC_GEAR_SLOT_BOOTS)
@@ -1153,11 +1131,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_2", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_3", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_EMERALD, hero, "rune_r_4", RPC_GEAR_SLOT_BOOTS)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_BOOTS)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_GEM_SAPPHIRE, hero, "amethyst", RPC_GEAR_SLOT_BOOTS)
 		end		
 	elseif item:GetAbilityName() == "item_rpc_mana_striders" then
 		if socket_type == "emerald" then
@@ -1256,11 +1229,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_TRANQUIL_BOOTS_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
 		elseif socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_TRANQUIL_BOOTS_GEM_SAPPHIRE1, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
-		end		
-	elseif item:GetAbilityName() == "item_rpc_voyager_boots" then
-		if socket_type == "amethyst" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_VOYAGER_BOOTS_GEM_AMETHYST2, hero, "base_ability", RPC_GEAR_SLOT_BOOTS)
-		end	
+		end
 	elseif item:GetAbilityName() == "item_rpc_yasha_boots" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_YASHA_BOOTS_GEM_RUBY, hero, "strength", RPC_GEAR_SLOT_BOOTS)
@@ -1490,10 +1459,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SERENGAARD_SUN_CRYSTAL_GEM_AMETHYST, hero, "element_undead", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SERENGAARD_SUN_CRYSTAL_GEM_AMETHYST, hero, "element_dragon", RPC_GEAR_SLOT_TRINKET)
 		end		
-	elseif item:GetAbilityName() == "item_rpc_signus_charm" then	
-		if socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_SIGNUS_CHARM_GEM_SAPPHIRE, hero, "base_ability", RPC_GEAR_SLOT_TRINKET)
-		end	
 	elseif item:GetAbilityName() == "item_rpc_sparkling_token_of_oceanis" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_SPARKLING_TOKEN_OF_OCEANIS_GEM_RUBY1, hero, "max_health", RPC_GEAR_SLOT_TRINKET)
@@ -1576,32 +1541,34 @@ end
 
 function CDOTA_BaseNPC_Hero:ReequipAllGear(ignore_slot)
 	if self.equipped_gear then
-		if not ignore_slot == RPC_GEAR_SLOT_HEAD then
+		if ignore_slot ~= RPC_GEAR_SLOT_HEAD then
+			--print("REEQUIP 3")
 			if self.equipped_gear[RPC_GEAR_SLOT_HEAD] then
+				--print("REEQUIP 4")
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_HEAD], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BODY then
+		if ignore_slot ~= RPC_GEAR_SLOT_BODY then
 			if self.equipped_gear[RPC_GEAR_SLOT_BODY] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BODY], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_WEAPON then
+		if ignore_slot ~= RPC_GEAR_SLOT_WEAPON then
 			if self.equipped_gear[RPC_GEAR_SLOT_WEAPON] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_WEAPON], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_GLOVES then
+		if ignore_slot ~= RPC_GEAR_SLOT_GLOVES then
 			if self.equipped_gear[RPC_GEAR_SLOT_GLOVES] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_GLOVES], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_BOOTS then
+		if ignore_slot ~= RPC_GEAR_SLOT_BOOTS then
 			if self.equipped_gear[RPC_GEAR_SLOT_BOOTS] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_BOOTS], false, false)
 			end
 		end
-		if not ignore_slot == RPC_GEAR_SLOT_TRINKET then
+		if ignore_slot ~= RPC_GEAR_SLOT_TRINKET then
 			if self.equipped_gear[RPC_GEAR_SLOT_TRINKET] then
 				self:EquipItem(self.equipped_gear[RPC_GEAR_SLOT_TRINKET], false, false)
 			end

@@ -43,7 +43,7 @@ function rock_start(caster, ability, target_location)
     bomb:AddAbility("mountain_bomb_ability"):SetLevel(1)
     bomb:FindAbilityByName("mountain_bomb_ability"):ApplyDataDrivenModifier(bomb, bomb, "mountain_bomb_motion", {duration = 10})
 
-    if caster:HasModifier("modifier_steelforge_stance") then
+    if caster:HasModifier("modifier_mountain_protector_steelforge_stance") then
         -- bomb:SetOriginalModel("models/items/meepo/diggers_divining_rod/diggers_divining_rod_gem_saphire.vmdl")
         -- bomb:SetModel("models/items/meepo/diggers_divining_rod/diggers_divining_rod_gem_saphire.vmdl")
         -- bomb:SetModelScale(1.2)
@@ -67,9 +67,9 @@ function rock_start(caster, ability, target_location)
     local liftForce = 30
     local gravity = 1
     local liftDuration = distance / propulsion / 2
-    if caster:HasModifier("modifier_steelforge_stance") then
+    if caster:HasModifier("modifier_mountain_protector_steelforge_stance") then
         local steelforgeAbility = caster:FindAbilityByName("mountain_protector_steelforge_stance")
-        steelforgeAbility:ApplyDataDrivenModifier(caster, bomb, "modifier_steelforge_stone", {})
+        caster:AddNewModifier(bomb, steelforgeAbility, "modifier_mountain_protector_steelforge_stone", {})
         propulsion = propulsion * math.sqrt(2)
         distance = distance / math.sqrt(2)
         liftForce = liftForce * math.sqrt(2)
@@ -79,7 +79,7 @@ function rock_start(caster, ability, target_location)
     if caster:HasModifier("modifier_mountain_protector_immortal_weapon_3") then
         propulsion = propulsion * 2
         liftForce = 1
-        if caster:HasModifier("modifier_steelforge_stance") then
+        if caster:HasModifier("modifier_mountain_protector_steelforge_stance") then
             propulsion = (propulsion / 2) * 1.5
             gravity = gravity * 4
             distance = distance / 3

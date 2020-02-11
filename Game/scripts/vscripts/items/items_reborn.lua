@@ -216,10 +216,22 @@ end
 
 function RPCItems:RollRandomItem(unit_level, roll_boost)
 	local item = nil
-	local rarityChance = RandomInt(0+roll_boost, 10000)
+	local random_type_boost = math.floor(roll_boost / 2)
+	local random_type_chance = RandomInt(0 + random_type_boost, 10000)
+	-- --print("[RPCItems:RollRandomItem] random_type_chance: "..tostring(random_type_chance))
+	if random_type_chance <= 9960 then
+		--print("im too sleepy")
+	elseif random_type_chance <= 9996 then
+		item = RPCItems:RebornGlyph()
+	elseif random_type_chance <= 10000 then
+		item = RPCItems:RebornSpecialItem()
+	end
+	if item then return item end
+
+	local rarityChance = RandomInt(0 + roll_boost, 10000)
 	local rarity = RPC_ITEMS_RARITY_COMMON
 	if rarityChance < RPCItems.RarityChances[RPC_ITEMS_RARITY_MYTHICAL] then
-		rarityChance = math.min(rarityChance + (GameState:GetPlayerPremiumStatusCount()*40), RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL])
+		rarityChance = math.min(rarityChance + (GameState:GetPlayerPremiumStatusCount() * 40), RPCItems.RarityChances[RPC_ITEMS_RARITY_IMMORTAL])
 	end
 	for key, value in pairs(RPCItems.RarityChances) do
 		if rarityChance >= value and rarity <= key then
@@ -238,12 +250,10 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	end
 	if rarity < 5 and GameMode.VoteSystem.junk_loot_disabled then
 		return
-	end 
+	end
 
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
 
-	local random_type_boost = math.floor(roll_boost/2)
-	local random_type_chance = RandomInt(0+random_type_boost, 10000)
 	if random_type_chance <= 9960 then
 		local random_gear_slot = RandomInt(0, 5)
 		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
@@ -251,10 +261,6 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		else
 			item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
 		end
-	elseif random_type_chance <= 9996 then
-		item = RPCItems:RebornGlyph()
-	elseif random_type_chance <= 10000 then
-		item = RPCItems:RebornSpecialItem()
 	end
 	return item
 end
@@ -327,21 +333,21 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 		iLevel = iLevel + 10
 	end
 	if iLevel >= 80 and iLevel <= 90 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(69, 0, 0, 0, 0)
-	elseif iLevel > 90 and iLevel <= 100 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(71, 0, 0, 0, 0)
-	elseif iLevel > 100 and iLevel <= 110 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(73, 0, 0, 0, 0)
-	elseif iLevel > 110 and iLevel <= 120 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(76, 0, 0, 0, 0)
-	elseif iLevel > 120 and iLevel <= 130 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(79, 0, 0, 0, 0)
-	elseif iLevel > 130 and iLevel <= 140 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(81, 0, 0, 0, 0)
-	elseif iLevel > 140 and iLevel <= 145 then
+	elseif iLevel > 90 and iLevel <= 100 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(78, 0, 0, 0, 0)
+	elseif iLevel > 100 and iLevel <= 110 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(80, 0, 0, 0, 0)
+	elseif iLevel > 110 and iLevel <= 120 then
 		iLevel = RPCItems:GetLogarithmicVarianceValue(82, 0, 0, 0, 0)
+	elseif iLevel > 120 and iLevel <= 130 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(84, 0, 0, 0, 0)
+	elseif iLevel > 130 and iLevel <= 140 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(86, 0, 0, 0, 0)
+	elseif iLevel > 140 and iLevel <= 145 then
+		iLevel = RPCItems:GetLogarithmicVarianceValue(88, 0, 0, 0, 0)
 	elseif iLevel > 145 then
-		iLevel = RPCItems:GetLogarithmicVarianceValue(83, 0, 0, 0, 0)
+		iLevel = RPCItems:GetLogarithmicVarianceValue(90, 0, 0, 0, 0)
 	end
 	if unit_level <= 20 and iLevel > unit_level then
 		iLevel = unit_level
@@ -352,13 +358,13 @@ function RPCItems:RollItemLevelFromUnit(unit_level)
 	elseif unit_level <= 80 and iLevel > unit_level + 15 then
 		iLevel = unit_level + 15
 	end
-	if iLevel < original_unit_level - 40 then
-		iLevel = original_unit_level - 40
+	if iLevel < original_unit_level - 35 then
+		iLevel = original_unit_level - 35
 	end
 	if iLevel < original_unit_level*0.65 then
 		iLevel = math.floor(original_unit_level*0.65)
 	end
-	print("ILEVEL: "..iLevel)
+	--print("ILEVEL: "..iLevel)
 	return math.min(math.floor(iLevel), 120)
 end
 
@@ -716,8 +722,8 @@ function RPCItems:RollGearAttributeValue(item_level, property_type, property_slo
 	else
 		max_value = item_level_consider_for_rolling * multiple
 	end
-	local min_attempt = math.floor((max_value/1.5)/1.35)
-	local max_attempt = math.floor(max_value/1.35)
+	local min_attempt = math.floor((max_value/1.5)/1.2)
+	local max_attempt = math.floor(max_value/1.2)
 	local roll_attempt = RandomInt(min_attempt, max_attempt)
 	local roll = math.max(RPCItems:GetLogarithmicVarianceValue(roll_attempt, 0, 0, 0, 0), 1)
 	roll = math.min(roll, max_value)

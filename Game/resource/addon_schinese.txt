@@ -2501,15 +2501,15 @@
 		//雪图怪物名称
 
 
-		"DOTA_Tooltip_ability_arkimus_zonis_spark"								"维度扭曲"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_Description"					"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯扭曲面前的空间，闪烁至新的地点。空间的碎片相互联结，在初始点与闪烁目标点之间创造一束聚集的奥术闪电。被奥术闪电击中的敌人将被一直眩晕并且受到伤害。每6秒获得一层维度扭曲的充能，每层充能可以自由施放一次维度扭曲（无冷却），最多两层充能。"
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_damage"						"伤害："
-    	"DOTA_Tooltip_ability_arkimus_zonis_spark_cast_range"					"施法距离："
+		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"维度扭曲"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_Description"					"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯扭曲面前的空间，闪烁至新的地点。空间的碎片相互联结，在初始点与闪烁目标点之间创造一束聚集的奥术闪电。被奥术闪电击中的敌人将被一直眩晕并且受到伤害。每6秒获得一层维度扭曲的充能，每层充能可以自由施放一次维度扭曲（无冷却），最多两层充能。"
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_damage"						"伤害："
+    	"DOTA_Tooltip_ability_arkimus_dimension_coil_cast_range"					"施法距离："
 
     	"DOTA_Tooltip_modifier_zonis_stun"										"被维度扭曲击晕"
 
-    	"DOTA_Tooltip_modifier_zonis_freecast"									"维度扭曲充能"
-    	"DOTA_Tooltip_modifier_zonis_freecast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast"									"维度扭曲充能"
+    	"DOTA_Tooltip_modifier_arkimus_q_free_cast_Description"						"你的下一次维度扭曲将不会激活冷却时间"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1"									"[Q1] 攻壳震荡"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_Description"						"接触到维度扭曲的敌人将丢失护甲，持续8秒。"
@@ -2528,8 +2528,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_property_one"					"魔甲降低"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist"							"可塑性结构"
-    	"DOTA_Tooltip_modifier_zonis_c_a_magic_resist_Description"				"魔甲降低"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss"							"可塑性结构"
+    	"DOTA_Tooltip_modifier_arkimus_q_3_magic_armor_loss_Description"				"魔甲降低"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_4"									"[Q4] 奥术扭曲"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_Description"						"提高维度扭曲和带状网的伤害，并且提高奥术闪电的持续时间。"
@@ -2538,12 +2538,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_property_two"					"奥术闪电持续时间延长"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_suffix_two"						" 秒"
 
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon"								"闪光源"
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_Description"					"元素： <font color=\"#E1A2E8\">奥术</font><br>开启后一股奥术能量充盈阿基莫斯的武器，他的攻击将在目标周围的范围内造成额外的奥术伤害，每次攻击消耗一定的魔法值，当魔法值不足时将自动关闭。"
-    	"DOTA_Tooltip_ability_arkimus_storm_weapon_damage_mult"					"奥术伤害为 % 攻击力："
+    	"DOTA_Tooltip_ability_arkimus_flash_source"								"闪光源"
+    	"DOTA_Tooltip_ability_arkimus_flash_source_Description"					"元素： <font color=\"#E1A2E8\">奥术</font><br>开启后一股奥术能量充盈阿基莫斯的武器，他的攻击将在目标周围的范围内造成额外的奥术伤害，每次攻击消耗一定的魔法值，当魔法值不足时将自动关闭。"
+    	"DOTA_Tooltip_ability_arkimus_flash_source_damage_mult"					"奥术伤害为 % 攻击力："
 
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon"							"闪光源"
-    	"DOTA_Tooltip_modifier_arkimus_storm_weapon_Description"				"下一次攻击造成AOE的奥术伤害"
+    	"DOTA_Tooltip_modifier_arkimus_flash_source"							"闪光源"
+    	"DOTA_Tooltip_modifier_arkimus_flash_source_Description"				"下一次攻击造成AOE的奥术伤害"
 
     	"DOTA_Tooltip_ability_arkimus_rune_w_1"									"[W1] 奥法武器"
     	"DOTA_Tooltip_ability_arkimus_rune_w_1_Description"						"任意奥术伤害的一部分将强化阿基莫斯的武器，提高基础攻击力，持续15秒。每次强化将覆盖上一次的强化效果。"
@@ -2569,12 +2569,12 @@
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_property_one"					"获得护盾的概率"
     	"DOTA_Tooltip_ability_arkimus_rune_w_4_suffix"							"%"
 
-    	"DOTA_Tooltip_ability_ark_jump"											"轨道跃进"
-    	"DOTA_Tooltip_ability_ark_jump_Description"								"杂技般地跳跃至目标地点。每6秒，获得一层充能使阿基莫斯可以自由地施放轨道跃进，而不激活冷却。"
-    	"DOTA_Tooltip_ability_ark_jump_cast_range"								"施法范围："
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap"											"轨道跃进"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_Description"								"杂技般地跳跃至目标地点。每6秒，获得一层充能使阿基莫斯可以自由地施放轨道跃进，而不激活冷却。"
+    	"DOTA_Tooltip_ability_arkimus_orbital_leap_cast_range"								"施法范围："
 
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast"							"轨道跃进充能"
-    	"DOTA_Tooltip_modifier_machinal_jump_freecast_Description"				"下一次施放轨道跃进不会使该技能进入冷却时间"
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast"							"轨道跃进充能"
+    	"DOTA_Tooltip_modifier_arkimus_e_free_cast_Description"				"下一次施放轨道跃进不会使该技能进入冷却时间"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_1"									"[E1] 接地火花"
     	"DOTA_Tooltip_ability_arkimus_rune_e_1_Description"						"轨道跃进着陆点附近的敌人将被奥术能量击中，触电。"
@@ -2593,8 +2593,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_property_one"					"物理穿透和魔法穿透提高"
     	"DOTA_Tooltip_ability_arkimus_rune_e_3_suffix"							""
 
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp"							"高架系统"
-    	"DOTA_Tooltip_modifier_machinal_jump_c_c_amp_Description"				"物理穿透和魔法穿透提高"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff"							"高架系统"
+    	"DOTA_Tooltip_modifier_arkimus_e_3_buff_Description"				"物理穿透和魔法穿透提高"
 
     	"DOTA_Tooltip_ability_arkimus_rune_e_4"									"[E4] 无尽之际"
     	"DOTA_Tooltip_ability_arkimus_rune_e_4_Description"						"被动地提升敏捷值和闪避。"
@@ -2621,13 +2621,13 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_property_one"					"伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_r_2_suffix"							"% 攻击力"
 
-	"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时护盾，护盾减少受到伤害 <font color='#ccff66'>80</font>%。"
+		"DOTA_Tooltip_ability_arkimus_rune_r_3"									"[R3] 力场"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_3_Description"						"当开始吟唱能量场时，阿基莫斯获得一个临时护盾，护盾减少受到伤害 <font color='#ccff66'>80</font>%%。"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_property_one"					"持续时间"
     	"DOTA_Tooltip_ability_arkimus_rune_r_3_suffix"							" 秒"
 
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield"							"力场"
-    	"DOTA_Tooltip_modifier_energy_field_c_d_shield_Description"				"所有受到伤害减少<font color='#ccff66'>80</font>%%"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield"							"力场"
+    	"DOTA_Tooltip_modifier_arkimus_r_3_shield_Description"				"所有受到伤害减少<font color='#ccff66'>80</font>%%"
 	
 
     	"DOTA_Tooltip_ability_arkimus_rune_r_4"									"[R4] 螺旋魔术"
@@ -2639,11 +2639,11 @@
     	"item_property_arkimus_arcana1"										"电磁流"
     	"property_arkimus_arcana1_description"								"用电磁流替换 @Ability1 及其所有符文。"
 
-    	"DOTA_Tooltip_ability_arkimus_zap_ring"									"电磁流"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_Description"						"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯创造一片电磁场跟随他。进入该电磁场的敌人将被处以电刑，眩晕0.2秒。"
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_damage"							"伤害："
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_duration"						"持续时间："
-    	"DOTA_Tooltip_ability_arkimus_zap_ring_int_damage"						"每点智力值额外提高伤害："
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux"									"电磁流"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_Description"						"元素： <font color=\"#E1A2E8\">奥术</font> / <font color=\"#5CCDF9\">电</font><br>阿基莫斯创造一片电磁场跟随他。进入该电磁场的敌人将被处以电刑，眩晕0.2秒。"
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_damage"							"伤害："
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_duration"						"持续时间："
+    	"DOTA_Tooltip_ability_arkimus_magnetic_flux_int_damage"						"每点智力值额外提高伤害："
 
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"电磁冲击"
 
@@ -2662,8 +2662,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_property_one"					"buff 层数上限"
     	"DOTA_Tooltip_ability_arkimus_rune_q_3_arcana1_suffix"							""
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3"										"磁感"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q3_Description"							"每层独立，每层伤害减免 <font color='#ccff66'>1</font>%%"	
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff"										"磁感"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_3_buff_Description"							"每层独立，每层伤害减免 <font color='#ccff66'>1</font>%%"	
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1"									"[Q4] 奥法吟唱"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_Description"						"在电磁流激活状态下，阿基莫斯将获得额外的敏捷值。同时，阿基莫斯将提高所有 <font color=\"#5CCDF9\">电</font> 元素伤害。"
@@ -2672,8 +2672,8 @@
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_property_two"					"电元素伤害提高"
     	"DOTA_Tooltip_ability_arkimus_rune_q_4_arcana1_suffix_two"						"%"
 
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4"										"奥法吟唱"
-    	"DOTA_Tooltip_modifier_arkimus_arcana1_q4_Description"							"提高敏捷值和电元素伤害"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff"										"奥法吟唱"
+    	"DOTA_Tooltip_modifier_arkimus_arcana_q_4_buff_Description"							"提高敏捷值和电元素伤害"
 
     	"item_property_arkimus_arcana2"										"奥法审判者"
     	"property_arkimus_arcana2_description"								"用奥法审判者替换 @Ability4 及其所有符文"
@@ -3492,7 +3492,7 @@
         "DOTA_Tooltip_modifier_axe_rune_e_3_description"                "提高魔法抗性和护甲"
 		
 		"DOTA_Tooltip_ability_axe_rune_e_4"                             "[E4] 旋风守护"
-        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<font color='#ccff66'>40</font>%。概率超过 100% 有几率获得多层护盾。"
+        "DOTA_Tooltip_ability_axe_rune_e_4_Description"                 "施放急速狂飙之后有概率获得一层护盾，持续 7 秒。护盾抵挡一次伤害后被消耗，减伤<font color='#ccff66'>50</font>%。概率超过 100% 有几率获得多层护盾。"
         "DOTA_Tooltip_ability_axe_rune_e_4_property_one"                "获得护盾概率"
         "DOTA_Tooltip_ability_axe_rune_e_4_suffix"                      "%"
 		
@@ -6414,7 +6414,7 @@
         "DOTA_Tooltip_ability_warlord_rune_q_1_arcana2_suffix"              ""
 
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2"                     "[Q2] 霜结破损"
-        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>50</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
+        "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_Description"         "在元素督军站在霜结破损区域中时，获得一个护盾，护盾将会增加元素督军的智力值并且降低元素督军受到的伤害<font color='#ccff66'>75</font>%。这个护盾在离开这个区域后会有一个粘滞时间。"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_one"        "粘滞时间:"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_suffix"              " 秒"
         "DOTA_Tooltip_ability_warlord_rune_q_2_arcana2_property_two"        "额外智力"
@@ -6467,7 +6467,7 @@
 		"item_rpc_warlord_glyph_6_1_description" 				"提高大地、火焰和寒冰能量的层数上限至<font color='#ccff66'>5</font>。"
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_7_1"		"[T7-1] 战斗雕文"
-		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>30</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>460</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
+		"item_rpc_warlord_glyph_7_1_description" 				"普通攻击造成爆炸并且造成 <font color='#ccff66'>90</font>% 攻击力的魔法伤害为 <font color=\"#EF4126\">火</font>/<font color=\"#87D9FF\">冰</font> 在 <font color='#ccff66'>340</font> 码范围造成AOE伤害. 伤害能被道具加成伤害加成."
 
 		"DOTA_Tooltip_ability_item_rpc_warlord_glyph_5_a"		"[T5-a] 生态雕文"
 		"item_rpc_warlord_glyph_5_a_description" 				"受到伤害增加 <font color='#ccff66'>2</font> 火焰能量. 每层寒冰能量增加魔法穿透 <font color='#ccff66'>40</font>."
@@ -6538,7 +6538,7 @@
     	"DOTA_Tooltip_modifier_epoch_q_3_Description"							"每次攻击汲取你的部分魔法值并造成额外伤害"
 		
     	"DOTA_Tooltip_ability_epoch_rune_q_4"									"[Q4] 时光节点"
-    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<font color='#ccff66'>50</font>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
+    	"DOTA_Tooltip_ability_epoch_rune_q_4_Description"						"时空锁将汲取你<font color='#ccff66'>100</font>% 的最大魔法值，并根据汲取的魔法值提高每秒伤害。额外提高 [Q3] 永世打击 每次攻击的魔法汲取量。"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_one"						"伤害提高"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_suffix"							"% 每汲取100点魔法值"
     	"DOTA_Tooltip_ability_epoch_rune_q_4_property_two"						"永世打击 每次攻击的魔法汲取量提高"
@@ -7398,19 +7398,25 @@
  	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_armor_and_magic_armor"			"护甲和魔甲提高:"
     	"DOTA_Tooltip_ability_mountain_protector_mountain_guardian_mana_drain_per_second"	"每秒消耗魔法量"
 
-    	"DOTA_Tooltip_modifier_energy_channel"									"山丘守卫"
-    	"DOTA_Tooltip_modifier_energy_channel_Description"						""
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian"									"山丘守卫"
+    	"DOTA_Tooltip_modifier_mountain_protector_mountain_guardian_Description"						""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_1"				"[W1] 山丘回响"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_Description"	"被动增加生命恢复，增加量为最大生命值百分比"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_property_one"	"生命恢复速率"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_suffix"		"最大生命值%"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_1"					"Mountain Echoes"
+		"DOTA_Tooltip_modifier_mountain_protector_w_1_Description"		"Health regeneration increased by a %% of maximum health"
+	
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_2"				"[W2] 守护者的愤怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_Description"	"在山丘守卫状态下时提高魔法穿透"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_property_one"	"魔法穿透提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_suffix"		""
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_2"					"Guardian's Wrath"
+		"DOTA_Tooltip_modifier_mountain_protector_w_2_Description"		"Spell Pierce increased"
+
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3"				"[W3] 盛怒"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_Description"	"开启山丘守卫时，山丘守护者周围500码范围内的敌人将受到基于山丘守护者攻击力的持续伤害。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_one"	"每次伤害"
@@ -7418,13 +7424,20 @@
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_property_two"	"Damage"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_suffix_two"		"% Max Hero HP"
 		
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_aura_Description"		"Zaps nearby enemies"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap"					"Guardian's Fury"
+		"DOTA_Tooltip_modifier_mountain_protector_w_3_zap_Description"		"Getting zapped by Mountain Protector"
+		
 		"DOTA_Tooltip_ability_mountain_protector_rune_w_4"				"[W4] 坚定的守卫者"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_Description"	"施放山丘守卫时增加山丘守护者的护甲，友军也能享受此效果。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_property_one"	"护甲值提高"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_4_suffix"		""
 		
-		"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect"			"坚定的守卫者"
-    	"DOTA_Tooltip_modifier_protector_d_b_armor_aura_effect_Description"	"护甲值被山丘守护者提高"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura"					"Prevailing Guardian"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_Description"		"Gives nearby allies additional armor"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff"					"坚定的守卫者"
+		"DOTA_Tooltip_modifier_mountain_protector_w_4_aura_buff_Description"		"护甲值被山丘守护者提高"
 
     	"DOTA_Tooltip_ability_mountain_protector_emberstone"					"余烬之石"
     	"DOTA_Tooltip_ability_mountain_protector_emberstone_Description"		"向前面丢出火焰石头，山丘守护者在0.4后闪烁到该石头的位置。"
@@ -7506,13 +7519,13 @@
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance"					"AT立场"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Description"			"山丘守卫者化作钢铁之躯展开AT立场，提高护甲值和生命回复并且降低受到的伤害。余烬之石也转化为钢铁，提高投掷速度。"
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_Lore"				""
-    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor"				"护甲值提高："
+    	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_armor_and_magic_armor"				"护甲值提高："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_damage_resist"		"伤害抗性："
 	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_regen_percent"               "生命回复%："
     	"DOTA_Tooltip_ability_mountain_protector_steelforge_stance_mana_drain_per_second"		"每秒消耗魔法值："
 
-    	"DOTA_Tooltip_modifier_steelforge_stance"									"AT立场"
-    	"DOTA_Tooltip_modifier_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance"									"AT立场"
+    	"DOTA_Tooltip_modifier_mountain_protector_steelforge_stance_Description"						"提高护甲值并且屏蔽部分伤害"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1"						"[W1] 立场打击"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_1_arcana1_Description"			"展开AT立场的同时将打击800码内的全部敌人，造成基于攻击力和力量值的伤害并眩晕敌人0.5秒。无视魔免。"
@@ -7527,6 +7540,10 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix"				""
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_property_two"         "攻击速度减少"
         "DOTA_Tooltip_ability_mountain_protector_rune_w_2_arcana1_suffix_two"           ""
+		
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff"					"Cold Steel"
+		"DOTA_Tooltip_modifier_mountain_protector_arcana_w_2_debuff_Description"		"Attack and move speed slowed."
+
   		"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1"						"[W3] 朗基努斯之槍"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_Description"			"山丘守卫在AT立场保护下受到伤害时，将反击一道光束。光束造成基于攻击力的伤害并且造成0.03秒的眩晕。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_w_3_arcana1_property_one"			"伤害"
@@ -8393,6 +8410,274 @@
     	"DOTA_Tooltip_ability_item_rpc_paladin_immortal_weapon_3"			"圣锤"
     	"item_property_paladin_immortal_weapon3"								"神圣之力"
     	"property_paladin_immortal_weapon3_description"						"每点力量值额外提高最大生命值 <font color='#ccff66'>12</font>。"
+
+
+"DOTA_Tooltip_modifier_rubilash_painted_red"			"<font color=\"#FF0000\">红</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_red_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_blue"			"<font color=\"#0000FF\">蓝</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_blue_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_yellow"			"<font color=\"#FFFF00\">黄</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_yellow_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_orange"			"<font color=\"#FF8800\">橙</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_orange_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_green"			"<font color=\"#00FF00\">绿</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_green_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_purple"			"<font color=\"#AA00DD\">紫</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_purple_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_black"			"<font color=\"#000000\">黑</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_black_Description"	"被墨水浸染"
+
+"DOTA_Tooltip_modifier_rubilash_painted_white"			"<font color=\"#FFFFFF\">白</font> 墨"
+"DOTA_Tooltip_modifier_rubilash_painted_white_Description"	"被墨水浸染"
+
+"rubilash_q_base_name"										"幻影笔刷"
+"rubilash_w_base_name"										"墨弹"
+"rubilash_e_base_name"										"泼墨"			
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red"			"幻影笔刷 [<font color=\"#FF0000\">红</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>蓄力 <font color='#ccff66'>0.8</font> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_red_range"		"墨涌距离:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow"			"暗影笔刷 [<font color=\"#FFFF00\">黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>蓄力 <font color='#ccff66'>0.8</font>秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_yellow_range"		"墨涌距离:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue"			"Phantom Brush [<font color=\"#0000FF\">蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>蓄力 <font color='#ccff66'>0.8</font> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_blue_range"		"墨涌距离:"
+
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white"			"Phantom Brush [<font color=\"#FFFFFF\">白</font>]"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>蓄力 <font color='#ccff66'>0.8</font> 秒而后向目标地点放出一股强力墨涌。施法距离也会提高该技能的最大距离。"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_phantom_brush_white_range"		"墨涌距离:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red"			"墨弹 [<font color=\"#FF0000\">红</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_red_damage"	"伤害:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow"			"墨弹 [<font color=\"#FFFF00\">黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_yellow_damage"	"伤害:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue"			"墨弹 [<font color=\"#0000FF\">蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_blue_damage"	"伤害:"
+
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white"			"墨弹 [<font color=\"#FFFFFF\">白</font>]"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>向目标地点放出一小团墨水，当墨水到达目标地点时将会对敌人造成伤害。"
+"DOTA_Tooltip_Ability_rubilash_ink_blot_white_damage"	"伤害:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red"			"泼墨 [<font color=\"#FF0000\">红</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"#FF0000\">红</font>]墨中。 使用该技能将会将目前的墨色切换至[<font color=\"#FFFF00\">黄</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"#FF0000\">红</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>墨的伤害2X。<br>[<font color=\"#FFFF00\">黄</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 墨的伤害2X。<br>[<font color=\"#0000FF\">蓝</font>] 墨 -> 受到的来自 <font color=\"#0000FF\">蓝</font> 墨的伤害2X。<br>[<font color=\"#FF8800\">橙</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#FFFF00\">黄</font> 墨.<br>[<font color=\"#00FF00\">绿</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#AA00DD\">紫</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#000000\">黑</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>, <font color=\"#0000FF\">蓝</font> 以及<font color=\"#FFFF00\">黄</font> 墨的伤害8X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_red_cast_range"	"施法距离:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow"			"泼墨 [<font color=\"#FFFF00\">黄</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"#FFFF00\">黄</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=\"#0000FF\">蓝</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"#FF0000\">红</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>墨的伤害2X。<br>[<font color=\"#FFFF00\">黄</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 墨的伤害2X。<br>[<font color=\"#0000FF\">蓝</font>] 墨 -> 受到的来自 <font color=\"#0000FF\">蓝</font> 墨的伤害2X。<br>[<font color=\"#FF8800\">橙</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#FFFF00\">黄</font> 墨.<br>[<font color=\"#00FF00\">绿</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#AA00DD\">紫</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#000000\">黑</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>, <font color=\"#0000FF\">蓝</font> 以及 <font color=\"#FFFF00\">黄</font> 墨的伤害8X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_yellow_cast_range"	"施法距离:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue"			"泼墨 [<font color=\"#0000FF\">蓝</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"#0000FF\">蓝</font>] 墨中。 使用该技能将会将目前的墨色切换至 [<font color=\"#FF0000\">红</font>]色。<br><br>当敌人被墨浸染时，同颜色的墨水的对他们造成的伤害将会提高。当敌人被多种墨水浸染时，墨水将会混合并且大幅度提高他们受到的伤害。 所有基础墨色的持续时间都为独立计算。<br><br>[<font color=\"#FF0000\">红</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>墨的伤害2X。<br>[<font color=\"#FFFF00\">黄</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 墨的伤害2X。<br>[<font color=\"#0000FF\">蓝</font>] 墨 -> 受到的来自 <font color=\"#0000FF\">蓝</font> 墨的伤害2X。<br>[<font color=\"#FF8800\">橙</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#FFFF00\">黄</font> 墨.<br>[<font color=\"#00FF00\">绿</font>] 墨 -> 受到的来自 <font color=\"#FFFF00\">黄</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#AA00DD\">紫</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font> 和 <font color=\"#0000FF\">蓝</font> 墨的伤害4X。<br>[<font color=\"#000000\">黑</font>] 墨 -> 受到的来自 <font color=\"#FF0000\">红</font>, <font color=\"#0000FF\">蓝</font> 以及 <font color=\"#FFFF00\">黄</font> 墨的伤害8X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_blue_cast_range"	"施法距离:"
+
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white"			"泼墨 [<font color=\"#FFFFFF\">白</font>]"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_Description"			"元素: <font color=\"#5B648C\">恶魔</font> / <font color=\"#9ACCD1\">鬼</font><br>传送至目标地点并且将目标地点周围的敌人浸入 [<font color=\"#FFFFFF\">白</font>] 墨中。 白墨将会获得所有其他墨色的加成。将敌人浸入 [<font color=\"#FFFFFF\">白</font>]墨之中。 受到的来自 [<font color=\"#FFFFFF\">白</font>] 墨的伤害将会提高2X。"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_damage"	"伤害:"
+"DOTA_Tooltip_Ability_rubilash_paint_splatter_white_cast_range"	"施法距离:"
+
+"DOTA_Tooltip_Ability_rubilash_self_portrait"			"自画像"
+"DOTA_Tooltip_Ability_rubilash_self_portrait_Description"			"画出一副自己的自画像，跟随自己并且当你释放技能时，自画像也会释放相同的技能。这个自画像释放技能的延迟为<font color='#ccff66'>0.5</font> 秒"
+"DOTA_Tooltip_Ability_rubilash_self_portrait_duration"	"持续时间:"
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_1"						"[Q1] 墨工"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_Description"			"增加施法距离。"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_property_one"			"施法距离"
+	"DOTA_Tooltip_ability_rubilash_rune_q_1_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_2"							"[Q2] 红色标记"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_Description"				"降低被<font color=\"#FF0000\">红</font>墨, <font color=\"#FF8800\">橙</font>墨, <font color=\"#AA00DD\">紫</font>墨, 或者<font color=\"#000000\">黑</font> 墨浸染的敌人的魔甲和护甲。"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_property_one"			"魔甲和护甲降低"
+	"DOTA_Tooltip_ability_rubilash_rune_q_2_suffix"					""	
+
+	"DOTA_Tooltip_ability_rubilash_rune_q_3"							"[Q3] 忧幻印象"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_Description"				"被 @Ability1 击中的敌人将会进入恐惧状态"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_property_one"			"恐惧持续时间"
+	"DOTA_Tooltip_ability_rubilash_rune_q_3_suffix"					"秒"
+
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear"						"忧幻印象"
+	"DOTA_Tooltip_modifier_rubilash_q_3_fear_Description"			"被恐惧"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_q_4"							"[Q4] 阴恶艺术"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_Description"				"增加所有 <font color=\"#5B648C\">恶魔</font> 和 <font color=\"#9ACCD1\">鬼</font> 元素伤害。"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_property_one"			"元素伤害加成"
+	"DOTA_Tooltip_ability_rubilash_rune_q_4_suffix"					"%"		
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_1"							"[W1] 浓墨"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_Description"				"增加墨水的持续时间。基础墨水持续时间为 <font color='#ccff66'>9</font> 秒。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_property_one"			"墨水持续时间提高"
+	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" 秒"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] 冷黄"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"降低被 <font color=\"#FFFF00\">黄</font>, <font color=\"#FF8800\">橙</font>, <font color=\"#00FF00\">绿</font>, 或者 <font color=\"#000000\">黑</font>墨浸染的敌人的魔法穿透和物理穿透。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"物理穿透和魔法穿透降低"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
+
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_3"							"[W3] 随想"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_Description"				"增加攻击速度并且你的普通攻击将会在敌人身下产生 @Ability2 的爆炸。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"攻击速度加成"
+	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "伤害"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% 墨弹伤害"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] 粘稠"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_Description"				"降低被墨水影响的敌人攻击速度和移动速度。这个debuff的效果对被 <font color=\"#FF8800\">橙</font>, <font color=\"#00FF00\">绿</font>, or <font color=\"#AA00DD\">紫</font>墨影响的敌人提高2倍, 对被 <font color=\"#000000\">黑</font>墨影响的敌人提高3倍。"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_property_one"			"攻击速度和移动速度降低"
+	"DOTA_Tooltip_ability_rubilash_rune_w_4_suffix"					" 被墨浸染时"
+	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_1"							"[E1] 填充"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_Description"				"释放 @Ability3后恢复魔法值，每点当前魔法值提高基础攻击力。"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_one"			"魔法值恢复量"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_property_two"			"基础攻击力"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" 每点当前魔法值"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] 鬼蓝"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"降低被 <font color=\"#0000FF\">蓝</font>, <font color=\"#AA00DD\">紫</font>, <font color=\"#00FF00\">绿</font>, 或者 <font color=\"#000000\">黑</font> 墨浸染的敌人的魔甲和魔法穿透。"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"魔甲和魔法穿透降低"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] 涂抹"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_Description"				"墨水造成的伤害将会治疗你。"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_property_one"			"治疗"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_suffix"					"% 基础墨水的伤害（不计算基础技能伤害和元素伤害加成）"		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_e_4"							"[E4] 幻影调色板"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_Description"				"全属性增加最大生命值。"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_property_one"			"最大生命值加成"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_suffix"					" 点属性"
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_1"							"[R1] 大师"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_Description"				"敏捷值提高魔法穿透。"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_property_one"			"魔法穿透加成"
+	"DOTA_Tooltip_ability_rubilash_rune_r_1_suffix"					" 每点敏捷"	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_2"							"[R2] 暗影画师"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_Description"				"释放 @Ability4后进入不可打破的隐身状态并且处于隐身状态时将会提高物品伤害和加成技能伤害。"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_one"			"隐身持续时间"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix"					" 秒"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_property_two"			"基础技能伤害和物品伤害加成"
+	"DOTA_Tooltip_ability_rubilash_rune_r_2_suffix_two"				"% "	
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_3"							"[R3] 湿笔"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_Description"				"每隔一段时间，自画像将会自动对最近的敌人释放一次 @Ability2 。"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_one"			"释放间隔"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix"					" 秒"		
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_property_two"			"施法距离"
+	"DOTA_Tooltip_ability_rubilash_rune_r_3_suffix_two"				""		
+	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4"							"[R4] 描绘"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_Description"				"提高自画像的移动速度并且他的降低镜像释放的延迟。"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_one"			"自画像镜像释放延迟"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix"					" 秒"	
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_property_two"			"自画像移动速度加成"
+	"DOTA_Tooltip_ability_rubilash_rune_r_4_suffix_two"				""	
+
+	//Glyphs
+	
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_1_1"		"[T1-1] 蚀刻雕文"
+	"item_rpc_rubilash_glyph_1_1_description" 				"增加 @Ability2 的穿行速度 <font color='#ccff66'>120</font>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_2_1"		"[T2-1] 灵腕雕文"
+	"item_rpc_rubilash_glyph_2_1_description" 				"@Ability1 将会切换墨色并且基础技能伤害提高 <font color='#ccff66'>100</font>% "
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_3_1"		"[T3-1] 绘画雕文"
+	"item_rpc_rubilash_glyph_3_1_description" 				"每<font color='#ccff66'>2</font>秒自画像将会向周围<font color='#ccff66'>300</font>距离内随机位置释放 @Ability3"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_4_1"		"[T4-1] 幻影适应雕文"
+	"item_rpc_rubilash_glyph_4_1_description" 				"增加魔甲 <font color='#ccff66'>5000</font>点"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] 蓝墨雕文"
+	"item_rpc_rubilash_glyph_5_1_description" 				"所有蓝墨都将打破技能免疫"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] 红墨雕文"
+	"item_rpc_rubilash_glyph_6_1_description" 				"提高所有红墨造成的伤害<font color='#ccff66'>400</font>%并且拥有物理伤害类型"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_7_1"		"[T7-1] 黄墨雕文"
+	"item_rpc_rubilash_glyph_7_1_description" 				"降低黄墨<font color='#ccff66'>-50</font>%造成的伤害并且拥有纯粹伤害类型"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_a"		"[T5-a] 黑墨雕文"
+	"item_rpc_rubilash_glyph_5_a_description" 				"当至少有一个敌人被黑墨浸染时，你将会获得 <font color='#ccff66'>300</font>% 攻击力加成"
+
+	//Weapons
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_00"		"笔刷"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_01"		"笔扫"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_02"		"雪图笔刷"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_03"		"墨刷"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_11"		"墨扫"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_12"		"艺术家笔刷"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_13"		"调色棒"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_14"		"混墨"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_21"		"大师笔刷"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_22"		"视觉之扫"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_23"		"丙烯棒"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"古老大师之笔"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"印象派之笔"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "迅捷之击之笔"
+	"item_property_rubilash_immortal_weapon"                             "迅捷之击"
+	"property_rubilash_immortal_weapon_description"                      "移除@Ability1施法点并且增加基础技能伤害<font color='#ccff66'>100</font>% "
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "僵尸手工之刷"
+	"item_property_rubilash_immortal_weapon2"                             "幽魂艺术"
+	"property_rubilash_immortal_weapon2_description"                      "增加最大生命值 <font color='#ccff66'>250</font>%, 降低所有受到的治疗效果 <font color='#ccff66'>60</font>%"
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_3"            "杰作之笔"
+	"item_property_rubilash_immortal_weapon3"                             "墨之掌控"
+	"property_rubilash_immortal_weapon3_description"                      "增加所有墨水的基础伤害，数值为 <font color='#ccff66'>1</font>x 敏捷和智力以及 <font color='#ccff66'>5</font>% 攻击力"
+
+	//ARCANAS
+
+	"DOTA_Tooltip_ability_item_rpc_rubilash_arcana1"						"大师笔触之靴"
+
+	"item_property_rubilash_arcana1"										"白墨"
+	"property_rubilash_arcana1_description"									"将 @Ability3 及他的所有符文替换为泼墨 [<font color=\"#FFFFFF\">白</font>]。"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1"						"[E1] 崭新大衣"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_Description"			"释放 @Ability3 回复生命值"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_property_one"			"治疗"
+	"DOTA_Tooltip_ability_rubilash_rune_e_1_arcana1_suffix"					"% 最大生命值"
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1"						"[E2] 杰作"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_Description"			"极大地增加物理穿透和魔法穿透"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_property_one"			"物理穿透 & 魔法穿透"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
+
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] 王牌丙烯"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"增加所有墨水的基础伤害"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"墨水伤害提高（固定数值）"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
+
+		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] 空白画卷"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_Description"			"增加全属性，全属性增加基础攻击力"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_one"			"属性加成"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix"					""
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_property_two"			"基础攻击力"
+	"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1_suffix_two"				" 每点全属性"
 
 
     	//Abilities
@@ -9559,7 +9844,7 @@
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3" "[W3] 二元裂隙"
 
-		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得20% 的概率造成致命一击。"
+		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_Description" "使你的飞刃获得<font color='#ccff66'>25</font>% 的概率造成致命一击。"
 
 		"DOTA_Tooltip_ability_solunia_rune_w_3_arcana3_property_one" "致命一击伤害"
 
@@ -12080,13 +12365,13 @@
         "item_rpc_sange_boots_amethyst1"                                        "每点敏捷提供 @amethyst_property1点基础攻击力"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_dunetread_boots"									"沙丘之靴"
-        "item_rpc_dunetread_boots_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
-        "item_rpc_dunetread_boots_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
-        "item_rpc_dunetread_boots_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
-        "item_rpc_dunetread_boots_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
-		"item_property_dunetread"					"沙丘行者"
-		"property_dunetread_description"			"减少 @Ability3 的冷却时间<font color='#ccff66'>2</font>秒。"
+		"DOTA_Tooltip_ability_item_rpc_dunetreads"									"沙丘之靴"
+        "item_rpc_dunetreads_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
+        "item_rpc_dunetreads_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
+        "item_rpc_dunetreads_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
+        "item_rpc_dunetreads_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
+		"item_property_dunetreads"					"沙丘行者"
+		"property_dunetreads_description"			"减少 @Ability3 的冷却时间<font color='#ccff66'>2</font>秒。"
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_boots_of_the_violet_guard"						"紫罗兰卫士之靴"
@@ -12094,8 +12379,8 @@
 		"item_rpc_boots_of_the_violet_guard_emerald1"							"增加 @emerald_property1 点敏捷"
 		"item_rpc_boots_of_the_violet_guard_sapphire1"							"增加物理穿透 @sapphire_property1点"
 		"item_rpc_boots_of_the_violet_guard_amethyst1"							"增加 [R] 的基础技能伤害 @amethyst_property1%"
-		"item_property_violet_boot"					"紫罗兰之光"
-		"property_violet_boot_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
+		"item_property_boots_of_the_violet_guard"					"紫罗兰之光"
+		"property_boots_of_the_violet_guard_description"			"当你施放 @Ability3 时，向后方释放3道紫罗兰之光，造成20倍敏捷值的伤害。对精英怪造成60倍的伤害。每秒最多触发1次。"
 		
     	"DOTA_Tooltip_ability_item_rpc_guardian_greaves"								"卫士胫甲"
     	"item_rpc_guardian_greaves_ruby1"								"每移动 @ruby_property1 点距离都会触发一次卫士胫甲"
@@ -12232,8 +12517,8 @@
 		
     	
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
-		"item_property_voyager"						"航海家"
-        "property_voyager_description"              "每移动 <font color='#ccff66'>100</font> 距离降低所有其他技能的冷却时间降低数值为<font color='#ccff66'>2</font>%的技能的基础冷却时间"
+		"item_property_voyager_boots"						"航海家"
+        "property_voyager_boots_description"              "每移动 <font color='#ccff66'>100</font> 距离降低所有其他技能的冷却时间降低数值为<font color='#ccff66'>2</font>%的技能的基础冷却时间"
         "item_rpc_voyager_boots_ruby1"                                  "释放 [E] 后，降低其他技能的冷却时间，数值为 @ruby_property1% 技能基础冷却时间"
         "item_rpc_voyager_boots_emerald1"                                   "每有一个技能处于冷却中时，你的移动速度和最大移动速度将会提高 @emerald_property1"
         "item_rpc_voyager_boots_sapphire1"                                  "每有一个技能不在冷却中时，你的攻击力将会提高 @sapphire_property1% 攻击力加成，每一个非冷却状态技能都会增加一层这个效果"
@@ -12453,8 +12738,8 @@
         "item_rpc_emerald_speed_runners_emerald1"                           "增加敏捷 @emerald_property1点并且你的敏捷不能低于 @emerald_property2点"
         "item_rpc_emerald_speed_runners_sapphire1"                          "被缠绕时，发出移动指令将会将你传送至目标地点。跳跃距离为 @sapphire_property1，内置冷却时间 @sapphire_property2 秒"
         "item_rpc_emerald_speed_runners_amethyst1"                          "[E] 的冷却时间不能低于 @amethyst_property1 秒"
-		"item_property_emerald_speed"							"稳定步伐"
-		"property_emerald_speed_description"					"移动速度不会低于 <font color='#ccff66'>500</font> 。"
+		"item_property_emerald_speed_runners"							"稳定步伐"
+		"property_emerald_speed_runners_description"					"移动速度不会低于 <font color='#ccff66'>500</font> 。"
 		
         
         "DOTA_Tooltip_ability_item_rpc_red_october_boots"                               "永恒丛林之靴"
@@ -12641,16 +12926,16 @@
 		"item_rpc_avalanche_plate_amethyst1"								"增加山崩的伤害@amethyst_property1"
 		
 		
-		"DOTA_Tooltip_ability_item_rpc_armor_of_violet_guard"							"紫罗兰卫士之甲"
-		"item_property_violet_guard_armor"			"紫罗兰征服者"
-		"property_violet_guard_armor_description"	"降低@Ability1的冷却时间 <font color='#ccff66'>35</font>%。"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible"	"紫罗兰征服者"
-		"DOTA_Tooltip_modifier_violet_guard_armor_loss_visible_Description"	"护甲被降低"
+		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"紫罗兰卫士之甲"
+		"item_property_armor_of_the_violet_guard"			"紫罗兰征服者"
+		"property_armor_of_the_violet_guard_description"	"降低@Ability1的冷却时间 <font color='#ccff66'>35</font>%。"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"紫罗兰征服者"
+		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"护甲被降低"
 
-		"item_rpc_armor_of_violet_guard_ruby1"							"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <font color='#ccff66'>10</font> 秒"
-		"item_rpc_armor_of_violet_guard_emerald1"							"增加敏捷 @emerald_property1"
-		"item_rpc_armor_of_violet_guard_sapphire1"							"增加物理穿透@sapphire_property1"
-		"item_rpc_armor_of_violet_guard_amethyst1"							"增加 [Q] 的基础技能伤害@amethyst_property1%"
+		"item_rpc_armor_of_the_violet_guard_ruby1"							"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <font color='#ccff66'>10</font> 秒"
+		"item_rpc_armor_of_the_violet_guard_emerald1"							"增加敏捷 @emerald_property1"
+		"item_rpc_armor_of_the_violet_guard_sapphire1"							"增加物理穿透@sapphire_property1"
+		"item_rpc_armor_of_the_violet_guard_amethyst1"							"增加 [Q] 的基础技能伤害@amethyst_property1%"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_seraphic_soulvest"								"天使之袍"
@@ -12666,14 +12951,14 @@
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
 		"DOTA_Tooltip_ability_item_rpc_plate_of_the_watcher"							"守望者板甲"
 
-		"item_property_watcher_one"					"守望者 I"
-		"property_watcher_one_description"			"增加@Ability1冷却时间 <font color='#ccff66'>50</font>%及基础技能伤害<font color='#ccff66'>175</font>%."
-		"item_property_watcher_two"					"守望者 II"
-		"property_watcher_two_description"			"增加@Ability2 的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害 <font color='#ccff66'>175</font>%."
-		"item_property_watcher_three"				"守望者 III"
-		"property_watcher_three_description"		"增加@Ability3 的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害 <font color='#ccff66'>175</font>%."
-		"item_property_watcher_four"				"守望者 IV"
-		"property_watcher_four_description"			"增加@Ability4的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害  <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_one"					"守望者 I"
+		"property_plate_of_the_watcher_one_description"			"增加@Ability1冷却时间 <font color='#ccff66'>50</font>%及基础技能伤害<font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_two"					"守望者 II"
+		"property_plate_of_the_watcher_two_description"			"增加@Ability2 的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害 <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_three"				"守望者 III"
+		"property_plate_of_the_watcher_three_description"		"增加@Ability3 的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害 <font color='#ccff66'>175</font>%."
+		"item_property_plate_of_the_watcher_four"				"守望者 IV"
+		"property_plate_of_the_watcher_four_description"			"增加@Ability4的冷却时间 <font color='#ccff66'>50</font>% 及基础技能伤害  <font color='#ccff66'>175</font>%."
 
 		"item_rpc_plate_of_the_watcher_ruby1"							"额外增加 [Q] 的冷却时间@ruby_property1%及基础技能伤害 @ruby_property2%"
 		"item_rpc_plate_of_the_watcher_emerald1"							"额外增加[E] 的冷却时间@emerald_property1% 及基础技能伤害 @emerald_property2%"
@@ -12866,11 +13151,11 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
-		"item_property_enchanted_solar"				"耀斑"
-		"property_enchanted_solar_description"		"每 <font color='#ccff66'>0.5</font> 秒获得一层日光，到达 <font color='#ccff66'>24</font> 层后获得耀斑效果，持续  <font color='#ccff66'>12</font> 秒，处于耀斑状态下时，你的所有技能的冷却时间将会降低  <font color='#ccff66'>66</font> %并且施法速度将会提高 <font color='#ccff66'>60</font>%。处于耀斑状态下时不能获得日光层数。"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect"				"耀斑"
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_effect_Description"	"降低冷却时间<font color='#ccff66'>66</font>%%并且提高施法速度<font color='#ccff66'>60</font>%% "
-		"DOTA_Tooltip_modifier_enchanted_solar_cape_sunlight"			"日光"
+		"item_property_enchanted_solar_cape"				"耀斑"
+		"property_enchanted_solar_cape_description"		"每 <font color='#ccff66'>0.5</font> 秒获得一层日光，到达 <font color='#ccff66'>24</font> 层后获得耀斑效果，持续  <font color='#ccff66'>12</font> 秒，处于耀斑状态下时，你的所有技能的冷却时间将会降低  <font color='#ccff66'>66</font> %并且施法速度将会提高 <font color='#ccff66'>60</font>%。处于耀斑状态下时不能获得日光层数。"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"耀斑"
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"降低冷却时间<font color='#ccff66'>66</font>%%并且提高施法速度<font color='#ccff66'>60</font>%% "
+		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"日光"
 
 		"item_rpc_enchanted_solar_cape_ruby1"							"在非耀斑状态下释放 [R]将会获得  @ruby_property1层日光层数 "
 		"item_rpc_enchanted_solar_cape_emerald1"							"降低触发耀斑所需的日光层数@emerald_property1"
@@ -13706,8 +13991,8 @@
     	"item_rpc_spellfire_gloves_emerald1"								"降低基础技能的冷却时间 @emerald_property1%"
     	"item_rpc_spellfire_gloves_sapphire1"								"提高所有 T3 符文@sapphire_property1"
     	"item_rpc_spellfire_gloves_amethyst1"								"[R] 的持续施法在还有 @amethyst_property1 秒完成的时候就能释放完毕"
-		 "item_property_spellfire"								"法术"
-		 "property_spellfire_description"						"施法速率提高 <font color='#ccff66'>60</font>%"
+		 "item_property_spellfire_gloves"								"法术"
+		 "property_spellfire_gloves_description"						"施法速率提高 <font color='#ccff66'>60</font>%"
 		 
 		 
     	"DOTA_Tooltip_ability_item_rpc_shadowflame_fist"								"暗影拳套"
@@ -14031,8 +14316,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_veil_of_the_cerulean_high_guard"					"蓝天守卫面纱"
-		"item_property_cerulean_highguard"			"浓缩魔力"
-		"property_cerulean_highguard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>240</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
+		"item_property_veil_of_the_cerulean_high_guard"			"浓缩魔力"
+		"property_veil_of_the_cerulean_high_guard_description"	"@Ability2 耗蓝增加 <font color='#ccff66'>240</font>%，其基础技能伤害提高 <font color='#ccff66'>180</font>%。"
 		"item_rpc_veil_of_the_cerulean_high_guard_ruby1"	"提高最大魔法值 @ruby_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_emerald1"	"提高魔法穿透 @emerald_property1"
 		"item_rpc_veil_of_the_cerulean_high_guard_sapphire1" "提高魔法回复 @sapphire_property1"
@@ -14054,8 +14339,8 @@
 		
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_phantom_sorcerer"					"幻影术士面具"
-		"item_property_phantom_sorcerer"			"幻影凝视"
-		"property_phantom_sorcerer_description"		"@Ability2 伤害提高 <font color='#ccff66'>240</font>%，但冷却时间增加<font color='#ccff66'>4</font>秒。"
+		"item_property_mask_of_the_phantom_sorcerer"			"幻影凝视"
+		"property_mask_of_the_phantom_sorcerer_description"		"@Ability2 伤害提高 <font color='#ccff66'>240</font>%，但冷却时间增加<font color='#ccff66'>4</font>秒。"
 		"item_rpc_mask_of_the_phantom_sorcerer_ruby1"	"提高 [W] 基础技能伤害 @ruby_property1% 但是提高其冷却时间 @ruby_property2 秒"
 		"item_rpc_mask_of_the_phantom_sorcerer_emerald1"	"提高 [W2] 符文 @emerald_property1"
 		"item_rpc_mask_of_the_phantom_sorcerer_sapphire1" "提高 [W1] 符文 @sapphire_property1"
@@ -14382,8 +14667,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
-		"property_twisted_mask_of_ahnqhir_a"												"超级施法 A"
-		"property_twisted_mask_of_ahnqhir_a_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <font color='#ccff66'>40</font>%。"
+		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"提高 [Q3] 符文 @emerald_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_sapphire1" "提高 [Q2] 符文 @sapphire_property1"
@@ -14391,8 +14676,8 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
-		"property_twisted_mask_of_ahnqhir_b"												"超级施法 B"
-		"property_twisted_mask_of_ahnqhir_b_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <font color='#ccff66'>1</font> 秒。"
+		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <font color='#ccff66'>1</font> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"提高 [W3] 符文 @emerald_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_sapphire1" "提高 [W2] 符文 @sapphire_property1"
@@ -14400,13 +14685,12 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
-		"property_twisted_mask_of_ahnqhir_c"												"超级施法 C"
-		"property_twisted_mask_of_ahnqhir_c_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <font color='#ccff66'>40</font>%。"
+		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"提高 [E3] 符文 @emerald_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_sapphire1" "提高 [E2] 符文 @sapphire_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_amethyst1" "提高 [E4] 符文 @amethyst_property1"
-		
 		
 		"DOTA_Tooltip_ability_item_rpc_ocean_helm_of_valdun"					"瓦尔顿深海之盔"	
 		"property_all_elements"												"提高所有元素伤害 %"
@@ -17417,7 +17701,7 @@
 		"DOTA_Tooltip_ability_archon_golem_ground_slam"					"暗黑审判之焰"
 		"DOTA_Tooltip_ability_archon_golem_ground_slam_Description"		"震击地面并对区域内敌人造成眩晕和大量伤害"
 
-		"DOTA_Tooltip_ability_seafortress_archon_form"					"执政官形态"
+		"DOTA_Tooltip_ability_seafortress_archon_wizard_archon_form"					"执政官形态"
 
 		"sea_fortress_paladin_golem"									"虚声恫吓"
 		"seafortress_archon_wizard"										"执政官巫师"

@@ -21,7 +21,7 @@ function winterblight_unit_die(event)
 			CustomGameEventManager:Send_ServerToAllClients("close_altar_of_ice", {})
 		end
 	end
-	if unit:GetDeathXP() > 0 then
+	if unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 		local premiumCount = GameState:GetPlayerPremiumStatusCount()
 		local luck = RandomInt(1, 13000 - (1000 * premiumCount))
 		if luck == 1 then

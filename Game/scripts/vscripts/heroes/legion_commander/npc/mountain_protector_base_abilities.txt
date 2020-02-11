@@ -124,9 +124,8 @@
 
 	"mountain_protector_mountain_guardian"
 	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/legion_commander/mountain_protector_mountain_guardian.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"mountain_protector/mountain_protector_mountain_guardian"
@@ -143,18 +142,6 @@
 			"particle"	"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.10"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		// Special
 		//-------------------------------------------------------
 		"AbilitySpecial"
@@ -162,164 +149,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"armor_and_magic_armor"						"200 500 800 1100 1400 1700 2000"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_drain_per_second"		"20 40 60 80 120 160 200"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_energy_channel"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_energy_channel"
-			{
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_think"
-						"mana_drain"	"%mana_drain_per_second"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_create"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"energy_shield_end"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_energy_channel_animating"
-						"Target" 		"TARGET"
-					}
-				}
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"EffectName"	"particles/roshpit/mystic_assasin/energy_channel.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_move_cooldown"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-			}
-			"modifier_energy_channel_no_cast_filter"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_energy_channel_animating"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_protector_rune_w_3_aura"
-			{
-				"EffectName"		"particles/roshpit/mystic_assassin/mountain_protector_c_b_shield.vpcf"
-				"EffectAttachType" 	"follow_origin"
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_w_3_zap"
-				"Aura_Radius"			"<% MOUNTAIN_PROTECTOR_W3_RADIUS %>"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_w_3_zap"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"  "<% MOUNTAIN_PROTECTOR_W3_TICKRATE %>"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_c_b_zap"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_rune_w_4_aura"
-			{
-				"IsPurgable"			"0"
-				"Passive" 			"0"
-				"IsHidden" 			"1"
-				"IsBuff"			"1"
-				"Aura"					"modifier_protector_w_4_armor_aura_invisible"
-				"Aura_Radius"			"<% MOUNTAIN_PROTECTOR_W4_RADIUS %>"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-			}
-			"modifier_protector_w_4_armor_aura_invisible"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/legion_commander/energy_channel.lua"
-						"Function"		"protector_d_b_aura_init"
-						"target"		"TARGET"
-					}
-				}
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_protector_d_b_armor_aura_effect"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_protector_d_b_armor_aura_effect"
-			{
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-			}
-			"modifier_protector_w1_regen"
-			{
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "<% MOUNTAIN_PROTECTOR_W1_HP_REGEN_PERCENT %>"
-				}
+				"armor_and_magic_armor"		"<% MOUNTAIN_PROTECTOR_W_ARMOR_AND_MAGIC_ARMOR %>"
 			}
 		}
 	}

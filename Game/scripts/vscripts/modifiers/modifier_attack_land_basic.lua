@@ -68,7 +68,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			if parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
 				local adjusted_damage = CustomAttributes:AdjustDamageForRoshpitAttributes(parent, event.target, DAMAGE_TYPE_PHYSICAL, damage, parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetEntityIndex())
 				local lifesteal = math.floor(adjusted_damage * parent.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", DESERT_NECROMANCER_EMERALD)/100)
-				print(lifesteal)
+				--print(lifesteal)
 				Filters:ApplyHeal(parent.hero, parent.hero, lifesteal, true, true)
 				Filters:ApplyHeal(parent, parent, lifesteal, true, true)
 
@@ -145,8 +145,8 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 		end
 		if parent:HasModifier("modifier_direwolf_bulwark") then
 			local direwolf = parent:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()
-			event.damage = event.damage + event.target:GetRoshpitArmor()*((ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG + direwolf:GetFinalGemPropertyValue("emerald", ITEM_RPC_DIREWOLF_BULWARK_GEM_EMERALD))/100)
-			Filters:ApplyItemDamage(event.target, parent, event.damage, DAMAGE_TYPE_MAGICAL, direwolf, RPC_ELEMENT_SHADOW, RPC_ELEMENT_DEMON)
+			local direwolfDamage = event.target:GetRoshpitArmor()*((ITEM_RPC_DIREWOLF_BULWARK_ARMOR_TO_DMG + direwolf:GetFinalGemPropertyValue("emerald", ITEM_RPC_DIREWOLF_BULWARK_GEM_EMERALD))/100)
+			Filters:ApplyItemDamage(event.target, parent, direwolfDamage, DAMAGE_TYPE_MAGICAL, direwolf, RPC_ELEMENT_SHADOW, RPC_ELEMENT_DEMON)
 			if parent:IsHero() and direwolf:GetGemValue("amethyst") > 0 then
 				local dire_wolf_amethyst_damage = event.target:GetRoshpitMagicArmor()*(direwolf:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DIREWOLF_BULWARK_GEM_AMETHYST)/100)
 				Filters:ApplyItemDamage(event.target, parent, dire_wolf_amethyst_damage, DAMAGE_TYPE_MAGICAL, direwolf, RPC_ELEMENT_SHADOW, RPC_ELEMENT_DEMON)	

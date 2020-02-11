@@ -14,7 +14,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q2_DMG_PER_ATT * 100 %>"
+				"property_one"			"<% ASTRAL_RANGER_ARCANA1_Q1_ATTACK_RANGE_INCREASE %>"
 			}
 		}
 	}

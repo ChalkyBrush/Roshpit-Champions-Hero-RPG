@@ -883,7 +883,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"60 120 180 240 300 360 420"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 		"02"
 			{
@@ -1053,7 +1053,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 100 150 200 250 300 350"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 			"02"
 			{
@@ -1231,12 +1231,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 130 190 250 310 370 430"
+				"damage"				"60 360 660 960 1260 1560 1860"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"armor_reduction"		"-50 -150 -250 -350 -450 -550 -650"
+				"armor_reduction"		"-50 -350 -650 -950 -1250 -1550 -1850"
 			}
 			"03"
 			{
@@ -2034,7 +2034,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"protection_per_earth_charge"	"0.1"
+				"protection_per_earth_charge"	"<% WARLORD_R_EARTH_SHIELD_DURATION_PER_CHARGE %>"
 			}
 			"03"
 			{

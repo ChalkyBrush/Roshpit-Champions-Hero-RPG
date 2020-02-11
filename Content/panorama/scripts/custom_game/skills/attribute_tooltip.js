@@ -246,15 +246,15 @@ function initializeTooltip(func){
 
 	var phys_resist = GameUI.StatQueryData.phys
 	$('#resist_title_phys').text = $.Localize("#DOTA_ToolTip_Damage_Physical")
-	$('#resist_value_phys').text = phys_resist+"%"
+	$('#resist_value_phys').text = (parseInt(phys_resist*1000))/1000+"%"
 
 	var magic_resist = GameUI.StatQueryData.magic
 	$('#resist_title_magic').text = $.Localize("#DOTA_ToolTip_Damage_Magical")
-	$('#resist_value_magic').text = magic_resist+"%"
+	$('#resist_value_magic').text = (parseInt(magic_resist*1000))/1000+"%"
 
 	var pure_resist = GameUI.StatQueryData.pure
 	$('#resist_title_pure').text = $.Localize("#DOTA_ToolTip_Damage_Pure")
-	$('#resist_value_pure').text = pure_resist+"%"
+	$('#resist_value_pure').text = (parseInt(pure_resist*1000))/1000+"%"
 
 	if (Entities.IsHero(queryUnit)){
 		$("#elements_title").text = $.Localize("#ui_elements").toUpperCase()

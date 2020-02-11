@@ -13,20 +13,25 @@ LinkLuaModifier(modifierName, "items/lua/helm/helm_of_the_iron_colossus", LUA_MO
 function itemClass:GetClassName()
     return itemClassName
 end
+
 function itemClass:GetName()
     return 'Helm of the Iron Colossus'
 end
+
 function itemClass:GetModifierName()
     return modifierName
 end
+
 function itemClass:HasRuneSlots()
     return true
 end
+
 function itemClass:RollProperty1(maxFactor)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_helm_of_the_iron_colossus"
     self:SetSpecialValue("helm_of_the_iron_colossus", "#874E4D")
 end
+
 function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "strength", 1.5)    
 end
@@ -34,9 +39,11 @@ end
 function itemClass:RollProperty3(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 3, item_level, "armor", 1.5)
 end
+
 function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 3)
 end
+
 function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 0.5)
 end
@@ -46,14 +53,15 @@ end
 ------------
 
 function modifierClass:OnCreated()
-    if not IsServer() then
-        return
-    end
+    if not IsServer() then return end
+
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_BASE_ARMOR_BONUS,
-        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY 
+        MODIFIER_ROSHPIT_W_PCT_MANA_COST,
+        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY
     })
 end
+
 function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MODEL_SCALE,
@@ -97,11 +105,10 @@ function modifierClass:GetRoshpitBaseArmorBonus()
 	local armor_per_str = IRON_COLOSSUS_AMR_PER_STR + self:GetAbility():GetFinalGemPropertyValue("emerald", IRON_COLOSSUS_EMERALD)
 	return hero:GetStrength()*armor_per_str
 end
-function modifierClass:OnCastWAbility()
-    local hero = self:GetParent()
-    local ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
-    local manaCost = ability:GetManaCost(-1) * (IRON_COLOSSUS_INCR_W_MANA_COST_PCT - self:GetAbility():GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)) / 100
-    self:GetParent():ReduceMana(manaCost)
+
+function modifierClass:GetRoshpitWPctManaCostModifier()
+    local manaCostMultiplier = (IRON_COLOSSUS_INCR_W_MANA_COST_PCT - self:GetAbility():GetFinalGemPropertyValue("sapphire", IRON_COLOSSUS_SAPPHIRE)) / 100
+    return manaCostMultiplier
 end
 
 function modifierClass:OnAttackLanded(event)
@@ -118,12 +125,19 @@ function modifierClass:OnAttackLanded(event)
     end
 end
 
-function modifierClass:GetAttackSound(params)
-    return "RPCItems.IronColossus.Attack"
+function modifierClass:OnCastWAbility()
+    if not IsServer() then return end
+
+    local caster = self:GetParent()
+    local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
+    if not ability.BaseClass then
+        local extraManaCost  = ability:GetManaCost(-1) * self:GetRoshpitWPctManaCostModifier()
+        caster:ReduceMana(extraManaCost)
+    end
 end
 
-function modifierClass:IsHidden()
-    return true
+function modifierClass:GetAttackSound(params)
+    return "RPCItems.IronColossus.Attack"
 end
 
 function modifierClass:RemoveOnDeath()

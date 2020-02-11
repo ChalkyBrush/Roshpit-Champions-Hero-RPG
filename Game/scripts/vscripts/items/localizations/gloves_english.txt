@@ -477,7 +477,7 @@
     	"DOTA_Tooltip_ability_item_rpc_shadow_armlet"									"Shadow Armlet"
 
 		"item_property_shadow_armlet"			"Shadow Step"
-		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %>. Attacking or casting removes the invisibility."
+		"property_shadow_armlet_description"	"<% ITEM_RPC_SHADOW_ARMLET_INVIS_CHANCE %>% chance on taking damage to go invisible for <% ITEM_RPC_SHADOW_ARMLET_INVIS_DURATION %> seconds. Attacking or casting removes the invisibility."
 
     	"item_rpc_shadow_armlet_ruby1"									"@ruby_property1% chance on taking damage to instantly heal for the amount of the damage instance"
     	"item_rpc_shadow_armlet_emerald1"									"Increases <font color=\"#7F4F84\">Shadow</font> Elemental Damage and Item Damage by @emerald_property1%"
@@ -521,8 +521,8 @@
 
 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
-		 "item_property_spellfire"								"Spellfire"
-		 "property_spellfire_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
+		 "item_property_spellfire_gloves"								"Spellfire"
+		 "property_spellfire_gloves_description"						"Cast rate is increased by <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %> second delay"
     	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"

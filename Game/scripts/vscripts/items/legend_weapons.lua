@@ -191,6 +191,9 @@ function Weapons:RollLegendWeapon1(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "omniro" then
 		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#F26AE6", nil)
 		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
+	elseif internalName == "rubilash" then
+		Weapons:SetLegendWeaponProperty1(weapon, internalName, "immortal_weapon_1", "#eb4034", nil)
+		Weapons:SetLegendWeaponProperty2(weapon, "base_ability", 2)
 	end
 
 
@@ -339,6 +342,9 @@ function Weapons:RollLegendWeapon2(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "omniro" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#c7eefc", nil, 2)
 		Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
+	elseif internalName == "rubilash" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_2", "#8aa4ba", nil, 2)
+		Weapons:SetLegendWeaponProperty2(weapon, "element_ghost", 2)
 	end
 
 
@@ -471,6 +477,14 @@ function Weapons:RollLegendWeapon3(location, class, strictMaxItemLevel, disableD
 	elseif internalName == "omniro" then
 		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#3289C7", nil, 3)
 		Weapons:SetLegendWeaponProperty2(weapon, "all_attributes", 2)
+	elseif internalName == "rubilash" then
+		Weapons:SetLegendWeaponProperty1Alt(weapon, internalName, "immortal_weapon_3", "#9cf0b1", nil, 3)
+		local luck = RandomInt(1, 2)
+		if luck == 1 then
+			Weapons:SetLegendWeaponProperty2(weapon, "agility", 2)
+		else
+			Weapons:SetLegendWeaponProperty2(weapon, "intelligence", 2)
+		end
 	end
 
 

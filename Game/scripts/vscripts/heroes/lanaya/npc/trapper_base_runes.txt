@@ -509,6 +509,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% TRAPPER_R3_CRIT_DAMAGE %>"
 			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one_base"			"<% TRAPPER_R3_CRIT_DAMAGE_BASE %>"
+			}
 		}
 	}
 

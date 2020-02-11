@@ -3,34 +3,39 @@ require('npc_abilities/base_modifier')
 
 item_rpc_storm_pacer_sabatons = class(BaseFoot, nil, BaseFoot)
 modifier_storm_pacer_sabatons = class(npc_base_modifier, nil, npc_base_modifier)
-local class = item_rpc_storm_pacer_sabatons
-local className = 'item_rpc_storm_pacer_sabatons'
+local itemClass = item_rpc_storm_pacer_sabatons
+local itemClassName = 'item_rpc_storm_pacer_sabatons'
 
 local modifierClass = modifier_storm_pacer_sabatons
 local modifierName = 'modifier_storm_pacer_sabatons'
 LinkLuaModifier(modifierName, "items/lua/foot/storm_pacer_sabatons", LUA_MODIFIER_MOTION_NONE)
 
-function class:GetClassName()
-    return className
+function itemClass:GetClassName()
+    return itemClassName
 end
-function class:GetName()
+
+function itemClass:GetName()
     return 'Pace of storm'
 end
-function class:GetModifierName()
+
+function itemClass:GetModifierName()
     return modifierName
 end
-function class:RollArmor(item_level)
+
+function itemClass:RollArmor(item_level)
     RPCItems:GrantItemBaseArmor(self, item_level, 2)
 end
-function class:RollMagicArmor(item_level)
+
+function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1.5)
 end
 
-function class:RollProperty1()
+function itemClass:RollProperty1()
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_storm_pacer_sabatons"
     self:SetSpecialValue("storm_pacer_sabatons", "#8fd8f7")
 end
+
 function modifierClass:OnCreated()
     if not IsServer() then
         return
@@ -50,6 +55,7 @@ function modifierClass:OnCreated()
 
     self.retracing = false
 end
+
 function modifierClass:OnCastEAbility()
     local ability = self:GetAbility()
     ability.uid = ability.uid or 0
@@ -65,8 +71,9 @@ function modifierClass:OnCastEAbility()
     self:PlayEffectsCast()
     self:StartIntervalThink(self.thinkInterval)
 end
+
 function modifierClass:PlayEffectsCast()
-    local caster = self:GetCaster()
+    local caster = self:GetParent()
 
     EmitSoundOn("Items.Stormpace.Activate", caster)
 
@@ -88,8 +95,9 @@ function modifierClass:PlayEffectsCast()
         ParticleManager:ReleaseParticleIndex(pfx)
     end)
 end
+
 function modifierClass:OnIntervalThink()
-    local caster = self:GetCaster()
+    local caster = self:GetParent()
     local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*ITEM_RPC_STORM_PACER_SABATONS_DMG_ATK_POWER_PCT/100  + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_STORM_PACER_SABATONS_GEM_RUBY2)
     if self.retracing then
         self.currentRadius = math.max(self.currentRadius - self.radiusStep, 0)
@@ -134,9 +142,14 @@ function modifierClass:OnIntervalThink()
         end
     end
 end
+
 function modifierClass:OnAfterPreMitigationReduce(data)
     if data.source ~= self:GetAbility() then
         self.damage = data.damage
         self.elements = data.elements
     end
+end
+
+function modifierClass:IsHidden()
+    return true
 end

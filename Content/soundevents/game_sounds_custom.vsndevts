@@ -6943,6 +6943,70 @@ Env.LavaHit
     }
 }
 
+"UI.Gemforger.Salvage1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/creep/neutral/skeleton_spawn_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.800000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"UI.Gemforger.Salvage"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/creep/neutral/harpystorm_transfer_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.35000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.000000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
 "Challenges.Crusader.VOEnter"
 {
     "operator_stacks"
@@ -9956,6 +10020,142 @@ Env.LavaHit
                     "pitch_rand_max"    {   "value"     "0.030000"  }
                     "pitch"             {   "value"     "0.90000"  }
                     "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.TreasureGoblin.ItemDrop"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/ui/coins.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.321000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "99.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.TreasureGoblin.ItemDropBig"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/ui/coins_big.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.621000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "99.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.TreasureGoblin.Laugh"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/soundboard/greevil_laugh01.vsnd"
+                              "value0"        "sounds/misc/soundboard/greevil_laugh02.vsnd"
+                              "value0"        "sounds/misc/soundboard/greevil_laugh03.vsnd"
+                              "value0"        "sounds/misc/soundboard/greevil_laugh04.vsnd"
+                              "value0"        "sounds/misc/soundboard/greevil_laugh05.vsnd"
+                              "value0"        "sounds/misc/soundboard/greevil_laugh06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.021000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.TreasureGoblin.Die"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/creep/greevil/death01.vsnd"
+                              "value1"        "sounds/weapons/creep/greevil/death02.vsnd"
+                              "value2"        "sounds/weapons/creep/greevil/death03.vsnd"
+                              "value3"        "sounds/weapons/creep/greevil/death04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.321000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.00000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
                     "distance_max"      {   "value"     "3200.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

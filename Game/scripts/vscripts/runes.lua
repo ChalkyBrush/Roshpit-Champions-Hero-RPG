@@ -139,9 +139,9 @@ end
 function Runes:RedirectRunes(hero, runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID)
 	local heroName = hero:GetUnitName()
 	local roshpit_name = HerosCustom:GetInternalHeroName(heroName)
-	print(roshpit_name)
+	--print(roshpit_name)
 	Runes:CollectHeroRunes(runeUnit, runeUnit2, runeUnit3, runeUnit4, playerID, roshpit_name)
-	print("COLECTED RUNES")
+	--print("COLECTED RUNES")
 	runeUnit:AddAbility("town_unit"):SetLevel(1)
 	runeUnit2:AddAbility("town_unit"):SetLevel(1)
 	runeUnit3:AddAbility("town_unit"):SetLevel(1)
@@ -1002,7 +1002,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_legion_commander" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_energy_channel")
+			hero:RemoveModifierByName("modifier_mountain_protector_mountain_guardian")
 			Runes:EasySwapArcanaSkills(hero, 1, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			-- Events:ColorWearables(hero, Vector(0, 0, 255))
@@ -1147,9 +1147,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_zonis_passive")
-			hero:RemoveModifierByName("modifier_zonis_freecast")
-			Runes:EasySwapArcanaSkills(hero, 0, "arkimus_zonis_spark", "arkimus_zap_ring", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, 0, "arkimus_dimension_coil", "arkimus_magnetic_flux", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
@@ -1311,6 +1309,33 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_slipfinn_shadow_rush_passive")
 			hero:RemoveAbility("slipfinn_shadow_warp")
 			Runes:EasySwapArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_grimstroke" then
+		if index == 1 then
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
+			if abilityCheck:GetAbilityName() ~= "rubilash_paint_splatter_red" then
+				local q_ability = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, q_ability:GetAbilityName(), "rubilash_phantom_brush_red", 0)
+				local w_ability = hero:GetAbilityByIndex(DOTA_W_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, w_ability:GetAbilityName(), "rubilash_ink_blot_red", 1)
+				local e_ability = hero:GetAbilityByIndex(DOTA_E_SLOT)
+				CustomAbilities:AddAndOrSwapSkill(hero, e_ability:GetAbilityName(), "rubilash_paint_splatter_red", 2)
+			end
+			local other_colors = {"blue", "yellow"}
+			for i = 1, #other_colors, 1 do
+				if hero:HasAbility("rubilash_phantom_brush_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_phantom_brush_"..other_colors[i])
+				end
+				if hero:HasAbility("rubilash_ink_blot_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_ink_blot_"..other_colors[i])
+				end
+				if hero:HasAbility("rubilash_paint_splatter_"..other_colors[i]) then
+					hero:RemoveAbility("rubilash_paint_splatter_"..other_colors[i])
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 2, "rubilash_paint_splatter_red", "rubilash_paint_splatter_white", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_phantom_brush_red", "rubilash_phantom_brush_white", DOTA_Q_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_ink_blot_red", "rubilash_ink_blot_white", DOTA_W_SLOT)
 		end
 	end
 end
@@ -1732,7 +1757,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_legion_commander" then
 		if index == 1 then
-			hero:RemoveModifierByName("modifier_steelforge_stance")
+			hero:RemoveModifierByName("modifier_mountain_protector_steelforge_stance")
 			hero:RemoveModifierByName("modifier_steelforge_passive")
 			Runes:EasyRevertArcanaSkills(hero, 1, "mountain_protector_mountain_guardian", "mountain_protector_steelforge_stance", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
@@ -1871,7 +1896,7 @@ function Runes:UnequipArcana(hero, index)
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
 			hero:RemoveModifierByName("modifier_arkimus_arcana1_passive")
-			Runes:EasyRevertArcanaSkills(hero, 0, "arkimus_zonis_spark", "arkimus_zap_ring", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, 0, "arkimus_dimension_coil", "arkimus_magnetic_flux", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "arkimus_energy_field", "arkimus_archon_form", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
@@ -2026,6 +2051,12 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_bog_roller_passive")
 			hero:RemoveModifierByName("modifier_slipfinn_bog_roller")
 			Runes:EasyRevertArcanaSkills(hero, 2, "slipfinn_shadow_rush", "slipfinn_bog_roller", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
+	elseif hero:GetUnitName() == "npc_dota_hero_grimstroke" then
+		if index == 1 then
+			Runes:EasySwapArcanaSkills(hero, 2, "rubilash_paint_splatter_white", "rubilash_paint_splatter_red", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_phantom_brush_white", "rubilash_phantom_brush_red", DOTA_Q_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(hero, "rubilash_ink_blot_white", "rubilash_ink_blot_red", DOTA_W_SLOT)
 		end
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "ability_tree_upgrade", {playerId = hero:GetPlayerOwnerID()})

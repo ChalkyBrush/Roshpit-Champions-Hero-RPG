@@ -1217,33 +1217,6 @@ function RPCItems:RollNecromancerMask(item_level)
     return item
 end
 
-function RPCItems:RollPhantomSorcererMask(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_mask_of_the_phantom_sorcerer", "immortal", "Mask of the Phantom Sorcerer", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_the_phantom_sorcerer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_phantom_sorcerer", "#02F21E", 1, "#property_phantom_sorcerer_description")
-
-    local luck = RandomInt(1, 7)
-    if luck < 7 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t3_rune", 1)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollMaskOfTyrius(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -1534,69 +1507,6 @@ function RPCItems:RollTricksterMask(item_level)
     return item
 end
 
-function RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_blue_mask_of_ahnqhir", "immortal", "Twisted Blue Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_blue"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_c", "#6BB5F9", 1, "#property_twisted_mask_of_ahnqhir_c_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_e_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_purple_mask_of_ahnqhir", "immortal", "Twisted Purple Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_purple"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_a", "#BC60F2", 1, "#property_twisted_mask_of_ahnqhir_a_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_q_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollTwistedMaskOfAhnqhirYellow(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_twisted_yellow_mask_of_ahnqhir", "immortal", "Twisted Yellow Mask of Ahn'qhir", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_mask_of_ahnqhir_yellow"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#property_twisted_mask_of_ahnqhir_b", "#EBFF6D", 1, "#property_twisted_mask_of_ahnqhir_b_Description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_3", 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollUndertakersHood(item_level)
     local item_slot = RPC_GEAR_SLOT_HEAD
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -1623,26 +1533,6 @@ function RPCItems:RollUndertakersHood(item_level)
     return item
 end
 
-function RPCItems:RollCeruleanHighguard(item_level)
-    local item_slot = RPC_GEAR_SLOT_HEAD
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_veil_of_the_cerulean_high_guard", "immortal", "Veil of the Cerulean Highguard", "head", true, "Slot: Head")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_cerulean_high_guard"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_cerulean_highguard", "#1D35D1", 1, "#property_cerulean_highguard_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 
 function RPCItems:RollWindDeityCrown(item_level)
@@ -1868,28 +1758,6 @@ function RPCItems:RollSecretTempleArmor(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollVioletGuardArmor(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_armor_of_violet_guard", "immortal", "Armor of Violet Guard", "body", true, "Slot: Body")
-    item.newItemTable.property1 = 0
-    item.newItemTable.property1name = "!immortal!_modifier_armor_of_violet_guard"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_guard_armor", "#A337E6", 1, "#property_violet_guard_armor_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -2228,29 +2096,6 @@ function RPCItems:RollEmpyrealSunriseRobe(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollEnchantedSolarCape(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_enchanted_solar_cape", "immortal", "Enchanted Solar Cape", "body", true, "Slot: Body")
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_enchanted_solar_cape"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_enchanted_solar", "#EBB523", 1, "#property_enchanted_solar_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -2652,54 +2497,6 @@ function RPCItems:RollOutlandStoneCuirass(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.75)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollWatcherPlate(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_plate_of_the_watcher", "immortal", "Plate of the Watcher", "body", true, "Slot: Body")
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property1 = 1
-        item.newItemTable.property1name = "!immortal!_modifier_plate_of_the_watcher1"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_one", "#64A4CC", 1, "#property_watcher_one_description")
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, nil, 1.35)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property2 = 1
-        item.newItemTable.property2name = "!immortal!_modifier_plate_of_the_watcher2"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_two", "#64A4CC", 2, "#property_watcher_two_description")
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.35)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property3 = 1
-        item.newItemTable.property3name = "!immortal!_modifier_plate_of_the_watcher3"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_three", "#64A4CC", 3, "#property_watcher_three_description")
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.35)
-    end
-
-    luck = RandomInt(1, 2)
-    if luck == 1 then
-        item.newItemTable.property4 = 1
-        item.newItemTable.property4name = "!immortal!_modifier_plate_of_the_watcher4"
-        RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_watcher_four", "#64A4CC", 4, "#property_watcher_four_description")
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.35)
-    end
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 3.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4614,28 +4411,6 @@ function RPCItems:RollSkulldiggerGloves(item_level)
     return item
 end
 
-function RPCItems:RollSpellfireGloves(item_level)
-    local item_slot = RPC_GEAR_SLOT_GLOVES
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_spellfire_gloves", "immortal", "Spellfire Gloves", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_spellfire_gloves"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_spellfire", "#FFA62B", 1, "#property_spellfire_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollSpiritGlove(item_level)
     local item_slot = RPC_GEAR_SLOT_GLOVES
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -4706,28 +4481,6 @@ function RPCItems:RollStormclothBracer(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollSwiftspikeBracer(item_level)
-    local item_slot = RPC_GEAR_SLOT_GLOVES
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_swiftspike_bracer", "immortal", "Swiftspike Bracer", "hands", true, "Slot: Hands")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_swiftspike_bracer"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swiftspike_bracer", "#3F74A8", 1, "#property_swiftspike_bracer_description")
-
-    local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "movespeed", 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -4835,25 +4588,6 @@ function RPCItems:RollArcanysSlipper(item_level)
     return item
 end
 
-function RPCItems:RollBloodstoneBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_bloodstone_boots", "immortal", "Bloodstone Boots", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_bloodstone_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_bloodstone_boots", "#E2371D", 1, "#property_bloodstone_boots_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "max_health", 2)
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.75)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 function RPCItems:RollBlueDragonGreaves(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
@@ -4988,26 +4722,6 @@ function RPCItems:RollBootsOfPureWaters(item_level)
     return item
 end
 
-function RPCItems:RollVioletTreads(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_boots_of_the_violet_guard", "immortal", "Boots of the Violet Guard", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_violet_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_violet_boot", "#A337E6", 1, "#property_violet_boot_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2.0)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.25)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollCrimsythEliteGreavesLV1(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -5079,56 +4793,6 @@ function RPCItems:RollCrystallineSlippers(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.25)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollDunetreadBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_dunetread_boots", "immortal", "Dunetreads", "feet", true, "Slot: Feet")
-
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_dunetread_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dunetread", "#8A8546", 1, "#property_dunetread_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollEmeraldSpeedRunners(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_emerald_speed_runners", "immortal", "Emerald Speed Runners", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_emerald_speed_runners"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_emerald_speed", "#3EC18A", 1, "#property_emerald_speed_description")
-
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    elseif luck == 2 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_wind", 1.5)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.25)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -5342,28 +5006,6 @@ function RPCItems:RollIceFloeSlippers(item_level)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
 end
-
-function RPCItems:RollIronTreadsOfDestruction(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_iron_treads_of_destruction", "immortal", "Iron Treads of Destruction", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_iron_treads_of_destruction"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_iron_treads_of_destruction", "#4259F4", 1, "#property_iron_treads_of_destruction_description")
-
-    local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.75)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 0.75)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 
 function RPCItems:RollManaStriders(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
@@ -5759,32 +5401,6 @@ function RPCItems:RollSteamboots(item_level)
     return item
 end
 
-function RPCItems:RollSwampWaders(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_swamp_waders", "immortal", "Swamp Waders", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_swamp_waders"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_swamp_waders", "#658337", 1, "#property_swamp_waders_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "armor", 2)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "magic_armor", 2)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollTemporalWarpBoots(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -5869,35 +5485,6 @@ function RPCItems:RollTranquilBoots(item_level)
     return item
 end
 
-function RPCItems:RollVoyagerBoots(item_level)
-    local item_slot = RPC_GEAR_SLOT_BOOTS
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_voyager_boots", "immortal", "Voyager Boots", "feet", true, "Slot: Feet")
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_voyager_boots"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_voyager", "#AB9091", 1, "#property_voyager_description")
-
-    local luck = RandomInt(1, 4)
-    if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_speed", 1.5)
-    elseif luck == 2 or luck == 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
-    elseif luck == 4 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    elseif luck == 5 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "movespeed", 1.5)
-    end
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
 
 function RPCItems:RollYashaBoots(item_level)
     local item_slot = RPC_GEAR_SLOT_BOOTS
@@ -7013,26 +6600,6 @@ function RPCItems:RollSunCrystal(item_level)
     return item
 end
 
-function RPCItems:RollSignusCharm(item_level)
-    local item_slot = RPC_GEAR_SLOT_TRINKET
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_signus_charm", "immortal", "Signus Charm", "amulet", true, "Slot: Trinket")
-    item.newItemTable.property1name = "!immortal!_modifier_signus_charm"
-    item.newItemTable.property1 = 1
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_signus", "#ED217D", 1, "#property_signus_description")
-
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.25)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollTokenOfOceanis(item_level)
     local item_slot = RPC_GEAR_SLOT_TRINKET
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7395,8 +6962,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollFloodRobe(item_level)
     elseif itemName == "item_rpc_avalanche_plate" then
         newItem = RPCItems:RollAvalanchePlate(item_level)
-    elseif itemName == "item_rpc_armor_of_violet_guard" then
-        newItem = RPCItems:RollVioletGuardArmor(item_level)
     elseif itemName == "item_rpc_twilight_vestments" then
         newItem = RPCItems:RollTwilightVestments(item_level)
     elseif itemName == "item_rpc_radiant_ruins_leather" then
@@ -7499,8 +7064,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollBlackfeatherCrown(item_level)
     elseif itemName == "item_rpc_super_ascendency_mask" then
         newItem = RPCItems:RollSuperAscendency(item_level)
-    elseif itemName == "item_rpc_mask_of_the_phantom_sorcerer" then
-        newItem = RPCItems:RollPhantomSorcererMask(item_level)
     elseif itemName == "item_rpc_arcane_cascade_hat" then
         newItem = RPCItems:RollArcaneCascadeHat(item_level)
     elseif itemName == "item_rpc_adamantine_samurai_helmet" then
@@ -7521,18 +7084,12 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollRoknarEmperor(item_level)
     elseif itemName == "item_rpc_swamp_doctors_tribal_mask" then
         newItem = RPCItems:RollSwampDoctorMask(item_level)
-    elseif itemName == "item_rpc_dunetread_boots" then
-        newItem = RPCItems:RollDunetreadBoots(item_level)
-    elseif itemName == "item_rpc_voyager_boots" then
-        newItem = RPCItems:RollVoyagerBoots(item_level)
     elseif itemName == "item_rpc_redrock_footwear" then
         newItem = RPCItems:RollRedrockFootwear(item_level)
     elseif itemName == "item_rpc_pathfinders_resonant_boots" then
         newItem = RPCItems:RollResonantPathfinderBoots(item_level)
     elseif itemName == "item_rpc_neptunes_water_gliders" then
         newItem = RPCItems:RollNeptunesWaterGliders(item_level)
-    elseif itemName == "item_rpc_boots_of_the_violet_guard" then
-        newItem = RPCItems:RollVioletTreads(item_level)
     elseif itemName == "item_rpc_slinger_boots" then
         newItem = RPCItems:SlingerBoots(item_level)
     elseif itemName == "item_rpc_guardian_greaves" then
@@ -7565,8 +7122,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollCrusaderBoots(item_level)
     elseif itemName == "item_rpc_arcanys_slipper" then
         newItem = RPCItems:RollArcanysSlipper(item_level)
-    elseif itemName == "item_rpc_swamp_waders" then
-        newItem = RPCItems:RollSwampWaders(item_level)
     elseif itemName == "item_rpc_admiral_boots" then
         newItem = RPCItems:RollAdmiralBoot(item_level)
     elseif itemName == "item_rpc_rooted_feet" then
@@ -7609,8 +7164,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollRingOfNobility(item_level)
     elseif itemName == "item_rpc_azure_empire" then
         newItem = RPCItems:RollAzureEmpire(item_level)
-    elseif itemName == "item_rpc_signus_charm" then
-        newItem = RPCItems:RollSignusCharm(item_level)
     elseif itemName == "item_rpc_eye_of_avernus" then
         newItem = RPCItems:RollEyeOfAvernus(item_level)
     elseif itemName == "item_rpc_twig_of_the_enlightened" then
@@ -7742,10 +7295,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollClawOfTheEtherealRevenant(item_level)
     elseif itemName == "item_rpc_crimson_skull_cap" then
         newItem = RPCItems:RollCrimsonSkullCap(item_level)
-    elseif itemName == "item_rpc_spellfire_gloves" then
-        newItem = RPCItems:RollSpellfireGloves(item_level)
-    elseif itemName == "item_rpc_bloodstone_boots" then
-        newItem = RPCItems:RollBloodstoneBoots(item_level)
     elseif itemName == "item_rpc_igneous_canine_helm" then
         newItem = RPCItems:RollIgneousCanineHelm(item_level)
     elseif itemName == "item_rpc_barons_storm_armor" then
@@ -7812,12 +7361,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollTokenOfOceanis(item_level)
     elseif itemName == "item_rpc_templar_light_seers_robe" then
         newItem = RPCItems:RollLightSeersRobes(item_level)
-    elseif itemName == "item_rpc_twisted_blue_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirBlue(item_level)
-    elseif itemName == "item_rpc_twisted_yellow_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirYellow(item_level)
-    elseif itemName == "item_rpc_twisted_purple_mask_of_ahnqhir" then
-        newItem = RPCItems:RollTwistedMaskOfAhnqhirPurple(item_level)
     elseif itemName == "item_rpc_steamboots" then
         newItem = RPCItems:RollSteamboots(item_level)
     elseif itemName == "item_rpc_monkey_paw" then
@@ -7850,8 +7393,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollTatteredNoviceArmor(item_level)
     elseif itemName == "item_rpc_buzukis_finger" then
         newItem = RPCItems:RollBuzukisFinger(item_level)
-    elseif itemName == "item_rpc_swiftspike_bracer" then
-        newItem = RPCItems:RollSwiftspikeBracer(item_level)
     elseif itemName == "item_rpc_red_divinex_amulet" then
         newItem = RPCItems:RollRedDivinexAmulet(item_level)
     elseif itemName == "item_rpc_green_divinex_amulet" then
@@ -8045,7 +7586,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_super_ascendency_mask", "item_rpc_swamp_witch_hat", "item_rpc_tricksters_mask", "item_rpc_veil_of_the_cerulean_high_guard", "item_rpc_white_mage_hat", "item_rpc_wolfir_druids_spirit_helm", "item_rpc_wraith_crown",
         "item_rpc_wraith_hunters_steel_helm"}
     elseif gear_slot == RPC_GEAR_SLOT_BODY then
-        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
+        itemsList = {"item_rpc_armor_of_secret_temple", "item_rpc_armor_of_the_violet_guard", "item_rpc_avalanche_plate", "item_rpc_bladestorm_vest", "item_rpc_bluestar_armor", "item_rpc_dark_arts_vestments", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_enchanted_solar_cape", "item_rpc_featherwhite_armor", "item_rpc_gilded_soul_cage", "item_rpc_golden_war_plate", "item_rpc_gold_plate_of_leon", "item_rpc_hermits_spike_shell", "item_rpc_hurricane_vest",
         "item_rpc_ice_quill_carapace", "item_rpc_infused_mageplate", "item_rpc_legion_vestments", "item_rpc_mystic_mana_wall", "item_rpc_nightmare_rider_mantle", "item_rpc_ocean_tempest_pallium", "item_rpc_outland_stone_cuirass",
         "item_rpc_plate_of_the_watcher", "item_rpc_robe_of_flooding", "item_rpc_savage_plate_of_ogthun", "item_rpc_seraphic_soulvest", "item_rpc_skyforge_flurry_plate", "item_rpc_sorcerers_regalia", "item_rpc_space_tech_vest",
@@ -8059,7 +7600,7 @@ function RPCItems:GetWorldDropImmortalNamesList(gear_slot)
         "item_rpc_spirit_glove", "item_rpc_stormcloth_bracer"}
     elseif gear_slot == RPC_GEAR_SLOT_BOOTS then
         itemsList = {"item_rpc_ablecore_greaves", "item_rpc_admiral_boots", "item_rpc_arcanys_slipper", "item_rpc_blue_dragon_greaves", "item_rpc_boots_of_old_wisdom", "item_rpc_boots_of_the_violet_guard",
-        "item_rpc_crusader_boots", "item_rpc_dunetread_boots", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
+        "item_rpc_crusader_boots", "item_rpc_dunetreads", "item_rpc_falcon_boots", "item_rpc_fire_walkers", "item_rpc_guardian_greaves", "item_rpc_mana_striders", "item_rpc_moon_tech_runners",
         "item_rpc_neptunes_water_gliders", "item_rpc_pathfinders_resonant_boots", "item_rpc_redrock_footwear", "item_rpc_resplendent_rubber_boots", "item_rpc_rooted_feet", "item_rpc_sandstream_slippers",
         "item_rpc_sange_boots", "item_rpc_slinger_boots", "item_rpc_sonic_boots", "item_rpc_steamboots", "item_rpc_swamp_waders", "item_rpc_temporal_warp_boots", "item_rpc_tranquil_boots", "item_rpc_voyager_boots",
         "item_rpc_yasha_boots"}
@@ -8085,7 +7626,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_scarecrow_gloves", "item_rpc_living_gauntlet", "item_rpc_silverspring_gloves", "item_rpc_mordiggus_gauntlet", "item_rpc_ironbound_gloves", "item_rpc_far_seers_enchanted_gloves",
         "item_rpc_master_gloves", "item_rpc_phoenix_gloves", "item_rpc_eternal_essence_gauntlet", "item_rpc_spirit_glove", "item_rpc_frostburn_gauntlets", "item_rpc_mountain_vambraces", "item_rpc_grand_arcanist_wraps",
         "item_rpc_bladeforge_gauntlet", "item_rpc_royal_wristguards", "item_rpc_cytopian_laser_glove", "item_rpc_stormcloth_bracer", "item_rpc_power_ranger_gloves", "item_rpc_hurricane_vest",
-        "item_rpc_robe_of_flooding", "item_rpc_avalanche_plate", "item_rpc_armor_of_violet_guard", "item_rpc_twilight_vestments", "item_rpc_radiant_ruins_leather", "item_rpc_bladestorm_vest",
+        "item_rpc_robe_of_flooding", "item_rpc_avalanche_plate", "item_rpc_armor_of_the_violet_guard", "item_rpc_twilight_vestments", "item_rpc_radiant_ruins_leather", "item_rpc_bladestorm_vest",
         "item_rpc_hermits_spike_shell", "item_rpc_seraphic_soulvest", "item_rpc_infused_mageplate", "item_rpc_plate_of_the_watcher", "item_rpc_sorcerers_regalia", "item_rpc_spellslinger_coat",
         "item_rpc_doomplate", "item_rpc_ocean_tempest_pallium", "item_rpc_savage_plate_of_ogthun", "item_rpc_ice_quill_carapace", "item_rpc_featherwhite_armor", "item_rpc_dragon_ceremony_vestments",
         "item_rpc_armor_of_secret_temple", "item_rpc_vampiric_breastplate", "item_rpc_skyforge_flurry_plate", "item_rpc_dark_arts_vestments", "item_rpc_legion_vestments", "item_rpc_nightmare_rider_mantle",
@@ -8096,7 +7637,7 @@ function RPCItems:GetSoulBankableItemsList()
         "item_rpc_carbuncles_helm_of_reflection", "item_rpc_wraith_hunters_steel_helm", "item_rpc_emerald_douli", "item_rpc_mask_of_tyrius", "item_rpc_veil_of_the_cerulean_high_guard",
         "item_rpc_blackfeather_crown", "item_rpc_super_ascendency_mask", "item_rpc_mask_of_the_phantom_sorcerer", "item_rpc_arcane_cascade_hat", "item_rpc_adamantine_samurai_helmet",
         "item_rpc_scourge_knights_helm", "item_rpc_mask_of_the_desert_necromancer", "item_rpc_undertakers_hood", "item_rpc_shroud_of_eternal_night", "item_rpc_wolfir_druids_spirit_helm",
-        "item_rpc_blinded_glint_of_onu", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_swamp_doctors_tribal_mask", "item_rpc_dunetread_boots", "item_rpc_voyager_boots", "item_rpc_redrock_footwear",
+        "item_rpc_blinded_glint_of_onu", "item_rpc_crown_of_the_roknar_emperor", "item_rpc_swamp_doctors_tribal_mask", "item_rpc_dunetreads", "item_rpc_voyager_boots", "item_rpc_redrock_footwear",
         "item_rpc_pathfinders_resonant_boots", "item_rpc_neptunes_water_gliders", "item_rpc_boots_of_the_violet_guard", "item_rpc_slinger_boots", "item_rpc_guardian_greaves",
         "item_rpc_blue_dragon_greaves", "item_rpc_sange_boots", "item_rpc_boots_of_old_wisdom", "item_rpc_resplendent_rubber_boots", "item_rpc_ghost_slippers", "item_rpc_yasha_boots",
         "item_rpc_tranquil_boots", "item_rpc_fire_walkers", "item_rpc_mana_striders", "item_rpc_moon_tech_runners", "item_rpc_sonic_boots", "item_rpc_falcon_boots", "item_rpc_crusader_boots",
