@@ -5,6 +5,7 @@ if SaveLoad == nil then
 end
 
 SaveLoad.KeyVersion = "4.0"
+SaveLoad.SAVE_COOLDOWN = 4
 
 function SaveLoad:GetKey()
 	if Beacons.cheats then
@@ -1961,14 +1962,23 @@ end
 
 	function SaveLoad:SaveCharacterGeneric(hero)
 		if SaveLoad:GetAllowSaving() then
+			if not hero.save_counter then
+				hero.save_counter = 0
+			end
+			hero.save_counter = hero.save_counter + 1
+			local save_count_check = hero.save_counter
 			local playerID = hero:GetPlayerOwnerID()
 			if hero.saveSlot and hero.saveSlot > 0 then
-				local save_message = {}
-				save_message.playerID = playerID
-				save_message.slot = hero.saveSlot
-				save_message.heroIndex = hero:GetEntityIndex()
-				save_message.ignore_callback = true
-				SaveLoad:SaveCharacter(save_message)
+				Timers:CreateTimer(SaveLoad.SAVE_COOLDOWN, function()
+					if hero.save_counter == save_count_check then
+						local save_message = {}
+						save_message.playerID = playerID
+						save_message.slot = hero.saveSlot
+						save_message.heroIndex = hero:GetEntityIndex()
+						save_message.ignore_callback = true
+						SaveLoad:SaveCharacter(save_message)
+					end
+				end)
 			end
 		end
 	end

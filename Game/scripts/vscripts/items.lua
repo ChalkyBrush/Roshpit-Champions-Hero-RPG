@@ -1084,9 +1084,6 @@ function RPCItems:ItemSwapInput(msg)
 		end
 		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})
 		if input == 3 then
-			local save_message = {}
-			save_message.playerID = playerID
-			save_message.slot = hero.saveSlot
 			local premium_allowed = true
 			if hero.saveSlot and hero.saveSlot > 0 then
 				if hero.saveSlot > 8 then
@@ -1095,9 +1092,7 @@ function RPCItems:ItemSwapInput(msg)
 					end
 				end
 				if premium_allowed then
-					save_message.heroIndex = hero:GetEntityIndex()
-					save_message.ignore_callback = true
-					SaveLoad:SaveCharacter(save_message)
+					SaveLoad:SaveCharacterGeneric(hero)
 				end
 			end
 		end
