@@ -2177,7 +2177,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
-		filterTable["damagetype_const"] = DAMAGE_TYPE_PHYSICAL
+		filterTable["damagetype_const"] = ARKIMUS_ARCANA2_R_DAMAGE_TYPE
+		filterTable["damage"] = filterTable["damage"]*(1-ARKIMUS_ARCANA2_R_DAMAGE_OUT_REDUCTION/100)
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
