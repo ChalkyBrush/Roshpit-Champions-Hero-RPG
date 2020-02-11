@@ -431,9 +431,7 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", EXCAVATOR_AMETHYST, hero, "rune_r_3", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_eye_of_seasons" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", EXCAVATOR_RUBY, hero, "rune_q_3", RPC_GEAR_SLOT_HEAD)
-		elseif socket_type == "emerald" then
+		if socket_type == "emerald" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_w_1", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", EYE_OF_SEASONS_EMERALD, hero, "rune_e_1", RPC_GEAR_SLOT_HEAD)
