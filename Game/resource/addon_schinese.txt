@@ -8369,7 +8369,7 @@
         "item_rpc_paladin_glyph_2_2_description"                "武器上的加成将会增加 <font color='#ccff66'>50</font>%。该加成只有在装备武器的同时更新。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "[T3-2] 金耀雕文"
-        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得<font color='#ccff66'>0.1</font>%的吸血。"
+        "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得<font color='#ccff66'>1</font>%的吸血。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] 冲鸭雕文"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"

@@ -2285,7 +2285,7 @@
     	"property_arkimus_arcana2_description"								"Replaces @Ability4 and all of its runes with Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"										"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"							"After a 2 second channel Arkimus merges into Archon Form, where he has <font color='#ccff66'>20</font>% reduced base attack time, +<font color='#ccff66'>250</font> attack speed, ranged attacks and takes reduced damage. All damage is converted to PHYSICAL damage while in Archon form. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"							"After a 2 second channel Arkimus merges into Archon Form, where he has <font color='#ccff66'>20</font>% reduced base attack time, +<font color='#ccff66'>250</font> attack speed, ranged attacks and takes reduced damage. All damage is converted to Pure damage type while in Archon form, but all outgoing damage also reduced by <font color='#ccff66'>80</font>%. Enemies who are attacked within 1/2 of max attack range pushes Arkimus backwards."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ATTACK RANGE BONUS:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"DURATION:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"DAMAGE RESISTANCE %:"
@@ -8679,7 +8679,7 @@
         "item_rpc_paladin_glyph_2_2_description"                "Bonuses from your equipped weapon are increased by <font color='#ccff66'>50</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "[T3-2] Glyph of Conviction"
-        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>0.1</font>% of damage dealt."
+        "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>1</font>% of damage dealt."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] Glyph of Fanaticism"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
@@ -10056,7 +10056,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"For a short duration after casting Alpha Spark, gain a shield that reduces damage taken by <font color='#ccff66'>0.9</font>%, and allows unit walking and +100 movespeed."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"For a short duration after casting Alpha Spark, gain a shield that reduces damage taken by <font color='#ccff66'>90</font>%, and allows unit walking and +100 movespeed."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Duration"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" seconds"
 
@@ -21482,7 +21482,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "QUAKE RADIUS:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <font color='#ccff66'>10</font>, the victim receives <font color='#ccff66'>2000</font>% increased damage from all sources. Debuff lasts <font color='#ccff66'>4</font> seconds."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Each attack applies a stackable debuff to the target. When the stack count reaches <font color='#ccff66'>10</font>, the victim receives <font color='#ccff66'>200</font>% increased damage from all sources. Debuff lasts <font color='#ccff66'>4</font> seconds."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Attacks have a 20% chance to engulf the target in blinding light, taking damage and disarming them."
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_disarm_duration"	"DISARM DURATION:"

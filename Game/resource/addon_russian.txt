@@ -1256,10 +1256,20 @@
 		"gem_forger_reward_available"								"Забрать награду"
 		"tooltip_prismatic_gemstones"								"Самоцветы-Призмы"
 		"ui_click_to_collect"										"Забрать"
-		"gem_forger_start"											"Ковка Самоцветов"
+		"gem_forger_start"											"Инкрустация"
+		"gem_forger_final_salvage"									"Переработка"
 
-		"gemforge_item_select_help"									"Поместите предмет в окно, или выберите уже надетый на вас, чтобы увидеть возможные опции."
+		"gemforge_item_select_help"									"Поместите предмет в окно, или выберите уже надетый на вас, чтобы увидеть варианты Инкрустации самоцветов."
 		"gemforge_item_cannot_be_forged"							"Этот предмет не имеет достаточно ячеек."
+		
+		"gemforge_salvage_select_help"								"Поместите предмет в окно, или выберите уже надетый на вас, чтобы увидеть Переработки самоцветов."
+		"gemforge_salvage_tax"										"Стоимость Переработки(8%)"
+		"gemforge_salvage_subtotal"									"Подытог"
+		"gemforge_salvage_premium1"									"Скидка - Premium Pass (4%)"
+		"gemforge_salvage_premium2"									"Скидка - Web Premium (4%)"
+		"gemforge_final_salvage_label"								"Финальная Стоимость"
+		"gemforge_final_salvage_warning"							"Примечание: Переработка самоцветов на надетом предмете автоматически сохранит героя."
+		
 		"ui_socket"													"Ячейка"
 		"ui_no_socket"												"Нет ячеек"
 		"ui_open_socket"											"Пустая ячейка"
@@ -2244,8 +2254,8 @@
     	"DOTA_Tooltip_modifier_zonis_stun_arcana1"								"Magnetic Shock"
 
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1"									"[Q1] Reverse Polarity"
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Пассивно дарует интеллект Arkimus."
-    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"бонусного Интеллекта"
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_Description"						"Пассивно увеличивает интеллект Arkimus."
+    	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_property_one"					"Бонусного Интеллекта"
     	"DOTA_Tooltip_ability_arkimus_rune_q_1_arcana1_suffix"							""
 
      	"DOTA_Tooltip_ability_arkimus_rune_q_2_arcana1"									"[Q2] Power Surge"
@@ -2275,7 +2285,7 @@
     	"property_arkimus_arcana2_description"								"Заменяет (R) @Ability4 и все соответствующие руны на (R) Archon Form."
 
     	"DOTA_Tooltip_ability_arkimus_archon_form"									"Archon Form"
-    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<font color='#ccff66'>250</font> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Физический. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
+    	"DOTA_Tooltip_ability_arkimus_archon_form_Description"						"Затратив на прочтение 2 секунды, Arkimus получает следующие бонусы: +<font color='#ccff66'>250</font> к скорости атаки, все атаки становятся дальними, повышается сопротивление входящему урон. Тип всего наносимого урона меняется на Чистый, но и весь урон уменьшается на <font color='#ccff66'>80</font>%. Герой отталкивается назад, когда атакует врагов, находящихся на расстоянии в половину от максимальной дальности атаки или меньше."
     	"DOTA_Tooltip_ability_arkimus_archon_form_attack_range"							"ДАЛЬНОСТЬ АТАКИ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_duration"								"ДЛИТЕЛЬНОСТЬ:"
     	"DOTA_Tooltip_ability_arkimus_archon_form_damage_resist"						"СОПРОТИВЛЕНИЕ УРОНУ, %:"
@@ -2304,7 +2314,7 @@
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_Description"						"Позволяет атаковать противника дважды с небольшим шансом. Снижает базовое время атаки во время действия @Ability4."
 		"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_one"                    "Шанс на дополнительную атаку"
         "DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix"                      "%"
-    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property"					"Снижение базового времени атаки"
+    	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_property_two"					"Снижение базового времени атаки"
     	"DOTA_Tooltip_ability_arkimus_rune_r_4_arcana2_suffix_two"							"сек."
 		
 		//Glyphs
@@ -8032,7 +8042,7 @@
         "item_rpc_paladin_glyph_2_2_description"                "Все цифровые значения на оружии увеличены на <font color='#ccff66'>50</font>%. Бонус рассчитывается только при надевании или загрузке оружия."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_3_2"       "[T3-2] Glyph of Gold Sparkle"
-        "item_rpc_paladin_glyph_3_2_description"                "Руна [Q2] дает <font color='#ccff66'>0.1</font>% вампиризм от урона способности."
+        "item_rpc_paladin_glyph_3_2_description"                "Руна [Q2] дает <font color='#ccff66'>1</font>% вампиризм от урона способности."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] Glyph of Hyper Justice"
         "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет 0.05 точку каста и толкает вперед."
@@ -9405,7 +9415,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <font color='#ccff66'>0.9</font>%, прохождение сквозь юнитов и +100 к скорости передвижения."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"После прочтения @Ability4, герой ненадолго получает различные бонусы: сокращение входящего урона на <font color='#ccff66'>90</font>%, прохождение сквозь юнитов и +100 к скорости передвижения."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Длительность"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" сек."
 
@@ -21204,7 +21214,7 @@
         "DOTA_Tooltip_ability_drill_digger_passive_quake_radius"                "РАДИУС РАСКОЛА:"
 
         "DOTA_Tooltip_ability_drill_crusher"                        "Undermine"
-        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <font color='#ccff66'>10</font>, то цель получает на <font color='#ccff66'>2000</font>% больше урона из всех источников. Дебафф длится <font color='#ccff66'>4</font> сек."
+        "DOTA_Tooltip_ability_drill_crusher_Description"            "Каждая атака применяет дебафф на противника. Если счетчик дебаффа достигает <font color='#ccff66'>10</font>, то цель получает на <font color='#ccff66'>200</font>% больше урона из всех источников. Дебафф длится <font color='#ccff66'>4</font> сек."
 
 		"DOTA_Tooltip_ability_pantheon_deceptive_light"				"Deceptive Light"
 		"DOTA_Tooltip_ability_pantheon_deceptive_light_Description"	"Атаки имеют 20% шанс затянуть цель в вспышку ослепительного света, нанося урон и обезоруживая её."	
