@@ -716,8 +716,20 @@ function ms_thinker(event)
 		max_ms = max_ms + ITEM_RPC_PIVOTAL_SWIFTBOOTS_MAX_MS
 	end
 
-	if (max_ms > 550 and actual_movespeed > 550) or (unit:HasModifier("modifier_emerald_speed_runners")) then
-		unit.master_move_speed = math.min(max_ms, actual_movespeed)
+	local min_ms = 100
+	
+	for _,modifier in pairs(buffs) do
+		if modifier['GetModifierMoveSpeed_AbsoluteMin'] then
+			-- Some GetModifierMoveSpeed_Max has errors now, it is for preven crash on calculate
+			local status, local_min_ms = pcall(modifier['GetModifierMoveSpeed_AbsoluteMin'], modifier, {})
+			if status and local_min_ms ~= nil then
+				min_ms = math.max(min_ms, local_min_ms)
+			end
+		end
+	end
+
+	if (max_ms > 550 and actual_movespeed > 550) or min_ms > max_ms then
+		unit.master_move_speed = math.max(math.min(max_ms, actual_movespeed), min_ms)
 		unit:AddNewModifier(unit, nil, "modifier_master_movespeed", {})
 	else
 		unit.master_move_speed = nil
