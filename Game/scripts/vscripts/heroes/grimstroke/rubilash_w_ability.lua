@@ -125,7 +125,9 @@ function rubilash_ink_blot(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
+	if actual_event_caster == caster then
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
+	end
 end
 
 function toggle_rubilash_color(caster)

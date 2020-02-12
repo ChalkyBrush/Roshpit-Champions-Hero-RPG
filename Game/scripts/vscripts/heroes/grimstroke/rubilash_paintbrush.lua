@@ -86,10 +86,12 @@ function start_paintbrush(event)
 			end
 		end)
 	end
+	if actual_event_caster == caster then
+		Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
+	end
 	if caster:HasModifier("modifier_rubilash_glyph_2_1") then
 		toggle_rubilash_color(actual_event_caster)
 	end
-	Filters:CastSkillArguments(BASE_ABILITY_Q, caster)
 end
 
 function paintbrush_impact(event)

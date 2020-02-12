@@ -18,6 +18,9 @@ function ink_splatter_start(event)
 	local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/rubilash/e_start_"..actual_event_caster.color..".vpcf", actual_event_caster, 4)
 	ParticleManager:SetParticleControl(pfx, 2, newPosition)
 
+	if actual_event_caster == caster then
+		Filters:CastSkillArguments(BASE_ABILITY_E, caster)
+	end
 	FindClearSpaceForUnit(actual_event_caster, newPosition, false)
 	toggle_rubilash_color(actual_event_caster)
 	local particlePos = GetGroundPosition(newPosition, actual_event_caster)
@@ -70,7 +73,6 @@ function ink_splatter_start(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(BASE_ABILITY_E, caster)
 end
 
 function ink_splatter_emerging_think(event)

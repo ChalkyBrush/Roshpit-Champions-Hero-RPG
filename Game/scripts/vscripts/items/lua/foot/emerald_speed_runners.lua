@@ -55,8 +55,7 @@ function modifierClass:OnCreated()
 end
 function modifierClass:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN,
-        MODIFIER_PROPERTY_MOVESPEED_MAX,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN
     }
     return funcs
 end
@@ -97,10 +96,6 @@ function modifierClass:GetModifierMoveSpeed_AbsoluteMin()
     if IsServer() then
         return ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY)
     end
-end
-
-function modifierClass:GetModifierMoveSpeed_Max_Increase()
-    return math.max(0, ITEM_RPC_EMERALD_SPEED_RUNNERS_SPEED_MS_LOW_CAP + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_EMERALD_SPEED_RUNNERS_GEM_RUBY) - 550)
 end
 
 function modifierClass:GetRoshpitEMaxCdModifier()
