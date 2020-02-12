@@ -535,6 +535,7 @@ function ChatDropItems(keys)
 
 	if string.match(text, "-legendaries1") or string.match(text, "-gloves") then
 		RPCItems:BasicDropItem(positionVector, item_rpc_spellfire_gloves:CreateLuaItem(itemlevelDrop))
+		RPCItems:BasicDropItem(positionVector, item_rpc_swiftspike_bracer:CreateLuaItem(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollAquasteelBracers(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollAutumnrockBracers(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollBerserkerGloves(itemlevelDrop))
@@ -584,7 +585,6 @@ function ChatDropItems(keys)
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritGlove(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollSpiritualEmpowermentGlove(itemlevelDrop))
 		RPCItems:BasicDropItem(positionVector, RPCItems:RollStormclothBracer(itemlevelDrop))
-		RPCItems:BasicDropItem(positionVector, RPCItems:RollSwiftspikeBracer(itemlevelDrop))
 	end
 
 	if string.match(text, "-legendaries2") or string.match(text, "-chest") then
