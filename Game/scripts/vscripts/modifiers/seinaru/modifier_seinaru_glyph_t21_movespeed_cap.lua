@@ -1,7 +1,8 @@
 require('heroes/juggernaut/seinaru_constants')
 modifier_seinaru_glyph_t21_movespeed_cap = class({})
+local modifierClass = modifier_seinaru_glyph_t21_movespeed_cap
 
-function modifier_seinaru_glyph_t21_movespeed_cap:DeclareFunctions()
+function modifierClass:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
     }
@@ -9,26 +10,23 @@ function modifier_seinaru_glyph_t21_movespeed_cap:DeclareFunctions()
     return funcs
 end
 
-function modifier_seinaru_glyph_t21_movespeed_cap:OnCreated(table)
+function modifierClass:OnCreated()
     self:StartIntervalThink(1)
 end
-function modifier_seinaru_glyph_t21_movespeed_cap:OnIntervalThink()
+function modifierClass:OnIntervalThink()
     self:ForceRefresh()
 end
 
-function modifier_seinaru_glyph_t21_movespeed_cap:GetModifierMoveSpeed_Max(params)
+function modifierClass:GetModifierMoveSpeed_Max_Increase()
     local caster = self:GetCaster()
     local q2_level = caster:GetRuneValue("q", 2)
-    local cap = 550 + q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2
-    buff_owner = self:GetParent()
-    cap = Filters:GetAdjustedMaxMovespeed(cap, buff_owner)
-    return cap
+    return q2_level * SEINARU_GLYPH2_MOVESPEED_CAP_PER_Q2
 end
 
-function modifier_seinaru_glyph_t21_movespeed_cap:IsHidden()
+function modifierClass:IsHidden()
     return true
 end
 
-function modifier_seinaru_glyph_t21_movespeed_cap:GetAttributes()
+function modifierClass:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT
 end
