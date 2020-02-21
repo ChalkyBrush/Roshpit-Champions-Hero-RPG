@@ -5870,37 +5870,6 @@ function buzuki_buff_attack_land(event)
 	end)
 end
 
-function swiftspike_think(event)
-	local caster = event.caster
-	local hero = event.target
-	local ability = event.ability
-	local movespeed = hero:GetBaseMoveSpeed()
-	local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
-	if not hero:HasModifier("modifier_swiftspike_bad") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
-	end
-	hero:SetModifierStackCount("modifier_swiftspike_bad", caster, movespeedActual)
-	if ability:GetGemValue("ruby") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_atk_damage") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_atk_damage", {})
-		end
-		local atk_damage_stacks = movespeedActual*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
-		hero:SetModifierStackCount("modifier_swiftspike_atk_damage", caster, atk_damage_stacks)
-	end
-	if ability:GetGemValue("sapphire") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_sapphire") then
-			hero:AddNewModifier(hero, ability, "modifier_swiftspike_sapphire", {})
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_ms_pct") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_ms_pct", {})
-		end
-		local ms_pct_amethyst = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST)
-		hero:SetModifierStackCount("modifier_swiftspike_ms_pct", caster, ms_pct_amethyst)
-	end
-end
-
 function orthok_attack_land(event)
 	local attacker = event.attacker
 	Filters:OrthokStack(attacker, 1)

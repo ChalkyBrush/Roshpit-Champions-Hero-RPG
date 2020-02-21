@@ -3664,7 +3664,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
 	modifier_zhonik_speedball_invisible = "modifier_zhonik_speedball_invisible",
 	modifier_zhonik_temporal_field_buff = "modifier_zhonik_temporal_field_buff",
-	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
 function CDOTA_BaseNPC:GetActualMovespeed()
