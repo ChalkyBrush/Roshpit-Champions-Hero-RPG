@@ -4,7 +4,7 @@ var slot = $.GetContextPanel().slot
 var heroSlot = $.GetContextPanel().heroSlot
 var playerHeroName = ""
 function InitializeLoadSlot(){
-	$.Msg(heroName)
+	//$.Msg(heroName)
 	playerHeroName = Entities.GetUnitName(Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID()))
 	if (heroName == "empty"){
 		$('#slot_portrait').SetImage( "file://{images}/custom_game/ui/empty_slot.jpg")
@@ -25,8 +25,8 @@ function InitializeLoadSlot(){
 
 function LoadFromSlot(){
 	if (GameUI.CustomUIConfig().oracleLoad.state == 0){
-		$.Msg("LOAD")
-		$.Msg("LOAD FROM SLOT: "+slot)
+		//$.Msg("LOAD")
+		//$.Msg("LOAD FROM SLOT: "+slot)
 
 		if (playerHeroName == heroName){
 			GameUI.CustomUIConfig().oracleLoad.state = 1

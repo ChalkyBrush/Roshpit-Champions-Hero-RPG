@@ -11,7 +11,7 @@ function OpenLeftLeaderboard(msg){
 	var parent = $('#arena_container')
     var board = $.CreatePanel("Panel", parent, "leaderboard")
     board.BLoadLayoutSnippet("arena_scoreboard");
-    $.Msg("OPENING LEADERBOARD")
+    //$.Msg("OPENING LEADERBOARD")
     $('#arena_container').AddClass('animateEaseClass')
     for (i = 1; i <= 20; i++) { 
     	 createLeaderboardItem(i, "charactername", board.FindChildTraverse("leaderboard-leaders-box"), msg.playerRank)
@@ -326,7 +326,7 @@ function setOpponentButton(menu, i, columnA, rank, sign)
             buttonText = i+".    "+$.Localize("#champion_league_challenger_"+i)
         }
         button.SetPanelEvent('onactivate', function SetOpponentRank() {
-            $.Msg(button)
+            //$.Msg(button)
             sign.opponent = button.rank
             parent.RemoveAndDeleteChildren(0)
             Game.EmitSound("Arena.Accept")
@@ -342,7 +342,7 @@ function setOpponentButton(menu, i, columnA, rank, sign)
 function UpdateArenaTerminalOpponent(terminal, opponentNumber)
 {
     terminal.opponent = opponentNumber
-    $.Msg(terminal.opponent)
+    //$.Msg(terminal.opponent)
     var button = terminal.FindChildTraverse('champions_league_start_button')
     button.RemoveClass('champions_league_start_button_inactive')
     button.AddClass('champions_league_start_button_active')
@@ -833,8 +833,8 @@ function GetPitModData(level)
 
 function setPitLevel(sign, starLevel, pitLevelAvailable, star, lockout)
 {
-    $.Msg(starLevel)
-    $.Msg(star.level)
+    //$.Msg(starLevel)
+    //$.Msg(star.level)
     sign.pitLevel = starLevel
     sign.FindChildTraverse('pit_enemy_data_row_1').RemoveClass('invisible')
     sign.FindChildTraverse('pit_enemy_data_row_2').RemoveClass('invisible')
@@ -900,7 +900,7 @@ function OpenQuestLog(msg){
         var board = $.CreatePanel("Panel", parent, "leaderboard")
         board.BLoadLayoutSnippet("quest_log");
         parent.board = board
-        $.Msg("OPENING QUEST LOG")
+        //$.Msg("OPENING QUEST LOG")
 
 
         $('#quest_log_title').text = $.Localize('zone_redfall')
@@ -915,7 +915,7 @@ function OpenQuestLog(msg){
         }
         var noQuests = true
         for (i = 1; i <= msg.maxQuests; i++) {
-            $.Msg(questlog[i].active)
+            //$.Msg(questlog[i].active)
             if (questlog[i].active == GameUI.QuestLog){
                 noQuests = false
                 createQuestItem($('#quest_list'), i, questlog[i])
@@ -979,12 +979,12 @@ function createQuestItem(parent, questIndex, quest)
 {
     var listItem = $.CreatePanel("Panel", parent, "questitem"+questIndex)
     listItem.BLoadLayoutSnippet("quest_item");
-    $.Msg("-------- QUEST: "+questIndex+" --------------")
-    $.Msg(quest)
+    //$.Msg("-------- QUEST: "+questIndex+" --------------")
+    //$.Msg(quest)
     listItem.FindChildTraverse('quest-item-image').SetImage(quest.questImage)
     listItem.FindChildTraverse('quest-title').text = $.Localize('#'+quest.questTitle)
     var objective = breakUpTooltip($.Localize('#'+quest.objective))
-    $.Msg(objective)
+    //$.Msg(objective)
     listItem.FindChildTraverse('quest-description').text = objective
     var progress = quest.state + "/" + quest.goal
     listItem.FindChildTraverse('quest-progress-values').text = progress
@@ -1067,7 +1067,7 @@ function OpenDonationsBoard(msg){
     var parent = $('#arena_container')
     var board = $.CreatePanel("Panel", parent, "leaderboard")
     board.BLoadLayoutSnippet("donations_board");
-    $.Msg("OPENING LEADERBOARD")
+    //$.Msg("OPENING LEADERBOARD")
     $('#arena_container').AddClass('animateEaseClass')
     // board.FindChildTraverse('donation-tip-text').text = "<a href='https://roshpit.ca/donate'>roshpit.ca/donate</a>"
     GameUI.donationAppendContainer = board.FindChildTraverse("leaderboard-leaders-box")
@@ -1079,10 +1079,10 @@ function OpenDonationsBoard(msg){
 function DonationsLoaded(msg)
 {
     if (GameUI.donationAppendContainer){
-        $.Msg(msg)
-        $.Msg(msg.resultTable)
-        $.Msg(msg.resultTable[1])
-        $.Msg(msg.resultSize)
+        //$.Msg(msg)
+        //$.Msg(msg.resultTable)
+        //$.Msg(msg.resultTable[1])
+        //$.Msg(msg.resultSize)
         for (var i = 1; i <= msg.resultSize; i++) {
             var listItem = $.CreatePanel("Panel", GameUI.donationAppendContainer, "donationitem"+i)
             listItem.BLoadLayoutSnippet("donation_item");

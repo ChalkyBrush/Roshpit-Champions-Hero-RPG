@@ -94,7 +94,7 @@ function getPosition(str, m, i) {
 function CreateStashPanels(msg)
 {
 	$('#loading_ui').AddClass('invisible')
-	$.Msg("CREATE STASH PANELS")
+	//$.Msg("CREATE STASH PANELS")
 	var playerID = msg.playerID
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	GameUI.CustomUIConfig().stashAllowed = 1;
@@ -302,7 +302,7 @@ function OnDragEnter( panel, draggedPanel, data3 )
 
 	// highlight this panel as a drop target
 	panel.AddClass( "potential_drop_target" );
-	$.Msg(panel)
+	//$.Msg(panel)
 	return true;
 }
 
@@ -339,7 +339,7 @@ function OnDragDrop( panel, draggedPanel )
 		if (GameUI.CustomUIConfig().stashAllowed == 1){
 			GameUI.CustomUIConfig().stashAllowed = 0
 			$.GetContextPanel().AddClass( "dragging_from" );
-			$.Msg("dragged to stash")
+			//$.Msg("dragged to stash")
 			GameEvents.SendCustomGameEventToServer( "item_dragged_to_stash", {playerID: playerID, itemIndex: draggedItem, slot: panel.m_slot, fromSlot: draggedPanel.m_fromSlot, drag_type: draggedPanel.m_type});
 		}
 	}

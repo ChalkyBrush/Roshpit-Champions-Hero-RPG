@@ -51,7 +51,7 @@ function getPosition(str, m, i) {
 function SaveCharactersLoaded(msg){
 	var result = msg.result
 	var premium = msg.premium
-	$.Msg(result)
+	//$.Msg(result)
 	$('#save_container').RemoveAndDeleteChildren();
 	$('#save_container2').RemoveAndDeleteChildren();
 	$('#save_container_premium1').RemoveAndDeleteChildren();
@@ -72,8 +72,8 @@ function SaveCharactersLoaded(msg){
 		}
 		$('#oracle_content_label').style.visibility = "collapse"
 	}
-	$.Msg("HERO SLOT")
-	$.Msg(msg.heroSlot)
+	//$.Msg("HERO SLOT")
+	//$.Msg(msg.heroSlot)
 	var parentPanel = $('#save_container')
 	for (var i = 1; i <= 4; i++) {
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel, "saved_character"+i );

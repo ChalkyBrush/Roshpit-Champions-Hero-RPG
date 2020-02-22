@@ -71,7 +71,7 @@ function populateNewItem(newItem){
 	// $.Msg("populateNewItem +++++++++++++++++++++++++++");
 	if (true)
 	{
-		$.Msg("populateNewItem stat 1");
+		//$.Msg("populateNewItem stat 1");
 		var itemProperty = {}
 		if (itemValues.property1color) itemProperty.propertyColor = itemValues.property1color
 		if (itemValues.property1) itemProperty.propertyValue = itemValues.property1
@@ -81,7 +81,7 @@ function populateNewItem(newItem){
 	}
 	if (itemValues.rarityFactor >= 2 )
 	{
-		$.Msg("populateNewItem stat 2");
+		//$.Msg("populateNewItem stat 2");
 		var itemProperty = {}
 		if (itemValues.property2color) itemProperty.propertyColor = itemValues.property2color
 		if (itemValues.property2) itemProperty.propertyValue = itemValues.property2
@@ -91,7 +91,7 @@ function populateNewItem(newItem){
 	}
 	if (itemValues.rarityFactor >= 3 )
 	{
-		$.Msg("populateNewItem stat 3");
+		//$.Msg("populateNewItem stat 3");
 		var itemProperty = {}
 		if (itemValues.property3color) itemProperty.propertyColor = itemValues.property3color
 		if (itemValues.property3) itemProperty.propertyValue = itemValues.property3
@@ -101,7 +101,7 @@ function populateNewItem(newItem){
 	}
 	if (itemValues.rarityFactor >= 4 )
 	{
-		$.Msg("populateNewItem stat 4");
+		//$.Msg("populateNewItem stat 4");
 		var itemProperty = {}
 		if (itemValues.property4color) itemProperty.propertyColor = itemValues.property4color
 		if (itemValues.property4) itemProperty.propertyValue = itemValues.property4
@@ -122,7 +122,7 @@ function populateOldItem(oldItem){
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", oldItem.toString() );
 	if (true)
 	{
-		$.Msg("populateNewItem stat 1");
+		//$.Msg("populateNewItem stat 1");
 		var itemProperty = {}
 		if (itemValues.property1color) itemProperty.propertyColor = itemValues.property1color
 		if (itemValues.property1) itemProperty.propertyValue = itemValues.property1
@@ -132,7 +132,7 @@ function populateOldItem(oldItem){
 	}
 	if (itemValues.rarityFactor >= 2 )
 	{
-		$.Msg("populateNewItem stat 2");
+		//$.Msg("populateNewItem stat 2");
 		var itemProperty = {}
 		if (itemValues.property2color) itemProperty.propertyColor = itemValues.property2color
 		if (itemValues.property2) itemProperty.propertyValue = itemValues.property2
@@ -142,7 +142,7 @@ function populateOldItem(oldItem){
 	}
 	if (itemValues.rarityFactor >= 3 )
 	{
-		$.Msg("populateNewItem stat 3");
+		//$.Msg("populateNewItem stat 3");
 		var itemProperty = {}
 		if (itemValues.property3color) itemProperty.propertyColor = itemValues.property3color
 		if (itemValues.property3) itemProperty.propertyValue = itemValues.property3
@@ -152,7 +152,7 @@ function populateOldItem(oldItem){
 	}
 	if (itemValues.rarityFactor >= 4 )
 	{
-		$.Msg("populateNewItem stat 4");
+		//$.Msg("populateNewItem stat 4");
 		var itemProperty = {}
 		if (itemValues.property4color) itemProperty.propertyColor = itemValues.property4color
 		if (itemValues.property4) itemProperty.propertyValue = itemValues.property4
@@ -171,7 +171,7 @@ function populateOldItem(oldItem){
 
 
 function poplateProperty(property, panelDescription, panelValue){
-	$.Msg("poplateProperty +++++++++++++++++++++++++++");
+	//$.Msg("poplateProperty +++++++++++++++++++++++++++");
 	
 	var property = itemPropertyCheck(property)
 	var text = "<font color='"+property.propertyColor+"'>"+property.propertyName+"</font>"

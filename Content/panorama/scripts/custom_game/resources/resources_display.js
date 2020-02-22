@@ -47,7 +47,7 @@ function UpdateMithril(msg){
 
 function UpdateGemstones(msg){
 	var gemstones = msg.gemstones
-	$.Msg("UPDATE GEMSTONES")
+	//$.Msg("UPDATE GEMSTONES")
 	$('#prismatic_gemstones_value').text = numberWithCommas(gemstones)
 	$('#prismatic_gemstones_increment').text = ""	
 }

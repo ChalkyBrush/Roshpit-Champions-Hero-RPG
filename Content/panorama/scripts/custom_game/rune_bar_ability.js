@@ -18,7 +18,7 @@ function SetAbility( ability, queryUnit, bInLevelUp, mainHero, ability_level)
 	r_QueryUnit = queryUnit;
 	r_mainHero = mainHero;
 	r_BaseRuneLevel = ability_level;
-	$.Msg("SET BASE LEVEL: "+r_BaseRuneLevel)
+	//$.Msg("SET BASE LEVEL: "+r_BaseRuneLevel)
 
 	var playerID = Game.GetLocalPlayerID();
 	playerID = getControllingPlayerIndex();
@@ -182,7 +182,7 @@ function UpdateRune()
     var RuneBonus = GetRuneBonus(mainHero, GetRuneSlot(abilityName))
     // $.Msg("RuneBonus: " + RuneBonus)
     
-    $.Msg("RUNE LOADED. BASE LEVEL: "+AbilityLevel)
+    //$.Msg("RUNE LOADED. BASE LEVEL: "+AbilityLevel)
     // $.Msg("AbilityLevel: " + AbilityLevel)
 	// $.Msg("RUNEBONUS: "+RuneBonus)
 	if (RuneBonus == 0){
@@ -318,13 +318,13 @@ function addAbilityInfoToTooltip(ability, mainHero)
 		baseAbilityIndex = 6
 	}
 	if (baseAbilityIndex > 0){
-		$.Msg("IN BLOCK!")
+		//$.Msg("IN BLOCK!")
 		var baseAbility = Entities.GetAbility( mainHero, baseAbilityIndex-1 )
 		var baseAbilityText = $.Localize("#tooltip_rune_base_ability")+": "
 		var baseAbilityName = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( baseAbility ))
 		tooltip = tooltip+"<font color='#7AB4CC'>"+baseAbilityText+"</font><font color='#FFFFFF'>"+baseAbilityName+"</font><br>"
 	}
-	$.Msg(baseAbilityIndex)
+	//$.Msg(baseAbilityIndex)
 		// 
 	if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "
@@ -333,7 +333,7 @@ function addAbilityInfoToTooltip(ability, mainHero)
 	}else if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_PHYSICAL){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "
 		var damage_type_main_text = $.Localize("#DOTA_ToolTip_Damage_Physical")
-		$.Msg("PHYS")
+		//$.Msg("PHYS")
 		tooltip = tooltip+"<font color='#FF8A8A'>"+damage_type_text+"</font><font color='#FF7070'>"+damage_type_main_text+"</font><br>"
 	}else if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_PURE){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "

@@ -609,7 +609,7 @@ function getRubilashSkill(slot){
 }
 
 function testing(){
-    $.Msg("did we load?");
+    //$.Msg("did we load?");
 }
 
 function getHeroList(){

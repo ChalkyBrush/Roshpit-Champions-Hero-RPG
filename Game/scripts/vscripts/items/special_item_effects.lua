@@ -6202,7 +6202,7 @@ function erudite_teacher_start(event)
 		end)
 		if ability.apprentice_abilities_table then
 			Timers:CreateTimer(0.03, function()
-				DeepPrintTable(ability.apprentice_abilities_table)
+				--DeepPrintTable(ability.apprentice_abilities_table)
 				for i = 1, #ability.apprentice_abilities_table, 1 do
 					local ability_check_name = ability.apprentice_abilities_table[i]
 					local steal_index = i - 1

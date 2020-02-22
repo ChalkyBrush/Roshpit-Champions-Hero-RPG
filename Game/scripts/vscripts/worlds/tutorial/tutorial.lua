@@ -1465,7 +1465,7 @@ function Tutorial:CheckSpecialKeyAndLoop(hero)
 			--print( "Done." )
 			local resultTable = JSON:decode(result.Body)
 			hero.special_key = resultTable.special_key
-			DeepPrintTable(resultTable)
+			--DeepPrintTable(resultTable)
 		end
 	end)
 end

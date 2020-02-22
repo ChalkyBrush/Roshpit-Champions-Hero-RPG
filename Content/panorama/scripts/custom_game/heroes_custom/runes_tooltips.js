@@ -27,8 +27,8 @@ function get_base_rune_level(rune, queryUnit){
 
 function get_rune_tier_by_name(rune){
 	var rune_name = Abilities.GetAbilityName( rune );
-	$.Msg("DFDSFDSFDSF")
-	$.Msg(rune_name)
+	//$.Msg("DFDSFDSFDSF")
+	//$.Msg(rune_name)
 	if ((rune_name.indexOf("_q_1") > -1) || (rune_name.indexOf("_w_1") > -1) || (rune_name.indexOf("_e_1") > -1) || (rune_name.indexOf("_r_1") > -1)){
 		return 1
 	}else if((rune_name.indexOf("_q_2") > -1) || (rune_name.indexOf("_w_2") > -1) || (rune_name.indexOf("_e_2") > -1) || (rune_name.indexOf("_r_2") > -1)){
@@ -44,7 +44,7 @@ function initializeTooltip(func){
 	var rune = GameUI.CustomUIConfig.runeTooltip
 	var abilityNameInternal = Abilities.GetAbilityName( rune );
 
-	$.Msg(Abilities.GetCaster( rune ).toString()+"-runeUnit")
+	//$.Msg(Abilities.GetCaster( rune ).toString()+"-runeUnit")
 	var runeUnitTable = CustomNetTables.GetTableValue( "player_stats", Abilities.GetCaster( rune ).toString()+"-runeUnit");
 	var queryUnit = runeUnitTable.hero
 	var abilityName = $.Localize("DOTA_Tooltip_Ability_"+abilityNameInternal)
@@ -79,7 +79,7 @@ function initializeTooltip(func){
 	}	
 	if (baseAbilityIndex > 0){
 		blockCount = blockCount + 1
-		$.Msg("IN BLOCK!")
+		//$.Msg("IN BLOCK!")
 		var baseAbility = Entities.GetAbility( queryUnit, baseAbilityIndex-1 )
         $('#base_ability_title').text = $.Localize("#tooltip_rune_base_ability")
         $('#base_ability_value').text = $.Localize("#DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( baseAbility ))
@@ -391,11 +391,11 @@ function updateSkillInTooltipHandler(tooltip, itemValues, queryUnit){
 		if (Entities.GetUnitName( queryUnit ) == itemValues.requiredHero){
 			tooltip = updateSkillInTooltip(tooltip, queryUnit)
 		}else{
-			$.Msg("OH DEAR REQUIRED HERO.."+itemValues.requiredHero)
+			//$.Msg("OH DEAR REQUIRED HERO.."+itemValues.requiredHero)
 			tooltip = updateSkillInTooltipByName(tooltip, itemValues.requiredHero)
 		}
 	}else{
-		$.Msg("fsdfdfe?")
+		//$.Msg("fsdfdfe?")
 		tooltip = updateSkillInTooltip(tooltip, queryUnit)
 	}
 	return tooltip
@@ -448,7 +448,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	}
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
-	$.Msg(OGpropertyName)
+	//$.Msg(OGpropertyName)
 	if (OGpropertyName.indexOf("rune_") >= 0){
 		var playerIndex = getControllingPlayerIndex()
 		var runeIndex = 1
@@ -472,18 +472,18 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
 				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
-				$.Msg(propertyName)
+				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
-				$.Msg(propertyName)		
+				//$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_Ability") >= 0){
 		propertyName = $.Localize(OGpropertyName)
-		$.Msg("OGPROPERTYNAME!")
+		//$.Msg("OGPROPERTYNAME!")
 	}
 	tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+propertyName+"</font>"
 	tooltipValue = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
@@ -599,7 +599,7 @@ function SpecialDescriptionValues(specialText, item)
 {
 	if (specialText.indexOf("@special_property1") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_one" )
-		$.Msg("$$$VALUE: "+value)
+		//$.Msg("$$$VALUE: "+value)
 		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property1", "<font color='#CCFF66'>"+value+"</font>");
 	}	
@@ -628,13 +628,13 @@ function SpecialDescriptionValues(specialText, item)
 
 function AddDamageTypeAndElementToItem(item)
 {
-	$.Msg("ELEMENT TIME!")
+	//$.Msg("ELEMENT TIME!")
 	var ability = item
 	var damageType = Abilities.GetAbilityDamageType( ability )
 	var tooltip = ""
 	var element1 = Abilities.GetLevelSpecialValueFor( ability, "element_one", 1)
 	var element2 = Abilities.GetLevelSpecialValueFor( ability, "element_two", 1)
-	$.Msg(damageType)
+	//$.Msg(damageType)
 		// 
 	var shouldShow = false
 	var tooltipTypeLeft = ""
@@ -673,7 +673,7 @@ function AddDamageTypeAndElementToItem(item)
 
 function init(){
 	$.GetContextPanel().style.backgroundColor = "#1A1A1A"
-	$.Msg("INIT")
+	//$.Msg("INIT")
 }
 
 (function()

@@ -117,7 +117,7 @@ function initializeTooltip(main_panel, item){
 	// $.Msg(queryUnit)
 	var itemName = Abilities.GetAbilityName( item );
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	$.Msg(itemValues)
+	//$.Msg(itemValues)
 
 	itemValues = itemValuesCheck(itemValues)
 	var unitName = queryUnit
@@ -154,7 +154,7 @@ function initializeTooltip(main_panel, item){
 			tooltip = tooltip + "<font color='#A3D4A1'>"+$.Localize(itemValues.useDescription)+"</font>"
 			tooltip = replaceConsumableText(itemValues, tooltip)
 			tooltip = updateGlyphInTooltip(tooltip, item)
-			$.Msg("AGAIN HI:"+queryUnit)
+			//$.Msg("AGAIN HI:"+queryUnit)
 			tooltip = updateSkillInTooltipHandler(tooltip, itemValues, queryUnit)
 			main_panel.FindChildTraverse('consumable-text').text = tooltip
 			main_panel.FindChildTraverse('consumable-text').RemoveClass('invisible')
@@ -176,7 +176,7 @@ function initializeTooltip(main_panel, item){
 			if (itemValues.property1) itemProperty1.propertyValue = itemValues.property1
 			if (itemValues.property1special) itemProperty1.specialDescription = itemValues.property1special
 			if (itemValues.property1tooltip) itemProperty1.propertyName = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
-			$.Msg("Tooltip useDescription")
+			//$.Msg("Tooltip useDescription")
 			if (!(itemProperty1===undefined)){
 				var property1text = AddAffixToItem("", itemProperty1, queryUnit, "", 5, itemName)
 				if (property1text[0] !== undefined && property1text[1] !== undefined){
@@ -297,11 +297,11 @@ function initializeTooltip(main_panel, item){
 		// 	main_panel.FindChildTraverse('tooltip_requirements_right').RemoveClass('invisible')
 		// 	main_panel.FindChildTraverse('tooltip_requirements_right').text = requiredHeroText
 
-		// 	$.Msg(requiredHeroText)
+		// 	//$.Msg(requiredHeroText)
 		// 	bHideReqLines = false
 		// }
-		$.Msg("BHIDEREQ")
-		$.Msg(bHideReqLines)
+		//$.Msg("BHIDEREQ")
+		//$.Msg(bHideReqLines)
 		if(bHideReqLines){
 			main_panel.FindChildTraverse('class-splitter3').AddClass('invisible')
 			// main_panel.FindChildTraverse('class-splitter4').AddClass('invisible')
@@ -316,10 +316,10 @@ function initializeTooltip(main_panel, item){
 		// tooltip = tooltip + "<br><br><font color='#FF2B2B'>"+$.Localize('#weapon_max_level')+": "+itemTable.maxLevel+"</font>"
 
 		var weaponValues = itemValues
-		$.Msg(weaponValues)
+		//$.Msg(weaponValues)
 		if (!(weaponValues === undefined) && !(weaponValues.level === undefined) && (weaponValues.gear_slot == 1)){
-			$.Msg("SHOULD BE HERE!!!")
-			$.Msg("item_tooltip_popout.js weaponValues")
+			//$.Msg("SHOULD BE HERE!!!")
+			//$.Msg("item_tooltip_popout.js weaponValues")
 			main_panel.FindChildTraverse('tooltip_weapons_data_container').RemoveClass('invisible')
 			main_panel.FindChildTraverse('tooltip_weapon_left1').text = "<font color='#ffb8b7'>"+$.Localize('weapon_usable')+"</font> <font color='#AAAAAA'>"+$.Localize('weapon_current_level')+":</font>"
 			main_panel.FindChildTraverse('tooltip_weapon_right1').text = "<font color='#FFFFFF'>"+weaponValues.level+"</font>"
@@ -333,7 +333,7 @@ function initializeTooltip(main_panel, item){
 			}else{
 				var percentage = (parseInt(weaponValues.xp)/parseInt(weaponValues.xpNeeded))*100
 				// percentage = toString(percentage)+"%"
-				$.Msg(percentage)
+				//$.Msg(percentage)
 				main_panel.FindChildTraverse('weapon_exp_bar_inner').RemoveClass('invisible')
 				main_panel.FindChildTraverse('weapon_exp_bar_inner').style.width = percentage + "%"
 				main_panel.FindChildTraverse('weapon_exp_bar_text').text = weaponValues.xp+" / "+weaponValues.xpNeeded
@@ -422,7 +422,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	}
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
-    $.Msg("OGpropertyName: " + OGpropertyName)
+    //$.Msg("OGpropertyName: " + OGpropertyName)
 	if (OGpropertyName.indexOf("rune_") >= 0){
 		var playerIndex = getControllingPlayerIndex()
         var abilitySlot = -1
@@ -447,18 +447,18 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
 				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
-				$.Msg(propertyName)
+				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				propertyName = $.Localize("DOTA_Tooltip_Ability_"+RPCName+"_"+OGpropertyName)
-				$.Msg(propertyName)		
+				//$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_Ability") >= 0){
 		propertyName = $.Localize(OGpropertyName)
-		$.Msg("OGPROPERTYNAME!")
+		//$.Msg("OGPROPERTYNAME!")
 	}
 	tooltipName = "<font color='"+itemProperty.propertyColor+"'>"+propertyName+"</font>"
 	tooltipValue = "<font color='"+itemProperty.propertyColor+"'>"+itemProperty.propertyValue+"</font>"
@@ -579,7 +579,7 @@ function SpecialDescriptionValues(specialText, item)
 {
 	if (specialText.indexOf("@special_property1") > -1){
 		var value = Abilities.GetSpecialValueFor( item, "property_one" )
-		$.Msg("$$$VALUE: "+value)
+		//$.Msg("$$$VALUE: "+value)
 		value = Math.round(value*100, 1)/100
 		specialText = specialText.replace("@special_property1", "<font color='#CCFF66'>"+value+"</font>");
 	}	
@@ -608,13 +608,13 @@ function SpecialDescriptionValues(specialText, item)
 
 function AddDamageTypeAndElementToItem(item)
 {
-	$.Msg("ELEMENT TIME!")
+	//$.Msg("ELEMENT TIME!")
 	var ability = item
 	var damageType = Abilities.GetAbilityDamageType( ability )
 	var tooltip = ""
 	var element1 = Abilities.GetLevelSpecialValueFor( ability, "element_one", 1)
 	var element2 = Abilities.GetLevelSpecialValueFor( ability, "element_two", 1)
-	$.Msg(damageType)
+	//$.Msg(damageType)
 		// 
 	var shouldShow = false
 	var tooltipTypeLeft = ""

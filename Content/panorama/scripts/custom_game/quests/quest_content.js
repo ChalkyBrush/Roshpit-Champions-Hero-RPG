@@ -2,7 +2,7 @@ var results = $.GetContextPanel().result
 var gameProgress = $.GetContextPanel().gameProgress
 var maxQuests = 3
 function InitializeQuestContent(){
-	$.Msg("RESULTS")
+	//$.Msg("RESULTS")
 	var quests = results.quests
 	var questCount = Object.keys(quests).length
 	$('#quest_no_quest').text = $.Localize('#quests_no_quests')

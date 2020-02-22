@@ -49,7 +49,7 @@ function SuppliesDealer(msg){
              potionPanelSetHover(potionPanel, i, 3)
         }    
 
-        $.Msg("Open supplies dealear")
+        //$.Msg("Open supplies dealear")
     }
 }
 
@@ -106,7 +106,7 @@ function CloseDialogue(msg){
 
 function GetItemDataForCurator(msg)
 {
-    $.Msg("GetItemDataForCurator start")
+    //$.Msg("GetItemDataForCurator start")
 	var item = msg.itemIndex
     var language = $.Language()
     var itemName = Abilities.GetAbilityName( item );
@@ -116,7 +116,7 @@ function GetItemDataForCurator(msg)
 
 	//Property1
 	if (!(itemValues===undefined || itemValues.property1tooltip === undefined)){
-		$.Msg("GetItemDataForCurator Property1")
+		//$.Msg("GetItemDataForCurator Property1")
 		var tooltip = itemValues.property1tooltip == "rune" ? itemValues.property1name : itemValues.property1tooltip
 		var property1special = SpecialDescriptionValues($.Localize(itemValues.property1special), item)
 		var property1localized = $.Localize(tooltip)
@@ -124,12 +124,12 @@ function GetItemDataForCurator(msg)
 			property1localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property1data = [itemValues.property1color, tooltip, property1localized, itemValues.property1special, property1special, itemValues.property1]
-		$.Msg(property1data)
+		//$.Msg(property1data)
 	}
 
 	//Property2
 	if (!(itemValues===undefined || itemValues.property2tooltip === undefined)){
-		$.Msg("GetItemDataForCurator Property2")
+		//$.Msg("GetItemDataForCurator Property2")
 		var tooltip = itemValues.property2tooltip == "rune" ? itemValues.property2name : itemValues.property2tooltip
 		var property2special = SpecialDescriptionValues($.Localize(itemValues.property2special), item)
 		var property2localized = $.Localize(tooltip)
@@ -137,12 +137,12 @@ function GetItemDataForCurator(msg)
 			property2localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property2data = [itemValues.property2color, tooltip, property2localized, itemValues.property2special, property2special, itemValues.property2]
-		$.Msg(property2data)
+		//$.Msg(property2data)
 	}
 
 	//Property3
 	if (!(itemValues===undefined || itemValues.property3tooltip === undefined)){
-		$.Msg("GetItemDataForCurator Property3")
+		//$.Msg("GetItemDataForCurator Property3")
 		var tooltip = itemValues.property3tooltip == "rune" ? itemValues.property3name : itemValues.property3tooltip
 		var property3special = SpecialDescriptionValues($.Localize(itemValues.property3special), item)
 		var property3localized = $.Localize(tooltip)
@@ -150,12 +150,12 @@ function GetItemDataForCurator(msg)
 			property3localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property3data = [itemValues.property3color, tooltip, property3localized, itemValues.property3special, property3special, itemValues.property3]
-		$.Msg(property3data)
+		//$.Msg(property3data)
 	}
 
 	//Property4
 	if (!(itemValues===undefined || itemValues.property4tooltip === undefined)){
-		$.Msg("GetItemDataForCurator Property4")
+		//$.Msg("GetItemDataForCurator Property4")
 		var tooltip = itemValues.property4tooltip == "rune" ? itemValues.property4name : itemValues.property4tooltip
 		var property4special = SpecialDescriptionValues($.Localize(itemValues.property4special), item)
 		var property4localized = $.Localize(tooltip)
@@ -163,7 +163,7 @@ function GetItemDataForCurator(msg)
 			property4localized = $.Localize(tooltip.substr(tooltip.length - 8))
 		}
 		var property4data = [itemValues.property4color, tooltip, property4localized, itemValues.property4special, property4special, itemValues.property4]
-		$.Msg(property4data)
+		//$.Msg(property4data)
 	}
 
     var gem_data = {}
@@ -204,7 +204,7 @@ function GetItemDataForCurator(msg)
 }
 
 function BigChanges(){
-    $.Msg("BIG CHANGE")
+    //$.Msg("BIG CHANGE")
 }
 
 function getGemDataForItem(itemName, gem){
@@ -245,14 +245,14 @@ function round(value, decimals) {
 
 function OpenCurator(msg)
 {
-    $.Msg("OPEN CURATOR1")
-    $.Msg(GameUI.curatorOpen)
+    //$.Msg("OPEN CURATOR1")
+    //$.Msg(GameUI.curatorOpen)
     if (GameUI.curatorOpen){
     }else{
         GameUI.curatorOpen = true
         var parent = $('#npc_dialogue_big')
         parent.RemoveAndDeleteChildren();
-        $.Msg("OPEN CURATOR")
+        //$.Msg("OPEN CURATOR")
         var listItem = $.CreatePanel("Panel", parent, "curator")
         listItem.BLoadLayoutSnippet("curator");
     }
@@ -287,7 +287,7 @@ function OnDragEnter( a, draggedPanel )
 
     var itemValues = CustomNetTables.GetTableValue( "item_basics", draggedItem.toString() )
     var rarity = itemValues.rarityFactor
-    $.Msg(rarity)
+    //$.Msg(rarity)
     if (!(rarity >= 5)){
         return true
     }
@@ -308,7 +308,7 @@ function OnDragDrop( panelId, draggedPanel )
     var itemValues = CustomNetTables.GetTableValue( "item_basics", draggedItem.toString() )
     var rarity = itemValues.rarityFactor
     if (draggedPanel.fromInventory && rarity >= 5){
-        $.Msg("DROP ITEM")
+        //$.Msg("DROP ITEM")
             var playerID = Game.GetLocalPlayerID()
             var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
             GameEvents.SendCustomGameEventToServer( "stop_unit", {unitIndex: heroIndex} );
@@ -332,9 +332,9 @@ function OnDragLeave( panelId, draggedPanel )
 
 function populateCurateItem(item)
 {
-    $.Msg("populateCurateItem start +++++++++++++++++++")
-	$.Msg(item)
-    $.Msg("populateCurateItem start +++++++++++++++++++")
+    //$.Msg("populateCurateItem start +++++++++++++++++++")
+	//$.Msg(item)
+    //$.Msg("populateCurateItem start +++++++++++++++++++")
 	$.GetContextPanel().FindChildTraverse('item_placement_tip').text = $.Localize("DOTA_Tooltip_Ability_"+Abilities.GetAbilityName( item ));
     $.GetContextPanel().FindChildTraverse('item_image').contextEntityIndex = item;
     $.GetContextPanel().curateItem = item
@@ -389,7 +389,7 @@ function populateCurateItem(item)
 function FinalCurateActivate()
 {
   var item = $.GetContextPanel().curateItem
-  $.Msg("CURATE!!")
+  //$.Msg("CURATE!!")
   GameEvents.SendCustomGameEventToServer( "curate", {item: item, playerID: Game.GetLocalPlayerID()} );
   CloseCurator(0)
 }
@@ -400,7 +400,7 @@ function GetHeroDataForCurator(msg)
     var heroName = Entities.GetUnitName( hero );
     var localizedName = $.Localize(heroName)
     var language = $.Language()
-    $.Msg(localizedName)
+    //$.Msg(localizedName)
     GameEvents.SendCustomGameEventToServer( "curateHero", {hero: hero, localizedName: localizedName, playerID: Game.GetLocalPlayerID(), language: language} );
 }
 
@@ -409,12 +409,12 @@ function GetAbilityDataForCurator(msg)
     var hero = msg.heroIndex
     var heroName = Entities.GetUnitName( hero );
     var language = $.Language()
-    $.Msg("AbilityCurateJS")
-    $.Msg(msg.abilitySpecial)
+    //$.Msg("AbilityCurateJS")
+    //$.Msg(msg.abilitySpecial)
     var abilitySpecialData = msg.abilitySpecial
 
     var ability = msg.abilityIndex
-    $.Msg(ability)
+    //$.Msg(ability)
     var abilityName = Abilities.GetAbilityName( ability )
     var abilityTexture = Abilities.GetAbilityTextureName( ability )
     var abilityNameLocalized = $.Localize('DOTA_Tooltip_Ability_'+abilityName)
@@ -443,7 +443,7 @@ function GetAbilityDataForCurator(msg)
         })
     })
     var abilityTargetType = Abilities.GetAbilityTargetType( ability )
-    $.Msg(abilityDescription)
+    //$.Msg(abilityDescription)
   
     var runeData1 = GetRuneData(msg.rune1)
     var runeData2 = GetRuneData(msg.rune2)
@@ -487,7 +487,7 @@ function GetGlyphDataForCurator(msg)
     var localizedDescription  = $.Localize(msg.glyphDescription)
     localizedDescription =  updateGlyphInTooltip(localizedDescription, msg.glyphIndex)
     var language = $.Language()
-    $.Msg(localizedName)
+    //$.Msg(localizedName)
     var itemTexture = Abilities.GetAbilityTextureName( msg.glyphIndex)
     GameEvents.SendCustomGameEventToServer( "curateGlyph", {glyphIndex: msg.glyphIndex, localizedName: localizedName, localizedDescription: localizedDescription, language: language, playerID: Game.GetLocalPlayerID(), glyphTexture: itemTexture} );
 }

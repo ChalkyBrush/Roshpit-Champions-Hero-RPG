@@ -1,6 +1,6 @@
 
 function BasicDialogue(msg){
-	$.Msg("BASIC DIALOGUE")
+	//$.Msg("BASIC DIALOGUE")
 	if ($('#hud_dialogue_container').BHasClass('animateEaseOutClass')){
 		$('#hud_dialogue_container').RemoveClass('animateEaseOutClass')
 	}
@@ -27,7 +27,7 @@ function BasicDialogue(msg){
 
 var camera = "default_camera";
 var style = "width:80px;height:100px;margin-bottom:10px;";
-$.Msg(msg.nameColorClass)
+//$.Msg(msg.nameColorClass)
 heroPortraitContainer.LoadLayoutFromStringAsync("<root><Panel><DOTAScenePanel particleonly='false' style='" + style + "' class='SceneLoaded' camera='" + camera + "' unit='" + unitName +"'/></Panel></root>", false, false);
     var dialogueHeader = dialogue.FindChildTraverse('dialoge_name_label')
     dialogueHeader.text = $.Localize(unitName)

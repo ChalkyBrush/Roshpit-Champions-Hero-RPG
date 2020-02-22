@@ -6,7 +6,7 @@ MAX_TIERS = 7;
 
 function InitializeshopHero()
 {
-	$.Msg(mHeroName)
+	//$.Msg(mHeroName)
 	if (mHeroName == "tooltip_neutral"){
 		$('#shop_portrait').SetImage( "file://{images}/custom_game/ui/empty_inventory.png")
 		$('#slot_label_name').text = $.Localize(mHeroName)
@@ -38,7 +38,7 @@ function OpenGlyphShopForHero()
 
 function OpenGlyphShopForHeroAfterServerLoads(msg)
 {
-	$.Msg(msg)
+	//$.Msg(msg)
 	var parent = mShopContentsContainer
 	parent.RemoveAndDeleteChildren();
 	for (var i = 1; i <= MAX_TIERS; i++) {
