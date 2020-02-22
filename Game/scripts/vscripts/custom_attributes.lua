@@ -226,9 +226,9 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_dark_arts_effect')
-	if modifier then
-		agility = agility - modifier:GetStackCount()
+	modifier = self:FindModifierByName('modifier_dark_arts_vestments')
+	if modifier and modifier.stat_bonus then
+		agility = agility - modifier.stat_bonus
 	end
 
 	modifier = self:FindModifierByName('modifier_green_divinex_amulet')
@@ -1255,9 +1255,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("modifier_dark_arts_vestments") then
-		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
-	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
 			magic_armor = magic_armor + result
@@ -2193,9 +2190,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
 	end
-	if unit:HasModifier("modifier_dark_arts_vestments") then
-		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
-	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
 	end
@@ -3105,9 +3099,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_eye_of_seasons_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
-	end
-	if hero:HasModifier("modifier_dark_arts_effect") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_dark_arts_effect", 1)
 	end
 	if hero:HasModifier("modifier_blazing_fury_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)

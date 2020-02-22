@@ -614,41 +614,6 @@ function weapon_cleave_attack(event)
 	end
 end
 
-function dark_arts_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local stacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI)
-	if not target:HasModifier("modifier_dark_arts_effect") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
-	end
-	target:SetModifierStackCount("modifier_dark_arts_effect", ability, stacks)
-
-	if ability:GetGemValue("ruby") > 0 then
-		local attack_damage_bonus = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_RUBY)*target:GetMana()
-		if attack_damage_bonus > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_ruby_base_attack", {})
-			target:SetModifierStackCount("modifier_dark_arts_ruby_base_attack", caster, attack_damage_bonus)
-		else
-			target:RemoveModifierByName("modifier_dark_arts_ruby_base_attack")
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not ability.last_health then
-			ability.last_health = target:GetHealth()
-		end
-		local health_diff = ability.last_health - target:GetHealth()
-		if health_diff > 0 then
-			local mana_restore = math.ceil(health_diff * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_AMETHYST)/100)
-			if mana_restore > 0 then
-				target:GiveMana(mana_restore)
-				PopupMana(target, mana_restore)
-			end
-		end
-		ability.last_health = target:GetHealth()		
-	end
-end
-
 function blazing_fury_think(event)
 	local target = event.target
 	local ability = event.ability

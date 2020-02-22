@@ -1942,33 +1942,6 @@ function RPCItems:RollChampionsGearMail(item_level)
     return item
 end
 
-function RPCItems:RollDarkArtsVestments(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_dark_arts_vestments", "immortal", "Vestments of the Dark Arts", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_dark_arts_vestments"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dark_arts", "#7A3B63", 1, "#property_dark_arts_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
-    end
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
 function RPCItems:RollDepthCrestArmor(item_level)
     local item_slot = RPC_GEAR_SLOT_BODY
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -6998,8 +6971,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollVampiricBreastplate(item_level)
     elseif itemName == "item_rpc_skyforge_flurry_plate" then
         newItem = RPCItems:RollSkyforgeFlurryPlate(item_level)
-    elseif itemName == "item_rpc_dark_arts_vestments" then
-        newItem = RPCItems:RollDarkArtsVestments(item_level)
     elseif itemName == "item_rpc_legion_vestments" then
         newItem = RPCItems:RollLegionVestments(item_level)
     elseif itemName == "item_rpc_nightmare_rider_mantle" then
