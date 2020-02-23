@@ -290,7 +290,7 @@ function dominion_unit_kill(event)
 			ability:ApplyDataDrivenModifier(caster, attacker, "modifier_ekkan_dominion_stacks_black_visible", {})
 			local newStacks = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster) + q_3_level
 			local newStacks_visible = attacker:GetModifierStackCount("modifier_ekkan_dominion_stacks_black_visible", caster) + 1
-			if newStacks <= EKKAN_ARCANA_Q3_MAX_STACKS*EKKAN_ARCANA_Q3_BASE_ATTACK_DAMAGE*q_3_level then
+			if newStacks <= EKKAN_ARCANA_Q3_MAX_STACKS*q_3_level then
 				attacker:SetModifierStackCount("modifier_ekkan_dominion_stacks_black", caster, newStacks)
 			end
 			if newStacks_visible <= EKKAN_ARCANA_Q3_MAX_STACKS then
