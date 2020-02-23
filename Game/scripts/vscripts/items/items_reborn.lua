@@ -211,7 +211,9 @@ end
 
 function RPCItems:RollRandomItemAtLocation(unit_level, location, roll_boost)
 	local item = RPCItems:RollRandomItem(unit_level, roll_boost)
-	RPCItems:BasicDropItem(location, item)
+	if item then 
+		RPCItems:BasicDropItem(location, item)
+	end
 end
 
 function RPCItems:RollRandomItem(unit_level, roll_boost)
