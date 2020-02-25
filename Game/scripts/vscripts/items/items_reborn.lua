@@ -211,7 +211,9 @@ end
 
 function RPCItems:RollRandomItemAtLocation(unit_level, location, roll_boost)
 	local item = RPCItems:RollRandomItem(unit_level, roll_boost)
-	RPCItems:BasicDropItem(location, item)
+	if item then 
+		RPCItems:BasicDropItem(location, item)
+	end
 end
 
 function RPCItems:RollRandomItem(unit_level, roll_boost)
@@ -248,19 +250,19 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 	if bad_luck <= RPCItems.ChancesToLoseImmortal[GameState:GetDifficultyFactor()] and rarity == RPC_ITEMS_RARITY_IMMORTAL then
 		rarity = RPC_ITEMS_RARITY_MYTHICAL
 	end
-	if rarity < 5 and GameMode.VoteSystem.junk_loot_disabled then
-		return
+
+	local random_gear_slot = RandomInt(0, 5)
+	if rarity < RPC_ITEMS_RARITY_IMMORTAL and GameMode.VoteSystem.junk_loot_disabled then
+		if rarity ~= RPC_ITEMS_RARITY_MYTHICAL or random_gear_slot ~= RPC_GEAR_SLOT_WEAPON then
+			return
+		end
 	end
 
 	local item_level = RPCItems:RollItemLevelFromUnit(unit_level)
-
-	if random_type_chance <= 9960 then
-		local random_gear_slot = RandomInt(0, 5)
-		if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
-			item = Weapons:RollWeapon(rarity, item_level, nil)
-		else
-			item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
-		end
+	if random_gear_slot == RPC_GEAR_SLOT_WEAPON then
+		item = Weapons:RollWeapon(rarity, item_level, nil)
+	else
+		item = RPCItems:RollRandomItemBySlot(rarity, item_level, random_gear_slot)
 	end
 	return item
 end

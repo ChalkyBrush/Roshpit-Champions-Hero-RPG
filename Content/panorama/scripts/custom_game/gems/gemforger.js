@@ -4,7 +4,7 @@ mTooltipPanel = null
 ITEM_MIN_LEVEL_PER_GEM = [0, 15, 30, 45, 60]
 
 function OpenGemforger(msg){
-	$.Msg("GEM FORGER")
+	//$.Msg("GEM FORGER")
 	var parent = $('#gemforger_container')
 	parent.RemoveClass('invisible')
 	parent.AddClass('animateEaseClass')
@@ -285,7 +285,7 @@ function gem_hover(panel, item, gem, gem_number, current_level){
 		title_color = "#c744b8"
 	}
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	$.Msg(itemValues)
+	//$.Msg(itemValues)
 	var qualityColor = itemValues.qualityColor
 	var rarityFactor = itemValues.rarityFactor
 	var item_name = Abilities.GetAbilityName(item)
@@ -309,15 +309,15 @@ function gem_unhover(panel){
 }
 
 function calculate_forge_cost(current_level, highlighted_level, gem, rarityFactor){
-	$.Msg("CALC FORGE COST:")
-	$.Msg("CURRENT LEVEL: "+current_level+" | HIGHLIGHTED: "+highlighted_level)
+	//$.Msg("CALC FORGE COST:")
+	//$.Msg("CURRENT LEVEL: "+current_level+" | HIGHLIGHTED: "+highlighted_level)
 	var gem_costs = [0, 30, 150, 750, 3750, 18750]
 	var total_cost = 0
 	if (highlighted_level <= current_level){
 		total_cost = 0
 	}else{
 		for (k = current_level+1; k <= highlighted_level; k++){
-			$.Msg(k)
+			//$.Msg(k)
 			total_cost = total_cost + gem_costs[k]
 		}
 	}

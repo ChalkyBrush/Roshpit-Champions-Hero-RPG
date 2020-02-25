@@ -89,9 +89,8 @@ end
 
 function modifierClass:GetRoshpitBaseAbilityDmgBonus()
     local hero = self:GetParent()
-    local movespeed = hero:GetBaseMoveSpeed()
-    local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
-    return movespeedActual * ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS/100
+    local movespeed = self:GetHeroMoveSpeed()
+    return movespeed * ITEM_RPC_SWIFTSPIKE_BRACER_BAD_PER_MS/100
 end
 
 function modifierClass:GetRoshpitQBaseAbilityDmgBonus()
@@ -118,11 +117,9 @@ end
 function modifierClass:GetModifierBaseAttack_BonusDamage()
     if not IsServer() then return end
 
-    local hero = self:GetParent()
+    local movespeed = self:GetHeroMoveSpeed()
     local item = self:GetAbility()
-    local movespeed = hero:GetBaseMoveSpeed()
-    local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
-    return movespeedActual * item:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
+    return movespeed * item:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
 end
 
 

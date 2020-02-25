@@ -724,7 +724,7 @@ function winterblight_boss_final_death_animation(caster)
 			local max_roll = math.max(10, 80-GameState:GetPlayerPremiumStatusCount()*2-boss_level)
 			local arcana_luck = RandomInt(1, max_roll)
 			if arcana_luck == 1 then
-				RPCItems:RollVenomortArcana2(position)
+				RPCItems:RollAndDropUniqueArcana(caster, "item_rpc_venomort_arcana2")
 			end
 			local immortal_luck = RandomInt(1, 4)
 			if immortal_luck == 1 then

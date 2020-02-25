@@ -8,11 +8,11 @@ function CloseWitchDoctor(msg){
 	$('#final_combine_button_container').AddClass('invisible')
 	var playerID = Game.GetLocalPlayerID()
 	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
-	$.Msg(msg)
+	//$.Msg(msg)
 	if (msg > 0){
-		$.Msg($.GetContextPanel().wind)
-		$.Msg($.GetContextPanel().water)
-		$.Msg($.GetContextPanel().fire)
+		//$.Msg($.GetContextPanel().wind)
+		//$.Msg($.GetContextPanel().water)
+		//$.Msg($.GetContextPanel().fire)
 		$('#witch_doctor_content').RemoveAndDeleteChildren()
 		GameEvents.SendCustomGameEventToServer( "close_witch_doctor", {playerID: playerID, heroIndex: heroIndex, wind: $.GetContextPanel().wind, water: $.GetContextPanel().water, fire: $.GetContextPanel().fire});
 	}else if(msg == -1){
@@ -70,7 +70,7 @@ function LoadButton(){
 }
 
 function OpenTanariWitchDoctor(){
-	$.Msg("OPEN WITCH DOCTOR")
+	//$.Msg("OPEN WITCH DOCTOR")
 	if (GameUI.CustomUIConfig().mainDialog == 0){
 		CreateItemSlotPanels()
 		$('#witch_doctor_container').style.width = "380px"
@@ -122,7 +122,7 @@ function OpenSynthesisVessel(msg)
 			CloseSynthesisVessel(0)
 		})
 		// GameUI.CustomUIConfig().mainDialog = 1
-		$.Msg("BIG PLAYER")	
+		//$.Msg("BIG PLAYER")	
 	}
 }
 function CloseSynthesisVessel(msg){
@@ -164,7 +164,7 @@ function OpenInscriptionKit(msg)
 			var playerID = Game.GetLocalPlayerID()
 			var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
 			var inscription = $('#inscription_input').text
-			$.Msg(inscription)
+			//$.Msg(inscription)
 			GameEvents.SendCustomGameEventToServer( "inscription", {event_type: 1, heroIndex: heroIndex, kit: mItem, inscription: inscription});
 			CloseInscriptionKit(-1)	
 			Game.EmitSound("RPCItems.Inscription.Click")		
@@ -173,7 +173,7 @@ function OpenInscriptionKit(msg)
 			CloseInscriptionKit(0)
 		})
 		// GameUI.CustomUIConfig().mainDialog = 1
-		$.Msg("BIG PLAYER")	
+		//$.Msg("BIG PLAYER")	
 	}
 }
 function CloseInscriptionKit(msg){
@@ -226,7 +226,7 @@ function OpenAltarOfIce(msg)
 			CloseAltarOfIce(0)
 		})
 		// GameUI.CustomUIConfig().mainDialog = 1
-		$.Msg("BIG PLAYER")	
+		//$.Msg("BIG PLAYER")	
 	}
 }
 

@@ -15,7 +15,7 @@ function ItemShowTooltipOnPanel(itemPanel)
 	// tooltip = tooltip.replace(/(['"])/g, "\\$1");
 
 	// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "ItemTooltip","file://{resources}/layout/custom_game/equipment/item_tooltip.xml",name2="ay lmao");
-	$.Msg("TOOLTIP GLYPH.."+queryUnit)
+	//$.Msg("TOOLTIP GLYPH.."+queryUnit)
 	var tooltipArgs = "item="+item+"&queryUnit="+queryUnit
 	$.DispatchEvent("UIShowCustomLayoutParametersTooltip", itemPanel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 	// $.DispatchEvent("DOTAShowTitleTextTooltip", itemPanel, title, tooltip);
@@ -48,8 +48,8 @@ function AddWeaponDataToTooltip(tooltip, itemTable, item){
 	tooltip = tooltip + "<br><br><font color='#FF2B2B'>"+$.Localize('#weapon_max_level')+": "+itemTable.maxLevel+"</font>"
 
 	var weaponValues = CustomNetTables.GetTableValue( "weapons", "item"+item.toString() )
-	$.Msg("WEAPON VALUES ----")
-	$.Msg(weaponValues)
+	//$.Msg("WEAPON VALUES ----")
+	//$.Msg(weaponValues)
 	if (!(weaponValues == undefined)){
 		if (weaponValues.item_name == Abilities.GetAbilityName(item)){
 			tooltip = tooltip + "<br>"
@@ -157,13 +157,13 @@ function AddSpecialDescriptionToTooltip(tooltip, itemProperty1, itemProperty2, i
 
 function AddDamageTypeAndElementToItem(tooltip, item)
 {
-	$.Msg("ELEMENT TIME!")
+	//$.Msg("ELEMENT TIME!")
 	var ability = item
 	var damageType = Abilities.GetAbilityDamageType( ability )
 	var tooltip = ""
 	var element1 = Abilities.GetLevelSpecialValueFor( ability, "element_one", 1)
 	var element2 = Abilities.GetLevelSpecialValueFor( ability, "element_two", 1)
-	$.Msg(damageType)
+	//$.Msg(damageType)
 		// 
 	if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_MAGICAL){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "
@@ -172,7 +172,7 @@ function AddDamageTypeAndElementToItem(tooltip, item)
 	}else if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_PHYSICAL){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "
 		var damage_type_main_text = $.Localize("#DOTA_ToolTip_Damage_Physical")
-		$.Msg("PHYS")
+		//$.Msg("PHYS")
 		tooltip = tooltip+"<font color='#FF8A8A'>"+damage_type_text+"</font><font color='#FF7070'>"+damage_type_main_text+"</font><br>"
 	}else if (damageType == DAMAGE_TYPES.DAMAGE_TYPE_PURE){
 		var damage_type_text = $.Localize("#tooltip_damage_type")+": "
@@ -298,7 +298,7 @@ function getPosition(str, m, i) {
 
 function itemValuesCheck(itemValues)
 {
-	$.Msg(itemValues)
+	//$.Msg(itemValues)
 	if (itemValues === undefined){
 		itemValues = {}
 	}
@@ -387,7 +387,7 @@ function itemPropertyCheck(itemProperty){
 
 function CreateCustomTooltip(itemValues, itemName, itemProperty1)
 {
-	$.Msg( itemValues );
+	//$.Msg( itemValues );
 	//var tooltip = "<Label style='color:"+itemValues.qualityColor+";font-size:16px;'>"+itemValues.item_name+"</Label><br>";
 
 	var tooltip = "<i>"+itemValues.qualityName+"</i><br>"
@@ -413,7 +413,7 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 	}
 	var propertyName = $.Localize(itemProperty.propertyName)
 	// itemProperty = itemPropertyCheck(itemProperty)
-	$.Msg(OGpropertyName)
+	//$.Msg(OGpropertyName)
     if (OGpropertyName.indexOf("rune_") >= 0) {
         var playerIndex = getControllingPlayerIndex()
         var abilitySlot = -1
@@ -437,18 +437,18 @@ function AddAffixToItem(tooltip, itemProperty, queryUnit, requiredHero, rarityFa
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				var arcanaSuffix = itemName.replace("item_rpc_"+RPCName+"_", "_");
 				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName+arcanaSuffix)
-				$.Msg(propertyName)
+				//$.Msg(propertyName)
 			}else{
 				var RPCName = convertFullHeroNameToRPC(requiredHero)	
 				propertyName = $.Localize("DOTA_Tooltip_ability_"+RPCName+"_"+OGpropertyName)
-				$.Msg(propertyName)		
+				//$.Msg(propertyName)		
 			}
 		}
 		// itemProperty = itemPropertyCheck(itemProperty)
 	}
 	if (OGpropertyName.indexOf("#DOTA_Tooltip_ability") >= 0){
 		propertyName = $.Localize(OGpropertyName)
-		$.Msg("OGPROPERTYNAME!")
+		//$.Msg("OGPROPERTYNAME!")
 	}
 	tooltip = tooltip+"<br><font color='"+itemProperty.propertyColor+"'>"+propertyName+": "+itemProperty.propertyValue+"</font>"
 

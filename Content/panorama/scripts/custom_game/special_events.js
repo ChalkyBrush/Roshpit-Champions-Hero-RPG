@@ -1,5 +1,5 @@
 function crixalisEventStart(){
-	$.Msg("begin crixalis")
+	//$.Msg("begin crixalis")
 	$('#yellow_panel').RemoveClass('invisible');
 	$('#yellow_panel').AddClass('animateEaseClassHalf');
 	    $.Schedule(3, function(){
@@ -20,7 +20,7 @@ function crixalisEventStart(){
 }
 
 function alarmEventStart(){
-	$.Msg("begin alarm")
+	//$.Msg("begin alarm")
 	$('#red_panel').RemoveClass('invisible');
 	var loopCount = 4
 	for (i = 0; i < loopCount; i++) { 
@@ -54,7 +54,7 @@ function OpenRareShop(){
 }
 
 function buy_item(message){
-	$.Msg("Buy Item "+message);
+	//$.Msg("Buy Item "+message);
 	var id = Game.GetLocalPlayerID();
 	var price = $('#rare_item_price'+message).GetAttributeInt("price", 0);
 	GameEvents.SendCustomGameEventToServer( "buy_item", {itemtype: "immortal_helm", playerID: id, price: price, rarity: "immortal", close: true} );
@@ -101,7 +101,7 @@ function bigTextMessage(message){
 	$('#big_text_container').RemoveClass('invisible');
 	$('#big_text').text = ""
 	var text = $.Localize(message.message)
-	$.Msg(text)
+	//$.Msg(text)
 	var j = 1
 	var loop = text.length
 	for (i = 1; i < loop; i++) {
@@ -123,7 +123,7 @@ function bigTextMessage(message){
 function ruins_console(msg){
 	if (!($('#special_event').eventIndex == 1)){
 		var stoneIndex = msg.stoneIndex
-		$.Msg(stoneIndex)
+		//$.Msg(stoneIndex)
 		$('#special_event').style.visibility = "visible"
 		$('#special_event').RemoveAndDeleteChildren();
 		$('#special_event').eventIndex = 1;
@@ -151,7 +151,7 @@ function initializeSpecialEvents(){
 }
 
 function screenBlur(msg){
-	$.Msg("WE BLURRING!!")
+	//$.Msg("WE BLURRING!!")
 	$('#special_event_image').style.visibility = "visible"
 	$('#special_event_image').SetImage("file://{images}/custom_game/ui/blur_overlay.png")
 	$('#special_event_image').AddClass('animateEaseClassOneSecond');
@@ -167,9 +167,9 @@ function screenBlur(msg){
 }
 
 function flashHeal(msg){
-	$.Msg("flash heal")
+	//$.Msg("flash heal")
 	var cursorPos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition(Players.GetLocalPlayer()) )
-	$.Msg(cursorPos)
+	//$.Msg(cursorPos)
 	GameEvents.SendCustomGameEventToServer( "flash_heal", {xPos: cursorPos[0], yPos: cursorPos[1], auriun: msg.auriun} );
 }
 
@@ -213,15 +213,15 @@ function enter_spirit_realm(){
 	$('#generic_panel').AddClass('pale_green_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
-	$.Msg("EASING IN")
+	//$.Msg("EASING IN")
 	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
-	    		$.Msg("EASING OUT")
+	    		//$.Msg("EASING OUT")
 	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
-	    			$.Msg("DONE")
+	    			//$.Msg("DONE")
 	    		});
 	    	});
 
@@ -232,15 +232,15 @@ function enter_equinox(){
 	$('#generic_panel').AddClass('red_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
-	$.Msg("EASING IN")
+	//$.Msg("EASING IN")
 	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
-	    		$.Msg("EASING OUT")
+	    		//$.Msg("EASING OUT")
 	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
-	    			$.Msg("DONE")
+	    			//$.Msg("DONE")
 	    		});
 	    	});
 
@@ -251,15 +251,15 @@ function sunstone_activate(){
 	$('#generic_panel').AddClass('yellow_panel')
 	$('#generic_panel').AddClass('animateEaseClassSpecial');
 	
-	$.Msg("EASING IN")
+	//$.Msg("EASING IN")
 	    	$.Schedule(2, function(){
 	    		$('#generic_panel').RemoveClass('animateEaseClassSpecial')
 	    		$('#generic_panel').AddClass('animateEaseOutClassSpecial');
-	    		$.Msg("EASING OUT")
+	    		//$.Msg("EASING OUT")
 	    		$.Schedule(1.9, function(){
 	    			$('#generic_panel').RemoveClass('animateEaseOutClassSpecial');
 	    			$('#generic_panel').AddClass('invisible');
-	    			$.Msg("DONE")
+	    			//$.Msg("DONE")
 	    		});
 	    	});
 	

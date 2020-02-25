@@ -106,7 +106,7 @@ function init_boss_menu(msg){
 		}
 		set_boss_button_events(cavern_button, msg, i)
 	}
-	$.Msg(msg.winterblight_cavern.realm_breaker_status)
+	//$.Msg(msg.winterblight_cavern.realm_breaker_status)
 	if (msg.winterblight_cavern.realm_breaker_status > -1){
 		var boss_button_attacher = cavern_ui_panel.FindChildTraverse('final_boss_button_attacher')
 		var cavern_event_button_panel = $.CreatePanel("Panel", boss_button_attacher, "realm_breaker_boss_button")
@@ -381,14 +381,14 @@ function CloseWinterCavern(){
 }
 
 function CavernRecordsLoaded(msg){
-	$.Msg(msg)
+	//$.Msg(msg)
 	var steam_id = msg.steam_id
-	$.Msg(msg.steam_id)
+	//$.Msg(msg.steam_id)
 	var cavern_ui_panel = $.GetContextPanel.cavern_ui_panel
 	cavern_ui_panel.FindChildTraverse('chamber_event_start_container2').RemoveClass('invisible')
 	var event_index = cavern_ui_panel.event_index
 	var chamber_index = cavern_ui_panel.chamber_index
-	$.Msg(msg.wb_data[chamber_index][event_index])
+	//$.Msg(msg.wb_data[chamber_index][event_index])
 	var your_hero_record = 0
 	if (!(msg.wb_data[chamber_index][event_index][steam_id] === undefined)){
 		if (!(msg.wb_data[chamber_index][event_index][steam_id]["hero_record"] === undefined)){
@@ -527,8 +527,8 @@ function CavernSummaryInit(msg)
 	$('#winterblight_cavern_summary_container').RemoveAndDeleteChildren()
 	var cavern_ui_panel = $.CreatePanel("Panel", $('#winterblight_cavern_summary_container'), "cavern_summary")
 	cavern_ui_panel.BLoadLayoutSnippet("cavern_summary")	
-	$.Msg("-----CHAMBER DATA----")
-	$.Msg(msg.chamber_data)
+	//$.Msg("-----CHAMBER DATA----")
+	//$.Msg(msg.chamber_data)
 	var expander_button = cavern_ui_panel.FindChildTraverse('cavern_summary_expander')
 	var attacher = cavern_ui_panel.FindChildTraverse('cavern_summary_items_attacher')
 	var expander_label = cavern_ui_panel.FindChildTraverse('cavern_expander_label')
@@ -543,7 +543,7 @@ function CavernSummaryInit(msg)
 	var chamber_count = 0
 	for (var i = 1; i <= 4; i++) {
 		var chamber_data = msg.chamber_data[i]
-		$.Msg(chamber_data)
+		//$.Msg(chamber_data)
 		if (chamber_data["status"] == 1){
 			chamber_count = chamber_count + 1
 			var chamber_index = i
@@ -611,7 +611,7 @@ function CavernSummaryUpdate(msg){
 		return false
 	}
 	var chamber_data = msg.chamber_data[msg.chamber]
-	$.Msg(chamber_data)
+	//$.Msg(chamber_data)
 
 	if (chamber_data["status"] == 1){
 		var chamber_index = msg.chamber

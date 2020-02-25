@@ -2,7 +2,7 @@
 
 function OpenEquipment()
 {
-$.Msg( "OPENDAT" );
+//$.Msg( "OPENDAT" );
 	if ($('#equipment_button_label').open){
 		$('#equipment_button_label').text = $.Localize("#ui_close_equipment")
 		$('#equipment_button_label').open = false;
@@ -29,7 +29,7 @@ function InitializeEquipment(msg)
 {
 	$('#equipment_button_label').open = true;
 	OpenEquipment();
-	$.Msg( "InitializeEquipment" );
+	//$.Msg( "InitializeEquipment" );
 	$('#equipment_button_label').text = $.Localize("#ui_close_equipment")
 	$('#recalculate_button_text').text = $.Localize("#ui_recalculate_stats_button")
 	$('#recalculate_button').SetAttributeInt("active", 0)
@@ -43,7 +43,7 @@ function EquipmentClick(slot)
 		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
 		if (!(Players.GetLocalPlayer() == ownerID)){
 			Game.EmitSound("General.Cancel")
-			$.Msg("YOU DONT MATCH PLAYER ID")
+			//$.Msg("YOU DONT MATCH PLAYER ID")
 			return			
 		}
 		if (item == -1){
@@ -63,7 +63,7 @@ function EquipmentClick(slot)
 		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
 		if (!(Players.GetLocalPlayer() == ownerID)){
 			Game.EmitSound("General.Cancel")
-			$.Msg("YOU DONT MATCH PLAYER ID")
+			//$.Msg("YOU DONT MATCH PLAYER ID")
 			return			
 		}
 		if (item == -1){
@@ -82,7 +82,7 @@ function EquipmentClick(slot)
 		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
 		if (!(Players.GetLocalPlayer() == ownerID)){
 			Game.EmitSound("General.Cancel")
-			$.Msg("YOU DONT MATCH PLAYER ID")
+			//$.Msg("YOU DONT MATCH PLAYER ID")
 			return			
 		}
 		if (item == -1){
@@ -101,7 +101,7 @@ function EquipmentClick(slot)
 		var ownerID = itemPanel.GetAttributeInt( "ownerID", -10 );
 		if (!(Players.GetLocalPlayer() == ownerID)){
 			Game.EmitSound("General.Cancel")
-			$.Msg("YOU DONT MATCH PLAYER ID")
+			//$.Msg("YOU DONT MATCH PLAYER ID")
 			return			
 		}
 		if (item == -1){

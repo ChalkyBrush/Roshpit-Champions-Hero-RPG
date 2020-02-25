@@ -614,41 +614,6 @@ function weapon_cleave_attack(event)
 	end
 end
 
-function dark_arts_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local stacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI)
-	if not target:HasModifier("modifier_dark_arts_effect") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
-	end
-	target:SetModifierStackCount("modifier_dark_arts_effect", ability, stacks)
-
-	if ability:GetGemValue("ruby") > 0 then
-		local attack_damage_bonus = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_RUBY)*target:GetMana()
-		if attack_damage_bonus > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_ruby_base_attack", {})
-			target:SetModifierStackCount("modifier_dark_arts_ruby_base_attack", caster, attack_damage_bonus)
-		else
-			target:RemoveModifierByName("modifier_dark_arts_ruby_base_attack")
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not ability.last_health then
-			ability.last_health = target:GetHealth()
-		end
-		local health_diff = ability.last_health - target:GetHealth()
-		if health_diff > 0 then
-			local mana_restore = math.ceil(health_diff * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_AMETHYST)/100)
-			if mana_restore > 0 then
-				target:GiveMana(mana_restore)
-				PopupMana(target, mana_restore)
-			end
-		end
-		ability.last_health = target:GetHealth()		
-	end
-end
-
 function blazing_fury_think(event)
 	local target = event.target
 	local ability = event.ability
@@ -5870,37 +5835,6 @@ function buzuki_buff_attack_land(event)
 	end)
 end
 
-function swiftspike_think(event)
-	local caster = event.caster
-	local hero = event.target
-	local ability = event.ability
-	local movespeed = hero:GetBaseMoveSpeed()
-	local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
-	if not hero:HasModifier("modifier_swiftspike_bad") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
-	end
-	hero:SetModifierStackCount("modifier_swiftspike_bad", caster, movespeedActual)
-	if ability:GetGemValue("ruby") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_atk_damage") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_atk_damage", {})
-		end
-		local atk_damage_stacks = movespeedActual*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
-		hero:SetModifierStackCount("modifier_swiftspike_atk_damage", caster, atk_damage_stacks)
-	end
-	if ability:GetGemValue("sapphire") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_sapphire") then
-			hero:AddNewModifier(hero, ability, "modifier_swiftspike_sapphire", {})
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_ms_pct") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_ms_pct", {})
-		end
-		local ms_pct_amethyst = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST)
-		hero:SetModifierStackCount("modifier_swiftspike_ms_pct", caster, ms_pct_amethyst)
-	end
-end
-
 function orthok_attack_land(event)
 	local attacker = event.attacker
 	Filters:OrthokStack(attacker, 1)
@@ -6268,7 +6202,7 @@ function erudite_teacher_start(event)
 		end)
 		if ability.apprentice_abilities_table then
 			Timers:CreateTimer(0.03, function()
-				DeepPrintTable(ability.apprentice_abilities_table)
+				--DeepPrintTable(ability.apprentice_abilities_table)
 				for i = 1, #ability.apprentice_abilities_table, 1 do
 					local ability_check_name = ability.apprentice_abilities_table[i]
 					local steal_index = i - 1

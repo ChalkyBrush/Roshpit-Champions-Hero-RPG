@@ -97,7 +97,7 @@ function itemPropertyCheck(itemProperty){
 
 function ItemShowTooltip()
 {
-	$.Msg("What is that? CustomNetTables 02.06.19 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+	//$.Msg("What is that? CustomNetTables 02.06.19 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	var item = m_Item
 	var queryUnit = m_QueryUnit
 	if ( item == -1 )

@@ -3,7 +3,7 @@ nTOOLTIPS = 23
 
 function initLoadScreen()
 {
-	$.Msg('init load screen')
+	//$.Msg('init load screen')
 	$('#difficulty_tip_text_title').text = $.Localize('#tooltip_loading_screen_tip_title')
 	var tipNumber = getRandomInt(1, nTOOLTIPS)
 	$('#difficulty_tip_text').text = $.Localize('#tooltip_loading_screen_tip'+tipNumber)
@@ -26,42 +26,42 @@ function SetMapImage(){
 	// $.Msg(mapName)
 	var status = 0
 	if (mapName == "world1"){
-		$.Msg("SET IMAGE!!")
+		//$.Msg("SET IMAGE!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/world1load.jpg")
 		status = 1
 	}
 	if(mapName === "tanari"){
-		$.Msg("SET IMAGE TANARI!!")
+		//$.Msg("SET IMAGE TANARI!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/tanari_jungle.jpg")
 		status = 1
 	}
 	if(mapName === "redfall"){
-		$.Msg("SET IMAGE REDFALL!!")
+		//$.Msg("SET IMAGE REDFALL!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/redfall_load.jpg")
 		status = 1
 	}
 	if(mapName === "arena"){
-		$.Msg("SET IMAGE ARENA!!")
+		//$.Msg("SET IMAGE ARENA!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/arena_load.jpg")
 		status = 1
 	}
 	if(mapName === "pvp_alpha"){
-		$.Msg("SET IMAGE ARENA!!")
+		//$.Msg("SET IMAGE ARENA!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/pvp_load.jpg")
 		status = 1
 	}
 	if(mapName === "serengaard"){
-		$.Msg("SET IMAGE SERENAARD!!")
+		//$.Msg("SET IMAGE SERENAARD!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/serengaard_load.jpg")
 		status = 1
 	}
 	if(mapName === "seafortress"){
-		$.Msg("SET IMAGE SEAFORT!!")
+		//$.Msg("SET IMAGE SEAFORT!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/seafortress3.jpg")
 		status = 1
 	}
 	if(mapName === "winterblight"){
-		$.Msg("SET IMAGE SEAFORT!!")
+		//$.Msg("SET IMAGE SEAFORT!!")
 		$('#seq_bg').SetImage("file://{images}/custom_game/loading_screen/descent_of_winterblight_load.jpg")
 		status = 1
 	}
@@ -72,7 +72,7 @@ function SetMapImage(){
 	if (status == 1){
 		UpdateValidDifficulties()
 	}
-	$.Msg(status)
+	//$.Msg(status)
 	return status
 }
 
@@ -125,7 +125,7 @@ function getMap(){
 }
 
 function ActivateDifficultyButton(difficulty){
-	$.Msg("ACTIVATE DIFFICULTY BUTTON"+difficulty)
+	//$.Msg("ACTIVATE DIFFICULTY BUTTON"+difficulty)
 
 	GameEvents.SendCustomGameEventToServer( "difficulty_select", {difficulty:difficulty, playerID: Game.GetLocalPlayerID()});
 }

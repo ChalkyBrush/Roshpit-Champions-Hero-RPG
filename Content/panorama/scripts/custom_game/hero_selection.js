@@ -10,7 +10,7 @@ function HeroSelectInit(animation)
 {
     $.GetContextPanel().selectLock = false
     if (Players.GetTeam( Game.GetLocalPlayerID()) == -1){
-        $.Msg("IS SPECTATOR")
+        //$.Msg("IS SPECTATOR")
         $.GetContextPanel().selectLock = true
         $.GetContextPanel().FindChildTraverse('hero_select_parent').AddClass('invisible');
         return false       
@@ -20,18 +20,18 @@ function HeroSelectInit(animation)
         GameUI.CustomUIConfig().muteMusic = 0
     }else{
         var localHeroName = Entities.GetUnitName( localHero )
-        $.Msg(localHeroName)
+        //$.Msg(localHeroName)
         if (localHeroName == "npc_dota_hero_wisp"){
             GameUI.CustomUIConfig().muteMusic = 0
-            $.Msg("STILL WISP")
+            //$.Msg("STILL WISP")
         }else{
             $.GetContextPanel().selectLock = true
-            $.Msg("NOT WISP")
+            //$.Msg("NOT WISP")
             $.GetContextPanel().FindChildTraverse('hero_select_parent').AddClass('invisible');
             return false
         }
     }
-    $.Msg(localHero)
+    //$.Msg(localHero)
 
     var parent = $('#hero_select_content')
     var board = $.CreatePanel("Panel", parent, "dummy-box")
@@ -116,7 +116,7 @@ function newHeroOptionSelect(board, parent){
         newBoard.AddClass('animateFromBottom')
         var heroPreviewBox = $('#hero_preview_box')
         var heroesTaken = CustomNetTables.GetTableValue( "hero_index", "taken_heroes")
-        $.Msg(heroesTaken)
+        //$.Msg(heroesTaken)
         for ( var i = 1; i < heroList.length; ++i )
         {
             var row = newBoard.FindChildTraverse('hero_selection_row'+getRowNumber(i))
@@ -159,7 +159,7 @@ function update_picked_heroes(msg)
 {
     var heroesTaken = CustomNetTables.GetTableValue( "hero_index", "taken_heroes")
     for ( var i = 0; i < m_heroPanels.length; ++i ){
-        $.Msg(heroesTaken[i])
+        //$.Msg(heroesTaken[i])
         var heroPanelHeroName = m_heroPanels[i].heroName
         for ( var j = 0; j < 12; ++j ){
             if (heroesTaken[j] == heroPanelHeroName){
@@ -193,7 +193,7 @@ function heroSlotAddAndInit(row, heroName, heroPreviewBox, level, slot, heroesTa
     heroImage.SetImage( "file://{images}/heroes/" + heroName + ".png" );
     var heroTaken = false
     for ( var i = 0; i < 12; ++i ){
-        $.Msg(heroesTaken[i])
+        //$.Msg(heroesTaken[i])
         if (heroesTaken[i] == heroName){
             board.FindChildTraverse('hero_portrait_overlay').RemoveClass('invisible')
             heroTaken = true
@@ -226,12 +226,12 @@ function checkIfNoHero()
         return true
     }else{
         var localHeroName = Entities.GetUnitName( localHero )
-        $.Msg(localHeroName)
+        //$.Msg(localHeroName)
         if (localHeroName == "npc_dota_hero_wisp"){
             return true
         }else{
             $.GetContextPanel().selectLock = true
-            $.Msg("NOT WISP")
+            //$.Msg("NOT WISP")
             $.GetContextPanel().FindChildTraverse('hero_select_parent').AddClass('invisible');
             return false
         }
@@ -357,22 +357,22 @@ function closePickScreen(){
 
 function updateSkillPreview(msg)
 {
-    $.Msg(msg.abilityTable)
+    //$.Msg(msg.abilityTable)
     var parent = $('#ability-preview-row')
     parent.RemoveAndDeleteChildren()
     parent.AddClass('fadeInSmall')
     var queryUnit = msg.heroIndex
-    $.Msg(msg)
+    //$.Msg(msg)
 
     for ( var i = 0; i < 4; ++i )
     {
-        $.Msg(queryUnit)
+        //$.Msg(queryUnit)
         if (i == 3){
             i = 5
         }
         var ability = Entities.GetAbility( queryUnit, i );
-        $.Msg(ability)
-        $.Msg( Abilities.GetLevel(ability))
+        //$.Msg(ability)
+        //$.Msg( Abilities.GetLevel(ability))
         var board = $.CreatePanel("Panel", parent, "AbilityPreviewGenerated")
         board.BLoadLayoutSnippet('ability_preview')
         var playerID = Game.GetLocalPlayerID();
@@ -407,7 +407,7 @@ function setHeroSlotFunctions(heroImage, option)
 
 function showAbilityTooltip(abilityButton, abilityIndex, queryUnit, parent)
 {
-    $.Msg(abilityIndex)
+    //$.Msg(abilityIndex)
     var abilityButton = $( "#AbilityButton" );
     var abilityName = Abilities.GetAbilityName( abilityIndex );
     $.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", parent, abilityName, queryUnit );
@@ -432,14 +432,14 @@ function LoadCharactersLoaded(msg){
         newBoard.FindChildTraverse('hero_select_new_title').text = $.Localize('hero_select_load_character')
         var heroPreviewBox = $('#hero_preview_box')
         newBoard.FindChildTraverse('premium_notifier').RemoveClass('invisible')
-        $.Msg(result)
-        $.Msg(result.characters.size)
+        //$.Msg(result)
+        //$.Msg(result.characters.size)
         var rowNumber = 1
         var rowCounter = 0
         var heroesTaken = CustomNetTables.GetTableValue( "hero_index", "taken_heroes")
         for ( var i = 1; i <= HERO_SELECT_SAVE_SLOTS; ++i )
         {
-            $.Msg(result.characters[i].heroName)
+            //$.Msg(result.characters[i].heroName)
             if (!(result.characters[i].heroName == "empty")){
                 if (i <= 8){
                     rowNumber = 1

@@ -32,7 +32,7 @@ function item_roll(msg)
 	}else if(rollSlot==2){
 		panel3 = newChildPanel;
 	}
-	$.Msg(rollSlot)
+	//$.Msg(rollSlot)
 
 }
 
@@ -51,7 +51,7 @@ function getPanel(rollSlot){
 function item_roll_end(msg)
 {
 	var rollSlot = msg.rollSlot-1
-	$.Msg("END ROLL"+'#itemroll-box'+rollSlot)
+	//$.Msg("END ROLL"+'#itemroll-box'+rollSlot)
 	var panel = getPanel(rollSlot)
 	panel.RemoveClass("animateIn")
 	panel.AddClass("fromBottomFade"+rollSlot)

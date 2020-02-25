@@ -131,7 +131,7 @@ function itemPlaced(msg)
 
 function checkItemCondition(){
 	if (($.GetContextPanel().witchDoctorParent.wind > -1) && ($.GetContextPanel().witchDoctorParent.water > -1) && ($.GetContextPanel().witchDoctorParent.fire > -1)){
-		$.Msg("CHECK ITEM CONDITION YES!")
+		//$.Msg("CHECK ITEM CONDITION YES!")
 		$.GetContextPanel().combineButton.RemoveClass('invisible')
 	}
 }

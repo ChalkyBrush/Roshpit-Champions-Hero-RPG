@@ -770,7 +770,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
                 if target.paladin_q4_absorb < 0 then
                     target.paladin_q4_absorb = 0
                 end
-                target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth() * 0.1 * q_4_level)
+                target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth() * PALADIN_Q4_MAX_SHIELD_PER_MAX_HP * q_4_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
                 target:AddNewModifier(caster, ability, "modifier_paladin_q4_shield", {duration = shieldDuration})
             end

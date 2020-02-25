@@ -44,8 +44,8 @@ function InitializeRollBox(){
 		$('#option-need').AddClass('invisible')
 	}
 	var itemValues = CustomNetTables.GetTableValue( "item_basics", item.toString() )
-	$.Msg("ITEM VALUES ROLL BOX:")
-	$.Msg(itemValues)
+	//$.Msg("ITEM VALUES ROLL BOX:")
+	//$.Msg(itemValues)
 	if (!(itemValues.requiredHero === undefined)){
 		if (!(Entities.GetUnitName(localHero) == itemValues.requiredHero)){
 			$('#option-need').AddClass('invisible')
@@ -87,7 +87,7 @@ function InitializeRollBox(){
 					//$.Msg(rollTime - currentRollInterval/4)
 					if (rollTime - currentRollInterval/4 == 0){
 						$('#roll-options').AddClass("invisible")
-						$.Msg("roll-options -> invisible")
+						//$.Msg("roll-options -> invisible")
 					}
 				}
 				$('#countdown-progress').style.width = (100-((25/rollTime)*currentRollInterval))+"%";
@@ -123,8 +123,8 @@ function roll(type){
 }
 
 function register_roll(keys){
-	$.Msg("ROLL INDEX:::")
-	$.Msg(keys.rollIndex)
+	//$.Msg("ROLL INDEX:::")
+	//$.Msg(keys.rollIndex)
 	if ((keys.rollIndex-1) == rollSlot){
 		var playerID = keys.playerID
 		var roll = keys.roll
@@ -145,20 +145,20 @@ function register_roll(keys){
 				overlay.AddClass('red-overlay')
 			}
 		}else{
-			$.Msg("================")
-			$.Msg("Overlay is null!")
-			$.Msg("================")
-			$.Msg("Players:",Game.GetAllPlayerIDs())
-			$.Msg("================")
+			//$.Msg("================")
+			//$.Msg("Overlay is null!")
+			//$.Msg("================")
+			//$.Msg("Players:",Game.GetAllPlayerIDs())
+			//$.Msg("================")
 		}
 	}
 }
 
 function getPortraitOverlay(playerID)
 {
-	$.Msg("================")
-	$.Msg("Players:",Game.GetAllPlayerIDs())
-	$.Msg("================")
+	//$.Msg("================")
+	//$.Msg("Players:",Game.GetAllPlayerIDs())
+	//$.Msg("================")
 	var allIds = Game.GetAllPlayerIDs();
 	for (var i = 1; i <= allIds.length; i++)
 	{

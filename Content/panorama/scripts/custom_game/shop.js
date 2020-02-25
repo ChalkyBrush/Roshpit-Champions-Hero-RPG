@@ -65,7 +65,7 @@ function update_colors(message){
 }
 
 function buy_item(message){
-	$.Msg("Buy Item "+message);
+	//$.Msg("Buy Item "+message);
 	var id = Players.GetLocalPlayer();
 	var price = $('#item_price'+message).GetAttributeInt("price", 0);
 	var rarity = $("#all_items_container").GetAttributeString('rarity', "uncommon")

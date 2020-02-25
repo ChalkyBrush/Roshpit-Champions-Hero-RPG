@@ -22,7 +22,7 @@ function OnAbilityLearnModeToggled( bEnabled )
 function UpdateAbilityList()
 {
 	var abilityListPanel = $( "#ability_list" );
-	$.Msg("updateAbilityList")
+	//$.Msg("updateAbilityList")
 	if ( !abilityListPanel )
 		return;
 
