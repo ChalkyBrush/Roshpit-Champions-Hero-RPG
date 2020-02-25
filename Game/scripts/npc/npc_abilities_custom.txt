@@ -71334,7 +71334,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"4"
+				"property_two"			"7"
 			}
 		}
 	}
