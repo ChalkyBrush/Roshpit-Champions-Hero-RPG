@@ -14006,9 +14006,9 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_cap_of_wild_nature"								"Cap of Wild Nature"
 		"item_property_wild_nature"					"Entangling Roots"
-		"property_wild_nature_description"			"<font color='#ccff66'>50</font>% шанс опутать корнями атакующих героя противников на <font color='#ccff66'>4</font> сек. Противники в корнях получают урон <font color='#ccff66'>1</font>x от основного атрибута героя каждую секунду."
+		"property_wild_nature_description"			"<font color='#ccff66'>50</font>% шанс опутать корнями атакующих героя противников на <font color='#ccff66'>4</font> сек. Противники в корнях получают урон <font color='#ccff66'>3</font>x от основного атрибута героя каждую секунду."
 		"item_property_wild_nature_two"				"Ensnaring Roots"
-		"property_wild_nature_two_description"		"Противники, задетые @Ability2, имеют <font color='#ccff66'>30</font>% шанс быть опутаными корнями на <font color='#ccff66'>4</font> сек. Противники в корнях получают урон <font color='#ccff66'>1</font>x от основного атрибута героя каждую секунду."
+		"property_wild_nature_two_description"		"Противники, задетые @Ability2, имеют <font color='#ccff66'>30</font>% шанс быть опутаными корнями на <font color='#ccff66'>4</font> сек. Противники в корнях получают урон <font color='#ccff66'>3</font>x от основного атрибута героя каждую секунду."
 
 		"item_rpc_cap_of_wild_nature_ruby1"	"Увеличивает урон корней на @ruby_property1%"
 		"item_rpc_cap_of_wild_nature_emerald1" "Увеличивает урон <font color=\"#69BC71\">Природы</font> на @emerald_property1%"
@@ -14063,11 +14063,11 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crimson_skull_cap"								"Crimson Skull Cap"
 		"item_property_crimson_skull_cap"						"Corpse Explosion"
-		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области в <font color='#ccff66'>15</font>% от их показателя Здоровья."
+		"property_crimson_skull_cap_description"				"Убитые противники взорвутся и нанесут урон от взрыва Магическим уроном по области в <font color='#ccff66'>20</font>% от их показателя Здоровья."
 
 		"item_rpc_crimson_skull_cap_ruby1"	"Увеличивает урон от взрыва дополнительно на @ruby_property1% от показателя Здоровья убитого противника"
 		"item_rpc_crimson_skull_cap_emerald1"	"Увеличивает радиус взрыва на @emerald_property1"
-		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <font color='#ccff66'>3</font> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
+		"item_rpc_crimson_skull_cap_sapphire1" "При получении урона герой произведет взрыв через <font color='#ccff66'>2</font> сек, нанося урон по обласи @sapphire_property1% от максимального запаса здоровья"
 		"item_rpc_crimson_skull_cap_amethyst1" "Увеличивает урон <font color=\"#5C776E\">Нежити</font> на @amethyst_property1"
 
 		"DOTA_Tooltip_modifier_crimson_skull_cap_sapphire_countdown"	"Crimson Skull Cap (Sapphire)"
@@ -14075,7 +14075,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_crown_of_ruby_dragon"							"Crown of the Ruby Dragon"	
 		"item_property_ruby_dragon"					"Ruby Dragon"
-		"property_ruby_dragon_description"			"Герой получает Рубинового Дракона - компаньона со способностью Flame Breath (Огненное Дыхание). Дракон имеет <font color='#ccff66'>100</font>ХП за каждый уровень героя и <font color='#ccff66'>10</font> базового урона атаки за каждый уровень героя. Весь наносимый драконом урон учитывает героя как источник."
+		"property_ruby_dragon_description"			"Герой получает Рубинового Дракона - компаньона со способностью Flame Breath (Огненное Дыхание). Дракон имеет <font color='#ccff66'>100</font>ХП за каждый уровень героя и <font color='#ccff66'>100</font> базового урона атаки за каждый уровень героя. Весь наносимый драконом урон учитывает героя как источник."
 
 		"ruby_dragon_3"							"Ruby Dragon"
 
@@ -14093,7 +14093,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_crown_of_the_lava_forge"							"Crown of the Lava Forge"
 		"item_property_lava_forge"							"Tephra Burst"
-		"property_lava_forge_description"					"При получении любого урона имеется шанс <font color='#ccff66'>30</font>% запустить огненный шар в сторону источника урона, который нанесет при попадании <font color='#ccff66'>30</font>% урон от Силы Атаки героя при попадании по цели, а также в небольшом радиусе. Максимум может быть создано <font color='#ccff66'>6</font> огненных шаров каждые 3 секунды."
+		"property_lava_forge_description"					"При получении любого урона имеется шанс <font color='#ccff66'>30</font>% запустить огненный шар в сторону источника урона, который нанесет при попадании <font color='#ccff66'>90</font>% урон от Силы Атаки героя при попадании по цели, а также в небольшом радиусе. Максимум может быть создано <font color='#ccff66'>6</font> огненных шаров каждые 3 секунды."
 
 		"item_rpc_crown_of_the_lava_forge_ruby1"	"Шанс срабатывания увеличен на @ruby_property1%"
 		"item_rpc_crown_of_the_lava_forge_emerald1"	"Увеличивает урон огненных шаров дополнительно на @emerald_property1% от Ловкости"
@@ -14136,7 +14136,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_demon_mask"										"Demon Mask"
 		"item_property_demon"						"Underworld Tear"
-		"property_demon_description"				"Противники, задетые @Ability1 имеют <font color='#ccff66'>15</font>% шанс выпустить демонический взрыв, с уроном в <font color='#ccff66'>20</font>% от урона способности, в <font color='#ccff66'>450</font> радиусе от задетой цели. Максимум <font color='#ccff66'>4</font> срабатываний в секунду."
+		"property_demon_description"				"Противники, задетые @Ability1 имеют <font color='#ccff66'>15</font>% шанс выпустить демонический взрыв, с уроном в <font color='#ccff66'>30</font>% от урона способности, в <font color='#ccff66'>450</font> радиусе от задетой цели. Максимум <font color='#ccff66'>4</font> срабатываний в секунду."
 
 
 		"item_rpc_demon_mask_ruby1"	"Урон взрыва увеличен на дополнительные @ruby_property1% от урона [Q]"
@@ -14203,7 +14203,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_guard_of_luma"									"Guard of Luma"
 		"item_property_luma"						"Lucent Beam"
-		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>100</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
+		"property_luma_description"					 "Противники, задетые @Ability1 имеют <font color='#ccff66'>40</font>% шанс быть пораженными лунным лучом, наносящим <font color='#ccff66'>120</font>% от урона способности и дающим область свободного обзора на <font color='#ccff66'>4</font> сек. Максимально <font color='#ccff66'>7</font> срабатываний в секунду."
 
 		"item_rpc_guard_of_luma_ruby1"	"Шанс срабатывания лучей увеличен на @ruby_property1%"
 		"item_rpc_guard_of_luma_emerald1"	"Максимум срабатываний в секунду увеличен на @emerald_property1"
@@ -14238,9 +14238,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_silent_templar"						"Helm of the Silent Templar"
 		"item_property_helm_of_silent_templar"					"Silent Watch"
-		 "property_helm_of_silent_templar_description"			"Прочтение @Ability4 накладывает Безмолвие на героя на <font color='#ccff66'>10</font> сек. На это время скорость атаки героя увеличивается на <font color='#ccff66'>150</font>, а атаки наносят дополнительно <font color='#ccff66'>120</font>% Магического урона."
+		 "property_helm_of_silent_templar_description"			"Прочтение @Ability4 накладывает Безмолвие на героя на <font color='#ccff66'>10</font> сек. На это время скорость атаки героя увеличивается на <font color='#ccff66'>180</font>, а атаки наносят дополнительно <font color='#ccff66'>160</font>% Магического урона."
 		  "DOTA_Tooltip_modifier_helm_of_silent_templar_effect"	"Silent Watch"
-		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Безмолвие. +<font color='#ccff66'>150</font> скорости атаки, атаки наносят <font color='#ccff66'>120</font>%% Магического урона."
+		 "DOTA_Tooltip_modifier_helm_of_silent_templar_effect_Description"	"Безмолвие. +<font color='#ccff66'>180</font> скорости атаки, атаки наносят <font color='#ccff66'>160</font>%% Магического урона."
 
 		"item_rpc_helm_of_the_silent_templar_ruby1"	"Увеличивает длительность Silent Watch на @ruby_property1 сек"
 		"item_rpc_helm_of_the_silent_templar_emerald1"	"Увеличивает скорость атаки во время Silent Watch на дополнительные @emerald_property1"
@@ -14255,9 +14255,9 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hood_of_defiler"									"Hood of the Defiler"
 		"item_property_hood_of_defiler"					"Corruption"
-		"property_hood_of_defiler_description"                "Противники, задетые @Ability2, получают проклятье, которое снижает их Броню и Магическую Защиту на <font color='#ccff66'>7</font>%. Складывается <font color='#ccff66'>5</font> раз, длится <font color='#ccff66'>10</font> секунд."
+		"property_hood_of_defiler_description"                "Противники, задетые @Ability2, получают проклятье, которое снижает их Броню и Магическую Защиту на <font color='#ccff66'>8</font>%. Складывается <font color='#ccff66'>5</font> раз, длится <font color='#ccff66'>10</font> секунд."
 		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible"	"Corruption"
-		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня и Магическая Защита снижены на <font color='#ccff66'>7</font>%%."
+		"DOTA_Tooltip_modifier_hood_of_defiler_effect_visible_Description"	"Броня и Магическая Защита снижены на <font color='#ccff66'>8</font>%%."
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff"			"Corruption"
 		"DOTA_Tooltip_modifier_hood_of_defiler_buff_Description"	"Increased Combat Capability"
 
@@ -14286,7 +14286,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_hood_of_the_sea_oracle"					"Hood of the Sea Oracle"	
 		"property_sea_oracle"												"Tideworn Strikes"
-		"property_sea_oracle_Description"									"Атаки снижают текущую Базовую Атаку противника на <font color='#ccff66'>3</font>%. Складывается до <font color='#ccff66'>15</font> зарядов. До тех пор, пока цель с максимальным понижением жива, герой получает увеличение Пробитий Брони и Магической Защиты на <font color='#ccff66'>1000</font>."
+		"property_sea_oracle_Description"									"Атаки снижают текущую Базовую Атаку противника на <font color='#ccff66'>3</font>%. Складывается до <font color='#ccff66'>15</font> зарядов. До тех пор, пока цель с максимальным понижением жива, герой получает увеличение Пробитий Брони и Магической Защиты на <font color='#ccff66'>10000</font>."
 		"DOTA_Tooltip_modifier_sea_oracle_stacker"							"Tideworn Erosion"
 		"DOTA_Tooltip_modifier_sea_oracle_stacker_Description"				"Каждый заряд снижает Базовую Атаку. При <font color='#ccff66'>15</font> зарядах герой-носитель получит значительное усиление Пробитий."
 
@@ -14300,7 +14300,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_hyper_visor"									"Hyper Visor"
 		"item_property_hyper_visor"				"Hyper Lightning"
-		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>20</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
+		"property_hyper_visor_description"			"Герой получает <font color='#ccff66'>30</font>% шанс ударить противника разрядом молнии при атаке, которая нанесет урон в небольшой зоне <font color='#ccff66'>240</font> в <font color='#ccff66'>40</font>% от силы атаки героя. Изменяет Базовую Скорость Атаки героя на <font color='#ccff66'>1.2</font> сек."
 
 		"item_rpc_hyper_visor_ruby1"	"Increases Attack Speed @ruby_property1"
 		"item_rpc_hyper_visor_emerald1"	"Увеличивает урон разряда молнии дополнительно на @emerald_property1x от Ловкости"
@@ -14309,7 +14309,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_igneous_canine_helm"								"Igneous Canine Helm"
 		"item_property_igneous_canine"							"Lava Splash"
-		"property_igneous_canine_description"					"Прочтение @Ability2 оглушает ближайших противников на <font color='#ccff66'>0.2</font> сек. и оставляет лужу из лавы, замедляющую перемещение противников на <font color='#ccff66'>-24</font>% и скорость их атак на <font color='#ccff66'>-100</font>. Лава наносит урон в <font color='#ccff66'>12</font>% от силы атаки героя каждые <font color='#ccff66'>0.5</font> сек. Максимально <font color='#ccff66'>3</font> одновременно существующих луж лавы."
+		"property_igneous_canine_description"					"Прочтение @Ability2 оглушает ближайших противников на <font color='#ccff66'>0.2</font> сек. и оставляет лужу из лавы, замедляющую перемещение противников на <font color='#ccff66'>-24</font>% и скорость их атак на <font color='#ccff66'>-100</font>. Лава наносит урон в <font color='#ccff66'>24</font>% от силы атаки героя каждые <font color='#ccff66'>0.5</font> сек. Максимально <font color='#ccff66'>3</font> одновременно существующих луж лавы."
 
 		"item_rpc_igneous_canine_helm_ruby1"	"Увеличивает урон лавы на @ruby_property1x от Силы героя"
 		"item_rpc_igneous_canine_helm_emerald1"	"Увеличивает число луж лавы на @emerald_property1"
@@ -14318,7 +14318,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_helm_of_the_iron_colossus"									"Helm of the Iron Colossus"
 		"item_property_helm_of_the_iron_colossus"				"Iron Colossus"	
-		"property_helm_of_the_iron_colossus_description"		"Увеличивает размер героя на <font color='#ccff66'>20</font>%. Каждая единица Силы героя увеличивает его урон на <font color='#ccff66'>1.5</font>, а Броню на <font color='#ccff66'>1</font>. Скорость атаки зафиксирована на <font color='#ccff66'>120</font>, а дальность атаки на <font color='#ccff66'>180</font>. Базовые Атаки оглушают цели на <font color='#ccff66'>0.5</font> сек. и наносят <font color='#ccff66'>2</font>x от силы атаки героя Физическим уроном. @Ability2 затрачивает на <font color='#ccff66'>500</font>% больше Маны."
+		"property_helm_of_the_iron_colossus_description"		"Увеличивает размер героя на <font color='#ccff66'>20</font>%. Каждая единица Силы героя увеличивает его урон на <font color='#ccff66'>2</font>, а Броню на <font color='#ccff66'>2</font>. Скорость атаки зафиксирована на <font color='#ccff66'>120</font>, а дальность атаки на <font color='#ccff66'>180</font>. Базовые Атаки оглушают цели на <font color='#ccff66'>0.5</font> сек. и наносят <font color='#ccff66'>4</font>x от силы атаки героя Физическим уроном. @Ability2 затрачивает на <font color='#ccff66'>500</font>% больше Маны."
 		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus"					"Iron Colossus"
 		"DOTA_Tooltip_modifier_helm_of_the_iron_colossus_description"		"Атаки наносят дополнительный Физический урон, оглушают противников на <font color='#ccff66'>0.5</font> секунды, скорость атаки зафиксирована на <font color='#ccff66'>120</font>, дальность атак на <font color='#ccff66'>180</font>. Размер модели героя увеличен. Сила дополнительно увеличивает урон Атаки и Броню."
 
@@ -14329,7 +14329,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_magistrates_hood"		"Magistrate's Hood"
 		"item_property_magistrate"											"Artillery Magus"
-		"property_magistrate_description"								"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>. Этот эффект работает только при активных зарядах, которые восстанавливаются каждые <font color='#ccff66'>1</font> сек. Максимум зарядов <font color='#ccff66'>7</font>. Весь урон по области увеличивается на <font color='#ccff66'>5</font>% за каждого противника в области поражения."
+		"property_magistrate_description"								"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>. Этот эффект работает только при активных зарядах, которые восстанавливаются каждые <font color='#ccff66'>1</font> сек. Максимум зарядов <font color='#ccff66'>7</font>. Весь урон по области увеличивается на <font color='#ccff66'>10</font>% за каждого противника в области поражения."
 
 		"DOTA_Tooltip_modifier_magistrates_hood_charges"		"Artillery Magus Charges"
 		"DOTA_Tooltip_modifier_magistrates_hood_charges_Description"	"Все порции Магического или Чистого урона наносят урон по всем целям в области <font color='#ccff66'>300</font>, пока хватает активных зарядов."
@@ -14342,7 +14342,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_mask_of_mugato"									"Mask of Mugato"
 		"item_property_mugato"						"Curse of Mugato"	
-		"property_mugato_description" 				"Прочтение любого заклинания накладывает на героя Безмолвие длительностью <font color='#ccff66'>4</font> сек, а базовые атаки накладывают Безмолвие на <font color='#ccff66'>0.8</font> сек. Герой под эффектом Безмолвия из любого источника получает бонус к Пробитиям Брони и Магической Защиты +<font color='#ccff66'>1000</font>."
+		"property_mugato_description" 				"Прочтение любого заклинания накладывает на героя Безмолвие длительностью <font color='#ccff66'>4</font> сек, а базовые атаки накладывают Безмолвие на <font color='#ccff66'>0.8</font> сек. Герой под эффектом Безмолвия из любого источника получает бонус к Пробитиям Брони и Магической Защиты +<font color='#ccff66'>5000</font>."
 
 		"item_rpc_mask_of_mugato_ruby1"	"В Безмолвии герой получает бонус @ruby_property1 ко всем Атрибутам"
 		"item_rpc_mask_of_mugato_emerald1"	"Увеличивает Пробития Брони и Магической Защиты в Безмолвии еще на @emerald_property1"
@@ -14351,7 +14351,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_the_desert_necromancer"					"Mask of the Desert Necromancer"
 		"item_property_desert_necromancer"			"Reanimate Thorok"
-		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <font color='#ccff66'>30</font> секунд. Он имеет <font color='#ccff66'>3</font>x силы атаки призывателя, <font color='#ccff66'>3</font>x Здоровья призывателя, <font color='#ccff66'>3</font>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <font color='#ccff66'>40</font>% ХП, приведет его в ярость, усиливая его скорость атаки на <font color='#ccff66'>160</font> и скорость перемещения на <font color='#ccff66'>120</font>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
+		"property_desert_necromancer_description"	"Прочтение @Ability4 оживляет омерзительного Thorok'a на <font color='#ccff66'>30</font> секунд. Он имеет <font color='#ccff66'>10</font>x силы атаки призывателя, <font color='#ccff66'>3</font>x Здоровья призывателя, <font color='#ccff66'>3</font>x Брони, Маг. Защиты и Пробитий призывателя на момент оживления. Оживление Thorok'a в момент, когда у героя меньше <font color='#ccff66'>40</font>% ХП, приведет его в ярость, усиливая его скорость атаки на <font color='#ccff66'>160</font> и скорость перемещения на <font color='#ccff66'>120</font>. Может существовать только один Thorok. Весь урон, наносимый миньоном засчитывает героя как источник."
 
 		"item_rpc_mask_of_the_desert_necromancer_ruby1"	"Увеличивает Здоровье Thorok'a на @ruby_property1x от Здоровья призывателя, а продолжительность жизни на @ruby_property2 сек."
 		"item_rpc_mask_of_the_desert_necromancer_emerald1"	"Thorok имеет @emerald_property1% вампиризм, который также лечит и его призывателя"
@@ -14410,7 +14410,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_scourge_knights_helm"							"Scourge Knight's Helm"
 		"item_property_scourge_knight"				"Undead Command"
-		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>1</font>x от силы Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
+		"property_scourge_knight_description"		"Прочтение @Ability4 призывает 5 неподвижных скелетов-лучников, которые имеют <font color='#ccff66'>10</font>x от силы Атаки героя. Скелеты имеют длительность жизни <font color='#ccff66'>15</font> секунд, либо умирают после получения <font color='#ccff66'>5</font> ударов."
 
 		"item_rpc_scourge_knights_helm_ruby1"	"Скелеты-лучники получают 50% шанс появиться c Огненными стрелами, нанося урон от стрел по области @ruby_property1"
 		"item_rpc_scourge_knights_helm_emerald1"	"Скелеты-лучники получают 50% шанс появиться с Ядовитыми стрелами, нанося @emerald_property1% от силы Атаки героя-призывателя в течение <font color='#ccff66'>3</font> сек"
@@ -14443,7 +14443,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_stormcrack_helm"								"Stormcrack Helm"
 		"item_property_stormcrack"						"Stormcrack"
-		"property_stormcrack_description"					"Оглушение противника нанесет ему дополнительный урон в <font color='#ccff66'>15</font>% от силы Атаки героя Магическим типом урона. Максимум срабатываний в секунду <font color='#ccff66'>6</font>."
+		"property_stormcrack_description"					"Оглушение противника нанесет ему дополнительный урон в <font color='#ccff66'>25</font>% от силы Атаки героя Магическим типом урона. Максимум срабатываний в секунду <font color='#ccff66'>6</font>."
 
 		"item_rpc_stormcrack_helm_ruby1"	"Увеличивает длительность всех эффектов Оглушения от героя на @ruby_property1%"
 		"item_rpc_stormcrack_helm_emerald1"	"Увеличивает число допустимых срабатываний в секунду на @emerald_property1"
@@ -14477,7 +14477,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_swamp_witch_hat"									"Swamp Witch's Hat"
 		"item_property_swamp_witch"					"Murky Wave"
-		"property_swamp_witch_description"			"Прочтение @Ability2 выпускает стаю летучих мышей впереди героя, которые наносят <font color='#ccff66'>3</font>x урона от Интеллекта героя. Максимум 1 срабатывание раз в <font color='#ccff66'>0.75</font> сек."
+		"property_swamp_witch_description"			"Прочтение @Ability2 выпускает стаю летучих мышей впереди героя, которые наносят <font color='#ccff66'>5</font>x урона от Интеллекта героя. Максимум 1 срабатывание раз в <font color='#ccff66'>0.75</font> сек."
 
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp"	"Murky Wave"
 		"DOTA_Tooltip_modifier_witch_hat_damage_amp_Description"	"Снижение Магической Защиты"
@@ -14531,7 +14531,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_undertakers_hood"								"Undertaker's Hood"
 		"item_property_undertaker"					"Death Strike"
-		"property_undertaker_description"			"Базовые атаки также выпускают медленно летящую призрачную руку, которая при попадании нанесет Магический урон, равный <font color='#ccff66'>1</font>x от Интеллекта героя."
+		"property_undertaker_description"			"Базовые атаки также выпускают медленно летящую призрачную руку, которая при попадании нанесет Магический урон, равный <font color='#ccff66'>3</font>x от Интеллекта героя."
 
 		"item_rpc_undertakers_hood_ruby1"	"Каждая единица Интеллекта увеличивает Скорость Атаки героя на @ruby_property1"
 		"item_rpc_undertakers_hood_emerald1"	"Ускоряет призрачную руку на @emerald_property1"
@@ -14553,7 +14553,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_water_deity_crown"								"Water Deity Crown"
 		"item_property_water_deity"							"Wrath of Water"
-		"property_water_deity_description"						"@Ability4 наносит дополнительно <font color='#ccff66'>30</font>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <font color='#ccff66'>60</font>% на <font color='#ccff66'>6</font> сек. Максимум <font color='#ccff66'>7</font> срабатываний в секунду."
+		"property_water_deity_description"						"@Ability4 наносит дополнительно <font color='#ccff66'>35</font>% урона <font color=\"#3894FF\">Воды</font> и замедляет скорость передвижения противников на <font color='#ccff66'>60</font>% на <font color='#ccff66'>6</font> сек. Максимум <font color='#ccff66'>7</font> срабатываний в секунду."
 		"DOTA_Tooltip_modifier_water_deity_crown_slow"					"Wrath of Water"
 		"DOTA_Tooltip_modifier_water_deity_crown_slow_Description"		"Скорость перемещения снижена"
 
@@ -14587,7 +14587,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_wolfir_druids_spirit_helm"						"Wolfir Druid's Spirit Helm"
 		"item_property_druids_spirt"				"Feral Spirits"
-		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>3</font>x от силы Атаки героя и <font color='#ccff66'>25</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
+		"property_druids_spirit_description"		"Во время прочтения @Ability4 призывает диких волков каждые 0.5 секунды, которые имеют <font color='#ccff66'>15</font>x от силы Атаки героя и <font color='#ccff66'>30</font>% от Запаса Здоровья героя. Дикие волки живут <font color='#ccff66'>16</font> секунд и только <font color='#ccff66'>3</font> могут быть активны одновременно."
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect"	"Feral Spirit"
 		"DOTA_Tooltip_modifier_wolfir_druid_aura_effect_Description"	"Бонусный Урон Атаки от стаи увеличен"
 

@@ -1148,6 +1148,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		armor_modify = armor_modify - (armor + armor_modify)*(ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100)
 	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		armor_modify = armor_modify + (armor + armor_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
+	end
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		local penalty = HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY
@@ -1605,7 +1609,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_sea_oracle_stacker") then
 		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
 		local hood_of_sea_oracle = modifier:GetAbility()
-		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)*modifier:GetStackCount()
+		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("ruby", SEA_ORACLE_RUBY)*modifier:GetStackCount()
 	end
 	if unit:HasModifier("modifier_witch_hat_damage_amp") then
 		local modifier = unit:FindModifierByName("modifier_witch_hat_damage_amp")
@@ -1770,6 +1774,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
@@ -2167,6 +2175,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		armor_pierce_modify = armor_pierce_modify - (armor_pierce + armor_pierce_modify)*(HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY/100)
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		armor_pierce_modify = armor_pierce_modify + (armor_pierce + armor_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 
 	if armor_pierce_modify > 0 then
@@ -2581,6 +2593,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
 		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

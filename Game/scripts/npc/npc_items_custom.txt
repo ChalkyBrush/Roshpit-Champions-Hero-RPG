@@ -54969,17 +54969,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
+				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"160 320 480 640 800"
+				"sapphire1"				"900 1800 2700 3600 4500"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.3 0.6 0.9 1.2 1.5"
+				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 		}
 	}
@@ -55129,7 +55129,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"500 1000 1500 2000 2500"
+				"sapphire1"				"2000 4000 6000 8000 10000"
 			}
 			"04"
 			{
@@ -55178,27 +55178,27 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"3 6 9 12 15"
+				"ruby1"					"4 8 12 16 20"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"25 50 75 100 125"
+				"emerald1"				"50 100 150 200 250"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"8 16 24 32 40"
+				"emerald2"				"16 32 48 64 80"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"10 20 30 40 50"
+				"sapphire1"				"20 40 80 100 120"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"2 4 6 8 10"
 			}
 		}
 		"OnSpellStart"
@@ -55398,22 +55398,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"0.5 1.0 1.5 2.0 2.5"
+				"ruby1"					"0.6 1.2 1.8 2.4 3.0"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"10 20 30 40 50"
+				"emerald1"				"15 30 45 60 75"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"12 24 36 48 60"
+				"sapphire1"				"20 40 60 80 100"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.8 1.6 2.4 3.2 4.0"
+				"amethyst1"				"1 2 3 4 5"
 			}
 		}
 	}
@@ -55514,17 +55514,22 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"10 20 30 40 50"
+				"ruby2"					"20 40 60 80 100"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1 2 3 4 5"
+				"emerald1"				"10 20 30 40 50"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.6 1.2 1.8 2.4 3.0"
+				"sapphire1"				"1 2 3 4 5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"1.2 2.4 3.6 4.8 6.0"
 			}
 		}
 	}
@@ -55602,17 +55607,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"10 20 30 40 50"
+				"ruby1"					"16 32 48 64 80"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"20 40 60 80 100"
+				"emerald1"				"25 50 75 100 125"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"40 80 120 160 200"
+				"sapphire1"				"3 6 9 12 15"
 			}
 			"06"
 			{
@@ -55664,17 +55669,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"500 1000 1500 2000 2500"
+				"ruby1"					"700 1400 2100 2800 3500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"200 400 600 800 1000"
+				"emerald1"				"800 1600 2400 3200 4000"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"50 100 150 200 250"
+				"sapphire1"				"60 120 180 240 300"
 			}
 			"04"
 			{
@@ -55807,7 +55812,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"0.02 0.04 0.06 0.08 0.1"
+				"ruby1"					"0.04 0.08 0.12 0.16 0.2"
 			}
 			"04"
 			{
@@ -55817,9 +55822,14 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"-25 -50 -75 -100 -125"
+				"emerald2"				"200 400 600 800 1000"
 			}
 			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"-200 -400 -600 -800 -1000"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"15 30 45 60 75"
@@ -56082,7 +56092,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"100 200 300 400 500"
+				"emerald1"				"200 400 600 800 1000"
 			}
 			"03"
 			{
@@ -56092,7 +56102,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"3.0 2.5 2.0 1.5 1.0"
+				"amethyst1"				"2.5 2.0 1.5 1.0 0.5"
 			}
 		}
 	}
@@ -56174,7 +56184,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"-50 -100 -150 -200 -250"
+				"ruby1"				"-120 -240 -360 -480 -600"
 			}
 			"03"
 			{
@@ -56184,12 +56194,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"20 40 60 80 100"
+				"sapphire1"				"30 60 90 120 150"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"300 600 900 1200 1500"
+				"sapphire2"				"90 180 270 360 450"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"15 30 45 60 75"
 			}
 		}
 	}
@@ -56274,7 +56289,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"4 8 12 16 20"
 			}
 			"02"
 			{
@@ -56284,7 +56299,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"15 30 45 60 75"
+				"sapphire1"				"60 120 180 240 300"
 			}
 			"04"
 			{
@@ -56519,17 +56534,17 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.1 0.2 0.3 0.4 0.5"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"15 30 45 60 75"
+				"amethyst1"				"25 50 75 100 125"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"20 40 60 80 100"
+				"amethyst2"				"200 400 600 800 1000"
 			}
 		}
 		"Modifiers"
@@ -56696,7 +56711,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.3 0.6 0.9 1.2 1.5"
 			}
 			"04"
 			{
@@ -56907,7 +56922,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"8 16 24 32 40"
+				"emerald1"				"16 32 48 64 80"
 			}
 			"03"
 			{
@@ -57020,7 +57035,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"7 14 21 28 35"
+				"amethyst1"				"8 16 24 32 40"
 			}
 			"04"
 			{
@@ -57071,22 +57086,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1 2 3 4 5"
+				"ruby1"				"2 4 6 8 10"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"1 2 3 4 5"
+				"emerald1"				"2 4 6 8 10"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1 2 3 4 5"
+				"sapphire1"				"2 4 6 8 10"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"2 4 6 8 10"
 			}
 		}
 	}
@@ -57237,7 +57252,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
+				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 			"03"
 			{
@@ -57386,17 +57401,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"4 8 12 16 20"
+				"emerald1"				"6 12 18 24 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"4 8 12 16 20"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"2 4 6 8 10"
+				"amethyst1"				"3 6 9 12 15"
 			}
 		}
 	}
@@ -57501,7 +57516,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"18 36 54 72 90"
+				"amethyst1"				"36 72 108 144 180"
 			}
 			"06"
 			{
@@ -57571,12 +57586,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"35 80 120 160 200"
+				"ruby1"				"40 80 120 160 200"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"300 600 900 1200 1500"
+				"emerald1"				"1200 2400 3600 4800 6000"
 			}
 			"03"
 			{
@@ -57591,12 +57606,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"				"25 50 75 100 125"
+				"sapphire2"				"30 60 90 120 150"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"				"25 50 75 100 125"
+				"amethyst2"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -57679,12 +57694,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"130 260 390 520 650"
+				"sapphire1"				"1000 2000 3000 4000 5000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"17 34 51 68 85"
+				"sapphire2"				"20 40 60 80 100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"24 48 72 96 120"
 			}
 		}
 	}
@@ -57733,7 +57753,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
+				"emerald1"				"0.6 1.2 1.8 2.4 3.0"
 			}
 			"04"
 			{
@@ -57743,7 +57763,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.2 0.4 0.6 0.8 1.0"
+				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 		}
 	}
@@ -57870,22 +57890,27 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"1 2 3 4 5"
+				"ruby2"				"20 40 60 80 100"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"				"1 2 3 4 5"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"-300 -600 -900 -1200 -1500"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"-1500 -3000 -4500 -6000 -7500"
 			}
 		}
 	}
@@ -57933,12 +57958,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"25 50 75 100 125"
+				"ruby1"				"30 60 90 120 150"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.3 0.6 0.9 1.2 1.5"
+				"emerald1"				"0.5 1.0 1.5 2.0 2.5"
 			}
 			"04"
 			{
@@ -58036,6 +58061,11 @@
 						"ModifierName"	"modifier_sea_oracle_mega_buff"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sea_oracle_attack_power"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_sea_oracle_stacker"
@@ -58073,23 +58103,31 @@
 			{
 				"IsHidden"	"1"
 			}
+			"modifier_sea_oracle_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"-25 -50 -75 -100 -125"
+				"ruby1"				"-100 -200 -300 -400 -500"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"200 400 600 800 1000"
+				"emerald1"				"1500 3000 4500 6000 7500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"-25 -50 -75 -100 -125"
+				"sapphire1"				"1.2 2.4 3.6 4.8 6.0"
 			}
 			"04"
 			{
@@ -58140,12 +58178,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"73 71 69 67 65"
+				"ruby1"				"65 55 45 35 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"12 24 36 48 60"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"03"
 			{
@@ -58155,7 +58193,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"5 10 15 20 25"
+				"sapphire2"				"60 120 180 240 300"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"6 12 18 24 30"
 			}
 		}
 	}
@@ -58251,22 +58294,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.1 0.2 0.3 0.4 0.5"
+				"ruby1"				"0.5 1.0 1.5 2.0 2.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"5 10 15 20 25"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1.2 2.4 3.6 4.8 6.0"
+				"sapphire1"				"12 24 36 48 60"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"5 10 15 20 25"
+				"amethyst1"				"20 40 60 80 100"
 			}
 		}
 		"Modifiers"
@@ -58354,22 +58397,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"5 10 15 20 25"
+				"ruby1"				"6 12 18 24 30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"5 10 15 20 25"
+				"emerald1"				"6 12 18 24 30"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"5 10 15 20 25"
+				"sapphire1"				"6 12 18 24 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"5 10 15 20 25"
+				"amethyst1"				"6 12 18 24 30"
 			}
 		}
 		"OnSpellStart"
@@ -58428,7 +58471,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"20 40 60 80 100"
+				"emerald1"				"24 48 72 96 120"
 			}
 			"05"
 			{
@@ -58438,7 +58481,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"25 50 75 100 125"
+				"amethyst1"				"40 80 120 160 200"
 			}
 		}
 		"OnSpellStart"
@@ -58479,7 +58522,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "150"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "180"
 				}
 				"OnAttackLanded"
 				{
@@ -58589,7 +58632,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.01 0.02 0.03 0.04 0.05"
+				"amethyst1"				"0.02 0.04 0.06 0.08 0.1"
 			}
 		}
 		"OnSpellStart"
@@ -58849,7 +58892,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"10 20 30 40 50"
+				"sapphire2"				"15 30 45 60 75"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"12 24 36 48 60"
 			}
 		}
 		"Modifiers"
@@ -58938,12 +58986,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"180 360 540 720 900"
+				"sapphire1"				"1200 2400 3600 48000 6000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1 2 3 4 5"
+				"amethyst1"				"2 4 6 8 10"
 			}
 		}
 		"OnSpellStart"
@@ -58999,12 +59047,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1000 3000 5000 7000 9000"
+				"ruby1"				"5000 15000 25000 35000 45000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"400 800 1200 1600 2000"
+				"emerald1"				"2000 4000 6000 8000 10000"
 			}
 			"03"
 			{
@@ -59014,7 +59062,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"400 800 1200 1600 2000"
+				"amethyst1"				"2000 4000 6000 8000 10000"
 			}
 		}
 		"OnSpellStart"
@@ -59115,7 +59163,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"100 200 300 400 500"
+				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 			"04"
 			{
@@ -59222,7 +59270,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"30 60 90 120 150"
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"1 2 3 4 5"
@@ -59271,22 +59319,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"3 6 9 12 15"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"2 4 6 8 10"
+				"sapphire1"				"3 6 9 12 15"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"2 4 6 8 10"
+				"amethyst1"				"3 6 9 12 15"
 			}
 		}
 	}
@@ -59357,22 +59405,27 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"3 6 9 12 15"
+				"ruby1"				"5 10 15 20 25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.2 0.4 0.6 0.8 1"
+				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"20 40 60 80 100"
+				"sapphire1"				"100 200 300 400 500"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.06 0.12 0.18 0.24 0.3"
+				"sapphire2"				"500 1000 1500 2000 2500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"0.1 0.2 0.3 0.4 0.5"
 			}
 		}
 	}
@@ -59428,22 +59481,22 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"2 4 6 8 10"
+				"emerald1"				"4 8 12 16 20"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1.5 3.0 4.5 6.0 7.5"
+				"sapphire1"				"2 4 6 8 10"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"12 24 36 48 60"
+				"amethyst1"				"15 30 45 60 75"
 			}
 		}
 	}
@@ -59500,7 +59553,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"20 40 60 80 100"
+				"amethyst1"				"17 34 51 68 85"
 			}
 		}
 		"Modifiers"
@@ -59586,7 +59639,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"25 50 75 100 125"
+				"ruby1"				"30 60 90 120 150"
 			}
 			"02"
 			{
@@ -59596,12 +59649,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"160 320 480 640 800"
+				"sapphire1"				"1200 2400 3600 4800 6000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.1 0.2 0.3 0.4 0.5"
+				"amethyst1"				"0.15 0.3 0.45 0.6 0.75"
 			}
 		}
 		"precache"
@@ -59699,7 +59752,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"2000 4000 6000 8000 10000"
+				"ruby1"				"3000 6000 9000 12000 15000"
 			}
 			"02"
 			{
@@ -59709,12 +59762,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"400 800 1200 1600 2000"
+				"sapphire1"				"1000 2000 3000 4000 5000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"3 6 9 12 15"
+				"sapphire2"				"2500 5000 7500 10000 12500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"5 10 15 20 25"
 			}
 		}
 		"Modifiers"
@@ -59782,17 +59840,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"30 60 90 120 150"
+				"emerald1"				"90 180 270 360 450"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"350 700 1050 1400 1750"
+				"sapphire1"				"800 1600 2400 3200 4000"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"15 30 45 60 75"
+				"amethyst1"				"16 32 48 64 80"
 			}
 		}
 		"OnSpellStart"
@@ -59916,22 +59974,22 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"20 40 60 80 100"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"4 8 12 16 20"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"25 50 75 100 125"
+				"sapphire1"				"35 70 105 140 175"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"8 16 24 32 40"
+				"amethyst1"				"20 40 60 80 100"
 			}
 		}
 	}
@@ -60030,17 +60088,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"2 4 6 8 10"
+				"ruby1"				"3 6 9 12 15"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"18 36 54 72 90"
+				"emerald1"				"30 60 90 120 150"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"30 60 90 120 150"
+				"sapphire1"				"50 100 150 200 250"
 			}
 			"05"
 			{
@@ -60072,18 +60130,19 @@
 		"precache"
 		{
 			"particle"	"particles/econ/generic/generic_buff_1/umbral_sentinel.vpcf"
+			"particle"	"particles/roshpit/items/umbral_sentinel_ruby_aura.vpcf"
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"4 8 12 16 20"
+				"ruby1"				"-6 -12 -18 -24 -30"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"1 2 3 4 5"
+				"emerald1"				"2 4 6 8 10"
 			}
 			"03"
 			{
@@ -60093,7 +60152,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"4 8 12 16 20"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"20 40 60 80 100"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"1200 2400 3600 4800 6000"
 			}
 		}
 		"OnSpellStart"
@@ -60111,6 +60180,22 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"umbral_sentinel_init"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_umbral_sentinel_aura"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_crest_of_the_umbral_sentinel_effect_visible"
 			{
@@ -60134,18 +60219,57 @@
 					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "10"
 				}
 			}
-			"modifier_umbral_sentinel_ruby"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
-				}
-			}
 			"modifier_umbral_sentinel_sapphire"
 			{
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}
+			}
+			"modifier_umbral_sentinel_sapphire2"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+			"modifier_umbral_sentinel_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_umbral_sentinel_aura_effect"
+				"Aura_Radius"   	"800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+				"EffectName"	"particles/roshpit/items/umbral_sentinel_ruby_aura.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_umbral_sentinel_aura_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"itemicons/crest_of_the_umbral_sentinel"
+				"EffectName"	"particles/roshpit/items/umbral_sentinel_ruby_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -60176,12 +60300,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"1 2 3 4 5"
+				"ruby1"				"2 4 6 8 10"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"5 10 15 20 25"
+				"emerald1"				"7 14 21 28 35"
 			}
 			"03"
 			{
@@ -60312,6 +60436,32 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"centaur_horns_emerald_haste_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_centaur_horns_haste_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_centaur_horns_haste_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -60319,7 +60469,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"30 60 90 120 150"
+				"ruby1"				"80 160 240 320 400"
 			}
 			"02"
 			{
@@ -60328,10 +60478,15 @@
 			}
 			"03"
 			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald2"				"1 2 3 4 5"
+			}
+			"04"
+			{
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"2 4 6 8 10"
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"8 16 24 32 40"
@@ -60392,7 +60547,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"8 16 24 32 40"
+				"emerald1"				"12 24 36 48 60"
 			}
 			"05"
 			{
@@ -60505,7 +60660,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"25 50 75 100 125"
+				"amethyst1"				"250 500 750 1000 1250"
 			}
 		}
 		"Modifiers"
@@ -60667,7 +60822,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald2"				"15 30 45 60 75"
+				"emerald2"				"20 40 60 80 100"
 			}
 			"05"
 			{

@@ -609,7 +609,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		if target:HasModifier("modifier_centaur_horns") then
 			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
 				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
-					local stacks = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD)
+					local stacks = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD1)
 					target.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_centaur_horns_haste", {duration = CENTAUR_HORNS_EMERALD_SPEED_DURATION})
 					target:SetModifierStackCount("modifier_centaur_horns_haste", target.InventoryUnit, stacks)
 				end

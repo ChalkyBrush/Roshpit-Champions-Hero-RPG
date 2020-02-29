@@ -395,6 +395,16 @@ function centaur_horn_think(event)
 		end
 	end
 end
+
+function centaur_horns_emerald_haste_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_centaur_horns_haste_attack_damage", {})
+	local attack_damage_bonus = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD2)
+	hero:SetModifierStackCount("modifier_centaur_horns_haste_attack_damage", caster, attack_damage_bonus)
+end
+
 function monkey_paw_think(event)
 	local caster = event.target
 	local ability = event.ability
@@ -449,7 +459,7 @@ function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG + ability:GetFinalGemPropertyValue("amethyst", SWAMP_WITCH_AMETHYST)
+	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG
 
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	if ability:GetGemValue("ruby") > 0 then
@@ -1504,7 +1514,7 @@ function undertaker_attack(event)
 		ability.caster = attacker
 		for i = 1, loops, 1 do
 			Timers:CreateTimer((i-1)*0.15, function()
-				local travel_speed = UNDERTAKER_HAND_BASE_SPEED + ability:GetFinalGemPropertyValue("emerald", UNDERTAKER_EMERALD)
+				local travel_speed = UNDERTAKER_HAND_BASE_SPEED + ability:GetFinalGemPropertyValue("emerald", UNDERTAKER_EMERALD1)
 				local info =
 				{
 					Target = target,
@@ -4322,7 +4332,7 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (IGNEOUS_CANINE_ATTACK_TO_DMG/100) + ability:GetFinalGemPropertyValue("ruby", IGNEOUS_CANINE_RUBY)*caster:GetStrength()
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (IGNEOUS_CANINE_ATTACK_TO_DMG/100) + ability:GetFinalGemPropertyValue("ruby", IGNEOUS_CANINE_RUBY1)*caster:GetStrength()
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
@@ -5133,12 +5143,14 @@ function sea_oracle_thinker(event)
 	local has_mega_buff = false
 
 	local new_table = {}
+	local largest_stack = 0
 	for i = 1, #ability.tideworn_table, 1 do
 		if IsValidEntity(ability.tideworn_table[i]) and ability.tideworn_table[i]:IsAlive() and ability.tideworn_table[i]:HasModifier("modifier_sea_oracle_stacker") then
 			table.insert(new_table, ability.tideworn_table[i])
 			if ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster) == HOOD_OF_SEA_ORACLE_MAX_STACKS then
 				has_mega_buff = true
 			end
+			largest_stack = math.min(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
 		end
 	end
 	ability.tideworn_table = new_table
@@ -5153,6 +5165,13 @@ function sea_oracle_thinker(event)
 		end
 	else
 		target:RemoveModifierByName("modifier_sea_oracle_mega_buff")
+	end
+	if ability:GetGemValue("sapphire") > 0 and largest_stack > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_attack_power", {})
+		local attack_power = largest_stack*ability:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)
+		target:SetModifierStackCount("modifier_sea_oracle_attack_power", caster, attack_power)
+	else
+		target:RemoveModifierByName("modifier_sea_oracle_attack_power")
 	end
 end
 
@@ -6940,7 +6959,7 @@ function luma_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability:GetGemValue("sapphire") > 0 then
-		local vision_radius = ability:GetFinalGemPropertyValue("sapphire", LUMA_SAPPHIRE)
+		local vision_radius = ability:GetFinalGemPropertyValue("sapphire", LUMA_SAPPHIRE1)
 		AddFOWViewer(target:GetTeamNumber(), target:GetAbsOrigin(), vision_radius, 2, false)
 	end
 end
@@ -10174,5 +10193,14 @@ function adamantine_samurai_think(event)
 		local attack_damage_bonus = hero:GetRoshpitArmor()*ability:GetFinalGemPropertyValue("emerald", ADAMANTINE_SAMURAI_HELMET_EMERALD)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_samurai_helmet_emerald", {})
 		hero:SetModifierStackCount("modifier_samurai_helmet_emerald", caster, attack_damage_bonus)
+	end
+end
+
+function umbral_sentinel_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_umbral_sentinel_aura", {})
 	end
 end

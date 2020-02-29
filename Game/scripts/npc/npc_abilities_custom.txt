@@ -129271,7 +129271,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wolfir_druid_ruby"			"3 6 9 12 15"
+				"wolfir_druid_ruby"			"4 8 12 16 20"
 			}
 		}
 		"Modifiers"
