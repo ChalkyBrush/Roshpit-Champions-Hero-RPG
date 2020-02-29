@@ -21,7 +21,7 @@ end
 
 
 function arkimus_magnetic_flux:GetBehavior()
-    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
+    return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
 
 function arkimus_magnetic_flux:GetCastPoint()
