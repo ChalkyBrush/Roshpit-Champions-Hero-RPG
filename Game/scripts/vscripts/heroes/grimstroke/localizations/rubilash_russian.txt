@@ -116,8 +116,8 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_1_suffix"					" сек"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_2"							"[W2] Grim Yellow"
-	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Броню и Магическую Защиту."
-	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Снижение Брони и Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_YELLOW %>\">Жёлтой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_ORANGE %>\">Оранжевой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Магическую Защиту и Пробитие Брони."
+	"DOTA_Tooltip_ability_rubilash_rune_w_2_property_one"			"Снижение Магической Защиты и Пробития Брони"
 	"DOTA_Tooltip_ability_rubilash_rune_w_2_suffix"					""	
 
 	
@@ -143,8 +143,8 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_1_suffix_two"				" за ед. Маны"	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_e_2"							"[E2] Eerie Blue"
-	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Броню и Магическую Защиту."
-	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Снижение Брони и Магической Защиты"
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_Description"				"Противники, покрытые <font color=\"<% RUBILASH_TEXT_COLOR_BLUE %>\">Синей</font>, <font color=\"<% RUBILASH_TEXT_COLOR_PURPLE %>\">Фиолетовой</font>, <font color=\"<% RUBILASH_TEXT_COLOR_GREEN %>\">Зелёной</font>, или <font color=\"<% RUBILASH_TEXT_COLOR_BLACK %>\">Чёрной</font> краской, имеют сниженные Магическую Защиту и Пробитие Магической Защиты."
+	"DOTA_Tooltip_ability_rubilash_rune_e_2_property_one"			"Снижение Магической Защиты и Пробития Магической Защиты"
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_suffix"					""	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_e_3"							"[E3] Varnish"
