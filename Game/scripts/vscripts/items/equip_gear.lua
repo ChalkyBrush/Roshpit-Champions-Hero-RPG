@@ -457,7 +457,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "sapphire" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", LUMA_SAPPHIRE2 , hero, "element_cosmic", RPC_GEAR_SLOT_HEAD)
 		end
-	end
 	elseif item:GetAbilityName() == "item_rpc_helm_of_champions" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", CHAMPIONS_GEAR_RUBY, hero, "rune_q_1", RPC_GEAR_SLOT_HEAD)
