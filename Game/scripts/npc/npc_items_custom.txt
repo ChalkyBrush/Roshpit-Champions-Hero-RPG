@@ -60603,6 +60603,15 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"burning_spirit_helmet_attack_land"
+					}
+				}
 			}
 			"modifier_burning_spirit_helmet_flamethrower"
 			{
@@ -60648,19 +60657,29 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"14 28 42 56 70"
+				"ruby1"				"18 36 54 72 90"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"100 200 300 400 500"
+				"emerald1"				"1 2 3 4 5"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"15 30 45 60 75"
+				"emerald2"				"15 30 45 60 75"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"20 40 60 80 100"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire2"				"70 140 210 280 350"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"0.1 0.2 0.3 0.4 0.5"
@@ -60705,12 +60724,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"20 40 60 80 100"
+				"ruby1"				"2000 4000 6000 8000 10000"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"12 24 36 48 60"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"03"
 			{
@@ -60816,13 +60835,18 @@
 			}
 			"03"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"2 4 6 8 10"
+				"var_type"			"FIELD_INTEGER"
+				"emerald2"				"15 30 45 60 75"
 			}
 			"04"
 			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"2 4 6 8 10"
+			}
+			"05"
+			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"12 24 36 48 60"
+				"amethyst1"				"15 30 45 60 75"
 			}
 		}
 		"Modifiers"
@@ -60914,22 +60938,37 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"10 20 30 40 50"
+				"ruby1"				"30 40 50 60 70"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"6 12 18 24 30"
+				"ruby2"				"1 2 3 4 5"
 			}
 			"05"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"-160 -320 -480 -640 -800"
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"6 12 18 24 30"
 			}
 			"06"
 			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"-800 -1600 -2400 -3200 -4000"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"500 1000 1500 2000 2500"
+			}
+			"08"
+			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"12 24 36 48 60"
+				"amethyst1"				"36 72 108 144 180"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst2"				"15 30 45 60 75"
 			}
 		}
 		"Modifiers"
@@ -60965,6 +61004,11 @@
 						"Function"		"blackfeather_unequip"
 						"target"		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_blackfeather_amethyst_attack_power"
+						"Target" 		"TARGET"
+					}
 				}
 				"OnAttacked"
 				// "%attack_damage" is set to the damage value after mitigation
@@ -60998,6 +61042,14 @@
 						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_blackfeather_amethyst_attack_power"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 		}
@@ -61057,7 +61109,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"125 250 375 500 625"
+				"emerald1"				"600 1200 1800 2400 3000"
 			}
 			"05"
 			{
@@ -61066,8 +61118,13 @@
 			}
 			"06"
 			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"1200 2400 3600 4800 6000"
+			}
+			"07"
+			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-400 -800 -1200 -1600 -2000"
+				"amethyst1"				"-1250 -2500 -3750 -5000 -6250"
 			}
 		}
 		"Modifiers"
@@ -61136,6 +61193,14 @@
 			"modifier_basilisk_petrify_stacks"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_basilisk_plague_sapphire"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_basilisk_plague_emerald_stacks"
+			{
+				"IsHidden"	"0"
 			}
 			"modifier_basilisk_plague_petrify"
 			{
@@ -61222,7 +61287,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"5 10 15 20 25"
+				"emerald1"				"20 40 60 80 100"
 			}
 			"04"
 			{
@@ -61232,7 +61297,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-150 -300 -450 -600 -750"
+				"amethyst1"				"-1000 -2000 -3000 -4000 -5000"
 			}
 		}
 		"Modifiers"
@@ -61335,6 +61400,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-260"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-50"
 				}
 			}
 		}
@@ -61381,7 +61447,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"500 1000 1500 2000 2500"
+				"emerald1"				"1000 2000 3000 4000 5000"
 			}
 			"04"
 			{
@@ -61391,7 +61457,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"-300 -600 -900 -1200 -1500"
+				"amethyst1"				"-1000 -2000 -3000 -4000 -5000"
 			}
 		}
 	}	
@@ -61437,17 +61503,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_two"		"200"
+				"property_two"		"300"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"20 40 60 80 100"
+				"ruby1"				"1600 3200 4800 6400 8000"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"20 40 60 80 100"
+				"emerald1"				"0.01 0.02 0.03 0.04 0.05"
 			}
 			"05"
 			{
@@ -61467,6 +61533,35 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"adamantine_samurai_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_samurai_helmet_emerald"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_samurai_helmet_ruby"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_samurai_helmet_emerald"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
 			}
 		}
 	}

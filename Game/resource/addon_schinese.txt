@@ -14349,7 +14349,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"奥术洪流帽"
 		"item_property_arcane_cascade_hat"				"奥术洪流"
-		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>3</font>。"
+		"property_arcane_cascade_hat_description"		"每<font color='#ccff66'>1</font>秒汲取你 <font color='#ccff66'>2</font>% 的最大魔法值，对周围敌人造成<font color='#ccff66'>5</font>。"
 		"item_rpc_arcane_cascade_hat_ruby1"	"提高所有 <font color=\"#E1A2E8\">奥术</font> 元素伤害 @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "提高最大魔法值 @emerald_property1"
 		"item_rpc_arcane_cascade_hat_sapphire1"	"提高奥术洪流效果的魔法损失 @sapphire_property1%"
@@ -14358,7 +14358,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"金刚武士头盔"
 		"item_property_samurai_helmet"				"致命一击"
-		"property_samurai_helmet_description"		"你的普通攻击有 <font color='#ccff66'>20</font>% 几率造成 <font color='#ccff66'>200</font>% 的暴击伤害。"
+		"property_samurai_helmet_description"		"你的普通攻击有 <font color='#ccff66'>20</font>% 几率造成 <font color='#ccff66'>300</font>% 的暴击伤害。"
 		"item_rpc_adamantine_samurai_helmet_ruby1"	"提高力量值 @ruby_property1"
 		"item_rpc_adamantine_samurai_helmet_emerald1" "提高敏捷值 @emerald_property1"
 		"item_rpc_adamantine_samurai_helmet_sapphire1"	"提高暴击概率 @sapphire_property1%"
@@ -14433,7 +14433,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"黑羽之冠"
 		"item_property_blackfeather"				"老树昏鸦"	
-		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>1</font>x 你的攻击力."
+		"property_blackfeather_description"			"攻击敌人召唤一只乌鸦，乌鸦攻击为<font color='#ccff66'>3</font>x 你的攻击力."
 		"item_rpc_blackfeather_crown_ruby1"	"提高乌鸦的攻击力 @ruby_property1%"
 		"item_rpc_blackfeather_crown_emerald1" "乌鸦有 @emerald_property1% 概率还击攻击你的敌人"
 		"item_rpc_blackfeather_crown_sapphire1"	"乌鸦攻击施加一个 @sapphire_property1 护甲降低的debuff，持续 <font color='#ccff66'>8</font>秒"
@@ -14648,7 +14648,7 @@
 		
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"炽魂头盔"
 		"item_property_burning_spirit"							"喷火龙"
-		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>5</font>% 攻击力的伤害。"
+		"property_burning_spirit_description"					"当引导 @Ability4 时，向前方发射一连串的火焰，每波火焰对敌人造成 <font color='#ccff66'>10</font>% 攻击力的伤害。"
 		"item_rpc_burning_spirit_helmet_ruby1"	"提高所有 <font color=\"#EF4126\">火</font> 元素伤害 @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "火焰伤害提高 @emerald_property1"
 		"item_rpc_burning_spirit_helmet_sapphire1"	"提高全属性 @sapphire_property1"

@@ -265,10 +265,10 @@ function RPCItems:RollAutumnSleeperMask(item_level)
 
     local luck = RandomInt(1, 3)
     if luck < 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 2)
     else
         local rune_tier = "t"..RandomInt(1, 2).."_rune"
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 2)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -331,7 +331,7 @@ function RPCItems:RollBasiliskPlagueHelm(item_level)
 
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 2)
     elseif luck == 2 then
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_poison", 1.5)
     else
@@ -341,7 +341,7 @@ function RPCItems:RollBasiliskPlagueHelm(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
 
@@ -387,8 +387,8 @@ function RPCItems:RollGlintOfOnu(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_glint_of_onu", "#9DCCC2", 1, "#property_glint_of_onu_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)

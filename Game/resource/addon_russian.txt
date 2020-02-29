@@ -13914,7 +13914,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
-		"property_samurai_helmet_description"		"Атаки героя имеют <font color='#ccff66'>20</font>% шанс нанести урон, увеличенный на <font color='#ccff66'>200</font>%."
+		"property_samurai_helmet_description"		"Атаки героя имеют <font color='#ccff66'>20</font>% шанс нанести урон, увеличенный на <font color='#ccff66'>300</font>%."
 
 		"item_rpc_adamantine_samurai_helmet_ruby1"	"Увеличивает Силу на @ruby_property1"
 		"item_rpc_adamantine_samurai_helmet_emerald1" "Увеличивает Ловкость на @emerald_property1"
@@ -13923,7 +13923,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
-		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>3</font>x от поглощенной маны Магическим уроном."
+		"property_arcane_cascade_hat_description"		"Поглощает <font color='#ccff66'>2</font>% от максимальной маны каждые <font color='#ccff66'>1</font> сек. Все противники в радиусе <font color='#ccff66'>750</font> получают <font color='#ccff66'>5</font>x от поглощенной маны Магическим уроном."
 
 		"item_rpc_arcane_cascade_hat_ruby1"	"Увеличивает урон <font color=\"#E1A2E8\">Тайны</font> на @ruby_property1%"
 		"item_rpc_arcane_cascade_hat_emerald1" "Увеличивает максимальный запас Маны на @emerald_property1"
@@ -13962,7 +13962,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_blackfeather_crown"								"Blackfeather Crown"
 		"item_property_blackfeather"				"Spirit of the Stormcrow"	
-		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>1</font>x силой атаки героя."
+		"property_blackfeather_description"			"Успешное нанесение атаки призывает дух Штормового Ворона, атакующего с <font color='#ccff66'>3</font>x силой атаки героя."
 
 		"item_rpc_blackfeather_crown_ruby1"	"Увеличивает Урон Атаки Ворона на @ruby_property1%"
 		"item_rpc_blackfeather_crown_emerald1" "Штормовой Ворон имеет @emerald_property1% шанс атаковать противника, который атакует его героя"
@@ -13996,7 +13996,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <font color='#ccff66'>5</font>% от урона атаки с высокой частотой."
+		"property_burning_spirit_description"					"Во время заряда @Ability4 выпускает поток пламени перед героем, который наносит <font color='#ccff66'>10</font>% от урона атаки с высокой частотой."
 
 		"item_rpc_burning_spirit_helmet_ruby1"	"Увеличивает урон <font color=\"#EF4126\">Огня</font> на @ruby_property1%"
 		"item_rpc_burning_spirit_helmet_emerald1" "Урон потока пламени увеличивается на @emerald_property1"

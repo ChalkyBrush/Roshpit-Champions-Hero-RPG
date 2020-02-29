@@ -2887,6 +2887,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_merkurio_crystal_blue") then
 			filterTable["damage"] =	filterTable["damage"]*0.1
 		end
+		if damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = filterTable["damage"] * 0.99^chamber_level
+		end
 		if victim.chamber > 0 then
 			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 			if attacker:GetPlayerOwnerID() ~= allowed_player then

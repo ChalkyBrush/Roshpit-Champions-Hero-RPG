@@ -319,13 +319,6 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			end
 			hero.gear_bonuses[gear_slot][property_name] = hero.gear_bonuses[gear_slot][property_name] + item:GetLevelSpecialValueFor(socket_type.."1", socket_value-1)
 		end
-	elseif item:GetAbilityName() == "item_rpc_adamantine_samurai_helmet" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ADAMANTINE_SAMURAI_HELMET_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
-		end
-		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", ADAMANTINE_SAMURAI_HELMET_EMERALD, hero, "agility", RPC_GEAR_SLOT_HEAD)
-		end
 	elseif item:GetAbilityName() == "item_rpc_arcane_cascade_hat" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ARCANE_CASCADE_RUBY, hero, "element_arcane", RPC_GEAR_SLOT_HEAD)
@@ -336,24 +329,24 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		end
 	elseif item:GetAbilityName() == "item_rpc_blackfeather_crown" then
 		if socket_type == "amethyst" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", BLACKFEATHER_AMETHYST, hero, "attack_speed", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", BLACKFEATHER_AMETHYST1, hero, "attack_speed", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "sappire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BLACKFEATHER_SAPPHIRE2, hero, "armor_pierce", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_blinded_glint_of_onu" then
 		if socket_type == "emerald" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", GLINT_OF_ONU_EMERALD, hero, "agility", RPC_GEAR_SLOT_HEAD)
-		end
-	elseif item:GetAbilityName() == "item_rpc_brazen_kabuto_of_the_desert_realm" then
-		if socket_type == "ruby" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", KABUTO_RUBY, hero, "strength", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", GLINT_OF_ONU_EMERALD1, hero, "agility", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", GLINT_OF_ONU_EMERALD2, hero, "base_ability", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_burning_spirit_helmet" then
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", BURNING_SPIRIT_RUBY, hero, "element_fire", RPC_GEAR_SLOT_HEAD)
-		elseif socket_type == "sapphire" then
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_HEAD)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_HEAD)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
-			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", BURNING_SPIRIT_SAPPHIRE, hero, "spirit", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", BURNING_SPIRIT_RUBY, hero, "item_damage", RPC_GEAR_SLOT_HEAD)
+		elseif socket_type == "emerald" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", BURNING_SPIRIT_EMERALD2, hero, "strength", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", BURNING_SPIRIT_EMERALD2, hero, "agility", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", BURNING_SPIRIT_EMERALD2, hero, "intelligence", RPC_GEAR_SLOT_HEAD)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "emerald", BURNING_SPIRIT_EMERALD2, hero, "spirit", RPC_GEAR_SLOT_HEAD)
 		end
 	elseif item:GetAbilityName() == "item_rpc_cap_of_wild_nature" then
 		if socket_type == "emerald" then

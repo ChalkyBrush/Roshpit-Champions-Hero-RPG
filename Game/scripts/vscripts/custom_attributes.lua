@@ -971,7 +971,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_blackfeather_armor_reduce") then
 		local modifier = unit:FindModifierByName("modifier_blackfeather_armor_reduce")
 		local modifier_caster = modifier:GetCaster()
-		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE)
+		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE1)
 		armor_modify = armor_modify + blackfeather_armor_loss
 	end
 	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
@@ -2142,6 +2142,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
 	end
+	if unit:HasModifier("modifier_samurai_helmet_ruby") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ADAMANTINE_SAMURAI_HELMET_RUBY)
+	end
+	if unit:HasModifier("modifier_basilisk_plague_sapphire") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BASILISK_PLAGUE_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
 
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2569,6 +2578,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
+	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

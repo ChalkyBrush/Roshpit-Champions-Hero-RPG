@@ -5133,6 +5133,9 @@ function Filters:SamuraiAttackLand(damage, attacker, target)
         PopupDamage(target, damage)
         EmitSoundOn("RPCItems.SamuraiHelm.Crit", attacker)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf", attacker, 2)
+        if helm:GetGemValue("ruby") > 0 then
+            helm:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_samurai_helmet_ruby", {duration = ADAMANTINE_SAMURAI_RUBY_DURATION})
+        end
     end
     return damage
 end

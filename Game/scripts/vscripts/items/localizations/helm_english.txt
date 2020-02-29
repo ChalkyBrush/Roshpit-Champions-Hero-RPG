@@ -2,10 +2,13 @@
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <% ADAMANTINE_SAMURAI_CHANCE %>% chance to deal <% ADAMANTINE_SAMURAI_CRIT %>% increased damage."
 
-		"item_rpc_adamantine_samurai_helmet_ruby1"	"Increases strength by @ruby_property1"
-		"item_rpc_adamantine_samurai_helmet_emerald1" "Increases agility by @emerald_property1"
+		"item_rpc_adamantine_samurai_helmet_ruby1"	"Gain @ruby_property1 Armor Pierce for <% ADAMANTINE_SAMURAI_RUBY_DURATION %> seconds after landing a Critical Strike"
+		"item_rpc_adamantine_samurai_helmet_emerald1" "Each point of Armor increases Base Attack Damage by @emerald_property1"
 		"item_rpc_adamantine_samurai_helmet_sapphire1"	"Increases the Critical Strike chance by @sapphire_property1%"
 		"item_rpc_adamantine_samurai_helmet_amethyst1" "Increases the Critical Strike damage by an additional @amethyst_property1%"
+
+		"DOTA_Tooltip_modifier_samurai_helmet_ruby"	"Critical Strike (Ruby)"
+		"DOTA_Tooltip_modifier_samurai_helmet_ruby_Description"	"Increased Armor Pierce"
 
     	"DOTA_Tooltip_ability_item_rpc_arcane_cascade_hat"								"Arcane Cascade Hat"
 		"item_property_arcane_cascade_hat"				"Arcane Cascade"
@@ -24,7 +27,7 @@
 
 		"item_rpc_autumn_sleeper_mask_ruby1"	"Casting [R] roots all enemies in a <% AUTUMN_SLEEPER_RUBY_RADIUS %> radius for @ruby_property1 seconds"
 		"item_rpc_autumn_sleeper_mask_emerald1" "Enemies rooted by Wild Overgrowth take damage equal to @emerald_property1% of attack power every <% AUTUMN_SLEEPER_EMERALD_TICK_RATE %> seconds"
-		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed for @sapphire_property1 seconds"
+		"item_rpc_autumn_sleeper_mask_sapphire1"	"When Wild Overgrowth root ends, the escaped enemy has <% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %> movespeed and <% AUTUMN_SLEEPER_SAPPHIRE_ATTACK_POWER_REDUCE %>% reduced Attack Power for @sapphire_property1 seconds"
 		"item_rpc_autumn_sleeper_mask_amethyst1" "Enemies rooted by Wild Overgrowth have @amethyst_property1 reduced Armor"
 
 		"DOTA_Tooltip_modifier_autumn_sleeper_sapphire_slow"		"Wild Overgrowth Slow"
@@ -35,10 +38,15 @@
 		"property_basilisk_plague_description"				"A cloud of rot surrounds you, slowing the movement speed of nearby enemies by <% BASILISK_PLAGUE_MOVESPEED_REDUCE_PCT %>% and reducing their attack speed by <% BASILISK_PLAGUE_ATT_SPD_REDUCE %>. Enemies who are exposed to the rot for <% BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM %> seconds are petrified for <% BASILISK_PLAGUE_STONE_FORM_DUR %> seconds, paralyzing them but granting Spell Immunity."
 		
 		"item_rpc_basilisk_plague_helm_ruby1"	"The attack speed debuff of rotting enemies is increased by @ruby_property1"
-		"item_rpc_basilisk_plague_helm_emerald1" "Enemies take @emerald_property1 damage every <% BASILISK_PLAGUE_THINK_INTERVAL %> seconds while standing near the rot"
-		"item_rpc_basilisk_plague_helm_sapphire1"	"Increases the petrify duration by @sapphire_property1 seconds"
+		"item_rpc_basilisk_plague_helm_emerald1" "Enemies take @emerald_property1 damage every <% BASILISK_PLAGUE_THINK_INTERVAL %> seconds while standing near the rot. The damage stacks each time it is applied up to <% BASILISK_PLAGUE_EMERALD_MAX_STACKS %>x damage multiple"
+		"item_rpc_basilisk_plague_helm_sapphire1"	"Increases the petrify duration by @sapphire_property1 seconds. When an enemy is petrified, gain @sapphire_property2 Armor Pierce for <% BASILISK_PLAGUE_SAPPHIRE_DURATION %> seconds"
 		"item_rpc_basilisk_plague_helm_amethyst1" "Petrified enemies have @amethyst_property1 reduced Armor"
 
+		"DOTA_Tooltip_modifier_basilisk_plague_sapphire"		"Depth Rot (Sapphire)"
+		"DOTA_Tooltip_modifier_basilisk_plague_sapphire_Description"	"Increased Armor Pierce"
+
+		"DOTA_Tooltip_modifier_basilisk_plague_emerald_stacks"	"Depth Rot (Emerald)"
+		"DOTA_Tooltip_modifier_basilisk_plague_emerald_stacks_Description"	"Taking increased damage from Depth Rot"
 
         "DOTA_Tooltip_modifier_basilisk_plague_petrify"	"Depth Rot Petrify"
 		"DOTA_Tooltip_modifier_basilisk_plague_petrify_Description"	"Turned to stone. Spell Immune, vulnerable to Physical damage."
@@ -50,10 +58,12 @@
 		"item_property_blackfeather"				"Spirit of the Stormcrow"	
 		"property_blackfeather_description"			"Landing an attack summons the Stormcrow Spirit that performs an attack with <% BLACKFEATHER_ATTACK_DAMAGE_MULT %>x your attack power."
 
-		"item_rpc_blackfeather_crown_ruby1"	"Increases the Stormcrow's attack damage by @ruby_property1%"
+		"item_rpc_blackfeather_crown_ruby1"	"The Stormcrow's attacks have a @ruby_property1% chance to chain to @ruby_property2 nearby enemies"
 		"item_rpc_blackfeather_crown_emerald1" "The Stormcrow has a @emerald_property1% chance to attack an enemy who attacks you"
-		"item_rpc_blackfeather_crown_sapphire1"	"The Stormcrow applies a @sapphire_property1 Armor loss debuff for <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %> seconds"
-		"item_rpc_blackfeather_crown_amethyst1" "Increases Attack Speed by @amethyst_property1"
+		"item_rpc_blackfeather_crown_sapphire1"	"Increase Armor Pierce by @sapphire_property2. The Stormcrow applies a @sapphire_property1 Armor loss debuff for <% BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION %> seconds"
+		"item_rpc_blackfeather_crown_amethyst1" "Increases Attack Speed by @amethyst_property1. While the crow is active, gain @amethyst_property2% increased Attack Power"
+
+		"DOTA_Tooltip_modifier_blackfeather_amethyst_attack_power"	"Stormcrow (Amethyst)"
 		
 		"twilight_crow_summon"		"Stormcrow Spirit"
 
@@ -62,7 +72,7 @@
 		"property_glint_of_onu_description"			"<% GLINT_OF_ONU_CHANCE %>% chance on attack to teleport behind your target and gain max attack speed for <% GLINT_OF_ONU_BUFF_DUR %> seconds. The teleport disjoints incoming projectiles."
 		
 		"item_rpc_blinded_glint_of_onu_ruby1"	"@ruby_property1% chance to immediately perform a free attack after teleporting."
-		"item_rpc_blinded_glint_of_onu_emerald1" "Increasing Agility by @emerald_property1"
+		"item_rpc_blinded_glint_of_onu_emerald1" "Increasing Agility by @emerald_property1 and Base Ability Damage by @emerald_property2%"
 		"item_rpc_blinded_glint_of_onu_sapphire1"	"Increases the proc chance by an additional @sapphire_property1%"
 		"item_rpc_blinded_glint_of_onu_amethyst1" "The Attack Speed Buff also increases attack power by @amethyst_property1%"
 		
@@ -72,7 +82,7 @@
 		"DOTA_Tooltip_modifier_brazen_kabuto_channeling"	"Warrior's Rampart"
 		"DOTA_Tooltip_modifier_brazen_kabuto_description"	"Magic and damage immunity"
 
-		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"Increases Strength by @ruby_property1"
+		"item_rpc_brazen_kabuto_of_the_desert_realm_ruby1"	"Gaint @ruby_property1 Armor Pierce and Spell Pierce while channeling [R]"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_emerald1" "Increases [R] Base Ability Damage by @emerald_property1%"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_sapphire1"	"@sapphire_property1% chance to refresh [R] cooldown at the beginning of the channel"
 		"item_rpc_brazen_kabuto_of_the_desert_realm_amethyst1" "When channeling finishes, gain a shield that reduces all damage taken by <% KABUTO_AMETHYST_DAMAGE_REDUCTION %>% for @amethyst_property1 seconds"
@@ -82,11 +92,11 @@
 
     	"DOTA_Tooltip_ability_item_rpc_burning_spirit_helmet"							"Burning Spirit Helmet"
 		"item_property_burning_spirit"							"Flamethrower"
-		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing damage equal to <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack damage."
+		"property_burning_spirit_description"					"While channeling @Ability4, a steady stream of flames fires forward, rapidly dealing damage equal to <% BURNING_SPIRIT_ATTACK_TO_DAMAGE %>% of attack power."
 
-		"item_rpc_burning_spirit_helmet_ruby1"	"Increases <font color=\"#EF4126\">Fire</font> elemental amplification by @ruby_property1%"
-		"item_rpc_burning_spirit_helmet_emerald1" "Flamethrower damage is increased by @emerald_property1"
-		"item_rpc_burning_spirit_helmet_sapphire1"	"Increases all attributes by @sapphire_property1"
+		"item_rpc_burning_spirit_helmet_ruby1"	"Increases Item and <font color=\"#EF4126\">Fire</font> elemental damage by @ruby_property1%"
+		"item_rpc_burning_spirit_helmet_emerald1" "Flamethrower damage is increased by an additional @emerald_property1% of attack power, and all attributes are increased by @emerald_property2"
+		"item_rpc_burning_spirit_helmet_sapphire1"	"Landing an attack has a @sapphire_property1% chance to throw a single flame whose range is equal to 100% of the distance between the attacker and target plus @sapphire_property2 additional distance"
 		"item_rpc_burning_spirit_helmet_amethyst1" "Each enemy hit by a flame reduces the current cooldown of [R] by @amethyst_property1 seconds"	
 
 		
