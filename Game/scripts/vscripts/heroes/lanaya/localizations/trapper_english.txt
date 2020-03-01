@@ -19,7 +19,7 @@
     	"DOTA_Tooltip_ability_torrent_trap_Lore"					""
 		
 		"DOTA_Tooltip_ability_poison_trap"						"Poison Trap"
-    	"DOTA_Tooltip_ability_poison_trap_Description"			"Element: <font color=\"#37DD3D\">Poison</font><br>Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of 10 poison stacks."
+    	"DOTA_Tooltip_ability_poison_trap_Description"			"Element: <font color=\"#37DD3D\">Poison</font><br>Enemies within Poison Trap gain a stack of poison every 0.5 seconds, and take damage based on the stack for 6 seconds once leaving the trap. Maximum of <% TRAPPER_Q1_MAX_STACKS_COUNT %> poison stacks."
     	"DOTA_Tooltip_ability_poison_trap_Lore"					""
 		
 		"DOTA_Tooltip_modifier_poison_trap_effect"					"Poison Trap"

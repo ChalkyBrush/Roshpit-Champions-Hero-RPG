@@ -6794,8 +6794,13 @@ function ruby_dragon_constant_think(event)
 	if caster.roshpit_attributes.roshpit_level ~= hero:GetLevel() then
 		caster:SetRoshpitLevel(hero:GetLevel())
 		caster:SetMaxHPandHealToFull(RUBY_DRAGON_HP_PER_HERO_LEVEL*hero:GetLevel())
-		caster:SetBaseDamageMax(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
-		caster:SetBaseDamageMin(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+	end
+	if not caster.ruby_dragon_gem_bonus_damage_applied then
+		caster.ruby_dragon_gem_bonus_damage_applied = true
+		local damageBuff = hero:GetLevel()*(RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+		print("[ruby_dragon_constant_think] damageBuff "..tostring(damageBuff))
+		caster:SetBaseDamageMax(damageBuff)
+		caster:SetBaseDamageMin(damageBuff)
 	end
 	caster:SetBaseRoshpitArmor(hero:GetRoshpitArmor())
 	caster:SetBaseRoshpitMagicArmor(hero:GetRoshpitMagicArmor())
@@ -9417,6 +9422,9 @@ end
 
 function bladeslinger_unequip(event)
 	local ability = event.ability
+	if not ability.vorpals then
+		return
+	end
 	for i = 1, #ability.vorpals, 1 do
 		ParticleManager:DestroyParticle(ability.vorpals[i].pfx, false)
 		ParticleManager:ReleaseParticleIndex(ability.vorpals[i].pfx)	
