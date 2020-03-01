@@ -9417,6 +9417,9 @@ end
 
 function bladeslinger_unequip(event)
 	local ability = event.ability
+	if not ability.vorpals then
+		return
+	end
 	for i = 1, #ability.vorpals, 1 do
 		ParticleManager:DestroyParticle(ability.vorpals[i].pfx, false)
 		ParticleManager:ReleaseParticleIndex(ability.vorpals[i].pfx)	
