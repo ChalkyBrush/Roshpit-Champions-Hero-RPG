@@ -6746,7 +6746,7 @@
 			}
 			"04"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
 			}
 			"05"
