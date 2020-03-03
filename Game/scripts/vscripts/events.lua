@@ -927,18 +927,16 @@ end
 
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
-	DebugPrint('[BAREBONES] OnPlayerLevelUp')
-	-- DebugPrintTable(keys)
-	-- DeepPrintTable(keys)
-	local player = EntIndexToHScript(keys.player)
-	local level = keys.level
-	local hero = player:GetAssignedHero()
-	Events:HeroLevelUp(player, hero, level)
-	if MAIN_HERO_TABLE then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			MAIN_HERO_TABLE[i]:SetAbilityPoints(0)
-		end
-	end
+    DebugPrint('[BAREBONES] OnPlayerLevelUp')
+    local hero = EntIndexToHScript(keys.hero_entindex)
+    local level = keys.level
+    local player = hero:GetPlayerOwner()
+    Events:HeroLevelUp(player, hero, level)
+    if MAIN_HERO_TABLE then
+        for i = 1, #MAIN_HERO_TABLE, 1 do
+            MAIN_HERO_TABLE[i]:SetAbilityPoints(0)
+        end
+    end
 end
 
 function Events:HeroLevelUp(player, hero, level)
