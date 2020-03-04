@@ -1,7 +1,7 @@
 var menuPanel = null
 
 function OpenOracle(msg){
-	$.Msg("OPEN ORACLE")
+	//$.Msg("OPEN ORACLE")
 	if (GameUI.CustomUIConfig().mainDialog == 0){
 		$('#oracle_container').RemoveClass("invisible")
 		$('#oracle_container').style.visibility = "visible"
@@ -63,7 +63,7 @@ function SaveButton(msg){
 function recentlySaved(msg){
 	var j = 1
 	var saveCooldown = 1
-	$.Msg("anything?")
+	//$.Msg("anything?")
 	for (i = 1; i < saveCooldown; i++) {
 	 	$.Schedule(1*i, function(){
 	 		j = j + 1
@@ -72,7 +72,7 @@ function recentlySaved(msg){
 	 	});
 	}
  	$.Schedule(saveCooldown, function(){
- 		$.Msg("10 seconds")
+ 		//$.Msg("10 seconds")
  		GameUI.CustomUIConfig().oracleSaveLabel.text = $.Localize("saveload_save")
 		GameUI.CustomUIConfig().oracleSave.RemoveClass('button_inactive')
 		GameUI.CustomUIConfig().oracleSave.AddClass('main_menu_button')	
@@ -107,7 +107,7 @@ function actionRefresh(type){
 function LoadCharButton(msg){
 	if (!($.GetContextPanel().loadOpen)){
 		if ($('#oracle_load').state == 0){
-			$.Msg("LOAD BUTTON??")
+			//$.Msg("LOAD BUTTON??")
 			ClearOracle();
 			actionRefresh("load")
 			var parentPanel = $('#oracle_content')
@@ -123,7 +123,7 @@ function LoadCharButton(msg){
 
 function OpenStash(msg){
 	if (!($.GetContextPanel().stashOpen)){
-		$.Msg("LOAD BUTTON??")
+		//$.Msg("LOAD BUTTON??")
 		ClearOracle();
 		actionRefresh("stash")
 		var parentPanel = $('#oracle_content')
@@ -152,17 +152,17 @@ function keysLoaded(msg){
 	var parentPanel = $('#oracle_content')
 	var board = $.CreatePanel( "Panel", parentPanel, "load_box" );
 	board.BLoadLayoutSnippet("key_bank");
-	$.Msg(msg.result)
+	//$.Msg(msg.result)
 	for (i = 1; i <= 4; i++) {
 		for (j = 1; j <= 4; j++) {
 			var parentRow = $('#keys_row'+i)
 			var keyBoard = $.CreatePanel( "Panel", parentRow, "load_box" );
 			keyBoard.BLoadLayoutSnippet("key_bank_item");
 			var index = (i-1)*4 + j
-			$.Msg("INDEX: "+index)
+			//$.Msg("INDEX: "+index)
 			var keyData = getKeyData(index, msg.result)
 			if (keyData[0]){
-				$.Msg(keyData[0])
+				//$.Msg(keyData[0])
 				keyBoard.FindChildTraverse('key_image').SetImage(keyData[0])
 				// keyBoard.FindChildTraverse('key_title').text = $.Localize(keyData[1])
 				keyBoard.FindChildTraverse('key_quantity').text = "x"+keyData[2]
@@ -211,8 +211,8 @@ function wtf(){
 }
 
 function getKeyData(index, resultTable){
-	$.Msg(index)
-	$.Msg(resultTable)
+	//$.Msg(index)
+	//$.Msg(resultTable)
 	var array = [false, false, false, false]
 	if (index == 1){
 		array = ["file://{images}/items/wind_temple_key.png", "DOTA_Tooltip_Ability_item_tanari_wind_temple_key_normal", resultTable[1].wind_temple, '#4B69FF']
@@ -247,7 +247,7 @@ function getKeyData(index, resultTable){
 }
 
 function KeyHover(titleText, board, color){
-	$.Msg("HOVER??")
+	//$.Msg("HOVER??")
     if ($.GetContextPanel().keysLocked){
     	return true
     }
@@ -263,7 +263,7 @@ function KeyHoverEnd(titleText, board){
 }
 
 function DisableLoading(){
-	$.Msg("DISABLE LOAD")
+	//$.Msg("DISABLE LOAD")
 	GameUI.CustomUIConfig().oracleLoad.state = 1
 	GameUI.CustomUIConfig().oracleLoad.AddClass('button_inactive')
 	GameUI.CustomUIConfig().oracleLoad.RemoveClass('main_menu_button')
@@ -314,7 +314,7 @@ function OnDragEnter( a, draggedPanel )
 
     var itemName = Abilities.GetAbilityName( draggedItem )
     var valid = IsValidKey(itemName)
-    $.Msg("VALID? "+valid)
+    //$.Msg("VALID? "+valid)
     if (valid == 0){
         return true
     }
@@ -343,7 +343,7 @@ function OnDragDrop( panelId, draggedPanel )
     	return true
     }
     if (draggedPanel.fromInventory){
-        $.Msg("DROP ITEM")
+        //$.Msg("DROP ITEM")
             var playerID = Game.GetLocalPlayerID()
             var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
             GameEvents.SendCustomGameEventToServer( "stop_unit", {unitIndex: heroIndex} );
@@ -366,7 +366,7 @@ function OnDragLeave( panelId, draggedPanel )
 }
 
 function keyDropped(draggedItem, keyIndex){
-	$.Msg("ITEM DRAGGED IN!")
+	//$.Msg("ITEM DRAGGED IN!")
 	var itemName = Abilities.GetAbilityName( draggedItem )
 	var playerID = Game.GetLocalPlayerID();
 	var limit = 5

@@ -33,7 +33,7 @@ function itemClass:RollProperty1(maxFactor)
 end
 
 function itemClass:RollProperty2(item_level)
-    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "all_attributes", 1.5)    
+    RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "all_attributes", 2.5)    
 end
 
 function itemClass:RollArmor(item_level)

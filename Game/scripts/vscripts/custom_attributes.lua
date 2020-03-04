@@ -226,9 +226,9 @@ function CDOTA_BaseNPC_Hero:GetBaseAgility()
 		agility = agility - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_dark_arts_effect')
-	if modifier then
-		agility = agility - modifier:GetStackCount()
+	modifier = self:FindModifierByName('modifier_dark_arts_vestments')
+	if modifier and modifier.stat_bonus then
+		agility = agility - modifier.stat_bonus
 	end
 
 	modifier = self:FindModifierByName('modifier_green_divinex_amulet')
@@ -971,7 +971,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_blackfeather_armor_reduce") then
 		local modifier = unit:FindModifierByName("modifier_blackfeather_armor_reduce")
 		local modifier_caster = modifier:GetCaster()
-		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE)
+		local blackfeather_armor_loss = modifier_caster.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BLACKFEATHER_SAPPHIRE1)
 		armor_modify = armor_modify + blackfeather_armor_loss
 	end
 	if unit:HasModifier("modifier_fulminating_burn_effect") or unit:HasModifier("modifier_poison_trap_effect") or unit:HasModifier("modifier_net_trap_netted_effect") or unit:HasModifier("modifier_torrent_trap_slowed_effect") then
@@ -1148,6 +1148,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		armor_modify = armor_modify - (armor + armor_modify)*(ITEM_RPC_NIGHTMARE_RIDER_MANTLE_ARMOR_REDUCTION/100)
 	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		armor_modify = armor_modify + (armor + armor_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
+	end
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		local penalty = HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY
@@ -1254,9 +1258,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		if unit:HasModifier("modifier_halcyon_soul_glove") then
 			magic_armor = magic_armor + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
-	end
-	if unit:HasModifier("modifier_dark_arts_vestments") then
-		magic_armor = magic_armor + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_SAPPHIRE)*unit:GetIntellect()
 	end
 	Util.Modifier:SimpleEvent(unit, 'GetRoshpitBaseMagicArmorBonus', { MODIFIER_ROSHPIT_BASE_MAGIC_ARMOR_BONUS }, { }, 
 		function(result, data)
@@ -1608,7 +1609,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_sea_oracle_stacker") then
 		local modifier = unit:FindModifierByName("modifier_sea_oracle_stacker")
 		local hood_of_sea_oracle = modifier:GetAbility()
-		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)*modifier:GetStackCount()
+		magic_armor_modify = magic_armor_modify + hood_of_sea_oracle:GetFinalGemPropertyValue("ruby", SEA_ORACLE_RUBY)*modifier:GetStackCount()
 	end
 	if unit:HasModifier("modifier_witch_hat_damage_amp") then
 		local modifier = unit:FindModifierByName("modifier_witch_hat_damage_amp")
@@ -1773,6 +1774,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		magic_armor_modify = magic_armor_modify - (magic_armor + magic_armor_modify)*(HOOD_OF_DEFILER_ARMOR_REDUCTION/100)*modifier:GetStackCount()
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		magic_armor_modify = magic_armor_modify + (magic_armor + magic_armor_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 	if unit:HasModifier("modifier_nightmare_rider_effect_visible") then
 		local mantle = unit:FindModifierByName("modifier_nightmare_rider_effect_visible"):GetAbility()
@@ -2145,6 +2150,15 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
 	end
+	if unit:HasModifier("modifier_samurai_helmet_ruby") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", ADAMANTINE_SAMURAI_HELMET_RUBY)
+	end
+	if unit:HasModifier("modifier_basilisk_plague_sapphire") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", BASILISK_PLAGUE_SAPPHIRE2)
+	end
+	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
+		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
 
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -2161,6 +2175,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:HasModifier("modifier_hood_of_the_black_mage") then
 		local modifier = unit:FindModifierByName("modifier_hood_of_defiler_effect_visible")
 		armor_pierce_modify = armor_pierce_modify - (armor_pierce + armor_pierce_modify)*(HOOD_OF_BLACK_MAGE_ARMOR_AND_ARMOR_PIERCE_PCT_PENALTY/100)
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		armor_pierce_modify = armor_pierce_modify + (armor_pierce + armor_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 
 	if armor_pierce_modify > 0 then
@@ -2192,9 +2210,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if unit:HasModifier("modifier_halcyon_soul_glove") then
 			spell_pierce = spell_pierce + unit:GetSumOfAllAttributes()*ITEM_RPC_HALCYON_SOUL_GLOVE_ARMORS_AND_PIERCES_PER_ATTR
 		end
-	end
-	if unit:HasModifier("modifier_dark_arts_vestments") then
-		spell_pierce = spell_pierce + unit.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_EMERALD)*unit:GetAgility()
 	end
 	if unit:GetUnitName() == "npc_dota_hero_phantom_assassin" and unit:HasAbility("voltex_overcharge") then
 		spell_pierce = spell_pierce + unit:GetRuneValue("q", 2)*VOLTEX_Q2_SPELL_PIERCE_PER_AGI*unit:GetAgility()
@@ -2575,6 +2590,13 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_rubilash_arcana1") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetRuneValue("e", 2)*RUBILASH_ARCANA1_RUNE_E2_PIERCES
+	end
+	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
+	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
+		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
+		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3105,9 +3127,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_eye_of_seasons_stats") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
 		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_eye_of_seasons_stats", 1)
-	end
-	if hero:HasModifier("modifier_dark_arts_effect") then
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_dark_arts_effect", 1)
 	end
 	if hero:HasModifier("modifier_blazing_fury_effect") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_blazing_fury_effect", 1)
@@ -3664,7 +3683,6 @@ CustomAttributes.MS_CAP_MODIFIERS = {
 	slipfinn_shadow_rush_lua = "slipfinn_shadow_rush_lua",
 	modifier_zhonik_speedball_invisible = "modifier_zhonik_speedball_invisible",
 	modifier_zhonik_temporal_field_buff = "modifier_zhonik_temporal_field_buff",
-	modifier_swiftspike_bracer = "modifier_swiftspike_bracer"
 }
 
 function CDOTA_BaseNPC:GetActualMovespeed()

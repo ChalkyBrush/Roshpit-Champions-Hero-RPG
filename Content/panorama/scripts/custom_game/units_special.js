@@ -13,9 +13,9 @@ function select_hero(){
 function get_onibi_active_elements(onibi_data){
 	var elements = []
 	elements.push("nature")
-	$.Msg("ELEMENTS kkkkk")
-	$.Msg(onibi_data)
-	$.Msg(onibi_data["arcanas"])
+	//$.Msg("ELEMENTS kkkkk")
+	//$.Msg(onibi_data)
+	//$.Msg(onibi_data["arcanas"])
 	if (!(onibi_data["arcanas"]===undefined) && (onibi_data["arcanas"]["fire"] == 1)){
 		elements.push("fire")
 	}else{
@@ -65,7 +65,7 @@ function units_special_check(msg){
 			
 			onibi_panel = ability_bar_attach_panel
 			onibi_elements = []
-			$.Msg(onibi_data)
+			//$.Msg(onibi_data)
 			for (var i = 0; i <= 2; i++) {
 				var onibi_element = $.CreatePanel("Panel", ability_bar_attach_panel, "onibi_"+elements[i])
 				onibi_elements.push(onibi_element)
@@ -192,7 +192,7 @@ function grey_dialogue(){
 function onibi_element_click(element_panel, index, element_data, element, queryUnit, onibi_data)
 {
 	if (!(open_ability_panel == false)){
-		$.Msg("DELETE")
+		//$.Msg("DELETE")
 		open_ability_panel.RemoveAndDeleteChildren()
 		open_ability_panel.AddClass('invisible')
 		if (open_ability_panel.slot_index == index){
@@ -216,7 +216,7 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 	var abilities_attach_panel = ability_element_panel.FindChildTraverse('onibi_element_abilities_parent_container')
 	var elements = get_onibi_active_elements(onibi_data)
 	var other_elements = get_onibi_other_elements(element, onibi_data)
-	$.Msg(onibi_data)
+	//$.Msg(onibi_data)
 	for (var i = 0; i <= 2; i++) {
 		var ability_key = abilities[i]
 		var ability_slot_panel = $.CreatePanel("Panel", abilities_attach_panel, "onibi_ability_"+abilities[i])
@@ -234,9 +234,9 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			var ability_level = onibi_data[element][secondaryElement][ability_key]["level"]
 			var bonus_level = onibi_data[element][secondaryElement][ability_key]["bonus_level"]
 			var ability_level_text = ability_level 
-			$.Msg(onibi_data)
-			$.Msg(onibi_data[element][secondaryElement])
-			$.Msg("BONUS LEVEL:"+bonus_level)
+			//$.Msg(onibi_data)
+			//$.Msg(onibi_data[element][secondaryElement])
+			//$.Msg("BONUS LEVEL:"+bonus_level)
 			if (bonus_level > 0){
 				ability_level_text="<font color='#f4b942'>"+parseInt(parseInt(ability_level)+parseInt(bonus_level))+"</font>"
 			}
@@ -253,8 +253,8 @@ function onibi_element_click(element_panel, index, element_data, element, queryU
 			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_image').SetImage("file://{images}/custom_game/ui/elements/element"+elementNumber+".png")
 			onibi_ability_panel.FindChildTraverse('onibi_ability_cost1_value').text = tech_cost
 			// units_special (event)
-			$.Msg("----")
-			$.Msg(tech_cost)
+			//$.Msg("----")
+			//$.Msg(tech_cost)
 			if (!(secondaryElement == element)){
 				onibi_ability_panel.FindChildTraverse('onibi_ability_cost2_image').SetImage("file://{images}/custom_game/ui/elements/element"+secondaryElementNumber+".png")
 				onibi_ability_panel.FindChildTraverse('onibi_ability_cost2_value').text = tech_cost
@@ -333,8 +333,8 @@ function update_onibi(msg){
 		for (var i = 0; i <= 2; i++) {
 			var onibi_element = onibi_elements[i]
 			var element_data = onibi_data[elements[i]]
-			$.Msg(msg.bLevelUp)
-			$.Msg("-----")
+			//$.Msg(msg.bLevelUp)
+			//$.Msg("-----")
 			if (parseInt(msg.bLevelUp) == 1){
 				onibi_element.FindChildTraverse('onibi_element_level').text = $.Localize("ui_level_up")
 				$.Schedule(2, function(){

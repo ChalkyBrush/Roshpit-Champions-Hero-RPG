@@ -428,23 +428,22 @@ function GameMode:OnPlayerReconnect(keys)
 	-- end
 end
 
-local function starts_with(str, start)
-	return str:sub(1, #start) == start
-end
+
 
 function GameMode:OnPlayerChat(keys)
-	local text = string.lower(keys.text)
-	-- if string.match(text, "-gold") or string.match(text, "-lvlup") or string.match(text, "-respawn") or string.match(text, "-createhero") or string.match(text, "-refresh") or string.match(text, "-item") or string.match(text, "-allvision") or string.match(text, "-wtf") or string.match(text, "-respawn") or string.match(text, "-teleport") then
-	--  --print("CHEATS ENABLED")
-	--   GameState:CheatCommandUsed()
-	-- end
-	local playerAsd = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+	-- ignore non-command messages
+	if keys.text:sub(1, 1) ~= "-" then return end
 
-	-- if string.match(text, "crash_client") then
-	-- --print("boom")
-	-- PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():HasModifier(nil)
-	-- end
-	if starts_with(text, "-suicide") or starts_with(text, "-unstuck") then
+	args = {}
+	for arg in keys.text:gmatch("%S+") do
+		args[#args+1] = arg
+	end
+
+	local function check_command(command)
+		return args[1] == command
+	end
+
+	if check_command("-suicide") or check_command("-unstuck") then
 		local playerHero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 		local modifier_recently_respawned = playerHero:HasModifier("modifier_recently_respawned")
 		if modifier_recently_respawned or not playerHero:IsAlive() then
@@ -452,54 +451,35 @@ function GameMode:OnPlayerChat(keys)
 		else
 			playerHero:ForceKill(true)
 		end
-	end
-	if string.match(text, "dbg") then
-		-- Serengaard:KillAllNeutrals()
-		local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-		-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
-		-- item = Gems:AddSocket(item)
-  --   	item = Gems:AddSocket(item)		-- RPCItems.DROP_LOCATION = vector
-		-- RPCItems:CreateArcanaCache(85, "12345")
-		-- RPCItems:RollRavenIdol(position)
-		-- RPCItems:RollAxeArcana1(position)
-		-- RPCItems:RollAxeArcana2(position)
-		-- RPCItems:RollFarSeersEnchantedGloves(position)
-		-- RPCItems:RollFarSeersEnchantedGloves(position)
-		-- RPCItems:RollSeaGiantsPlate(position)
-		-- RPCItems:RollHyperstone(10, position)
-		-- RPCItems:RollBorealGraniteVest(position)
-		-- RPCItems:RollMonkeyPaw(position)
-		-- for i=1,5 do
-		-- 	RPCItems:CreateCurrencyReroll(position)
-		-- 	RPCItems:CreateCurrencyWhetstone(position)
-		-- 	RPCItems:RollFlamewakerArcana1(position)
-		-- 	Weapons:RollLegendWeapon1(position, "flamewaker")
-		-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
-		-- 	RPCItems:DropSynthesisVessel(position)
-		-- end
-		--RPCItems:RollFlamewakerArcana1(vector)
-		 
-		 
+	elseif GameState:GetDifficultyFactor() == 3 then
+		local playerid = keys.playerid
+		if check_command("-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
+			Events:LootDisableCrystal(playerid)
 
-		--    local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
-		--    key.newItemTable.stashable = true
-		--    key.newItemTable.consumable = true
-		-- RPCItems:ItemUpdateCustomNetTables(key)
-		--    RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
-	end
-	if string.match(text, "debug_entities") then
-		local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
-		local textNotif = ""
-		for i = 1, #entityesToLog do
-			local ent = Entities:FindAllByClassname(entityesToLog[i])
-			textNotif = textNotif.."["..entityesToLog[i] .. ": "..#ent.."]"
+		elseif (check_command("-disable_junk_loot") or check_command("-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
+			Events:LootDisableJunk(playerid)
+
+		elseif Serengaard and Serengaard.mainAncient and check_command("-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
+			if Serengaard.InfiniteWaveCount then
+				Events:SerengaardForfeit(playerid)
+			end
 		end
-		Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
 	end
-	if string.match(text, "-spawnunit") then
-		if Beacons.cheats then
+
+	-- DEBUG COMMANDS --
+	if Beacons.cheats then
+		if check_command("-debug_entities") then
+			local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
+			local textNotif = ""
+			for i = 1, #entityesToLog do
+				local ent = Entities:FindAllByClassname(entityesToLog[i])
+				textNotif = textNotif.."["..entityesToLog[i] .. ": "..#ent.."]"
+			end
+			Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
+
+		elseif check_command("-spawnunit") then
 			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
-			local unitName = string.gsub(text, "-spawnunit ", '')
+			local unitName = args[2]
 			local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
 			Events:AdjustDeathXP(unit)
 			unit.targetRadius = 800
@@ -509,155 +489,60 @@ function GameMode:OnPlayerChat(keys)
 			unit.targetRadius = 620
 			unit.autoAbilityCD = 1
 			unit.aggro = true
-		end
-	elseif string.match(text, "-tanari") then
-		if Beacons.cheats then
-			Tanari:Debug()
-		end
-	elseif string.match(text, "-arena") then
-		if Beacons.cheats then
-			Arena:Debug()
-		end
-	elseif string.match(text, "-redfall") then
-		if Beacons.cheats then
-			Redfall:Debug()
-		end
-	elseif string.match(text, "-serengaard") then
-		if Beacons.cheats then
-			Serengaard:Debug()
-		end
-	elseif string.match(text, "-seafort") then
-		if Beacons.cheats then
-			Seafortress:Debug()
-		end
-	elseif string.match(text, "-winter") then
-		if Beacons.cheats then
-			Winterblight:Debug()
-		end
-	elseif string.match(text, "-tutorial") then
-		if Beacons.cheats then
-			Tutorial:Debug()
-		end
-	elseif string.match(text, "-ladder") then
-		if GameState:IsRedfallRidge() then
-			if Beacons.cheats then
-				Redfall:Debug2()
-			end
-		elseif GameState:IsTanariJungle() then
-			if Beacons.cheats then
-				Tanari:Debug2()
-			end
-		elseif GameState:IsSerengaard() then
-			if Beacons.cheats then
-				Serengaard:Debug2()
-			end
-		elseif GameState:IsRPCArena() then
-			if Beacons.cheats then
-				Arena:Debug2()
-			end
-		elseif GameState:IsSeaFortress() then
-			if Beacons.cheats then
-				Seafortress:Debug2()
-			end
-		elseif GameState:IsWinterblight() then
-			if Beacons.cheats then
-				Winterblight:Debug2()
-			end
-		end
-	elseif string.match(text, "special") then
-		if Beacons.cheats then
-			Events:SpecialDebug()
-		end
-	elseif string.match(text, "pvp") then
-		PVP:Debug()
-	elseif string.match(text, "-hero") then
-		if Beacons.cheats then
-			local hero = string.gsub(text, "-hero ", "")
+
+		elseif check_command("-hero") then
+			local hero = args[2]
 			hero = "npc_dota_hero_"..hero
 			local playerid = keys.playerid
 			PlayerResource:ReplaceHeroWith(playerid, hero, 0, 0)
-		end
-	elseif string.match(text, "-immo") then
-		if Beacons.cheats then
-			local strings = string.gmatch(text, "%S+")
-			local command = strings()
-			local name = strings()
-			local level = tonumber(strings(), 10)
-			if not level then
-				level = 1
-			end
+
+		elseif check_command("-myth") then
+			local level = tonumber(args[2], 10) or 1
+			local random_gear_slot = RandomInt(0, 5)
+			print(random_gear_slot)
+			local item = RPCItems:RollRandomItemBySlot(4, level, random_gear_slot)
+			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
+
+		elseif check_command("-immo") then
+			local name = args[2]
+			local level = tonumber(args[3], 10) or 1
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			local item = RPCItems:RollImmortalByName(name, level)
 			Gems:AddSocket(item)
 			Gems:AddSocket(item)
 			RPCItems:BasicDropItem(hero:GetAbsOrigin(), item)
-		end
-	elseif string.match(text, "-archon") then
-		if Beacons.cheats then
-			Seafortress:InitArchon()
-		end
-	elseif string.match(text, "-myth40") then
-		if Beacons.cheats then
-			local random_gear_slot = RandomInt(0, 5)
-			local item = RPCItems:RollRandomItemBySlot(4, 40, random_gear_slot)
-			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
-		end
-	elseif string.match(text, "-myth80") then
-		if Beacons.cheats then
-			local random_gear_slot = RandomInt(0, 5)
-			local item = RPCItems:RollRandomItemBySlot(4, 80, random_gear_slot)
-			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
-		end
-	elseif string.match(text, "-myth120") then
-		if Beacons.cheats then
-			local random_gear_slot = RandomInt(0, 5)
-			local item = RPCItems:RollRandomItemBySlot(4, 120, random_gear_slot)
-			RPCItems:BasicDropItem(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), item)
-		end
-	elseif string.match(text, "-gems") then
-		if Beacons.cheats then
-			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
-			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
-		end
-	elseif string.match(text, "-givegems") then
-		if Beacons.cheats then
-			local amount = tonumber(string.gsub(text, "-givegems ", ""), 10)
-			local msg = {}
-			msg.PlayerID = keys.playerid
-			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
-			Gems:CollectReward(msg)
-		end
-	elseif string.match(text, "-map_keys") then
-		if Beacons.cheats then
-			local vector = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
-			local item = CreateItem("item_debug_blink", nil, nil)
-			local drop = CreateItemOnPositionSync(vector, item)
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			if GameState:IsRedfallRidge() then
-				Redfall:GiveSpiritRuby(hero, vector)
-				Redfall:GiveVermillionBundle(hero, vector)
-				Redfall:GiveShipyardKey(hero, vector)
-				Redfall:GiveDemonRelic(hero, vector)
-			elseif GameState:IsWinterblight() then
-				for i = 1, 3 do
-					Winterblight:DropGlacierStone(vector)
-				end
-			elseif GameState:IsSerengaard() then
-				Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
-			end
-		end
-	elseif string.match(text, "-arc") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-arc ", "")
+
+		elseif check_command("-arc") then
+			local name = args[2]
+			local level = tonumber(args[3], 10) or 1
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, 1))
-		end
-	
-	elseif string.match(text, "-gly") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-gly ", "")
+			RPCItems:BasicDropItem(hero:GetAbsOrigin(), RPCItems:RollArcanaByName(name, level))
+
+		elseif check_command("-iweap") then
+			local name = args[2]
+			local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			local tier = args[3]
+			if tier == '1' then
+				Weapons:RollLegendWeapon1(position, name)
+			elseif tier == '2' then
+				Weapons:RollLegendWeapon2(position, name)
+			elseif tier == '3' then
+				Weapons:RollLegendWeapon3(position, name)
+			else
+				Weapons:RollLegendWeapon1(position, name)
+				Weapons:RollLegendWeapon2(position, name)
+				Weapons:RollLegendWeapon3(position, name)
+			end
+
+		elseif check_command("-allglyph") then
+			local name = args[2]
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+			Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
+
+		elseif check_command("-gly") then
+			local name = args[2]
 			name = "item_rpc_"..name
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			if _G[name] then
@@ -666,47 +551,96 @@ function GameMode:OnPlayerChat(keys)
 			else
 				Glyphs:RollGlyphAll(name, hero:GetAbsOrigin(), 0)
 			end
-		end
-	elseif string.match(text, "-potion") then
-		if Beacons.cheats then
+
+		elseif check_command("-map_keys") then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		    local potion = RPCItems:RollRandomPotion(1)
+			local vector = hero:GetAbsOrigin()
+			if GameState:IsRedfallRidge() then
+				Redfall:GiveSpiritRuby(hero, vector)
+				Redfall:GiveBurgundyFirefly(hero, vector)
+				Redfall:GiveVermillionBundle(hero, vector)
+				Redfall:GiveShipyardKey(hero, vector)
+				Redfall:GiveDemonRelic(hero, vector)
+			elseif GameState:IsTanariJungle() then
+				Tanari:WitchDoctorCombine(hero, GameState:GetDifficultyFactor())
+				Tanari:AcquireTempleKey(vector, "wind")
+				Tanari:AcquireTempleKey(vector, "water")
+				Tanari:AcquireTempleKey(vector, "fire")
+			elseif GameState:IsWinterblight() then
+				for i = 1, 3 do
+					Winterblight:DropGlacierStone(vector)
+				end
+			elseif GameState:IsSerengaard() then
+				Serengaard:GiveSunstone(hero, Serengaard.mainAncient:GetAbsOrigin())
+			end
+
+		elseif check_command("-potion") then
+			local level = tonumber(args[2], 10) or 1
+			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
+		    local potion = RPCItems:RollRandomPotion(level)
     		RPCItems:BasicDropItem(hero:GetAbsOrigin(), potion)
-		end
-	elseif string.match(text, "-allglyph") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-allglyph ", "")
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Glyphs:DebugRollHeroGlyphs(name, hero:GetAbsOrigin())
-		end
-	elseif string.match(text, "-curatehero") then
-		if Beacons.cheats then
+
+		elseif check_command("-gems") then
+			Gems:DropSocketForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin())
+			Gems:SpawnGemForger(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin(), Vector(-1,-1), 10)
+
+		elseif check_command("-givegems") then
+			local amount = tonumber(args[2], 10)
+			local msg = {}
+			msg.PlayerID = keys.playerid
+			GameState:GetHeroByPlayerID(keys.playerid).gem_reward = amount
+			Gems:CollectReward(msg)
+		
+		elseif check_command("-tanari") then
+			Tanari:Debug()
+
+		elseif check_command("-arena") then
+			Arena:Debug()
+
+		elseif check_command("-redfall") then
+			Redfall:Debug()
+
+		elseif check_command("-serengaard") then
+			Serengaard:Debug()
+
+		elseif check_command("-seafort") then
+			Seafortress:Debug()
+
+		elseif check_command("-winter") then
+			Winterblight:Debug()
+
+		elseif check_command("-tutorial") then
+			Tutorial:Debug()
+
+		elseif check_command("-ladder") then
+			if GameState:IsRedfallRidge() then
+				Redfall:Debug2()
+			elseif GameState:IsTanariJungle() then
+				Tanari:Debug2()
+			elseif GameState:IsSerengaard() then
+				Serengaard:Debug2()
+			elseif GameState:IsRPCArena() then
+				Arena:Debug2()
+			elseif GameState:IsSeaFortress() then
+				Seafortress:Debug2()
+			elseif GameState:IsWinterblight() then
+				Winterblight:Debug2()
+			end
+
+		elseif check_command("-special") then
+			Events:SpecialDebug()
+
+		elseif check_command("-pvp") then
+			PVP:Debug()
+
+		elseif check_command("-archon") then
+			Seafortress:InitArchon()
+
+		elseif check_command("-curatehero") then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Curator:FullCurateHero(hero)
-		end
-	elseif string.match(text, "-iweap1") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-iweap1 ", "")
-			name = "npc_dota_hero_"..name
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Weapons:RollLegendWeapon1WithDotaName(name, hero:GetAbsOrigin())
-		end
-	elseif string.match(text, "-iweap2") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-iweap2 ", "")
-			name = "npc_dota_hero_"..name
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Weapons:RollLegendWeapon2WithDotaName(name, hero:GetAbsOrigin())
-		end
-	elseif string.match(text, "-iweap3") then
-		if Beacons.cheats then
-			local name = string.gsub(text, "-iweap3 ", "")
-			name = "npc_dota_hero_"..name
-			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-			Weapons:RollLegendWeapon3WithDotaName(name, hero:GetAbsOrigin())
-		end
-	elseif string.match(text, "-onibi") then
-		if Beacons.cheats then
+
+		elseif check_command("-onibi") then
 			for i = 1, #MAIN_HERO_TABLE do
 				if MAIN_HERO_TABLE[i]:GetUnitName() == "npc_dota_hero_arc_warden" then
 					local res = require('heroes/arc_warden/abilities/essence_harvest')
@@ -716,121 +650,123 @@ function GameMode:OnPlayerChat(keys)
 					add_resources_to_onibi(MAIN_HERO_TABLE[i], "fire", 500000000)
 				end
 			end
-		end
-	elseif string.match(text, "-physical") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-physical ", "")
+
+		elseif check_command("-physical") then
+			local damageValue = args[2]
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PHYSICAL, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-magical") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-magical ", "")
+
+		elseif check_command("-magical") then
+			local damageValue = args[2]
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_MAGICAL, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-pure") then
-		if Beacons.cheats then
-			local damageValue = string.gsub(text, "-pure ", "")
+
+		elseif check_command("-pure") then
+			local damageValue = args[2]
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:TakeArgumentsAndApplyDamage(hero, hero, damageValue, DAMAGE_TYPE_PURE, BASE_ITEM, RPC_ELEMENT_NONE, RPC_ELEMENT_NONE)
-		end
-	elseif string.match(text, "-immunitybreak") then
-		if Beacons.cheats then
+
+		elseif check_command("-immunitybreak") then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			Filters:MagicImmuneBreak(hero, hero)
-		end
-	elseif string.match(text, "-position") then
-		if Beacons.cheats then
+
+		elseif check_command("-position") then
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			local text = "Position: "..tostring(hero:GetAbsOrigin())
 			Notifications:Bottom(keys.playerid, {text = text, duration = 15.0})
-			--print(text)
+			print(text)
 			local text2 = "Forward Vector: "..tostring(hero:GetForwardVector())
 			Notifications:Bottom(keys.playerid, {text = text2, duration = 15.0})
-			--print(text2)
-		end
-	elseif string.match(text, "-boss_canyon_paragon") then
-		if Beacons.cheats then
+			print(text2)
+
+		elseif check_command("-boss_canyon_paragon") then
 			Beacons.paragon = true
 			Beacons.packs = false
 			local unit = Redfall:SpawnCanyonBossParagonTest()
-		end
-	elseif string.match(text, "-boss_canyon_pack") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_canyon_pack") then
 			Beacons.paragon = false
 			Beacons.packs = true
 			local unit = Redfall:SpawnCanyonBossParagonTest()
-		end
-	elseif string.match(text, "-boss_canyon_normal") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_canyon_normal") then
 			Beacons.paragon = false
 			Beacons.packs = false
 			local unit = Redfall:SpawnCanyonBossParagonTest()
-		end
-	elseif string.match(text, "-boss_tree_paragon") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_tree_paragon") then
 			Beacons.paragon = true
 			Beacons.packs = false
 			local unit = Redfall:SpawnAncientTree()
-		end
-	elseif string.match(text, "-boss_tree_pack") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_tree_pack") then
 			Beacons.paragon = false
 			Beacons.packs = true
 			local unit = Redfall:SpawnAncientTree()
-		end
-	elseif string.match(text, "-boss_tree_normal") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_tree_normal") then
 			Beacons.paragon = false
 			Beacons.packs = false
 			local unit = Redfall:SpawnAncientTree()
-		end
-	elseif string.match(text, "-boss_fire_normal") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_fire_normal") then
 			if not Tanari.FireTemple then
 				Tanari.FireTemple = {}
 			end
 			Beacons.paragon = false
 			Beacons.packs = false
 			Tanari:FireTempleFinalBossSpawn()
-		end
-	elseif string.match(text, "-boss_fire_paragon") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_fire_paragon") then
 			if not Tanari.FireTemple then
 				Tanari.FireTemple = {}
 			end
 			Beacons.paragon = true
 			Beacons.packs = false
 			Tanari:FireTempleFinalBossSpawn()
-		end
-	elseif string.match(text, "-boss_fire_pack") then
-		if Beacons.cheats then
+
+		elseif check_command("-boss_fire_pack") then
 			if not Tanari.FireTemple then
 				Tanari.FireTemple = {}
 			end
 			Beacons.paragon = false
 			Beacons.packs = true
 			Tanari:FireTempleFinalBossSpawn()
-		end
-	elseif string.match(text, "-log") then
-		CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
-	elseif string.match(text, "-get_abs") then
-		local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
-		local position = hero:GetAbsOrigin()
-		--print(position)
-	elseif GameState:GetDifficultyFactor() == 3 then
-		local playerid = keys.playerid
-		if string.match(text, "-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
-			Events:LootDisableCrystal(playerid)
-		end
-		if (string.match(text, "-disable_junk_loot") or string.match(text, "-junk")) and not GameMode.VoteSystem.junk_loot_disabled then
-			Events:LootDisableJunk(playerid)
-		end
-		if Serengaard and Serengaard.mainAncient and string.match(text, "-forfeit") and not GameMode.VoteSystem.serengaard_forfeit_complete then
-			if Serengaard.InfiniteWaveCount then
-				Events:SerengaardForfeit(playerid)
-			end
+
+		elseif check_command("-log") then
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
+
+		elseif check_command("-dbg") then
+			-- Serengaard:KillAllNeutrals()
+			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
+			-- local item = RPCItems:RollAerithsTear(position)--RPCItems:RollSangeBoots(position)
+			-- item = Gems:AddSocket(item)
+  			-- item = Gems:AddSocket(item)		
+  			-- RPCItems.DROP_LOCATION = vector
+			-- RPCItems:CreateArcanaCache(85, "12345")
+			-- RPCItems:RollRavenIdol(position)
+			-- RPCItems:RollAxeArcana1(position)
+			-- RPCItems:RollAxeArcana2(position)
+			-- RPCItems:RollFarSeersEnchantedGloves(position)
+			-- RPCItems:RollFarSeersEnchantedGloves(position)
+			-- RPCItems:RollSeaGiantsPlate(position)
+			-- RPCItems:RollHyperstone(10, position)
+			-- RPCItems:RollBorealGraniteVest(position)
+			-- RPCItems:RollMonkeyPaw(position)
+			-- for i = 1, 5 do
+			-- 	RPCItems:CreateCurrencyReroll(position)
+			-- 	RPCItems:CreateCurrencyWhetstone(position)
+			-- 	RPCItems:RollFlamewakerArcana1(position)
+			-- 	Weapons:RollLegendWeapon1(position, "flamewaker")
+			-- 	Weapons:RollLegendWeapon3(position, "flamewaker")
+			-- 	RPCItems:DropSynthesisVessel(position)
+			-- end
+			-- RPCItems:RollFlamewakerArcana1(vector)
+			-- local key = RPCItems:CreateConsumable("item_rpc_winterblight_glacier_stone", "mythical", "Glacier Stone", "consumable", false, "Consumable", "item_rpc_winterblight_glacier_stone_desc")
+			-- key.newItemTable.stashable = true
+			-- key.newItemTable.consumable = true
+			-- RPCItems:ItemUpdateCustomNetTables(key)
+			-- RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
 		end
 	end
 end
@@ -991,18 +927,16 @@ end
 
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
-	DebugPrint('[BAREBONES] OnPlayerLevelUp')
-	-- DebugPrintTable(keys)
-	-- DeepPrintTable(keys)
-	local player = EntIndexToHScript(keys.player)
-	local level = keys.level
-	local hero = player:GetAssignedHero()
-	Events:HeroLevelUp(player, hero, level)
-	if MAIN_HERO_TABLE then
-		for i = 1, #MAIN_HERO_TABLE, 1 do
-			MAIN_HERO_TABLE[i]:SetAbilityPoints(0)
-		end
-	end
+    DebugPrint('[BAREBONES] OnPlayerLevelUp')
+    local hero = EntIndexToHScript(keys.hero_entindex)
+    local level = keys.level
+    local player = hero:GetPlayerOwner()
+    Events:HeroLevelUp(player, hero, level)
+    if MAIN_HERO_TABLE then
+        for i = 1, #MAIN_HERO_TABLE, 1 do
+            MAIN_HERO_TABLE[i]:SetAbilityPoints(0)
+        end
+    end
 end
 
 function Events:HeroLevelUp(player, hero, level)

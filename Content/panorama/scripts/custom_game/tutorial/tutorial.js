@@ -136,10 +136,10 @@ function category_panel_click_setup(categoryPanel, index, category, msg){
 	var challengeListPanel = $.CreatePanel("Panel", category_container, "challenge-list")
 	challengeListPanel.BLoadLayoutSnippet('tutorial_challenge_list')
 	var challengeCount = category["challenges"]
-	$.Msg(msg.tutorial)
+	//$.Msg(msg.tutorial)
 	var challenge_section = index+1
 	var key = ("section"+challenge_section).toString()
-	$.Msg(key)
+	//$.Msg(key)
 	var progress = msg.tutorial[key]["progress"]
 	for (var i = 0; i < challengeCount; i++) {
 		if (progress >= i){
@@ -161,7 +161,7 @@ function setupChallenge(category, challenge, index, challengeListPanel, challeng
 		challengePanel.BLoadLayoutSnippet("tutorial_challenge")	
 		var quest_number = category["index"]
 		var challenge_number = index + 1
-		$.Msg("---CHALLENGE NUMBER:"+challenge_number)
+		//$.Msg("---CHALLENGE NUMBER:"+challenge_number)
 		challengePanel.FindChildTraverse('tutorial_challenge_text').text = $.Localize('quest_'+quest_number+"_challenge_"+challenge_number) 
 		challengePanel.FindChildTraverse('challenge_button').SetPanelEvent('onactivate', function Activate() {
 			challenge_activate(category, challenge_number, challengeListPanel)
@@ -193,15 +193,15 @@ function reward_activate(category, challengeListPanel, reward, stars){
 	var descripAndGoPanel = $.CreatePanel("Panel", descrip_and_go_container, "descrip_and_go")
 	Game.EmitSound("Tutorial.UI.ChallengeClick")
 	descripAndGoPanel.BLoadLayoutSnippet('reward_and_go')
-	$.Msg("OOOOO IMPORTANT OOOO")
-	$.Msg(category["index"])
-	$.Msg(stars)
+	//$.Msg("OOOOO IMPORTANT OOOO")
+	//$.Msg(category["index"])
+	//$.Msg(stars)
 	var starsMap = REWARD_STARS_REQ_MAP.indexOf(category["index"])
 	var starReq = false
 	if (starsMap > -1){
 		starReq = STARS_REQ[starsMap]
 	}
-	$.Msg("------")
+	//$.Msg("------")
 	descripAndGoPanel.FindChildTraverse('reward_and_go_description_text').text = $.Localize("quest_"+category["index"]+"_reward_description")
 	descripAndGoPanel.FindChildTraverse('reward_image').SetImage("file://{images}/spellicons/tutorial/reward"+category["index"]+".png")
 	if ((reward == 0) && (starReq) && (stars < starReq)){
@@ -323,7 +323,7 @@ function CallQuizBox(msg){
 
 function setup_quiz_answer_submit(answerButton, parent, msg, input)
 {
-	$.Msg(input)
+	//$.Msg(input)
 	if (msg.identifier == "4_3"){
 		var hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
 		msg.verifier = Entities.GetDamageBonus(hero)
@@ -339,7 +339,7 @@ function quiz_submit_sound(msg){
 
 function setupQuizAnswerSubmit(parent, identifier, sequence, verifier, bLocalize, challenge_progress, input)
 {
-	$.Msg("SUBMIT QUIZ")
+	//$.Msg("SUBMIT QUIZ")
 	var localize_input = false
 	if (!(input)){
 		input = parent.FindChildTraverse('quiz_box_input').text

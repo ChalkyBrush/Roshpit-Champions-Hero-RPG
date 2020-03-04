@@ -19,14 +19,14 @@
     	"DOTA_Tooltip_ability_torrent_trap_Lore"					""
 		
 		"DOTA_Tooltip_ability_poison_trap"						"Poison Trap"
-    	"DOTA_Tooltip_ability_poison_trap_Description"			"Стихия: <font color=\"#37DD3D\">Яд</font><br>Ставится ядовитая ловушка, наносящая урон за каждый стак яда. Максимум 10 зарядов.<br><font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
+    	"DOTA_Tooltip_ability_poison_trap_Description"			"Стихия: <font color=\"#37DD3D\">Яд</font><br>Ставится ядовитая ловушка, наносящая урон за каждый стак яда. Максимум <% TRAPPER_Q1_MAX_STACKS_COUNT %> зарядов.<br><font color='#70EA72'>Сразу после прочтения это умение будет заменено на </font><font color='#6cbfe2'>(Q) Fulminating Trap</font><font color='#70EA72'>.</font>"
     	"DOTA_Tooltip_ability_poison_trap_Lore"					""
 		
 		"DOTA_Tooltip_modifier_poison_trap_effect"					"Poison Trap"
     	"DOTA_Tooltip_modifier_poison_trap_effect_Description"		"Отравлен"
 		
 		"DOTA_Tooltip_ability_trapper_rune_q_1"						"[Q1] Poison Trap"
-    	"DOTA_Tooltip_ability_trapper_rune_q_1_Description"			"Умение (Q) Fulminating Trap заменяется на Poison Trap. Враги, попавшие в область действия Poison Trap получают стак яда каждые 0.5 секунды и получают урон в зависимости от имеющихся стаков яда на 6 секунд после того, как покинут область действия ловушки. Максимум 30 зарядов."
+    	"DOTA_Tooltip_ability_trapper_rune_q_1_Description"			"Умение (Q) Fulminating Trap заменяется на Poison Trap. Враги, попавшие в область действия Poison Trap получают стак яда каждые 0.5 секунды и получают урон в зависимости от имеющихся стаков яда на 6 секунд после того, как покинут область действия ловушки. Максимум <% TRAPPER_Q1_MAX_STACKS_COUNT %> зарядов."
     	"DOTA_Tooltip_ability_trapper_rune_q_1_property_one"		"Урона в секунду"
     	"DOTA_Tooltip_ability_trapper_rune_q_1_suffix"				" за каждый стак"	
 		

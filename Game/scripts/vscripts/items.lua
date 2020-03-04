@@ -1347,7 +1347,7 @@ function RPCItems:AcceptNewItem(keys)
 	Timers:CreateTimer(0.75, function()
 		hero.cant_use_items = false
 	end)
-	DeepPrintTable(keys)
+	--DeepPrintTable(keys)
 	local slot = RPCItems:getGearSlot(newItem.newItemTable.item_slot)
 	CustomNetTables:SetTableValue("equipment", tostring(playerID) .. "-"..tostring(slot), {itemIndex = newItem:GetEntityIndex()})
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "update_inventory", {})

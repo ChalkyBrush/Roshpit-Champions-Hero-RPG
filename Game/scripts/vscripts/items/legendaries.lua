@@ -265,10 +265,10 @@ function RPCItems:RollAutumnSleeperMask(item_level)
 
     local luck = RandomInt(1, 3)
     if luck < 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 2)
     else
         local rune_tier = "t"..RandomInt(1, 2).."_rune"
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_tier, 2)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -331,7 +331,7 @@ function RPCItems:RollBasiliskPlagueHelm(item_level)
 
     local luck = RandomInt(1, 3)
     if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 2)
     elseif luck == 2 then
         RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_poison", 1.5)
     else
@@ -341,7 +341,7 @@ function RPCItems:RollBasiliskPlagueHelm(item_level)
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
     RPCItems:SocketsChance(item)
 
@@ -387,8 +387,8 @@ function RPCItems:RollGlintOfOnu(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_glint_of_onu", "#9DCCC2", 1, "#property_glint_of_onu_description")
 
     RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -503,25 +503,25 @@ function RPCItems:RollCarbuncleHelm(item_level)
 
 -- {skill_points = skill_points, rune_points = Runes.RUNE_POINTS_PER_LEVEL}
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
     local luck = RandomInt(1, 10)
     if luck < 10 then
         local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
     else
         local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 3)
     end
     local luck = RandomInt(1, 10)
     if luck == 10 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "t3_rune", 0.8)
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "t3_rune", 2)
     else
-        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 2)
     end
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, "item_rpc_carbuncles_helm_of_reflection", false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -581,11 +581,11 @@ function RPCItems:RollCrestOfTheUmbralSentinel(item_level)
 
     local luck = RandomInt(1, 10)
     if luck <= 5 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_1", 1.2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_1", 2)
     elseif luck <= 9 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_2", 1.2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_2", 2)
     elseif luck == 10 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_3", 1.2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "rune_w_3", 2)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -961,7 +961,7 @@ function RPCItems:RollHelmOfKnightHawk(item_level)
 
     local attr_rolls = {"strength", "agility", "intelligence", "spirit", "movespeed"}
     local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.3)   
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.75)   
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
@@ -1022,9 +1022,9 @@ function RPCItems:RollHoodOfChosen(item_level)
     local item = RPCItems:CreateVariant("item_rpc_hood_of_chosen", "immortal", "Hood of the Chosen", "head", true, "Slot: Head")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, rune_type, 2)
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -1092,9 +1092,9 @@ function RPCItems:RollHoodOfTheSeaOracle(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_hood_of_the_sea_oracle"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#property_sea_oracle", "#FFBC49", 1, "#property_sea_oracle_Description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
@@ -1205,7 +1205,7 @@ function RPCItems:RollNecromancerMask(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_desert_necromancer", "#B38C66", 1, "#property_desert_necromancer_description")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2.5)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -1227,10 +1227,10 @@ function RPCItems:RollMaskOfTyrius(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_tyrius", "#D6693A", 1, "#property_tyrius_description")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "strength", 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "strength", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
@@ -1265,13 +1265,13 @@ function RPCItems:RollOceanHelmOfValdun(item_level)
 
     local item = RPCItems:CreateVariant("item_rpc_ocean_helm_of_valdun", "immortal", "Ocean Helm of Val'Dun", "head", true, "Slot: Head")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_elements", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 1.2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 1, item_level, "all_elements", 4)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "t4_rune", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 2)
 
-    RPCItems:GrantItemBaseArmor(item, item_level, 2.5)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -1307,12 +1307,12 @@ function RPCItems:RollScourgeKnightHelm(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_scourge_knights_helm"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_scourge_knight", "#2A194F", 1, "#property_scourge_knight_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 4)
     local luck = RandomInt(1, 3)
     if luck == 3 then
         RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "element_undead", 2)
     else
-        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
@@ -1358,15 +1358,15 @@ function RPCItems:RollEternalNightShroud(item_level)
     local luck = RandomInt(1, 3)
     if luck == 1 then
         local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
     elseif luck == 2 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_shadow", 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_shadow", 2.5)
     elseif luck == 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, nil, 1.5)
     end
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1)
@@ -1444,14 +1444,14 @@ function RPCItems:RollSwampDoctorMask(item_level)
     if luck == 1 then
         local attr_rolls = {"strength", "agility", "intelligence", "spirit"}
         local attr_roll = attr_rolls[RandomInt(1, #attr_rolls)]
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, attr_roll, 2.5)
     elseif luck == 2 then
         local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
     end
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.5)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 2.5)
@@ -1496,9 +1496,9 @@ function RPCItems:RollTricksterMask(item_level)
     item.newItemTable.property1name = "!immortal!_modifier_tricksters_mask"
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_trickster", "#FFFB17", 1, "#property_trickster_description")
 
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 2)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "agility", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1.25)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1.25)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 1.5)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
@@ -1601,19 +1601,19 @@ function RPCItems:RollWhiteMageHat(item_level)
 
     local luck = RandomInt(1, 4)
     if luck == 1 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 1.25)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "health_regen", 2.5)
     elseif luck == 2 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.25)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 3)
     elseif luck == 3 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 2.5)
     elseif luck == 4 then
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2.5)
     end
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 0)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3.5)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 4)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -1655,7 +1655,7 @@ function RPCItems:RollWraithCrown(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_wraith_crown", "#5671E8", 1, "#property_wraith_crown_description")
 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 2)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
@@ -1937,33 +1937,6 @@ function RPCItems:RollChampionsGearMail(item_level)
 
     RPCItems:GrantItemBaseArmor(item, item_level, 2)
     RPCItems:GrantItemBaseMagicArmor(item, item_level, 1)
-    RPCItems:SocketsChance(item)
-    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
-    return item
-end
-
-function RPCItems:RollDarkArtsVestments(item_level)
-    local item_slot = RPC_GEAR_SLOT_BODY
-    local rarity = RPC_ITEMS_RARITY_IMMORTAL
-
-    local item = RPCItems:CreateVariant("item_rpc_dark_arts_vestments", "immortal", "Vestments of the Dark Arts", "body", true, "Slot: Body")
-    local maxFactor = RPCItems:GetMaxFactor()
-    item.newItemTable.property1 = 1
-    item.newItemTable.property1name = "!immortal!_modifier_dark_arts_vestments"
-    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_dark_arts", "#7A3B63", 1, "#property_dark_arts_description")
-
-    local luck = RandomInt(1, 2)
-    if luck == 1 then
-        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
-    else
-        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "intelligence", 2)
-    end
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
-    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
-
-    RPCItems:GrantItemBaseArmor(item, item_level, 1)
-    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
     RPCItems:SocketsChance(item)
     RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
     return item
@@ -6998,8 +6971,6 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollVampiricBreastplate(item_level)
     elseif itemName == "item_rpc_skyforge_flurry_plate" then
         newItem = RPCItems:RollSkyforgeFlurryPlate(item_level)
-    elseif itemName == "item_rpc_dark_arts_vestments" then
-        newItem = RPCItems:RollDarkArtsVestments(item_level)
     elseif itemName == "item_rpc_legion_vestments" then
         newItem = RPCItems:RollLegionVestments(item_level)
     elseif itemName == "item_rpc_nightmare_rider_mantle" then

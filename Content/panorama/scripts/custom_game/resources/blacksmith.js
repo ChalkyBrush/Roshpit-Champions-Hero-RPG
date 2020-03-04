@@ -441,7 +441,7 @@ function socketStep2(msg){
 }
 
 function socket_cutter_inserted(msg){
-    $.Msg("INSERTED")
+    //$.Msg("INSERTED")
     GameUI.CustomUIConfig().blacksmithCutterIndex = msg.itemIndex
     GameUI.CustomUIConfig().socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("DOTA_Tooltip_ability_item_rpc_socket_cutter")
     $('#final_forge_button_container').RemoveClass('invisible');

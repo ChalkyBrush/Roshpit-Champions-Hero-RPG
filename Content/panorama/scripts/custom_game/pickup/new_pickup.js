@@ -3,7 +3,7 @@ var pickupCount = 0
 
 function PickupPopup(msg)
 {
-	$.Msg("PICKUP LETS GO")
+	//$.Msg("PICKUP LETS GO")
 	var parentPanel = $('#main_pickup_parent')
 	var new_panel = $.CreatePanel( "Panel", parentPanel, "popup-box-"+pickupCount );
 
@@ -82,13 +82,13 @@ function InitializePickupBox(pickup_box, msg, popupIndex, pickup_parent){
 }
 
 function set_item_tooltip(tooltip_panel, item){
-	$.Msg("SET IT")
+	//$.Msg("SET IT")
 	ItemShowTooltipPickup(tooltip_panel, item)
 }
 
 function ItemShowTooltipPickup(tooltip_panel, item){
 	GameUI.CustomUIConfig.itemTooltip = item
-	$.Msg("TT ME")
+	//$.Msg("TT ME")
 	$.DispatchEvent("UIShowCustomLayoutTooltip", tooltip_panel, "ItemTooltipPickup", "file://{resources}/layout/custom_game/equipment/item_tooltip.xml");
 }
 

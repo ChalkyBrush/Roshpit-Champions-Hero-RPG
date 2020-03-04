@@ -17,8 +17,8 @@ function InitializeHeroLevel()
 		if (xpNeeded == 0){
 			xpNeeded = 1;
 		}	
-		$.Msg(xp)
-		$.Msg(xpNeeded)
+		//$.Msg(xp)
+		//$.Msg(xpNeeded)
 		$('#hero_level_label').text = level
 		var percentage = Math.floor((xp/xpNeeded)*100)
 		if (percentage < 1){
@@ -43,7 +43,7 @@ function getSelectedHeroIndex()
 
 function HeroLevelUP()
 {
-	$.Msg("LEVEL UP!!")
+	//$.Msg("LEVEL UP!!")
 	$('#hero_exp_progress').style.width = "100%"
 	$('#hero_exp_progress_label').text = $.Localize("ui_level_up")
 	$.GetContextPanel().SetAttributeInt("locked", 1)

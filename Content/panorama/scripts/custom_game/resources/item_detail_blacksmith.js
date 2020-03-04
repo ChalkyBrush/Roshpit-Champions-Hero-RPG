@@ -14,7 +14,7 @@ mShards = $.GetContextPanel().shards
 
 function InitializeItemDisplay()
 {
-	$.Msg("ITEM PLACED??")
+	//$.Msg("ITEM PLACED??")
 	var minLevel = populateItem()
 	mMinLevel = minLevel
 	Game.EmitSound("ui.crafting_gem_drop")
@@ -136,7 +136,7 @@ function customNetTableSplitter(itemPropertyesTable, index){
 
 function populateItem()
 {
-	$.Msg("item_detail_blacksmith.js +++++++++++++++++++++++++++++++++++++")
+	//$.Msg("item_detail_blacksmith.js +++++++++++++++++++++++++++++++++++++")
 	$('#item_image').contextEntityIndex = mItemIndex;
 	$('#item_image').SetAttributeInt("item", mItemIndex)
 	var itemName = Abilities.GetAbilityName( mItemIndex);
@@ -148,16 +148,16 @@ function populateItem()
         chiselCost = itemValues.minLevel
     }
     GameUI.CustomUIConfig().blacksmithChiselCost = Math.floor(chiselCost * 1)
-    $.Msg("DEBUG blacksmithChiselCost")
-    $.Msg(GameUI.CustomUIConfig().blacksmithChiselCost)
+    //$.Msg("DEBUG blacksmithChiselCost")
+    //$.Msg(GameUI.CustomUIConfig().blacksmithChiselCost)
 	
     GameUI.CustomUIConfig().blacksmithChiselItemIndex = mItemIndex
-    $.Msg("DEBUG blacksmithChiselItemIndex")
-    $.Msg(GameUI.CustomUIConfig().blacksmithChiselItemIndex)
+    //$.Msg("DEBUG blacksmithChiselItemIndex")
+    //$.Msg(GameUI.CustomUIConfig().blacksmithChiselItemIndex)
 	
     GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot = mSlot
-    $.Msg("DEBUG blacksmithChiselEquipmentSlot")
-    $.Msg(GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot)
+    //$.Msg("DEBUG blacksmithChiselEquipmentSlot")
+    //$.Msg(GameUI.CustomUIConfig().blacksmithChiselEquipmentSlot)
 	
 	var rarityColor = itemValues.qualityColor
 	$('#item_name').text = "<font color='"+rarityColor+"'>"+$.Localize("#DOTA_Tooltip_Ability_"+itemName)+"</font>"

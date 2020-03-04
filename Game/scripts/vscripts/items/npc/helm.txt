@@ -588,19 +588,24 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"<% WIND_DEITY_RUBY %>"
+				"ruby1"					"<% WIND_DEITY_RUBY1 %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% WIND_DEITY_EMERALD %>"
+				"ruby2"					"<% WIND_DEITY_RUBY2 %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% WIND_DEITY_SAPPHIRE %>"
+				"emerald1"				"<% WIND_DEITY_EMERALD %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% WIND_DEITY_SAPPHIRE %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% WIND_DEITY_AMETHYST %>"
@@ -891,14 +896,19 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% UNDERTAKER_EMERALD %>"
+				"emerald1"				"<% UNDERTAKER_EMERALD1 %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% UNDERTAKER_SAPPHIRE %>"
+				"emerald2"				"<% UNDERTAKER_EMERALD2 %>"
 			}
 			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% UNDERTAKER_SAPPHIRE %>"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% UNDERTAKER_AMETHYST %>"
@@ -1263,9 +1273,14 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% SWAMP_WITCH_SAPPHIRE %>"
+				"sapphire1"				"<% SWAMP_WITCH_SAPPHIRE1 %>"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% SWAMP_WITCH_SAPPHIRE2 %>"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% SWAMP_WITCH_AMETHYST %>"
@@ -2758,9 +2773,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% MAGISTRATE_SAPPHIRE %>"
+				"sapphire1"				"<% MAGISTRATE_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% MAGISTRATE_SAPPHIRE2 %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% MAGISTRATE_AMETHYST %>"
@@ -2949,19 +2969,24 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% IGNEOUS_CANINE_RUBY %>"
+				"ruby1"				"<% IGNEOUS_CANINE_RUBY1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% IGNEOUS_CANINE_EMERALD %>"
+				"ruby2"				"<% IGNEOUS_CANINE_RUBY2 %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% IGNEOUS_CANINE_SAPPHIRE %>"
+				"emerald1"				"<% IGNEOUS_CANINE_EMERALD %>"
 			}
 			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% IGNEOUS_CANINE_SAPPHIRE %>"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% IGNEOUS_CANINE_AMETHYST %>"
@@ -3115,6 +3140,11 @@
 						"ModifierName"	"modifier_sea_oracle_mega_buff"
 						"Target" 		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_sea_oracle_attack_power"
+						"Target" 		"TARGET"
+					}
 				}
 			}
 			"modifier_sea_oracle_stacker"
@@ -3151,6 +3181,14 @@
 			"modifier_sea_oracle_particle_lock"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_sea_oracle_attack_power"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -3229,9 +3267,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% HOOD_OF_BLACK_MAGE_SAPPHIRE %>"
+				"sapphire1"				"<% HOOD_OF_BLACK_MAGE_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% HOOD_OF_BLACK_MAGE_SAPPHIRE2 %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% HOOD_OF_BLACK_MAGE_AMETHYST %>"
@@ -3923,9 +3966,14 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% LUMA_SAPPHIRE %>"
+				"sapphire1"				"<% LUMA_SAPPHIRE1 %>"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% LUMA_SAPPHIRE2 %>"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% LUMA_AMETHYST %>"
@@ -4301,7 +4349,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"<% EYE_OF_SEASONS_SAPPHIRE %>"
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% EYE_OF_SEASONS_AMETHYST %>"
@@ -4446,9 +4494,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% EMERALD_DOULI_SAPPHIRE %>"
+				"sapphire1"				"<% EMERALD_DOULI_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% EMERALD_DOULI_SAPPHIRE2 %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% EMERALD_DOULI_AMETHYST %>"
@@ -4788,9 +4841,14 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% ROKNAR_SAPPHIRE %>"
+				"sapphire1"				"<% ROKNAR_SAPPHIRE1 %>"
 			}
 			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% ROKNAR_SAPPHIRE2 %>"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% ROKNAR_AMETHYST %>"
@@ -5151,6 +5209,7 @@
 		"precache"
 		{
 			"particle"	"particles/econ/generic/generic_buff_1/umbral_sentinel.vpcf"
+			"particle"	"particles/roshpit/items/umbral_sentinel_ruby_aura.vpcf"
 		}
 		"AbilitySpecial"
 		{
@@ -5167,12 +5226,22 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% UMBRAL_SENTINEL_SAPPHIRE %>"
+				"sapphire1"				"<% UMBRAL_SENTINEL_SAPPHIRE1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"<% UMBRAL_SENTINEL_AMETHYST %>"
+				"sapphire2"				"<% UMBRAL_SENTINEL_SAPPHIRE2 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"				"<% UMBRAL_SENTINEL_AMETHYST1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"				"<% UMBRAL_SENTINEL_AMETHYST2 %>"
 			}
 		}
 		"OnSpellStart"
@@ -5190,6 +5259,22 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects"
+						"Function"		"umbral_sentinel_init"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_umbral_sentinel_aura"
+						"Target" 		"TARGET"
+					}
+				}
 			}
 			"modifier_crest_of_the_umbral_sentinel_effect_visible"
 			{
@@ -5213,18 +5298,57 @@
 					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "<% CREST_OF_UMBRAL_SENTINEL_CHANCE_TO_MISS %>"
 				}
 			}
-			"modifier_umbral_sentinel_ruby"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
-				}
-			}
 			"modifier_umbral_sentinel_sapphire"
 			{
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}
+			}
+			"modifier_umbral_sentinel_sapphire2"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+			"modifier_umbral_sentinel_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_umbral_sentinel_aura_effect"
+				"Aura_Radius"   	"<% UMBRAL_SENTINEL_RUBY_RADIUS %>"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+				"EffectName"	"particles/roshpit/items/umbral_sentinel_ruby_aura.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_umbral_sentinel_aura_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"TextureName"	"itemicons/crest_of_the_umbral_sentinel"
+				"EffectName"	"particles/roshpit/items/umbral_sentinel_ruby_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -5391,6 +5515,32 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "1"
 				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"centaur_horns_emerald_haste_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_centaur_horns_haste_attack_power"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_centaur_horns_haste_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -5403,14 +5553,19 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% CENTAUR_HORNS_EMERALD %>"
+				"emerald1"				"<% CENTAUR_HORNS_EMERALD1 %>"
 			}
 			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald2"				"<% CENTAUR_HORNS_EMERALD2 %>"
+			}
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"<% CENTAUR_HORNS_SAPPHIRE %>"
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% CENTAUR_HORNS_AMETHYST %>"
@@ -5682,6 +5837,15 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"burning_spirit_helmet_attack_land"
+					}
+				}
 			}
 			"modifier_burning_spirit_helmet_flamethrower"
 			{
@@ -5732,14 +5896,24 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BURNING_SPIRIT_EMERALD %>"
+				"emerald1"				"<% BURNING_SPIRIT_EMERALD1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"sapphire1"				"<% BURNING_SPIRIT_SAPPHIRE %>"
+				"emerald2"				"<% BURNING_SPIRIT_EMERALD2 %>"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire1"				"<% BURNING_SPIRIT_SAPPHIRE1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sapphire2"				"<% BURNING_SPIRIT_SAPPHIRE2 %>"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"				"<% BURNING_SPIRIT_AMETHYST %>"
@@ -5891,14 +6065,19 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% GLINT_OF_ONU_EMERALD %>"
+				"emerald1"				"<% GLINT_OF_ONU_EMERALD1 %>"
 			}
 			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"emerald2"				"<% GLINT_OF_ONU_EMERALD2 %>"
+			}
+			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"sapphire1"				"<% GLINT_OF_ONU_SAPPHIRE %>"
 			}
-			"04"
+			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"<% GLINT_OF_ONU_AMETHYST %>"
@@ -5993,22 +6172,37 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"ruby1"				"<% BLACKFEATHER_RUBY %>"
+				"ruby1"				"<% BLACKFEATHER_RUBY1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"emerald1"				"<% BLACKFEATHER_EMERALD %>"
+				"ruby2"				"<% BLACKFEATHER_RUBY2 %>"
 			}
 			"05"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% BLACKFEATHER_SAPPHIRE %>"
+				"var_type"			"FIELD_INTEGER"
+				"emerald1"				"<% BLACKFEATHER_EMERALD %>"
 			}
 			"06"
 			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"				"<% BLACKFEATHER_SAPPHIRE1 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% BLACKFEATHER_SAPPHIRE2 %>"
+			}
+			"08"
+			{
 				"var_type"			"FIELD_INTEGER"
-				"amethyst1"				"<% BLACKFEATHER_AMETHYST %>"
+				"amethyst1"				"<% BLACKFEATHER_AMETHYST1 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amethyst2"				"<% BLACKFEATHER_AMETHYST2 %>"
 			}
 		}
 		"Modifiers"
@@ -6044,6 +6238,11 @@
 						"Function"		"blackfeather_unequip"
 						"target"		"TARGET"
 					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_blackfeather_amethyst_attack_power"
+						"Target" 		"TARGET"
+					}
 				}
 				"OnAttacked"
 				// "%attack_damage" is set to the damage value after mitigation
@@ -6077,6 +6276,14 @@
 						"Function"		"utility_recalculate_roshpit_attributes"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_blackfeather_amethyst_attack_power"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}
 			}
 		}
@@ -6141,9 +6348,14 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"<% BASILISK_PLAGUE_SAPPHIRE %>"
+				"sapphire1"				"<% BASILISK_PLAGUE_SAPPHIRE1 %>"
 			}
 			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"				"<% BASILISK_PLAGUE_SAPPHIRE2 %>"
+			}
+			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"amethyst1"				"<% BASILISK_PLAGUE_AMETHYST %>"
@@ -6215,6 +6427,14 @@
 			"modifier_basilisk_petrify_stacks"
 			{
 				"IsHidden"	"1"
+			}
+			"modifier_basilisk_plague_sapphire"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_basilisk_plague_emerald_stacks"
+			{
+				"IsHidden"	"0"
 			}
 			"modifier_basilisk_plague_petrify"
 			{
@@ -6414,6 +6634,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "<% AUTUMN_SLEEPER_SAPPHIRE_MOVESPEED_REDUCE %>"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"<% AUTUMN_SLEEPER_SAPPHIRE_ATTACK_POWER_REDUCE %>"
 				}
 			}
 		}
@@ -6525,7 +6746,7 @@
 			}
 			"04"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_FLOAT"
 				"emerald1"				"<% ADAMANTINE_SAMURAI_HELMET_EMERALD %>"
 			}
 			"05"
@@ -6546,6 +6767,35 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"adamantine_samurai_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_samurai_helmet_emerald"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_samurai_helmet_ruby"
+			{
+				"IsHidden"	"0"
+			}
+			"modifier_samurai_helmet_emerald"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
 			}
 		}
 	}

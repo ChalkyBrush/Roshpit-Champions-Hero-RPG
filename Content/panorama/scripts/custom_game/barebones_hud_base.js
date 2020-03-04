@@ -9,9 +9,9 @@ function BottomNotification(msg) {
 function AddNotification(msg, panel) {
   var newNotification = true;
   var lastNotification = panel.GetChild(panel.GetChildCount() - 1)
-  $.Msg(panel.GetChildCount())
+  //$.Msg(panel.GetChildCount())
   if (panel.GetChildCount() > 0){
-   $.Msg(panel.GetChild(0).GetChild(0))
+   //$.Msg(panel.GetChild(0).GetChild(0))
    for (var i = 0; i < panel.GetChild(0).GetChildCount(); i++){
       panel.GetChild(0).GetChild(i).text = ""
     }
@@ -65,7 +65,7 @@ function AddNotification(msg, panel) {
   } else if (msg.image != null){
     notification.SetImage(msg.image);
     notification.hittest = false;
-    $.Msg(msg)
+    //$.Msg(msg)
     if (msg.dungeonName!=null){
       dungeonLabel = $.CreatePanel('Label', notification, '');
       dungeonLabel.AddClass('dungeon_label')

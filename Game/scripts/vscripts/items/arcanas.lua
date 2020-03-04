@@ -1483,7 +1483,7 @@ function RPCItems:GetAllArcanaNames()
 end
 
 function RPCItems:WorldDropArcanas()
-    local arcanaTable = {"item_rpc_flamewaker_arcana1", "item_rpc_flamewaker_arcana2", "item_rpc_voltex_arcana1", "item_rpc_venomort_arcana1", "item_rpc_venomort_arcana2", "item_rpc_axe_arcana1",
+    local arcanaTable = {"item_rpc_flamewaker_arcana1", "item_rpc_flamewaker_arcana2", "item_rpc_voltex_arcana1", "item_rpc_venomort_arcana1", "item_rpc_axe_arcana1",
         "item_rpc_astral_arcana1", "item_rpc_astral_arcana2", "item_rpc_epoch_arcana1", "item_rpc_paladin_arcana1", "item_rpc_sorceress_arcana1", "item_rpc_sorceress_arcana2",
         "item_rpc_conjuror_arcana1", "item_rpc_seinaru_arcana1", "item_rpc_seinaru_arcana2", "item_rpc_warlord_arcana1", "item_rpc_bahamut_arcana1", "item_rpc_trapper_arcana1",
         "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",

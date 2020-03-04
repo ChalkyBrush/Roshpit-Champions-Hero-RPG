@@ -434,7 +434,7 @@ function OnDragDrop( panelId, draggedPanel )
 		
 		if (Players.GetPlayerHeroEntityIndex( Players.GetLocalPlayer() ) == Players.GetLocalPlayerPortraitUnit())
 		{
-			$.Msg('dragged from stash to inventory')
+			//$.Msg('dragged from stash to inventory')
 			var playerID = Game.GetLocalPlayerID();
 			if (GameUI.CustomUIConfig().stashAllowed == 1){
 				GameUI.CustomUIConfig().stashAllowed = 0;
@@ -506,7 +506,7 @@ function OnDragEnd( panelId, draggedPanel )
 		GameUI.CustomUIConfig().glyph1.RemoveClass('glyph_ready')
 		GameUI.CustomUIConfig().glyph2.RemoveClass('glyph_ready')
 		GameUI.CustomUIConfig().glyph3.RemoveClass('glyph_ready')
-		$.Msg("GLYPH REMOVE READY")		
+		//$.Msg("GLYPH REMOVE READY")		
 	}
 	// kill the display panel
 	draggedPanel.DeleteAsync( 0 );

@@ -8,7 +8,7 @@ function dungeonVote(msg){
 	var translatedHeroName = $.Localize( "#"+heroName)
 	$('#initiator_hero_text').text = translatedHeroName
 	var image = msg.dungeonImage;
-	$.Msg(image)
+	//$.Msg(image)
 	$('#dungeon_image').SetImage(image);
 	$('#dungeon_title').text = $.Localize("#dungeon_"+msg.dungeonName+"_title")
 	$('#initiation_text').text = $.Localize("#dungeon_initiation_text")
@@ -63,8 +63,8 @@ function vote(bStatus, playerNumber){
 function receiveVote(msg){
 	var playerNumber = msg.playerNumber
 	var status = msg.status
-	$.Msg("vote Received")
-	$.Msg(playerNumber)
+	//$.Msg("vote Received")
+	//$.Msg(playerNumber)
 	$('#vote_options'+playerNumber).AddClass('invisible')
 	if (status){
 		 $('#vote_color_'+playerNumber).RemoveClass('initiator_panel_background')

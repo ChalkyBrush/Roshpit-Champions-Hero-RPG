@@ -395,6 +395,16 @@ function centaur_horn_think(event)
 		end
 	end
 end
+
+function centaur_horns_emerald_haste_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local hero = caster.hero
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_centaur_horns_haste_attack_damage", {})
+	local attack_damage_bonus = hero:GetActualMovespeed()*ability:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD2)
+	hero:SetModifierStackCount("modifier_centaur_horns_haste_attack_damage", caster, attack_damage_bonus)
+end
+
 function monkey_paw_think(event)
 	local caster = event.target
 	local ability = event.ability
@@ -449,7 +459,7 @@ function witch_hat_strike(event)
 	local ability = event.ability
 	local caster = ability.caster
 	local target = event.target
-	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG + ability:GetFinalGemPropertyValue("amethyst", SWAMP_WITCH_AMETHYST)
+	local damage = caster:GetIntellect() * SWAMP_WITCH_HAT_INT_TO_DMG
 
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, event.ability, RPC_ELEMENT_SHADOW, RPC_ELEMENT_NONE)
 	if ability:GetGemValue("ruby") > 0 then
@@ -611,41 +621,6 @@ function weapon_cleave_attack(event)
 			Filters:ApplyDamageBasic(enemy, attacker, damage, DAMAGE_TYPE_PHYSICAL)
 			-- ApplyDamage({ victim = enemy, attacker = attacker, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL })
 		end
-	end
-end
-
-function dark_arts_think(event)
-	local target = event.target
-	local ability = event.ability
-	local caster = event.caster
-	local stacks = math.floor(target:GetBaseIntellect() * ITEM_RPC_DARK_ARTS_VESTMENTS_INT_TO_AGI)
-	if not target:HasModifier("modifier_dark_arts_effect") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_effect", {})
-	end
-	target:SetModifierStackCount("modifier_dark_arts_effect", ability, stacks)
-
-	if ability:GetGemValue("ruby") > 0 then
-		local attack_damage_bonus = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_RUBY)*target:GetMana()
-		if attack_damage_bonus > 0 then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_dark_arts_ruby_base_attack", {})
-			target:SetModifierStackCount("modifier_dark_arts_ruby_base_attack", caster, attack_damage_bonus)
-		else
-			target:RemoveModifierByName("modifier_dark_arts_ruby_base_attack")
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not ability.last_health then
-			ability.last_health = target:GetHealth()
-		end
-		local health_diff = ability.last_health - target:GetHealth()
-		if health_diff > 0 then
-			local mana_restore = math.ceil(health_diff * ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DARK_ARTS_VESTMENTS_GEM_AMETHYST)/100)
-			if mana_restore > 0 then
-				target:GiveMana(mana_restore)
-				PopupMana(target, mana_restore)
-			end
-		end
-		ability.last_health = target:GetHealth()		
 	end
 end
 
@@ -1539,7 +1514,7 @@ function undertaker_attack(event)
 		ability.caster = attacker
 		for i = 1, loops, 1 do
 			Timers:CreateTimer((i-1)*0.15, function()
-				local travel_speed = UNDERTAKER_HAND_BASE_SPEED + ability:GetFinalGemPropertyValue("emerald", UNDERTAKER_EMERALD)
+				local travel_speed = UNDERTAKER_HAND_BASE_SPEED + ability:GetFinalGemPropertyValue("emerald", UNDERTAKER_EMERALD1)
 				local info =
 				{
 					Target = target,
@@ -2683,6 +2658,10 @@ function blackfeather_attack_land(event)
 			Filters:PerformAttackSpecial(ability.crow, target, true, true, true, false, true, false, false)
 			EmitSoundOn("RPCItems.Blackfeather.Stormcrow", ability.crow)
 		end)
+		if ability:GetGemValue("amethyst") > 0 then
+			ability:ApplyDataDrivenModifier(event.caster, hero, "modifier_blackfeather_amethyst_attack_power", {duration = 0.75})
+			hero:SetModifierStackCount("modifier_blackfeather_amethyst_attack_power", event.caster, ability:GetFinalGemPropertyValue("amethyst", BLACKFEATHER_AMETHYST2))
+		end
 		Timers:CreateTimer(0.45, function()
 			if not ability.crow:HasModifier("modifier_crow_attacking") then
 				Events:smoothSizeChange(ability.crow, 1, 0.01, 10)
@@ -2696,13 +2675,45 @@ function blackfeather_attack_land(event)
 				Timers:CreateTimer(0.3, function()
 					if not ability.crow:HasModifier("modifier_crow_attacking") then
 						if ability.crow:GetModelScale() < 0.2 then
-							
+							hero:RemoveModifierByName("modifier_blackfeather_amethyst_attack_power")
 							ability.crow:AddNoDraw()
 						end
 					end
 				end)
 			end
 		end)
+	end
+end
+
+function blackfeather_ruby(hero, crow, target, damage, ability)
+	local proc_chance = ability:GetFinalGemPropertyValue("ruby", BLACKFEATHER_RUBY1)
+	local proc = Filters:GetProc(hero, proc_chance)
+	if proc then
+		local chain = {}
+		chain.index_hit = 0
+		chain.enemies = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, BLACKFEATHER_RUBY_CHAIN_SEARCH_RANGE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		if #chain.enemies > 1 then
+			for i = 2, ability:GetFinalGemPropertyValue("ruby", BLACKFEATHER_RUBY2)+1, 1 do
+				Timers:CreateTimer((i - 2) * 0.15, function()
+					local enemy = chain.enemies[i]
+					if IsValidEntity(enemy) and enemy:IsAlive() then
+						EmitSoundOn("RPCItems.HyperVisor.ChainLightning", enemy)
+						Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_SHADOW)
+						local particleName = "particles/units/heroes/hero_zuus/z_w.vpcf"
+						local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/z_w.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						local attach_unit_1 = attacker
+						if i > 1 then
+							attach_unit_1 = chain.enemies[i - 1]
+						end
+						ParticleManager:SetParticleControl(pfx, 0, attach_unit_1:GetAbsOrigin() + Vector(0, 0, attach_unit_1:GetBoundingMaxs().z + 80))
+						ParticleManager:SetParticleControl(pfx, 1, enemy:GetAbsOrigin() + Vector(0, 0, enemy:GetBoundingMaxs().z + 100))
+						Timers:CreateTimer(0.3, function()
+							ParticleManager:DestroyParticle(pfx, false)
+						end)
+					end
+				end)
+			end
+		end
 	end
 end
 
@@ -2727,10 +2738,13 @@ function crow_summon_attack_land(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local ability = attacker.hero.equipped_gear[RPC_GEAR_SLOT_HEAD]
-	local damage = BLACKFEATHER_ATTACK_DAMAGE_MULT*OverflowProtectedGetAverageTrueAttackDamage(attacker.hero)*(1 + ability:GetFinalGemPropertyValue("ruby", BLACKFEATHER_RUBY)/100)
+	local damage = BLACKFEATHER_ATTACK_DAMAGE_MULT*OverflowProtectedGetAverageTrueAttackDamage(attacker.hero)
 	Filters:ApplyItemDamage(target, attacker.hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_LIGHTNING, RPC_ELEMENT_SHADOW)
 	if ability:GetGemValue("sapphire") > 0 then
 		ability:ApplyDataDrivenModifier(caster, target, "modifier_blackfeather_armor_reduce", {duration = BLACKFEATHER_SAPPHIRE_ARMOR_REDUCE_DURATION})
+	end
+	if ability:GetGemValue("ruby") > 0 then
+		blackfeather_ruby(attacker.hero, attacker, target, damage, ability)
 	end
 end
 
@@ -3969,15 +3983,22 @@ function basilisk_plague_petrify(event)
 		target:SetModifierStackCount("modifier_basilisk_petrify_stacks", caster, newStacks)
 		if newStacks >= BASILISK_PLAGUE_TIME_BEFORE_STONE_FORM / BASILISK_PLAGUE_THINK_INTERVAL then
 			target:RemoveModifierByName("modifier_basilisk_petrify_stacks")
-			local stone_form_duration = BASILISK_PLAGUE_STONE_FORM_DUR + ability:GetFinalGemPropertyValue("sapphire", BASILISK_PLAGUE_SAPPHIRE)
+			local stone_form_duration = BASILISK_PLAGUE_STONE_FORM_DUR + ability:GetFinalGemPropertyValue("sapphire", BASILISK_PLAGUE_SAPPHIRE1)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_petrify", {duration = stone_form_duration})
 			local pfx = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_earth_spirit/espirit_magnetize_target.vpcf", target, 3)
 			EmitSoundOn("RPC.BasiliskHelm.Petrify", target)
+			if ability:GetGemValue("sapphire") > 0 then
+				ability:ApplyDataDrivenModifier(caster, caster.hero, "modifier_basilisk_plague_sapphire", {duration = BASILISK_PLAGUE_SAPPHIRE_DURATION})
+			end
 		end
 	end
 	if ability:GetGemValue("emerald") > 0 then
-		local damage = ability:GetFinalGemPropertyValue("emerald", BASILISK_PLAGUE_EMERALD)
+		local stacks = target:GetModifierStackCount("modifier_basilisk_plague_emerald_stacks", caster)
+		local damage = ability:GetFinalGemPropertyValue("emerald", BASILISK_PLAGUE_EMERALD) * (stacks + 1)
 		Filters:ApplyItemDamage(target, caster.hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_DEMON)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_basilisk_plague_emerald_stacks", {duration = BASILISK_PLAGUE_EMERALD_STACK_DURATION})
+		local new_stacks = math.min(stacks + 1, BASILISK_PLAGUE_EMERALD_MAX_STACKS)
+		target:SetModifierStackCount("modifier_basilisk_plague_emerald_stacks", caster, new_stacks)
 	end
 end
 
@@ -4311,7 +4332,7 @@ function igneous_canine_damage(event)
 	local target = event.target
 	local caster = event.ability.hero
 	local ability = event.ability
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (IGNEOUS_CANINE_ATTACK_TO_DMG/100) + ability:GetFinalGemPropertyValue("ruby", IGNEOUS_CANINE_RUBY)*caster:GetStrength()
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (IGNEOUS_CANINE_ATTACK_TO_DMG/100) + ability:GetFinalGemPropertyValue("ruby", IGNEOUS_CANINE_RUBY1)*caster:GetStrength()
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
 
@@ -4778,7 +4799,7 @@ function flamethrower_init(event)
 	local ability = event.ability
 	ability.interval = -4
 	ability.rising = true
-	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * BURNING_SPIRIT_ATTACK_TO_DAMAGE/100 + ability:GetFinalGemPropertyValue("emerald", BURNING_SPIRIT_EMERALD)
+	ability.damage = OverflowProtectedGetAverageTrueAttackDamage(target) * (BURNING_SPIRIT_ATTACK_TO_DAMAGE + ability:GetFinalGemPropertyValue("emerald", BURNING_SPIRIT_EMERALD1))/100
 	ability.origCaster = target
 	flamethrower_thinking(event)
 end
@@ -4830,6 +4851,50 @@ function flamethrower_thinking(event)
 	}
 	projectile = ProjectileManager:CreateLinearProjectile(info)
 
+end
+
+function burning_spirit_helmet_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local hero = event.attacker
+	if ability:GetGemValue("sapphire") > 0 then
+		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", BURNING_SPIRIT_SAPPHIRE1))
+		if proc then
+			ability.origCaster = hero
+			if not ability.damage then 
+				ability.damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * (BURNING_SPIRIT_ATTACK_TO_DAMAGE + ability:GetFinalGemPropertyValue("emerald", BURNING_SPIRIT_EMERALD1))/100	
+			end
+			local start_radius = 120
+			local end_radius = 200
+			local range = WallPhysics:GetDistance2d(hero:GetAbsOrigin(), target:GetAbsOrigin()) + ability:GetFinalGemPropertyValue("sapphire", BURNING_SPIRIT_SAPPHIRE2)
+			local speed = 1000
+			local fv = ((target:GetAbsOrigin() - hero:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+
+			local info =
+			{
+				Ability = ability,
+				EffectName = projectileParticle,
+				vSpawnOrigin = target:GetAbsOrigin() + Vector(0, 0, 80),
+				fDistance = range,
+				fStartRadius = start_radius,
+				fEndRadius = end_radius,
+				Source = caster,
+				StartPosition = "attach_origin",
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				fExpireTime = GameRules:GetGameTime() + 5.0,
+				bDeleteOnHit = false,
+				vVelocity = fv * speed,
+				bProvidesVision = false,
+			}
+			projectile = ProjectileManager:CreateLinearProjectile(info)
+		end
+	end
 end
 
 function flamethrower_impact(event)
@@ -5078,12 +5143,14 @@ function sea_oracle_thinker(event)
 	local has_mega_buff = false
 
 	local new_table = {}
+	local largest_stack = 0
 	for i = 1, #ability.tideworn_table, 1 do
 		if IsValidEntity(ability.tideworn_table[i]) and ability.tideworn_table[i]:IsAlive() and ability.tideworn_table[i]:HasModifier("modifier_sea_oracle_stacker") then
 			table.insert(new_table, ability.tideworn_table[i])
 			if ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster) == HOOD_OF_SEA_ORACLE_MAX_STACKS then
 				has_mega_buff = true
 			end
+			largest_stack = math.min(largest_stack, ability.tideworn_table[i]:GetModifierStackCount("modifier_sea_oracle_stacker", caster))
 		end
 	end
 	ability.tideworn_table = new_table
@@ -5098,6 +5165,13 @@ function sea_oracle_thinker(event)
 		end
 	else
 		target:RemoveModifierByName("modifier_sea_oracle_mega_buff")
+	end
+	if ability:GetGemValue("sapphire") > 0 and largest_stack > 0 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_sea_oracle_attack_power", {})
+		local attack_power = largest_stack*ability:GetFinalGemPropertyValue("sapphire", SEA_ORACLE_SAPPHIRE)
+		target:SetModifierStackCount("modifier_sea_oracle_attack_power", caster, attack_power)
+	else
+		target:RemoveModifierByName("modifier_sea_oracle_attack_power")
 	end
 end
 
@@ -5870,37 +5944,6 @@ function buzuki_buff_attack_land(event)
 	end)
 end
 
-function swiftspike_think(event)
-	local caster = event.caster
-	local hero = event.target
-	local ability = event.ability
-	local movespeed = hero:GetBaseMoveSpeed()
-	local movespeedActual = hero:GetMoveSpeedModifier(movespeed, false)
-	if not hero:HasModifier("modifier_swiftspike_bad") then
-		ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_bad", {})
-	end
-	hero:SetModifierStackCount("modifier_swiftspike_bad", caster, movespeedActual)
-	if ability:GetGemValue("ruby") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_atk_damage") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_atk_damage", {})
-		end
-		local atk_damage_stacks = movespeedActual*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_RUBY)
-		hero:SetModifierStackCount("modifier_swiftspike_atk_damage", caster, atk_damage_stacks)
-	end
-	if ability:GetGemValue("sapphire") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_sapphire") then
-			hero:AddNewModifier(hero, ability, "modifier_swiftspike_sapphire", {})
-		end
-	end
-	if ability:GetGemValue("amethyst") > 0 then
-		if not hero:HasModifier("modifier_swiftspike_ms_pct") then
-			ability:ApplyDataDrivenModifier(caster, hero, "modifier_swiftspike_ms_pct", {})
-		end
-		local ms_pct_amethyst = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWIFTSPIKE_BRACER_GEM_AMETHYST)
-		hero:SetModifierStackCount("modifier_swiftspike_ms_pct", caster, ms_pct_amethyst)
-	end
-end
-
 function orthok_attack_land(event)
 	local attacker = event.attacker
 	Filters:OrthokStack(attacker, 1)
@@ -6268,7 +6311,7 @@ function erudite_teacher_start(event)
 		end)
 		if ability.apprentice_abilities_table then
 			Timers:CreateTimer(0.03, function()
-				DeepPrintTable(ability.apprentice_abilities_table)
+				--DeepPrintTable(ability.apprentice_abilities_table)
 				for i = 1, #ability.apprentice_abilities_table, 1 do
 					local ability_check_name = ability.apprentice_abilities_table[i]
 					local steal_index = i - 1
@@ -6751,8 +6794,13 @@ function ruby_dragon_constant_think(event)
 	if caster.roshpit_attributes.roshpit_level ~= hero:GetLevel() then
 		caster:SetRoshpitLevel(hero:GetLevel())
 		caster:SetMaxHPandHealToFull(RUBY_DRAGON_HP_PER_HERO_LEVEL*hero:GetLevel())
-		caster:SetBaseDamageMax(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
-		caster:SetBaseDamageMin(hero:GetLevel()*RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+	end
+	if not caster.ruby_dragon_gem_bonus_damage_applied then
+		caster.ruby_dragon_gem_bonus_damage_applied = true
+		local damageBuff = hero:GetLevel()*(RUBY_DRAGON_ATK_POWER_PER_HERO_LEVEL+hero.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", RUBY_DRAGON_RUBY))
+		print("[ruby_dragon_constant_think] damageBuff "..tostring(damageBuff))
+		caster:SetBaseDamageMax(damageBuff)
+		caster:SetBaseDamageMin(damageBuff)
 	end
 	caster:SetBaseRoshpitArmor(hero:GetRoshpitArmor())
 	caster:SetBaseRoshpitMagicArmor(hero:GetRoshpitMagicArmor())
@@ -6916,7 +6964,7 @@ function luma_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
 	if ability:GetGemValue("sapphire") > 0 then
-		local vision_radius = ability:GetFinalGemPropertyValue("sapphire", LUMA_SAPPHIRE)
+		local vision_radius = ability:GetFinalGemPropertyValue("sapphire", LUMA_SAPPHIRE1)
 		AddFOWViewer(target:GetTeamNumber(), target:GetAbsOrigin(), vision_radius, 2, false)
 	end
 end
@@ -9374,6 +9422,9 @@ end
 
 function bladeslinger_unequip(event)
 	local ability = event.ability
+	if not ability.vorpals then
+		return
+	end
 	for i = 1, #ability.vorpals, 1 do
 		ParticleManager:DestroyParticle(ability.vorpals[i].pfx, false)
 		ParticleManager:ReleaseParticleIndex(ability.vorpals[i].pfx)	
@@ -10138,5 +10189,26 @@ function rupthold_think(event)
 		if ability.apply_time + ITEM_RPC_RUPTHOLDS_HELM_OF_GLUTTONY_SAPPHIRE_MAX_DURATION < GameRules:GetGameTime() then
 			hero:RemoveModifierByName("modifier_rupthold_borrowed_time")
 		end
+	end
+end
+
+function adamantine_samurai_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	if ability:GetGemValue("emerald") > 0 then
+		local attack_damage_bonus = hero:GetRoshpitArmor()*ability:GetFinalGemPropertyValue("emerald", ADAMANTINE_SAMURAI_HELMET_EMERALD)
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_samurai_helmet_emerald", {})
+		hero:SetModifierStackCount("modifier_samurai_helmet_emerald", caster, attack_damage_bonus)
+	end
+end
+
+function umbral_sentinel_init(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_umbral_sentinel_aura", {})
 	end
 end

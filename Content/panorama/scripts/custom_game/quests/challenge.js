@@ -1,7 +1,7 @@
 challenge = $.GetContextPanel().challenge
 
 function populateChallenge(){
-	$.Msg(challenge)
+	//$.Msg(challenge)
 	$('#challenge_main_tooltip').text = $.Localize('#challenge_title')
 	// $('#challenge_information').text = $.Localize('#challenge_description')
 	var challengeInfo = "<font color='#FF0000'>-</font> "

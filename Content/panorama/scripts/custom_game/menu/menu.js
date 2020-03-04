@@ -17,7 +17,7 @@ function equipment_button(){
 		equipmentPanel.AddClass("animateOut")
 		equipmentPanel.SetAttributeInt("isOpen", 0)	
 		$.Schedule(0.29, function(){		
-			$.Msg("INVIS?")
+			//$.Msg("INVIS?")
 			equipmentPanel.AddClass("invisible")
 			equipmentPanel.style.visibility = "collapse"
 		});			
@@ -272,7 +272,7 @@ function CorrectDotaUI(){
 	var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
 	GameUI.StatsTooltipAttachment = stats_tooltip_panel
 	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
-		$.Msg("NEW TOOLTIP?")
+		//$.Msg("NEW TOOLTIP?")
 		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
 		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
 	});
@@ -290,7 +290,7 @@ function InitializeMenu(){
 	// $('#menu_skill_points_label').text=$.Localize("skill_points")
 	// $('#menu_rune_points_label').text=$.Localize("runic_points")
 	if (isRedfallRidge()){
-		$.Msg("HEY!!")
+		//$.Msg("HEY!!")
 		$('#quest_log_button').RemoveClass('invisible')
 	}
 
@@ -301,8 +301,8 @@ function SetKeyVisibility(){
 	var difficulty = GetDifficultyFactor()
 	var heroIndex = getSelectedHeroIndex()
 	var keys = CustomNetTables.GetTableValue( "portal_keys", heroIndex+"-"+difficulty )
-	$.Msg(heroIndex)
-	$.Msg(keys)
+	//$.Msg(heroIndex)
+	//$.Msg(keys)
 	if (!(keys === undefined)){
 		if (keys.forest == 1){
 			$('#portal_key_forest').RemoveClass('hidden')
@@ -461,7 +461,7 @@ function UseRespawnFlag(){
 	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
 	// Game.EmitSound("ui.crafting_pulse")
 	var color = 1
-	$.Msg(color)
+	//$.Msg(color)
 	GameEvents.SendCustomGameEventToServer( "respawn_flag", {playerID: playerID, heroIndex: heroIndex, color: color});
 }
 
