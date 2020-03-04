@@ -3,7 +3,7 @@ import re
 
 
 kv2json_patterns = {
-    re.compile(r'//.*$', re.MULTILINE): r'\n',
+    re.compile(r'//.*$', re.MULTILINE): '',
     re.compile(r'"(\s*?){'): r'":\1{',
     re.compile(r'"([ \t]*)"'): r'":\1"',
     re.compile(r'"\s*?$', re.MULTILINE): r'",',
