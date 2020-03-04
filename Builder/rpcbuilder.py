@@ -1,13 +1,13 @@
 import re
 from copy import copy
-from datetime import datetime
 from pathlib import Path
-from time import sleep, time, strftime
+from time import sleep, time
 from typing import Match, List, Optional, Dict, NoReturn
 
 from Builder.lua_classes import LuaNumber, LuaConstant, try_parse
 from Builder.settings import SettingsManager
 from Builder.messages import MsgType, print_msg
+from Builder.kv2json import kv2json
 
 
 class RPCBuilder:
@@ -31,21 +31,23 @@ class RPCBuilder:
 
     def build(self) -> None:
         """Assemble all files and write on disk"""
-
-        self._file_stats.clear()
-        self._settings.update()
+        file_stats = self._file_stats
+        settings = self._settings
+        file_stats.clear()
+        settings.update()
         start = time()
         print_msg('Building...', MsgType.INFO)
 
+        file_stats[settings.file] = settings.file.stat().st_mtime
         self._load_constants()
         self._load_replacements()
         for source, destination, encoding in self._settings.get_files():
             #start_file = time()
-            self._file_stats[source] = source.stat().st_mtime
+            file_stats[source] = source.stat().st_mtime
             self._build_file(source, destination, encoding)
-            #print_msg(f'Finished building "{destination}" in {(time()-start_file):.3f}s', MsgType.INFO)
+            print_msg(f'Finished building "{destination}"', MsgType.INFO)
         end = time() - start
-        print_msg(f'Done! Time elapsed {end:.3f}s', MsgType.INFO)
+        print_msg(f'Done! Time elapsed {end:.3f}s\n{"-"*64}', MsgType.INFO)
 
     def watch(self) -> NoReturn:
         """Build and then begin monitoring source files' modification time.
@@ -62,7 +64,8 @@ class RPCBuilder:
 
             sleep(settings.get_update_interval())
             # check if file records has changed
-            paths = settings.get_paths('constants')
+            paths = [settings.file]
+            paths += settings.get_paths('constants')
             paths += settings.get_paths('replacements')
             paths += [path for path, _, _ in settings.get_files()]
             if list(file_stats.keys()) != paths:
@@ -121,8 +124,11 @@ class RPCBuilder:
                 if key not in result:
                     result[key] = temp[key]
                 elif overwrite:
-                    print_msg(f'{key} is overwritten by "{path}"', MsgType.WARNING)
+                    print_msg(f'Constant {key} was overwritten {result[key]} -> {temp[key]}\nsource:"{path}"', MsgType.WARNING)
                     result[key] = temp[key]
+                else:
+                    print_msg(f'Duplicate constant definition for {key}:\nsource:"{path}"', MsgType.WARNING)
+
 
         self._constants = result
 
@@ -138,8 +144,10 @@ class RPCBuilder:
             if key not in result:
                 result[key] = path
             elif overwrite:
-                print_msg(f'##{key}## is overwritten by "{path}"', MsgType.WARNING)
+                print_msg(f'File entry for {key} was overwritten:\nold:"{result[key]}"\nnew:"{path}"', MsgType.WARNING)
                 result[key] = path
+            else:
+                print_msg(f'Duplicate file entry for {key}:\nhave:"{result[key]}"\nfound:"{path}"', MsgType.WARNING)
 
         self._replacement_map = result
 
@@ -147,11 +155,25 @@ class RPCBuilder:
         # converts 'FILE_NAME' into the contents of the respective file
         settings = self._settings
         file_name = match.group(1)
-        file_path = self._replacement_map[file_name]
+        try:
+            file_path = self._replacement_map[file_name]
+        except KeyError:
+            print_msg(f'No file entry for {file_name}', MsgType.ERROR)
+            print_msg(f'Skipping {file_name}', MsgType.WARNING)
+            return ''
+
+        if settings.get_flag('empty_warning') and file_path.stat().st_size == 0:
+            print_msg(f'File "{file_path}" is empty', MsgType.WARNING)
+            return ''
+
         with file_path.open('r', encoding='utf-8') as file:
             content = file.read()
-            if settings.get_flag('empty_warning') and len(content) == 0:
-                print_msg(f'File "{file_path}" is empty', MsgType.WARNING)
+            try:
+                kv2json(content)
+            except Exception as e:
+                print_msg(f'{e}', MsgType.ERROR)
+                print_msg(f'Skipping {file_name}', MsgType.WARNING)
+                return ''
             return f'\n{content}'
 
     def _resolve_expression(self, match: Match, color: Optional[str] = None) -> str:
@@ -169,7 +191,8 @@ class RPCBuilder:
                     number = float(operand)
                     operands.append(number)
                 except ValueError:
-                    print(f'[ERROR] Constant {operand} not defined')
+                    print_msg(f'{match.group()} returned ZERO', MsgType.WARNING)
+                    print_msg(f'Constant {operand} not defined', MsgType.ERROR)
                     return '0'
         # calculate result assuming that all
         # parts with odd index are operators
@@ -191,3 +214,5 @@ class RPCBuilder:
             result += f'<font color=\\"{colors[index]}\\">{char}</font>'
             index = (index + 1) % len(colors)
         return result
+
+

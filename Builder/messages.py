@@ -1,5 +1,5 @@
 from enum import Enum
-from sys import exit
+from typing import Optional
 
 class MsgType(Enum):
     INFO = '\033[10m'
@@ -8,9 +8,7 @@ class MsgType(Enum):
     END = '\033[0m'
 
 
-def print_msg(text: str, msgtype: MsgType) -> None:
-    #print(f'{msgtype.value}[{msgtype.name}] {text}{MsgType.END.value}')
-    print(f'[{msgtype.name}] {text}')
-    if msgtype == MsgType.ERROR:
-        exit()
+def print_msg(text: str, msgtype: MsgType, end: Optional[str] = '\n') -> None:
+    prefix = f'{msgtype.value}[{msgtype.name}] ' if msgtype != MsgType.INFO else ''
+    print(f'{prefix}{text}{MsgType.END.value}')
 

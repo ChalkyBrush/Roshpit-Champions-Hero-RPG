@@ -109,6 +109,9 @@ class LuaTable(list, LuaConstant):
     def __repr__(self):
         return f"<{self.__class__.__name__}:{{{', '.join(repr(x) for x in self)}}}>"
 
+    def __str__(self):
+        return f"{{{', '.join(str(x) for x in self)}}}"
+
     def to_string(self) -> str:
         return ' '.join(x.to_string() for x in self)
 
