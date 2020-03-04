@@ -54969,7 +54969,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -54979,7 +54979,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"				"0.4 0.8 1.2 1.6 2"
 			}
 		}
 	}
@@ -55398,13 +55398,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"ruby1"					"0.5 1 1.5 2 2.5"
-||||||| merged common ancestors
-				"ruby1"					"0.5 1.0 1.5 2.0 2.5"
-=======
-				"ruby1"					"0.6 1.2 1.8 2.4 3.0"
->>>>>>> master
+				"ruby1"					"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
@@ -55419,13 +55413,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"amethyst1"				"0.8 1.6 2.4 3.2 4"
-||||||| merged common ancestors
-				"amethyst1"				"0.8 1.6 2.4 3.2 4.0"
-=======
 				"amethyst1"				"1 2 3 4 5"
->>>>>>> master
 			}
 		}
 	}
@@ -55536,18 +55524,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"amethyst1"				"0.6 1.2 1.8 2.4 3"
-||||||| merged common ancestors
-				"amethyst1"				"0.6 1.2 1.8 2.4 3.0"
-=======
 				"sapphire1"				"1 2 3 4 5"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1.2 2.4 3.6 4.8 6.0"
->>>>>>> master
+				"amethyst1"				"1.2 2.4 3.6 4.8 6"
 			}
 		}
 	}
@@ -56120,13 +56102,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"amethyst1"				"3 2.5 2 1.5 1"
-||||||| merged common ancestors
-				"amethyst1"				"3.0 2.5 2.0 1.5 1.0"
-=======
-				"amethyst1"				"2.5 2.0 1.5 1.0 0.5"
->>>>>>> master
+				"amethyst1"				"2.5 2 1.5 1 0.5"
 			}
 		}
 	}
@@ -56558,7 +56534,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"06"
 			{
@@ -56735,13 +56711,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"sapphire1"				"0.2 0.4 0.6 0.8 1"
-||||||| merged common ancestors
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
-=======
 				"sapphire1"				"0.3 0.6 0.9 1.2 1.5"
->>>>>>> master
 			}
 			"04"
 			{
@@ -57282,7 +57252,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -57783,7 +57753,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.6 1.2 1.8 2.4 3.0"
+				"emerald1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -57793,13 +57763,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"amethyst1"				"0.2 0.4 0.6 0.8 1"
-||||||| merged common ancestors
-				"amethyst1"				"0.2 0.4 0.6 0.8 1.0"
-=======
-				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
->>>>>>> master
+				"amethyst1"				"0.4 0.8 1.2 1.6 2"
 			}
 		}
 	}
@@ -57926,13 +57890,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"ruby1"				"0.2 0.4 0.6 0.8 1"
-||||||| merged common ancestors
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
-=======
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
->>>>>>> master
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -57942,18 +57900,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"sapphire1"				"0.2 0.4 0.6 0.8 1"
-||||||| merged common ancestors
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
-=======
 				"emerald1"				"1 2 3 4 5"
->>>>>>> master
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"07"
 			{
@@ -58011,7 +57963,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"				"0.5 1 1.5 2 2.5"
 			}
 			"04"
 			{
@@ -58175,7 +58127,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1.2 2.4 3.6 4.8 6.0"
+				"sapphire1"				"1.2 2.4 3.6 4.8 6"
 			}
 			"04"
 			{
@@ -58342,7 +58294,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.5 1.0 1.5 2.0 2.5"
+				"ruby1"				"0.5 1 1.5 2 2.5"
 			}
 			"02"
 			{
@@ -58352,13 +58304,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"sapphire1"				"1.2 2.4 3.6 4.8 6"
-||||||| merged common ancestors
-				"sapphire1"				"1.2 2.4 3.6 4.8 6.0"
-=======
 				"sapphire1"				"12 24 36 48 60"
->>>>>>> master
 			}
 			"04"
 			{
@@ -59217,7 +59163,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
@@ -59464,7 +59410,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -59545,13 +59491,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-<<<<<<< HEAD
-				"sapphire1"				"1.5 3 4.5 6 7.5"
-||||||| merged common ancestors
-				"sapphire1"				"1.5 3.0 4.5 6.0 7.5"
-=======
 				"sapphire1"				"2 4 6 8 10"
->>>>>>> master
 			}
 			"05"
 			{
