@@ -2842,17 +2842,17 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_special_a"			"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+				"poison_special_a"			"2.8 3 3.2 3.4 3.6 3.8 4"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_a"			"1 1.5 2.0 2.5 3 3.5 4.0"
+				"time_special_a"			"1 1.5 2 2.5 3 3.5 4"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_b"			"2.0 3.0 4.0 5.0 6.0 7.0 8.0"
+				"time_special_b"			"2 3 4 5 6 7 8"
 			}
 			"09"
 			{
@@ -2867,7 +2867,7 @@
 			"11"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_special_a"			"-2.0 -2.5 -3 -3.5 -4.0 -4.5 -5.0"
+				"ice_special_a"			"-2 -2.5 -3 -3.5 -4 -4.5 -5"
 			}
 			"12"
 			{
@@ -2912,7 +2912,7 @@
 			"20"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_special_a"			"1.0 2.0 3.0 4.0 5.0 6.0 8.0"
+				"demon_special_a"			"1 2 3 4 5 6 8"
 			}
 			"21"
 			{
@@ -2922,7 +2922,7 @@
 			"22"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
 			}
 			"23"
 			{
@@ -3305,7 +3305,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"fire_orb_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"fire_orb_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
 			}
 			"03"
 			{
@@ -3320,12 +3320,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"lightning_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"poison_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"07"
 			{
@@ -3380,7 +3380,7 @@
 			"17"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shadow_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"shadow_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"18"
 			{
@@ -3400,7 +3400,7 @@
 			"21"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_a"		"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"ghost_orb_a"		"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"22"
 			{
@@ -3410,12 +3410,12 @@
 			"23"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"water_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"water_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"1.9 2.0 2.1 2.2 2.3 2.4 2.5"
+				"demon_orb_a"			"1.9 2 2.1 2.2 2.3 2.4 2.5"
 			}
 			"23"
 			{
@@ -3430,7 +3430,7 @@
 			"25"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"undead_orb_a"			"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+				"undead_orb_a"			"2.8 3 3.2 3.4 3.6 3.8 4"
 			}
 			"26"
 			{
@@ -14028,7 +14028,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"7.0 6.6 6.2 5.8 5.4 5.0 4.6"
+		"AbilityCooldown"				"7 6.6 6.2 5.8 5.4 5 4.6"
 
 		// Cost
 		//-------------------------------------------------------
@@ -23036,12 +23036,12 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"0.2 0.4 0.6 0.8 1.0 1.2 1.4"
+				"speed_mult"	"0.2 0.4 0.6 0.8 1 1.2 1.4"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3"
 			}
 		}
 	}
@@ -26148,7 +26148,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"0.5 0.6 0.8 0.9 1.0 1.1 1.2"
+				"damage_mult"			"0.5 0.6 0.8 0.9 1 1.1 1.2"
 			}
 		}
 	}

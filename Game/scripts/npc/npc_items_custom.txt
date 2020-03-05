@@ -35945,7 +35945,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -36155,7 +36155,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.25 0.5 0.75 1.0 1.25"
+				"ruby2"				"0.25 0.5 0.75 1 1.25"
 			}
 			"03"
 			{
@@ -36170,7 +36170,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.25 0.5 0.75 1.0 1.25"
+				"sapphire2"			"0.25 0.5 0.75 1 1.25"
 			}
 			"06"
 			{
@@ -36604,7 +36604,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"2 2.5 3.0 3.5 4.0"
+				"emerald1"			"2 2.5 3 3.5 4"
 			}
 			"04"
 			{
@@ -36614,7 +36614,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst1"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 
@@ -36663,7 +36663,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.6 1.2 1.8 2.4 3.0"
+				"sapphire1"			"0.6 1.2 1.8 2.4 3"
 			}
 			"05"
 			{
@@ -36882,7 +36882,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"1.0 0.8 0.6 0.4 0.2"
+				"amethyst2"			"1 0.8 0.6 0.4 0.2"
 			}
 		}
 		"OnSpellStart"
@@ -36992,7 +36992,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -37256,7 +37256,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"02"
 			{
@@ -37592,7 +37592,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.8 1.6 2.4 3.2 4.0"
+				"amethyst1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"09"
 			{
@@ -37670,7 +37670,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.5 1.0 1.5 2.0 2.5"
+				"sapphire1"			"0.5 1 1.5 2 2.5"
 			}
 			"04"
 			{
@@ -38109,7 +38109,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.25 0.5 0.75 1.0 1.25"
+				"ruby1"				"0.25 0.5 0.75 1 1.25"
 			}
 			"02"
 			{
@@ -38238,12 +38238,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"2.0 1.5 1.0 0.5 0"
+				"sapphire1"			"2 1.5 1 0.5 0"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire2"			"0.4 0.8 1.2 1.6 2"
 			}
 			"06"
 			{
@@ -38479,7 +38479,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"2.5 2.0 1.5 1.0 0.5"
+				"emerald1"			"2.5 2 1.5 1 0.5"
 			}
 			"05"
 			{
@@ -38678,7 +38678,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"1.5 3.0 4.5 6.0 7.5"
+				"amethyst2"			"1.5 3 4.5 6 7.5"
 			}
 		}
 		"OnSpellStart"
@@ -38989,7 +38989,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"			"0.5 1 1.5 2 2.5"
 			}
 			"03"
 			{
@@ -38999,7 +38999,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.5 1.0 1.5 2.0 2.5"
+				"amethyst1"			"0.5 1 1.5 2 2.5"
 			}
 		}
 		"OnSpellStart"
@@ -39200,7 +39200,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"03"
 			{
@@ -39557,7 +39557,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.6 1.2 1.8 2.4 3.0"
+				"sapphire2"			"0.6 1.2 1.8 2.4 3"
 			}
 			"05"
 			{
@@ -39740,7 +39740,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"3 2.5 2.0 1.5 1.0"
+				"sapphire2"			"3 2.5 2 1.5 1"
 			}
 			"07"
 			{
@@ -39828,7 +39828,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 	}
@@ -39998,7 +39998,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.5 1.0 1.5 2.0 2.5"
+				"ruby2"				"0.5 1 1.5 2 2.5"
 			}
 			"03"
 			{
@@ -40445,7 +40445,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.4 2.8 4.2 5.6 7.0"
+				"ruby1"				"1.4 2.8 4.2 5.6 7"
 			}
 			"02"
 			{
@@ -40659,7 +40659,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.5 1.0 1.5 2.0 2.5"
+				"amethyst1"			"0.5 1 1.5 2 2.5"
 			}
 		}
 		"OnSpellStart"
@@ -41122,7 +41122,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"05"
 			{
@@ -41244,7 +41244,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.0 2.0 3.0 4.0 5.0"
+				"amethyst1"			"1 2 3 4 5"
 			}
 		}
 		"precache"
@@ -41429,7 +41429,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"1.2 2.4 3.6 4.8 6.0"
+				"ruby2"				"1.2 2.4 3.6 4.8 6"
 			}
 			"03"
 			{
@@ -41577,7 +41577,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"06"
 			{
@@ -42636,7 +42636,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1.8 3.6 5.4 7.2 9.0"
+				"emerald1"			"1.8 3.6 5.4 7.2 9"
 			}
 			"03"
 			{
@@ -42813,7 +42813,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.5 1.0 1.5 2.0 2.5"
+				"amethyst1"			"0.5 1 1.5 2 2.5"
 			}
 		}
 		"precache"
@@ -43902,22 +43902,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -43993,22 +43993,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.4 0.8 1.2 1.6 2.0"
+				"ruby1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -44084,22 +44084,22 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.4 0.8 1.2 1.6 2.0"
+				"ruby1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -44180,7 +44180,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1.6 3.2 4.8 6.4 8.0"
+				"emerald1"			"1.6 3.2 4.8 6.4 8"
 			}
 			"03"
 			{
@@ -44318,7 +44318,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"1.2 2.4 3.6 4.8 6.0"
+				"amethyst2"			"1.2 2.4 3.6 4.8 6"
 			}
 			"08"
 			{
@@ -44663,7 +44663,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"05"
 			{
@@ -45000,12 +45000,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.75 1.5 2.25 3.0 3.75"
+				"amethyst1"			"0.75 1.5 2.25 3 3.75"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"0.8 1.6 2.4 3.2 4.0"
+				"amethyst2"			"0.8 1.6 2.4 3.2 4"
 			}
 			"08"
 			{
@@ -45322,12 +45322,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.2 2.4 3.6 4.8 6.0"
+				"ruby1"				"1.2 2.4 3.6 4.8 6"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"1.2 2.4 3.6 4.8 6.0"
+				"emerald1"			"1.2 2.4 3.6 4.8 6"
 			}
 			"03"
 			{
@@ -45337,7 +45337,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.2 2.4 3.6 4.8 6.0"
+				"amethyst1"			"1.2 2.4 3.6 4.8 6"
 			}
 		}
 		"precache"
@@ -45557,7 +45557,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"05"
 			{
@@ -45673,7 +45673,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.5 1.0 1.5 2.0 2.5"
+				"sapphire1"			"0.5 1 1.5 2 2.5"
 			}
 			"07"
 			{
@@ -45811,7 +45811,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"			"0.5 1 1.5 2 2.5"
 			}
 			"06"
 			{
@@ -46393,12 +46393,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"1.5 3.0 4.5 6.0 7.5"
+				"sapphire1"			"1.5 3 4.5 6 7.5"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst1"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 		"precache"
@@ -46561,7 +46561,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.5 1.0 1.5 2.0 2.5"
+				"sapphire1"			"0.5 1 1.5 2 2.5"
 			}
 			"04"
 			{
@@ -46711,12 +46711,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -46986,7 +46986,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"06"
 			{
@@ -47189,7 +47189,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -47278,7 +47278,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"			"0.5 1 1.5 2 2.5"
 			}
 			"03"
 			{
@@ -48137,12 +48137,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.2 2.4 3.6 4.8 6.0"
+				"ruby1"				"1.2 2.4 3.6 4.8 6"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby2"				"0.6 1.2 1.8 2.4 3"
 			}
 			"05"
 			{
@@ -49079,7 +49079,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.5 1.0 1.5 2.0 2.5"
+				"ruby2"				"0.5 1 1.5 2 2.5"
 			}
 			"03"
 			{
@@ -49190,7 +49190,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.8 1.6 2.4 3.2 4.0"
+				"ruby1"				"0.8 1.6 2.4 3.2 4"
 			}
 			"02"
 			{
@@ -49200,7 +49200,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.8 1.6 2.4 3.2 4.0"
+				"emerald1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
@@ -49350,7 +49350,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.2 0.4 0.6 0.8 1.0"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -49584,17 +49584,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.15 0.30 0.45 0.60 0.75"
+				"emerald1"			"0.15 0.3 0.45 0.6 0.75"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.8 1.6 2.4 3.2 4.0"
+				"sapphire1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.2 0.4 0.6 0.8 1.0"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -49912,7 +49912,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire2"			"0.2 0.4 0.6 0.8 1"
 			}
 			"05"
 			{
@@ -50055,7 +50055,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby2"				"0.6 1.2 1.8 2.4 3"
 			}
 			"07"
 			{
@@ -50191,7 +50191,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire2"			"0.4 0.8 1.2 1.6 2"
 			}
 			"05"
 			{
@@ -50312,7 +50312,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.5 3.0 4.5 6.0 7.5"
+				"amethyst1"			"1.5 3 4.5 6 7.5"
 			}
 		}
 		"OnSpellStart"
@@ -50469,7 +50469,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"0.6 1.2 1.8 2.4 3.0"
+				"emerald2"			"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -50484,7 +50484,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst2"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 		"OnSpellStart"
@@ -50600,12 +50600,12 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"1.6 3.2 4.8 6.4 8.0"
+				"emerald2"			"1.6 3.2 4.8 6.4 8"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"5.0 4.5 4.0 3.5 3.0"
+				"sapphire1"			"5 4.5 4 3.5 3"
 			}
 			"08"
 			{
@@ -50818,7 +50818,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
@@ -51361,12 +51361,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst1"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 		"OnSpellStart"
@@ -51666,7 +51666,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -52181,7 +52181,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"1.2 2.4 3.6 4.8 6.0"
+				"amethyst2"			"1.2 2.4 3.6 4.8 6"
 			}
 			"09"
 			{
@@ -52422,7 +52422,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"03"
 			{
@@ -52524,7 +52524,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -52767,7 +52767,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
@@ -52777,7 +52777,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.2 0.4 0.6 0.8 1.0"
+				"amethyst1"			"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -52865,7 +52865,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.8 1.6 2.4 3.2 4.0"
+				"ruby1"				"0.8 1.6 2.4 3.2 4"
 			}
 			"02"
 			{
@@ -52875,7 +52875,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -53130,7 +53130,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby2"				"0.6 1.2 1.8 2.4 3"
 			}
 			"03"
 			{
@@ -53155,7 +53155,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire3"			"1.2 2.4 3.6 4.8 6.0"
+				"sapphire3"			"1.2 2.4 3.6 4.8 6"
 			}
 			"08"
 			{
@@ -53492,7 +53492,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.8 1.6 2.4 3.2 4.0"
+				"amethyst1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"08"
 			{
@@ -53768,7 +53768,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"1.2 2.4 3.6 4.8 6.0"
+				"ruby2"				"1.2 2.4 3.6 4.8 6"
 			}
 			"03"
 			{
@@ -54473,7 +54473,7 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst2"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 		"precache"
@@ -54629,7 +54629,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"4.5 4 3.5 3.0 2.5"
+				"emerald1"			"4.5 4 3.5 3 2.5"
 			}
 			"07"
 			{
@@ -54768,7 +54768,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald2"			"0.2 0.4 0.6 0.8 1"
 			}
 			"06"
 			{
@@ -54859,7 +54859,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"2.5 2.0 1.5 1.0 0.5"
+				"emerald1"			"2.5 2 1.5 1 0.5"
 			}
 			"05"
 			{
@@ -54969,7 +54969,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -54979,7 +54979,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"				"0.4 0.8 1.2 1.6 2"
 			}
 		}
 	}
@@ -55134,7 +55134,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.6 1.2 1.8 2.4 3.0"
+				"amethyst1"				"0.6 1.2 1.8 2.4 3"
 			}
 		}
 	}
@@ -55398,7 +55398,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"					"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"					"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
@@ -55529,7 +55529,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"1.2 2.4 3.6 4.8 6.0"
+				"amethyst1"				"1.2 2.4 3.6 4.8 6"
 			}
 		}
 	}
@@ -56102,7 +56102,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"2.5 2.0 1.5 1.0 0.5"
+				"amethyst1"				"2.5 2 1.5 1 0.5"
 			}
 		}
 	}
@@ -56534,7 +56534,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"06"
 			{
@@ -57020,7 +57020,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"02"
 			{
@@ -57208,7 +57208,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1.5 3.0 4.5 6.0 7.5"
+				"sapphire1"				"1.5 3 4.5 6 7.5"
 			}
 			"04"
 			{
@@ -57247,12 +57247,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.2 2.4 3.6 4.8 6.0"
+				"ruby1"				"1.2 2.4 3.6 4.8 6"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -57496,7 +57496,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
@@ -57753,7 +57753,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.6 1.2 1.8 2.4 3.0"
+				"emerald1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -57763,7 +57763,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"				"0.4 0.8 1.2 1.6 2"
 			}
 		}
 	}
@@ -57890,7 +57890,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -57905,7 +57905,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"07"
 			{
@@ -57963,7 +57963,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"				"0.5 1 1.5 2 2.5"
 			}
 			"04"
 			{
@@ -58127,7 +58127,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"1.2 2.4 3.6 4.8 6.0"
+				"sapphire1"				"1.2 2.4 3.6 4.8 6"
 			}
 			"04"
 			{
@@ -58294,7 +58294,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.5 1.0 1.5 2.0 2.5"
+				"ruby1"				"0.5 1 1.5 2 2.5"
 			}
 			"02"
 			{
@@ -59158,12 +59158,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"1.5 3.0 4.5 6.0 7.5"
+				"ruby1"				"1.5 3 4.5 6 7.5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
@@ -59410,7 +59410,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -59548,7 +59548,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.6 1.2 1.8 2.4 3.0"
+				"sapphire1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"04"
 			{
@@ -59757,7 +59757,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"1.6 3.2 4.8 6.4 8.0"
+				"emerald1"				"1.6 3.2 4.8 6.4 8"
 			}
 			"03"
 			{
@@ -60310,12 +60310,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"				"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"				"0.2 0.4 0.6 0.8 1.0"
+				"amethyst1"				"0.2 0.4 0.6 0.8 1"
 			}
 		}
 		"OnSpellStart"
@@ -61755,7 +61755,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.8 1.6 2.4 3.2 4.0"
+				"sapphire1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
@@ -61929,7 +61929,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.8 1.6 2.4 3.2 4.0"
+				"ruby1"				"0.8 1.6 2.4 3.2 4"
 			}
 			"03"
 			{
@@ -61939,12 +61939,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.8 1.6 2.4 3.2 4.0"
+				"sapphire1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.6 3.2 4.8 6.4 8.0"
+				"amethyst1"			"1.6 3.2 4.8 6.4 8"
 			}
 		}
 		"OnSpellStart"
@@ -62081,7 +62081,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"02"
 			{
@@ -62091,7 +62091,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -62744,12 +62744,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby2"				"0.6 1.2 1.8 2.4 3"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -62759,7 +62759,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.2 0.4 0.6 0.8 1.0"
+				"sapphire1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -63033,7 +63033,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"03"
 			{
@@ -63737,7 +63737,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"1.4 2.8 4.2 5.6 7.0"
+				"sapphire1"			"1.4 2.8 4.2 5.6 7"
 			}
 			"08"
 			{
@@ -63747,7 +63747,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"0.6 1.2 1.8 2.4 3.0"
+				"amethyst2"			"0.6 1.2 1.8 2.4 3"
 			}
 		}
 		"OnSpellStart"
@@ -64353,7 +64353,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"3.0 3.5 4.0 4.5 5.0"
+				"amethyst2"			"3 3.5 4 4.5 5"
 			}
 		}
 		"precache"
@@ -64595,7 +64595,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"05"
 			{
@@ -64610,7 +64610,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"0.6 1.2 1.8 2.4 3.0"
+				"sapphire2"			"0.6 1.2 1.8 2.4 3"
 			}
 			"08"
 			{
@@ -64755,12 +64755,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"0.6 1.2 1.8 2.4 3.0"
+				"emerald2"			"0.6 1.2 1.8 2.4 3"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.6 1.2 1.8 2.4 3.0"
+				"sapphire1"			"0.6 1.2 1.8 2.4 3"
 			}
 			"06"
 			{
@@ -64880,17 +64880,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.5 1.0 1.5 2.0 2.5"
+				"ruby1"				"0.5 1 1.5 2 2.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.5 1.0 1.5 2.0 2.5"
+				"emerald1"			"0.5 1 1.5 2 2.5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
@@ -64982,7 +64982,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.2 0.4 0.6 0.8 1.0"
+				"emerald1"			"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -65435,17 +65435,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.8 1.6 2.4 3.2 4.0"
+				"emerald1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.8 1.6 2.4 3.2 4.0"
+				"sapphire1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.6 3.2 4.8 6.4 8.0"
+				"amethyst1"			"1.6 3.2 4.8 6.4 8"
 			}
 		}
 		"OnSpellStart"
@@ -65724,7 +65724,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"04"
 			{
@@ -66140,7 +66140,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -66222,7 +66222,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -66304,7 +66304,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"OnSpellStart"
@@ -66576,7 +66576,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.2 0.4 0.6 0.8 1.0"
+				"ruby1"				"0.2 0.4 0.6 0.8 1"
 			}
 			"02"
 			{
@@ -66868,7 +66868,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"0.4 0.8 1.2 1.6 2.0"
+				"sapphire1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{
@@ -66956,7 +66956,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.4 0.8 1.2 1.6 2.0"
+				"ruby1"				"0.4 0.8 1.2 1.6 2"
 			}
 			"02"
 			{
@@ -67208,12 +67208,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.8 1.6 2.4 3.2 4.0"
+				"ruby1"				"0.8 1.6 2.4 3.2 4"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.8 1.6 2.4 3.2 4.0"
+				"emerald1"			"0.8 1.6 2.4 3.2 4"
 			}
 			"04"
 			{
@@ -67223,7 +67223,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"1.6 3.2 4.8 6.4 8.0"
+				"amethyst1"			"1.6 3.2 4.8 6.4 8"
 			}
 		}
 		"OnSpellStart"
@@ -67296,7 +67296,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"02"
 			{
@@ -67410,22 +67410,22 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"0.6 1.2 1.8 2.4 3.0"
+				"ruby1"				"0.6 1.2 1.8 2.4 3"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"1.2 2.4 3.6 4.8 6.0"
+				"sapphire1"			"1.2 2.4 3.6 4.8 6"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"0.4 0.8 1.2 1.6 2.0"
+				"amethyst1"			"0.4 0.8 1.2 1.6 2"
 			}
 		}
 		"precache"
@@ -67559,7 +67559,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"0.4 0.8 1.2 1.6 2.0"
+				"emerald1"			"0.4 0.8 1.2 1.6 2"
 			}
 			"04"
 			{

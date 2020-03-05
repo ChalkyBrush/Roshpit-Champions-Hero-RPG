@@ -930,7 +930,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"duration"				"<% OMNIRO_CHRONO_PATH_DURATION	 %>"
+				"duration"				"<% OMNIRO_CHRONO_PATH_DURATION %>"
 			}	
 		}
 		"OnSpellStart"
