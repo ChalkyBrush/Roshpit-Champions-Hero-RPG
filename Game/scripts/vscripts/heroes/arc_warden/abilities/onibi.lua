@@ -53,6 +53,14 @@ function load_onibi_data(caster, onibi_data)
 	end
 	caster.onibi.current_model_index = 0
 
+	if caster:GetAbilityByIndex(DOTA_W_SLOT):GetAbilityName() == "jex_base_cannon_fire" then
+		local onibi_ability_check1 = caster.onibi:GetAbilityByIndex(DOTA_D_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster.onibi, onibi_ability_check1:GetAbilityName(), "onibi_fire_1", 3)
+		local onibi_ability_check2 = caster.onibi:GetAbilityByIndex(DOTA_F_SLOT)
+		CustomAbilities:AddAndOrSwapSkill(caster.onibi, onibi_ability_check2:GetAbilityName(), "onibi_fire_2", 4)
+		caster.onibi.stats_table["arcanas"] = {}
+		caster.onibi.stats_table["arcanas"]["fire"] = 1
+	end
 	onibi_initial_set_abilities_data(caster.onibi, onibi_data)
 
 	calculate_onibi_element_levels(caster.onibi)

@@ -1279,30 +1279,26 @@ function Runes:EquipArcana(hero, index)
 				end
 			end
 			Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+				
 		end
 		
-		Timers:CreateTimer(0, function()
-			if hero.onibi then
-				local onibi = hero.onibi
-				local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
-				CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..element.."_1", 3)
-				local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
-				CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..element.."_2", 4)
-				onibi.stats_table["arcanas"] = {}
-				onibi.stats_table["arcanas"][element] = 1
-				if not onibi.stats_table[element]["exp"] then
-					onibi.stats_table[element]["exp"] = 0
-				end
-				if not onibi.stats_table[element]["level"] then
-					onibi.stats_table[element]["level"] = 0
-				end
-				require('heroes/arc_warden/abilities/onibi')
-				calculate_onibi_element_levels(onibi)
-			else
-				--print("retrying arcana equip")
-				return 0.5
+		if hero.onibi and element ~= nil then
+			local onibi = hero.onibi
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..element.."_1", 3)
+			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..element.."_2", 4)
+			onibi.stats_table["arcanas"] = {}
+			onibi.stats_table["arcanas"][element] = 1
+			if not onibi.stats_table[element]["exp"] then
+				onibi.stats_table[element]["exp"] = 0
 			end
-		end)
+			if not onibi.stats_table[element]["level"] then
+				onibi.stats_table[element]["level"] = 0
+			end
+			require('heroes/arc_warden/abilities/onibi')
+			calculate_onibi_element_levels(onibi)
+		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
@@ -2040,25 +2036,20 @@ function Runes:UnequipArcana(hero, index)
 			Runes:EasyRevertArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		end
 		
-		Timers:CreateTimer(0, function()
-			if hero.onibi then
-				local onibi = hero.onibi
-				local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
-				CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..newElement.."_1", 3)
-				local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
-				CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..newElement.."_2", 4)
-				if not onibi.stats_table["arcanas"] then
-					onibi.stats_table["arcanas"] = {}
-				end
-				onibi.stats_table["arcanas"][oldElement] = 0
-				require('heroes/arc_warden/abilities/onibi')
-
-				calculate_onibi_element_levels(onibi)
-			else
-				--print("retrying arcana equip")
-				return 0.5
+		if hero.onibi and oldElement ~= nil and newElement ~= nil then
+			local onibi = hero.onibi
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..newElement.."_1", 3)
+			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..newElement.."_2", 4)
+			if not onibi.stats_table["arcanas"] then
+				onibi.stats_table["arcanas"] = {}
 			end
-		end)
+			onibi.stats_table["arcanas"][oldElement] = 0
+			require('heroes/arc_warden/abilities/onibi')
+
+			calculate_onibi_element_levels(onibi)
+		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
