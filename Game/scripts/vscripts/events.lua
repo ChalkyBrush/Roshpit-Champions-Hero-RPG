@@ -451,6 +451,14 @@ function GameMode:OnPlayerChat(keys)
 		else
 			playerHero:ForceKill(true)
 		end
+	elseif check_command("-debug_entities") then
+		local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
+		local textNotif = ""
+		for i = 1, #entityesToLog do
+			local ent = Entities:FindAllByClassname(entityesToLog[i])
+			textNotif = textNotif.."["..entityesToLog[i] .. ": "..#ent.."]"
+		end
+		Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
 	elseif GameState:GetDifficultyFactor() == 3 then
 		local playerid = keys.playerid
 		if check_command("-crystal") and not GameMode.VoteSystem.crystal_loot_disabled then
@@ -468,16 +476,7 @@ function GameMode:OnPlayerChat(keys)
 
 	-- DEBUG COMMANDS --
 	if Beacons.cheats then
-		if check_command("-debug_entities") then
-			local entityesToLog = {"dota_item_wearable", "ability_datadriven", "npc_dota_creature", "npc_dota_thinker", "item_datadriven", "dota_item_drop"}
-			local textNotif = ""
-			for i = 1, #entityesToLog do
-				local ent = Entities:FindAllByClassname(entityesToLog[i])
-				textNotif = textNotif.."["..entityesToLog[i] .. ": "..#ent.."]"
-			end
-			Notifications:Bottom(keys.playerid, {text = textNotif, duration = 15.0})
-
-		elseif check_command("-spawnunit") then
+		if check_command("-spawnunit") then
 			local position = MAIN_HERO_TABLE[1]:GetAbsOrigin() + MAIN_HERO_TABLE[1]:GetForwardVector() * 600
 			local unitName = args[2]
 			local unit = CreateUnitByName(unitName, position, true, nil, nil, DOTA_TEAM_NEUTRALS)
