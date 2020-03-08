@@ -450,6 +450,11 @@ function ancient_tree_main_think(event)
 					-- end
 					-- end)
 					-- end
+					local itemName = "item_redfall_spirit_ruby_"..GameState:GetDifficultyName()
+					local ruby = RPCItems:CreateConsumable(itemName, "mythical", "redfall_key", "consumable", false, "Consumable", itemName.."_desc")
+					CreateItemOnPositionSync(bossOrigin, ruby)		
+					RPCItems:LaunchLoot(ruby, RandomInt(100, 600), 0.5, bossOrigin, bossOrigin)
+
 					Timers:CreateTimer(2.85, function()
 						ScreenShake(caster:GetAbsOrigin(), 1330, 1.5, 1.5, 9000, 0, true)
 					end)
