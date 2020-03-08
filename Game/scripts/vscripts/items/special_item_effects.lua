@@ -2641,6 +2641,9 @@ function blackfeather_attack_land(event)
 	local hero = event.attacker
 	local ability = event.ability
 	local target = event.target
+	if target.dummy then
+		return false
+	end
 	if ability.crow then
 		ability.crow:SetAbsOrigin(hero:GetAbsOrigin()+Vector(0,0,200))
 		ability.crow:SetForwardVector(hero:GetForwardVector())

@@ -19782,7 +19782,8 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	            "item_lua"
+        "ScriptFile"            "heroes/nightstalker/glyphs/chernobog_glyph_1_1.lua"
 		"AbilityTextureName"	"glyphs/glyph_chernobog_1_1"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
@@ -39882,7 +39883,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"16 32 48 64 80"
+				"sapphire1"			"15 30 45 60 75"
 			}
 			"06"
 			{

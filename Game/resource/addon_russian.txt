@@ -3742,46 +3742,55 @@
         "DOTA_Tooltip_ability_chernobog_rune_w_4_suffix"                        ""
         "DOTA_Tooltip_ability_chernobog_rune_w_4_property_two"                  "(Активно) Доп. очков Ловкости"
         "DOTA_Tooltip_ability_chernobog_rune_w_4_suffix_two"                    ""
-        
-        "DOTA_Tooltip_ability_chernobog_3_e"                            "Shadow Hunt"
-        "DOTA_Tooltip_ability_chernobog_3_e_Description"                "Chernobog переключается между тремя стойками. В выключенном режиме герой получает усиление скорости и лимита передвижения.<br> Первая активная стойка позволяет перемещаться к противнику за спину и мгновенно атаковать (Перезарядка <font color='#ccff66'>0.4</font> сек).<br> Вторая активная стойка позволяет телепортироваться в в свободную точку (Перезарядка <font color='#ccff66'>1.5</font>) сек).<br> В активных стойках ежесекундно снижается мана и здоровье."
-        "DOTA_Tooltip_ability_chernobog_3_e_movespeed_cap"              "ЛИМИТ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-        "DOTA_Tooltip_ability_chernobog_3_e_movespeed_bonus"            "ДОП. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"
-        "DOTA_Tooltip_ability_chernobog_3_e_drain_per_second"           "ЗАТРАТЫ ЗДОРОВЬЯ И МАНЫ В СЕКУНДУ, %:"
-        
-        "DOTA_Tooltip_ability_chernobog_rune_e_1"                               "[E1] Dark Whisper"
-        "DOTA_Tooltip_ability_chernobog_rune_e_1_Description"                   "Герой пассивно получает усиление бонусного урона атаки. Если @Ability3 отключена, то увеличивается скорость и лимит скорости передвижения."
-        "DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"                  "Бонусный урон атаки"
-        "DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"                        "%"
-        "DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"                  "Бонус скорости и лимита скорости:"
-        "DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"                    ""
-        "DOTA_Tooltip_modifier_chernobog_rune_e_1"                              "Dark Whisper"
-        "DOTA_Tooltip_modifier_chernobog_rune_e_1_Description"                  "Урон увеличен"
+        		
+		"DOTA_Tooltip_ability_chernobog_shadow_hunt"							"Shadow Hunt"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_Description"				"Chernobog starts hunting his enemies. While hunting he has increased movespeed and movespeed cap but loses a % of his maximum health and mana each second."
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_cap"				"MS-CAP BONUS:"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_movespeed_bonus"			"MS BONUS:"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_hp_drain_per_second"		"% MAX HP DRAINED:"
+    	"DOTA_Tooltip_ability_chernobog_shadow_hunt_mp_drain_per_second"		"% MAX MP DRAINED:"
+		
+    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff"						"Shadow Hunt"
+    	"DOTA_Tooltip_modifier_chernobog_shadow_hunt_buff_Description"			"Increased movespeed and movespeed cap."
 
-        "DOTA_Tooltip_ability_chernobog_rune_e_2"                               "[E2] Looming Terror"
-        "DOTA_Tooltip_ability_chernobog_rune_e_2_Description"                   "Когда @Ability3 в одной из активных стоек, враги в радиусе <font color='#ccff66'>300</font> от героя получают урон от теней. Тени атакуют с интервалом <font color='#ccff66'>0.4</font> сек."
-        "DOTA_Tooltip_ability_chernobog_rune_e_2_property_one"                  "Урон теней"
-        "DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"                        "% от урона героя"
+		"DOTA_Tooltip_ability_chernobog_rune_e_1"								"[E1] Dark Whisper"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_Description"					"Gain bonus attack damage, movespeed and movespeed cap while @Ability3 is toggled on."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_one"					"Bonus Attack Damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix"						"%"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_property_two"					"Bonus Movespeed and Movespeed Cap"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_1_suffix_two"					""
 
-        "DOTA_Tooltip_ability_chernobog_rune_e_3"                               "[E3] Sudden Strike"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_Description"                   "Использование @Ability3 для перемещения за спину противника усилит Пробитие Брони и Магической Защиты героя на <font color='#ccff66'>1</font> сек. Радиус телепортации обеих активных стоек увеличен."
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"                  "Увеличение радиуса"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"                        ""
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"                  "Пробитие Брони и Магической Защиты"
-        "DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"                    ""
-        "DOTA_Tooltip_modifier_chernobog_3_e_teleportation_enemy_effect_e3"                     "Sudden Strike"
-        "DOTA_Tooltip_modifier_chernobog_3_e_teleportation_enemy_effect_e3_Description"         "Получает усиленный урон от Чернобога."
+    	"DOTA_Tooltip_modifier_chernobog_e_1"									"Dark Whisper"
+    	"DOTA_Tooltip_modifier_chernobog_e_1_Description"						"Increased attack damage, movespeed and movespeed cap."
 
-        "DOTA_Tooltip_ability_chernobog_rune_e_4"                               "[E4] Eclipse"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_Description"                   "Во время действия и после деактивации @Ability3, герой получает <font color='#ccff66'>75</font>% уклонение. Снижает интервал атак у Теней."
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"                  "Длительность"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"                        " сек."
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"                  "Скорость атаки Теней"
-        "DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"                        "% быстрее"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2"								"[E2] Looming Terror"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_Description"					"While @Ability3 is toggled on, the shadows around Chernobog come alive and slash at enemies within a <font color='#ccff66'>300</font> radius. Shadow attacks have a base interval of <font color='#ccff66'>0.4</font> seconds."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_property_one"					"Shadows Attack Damage"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_2_suffix"						"% of Chernobog's Attack Power"
 
-        "DOTA_Tooltip_modifier_chernobog_rune_e_4"                              "Eclipse"
-        "DOTA_Tooltip_modifier_chernobog_rune_e_4_Description"                  "<font color='#ccff66'>75</font>%% уклонение."
-        
+		"DOTA_Tooltip_modifier_chernobog_e_2"									"Looming Terror"
+		"DOTA_Tooltip_modifier_chernobog_e_2_Description"						"Surrounding enemies are attacked by shadows."
+
+     	"DOTA_Tooltip_ability_chernobog_rune_e_3"								"[E3] Sudden Strike"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_Description"					"While @Ability3 is toggled on issuing an attack order on an enemy will teleport you behind the target.<br>Additionally Chernobog gains a massive bonus to Armor Pierce and Spell Pierce for <font color='#ccff66'>1</font> second after teleporting."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_one"					"Teleport Range"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix"						""
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_property_two"					"Armor Pierce and Spell Pierce"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_3_suffix_two"					""
+
+		"DOTA_Tooltip_modifier_chernobog_e_3_buff"								"Sudden Strike"
+		"DOTA_Tooltip_modifier_chernobog_e_3_buff_Description"					"Increased Armor Pierce and Spell Pierce."
+		
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4"								"[E4] Eclipse"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_Description"					"Increase the attack rate of all Shadows. Also gain <font color='#ccff66'>75</font>% while @Ability3 is toggled on. This buff persists for some time after toggling @Ability3 off."
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_one"					"Buff Linger Period"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix"						" seconds"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_property_two"					"Shadow Attack Rate Increase"
+    	"DOTA_Tooltip_ability_chernobog_rune_e_4_suffix_two"						"%"
+
+    	"DOTA_Tooltip_modifier_chernobog_e_4"									"Eclipse"
+    	"DOTA_Tooltip_modifier_chernobog_e_4_Description"						"<font color='#ccff66'>75</font>%% Evasion."
+		
         "DOTA_Tooltip_ability_chernobog_4_r"                        "Night's Procession"
         "DOTA_Tooltip_ability_chernobog_4_r_Description"            "Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
         "DOTA_Tooltip_ability_chernobog_4_r_radius"             "РАДИУС:"
@@ -3909,7 +3918,7 @@
         
         //Glyphs
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] Glyph of Gloom"
-        "item_rpc_chernobog_glyph_1_1_description"              "При использовании любой телепортации от @Ability3 противники поблизости от точек старта и назначения будут атакованы Тенями. Радиус зоны атаки теней равен дистанции * <font color='#ccff66'>0.2</font>, а продолжительность - <font color='#ccff66'>1</font> сек."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <font color='#ccff66'>10</font>% of your max mana."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
         "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <font color='#ccff66'>2</font>. Также работает и на [R2]."
@@ -7031,7 +7040,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_1_suffix_two"	""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] Shock Absorption"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается до <font color='#ccff66'>100</font> раз. Эффект длится 15 секунд."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается до <font color='#ccff66'>25</font> раз. Эффект длится 15 секунд."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"Усиление урона"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"%"
 		

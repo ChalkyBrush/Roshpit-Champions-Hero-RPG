@@ -40685,7 +40685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1.5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -40706,7 +40706,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -40949,7 +40949,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -50605,12 +50605,12 @@
 		}
 	}
 
-	"chernobog_3_e"
+	"chernobog_shadow_hunt"
 	{
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/nightstalker/3_e"
+		"ScriptFile"					"heroes/nightstalker/chernobog_shadow_hunt.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"LevelsBetweenUpgrades"  "0"
@@ -50631,44 +50631,29 @@
 			"particle"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"4.2 4 3.8 3.6 3.4 3.2 3"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"550 565 580 595 610 625 640"
+				"movespeed_cap"		"0 15 30 45 60 75 90"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"20 30 50 60 70 80 90"
+				"movespeed_bonus"		"30 40 50 60 70 80 90"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"drain_per_second"			"5"
+				"hp_drain_per_second"			"10 10 10 10 10 10 10"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"			            "650"
+				"mp_drain_per_second"			"15 15 15 15 15 15 15"
 			}
-
-		}
+		}	
 	}
 	"chernobog_4_r"
 	{
@@ -50995,6 +50980,11 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"350"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"property_two"			"110"
 			}
 		}
@@ -51023,7 +51013,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -98517,7 +98507,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
 				}
 			}
 			"modifier_primary_attribute_damage"
