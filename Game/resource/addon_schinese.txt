@@ -7377,7 +7377,7 @@
     	"DOTA_Tooltip_modifier_mountain_protector_c_a_daze_Description"	"移动速度减少"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] 震动吸收"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"每一次被冲击波击中，敌人都会受到一层debuff。再次被冲击波击中时会受到额外伤害，最多叠加<font color='#ccff66'>25</font>层 。debuff持续15秒。"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"每一次被冲击波击中，敌人都会受到一层debuff。再次被冲击波击中时会受到额外伤害，最多叠加<font color='#ccff66'>50</font>层 。debuff持续15秒。"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"每层debuff提高伤害"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"% "
 		

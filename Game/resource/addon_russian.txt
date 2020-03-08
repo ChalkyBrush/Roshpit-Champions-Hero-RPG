@@ -7040,7 +7040,7 @@
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_1_suffix_two"	""
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] Shock Absorption"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается до <font color='#ccff66'>25</font> раз. Эффект длится 15 секунд."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Каждый раз, попадая  по врагам волной от умения @Ability1, им будет нанесён дополнительный урон от последующих прочтений @Ability1. Складывается до <font color='#ccff66'>50</font> раз. Эффект длится 15 секунд."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"Усиление урона"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"%"
 		

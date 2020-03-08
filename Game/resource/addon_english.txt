@@ -7667,7 +7667,7 @@
     	"DOTA_Tooltip_modifier_mountain_protector_c_a_daze_Description"	"Reduced Movespeed"
 		
 		"DOTA_Tooltip_ability_mountain_protector_rune_q_2"				"[Q2] Shock Absorption"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Each time an enemy is struck by shockwave, they receive additional damage from proceeding shockwaves. Stacks up to <font color='#ccff66'>25</font> times. Debuff lasts 15 seconds."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_Description"	"Each time an enemy is struck by shockwave, they receive additional damage from proceeding shockwaves. Stacks up to <font color='#ccff66'>50</font> times. Debuff lasts 15 seconds."
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_property_one"	"Damage Enhance"
     	"DOTA_Tooltip_ability_mountain_protector_rune_q_2_suffix"		"%"
 		
