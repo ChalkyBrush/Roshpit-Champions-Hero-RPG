@@ -3335,7 +3335,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	if not hero:HasModifier("modifier_strength_health_regen") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health_regen", {})
 	end
-	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR)
+	hero:SetModifierStackCount("modifier_strength_health_regen", caster, strength * CustomAttributes.HEALTH_REGEN_PER_STR * 10)
 
 	if not hero:HasModifier("modifier_agility_attackspeed") then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_agility_attackspeed", {})
