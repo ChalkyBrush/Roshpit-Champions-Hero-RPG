@@ -1027,10 +1027,10 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			if hero:FindAbilityByName("chernobog_3_e"):GetToggleState() then
-				hero:FindAbilityByName("chernobog_3_e"):ToggleAbility()
+			if hero:FindAbilityByName("chernobog_shadow_hunt"):GetToggleState() then
+				hero:FindAbilityByName("chernobog_shadow_hunt"):ToggleAbility()
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			if hero:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end
@@ -1798,12 +1798,12 @@ function Runes:UnequipArcana(hero, index)
 		elseif index == 2 then
 			--print("HERE?????????")
 			if hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_walk" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			end
 			hero:RemoveModifierByName("modifier_demon_warp_freecast")

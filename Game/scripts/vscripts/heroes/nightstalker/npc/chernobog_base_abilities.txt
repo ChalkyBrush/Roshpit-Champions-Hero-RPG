@@ -329,12 +329,12 @@
 		}
 	}
 
-	"chernobog_3_e"
+	"chernobog_shadow_hunt"
 	{
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/nightstalker/3_e"
+		"ScriptFile"					"heroes/nightstalker/chernobog_shadow_hunt.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"LevelsBetweenUpgrades"  "0"
@@ -355,44 +355,29 @@
 			"particle"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"4.2 4 3.8 3.6 3.4 3.2 3"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"550 565 580 595 610 625 640"
+				"movespeed_cap"		"<% CHERNOBOG_E_MS_CAP_INCR %>"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"20 30 50 60 70 80 90"
+				"movespeed_bonus"		"<% CHERNOBOG_E_MS_INCR %>"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"drain_per_second"			"5"
+				"hp_drain_per_second"			"<% CHERNOBOG_E_HP_DRAIN %>"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"			            "650"
+				"mp_drain_per_second"			"<% CHERNOBOG_E_MP_DRAIN %>"
 			}
-
-		}
+		}	
 	}
 	"chernobog_4_r"
 	{

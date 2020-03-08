@@ -206,8 +206,6 @@ function demon_warp_start(event)
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/spectre/spectre_transversant_soul/spectre_transversant_spectral_dagger_path_owner_impact.vpcf", caster:GetAbsOrigin(), 3)
 	CustomAbilities:QuickParticleAtPoint("particles/items_fx/blink_dagger_start.vpcf", caster:GetAbsOrigin() + Vector(0, 0, heightStacks), 3)
 
-	onBlink(caster, ability, casterOrigin, newPosition)
-
 	StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1, translate = "hunter_night"})
 	if caster:HasModifier("modifier_demon_warp_freecast") then
 		local newStacks = caster:GetModifierStackCount("modifier_demon_warp_freecast", caster) - 1
