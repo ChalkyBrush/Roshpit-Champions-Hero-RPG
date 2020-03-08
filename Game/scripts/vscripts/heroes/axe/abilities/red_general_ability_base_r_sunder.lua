@@ -24,6 +24,11 @@ function red_general_ability_base_r_sunder_createDunk(caster, damage)
             ParticleManager:DestroyParticle(particle1, false)
         end)
 
+        if caster:HasModifier("modifier_axe_glyph_5_a") then
+            print("modifier_axe_glyph_5_a amp")
+            damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
+        end
+
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), slamPoint, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         if #enemies > 0 then
             for _, enemy in pairs(enemies) do
@@ -38,10 +43,6 @@ function red_general_ability_base_r_sunder_cast(event)
     local ability = event.ability
     local damage = event.damage / 100 * caster:GetHealth()
     WAmplify.applyBuff(caster)
-
-    if caster:HasModifier("modifier_axe_glyph_5_a") then
-        damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
-    end
 
     Filters:CastSkillArguments(BASE_ABILITY_R, caster)
 
@@ -133,6 +134,12 @@ function red_general_rune_base_r_2_dealDamage(caster, target, ability, initialDa
         return
     end
     local damage = initialDamage * RED_GENERAL_R2_AMPLIFY_PERCENT / 100 * runesCount
+
+    if caster:HasModifier("modifier_axe_glyph_5_a") then
+        print("modifier_axe_glyph_5_a amp")
+        damage = damage * (1 + RED_GENERAL_GLYPH_5_A_AMPLIFY_PERCENT / 100)
+    end
+
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_NORMAL, RPC_ELEMENT_NONE)
 
 end
