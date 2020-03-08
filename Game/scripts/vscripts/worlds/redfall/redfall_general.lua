@@ -453,6 +453,11 @@ function ancient_tree_main_think(event)
 					Timers:CreateTimer(2.85, function()
 						ScreenShake(caster:GetAbsOrigin(), 1330, 1.5, 1.5, 9000, 0, true)
 					end)
+					Timers:CreateTimer(4, function()
+						for i = 1, #MAIN_HERO_TABLE, 1 do
+							Redfall:GiveSpiritRuby(MAIN_HERO_TABLE[i], bossOrigin + Vector(0, 0, 300))
+						end
+					end)
 					Timers:CreateTimer(4.5, function()
 						UTIL_Remove(caster)
 						Redfall:DefeatDungeonBoss("ancient_tree", bossOrigin)
