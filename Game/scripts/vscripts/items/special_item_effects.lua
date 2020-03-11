@@ -2483,14 +2483,18 @@ function ocean_tempest_think(event)
 	local caster = event.caster
 
     local total_ticks = ability.channel_time/0.1
+	if ability.interval >= total_ticks then
+		target:RemoveModifierByName("modifier_ocean_tempest_pallium_channeling")
+		return
+	end
 	local manaDrain = math.min(target:GetMaxMana() * (ability.total_mana_drain_pct/total_ticks)/100, target:GetMana())
 	manaDrain = math.floor(manaDrain)
 	target:ReduceMana(manaDrain)
 	PopupLoseMana(target, manaDrain)
+	ability.total_mana_drained = ability.total_mana_drained + manaDrain
 
-	local tideStacksGained = math.ceil(manaDrain/ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR)
+	local new_stacks = math.ceil(ability.total_mana_drained/ITEM_RPC_OCEAN_TEMPEST_PALLIUM_DIVISOR)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_ocean_templest_tidal_storm_stacks", {duration = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_TIDAL_STORM_STACK_DURATION})
-	local new_stacks = target:GetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster) + tideStacksGained
 	target:SetModifierStackCount("modifier_ocean_templest_tidal_storm_stacks", caster, new_stacks)
 
 	if ability:GetGemValue("ruby") > 0 then
@@ -2498,20 +2502,8 @@ function ocean_tempest_think(event)
 		local attack_power_stacks = new_stacks*ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_RUBY)/0.01
 		target:SetModifierStackCount("modifier_ocean_tempest_ruby_attack_power", caster, attack_power_stacks)
 	end
-	ability.interval = ability.interval + 1
-	if ability.interval % 3 == 0 then
-		local position = target:GetAbsOrigin() + RandomVector(RandomInt(0, 160))
-		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
-		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControl(pfx, 0, position)
-		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 1))
-		Timers:CreateTimer(0.5, function()
-			ParticleManager:DestroyParticle(pfx, false)
-		end)
-		EmitSoundOn("RPCItems.OceanTempest.Splash", target)
-	end
 	if ability:GetGemValue("emerald") > 0 then
-		local remaining_duration = target:FindModifierByName("modifier_ocean_tempest_pallium_channeling"):GetRemainingTime()
+		local remaining_duration = (total_ticks - ability.interval) * 0.1
 		local enemies = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, ITEM_RPC_OCEAN_TEMPEST_PALLIUM_EMERALD_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		if #enemies > 0 then
 			for _, enemy in pairs(enemies) do
@@ -2530,6 +2522,18 @@ function ocean_tempest_think(event)
 				end
 			end
 		end
+	end
+	ability.interval = ability.interval + 1
+	if ability.interval % 3 == 0 then
+		local position = target:GetAbsOrigin() + RandomVector(RandomInt(0, 160))
+		local particleName = "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, target)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(300, 1, 1))
+		Timers:CreateTimer(0.5, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		EmitSoundOn("RPCItems.OceanTempest.Splash", target)
 	end
 end
 

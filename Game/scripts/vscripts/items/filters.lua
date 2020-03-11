@@ -963,9 +963,10 @@ function Filters:BeginRChannel(caster)
     if caster:HasModifier("modifier_ocean_tempest_pallium") then
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].manaDrained = 0
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].interval = 0
-        caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime()
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drained = 0
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime() - 0.1
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drain_pct = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST)
-        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = ability:GetChannelTime()})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {})
     end
     if caster:HasModifier("modifier_space_tech_vest") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
