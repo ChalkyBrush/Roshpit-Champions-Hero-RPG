@@ -104006,14 +104006,18 @@
         "Level" "1"
         "UnitLabel" "healing_ward"
         "ModelScale"    "1.2"
-        "HealthBarOffset"   "440"
+        "HealthBarOffset"   "140"
         "precache"
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_02.vmdl"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_03.vmdl"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_04.vmdl"
         }
-        "Ability1"  "armor_break"
-        "Ability2"  "normal_steadfast"
-        "Ability3"  ""
+        "Ability1"  "winterblight_rubble_passive"
+        "Ability2"  "winterblight_mountain_rubble_ice_burst"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "dungeon_creep"
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
         "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
@@ -104023,7 +104027,7 @@
         "AttackRate"    "0.8"
         "AttackAnimationPoint"  "0.453"
         "AttackAcquisitionRange"    "0"
-        "AttackRange"   "210"
+        "AttackRange"   "110"
         "ProjectileModel"   ""
         "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
         "BountyXP"  "900"
@@ -104048,6 +104052,25 @@
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winterblight_mountain_rubble_ice_burst"
+                }         
+            }
         }
         "RoshpitArmor"          "124"
         "RoshpitArmorPierce"    "85"
@@ -104056,7 +104079,7 @@
         "RoshpitLevel"          "32"
         "RoshpitDominion"       "0"
         "RoshpitAggroSound"     "Winterblight.Rubble.Aggro1"
-        "EnemyTier"             "1"
+        "EnemyTier"             "2"
     }
     
 

@@ -3533,10 +3533,10 @@ function GameState:FilterDamage(filterTable)
 	-- end
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			-- if victim:IsHero() then
-			-- 	-- --print("TAKE DAMAGE: "..filterTable["damage"])
-			-- 	filterTable["damage"] = 0
-			-- end
+			if victim:IsHero() then
+				-- --print("TAKE DAMAGE: "..filterTable["damage"])
+				filterTable["damage"] = 0
+			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
@@ -3546,13 +3546,13 @@ function GameState:FilterDamage(filterTable)
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
 					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
-						-- if filterTable["damage"] > 0 then
-							--filterTable["damage"] = 999999999999999
-						-- end
+					-- 	if filterTable["damage"] > 0 then
+					-- 		filterTable["damage"] = 999999999999999
+					-- 	end
 					-- end
 				end
 			end
-			-- filterTable["damage"] = 1000000
+			filterTable["damage"] = 1000000
 		end
 	end
 

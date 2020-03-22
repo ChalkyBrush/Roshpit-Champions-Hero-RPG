@@ -1749,7 +1749,7 @@ function megmus_channel_complete(event)
 	local caster = event.caster
 	local ability = event.ability
 	-- CustomAbilities:QuickAttachParticle("particles/econ/items/monkey_king/arcana/water/monkey_king_spring_arcana_water.vpcf", caster, 7)
-	local castLoops = 0
+	local castLoops = caster.phase
 	for i = 0, castLoops, 1 do
 		Timers:CreateTimer(i * 2, function()
 			EmitSoundOn("Winterblight.Megmus.Ability", caster)
