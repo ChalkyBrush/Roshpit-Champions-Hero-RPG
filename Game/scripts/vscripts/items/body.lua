@@ -151,8 +151,6 @@ function Body:action(propertyName, propertyValue, hero, inventory_unit, body_abi
 		hero.refractionItem = item
 	elseif propertyName == "vampiric_breastplate" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_vampiric_breastplate", item)
-	elseif propertyName == "dark_arts" then
-		Body:addItemModifier(0, hero, inventory_unit, "modifier_dark_arts", item)
 	elseif propertyName == "legion_vest" then
 		Body:addItemModifier(0, hero, inventory_unit, "modifier_legion_vestments", item)
 	elseif propertyName == "nightmare_rider" then
@@ -444,8 +442,6 @@ function Body:remove_modifiers(hero)
 	hero:RemoveModifierByName("modifier_ice_quill_carapace")
 	hero:RemoveModifierByName("modifier_secret_temple")
 	hero:RemoveModifierByName("modifier_vampiric_breastplate")
-	hero:RemoveModifierByName("modifier_dark_arts")
-	hero:RemoveModifierByName("modifier_dark_arts_effect")
 	hero:RemoveModifierByName("modifier_legion_vestments")
 	hero:RemoveModifierByName("modifier_legion_vestments_effect_str")
 	hero:RemoveModifierByName("modifier_legion_vestments_effect_int")

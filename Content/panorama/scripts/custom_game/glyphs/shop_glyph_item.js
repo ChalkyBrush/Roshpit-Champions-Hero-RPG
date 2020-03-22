@@ -14,12 +14,12 @@ function InitializeShopGlyphItem()
 	mRequiredHero = $.GetContextPanel().heroName
 	mHeroName = convertFullHeroNameToRPC(mHeroName)
 	var glyphIndex = mRowTier+"_"+ mColumn
-	$.Msg(mRequiredHero)
+	//$.Msg(mRequiredHero)
 	if (mRequiredHero == "tooltip_neutral"){
-		$.Msg("file://{images}/items/glyphs/glyph_"+glyphIndex+".png")
+		//$.Msg("file://{images}/items/glyphs/glyph_"+glyphIndex+".png")
 		$('#glyph-image').SetImage("file://{images}/items/glyphs/glyph_"+glyphIndex+".png")
 	}else{
-		$.Msg("file://{images}/items/glyphs/glyph_"+mHeroName+"_"+glyphIndex+".png")
+		//$.Msg("file://{images}/items/glyphs/glyph_"+mHeroName+"_"+glyphIndex+".png")
 		$('#glyph-image').SetImage("file://{images}/items/glyphs/glyph_"+mHeroName+"_"+glyphIndex+".png")
 	}
 	// $('#glyph-image').SetImage("file://{images}/items/glyphs/basic_glyph.png")

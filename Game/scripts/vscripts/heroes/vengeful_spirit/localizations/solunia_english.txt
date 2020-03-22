@@ -266,7 +266,7 @@
     	"DOTA_Tooltip_ability_solunia_rune_r_2_arcana2_suffix_two"				""	
 
   		"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2"						"[R3] Dimension Shell"
-    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"For a short duration after casting Alpha Spark, gain a shield that reduces damage taken by <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT %>%, and allows unit walking and +100 movespeed."
+    	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_Description"			"For a short duration after casting Alpha Spark, gain a shield that reduces damage taken by <% SOLUNIA_ARCANA2_R3_DAMAGE_REDUCTION_PCT * 100 %>%, and allows unit walking and +100 movespeed."
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_property_one"		"Duration"
     	"DOTA_Tooltip_ability_solunia_rune_r_3_arcana2_suffix"				" seconds"
 

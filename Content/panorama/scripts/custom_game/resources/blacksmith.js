@@ -441,7 +441,7 @@ function socketStep2(msg){
 }
 
 function socket_cutter_inserted(msg){
-    $.Msg("INSERTED")
+    //$.Msg("INSERTED")
     GameUI.CustomUIConfig().blacksmithCutterIndex = msg.itemIndex
     GameUI.CustomUIConfig().socket_panel.FindChildTraverse('blacksmith_socket_item_forger_tip').text = $.Localize("DOTA_Tooltip_ability_item_rpc_socket_cutter")
     $('#final_forge_button_container').RemoveClass('invisible');
@@ -468,6 +468,9 @@ function playerReceivedItem(){
     GameEvents.Subscribe("socket_gear_clicked", socketStep2);
     GameEvents.Subscribe("playerReceivedItem", playerReceivedItem);
     GameEvents.Subscribe("socket_cutter_inserted", socket_cutter_inserted);
+
+    GameEvents.Subscribe("load_item_for_reroll", LoadItemForReroll);
+    GameEvents.Subscribe("lockSlotsFromServerCall", lockSlotsFromServerCall);
 })();
 
 //Previously
@@ -487,8 +490,6 @@ function InitializeRerollPreScreen() {
     $('#item_placement_tip').text = $.Localize('reroll_tip_one');
     $('#reroll_other_tip').text = $.Localize('reroll_tip_two');
     $('#item_image').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
-    GameEvents.Subscribe("load_item_for_reroll", LoadItemForReroll);
-    GameEvents.Subscribe("lockSlotsFromServerCall", lockSlotsFromServerCall);
     $.GetContextPanel().lockSlotsFromServerCall = lockSlotsFromServerCall;
     $.RegisterEventHandler('DragEnter', $('#item_image'), OnDragEnter);
     $.RegisterEventHandler('DragDrop', $('#item_image'), OnDragDrop);

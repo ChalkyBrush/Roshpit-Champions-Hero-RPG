@@ -924,7 +924,7 @@ function Arena:RollPrizebox(rank, score, hero)
 	if rarity == "mythical" then
 		Arena:RollPrizeBoxProperty4(item, prizeLevel)
 	end
-
+	RPCItems:ItemUpdateCustomNetTables(item)	
 	RPCItems:GiveItemToHeroWithSlotCheck(hero, item)
 end
 

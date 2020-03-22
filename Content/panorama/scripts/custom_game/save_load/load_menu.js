@@ -66,7 +66,7 @@ function LoadCharactersLoaded(msg){
 		}
 		$('#oracle_content_label').style.visibility = "collapse"
 	}
-	$.Msg("HERO SLOT")
+	//$.Msg("HERO SLOT")
 	var parentPanel = $('#load_container')
 	for (var i = 1; i <= 4; i++) {
 		var newChildPanel = $.CreatePanel( "Panel", parentPanel, "saved_character"+i );

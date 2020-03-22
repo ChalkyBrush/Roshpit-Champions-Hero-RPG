@@ -740,6 +740,10 @@ function WallPhysics:SetPushPositionOverGround(unit, position)
 	end
 end
 
+function CDOTA_BaseNPC:GetDistanceFromGround()
+	return self:GetAbsOrigin().z - GetGroundHeight(self:GetAbsOrigin(), self)
+end
+
 function WallPhysics:RandomPointInSquare(vec1, vec2)
 	local point = vec1 + Vector(RandomInt(0, vec2.x - vec1.x), RandomInt(0, vec2.y - vec1.y))
 	return point

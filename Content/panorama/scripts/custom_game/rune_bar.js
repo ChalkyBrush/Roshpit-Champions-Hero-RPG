@@ -52,19 +52,19 @@ function UpdateRuneList()
 	// UpdateRuneListTier2();
 	// UpdateRuneListTier3();
 	// UpdateRuneListTier4();
-	$.Msg("UPDATE RUNE LIST")
+	//$.Msg("UPDATE RUNE LIST")
 	var tier = 1;
 	for (tier = 1; tier <= 4; tier++) {
-		$.Msg("update runes: "+tier)
+		//$.Msg("update runes: "+tier)
 		var runeListPanel = $( "#rune_list_tier"+tier);
 		if (runeListPanel){
 			var playerIndex = getControllingPlayerIndex();
 			var skill_tree_data = CustomNetTables.GetTableValue( "skill_tree", playerIndex.toString()+"rune_unit"+tier.toString() );
 
-			$.Msg(skill_tree_data)
+			//$.Msg(skill_tree_data)
 		}
 		if (skill_tree_data===undefined){
-			$.Msg("SKILL TREE DATA UNDEFINED")
+			//$.Msg("SKILL TREE DATA UNDEFINED")
 			return;
 		}
 		var rune_unit_index = skill_tree_data.runeUnit;

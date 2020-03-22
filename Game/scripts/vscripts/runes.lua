@@ -1027,10 +1027,10 @@ function Runes:EquipArcana(hero, index)
 		if index == 1 then
 			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
-			if hero:FindAbilityByName("chernobog_3_e"):GetToggleState() then
-				hero:FindAbilityByName("chernobog_3_e"):ToggleAbility()
+			if hero:FindAbilityByName("chernobog_shadow_hunt"):GetToggleState() then
+				hero:FindAbilityByName("chernobog_shadow_hunt"):ToggleAbility()
 			end
-			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+			Runes:EasySwapArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			if hero:HasModifier("modifier_chernobog_demon_form") then
 				CustomAbilities:AddAndOrSwapSkill(hero, "chernobog_demon_flight", "chernobog_demon_walk", 2)
 			end
@@ -1251,53 +1251,54 @@ function Runes:EquipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_drake_ring_passive")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
-		Timers:CreateTimer(0, function()
-			if hero.onibi then
-				if index == 1 then
-					local abilityCheck = hero:GetAbilityByIndex(DOTA_W_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_lightning" then
-						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_lightning", 1)
-					end
-					local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then
-						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
-					end
-					local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
-					if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then
-						CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
-					end
-					hero:RemoveModifierByName("modifier_jex_vortex_w")
-
-					local abilities_to_remove_table = {"jex_thunder_thunder_q", "jex_lightning_cosmic_q", "jex_lightning_nature_q", "jex_lightning_lightning_w", "jex_lightning_nature_w", "jex_lightning_cosmic_w", "jex_lightning_nature_e", "jex_lightning_lightning_e", "jex_lightning_cosmic_e"}
-					for i = 1, #abilities_to_remove_table, 1 do
-						local ability_name = abilities_to_remove_table[i]
-						if hero:HasAbility(ability_name) then
-							hero:RemoveAbility(ability_name)
-						end
-					end
-
-					Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
-					local onibi = hero.onibi
-					local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
-					CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_fire_1", 3)
-					local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
-					CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_fire_2", 4)
-					onibi.stats_table["arcanas"] = {}
-					onibi.stats_table["arcanas"]["fire"] = 1
-					if not onibi.stats_table["fire"]["exp"] then
-						onibi.stats_table["fire"]["exp"] = 0
-					end
-					if not onibi.stats_table["fire"]["level"] then
-						onibi.stats_table["fire"]["level"] = 0
-					end
-					require('heroes/arc_warden/abilities/onibi')
-					calculate_onibi_element_levels(onibi)
-				end
-			else
-				--print("retrying arcana equip")
-				return 0.5
+		local element
+		if index == 1 then
+			element = "fire"
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_W_SLOT)
+			if abilityCheck:GetAbilityName() == "jex_base_cannon_fire" then
+				return
 			end
-		end)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_lightning" then
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_lightning", 1)
+			end
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_Q_SLOT)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_nature" then
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_nature", 0)
+			end
+			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
+			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_cosmic" then
+				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_cosmic", 2)
+			end
+			hero:RemoveModifierByName("modifier_jex_vortex_w")
+
+			local abilities_to_remove_table = {"jex_thunder_thunder_q", "jex_lightning_cosmic_q", "jex_lightning_nature_q", "jex_lightning_lightning_w", "jex_lightning_nature_w", "jex_lightning_cosmic_w", "jex_lightning_nature_e", "jex_lightning_lightning_e", "jex_lightning_cosmic_e"}
+			for i = 1, #abilities_to_remove_table, 1 do
+				local ability_name = abilities_to_remove_table[i]
+				if hero:HasAbility(ability_name) then
+					hero:RemoveAbility(ability_name)
+				end
+			end
+			Runes:EasySwapArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+				
+		end
+		
+		if hero.onibi and element ~= nil then
+			local onibi = hero.onibi
+			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..element.."_1", 3)
+			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..element.."_2", 4)
+			onibi.stats_table["arcanas"] = {}
+			onibi.stats_table["arcanas"][element] = 1
+			if not onibi.stats_table[element]["exp"] then
+				onibi.stats_table[element]["exp"] = 0
+			end
+			if not onibi.stats_table[element]["level"] then
+				onibi.stats_table[element]["level"] = 0
+			end
+			require('heroes/arc_warden/abilities/onibi')
+			calculate_onibi_element_levels(onibi)
+		end
 	elseif hero:GetUnitName() == "npc_dota_hero_slark" then
 		if index == 1 then
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_E_SLOT)
@@ -1797,12 +1798,12 @@ function Runes:UnequipArcana(hero, index)
 		elseif index == 2 then
 			--print("HERE?????????")
 			if hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_flight", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_walk" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_walk", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			elseif hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_warp" then
-				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_3_e", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
+				Runes:EasyRevertArcanaSkills(hero, 2, "chernobog_shadow_hunt", "chernobog_demon_warp", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 				hero:RemoveAbility("chernobog_demon_flight")
 			end
 			hero:RemoveModifierByName("modifier_demon_warp_freecast")
@@ -1994,7 +1995,11 @@ function Runes:UnequipArcana(hero, index)
 			hero:RemoveModifierByName("modifier_dinath_passive_ms_cap")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_arc_warden" then
+		local oldElement
+		local newElement
 		if index == 1 then
+			oldElement = "fire"
+			newElement = "lightning"
 			local abilityCheck = hero:GetAbilityByIndex(DOTA_W_SLOT)
 			if abilityCheck:GetAbilityName() ~= "jex_base_cannon_fire" then
 				CustomAbilities:AddAndOrSwapSkill(hero, abilityCheck:GetAbilityName(), "jex_base_cannon_fire", 1)
@@ -2029,15 +2034,18 @@ function Runes:UnequipArcana(hero, index)
 			end
 
 			Runes:EasyRevertArcanaSkills(hero, 1, "jex_base_cannon_lightning", "jex_base_cannon_fire", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		end
+		
+		if hero.onibi and oldElement ~= nil and newElement ~= nil then
 			local onibi = hero.onibi
 			local onibi_ability_check1 = onibi:GetAbilityByIndex(DOTA_D_SLOT)
-			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_nature_1", 3)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check1:GetAbilityName(), "onibi_"..newElement.."_1", 3)
 			local onibi_ability_check2 = onibi:GetAbilityByIndex(DOTA_F_SLOT)
-			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_nature_2", 4)
+			CustomAbilities:AddAndOrSwapSkill(onibi, onibi_ability_check2:GetAbilityName(), "onibi_"..newElement.."_2", 4)
 			if not onibi.stats_table["arcanas"] then
 				onibi.stats_table["arcanas"] = {}
 			end
-			onibi.stats_table["arcanas"]["fire"] = 0
+			onibi.stats_table["arcanas"][oldElement] = 0
 			require('heroes/arc_warden/abilities/onibi')
 
 			calculate_onibi_element_levels(onibi)

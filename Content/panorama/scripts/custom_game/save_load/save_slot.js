@@ -3,14 +3,14 @@ var heroLevel = $.GetContextPanel().heroLevel
 var slot = $.GetContextPanel().slot
 var heroSlot = $.GetContextPanel().heroSlot
 var unlocked = $.GetContextPanel().unlocked
-$.Msg("-----CURRENT_LEVEL:"+$.GetContextPanel().currentLevel+" ------ HERO SLOT LEVEL: "+heroLevel)
+//$.Msg("-----CURRENT_LEVEL:"+$.GetContextPanel().currentLevel+" ------ HERO SLOT LEVEL: "+heroLevel)
 if ($.GetContextPanel().currentLevel < heroLevel){
 	$.GetContextPanel().confirm = 1
 }else{
 	$.GetContextPanel().confirm = 0
 }
 function InitializeSaveSlot(){
-	$.Msg(heroName)
+	//$.Msg(heroName)
 	if (heroName == "empty"){
 		if (unlocked == 1){
 			$('#slot_portrait').SetImage( "file://{images}/custom_game/ui/empty_slot.jpg")
@@ -43,9 +43,9 @@ function InitializeSaveSlot(){
 }
 
 function SaveInSlot(){
-	$.Msg("SAVE IN SLOT: "+slot)
-	$.Msg(heroLevel)
-	$.Msg(heroName)
+	//$.Msg("SAVE IN SLOT: "+slot)
+	//$.Msg(heroLevel)
+	//$.Msg(heroName)
 	if ($.GetContextPanel().currentLevel == 1){
 		if (!(heroName=="empty")){
 			$.GetContextPanel().saveMenuLabel.text=$.Localize('#saveload_cant_save_level_1')
@@ -56,12 +56,12 @@ function SaveInSlot(){
 	}
 	if ($.GetContextPanel().confirm == 1){
 		$.GetContextPanel().confirm = 0
-		$.Msg("CONFIRM SAVE")
+		//$.Msg("CONFIRM SAVE")
 		$.GetContextPanel().saveMenuLabel.text=$.Localize('#saveload_confirm')
 		$.GetContextPanel().saveMenuLabel.AddClass("warning_label")
 		Game.EmitSound("General.Ping")
 	}else{
-		$.Msg("ACTUAL SAVE")
+		//$.Msg("ACTUAL SAVE")
 		if (heroSlot == 0 || heroSlot == slot){
 			if ((GameUI.CustomUIConfig().oracleSave.state == 0) && unlocked == 1){
 				GameUI.CustomUIConfig().oracleSave.state = 1

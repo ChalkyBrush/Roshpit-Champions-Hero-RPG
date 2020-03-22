@@ -305,3 +305,13 @@ function WinterMountainTrigger(trigger)
 		end
 	end
 end
+
+function WinterMountainTrigger2(trigger)
+	local hero = trigger.activator
+	if hero.actual_game_hero then
+		if not Winterblight.MountainPart2Spawned then
+			Winterblight.MountainPart2Spawned = true
+			Winterblight:MountainP2()
+		end
+	end
+end

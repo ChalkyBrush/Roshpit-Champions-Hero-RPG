@@ -770,7 +770,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
                 if target.paladin_q4_absorb < 0 then
                     target.paladin_q4_absorb = 0
                 end
-                target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth() * 0.1 * q_4_level)
+                target.paladin_q4_absorb = math.min(target.paladin_q4_absorb + shieldAmount, target:GetMaxHealth() * PALADIN_Q4_MAX_SHIELD_PER_MAX_HP * q_4_level)
                 local shieldDuration = Filters:GetAdjustedBuffDuration(caster, 12, false)
                 target:AddNewModifier(caster, ability, "modifier_paladin_q4_shield", {duration = shieldDuration})
             end
@@ -963,9 +963,10 @@ function Filters:BeginRChannel(caster)
     if caster:HasModifier("modifier_ocean_tempest_pallium") then
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].manaDrained = 0
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].interval = 0
-        caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime()
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drained = 0
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY].channel_time = ability:GetChannelTime() - 0.1
         caster.equipped_gear[RPC_GEAR_SLOT_BODY].total_mana_drain_pct = ITEM_RPC_OCEAN_TEMPEST_PALLIUM_MANA_DRAIN_OF_MAX + caster.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_OCEAN_TEMPEST_PALLIUM_GEM_AMETHYST)
-        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {duration = ability:GetChannelTime()})
+        caster.equipped_gear[RPC_GEAR_SLOT_BODY]:ApplyDataDrivenModifier(caster.InventoryUnit, caster, "modifier_ocean_tempest_pallium_channeling", {})
     end
     if caster:HasModifier("modifier_space_tech_vest") then
         caster:RemoveModifierByName("modifier_space_tech_buff")
@@ -3160,7 +3161,7 @@ function Filters:WitchHat(caster)
         local projectileOrigin = caster:GetAbsOrigin() + fv * 10
         local start_radius = 120
         local end_radius = 400
-        local range = 1000
+        local range = 1000 + witch_hat:GetFinalGemPropertyValue("sapphire", SWAMP_WITCH_SAPPHIRE2)
         local speed = 850
         local info =
         {
@@ -3734,13 +3735,12 @@ function Filters:UmbralSentinel(attacker, victim)
     ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_crest_of_the_umbral_sentinel_effect_visible", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
     victim:SetModifierStackCount("modifier_crest_of_the_umbral_sentinel_effect_visible", ability, newStacks)
 
-    if ability:GetGemValue("ruby") > 0 then
-        ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_ruby", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
-        victim:SetModifierStackCount("modifier_umbral_sentinel_ruby", ability, ability:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)*newStacks)
-    end
     if ability:GetGemValue("sapphire") > 0 then
         ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_sapphire", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
-        victim:SetModifierStackCount("modifier_umbral_sentinel_sapphire", ability, ability:GetFinalGemPropertyValue("sapphire", UMBRAL_SENTINEL_SAPPHIRE)*newStacks)
+        victim:SetModifierStackCount("modifier_umbral_sentinel_sapphire", ability, ability:GetFinalGemPropertyValue("sapphire", UMBRAL_SENTINEL_SAPPHIRE1)*newStacks)
+
+        ability:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_umbral_sentinel_sapphire2", {duration = CREST_OF_UMBRAL_SENTINEL_DURATION})
+        victim:SetModifierStackCount("modifier_umbral_sentinel_sapphire2", ability, ability:GetFinalGemPropertyValue("sapphire", UMBRAL_SENTINEL_SAPPHIRE2)*newStacks)
     end
 end
 
@@ -4382,7 +4382,7 @@ function Filters:FireDeity(attacker, victim, damage)
     local chance = FIRE_DEITY_CROWN_CHANCE + fire_crown:GetFinalGemPropertyValue("ruby", FIRE_DEITY_RUBY)
     local proc = Filters:GetProc(attacker, chance)
     if proc then
-        damage = damage * FIRE_DEITY_CROWN_AMP/100 + fire_crown:GetFinalGemPropertyValue("emerald", FIRE_DEITY_EMERALD)
+        damage = damage * FIRE_DEITY_CROWN_AMP/100 + fire_crown:GetFinalGemPropertyValue("emerald", FIRE_DEITY_EMERALD)*attacker:GetAgility()
         local target = victim
         local radius = FIRE_DEITY_CROWN_AOE
         local procs_per_second = FIRE_DEITY_MAX_PROCS_PER_SECOND + fire_crown:GetFinalGemPropertyValue("amethyst", FIRE_DEITY_AMETHYST)
@@ -4423,7 +4423,7 @@ function Filters:WaterDeity(attacker, victim, damage)
     local limitKey = attacker:GetPlayerOwnerID() .. '_water_deity'
     Util.Common:LimitPerTime(procs_per_second, 1, limitKey, function()
         CustomAbilities:QuickAttachParticle("particles/roshpit/water_deity.vpcf", victim, 3)
-        local water_deity_damage = damage*WATER_DEITY_CROWN_DAMAGE_AMP/100 + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WATER_DEITY_SAPPHIRE)
+        local water_deity_damage = damage*WATER_DEITY_CROWN_DAMAGE_AMP/100 + (attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("sapphire", WATER_DEITY_SAPPHIRE)/100)*OverflowProtectedGetAverageTrueAttackDamage(attacker)
         Filters:ApplyItemDamage(victim, attacker, water_deity_damage, DAMAGE_TYPE_PURE, nil, RPC_ELEMENT_WATER, RPC_ELEMENT_NONE)
         attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(attacker.InventoryUnit, victim, "modifier_water_deity_crown_slow", {duration = WATER_DEITY_CROWN_MOVESPEED_SLOW_DURATION})  
         if attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
@@ -5133,6 +5133,9 @@ function Filters:SamuraiAttackLand(damage, attacker, target)
         PopupDamage(target, damage)
         EmitSoundOn("RPCItems.SamuraiHelm.Crit", attacker)
         CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skeletonking/skeleton_king_ti8_weapon_blur_critical.vpcf", attacker, 2)
+        if helm:GetGemValue("ruby") > 0 then
+            helm:ApplyDataDrivenModifier(attacker.InventoryUnit, attacker, "modifier_samurai_helmet_ruby", {duration = ADAMANTINE_SAMURAI_RUBY_DURATION})
+        end
     end
     return damage
 end

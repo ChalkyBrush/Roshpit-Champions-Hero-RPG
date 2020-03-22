@@ -129,8 +129,6 @@ function class:OnOrderAttack(data)
         return
     end
 
-    onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), afterWallPosition)
-
 
     self:Teleport(afterWallPosition)
     self:StartCooldown()
@@ -156,7 +154,6 @@ function class:OnOrderMove(data)
     end
     local afterWallPosition = WallPhysics:WallSearch(parent:GetAbsOrigin(), newPosition, parent)
     newPosition = afterWallPosition
-    onBlink(parent, self:GetAbility(), parent:GetAbsOrigin(), newPosition)
 
     self:Teleport(newPosition)
     -- self:ApplyE3Debuff(nil, newPosition)

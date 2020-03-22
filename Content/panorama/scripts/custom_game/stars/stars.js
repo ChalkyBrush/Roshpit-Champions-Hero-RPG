@@ -13,7 +13,7 @@ MAX_STARS = 1473
 
 function openStarsFromServer(msg){
 	$('#stars_container').RemoveClass('invisible')
-	$.Msg("REMOEV INVISIBLE?")
+	//$.Msg("REMOEV INVISIBLE?")
 	GameUI.CustomUIConfig().starsOpen = true
 	mActiveCategoryButton = false
 	GameUI.CustomUIConfig().starsParent.RemoveClass('invisible')
@@ -34,9 +34,9 @@ function OpenStarsMenu(playerID, starData, grandTotalStars)
     board.FindChildTraverse('player_name').text = 	Players.GetPlayerName( playerID)
     var playerInfo = Game.GetPlayerInfo( playerID );
     var steamID = playerInfo.player_steamid
-    $.Msg(steamID)
+    //$.Msg(steamID)
     board.FindChildTraverse('player_avatar').steamid = steamID
-    $.Msg(playerInfo)
+    //$.Msg(playerInfo)
     board.FindChildTraverse('total_stars_label').text = $.Localize("stars_menu")+": ★"+ grandTotalStars + "/"+MAX_STARS
     board.FindChildTraverse('close-button').SetPanelEvent('onactivate', function ClosePanel() {
 		GameUI.CustomUIConfig().starsParent.AddClass('outLeftBig')
@@ -55,7 +55,7 @@ function OpenStarsMenu(playerID, starData, grandTotalStars)
 		var newChildPanel = $.CreatePanel( "Panel", buttonContainer, "button_row"+i );
 		newChildPanel.BLoadLayoutSnippet("stars_category_row")
 	} 
-	$.Msg(starData)
+	//$.Msg(starData)
 	var grandTotalStars = 0
 	for (var i = 1; i < availabileHeroArray.length; i++) {
 		var buttonRowIndex = Math.floor((i-1)/mButtonsPerRow) + 1
@@ -69,12 +69,12 @@ function OpenStarsMenu(playerID, starData, grandTotalStars)
 			newChildPanel.FindChildTraverse('stars_button_image').SetImage("file://{images}/items/weapons/mountain_protector/mountain_protector_weapon_00.png")
 		}
 		totalButtons = totalButtons + 1
-		$.Msg("------")
-		$.Msg(mHeroName)
+		//$.Msg("------")
+		//$.Msg(mHeroName)
 		var category = starData[i]
 		setButtonEvents(newChildPanel, mHeroName, category)
-		$.Msg(category)
-		$.Msg("-------")
+		//$.Msg(category)
+		//$.Msg("-------")
 	}
 }
 
@@ -93,8 +93,8 @@ function setButtonEvents(buttonParent, heroName, categoryData){
 }
 
 function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categoryData){
-	$.Msg("BUTTON CLICK")
-	$.Msg(starsContainer)
+	//$.Msg("BUTTON CLICK")
+	//$.Msg(starsContainer)
 	starsContainer.AddClass('stars_container_open')
 	var categoryStars = 0
 	if (mActiveCategoryButton){
@@ -104,8 +104,8 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 	buttonParent.FindChildTraverse('stars_button_image_overlay').AddClass('invisible')
 	buttonParent.lock = true
 	mActiveCategoryButton = buttonParent
-	$.Msg("-----------")
-	$.Msg(categoryData)
+	//$.Msg("-----------")
+	//$.Msg(categoryData)
 
 	starsContainer.FindChildTraverse('stars_details_meta_container').style.height = "580px"
 	$.GetContextPanel().FindChildTraverse("stars_details_left_side").RemoveAndDeleteChildren()
@@ -124,9 +124,9 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 		}
 		var newChildPanel = $.CreatePanel( "Panel", sidePanel, "starDetail"+i );
 		newChildPanel.BLoadLayoutSnippet('stars_detail')
-		$.Msg(heroName)
+		//$.Msg(heroName)
 		if (heroName == "solo_stars"){
-			$.Msg("solo_starsINSIDE")
+			//$.Msg("solo_starsINSIDE")
 			var starIcon = newChildPanel.FindChildTraverse('star_item_icon')
 		    var starIcon2 = $.CreatePanel("Panel", starIcon, "dialogue_portrait_scene");
 		    starIcon2.BLoadLayoutSnippet("image_icon");
@@ -173,8 +173,8 @@ function setCategoryButtonFunction(starsContainer, heroName, buttonParent, categ
 		setStarMouseovers(visualStar1, visualStar2, visualStar3, stars_description_label)
 		categoryStars = categoryStars + parseInt(starAmount)
 		// "#F4DC42"
-		$.Msg("STAR AMOUNT")
-		$.Msg(categoryStars)			
+		//$.Msg("STAR AMOUNT")
+		//$.Msg(categoryStars)			
 		// newChildPanel.FindChildTraverse('stars_visual').text = "<font color='"+herosStarsArray[i-1][2]+"'>★</font><font color='"+herosStarsArray[i-1][3]+"'>★</font><font color='"+herosStarsArray[i-1][4]+"'>★</font>"
 	}
 	var categoryStarMax = 42
@@ -192,8 +192,8 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 	var starAmount = 0
 	if (heroName == "solo_stars"){
 		heroName = "solo_stars_in_description"
-		$.Msg(categoryData)
-		$.Msg("HEJHEHEHE")
+		//$.Msg(categoryData)
+		//$.Msg("HEJHEHEHE")
 	}
 	if (star_title == "stars_hero_level_title"){
 		starDescription = $.Localize('stars_hero_level_description')
@@ -305,8 +305,8 @@ function getStarDescription(categoryData, star_title, heroName, starOverride)
 		}else if (starAmount >= 2){
 			starDescription = $.Localize("star_description_pit7").replace("@heroname", localizeWithColor(heroName)).replace("@boss_name", localizeWithColor("arena_pit_of_trials_final_boss")).replace("@map_name", $.Localize("roshpit_arena")).replace("@level", fontStart+7+fontEnd)
 		}	
-		$.Msg("PIT OF TRIALS WTF?")
-		$.Msg(starDescription)		
+		//$.Msg("PIT OF TRIALS WTF?")
+		//$.Msg(starDescription)		
 	}else if (star_title == "immortal_weapon_title"){
 		starAmount = categoryData.weapon
 		if (starOverride > 0){
@@ -463,7 +463,7 @@ function setStarMouseovers(visualStar1, visualStar2, visualStar3, stars_descript
 
 function starMouseOver(stars_description_label, starOverride)
 {
-	$.Msg("MOUSEOVER STAR??")
+	//$.Msg("MOUSEOVER STAR??")
 	var starDescription = getStarDescription([], stars_description_label.star_title, stars_description_label.heroName, starOverride)[0]
 	stars_description_label.text = starDescription
 	// stars_description_label.AddClass('star_highlighted')
@@ -543,7 +543,7 @@ function starPopout(msg)
 	var starTitle = msg.starTitle
 	var heroName = msg.heroName
 	
-	$.Msg(starTitle)
+	//$.Msg(starTitle)
 	starTitle = convertStarNameToTitle(starTitle)
 	var parent = $('#star_popout_container')
 	parent.RemoveAndDeleteChildren();
@@ -554,7 +554,7 @@ function starPopout(msg)
     board.AddClass('fromLeft')
 
 	if (heroName == "solo_stars"){
-		$.Msg("solo_starsINSIDE")
+		//$.Msg("solo_starsINSIDE")
 		var starIcon = board.FindChildTraverse('star_item_icon')
 	    var starIcon2 = $.CreatePanel("Panel", starIcon, "dialogue_portrait_scene");
 	    starIcon2.BLoadLayoutSnippet("image_icon");
@@ -617,7 +617,7 @@ function starPopout(msg)
 	var heroIndex = Players.GetPlayerHeroEntityIndex( playerID)
     board.SetPanelEvent('onactivate', function ActivatePopout() {
     	parent.RemoveAndDeleteChildren()
-    	$.Msg("OPEN STARS MENU?")
+    	//$.Msg("OPEN STARS MENU?")
 		GameEvents.SendCustomGameEventToServer( "stars_menu", {playerID: playerID, heroIndex: heroIndex, openingPlayerID: Players.GetLocalPlayer()});
 	})
 }

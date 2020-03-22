@@ -19,7 +19,7 @@ function numberWithCommas(x) {
 function OnDragEnter( a, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-	$.Msg("HOVERITA")
+	//$.Msg("HOVERITA")
 	// only care about dragged items other than us
 	if ( draggedItem === null || (!(draggedPanel.fromInventory)) )
 		return true;
@@ -47,8 +47,8 @@ function OnDragDrop( panelId, draggedPanel )
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
-	$.Msg(panelId)
-	$.Msg(draggedItem)
+	//$.Msg(panelId)
+	//$.Msg(draggedItem)
 	var itemName = Abilities.GetAbilityName(draggedItem)
 	if (draggedPanel.fromInventory && isValidItem(draggedItem)){
 			var playerID = Game.GetLocalPlayerID()
@@ -75,7 +75,7 @@ function ItemShowTooltipInit()
 	var itemName = Abilities.GetAbilityName( item );
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	$.GetContextPanel().SetAttributeInt( "item", item)
-	$.Msg("HELLO SIR")
+	//$.Msg("HELLO SIR")
 	ItemShowTooltipOnPanel($.GetContextPanel())
 }
 
@@ -133,7 +133,7 @@ function getItemDifficultyLevel(itemName){
 
 function checkItemCondition(){
 	if (($.GetContextPanel().witchDoctorParent.wind > -1) && ($.GetContextPanel().witchDoctorParent.water > -1) && ($.GetContextPanel().witchDoctorParent.fire > -1)){
-		$.Msg("CHECK ITEM CONDITION YES!")
+		//$.Msg("CHECK ITEM CONDITION YES!")
 		$.GetContextPanel().combineButton.RemoveClass('invisible')
 	}
 }

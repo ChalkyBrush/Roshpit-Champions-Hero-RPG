@@ -299,10 +299,10 @@ function InspirationRing(msg)
 		var parent = GameUI.DotaHUD.FindChildTraverse("AbilitiesAndStatBranch")
 		var abilities_cast = msg.abilities_cast
 		var color = msg.border_color
-		$.Msg(abilities_cast)
+		//$.Msg(abilities_cast)
 		for (var j = 1; j <= 4; j++) {
 			var panel_index = j-1
-			$.Msg(abilities_cast[j])
+			//$.Msg(abilities_cast[j])
 			if (abilities_cast[j] == 1){
 				var ability_panel = parent.FindChildTraverse("Ability"+panel_index).FindChildTraverse("AbilityButton")
 				ability_panel.style.border = "3px solid "+color

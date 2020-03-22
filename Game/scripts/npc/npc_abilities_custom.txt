@@ -1977,7 +1977,7 @@
             {
                 "Target"    "CASTER"
                 "ModifierName"  "modifier_channel_start"
-                "Duration"      "1.5"
+                "Duration"      "2"
             }
             "RunScript"
             {
@@ -2842,17 +2842,17 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_special_a"			"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+				"poison_special_a"			"2.8 3 3.2 3.4 3.6 3.8 4"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_a"			"1 1.5 2.0 2.5 3 3.5 4.0"
+				"time_special_a"			"1 1.5 2 2.5 3 3.5 4"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"time_special_b"			"2.0 3.0 4.0 5.0 6.0 7.0 8.0"
+				"time_special_b"			"2 3 4 5 6 7 8"
 			}
 			"09"
 			{
@@ -2867,7 +2867,7 @@
 			"11"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_special_a"			"-2.0 -2.5 -3 -3.5 -4.0 -4.5 -5.0"
+				"ice_special_a"			"-2 -2.5 -3 -3.5 -4 -4.5 -5"
 			}
 			"12"
 			{
@@ -2912,7 +2912,7 @@
 			"20"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_special_a"			"1.0 2.0 3.0 4.0 5.0 6.0 8.0"
+				"demon_special_a"			"1 2 3 4 5 6 8"
 			}
 			"21"
 			{
@@ -2922,7 +2922,7 @@
 			"22"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
 			}
 			"23"
 			{
@@ -3305,7 +3305,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"fire_orb_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1.0"
+				"fire_orb_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
 			}
 			"03"
 			{
@@ -3320,12 +3320,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"lightning_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"poison_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"07"
 			{
@@ -3380,7 +3380,7 @@
 			"17"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"shadow_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"shadow_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"18"
 			{
@@ -3400,7 +3400,7 @@
 			"21"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ghost_orb_a"		"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"ghost_orb_a"		"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"22"
 			{
@@ -3410,12 +3410,12 @@
 			"23"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"water_orb_a"			"0.8 1.0 1.2 1.4 1.6 1.8 2.0"
+				"water_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
 			}
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"1.9 2.0 2.1 2.2 2.3 2.4 2.5"
+				"demon_orb_a"			"1.9 2 2.1 2.2 2.3 2.4 2.5"
 			}
 			"23"
 			{
@@ -3430,7 +3430,7 @@
 			"25"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"undead_orb_a"			"2.8 3.0 3.2 3.4 3.6 3.8 4.0"
+				"undead_orb_a"			"2.8 3 3.2 3.4 3.6 3.8 4"
 			}
 			"26"
 			{
@@ -12307,12 +12307,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"15 35 55 75 95 115 135"
+				"damage"			"35 100 220 500 800 1000 1350"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_damage"		"0.2"
+				"int_damage"		"1"
 			}
 		}
 	}
@@ -12461,7 +12461,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.1"
+				"property_one"			"4"
 			}
 			"02"
 			{
@@ -12575,7 +12575,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"10 25 40 55 70 85 100"
+				"damage"			"10 25 180 350 650 730 850"
 			}
 			"02"
 			{
@@ -12619,7 +12619,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"28 30 32 34 36 38 40"
+				"damage_mult"			"35 40 50 60 70 85 100"
 			}
 		}
 	}
@@ -12690,7 +12690,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_reduce"		"6 9 12 15 18 21 24"
+				"damage_reduce"		"15 20 22 24 26 30 35"
 			}
 		}
 	}
@@ -12814,7 +12814,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"35"
 			}
 		}
 	}
@@ -14028,7 +14028,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"7.0 6.6 6.2 5.8 5.4 5.0 4.6"
+		"AbilityCooldown"				"7 6.6 6.2 5.8 5.4 5 4.6"
 
 		// Cost
 		//-------------------------------------------------------
@@ -23036,12 +23036,12 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"speed_mult"	"0.2 0.4 0.6 0.8 1.0 1.2 1.4"
+				"speed_mult"	"0.2 0.4 0.6 0.8 1 1.2 1.4"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+				"stun_duration"	"1.2 1.5 1.8 2.1 2.4 2.7 3"
 			}
 		}
 	}
@@ -26148,7 +26148,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_mult"			"0.5 0.6 0.8 0.9 1.0 1.1 1.2"
+				"damage_mult"			"0.5 0.6 0.8 0.9 1 1.1 1.2"
 			}
 		}
 	}
@@ -40685,7 +40685,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1.5"
+				"property_one"			"1"
 			}
 		}
 	}
@@ -40706,7 +40706,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"5"
 			}
 		}
 	}
@@ -40949,7 +40949,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"25"
+				"property_one"			"10"
 			}
 		}
 	}
@@ -50605,12 +50605,12 @@
 		}
 	}
 
-	"chernobog_3_e"
+	"chernobog_shadow_hunt"
 	{
 		// General
 		//-------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"heroes/nightstalker/3_e"
+		"ScriptFile"					"heroes/nightstalker/chernobog_shadow_hunt.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"FightRecapLevel"				"1"
 		"LevelsBetweenUpgrades"  "0"
@@ -50631,44 +50631,29 @@
 			"particle"	"particles/roshpit/chernobog/chernobog_rune_d_c.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"4.2 4 3.8 3.6 3.4 3.2 3"
-
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_cap"		"550 565 580 595 610 625 640"
+				"movespeed_cap"		"0 15 30 45 60 75 90"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"		"20 30 50 60 70 80 90"
+				"movespeed_bonus"		"30 40 50 60 70 80 90"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"drain_per_second"			"5"
+				"hp_drain_per_second"			"10 10 10 10 10 10 10"
 			}
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"range"			            "650"
+				"mp_drain_per_second"			"15 15 15 15 15 15 15"
 			}
-
-		}
+		}	
 	}
 	"chernobog_4_r"
 	{
@@ -50995,6 +50980,11 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"350"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"property_two"			"110"
 			}
 		}
@@ -51023,7 +51013,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.05"
+				"property_two"			"5"
 			}
 		}
 	}
@@ -71334,7 +71324,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"4"
+				"property_two"			"7"
 			}
 		}
 	}
@@ -83448,7 +83438,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"postimitigation_buff"			"2000"
+				"postimitigation_buff"			"200"
 			}
 			"03"
 			{
@@ -83558,7 +83548,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"6 5 4"
+		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------
@@ -87010,6 +87000,262 @@
 				}	
 			}
 		}
+	}
+
+	"winterblight_rubble_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1200 2000 3000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -100 -180"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rubble_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"rubble_passive_think"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"mountain_rubble_die"
+					}
+				}
+			}
+			"modifier_rubble_min_health"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+			}
+			"modifier_mountain_rubble_in_between"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_ancestral_spirit.vpcf"
+				"StatusEffectPriority"  "1000"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"rubble_inbetween_thinker"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_mountain_rubble_entering"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"rubble_entering_thinker"
+					}
+				}
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}			
+			}
+		}
+
+	}
+
+	"winterblight_mountain_rubble_ice_burst"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"9"
+		"AbilityChannelTime"	"0.8"
+		"AbilityCastRange"				"580"
+		"AOERadius"						"580"
+		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"0"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"mountain_rubble_start_channel"
+
+			}
+
+		}
+		"OnChannelSucceeded"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"mountain_rubble_channel_complete"
+				"stun_duration"	"%stun_duration"
+				"damage"		"%damage"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_channel_start"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"mountain_rubble_channel_interrupt"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_channel_start"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/act_2/storegga_channel_ground.vpcf"
+						"EffectAttachType"			"attach_hitloc"
+						"EffectLifeDurationScale"	"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"beginChannel"
+					}
+
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/util/channeling.lua"
+						"Function"		"endChannel"
+					}
+				}
+
+			}
+			"modifier_mountain_rubble_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+			
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow" 
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"240 800 3000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_slow"			"-60 -240 -400"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"			"-80 -160 -240"
+			}
+		}
+
 	}
 
 
@@ -98517,7 +98763,7 @@
 				"IsHidden"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0.1"
 				}
 			}
 			"modifier_primary_attribute_damage"
@@ -129271,7 +129517,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"wolfir_druid_ruby"			"3 6 9 12 15"
+				"wolfir_druid_ruby"			"4 8 12 16 20"
 			}
 		}
 		"Modifiers"

@@ -6,7 +6,7 @@ function InitializeQuestItem(){
 	var boss_name = $.Localize("#"+quest.boss_name)
 	var dungeon_name = $.Localize("#"+quest.dungeon_name)
 	var difficulty_name = convertDifficultyIndexToName(quest.difficulty)
-	$.Msg(quest)
+	//$.Msg(quest)
 	quest_description = quest_description.replace("@boss_name", "<font color='#79BA6E'>"+boss_name+"</font>")
 	quest_description = quest_description.replace("@dungeon_name", "<font color='#79BA6E'>"+dungeon_name+"</font>")
 	quest_description = quest_description.replace("@difficulty_name", "<font color='"+difficulty_name[1]+"'>"+difficulty_name[0]+"</font>")
@@ -103,7 +103,7 @@ function DeleteQuest(){
 	if (GameUI.CustomUIConfig().crusaderLock == 0){
 		GameUI.CustomUIConfig().crusaderLock = 1
 		var questID = quest.id
-		$.Msg(questID)
+		//$.Msg(questID)
 		GameEvents.SendCustomGameEventToServer( "delete_quest", {playerID: Game.GetLocalPlayerID(), questID: questID, complete: 0});
 		Game.EmitSound("ui.contract_fail")
 	}

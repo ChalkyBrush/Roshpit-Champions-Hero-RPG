@@ -1,5 +1,5 @@
 function Winterblight:InitMountain()
-	Precache:WinterPart3()
+	Winterblight:MountainPrecache()
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1071, 2740), 9000, 50000, true)
 	Timers:CreateTimer(2, function()
 		Enemies:SpawnEnemyUnit("winterblight_mountain_tree", Vector(-256, -128), Vector(1, 0), false)
@@ -49,4 +49,26 @@ function Winterblight:InitMountain()
 	end)
 end
 
+function Winterblight:MountainPrecache()
+	if not Winterblight.MountainP3Precached then
+		Precache:WinterPart3()
+	end
+end
 
+function Winterblight:MountainP2()
+	Winterblight:MountainPrecache()
+	Winterblight:SpawnMountainStonePack(Vector(5572, 7032))
+end
+
+function Winterblight:SpawnMountainStonePack(base_position)
+	local mountain_bro_table = {}
+	for i = 1, 8, 1 do
+		local spawn_pos = base_position + RandomVector(RandomInt(0, 760))
+		local rubble = Enemies:SpawnEnemyUnit("winterblight_composed_rubble", spawn_pos, RandomVector(1), false)
+		rubble.phase = 0
+		table.insert(mountain_bro_table, rubble)
+	end
+	for i = 1, #mountain_bro_table, 1 do
+		mountain_bro_table[i].mountain_bro_table = mountain_bro_table
+	end
+end

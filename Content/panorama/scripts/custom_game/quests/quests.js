@@ -1,9 +1,9 @@
 var menuPanel = null
 
 function OpenCrusader(){
-	$.Msg("OPEN CRUSADER")
+	//$.Msg("OPEN CRUSADER")
 	if (GameUI.CustomUIConfig().mainDialog == 0){
-		$.Msg("OPEN CRUSADER WITH CLEAR DIALOG")
+		//$.Msg("OPEN CRUSADER WITH CLEAR DIALOG")
 		$('#crusader_container').RemoveClass("invisible")
 		$('#crusader_container').style.visibility = "visible"
 		GameUI.CustomUIConfig().mainDialog = 1

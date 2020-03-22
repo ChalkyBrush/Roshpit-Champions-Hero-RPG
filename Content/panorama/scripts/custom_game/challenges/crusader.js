@@ -2,7 +2,7 @@ gemforge_item = -1
 mTooltipPanel = null
 
 function OpenCrusader(msg){
-	$.Msg("GEM FORGER")
+	//$.Msg("GEM FORGER")
 	var parent = $('#crusader_container')
 	parent.RemoveClass('invisible')
 	parent.AddClass('animateEaseClass')
@@ -46,7 +46,7 @@ function load_challenge(challenge, challenge_type, crusader_main){
 	quest_start_panel.FindChildTraverse('challenge_text').text = challenge_text
 	var mods = challenge["mods"]
 	var indeces = ["1", "2", "3", "4", "5", "6"]
-	$.Msg(mods)
+	//$.Msg(mods)
 	var total_mods = 0
 	if (add_difficulty_mod(challenge, quest_start_panel)){
 		total_mods = 1
@@ -82,7 +82,7 @@ function challenge_start_click(challenge_start_button, challenge_type, challenge
 }
 
 function add_difficulty_mod(challenge, panel){
-	$.Msg("LOAD MOD")
+	//$.Msg("LOAD MOD")
 	var proceed = false
 	var mod_text = ""
 	if (challenge["challenge"]["map_name"] == "rpc_tanari_jungle" && challenge["challenge"]["difficulty_mod"] == 1){
@@ -118,7 +118,7 @@ function add_difficulty_mod(challenge, panel){
 }
 
 function load_mod(mod, panel, index){
-	$.Msg("LOAD MOD")
+	//$.Msg("LOAD MOD")
 	var attach_point = panel.FindChildTraverse('challenge_mods_attacher')
 	var quest_mod_panel = $.CreatePanel("Panel", attach_point, "mod-"+index)
 	quest_mod_panel.BLoadLayoutSnippet("challenge_mod_snippet");

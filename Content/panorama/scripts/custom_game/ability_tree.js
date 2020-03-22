@@ -56,8 +56,8 @@ function UpdateUnitInfo()
 }
 
 function UpdateAbilityTree(){
-	$.Msg("update ability tree")
-	$.Msg("------")
+	//$.Msg("update ability tree")
+	//$.Msg("------")
 	// UpdateUnitInfo()
 	var playerID = getControllingPlayerIndex()
 	
@@ -86,7 +86,7 @@ function UpdateAbilityTree(){
 			if (!($("#basic_skills_text")==null)){
 				$("#basic_skills_text").text = $.Localize( "#ui_base_skills")
 				$("#rune_text").text = $.Localize( "#ui_runes")
-				$.Msg("WTF!?!")
+				//$.Msg("WTF!?!")
 				if (skillPoints > 0){
 					$("#basic_skills_text_up").text = "+"+skillPoints
 					$("#basic_skills_text_up").RemoveClass("none")

@@ -15479,3 +15479,87 @@
         "RoshpitAggroSound"     "Winterblight.SnowvilChieftain.Aggro"
         "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
     }
+
+    "winterblight_composed_rubble"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_01.vmdl"
+        "SoundSet"  "Hero_Tiny"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "1.2"
+        "HealthBarOffset"   "140"
+        "precache"
+        {
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_02.vmdl"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_03.vmdl"
+            "model"         "models/items/tiny/frozen_stonehenge/frozen_stonehenge_lvl_04.vmdl"
+        }
+        "Ability1"  "winterblight_rubble_passive"
+        "Ability2"  "winterblight_mountain_rubble_ice_burst"
+        "Ability3"  "normal_steadfast"
+        "Ability4"  "dungeon_creep"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"   "270"
+        "AttackDamageMax"   "270"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.453"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "110"
+        "ProjectileModel"   ""
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "BountyXP"  "900"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "380"
+        "MovementTurnRate"  "0.6"
+        "FollowRange"   "0"
+        "StatusHealth"  "3410"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winterblight_mountain_rubble_ice_burst"
+                }         
+            }
+        }
+        "RoshpitArmor"          "124"
+        "RoshpitArmorPierce"    "85"
+        "RoshpitSpellPierce"    "89"
+        "RoshpitMagicArmor"     "118"
+        "RoshpitLevel"          "32"
+        "RoshpitDominion"       "0"
+        "RoshpitAggroSound"     "Winterblight.Rubble.Aggro1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
+    }

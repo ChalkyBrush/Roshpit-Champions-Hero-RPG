@@ -16,7 +16,7 @@ function CloseGlyphs(msg){
 }
 
 function OpenGlyphs(){
-	$.Msg("OPEN GLYPHS")
+	//$.Msg("OPEN GLYPHS")
 	if (GameUI.CustomUIConfig().mainDialog == 0){
 		$('#glyphs_details_container').AddClass("invisible")
 		$('#glyphs_details_container').style.visibility = "collapse"
@@ -114,8 +114,8 @@ function heroButtonClick(heroPanel){
 
 function OpenGlyphShopForHeroAfterServerLoads(msg)
 {
-	$.Msg("LOADED GLYPH RECIPES")
-	$.Msg(msg)
+	//$.Msg("LOADED GLYPH RECIPES")
+	//$.Msg(msg)
 	var parent = $('#glyph_tiers_container')
 	$('#loading_text').AddClass('invisible')
 	// parent.RemoveAndDeleteChildren();
@@ -165,10 +165,10 @@ function InitializeShopGlyphItem(glyphPanel, msg)
 	heroName = glyphPanel.heroName
 	mHeroName = convertFullHeroNameToRPC(heroName)
 	var glyphIndex = glyphPanel.rowTier+"_"+ glyphPanel.column
-	$.Msg(heroName)
-	$.Msg(msg)
+	//$.Msg(heroName)
+	//$.Msg(msg)
 	var item = msg.glyphDisplay[glyphIndex]
-	$.Msg("ITEM GLYPH INDEX!!! : "+item)
+	//$.Msg("ITEM GLYPH INDEX!!! : "+item)
 	// if (heroName == "tooltip_neutral"){
 	// 	$.Msg("file://{images}/items/glyphs/glyph_"+glyphIndex+".png")
 	// 	$('#glyph-image').SetImage("file://{images}/items/glyphs/glyph_"+glyphIndex+".png")
@@ -176,7 +176,7 @@ function InitializeShopGlyphItem(glyphPanel, msg)
 	// 	$.Msg("file://{images}/items/glyphs/glyph_"+mHeroName+"_"+glyphIndex+".png")
 	// 	$('#glyph-image').SetImage("file://{images}/items/glyphs/glyph_"+mHeroName+"_"+glyphIndex+".png")
 	// }
-	$.Msg("file://{images}/"+Abilities.GetAbilityTextureName( item )+".png")
+	//$.Msg("file://{images}/"+Abilities.GetAbilityTextureName( item )+".png")
 	glyphPanel.FindChildTraverse('glyph-image').SetImage("file://{images}/items/"+Abilities.GetAbilityTextureName( item )+".png")
 	
 	

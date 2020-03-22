@@ -19,7 +19,7 @@ function numberWithCommas(x) {
 function OnDragEnter( a, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-	$.Msg("HOVERITA")
+	//$.Msg("HOVERITA")
 	// only care about dragged items other than us
 	if ( draggedItem === null || (!(draggedPanel.fromInventory)) )
 		return true;
@@ -43,15 +43,15 @@ function StopUnit(unit){
 function OnDragDrop( panelId, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-	$.Msg("qwer")
-	$.Msg(draggedItem)
-	$.Msg("------------")
+	//$.Msg("qwer")
+	//$.Msg(draggedItem)
+	//$.Msg("------------")
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
-	$.Msg(panelId)
-	$.Msg(draggedItem)
-	$.Msg("421")
+	//$.Msg(panelId)
+	//$.Msg(draggedItem)
+	//$.Msg("421")
 	var itemName = Abilities.GetAbilityName(draggedItem)
 	if (draggedPanel.fromInventory && isValidItem(draggedItem)){
 			var playerID = Game.GetLocalPlayerID()
@@ -64,7 +64,7 @@ function OnDragDrop( panelId, draggedPanel )
 			$('#socket_item_slot').SetAttributeInt("item", draggedItem)		
 			// $.GetContextPanel().AddClass("blue_border")
 			$.GetContextPanel().RemoveClass( "synth_highlight" );
-			$.Msg("LETSGO6")
+			//$.Msg("LETSGO6")
 
 	}
 	return true
@@ -79,7 +79,7 @@ function ItemShowTooltipInit()
 	var itemName = Abilities.GetAbilityName( item );
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	$.GetContextPanel().SetAttributeInt( "item", item)
-	$.Msg("HELLO SIR")
+	//$.Msg("HELLO SIR")
 	ItemShowTooltipOnPanel($.GetContextPanel())
 }
 
@@ -113,7 +113,7 @@ function isValidItem(item){
 
 function checkItemCondition(){
 	if (($.GetContextPanel().witchDoctorParent.wind > -1) && ($.GetContextPanel().witchDoctorParent.water > -1) && ($.GetContextPanel().witchDoctorParent.fire > -1)){
-		$.Msg("CHECK ITEM CONDITION YES!")
+		//$.Msg("CHECK ITEM CONDITION YES!")
 		$.GetContextPanel().combineButton.RemoveClass('invisible')
 	}
 }

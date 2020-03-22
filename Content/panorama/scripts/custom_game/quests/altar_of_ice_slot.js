@@ -8,8 +8,8 @@ function InitializeElementDrop()
 	// $('#reroll_other_tip').text = $.Localize('reroll_tip_two')
 	$('#item_synth_slot').SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png")
 	$.GetContextPanel().AddClass('blue_border')
-	$.Msg("GREETS")
-	$.Msg($.GetContextPanel().stone)
+	//$.Msg("GREETS")
+	//$.Msg($.GetContextPanel().stone)
 	if ($.GetContextPanel().stone > -1){
 		mLock = 1
 		$('#item_synth_slot').contextEntityIndex = $.GetContextPanel().stone;
@@ -27,7 +27,7 @@ function numberWithCommas(x) {
 function OnDragEnter( a, draggedPanel )
 {
 	var draggedItem = draggedPanel.m_DragItem;
-	$.Msg("HOVERITA")
+	//$.Msg("HOVERITA")
 	if (mLock == 1){
 		return false
 	}
@@ -58,11 +58,11 @@ function OnDragDrop( panelId, draggedPanel )
 	// only care about dragged items other than us
 	if ( draggedItem === null )
 		return true;
-	$.Msg(panelId)
+	//$.Msg(panelId)
 	if (mLock == 1){
 		return false
 	}
-	$.Msg(draggedItem)
+	//$.Msg(draggedItem)
 	var itemName = Abilities.GetAbilityName(draggedItem)
 	if (draggedPanel.fromInventory && isValidItem(draggedItem)){
 			var playerID = Game.GetLocalPlayerID()
@@ -92,7 +92,7 @@ function ItemShowTooltipInit()
 	var itemName = Abilities.GetAbilityName( item );
 	var queryUnit = Players.GetLocalPlayerPortraitUnit();
 	$.GetContextPanel().SetAttributeInt( "item", item)
-	$.Msg("HELLO SIR")
+	//$.Msg("HELLO SIR")
 	ItemShowTooltipOnPanel($.GetContextPanel())
 }
 
@@ -115,7 +115,7 @@ function OnDragLeave( panelId, draggedPanel )
 
 function isValidItem(item){
 	var itemName = Abilities.GetAbilityName(item)
-	$.Msg(itemName)
+	//$.Msg(itemName)
 	if ((itemName.indexOf("winterblight_glacier_stone") > 0)){
 		return true
 	}else{
@@ -139,7 +139,7 @@ function itemPlaced(msg)
 
 function checkItemCondition(){
 	if (($.GetContextPanel().witchDoctorParent.wind > -1) && ($.GetContextPanel().witchDoctorParent.water > -1) && ($.GetContextPanel().witchDoctorParent.fire > -1)){
-		$.Msg("CHECK ITEM CONDITION YES!")
+		//$.Msg("CHECK ITEM CONDITION YES!")
 		$.GetContextPanel().combineButton.RemoveClass('invisible')
 	}
 }

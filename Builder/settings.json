@@ -1,0 +1,80 @@
+{
+    "general": {
+        "update_interval": 5
+    },
+    "flags": {
+        "overwrite_constants": true,
+        "overwrite_replacements": true,
+        "empty_warning": true
+    },
+    "paths": {
+        "constants": {
+            "base_path": "Game/scripts/vscripts/",
+            "file_patterns": [
+                "dota_constants.lua",
+                "heroes/*/*_constants.lua",
+                "items/constants/*.lua",
+                "worlds/*/constants/*.lua",
+                "global_constants.lua"
+            ]
+        },
+        "replacements": {
+            "base_path": "Game/scripts/vscripts/",
+            "file_patterns": [
+                "heroes/*/npc/*.txt",
+                "heroes/*/localizations/*.txt",
+                "items/localizations/*.txt",
+                "items/npc/*.txt",
+                "worlds/*/*.txt",
+                "worlds/*/localizations/*.txt",
+                "npc_abilities/*/*.txt",
+                "npc_units/*/*/*.txt",
+                "npc_units/*/*.txt"
+            ]
+        }
+    },
+    "patterns": {
+        "constant": {
+            "start": "<%",
+            "end": "%>",
+            "color": "#ccff66"
+        },
+        "rainbow": {
+            "start": "<RAINBOW>",
+            "end": "</RAINBOW>",
+            "colors": [
+                "#F60000",
+                "#FF8C00",
+                "#FFEE00",
+                "#4DE94C",
+                "#3783FF",
+                "#6B1FFE"
+            ]
+        },
+        "file": {
+            "start": "^[\t ]+##",
+            "end": "##"
+        }
+    },
+    "output": {
+        "base_path": "Game/",
+        "files": {
+            "npc/abilities.txt": "scripts/npc/npc_abilities_custom.txt",
+            "npc/items.txt": "scripts/npc/npc_items_custom.txt",
+            "npc/units.txt": "scripts/npc/npc_units_custom.txt",
+            "addon/english.txt": {
+                "destination": "resource/addon_english.txt",
+                "encoding": "utf-8-sig"
+            },
+            "addon/russian.txt": {
+                "destination": "resource/addon_russian.txt",
+                "encoding": "utf-8-sig"
+            },
+            "addon/schinese.txt": {
+                "destination": "resource/addon_schinese.txt",
+                "encoding": "utf-8-sig"
+            }
+        },
+        "default_encoding": "utf-8"
+    }
+}

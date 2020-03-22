@@ -123,7 +123,7 @@ function Weapons:ValidateGear(hero)
 		local gearTable = CustomNetTables:GetTableValue("equipment", tostring(playerID) .. "-"..tostring(i))
 		if gearTable then
 			--print("[Weapons:ValidateGear] gear "..i)
-			DeepPrintTable(gearTable)
+			--DeepPrintTable(gearTable)
 			--print("[Weapons:ValidateGear] +++++++++++++++++++++++++++++++++++ ")
 			local index = gearTable.itemIndex
 			local itemEntity = EntIndexToHScript(index)

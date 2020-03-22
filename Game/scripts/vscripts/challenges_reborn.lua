@@ -45,7 +45,7 @@ function Challenges:GetChallengeFromRoshpitServer()
 end
 
 function Challenges:ProcessChallengeResult(result)
-	DeepPrintTable(result)
+	--DeepPrintTable(result)
 	Challenges.main_challenge = result["main"]
 	Challenges.web_challenge = result["web_premium"]
 	Challenges:CheckSpawn()
@@ -92,7 +92,7 @@ end
 function Challenges:HeroMatch(challenge_table)
 	local proceed = true
 	--print("--------")
-	DeepPrintTable(challenge_table["mods"])
+	--DeepPrintTable(challenge_table["mods"])
 	for i = 1, #challenge_table["mods"], 1 do
 		local mod = challenge_table["mods"][i]
 		if mod["mod_type"] == "hero_limit" then
@@ -528,7 +528,7 @@ function Challenges:SetChallengeParameters()
 		return false
 	end
 	for _, mod in pairs(Challenges.ActiveChallenge["mods"]) do
-		DeepPrintTable(mod)
+		--DeepPrintTable(mod)
 		if mod["mod_type"] == "no_deaths" then
 			-- done
 			Challenges.NoDeaths = 0

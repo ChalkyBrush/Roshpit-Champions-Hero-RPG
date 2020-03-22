@@ -237,7 +237,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_E2_DMG_PCT %>"
+				"property_one"			"<% CHERNOBOG_E2_DMG_PCT * 100 %>"
 			}
 			"02"
 			{
@@ -270,9 +270,14 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"<% CHERNOBOG_E3_DISTANCE %>"
+				"property_one"			"<% CHERNOBOG_E3_RANGE %>"
 			}
 			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"		"<% CHERNOBOG_E3_RANGE_BASE %>"
+			}
+			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"<% CHERNOBOG_E3_ARMOR_PIERCE_AND_SPELL_PIERCE %>"
@@ -303,7 +308,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE %>"
+				"property_two"			"<% CHERNOBOG_E4_SHADOWS_INTERVAL_SCALE * 100 %>"
 			}
 		}
 	}

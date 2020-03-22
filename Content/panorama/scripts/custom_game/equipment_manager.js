@@ -77,8 +77,8 @@ function UpdateInventory()
 }
 
 function UpdateQueryInventory(){
-	$.Msg("UPDATE QUERY UNIT::")
-	$.Msg(Players.GetQueryUnit( Players.GetLocalPlayer() ))
+	//$.Msg("UPDATE QUERY UNIT::")
+	//$.Msg(Players.GetQueryUnit( Players.GetLocalPlayer() ))
 	var queryUnit = Players.GetQueryUnit( Players.GetLocalPlayer() )
 	if (queryUnit > -1){
 	// if (Entities.IsHero( queryUnit )){

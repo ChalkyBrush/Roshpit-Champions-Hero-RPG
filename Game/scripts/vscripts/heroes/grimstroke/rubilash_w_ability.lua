@@ -125,7 +125,9 @@ function rubilash_ink_blot(event)
 			end
 		end)
 	end
-	Filters:CastSkillArguments(BASE_ABILITY_W, caster)
+	if actual_event_caster == caster then
+		Filters:CastSkillArguments(BASE_ABILITY_W, caster)
+	end
 end
 
 function toggle_rubilash_color(caster)
@@ -202,7 +204,7 @@ function rubilash_apply_paint_and_get_damage(caster, ability, damage, target)
 		target.rubilash_paint_total_color = "none"
 	end
 	target.rubilash_paint[color] = (get_rubilash_paint_duration(caster))*10
-	DeepPrintTable(target.rubilash_paint)
+	--DeepPrintTable(target.rubilash_paint)
 	target.rubilash_paint_total_color = get_new_rubilash_paint_color(target)
 	if caster:HasModifier("modifier_rubilash_immortal_weapon_3") then
 		damage = damage + (caster:GetAgility() + caster:GetIntellect())*(RUBILASH_IMMORTAL_WEAPON_3_AGI_AND_INT_MULT_TO_PAINT) + OverflowProtectedGetAverageTrueAttackDamage(caster)*RUBILASH_IMMORTAL_WEAPON_3_ATK_DMG_PCT_TO_PAINT/100

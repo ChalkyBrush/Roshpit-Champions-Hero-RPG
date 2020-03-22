@@ -7,8 +7,8 @@ var popupIndex = Root.popupIndex;
 var keyName = Root.keyName;
 
 function InitializePickupBox(){
-	$.Msg("data:")
-	$.Msg(item)
+	//$.Msg("data:")
+	//$.Msg(item)
 	Root.AddClass("fromRight"+popupIndex)
 	var hero_image_name = "file://{images}/heroes/" + heroName + ".png"
 	$('#pickup_player_portrait').SetImage( hero_image_name );

@@ -341,7 +341,7 @@ function RPCItems:SynthCheckCombination(item1, item2, position)
 end
 
 function RPCItems:RerollArcanaItem(abilityName, originalItemData, position, attempts)
-	DeepPrintTable(originalItemData)
+	--DeepPrintTable(originalItemData)
 	local newProperty1Value = nil
 	local newProperty2Value = nil
 	local newProperty3Value = nil

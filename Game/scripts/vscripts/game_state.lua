@@ -334,9 +334,9 @@ function GameState:PlayerWebPremiumAsInt(playerID)
 end
 
 function GameState:GetPlayerPremiumStatusCount()
-	if GameState.premium_count then
-		return GameState.premium_count
-	end
+	-- if GameState.premium_count then
+	-- 	return GameState.premium_count
+	-- end
 	local premiumStatusCount = 0
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		if (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 2) or (PlayerResource:GetConnectionState(MAIN_HERO_TABLE[i]:GetPlayerOwnerID()) == 1) then
@@ -345,9 +345,9 @@ function GameState:GetPlayerPremiumStatusCount()
 			end
 		end
 	end
-	if #MAIN_HERO_TABLE == RPCItems:GetConnectedPlayerCount() then
-		GameState.premium_count = premiumStatusCount
-	end
+	-- if #MAIN_HERO_TABLE == RPCItems:GetConnectedPlayerCount() then
+	-- 	GameState.premium_count = premiumStatusCount
+	-- end
 	return premiumStatusCount
 end
 
@@ -609,7 +609,7 @@ function GameState:ModifierGainedFilter(modifierGainedTable)
 		if target:HasModifier("modifier_centaur_horns") then
 			if Filters:IsModifierAStun(modifierGainedTable["name_const"]) then
 				if target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
-					local stacks = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD)
+					local stacks = target.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", CENTAUR_HORNS_EMERALD1)
 					target.equipped_gear[RPC_GEAR_SLOT_HEAD]:ApplyDataDrivenModifier(target.InventoryUnit, target, "modifier_centaur_horns_haste", {duration = CENTAUR_HORNS_EMERALD_SPEED_DURATION})
 					target:SetModifierStackCount("modifier_centaur_horns_haste", target.InventoryUnit, stacks)
 				end
@@ -2177,7 +2177,8 @@ function GameState:FilterDamage(filterTable)
 	end
 
 	if attacker:HasModifier("modifier_arkimus_archon_form") then
-		filterTable["damagetype_const"] = DAMAGE_TYPE_PHYSICAL
+		filterTable["damagetype_const"] = ARKIMUS_ARCANA2_R_DAMAGE_TYPE
+		filterTable["damage"] = filterTable["damage"]*(1-ARKIMUS_ARCANA2_R_DAMAGE_OUT_REDUCTION/100)
 	end
 	if attacker:HasModifier("modifier_paladin_glyph_7_2") then
 		filterTable["damage"] = filterTable["damage"] * (100-PALADIN_GLYPH_7_2_DAMAGE_DEALT_REDUCTION)/100
@@ -2886,6 +2887,9 @@ function GameState:FilterDamage(filterTable)
 		if victim:HasModifier("modifier_merkurio_crystal_blue") then
 			filterTable["damage"] =	filterTable["damage"]*0.1
 		end
+		if damagetype == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = filterTable["damage"] * 0.99^chamber_level
+		end
 		if victim.chamber > 0 then
 			local allowed_player = EntIndexToHScript(Winterblight.CavernData.Chambers[victim.chamber]["hero"]):GetPlayerOwnerID()
 			if attacker:GetPlayerOwnerID() ~= allowed_player then
@@ -3529,10 +3533,10 @@ function GameState:FilterDamage(filterTable)
 	-- end
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-			-- if victim:IsHero() then
-			-- 	-- --print("TAKE DAMAGE: "..filterTable["damage"])
-			-- 	filterTable["damage"] = 0
-			-- end
+			if victim:IsHero() then
+				-- --print("TAKE DAMAGE: "..filterTable["damage"])
+				filterTable["damage"] = 0
+			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000
 			end
@@ -3542,13 +3546,13 @@ function GameState:FilterDamage(filterTable)
 			if attacker:IsHero() then
 				if not victim:HasModifier("modifier_disable_player") then
 					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
-						-- if filterTable["damage"] > 0 then
-							--filterTable["damage"] = 999999999999999
-						-- end
+					-- 	if filterTable["damage"] > 0 then
+					-- 		filterTable["damage"] = 999999999999999
+					-- 	end
 					-- end
 				end
 			end
-			-- filterTable["damage"] = 1000000
+			filterTable["damage"] = 1000000
 		end
 	end
 
