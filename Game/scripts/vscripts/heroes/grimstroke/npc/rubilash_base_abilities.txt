@@ -1969,7 +1969,7 @@
             {
                 "Target"    "CASTER"
                 "ModifierName"  "modifier_channel_start"
-                "Duration"      "1.5"
+                "Duration"      "2"
             }
             "RunScript"
             {

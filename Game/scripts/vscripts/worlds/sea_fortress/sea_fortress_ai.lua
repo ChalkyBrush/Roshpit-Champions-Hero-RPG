@@ -5939,7 +5939,7 @@ function ahn_khir_spirit_think(event)
 end
 
 function saltwater_demon_die(event)
-	local caster = event.caster
+	local unit = event.caster
 	local luck = RandomInt(1, 4)
 	if luck == 1 then
 		RPCItems:RollAndDropUniqueItem(unit, "item_rpc_templar_light_seers_robe")
