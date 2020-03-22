@@ -50,3 +50,14 @@ function Winterblight:InitMountain()
 end
 
 
+function Winterblight:MountainP2()
+	Winterblight:SpawnMountainStonePack(Vector(5572, 7032))
+end
+
+function Winterblight:SpawnMountainStonePack(base_position)
+	for i = 1, 8, 1 do
+		local spawn_pos = base_position + RandomVector(RandomInt(0, 760))
+		local rubble = Enemies:SpawnEnemyUnit("winterblight_composed_rubble", spawn_pos, RandomVector(1), false)
+		rubble.phase = 0
+	end
+end
