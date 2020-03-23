@@ -163,7 +163,7 @@ function modifier_arkimus_dimension_coil:OnRemoved()
     end
 end
 
-modifier_arkimus_q_free_cast = class ({})
+modifier_arkimus_q_free_cast = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_arkimus_q_free_cast", "heroes/antimage/arkimus_dimension_coil", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_arkimus_q_free_cast:IsHidden()
@@ -173,7 +173,7 @@ function modifier_arkimus_q_free_cast:IsBuff()
     return true
 end
 
-modifier_arkimus_q_free_cast_thinker = class ({})
+modifier_arkimus_q_free_cast_thinker = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_arkimus_q_free_cast_thinker", "heroes/antimage/arkimus_dimension_coil", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_arkimus_q_free_cast_thinker:IsHidden()
@@ -316,9 +316,12 @@ function modifier_arkimus_q_2_buff:OnIntervalThink()
     end
 end
 
-modifier_arkimus_q_3_magic_armor_loss = class ({})
+modifier_arkimus_q_3_magic_armor_loss = class(npc_base_modifier, nil, npc_base_modifier)
 LinkLuaModifier("modifier_arkimus_q_3_magic_armor_loss", "heroes/antimage/arkimus_dimension_coil", LUA_MODIFIER_MOTION_NONE)
 
+function modifier_arkimus_q_3_magic_armor_loss:GetRoshpitMagicArmorBonus()
+    return self:GetStackCount() * ARKIMUS_Q3_MAGIC_ARMOR_REDUCTION
+end
 function modifier_arkimus_q_3_magic_armor_loss:IsPassive()
     return false
 end
@@ -341,9 +344,14 @@ function modifier_arkimus_q_3_magic_armor_loss:GetEffectAttachType()
 	return PATTACH_CUSTOMORIGIN
 end
 function modifier_arkimus_q_3_magic_armor_loss:OnCreated(event)
-    if IsServer() then
-        self:GetParent():CalculateAndSaveRoshpitAttributes()
+    if not IsServer() then
+        return
     end
+    self:GetParent():CalculateAndSaveRoshpitAttributes()
+
+    self:SetSpecialTypes({ 
+        MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS
+    })
 end
 function modifier_arkimus_q_3_magic_armor_loss:OnDestroy(event)
     if IsServer() then
