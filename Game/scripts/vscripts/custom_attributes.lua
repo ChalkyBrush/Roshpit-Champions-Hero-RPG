@@ -1731,12 +1731,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_arcane_charm") then
 		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_ARCANE_CHARM_GEM_RUBY)*unit:GetIntellect()
 	end
-	if unit:HasModifier("modifier_red_divinex_amulet") then
-		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
-	end
-	if unit:HasModifier("modifier_green_divinex_amulet") then
-		magic_armor_modify = magic_armor_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
-	end
 	if unit:HasModifier("modifier_kharzun_buff") then
 		magic_armor_modify = magic_armor_modify + unit:FindModifierByName("modifier_kharzun_buff"):GetStackCount()*1200
 	end
@@ -2555,6 +2549,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_fuchsia_ring") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetSpirit()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_FUCHSIA_RING_GEM_SAPPHIRE)
+	end
+	if unit:HasModifier("modifier_red_divinex_amulet") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RED_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
+	end
+	if unit:HasModifier("modifier_green_divinex_amulet") then
+		spell_pierce_modify = spell_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_AMETHYST)*unit:GetSpirit()
 	end
 	if unit:HasModifier("modfier_razor_band_stacks") then
 		spell_pierce_modify = spell_pierce_modify + unit:FindModifierByName("modfier_razor_band_stacks"):GetStackCount()*unit.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_GALVANIZED_RAZOR_BAND_GEM_AMETHYST2)
