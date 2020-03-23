@@ -7989,7 +7989,7 @@ function sea_giant_think(event)
 	end
 	if ability:GetGemValue("amethyst") > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_sea_giant_spirit", {})
-		local spirit_bonus = hero:GetStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SEA_GIANTS_PLATE_GEM_AMETHYST)/100
+		local spirit_bonus = hero:GetBaseStrength()*ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_SEA_GIANTS_PLATE_GEM_AMETHYST)/100
 		hero:SetModifierStackCount("modifier_sea_giant_spirit", caster, spirit_bonus)
 	end
 end
