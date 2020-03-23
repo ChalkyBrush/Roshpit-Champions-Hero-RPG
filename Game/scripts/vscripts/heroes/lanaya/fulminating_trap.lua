@@ -318,7 +318,7 @@ function poison_trap_think(event)
 	ability.origCaster = caster
 	local maxStacks = TRAPPER_Q1_MAX_STACKS_COUNT
 	if caster:HasModifier('modifier_trapper_glyph_5_a') then
-		maxStacks = TRAPPER_GLYPH_5_A_POISON_STACKS
+		maxStacks = maxStacks + TRAPPER_GLYPH_5_A_POISON_STACKS_BONUS
 	end
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
