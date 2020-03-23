@@ -439,7 +439,7 @@ function wild_nature_entangle_think(event)
 	elseif primeAttribute == 3 then
 		damage = caster:GetSpirit() * CAP_OF_WILD_NATURE_DAMAGE_PER_ATTRIBUTES
 	end
-	damage = damage * (1 + ability:GetFinalGemPropertyValue("ruby", WILD_NATURE_RUBY))
+	damage = damage * (1 + ability:GetFinalGemPropertyValue("ruby", WILD_NATURE_RUBY)/100)
 	Filters:ApplyItemDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)
 end
 
