@@ -82,24 +82,28 @@ function modifierClass:GetRoshpitArmorPierceBonus(params)
     local hero = self:GetParent()
     local pierceBonus = self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1)
     local pierceMalus = hero:GetActualMovespeed() * self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2)
+    pierceMalus = math.min(pierceBonus, pierceMalus)
     return pierceBonus - pierceMalus
 end
 function modifierClass:GetRoshpitSpellPierceBonus(params)
     local hero = self:GetParent()
     local pierceBonus = self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST1)
     local pierceMalus = hero:GetActualMovespeed() * self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SWAMP_WADERS_GEM_AMETHYST2)
+    pierceMalus = math.min(pierceBonus, pierceMalus)
     return pierceBonus - pierceMalus
 end
 function modifierClass:GetRoshpitArmorBonus()
     local hero = self:GetParent()
     local armorBonus = self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1)
     local armorMalus = hero:GetActualMovespeed() * self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2)
+    armorMalus = math.min(armorBonus, armorMalus)
     return armorBonus - armorMalus
 end
 function modifierClass:GetRoshpitMagicArmorBonus()
     local hero = self:GetParent()
     local armorBonus = self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY1)
     local armorMalus = hero:GetActualMovespeed() * self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_SWAMP_WADERS_GEM_RUBY2)
+    armorMalus = math.min(armorBonus, armorMalus)
     return armorBonus - armorMalus
 end
 
