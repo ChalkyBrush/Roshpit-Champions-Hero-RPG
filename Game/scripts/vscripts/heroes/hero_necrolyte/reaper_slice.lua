@@ -68,7 +68,7 @@ function slice_start(event)
 			Timers:CreateTimer(1.2, function()
 				EmitSoundOn("Venomort.ReaperSlice.Hit", target)
 				target.venomort_reaper_active = false
-				Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
+				local damage_dealt = Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_R, RPC_ELEMENT_POISON, RPC_ELEMENT_UNDEAD)
 				Timers:CreateTimer(0.25, function()
 					if ability.target and not ability.target:IsAlive() then
 						local enemies = FindUnitsInRadius(caster:GetTeamNumber(), ability.target:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
@@ -110,7 +110,7 @@ function slice_start(event)
 					local soulRipParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_undying/undying_soul_rip_heal.vpcf", PATTACH_POINT_FOLLOW, caster)
 					ParticleManager:SetParticleControlEnt(soulRipParticle, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 					ParticleManager:SetParticleControlEnt(soulRipParticle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-					local heal = damage * r3_level * VENOMORT_ARCANA_1_R3_HEAL_PERCENT / 100
+					local heal = damage_dealt * r3_level * VENOMORT_ARCANA_1_R3_HEAL_PERCENT / 100
 					local healthDefecit = caster:GetMaxHealth() - caster:GetHealth()
 					local overHeal = heal - healthDefecit
 					local maxOverheal = caster:GetMaxHealth() * r3_level * VENOMORT_ARCANA_1_R3_SHIELD_PERCENT / 100

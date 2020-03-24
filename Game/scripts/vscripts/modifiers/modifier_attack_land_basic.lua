@@ -157,7 +157,7 @@ function modifier_attack_land_basic:OnAttackLanded(event)
 			local direwolf = event.target:FindModifierByName("modifier_direwolf_bulwark"):GetAbility()
 			event.damage = math.max(event.damage - event.target:GetRoshpitArmorPierce()*(direwolf:GetFinalGemPropertyValue("ruby", ITEM_RPC_DIREWOLF_BULWARK_GEM_RUBY)/100), 1)	
 		end
-		if parent:HasModifier("modifier_nethergrasp_palisade") then
+		if parent:HasModifier("modifier_nethergrasp_palisade") and parent.equipped_gear[RPC_GEAR_SLOT_BODY]:GetGemValue("emerald") > 0 then
 			if event.target:HasModifier("modifier_nethergrasp_linked") then
 				elements = { RPC_ELEMENT_TIME }
 				damageType = DAMAGE_TYPE_PURE
