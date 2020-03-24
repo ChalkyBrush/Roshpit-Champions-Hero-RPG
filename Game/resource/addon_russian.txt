@@ -10509,7 +10509,7 @@
         "item_rpc_trapper_glyph_7_1_description"                "Одновременно может существовать 2 экземпляра каждой из ловушек @Ability1."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "[T5-a] Glyph of Blueprints"
-        "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <font color='#ccff66'>50</font>% больше урона. Poison Trap увеличивает максимальные заряды яда до <font color='#ccff66'>15</font>. Net Trap имеет <font color='#ccff66'>2</font>x увеличенную длительность связывания. Torrent Trap требует <font color='#ccff66'>1</font> секунд для обнаружения цели."
+        "item_rpc_trapper_glyph_5_a_description"                "Усиливает @Ability1. Fulminating Trap наносит <font color='#ccff66'>50</font>% больше урона. Poison Trap увеличивает максимальные заряды яда до <font color='#ccff66'>30</font>. Net Trap имеет <font color='#ccff66'>2</font>x увеличенную длительность связывания. Torrent Trap требует <font color='#ccff66'>1</font> секунд для обнаружения цели."
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] Glyph of the Pyre Lord"
         "item_rpc_trapper_glyph_1_2_description"                "Эффект от руны [Q3] увеличен на <font color='#ccff66'>50</font>%."

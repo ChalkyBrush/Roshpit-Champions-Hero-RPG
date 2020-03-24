@@ -10849,7 +10849,7 @@
         "item_rpc_trapper_glyph_7_1_description"                "同一时间可以拥有2个同种陷阱。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_5_a"       "[T5-a] 致命陷阱雕文"
-        "item_rpc_trapper_glyph_5_a_description"                "升级 @Ability1。爆炸陷阱造成的伤害提高 <font color='#ccff66'>50</font>% 。毒液陷阱的最大层数增加至<font color='#ccff66'>15</font>。蛛网陷阱的缠绕时间增加 <font color='#ccff66'>2</font>x 。洪流陷阱只需要 <font color='#ccff66'>1</font>秒生效 。"
+        "item_rpc_trapper_glyph_5_a_description"                "升级 @Ability1。爆炸陷阱造成的伤害提高 <font color='#ccff66'>50</font>% 。毒液陷阱的最大层数增加至<font color='#ccff66'>30</font>。蛛网陷阱的缠绕时间增加 <font color='#ccff66'>2</font>x 。洪流陷阱只需要 <font color='#ccff66'>1</font>秒生效 。"
  
         "DOTA_Tooltip_ability_item_rpc_trapper_glyph_1_2"       "[T1-2] 薪火雕文"
         "item_rpc_trapper_glyph_1_2_description"                "[Q3]的效果提高 <font color='#ccff66'>50</font>%"
