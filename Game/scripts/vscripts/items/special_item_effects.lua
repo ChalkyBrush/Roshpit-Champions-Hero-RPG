@@ -8426,11 +8426,11 @@ function autumnrock_bracer_take_damage(event)
 	if target == event.attacker then
 		return false
 	end
-	local limitKey = hero:GetPlayerOwnerID() .. '_autumnrock_procs'
-	Util.Common:LimitPerTime(ITEM_RPC_AUTUMNROCK_BRACER_MAX_PROCS_PER_SEC, 1, limitKey, function()
-		local chance = ITEM_RPC_AUTUMNROCK_BRACER_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2)
-		local proc = Filters:GetProc(hero, chance)
-		if proc then
+	local chance = ITEM_RPC_AUTUMNROCK_BRACER_CHANCE + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_AUTUMNROCK_BRACER_GEM_RUBY2)
+	local proc = Filters:GetProc(hero, chance)
+	if proc then
+		local limitKey = hero:GetPlayerOwnerID() .. '_autumnrock_procs'
+		Util.Common:LimitPerTime(ITEM_RPC_AUTUMNROCK_BRACER_MAX_PROCS_PER_SEC, 1, limitKey, function()
 			local delay = math.max(ITEM_RPC_AUTUMNROCK_BRACER_TRAVEL_DELAY - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_AUTUMNROCK_BRACER_GEM_SAPPHIRE1), 0.1)
 			local attacker = event.attacker
 			local length = math.max(WallPhysics:GetDistance(hero:GetAbsOrigin() * Vector(1, 1, 0), attacker:GetAbsOrigin() * Vector(1, 1, 0)) / 250, 1)
@@ -8442,8 +8442,8 @@ function autumnrock_bracer_take_damage(event)
 					Filters:AutumnrockExplosion(hero, ability, position, ITEM_RPC_AUTUMNROCK_BRACER_EXP_AOE)
 				end)
 			end
-		end
-	end)
+		end)
+	end
 end
 
 function bladeforge_attack_land(event)

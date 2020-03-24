@@ -5985,7 +5985,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"autumnrock_bracer_take_damage"
-						"target"		"TARGET"
 					}
 				}
 			}
