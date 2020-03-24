@@ -53219,6 +53219,7 @@
 			"modifier_depth_demon_claw_ruby"
 			{
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
@@ -54813,7 +54814,6 @@
 					{
 						"ScriptFile"	"items/special_item_effects.lua"
 						"Function"		"autumnrock_bracer_take_damage"
-						"target"		"TARGET"
 					}
 				}
 			}

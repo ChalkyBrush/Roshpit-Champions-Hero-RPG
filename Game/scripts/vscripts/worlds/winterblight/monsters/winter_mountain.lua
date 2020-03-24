@@ -96,7 +96,7 @@ function rubble_inbetween_thinker(event)
 			EmitSoundOn("Winterblight.Megmus.Ability", new_rubble)
 			local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, new_rubble)
 			ParticleManager:SetParticleControl(pfx, 0, new_rubble:GetAbsOrigin())
-			ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 2))
+			ParticleManager:SetParticleControl(pfx, 1, Vector(200, 2, 200))
 
 			
 	
