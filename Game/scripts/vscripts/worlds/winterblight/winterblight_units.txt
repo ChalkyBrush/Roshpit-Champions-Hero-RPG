@@ -15563,3 +15563,172 @@
         "RoshpitAggroSound"     "Winterblight.Rubble.Aggro1"
         "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
     }
+
+    "winterblight_owl_sentry"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/beastmaster/hawk/legacy_of_the_nords_legacy_of_the_nords_owl/legacy_of_the_nords_legacy_of_the_nords_owl.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "precache"
+        {
+
+        }
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "480"
+        "AttackDamageMax"   "480"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.5"
+        "AttackAcquisitionRange"    "100"
+        "AttackRange"   "550"
+        "ProjectileModel" "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+        "ProjectileSpeed"   "500"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "420"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "8240"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "40"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_owl_sentry_passive"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "RoshpitArmor"          "100"
+        "RoshpitArmorPierce"    "100"
+        "RoshpitSpellPierce"    "100"
+        "RoshpitMagicArmor"     "100"
+        "RoshpitLevel"          "30"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_NORMAL_CREEP %>"
+    }
+
+    "winterblight_haunter"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/spectre/spectre.vmdl"
+        "ModelScale"    "0.95"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"          "Hero_Spectre"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
+            "particle"  "particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "7800"
+        "AttackDamageMax"   "7800"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "160"
+        "BountyGoldMin" "240"
+        "BountyGoldMax" "280"
+        "BountyXP" "340"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "395"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "17000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"          "seafortress_heart_spike"
+        "Ability2"          "dungeon_creep"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "8916"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "8914"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "8913"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8724"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "6894"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {      
+            }
+
+        }
+        "RoshpitArmor"          "325"
+        "RoshpitArmorPierce"    "585"
+        "RoshpitSpellPierce"    "345"
+        "RoshpitMagicArmor"     "480"
+        "RoshpitLevel"          "47"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
+    }

@@ -87258,6 +87258,43 @@
 
 	}
 
+	"winterblight_owl_sentry_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/p2/tiamat_crystal_breath"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_owl_sentry_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"owl_sentry_think"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "160"
+				}
+			}
+		}
+
+	}
+
 
 	"soul_ferrier_passive"
 	{

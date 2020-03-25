@@ -47,6 +47,7 @@ function Winterblight:InitMountain()
 			Enemies:SpawnEnemyUnit("winterblight_wintertide_monk", positionTable[i], fv, false)
 		end
 	end)
+	Winterblight:SpawnOwlSentry(Vector(-128, 640), {Vector(5888, 5120), Vector(-512, 6695), Vector(1792, 1408), Vector(5760, 1664)})
 end
 
 function Winterblight:MountainPrecache()
@@ -71,4 +72,18 @@ function Winterblight:SpawnMountainStonePack(base_position)
 	for i = 1, #mountain_bro_table, 1 do
 		mountain_bro_table[i].mountain_bro_table = mountain_bro_table
 	end
+end
+
+function Winterblight:SpawnOwlSentry(start_position, patrol_point_table)
+	local owl_sentry = Enemies:SpawnEnemyUnit("winterblight_owl_sentry", start_position, RandomVector(1), false)
+	owl_sentry.patrol_point_table = patrol_point_table
+	owl_sentry.patrol_index = 1
+	owl_sentry:SetRenderColor(50, 50, 50)
+	owl_sentry.aggro = nil
+end
+
+function Winterblight:SpawnHaunter(position, fv)
+	local haunter =  Enemies:SpawnEnemyUnit("winterblight_haunter", position, fv, false)
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", haunter:GetAbsOrigin(), 3)
+	return haunter
 end

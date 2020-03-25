@@ -149,3 +149,64 @@ end
 function mountain_rubble_die(event)
 	EmitSoundOn("Winterblight.Rubble.Death", event.caster)
 end
+
+function owl_sentry_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.locked_target then
+		return false
+	else
+		local target_pos = caster.patrol_point_table[caster.patrol_index]
+		caster:MoveToPosition(target_pos)
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target_pos)
+		if distance < 120 then
+			caster.patrol_index = caster.patrol_index + 1
+			if caster.patrol_index > #caster.patrol_point_table then
+				caster.patrol_index = 1
+			end
+		end
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 620, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			caster:Stop()
+			caster.locked_target = enemies[1]
+			CustomAbilities:QuickAttachParticle("particles/msg_fx/big_excalamation.vpcf", caster, 3)	
+			EmitSoundOn("Winterblight.CrowSentry.Spotted", caster)
+			StartAnimation(caster, {duration = 1.75, activity = ACT_DOTA_FLAIL, rate = 0.5})
+			caster:AddAbility("ability_mega_haste"):SetLevel(3)
+			Timers:CreateTimer(1.8, function()
+				local flee_position = Vector(12416, -1024)
+				caster:MoveToPosition(flee_position)
+			end)
+			Timers:CreateTimer(10, function()
+				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
+				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
+					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
+					local fv = ((caster.locked_target:GetAbsOrigin() - spawn_pos)*Vector(1,1,0)):Normalized()
+					local haunter = Winterblight:SpawnHaunter(spawn_pos, fv)
+					Dungeons:AggroUnit(haunter)
+				end
+			end)
+			Timers:CreateTimer(30, function()
+				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin():GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
+				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
+					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
+					local fv = ((caster.locked_target:GetAbsOrigin() - spawn_pos)*Vector(1,1,0)):Normalized()
+					local haunter = Winterblight:SpawnHaunter(spawn_pos, fv)
+					Dungeons:AggroUnit(haunter)
+				end
+			end)
+			Timers:CreateTimer(60, function()
+				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin():GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
+				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
+					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
+					local fv = ((caster.locked_target:GetAbsOrigin() - spawn_pos)*Vector(1,1,0)):Normalized()
+					local haunter = Winterblight:SpawnHaunter(spawn_pos, fv)
+					Dungeons:AggroUnit(haunter)
+				end
+			end)
+			Timers:CreateTimer(65, function()
+				UTIL_Remove(caster)
+			end)
+		end
+	end
+end
