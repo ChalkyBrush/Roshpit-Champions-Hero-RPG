@@ -2346,6 +2346,13 @@ function wintertide_totem_cast(event)
 
 	-- ParticleManager:SetParticleControl(unit.pfx, 0, unit:GetAbsOrigin() + Vector(0, 0, 30))
 	-- ParticleManager:SetParticleControl(unit.pfx, 4, colorVector/255)
+
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_witchdoctor/ivory_gryffin_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+	ParticleManager:SetParticleControlEnt(pfx, 0, unit, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(500, 500, 500))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(1, 1, 1))
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf", unit, 2)
+
 	local life_duration = event.duration
 	unit:SetOwner(caster)
 	unit.dieTime = life_duration

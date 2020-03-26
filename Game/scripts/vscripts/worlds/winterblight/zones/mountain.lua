@@ -33,8 +33,8 @@ function Winterblight:InitMountain()
 		end
 	end)
 	Timers:CreateTimer(8, function()
-		Enemies:SpawnEnemyUnit("winterblight_snowvil_chieftain", Vector(1280, 2944), Vector(-1,-1), false)
-		
+		local chief = Enemies:SpawnEnemyUnit("winterblight_snowvil_chieftain", Vector(1280, 2944), Vector(-1,-1), false)
+		Winterblight:SetPositionCastArgs(chief, 1200, 0, 1, FIND_ANY_ORDER)
 	end)
 	Timers:CreateTimer(7, function()
 		Enemies:SpawnEnemyUnit("winterblight_winters_chieftain", Vector(3079, 1152), Vector(-1, 0), false)
@@ -44,10 +44,16 @@ function Winterblight:InitMountain()
 		local positionTable = {Vector(3712, 5504), Vector(3874, 5632), Vector(4081, 5888), Vector(4375, 6144), Vector(3421, 5902), Vector(3712, 6144), Vector(3840, 6504)}
 		for i = 1, #positionTable, 1 do
 			local fv = (positionTable[i] - Vector(3840, 5961)):Normalized()
-			Enemies:SpawnEnemyUnit("winterblight_wintertide_monk", positionTable[i], fv, false)
+			Winterblight:SpawnWintertideMonkMountain(positionTable[i], fv)
 		end
 	end)
 	Winterblight:SpawnOwlSentry(Vector(-128, 640), {Vector(5888, 5120), Vector(-512, 6695), Vector(1792, 1408), Vector(5760, 1664)})
+	Timers:CreateTimer(8, function()
+		Winterblight:SpawnOwlSentry(Vector(5888, 5120), {Vector(5760, 1664), Vector(1792, 1408), Vector(-512, 6695), Vector(-128, 640)})
+	end)
+	Timers:CreateTimer(30, function()
+		Winterblight:SpawnOwlSentry(Vector(-640, 5284), {Vector(1567, 7518), Vector(5888, 6400), Vector(3200, 918)})
+	end)
 end
 
 function Winterblight:MountainPrecache()
@@ -84,6 +90,18 @@ end
 
 function Winterblight:SpawnHaunter(position, fv)
 	local haunter =  Enemies:SpawnEnemyUnit("winterblight_haunter", position, fv, false)
-	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf", haunter:GetAbsOrigin(), 3)
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", haunter:GetAbsOrigin(), 3)
+	Winterblight:SetPositionCastArgs(haunter, RandomInt(400, 700), 0, 1, FIND_CLOSEST)
 	return haunter
+end
+
+function Winterblight:SpawnWintertideMonkMountain(position, fv)
+	local queen = Enemies:SpawnEnemyUnit("winterblight_wintertide_monk", position, fv, false)
+	queen.dominion = true
+	Events:ColorWearablesAndBase(queen, Vector(100, 140, 245))
+	Events:AdjustBossPower(queen, 8, 8, false)
+	Winterblight:SetPositionCastArgs(queen, 900, 0, 1, FIND_ANY_ORDER)
+	queen.randomMissMin = 200
+	queen.randomMissMax = 600
+	return queen
 end

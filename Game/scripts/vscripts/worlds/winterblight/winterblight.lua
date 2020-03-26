@@ -18,6 +18,7 @@ function Winterblight:Debug()
 
     -- Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
     Challenges:CheckSpawn()
+    -- Winterblight:SpawnOwlSentry(Vector(-15424,-2560), {Vector(-15424,-2560)})
   -- RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
     -- RPCItems:RollFrozenHeart(Vector(-15424,-2560))

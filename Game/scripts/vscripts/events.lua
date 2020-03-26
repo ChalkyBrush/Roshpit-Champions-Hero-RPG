@@ -1526,22 +1526,24 @@ function GameMode:OnEntityKilled(keys)
 		-- end
 		killedUnit:ClearParticles()
 		Timers:CreateTimer(1, function()
-			--ABILITIES: 10 slots of 24 max
-			for i = 0, 9, 1 do
-				local abilityOfKilledUnit = killedUnit:GetAbilityByIndex(i)
-				if abilityOfKilledUnit and IsValidEntity(abilityOfKilledUnit) and not abilityOfKilledUnit:IsNull() then
-					UTIL_Remove(abilityOfKilledUnit)
+			if IsValidEntity(killedUnit) then
+				--ABILITIES: 10 slots of 24 max
+				for i = 0, 9, 1 do
+					local abilityOfKilledUnit = killedUnit:GetAbilityByIndex(i)
+					if abilityOfKilledUnit and IsValidEntity(abilityOfKilledUnit) and not abilityOfKilledUnit:IsNull() then
+						UTIL_Remove(abilityOfKilledUnit)
+					end
 				end
-			end
 
-			local unitModifiersTable = killedUnit:FindAllModifiers()
-			for i = 1, #unitModifiersTable do
-				UTIL_Remove(unitModifiersTable[i])
-			end
-			--COSMETICS
-			local wearable = killedUnit:FirstMoveChild()
-			if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" and not wearable:IsNull() then
-				UTIL_Remove(wearable)
+				local unitModifiersTable = killedUnit:FindAllModifiers()
+				for i = 1, #unitModifiersTable do
+					UTIL_Remove(unitModifiersTable[i])
+				end
+				--COSMETICS
+				local wearable = killedUnit:FirstMoveChild()
+				if wearable ~= nil and wearable:GetClassname() == "dota_item_wearable" and not wearable:IsNull() then
+					UTIL_Remove(wearable)
+				end
 			end
 		end)
 

@@ -616,6 +616,7 @@ function Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, isAggro)
 	  unit:SetForwardVector(fv)
 	end
     if isAggro then
+      print("AGGRO THIS BITCH ON SPAWN")
       Dungeons:AggroUnit(unit)
     end
     return unit

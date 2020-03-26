@@ -3,7 +3,7 @@ function rubble_passive_think(event)
 	local ability = event.ability
 	if caster.phase and caster.phase < 3 then
 		if caster:GetHealth() < 100 then
-			if not caster:HasModifier("modifier_mountain_rubble_in_between") then
+			-- if not caster:HasModifier("modifier_mountain_rubble_in_between") then
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_rubble_in_between", {})
 				if not caster.mountain_bro_to_join then
 					for i = 1, #caster.mountain_bro_table, 1 do
@@ -18,7 +18,7 @@ function rubble_passive_think(event)
 						end
 					end
 				end
-			end
+			-- end
 		end
 	end
 end
@@ -76,11 +76,13 @@ end
 function rubble_inbetween_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
+	print("STUCK")
 	if caster.lock then
 		return false
 	end
 	if IsValidEntity(caster) then
 		if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 240 then
+			print("GREETS")
 			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,8))
 		elseif caster.mountain_bro_to_join and WallPhysics:GetDistance2d(caster.mountain_bro_to_join:GetAbsOrigin(), caster:GetAbsOrigin()) > 20 and caster.mountain_bro_to_join:GetDistanceFromGround() > 235 and caster:GetDistanceFromGround() > 235 then
 			local direction = ((caster.mountain_bro_to_join:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
@@ -165,7 +167,7 @@ function owl_sentry_think(event)
 				caster.patrol_index = 1
 			end
 		end
-		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 620, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		if #enemies > 0 then
 			caster:Stop()
 			caster.locked_target = enemies[1]
@@ -177,7 +179,39 @@ function owl_sentry_think(event)
 				local flee_position = Vector(12416, -1024)
 				caster:MoveToPosition(flee_position)
 			end)
-			Timers:CreateTimer(10, function()
+			Timers:CreateTimer(7, function()
+					local ghost = CreateUnitByName("npc_dummy_unit", caster.locked_target:GetAbsOrigin()+Vector(0,200,0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+					ghost:SetForwardVector(Vector(0,-1))
+					ghost:SetOriginalModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+					ghost:SetModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+					ghost.target = caster.locked_target
+					Events:smoothSizeChange(ghost, 0.1, 3.5, 40)
+					EmitSoundOn("Winterblight.CrowSentry.HauntStart", ghost)
+					local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+					ParticleManager:SetParticleControl(pfx, 0, ghost:GetAbsOrigin()+Vector(0,0,200))
+					local blueFactor = RandomInt(50, 90)/100
+					ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.5, blueFactor))
+					ParticleManager:SetParticleControl(pfx, 2, Vector(0.2, 0.2, 0.2))
+					Timers:CreateTimer(6, function()
+						ParticleManager:DestroyParticle(pfx, false)
+						ParticleManager:ReleaseParticleIndex(pfx)
+					end)
+				    ability:ApplyDataDrivenModifier(caster, ghost, "modifier_owl_sentry_ghost", {})
+					Timers:CreateTimer(5, function()
+						EmitSoundOn("Winterblight.CrowSentry.HauntEnd", ghost)
+						Events:smoothSizeChange(ghost, 3.5, 0.01, 15)
+					end)
+					Timers:CreateTimer(5.5, function()
+						UTIL_Remove(ghost)
+					end)
+			end)
+			local luck = RandomInt(1, 2)
+			if luck == 2 then
+				Timers:CreateTimer(13.5, function()
+					EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntLaugh", caster)
+				end)
+			end
+			Timers:CreateTimer(15, function()
 				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
@@ -187,7 +221,7 @@ function owl_sentry_think(event)
 				end
 			end)
 			Timers:CreateTimer(30, function()
-				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin():GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
+				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
 					local fv = ((caster.locked_target:GetAbsOrigin() - spawn_pos)*Vector(1,1,0)):Normalized()
@@ -195,8 +229,8 @@ function owl_sentry_think(event)
 					Dungeons:AggroUnit(haunter)
 				end
 			end)
-			Timers:CreateTimer(60, function()
-				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin():GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
+			Timers:CreateTimer(45, function()
+				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
 					local fv = ((caster.locked_target:GetAbsOrigin() - spawn_pos)*Vector(1,1,0)):Normalized()
@@ -209,4 +243,69 @@ function owl_sentry_think(event)
 			end)
 		end
 	end
+end
+
+function owl_sentry_ghost_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	-- target:SetAbsOrigin(target.target:GetAbsOrigin()+Vector(0,200,0))
+end
+
+function winter_cast_ice_lance(event)
+    local caster = event.caster
+    local ability = event.ability
+    --Timers:CreateTimer(0.3, function()
+    local target = event.target_points[1]
+    EmitSoundOn("Winterblight.IceLance", caster)
+    local fv = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+    local casterOrigin = caster:GetAbsOrigin()
+    winter_ice_lance_projectile(caster, fv, ability, "particles/econ/items/mirana/mirana_crescent_arrow/sorceress_ice_lance.vpcf", casterOrigin, 120)
+end
+
+function winter_ice_lance_projectile(caster, fv, ability, projectileParticle, casterOrigin, impactRadius)
+
+    local start_radius = impactRadius
+    local end_radius = impactRadius
+    local range = 1800
+    local speed = 1200
+
+    local info =
+    {
+        Ability = ability,
+        EffectName = projectileParticle,
+        vSpawnOrigin = casterOrigin,
+        fDistance = range,
+        fStartRadius = start_radius,
+        fEndRadius = end_radius,
+        Source = caster,
+        StartPosition = "attach_attack2",
+        bHasFrontalCone = true,
+        bReplaceExisting = false,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        fExpireTime = GameRules:GetGameTime() + 5.0,
+        bDeleteOnHit = false,
+        vVelocity = fv * speed,
+        bProvidesVision = false,
+    }
+    ProjectileManager:CreateLinearProjectile(info)
+end
+
+function winter_ice_lance_projectileHit(event)
+    local caster = event.caster
+    local target = event.target
+    local ability = event.ability
+    EmitSoundOn("hero_Crystal.projectileImpact", target)
+    local damage = event.damage
+
+    ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+
+    local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/winter_wyvern_base_attack.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, 70))
+    ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, 70))
+    Timers:CreateTimer(0.1, function()
+        ParticleManager:DestroyParticle(pfx, false)
+    end)
 end
