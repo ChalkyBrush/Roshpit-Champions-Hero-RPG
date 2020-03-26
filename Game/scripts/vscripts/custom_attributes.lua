@@ -262,7 +262,7 @@ function CDOTA_BaseNPC_Hero:GetBaseIntellect()
 		intellect = intellect - modifier:GetStackCount()
 	end
 
-	modifier = self:FindModifierByName('modifier_legion_vestments_effect_str')
+	modifier = self:FindModifierByName('modifier_legion_vestments_effect_int')
 	if modifier then
 		intellect = intellect - modifier:GetStackCount()
 	end
