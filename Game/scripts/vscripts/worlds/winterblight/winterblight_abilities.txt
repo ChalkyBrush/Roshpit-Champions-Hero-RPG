@@ -15093,7 +15093,11 @@
 		"MaxLevel"	"3"
 		"AbilitySpecial"
 		{
-
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"petrify_duration"			"3 4 5"
+			}
 		}
 		"OnOwnerDied"
 		{
@@ -15105,7 +15109,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_zefnar_passive"
+			"modifier_shipyard_spawner_passive"
 			{
 				"IsHidden" "1"
 				"Passive"	"1"
@@ -15124,34 +15128,44 @@
 					}
 				}
 			}
-		}
-	}
-
-	"mountain_tombstone_scream"
-	{
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"winterblight/zefnar_passive"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"	"3"
-		"AbilityCastPoint"		"0"
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
+			"modifier_tombstone_screaming"
 			{
-				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
-				"Function"		"tombstone_scream"
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_mountain_tombstone_screaming_think"
+						"petrify_duration" "%petrify_duration"
+					}
+				}
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_tombstone_scream_creeping"
+			"modifier_looking_at_tombstone_effect"
 			{
-				"IsHidden" "1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_looking_at_tombstone_stacks"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_tombstone_petrify"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_earth_spirit_petrify.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}

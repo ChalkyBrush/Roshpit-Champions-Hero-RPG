@@ -121,11 +121,11 @@ function Winterblight:SpawnMountainTombstones()
 	local shuffleTable =WallPhysics:ShuffleTable(positionTable)
 	for i = 1, 3, 1 do
 		local tombstone = Enemies:SpawnEnemyUnit("winterblight_mountain_tombstone", shuffleTable[i], RandomVector(1), false)
-		local health = 175
+		local health = 100
 		if GameState:GetDifficultyFactor() == 2 then
-			health = 400
+			health = 200
 		elseif GameState:GetDifficultyFactor() == 3 then
-			health = 1000
+			health = 300
 		end
 		tombstone:SetMaxHealth(health)
 		tombstone:SetBaseMaxHealth(health)

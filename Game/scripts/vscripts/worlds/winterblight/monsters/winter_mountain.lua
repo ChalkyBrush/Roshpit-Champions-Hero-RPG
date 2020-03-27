@@ -179,7 +179,8 @@ function owl_sentry_think(event)
 				local flee_position = Vector(12416, -1024)
 				caster:MoveToPosition(flee_position)
 			end)
-			Timers:CreateTimer(7, function()
+			local delay = (WallPhysics:GetDistance2d(Vector(12416, -1024), caster:GetAbsOrigin())/750)
+			Timers:CreateTimer(delay, function()
 					local ghost = CreateUnitByName("npc_dummy_unit", caster.locked_target:GetAbsOrigin()+Vector(0,200,0), false, nil, nil, DOTA_TEAM_NEUTRALS)
 					ghost:SetForwardVector(Vector(0,-1))
 					ghost:SetOriginalModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
@@ -207,11 +208,11 @@ function owl_sentry_think(event)
 			end)
 			local luck = RandomInt(1, 2)
 			if luck == 2 then
-				Timers:CreateTimer(13.5, function()
+				Timers:CreateTimer(delay+6.5, function()
 					EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntLaugh", caster)
 				end)
 			end
-			Timers:CreateTimer(15, function()
+			Timers:CreateTimer(delay+8, function()
 				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
@@ -220,7 +221,7 @@ function owl_sentry_think(event)
 					Dungeons:AggroUnit(haunter)
 				end
 			end)
-			Timers:CreateTimer(30, function()
+			Timers:CreateTimer(delay+23, function()
 				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
@@ -229,7 +230,7 @@ function owl_sentry_think(event)
 					Dungeons:AggroUnit(haunter)
 				end
 			end)
-			Timers:CreateTimer(45, function()
+			Timers:CreateTimer(delay+38, function()
 				EmitSoundOnLocationWithCaster(caster.locked_target:GetAbsOrigin(), "Winterblight.CrowSentry.HauntSpawn", caster)
 				for i = 1, 6 + GameState:GetDifficultyFactor()*2, 1 do
 					local spawn_pos = caster.locked_target:GetAbsOrigin() + RandomVector(RandomInt(180, 900))
@@ -238,7 +239,7 @@ function owl_sentry_think(event)
 					Dungeons:AggroUnit(haunter)
 				end
 			end)
-			Timers:CreateTimer(65, function()
+			Timers:CreateTimer(delay+58, function()
 				UTIL_Remove(caster)
 			end)
 		end
@@ -422,10 +423,76 @@ function winter_mountain_tombstone_take_damage(event)
 		caster.color_change = true
 		Events:smoothColorTransition(caster, Vector(134, 158, 255), Vector(226, 36, 36), 45)
 	end
+	if caster:GetHealth()%(35 + (GameState:GetDifficultyFactor()*10)) == 0 then
+		local screamMinion = nil
+		local luck = RandomInt(1, 3)
+		if luck == 1 then
+			screamMinion = "winterblight_haunter"
+		elseif luck == 2 then
+			screamMinion = "winterblight_yozario"
+		elseif luck == 3 then
+			screamMinion = "winterblight_haunter"
+		end
+		caster.screamMinion = screamMinion
+		tombstone_scream(event)
+	end
 end
 
 function tombstone_scream(event)
 	local caster = event.caster
 	local ability = event.ability
+	if not caster:HasModifier("modifier_tombstone_screaming") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_tombstone_screaming", {duration = 10})
+		StartSoundEvent("Winterblight.Tombstone.StoneGazeScream", caster)
+		Timers:CreateTimer(10, function()
+			if caster and IsValidEntity(caster) and caster:IsAlive() then
+				StopSoundEvent("Winterblight.Tombstone.StoneGazeScream", caster)
+			end
+		end)
+	end
+end
 
+function winter_mountain_tombstone_screaming_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf", caster, 1)
+	local luck = RandomInt(1, 5)
+	if luck <= 2 then
+		local unit = Enemies:SpawnEnemyUnit(caster.screamMinion, caster:GetAbsOrigin()+RandomVector(RandomInt(210, 280)), RandomVector(1), false)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", unit:GetAbsOrigin(), 3)
+	end
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			local v1 = ((caster:GetAbsOrigin() - enemy:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local v2 = enemy:GetForwardVector()
+			local angle = WallPhysics:angle_between_vectors(v1, v2)
+			if angle < 70 then
+				if enemy:HasModifier("modifier_tombstone_petrify") then
+				else
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_looking_at_tombstone_effect", {duration = 0.5})
+					enemy:ApplyAndIncrementStack(ability, caster, "modifier_looking_at_tombstone_stacks", 1, 7, 7)
+					if enemy:GetModifierStackCount("modifier_looking_at_tombstone_stacks", caster) == 7 then
+						enemy:RemoveModifierByName("modifier_looking_at_tombstone_stacks")
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_tombstone_petrify", {duration = event.petrify_duration})
+						EmitSoundOn("Winterblight.Tombstone.StoneGazeStun", enemy)
+						CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_earth_spirit/earthspirit_petrify_shockwave.vpcf", enemy, 2)
+					end
+				end
+			end
+		end
+	end
+end
+
+function winter_mountain_tombstone_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	local particlePos = caster:GetAbsOrigin()
+
+	-- caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,-800))
+	CustomAbilities:QuickParticleAtPoint("particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf", particlePos, 5)
+	Timers:CreateTimer(1, function()
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf", particlePos, 5)
+	end)
+	EmitSoundOn("Winterblight.Tombstone.Explode", caster)
 end

@@ -104544,13 +104544,13 @@
     "winterblight_mountain_tombstone"
     {
         "BaseClass" "npc_dota_creature"
-        "Model"  "models/heroes/undying/undying_tower_destruction.vmdl"
+        "Model"  "models/heroes/undying/undying_tower.vmdl"
         "SoundSet"  "Creep_Good_Range"
         "Level" "1"
         "UnitLabel" "healing_ward"
         "ModelScale"    "1.5"
         "Ability1"  "mountain_tombstone_ability"
-        "Ability2"  "mountain_tombstone_scream"
+        "Ability2"  ""
         "Ability3"  ""
         "Ability4"  ""
         "Ability5"  ""
@@ -104559,7 +104559,7 @@
         "Ability8"  ""
         "precache"
         {
-
+            "particle"  "particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
