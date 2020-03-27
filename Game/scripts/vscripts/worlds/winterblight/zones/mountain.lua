@@ -118,7 +118,7 @@ end
 
 function Winterblight:SpawnMountainTombstones()
 	local positionTable = {Vector(698, 1978), Vector(-852, 1434), Vector(2560, -442), Vector(3116, 2666), Vector(2408, 7243), Vector(-424, 6939), Vector(-599, 3128), Vector(5484, 4139)}
-	local shuffleTable =WallPhysics:ShuffleTable(positionTable)
+	local shuffleTable = WallPhysics:ShuffleTable(positionTable)
 	for i = 1, 3, 1 do
 		local tombstone = Enemies:SpawnEnemyUnit("winterblight_mountain_tombstone", shuffleTable[i], RandomVector(1), false)
 		local health = 100

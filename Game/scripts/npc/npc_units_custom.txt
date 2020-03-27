@@ -103873,7 +103873,7 @@
         "AttackRate"    "1.2"
         "AttackAnimationPoint"  "0.5"
         "AttackAcquisitionRange"    "100"
-        "AttackRange"   "1050"
+        "AttackRange"   "850"
         "ProjectileModel" "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
         "ProjectileSpeed"   "700"
         "BountyGoldMin" "150"
@@ -104560,6 +104560,9 @@
         "precache"
         {
             "particle"  "particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf"
+            "particle"  "particles/units/heroes/hero_beastmaster/beastmaster_primal_roar.vpcf"
+            "particle"  "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf"
+            "particle"  "particles/units/heroes/hero_queenofpain/queen_sonic_wave.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"

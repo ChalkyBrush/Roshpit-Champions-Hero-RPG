@@ -17379,7 +17379,7 @@
                               "value0"        "sounds/weapons/hero/medusa/stonegaze.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "0.92000"  }
+                    "volume"            {   "value"     "0.78000"  }
                     "pitch_rand_min"    {   "value"     "-0.01000"  }
                     "pitch_rand_max"    {   "value"     "0.010000"  }
                     "pitch"             {   "value"     "0.880000"  }
@@ -17417,6 +17417,134 @@
                     "pitch"             {   "value"     "0.900000"  }
                     "soundlevel"        {   "value"     "96.00000" }
                     "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Tombstone.SonicScream"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/queenofpain/queenofpain_sonicwave.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.92000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.880000"  }
+                    "soundlevel"        {   "value"     "96.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Tombstone.SonicScreamDeep"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/queenofpain/queenofpain_sonicwave.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.92000"  }
+                    "pitch_rand_min"    {   "value"     "-0.01000"  }
+                    "pitch_rand_max"    {   "value"     "0.010000"  }
+                    "pitch"             {   "value"     "0.650000"  }
+                    "soundlevel"        {   "value"     "96.00000" }
+                    "distance_max"      {   "value"     "3200.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Tombstone.GhostScare"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_ghost.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.417000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "0.74000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Tombstone.GhostScareEnd"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/spectre/haunt_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.817000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.44000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
             }

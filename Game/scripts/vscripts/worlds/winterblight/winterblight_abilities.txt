@@ -15098,6 +15098,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"petrify_duration"			"3 4 5"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 1000 7500"
+			}
 		}
 		"OnOwnerDied"
 		{
@@ -15107,13 +15112,23 @@
 				"Function"		"winter_mountain_tombstone_die"
 			}
 		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"winter_mountain_tombstone_sonic_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_shipyard_spawner_passive"
 			{
 				"IsHidden" "1"
 				"Passive"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
@@ -15125,6 +15140,15 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
 						"Function"		"winter_mountain_tombstone_take_damage"
+					}
+				}
+				"ThinkInterval"  "8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_mountain_tombstone_sonic_call"
 					}
 				}
 			}
@@ -15165,6 +15189,30 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_tombstone_pushback"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_mountain_scream_pushback"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_mountain_scream_pushback_end"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}

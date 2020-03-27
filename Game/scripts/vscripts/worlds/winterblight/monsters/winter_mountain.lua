@@ -419,11 +419,12 @@ function winter_mountain_tombstone_take_damage(event)
 	if caster.color_change then
 		return false
 	end
-	if caster:GetHealth()/caster:GetMaxHealth() < 0.3 then
+	if caster:GetHealth()/caster:GetMaxHealth() < 0.35 then
 		caster.color_change = true
 		Events:smoothColorTransition(caster, Vector(134, 158, 255), Vector(226, 36, 36), 45)
+		winter_mountain_tombstone_sonic_call(event)
 	end
-	if caster:GetHealth()%(35 + (GameState:GetDifficultyFactor()*10)) == 0 then
+	if caster:GetHealth()%(25 + (GameState:GetDifficultyFactor()*10)) == 0 then
 		local screamMinion = nil
 		local luck = RandomInt(1, 3)
 		if luck == 1 then
@@ -490,9 +491,93 @@ function winter_mountain_tombstone_die(event)
 	local particlePos = caster:GetAbsOrigin()
 
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,-800))
-	CustomAbilities:QuickParticleAtPoint("particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf", particlePos, 5)
-	Timers:CreateTimer(1, function()
-		CustomAbilities:QuickParticleAtPoint("particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf", particlePos, 5)
-	end)
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_warlock/chaos_blast_impact.vpcf", particlePos, 5)
 	EmitSoundOn("Winterblight.Tombstone.Explode", caster)
+	event.new_sound = true
+	winter_mountain_tombstone_sonic_call(event)
+
+	Timers:CreateTimer(1, function()
+			local ghost = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin()+Vector(0,200,0), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			ghost:SetForwardVector(Vector(0,-1))
+			ghost:SetOriginalModel("models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl")
+			ghost:SetModel("models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl")
+			Events:smoothSizeChange(ghost, 0.1, 3.5, 40)
+			EmitSoundOn("Winterblight.Tombstone.GhostScare", ghost)
+			Timers:CreateTimer(1, function()
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/templar_assassin/templar_assassin_butterfly/templar_assassin_trap_explode_butterfly.vpcf", particlePos, 5)
+			end)
+			Timers:CreateTimer(4, function()
+				EmitSoundOn("Winterblight.Tombstone.GhostScareEnd", ghost)
+				Events:smoothSizeChange(ghost, 3.5, 0.01, 15)
+			end)
+			Timers:CreateTimer(4.5, function()
+				UTIL_Remove(ghost)
+			end)
+	end)
+end
+
+function winter_mountain_tombstone_sonic_call(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.color_change then
+		if event.new_sound then
+			EmitSoundOn("Winterblight.Tombstone.SonicScreamDeep", caster)
+		else
+			EmitSoundOn("Winterblight.Tombstone.SonicScream", caster)
+		end
+		local baseFV = RandomVector(1)
+		for i = 1, 4, 1 do
+		    local start_radius = 120
+		    local end_radius = 360
+		    local range = 800
+		    local speed = 1200
+		    local fv = WallPhysics:rotateVector(baseFV, 2*math.pi*i/4)
+		    local info =
+		    {
+		        Ability = ability,
+		        EffectName = "particles/units/heroes/hero_queenofpain/queen_sonic_wave.vpcf",
+		        vSpawnOrigin = caster:GetAbsOrigin()+Vector(0,0,40),
+		        fDistance = range,
+		        fStartRadius = start_radius,
+		        fEndRadius = end_radius,
+		        Source = caster,
+		        StartPosition = "attach_origin",
+		        bHasFrontalCone = true,
+		        bReplaceExisting = false,
+		        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		        fExpireTime = GameRules:GetGameTime() + 5.0,
+		        bDeleteOnHit = false,
+		        vVelocity = fv * speed,
+		        bProvidesVision = false,
+		    }
+		    ProjectileManager:CreateLinearProjectile(info)
+		end	
+	end
+end
+
+function winter_mountain_tombstone_sonic_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_tombstone_pushback", {duration = 1.75})
+	ApplyDamage({victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+end
+
+function winter_mountain_scream_pushback(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local direction = ((target:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	target:SetAbsOrigin(target:GetAbsOrigin() + direction*7)
+end
+
+function winter_mountain_scream_pushback_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 end
