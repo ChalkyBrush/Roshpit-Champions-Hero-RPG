@@ -1,6 +1,7 @@
 function Winterblight:InitMountain()
 	Winterblight:MountainPrecache()
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1071, 2740), 9000, 50000, true)
+	Winterblight:SpawnMountainTombstones()
 	Timers:CreateTimer(2, function()
 		Enemies:SpawnEnemyUnit("winterblight_mountain_tree", Vector(-256, -128), Vector(1, 0), false)
 		Enemies:SpawnEnemyUnit("winterblight_mountain_tree", Vector(-1024, -384), Vector(1, -1), false)
@@ -47,18 +48,89 @@ function Winterblight:InitMountain()
 			Winterblight:SpawnWintertideMonkMountain(positionTable[i], fv)
 		end
 	end)
+	Timers:CreateTimer(3, function()
+		local positionTable = {Vector(-2048, 2688), Vector(-1561, 2560), Vector(-1798, 2432), Vector(-1920, 2304), Vector(-1561, 2304), Vector(-1804, 2048), Vector(-1280, 2048)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Winterblight:SpawnFrostAvatar(positionTable[i], fv)
+		end
+	end)
 	Winterblight:SpawnOwlSentry(Vector(-128, 640), {Vector(5888, 5120), Vector(-512, 6695), Vector(1792, 1408), Vector(5760, 1664)})
 	Timers:CreateTimer(8, function()
 		Winterblight:SpawnOwlSentry(Vector(5888, 5120), {Vector(5760, 1664), Vector(1792, 1408), Vector(-512, 6695), Vector(-128, 640)})
 	end)
+	Timers:CreateTimer(10, function()
+		Enemies:SpawnEnemyUnit("winterblight_hinterlands_guardian", Vector(4864, 5248), Vector(-1, -1), false)
+		Enemies:SpawnEnemyUnit("winterblight_hinterlands_guardian", Vector(1152, 5504), Vector(0, -1), false)
+		Enemies:SpawnEnemyUnit("winterblight_hinterlands_guardian", Vector(5504, 2560), Vector(-0.5, -1), false)
+	end)
+	Timers:CreateTimer(9, function()
+		local positionTable = {Vector(4224, 1461), Vector(4616, 1461), Vector(4552, 1792), Vector(4482, 2048), Vector(4592, 2304), Vector(4817, 1920), Vector(4992, 1664)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(3456, 1792) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_demonoid", positionTable[i], fv, false)
+		end
+
+	end)
+	Timers:CreateTimer(12, function()
+		local positionTable = {Vector(4464, 4352), Vector(4489, 4352), Vector(4148, 4224), Vector(3840, 3968)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(3840, 4615) - positionTable[i]):Normalized()
+			Winterblight:SpawnCorporealRevenant(positionTable[i], fv)
+		end
+	end)
+	Timers:CreateTimer(14, function()
+		Winterblight:SpawnBloodWraith(Vector(4224, 2743), Vector(0,-1))
+		Winterblight:SpawnBloodWraith(Vector(3968, 1147), Vector(0, 1))
+		Winterblight:SpawnBloodWraith(Vector(3584, 1024), Vector(-0.3, 1))
+	end)
+	Timers:CreateTimer(12, function()
+		local positionTable = {Vector(-708, 6349), Vector(-582, 6016), Vector(-685, 5760), Vector(-640, 5498), Vector(-768, 5248)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Winterblight:SpawnCorporealRevenant(positionTable[i], fv)
+		end
+	end)
+	Timers:CreateTimer(18, function()
+		local positionTable = {Vector(389, 5412), Vector(148, 5248), Vector(359, 4992), Vector(148, 4930), Vector(128, 4736)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Enemies:SpawnEnemyUnit("winterblight_yozario", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(24, function()
+		local positionTable = {Vector(3698, 5504), Vector(1280, 6272), Vector(-640, 3712), Vector(3072, 1280)}
+		Enemies:CreateUnitsWithPatrol("winterblight_yozario", 3, positionTable, 34, 7, 200, 120, 1, 1)
+	end)
 	Timers:CreateTimer(30, function()
 		Winterblight:SpawnOwlSentry(Vector(-640, 5284), {Vector(1567, 7518), Vector(5888, 6400), Vector(3200, 918)})
+	end)
+	Timers:CreateTimer(50, function()
+		Winterblight:SpawnOwlSentry(Vector(-2203, 6080), {Vector(360, 8120), Vector(7040, 256), Vector(4352, 6912), Vector(-2203, 6080)})
 	end)
 end
 
 function Winterblight:MountainPrecache()
 	if not Winterblight.MountainP3Precached then
 		Precache:WinterPart3()
+	end
+end
+
+function Winterblight:SpawnMountainTombstones()
+	local positionTable = {Vector(698, 1978), Vector(-852, 1434), Vector(2560, -442), Vector(3116, 2666), Vector(2408, 7243), Vector(-424, 6939), Vector(-599, 3128), Vector(5484, 4139)}
+	local shuffleTable =WallPhysics:ShuffleTable(positionTable)
+	for i = 1, 3, 1 do
+		local tombstone = Enemies:SpawnEnemyUnit("winterblight_mountain_tombstone", shuffleTable[i], RandomVector(1), false)
+		local health = 175
+		if GameState:GetDifficultyFactor() == 2 then
+			health = 400
+		elseif GameState:GetDifficultyFactor() == 3 then
+			health = 1000
+		end
+		tombstone:SetMaxHealth(health)
+		tombstone:SetBaseMaxHealth(health)
+		tombstone:SetHealth(health)
+		tombstone:SetRenderColor(134, 158, 255)
 	end
 end
 

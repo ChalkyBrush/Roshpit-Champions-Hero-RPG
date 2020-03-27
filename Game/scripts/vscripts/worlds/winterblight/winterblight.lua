@@ -405,7 +405,7 @@ end
 
 function Winterblight:HowlingWind()
   Timers:CreateTimer(0, function()
-    windTable = {Vector(-15424, -2624), Vector(-12459, -2014), Vector(-10624, -4288), Vector(-7900, -3341), Vector(-5696, -3136)}
+    windTable = {Vector(-15424, -2624), Vector(-12459, -2014), Vector(-10624, -4288), Vector(-7900, -3341), Vector(-5696, -3136), Vector(128, 384)}
     local luck = RandomInt(1,6)
     if Winterblight.iceWindLock then
       luck = 6

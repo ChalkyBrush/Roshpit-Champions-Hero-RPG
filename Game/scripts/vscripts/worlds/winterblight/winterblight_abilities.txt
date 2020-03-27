@@ -14971,3 +14971,187 @@
 			}
 		}
 	}
+
+	"hinterlands_guardian_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/magic_shield"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+
+		}
+		"Modifiers"
+		{
+			"modifier_hinterlands_guardian_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"hinterlands_guardian_think"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_demonoid_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_power_bonus"			"100 200 400"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_demonoid_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_power_bonus"
+				}
+			}
+		}
+
+	}
+
+
+	"winterblight_glint_of_onu"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/p2/ultimate_predator"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_bonus"			"100 180 260"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"proc_chance"			"30 35 40"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blinded_glint_of_onu"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winterblight_onu_attack_land"
+						"proc_chance"	"%proc_chance"
+					}
+				}
+			}
+			"modifier_blinded_glint_buff"
+			{
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+				}
+			}
+			"modifier_glint_no_proc"
+			{
+				"IsHidden"	"1"
+			}
+		}
+
+	}
+
+	"mountain_tombstone_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"winter_mountain_tombstone_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_zefnar_passive"
+			{
+				"IsHidden" "1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_mountain_tombstone_take_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"mountain_tombstone_scream"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/zefnar_passive"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilityCastPoint"		"0"
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"tombstone_scream"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tombstone_scream_creeping"
+			{
+				"IsHidden" "1"
+			}
+		}
+	}

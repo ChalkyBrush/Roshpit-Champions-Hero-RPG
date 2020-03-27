@@ -309,3 +309,123 @@ function winter_ice_lance_projectileHit(event)
         ParticleManager:DestroyParticle(pfx, false)
     end)
 end
+
+function hinterlands_guardian_think(event)
+	local caster = event.caster
+	if not caster:IsAlive() then
+		return false
+	end
+	if caster.aggro and caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local hookAbility = caster:FindAbilityByName("azalea_crystal_nova")
+			if hookAbility:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 320))
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = hookAbility:entindex(),
+					Position = targetPoint
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local hookAbility = caster:FindAbilityByName("azalea_maiden_frostbite")
+			if hookAbility:IsFullyCastable() then
+				local order = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+					TargetIndex = enemies[1]:entindex(),
+					AbilityIndex = hookAbility:entindex(),
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local hookAbility = caster:FindAbilityByName("winterblight_crystal_charge")
+			if hookAbility:IsFullyCastable() then
+				local targetPoint = enemies[1]:GetOrigin() + RandomVector(RandomInt(80, 320))
+				local order =
+				{
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+					AbilityIndex = hookAbility:entindex()
+				}
+				ExecuteOrderFromTable(order)
+				return false
+			end
+		end
+	end
+end
+
+function winterblight_onu_attack_land(event)
+	local target = event.target
+	local attacker = event.attacker
+	local ability = event.ability
+	local caster = event.caster
+	if target.dummy then
+		return false
+	end
+	local proc_chance = event.proc_chance
+	local proc = Filters:GetProc(attacker, proc_chance)
+	if target:HasModifier("modifier_glint_no_proc") then
+		local newNoProcStacks = target:GetModifierStackCount("modifier_glint_no_proc", caster) - 1
+		if newNoProcStacks > 0 then
+			target:SetModifierStackCount("modifier_glint_no_proc", caster, newNoProcStacks)
+		else
+			target:RemoveModifierByName("modifier_glint_no_proc")
+		end
+
+		return false
+	end
+	if proc then
+		if attacker:IsAlive() then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_glint_no_proc", {duration = 1})
+			target:SetModifierStackCount("modifier_glint_no_proc", caster, 2)
+			local newPosition = target:GetAbsOrigin() + target:GetForwardVector() *- 120
+			local position = attacker:GetAbsOrigin()
+			local newPosition = WallPhysics:WallSearch(position, newPosition, target)
+			FindClearSpaceForUnit(attacker, newPosition, false)
+			attacker:SetForwardVector(target:GetForwardVector() * Vector(1, 1, 0))
+			event.ability:ApplyDataDrivenModifier(event.caster, attacker, "modifier_blinded_glint_buff", {duration = 1.2})
+			ProjectileManager:ProjectileDodge(attacker)
+
+			local particleName = "particles/econ/items/meepo/meepo_diggers_divining_rod/meepo_divining_rod_poof_end_rays_burst.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
+			ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", position, true)
+			local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, attacker)
+			ParticleManager:SetParticleControlEnt(pfx2, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", newPosition, true)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+				ParticleManager:DestroyParticle(pfx2, false)
+			end)
+			EmitSoundOnLocationWithCaster(newPosition, "RPCItem.GlintOfOnu", attacker)
+		end
+	end
+
+end
+
+function winter_mountain_tombstone_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.color_change then
+		return false
+	end
+	if caster:GetHealth()/caster:GetMaxHealth() < 0.3 then
+		caster.color_change = true
+		Events:smoothColorTransition(caster, Vector(134, 158, 255), Vector(226, 36, 36), 45)
+	end
+end
+
+function tombstone_scream(event)
+	local caster = event.caster
+	local ability = event.ability
+
+end
