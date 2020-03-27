@@ -281,7 +281,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_2"            "Onyx Lotus"
         "item_property_trapper_immortal_weapon2"                             "Deadly Traps"
-        "property_trapper_immortal_weapon2_description"                      "Враги, попавшие под действие любой ловушки будут получать увеличенный на @special_property1% пост-резистный урон от Trapper. Бонус перемножается со всеми другими бонусами к пост-резистному урону."
+        "property_trapper_immortal_weapon2_description"                      "Противники в любых ловушках получают снижение их Брони и Магической Защиты на <% TRAPPER_IMMORTAL_WEAPON_2_ARMOR_AND_MAGIC_ARMOR_LOSS %>."
 
         "DOTA_Tooltip_ability_item_rpc_trapper_immortal_weapon_3"            "Prismatic Shard"
         "item_property_trapper_immortal_weapon3"                             "Assassin's Reach"
