@@ -17536,14 +17536,14 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/weapons/hero/spectre/haunt_cast.vsnd"
+                              "value0"        "sounds/misc/creep_deaths/death_ghost_fellbeast_01.vsnd"
                         }
                     }
                     "volume"            {   "value"     "1.817000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
-                    "pitch"             {   "value"     "1.44000"  }
-                    "soundlevel"        {   "value"     "95.00000" }
+                    "pitch"             {   "value"     "0.84000"  }
+                    "soundlevel"        {   "value"     "96.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }

@@ -531,6 +531,8 @@ function Winterblight:SpawnWinterRunner(position, fv)
 	stone:SetRenderColor(170, 200, 255)
 	stone.dominion = true
 	-- stone.cantAggro = true
+	stone.autoAbilityCD = 1
+	stone.targetRadius = 400
 	Timers:CreateTimer(0.8, function()
 		if IsValidEntity(stone) then
 			Dungeons:DeaggroUnit(stone)
