@@ -587,6 +587,9 @@ end
 function jex_equip_immortal_weapon(event)
 	local caster = event.target
 	local onibi = caster.onibi
+	if not onibi then
+		return false
+	end
 	local elements_table = all_possible_onibi_elements(onibi)
 	local ability_keys = {"Q", "W", "E"}
 	for i = 1, #elements_table, 1 do
