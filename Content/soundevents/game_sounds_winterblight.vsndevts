@@ -16827,13 +16827,13 @@
                     {
                         "value"
                         {
-                              "value0"        "sounds/misc/creep_deaths/death_golem_rock_01.vsnd"
+                              "value0"        "sounds/weapons/creep/greevil/death03.vsnd"
                         }
                     }
                     "volume"            {   "value"     "1.07000"  }
                     "pitch_rand_min"    {   "value"     "-0.02000"  }
                     "pitch_rand_max"    {   "value"     "0.020000"  }
-                    "pitch"             {   "value"     "1.3200"  }
+                    "pitch"             {   "value"     "0.8200"  }
                     "soundlevel"        {   "value"     "92.00000" }
                     "distance_max"      {   "value"     "3800.000"  }
                     "event_type"        {   "value"     "1.000000"  }

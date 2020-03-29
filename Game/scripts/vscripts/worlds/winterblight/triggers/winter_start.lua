@@ -315,3 +315,13 @@ function WinterMountainTrigger2(trigger)
 		end
 	end
 end
+
+function MountainGhostTrigger(trigger)
+	local hero = trigger.activator
+	if hero.actual_game_hero then
+		if not Winterblight.MountainGhost then
+			Winterblight.MountainGhost = true
+			Winterblight:MountainGhostProp()
+		end
+	end
+end

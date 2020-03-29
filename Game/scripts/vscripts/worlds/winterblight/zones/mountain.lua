@@ -174,7 +174,7 @@ function Winterblight:MountainPrecache()
 end
 
 function Winterblight:SpawnMountainTombstones()
-	local positionTable = {Vector(698, 1978), Vector(-852, 1434), Vector(2560, -442), Vector(3116, 2666), Vector(2408, 7243), Vector(-424, 6939), Vector(-599, 3128), Vector(5484, 4139)}
+	local positionTable = {Vector(698, 1978), Vector(-852, 1434), Vector(2560, -442), Vector(3116, 2666), Vector(2408, 7243), Vector(-424, 6939), Vector(-599, 3128), Vector(5484, 4139), Vector(3873, 6854)}
 	local pos1 = RandomInt(1, #positionTable)
 	local pos2 = RandomInt(1, #positionTable)
 	local pos3 = RandomInt(1, #positionTable)
@@ -242,4 +242,13 @@ function Winterblight:SpawnWintertideMonkMountain(position, fv)
 	queen.randomMissMin = 200
 	queen.randomMissMax = 600
 	return queen
+end
+
+function Winterblight:MountainGhostProp()
+	-- Timers:CreateTimer(5, function()
+	-- 	local props = Entities:FindAllByNameWithin("MountainGhostProp", Vector(1843, 15590, -500), 1500)
+	-- 	for i = 1, #props, 1 do
+	-- 		Events:smoothTranslate(props[i], Vector(0,0,12), 100, Vector(0,0,-0.04), "Winterblight.Tombstone.GhostScare")
+	-- 	end
+	-- end)
 end

@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = true
+Beacons.cheats = false
 
 if Events == nil then
 	Events = class({})
@@ -4039,6 +4039,20 @@ function Events:objectShake(object, ticks, strength, bX, bY, bZ, sound, soundInt
 				end
 			end
 			object:SetAbsOrigin(object:GetAbsOrigin() + moveVector)
+		end)
+	end
+end
+
+function Events:smoothTranslate(object, velocity, ticks, acceleration, endSound)
+	for i = 0, ticks, 1 do
+		velocity = velocity + acceleration
+		Timers:CreateTimer(i * 0.03, function()
+			object:SetAbsOrigin(object:GetAbsOrigin() + velocity)
+		end)
+	end
+	if endSound then
+		Timers:CreateTimer(ticks*0.03, function()
+			EmitSoundOnLocationWithCaster(object:GetAbsOrigin(), endSound, Events.GameMaster)
 		end)
 	end
 end
