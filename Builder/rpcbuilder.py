@@ -4,7 +4,7 @@ from pathlib import Path
 from time import sleep, time
 from typing import Match, List, Optional, Dict, NoReturn
 
-from Builder.lua_classes import LuaNumber, LuaConstant, try_parse
+from Builder.lua_classes import LuaNumber, LuaTable, LuaConstant, try_parse
 from Builder.settings import SettingsManager
 from Builder.messages import MsgType, print_msg
 from Builder.kv2json import kv2json
@@ -109,8 +109,32 @@ class RPCBuilder:
                 # ignore illegal names and values
                 if re.match(r'\w+$', key) and (parsed := try_parse(value)):
                     result[key] = parsed
+                    self._validate_const(key, parsed)
         return result
 
+    def _validate_const(self, name, const) -> bool:
+        try:
+            if type(const) == LuaTable and type(const[0]) == LuaNumber:
+                cmp = None
+                cmp_name = ''
+                index = -1
+                for i in range(len(const) - 1):
+                    if not cmp:
+                        if const[i] > const[i+1]:
+                            cmp = lambda x, y: y <= x
+                            cmp_name = 'lesser'
+                        elif const[i] < const[i+1]:
+                            cmp = lambda x, y: y >= x
+                            cmp_name = 'greater'
+                    else:
+                        if not cmp(const[i], const[i+1]):
+                            print_msg(f'Inconsistency detected!\n{name} = {const}\nValue at position [{i+2}] ({const[i+1]}) is expected to be {cmp_name} than or equal to the previous value ({const[i]})', MsgType.WARNING)
+                            return False
+        except Exception as e:
+            print_msg(f'Oopsie\n{e}', MsgType.ERROR)
+        
+        return True
+    
     def _load_constants(self) -> None:
         # creates dictionary {'CONST_NAME': LuaConstant, ...}
         settings = self._settings
