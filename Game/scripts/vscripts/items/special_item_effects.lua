@@ -2604,7 +2604,7 @@ function raven_idol_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	local hero = caster.hero
-	local threshold_pct = ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RAVEN_IDOL_GEM_RUBY1)
+	local threshold_pct = ITEM_RPC_RAVEN_IDOL_HP_THRESHOLD_PCT - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RAVEN_IDOL_GEM_RUBY1)
 	if hero:GetHealth() > hero:GetMaxHealth() * threshold_pct / 100 then
 		hero:SetHealth(hero:GetMaxHealth() * threshold_pct / 100)
 	end

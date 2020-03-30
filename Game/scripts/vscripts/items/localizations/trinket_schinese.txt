@@ -217,7 +217,7 @@
 		"DOTA_Tooltip_ability_item_rpc_raven_idol"										"乌鸦玩偶"
 		"item_property_raven_idol1"					"黑暗灵魂"		
     
-        "property_raven_idol_description"          "降低所受的伤害 <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. 你的生命值不能超过 <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% 最大生命值."
+        "property_raven_idol_description"          "降低所受的伤害 <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. 你的生命值不能超过 <% ITEM_RPC_RAVEN_IDOL_HP_THRESHOLD_PCT %>% 最大生命值."
         
         "item_rpc_raven_idol_ruby1"                                     "降低黑暗灵魂的生命阈值 @ruby_property1% , 但能提高其减伤效果 @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "对你的治疗效果降低 @emerald_property1% . 提高基础技能伤害 @emerald_property2% 和攻击力 @emerald_property3"
