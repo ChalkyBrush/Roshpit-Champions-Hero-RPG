@@ -47,7 +47,7 @@
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"При показателе Здоровья ниже <% ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% @Ability3 имеет <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>-секундную перезарядку."
+		 "property_bloodstone_boots_description"				"При показателе Здоровья ниже <% ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT %>% @Ability3 имеет <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>-секундную перезарядку."
 
     	"item_rpc_bloodstone_boots_ruby1"								"Увеличивает порог Здоровья для активации эффекта на@ruby_property1% от Здоровья"
     	"item_rpc_bloodstone_boots_emerald1"								"Повышает сопротивление урону на @emerald_property1% во время активного эффекта"

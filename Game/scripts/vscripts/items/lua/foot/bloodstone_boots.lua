@@ -65,7 +65,7 @@ end
 function modifierClass:GetPhysicalDamageReduction()
     if IsServer() then
         local hero = self:GetParent()
-        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
         if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
             return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
         end
@@ -75,7 +75,7 @@ end
 function modifierClass:GetMagicalDamageReduction()
     if IsServer() then
         local hero = self:GetParent()
-        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
         if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
             return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
         end
@@ -85,7 +85,7 @@ end
 function modifierClass:GetPureDamageReduction()
     if IsServer() then
         local hero = self:GetParent()
-        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
         if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
             return self:GetAbility():GetFinalGemPropertyValue("emerald", ITEM_RPC_BLOODSTONE_BOOTS_GEM_EMERALD) / 100
         end
@@ -104,7 +104,7 @@ end
 function modifierClass:GetModifierMoveSpeedBonus_Constant(params)
     if IsServer() then
         local hero = self:GetParent()
-        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
         if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
             return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST1)
         end
@@ -115,7 +115,7 @@ end
 function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
     if IsServer() then
         local hero = self:GetParent()
-        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+        local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
         if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
             return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_BLOODSTONE_BOOTS_GEM_AMETHYST2)
         end
@@ -125,7 +125,7 @@ end
 
 function modifierClass:GetRoshpitEMaxCdModifier()
     local hero = self:GetParent()
-    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
     if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
         return ITEM_RPC_BLOODSTONE_BOOTS_E_CD
     end
@@ -133,7 +133,7 @@ function modifierClass:GetRoshpitEMaxCdModifier()
 end
 function modifierClass:GetRoshpitEMinCdModifier()
     local hero = self:GetParent()
-    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
+    local threshold = ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT + self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_BLOODSTONE_BOOTS_GEM_RUBY)
     if hero:GetHealth() <= hero:GetMaxHealth() * (threshold / 100) then
         return ITEM_RPC_BLOODSTONE_BOOTS_E_CD
     end

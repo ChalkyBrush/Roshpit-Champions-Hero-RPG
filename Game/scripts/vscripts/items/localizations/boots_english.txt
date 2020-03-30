@@ -47,7 +47,7 @@
     	"DOTA_Tooltip_ability_item_rpc_bloodstone_boots"								"Bloodstone Boots"
 
 		"item_property_bloodstone_boots"						"Vital Mobility"
-		 "property_bloodstone_boots_description"				"While below <% ITEM_RPC_BLOODSTONE_BOOTS_HP_TRESHOLD_PCT %>% health, @Ability3 has a <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>-second cooldown."
+		 "property_bloodstone_boots_description"				"While below <% ITEM_RPC_BLOODSTONE_BOOTS_HP_THRESHOLD_PCT %>% health, @Ability3 has a <% ITEM_RPC_BLOODSTONE_BOOTS_E_CD %>-second cooldown."
 
     	"item_rpc_bloodstone_boots_ruby1"								"Increases the health threshold to activate Vital Mobility by an additional @ruby_property1% of max health"
     	"item_rpc_bloodstone_boots_emerald1"								"While below the health threshold, reduce all damage taken by @emerald_property1%"

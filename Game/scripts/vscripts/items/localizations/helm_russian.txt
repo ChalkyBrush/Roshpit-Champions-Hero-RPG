@@ -329,7 +329,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"Helm of the Mountain Giant"
 		"item_property_mountain_giant" 								"Hulking"
-		"property_mountain_giant_description"						"Показатель максимального Здоровья увеличивается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. При Здоровье выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% от максимального сопротивление урону повышается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
+		"property_mountain_giant_description"						"Показатель максимального Здоровья увеличивается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %>%. При Здоровье выше <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_THRESHOLD %>% от максимального сопротивление урону повышается на <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%."
 
 		"item_rpc_helm_of_the_mountain_giant_ruby1"	"Максимальное Здоровье дополнительно увеличено на @ruby_property1%"
 		"item_rpc_helm_of_the_mountain_giant_emerald1"	"Снижает порог для получения бонуса к сопротивлению урону на @emerald_property1% от максимального запаса здоровья"
