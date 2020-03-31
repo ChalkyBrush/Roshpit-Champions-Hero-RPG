@@ -189,7 +189,7 @@ function modifierClass:GetModifierPercentageCasttime(params)
 end
 
 function modifierClass:GetRoshpitRFlatChanneltimeModifier()
-    return - self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPELLFIRE_GLOVES_GEM_AMETHYST)
+    return - self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SPELLFIRE_GLOVES_GEM_AMETHYST) * 100
 end
 
 function modifierClass:IsHidden()
