@@ -46,8 +46,8 @@ end
 
 function arkimus_archon_form:OnSpellStart()
     local hero = self:GetCaster()
-    hero:AddNewModifier(hero, self, "modifier_channel_start", {duration = 1})
 	local ability = self
+    hero:AddNewModifier(hero, ability, "modifier_arkimus_channeling", {})
 	EmitSoundOn("Akrimus.Channel.VO", hero)
 	StartSoundEvent("Arkimus.EnergyField.Channel", hero)
 end
@@ -55,6 +55,7 @@ end
 function arkimus_archon_form:OnChannelFinish(interrupted)
     if IsServer() then
         local hero = self:GetCaster()
+        hero:RemoveModifierByName("modifier_arkimus_channeling")
         if interrupted then
             StopSoundEvent("Arkimus.EnergyField.Channel", hero)
         else
@@ -95,20 +96,6 @@ end
 
 function arkimus_archon_form:GetIntrinsicModifierName()
     return "modifier_arkimus_arcana_r_3_buff"
-end
-
-
-modifier_channel_start = class(npc_base_modifier, nil, npc_base_modifier)
-LinkLuaModifier("modifier_channel_start", "heroes/antimage/arkimus_archon_form", LUA_MODIFIER_MOTION_NONE)
-
-function modifier_channel_start:IsHidden()
-    return true
-end
-function modifier_channel_start:GetEffectName()
-    return "particles/roshpit/arkimus/channel_energy.vpcf"
-end
-function modifier_channel_start:GetEffectAttachType()
-	return PATTACH_ABSORIGIN_FOLLOW
 end
 
 modifier_arkimus_archon_form = class(npc_base_modifier, nil, npc_base_modifier)
