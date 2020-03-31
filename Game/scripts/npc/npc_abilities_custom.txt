@@ -3360,7 +3360,7 @@
 			"13"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ice_orb_a"			"2 2.5 3 4.5 4 5 6"
+				"ice_orb_a"			"2 2.5 3 3.5 4 5 6"
 			}
 			"14"
 			{
@@ -66709,20 +66709,6 @@
 
 		"Modifiers"
 		{
-			"modifier_dinath_charge_passive"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/winter_wyvern/dragon_dive.lua"
-						"Function"		"dinath_charge_passive_think"
-					}
-				}
-			}
 			"modifier_dinath_dive_precast"
 			{
 				"IsHidden"	"1"
@@ -66838,15 +66824,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_dinath_b_c_attack_power"
-			{
-				"IsBuff"	"1"
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"1"
 				}
 			}
 		}
