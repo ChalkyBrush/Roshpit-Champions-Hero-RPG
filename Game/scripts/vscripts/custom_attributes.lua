@@ -3897,7 +3897,7 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
 			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_channeltime_modifier", {})
 		end
 		if channeltimeModifier ~= 0 then
-			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, channeltimeModifier)
+			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, channeltimeModifier * 100)
 		else
 			self:SetModifierStackCount("modifier_r_flat_channeltime_modifier", self, 0)
 		end
