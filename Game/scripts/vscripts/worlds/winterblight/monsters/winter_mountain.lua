@@ -671,7 +671,7 @@ function grave_ghost_thinking(event)
 		caster.sequence = 4
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_grave_ghost_think_lock", {duration = 1.25})
 		StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_ATTACK, rate = 0.7})
-		EmitSoundOn("Winterblight.Tombstone.GhostScareEnd", caster)
+		-- EmitSoundOn("Winterblight.EvilExplosion.Ghost", caster)
 	elseif caster.sequence == 4 then
 		Dungeons:AggroUnit(caster)
 		caster:RemoveModifierByName("modifier_grave_ghost_starting_passive")
@@ -779,12 +779,25 @@ function grave_ghost_death(event)
 	Winterblight:EvilExplosion(caster:GetAbsOrigin())
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.EvilExplosion.Ghost", Events.GameMaster)
 	EmitSoundOn("Winterblight.Tombstone.GhostScare", skull)
-	skull:SetAbsOrigin(skull:GetAbsOrigin() + Vector(0,0,150))
+	skull:SetAbsOrigin(skull:GetAbsOrigin() + Vector(0,0,230))
 	if skull.grave_index == 1 then
 		skull.targetPoint = Vector(2419, 14899, 502)
 		skull.targetDirection = Vector(0,-1)
 		skull.boss_spawn = "winterblight_baron_moredi"
 		skull.introSound = "Winterblight.BaronMoredi.Intro"
+		skull.extra_height = 0
+	elseif skull.grave_index == 2 then
+		skull.targetPoint = Vector(5506, 10892, 1100)
+		skull.targetDirection = Vector(-0.2,1)
+		skull.boss_spawn = "winterblight_lich_king_sonder"
+		skull.introSound = "Winterblight.LichKingSonder.Intro"
+		skull.extra_height = 700
+	elseif skull.grave_index == 3 then
+		skull.targetPoint = Vector(10370, 11106, 1448)
+		skull.targetDirection = Vector(-1,0)
+		skull.boss_spawn = "winterblight_wrath_queen_asyria"
+		skull.introSound = "Winterblight.LadyAsyria.Intro"
+		skull.extra_height = 1050
 	end
 	Timers:CreateTimer(3, function()
 		skull.phase = 1
@@ -817,7 +830,7 @@ function black_skull_thinker(event)
 		skull:SetVisualFlyHeight(skull.float_height)
 	elseif skull.phase == 1 then
 		local distance = WallPhysics:GetDistance2d(skull:GetAbsOrigin(), skull.targetPoint)
-		if skull.float_height < 470 then
+		if skull.float_height < (470 + skull.extra_height) then
 			skull.float_height = skull.float_height + 10
 			skull:SetVisualFlyHeight(skull.float_height)
 		end
