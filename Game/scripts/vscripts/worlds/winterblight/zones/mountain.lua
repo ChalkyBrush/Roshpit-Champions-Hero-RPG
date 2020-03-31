@@ -242,12 +242,7 @@ function Winterblight:SpawnWintertideMonkMountain(position, fv)
 end
 
 function Winterblight:MountainGhostProp()
-	-- Timers:CreateTimer(5, function()
-	-- 	local props = Entities:FindAllByNameWithin("MountainGhostProp", Vector(1843, 15590, -500), 1500)
-	-- 	for i = 1, #props, 1 do
-	-- 		Events:smoothTranslate(props[i], Vector(0,0,12), 100, Vector(0,0,-0.04), "Winterblight.Tombstone.GhostScare")
-	-- 	end
-	-- end)
+	Winterblight:MountainGhostScare()
 end
 
 function Winterblight:MountainP2()
@@ -388,7 +383,13 @@ function Winterblight:MountainP2()
 			Enemies:SpawnEnemyUnit("winterblight_defiler", positionTable[i], fv, false)
 		end
 	end)
-	
+	Timers:CreateTimer(9, function()
+		local positionTable = {Vector(1738, 13378), Vector(1920, 13098), Vector(1640, 12986)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(2313, 12822) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_frozen_cage", positionTable[i], fv, false)
+		end
+	end)	
 end
 
 function Winterblight:InitGraveGhost(grave_index)
@@ -426,4 +427,55 @@ function Winterblight:InitGraveGhost(grave_index)
 		ghost.grave_index = 3
 		ghost.sequence = 0
 	end
+end
+
+function Winterblight:MountainGhostScare()
+	Timers:CreateTimer(5, function()
+	local positionTable = {Vector(1920, 14592), Vector(2247, 15146), Vector(2990, 15726)}
+		for i = 1, #positionTable, 1 do
+			local delay = 1.5
+			if i == 2 then
+				delay = 4
+			elseif i == 3 then
+				delay = 8
+			end
+			Timers:CreateTimer(delay, function()
+				local ghost = CreateUnitByName("npc_dummy_unit", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
+				ghost:SetAbsOrigin(ghost:GetAbsOrigin() - Vector(0,0,300))
+				local luck = RandomInt(1, 2)
+				if luck == 1 then
+					Events:smoothTranslate(ghost, Vector(0,0,20), 15, -1, "Winterblight.Tombstone.MountainGhostScare")
+				else
+					Events:smoothTranslate(ghost, Vector(0,0,20), 15, -1, "Winterblight.Tombstone.GhostScare")
+				end
+				local fv = (Vector(2890, 14581) - positionTable[i]):Normalized()
+				ghost:SetForwardVector(fv)
+				ghost:SetOriginalModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+				ghost:SetModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+				Events:smoothSizeChange(ghost, 0.1, 3, 40)
+				EmitSoundOn("Winterblight.CrowSentry.HauntStart", ghost)
+				local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+				ParticleManager:SetParticleControl(pfx, 0, ghost:GetAbsOrigin()+Vector(-150,0,240))
+				local blueFactor = RandomInt(50, 90)/100
+				ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.5, blueFactor))
+				ParticleManager:SetParticleControl(pfx, 2, Vector(0.2, 0.2, 0.2))
+				Timers:CreateTimer(6, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:ReleaseParticleIndex(pfx)
+				end)
+				Timers:CreateTimer(13.5-delay, function()
+					EmitSoundOn("Winterblight.CrowSentry.HauntEnd", ghost)
+					Events:smoothSizeChange(ghost, 3, 0.01, 15)
+				end)
+				Timers:CreateTimer(14.5-delay, function()
+					UTIL_Remove(ghost)
+				end)
+			end)
+		end
+	end)
+end
+
+function Winterblight:EvilExplosion(position)
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/winterblight/evil_explosion.vpcf", position, 8)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(1,0,0))
 end

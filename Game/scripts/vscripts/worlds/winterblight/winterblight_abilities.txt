@@ -354,6 +354,32 @@
 				}
 
 			}			
+			"modifier_wb_black_skull"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"black_skull_thinker"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"TARGET"
+						"EffectName"				"particles/econ/generic/generic_buff_1/charge_of_light_effect_buff.vpcf"
+						"EffectAttachType"			"attach_origin"
+						"EffectLifeDurationScale"	"1"
+						"EffectColorA"				"70 100 220"
+						"EffectAlphaScale"			"0.8"
+					}
+				}
+			}
 		}
 	}
 
@@ -15347,6 +15373,14 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
 						"Function"		"grave_ghost_thinking"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"grave_ghost_death"
 					}
 				}
 			}

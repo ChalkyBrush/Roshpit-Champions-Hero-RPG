@@ -104972,15 +104972,15 @@
         "Model" "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl"
         "ModelScale"    "3.5"
         "Level" "1"
-        "HealthBarOffset"   "170"
+        "HealthBarOffset"   "370"
         "HasInventory"  "0"
         "SelectionGroup"    "rabid_walker"
         "DefaultState"  "Invade"
         "PathfindingSearchDepthScale"  "0.2"
-        "SoundSet"              "Hero_Tusk"
+        "SoundSet"              "Hero_LifeStealer"
         "precache"
         {
-             "soundfile" "soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+             "soundfile" "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -104993,7 +104993,7 @@
         "AttackAcquisitionRange"    "100"
         "ProjectileSpeed"           "1400"
         "ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
-        "AttackRange"   "130"
+        "AttackRange"   "220"
         "BountyGoldMin" "150"
         "BountyGoldMax" "200"
         "BountyXP" "1950"
@@ -105484,6 +105484,105 @@
         "RoshpitColorRenderG"   "155"
         "RoshpitColorRenderB"   "255"   
         "EnemyTier"             "1"
+    }
+
+    "winterblight_baron_moredi"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/abaddon/abaddon.vmdl"
+        "ModelScale"    "1.45"
+        "Level" "1"
+        "HealthBarOffset"   "320"
+        "HasInventory"  "0"
+        "precache"
+        {
+            "soundfile"       "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+            "particle"        "particles/units/heroes/hero_abaddon/abaddon_frost_slow.vpcf"
+            "particle"        "particles/winterblight/evil_explosion.vpcf"
+            "model"           "models/heroes/silencer/silencer_curse_skull.vmdl"
+        }
+        "SoundSet"          "Hero_Abaddon"
+        "DefaultState"  "Invade"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "800"
+        "AttackDamageMax"   "800"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "PathfindingSearchDepthScale" "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "500"
+        "BountyGoldMax" "840"
+        "BountyXP" "500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "80"
+        "FormationRank" "2"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "32000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "seafortress_sea_rider_passive"
+        "Ability2"  "ability_mega_haste"
+        "Ability3"  "mega_steadfast"
+
+
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "13235"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "13236"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "13262"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "13263"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "13264"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "522"
+                }
+            }
+        }
+        "RoshpitArmor"          "800"
+        "RoshpitArmorPierce"    "705"
+        "RoshpitSpellPierce"    "405"
+        "RoshpitMagicArmor"     "680"
+        "RoshpitLevel"          "35"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
+        "RoshpitAggroSound"     "Winterblight.BaronMoredi.Aggro"
+        
     }
     
 

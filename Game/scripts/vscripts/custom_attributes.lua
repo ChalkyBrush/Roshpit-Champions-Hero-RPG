@@ -4114,3 +4114,10 @@ function GetRChanneltimeModifier(caster)
 	)
 	return channeltimeModifier, channeltimeMultiplier
 end
+
+function CDOTA_BaseNPC:SetVisualFlyHeight(height)
+	if not self:HasModifier("modifier_visual_fly_height") then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "modifier_visual_fly_height", {})
+	end
+	self:SetModifierStackCount("modifier_visual_fly_height", Events.GameMaster, height)
+end

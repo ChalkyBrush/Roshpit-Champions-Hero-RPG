@@ -12612,6 +12612,14 @@
 				"IsHidden"	"1"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+			"modifier_visual_fly_height"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{
