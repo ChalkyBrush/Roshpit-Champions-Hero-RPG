@@ -178,22 +178,3 @@ function dragon_height_z_thinker(event)
 		end
 	end
 end
-
-function dinath_charge_passive_think(event)
-	local caster = event.caster
-	local ability = event.ability
-	if caster:HasModifier("modifier_recently_respawned") then
-		return false
-	end
-	if caster:IsAlive() then
-		local b_c_level = caster:GetRuneValue("e", 2)
-		local attack_damage_from_gear = caster:GetModifierStackCount("modifier_trinket_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_body_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_helm_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_weapon_attack_damage", caster.InventoryUnit) + caster:GetModifierStackCount("modifier_hand_cooldown_reduce", caster.InventoryUnit)
-		local bonus_attack = attack_damage_from_gear * DINATH_E2_GEAR_BASE_DAMAGE_AMP * b_c_level
-		if bonus_attack > 0 then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dinath_b_c_attack_power", {})
-			caster:SetModifierStackCount("modifier_dinath_b_c_attack_power", caster, bonus_attack)
-		else
-			caster:RemoveModifierByName("modifier_dinath_b_c_attack_power")
-		end
-	end
-end

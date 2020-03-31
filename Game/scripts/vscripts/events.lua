@@ -428,14 +428,29 @@ function GameMode:OnPlayerReconnect(keys)
 	-- end
 end
 
+ItemNames = nil
+local function SearchItemName(name)
+	if not ItemNames then
+		local kv = LoadKeyValues('scripts/npc/npc_items_custom.txt')
+		ItemNames = {}
+		for k, _ in pairs(kv) do
+			table.insert(ItemNames, k)
+		end
+	end
 
+	for _, item_name in pairs(ItemNames) do
+		if item_name:match(name) then
+			return item_name
+		end
+	end
+end
 
 function GameMode:OnPlayerChat(keys)
 	-- ignore non-command messages
 	if keys.text:sub(1, 1) ~= "-" then return end
 
 	args = {}
-	for arg in keys.text:gmatch("%S+") do
+	for arg in keys.text:lower():gmatch("%S+") do
 		args[#args+1] = arg
 	end
 
@@ -505,7 +520,7 @@ function GameMode:OnPlayerChat(keys)
 		elseif check_command("-immo") then
 			local name = args[2]
 			local level = tonumber(args[3], 10) or 1
-			name = "item_rpc_"..name
+			name = SearchItemName(name)
 			local hero = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero()
 			local item = RPCItems:RollImmortalByName(name, level)
 			Gems:AddSocket(item)

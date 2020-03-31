@@ -438,7 +438,7 @@
         "DOTA_Tooltip_ability_item_rpc_raven_idol"                                      "Raven Idol"
 
         "item_property_raven_idol"                 "Black Soul"        
-        "property_raven_idol_description"          "Reduce damage taken from all sources by <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Your health can not go above <% ITEM_RPC_RAVEN_IDOL_HP_TRESHOLD_PCT_HP_TRESHOLD_PCT %>% of your max."
+        "property_raven_idol_description"          "Reduce damage taken from all sources by <% ITEM_RPC_RAVEN_IDOL_DMG_RED_PCT %>%. Your health can not go above <% ITEM_RPC_RAVEN_IDOL_HP_THRESHOLD_PCT %>% of your max."
         
         "item_rpc_raven_idol_ruby1"                                     "Reduces your health limit by an additional @ruby_property1% of Max Health, and increases Black Soul's damage reduction by an additional @ruby_property2%"
         "item_rpc_raven_idol_emerald1"                                      "Healing effects that are applied to you are @emerald_property1% less effective. Increase Base Ability Damage by @emerald_property2% and Attack Power by @emerald_property3"

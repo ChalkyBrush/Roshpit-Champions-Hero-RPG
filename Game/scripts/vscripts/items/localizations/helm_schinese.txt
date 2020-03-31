@@ -616,7 +616,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_helm_of_the_mountain_giant"	"山岭巨人头盔"
 		"item_property_mountain_giant" 								"稳如泰山"
-		"property_mountain_giant_description"		"提高最大生命值 <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %> %。 当生命值高于<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_TRESHOLD %>% 时，拥有<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%减伤。"
+		"property_mountain_giant_description"		"提高最大生命值 <% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_HEALTH %> %。 当生命值高于<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_THRESHOLD %>% 时，拥有<% HELM_OF_THE_MOUNTAIN_GIANT_PERCENT_DAMAGE_REDUCTION %>%减伤。"
 		"item_rpc_helm_of_the_mountain_giant_ruby1"	"提高最大生命值 @ruby_property1%"
 		"item_rpc_helm_of_the_mountain_giant_emerald1"	"降低触发减伤效果的生命值阈值 @emerald_property1% 最大生命值"
 		"item_rpc_helm_of_the_mountain_giant_sapphire1" "当生命值高于阈值时，提供 @sapphire_property1%减伤"

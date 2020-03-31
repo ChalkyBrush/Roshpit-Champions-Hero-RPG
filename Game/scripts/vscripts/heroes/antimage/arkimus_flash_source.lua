@@ -165,7 +165,6 @@ function modifier_arkimus_flash_source:OnOrderFilter(data)
                         caster:AddNewModifier(caster, ability, "modifier_arkimus_w_3_dash", {duration = duration})
                         caster:AddNewModifier(caster, ability, "modifier_arkimus_w_3_bonus_damage", {duration = duration})
                         caster:SetModifierStackCount("modifier_arkimus_w_3_bonus_damage", caster, w_3_level * ARKIMUS_W3_BONUS_DMG)
-                        caster:AddNewModifier(caster, nil, "modifier_animation_translate", {translate = "haste"})
                     end
                 end
             end
@@ -245,8 +244,7 @@ function modifier_arkimus_w_3_dash:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-        MODIFIER_EVENT_ON_ATTACK_LANDED
+        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS 
     }
 
     return funcs
@@ -283,6 +281,9 @@ function modifier_arkimus_w_3_dash:OnCreated()
     if IsServer() then
         self:StartIntervalThink(0.09)
     end
+end
+function modifier_arkimus_w_3_dash:GetActivityTranslationModifiers()
+    return "haste"
 end
 
 function modifier_arkimus_w_3_dash:OnIntervalThink()
