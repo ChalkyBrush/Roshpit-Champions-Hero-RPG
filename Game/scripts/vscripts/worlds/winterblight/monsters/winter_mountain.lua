@@ -4,6 +4,9 @@ function rubble_passive_think(event)
 	if caster.phase and caster.phase < 3 then
 		if caster:GetHealth() < 100 then
 			-- if not caster:HasModifier("modifier_mountain_rubble_in_between") then
+				if not caster:HasModifier("modifier_mountain_rubble_in_between") then
+					StartAnimation(caster, {duration = 600, activity = ACT_DOTA_DISABLED, rate = 0.8})
+				end
 				ability:ApplyDataDrivenModifier(caster, caster, "modifier_mountain_rubble_in_between", {})
 				if not caster.mountain_bro_to_join then
 					for i = 1, #caster.mountain_bro_table, 1 do
@@ -76,18 +79,17 @@ end
 function rubble_inbetween_thinker(event)
 	local caster = event.caster
 	local ability = event.ability
-	print("STUCK")
 	if caster.lock then
 		return false
 	end
 	if IsValidEntity(caster) then
 		if caster:GetAbsOrigin().z - GetGroundHeight(caster:GetAbsOrigin(), caster) < 240 then
-			print("GREETS")
 			caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,8))
 		elseif caster.mountain_bro_to_join and WallPhysics:GetDistance2d(caster.mountain_bro_to_join:GetAbsOrigin(), caster:GetAbsOrigin()) > 20 and caster.mountain_bro_to_join:GetDistanceFromGround() > 235 and caster:GetDistanceFromGround() > 235 then
 			local direction = ((caster.mountain_bro_to_join:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			caster:SetAbsOrigin(caster:GetAbsOrigin()+direction*30)
 		elseif caster.mountain_bro_to_join and caster.mountain_bro_to_join:GetDistanceFromGround() > 235 and caster:GetDistanceFromGround() > 235 then
+			EndAnimation(caster)
 			local new_rubble = Enemies:SpawnEnemyUnit("winterblight_composed_rubble", caster:GetAbsOrigin(), RandomVector(1), false)
 			caster.mountain_bro_to_join.lock = true
 			caster.lock = true
@@ -489,7 +491,7 @@ function winter_mountain_tombstone_die(event)
 	local caster = event.caster
 	local ability = event.ability
 	local particlePos = caster:GetAbsOrigin()
-
+	local tombstone_index = caster.index
 	-- caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,-800))
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_warlock/chaos_blast_impact.vpcf", particlePos, 5)
 	EmitSoundOn("Winterblight.Tombstone.Explode", caster)
@@ -517,6 +519,7 @@ function winter_mountain_tombstone_die(event)
 			end)
 			Timers:CreateTimer(7.2, function()
 				UTIL_Remove(ghost)
+				Winterblight:InitGraveGhost(tombstone_index)
 			end)
 	end)
 end
@@ -585,4 +588,168 @@ function winter_mountain_scream_pushback_end(event)
 	local ability = event.ability
 	local target = event.target
 	FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+end
+
+function wraithfire_linear_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local fv = caster:GetForwardVector()
+	EmitSoundOn("Hero_SkeletonKing.Hellfire_Blast", caster)
+	for i = -1, 1, 1 do
+		local forward = WallPhysics:rotateVector(fv, math.pi/9*i)
+		local spellOrigin = caster:GetAbsOrigin()+Vector(0,0,80)
+		local info = 
+		{
+			Ability = ability,
+	        	EffectName = "particles/units/heroes/hero_skeletonking/hellfireblast_linear.vpcf",
+	        	vSpawnOrigin = spellOrigin,
+	        	fDistance = 1450,
+	        	fStartRadius = 140,
+	        	fEndRadius = 140,
+	        	Source = caster,
+	        	StartPosition = "attach_attack2",
+	        	bHasFrontalCone = true,
+	        	bReplaceExisting = false,
+	        	iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        	iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	        	iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	        	fExpireTime = GameRules:GetGameTime() + 7.0,
+			bDeleteOnHit = false,
+			vVelocity = forward * 800,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end 
+
+function wraithguard_hellfire_impact(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	EmitSoundOn("Hero_SkeletonKing.Hellfire_BlastImpact", target)
+	local damage = event.damage
+	local stun_duration = event.stun_duration
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	PopupDamage(target, damage)
+	Filters:ApplyStun(caster, stun_duration, target)
+end
+
+function grave_ghost_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_grave_ghost_think_lock") then
+		return false
+	end
+	if caster.sequence == 0 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster.search_position, nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			caster:RemoveModifierByName("modifier_grave_ghost_animation_wait")
+			caster.sequence = 1
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_grave_ghost_think_lock", {duration = 3})
+			StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_ATTACK, rate = 0.7})
+			EmitSoundOn("Winterblight.Tombstone.GhostScareEnd", caster)
+		end
+	elseif caster.sequence == 1 then
+		StartAnimation(caster, {duration = 9999, activity = ACT_DOTA_RUN, rate = 1})
+		EmitSoundOn("Winterblight.Tombstone.GhostScare", caster)
+		caster.sequence = 2
+	elseif caster.sequence == 2 then
+		if not caster.sequence_2_spawns then
+			caster.sequence_2_spawns = 0
+		end
+		if caster.sequence_2_spawns < 15 then
+			caster.sequence_2_spawns = caster.sequence_2_spawns + 1
+			local position = caster.search_position + RandomVector(RandomInt(0, 480))
+			local spawnTable = {"winterblight_frozen_phantom", "winterblight_frozen_soul", "winterblight_frozen_mage"}
+			local haunter =  Enemies:SpawnEnemyUnit(spawnTable[RandomInt(1, #spawnTable)], position, fv, false)
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", haunter:GetAbsOrigin(), 3)
+			EmitSoundOn("Winterblight.GraveGhostSpawn", haunter)		
+			Dungeons:AggroUnit(haunter)	
+			ability:ApplyDataDrivenModifier(caster, haunter, "modifier_grave_ghost_summoned_unit", {})
+		end
+	elseif caster.sequence == 3 then
+		caster.sequence = 4
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_grave_ghost_think_lock", {duration = 3})
+		StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_ATTACK, rate = 0.7})
+		EmitSoundOn("Winterblight.Tombstone.GhostScareEnd", caster)
+	end
+end
+
+function grave_ghost_summon_death(event)
+	local caster = event.caster
+	if not caster.sequence_2_kills then
+		caster.sequence_2_kills = 0
+	end
+	caster.sequence_2_kills = caster.sequence_2_kills + 1
+	if caster.sequence_2_kills == 15 then
+		caster.sequence = 3
+	end
+end
+
+function winter_ghost_blink_activate(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	EmitSoundOn("Winterblight.GhostBlink", caster)
+
+	local particleName = "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
+	local target = event.target_points[1]
+	local casterOrigin = caster:GetAbsOrigin()
+	target = WallPhysics:WallSearch(casterOrigin, target, caster)
+	-- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+	--     ParticleManager:SetParticleControl( pfx, 0, position )
+	local newPosition = target
+	FindClearSpaceForUnit(caster, newPosition, false)
+	local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, newPosition)
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx1, false)
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+end
+
+function winter_ghost_blink_ai_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS and caster.aggro then
+		if ability:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()+RandomVector(180)
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+		end
+	end
+end
+
+function defiler_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local currentStacks = target:GetModifierStackCount("modifier_defiler_attack_power_drain", caster)
+	local increment = 1
+	local new_stacks = math.min(currentStacks + increment, event.max_stacks)
+
+	if target:HasModifier("modifier_defiler_attack_power_drain") then
+		local buff = target:FindModifierByNameAndCaster("modifier_defiler_attack_power_drain", caster)
+		if buff then
+			buff:SetDuration(event.duration, true)
+		else
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_defiler_attack_power_drain", {duration = event.duration})
+		end
+	else
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_defiler_attack_power_drain", {duration = event.duration})
+	end
+	target:SetModifierStackCount("modifier_defiler_attack_power_drain", caster, new_stacks)
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_defiler_attack_power_gain", 1, event.max_stacks, event.duration)
 end

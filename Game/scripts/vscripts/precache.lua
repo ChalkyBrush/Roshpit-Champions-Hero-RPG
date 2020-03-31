@@ -712,7 +712,7 @@ end
 
 
 function Precache:WinterPart3()
-	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone"}
+	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])

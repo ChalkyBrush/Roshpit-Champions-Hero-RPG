@@ -307,6 +307,21 @@ function Enemies:InitializeEnemy(unit)
 	if unit:GetEnemyTier() > ENEMY_TYPE_WEAK_CREEP then
 		TreasureGoblins:SpawnChance(unit)
 	end
+
+	-- AI AND COLOR
+	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		Enemies:SetupAI(unit)
+	end
+	
+	local color_render = unit:GetKeyValue("RoshpitColorRenderType")
+	if color_render and color_render == RPC_COLOR_RENDER_BASE_MODEL then
+		unit:SetRenderColor(unit:GetKeyValue("RoshpitColorRenderR"), unit:GetKeyValue("RoshpitColorRenderG"), unit:GetKeyValue("RoshpitColorRenderB"))
+	elseif color_render and color_render == RPC_COLOR_RENDER_BASE_AND_WEARABLES then
+		Timers:CreateTimer(0.03, function()
+			Events:ColorWearablesAndBase(unit, Vector(unit:GetKeyValue("RoshpitColorRenderR"), unit:GetKeyValue("RoshpitColorRenderG"), unit:GetKeyValue("RoshpitColorRenderB")))
+		end)
+	end
+
 end
 
 Enemies.WINTERBLIGHT_STONES_BUFFS = {}
@@ -452,6 +467,10 @@ Enemies.PARAGON_EXCEPTION_TABLE = {"pixie_minion", "npc_dummy_unit", "winterblig
 
 function Enemies:ParagonChance(unit)
 	if WallPhysics:DoesTableHaveValue(Enemies.PARAGON_EXCEPTION_TABLE, unit:GetUnitName()) then
+		return false
+	end
+	local no_paragon = unit:GetKeyValue("RoshpitNoParagon")
+	if no_paragon and no_paragon == 1 then
 		return false
 	end
 	if unit:GetRoshpitLevel() <= 1 then
@@ -641,4 +660,20 @@ function Enemies:CreateUnitsWithPatrol(unitName, numberOfUnitsPerPosition, posit
         end
       end)
     end
+end
+
+function Enemies:SetupAI(unit)
+	local ai_type = unit:GetKeyValue("RoshpitAI1")
+	if ai_type and ai_type == RPC_AI_TYPE_CAST_ABILITY1_POSITION then
+		unit:AddAbility("use_ability_1_position_ai"):SetLevel(1)
+		unit.targetAbilityCD = 1
+		local targetAOE = unit:GetKeyValue("RoshpitCastAOE")
+		if targetAOE then
+			unit.targetRadius = targetAOE
+		end
+		local target_preference = unit:GetKeyValue("RoshpitTargetSearchPreference")
+		if target_preference then
+			unit.targetFindOrder = target_preference
+		end
+	end
 end

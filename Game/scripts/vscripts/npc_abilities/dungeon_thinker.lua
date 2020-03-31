@@ -1691,8 +1691,8 @@ end
 function DungeonCreep(event)
 	local caster = event.caster
 	if not caster.aggro then
-		local position = caster:GetAbsOrigin()
-		local radius = 250
+		local position = caster:GetAbsOrigin() + caster:GetForwardVector()*100
+		local radius = 220
 		if caster.aggroRadius then
 			radius = caster.aggroRadius
 		end
