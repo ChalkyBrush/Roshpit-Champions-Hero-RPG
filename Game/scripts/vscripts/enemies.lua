@@ -297,7 +297,14 @@ function Enemies:InitializeEnemy(unit)
 
 	Challenges:AdjustUnitForChallenge(unit, unit_level, enemyTier, difficulty)
 	Enemies:ParagonChance(unit)
-	-- ability levels
+	-- abilities and ability levels levels
+	if GameState:IsWinterblight() then
+		if unit:GetKeyValue("Winterblight3StoneAbility") ~= 0 then
+			if Winterblight.Stones == 3 then
+				unit:AddAbility(unit:GetKeyValue("Winterblight3StoneAbility"))
+			end
+		end
+	end
 	for i = 0, 6, 1 do
 		local ability = unit:GetAbilityByIndex(i)
 		if ability then

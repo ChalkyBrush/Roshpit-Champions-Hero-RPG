@@ -21,6 +21,7 @@ function Winterblight:Debug()
     Winterblight:InitGraveGhost(2)
     Winterblight:InitGraveGhost(3)
     Challenges:CheckSpawn()
+    Winterblight.Stones = 3
     -- Winterblight:SpawnOwlSentry(Vector(-15424,-2560), {Vector(-15424,-2560)})
   -- RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))

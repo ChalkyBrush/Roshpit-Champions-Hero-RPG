@@ -15554,3 +15554,183 @@
 			}
 		}
 	}
+
+	"winter_grave_ghost_spark"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityCastAnimation"			"ACT_DOTA_FLAIL"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"300 800 5000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration"			"0.3"
+			}
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"winter_ghost_spark_throw"
+				"base_damage"			"%base_damage"
+				"paralyze_duration"		"%paralyze_duration"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"winter_ghost_spark_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_cavern_spark_paralyze"
+			{
+				"IsHidden"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"120"
+			}
+			"modifier_cavern_spark_paralyze_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"winterblight_asyria_passive"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/p2/phantom_spark"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"120 400 1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_slow"			"-80"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_slow_duration"			"0.3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"percent_attack_power"			"50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"number_of_arrows"			"3 4 5"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"asyria_arrow_impact"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_asyria_arrow_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"asyria_arrow_throw"
+						"base_damage"			"%base_damage"
+						"percent_attack_power"	"%percent_attack_power"
+						"duration"		"%movespeed_slow_duration"
+						"number_of_arrows"		"%number_of_arrows"
+					}
+				}
+			}
+			"modifier_asyria_arrow_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_frosty_dire.vpcf"
+				"StatusEffectPriority"  "100"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_slow"
+				}
+			}
+		}
+	}
+

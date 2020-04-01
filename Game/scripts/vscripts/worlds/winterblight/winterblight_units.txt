@@ -16463,6 +16463,7 @@
         "precache"
         {
              "soundfile" "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+             "particle" "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -16492,8 +16493,10 @@
         "StatusManaRegen"   "100"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"              "ghost_frost_attack"
-        "Ability2"              "winterblight_grave_ghost_passive"
+        "Ability1"              "winter_grave_ghost_spark"
+        "Ability2"              "ghost_frost_attack"
+        "Ability3"              "winterblight_grave_ghost_passive"
+        "Ability4"              "normal_steadfast"
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -16512,7 +16515,13 @@
                 }
 
             }
-
+            "OffensiveAbilities"
+            {
+                "Ability1"
+                {
+                    "Name"                "winter_grave_ghost_spark"
+                }         
+            }
         }
         "RoshpitArmor"          "545"
         "RoshpitArmorPierce"    "375"
@@ -17190,6 +17199,8 @@
         "precache"
         {
             "soundfile"     "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+            "particle"      "particles/units/heroes/hero_lich/lich_frost_nova.vpcf"
+            "particle"      "particles/units/heroes/hero_drow/drow_multishot_proj_linear_proj.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -17202,7 +17213,7 @@
         "AttackRate"    "0.4"
         "AttackAnimationPoint"  "0.7"
         "AttackAcquisitionRange"    "0"
-        "AttackRange"   "1000"
+        "AttackRange"   "1200"
         "BountyGoldMin" "200"
         "BountyGoldMax" "300"
         "BountyXP" "600"
@@ -17223,7 +17234,9 @@
         "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
         "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-        "Ability1"          "creature_pure_strike"
+        "Ability1"          "winterblight_asyria_passive"
+        "Ability2"          "ghost_frost_attack"
+        "Ability3"          "mega_steadfast"
         "Creature"
         {
             "DisableClumpingBehavior"   "1"
@@ -17278,4 +17291,5 @@
         "RoshpitColorRenderR"   "40"
         "RoshpitColorRenderG"   "40"
         "RoshpitColorRenderB"   "40"   
+        "Winterblight3StoneAbility" "ability_mega_haste"
     }

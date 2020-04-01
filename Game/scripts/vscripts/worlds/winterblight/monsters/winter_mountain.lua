@@ -785,19 +785,19 @@ function grave_ghost_death(event)
 		skull.targetDirection = Vector(0,-1)
 		skull.boss_spawn = "winterblight_baron_moredi"
 		skull.introSound = "Winterblight.BaronMoredi.Intro"
-		skull.extra_height = 0
+		skull.extra_height = 200
 	elseif skull.grave_index == 2 then
 		skull.targetPoint = Vector(5506, 10892, 1100)
 		skull.targetDirection = Vector(-0.2,1)
 		skull.boss_spawn = "winterblight_lich_king_sonder"
 		skull.introSound = "Winterblight.LichKingSonder.Intro"
-		skull.extra_height = 700
+		skull.extra_height = 880
 	elseif skull.grave_index == 3 then
 		skull.targetPoint = Vector(10370, 11106, 1448)
 		skull.targetDirection = Vector(-1,0)
 		skull.boss_spawn = "winterblight_wrath_queen_asyria"
 		skull.introSound = "Winterblight.LadyAsyria.Intro"
-		skull.extra_height = 1050
+		skull.extra_height = 1250
 	end
 	Timers:CreateTimer(3, function()
 		skull.phase = 1
@@ -866,4 +866,144 @@ function black_skull_thinker(event)
 			end)
 		end
 	end
+end
+
+function winter_ghost_spark_throw(event)
+	local caster = event.caster
+	local ability = event.ability
+	local spark_count = 18
+
+	local base_damage = event.base_damage
+	ability.damage = base_damage
+
+	ability.paralyze_duration = event.paralyze_duration
+	local particle = "particles/roshpit/winterblight/ghost_arcanist_projectile_concoction_projectile_linear.vpcf"
+	local range = 1000
+	EmitSoundOn("Winterblight.Cavern.WraithSpark.Throw", caster)
+	for i = 1, spark_count, 1 do
+		local rotation_adjustment = 0
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * i/ spark_count)
+		local speed = 1500
+		local info =
+		{
+			Ability = ability,
+			EffectName = particle,
+			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
+			fDistance = range,
+			fStartRadius = 170,
+			fEndRadius = 170,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function winter_ghost_spark_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local paralyze_duration = ability.paralyze_duration
+
+	local current_stacks = target:GetModifierStackCount("modifier_cavern_spark_paralyze_immunity", target)
+	local paralyze_immunity = 1
+	if current_stacks <= 5 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_cavern_spark_paralyze_immunity", {duration = paralyze_immunity})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_cavern_spark_paralyze", {duration = paralyze_duration})
+		target:SetModifierStackCount("modifier_cavern_spark_paralyze_immunity", caster, current_stacks + 1)
+	end
+	StartAnimation(target, {duration = paralyze_duration, activity = ACT_DOTA_FLAIL, rate = 2.2})
+	EmitSoundOn("Winterblight.GraveGuardGhost.Impact", target)
+	local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 40))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 60))
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	Filters:TakeArgumentsAndApplyDamage(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_NATURE, RPC_ELEMENT_LIGHTNING)
+end
+
+function asyria_arrow_throw(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(0.7, function()
+		local spark_count = event.number_of_arrows
+
+		local base_damage = event.base_damage
+		ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
+
+		ability.duration = event.duration
+		local particle = "particles/units/heroes/hero_drow/drow_multishot_proj_linear_proj.vpcf"
+		local range = 1500
+		local divisor = 15
+		if spark_count == 3 then
+			divisor = 17
+		elseif spark_count == 4 then
+			divisor = 18
+		elseif spark_count == 5 then
+			divisor = 22
+		end
+		EmitSoundOn("Winterblight.Asyria.FrostArrows", caster)
+		for i = 1, spark_count, 1 do
+			local rotation_adjustment = spark_count / 2
+			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * (i - rotation_adjustment) / divisor)
+			local speed = 1500
+			local info =
+			{
+				Ability = ability,
+				EffectName = particle,
+				vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
+				fDistance = range,
+				fStartRadius = 170,
+				fEndRadius = 170,
+				Source = caster,
+				StartPosition = "attach_attack1",
+				bHasFrontalCone = true,
+				bReplaceExisting = false,
+				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				fExpireTime = GameRules:GetGameTime() + 5.0,
+				bDeleteOnHit = false,
+				vVelocity = fv * speed,
+				bProvidesVision = false,
+			}
+			projectile = ProjectileManager:CreateLinearProjectile(info)
+		end
+	end)
+end
+
+function asyria_arrow_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local duration = ability.duration
+
+	
+
+	EmitSoundOn("Winterblight.Asyria.FrostArrowImpact", target)
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_lich/lich_frost_nova.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 40))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 60))
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 240, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_asyria_arrow_slow", {duration = duration})
+			Filters:TakeArgumentsAndApplyDamage(enemy, caster, ability.damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_ICE, RPC_ELEMENT_UNDEAD)
+		end
+	end
+	
 end
