@@ -61904,7 +61904,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_bonus"				"500"
+				"movespeed_bonus"				"80 160 500"
 			}
 			"02"
 			{

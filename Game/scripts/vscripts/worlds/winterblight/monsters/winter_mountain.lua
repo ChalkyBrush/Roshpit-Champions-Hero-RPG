@@ -863,7 +863,21 @@ function black_skull_thinker(event)
 			end)
 			Timers:CreateTimer(5, function()
 				miniboss.cantAggro = nil
+				if miniboss:GetUnitName() == "winterblight_baron_moredi" then
+					EmitSoundOn("Winterblight.BaronMoredi.SpawnArmy", miniboss)
+					local basePosition = miniboss:GetAbsOrigin() - miniboss:GetForwardVector()*300
+					StartAnimation(miniboss, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 0.8})
+					for i = 0, 2, 1 do
+						for k = 0, 3, 1 do
+							local spawnPosition = basePosition - miniboss:GetForwardVector()*(i*120) + Vector((k-1.5)*120)
+							local wraith = Enemies:SpawnEnemyUnit("winterblight_wraithguard", spawnPosition, Vector(0,-1), false)
+							CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraith:GetAbsOrigin(), 3)
+							EmitSoundOn("Winterblight.GraveGhostSpawn", wraith)
+						end
+					end
+				end
 			end)
+
 		end
 	end
 end
@@ -871,7 +885,7 @@ end
 function winter_ghost_spark_throw(event)
 	local caster = event.caster
 	local ability = event.ability
-	local spark_count = 18
+	local spark_count = 12
 
 	local base_damage = event.base_damage
 	ability.damage = base_damage
