@@ -105615,6 +105615,7 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+            "particle"  "particles/status_fx/status_effect_necrolyte_spirit.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -105641,10 +105642,11 @@
         "StatusManaRegen"   "25"
         "VisionDaytimeRange"    "1400"
         "VisionNighttimeRange"  "800"
-        "Ability1"      "winterblight_tanky"
-        "Ability2"      "skeleton_king_mortal_strike"
-        "Ability3"      "skeleton_king_vampiric_aura"
-        "Ability4"      "mega_steadfast"
+        "Ability1"      "winterblight_sonder_passive"
+        "Ability2"      "winterblight_tanky"
+        "Ability3"      "skeleton_king_mortal_strike"
+        "Ability4"      "skeleton_king_vampiric_aura"
+        "Ability5"      "mega_steadfast"
 
         "TeamName"  "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
@@ -105704,8 +105706,8 @@
         "RoshpitCastAOE"        "900"
         "RoshpitTargetSearchPreference" "1"
         "RoshpitColorRenderType"    "1"
-        "RoshpitColorRenderR"   "10"
-        "RoshpitColorRenderG"   "100"
+        "RoshpitColorRenderR"   "80"
+        "RoshpitColorRenderG"   "140"
         "RoshpitColorRenderB"   "255"   
     }
 

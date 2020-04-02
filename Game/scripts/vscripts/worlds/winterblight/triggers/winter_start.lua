@@ -325,3 +325,22 @@ function MountainGhostTrigger(trigger)
 		end
 	end
 end
+
+function OutsideCastleSwitch(trigger)
+	local hero = trigger.activator
+	local caller = trigger.caller
+	if Winterblight.MountainSwitchPressed then
+		return false
+	end
+	local switchIndex = caller:GetName():gsub('OutsideCastleSwitch', "")
+	switchIndex = tonumber(switchIndex)
+	if switchIndex == Winterblight.MountainSwitchIndex then
+		Winterblight.MountainSwitchPressed = true
+		Winterblight:ActivateSwitchGeneric(hero:GetAbsOrigin(), "WinterCastleSwitchProp", true, 0.352)
+
+		local walls = Entities:FindAllByNameWithin("WinterMountainOuterDoors", Vector(5255, 12011, 1024), 2400)
+		EmitSoundOnLocationWithCaster(Vector(5255, 12011, 1024), "Winterblight.WallOpen", Events.GameMaster)
+		Winterblight:Walls(false, walls, true, 4.3)
+		Winterblight:RemoveBlockers(4, "CastleWallBlocker", Vector(5248, 12042, 1024 + Winterblight.ZFLOAT), 1800)
+	end
+end

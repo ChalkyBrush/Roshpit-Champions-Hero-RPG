@@ -88135,7 +88135,56 @@
 		}
 	}
 
-
+	"winterblight_sonder_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/source_revenant"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"max_stacks"			"10"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sonder_temp_invul"
+			{
+				"IsHidden"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_necrolyte_spirit.vpcf" 	   
+				"StatusEffectPriority"  "200"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_winterblight_sonder_waiting"
+			{
+				"IsHidden" "1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_necrolyte_spirit.vpcf" 	   
+				"StatusEffectPriority"  "200"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"sonder_frozen_thinking"
+					}
+				}
+			}
+		}
+	}
 
 
 	"soul_ferrier_passive"

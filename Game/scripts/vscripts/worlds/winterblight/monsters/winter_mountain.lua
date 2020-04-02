@@ -877,7 +877,14 @@ function black_skull_thinker(event)
 					end
 				end
 			end)
-
+			if miniboss:GetUnitName() == "winterblight_lich_king_sonder" then
+				local sonder_passive = miniboss:FindAbilityByName("winterblight_sonder_passive")
+				sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_sonder_temp_invul", {duration = 1})
+				Timers:CreateTimer(1, function()
+					sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winterblight_sonder_waiting", {})
+				end)
+				miniboss.cantAggro = true
+			end
 		end
 	end
 end
@@ -1020,4 +1027,46 @@ function asyria_arrow_impact(event)
 		end
 	end
 	
+end
+
+function sonder_frozen_thinking(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.search_lock then
+		return false
+	end
+	if not caster.orig_pos then
+		caster.orig_pos = caster:GetAbsOrigin()
+	end
+	local searchPosition = Vector(5363, 11426)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), searchPosition, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		if not caster.search_count then
+			caster.search_count = 0
+		end
+		caster.search_count = caster.search_count + 1
+		Events:objectShake(caster, 2, caster.search_count*3, true, false, false, "Winterblight.SonderShake", 2)
+		if caster.search_count == 20 then
+			caster.search_lock = true
+			caster:RemoveModifierByName("modifier_winterblight_sonder_waiting")
+			StartAnimation(caster, {duration = 3, activity = ACT_DOTA_SPAWN, rate = 1})
+			Winterblight:EvilExplosion(caster:GetAbsOrigin())
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.EvilExplosion.Ghost", Events.GameMaster)
+			caster.cantAggro = false
+			Dungeons:AggroUnit(caster)
+			Timers:CreateTimer(1.2, function()
+				local positionTable = {Vector(4992, 11723), Vector(5681, 11850), Vector(5681, 11392), Vector(5060, 11354), Vector(5690, 11053), Vector(5140, 11053)}
+				for i = 1, GameState:GetDifficultyFactor() + Winterblight.Stones, 1 do
+					local fv = (searchPosition - positionTable[i]):Normalized()
+					local wraithguard = Enemies:SpawnEnemyUnit("winterblight_wraithguard_elite", positionTable[i], fv, false)
+					Dungeons:AggroUnit(wraithguard)
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraithguard:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", wraithguard)	
+				end
+			end)
+		end
+	else
+		caster.search_count = 0
+		caster:SetAbsOrigin(caster.orig_pos)
+	end	
 end

@@ -479,3 +479,21 @@ function Winterblight:EvilExplosion(position)
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/winterblight/evil_explosion.vpcf", position, 8)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(1,0,0))
 end
+
+function Winterblight:InitOutsideCastleSwitch()
+	local switch = Entities:FindByNameNearest("WinterCastleSwitchProp", Vector(4224, 15936, 646), 2000)
+	local zDifferential = switch:GetAbsOrigin().z - 646.642
+
+	Winterblight.MountainSwitchIndex = RandomInt(1, 6)
+	if Winterblight.MountainSwitchIndex == 2 then
+		switch:SetAbsOrigin(Vector(6768, 16012, 902+zDifferential))
+	elseif Winterblight.MountainSwitchIndex == 3 then
+		switch:SetAbsOrigin(Vector(8270, 15971, 1167+zDifferential))
+	elseif Winterblight.MountainSwitchIndex == 4 then
+		switch:SetAbsOrigin(Vector(8251, 10920, 1167+zDifferential))
+	elseif Winterblight.MountainSwitchIndex == 5 then
+		switch:SetAbsOrigin(Vector(6750, 11235, 1167+zDifferential))
+	elseif Winterblight.MountainSwitchIndex == 6 then
+		switch:SetAbsOrigin(Vector(3877, 12379, 640+zDifferential))
+	end
+end

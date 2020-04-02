@@ -208,6 +208,9 @@ function Winterblight:InitProps()
       local entity = Entities:FindByNameNearest("RemoveBridge5", Vector(-256, -1662, -50+Winterblight.ZFLOAT), 2000)
       UTIL_Remove(entity)
     end)
+    Timers:CreateTimer(8, function()
+      Winterblight:InitOutsideCastleSwitch()
+    end)
   end
 end
 
