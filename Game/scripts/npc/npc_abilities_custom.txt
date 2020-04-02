@@ -161156,4 +161156,30 @@
 			}
 		}
 	}
+
+	"master_enemy_ai"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rubick_empty1"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"ai_keep_away"
+			{
+				"Passive"	"0"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"keep_away_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
 }

@@ -17301,4 +17301,7 @@
         "RoshpitColorRenderG"   "40"
         "RoshpitColorRenderB"   "40"   
         "Winterblight3StoneAbility" "ability_mega_haste"
+        "RoshpitAIFlee"         "1"
+        "AIFleeRange"           "400"
+        "AIFleeDistance"        "200"
     }

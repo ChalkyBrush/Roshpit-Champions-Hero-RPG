@@ -683,4 +683,8 @@ function Enemies:SetupAI(unit)
 			unit.targetFindOrder = target_preference
 		end
 	end
+
+	if unit:GetKeyValue("RoshpitAIFlee") > 0 then
+		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_keep_away", {})
+	end
 end

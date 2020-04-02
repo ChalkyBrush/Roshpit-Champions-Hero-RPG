@@ -1903,6 +1903,9 @@ function Events:SpawnGamemaster(position)
 	Events.GameMasterAbility = abil
 	Events.GameMasterAttackAbility = Events.GameMaster:AddAbility("auto_attack_damage_ability")
 	Events.GameMasterAttackAbility:SetLevel(1)
+
+	Events.GameMasterAIAbility = Events.GameMaster:AddAbility("master_enemy_ai")
+	Events.GameMasterAIAbility:SetLevel(1)
 	return Events.GameMaster
 end
 
