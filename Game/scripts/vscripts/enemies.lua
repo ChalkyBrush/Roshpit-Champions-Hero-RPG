@@ -685,6 +685,27 @@ function Enemies:SetupAI(unit)
 	end
 
 	if unit:GetKeyValue("RoshpitAIFlee") > 0 then
+		if not unit.ai_data then
+			unit.ai_data = {}
+		end
 		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_keep_away", {})
+		unit.ai_data["AIFleeHPThreshold"] = unit:GetKeyValue("AIFleeHPThreshold")
+		unit.ai_data["AIFleeRange"] = unit:GetKeyValue("AIFleeRange")
+		unit.ai_data["AIFleeDistance"] = unit:GetKeyValue("AIFleeDistance")
+	end
+	if unit:GetKeyValue("RoshpitAIFightJuke") > 0 then
+		if not unit.ai_data then
+			unit.ai_data = {}
+		end
+		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_fight_juke", {})
+		unit.ai_data["RoshpitAIFightJuke"] = unit:GetKeyValue("RoshpitAIFightJuke")
+		unit.ai_data["AIFightJukeDistance"] = unit:GetKeyValue("AIFightJukeDistance")
+	end
+	if unit:GetKeyValue("RoshpitDeathSound") ~= 0 then
+		if not unit.ai_data then
+			unit.ai_data = {}
+		end
+		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_death_sound", {})
+		unit.ai_data["RoshpitDeathSound"] = unit:GetKeyValue("RoshpitDeathSound")
 	end
 end

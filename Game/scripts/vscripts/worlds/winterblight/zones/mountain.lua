@@ -390,6 +390,14 @@ function Winterblight:MountainP2()
 			Enemies:SpawnEnemyUnit("winterblight_frozen_cage", positionTable[i], fv, false)
 		end
 	end)	
+	Timers:CreateTimer(18, function()
+		local positionTable = {Vector(3724, 14062), Vector(3584, 14720), Vector(4163, 14464)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(2944, 14464) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+	end)
+	
 end
 
 function Winterblight:InitGraveGhost(grave_index)

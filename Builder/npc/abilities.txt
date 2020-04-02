@@ -70531,6 +70531,7 @@
 		{
 			"ai_keep_away"
 			{
+				"IsHidden"	"1"
 				"Passive"	"0"
 				"ThinkInterval"  "1.5"
 				"OnIntervalThink"
@@ -70540,6 +70541,32 @@
 						"ScriptFile"	"ai/ai_modifiers.lua"
 						"Function"		"keep_away_think"
 						"target"		"TARGET"
+					}
+				}
+			}
+			"ai_fight_juke"
+			{
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"fight_juke_attack_land"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"ai_death_sound"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"ai_death_sound"
 					}
 				}
 			}

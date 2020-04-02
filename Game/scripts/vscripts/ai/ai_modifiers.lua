@@ -6,15 +6,15 @@ function keep_away_think(event)
 		return false
 	end
 
-	local flee_hp_threshold = unit:GetKeyValue("AIFleeHPThreshold")
+	local flee_hp_threshold = unit.ai_data["AIFleeHPThreshold"]
 	if flee_hp_threshold == 0 then
 		flee_hp_threshold = 100
 	end
-	local flee_range = unit:GetKeyValue("AIFleeRange")
+	local flee_range = unit.ai_data["AIFleeRange"]
 	if flee_range == 0 then
 		flee_range = 400
 	end
-	local flee_distance = unit:GetKeyValue("AIFleeDistance")
+	local flee_distance = unit.ai_data["AIFleeDistance"]
 	if flee_distance == 0 then
 		flee_distance = 100
 	end
@@ -25,4 +25,35 @@ function keep_away_think(event)
 			unit:MoveToPosition(unit:GetAbsOrigin() + direction*flee_distance)
 		end
 	end
+end
+
+function fight_juke_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local unit = event.attacker
+	local target = event.target
+	if not unit.aggro then
+		return false
+	end
+
+	local juke_distance = unit.ai_data["AIFightJukeDistance"]
+	if juke_distance == 0 then
+		juke_distance = 100
+	end
+
+	local juke_type = unit.ai_data["RoshpitAIFightJuke"]
+
+	if juke_type == 1 then
+		local direction = ((unit:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		unit:MoveToPosition(unit:GetAbsOrigin() + direction*juke_distance)
+	elseif juke_type == 2 then
+		unit:MoveToPosition(unit:GetAbsOrigin() + RandomVector(1)*juke_distance)
+	end
+end
+
+function ai_death_sound(event)
+	local caster = event.caster
+	local ability = event.ability
+	local unit = event.unit
+	EmitSoundOn(unit.ai_data["RoshpitDeathSound"], unit)
 end

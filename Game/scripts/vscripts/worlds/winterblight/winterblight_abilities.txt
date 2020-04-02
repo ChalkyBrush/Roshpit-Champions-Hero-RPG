@@ -15784,3 +15784,67 @@
 			}
 		}
 	}
+
+	"winterblight_accursed_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/source_revenant"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_pure_damage"			"100 500 2000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health_regen_pct"			"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"root_duration"			"0.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_accursed_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regen_pct"
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"accursed_attack_land"
+						"damage"		"%bonus_pure_damage"
+						"root_duration"	"%root_duration"
+					}
+				}
+			}
+			"modifier_accursed_effect"
+			{
+				"StatusEffectName" 		"particles/status_fx/status_effect_necrolyte_spirit.vpcf" 	   
+				"StatusEffectPriority"  "200"
+				"IsDebuff"				"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+			}
+		}
+	}

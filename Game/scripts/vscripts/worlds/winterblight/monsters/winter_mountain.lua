@@ -1070,3 +1070,19 @@ function sonder_frozen_thinking(event)
 		caster:SetAbsOrigin(caster.orig_pos)
 	end	
 end
+
+function accursed_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	-- local pfx = ParticleManager:CreateParticle("particles/econ/items/shadow_shaman/shadow_shaman_ti8/shadow_shaman_crimson_ti8_ether_shock.vpcf", PATTACH_POINT, nil)
+	-- ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_POINT, "attach_attack1", caster:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
+	-- ParticleManager:SetParticleControlEnt(pfx, 4, target, PATTACH_POINT, "attach_hitloc", target:GetAbsOrigin(), true)
+	-- Timers:CreateTimer(2.5, function()
+	-- 	ParticleManager:DestroyParticle(pfx, false)
+	-- end)
+
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_accursed_effect", {duration = event.root_duration})
+	ApplyDamage({victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+end
