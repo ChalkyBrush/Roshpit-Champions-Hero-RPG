@@ -889,9 +889,10 @@ function black_skull_thinker(event)
 						local key3 = Entities:FindByNameNearest("CastleDoorKey3", Vector(10699, 13402, 1615), 1500)
 						local keys = {key1, key2, key3}
 						for i = 1, #keys, 1 do
-							Events:objectShake(keys[i], 60, 30, false, true, true, "Winterblight.SonderShake", 5)
+							Events:objectShake(keys[i], 60, 30, false, true, true, "Winterblight.KeyShake", 5)
 							Timers:CreateTimer(1.9, function()
 								CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", keys[i]:GetAbsOrigin(), 3)
+								CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_medusa/ice_shatter.vpcf", keys[i]:GetAbsOrigin(), 4)
 								EmitSoundOnLocationWithCaster(keys[i]:GetAbsOrigin(), "Winterblight.KeyExplode", Events.GameMaster)
 								UTIL_Remove(keys[i])
 							end)
@@ -996,6 +997,9 @@ function black_skull_thinker(event)
 				miniboss:AddAbility("winterblight_outside_castle_miniboss_ability"):SetLevel(1)
 				miniboss.fight_phase = 2
 				miniboss:RemoveModifierByName("modifier_miniboss_cant_die")
+				Timers:CreateTimer(3, function()
+					Dungeons:AggroUnit(miniboss)
+				end)
 			end
 		end
 	end
@@ -1215,6 +1219,9 @@ function wintermini_boss_thinker(event)
 	local ability = event.ability
 	local target = event.target
 	if not caster.aggro then
+		return false
+	end
+	if caster.cantAggro then
 		return false
 	end
 	if caster.lock then
