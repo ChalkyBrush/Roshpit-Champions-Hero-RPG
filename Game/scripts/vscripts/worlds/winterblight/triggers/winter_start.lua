@@ -322,6 +322,10 @@ function MountainGhostTrigger(trigger)
 		if not Winterblight.MountainGhost then
 			Winterblight.MountainGhost = true
 			Winterblight:MountainGhostProp()
+			if not Winterblight.Mountain3Spawned then
+				Winterblight.Mountain3Spawned = true
+				Winterblight:MountainP3()
+			end
 		end
 	end
 end
@@ -342,5 +346,15 @@ function OutsideCastleSwitch(trigger)
 		EmitSoundOnLocationWithCaster(Vector(5255, 12011, 1024), "Winterblight.WallOpen", Events.GameMaster)
 		Winterblight:Walls(false, walls, true, 4.3)
 		Winterblight:RemoveBlockers(4, "CastleWallBlocker", Vector(5248, 12042, 1024 + Winterblight.ZFLOAT), 1800)
+	end
+end
+
+function WinterMountainTrigger3(trigger)
+	local hero = trigger.activator
+	if hero.actual_game_hero then
+		if not Winterblight.Mountain3Spawned then
+			Winterblight.Mountain3Spawned = true
+			Winterblight:MountainP3()
+		end
 	end
 end

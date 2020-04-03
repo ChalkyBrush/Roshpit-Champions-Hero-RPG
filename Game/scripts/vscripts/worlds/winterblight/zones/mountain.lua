@@ -505,3 +505,184 @@ function Winterblight:InitOutsideCastleSwitch()
 		switch:SetAbsOrigin(Vector(3877, 12379, 640+zDifferential))
 	end
 end
+
+function Winterblight:MountainP3()
+	Winterblight:MountainPrecache()
+	Timers:CreateTimer(3, function()
+		local positionTable = {Vector(5504, 14720), Vector(5760, 14450), Vector(6144, 14450)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(5632, 13952) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_mountain_spirit", positionTable[i], fv, false)
+		end
+	end)	
+	Timers:CreateTimer(3.5, function()
+		local positionTable = {Vector(5888, 14976), Vector(6016, 14888), Vector(6144, 14785), Vector(6144, 14976), Vector(6016, 15078), Vector(5888, 15166), Vector(6144, 15232), Vector(6016, 15334), Vector(5888, 15422)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(5632, 13952) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_frozen_phantom", positionTable[i], fv, false)
+		end
+
+		Enemies:SpawnEnemyUnit("winterblight_ancient_mountain_spirit", Vector(6247, 15635), Vector(0,-1), false)
+	end)
+	Timers:CreateTimer(2, function()
+		local positionTable = {Vector(5908, 12594), Vector(6144, 12928)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(5632, 13952) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+	end)	
+	Timers:CreateTimer(4, function()
+		local positionTable = {Vector(6272, 13598), Vector(5550, 13794), Vector(5376, 13440)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(5033, 13851) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_defiler", positionTable[i], fv, false)
+		end
+	end)	
+	Timers:CreateTimer(1, function()
+		local positionTable = {Vector(3896, 15848), Vector(4163, 15558), Vector(4251, 15232), Vector(4065, 13312), Vector(3854, 13056), Vector(3675, 12800), Vector(3646, 12544)}
+		for i = 1, #positionTable, 1 do
+			local fv = Vector(-1, 0)
+			Enemies:SpawnEnemyUnit("winterblight_soul_fletcher", positionTable[i], fv, false)
+		end
+	end)	
+	Timers:CreateTimer(4, function()
+		local positionTable = {Vector(7296, 15052), Vector(6912, 15360)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(2944, 14464) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(6, function()
+		local positionTable = {Vector(4751, 12288), Vector(4480, 12288), Vector(4572, 12544), Vector(4736, 12672), Vector(4736, 12915), Vector(4480, 12822), Vector(4302, 12672)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(5504, 12544) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_frozen_mage", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(7, function()
+		local positionTable = {Vector(6474, 11648), Vector(6474, 12062), Vector(6615, 12416), Vector(6705, 12840)}
+		for i = 1, #positionTable, 1 do
+			local fv = Vector(-1, 0)
+			Enemies:SpawnEnemyUnit("winterblight_soul_fletcher", positionTable[i], fv, false)
+		end
+	end)	
+	Timers:CreateTimer(8, function()
+		local positionTable = {Vector(5057, 15702), Vector(4864, 15488), Vector(4743, 15795)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Enemies:SpawnEnemyUnit("winterblight_skeleton_archer", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(10, function()
+		for i = 0, 4, 1 do
+			local unit = Winterblight:SpawnSkaterFiend(Vector(8586 + RandomInt(0, 800), 14445 + RandomInt(0, 380)), RandomVector(1))
+			unit.minVector = Vector(8586, 14445)
+			unit.maxXroam = 760
+			unit.maxYroam = 380
+		end
+	end)
+	Timers:CreateTimer(11, function()
+		local positionTable = {Vector(7330, 12288), Vector(7603, 12160), Vector(7424, 11904)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Enemies:SpawnEnemyUnit("winterblight_frozen_mage", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(12, function()
+		local positionTable = {Vector(6707, 11668), Vector(6889, 11459), Vector(7168, 11240), Vector(6912, 11046)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(7623, 13315) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+	end)
+
+	Timers:CreateTimer(14, function()
+		for i = 0, 2, 1 do
+			for j = 0, 1, 1 do
+				Enemies:SpawnEnemyUnit("winterblight_frozen_cage", Vector(8609+(240*j), 12876+(240*i)), Vector(-1,0), false)
+			end
+		end
+		for i = 0, 2, 1 do
+			Enemies:SpawnEnemyUnit("winterblight_mountain_spirit", Vector(9180, 12876+(240*i)), Vector(-1,0), false)
+		end
+		Enemies:SpawnEnemyUnit("winterblight_ancient_mountain_spirit", Vector(9450, 12876+240), Vector(-1,0), false)
+	end)
+	Timers:CreateTimer(15, function()
+		Winterblight:SpawnMountainStonePack(Vector(8576, 12416))
+	end)
+	Timers:CreateTimer(2, function()
+		local positionTable = {Vector(8258, 12398), Vector(7871, 14976), Vector(9856, 14976), Vector(9856, 11776)}
+		Enemies:CreateUnitsWithPatrol("winterblight_black_gargoyle", 3, positionTable, 34, 7, 300, 300, 1, 1)
+	end)
+
+	Timers:CreateTimer(10, function()
+		local positionTable = {Vector(7787, 13512), Vector(7395, 13783), Vector(7680, 14208), Vector(10240, 14028), Vector(9980, 14572), Vector(10264, 15042)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(6528, 14336) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_draugr", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(12, function()
+		local positionTable = {Vector(9856, 15946), Vector(9600, 15360), Vector(9344, 15699)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(15, function()
+		local positionTable = {Vector(8064, 11264), Vector(7936, 11531), Vector(8264, 11648)}
+		for i = 1, #positionTable, 1 do
+			local fv = RandomVector(1)
+			Enemies:SpawnEnemyUnit("winterblight_defiler", positionTable[i], fv, false)
+		end
+	end)
+
+	Timers:CreateTimer(16, function()
+		local positionTable = {Vector(10368, 12104), Vector(9791, 12104), Vector(9281, 12104), Vector(8878, 11520), Vector(8703, 11264), Vector(8832, 10880)}
+		for i = 1, #positionTable, 1 do
+			local fv = (positionTable[i] - Vector(10624, 10880)):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_skeleton_archer", positionTable[i], fv, false)
+		end
+	end)
+	Timers:CreateTimer(17, function()
+		local positionTable = {Vector(9658, 11648), Vector(9413, 11375), Vector(9216, 11136)}
+		for i = 1, #positionTable, 1 do
+			local fv = (Vector(8781, 11740) - positionTable[i]):Normalized()
+			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+		end
+		if GameState:GetDifficultyFactor() > 2 then
+			Enemies:SpawnEnemyUnit("winterblight_ancient_mountain_spirit", Vector(10065, 10410), Vector(-1,-1), false)
+		end
+	end)
+end
+
+function Winterblight:InitCastleDoorKeys()
+	local key1 = Entities:FindByNameNearest("CastleDoorKey1", Vector(10699, 13819, 1615), 1000)
+	key1:SetAbsOrigin(key1:GetAbsOrigin() - Vector(0,0,660))
+
+	local key2 = Entities:FindByNameNearest("CastleDoorKey2", Vector(10699, 13606, 1615), 1000)
+	key2:SetAbsOrigin(key2:GetAbsOrigin() - Vector(0,0,660))
+
+	local key3 = Entities:FindByNameNearest("CastleDoorKey3", Vector(10699, 13402, 1615), 1000)
+	key3:SetAbsOrigin(key3:GetAbsOrigin() - Vector(0,0,660))
+end
+
+function Winterblight:OpenWinterblightCastle()
+	if not Winterblight.WinterCastleOpened then
+		Winterblight.WinterCastleOpened = true
+		local walls = Entities:FindAllByNameWithin("MainCastleDoor", Vector(10757, 13568, 1319 + Winterblight.ZFLOAT), 2400)
+		-- local key1 = Entities:FindByNameNearest("CastleDoorKey1", Vector(10699, 13819, 1615), 1000)
+		-- local key2 = Entities:FindByNameNearest("CastleDoorKey2", Vector(10699, 13606, 1615), 1000)
+		-- local key3 = Entities:FindByNameNearest("CastleDoorKey3", Vector(10699, 13402, 1615), 1000)
+		-- table.insert(walls, key1)
+		-- table.insert(walls, key2)
+		-- table.insert(walls, key3)
+		EmitSoundOnLocationWithCaster(Vector(10757, 13568, 1319 + Winterblight.ZFLOAT), "Winterblight.WallOpen", Events.GameMaster)
+		Winterblight:WallsTicks(false, walls, true, 5, 360, 0.15)
+		Winterblight:RemoveBlockers(4, "WinterCastleEntranceBlockers", Vector(10757, 13568, 1319 + Winterblight.ZFLOAT), 1400)
+		Timers:CreateTimer(1, function()
+			EmitGlobalSound("Winterblight.OpenDungeon")
+		end)
+		Events:DoorDust(Vector(10752, 13952), Vector(0,-1), 600, 60, 0.2)
+	end
+end

@@ -15848,3 +15848,131 @@
 			}
 		}
 	}
+
+	"winterblight_life_drain"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/source_revenant"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"life_drain"			"200 800 2400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"life_drain_heal_mult"			"3 7 12"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movement_slow"		"-8 -16 -24"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_life_drain_aura"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Aura"          	"modifier_life_drain_effect"
+				"Aura_Radius"   	"900"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_life_drain_effect"
+			{
+				"IsHidden"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"winter_life_drain_target_think"
+						"damage"		"%life_drain"
+						"life_drain_heal_mult"	"%life_drain_heal_mult"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_pugna/pugna_life_give.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"attach_hitloc"
+						}
+
+					}
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.Draugr.LifeDrainStart"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.Draugr.LifeDrainEnd"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_outside_castle_miniboss_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+				"Function"		"wintermini_boss_death"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_miniboss_cant_die"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/winter_mountain.lua"
+						"Function"		"wintermini_boss_thinker"
+					}
+				}
+			}
+		}
+	}

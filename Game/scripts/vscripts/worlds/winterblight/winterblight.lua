@@ -211,6 +211,9 @@ function Winterblight:InitProps()
     Timers:CreateTimer(8, function()
       Winterblight:InitOutsideCastleSwitch()
     end)
+    Timers:CreateTimer(9, function()
+      Winterblight:InitCastleDoorKeys()
+    end)
   end
 end
 

@@ -803,6 +803,7 @@ function grave_ghost_death(event)
 		skull.phase = 1
 		-- skull:MoveToPosition(skull.targetPoint)
 	end)
+	skull.main_phase = 0
 	StartSoundEvent("Winterblight.BlackSkull.LP", skull)
 	skull.float_height = 280
 	
@@ -834,56 +835,167 @@ function black_skull_thinker(event)
 			skull.float_height = skull.float_height + 10
 			skull:SetVisualFlyHeight(skull.float_height)
 		end
+		local distance_from_ground = (skull.float_height + skull:GetAbsOrigin().z) - GetGroundHeight(skull:GetAbsOrigin(), skull)
+		if distance_from_ground < 450 then
+			skull.float_height = skull.float_height + 10
+			skull:SetVisualFlyHeight(skull.float_height)
+		elseif distance_from_ground > 475 then
+			skull.float_height = skull.float_height - 10
+			skull:SetVisualFlyHeight(skull.float_height)
+		end
+		if skull.main_phase == 2 then
+			skull.float_height = 300
+			skull:SetVisualFlyHeight(skull.float_height)
+		end
 		if distance < 100 then
 			skull.phase = 2
 			StopSoundEvent("Winterblight.BlackSkull.LP", skull)
-			EmitSoundOn("Winterblight.BlackSkull.StartDrop", skull)
+			if skull.main_phase == 0 then
+				EmitSoundOn("Winterblight.BlackSkull.StartDrop", skull)
+			elseif skull.main_phase == 1 then
+				EmitSoundOn("Winterblight.SkullReachEndPhase2", skull)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf", skull, 32)
+				if not Winterblight.MiniBossSkulls then
+					Winterblight.MiniBossSkulls = {}
+				end
+				table.insert(Winterblight.MiniBossSkulls, skull)
+				if #Winterblight.MiniBossSkulls == 3 then
+					for i = 1, #Winterblight.MiniBossSkulls, 1 do
+						Winterblight.MiniBossSkulls[i].phase = 4
+					end
+				end
+			elseif skull.main_phase == 2 then
+				local index = skull.grave_index
+				EmitSoundOn("Winterblight.EvilExplosion.Highlight", skull)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", skull:GetAbsOrigin()+Vector(0,0,200), 3)
+				Winterblight:EvilExplosion(skull:GetAbsOrigin())
+				UTIL_Remove(skull)
+				local key = Entities:FindByNameNearest("CastleDoorKey"..index, Vector(10699, 13819, 1215), 2000)
+				key:SetAbsOrigin(key:GetAbsOrigin() + Vector(0,0,660))
+				EmitSoundOnLocationWithCaster(key:GetAbsOrigin(), "Winterblight.KeyClick", Events.GameMaster)
+
+
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", key:GetAbsOrigin(), 3)
+		
+				Timers:CreateTimer(1, function()
+					if not Winterblight.CastleDoorKeyCount then
+						Winterblight.CastleDoorKeyCount = 0
+					end
+					Winterblight.CastleDoorKeyCount = Winterblight.CastleDoorKeyCount + 1
+					if Winterblight.CastleDoorKeyCount == 3 then
+						
+						local key1 = Entities:FindByNameNearest("CastleDoorKey1", Vector(10699, 13819, 1615), 1500)
+						local key2 = Entities:FindByNameNearest("CastleDoorKey2", Vector(10699, 13606, 1615), 1500)
+						local key3 = Entities:FindByNameNearest("CastleDoorKey3", Vector(10699, 13402, 1615), 1500)
+						local keys = {key1, key2, key3}
+						for i = 1, #keys, 1 do
+							Events:objectShake(keys[i], 60, 30, false, true, true, "Winterblight.SonderShake", 5)
+							Timers:CreateTimer(1.9, function()
+								CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", keys[i]:GetAbsOrigin(), 3)
+								EmitSoundOnLocationWithCaster(keys[i]:GetAbsOrigin(), "Winterblight.KeyExplode", Events.GameMaster)
+								UTIL_Remove(keys[i])
+							end)
+						end
+						Timers:CreateTimer(2, function()
+							local walls = Entities:FindAllByNameWithin("MainCastleDoor", Vector(10757, 13568, 1319 + Winterblight.ZFLOAT), 2400)
+							Events:smoothColorTransition(walls[1], Vector(41,43,46), Vector(141,43,46), 70)
+						end)
+						Timers:CreateTimer(5, function()
+							Winterblight:OpenWinterblightCastle()
+						end)
+					end
+				end)
+			end
 		else
 			local direction = ((skull.targetPoint - skull:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			skull:SetAbsOrigin(skull:GetAbsOrigin() + direction*20 + movement)
 		end
 	elseif skull.phase == 2 then
 		local distanceFromGround = (skull:GetAbsOrigin().z + skull.float_height) - GetGroundHeight(skull:GetAbsOrigin(), skull)
-		if distanceFromGround > 180 then
-			skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
-		else
-			skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, skull:GetAbsOrigin(), 750, 8, true)
-			skull.phase = 3
-			local miniboss = Enemies:SpawnEnemyUnit(skull.boss_spawn, skull.targetPoint, skull.targetDirection, false)
-			Winterblight:EvilExplosion(miniboss:GetAbsOrigin())
-			miniboss.grave_index = caster.grave_index
-			EmitSoundOn("Winterblight.EvilExplosion.Main", miniboss)
-			EmitSoundOn("Winterblight.EvilExplosion.Highlight", miniboss)
-			local intro_sound = skull.introSound
-			UTIL_Remove(skull)
-			miniboss.cantAggro = true
-			Timers:CreateTimer(2, function()
-				EmitSoundOn(intro_sound, miniboss)
-			end)
-			Timers:CreateTimer(5, function()
-				miniboss.cantAggro = nil
-				if miniboss:GetUnitName() == "winterblight_baron_moredi" then
-					EmitSoundOn("Winterblight.BaronMoredi.SpawnArmy", miniboss)
-					local basePosition = miniboss:GetAbsOrigin() - miniboss:GetForwardVector()*300
-					StartAnimation(miniboss, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 0.8})
-					for i = 0, 2, 1 do
-						for k = 0, 3, 1 do
-							local spawnPosition = basePosition - miniboss:GetForwardVector()*(i*120) + Vector((k-1.5)*120)
-							local wraith = Enemies:SpawnEnemyUnit("winterblight_wraithguard", spawnPosition, Vector(0,-1), false)
+		if skull.main_phase == 0 then
+			if distanceFromGround > 180 then
+				skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
+			else
+				skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, skull:GetAbsOrigin(), 750, 8, true)
+				skull.phase = 3
+				local miniboss = Enemies:SpawnEnemyUnit(skull.boss_spawn, skull.targetPoint, skull.targetDirection, false)
+				Winterblight:EvilExplosion(miniboss:GetAbsOrigin())
+				miniboss.grave_index = caster.grave_index
+				EmitSoundOn("Winterblight.EvilExplosion.Main", miniboss)
+				EmitSoundOn("Winterblight.EvilExplosion.Highlight", miniboss)
+				local intro_sound = skull.introSound
+				miniboss.grave_index = skull.grave_index
+				UTIL_Remove(skull)
+				miniboss.cantAggro = true
+				Timers:CreateTimer(2, function()
+					EmitSoundOn(intro_sound, miniboss)
+				end)
+				miniboss:AddAbility("winterblight_outside_castle_miniboss_ability"):SetLevel(1)
+				miniboss.fight_phase = 1
+				Timers:CreateTimer(5, function()
+					if miniboss:GetUnitName() == "winterblight_baron_moredi" then
+						miniboss.cantAggro = nil
+						EmitSoundOn("Winterblight.BaronMoredi.SpawnArmy", miniboss)
+						local basePosition = miniboss:GetAbsOrigin() - miniboss:GetForwardVector()*300
+						StartAnimation(miniboss, {duration = 1, activity = ACT_DOTA_ATTACK, rate = 0.8})
+						for i = 0, 2, 1 do
+							for k = 0, 3, 1 do
+								local spawnPosition = basePosition - miniboss:GetForwardVector()*(i*120) + Vector((k-1.5)*120)
+								local wraith = Enemies:SpawnEnemyUnit("winterblight_wraithguard", spawnPosition, Vector(0,-1), false)
+								CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraith:GetAbsOrigin(), 3)
+								EmitSoundOn("Winterblight.GraveGhostSpawn", wraith)
+							end
+						end
+					elseif miniboss:GetUnitName() == "winterblight_wrath_queen_asyria" then
+						miniboss.cantAggro = nil
+						EmitSoundOn("Winterblight.LadyAsyria.SummonArmy", miniboss)
+						StartAnimation(miniboss, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3, rate = 0.8})
+						local positionTable = {Vector(10368, 11520), Vector(10368, 10752), Vector(10112, 11520), Vector(10112, 10752)}
+						for i = 1, #positionTable, 1 do
+							local fv = (Vector(8832, 11904) - positionTable[i]):Normalized()
+							local wraith = Enemies:SpawnEnemyUnit("winterblight_soul_fletcher", positionTable[i], fv, false)
 							CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", wraith:GetAbsOrigin(), 3)
 							EmitSoundOn("Winterblight.GraveGhostSpawn", wraith)
 						end
 					end
-				end
-			end)
-			if miniboss:GetUnitName() == "winterblight_lich_king_sonder" then
-				local sonder_passive = miniboss:FindAbilityByName("winterblight_sonder_passive")
-				sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_sonder_temp_invul", {duration = 1})
-				Timers:CreateTimer(1, function()
-					sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winterblight_sonder_waiting", {})
 				end)
-				miniboss.cantAggro = true
+				if miniboss:GetUnitName() == "winterblight_lich_king_sonder" then
+					local sonder_passive = miniboss:FindAbilityByName("winterblight_sonder_passive")
+					sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_sonder_temp_invul", {duration = 1})
+					Timers:CreateTimer(1, function()
+						sonder_passive:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_winterblight_sonder_waiting", {})
+					end)
+					miniboss.cantAggro = true
+				end
+			end
+		elseif skull.main_phase == 1 then
+			skull:SetAbsOrigin(skull:GetAbsOrigin() + movement)
+			skull:SetForwardVector(Vector(-1,0))
+		end
+	elseif skull.phase == 4 then
+		local distanceFromGround = (skull:GetAbsOrigin().z + skull.float_height) - GetGroundHeight(skull:GetAbsOrigin(), skull)
+		if skull.main_phase == 1 then
+			if distanceFromGround > 180 then
+				skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
+			else
+				skull:SetAbsOrigin(skull:GetAbsOrigin() - Vector(0,0,60))
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, skull:GetAbsOrigin(), 750, 8, true)
+				skull.phase = 4
+				local miniboss = Enemies:SpawnEnemyUnit(skull.boss_spawn, skull.targetPoint, skull.targetDirection, false)
+				Winterblight:EvilExplosion(miniboss:GetAbsOrigin())
+				miniboss.grave_index = caster.grave_index
+				EmitSoundOn("Winterblight.EvilExplosion.Main", miniboss)
+				EmitSoundOn("Winterblight.EvilExplosion.Highlight", miniboss)
+				local intro_sound = skull.introSound
+				miniboss.grave_index = skull.grave_index
+				UTIL_Remove(skull)
+				Timers:CreateTimer(2, function()
+					EmitSoundOn(intro_sound, miniboss)
+				end)
+				miniboss:AddAbility("winterblight_outside_castle_miniboss_ability"):SetLevel(1)
+				miniboss.fight_phase = 2
+				miniboss:RemoveModifierByName("modifier_miniboss_cant_die")
 			end
 		end
 	end
@@ -958,48 +1070,50 @@ function asyria_arrow_throw(event)
 	local caster = event.caster
 	local ability = event.ability
 	Timers:CreateTimer(0.7, function()
-		local spark_count = event.number_of_arrows
+		if caster and caster:IsAlive() then
+			local spark_count = event.number_of_arrows
 
-		local base_damage = event.base_damage
-		ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
+			local base_damage = event.base_damage
+			ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
 
-		ability.duration = event.duration
-		local particle = "particles/units/heroes/hero_drow/drow_multishot_proj_linear_proj.vpcf"
-		local range = 1500
-		local divisor = 15
-		if spark_count == 3 then
-			divisor = 17
-		elseif spark_count == 4 then
-			divisor = 18
-		elseif spark_count == 5 then
-			divisor = 22
-		end
-		EmitSoundOn("Winterblight.Asyria.FrostArrows", caster)
-		for i = 1, spark_count, 1 do
-			local rotation_adjustment = spark_count / 2
-			local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * (i - rotation_adjustment) / divisor)
-			local speed = 1500
-			local info =
-			{
-				Ability = ability,
-				EffectName = particle,
-				vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
-				fDistance = range,
-				fStartRadius = 170,
-				fEndRadius = 170,
-				Source = caster,
-				StartPosition = "attach_attack1",
-				bHasFrontalCone = true,
-				bReplaceExisting = false,
-				iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-				iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-				fExpireTime = GameRules:GetGameTime() + 5.0,
-				bDeleteOnHit = false,
-				vVelocity = fv * speed,
-				bProvidesVision = false,
-			}
-			projectile = ProjectileManager:CreateLinearProjectile(info)
+			ability.duration = event.duration
+			local particle = "particles/units/heroes/hero_drow/drow_multishot_proj_linear_proj.vpcf"
+			local range = 1500
+			local divisor = 15
+			if spark_count == 3 then
+				divisor = 17
+			elseif spark_count == 4 then
+				divisor = 18
+			elseif spark_count == 5 then
+				divisor = 22
+			end
+			EmitSoundOn("Winterblight.Asyria.FrostArrows", caster)
+			for i = 1, spark_count, 1 do
+				local rotation_adjustment = spark_count / 2
+				local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * (i - rotation_adjustment) / divisor)
+				local speed = 1500
+				local info =
+				{
+					Ability = ability,
+					EffectName = particle,
+					vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 20),
+					fDistance = range,
+					fStartRadius = 170,
+					fEndRadius = 170,
+					Source = caster,
+					StartPosition = "attach_attack1",
+					bHasFrontalCone = true,
+					bReplaceExisting = false,
+					iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+					iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+					iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					fExpireTime = GameRules:GetGameTime() + 5.0,
+					bDeleteOnHit = false,
+					vVelocity = fv * speed,
+					bProvidesVision = false,
+				}
+				projectile = ProjectileManager:CreateLinearProjectile(info)
+			end
 		end
 	end)
 end
@@ -1085,4 +1199,140 @@ function accursed_attack_land(event)
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_accursed_effect", {duration = event.root_duration})
 	ApplyDamage({victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+end
+
+function winter_life_drain_target_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	ApplyDamage({victim = target, attacker = caster, damage = event.damage, damage_type = DAMAGE_TYPE_PURE, ability = ability})
+	Filters:ApplyHeal(caster, caster, event.damage*event.life_drain_heal_mult, true, true, ability)
+end
+
+function wintermini_boss_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not caster.aggro then
+		return false
+	end
+	if caster.lock then
+		return false
+	end
+	if caster:GetHealth() < 10 then
+		local skull = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
+		skull:SetDayTimeVisionRange(500)
+		skull:SetNightTimeVisionRange(500)
+		skull:RemoveModifierByName("dummy_unit")
+		Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, skull, "modifier_wb_black_skull", {})
+		local dummy_ability = skull:FindAbilityByName("dummy_unit")
+		dummy_ability:ApplyDataDrivenModifier(skull, skull, "dummy_unit", {})
+		skull:SetForwardVector(caster:GetForwardVector())
+		skull:SetModelScale(3)
+		skull:SetModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+		skull:SetOriginalModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+		
+		skull.grave_index = caster.grave_index
+		skull.phase = 0
+		Winterblight:EvilExplosion(caster:GetAbsOrigin())
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.EvilExplosion.Ghost", Events.GameMaster)
+		if caster:GetUnitName() == "winterblight_baron_moredi" then
+			EmitSoundOn("Winterblight.BaronMoredi.Die", skull)
+		elseif caster:GetUnitName() == "winterblight_lich_king_sonder" then
+			EmitSoundOn("Winterblight.LichKingSonder.Pain", skull)
+		elseif caster:GetUnitName() == "winterblight_wrath_queen_asyria" then
+			EmitSoundOn("Winterblight.LadyAsyria.Pain", skull)
+		end
+		skull:SetAbsOrigin(skull:GetAbsOrigin() + Vector(0,0,100))
+		if skull.grave_index == 1 then
+			skull.targetPoint = Vector(9984, 13931, 1280)
+			skull.targetDirection = Vector(-1,0)
+			skull.boss_spawn = "winterblight_baron_moredi"
+			skull.introSound = "Winterblight.BaronMoredi.Intro"
+			skull.extra_height = 500
+		elseif skull.grave_index == 2 then
+			skull.targetPoint = Vector(9984, 13596, 1280)
+			skull.targetDirection = Vector(-1,0)
+			skull.boss_spawn = "winterblight_lich_king_sonder"
+			skull.introSound = "Winterblight.LichKingSonder.Intro2"
+			skull.extra_height = 500
+		elseif skull.grave_index == 3 then
+			skull.targetPoint = Vector(9984, 13257, 1280)
+			skull.targetDirection = Vector(-1,0)
+			skull.boss_spawn = "winterblight_wrath_queen_asyria"
+			skull.introSound = "Winterblight.LadyAsyria.Intro2"
+			skull.extra_height = 500
+		end
+		Timers:CreateTimer(3, function()
+			skull.phase = 1
+			-- skull:MoveToPosition(skull.targetPoint)
+		end)
+		skull.main_phase = 1
+		StartSoundEvent("Winterblight.BlackSkull.LP", skull)
+		skull.float_height = 280		
+		caster:AddNoDraw()
+		caster.lock = true
+		Timers:CreateTimer(0.5, function()
+			UTIL_Remove(caster)
+		end)
+	end
+end
+
+function wintermini_boss_death(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local skull = CreateUnitByName("npc_flying_dummy_vision", caster:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_GOODGUYS)
+	skull:SetDayTimeVisionRange(500)
+	skull:SetNightTimeVisionRange(500)
+	skull:RemoveModifierByName("dummy_unit")
+	Winterblight.MasterAbility:ApplyDataDrivenModifier(Winterblight.Master, skull, "modifier_wb_black_skull", {})
+	local dummy_ability = skull:FindAbilityByName("dummy_unit")
+	dummy_ability:ApplyDataDrivenModifier(skull, skull, "dummy_unit", {})
+	skull:SetForwardVector(caster:GetForwardVector())
+	skull:SetModelScale(3)
+	skull:SetModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+	skull:SetOriginalModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+	
+	skull.grave_index = caster.grave_index
+	skull.phase = 0
+	Winterblight:EvilExplosion(caster:GetAbsOrigin())
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.EvilExplosion.Ghost", Events.GameMaster)
+	if caster:GetUnitName() == "winterblight_baron_moredi" then
+		EmitSoundOn("Winterblight.BaronMoredi.Die", skull)
+	elseif caster:GetUnitName() == "winterblight_lich_king_sonder" then
+		EmitSoundOn("Winterblight.LichKingSonder.Pain", skull)
+	elseif caster:GetUnitName() == "winterblight_wrath_queen_asyria" then
+		EmitSoundOn("Winterblight.LadyAsyria.Pain", skull)
+	end
+	skull:SetAbsOrigin(skull:GetAbsOrigin() + Vector(0,0,200))
+	if skull.grave_index == 1 then
+		skull.targetPoint = Vector(10699, 13819, 1615)
+		skull.targetDirection = Vector(-1,0)
+		skull.boss_spawn = "winterblight_baron_moredi"
+		skull.introSound = "Winterblight.BaronMoredi.Intro"
+		skull.extra_height = 500
+	elseif skull.grave_index == 2 then
+		skull.targetPoint = Vector(10699, 13610, 1615)
+		skull.targetDirection = Vector(-1,0)
+		skull.boss_spawn = "winterblight_lich_king_sonder"
+		skull.introSound = "Winterblight.LichKingSonder.Intro2"
+		skull.extra_height = 500
+	elseif skull.grave_index == 3 then
+		skull.targetPoint = Vector(10699, 13403, 1615)
+		skull.targetDirection = Vector(-1,0)
+		skull.boss_spawn = "winterblight_wrath_queen_asyria"
+		skull.introSound = "Winterblight.LadyAsyria.Intro2"
+		skull.extra_height = 500
+	end
+	Timers:CreateTimer(3, function()
+		skull.phase = 1
+		-- skull:MoveToPosition(skull.targetPoint)
+	end)
+	skull.main_phase = 2
+	StartSoundEvent("Winterblight.BlackSkull.LP", skull)
+	skull.float_height = 280		
+
 end

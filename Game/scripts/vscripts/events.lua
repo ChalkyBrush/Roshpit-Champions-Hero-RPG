@@ -4090,6 +4090,21 @@ function Events:MainBossSlain(boss_name)
 	Challenges:MainBossSlainEvent(boss_name)
 end
 
+function Events:DoorDust(startPosition, vectorAngle, length, dust_count, dust_delay)
+  for j = 1, dust_count, 1 do
+    Timers:CreateTimer(j * dust_delay, function()
+      for i = 0, length/100, 1 do
+        local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+        ParticleManager:SetParticleControl(pfx, 0, GetGroundPosition(startPosition + (i* 100 * vectorAngle), Events.GameMaster))
+        ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+        Timers:CreateTimer(2, function()
+          ParticleManager:DestroyParticle(pfx, false)
+        end)
+      end
+    end)
+  end
+end
+
 require('worlds/redfall/redfall')
 
 require('worlds/winterblight/winterblight')
