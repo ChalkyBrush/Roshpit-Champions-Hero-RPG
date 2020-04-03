@@ -269,17 +269,29 @@ function CorrectDotaUI(){
 		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
 	});
 
-	var stats_tooltip_panel = parent.FindChildTraverse('QueryInfo').FindChildTraverse('stats_container')
-	GameUI.StatsTooltipAttachment = stats_tooltip_panel
-	stats_tooltip_panel.SetPanelEvent('onmouseover', function StatsToolTip() {
-		//$.Msg("NEW TOOLTIP?")
-		GameEvents.SendCustomGameEventToServer( "stats_hover", {playerID: Game.GetLocalPlayerID(), queryunit: Players.GetLocalPlayerPortraitUnit()});
-		// $.DispatchEvent("UIShowCustomLayoutParametersTooltip", stats_tooltip_panel, "file://{resources}/layout/custom_game/equipment/item_tooltip.xml", tooltipArgs);
-	});
-	stats_tooltip_panel.SetPanelEvent('onmouseout', function StatsToolTip() {
-		$.DispatchEvent("UIHideCustomLayoutTooltip", "AttributesTooltip");
-	});
+	var abilities = parent.FindChildTraverse('abilities').Children()
+	var qAbility = abilities[0].FindChildTraverse("AbilityButton");
+	var wAbility = abilities[1].FindChildTraverse("AbilityButton");
+	var eAbility = abilities[2].FindChildTraverse("AbilityButton");
+	var rAbility = abilities[3].FindChildTraverse("AbilityButton");
+
+	qAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(qAbility))
+	qAbility.SetAttributeInt("abilityIndex", 0)
+	qAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(qAbility))
+
+	wAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(wAbility))
+	wAbility.SetAttributeInt("abilityIndex", 1)
+	wAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(wAbility))
+
+	eAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(eAbility))
+	eAbility.SetAttributeInt("abilityIndex", 2)
+	eAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(eAbility))
+	
+	rAbility.SetPanelEvent('onmouseover', () => AbilityShowTooltip(rAbility))
+	rAbility.SetAttributeInt("abilityIndex", 5)
+	rAbility.SetPanelEvent('onmouseout', () => AbilityHideTooltip(rAbility))
 }
+
 
 function InitializeMenu(){
 	$('#skills_button_label').text=$.Localize("ui_skills")

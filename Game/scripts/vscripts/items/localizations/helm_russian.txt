@@ -613,6 +613,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"item_property_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> сек."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"

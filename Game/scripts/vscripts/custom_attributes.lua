@@ -555,6 +555,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveCooldownModifier()
 		self:CalculateAndSaveManacostModifier()
 		self:CalculateAndSaveChanneltimeModifier()
+		self:GetTooltips()
 	end
 end
 
@@ -3908,6 +3909,42 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
 			self:SetModifierStackCount("modifier_r_pct_channeltime_modifier", self, 0)
 		end
 	end
+end
+
+function CDOTA_BaseNPC_Hero:GetTooltips()
+	--------------
+	--Q TOOLTIPS--
+	--------------
+	local qTooltips = self:GetTooltipsFor('GetRoshpitTooltipQ', MODIFIER_ROSHPIT_TOOLTIP_Q)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_Q_SLOT, qTooltips)
+
+	--------------
+	--W TOOLTIPS--
+	--------------
+	local wTooltips = self:GetTooltipsFor('GetRoshpitTooltipW', MODIFIER_ROSHPIT_TOOLTIP_W)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_W_SLOT, wTooltips)
+
+	--------------
+	--E TOOLTIPS--
+	--------------
+	local eTooltips = self:GetTooltipsFor('GetRoshpitTooltipE', MODIFIER_ROSHPIT_TOOLTIP_E)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_E_SLOT, eTooltips)
+
+	--------------
+	--R TOOLTIPS--
+	--------------
+	local rTooltips = self:GetTooltipsFor('GetRoshpitTooltipR', MODIFIER_ROSHPIT_TOOLTIP_R)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_R_SLOT, rTooltips)
+end
+
+function CDOTA_BaseNPC_Hero:GetTooltipsFor(functionName, modifierConstant)
+	local table = {}
+	Util.Modifier:SimpleEvent(self, functionName, { modifierConstant }, { }, 
+		function(result, data)
+			table[#table] = result
+		end
+	)
+	return table
 end
 
 function GetQCooldownModifier(caster)

@@ -83,38 +83,15 @@ function UpdateAbility()
 	
 }
 
-function AbilityShowTooltip()
-{
-	var abilityButton = $( "#AbilityButton" );
-	var abilityName = Abilities.GetAbilityName( m_Ability );
-	// If you don't have an entity, you can still show a tooltip that doesn't account for the entity
-	//$.DispatchEvent( "DOTAShowAbilityTooltip", abilityButton, abilityName );
-	
-	// If you have an entity index, this will let the tooltip show the correct level / upgrade information
-	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", abilityButton, abilityName, m_QueryUnit );
-	//$.DispatchEvent("DOTAShowTitleTextTooltip", $.GetContextPanel(), "Update Info", "Upgrades");
-}
-
-function AbilityHideTooltip()
-{
-	var abilityButton = $( "#AbilityButton" );
-	$.DispatchEvent( "DOTAHideAbilityTooltip", abilityButton );
-	//$.DispatchEvent("DOTAHideTitleTextTooltip", $.GetContextPanel(), title, tooltip);
-}
-
 function ActivateAbility()
 {
 	if (Game.GetLocalPlayerID() == getControllingPlayerIndex())
 	{
 		UpdateAbility();
-		//Abilities.AttemptToUpgrade( m_Ability );
 		var playerID = Game.GetLocalPlayerID();
 		GameEvents.SendCustomGameEventToServer( "level_up_ability", {ability: m_Ability, playerID: playerID, unit: Players.GetLocalPlayerPortraitUnit()} );
-		AbilityHideTooltip()
-		AbilityShowTooltip()
 		return;
 	}
-	//Abilities.ExecuteAbility( m_Ability, m_QueryUnit, false );
 }
 
 function getControllingPlayerIndex()

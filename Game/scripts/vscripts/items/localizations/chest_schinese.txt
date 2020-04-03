@@ -63,6 +63,7 @@
 		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"紫罗兰卫士之甲"
 		"item_property_armor_of_the_violet_guard"			"紫罗兰征服者"
 		"property_armor_of_the_violet_guard_description"	"降低@Ability1的冷却时间 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%。"
+		"item_property_armor_of_the_violet_guard_ability_ruby_tooltip"				"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %> 秒"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"紫罗兰征服者"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"护甲被降低"
 

@@ -45,6 +45,7 @@
 		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
 		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"item_property_armor_of_the_violet_guard_ability_ruby_tooltip"				"Enemies hit lose @ruby_property1 armor for  <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %>s."
 		"property_armor_of_the_violet_guard_description"	"Reduces cooldown of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Reduced Armor."
