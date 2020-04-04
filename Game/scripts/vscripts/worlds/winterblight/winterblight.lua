@@ -7,8 +7,9 @@ require('worlds/winterblight/zones/shrine_of_azalea')
 require('worlds/winterblight/zones/winter_forest')
 require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
+require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = false
+Winterblight.Winter3Enabled = true
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -17,9 +18,9 @@ function Winterblight:Debug()
     RPCItems:DropItem(item, Vector(-15424,-2560))
 
     -- Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
-    Winterblight:InitGraveGhost(1)
-    Winterblight:InitGraveGhost(2)
-    Winterblight:InitGraveGhost(3)
+    -- Winterblight:InitGraveGhost(1)
+    -- Winterblight:InitGraveGhost(2)
+    -- Winterblight:InitGraveGhost(3)
     Challenges:CheckSpawn()
 
     -- Winterblight:SpawnOwlSentry(Vector(-15424,-2560), {Vector(-15424,-2560)})
@@ -239,8 +240,7 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
-  Events.DifficultyFactor = 3
-  Winterblight.Stones = 3
+  Winterblight:OpenWinterblightCastle()
   --print("DEBUG2")
   --print(MAIN_HERO_TABLE[1].challenge_cleared)
   -- Challenges:SetChallengeClears()
@@ -364,6 +364,9 @@ function Winterblight:CalculateHeroZones()
         elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
+        elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,16000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(8036, -3559), Vector(16128, 9004)) then
+          CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_castle"} )
+          hero.bgm = "Music.Winterblight.BlackfrostCitadel"
         else
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
@@ -410,6 +413,19 @@ function Winterblight:CavernMusic()
       end
     -- end
     return 127
+  end)
+end
+
+function Winterblight:CastleMusic()
+  Timers:CreateTimer(1, function()
+      for i = 1, #MAIN_HERO_TABLE, 1 do
+        if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.BlackfrostCitadel" then
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Music.Winterblight.BlackfrostCitadel"})
+        end
+      end
+    -- end
+    return 190
   end)
 end
 
