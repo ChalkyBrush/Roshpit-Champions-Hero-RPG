@@ -16010,6 +16010,20 @@
 					}
 				}
 			}
+			"modifier_dungeon_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winterblight_castle_dungeon_master_main_thinker"
+					}
+				}
+			}
 		}
 	}
 

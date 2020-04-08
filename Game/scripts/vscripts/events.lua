@@ -4090,7 +4090,9 @@ function Events:MainBossSlain(boss_name)
 	Challenges:MainBossSlainEvent(boss_name)
 end
 
-function Events:DoorDust(startPosition, vectorAngle, length, dust_count, dust_delay)
+function Events:DoorDust(startPosition, endPosition, dust_count, dust_delay)
+  local vectorAngle = (endPosition - startPosition):Normalized()
+  local length = (endPosition - startPosition):Length()
   for j = 1, dust_count, 1 do
     Timers:CreateTimer(j * dust_delay, function()
       for i = 0, length/100, 1 do

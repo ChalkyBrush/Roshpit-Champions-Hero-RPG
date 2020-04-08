@@ -712,7 +712,7 @@ end
 
 
 function Precache:WinterPart3()
-	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler", "winterblight_baron_moredi", "winterblight_lich_king_sonder", "winterblight_wrath_queen_asyria", "winterblight_accursed", "winterblight_soul_fletcher", "winterblight_black_gargoyle", "winterblight_draugr", "winterblight_diviner_sk"}
+	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler", "winterblight_baron_moredi", "winterblight_lich_king_sonder", "winterblight_wrath_queen_asyria", "winterblight_accursed", "winterblight_soul_fletcher", "winterblight_black_gargoyle", "winterblight_draugr", "winterblight_diviner_horus"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])

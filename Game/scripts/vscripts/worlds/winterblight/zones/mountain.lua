@@ -196,7 +196,6 @@ function Winterblight:SpawnMountainTombstones()
 		tombstone:SetBaseMaxHealth(health)
 		tombstone:SetHealth(health)
 		tombstone:SetRenderColor(134, 158, 255)
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, tombstone:GetAbsOrigin(), 800, 800, true)
 	end
 end
 
@@ -246,10 +245,6 @@ function Winterblight:MountainGhostProp()
 end
 
 function Winterblight:MountainP2()
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(2119, 9188), 9000, 50000, true)
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(1834, 15590), 9000, 50000, true)
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, Vector(6795, 12986), 9000, 50000, true)
-
 	Winterblight:MountainPrecache()
 	Winterblight:SpawnMountainStonePack(Vector(5572, 7032))
 	Timers:CreateTimer(2, function()

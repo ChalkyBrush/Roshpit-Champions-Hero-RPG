@@ -9,7 +9,7 @@ require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
 require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = true
+Winterblight.Winter3Enabled = false
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -215,6 +215,9 @@ function Winterblight:InitProps()
     Timers:CreateTimer(9, function()
       Winterblight:InitCastleDoorKeys()
     end)
+    Timers:CreateTimer(10, function()
+      Winterblight:InitCastleProps()
+    end)
   end
 end
 
@@ -364,7 +367,7 @@ function Winterblight:CalculateHeroZones()
         elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
-        elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,16000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(8036, -3559), Vector(16128, 9004)) then
+        elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,16000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(7136, -3559), Vector(16128, 9004)) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_castle"} )
           hero.bgm = "Music.Winterblight.BlackfrostCitadel"
         else

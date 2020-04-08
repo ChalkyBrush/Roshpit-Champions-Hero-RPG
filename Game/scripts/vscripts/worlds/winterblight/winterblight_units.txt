@@ -17844,7 +17844,7 @@
         "AIFleeHPThreshold"     "25"
     }
 
-    "winterblight_diviner_sk"
+    "winterblight_diviner_horus"
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/silencer/silencer.vmdl"
