@@ -88394,6 +88394,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40" 
 				}
 				"States"
 				{
@@ -88401,13 +88402,35 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"ThinkInterval"  "3"
+				"ThinkInterval"  "1"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"diviner_think"
+					}
+				}
+			}
+			"modifier_diviner_invisible"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_tarot_symbol_floating_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"tarot_symbol_float_think"
+						"target"		"TARGET"
 					}
 				}
 			}

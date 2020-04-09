@@ -1,10 +1,12 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/quests/winterblight_cavern.css" />
+		<include src="file://{resources}/styles/custom_game/quests/winterblight_castle.css" />
 		<include src="file://{resources}/styles/custom_game/menu/menu.css" />
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/quests/winterblight_cavern.js" />
+		<include src="file://{resources}/scripts/custom_game/quests/winter_castle.js" />
 	</scripts>
 	<snippets>
 		<snippet name="winter_cavern_main_snippet">
@@ -234,6 +236,27 @@
 					</Panel>
 				</Button>
 <!-- 				<Label id="winterblight_cavern_boss_summary" text="winterblight_cavern_boss_summary"/> -->
+			</Panel>
+		</snippet>
+		<snippet name="winter_castle_tarot_master">
+			<Panel class="winter_castle_tarot_root" hittest="false">
+				<Label id="winterblight_tarot_label" text="winterblight_tarot_title" hittest="false"/>
+				<Panel class="tarot-card-row" id="tarot-card-row1" hittest="false">
+				</Panel>
+				<Panel class="tarot-card-row" id="tarot-card-row2" hittest="false">
+				</Panel>
+				<Panel class="tarot-card-row" id="tarot-card-row3" hittest="false">
+				</Panel>
+				<Button id="tarot-leave-button">
+					<Label id="winterblight_tarot_leave_label" text="winterblight_tarot_leave_text"/>
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="winter_castle_tarot_card">
+			<Panel class="winter_castle_tarot_card" hittest="false">
+				<Image class="tarot-skull" src="file://{images}/custom_game/ui/winterblight/tarot_skull.png"/>
+				<Button class="tarot-card-button" id="tarot-card-button" hittest="true">
+				</Button>
 			</Panel>
 		</snippet>
 	</snippets>

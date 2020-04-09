@@ -1215,3 +1215,9 @@
 		"cavern_ui_completed"										"Complete"	
 		"cavern_ui_no_record"										"No Record"	
 
+		//MOUNTAIN ASCENT
+
+		//CASTLE
+
+		"winterblight_tarot_title"									"Choose your Fate"
+		"winterblight_tarot_leave_text"								"Leave"

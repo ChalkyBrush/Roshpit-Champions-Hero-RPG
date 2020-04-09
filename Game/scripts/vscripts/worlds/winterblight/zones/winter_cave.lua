@@ -108,6 +108,8 @@ function Winterblight:ProcessUIMessage(msg)
 		Winterblight:ReturnRecordsToUI(msg)
 	elseif msg.boss == 1 then
 		Winterblight:CavernBossSummon(msg)
+	elseif msg.castle == 1 then
+		Winterblight:TarotCardSelect(msg)
 	end
 end
 

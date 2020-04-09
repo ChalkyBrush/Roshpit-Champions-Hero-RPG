@@ -2071,7 +2071,7 @@ function Filters:IsTouchingGround(unit)
 end
 
 function Filters:HasFlyingModifier(unit)
-    if unit:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") or unit:HasModifier("modifier_dinath_postflight_zheight") or unit:HasModifier("modifier_thunder_blossom_teleporting") or unit:HasModifier("modifier_jex_lightning_lightning_e_movement") then
+    if unit:HasModifier("modifier_voltex_rune_e_3_heavens_charge_falling") or unit:HasModifier("modifier_z_flight") or unit:HasModifier("modifier_hawk_soar_visual_z") or unit:HasModifier("modifier_shapeshift_crow") or unit:HasModifier("modifier_dinath_postflight_zheight") or unit:HasModifier("modifier_thunder_blossom_teleporting") or unit:HasModifier("modifier_jex_lightning_lightning_e_movement") or unit:HasModifier("modifier_wind_temple_light_beam_effect") then
         return true
     else
         return false
