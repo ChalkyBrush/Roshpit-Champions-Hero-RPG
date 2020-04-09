@@ -180,13 +180,13 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][21] = {}
 		Winterblight.CASTLE_DATA["tarot"][21]["name"] = "judgement"
 		Winterblight.CASTLE_DATA["tarot"][21]["index"] = "20"
-		Winterblight.CASTLE_DATA["tarot"][21]["prop_angle"] = Vector(0, -1)
+		Winterblight.CASTLE_DATA["tarot"][21]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_scale"] = 0.84
 
 		Winterblight.CASTLE_DATA["tarot"][22] = {}
 		Winterblight.CASTLE_DATA["tarot"][22]["name"] = "world"
 		Winterblight.CASTLE_DATA["tarot"][22]["index"] = "21"
-		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(0, -1)
+		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_scale"] = 0.87
 		-- DOORS
 		Winterblight.CASTLE_DATA["doors"] = {}
