@@ -100,27 +100,33 @@ function diviner_think(event)
 		if distance < 80 then
 			caster.phase = 5
 			caster:MoveToPosition(caster:GetAbsOrigin() + Vector(-30, 0))
-			Timers:CreateTimer(0.3, function()
-				EmitSoundOn("Winterblight.Horus.Exit.VO", caster)
-				StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1})
-			end)
-			Timers:CreateTimer(0.7, function()
-				caster:AddNoDraw()
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_diviner_invisible", {})
-				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", caster:GetAbsOrigin(), 3)
-				EmitSoundOn("Winterblight.GraveGhostSpawn", caster)
-			end)
-			Timers:CreateTimer(3, function()
-				Winterblight:OpenCastleDoorByIndex(1)
-				StartSoundEvent("Winterblight.HorusHYPE", caster)
-			end)
-			Timers:CreateTimer(6.0, function()
-				EmitSoundOn("Winterblight.Horus.Laugh.VO", caster)
-			end)
-			Timers:CreateTimer(7.5, function()
-				StopSoundEvent("Winterblight.HorusHYPE", caster)
+			Timers:CreateTimer(1.2, function()
+				caster.phase = 6
 			end)
 		end
+	elseif caster.phase == 6 then
+		caster.phase = 7
+		Timers:CreateTimer(0.3, function()
+			EmitSoundOn("Winterblight.Horus.Exit.VO", caster)
+			StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1})
+		end)
+		Timers:CreateTimer(0.7, function()
+			caster:AddNoDraw()
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_diviner_invisible", {})
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", caster:GetAbsOrigin(), 3)
+			EmitSoundOn("Winterblight.GraveGhostSpawn", caster)
+		end)
+		Timers:CreateTimer(3, function()
+			Winterblight:OpenCastleDoorByIndex(1)
+			Winterblight:CastleLobbySpawn1()
+			StartSoundEvent("Winterblight.HorusHYPE", caster)
+		end)
+		Timers:CreateTimer(6.0, function()
+			EmitSoundOn("Winterblight.Horus.Laugh.VO", caster)
+		end)
+		Timers:CreateTimer(7.5, function()
+			StopSoundEvent("Winterblight.HorusHYPE", caster)
+		end)
 	end
 end
 
@@ -159,4 +165,20 @@ function tarot_symbol_float_think(event)
 	if target.interval == 90 then
 		target.interval = 0
 	end
+end
+
+function reincarnation_respawning_end(event)
+	local caster = event.caster
+	local ability = event.ability
+
+    EmitSoundOn("Winterblight.Reincarnation.Respawn", caster)
+    FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+    caster:RemoveNoDraw()
+    CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn.vpcf", caster:GetAbsOrigin(), 3)
+    caster:SetHealth(caster:GetMaxHealth())
+    caster:SetMana(caster:GetMaxMana())
+    ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+    if caster.aggroSound then
+    	EmitSoundOn(caster, caster.aggroSound)
+    end
 end

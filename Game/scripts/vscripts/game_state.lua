@@ -3422,6 +3422,14 @@ function GameState:FilterDamage(filterTable)
 				Filters:AnkhOfAncientsValidDeath(victim)
 			end
 		end
+		if victim:HasModifier("modifier_winterblight_reincarnation") and not death_prevented then
+			local ability = victim:FindModifierByName("modifier_winterblight_reincarnation"):GetAbility()
+			if ability:GetCooldownTimeRemaining() == 0 then
+				filterTable["damage"] = victim:GetHealth() - 2
+				death_prevented = true
+				Filters:WinterblightReincarnationDeath(victim, ability)
+			end
+		end
 		if victim:HasModifier("modifier_world_trees_flower_cache") and not death_prevented then
 			if not victim:HasModifier("modifier_world_tree_cache_cooldown") then
 				filterTable["damage"] = victim:GetHealth() - 2
@@ -3553,7 +3561,7 @@ function GameState:FilterDamage(filterTable)
 				end
 			end
 			if not victim:HasModifier("modifier_shipyard_spawner_passive") then
-				filterTable["damage"] = 1000000
+				-- filterTable["damage"] = 1000000
 			else
 				filterTable["damage"] = 25
 			end

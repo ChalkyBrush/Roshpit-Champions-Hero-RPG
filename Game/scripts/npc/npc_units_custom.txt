@@ -106464,6 +106464,83 @@
         "RoshpitColorRenderG"   "0"
         "RoshpitColorRenderB"   "0"   
     }
+
+    "winterblight_castle_warrior"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/wraith_king/wk_ti8_creep/wk_ti8_creep.vmdl"
+        "ModelScale"    "1.6"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"              "Hero_Juggernaut"
+        "precache"
+        {
+             "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+             "particle" "particles/roshpit/items/ankh_of_ancients_respawn.vpcf"
+             "particle" "particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "340"
+        "AttackDamageMax"   "360"
+        "AttackRate"    "1.3"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "100"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/units/heroes/hero_crystalmaiden/maiden_base_attack.vpcf"
+        "AttackRange"   "150"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1950"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "365"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "4900"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_reincarnation"
+        "Ability2"              "juggernaut_blade_dance"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "RoshpitArmor"          "445"
+        "RoshpitArmorPierce"    "575"
+        "RoshpitSpellPierce"    "208"
+        "RoshpitMagicArmor"     "310"
+        "RoshpitLevel"          "35"
+        "RoshpitDominion"       "1"
+        "RoshpitAggroSound"     "Winterblight.CastleSkeletonWarrior.Aggro"
+        "EnemyTier"             "1"
+    }
     
 
     "tutorial_master"

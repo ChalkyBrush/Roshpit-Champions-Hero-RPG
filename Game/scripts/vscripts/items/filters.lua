@@ -6764,3 +6764,16 @@ function Filters:CalculateTotalCastRangeBonus(hero)
     end
     return range_bonus
 end
+
+function Filters:WinterblightReincarnationDeath(hero, ability) 
+    local respawn_delay = ability:GetSpecialValueFor("respawn_delay")
+    ability:ApplyDataDrivenModifier(hero, hero, "modifier_winterblight_reincarnation_respawning", {duration = respawn_delay})
+    hero:AddNoDraw()
+    FindClearSpaceForUnit(hero, hero:GetAbsOrigin(), false)
+    local particlePosition = hero:GetAbsOrigin()
+    local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf", particlePosition, respawn_delay)
+    ParticleManager:SetParticleControl(pfx, 1, Vector(respawn_delay, respawn_delay, respawn_delay))
+    ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
+    ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
+    StartSoundEvent("Winterblight.Reincarnation.Death", hero)
+end

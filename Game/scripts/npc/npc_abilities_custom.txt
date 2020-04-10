@@ -88394,7 +88394,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40" 
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35" 
 				}
 				"States"
 				{
@@ -88451,7 +88451,53 @@
 		}
 	}
 
-	
+	"winterblight_reincarnation"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityCooldown"				"60 40 20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"respawn_delay"			"3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_reincarnation"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_winterblight_reincarnation_respawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"reincarnation_respawning_end"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+				}
+			}
+		}
+	}
 
 
 	"soul_ferrier_passive"

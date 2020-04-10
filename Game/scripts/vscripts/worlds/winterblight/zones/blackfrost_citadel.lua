@@ -1,5 +1,6 @@
 function Winterblight:OpenWinterblightCastle()
 	if not Winterblight.WinterCastleOpened then
+		Precache:WinterCastle()
 		Winterblight:SetupCastleData()
 		Precache:WinterPart3()
 		for i = 1, #MAIN_HERO_TABLE, 1 do
@@ -334,6 +335,36 @@ function Winterblight:TarotCardSelect(msg)
 	end)
 	Timers:CreateTimer(1, function()
 		local model_name = "models/winterblight/tarot/"..Winterblight.CastleTarot["index"].."-"..Winterblight.CastleTarot["name"]..".vmdl"
-		PrecacheModel(model_name, function(...) end)
+		local function precache_function()
+			PrecacheUnitByNameAsync(model_name, precache_function)	
+		end
 	end)
+end
+
+function Winterblight:CastleLobbySpawn1()
+	local spawnIndex = 1
+	print("SPAWN LOBBY - "..spawnIndex)
+	if spawnIndex == 1 then
+		Timers:CreateTimer(0.2, function()
+			local positionTable = {Vector(13440, 13858), Vector(13952, 13742), Vector(13952, 13440), Vector(13440, 13056)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(13467, 13568) - positionTable[i]):Normalized()
+				Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+			end
+		end)
+		Timers:CreateTimer(1, function()
+			local positionTable = {Vector(14336, 13312), Vector(14592, 13312), Vector(14848, 13312), Vector(15104, 13312), Vector(15360, 13312)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,1)
+				Enemies:SpawnEnemyUnit("winterblight_frozen_cage", positionTable[i], fv, false)
+			end
+		end)
+		Timers:CreateTimer(1, function()
+			local positionTable = {Vector(14208, 13628), Vector(14515, 13628), Vector(14821, 13628), Vector(15135, 13628)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(-1,0)
+				Enemies:SpawnEnemyUnit("winterblight_castle_warrior", positionTable[i], fv, false)
+			end
+		end)
+	end
 end

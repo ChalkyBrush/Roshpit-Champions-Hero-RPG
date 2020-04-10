@@ -712,7 +712,30 @@ end
 
 
 function Precache:WinterPart3()
-	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler", "winterblight_baron_moredi", "winterblight_lich_king_sonder", "winterblight_wrath_queen_asyria", "winterblight_accursed", "winterblight_soul_fletcher", "winterblight_black_gargoyle", "winterblight_draugr", "winterblight_diviner_horus"}
+	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler", "winterblight_baron_moredi", "winterblight_lich_king_sonder", "winterblight_wrath_queen_asyria", "winterblight_accursed", "winterblight_soul_fletcher", "winterblight_black_gargoyle", "winterblight_draugr", "winterblight_diviner_horus", "winterblight_castle_warrior"}
+	local i = 1 
+	local function precache_function()
+		--print("done precaching: "..unitTable[i])
+		i = i+1
+		if i > #unitTable then
+			--print("done precaching units")
+			Timers:CreateTimer(0, function()
+				CustomGameEventManager:Send_ServerToAllClients("finish_precache", {units = 1})
+				return 2
+			end)
+		else
+			--print("precaching "..unitTable[i])
+			local pct = math.floor(i/#unitTable*100)
+			CustomGameEventManager:Send_ServerToAllClients("update_precache", {units = 1, pct = tostring(pct)})
+			PrecacheUnitByNameAsync(unitTable[i], precache_function)
+		end
+	end
+	--print("precaching "..unitTable[i])
+	PrecacheUnitByNameAsync(unitTable[i], precache_function)	
+end
+
+function Precache:WinterCastle()
+	local unitTable = {"winterblight_snowvil_brute", "winterblight_mountain_tree", "winterblight_snowvil_shaman",  "winterblight_composed_rubble", "winterblight_owl_sentry", "winterblight_haunter", "winterblight_hinterlands_guardian", "winterblight_demonoid", "winterblight_yozario", "winterblight_mountain_tombstone", "winterblight_frozen_soul",  "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_frozen_phantom", "winterblight_frozen_cage", "winterblight_frozen_mage", "winterblight_skeleton_archer", "winterblight_defiler", "winterblight_baron_moredi", "winterblight_lich_king_sonder", "winterblight_wrath_queen_asyria", "winterblight_accursed", "winterblight_soul_fletcher", "winterblight_black_gargoyle", "winterblight_draugr", "winterblight_diviner_horus", "winterblight_castle_warrior"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])
