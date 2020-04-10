@@ -1515,13 +1515,21 @@ function azalea_sorc_think(event)
 			end
 			local avgVector = sumVector / #enemies
 			local forceDirection = ((casterOrigin - avgVector) * Vector(1, 1, 0)):Normalized()
+
 			CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/sorceress_dash.vpcf", caster, 1.2)
 			EmitSoundOn("Winterblight.AzaleaSorceress.Kite", caster)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_trickster_dashing", {duration = 0.66})
 			StartAnimation(caster, {duration = 0.8, activity = ACT_DOTA_SPAWN, rate = 1})
 			for i = 1, 22, 1 do
 				Timers:CreateTimer(i * 0.03, function()
-					caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * 14)
+					local speed = 14
+					local blockSearch = caster:GetAbsOrigin() + forceDirection*speed
+					local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+					local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, blockSearch, caster)
+					if blockUnit then
+						speed = 0
+					end
+					caster:SetAbsOrigin(caster:GetAbsOrigin() + forceDirection * speed)
 				end)
 			end
 			Timers:CreateTimer(0.66, function()

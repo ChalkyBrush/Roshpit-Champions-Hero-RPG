@@ -83674,7 +83674,7 @@
 				"var_type"			"FIELD_FLOAT"
 				"paralyze_duration"			"0.1"
 			}
-			"02"
+			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"percent_attack_power"			"50"
@@ -88386,6 +88386,60 @@
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
+			"modifier_winter_castle_room_unit"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_room_unit_die"
+					}
+				}
+			}
+			"modifier_winter_castle_key_entering"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_key_entering_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_winter_castle_key_waiting"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.35"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_key_waiting_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_winter_castle_key_acquired"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_key_acquired_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 			"modifier_winterblight_diviner_passive"
 			{
 				"IsPurgable"	"0"
@@ -88495,6 +88549,114 @@
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
+			}
+		}
+	}
+
+	"winterblight_reaper_swipe"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_atk_power"			"20 40 60"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_max_health"			"1 2 4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_reaper_swipe"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"reaper_swipe_attack_land"
+						"damage_pct_atk_power"	"%damage_pct_atk_power"
+						"damage_pct_max_health"	"%damage_pct_max_health"
+					}
+				}
+			}
+		}
+	}
+
+	"elite_ghoul_ai"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tiny_craggy_exterior"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_elite_ghoul_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "2"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"elite_ghoul_think"
+						"base_damage"	"%base_damage"
+						"paralyze_duration"	"%paralyze_duration"
+					}
+				}
+			}
+			"modifier_cavern_spark_paralyze"
+			{
+				"IsHidden"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
+				"StatusEffectPriority"	"120"
+			}
+			"modifier_cavern_spark_paralyze_immunity"
+			{
+				"IsHidden"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"			"100 500 1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"paralyze_duration"			"0.2"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
+				"Function"		"cavern_spark_impact"
+				"target"		"TARGET"
 			}
 		}
 	}

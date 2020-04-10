@@ -709,3 +709,7 @@ function Enemies:SetupAI(unit)
 		unit.ai_data["RoshpitDeathSound"] = unit:GetKeyValue("RoshpitDeathSound")
 	end
 end
+
+function Enemies:ApplyDamageToPlayer(victim, attacker, damage, damage_type, ability)
+	ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability})
+end
