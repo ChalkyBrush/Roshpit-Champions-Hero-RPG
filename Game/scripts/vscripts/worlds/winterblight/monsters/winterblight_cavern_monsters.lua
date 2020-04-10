@@ -3042,6 +3042,7 @@ end
 
 function tiamat_fly_out_phase(event)
 	local caster = event.caster
+	local target = event.target
 	local ability = event.ability
 	ability.flyout_phase_interval = ability.flyout_phase_interval + 1
 	caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.001)
@@ -3055,12 +3056,12 @@ function tiamat_fly_out_phase(event)
 		end
 	elseif ability.flyout_main_phase == 1 then
 		if ability.flyout_phase_interval%40 == 0 then
-			for i = 1, #MAIN_HERO_TABLE, 1 do
+			local hero_targets = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 6000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+			if #hero_targets > 0 then
 				local eventTable = {}
 				eventTable.caster = caster
 				eventTable.ability = caster:FindAbilityByName("tiamat_fire_breath")
-				eventTable.target_points = {}
-				eventTable.target_points[1] = MAIN_HERO_TABLE[i]:GetAbsOrigin()
+				eventTable.target_points = hero_targets[1]:GetAbsOrigin()
 				tiamat_fire_finish_channel(eventTable)
 			end
 		end

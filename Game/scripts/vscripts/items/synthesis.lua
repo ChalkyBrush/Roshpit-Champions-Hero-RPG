@@ -505,7 +505,8 @@ end
 function RPCItems:RollRandomArcanaCachePart(position)
 	local partNameTable = {"item_rpc_galactic_arcana_cache_piece_1", "item_rpc_galactic_arcana_cache_piece_2"}
 	local part_name = partNameTable[RandomInt(1, 2)]
-	local item = RPCItems:DropGalacticArcanaCachePart(part_name, position)
+	local item_level = math.max(math.min(RPCItems:GetLogarithmicVarianceValue(80, 0, 0, 0, 0), 120), 85)
+	local item = RPCItems:DropGalacticArcanaCachePart(part_name, position, item_level)
 	return item
 end
 
