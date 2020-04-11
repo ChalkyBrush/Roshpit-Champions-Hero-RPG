@@ -11669,7 +11669,7 @@
 
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает Физическое и Магическое Пробития. Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"%<font color=\"#f4b942\">УСИЛЕНИЕ ПРОБИТИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"<font color=\"#f4b942\">УСИЛЕНИЕ ПРОБИТИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"УВЕЛИЧЕНИЕ БАЗОВОЙ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
@@ -11712,7 +11712,7 @@
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_radius"				"РАДИУС:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_cast_range"			"ДАЛЬНОСТЬ КАСТА:"
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_max_portals_base"		"БАЗОВОЕ ЧИСЛО ПОРТАЛОВ:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_e_q_4_armor"			"<font color=\"#7DFF12\">[Q4] Дополнительная броня при нахождении внутри портала</font>:"		
+	"DOTA_Tooltip_ability_jex_nature_cosmic_e_q_4_armor"			"<font color=\"#7DFF12\">[Q4] Дополнительная Броня и Маг.Защита при нахождении внутри портала</font>:"		
 	"DOTA_Tooltip_ability_jex_nature_cosmic_e_e_4_mana_regen"		"<font color=\"#7DFF12\">[E4] Дополнительная регенерация маны при нахождении внутри портала</font>:"	
 
 	"DOTA_Tooltip_modifier_jex_portal_aura_inside"			"Earth's Gate"

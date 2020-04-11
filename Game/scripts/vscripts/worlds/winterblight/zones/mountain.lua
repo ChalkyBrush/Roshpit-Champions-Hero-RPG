@@ -481,6 +481,7 @@ end
 function Winterblight:EvilExplosion(position)
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/winterblight/evil_explosion.vpcf", position, 8)
 	ParticleManager:SetParticleControl(pfx, 1, Vector(1,0,0))
+	ParticleManager:SetParticleControl(pfx, 11, Vector(0.5,0,0))
 end
 
 function Winterblight:InitOutsideCastleSwitch()

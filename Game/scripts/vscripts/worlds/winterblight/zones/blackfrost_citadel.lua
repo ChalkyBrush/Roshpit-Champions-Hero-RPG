@@ -295,8 +295,9 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][1]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][1]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][1]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][1]["extra_goal"] = 0
-		Winterblight.CASTLE_DATA["rooms"][1]["key_positions"] = {Vector(11264,15232)}
+		Winterblight.CASTLE_DATA["rooms"][1]["extra_goal"] = 9
+		Winterblight.CASTLE_DATA["rooms"][1]["key_positions"] = {Vector(11264,15232), Vector(12544, 15232)}
+		Winterblight.CASTLE_DATA["rooms"][1]["cleared"] = 0
 
 		-- cellar
 		Winterblight.CASTLE_DATA["rooms"][2] = {}
@@ -306,6 +307,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][2]["enemies_slain"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][2]["key_positions"] = {Vector(15488,1600)}
+		Winterblight.CASTLE_DATA["rooms"][2]["cleared"] = 0
 end
 
 function Winterblight:InitCastleProps()
@@ -590,13 +592,18 @@ end
 function Winterblight:SpawnCastleRoomByIndex(index, variant)
 	if index == 1 then
 		Winterblight:SpawnCastleRoom1(variant)
+	elseif index == 2 then
+		Winterblight:SpawnCastleRoom2(variant)
 	end
 end
 
-function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, aggro)
-	Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
+function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, aggro, bIgnoreCounter)
+	if bIgnoreCounter then
+	else
+		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
+	end
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
-	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, false)
+	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
 	enemy.room_index = room_index
 	return enemy
@@ -616,32 +623,102 @@ function Winterblight:SpawnCastleRoom1(variant)
 					local x_spacing = 188
 					local y_spacing = 148
 					local base_pos = Vector(13312, 14976)
-					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)	
+		Timers:CreateTimer(1.4, function()
+			for i = 0, 2, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(1,0)
+					local x_spacing = 600
+					local y_spacing = 210
+					local base_pos = Vector(11858, 15183)
+					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elite_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
 				end
 			end
 		end)		
+		Timers:CreateTimer(2.4, function()
+			for i = 0, 4, 1 do
+				for j = 0, 0, 1 do
+					local fv = Vector(1,0)
+					local x_spacing = 200
+					local y_spacing = 0
+					local base_pos = Vector(12096, 14896)
+					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_frozen_cage", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(4, function()
+			local positionTable = {Vector(12160, 15744), Vector(12160, 16000), Vector(12920, 16000), Vector(12920, 15744)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_skull_ripper", positionTable[i], fv, false, false)
+			end
+		end)
+		Timers:CreateTimer(5, function()
+			local positionTable = {Vector(13568, 15820), Vector(13824, 15763), Vector(14052, 15847), Vector(13824, 16000)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
+			end
+		end)
+		Timers:CreateTimer(7, function()
+			local positionTable = {Vector(11136, 14976), Vector(11136, 15232), Vector(11136, 15500)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(1,0)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
+			end
+		end)
+		Timers:CreateTimer(8, function()
+			local positionTable = {Vector(11330, 16000), Vector(11136, 15744)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(1,-1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elite_castle_warrior", positionTable[i], fv, false, false)
+			end
+			Winterblight.ActiveCastleRoom["active"] = 2
+		end)
+	end
+end
+
+function Winterblight:SpawnCastleRoom2(variant)
+	local room_index = 2
+	if variant == 1 then
+		-- Timers:CreateTimer(1, function()
+		-- 	for i = 0, 3, 1 do
+		-- 		for j = 0, 1, 1 do
+		-- 			local fv = Vector(0,-1)
+		-- 			local x_spacing = 188
+		-- 			local y_spacing = 148
+		-- 			local base_pos = Vector(13312, 14976)
+		-- 			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+		-- 		end
+		-- 	end
+		-- end)		
 	end
 end
 
 function Winterblight:SpawnRoomKey(room_index)
 	local position = Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"][RandomInt(1, #Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"])]
-	local key = CreateUnitByName("npc_flying_dummy_vision", position, false, nil, nil, DOTA_TEAM_GOODGUYS)
+	local key = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 	key:SetDayTimeVisionRange(300)
 	key:SetNightTimeVisionRange(300)
-	key:SetModel("models/props_gameplay/aghanim_scepter.vmdl")
-	key:SetOriginalModel("models/props_gameplay/aghanim_scepter.vmdl")
+	key:SetModel("models/gameplay/prison_key.vmdl")
+	key:SetOriginalModel("models/gameplay/prison_key.vmdl")
 	key:SetAbsOrigin(key:GetAbsOrigin() + Vector(0,0,1000))
 	StartAnimation(key, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1})
 
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_entering", {})
 
-	local groundPos = GetGroundPosition(key:GetAbsOrigin(), key)
-	local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti8/hero_levelup_ti8_godray.vpcf", groundPos, 5)
+	local groundPos = GetGroundPosition(key:GetAbsOrigin(), key) + Vector(0,0,20)
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/spotlight_colorable.vpcf", groundPos, 5)
 	ParticleManager:SetParticleControl(pfx, 1, groundPos + Vector(0,0,3000))
 	ParticleManager:SetParticleControl(pfx, 2, groundPos)
-	EmitSoundOn("Winterblight.KeySpawn", key)
-
+	ParticleManager:SetParticleControl(pfx, 3, Vector(0.2, 0.4, 0.8))
+	-- EmitSoundOn("Winterblight.KeySpawn", key)
+	EmitSoundOn("Winterblight.KeySpawn1", key)
 	key:FindAbilityByName("dummy_unit"):SetLevel(1)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, key:GetAbsOrigin(), 300, 10, false)
 end
 

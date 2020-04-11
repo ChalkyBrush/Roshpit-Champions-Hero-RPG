@@ -129,6 +129,44 @@ function diviner_think(event)
 			StopSoundEvent("Winterblight.HorusHYPE", caster)
 		end)
 	end
+
+	-- ROOM 1 THINKER
+	if Winterblight.CASTLE_DATA["rooms"][1]["active"] >= 1 and Winterblight.CASTLE_DATA["rooms"][1]["cleared"] == 0 then
+		if not caster.graveyard then
+			caster.graveyard = {0, 0, 0}
+		end
+		for i = 1, #caster.graveyard, 1 do
+			if caster.graveyard[i] == 0 then
+				local position = Vector(11775, 15918) + Vector((i-1)*769, 0)
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					caster.graveyard[i] = 1
+					local dirt_mound = Entities:FindByNameNearest("CastleBurialMound", position + Vector(0,0,1600), 600)
+					Events:objectShake(dirt_mound, 120, 6, true, false, true, "Winterblight.DirtMoundShake", 20)
+					Timers:CreateTimer(2, function()
+						Events:smoothTranslate(dirt_mound, Vector(0,0,-0.74), 160, Vector(0,0), nil)
+					end)
+					local ground_position = GetGroundPosition(position, Events.GameMaster)
+					for mud_count = 0, 10, 1 do
+						Timers:CreateTimer(mud_count*0.4, function()
+							for mudx = 0, 1, 1 do
+								for mudy = 0, 2, 1 do
+									local mud_position = ground_position + Vector((mudx-0.5)*120, (mudy-0.5)*150, - 70)
+									CustomAbilities:QuickParticleAtPoint("particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf", mud_position, 4)
+								end
+							end
+						end)
+					end
+					Timers:CreateTimer(3.6, function()
+						for j = -1, 1, 1 do
+							local skeleton = Winterblight:SpawnCastleRoomUnit(1, "winterblight_grave_skeleton", position + Vector(0, j*240), RandomVector(1), true, true)
+							CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", skeleton:GetAbsOrigin(), 4)
+						end
+					end)
+				end		
+			end	
+		end
+	end
 end
 
 function winterblight_castle_dungeon_master_main_thinker(event)
@@ -274,7 +312,7 @@ function castle_room_unit_die(event)
 	local unit = event.unit
 	Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] = Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] + 1
 	if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][1]["extra_goal"] then
-		if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] >= 0 then
+		if Winterblight.ActiveCastleRoom["active"] >= 2 then
 			Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
 		end
 	end
@@ -282,28 +320,45 @@ end
 
 function castle_key_entering_think(event)
 	local key = event.target
+	if not key.fallSpeed then
+		key.fallSpeed = 12
+	end
 	local distanceFromGround = key:GetDistanceFromGround()
-	if distanceFromGround > 300 then
-		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,10))
-	elseif distanceFromGround > 60 then
-		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,5))
+	key.fallSpeed = math.max(key.fallSpeed - 0.1, 7)
+	if distanceFromGround > 75 then
+		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,key.fallSpeed))
 	else
+		EmitSoundOn("Winterblight.GhostBlink", key)
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/treasure_explosion_colorable.vpcf", key:GetAbsOrigin(), 3)
+		ParticleManager:SetParticleControl(pfx, 4, Vector(0.3, 0.8, 0.6))
 		key:RemoveModifierByName("modifier_winter_castle_key_entering")
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_waiting", {})
+	end
+	if not key.soundPlayed then
+		if distanceFromGround < 140 then
+			EmitSoundOn("Winterblight.KeySpawn.Land", key)
+			key.soundPlayed = true
+		end
 	end
 end
 
 function castle_key_waiting_think(event)
 	local key = event.target
-	local allies = FindUnitsInRadius( key:GetTeamNumber(), key:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false )	
+	local allies = FindUnitsInRadius( key:GetTeamNumber(), key:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, key:GetAbsOrigin(), 300, 1, false)
 	if #allies > 0 then
 		key.acquiring_hero = allies[1]
-		CustomAbilities:QuickAttachParticle("particles/econ/events/frostivus/frostivus_tree_cast.vpcf", allies[1], 5)
+		-- CustomAbilities:QuickAttachParticle("particles/econ/events/frostivus/frostivus_tree_cast.vpcf", allies[1], 5)
+		EmitSoundOn("Winterblight.EvilExplosion.Highlight", allies[1])
+		-- CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", key:GetAbsOrigin(), 3)
+		Winterblight:EvilExplosion(key:GetAbsOrigin())
 		EmitSoundOn("Winterblight.KeyCollect", key)
+		EmitSoundOn("Winterblight.KeyCollect1", allies[1])
 		key:RemoveModifierByName("modifier_winter_castle_key_waiting")
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_acquired", {})
+		Winterblight.ActiveCastleRoom["cleared"] = 1
 		Winterblight.CASTLE_DATA["rooms_cleared"] = Winterblight.CASTLE_DATA["rooms_cleared"] + 1
 		Winterblight:CastleNextRoomInit()
 	end
@@ -311,17 +366,31 @@ end
 
 function castle_key_acquired_think(event)
 	local key = event.target
+	if key.disabled then
+		return false
+	end
 	if not key.collected_interval then
 		key.collected_interval = 0
 		key.liftSpeed = 12
 	end
-	key:SetAbsOrigin(key.acquiring_hero:GetAbsOrigin()+Vector(0,0,200))
+	
 	key.collected_interval = key.collected_interval + 1
-	if key.collected_interval > 60 then
-		key.liftSpeed = key.liftSpeed+0.2
+	if key.collected_interval > 90 then
+		local hero_position = key.acquiring_hero:GetAbsOrigin()
+		key.liftSpeed = math.min(key.liftSpeed+0.2, 35)
 		key:SetAbsOrigin(key:GetAbsOrigin() + Vector(0,0,key.liftSpeed) )
+	else
+		key:SetAbsOrigin(key.acquiring_hero:GetAbsOrigin()+Vector(0,0,200))
 	end
-	if key.collected_interval == 140 then
-		UTIL_Remove(key)
+	if key.collected_interval == 92 then
+		CustomAbilities:QuickAttachParticle("particles/econ/events/frostivus/frostivus_tree_cast.vpcf", key, 5)
+		EmitSoundOn("Winterblight.KeyCollect.Exit", key)
+	end
+	if key.collected_interval == 180 then
+		key:RemoveModifierByName("modifier_winter_castle_key_acquired")
+		key.disabled = true
+		Timers:CreateTimer(0.03, function()
+			UTIL_Remove(key)
+		end)
 	end
 end

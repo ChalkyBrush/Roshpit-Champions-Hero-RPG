@@ -7635,6 +7635,10 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%e_4_mana_regen"
 				}
 			}
+			"modifier_jex_portal_armor"
+			{
+				"IsHidden"	"1"			
+			}
 			"modifier_jex_portal_teleporting"
 			{
 				"Passive"			"0"

@@ -735,7 +735,7 @@ function Precache:WinterPart3()
 end
 
 function Precache:WinterCastle()
-	local unitTable = {"winterblight_diviner_horus", "winterblight_castle_warrior", "winterblight_castle_watchman", "winterblight_skull_ripper", "winterblight_elite_ghoul"}
+	local unitTable = {"winterblight_diviner_horus", "winterblight_castle_warrior", "winterblight_castle_watchman", "winterblight_skull_ripper", "winterblight_elite_ghoul", "winterblight_elite_castle_warrior", "winterblight_grave_skeleton"}
 	local i = 1 
 	local function precache_function()
 		--print("done precaching: "..unitTable[i])
