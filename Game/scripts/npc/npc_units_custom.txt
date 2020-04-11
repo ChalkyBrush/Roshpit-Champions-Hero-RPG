@@ -107061,6 +107061,309 @@
         "RoshpitColorRenderG"   "180"
         "RoshpitColorRenderB"   "255"   
     }
+
+    "winterblight_cellar_spider_mother"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/broodmother/broodmother.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "180"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
+            "particle"  "particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_VenomancerWard"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1255"
+        "AttackDamageMax"   "1455"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "165"
+        "BountyGoldMin" "55"
+        "BountyGoldMax" "60"
+        "BountyXP" "2500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "7800"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_venomous_bite"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "566"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9562"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9797"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9807"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9804"
+                }
+
+            }
+        }
+        "RoshpitArmor"          "250"
+        "RoshpitArmorPierce"    "660"
+        "RoshpitSpellPierce"    "410"
+        "RoshpitMagicArmor"     "120"
+        "RoshpitLevel"          "35"
+        "RoshpitDominion"       "1"
+        "RoshpitAggroSound"     "Winterblight.SpiderMother.Aggro"
+        "RoshpitDeathSound"     "Winterblight.SpiderMother.Die"
+        "EnemyTier"             "1"
+        "RoshpitAIFightJuke"    "2"
+    }
+
+    "winterblight_spider_egg_sack"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model"  "models/winterblight/spider_egg_unit.vmdl"
+        "SoundSet"  "Creep_Good_Range"
+        "Level" "1"
+        "UnitLabel" "healing_ward"
+        "ModelScale"    "1.00"
+        "Ability1"  "winterblight_egg_sack_ability"
+        "Ability2"  ""
+        "Ability3"  ""
+        "Ability4"  ""
+        "Ability5"  ""
+        "Ability6"  ""
+        "Ability7"  ""
+        "Ability8"  ""
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "ProjectileModel"   "particles/econ/items/crystal_maiden/ti7_immortal_shoulder/cm_ti7_immortal_base_attack.vpcf"
+        "ProjectileSpeed"   "600"
+        "AttackDamageMin"   "0"
+        "AttackDamageMax"   "0"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"    "3"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1000"
+        "ProjectileSpeed"   "900"
+        "BountyXP"  "0"
+        "BountyGoldMin" "0"
+        "BountyGoldMax" "0"
+        "RingRadius"    "0"
+        "HasInventory"  "0"
+        "CollisionSize" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "220"
+        "MovementTurnRate"  "2"
+        "FollowRange"   "0"
+        "StatusHealth"  "2000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "VisionDaytimeRange"    "0"
+        "VisionNighttimeRange"  "0"
+        "AttackDesire"  "1.5"
+        "RoshpitArmor"          "380"
+        "RoshpitArmorPierce"    "0"
+        "RoshpitSpellPierce"    "0"
+        "RoshpitMagicArmor"     "380"
+        "RoshpitLevel"          "32"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "1"
+    }
+
+    "winterblight_egg_spider"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/broodmother/spiderling/ti8_brood_the_great_arachne_spiderling/ti8_brood_the_great_arachne_spiderling.vmdl"
+        "ModelScale"    "0.72"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "240"
+        "AttackDamageMax"   "240"
+        "AttackRate"    "0.6"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "200"
+        "AttackRange"   "120"
+        "BountyGoldMin" "12"
+        "BountyGoldMax" "14"
+        "BountyXP" "14"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3300"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"  "armor_break"
+        "RoshpitArmor"          "210"
+        "RoshpitArmorPierce"    "420"
+        "RoshpitSpellPierce"    "210"
+        "RoshpitMagicArmor"     "240"
+        "RoshpitLevel"          "36"
+        "RoshpitDominion"       "1"
+        "RoshpitAggroSound"     "Winterblight.Spiderling.Aggro"
+        "EnemyTier"             "1"
+    }
+
+    "winterblight_invading_spider"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/broodmother/spiderling/elder_blood_heir_of_elder_blood/elder_blood_heir_of_elder_blood.vmdl"
+        "ModelScale"    "0.62"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "160"
+        "AttackDamageMax"   "170"
+        "AttackRate"    "0.6"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "200"
+        "AttackRange"   "120"
+        "BountyGoldMin" "12"
+        "BountyGoldMax" "14"
+        "BountyXP" "14"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "370"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "3500"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "Ability1"  "winterblight_blood_might_passive"
+        "RoshpitArmor"          "296"
+        "RoshpitArmorPierce"    "360"
+        "RoshpitSpellPierce"    "110"
+        "RoshpitMagicArmor"     "160"
+        "RoshpitLevel"          "36"
+        "RoshpitDominion"       "1"
+        "PitCreep"              "0"
+        "RoshpitAggroSound"     "Winterblight.Spiderling.Aggro2"
+        "EnemyTier"             "1"
+    }
     
 
     "tutorial_master"

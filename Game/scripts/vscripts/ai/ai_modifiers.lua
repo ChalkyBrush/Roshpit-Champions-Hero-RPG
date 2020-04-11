@@ -57,3 +57,19 @@ function ai_death_sound(event)
 	local unit = event.unit
 	EmitSoundOn(unit.ai_data["RoshpitDeathSound"], unit)
 end
+
+function ai_climb_think(event)
+	local unit = event.target
+
+	local caster = event.caster
+	local ability = event.ability
+
+	unit:SetAbsOrigin(unit:GetAbsOrigin()+unit.crawlVector)
+	local distance_from_ground = unit:GetDistanceFromGround()
+	if distance_from_ground < 30 and distance_from_ground > -30 then
+		unit:RemoveModifierByName("ai_crawling_enter")
+		unit:SetAngles(0, 0, 0)
+		FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
+		Dungeons:AggroUnit(unit)
+	end
+end

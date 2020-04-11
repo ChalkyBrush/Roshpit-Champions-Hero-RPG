@@ -311,9 +311,59 @@ end
 function castle_room_unit_die(event)
 	local unit = event.unit
 	Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] = Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] + 1
-	if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][1]["extra_goal"] then
+	-- print("----")
+	-- print("ROOM UNIT DIE - Room: "..unit.room_index..", Total Slain: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"])
+	-- print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
+	-- print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
+	if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
 		if Winterblight.ActiveCastleRoom["active"] >= 2 then
 			Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
+		end
+	end
+
+	if not unit.deathCode then
+		return true
+	end
+	-- CELLAR
+	if unit.deathCode == "invading_spiderling" then
+		Winterblight.CastleDungeonMaster.spider_invade_kills = Winterblight.CastleDungeonMaster.spider_invade_kills + 1
+		if Winterblight.CastleDungeonMaster.spider_invade_kills == 15 then
+			for i = 1, 10, 1 do
+				Timers:CreateTimer(0.7*i, function()
+					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
+					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider.deathCode = "invading_spiderling"
+				end)
+			end
+			for i = 1, 10, 1 do
+				Timers:CreateTimer(0.7*i, function()
+					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
+					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider.deathCode = "invading_spiderling"
+				end)
+			end
+		elseif Winterblight.CastleDungeonMaster.spider_invade_kills == 34 then
+			for i = 1, 10, 1 do
+				Timers:CreateTimer(0.7*i, function()
+					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
+					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider.deathCode = "invading_spiderling"
+				end)
+			end
+			for i = 1, 10, 1 do
+				Timers:CreateTimer(0.7*i, function()
+					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
+					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider.deathCode = "invading_spiderling"
+				end)
+			end
+			Timers:CreateTimer(6.5, function()
+				Winterblight.CASTLE_DATA["rooms"][2]["active"] = 2
+			end)
 		end
 	end
 end
@@ -392,5 +442,55 @@ function castle_key_acquired_think(event)
 		Timers:CreateTimer(0.03, function()
 			UTIL_Remove(key)
 		end)
+	end
+end
+
+function winterblight_venomous_bite_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	target:ApplyAndIncrementStack(ability, caster, "modifier_winterblight_venomous_bite_effect", 1, event.max_stacks, event.duration)
+end
+
+function winterblight_venomous_bite_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local stacks = target:GetModifierStackCount("modifier_winterblight_venomous_bite_effect", caster)
+	local damage = event.damage*stacks
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
+end
+
+function winter_egg_sack_die(event)
+	local caster = event.caster
+
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_life_stealer/life_stealer_infest_emerge_bloody.vpcf", caster:GetAbsOrigin(), 5)
+	EmitSoundOn("Winterblight.SpiderSack.Die", caster)
+	local baseFV = caster:GetForwardVector()
+	for i = 1, 5, 1 do
+		local jumpFV = WallPhysics:rotateVector(baseFV, 2*math.pi*i/5)
+		local spider = Winterblight:SpawnCastleRoomUnit(caster.room_index, "winterblight_egg_spider", caster:GetAbsOrigin(), RandomVector(1), true, true)
+		WallPhysics:JumpWithBlocking(spider, jumpFV, RandomInt(14, 16), RandomInt(10, 12), 20, 1)
+	end
+	Events:smoothTranslate(caster, Vector(0,0,-4), 60, Vector(0,0), nil)
+	Events:smoothSizeChange(caster, 1, 0.3, 30)
+	if not Winterblight.CastleDungeonMaster.spider_invade_kills then
+		Winterblight.CastleDungeonMaster.spider_invade_kills = 0
+		for i = 1, 10, 1 do
+			Timers:CreateTimer(0.7*i, function()
+				local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
+				local spider = Winterblight:SpawnCastleRoomUnit(caster.room_index, "winterblight_invading_spider", position, RandomVector(1), false, false)
+				spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+				spider.deathCode = "invading_spiderling"
+			end)
+		end
+		for i = 1, 10, 1 do
+			Timers:CreateTimer(0.7*i, function()
+				local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
+				local spider = Winterblight:SpawnCastleRoomUnit(caster.room_index, "winterblight_invading_spider", position, RandomVector(1), false, false)
+				spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+				spider.deathCode = "invading_spiderling"
+			end)
+		end
 	end
 end

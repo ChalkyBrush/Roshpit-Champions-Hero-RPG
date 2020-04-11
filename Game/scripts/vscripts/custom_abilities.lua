@@ -1055,3 +1055,22 @@ function CustomAbilities:RubilashPaintRoshpitAttributes(unit, roshpit_attribute)
 	end	
 	return modify
 end
+
+function CDOTA_BaseNPC:CrawlEnter(position, direction2d, climbDirection, offset, speed)
+	position = GetGroundPosition(position, self)
+	self:SetAbsOrigin(position+Vector(0,0,offset))
+	Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, self, "ai_crawling_enter", {})
+	
+
+	local yAngle = WallPhysics:vectorToAngle(direction2d)
+
+	local xAngle = -90
+	if climbDirection == "up" then
+		xAngle = -90
+	elseif climbDirection == "down" then
+		xAngle = 90
+	end
+	self:SetAngles(xAngle, yAngle, 0)
+
+	self.crawlVector = Vector(0,0,(-xAngle/90)*speed)
+end

@@ -16259,3 +16259,100 @@
 			}
 		}
 	}
+
+	"winterblight_venomous_bite"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_tick_per_stack"			"20 60 240"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_slow_per_stack"			"-2 -4 -6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"6"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"6.0"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_interval"			"0.1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_venomous_bite"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winterblight_venomous_bite_attack_land"
+						"max_stacks"	"%max_stacks"
+						"duration"		"%duration"
+					}
+				}
+			}
+			"modifier_winterblight_venomous_bite_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow_per_stack" 
+				}
+				"ThinkInterval"  "%damage_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winterblight_venomous_bite_effect_think"
+						"damage"		"%damage_per_tick_per_stack"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_egg_sack_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"winter_egg_sack_die"
+			}
+		}
+
+	}
