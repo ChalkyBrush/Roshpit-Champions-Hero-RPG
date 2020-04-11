@@ -23,6 +23,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetreads"									"沙丘之靴"
         "item_rpc_dunetreads_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
         "item_rpc_dunetreads_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
         "item_rpc_dunetreads_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
         "item_rpc_dunetreads_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
@@ -175,6 +176,8 @@
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
 		"item_property_voyager_boots"						"航海家"
         "property_voyager_boots_description"              "每移动 <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> 距离降低所有其他技能的冷却时间降低数值为<% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>%的技能的基础冷却时间"
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "释放 [E] 后，降低其他技能的冷却时间，数值为 @ruby_property1% 技能基础冷却时间"
         "item_rpc_voyager_boots_emerald1"                                   "每有一个技能处于冷却中时，你的移动速度和最大移动速度将会提高 @emerald_property1"
         "item_rpc_voyager_boots_sapphire1"                                  "每有一个技能不在冷却中时，你的攻击力将会提高 @sapphire_property1% 攻击力加成，每一个非冷却状态技能都会增加一层这个效果"
@@ -469,18 +472,20 @@
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"
+		"item_property_iron_treads_of_destruction"					"快速释放"
+		"property_iron_treads_of_destruction_description"			"@Ability4 不需要持续施法就可以释放。"
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 		"item_rpc_iron_treads_of_destruction_ruby1"	"增加 [R] 的基础技能伤害 @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"增加所有 [R] 的符文数 @emerald_property1"
 		"item_rpc_iron_treads_of_destruction_sapphire1"	"增加全属性 @sapphire_property1"
 		"item_rpc_iron_treads_of_destruction_amethyst1"	"降低 [R] 的冷却时间 @amethyst_property1%"
-		"item_property_iron_treads_of_destruction"					"快速释放"
-		"property_iron_treads_of_destruction_description"			"@Ability4 不需要持续施法就可以释放。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "风暴漫步者之靴"
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
         "property_storm_pacer_sabatons_description"                 "释放 @Ability3后，你将会释放一个范围为 <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>的静电之环，对敌人造成2次伤害，一次在扩散时，一次在收缩时。伤害为<% ITEM_RPC_STORM_PACER_SABATONS_DMG_ATK_POWER_PCT %>% 的攻击力，元素为你最后一次造成的伤害的元素。内置冷却时间 <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %> 秒。"
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "增加静电之环的范围 @ruby_property1 以及他的伤害 @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "静电之环对边缘的敌人造成的伤害将会提高 @emerald_property1x ，这个伤害加成与敌人与静电之环的中心的距离有关，随着距离的减少而递减。"

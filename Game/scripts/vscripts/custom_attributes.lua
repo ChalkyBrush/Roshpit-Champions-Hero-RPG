@@ -3934,6 +3934,11 @@ function CDOTA_BaseNPC_Hero:GetTooltips()
 	--R TOOLTIPS--
 	--------------
 	local rTooltips = self:GetTooltipsFor('GetRoshpitTooltipR', MODIFIER_ROSHPIT_TOOLTIP_R)
+
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		table.insert(rTooltips, { channeltime = r_ability:GetChannelTime() })
+	end
 	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_R_SLOT, rTooltips)
 end
 

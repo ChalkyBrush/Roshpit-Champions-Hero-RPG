@@ -2,14 +2,14 @@ require('heroes/legion_commander/mountain_protector_constants')
 require('heroes/base_ability')
 mountain_protector_steelforge_stance = class(base_ability)
 
-function mountain_protector_steelforge_stance:GetBaseManaCost(level)
+function mountain_protector_steelforge_stance:GetManaCostBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
     return MOUNTAIN_PROTECTOR_ARCANA1_W_MANA_COST[level + 1]
 end
 
-function mountain_protector_steelforge_stance:GetBehavior()
+function mountain_protector_steelforge_stance:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_TOGGLE
 end
 
@@ -21,7 +21,7 @@ function mountain_protector_steelforge_stance:GetCastPoint()
     return 0
 end
 
-function mountain_protector_steelforge_stance:GetBaseCooldown(level)
+function mountain_protector_steelforge_stance:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end

@@ -413,6 +413,8 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"火法术手套"	
     	"item_rpc_spellfire_gloves_ruby1"								"施放 [Q], [W] 或 [E] 基础技能有 @ruby_property1% 概率额外施放一次（无冷却时间和施法点），有一个 <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %> 秒的延迟时间"
+		"item_rpc_spellfire_gloves_ability_ruby_tooltip"				"@ruby_property1% chance to be cast again with no cooldown or cast time after a delay of <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %>s."
+		
     	"item_rpc_spellfire_gloves_emerald1"								"降低基础技能的冷却时间 @emerald_property1%"
     	"item_rpc_spellfire_gloves_sapphire1"								"提高所有 T3 符文@sapphire_property1"
     	"item_rpc_spellfire_gloves_amethyst1"								"[R] 的持续施法在还有 @amethyst_property1 秒完成的时候就能释放完毕"

@@ -1,11 +1,11 @@
 require('heroes/antimage/arkimus_orbital_leap')
 arkimus_energy_field = class(base_ability)
 
-function arkimus_energy_field:GetBaseManaCost(level)
+function arkimus_energy_field:GetManaCostBase(level)
     return 0
 end
 
-function arkimus_energy_field:GetBehavior()
+function arkimus_energy_field:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
@@ -17,7 +17,7 @@ function arkimus_energy_field:GetCastPoint()
     return 0
 end
 
-function arkimus_energy_field:GetBaseCooldown(level)
+function arkimus_energy_field:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
@@ -32,7 +32,7 @@ function arkimus_energy_field:GetTexture()
     return "arkimus/arkimus_energy_field"
 end
 
-function arkimus_energy_field:GetBaseChannelTime()
+function arkimus_energy_field:GetChannelTimeBase()
     return ARKIMUS_R_CHANNEL_TIME
 end
 
@@ -40,7 +40,7 @@ function arkimus_energy_field:GetCastAnimation()
     return ACT_DOTA_TELEPORT
 end
 
-function arkimus_energy_field:OnSpellStart()
+function arkimus_energy_field:OnSpellStartBase()
     local hero = self:GetCaster()
     local ability = self
     hero:AddNewModifier(hero, ability, "modifier_arkimus_channeling", {})

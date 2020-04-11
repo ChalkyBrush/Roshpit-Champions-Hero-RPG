@@ -487,6 +487,8 @@ function GameMode:OnPlayerChat(keys)
 				Events:SerengaardForfeit(playerid)
 			end
 		end
+	elseif check_command("-tooltips") then
+		CustomGameEventManager:Send_ServerToAllClients("toggleExtraTooltips", {})
 	end
 
 	-- DEBUG COMMANDS --

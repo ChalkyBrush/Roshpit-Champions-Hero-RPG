@@ -22,7 +22,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_neverlord_soul_ring"
-    self:SetSpecialValue("neverlord_soul_ring", "#EFD310")
+    self:SetSpecialValue("neverlord_soul_ring", ITEM_RPC_NEVERLORD_SOUL_RING_COLOR)
 end
 function itemClass:RollProperty2(item_level) 
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
@@ -49,7 +49,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_FLAT_MANA_BONUS,
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
         MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS,
-        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY
+        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY,
+        MODIFIER_ROSHPIT_TOOLTIP_W
     })
 end
 function modifierClass:DeclareFunctions()
@@ -103,6 +104,17 @@ function modifierClass:OnCastWAbility()
         local pfx = CustomAbilities:QuickAttachParticle("particles/items2_fx/soul_ring.vpcf", hero, 1)
         ParticleManager:SetParticleControl(pfx, 1, Vector(1,1,1))
     end
+end
+function modifierClass:GetRoshpitTooltipW()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_NEVERLORD_SOUL_RING_COLOR, 
+        immortal = false, 
+        ruby = 0, --self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0 --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 
 function modifierClass:RemoveOnDeath()

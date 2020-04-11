@@ -182,6 +182,7 @@
         "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
         "item_property_dunetreads"                   "Dunewalker"
         "property_dunetreads_description"            "Снижает перезарядку @Ability3 на <% ITEM_RPC_DUNETREADS_CD_RED %> сек."
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
 
         "item_rpc_dunetreads_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
         "item_rpc_dunetreads_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
@@ -291,6 +292,7 @@
 
 		"item_property_iron_treads_of_destruction"					"Improved Initiative"
 		"property_iron_treads_of_destruction_description"			"Прочтение @Ability4 происходит мгновенно."
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 
 		"item_rpc_iron_treads_of_destruction_ruby1"	"Увеличивает Базовый Урон Способности [R] на @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"Увеличивает все руны [R] на @emerald_property1"
@@ -494,6 +496,7 @@
 
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "Прочтение @Ability3 вызывает <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>-АОЕ кольцевую волну плазмы, которая затем возвращается к герою, наносит урон противникам при контакте во время движения от героя и обратно. Наносит урон в <% ITEM_RPC_STORM_PACER_SABATONS_DMG_ATK_POWER_PCT %>% от Силы Атаки героя, элемент урона заимствуется из последней нанесенной героем порции урона. Перезарядка <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %> сек."
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "Увеличивает радиус кольца на @ruby_property1, а его урон на @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "Урон кольца линейно растет по мере его расширения, достигая максимального множителя @emerald_property1x на границе максимального радиуса"
@@ -553,6 +556,8 @@
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager_boots"                     "Voyager"
         "property_voyager_boots_description"              "Каждые <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% от их базовой Перезарядки."
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "Прочтение [E] уменьшает Перезарядку всех остальных способностей на @ruby_property1% от их базовой Перезарядки."
         "item_rpc_voyager_boots_emerald1"                                   "Даёт @emerald_property1 Скорости Передвижения и Лимита Скорости за каждую из способностей, которая в данный момент на перезарядке."
         "item_rpc_voyager_boots_sapphire1"                                  "Даёт @sapphire_property1% Бонус Силы Атаки за каждую из способностей, которая в данный момент не на перезарядке."

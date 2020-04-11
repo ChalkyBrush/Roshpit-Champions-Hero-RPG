@@ -2,21 +2,32 @@ require('/global_constants')
 require('npc_abilities/base_modifier')
 base_ability = class({})
 
-function base_ability:GetBaseManaCost(level)
-    error('Define GetBaseManaCost(level) and not GetManaCost(level)')
+function base_ability:GetManaCostBase(level)
+    error('Define GetManaCostBase(level) and not GetManaCost(level)')
 end
 
 function base_ability:GetAbilitySlot()
     error('Define GetAbilitySlot()!')
 end
 
-function base_ability:GetBaseCooldown(level)
-    error('Define GetBaseCooldown(level) and not GetCooldown(level)')
+function base_ability:GetCooldownBase(level)
+    error('Define GetCooldownBase(level) and not GetCooldown(level)')
 end
 
-function base_ability:GetBaseChannelTime()
+function base_ability:GetChannelTimeBase()
     if self:GetAbilitySlot() == DOTA_R_SLOT then
-        error('Define GetBaseChannelTime() and not GetChannelTime()')
+        error('Define GetChannelTimeBase() and not GetChannelTime()')
+    end
+end
+
+function base_ability:GetBehaviorBase()
+    if self:GetAbilitySlot() == DOTA_R_SLOT then
+        error('Define GetBehaviorBase() and not GetBehavior()')
+    end
+end
+function base_ability:OnSpellStartBase()
+    if self:GetAbilitySlot() == DOTA_R_SLOT then
+        error('Define OnSpellStartBase() and not OnSpellStart()')
     end
 end
 
@@ -38,7 +49,7 @@ function base_ability:GetManaCost(level)
         flat = hero:GetModifierStackCount("modifier_r_flat_manacost_modifier", hero)
         pct = hero:GetModifierStackCount("modifier_r_pct_manacost_modifier", hero)
     end
-    local baseManaCost = self:GetBaseManaCost(level) or 0
+    local baseManaCost = self:GetManaCostBase(level) or 0
     local manaCost = (baseManaCost + flat / 100) * (pct / 10000)
     return math.max(manaCost, 0)
 end
@@ -72,7 +83,7 @@ function base_ability:GetCooldown(level)
         max = hero:GetModifierStackCount("modifier_r_max_cooldown_modifier", hero)
     end
 
-    local cooldown = math.min(math.max((self:GetBaseCooldown(level) + flat / 100) * (pct / 10000), min / 100), max / 100)
+    local cooldown = math.min(math.max((self:GetCooldownBase(level) + flat / 100) * (pct / 10000), min / 100), max / 100)
     return cooldown
 end
 
@@ -81,7 +92,22 @@ function base_ability:GetChannelTime()
         local hero = self:GetCaster()
         local flat = hero:GetModifierStackCount("modifier_r_flat_channeltime_modifier", hero)
         local pct = hero:GetModifierStackCount("modifier_r_pct_channeltime_modifier", hero)   
-        local channeltime = (self:GetBaseChannelTime() + flat / 100) * (pct / 10000)
-        return math.max(channeltime, 0.03)
+        local channeltime = (self:GetChannelTimeBase() + flat / 100) * (pct / 10000)
+        return math.max(channeltime, 0)
+    end
+end
+
+function base_ability:GetBehavior()
+    if self:GetAbilitySlot() == DOTA_R_SLOT and self:GetChannelTime() == 0 then
+        return self:GetBehaviorBase() - DOTA_ABILITY_BEHAVIOR_CHANNELLED
+    else
+        return self:GetBehaviorBase()
+    end
+end
+
+function base_ability:OnSpellStart()
+    self:OnSpellStartBase()
+    if self:GetAbilitySlot() == DOTA_R_SLOT and self:GetChannelTime() == 0 then
+        self:OnChannelFinish(false)
     end
 end

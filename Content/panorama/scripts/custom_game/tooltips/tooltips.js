@@ -1,5 +1,6 @@
 var updateTooltip = false;
 var currentSlot = -1
+var extraTooltipsActive = false;
 
 function AbilityShowTooltip(element)
 {
@@ -10,8 +11,12 @@ function AbilityShowTooltip(element)
 	var abilityName = Abilities.GetAbilityName( m_Ability );
 	$.DispatchEvent( "DOTAShowAbilityTooltipForEntityIndex", element, abilityName, m_QueryUnit);
 
-    //Remove to activate extra Tooltips
-    return;
+	if (extraTooltipsActive){
+		AbilityShowExtraTooltip(m_QueryUnit, slot)
+	}
+}
+
+function AbilityShowExtraTooltip(unit, slot) {
 	var tooltipLabel = GameUI.DotaHUD.FindChildTraverse("AbilityExtraAttributes");
 	var parent = tooltipLabel.GetParent()
 
@@ -19,21 +24,47 @@ function AbilityShowTooltip(element)
 
 	if(roshpitAttributes === null){
 		roshpitAttributes = $.CreatePanel("Label", parent, "roshpit_attributes_tooltip")
-    }
-    roshpitAttributes.text = GetRoshpitAbilityTooltip(m_QueryUnit, slot)
+	}
+	
+	roshpitAttributes.text = GetRoshpitAbilityTooltip(unit, slot)
 	parent.MoveChildAfter(roshpitAttributes, tooltipLabel);
 	roshpitAttributes.style.color = "#FFFFFF"
 	roshpitAttributes.style.padding = "0px 0px 0px 8px";
-    roshpitAttributes.html = true
+	roshpitAttributes.html = true
 	updateTooltip = true;
 	roshpitAttributes.ApplyStyles(true)
-	UpdateTooltip(roshpitAttributes, m_QueryUnit, slot);
+	UpdateTooltip(roshpitAttributes, unit, slot);
+}
+
+function AbilityHideTooltip(element)
+{
+	$.DispatchEvent( "DOTAHideAbilityTooltip", element );
+    
+	if (extraTooltipsActive){
+		AbilityHideExtraTooltip();
+	}
+}
+
+function AbilityHideExtraTooltip(){
+	var tooltipLabel = GameUI.DotaHUD.FindChildTraverse("AbilityExtraAttributes");
+	var parent = tooltipLabel.GetParent()
+	var roshpitAttributes = parent.FindChildTraverse("roshpit_attributes_tooltip")
+	roshpitAttributes.text = "";
+	updateTooltip = false;
+}
+
+function UpdateTooltip(element, unit, slot)
+{
+	if(updateTooltip && currentSlot == slot){
+        $.Schedule(0.03, () => UpdateTooltip(element, unit, slot))
+        element.text = GetRoshpitAbilityTooltip(unit, slot);
+    }
 }
 
 function GetRoshpitAbilityTooltip(unit, slot)
 {
     var tooltip = "";
-    var tooltips = CustomNetTables.GetTableValue("tooltip", unit.toString() + "-" + slot)
+	var tooltips = CustomNetTables.GetTableValue("tooltip", unit.toString() + "-" + slot)
     if(tooltips == undefined)
         return "";
     $.Each(tooltips, function(value, index){
@@ -47,28 +78,31 @@ function GetRoshpitAbilityTooltip(unit, slot)
 			var name = itemName.replace("item_rpc_", "")
 			tooltip += "<br/><font color='#E4AE33'>" + $.Localize("DOTA_Tooltip_ability_item_rpc_" + name) + "</font><br/>";
 			if (value.immortal == true){
-				tooltip += "<font color='" + value.color + "'>" + $.Localize("item_property_" + name) + ": </font>" + $.Localize("item_property_" + name + "_ability_tooltip") + "<br/>";
+				tooltip += "<font color='" + value.color + "'>" + $.Localize("item_property_" + name) + ": </font>" + $.Localize("item_rpc_" + name + "_ability_tooltip") + "<br/>";
 			}
 			if (value.ruby !== undefined && value.ruby > 0){
-				var rubyTooltip = $.Localize("item_property_" + name + "_ability_ruby_tooltip")
+				var rubyTooltip = $.Localize("item_rpc_" + name + "_ability_ruby_tooltip")
 				rubyTooltip = ReplaceGemProperties(rubyTooltip, "ruby", value.ruby, value.itemIndex)
 				tooltip += "<font color='" + GetGemColor("ruby") + "'>Ruby: </font>" + rubyTooltip + "<br/>";
 			}
 			if (value.sapphire !== undefined && value.sapphire > 0){
-				var sapphireTooltip = $.Localize("item_property_" + name + "_ability_sapphire_tooltip")
-				sapphireTooltip = ReplaceGemProperties(sapphireTooltip, "sapphire", value.ruby, value.itemIndex)
+				var sapphireTooltip = $.Localize("item_rpc_" + name + "_ability_sapphire_tooltip")
+				sapphireTooltip = ReplaceGemProperties(sapphireTooltip, "sapphire", value.sapphire, value.itemIndex)
 				tooltip += "<font color='" + GetGemColor("sapphire") + "'>Sapphire: </font>" + sapphireTooltip + "<br/>";
 			}
 			if (value.emerald !== undefined && value.emerald > 0){
-				var emeraldTooltip = $.Localize("item_property_" + name + "_ability_emerald_tooltip")
-				emeraldTooltip = ReplaceGemProperties(emeraldTooltip, "emerald", value.ruby, value.itemIndex)
+				var emeraldTooltip = $.Localize("item_rpc_" + name + "_ability_emerald_tooltip")
+				emeraldTooltip = ReplaceGemProperties(emeraldTooltip, "emerald", value.emerald, value.itemIndex)
 				tooltip += "<font color='" + GetGemColor("emerald") + "'>Emerald: </font>" + emeraldTooltip + "<br/>";
 			}
 			if (value.amethyst !== undefined && value.amethyst > 0){
-				var amethystTooltip = $.Localize("item_property_" + name + "_ability_amethyst_tooltip")
-				amethystTooltip = ReplaceGemProperties(amethystTooltip, "amethyst", value.ruby, value.itemIndex)
+				var amethystTooltip = $.Localize("item_rpc_" + name + "_ability_amethyst_tooltip")
+				amethystTooltip = ReplaceGemProperties(amethystTooltip, "amethyst", value.amethyst, value.itemIndex)
 				tooltip += "<font color='" + GetGemColor("amethyst") + "'>Amethyst: </font>" + amethystTooltip + "<br/>";
 			}
+		}
+		else if (value.channeltime !== undefined) {
+			tooltip = "<font color='#596e89'>CHANNELTIME: </font>" + value.channeltime + "s"
 		}
     })
 	return tooltip
@@ -99,22 +133,19 @@ function GetGemColor(gem){
 	return substitution_color
 }
 
-function UpdateTooltip(element, unit, slot)
-{
-	if(updateTooltip && currentSlot == slot){
-        $.Schedule(0.03, () => UpdateTooltip(element, unit, slot))
-        element.text = GetRoshpitAbilityTooltip(unit, slot);
-    }
+function ToggleExtraTooltips() {
+	if (extraTooltipsActive){
+		extraTooltipsActive = false;
+		AbilityHideExtraTooltip();
+	}
+	else{
+		extraTooltipsActive = true;
+	}
 }
 
-function AbilityHideTooltip(element)
+
+
+(function()
 {
-	$.DispatchEvent( "DOTAHideAbilityTooltip", element );
-    //Remove to activate extra Tooltips
-    return;
-	var tooltipLabel = GameUI.DotaHUD.FindChildTraverse("AbilityExtraAttributes");
-	var parent = tooltipLabel.GetParent()
-	var roshpitAttributes = parent.FindChildTraverse("roshpit_attributes_tooltip")
-	roshpitAttributes.text = "";
-	updateTooltip = false;
-}
+	GameEvents.Subscribe( "toggleExtraTooltips", ToggleExtraTooltips );
+})();

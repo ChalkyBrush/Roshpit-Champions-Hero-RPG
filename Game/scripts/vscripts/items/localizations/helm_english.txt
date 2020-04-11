@@ -602,6 +602,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"item_property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CAST_POINT %>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Increases Rune [Q1] by @ruby_property1"
@@ -611,7 +612,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"item_property_twisted_yellow_mask_of_ahnqhir"									"Hypercast B"
-		"item_property_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"							"@Ability2 has its cast point set to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> second."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Increases Rune [W1] by @ruby_property1"
@@ -621,6 +622,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"item_property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_BLUE_CAST_POINT %>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Increases Rune [E1] by @ruby_property1"

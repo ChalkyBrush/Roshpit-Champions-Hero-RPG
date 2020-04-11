@@ -5,11 +5,11 @@ require('heroes/antimage/arkimus_orbital_leap')
 arkimus_archon_form = class(base_ability)
 
 
-function arkimus_archon_form:GetBaseManaCost(level)
+function arkimus_archon_form:GetManaCostBase(level)
     return 0
 end
 
-function arkimus_archon_form:GetBehavior()
+function arkimus_archon_form:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_CHANNELLED + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
@@ -21,7 +21,7 @@ function arkimus_archon_form:GetCastPoint()
     return 0
 end
 
-function arkimus_archon_form:GetBaseCooldown(level)
+function arkimus_archon_form:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
@@ -36,7 +36,7 @@ function arkimus_archon_form:GetTexture()
     return "arkimus/arkimus_archon_form"
 end
 
-function arkimus_archon_form:GetBaseChannelTime()
+function arkimus_archon_form:GetChannelTimeBase()
     return ARKIMUS_ARCANA2_R_CHANNEL_TIME
 end
 
@@ -44,12 +44,12 @@ function arkimus_archon_form:GetCastAnimation()
     return ACT_DOTA_TELEPORT
 end
 
-function arkimus_archon_form:OnSpellStart()
+function arkimus_archon_form:OnSpellStartBase()
     local hero = self:GetCaster()
 	local ability = self
     hero:AddNewModifier(hero, ability, "modifier_arkimus_channeling", {})
 	EmitSoundOn("Akrimus.Channel.VO", hero)
-	StartSoundEvent("Arkimus.EnergyField.Channel", hero)
+    StartSoundEvent("Arkimus.EnergyField.Channel", hero)
 end
 
 function arkimus_archon_form:OnChannelFinish(interrupted)

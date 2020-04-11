@@ -30,7 +30,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_voyager_boots"
-    self:SetSpecialValue("voyager_boots", "#AB9091")
+    self:SetSpecialValue("voyager_boots", ITEM_RPC_VOYAGER_BOOTS_COLOR)
 end
 function itemClass:RollProperty2(item_level)  
     local luck = RandomInt(1, 5)
@@ -64,7 +64,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
-        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_TOOLTIP_E
     })
     self:StartIntervalThink(ITEM_RPC_VOYAGER_BOOTS_THINK_INTERVAL)
 end
@@ -173,6 +174,17 @@ function modifierClass:OnRemoved()
         local hero = self:GetParent()
         hero:RemoveModifierByName("modifier_voyager_boots_sapphire")
     end
+end
+function modifierClass:GetRoshpitTooltipE()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_VOYAGER_BOOTS_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function modifierClass:IsHidden()
     return true

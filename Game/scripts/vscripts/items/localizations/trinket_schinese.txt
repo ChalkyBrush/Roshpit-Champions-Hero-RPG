@@ -40,13 +40,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"灵魂之戒"
+		"item_property_neverlord_soul_ring"												"灵魂契约"
+		"property_neverlord_soul_ring_description"											"将 <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% 最大生命值转换为最大魔法值."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
+        "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+
 		"item_rpc_neverlord_soul_ring_ruby1"										"增加灵魂契约的转换量 @ruby_property1%."
 		"item_rpc_neverlord_soul_ring_emerald1"										"灵魂契约每转换1点魔法值提高物理穿透和魔法穿透 @emerald_property1."
 		"item_rpc_neverlord_soul_ring_sapphire1"									"灵魂契约每转换1点魔法值提高基础攻击力 @sapphire_property1 "
 		"item_rpc_neverlord_soul_ring_amethyst1"									"施放 [W] 燃烧 <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% 你的最大生命值并回复你@amethyst_property1% 燃烧的生命值的魔法值."
-		"item_property_neverlord_soul_ring"												"灵魂契约"
-		"property_neverlord_soul_ring_description"											"将 <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% 最大生命值转换为最大魔法值."
-    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"獠牙戒指"
@@ -139,12 +141,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"西格拉斯的魅力"
+		"item_property_signus"						"西格拉斯"
+		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%。 @Ability3 冷却时间提高<% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%。"
+        "item_rpc_signus_charm_ability_ruby_tooltip"				                "Removes @ruby_property1s from current [E] cooldown."
+        "item_rpc_signus_charm_ability_amethyst_tooltip"				            "Applies a <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %>s buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
         "item_rpc_signus_charm_ruby1"                                   "施放 [Q] 减少 [E] @ruby_property1 秒的冷却时间"
         "item_rpc_signus_charm_emerald1"                                    "增加 [W] 的冷却时间@emerald_property1 秒，减少 [Q] 的冷却时间 @emerald_property2 秒"
         "item_rpc_signus_charm_sapphire1"                                   "提高基础技能伤害 @sapphire_property1%"
         "item_rpc_signus_charm_amethyst1"                                   "施放 [E] 获得一层持续 <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %> 秒的buff，能提高你的物理穿透和魔法穿透 @amethyst_property1"
-		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%。 @Ability3 冷却时间提高<% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"

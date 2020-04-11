@@ -3,11 +3,11 @@ require('heroes/base_ability')
 require('heroes/antimage/arkimus_common')
 arkimus_orbital_leap = class(base_ability)
 
-function arkimus_orbital_leap:GetBaseManaCost(level)
+function arkimus_orbital_leap:GetManaCostBase(level)
     return 0
 end
 
-function arkimus_orbital_leap:GetBehavior()
+function arkimus_orbital_leap:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
 
@@ -19,7 +19,7 @@ function arkimus_orbital_leap:GetCastPoint()
     return 0
 end
 
-function arkimus_orbital_leap:GetBaseCooldown(level)
+function arkimus_orbital_leap:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end

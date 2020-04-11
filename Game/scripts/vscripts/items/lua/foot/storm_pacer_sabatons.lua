@@ -33,7 +33,7 @@ end
 function itemClass:RollProperty1()
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_storm_pacer_sabatons"
-    self:SetSpecialValue("storm_pacer_sabatons", "#8fd8f7")
+    self:SetSpecialValue("storm_pacer_sabatons", ITEM_RPC_STORM_PACER_SABATONS_COLOR)
 end
 
 function modifierClass:OnCreated()
@@ -43,6 +43,7 @@ function modifierClass:OnCreated()
     self:SetSpecialTypes({
         MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY,
         MODIFIER_SPECIAL_TYPE_PREMITIGATION,
+        MODIFIER_ROSHPIT_TOOLTIP_E
     })
     self.damage = 0
     self.cooldownUntil = 0
@@ -148,6 +149,17 @@ function modifierClass:OnAfterPreMitigationReduce(data)
         self.damage = data.damage
         self.elements = data.elements
     end
+end
+function modifierClass:GetRoshpitTooltipE()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_STORM_PACER_SABATONS_COLOR, 
+        immortal = false, 
+        ruby = 0, --self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 
 function modifierClass:IsHidden()

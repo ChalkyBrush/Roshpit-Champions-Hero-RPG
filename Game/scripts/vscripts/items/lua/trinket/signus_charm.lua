@@ -27,7 +27,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_signus_charm"
-    self:SetSpecialValue("signus_charm", "#ED217D")
+    self:SetSpecialValue("signus_charm", ITEM_RPC_SIGNUS_CHARM_COLOR)
 end
 function itemClass:RollProperty2(item_level) 
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "all_attributes", 1.5)  
@@ -50,7 +50,9 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
-        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS
+        MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_TOOLTIP_Q,
+        MODIFIER_ROSHPIT_TOOLTIP_E
     })
 end
 function modifierClass:DeclareFunctions()
@@ -114,6 +116,28 @@ function modifier_signus_charm_amethyst_buff:OnCreated()
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
         MODIFIER_ROSHPIT_SPELL_PIERCE_BONUS
     })
+end
+function modifierClass:GetRoshpitTooltipQ()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_SIGNUS_CHARM_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0 --self:GetAbility():GetGemValue("emerald") 
+    }
+end
+function modifierClass:GetRoshpitTooltipE()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_SIGNUS_CHARM_COLOR, 
+        immortal = false, 
+        ruby = 0, --self:GetAbility():GetGemValue("ruby"), 
+        amethyst = self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0 --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function modifier_signus_charm_amethyst_buff:GetRoshpitArmorPierceBonus(params)
     return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_SIGNUS_CHARM_GEM_AMETHYST)
