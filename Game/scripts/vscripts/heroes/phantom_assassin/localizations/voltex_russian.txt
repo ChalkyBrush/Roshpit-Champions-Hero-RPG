@@ -21,7 +21,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						" за Ловкость"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] Overflow"
-        "DOTA_Tooltip_ability_voltex_rune_q_3_Description"                  "Добавляет часть урона атаки к урон @Ability1."
+        "DOTA_Tooltip_ability_voltex_rune_q_3_Description"                  "Добавляет часть урона атаки к урону @Ability1."
         "DOTA_Tooltip_ability_voltex_rune_q_3_property_one"                 "Дополнительный Урон"
         "DOTA_Tooltip_ability_voltex_rune_q_3_suffix"                       "% от урона атаки"
 

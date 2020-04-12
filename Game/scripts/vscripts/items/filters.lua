@@ -1287,7 +1287,7 @@ function Filters:ApplyWskills(caster)
         if currentStacks == 7 then
             local disableAbility = caster:GetAbilityByIndex(DOTA_W_SLOT)
             if IsValidEntity(disableAbility) then
-                local cd = 1
+                local cd = 0.4
                 disableAbility:StartCooldown(cd)
             end
         end

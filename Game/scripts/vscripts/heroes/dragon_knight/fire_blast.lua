@@ -86,6 +86,9 @@ function fire_blast_damage(event)
     if caster:HasModifier("modifier_flamewaker_immortal_weapon_3") then
         stun_duration = stun_duration * FLAMEWAKER_IMMORTAL_WEAPON_3_STUN_DURATION_Q_R_MULT
     end
+	if caster:HasModifier("modifier_flamewaker_glyph_2_1") then
+		damage = damage + caster:GetStrength()*FLAMEWAKER_GLYPH_2_1_Q_STR_MULT
+	end
     Filters:ApplyStun(caster, stun_duration, target)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_FIRE, RPC_ELEMENT_EARTH)
 end
@@ -111,11 +114,11 @@ function eruption_damage(event)
         local seismicFlare = caster:FindAbilityByName("seismic_flare")
         CustomAbilities:QuickAttachParticle("particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_c.vpcf", target, 1)
         if seismicFlare.q_4_level > 0 then
-            local d_a_duration = Filters:GetAdjustedBuffDuration(caster, 5, false)
+            local d_a_duration = Filters:GetAdjustedBuffDuration(caster, FLAMEWAKER_Q4_DURATION, false)
             seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = d_a_duration})
             local current_stack = caster:GetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability)
             local stackBonus = math.floor(damage * FLAMEWAKER_Q4_BASE_DMG_PER_DAMAGE * seismicFlare.q_4_level / 10)
-            caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack + stackBonus)
+            caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, math.min(current_stack + stackBonus, FLAMEWAKER_Q4_BASE_DMG_CAP_STACKS))
         end
     end
 end
