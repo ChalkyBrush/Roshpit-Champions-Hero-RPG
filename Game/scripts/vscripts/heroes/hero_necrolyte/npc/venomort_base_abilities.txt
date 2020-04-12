@@ -225,7 +225,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				    "80 120 160 200 240 280 320"
+				"damage"				    "<% VENOMORT_W_DAMAGE %>"
 			}
 			"03"
 			{
