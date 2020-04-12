@@ -311,7 +311,7 @@
         "item_rpc_paladin_glyph_3_2_description"                "Руна [Q2] дает <% PALADIN_GLYPH_3_2_LIFESTEAL * 100 %>% вампиризм от урона способности."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] Glyph of Hyper Justice"
-        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет 0.05 точку каста и толкает вперед."
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет <% PALADIN_GLYPH_4_2_CAST_POINT %> время каста и толкает вперед."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=\"#F6FFB5\">Света</font> в размере <% PALADIN_GLYPH_5_2_ATTACK_MULT %>x от атаки Паладина."

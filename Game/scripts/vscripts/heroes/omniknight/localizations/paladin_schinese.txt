@@ -288,7 +288,7 @@
         "item_rpc_paladin_glyph_3_2_description"                " [Q2] 符文获得<% PALADIN_GLYPH_3_2_LIFESTEAL * 100 %>%的吸血。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] 冲鸭雕文"
-        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 0.05 秒的施法点，并且将你向前推进。"
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 有 <% PALADIN_GLYPH_4_2_CAST_POINT %> 秒的施法点，并且将你向前推进。"
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] 赎罪雕文"
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 将会攻击，并且造成纯粹 <font color=\"#F6FFB5\">圣</font>伤害，数值为 @glyph_property1x 全能骑士的攻击力。"
