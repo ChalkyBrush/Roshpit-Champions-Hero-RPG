@@ -226,10 +226,14 @@ function paladin_glyph_4_2_think(event)
 	local pointAbility = target:GetAbilityByIndex(DOTA_W_SLOT)
 	if pointAbility then
 		if pointAbility.cast_point_og then
-		else
+		else			
 			local specialValue = ability:GetSpecialValueFor("property_one")
+			if not specialValue then 
+				print("[paladin_glyph_4_2_think] specialValue is nil")
+				return 
+			end
 			pointAbility.cast_point_og = pointAbility:GetCastPoint()
-			pointAbility:SetOverrideCastPoint(0.05)
+			pointAbility:SetOverrideCastPoint(specialValue)
 		end
 	end
 end
