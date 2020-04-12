@@ -140,7 +140,7 @@ function dragon_height_z_thinker(event)
 	if caster:HasModifier("modifier_dinath_scorch_charge_flying") then
 		heightReduce = 0
 	end
-	if caster:HasModifier("modifier_dinath_glyph_2_1") and caster:HasModifier("modifier_channel_start") then
+	if caster:HasModifier("modifier_dinath_glyph_2_1") and caster:IsChanneling() then
 		heightReduce = 0
 	end
 	local stacks = caster:GetModifierStackCount("modifier_dinath_postflight_zheight", caster) - heightReduce
