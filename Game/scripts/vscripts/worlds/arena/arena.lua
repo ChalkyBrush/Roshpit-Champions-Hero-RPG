@@ -893,6 +893,13 @@ end
 function Arena:RollPrizebox(rank, score, hero)
 	local baseLevel = 0
 	local rarity = "uncommon"
+	if not rank then
+		rank = 20
+	end
+	if not score then
+		score = 0
+	end
+	if not hero then return end
 	if rank >= 16 then
 		baseLevel = 1
 	elseif rank >= 11 then
