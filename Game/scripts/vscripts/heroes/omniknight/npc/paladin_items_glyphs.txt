@@ -565,18 +565,19 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
-				"OnCreated"
+				"ThinkInterval"  	"1"
+				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
-						"Function"		"paladin_glyph_4_2_equip"
+						"Function"		"paladin_glyph_4_2_think"
 						"target"        "TARGET"
 					}
 				}
 				"OnDestroy"
 				{
-					"RunScript"
+					"RemoveModifier"
 					{
 						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
 						"Function"		"paladin_glyph_4_2_off"
@@ -589,8 +590,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"property_one"			"4"
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.05"
 			}
 		}
 	}

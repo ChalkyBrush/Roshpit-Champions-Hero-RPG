@@ -218,7 +218,7 @@ function rune_w_3(caster, ability)
 	end
 end
 
-function paladin_glyph_4_2_equip(event)
+function paladin_glyph_4_2_think(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
@@ -227,6 +227,7 @@ function paladin_glyph_4_2_equip(event)
 	if pointAbility then
 		if pointAbility.cast_point_og then
 		else
+			local specialValue = ability:GetSpecialValueFor("property_one")
 			pointAbility.cast_point_og = pointAbility:GetCastPoint()
 			pointAbility:SetOverrideCastPoint(0.05)
 		end
