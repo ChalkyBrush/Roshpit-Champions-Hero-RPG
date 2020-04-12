@@ -1,4 +1,4 @@
-require('items/lua/glyph/base')
+require('items/lua/glyph/base_glyph')
 require('npc_abilities/base_modifier')
 
 item_rpc_neutral_glyph_6_2 = class(BaseGlyph, nil, BaseGlyph)

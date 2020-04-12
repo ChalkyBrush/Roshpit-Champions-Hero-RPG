@@ -1,4 +1,4 @@
-require('items/lua/gloves/base')
+require('items/lua/gloves/base_glove')
 require('npc_abilities/base_modifier')
 
 item_rpc_swiftspike_bracer = class(BaseGloves, nil, BaseGloves)

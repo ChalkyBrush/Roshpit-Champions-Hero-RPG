@@ -1,4 +1,4 @@
-require('items/lua/body/base')
+require('items/lua/body/base_chest')
 require('npc_abilities/base_modifier')
 
 item_rpc_armor_of_the_violet_guard = class(BaseBody, nil, BaseBody)

@@ -1,4 +1,4 @@
-require('items/lua/base')
+require('items/lua/base_item')
 BaseGloves = class(BaseItem, nil, BaseItem)
 local itemClass = BaseGloves
 function itemClass:GetSlotTextShort()

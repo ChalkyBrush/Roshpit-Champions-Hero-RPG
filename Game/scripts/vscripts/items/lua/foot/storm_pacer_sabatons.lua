@@ -1,4 +1,4 @@
-require('items/lua/foot/base')
+require('items/lua/foot/base_boot')
 require('npc_abilities/base_modifier')
 
 item_rpc_storm_pacer_sabatons = class(BaseFoot, nil, BaseFoot)

@@ -1,4 +1,4 @@
-require('items/lua/base')
+require('items/lua/base_item')
 require('items/constants/helm')
 BaseHelm = class(BaseItem, nil, BaseItem)
 local itemClass = BaseHelm

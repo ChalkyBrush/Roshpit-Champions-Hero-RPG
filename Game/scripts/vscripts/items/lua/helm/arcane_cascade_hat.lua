@@ -1,4 +1,4 @@
-require('items/lua/helm/base')
+require('items/lua/helm/base_helm')
 require('npc_abilities/base_modifier')
 
 item_rpc_arcane_cascade_hat = class(BaseHelm, nil, BaseHelm)

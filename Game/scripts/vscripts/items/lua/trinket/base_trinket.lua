@@ -1,4 +1,4 @@
-require('items/lua/base')
+require('items/lua/base_item')
 BaseTrinket = class(BaseItem, nil, BaseItem)
 local itemClass = BaseTrinket
 function itemClass:GetSlotTextShort()

@@ -1,4 +1,4 @@
-require('items/lua/body/base')
+require('items/lua/body/base_chest')
 require('npc_abilities/base_modifier')
 
 item_rpc_enchanted_solar_cape = class(BaseBody, nil, BaseBody)
