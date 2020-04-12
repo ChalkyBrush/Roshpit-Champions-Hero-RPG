@@ -577,7 +577,7 @@
 				}
 				"OnDestroy"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
 						"ScriptFile"	"heroes/omniknight/paladin_2_w.lua"
 						"Function"		"paladin_glyph_4_2_off"
