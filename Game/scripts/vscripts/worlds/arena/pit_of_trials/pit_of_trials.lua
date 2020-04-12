@@ -2045,7 +2045,7 @@ function Arena:SpawnDescentMiniSkeleton(position, fv, bAggro)
 	return stone
 end
 
-function Arena:RollPitPrizebox(deathLocation)
+function Arena:RollPitPrizebox(deathLocation)--obsolete
 	local baseLevel = 0
 	local rarity = "mythical"
 	local prizeLevel = RPCItems:GetLogarithmicVarianceValue(140+Arena.PitLevel*10, 0, 0, 0, 0)
