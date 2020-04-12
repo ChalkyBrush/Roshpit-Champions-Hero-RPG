@@ -449,8 +449,10 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
     abilityCooldown = math.min(abilityCooldown, GLOBAL_Q_MAX_CD)
     abilityCooldown = math.max(abilityCooldown, GLOBAL_Q_MIN_CD)
 
-    ability:EndCooldown()
-    ability:StartCooldown(abilityCooldown)
+    if abilityCooldown ~= baseCD then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    end
 end
 function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
@@ -486,8 +488,10 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
     abilityCooldown = math.min(abilityCooldown, GLOBAL_W_MAX_CD)
     abilityCooldown = math.max(abilityCooldown, GLOBAL_W_MIN_CD)
 
-    ability:EndCooldown()
-    ability:StartCooldown(abilityCooldown)
+    if abilityCooldown ~= baseCD then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    end
 end
 function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
@@ -544,8 +548,10 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     abilityCooldown = math.min(abilityCooldown, GLOBAL_E_MAX_CD)
     abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
 
-    ability:EndCooldown()
-    ability:StartCooldown(abilityCooldown)
+    if abilityCooldown ~= baseCD then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    end
 end
 function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
@@ -583,8 +589,10 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     abilityCooldown = math.min(abilityCooldown, GLOBAL_R_MAX_CD)
     abilityCooldown = math.max(abilityCooldown, GLOBAL_R_MIN_CD)
 
-    ability:EndCooldown()
-    ability:StartCooldown(abilityCooldown)
+    if abilityCooldown ~= baseCD then
+        ability:EndCooldown()
+        ability:StartCooldown(abilityCooldown)
+    end
 end
 
 
@@ -1050,14 +1058,7 @@ function Filters:ApplyQskills(caster)
             Filters:AlaranaInit(caster, caster.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ALARANAS_ICE_BOOT_GEM_EMERALD))
         end
     end
-    if caster:HasModifier("modifier_mask_of_ahnqhir_purple") then
-        local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
-        local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = baseCd * (100-TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT)/100
-        ability:EndCooldown()
-
-        ability:StartCooldown(baseCd)
-    end
+    
     if caster:HasModifier("modifier_terrasic_magma_break_stacks") then
         local ability = caster:GetAbilityByIndex(DOTA_Q_SLOT)
         local currentStack = caster:GetModifierStackCount("modifier_terrasic_magma_break_stacks", caster.InventoryUnit)
@@ -1163,13 +1164,6 @@ function Filters:ApplyWskills(caster)
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceWCooldown(caster, ability, baseCd, false)
 
-    if caster:HasModifier("modifier_mask_of_ahnqhir_yellow") then
-        local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
-        local baseCd = ability:GetCooldownTimeRemaining()
-        baseCd = math.max(baseCd - TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED, 0)
-        ability:EndCooldown()
-        ability:StartCooldown(baseCd)
-    end
     if caster:HasModifier("modifier_bluestar_armor") then
         Filters:BluestarCast(caster)
     end
