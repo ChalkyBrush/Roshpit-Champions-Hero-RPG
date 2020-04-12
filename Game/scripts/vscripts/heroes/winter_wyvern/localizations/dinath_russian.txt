@@ -34,7 +34,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет чистый урон к её атакам."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет дополнительный физический урон к её атакам."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"РАДИУС:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"ПАССИВНЫЙ БОНУС К РАДИУСУ АТАКИ:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
