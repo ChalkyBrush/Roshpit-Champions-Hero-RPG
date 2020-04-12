@@ -40,12 +40,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"1 2 3 4 5 6 7"
+				"strength_mult"	"<% FLAMEWAKER_ARCANA_Q_STR_TO_DAMAGE_MULT %>"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"		"120 240 360 480 600 720 840"
+				"damage"		"<% FLAMEWAKER_ARCANA_Q_DAMAGE %>"
 			}
 			"04"
 			{

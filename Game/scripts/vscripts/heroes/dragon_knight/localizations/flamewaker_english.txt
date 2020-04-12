@@ -34,7 +34,7 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Increased damage and attack speed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for 4 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for <% FLAMEWAKER_Q4_DURATION %> seconds. Total attack bonus from this rune is capped at <% FLAMEWAKER_Q4_BASE_DMG_CAP_STACKS*10 %>."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Attack Bonus From Restorative Earth"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" per health point restored"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Attack Bonus From Eruption"
@@ -245,7 +245,7 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <% FLAMEWAKER_GLYPH_1_1_RETURN_STUN_CHANCE %>% chance to be stunned for <% FLAMEWAKER_GLYPH_1_1_STUN_DURATION %> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <% FLAMEWAKER_GLYPH_2_1_Q_CD %> seconds."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <% FLAMEWAKER_GLYPH_2_1_Q_CD %> seconds and increases its damage by x<% FLAMEWAKER_GLYPH_2_1_Q_STR_MULT %> of Flamewaker's Strength value."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
