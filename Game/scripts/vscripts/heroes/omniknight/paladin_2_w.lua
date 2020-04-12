@@ -227,13 +227,8 @@ function paladin_glyph_4_2_think(event)
 	if pointAbility then
 		if pointAbility.cast_point_og then
 		else			
-			local specialValue = ability:GetSpecialValueFor("property_one")
-			if not specialValue then 
-				print("[paladin_glyph_4_2_think] specialValue is nil")
-				return 
-			end
 			pointAbility.cast_point_og = pointAbility:GetCastPoint()
-			pointAbility:SetOverrideCastPoint(specialValue)
+			pointAbility:SetOverrideCastPoint(PALADIN_GLYPH_4_2_CAST_POINT)
 		end
 	end
 end
