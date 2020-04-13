@@ -13805,7 +13805,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"4"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -14507,7 +14507,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"2"
+				"property_two"			"4"
 			}
 		}
 		"Modifiers"
@@ -14534,7 +14534,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.5"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"2"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"4"
 				}
 			}
 			"modifier_axe_rune_q_2_visible"
@@ -14856,7 +14856,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.2"
+				"property_one"			"1.8"
 			}
 			"02"
 			{
@@ -22135,7 +22135,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"10 130 250 370 490 610 730"
+				"damage"				"60 300 800 1600 2000 2500 3000"
 			}
 			"03"
 			{
@@ -23066,7 +23066,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"5"
+				"property_one"			"8"
 			}
 		}
 	}
@@ -23245,7 +23245,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"15"
 			}
 		}
 	}
@@ -23475,12 +23475,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"strength_mult"	"1 2 3 4 5 6 7"
+				"strength_mult"	"7 8 9 10 11 12 14"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"		"120 240 360 480 600 720 840"
+				"damage"		"120 300 450 750 900 1200 1500"
 			}
 			"04"
 			{
@@ -23649,7 +23649,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"5"
 			}
 			"02"
 			{
@@ -24118,7 +24118,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"120 240 400 600 800 1000 1400"
+		"AbilityDamage"					"250 600 1800 2400 3000 3600 4500"
 
 		// Cost
 		//-------------------------------------------------------
@@ -24401,7 +24401,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"70 160 300 400 650 800 900"
+				"damage"					"120 300 500 700 900 1100 1500"
 			}
 			"03"
 			{
@@ -25191,7 +25191,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 300 500 700 1000 1300 1700"
+				"damage"	"400 1200 2000 3000 4000 5000 6000"
 			}
 
 			"03"
@@ -25350,7 +25350,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"65"
+				"property_two"			"95"
 			}
 			"03"
 			{
@@ -25552,7 +25552,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"65"
+				"property_one"			"85"
 			}
 			"02"
 			{
@@ -25790,7 +25790,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"35"
+				"property_one"			"65"
 			}
 			"03"
 			{
@@ -26647,7 +26647,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"			    "20 55 150 220 300 450 600"
+				"damage"			    "90 400 700 1400 1800 2200 2600"
 			}
 			"04"
 			{
@@ -26770,7 +26770,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"				    "80 120 160 200 240 280 320"
+				"damage"				    "140 400 1000 1400 1800 2300 3000"
 			}
 			"03"
 			{
@@ -27068,7 +27068,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "12"
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "15"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT" "0.15"
 				}
             }
@@ -27305,7 +27305,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"property_one"			"0.08"
 			}
 		}
 	}
@@ -27534,7 +27534,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"12"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -28530,7 +28530,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"140"
+				"property_one"			"200"
 			}
 			"02"
 			{
@@ -28795,7 +28795,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_increase"		"8 10 12 14 16 18 20"
+				"damage_increase"		"10 15 20 25 30 40 45"
 			}
 			"02"
 			{
@@ -29061,7 +29061,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 155 235 315 395 475 555"
+				"damage"			"90 200 450 800 1200 1500 2000"
 			}
 		}
 		"AbilityCastPoint"				"0.3"
@@ -29511,7 +29511,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "22"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "25"
 				}
 			}
 			"modifier_ancient_vigor_regen"
@@ -29562,7 +29562,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "2"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "3"
 				}
 			}
 		}
@@ -29608,7 +29608,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"20"
 			}
 			"02"
 			{
@@ -29676,7 +29676,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.5"
+				"property_one"			"4.5"
 			}
 			"02"
 			{
@@ -29728,7 +29728,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.02"
+				"property_one"			"0.05"
 			}
 		}
 		"Modifiers"
@@ -29812,7 +29812,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"10"
 			}
 			"02"
 			{
@@ -29877,7 +29877,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"70"
+				"property_one"			"150"
 			}
 			"02"
 			{
@@ -29913,7 +29913,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"30"
 			}
 		}
 	}
@@ -29934,7 +29934,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"10"
+				"property_one"			"30"
 			}
 		}
 		"Modifiers"
@@ -30163,7 +30163,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"3"
 			}
 		}
 	}
@@ -30185,7 +30185,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"8"
+				"property_one"			"15"
 			}
 			"02"
 			{
@@ -30221,7 +30221,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"22"
+				"property_one"			"25"
 			}
 		}
 	}
@@ -53674,7 +53674,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"6"
+				"property_one"			"8"
 			}
 			"02"
 			{
@@ -55030,7 +55030,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2"
+				"property_one"			"12"
 			}
 			"02"
 			{
@@ -55393,7 +55393,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_one"			"1"
+				"property_one"			"10"
 			}
 			"03"
 			{

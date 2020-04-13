@@ -4554,7 +4554,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional pure damage."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional physical damage."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"PASSIVE ATTACK RANGE BONUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% DAMAGE BASED ON ATTACK POWER:"
@@ -6519,7 +6519,7 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Increased damage and attack speed."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for 4 seconds."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Health restored by Restorative Earth and damage caused by Eruption increase Flamewaker's attack damage for <font color='#ccff66'>7</font> seconds. Total attack bonus from this rune is capped at <font color='#ccff66'>10000</font>."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Attack Bonus From Restorative Earth"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" per health point restored"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Attack Bonus From Eruption"
@@ -6730,7 +6730,7 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Enemies who attack you have a <font color='#ccff66'>50</font>% chance to be stunned for <font color='#ccff66'>1</font> second."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <font color='#ccff66'>5</font> seconds."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Reduces the cooldown of Seismic Flare to <font color='#ccff66'>5</font> seconds and increases its damage by x<font color='#ccff66'>5</font> of Flamewaker's Strength value."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"Apply [W3] to enemies that take damage from [W1]."
@@ -8685,7 +8685,7 @@
         "item_rpc_paladin_glyph_3_2_description"                "Rune [Q2] heals Paladin for <font color='#ccff66'>1</font>% of damage dealt."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] Glyph of Fanaticism"
-        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a 0.05 second cast point, and pushes forward."
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 has a <font color='#ccff66'>0.05</font> second cast point, and pushes forward."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 may now attack, dealing Pure <font color=\"#F6FFB5\">Holy</font> damage equal to <font color='#ccff66'>0.5</font>x Paladin's attack power."
@@ -11831,7 +11831,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"Heaven's Charge refreshes the cooldown of @Ability1."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <font color='#ccff66'>9</font> electric bolts that deal <font color='#ccff66'>2</font>x her attack damage as magic."
+		"item_rpc_voltex_glyph_4_1_description" 				"When Voltex casts an ability other than Static, she releases <font color='#ccff66'>9</font> electric bolts that deal <font color='#ccff66'>7</font>x her attack damage as magic."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Increases the duration of Avatar by <font color='#ccff66'>12</font> seconds and increases attack damage while in Avatar by <font color='#ccff66'>50</font>%."
@@ -13896,7 +13896,7 @@
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Each missing point of missing health increases Armor Pierce and Spell Pierce by <font color='#ccff66'>0.15</font>. Each spell cast drains <font color='#ccff66'>15</font>% of max life, and each attack drains <font color='#ccff66'>5</font>% of max life. Self damage from Blood Bane cannot be lethal."
+		"property_mordiggus_description"					"Each missing point of health increases Armor Pierce and Spell Pierce by <font color='#ccff66'>0.15</font>. Each spell cast drains <font color='#ccff66'>15</font>% of max life, and each attack drains <font color='#ccff66'>5</font>% of max life. Self damage from Blood Bane cannot be lethal."
 
     	"item_rpc_mordiggus_gauntlet_ruby1"								"Increases Max Health by @ruby_property1"
     	"item_rpc_mordiggus_gauntlet_emerald1"								"Reduce all HP lost from Blood Bane by @emerald_property1%"

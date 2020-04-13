@@ -4522,7 +4522,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет чистый урон к её атакам."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Дракон</font> / <font color=\"#87D9FF\">Лёд</font><br>Кристалльное дыхание создает помеченную на земле зону через 1 секунду после каста. Противники внутри зоны атакуются Dinath автоматически если находятся в радиусе атаки. Пассивно увеличивает радиус атаки Dinath и добавляет дополнительный физический урон к её атакам."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"РАДИУС:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"ПАССИВНЫЙ БОНУС К РАДИУСУ АТАКИ:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% ЧИСТОГО УРОНА ОТ АТАКИ:"
@@ -6454,7 +6454,7 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"Увеличивает урон и скорость атаки."
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] Molten Flux"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают базовый урон Flamewaker на 4 секунды."
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"Восстановленное здоровье от руны [Q2] и урон, нанесенный руной [Q3] увеличивают базовый урон Flamewaker на <font color='#ccff66'>7</font> сек. Максимальный общий бонус урона от этой руны равен <font color='#ccff66'>10000</font>."
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"Доп. урон от руны Restorative Earth"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						" за восстановленное здоровье"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"Доп. урон от руны Eruption"
@@ -6659,7 +6659,7 @@
 		"item_rpc_flamewaker_glyph_1_1_description" 			"Враги, атакующие вас могут быть оглушены с шансом <font color='#ccff66'>50</font>% на <font color='#ccff66'>1</font> сек."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_2_1"	"[T2-1] Glyph of Cratering"
-		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <font color='#ccff66'>5</font> сек."
+		"item_rpc_flamewaker_glyph_2_1_description" 			"Уменьшает время перезарядки (Q) Seismic Flare до <font color='#ccff66'>5</font> сек и увеличивает урон этой способности на показатель Силы героя в <font color='#ccff66'>5</font>-кратном размере."
 
 		"DOTA_Tooltip_ability_item_rpc_flamewaker_glyph_3_1"	"[T3-1] Glyph of Upheaval"
 		"item_rpc_flamewaker_glyph_3_1_description" 			"На все цели попавшие под [W1] применяется [W3]."
@@ -8054,7 +8054,7 @@
         "item_rpc_paladin_glyph_3_2_description"                "Руна [Q2] дает <font color='#ccff66'>1</font>% вампиризм от урона способности."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_4_2"       "[T4-2] Glyph of Hyper Justice"
-        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет 0.05 точку каста и толкает вперед."
+        "item_rpc_paladin_glyph_4_2_description"                "@Ability2 имеет <font color='#ccff66'>0.05</font> время каста и толкает вперед."
 
         "DOTA_Tooltip_ability_item_rpc_paladin_glyph_5_2"       "[T5-2] Glyph of Penitence"
         "item_rpc_paladin_glyph_5_2_description"                "@Ability4 могут атаковать, нанося при ударах чистый урон с элементом <font color=\"#F6FFB5\">Света</font> в размере <font color='#ccff66'>0.5</font>x от атаки Паладина."
@@ -10907,7 +10907,7 @@
     	"DOTA_Tooltip_ability_voltex_rune_q_2_suffix"						" за Ловкость"
 		
 		"DOTA_Tooltip_ability_voltex_rune_q_3"								"[Q3] Overflow"
-        "DOTA_Tooltip_ability_voltex_rune_q_3_Description"                  "Добавляет часть урона атаки к урон @Ability1."
+        "DOTA_Tooltip_ability_voltex_rune_q_3_Description"                  "Добавляет часть урона атаки к урону @Ability1."
         "DOTA_Tooltip_ability_voltex_rune_q_3_property_one"                 "Дополнительный Урон"
         "DOTA_Tooltip_ability_voltex_rune_q_3_suffix"                       "% от урона атаки"
 
@@ -11144,7 +11144,7 @@
 		"item_rpc_voltex_glyph_3_1_description" 				"[E3] Heaven's Charge сбрасывает время перезарядки (Q) Overcharge."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_4_1"		"[T4-1] Glyph of Unstable Voltage"
-		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <font color='#ccff66'>9</font> электрических зарядов, наносящих <font color='#ccff66'>2</font>x магического урона от базовой атаки."
+		"item_rpc_voltex_glyph_4_1_description" 				"Когда Voltex произносит любые умения, кроме (W) Static, она выпускает <font color='#ccff66'>9</font> электрических зарядов, наносящих <font color='#ccff66'>7</font>x магического урона от базовой атаки."
 
 		"DOTA_Tooltip_ability_item_rpc_voltex_glyph_5_1"		"[T5-1] Glyph of Charged Combat"
 		"item_rpc_voltex_glyph_5_1_description" 				"Увеличивает продолжительность действия руны [R3] на <font color='#ccff66'>12</font> сек. и увеличивает основной урон во время действия [R3] на <font color='#ccff66'>50</font>%."
