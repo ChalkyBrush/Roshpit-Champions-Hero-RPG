@@ -11,17 +11,21 @@ function class:OnCreated()
 end
 
 function class:OnIntervalThink()
+	if not IsServer() then return end
+
 	local caster = self:GetCaster()
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	local q_2_level = caster:GetRuneValue("q", 2)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * PALADIN_Q2_DMG_PER_ATT * q_2_level / 2
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do
-			CustomAbilities:QuickAttachParticle("particles/items2_fx/radiance.vpcf", enemy, 1)
-			local dealtDamage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
-			if caster:HasModifier("modifier_paladin_glyph_3_2") then
-				local heal = dealtDamage * PALADIN_GLYPH_3_2_LIFESTEAL
-				Filters:ApplyHeal(caster, caster, heal, true)
+			if not enemy.dummy then
+				CustomAbilities:QuickAttachParticle("particles/items2_fx/radiance.vpcf", enemy, 1)
+				local dealtDamage = Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_Q, RPC_ELEMENT_HOLY, RPC_ELEMENT_NONE)
+				if caster:HasModifier("modifier_paladin_glyph_3_2") then
+					local heal = dealtDamage * PALADIN_GLYPH_3_2_LIFESTEAL
+					Filters:ApplyHeal(caster, caster, heal, true)
+				end
 			end
 		end
 	end
