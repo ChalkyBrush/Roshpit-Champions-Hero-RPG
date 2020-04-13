@@ -1943,35 +1943,38 @@ function aquarius_dome_dummy_end(event)
 end
 
 function thunderhide_egg_hit(event)
-	local caster = event.unit
-	if not caster.hatching then
-		EmitSoundOn("Winterblight.Thunderhide.EggHit", caster)
-		caster.hatching = true
-		local baseColorVector = caster.colorVector
+	local egg = event.unit
+	if not egg.hatching then
+		egg.hatching = true
+		EmitSoundOn("Winterblight.Thunderhide.EggHit", egg)
+		--local baseColorVector = egg.colorVector
 		for i = 1, 20, 1 do
 			Timers:CreateTimer(i * 0.06, function()
 				if i % 2 == 0 then
-					caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(i, i, 0))
-					CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_white_base.vpcf", caster:GetAbsOrigin(), 4)
+					egg:SetAbsOrigin(egg:GetAbsOrigin() + Vector(i, i, 0))
 				else
-					caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(i, i, 0))
+					egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(i, i, 0))
 				end
-				baseColorVector = baseColorVector - Vector(5,5,5)
-				caster:SetRenderColor(math.max(baseColorVector.x, 0), math.max(baseColorVector.y, 0), math.max(baseColorVector.z, 0))
+				if i % 10 == 0 then
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/draghor/shapeshift_effect_white_base.vpcf", egg:GetAbsOrigin(), 4)
+				end
+				--baseColorVector = baseColorVector - Vector(5,5,5)
+				--egg:SetRenderColor(math.max(baseColorVector.x, 0), math.max(baseColorVector.y, 0), math.max(baseColorVector.z, 0))
 				
 			end)
 		end
-		local position = caster:GetAbsOrigin()+Vector(0,0,50)
-		local size = caster:GetModelScale()/3.3
 		Timers:CreateTimer(1.25, function()
-			if Winterblight:ShouldSpawnCaveUnit(caster.chamber, caster.spawnphase) then
-				local lizard = Winterblight:SpawnThunderhide(caster:GetAbsOrigin(), RandomVector(1), caster.colorVector)
+			egg:ForceKill(false)
+			if Winterblight:ShouldSpawnCaveUnit(egg.chamber, egg.spawnphase) then
+				EmitSoundOn("Winterblight.ThunderhideEgg.Hatch", egg)
+				local lizard = Winterblight:SpawnThunderhide(egg:GetAbsOrigin(), RandomVector(1), egg.colorVector)
 				local luck = RandomInt(1, 2)
 				if luck == 1 then
 					lizard:SetModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
 					lizard:SetOriginalModel("models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl")
 				end
 				local ability_list = {"winterblight_endurance", "creature_pure_strike", "ability_mega_haste", "ability_magic_immune_break", "fire_temple_frenzy", "winterblight_ogre_armor", "seafortress_ghost_seal_ability", "ability_stun_immunity", "ability_unshakable", "winterblight_frostiok_passive", "winterblight_frost_colossus_passive", "winterblight_snowshaker_passive", "armor_break_ultra", "luna_taskmaster_shield", "ice_hulk_passive", "winterblight_armor_softening", "normal_steadfast", "mega_steadfast"}
+				local size = egg.size/3.3
 				lizard:SetModelScale(size)
 				lizard:SetHullRadius(size*55)
 				local ability_count = 1
@@ -1986,26 +1989,13 @@ function thunderhide_egg_hit(event)
 					local new_ability = lizard:AddAbility(ability_name_to_add)
 					new_ability:SetLevel(GameState:GetDifficultyFactor())
 				end
+				local position = egg:GetAbsOrigin() + Vector(0, 0, 50)
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/venomort/frostvenom_grasp.vpcf", position, 4)
 				Dungeons:AggroUnit(lizard)
-				Winterblight:SetCavernUnit(lizard, lizard:GetAbsOrigin(), true, false, caster.chamber)
-				EmitSoundOn("Winterblight.ThunderhideEgg.Hatch", caster)
-				local currentScale = caster:GetModelScale()
-				local eggShell = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = caster:GetAbsOrigin()})
-				local randomIndex = RandomInt(1, 4)
-				local modelName = "models/props_winter/egg_shatter_0"..randomIndex..".vmdl"
-				eggShell:SetModel(modelName)
-				eggShell:SetModelScale(currentScale)
-				eggShell:SetRenderColor(caster.colorVector.x, caster.colorVector.y, caster.colorVector.z)
-				UTIL_Remove(caster)
+				Winterblight:SetCavernUnit(lizard, lizard:GetAbsOrigin(), true, false, egg.chamber)
 				Timers:CreateTimer(0.03, function()
 					FindClearSpaceForUnit(lizard, lizard:GetAbsOrigin(), false)
 				end)
-				Timers:CreateTimer(60, function()
-					UTIL_Remove(eggShell)
-				end)
-			else
-				UTIL_Remove(caster)
 			end
 		end)
 	end

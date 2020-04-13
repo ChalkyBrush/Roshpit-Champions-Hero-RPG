@@ -3250,8 +3250,6 @@ end
 
 function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
 	local egg = CreateUnitByName("boulderspine_viper_egg", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	egg:SetOriginalModel("models/custom_egg.vmdl")
-	egg:SetModel("models/custom_egg.vmdl")
 	local modelScale = RandomInt(350, 700) / 100
 	egg:SetModelScale(modelScale)
 	local colorVector = Vector(RandomInt(100, 255), RandomInt(100, 255), RandomInt(120, 255))
@@ -3262,8 +3260,7 @@ function Winterblight:SpawnThunderhideEgg(position, spawnphase, chamber)
 	egg.jumpLock = true
 	egg.chamber = chamber
 	egg.spawnphase = spawnphase
-	egg.SetHullRadius(64)
-	egg:SetAbsOrigin(egg:GetAbsOrigin()-Vector(0,0,20))
+	egg:SetHullRadius(modelScale*17)
 	egg.size = modelScale
 	return egg
 end
@@ -3281,10 +3278,10 @@ function Winterblight:SpawnThunderhide(position, fv, colorVector)
 end
 
 function Winterblight:AuroraPassage3(msg)
-	local spawnphase = Winterblight.CavernData.Chambers[msg.chamber]["spawnphase"]
-	Winterblight.CavernData.Chambers[msg.chamber]["goal"] = 100
-	Winterblight.CavernData.Chambers[msg.chamber]["progress"] = 0
 	local chamber_id = msg.chamber
+	local spawnphase = Winterblight.CavernData.Chambers[chamber_id]["spawnphase"]
+	Winterblight.CavernData.Chambers[chamber_id]["goal"] = 100
+	Winterblight.CavernData.Chambers[chamber_id]["progress"] = 0
 
 	for i = 1, 135, 1 do
 		Timers:CreateTimer(0.1*i, function()

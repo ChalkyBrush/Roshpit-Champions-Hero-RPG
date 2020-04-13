@@ -13640,12 +13640,8 @@
         "precache"
         {
             "particle"  "particles/roshpit/winterblight/wolf_aura.vpcf"
-            "model"     "models/props_winter/egg.vmdl"
-            "model"     "models/props_winter/egg_shatter_01.vmdl"
-            "model"     "models/props_winter/egg_shatter_02.vmdl"
-            "model"     "models/props_winter/egg_shatter_03.vmdl"
-            "model"     "models/props_winter/egg_shatter_04.vmdl"
-            "model"     "models/custom_egg.vmdl"
+            "particle"  "particles/forest/egg_destruction.vpcf"
+            "model"     "models/creeps/ice_boss/ice_boss_egg_dest.vmdl"
             "model"     "models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_small.vmdl"
         }
 

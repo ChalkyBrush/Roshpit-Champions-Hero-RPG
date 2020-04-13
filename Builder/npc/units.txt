@@ -31039,11 +31039,8 @@
         {
             "particle" "particles/units/heroes/hero_faceless_void/faceless_void_time_walk_debuff.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
-            "model"     "models/props_winter/egg.vmdl"
-            "model"     "models/props_winter/egg_shatter_01.vmdl"
-            "model"     "models/props_winter/egg_shatter_02.vmdl"
-            "model"     "models/props_winter/egg_shatter_03.vmdl"
-            "model"     "models/props_winter/egg_shatter_04.vmdl"
+            "model"     "models/creeps/ice_boss/ice_boss_egg_dest.vmdl"
+            "particle"  "particles/forest/egg_destruction.vpcf"
         }
         "Level" "1"
         "HealthBarOffset"   "160"
@@ -31205,8 +31202,8 @@
 
     "boulderspine_viper_egg"
     {
-        "BaseClass" "npc_dota_base_additive"
-        "Model" "models/development/invisiblebox.vmdl"
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/creeps/ice_boss/ice_boss_egg_dest.vmdl"
         "Level" "1"
         "UnitLabel" "healing_ward"
         "Ability1"  ""
