@@ -786,6 +786,9 @@ function room_7_goo_aura_thinker(event)
 		if (depth == 2 or depth == 1) and goo_depth < 2 then
 			victim_goo_amount = 0
 		end
+		if depth == 2 and goo_depth == 2 then
+			victim_goo_amount = 1
+		end
 		if victim_goo_amount > 0 then
 			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, target, "modifier_room_7_in_goo", {})	
@@ -797,3 +800,4 @@ function room_7_goo_aura_thinker(event)
 		target:RemoveModifierByName("modifier_room_7_in_goo")
 	end
 end
+

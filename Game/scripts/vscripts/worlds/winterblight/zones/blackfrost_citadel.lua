@@ -1012,8 +1012,27 @@ function Winterblight:SpawnCastleRoom7(variant)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, goo_dummy, "modifier_room_7_goo_aura", {})
 	goo_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
 
+
+	local buttonsPositions = {Vector(9037, 3622, 1584), Vector(9514, 5496, 1584), Vector(10867, 5619, 1584)}
+	for i = 1, #buttonsPositions, 1 do
+		local button = Entities:FindByNameNearest("GooSwitchButton", buttonsPositions[i], 800)
+		button:SetAbsOrigin(button:GetAbsOrigin() + Vector(0,0,285))
+	end
 	Winterblight.CastleDungeonMaster.goo_switches = {0, 0, 0}
+	Winterblight.CastleDungeonMaster.goo_dummy = goo_dummy
 	if variant == 1 then
+		Timers:CreateTimer(0.5, function()
+			for i = 0, 2, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(-1,0)
+					local x_spacing = 256
+					local y_spacing = 256
+					local base_pos = Vector(10624, 3538)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_mountain_spirit", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+
 		Timers:CreateTimer(1, function()
 			for i = 0, 1, 1 do
 				for j = 0, 2, 1 do
@@ -1026,7 +1045,81 @@ function Winterblight:SpawnCastleRoom7(variant)
 			end
 		end)
 
-		Timers:CreateTimer(4, function()
+		Timers:CreateTimer(2, function()
+			for i = 0, 2, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(1,0)
+					local x_spacing = 234
+					local y_spacing = 234
+					local base_pos = Vector(9600, 3998)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_slime_goblin", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(2.5, function()
+			local positionTable = {Vector(8917, 4231), Vector(9216, 3840), Vector(8832, 3840), Vector(10176, 4976), Vector(10496, 4976), Vector(11136, 4569), Vector(11136, 4289)}
+			for i = 1, #positionTable, 1 do
+				local fv = RandomVector(1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_slime_goblin", positionTable[i], fv, false, false)
+			end	
+		end)
+		Timers:CreateTimer(3.5, function()
+			for i = 0, 2, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(0,-1)
+					local x_spacing = 240
+					local y_spacing = 240
+					local base_pos = Vector(10568, 5435)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_defiler", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(4.0, function()
+			for i = 0, 3, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(0,-1)
+					local x_spacing = 220
+					local y_spacing = 220
+					local base_pos = Vector(10162, 4306)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(5.0, function()
+			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_watchman", Vector(9728, 5120), Vector(0,-1), false, false)
+		end)
+		Timers:CreateTimer(5.5, function()
+			local positionTable = {Vector(8576, 4817), Vector(8925, 4817), Vector(9268, 4818)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(1,0)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_draugr", positionTable[i], fv, false, false)
+			end	
+		end)
+		Timers:CreateTimer(6.5, function()
+			for i = 0, 1, 1 do
+				for j = 0, 2, 1 do
+					local fv = Vector(0,-1)
+					local x_spacing = 220
+					local y_spacing = 240
+					local base_pos = Vector(8384, 5176)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_accursed", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+
+		Timers:CreateTimer(7, function()
+			local positionTable = {Vector(9493, 5760), Vector(9824, 5760), Vector(9774, 5504)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_skull_ripper", positionTable[i], fv, false, false)
+			end	
+		end)
+		Timers:CreateTimer(8, function()
+			local positionTable = {Vector(9144, 5217), Vector(9144, 5419), Vector(9144, 5632)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
+			end	
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
