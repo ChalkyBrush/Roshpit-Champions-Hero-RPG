@@ -5804,7 +5804,7 @@ function captains_vest_think(event)
 	strength = strength * (1 + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_CAPTAINS_VEST_GEM_RUBY)/100)
 	agility = agility * (1 + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_CAPTAINS_VEST_GEM_EMERALD)/100)
 	intelligence = intelligence * (1 + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CAPTAINS_VEST_GEM_SAPPHIRE)/100)
-	spirit = spirit * (1 + ability:GetFinalGemPropertyValue("spirit", ITEM_RPC_CAPTAINS_VEST_GEM_SPIRIT)/100)
+	spirit = spirit * (1 + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_CAPTAINS_VEST_GEM_AMETHYST)/100)
 	if strength > 0 then
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_captains_vest_str", {})
 		hero:SetModifierStackCount("modifier_captains_vest_str", caster, strength)

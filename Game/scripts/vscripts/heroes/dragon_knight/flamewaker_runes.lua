@@ -62,11 +62,11 @@ function b_a_modifier_think(event)
 	Filters:ApplyHeal(caster, caster, amount, true)
 	local seismicFlare = caster:FindAbilityByName("seismic_flare")
 	if seismicFlare.q_4_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(caster, 4, false)
+		local duration = Filters:GetAdjustedBuffDuration(caster, FLAMEWAKER_Q4_DURATION, false)
 		seismicFlare.q_4_ability:ApplyDataDrivenModifier(caster.runeUnit4, caster, "modifier_flamewaker_rune_q_4", {duration = duration})
 		local current_stack = caster:GetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability)
 		local stackBonus = math.floor(amount * FLAMEWAKER_Q4_BASE_DMG_PER_HP * seismicFlare.q_4_level / 10)
-		caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, current_stack + stackBonus)
+		caster:SetModifierStackCount("modifier_flamewaker_rune_q_4", seismicFlare.q_4_ability, math.min(current_stack + stackBonus, FLAMEWAKER_Q4_BASE_DMG_CAP_STACKS))
 	end
 end
 

@@ -36,7 +36,7 @@
     	"DOTA_Tooltip_ability_dinath_rune_q_4_suffix"							"%"
 		
 		"DOTA_Tooltip_ability_dinath_drake_ring"								"Eye of the Drake"
-    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional pure damage."
+    	"DOTA_Tooltip_ability_dinath_drake_ring_Description"					"Element: <font color=\"#3289C7\">Dragon</font> / <font color=\"#87D9FF\">Ice</font><br>A puff of crystal air creates a marked area at the target location after 1 second travel time. All enemies in the area marked area are automatically attacked by Dinath if they are within her attack range. Passively increase attack range and causes Dinath's attacks to deal additional physical damage."
     	"DOTA_Tooltip_ability_dinath_drake_ring_radius"							"RADIUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_attack_range_bonus"				"PASSIVE ATTACK RANGE BONUS:"
     	"DOTA_Tooltip_ability_dinath_drake_ring_damage_mult"					"% DAMAGE BASED ON ATTACK POWER:"

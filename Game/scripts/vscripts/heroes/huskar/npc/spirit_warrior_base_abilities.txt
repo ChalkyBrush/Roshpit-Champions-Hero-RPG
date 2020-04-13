@@ -18,7 +18,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_increase"		"8 10 12 14 16 18 20"
+				"damage_increase"		"<% SPIRIT_WARRIOR_Q_FIRE_BONUS_DAMAGE_BUFF %>"
 			}
 			"02"
 			{
@@ -284,7 +284,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 155 235 315 395 475 555"
+				"damage"			"<% SPIRIT_WARRIOR_W_DAMAGE %>"
 			}
 		}
 		"AbilityCastPoint"				"0.3"

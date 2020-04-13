@@ -47,7 +47,7 @@
 
 		// Damage.
 		//-------------------------------------------------------
-		"AbilityDamage"					"120 240 400 600 800 1000 1400"
+		"AbilityDamage"					"<% FLAMEWAKER_Q_DAMAGE %>"
 
 		// Cost
 		//-------------------------------------------------------
@@ -330,7 +330,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"70 160 300 400 650 800 900"
+				"damage"					"<% FLAMEWAKER_W_DAMAGE %>"
 			}
 			"03"
 			{
@@ -1120,7 +1120,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 300 500 700 1000 1300 1700"
+				"damage"	"<% FLAMEWAKER_R_DAMAGE %>"
 			}
 
 			"03"

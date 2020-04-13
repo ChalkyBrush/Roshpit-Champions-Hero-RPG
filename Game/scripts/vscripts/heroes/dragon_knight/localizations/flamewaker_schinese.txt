@@ -34,7 +34,7 @@
 		"DOTA_Tooltip_modifier_flamewaker_rune_q_3_buff_description" 			"攻击力和攻击速度提升"
 		
 		"DOTA_Tooltip_ability_flamewaker_rune_q_4"								"[Q4] 炽热岩浆"
-    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"每当大地回春为你回复生命值或者火山喷发造成伤害时，提高你的基础攻击力，持续4秒。"
+    	"DOTA_Tooltip_ability_flamewaker_rune_q_4_Description"					"每当大地回春为你回复生命值或者火山喷发造成伤害时，提高你的基础攻击力，持续<% FLAMEWAKER_Q4_DURATION %>秒。"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_one"					"大地回春提高基础攻击力"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_suffix"						"每点生命值回复"
     	"DOTA_Tooltip_ability_flamewaker_rune_q_4_property_two"					"火山喷发提高基础攻击力"

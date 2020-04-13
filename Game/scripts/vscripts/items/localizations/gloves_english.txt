@@ -411,7 +411,7 @@
     	"DOTA_Tooltip_ability_item_rpc_mordiggus_gauntlet"								"Mordiggus Gauntlet"
 
 		"item_property_mordiggus"							"Blood Bane"
-		"property_mordiggus_description"					"Each missing point of missing health increases Armor Pierce and Spell Pierce by <% ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING %>. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Self damage from Blood Bane cannot be lethal."
+		"property_mordiggus_description"					"Each missing point of health increases Armor Pierce and Spell Pierce by <% ITEM_RPC_MORDIGGUS_GAUNTLET_PIERCE_PER_HP_MISSING %>. Each spell cast drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_SPELL %>% of max life, and each attack drains <% ITEM_RPC_MORDIGGUS_GAUNTLET_HP_DRAIN_PCT_ON_ATTACK %>% of max life. Self damage from Blood Bane cannot be lethal."
 
     	"item_rpc_mordiggus_gauntlet_ruby1"								"Increases Max Health by @ruby_property1"
     	"item_rpc_mordiggus_gauntlet_emerald1"								"Reduce all HP lost from Blood Bane by @emerald_property1%"
