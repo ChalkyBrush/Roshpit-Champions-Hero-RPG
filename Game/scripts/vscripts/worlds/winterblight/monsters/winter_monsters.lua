@@ -2238,7 +2238,7 @@ function wave_burn_think(event)
 	local damage = event.damage
 	local target = event.target
 	local stacks = target:GetModifierStackCount("modifier_cold_seer_wave_burn", caster)
-	local damage = damage * stacks ^ 2
+	local damage = damage * stacks
 	ApplyDamage({victim = enemy, attacker = Winterblight.Master, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 

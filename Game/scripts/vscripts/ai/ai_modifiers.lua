@@ -71,5 +71,8 @@ function ai_climb_think(event)
 		unit:SetAngles(0, 0, 0)
 		FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
 		Dungeons:AggroUnit(unit)
+		if unit.crawl_end_pfx then
+			CustomAbilities:QuickParticleAtPoint(unit.crawl_end_pfx, unit:GetAbsOrigin(), 4)
+		end
 	end
 end

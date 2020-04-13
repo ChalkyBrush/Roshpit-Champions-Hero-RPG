@@ -3,7 +3,7 @@
 	"tutorial_exit_help_title1"											"Welcome to the Roshpit Tutorial!"
 	"tutorial_exit_help_title2"											"Tutorial Complete!"	
 
-	"tutorial_make_new_lobby_help1"										"This Tutorial is optional for players who want a deeper understanding of the game's mechanics.<br><br>Many find it boring.<br><br>If you prefer to learn by doing, exit this game and make a new lobby and select the 'Redfall Ridge' map.<br><br>Technically you can start on Tanari Jungle, Redfall Ridge, or Winterblight Mountain, but Redfall is the most friendly to new players."
+	"tutorial_make_new_lobby_help1"										"This Tutorial is optional for players who want a deeper understanding of the game's mechanics.<br><br>If you prefer to learn by playing the game, exit this lobby and make a new lobby and select the 'Redfall Ridge' map.<br><br>Technically you can start on Tanari Jungle, Redfall Ridge, or Winterblight Mountain, but Redfall is the most friendly to new players."
 	"tutorial_make_new_lobby_help2"										"You have completed the Tutorial and are ready to play the real game!<br><br>Exit this game and make a new lobby and select the 'Redfall Ridge' map. Technically you can start on Tanari Jungle, Redfall Ridge, or Winterblight Mountain, but Redfall is the most friendly to new players."
 	"tutorial_make_new_lobby_confirm"									"Got it!"								
 

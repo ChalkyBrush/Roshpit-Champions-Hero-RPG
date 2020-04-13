@@ -629,22 +629,24 @@ function CDOTABaseAbility:GetFinalGemPropertyValue(gem_type, value_table)
 	local item = self
 	local final_value = 0
 	local gem_level = 0
-	if item.newItemTable.socket1 then
-		if item.newItemTable.socket1 == gem_type then
-			gem_level = item.newItemTable.socket1value
+	if item.newItemTable then
+		if item.newItemTable.socket1 then
+			if item.newItemTable.socket1 == gem_type then
+				gem_level = item.newItemTable.socket1value
+			end
 		end
-	end
-	if item.newItemTable.socket2 then
-		if item.newItemTable.socket2 == gem_type then
-			gem_level = item.newItemTable.socket2value
-		end		
-	end
-	if gem_level > 0 then
-		final_value = value_table[gem_level]
-	end
-	if item.wearer and item.wearer:HasModifier("modifier_greensand_copper_gauntlets") then
-		if item:GetGemValue(gem_type) > 0 and item:GetAbilityName() ~= "item_rpc_greensand_copper_gauntlets" then
-			final_value = final_value * (1 + item.wearer.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue(gem_type, ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE)/100)
+		if item.newItemTable.socket2 then
+			if item.newItemTable.socket2 == gem_type then
+				gem_level = item.newItemTable.socket2value
+			end		
+		end
+		if gem_level > 0 then
+			final_value = value_table[gem_level]
+		end
+		if item.wearer and item.wearer:HasModifier("modifier_greensand_copper_gauntlets") then
+			if item:GetGemValue(gem_type) > 0 and item:GetAbilityName() ~= "item_rpc_greensand_copper_gauntlets" then
+				final_value = final_value * (1 + item.wearer.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue(gem_type, ITEM_RPC_GREENSAND_COPPER_GAUNTLETS_GEM_ENHANCE)/100)
+			end
 		end
 	end
 	return final_value
