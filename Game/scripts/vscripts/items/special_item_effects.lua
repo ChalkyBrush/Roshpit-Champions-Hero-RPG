@@ -8760,7 +8760,7 @@ function heavy_echo_attack_land(event)
 	local hero = caster.hero
 	local ability = event.ability
 	local target = event.target
-	if ability:GetGemValue("sapphire") > 0 then
+	if ability:GetGemValue("sapphire") > 0 and not target.dummy then
 		if not hero:HasModifier("modifier_heavy_echo_sapphire_cooldown") then
 			local cooldown = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HEAVY_ECHO_GAUNTLET_GEM_SAPPHIRE)
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_heavy_echo_sapphire_cooldown", {duration = cooldown})
