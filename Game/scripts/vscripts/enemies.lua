@@ -288,6 +288,11 @@ function Enemies:InitializeEnemy(unit)
 	end
 	newHealth = Enemies:AdjustAttributeForMapSpecial(unit, "health", newHealth)
 	newHealth = newHealth + newHealth * Enemies.EXTRA_HEALTH_BONUS_PER_ADDITIONAL_PLAYER * (math.max(RPCItems:GetConnectedPlayerCount() - 1, 0))
+
+	if unit:GetKeyValue("FixedHealth") ~= 0 then
+		local health_key = "FixedHealth"..GameState:GetDifficultyFactor()
+		newHealth = unit:GetKeyValue(health_key)
+	end
 	newHealth = math.min(newHealth, (2 ^ 30) - 10)
 	unit:SetMaxHealth(newHealth)
 	unit:SetBaseMaxHealth(newHealth)
@@ -316,6 +321,16 @@ function Enemies:InitializeEnemy(unit)
 	end
 
 	-- AI AND COLOR
+	local animation_translate = unit:GetKeyValue("RoshpitAnimationTranslate")
+	if animation_translate ~= 0 then
+		unit:AddNewModifier(unit, nil, "modifier_animation", {translate = animation_translate})
+	end
+	if unit:GetKeyValue("RoshpitPushLock") ~= 0 then
+		unit.pushLock = true
+	end
+	if unit:GetKeyValue("RoshpitJumpLock") ~= 0 then
+		unit.jumpLock = true
+	end
 	if unit:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 		Enemies:SetupAI(unit)
 	end
@@ -683,6 +698,16 @@ function Enemies:SetupAI(unit)
 			unit.targetFindOrder = target_preference
 		end
 	end
+	if ai_type and ai_type == RPC_AI_TYPE_CAST_ABILITY1_NO_TARGET then
+		unit:AddAbility("use_ability_1_no_target_ai"):SetLevel(1)
+		unit.targetAbilityCD = 1
+		unit.autoAbilityCD = 1
+		local targetAOE = unit:GetKeyValue("RoshpitCastAOE")
+		if targetAOE then
+			unit.targetRadius = targetAOE
+		end
+	end
+
 
 	if unit:GetKeyValue("RoshpitAIFlee") > 0 then
 		if not unit.ai_data then

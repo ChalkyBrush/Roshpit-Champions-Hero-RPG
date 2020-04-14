@@ -801,3 +801,15 @@ function room_7_goo_aura_thinker(event)
 	end
 end
 
+function winter_armory_rock_destroy(event)
+	local caster = event.caster
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/rock_explode.vpcf", caster:GetAbsOrigin(), 5)
+	EmitSoundOn("Winterblight.BlueRock.Explode", caster)
+	for j = -1, 1, 1 do
+		local skeleton = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), RandomVector(1), true, true)
+		CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", skeleton:GetAbsOrigin(), 4)
+	end
+	Timers:CreateTimer(0.06, function()
+		UTIL_Remove(caster)
+	end)
+end

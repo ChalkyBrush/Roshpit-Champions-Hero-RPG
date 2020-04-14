@@ -62,13 +62,14 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_scale"] = 0.88
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"] = {}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 7, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 6, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 5, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 4, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 3, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 2, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][8] = {index = 1, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][2] = {}
 		Winterblight.CASTLE_DATA["tarot"][2]["name"] = "magician"
@@ -363,6 +364,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][7]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["key_positions"] = {Vector(10837, 5609), Vector(9492, 5446), Vector(8960, 3660)}
 		Winterblight.CASTLE_DATA["rooms"][7]["cleared"] = 0
+
+		-- weapons_cache
+		Winterblight.CASTLE_DATA["rooms"][8] = {}
+		Winterblight.CASTLE_DATA["rooms"][8]["door_index"] = 9
+		Winterblight.CASTLE_DATA["rooms"][8]["active"] = 0
+		Winterblight.CASTLE_DATA["rooms"][8]["enemy_spawn_count"] = 0
+		Winterblight.CASTLE_DATA["rooms"][8]["enemies_slain"] = 0
+		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 27
+		Winterblight.CASTLE_DATA["rooms"][8]["key_positions"] = {Vector(15669, 1024), Vector(15120, 1870), Vector(14413, 1965)}
+		Winterblight.CASTLE_DATA["rooms"][8]["cleared"] = 0
 end
 
 function Winterblight:InitCastleProps()
@@ -1123,6 +1134,104 @@ function Winterblight:SpawnCastleRoom7(variant)
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
+end
+
+function Winterblight:SpawnCastleRoom8(variant)
+	local room_index = 8
+	local vertices = Winterblight:Room8Vertices()
+	for i = 1, 9, 1 do
+		Timers:CreateTimer(i*0.1, function()
+			local spawnPos = WallPhysics:RandomPointInBlockCollection(vertices)
+			local rock = Enemies:SpawnEnemyUnit("winterblight_armory_rock", spawnPos, RandomVector(1), false)
+			rock:SetAbsOrigin(rock:GetAbsOrigin() + Vector(0,0,40))
+			rock:SetHullRadius(180)
+		end)
+	end
+	if variant == 1 then
+		Timers:CreateTimer(0.5, function()
+			local positionTable = {Vector(14464, 1920), Vector(14848, 2112), Vector(14952, 2455), Vector(14828, 2816), Vector(14513, 3200)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(14336, 2560) - positionTable[i]):Normalized()
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_cavern_centaur", positionTable[i], fv, false, false)
+			end	
+		end)
+		Timers:CreateTimer(1.2, function()
+			for i = 0, 5, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(0,1)
+					local x_spacing = 270
+					local y_spacing = 270
+					local base_pos = Vector(14593, 1340)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_fallen_one", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(2.5, function()
+			local positionTable = {Vector(15952, 2172), Vector(15756, 2597), Vector(15304, 2954), Vector(14592, 3456)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(14848, 1826) - positionTable[i]):Normalized()
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_fallen_one", positionTable[i], fv, false, false)
+			end
+			for i = 1, GameState:GetDifficultyFactor() + Winterblight.Stones, 1 do
+				local spawnPos = WallPhysics:RandomPointInBlockCollection(vertices)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elite_ghoul", spawnPos, fv, false, false)
+			end
+		end)
+		Timers:CreateTimer(3.0, function()
+			for i = 0, 2, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(0,1)
+					local x_spacing = 240
+					local y_spacing = 240
+					local base_pos = Vector(15310, 768)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elite_castle_warrior", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(3.5, function()
+			if GameState:GetDifficultyFactor() > 1 then
+				local positionTable = {Vector(1532, 2304), Vector(15305, 1938), Vector(15616, 2052)}
+				for i = 1, #positionTable, 1 do
+					Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_ancient_mountain_spirit", positionTable[i], RandomVector(1), false, false)
+				end
+			end
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
+		end)
+	end
+end
+
+function Winterblight:Room8Vertices()
+	local vertices = {}
+
+	local height = 2480
+	local width = 406
+	local origin = Vector(14667, 2333)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 2187
+	local width = 467
+	local origin = Vector(15145, 1871)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 1172
+	local width = 733
+	local origin = Vector(15761, 1971)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 777
+	local width = 815
+	local origin = Vector(15807, 919)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	return vertices
 end
 
 function Winterblight:SpawnRoomKey(room_index)

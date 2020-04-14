@@ -762,3 +762,18 @@ end
 function WallPhysics:ClampedVector(startPos, endPos, maxDistance)
 	return startPos + maxDistance * (Vector(endPos.x, endPos.y, 0) - Vector(startPos.x, startPos.y, 0)):Normalized()
 end
+
+function WallPhysics:RandomPointInBlockCollection(vertices)
+	local randomVertex = vertices[RandomInt(1, #vertices)]
+	local baseX = randomVertex[1].x
+	local baseY = randomVertex[1].y
+	local maxX = randomVertex[2].x
+	local maxY = randomVertex[2].y
+
+	local deltaX = maxX - baseX
+	local deltaY = maxY - baseY
+
+	local random_x = baseX + RandomInt(0, deltaX)
+	local random_y = baseY + RandomInt(0, deltaY)
+	return Vector(random_x, random_y)
+end

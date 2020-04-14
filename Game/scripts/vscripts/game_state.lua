@@ -1950,6 +1950,19 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			damage = damage * (100-ITEM_RPC_SEA_GIANTS_PLATE_DMG_REDUCTION_WHILE_STUNNED)/100
 		end
 	end
+	if victim:HasModifier("modifier_shield_block") then
+		if shouldConsumeShields then
+			local angle1 = victim:GetForwardVector()
+			local angle2 = ((victim:GetAbsOrigin() - attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local angle_between = WallPhysics:angle_between_vectors(angle1, angle2)
+			if (angle_between > 135) and (angle_between < 225) then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf", victim, 1)
+				EmitSoundOn("Winterblight.FallenOne.Block", victim)
+				local reduction = victim:FindModifierByName("modifier_shield_block"):GetAbility():GetSpecialValueFor("front_damage_block")
+				damage = damage * (100-reduction)/100
+			end
+		end
+	end
 
 	if victim:HasModifier("modifier_chitinous_skin_stack") then
 		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
@@ -3154,7 +3167,7 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_frozen_stand") then
 		filterTable["damage"] = 0
 	end
-	if victim:HasModifier("modifier_shipyard_spawner_passive") or victim:HasModifier("modifier_jex_fire_tree") then
+	if victim:HasModifier("modifier_shipyard_spawner_passive") or victim:HasModifier("modifier_jex_fire_tree") or victim:HasModifier("modifier_take_1_damage_only") then
 		filterTable["damage"] = 1
 	end
 	if victim:HasModifier("modifier_line_tower_passive") then
