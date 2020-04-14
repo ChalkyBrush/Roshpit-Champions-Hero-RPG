@@ -396,6 +396,29 @@ function castle_room_unit_die(event)
 			end			
 			Winterblight.CASTLE_DATA["rooms"][5]["active"] = 2
 		end
+	elseif unit.deathCode == "freezer" then
+		if not Winterblight.CastleDungeonMaster.freezer_room_mob_deaths then
+			Winterblight.CastleDungeonMaster.freezer_room_mob_deaths = 0
+		end
+		Winterblight.CastleDungeonMaster.freezer_room_mob_deaths = Winterblight.CastleDungeonMaster.freezer_room_mob_deaths + 1
+		if Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 6 or Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 18 or Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 30 then
+			local vertices = Winterblight:Room9Vertices()
+			local delay = 1
+			if GameState:GetDifficultyFactor() == 3 then
+				delay = 0.8 - Winterblight.Stones*0.1
+			end
+			for i = 1, 10 + GameState:GetDifficultyFactor()*2, 1 do
+				Timers:CreateTimer(i*delay, function()
+					Winterblight:DropRoom9IcicleAtRandomPosition()
+				end)
+			end
+			if Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 30 then
+				Timers:CreateTimer(delay*(8 + GameState:GetDifficultyFactor()*2), function()
+					Winterblight.CASTLE_DATA["rooms"][9]["active"] = 2
+				end)
+			end
+		end
+
 	end
 end
 
@@ -812,4 +835,46 @@ function winter_armory_rock_destroy(event)
 	Timers:CreateTimer(0.06, function()
 		UTIL_Remove(caster)
 	end)
+end
+
+function castle_ice_bear_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	caster:ApplyAndIncrementStack(ability, caster, "modifier_ice_bear_attack_buff", 1, event.max_stacks, event.duration)
+end
+
+function room_9_icicle_fall_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local icicle = event.target
+	if icicle.disabled then
+		return false
+	end
+	if not icicle.fallSpeed then
+		icicle.fallSpeed = 30
+	end
+	local distanceFromGround = icicle:GetDistanceFromGround()
+	icicle.fallSpeed = math.min(icicle.fallSpeed + 0.1, 60)
+
+	local angles = icicle:GetAngles()
+	icicle:SetAngles(angles.x+5, angles.y+5, angles.z+15)
+
+	if distanceFromGround > 10 then
+		icicle:SetAbsOrigin(icicle:GetAbsOrigin()-Vector(0,0,icicle.fallSpeed))
+	else
+		EmitSoundOn("Winterblight.Icicle.Shatter", icicle)
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_medusa/ice_shatter.vpcf", icicle:GetAbsOrigin(), 3)
+		icicle:RemoveModifierByName("modifier_room_9_icicle_fall")
+		icicle.disabled = true
+		local position = icicle:GetAbsOrigin()
+		Timers:CreateTimer(0.03, function()
+			UTIL_Remove(target)
+		end)
+		local unitTable = {"winterblight_frozen_cage", "winterblight_castle_warrior", "winterblight_wraithguard", "winterblight_frozen_mage", "winterblight_frozen_phantom", "winterblight_frozen_soul", "winterblight_suffering_spirit", "winterblight_elite_ghoul", "winterblight_fallen_one"}
+		local monster = Winterblight:SpawnCastleRoomUnit(9, unitTable[RandomInt(1, #unitTable)], position, RandomVector(1), true, false)
+		monster.deathCode = "freezer"
+	end
 end

@@ -102748,9 +102748,12 @@
         "RoshpitArmorPierce"    "310"
         "RoshpitSpellPierce"    "385"
         "RoshpitMagicArmor"     "105"
-        "RoshpitLevel"          "27"
+        "RoshpitLevel"          "29"
         "RoshpitDominion"       "1"
         "EnemyTier"             "1"
+        "RoshpitAI1"            "1"
+        "RoshpitCastAOE"        "900"
+        "RoshpitAggroSound"     "Winterblight.BoneBlister.Aggro"
     }
 
     "winterblight_galaxy_knight"
@@ -108596,6 +108599,83 @@
         "RoshpitColorRenderR"   "50"
         "RoshpitColorRenderG"   "50"
         "RoshpitColorRenderB"   "50"   
+        "RoshpitDeathSound"     "Winterblight.SunRubble.Death"
+    }
+
+    "winterblight_ice_bear"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/lone_druid/bear/elemental_curse_set_elemental_curse_spirit_bear/elemental_curse_set_elemental_curse_spirit_bear.vmdl"
+        "ModelScale"    "1.00"
+        "Level" "1"
+        "HealthBarOffset"   "240"
+        "HasInventory"  "0"
+        "SelectionGroup"    "doomguard"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"          "Hero_LoneDruid"
+        "precache"
+        {
+            "particle"  "particles/units/heroes/hero_ursa/ursa_overpower_buff.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "48"
+        "AttackDamageMax"   "54"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.3"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "180"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "400"
+        "BountyXP" "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "285"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "5"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+
+        "Ability1"  "winterblight_ice_bear_passive"
+        "Ability2"  "mega_steadfast"
+        "RoshpitArmor"          "486"
+        "RoshpitArmorPierce"    "260"
+        "RoshpitSpellPierce"    "124"
+        "RoshpitMagicArmor"     "446"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "1"
+        "RoshpitAggroSound"     "Winterblight.IceBear.Aggro"
+        "RoshpitDeathSound"     "Winterblight.IceBear.Death"
     }
     
 

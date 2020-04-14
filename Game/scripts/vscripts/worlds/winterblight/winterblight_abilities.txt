@@ -16139,6 +16139,20 @@
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_room_9_icicle_fall"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"room_9_icicle_fall_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -16990,4 +17004,73 @@
 				}
 			}
 		}
+	}
+
+   	"winterblight_ice_bear_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/ankle_breaker"
+		"AOERadius"				"1000"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_attack_per_stack"			"30 120 600"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_as_per_stack"			"10 15 20"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ice_bear_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"ThinkInterval"  "1.0"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_ice_bear_attack_land"
+						"duration"		"%duration"
+						"max_stacks"	"%max_stacks"
+					}
+				}
+			}
+			"modifier_ice_bear_attack_buff"
+			{
+				//Adds 30s to E cooldown
+				"Passive"			"0"
+				"IsHidden"			"0"
+			
+				"EffectName"		"particles/units/heroes/hero_ursa/ursa_overpower_buff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%base_attack_per_stack"
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_as_per_stack" 
+				}
+			}
+		}
+
 	}

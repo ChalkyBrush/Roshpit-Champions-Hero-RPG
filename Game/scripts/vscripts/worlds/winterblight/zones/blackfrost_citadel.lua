@@ -62,7 +62,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_scale"] = 0.88
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"] = {}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 9, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 7, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 6, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 5, variant = 1}
@@ -374,6 +374,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 27
 		Winterblight.CASTLE_DATA["rooms"][8]["key_positions"] = {Vector(15669, 1024), Vector(15120, 1870), Vector(14413, 1965)}
 		Winterblight.CASTLE_DATA["rooms"][8]["cleared"] = 0
+
+		-- freezer
+		Winterblight.CASTLE_DATA["rooms"][9] = {}
+		Winterblight.CASTLE_DATA["rooms"][9]["door_index"] = 10
+		Winterblight.CASTLE_DATA["rooms"][9]["active"] = 0
+		Winterblight.CASTLE_DATA["rooms"][9]["enemy_spawn_count"] = 0
+		Winterblight.CASTLE_DATA["rooms"][9]["enemies_slain"] = 0
+		Winterblight.CASTLE_DATA["rooms"][9]["extra_goal"] = 0
+		Winterblight.CASTLE_DATA["rooms"][9]["key_positions"] = {Vector(19412, -13), Vector(9412, -640), Vector(9088, -1152)}
+		Winterblight.CASTLE_DATA["rooms"][9]["cleared"] = 0
 end
 
 function Winterblight:InitCastleProps()
@@ -1232,6 +1242,112 @@ function Winterblight:Room8Vertices()
 	table.insert(vertices, {bl_vertex, tr_vertex})
 
 	return vertices
+end
+
+function Winterblight:SpawnCastleRoom9(variant)
+	local room_index = 9
+	if variant == 1 then
+		Timers:CreateTimer(0.5, function()
+			local positionTable = {Vector(9088, 186), Vector(9863, -256), Vector(8941, -888)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(9455, 988) - positionTable[i]):Normalized()
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winter_bone_blister", positionTable[i], fv, false, false)
+				monster.deathCode = "freezer"
+			end	
+		end)
+		Timers:CreateTimer(1, function()
+			Winterblight:SpawnMountainStonePack(Vector(9344, -896))
+		end)
+		Timers:CreateTimer(1.5, function()
+			local positionTable = {Vector(8704, -1452), Vector(9151, -1152), Vector(8960, 351), Vector(9827, -130), Vector(9151, -512), Vector(9472, -990), Vector(9151, -1452)}
+			for i = 1, #positionTable, 1 do
+				local fv = RandomVector(1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_ice_bear", positionTable[i], fv, false, false)
+				monster.deathCode = "freezer"
+			end	
+		end)
+		Timers:CreateTimer(2.0, function()
+			local vertices = Winterblight:Room9Vertices()
+			local minion_count = GameState:GetDifficultyFactor() + Winterblight.Stones + 4
+			for i = 1, minion_count, 1 do
+				local fv = RandomVector(1)
+				local position = WallPhysics:RandomPointInBlockCollection(vertices)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_warrior", position, fv, false, false)
+				monster.deathCode = "freezer"
+			end	
+		end)
+		-- ICICLES FALL AND SPAWN ENEMIES LIKE WAVES
+		Timers:CreateTimer(4, function()
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
+		end)
+	end
+end
+
+function Winterblight:Room9Vertices()
+	local vertices = {}
+
+	local height = 512
+	local width = 512
+	local origin = Vector(8704, -1536)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 807
+	local width = 1024
+	local origin = Vector(9216, -1004)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 912
+	local width = 1013
+	local origin = Vector(9210, -161)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 912
+	local width = 1013
+	local origin = Vector(9210, -161)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 1457
+	local width = 410
+	local origin = Vector(9907, -434)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	local height = 384
+	local width = 1408
+	local origin = Vector(9408, 320)
+	local bl_vertex = origin-Vector(width/2, height/2)
+	local tr_vertex = origin+Vector(width/2, height/2)
+	table.insert(vertices, {bl_vertex, tr_vertex})
+
+	return vertices
+end
+
+function Winterblight:DropRoom9IcicleAtRandomPosition()
+	local vertices = Winterblight:Room9Vertices()
+	local position = WallPhysics:RandomPointInBlockCollection(vertices)
+	local crystal = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	crystal:SetAbsOrigin(crystal:GetAbsOrigin()+Vector(0,0,RandomInt(1000, 1400)))
+	crystal:SetAngles(0, 0, -90)
+	crystal:SetForwardVector(Vector(0,0.2,-1))
+	crystal:SetOriginalModel("models/winterblight/azalea_crystal.vmdl")
+	crystal:SetModel("models/winterblight/azalea_crystal.vmdl")
+	crystal:SetModelScale(0.5)
+
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, crystal, "modifier_room_9_icicle_fall", {})
+
+	crystal:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+
 end
 
 function Winterblight:SpawnRoomKey(room_index)
