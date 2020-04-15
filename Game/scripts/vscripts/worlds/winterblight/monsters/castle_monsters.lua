@@ -878,3 +878,103 @@ function room_9_icicle_fall_think(event)
 		monster.deathCode = "freezer"
 	end
 end
+
+function treasure_tower_take_damage(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.summons then
+		caster.summons = caster:GetMaxHealth()
+	end
+	if caster.summons >= caster:GetHealth() then
+		caster.summons = caster.summons - 1
+		local summon_height_offset = 45
+		local particle_height_Offset = 80
+		for i = 1, 3, 1 do
+			local fv = WallPhysics:rotateVector(Vector(1, -0.5), 2*math.pi*RandomInt(-5, 5)/120)
+			local monster = Winterblight:SpawnCastleRoomUnit(10, "winterblight_treasure_zombie", caster:GetAbsOrigin(), fv, true, false)
+			monster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,summon_height_offset) + caster:GetForwardVector()*5)
+			WallPhysics:JumpWithBlocking(monster, fv, RandomInt(14, 16), RandomInt(10, 12), 20, 1)
+			StartAnimation(monster, {duration = 1.35, activity = ACT_DOTA_SPAWN, rate = 0.8})
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", monster, 3)
+			ParticleManager:SetParticleControl(pfx, 1, monster:GetAbsOrigin()+Vector(0,0,particle_height_Offset)+monster:GetForwardVector()*150)
+		end
+
+		EmitSoundOn("Winterblight.TreasureTower.GoldSound", caster)
+		Events:objectShake(caster, 8, 8, true, true, false, nil, 20)
+	end
+end
+
+function winter_treasure_tower_die(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_warlock/chaos_blast_impact.vpcf", caster:GetAbsOrigin(), 5)
+	EmitSoundOn("Winterblight.Tombstone.Explode", caster)
+	EmitSoundOn("Winterblight.TreasureTower.Explode", caster)
+	Winterblight.CASTLE_DATA["rooms"][10]["active"] = 2	
+	for i = 1, 9, 1 do
+		local fv = WallPhysics:rotateVector(Vector(-1, -0.5), 2*math.pi*i/9)
+		local monster = Winterblight:SpawnCastleRoomUnit(10, "winterblight_treasure_zombie", caster:GetAbsOrigin(), fv, true, false)
+		monster:SetAbsOrigin(monster:GetAbsOrigin() + Vector(0,0,summon_height_offset))
+		WallPhysics:JumpWithBlocking(monster, fv, RandomInt(14, 16), RandomInt(10, 12), 20, 1)
+		StartAnimation(monster, {duration = 1.35, activity = ACT_DOTA_SPAWN, rate = 0.8})
+	end
+	for j = 1, 3, 1 do
+		local monster = Winterblight:SpawnCastleRoomUnit(10, "winterblight_gold_fanatic", caster:GetAbsOrigin(), RandomVector(1), false, false)
+		EmitSoundOn("Winterblight.TreasureTower.GoldSound", monster)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", monster, 3)
+		ParticleManager:SetParticleControl(pfx, 1, monster:GetAbsOrigin()+Vector(0,0,particle_height_Offset))
+	end
+
+	Timers:CreateTimer(1, function()
+		Winterblight:SpawnTreasureRoomChests()
+	end)
+end
+
+function treasure_chest_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.opened then
+		return false
+	end
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_chest_open", {})
+	caster.opened = true
+	caster:SetModel("models/props_generic/chest_treasure_02_open.vmdl")
+	caster:SetOriginalModel("models/props_generic/chest_treasure_02_open.vmdl")
+	StartAnimation(caster, {duration = 3.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
+	EmitSoundOn("Winterblight.Chest.Open", caster)
+	Timers:CreateTimer(0.6, function()
+		EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
+		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
+		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
+
+		if caster.contents.items and caster.contents.items > 0 then
+			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+			for i = 1, caster.contents.items, 1 do
+				RPCItems:RollRandomItemAtLocation(caster.roshpit_attributes.roshpit_level, caster:GetAbsOrigin(), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+			end
+			Dungeons.lootLaunch = false
+		end
+		if caster.contents.glyphs and caster.contents.glyphs > 0 then
+			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+			for i = 1, caster.contents.glyphs, 1 do
+				local glyph = RPCItems:RebornGlyph()
+				RPCItems:BasicDropItem(caster:GetAbsOrigin(), glyph)
+			end
+			Dungeons.lootLaunch = false
+		end
+		if caster.contents.crystals and caster.contents.crystals > 0 then
+			Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+		end
+	end)
+	if Winterblight.CastleTarot["name"] ~= "wheel_of_fortune" then
+		for i = 1, #Winterblight.CastleDungeonMaster.treasure_room_chests, 1 do
+			local chest = Winterblight.CastleDungeonMaster.treasure_room_chests[i]
+			if chest:GetEntityIndex() ~= caster:GetEntityIndex() then
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", chest:GetAbsOrigin(), 3)
+				EmitSoundOn("Winterblight.GraveGhostSpawn", chest)
+				UTIL_Remove(chest)
+			end
+		end
+	end
+end

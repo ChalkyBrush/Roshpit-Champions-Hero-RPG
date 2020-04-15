@@ -3573,12 +3573,12 @@ function GameState:FilterDamage(filterTable)
 					-- end
 				end
 			end
-			if not victim:HasModifier("modifier_shipyard_spawner_passive") then
+			if not victim:HasModifier("modifier_take_1_damage_only") then
 				if not death_prevented then
 					filterTable["damage"] = 1000000
 				end
 			else
-				filterTable["damage"] = 25
+				-- filterTable["damage"] = 25
 			end
 		end
 	end
