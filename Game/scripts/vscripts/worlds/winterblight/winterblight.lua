@@ -16,13 +16,13 @@ function Winterblight:Debug()
     local drop = CreateItemOnPositionSync( Vector(-15424,-2560), item )
     local position = Vector(-15424,-2560)
     RPCItems:DropItem(item, Vector(-15424,-2560))
-
+    Winterblight:OpenWinterblightCastle()
     -- Gems:SpawnGemForger(Vector(-14424,-2560), Vector(-1,0))
     -- Winterblight:InitGraveGhost(1)
     -- Winterblight:InitGraveGhost(2)
     -- Winterblight:InitGraveGhost(3)
-    Challenges:CheckSpawn()
-
+    -- Winterblight:OpenWinterblightCastle()
+    
     -- Winterblight:SpawnOwlSentry(Vector(-15424,-2560), {Vector(-15424,-2560)})
   -- RPCItems:RollHoodOfLords(position, true)
     -- RPCItems:RollFrostmawHuntersHood(Vector(-15424,-2560))
@@ -243,7 +243,13 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
-  Winterblight:OpenWinterblightCastle()
+
+  Winterblight:SpawnTreasureRoomChests()
+
+  -- Timers:CreateTimer(2, function()
+  --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
+  --   Winterblight:SpawnRoomKey(1)
+  -- end)
   --print("DEBUG2")
   --print(MAIN_HERO_TABLE[1].challenge_cleared)
   -- Challenges:SetChallengeClears()
@@ -364,7 +370,7 @@ function Winterblight:CalculateHeroZones()
         elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(-17000, 1000), Vector(-13708,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-13708, 3062), Vector(-8120,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-7685, 6807), Vector(-4228,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(-4228, 11672), Vector(-2394,11672)) then
           hero.bgm = "Music.Winterblight.Cavern"
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_cavern"} )
-        elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(10058,267))) then
+        elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(7600,267))) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
         elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,16000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(7136, -3559), Vector(16128, 9004)) then

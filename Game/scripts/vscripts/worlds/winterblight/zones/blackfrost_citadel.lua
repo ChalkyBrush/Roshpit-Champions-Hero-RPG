@@ -1296,9 +1296,6 @@ function Winterblight:SpawnCastleRoom9(variant)
 				monster.deathCode = "freezer"
 			end	
 		end)
-		Timers:CreateTimer(4, function()
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
-		end)
 	end
 end
 

@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = false
+Beacons.cheats = true
 
 if Events == nil then
 	Events = class({})
@@ -1540,7 +1540,7 @@ function GameMode:OnEntityKilled(keys)
 		-- 	Events:RollExtraItems(killedUnit:GetDeathXP(), killedUnit:GetAbsOrigin(), killedUnit.minDrops, killedUnit.maxDrops)
 		-- end
 		killedUnit:ClearParticles()
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(6, function()
 			if IsValidEntity(killedUnit) then
 				--ABILITIES: 10 slots of 24 max
 				for i = 0, 9, 1 do
