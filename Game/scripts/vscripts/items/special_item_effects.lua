@@ -3596,7 +3596,7 @@ function sacred_trials_attack_land(event)
 	local hero = event.caster.hero
 	local caster = event.caster
 	local ability = event.ability
-	if ability:GetGemValue("ruby") > 0 then
+	if ability:GetGemValue("sapphire") > 0 then
 		local proc = Filters:GetProc(hero, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SACRED_TRIALS_ARMOR_GEM_SAPPHIRE1))
 		if proc then
 	        Filters:SacredTrialActivate(hero)
