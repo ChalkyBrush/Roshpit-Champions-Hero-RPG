@@ -524,6 +524,7 @@ function Winterblight:SetCavernUnit(unit, original_position, bDeaggro, bParticle
 		table.insert(Winterblight.CavernUnits[chamber_index], unit)
 	end
 	Enemies:AdjustUnitForCavern(unit)
+	unit:CalculateAndSaveRoshpitAttributes()
 end
 
 function Winterblight:SpawnWinterRunner(position, fv)

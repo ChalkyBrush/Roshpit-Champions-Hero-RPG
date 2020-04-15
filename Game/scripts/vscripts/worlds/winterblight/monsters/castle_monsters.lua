@@ -978,3 +978,65 @@ function treasure_chest_attacked(event)
 		end
 	end
 end
+
+function moon_warden_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local position = caster:GetAbsOrigin()+RandomVector(RandomInt(0, 900))
+
+	target = GetGroundPosition(position, caster)
+	local cast_direction = ((target - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/moon_warden_indicator_ring.vpcf", target, 2.5)
+	-- EmitSoundOnLocationWithCaster(target, "Winterblight.AzaleaBoss.IceNovaStart", caster)
+	Timers:CreateTimer(2.5, function()
+		local icePoint = target
+		local damage = event.damage
+		local radius = 450
+		EmitSoundOnLocationWithCaster(icePoint, "Winterblight.MoonWarden.Pop", caster)
+		local particleName = "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+		local particle2 = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, position)
+		ParticleManager:SetParticleControl(particle2, 1, Vector(radius + 50, radius + 50, radius + 50))
+
+		Timers:CreateTimer(1.9, function()
+			ParticleManager:DestroyParticle(particle2, false)
+		end)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				enemy:AddNewModifier(caster, ability, "modifier_silence", {duration = event.silence_duration})
+				Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PURE, ability)
+			end
+		end
+	end)
+end
+
+function moon_warden_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if ability and IsValidEntity(ability) then
+		target:ApplyModifierAndSetStacks(ability, caster, "modifier_moon_warden_pull", 100, 3.0)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/weaver/weaver_immortal_ti6/weaver_immortal_ti6_shukuchi_portal.vpcf", target, 3)
+		EmitSoundOn("Winterblight.MoonWarden.Pull", target)
+	end
+end
+
+function moon_warden_pull_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local newStacks = target:GetModifierStackCount("modifier_moon_warden_pull", caster) - 3
+	if newStacks > 0 then
+		local pullDirection = ((caster:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		target:SetAbsOrigin(target:GetAbsOrigin() + pullDirection*newStacks*0.5)
+		target:ApplyModifierAndSetStacks(ability, caster, "modifier_moon_warden_pull", newStacks, 3)
+	else
+		print("REMOVE MODIFIER")
+		target:RemoveModifierByName("modifier_moon_warden_pull")
+		Timers:CreateTimer(0.06, function()
+			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+		end)
+	end
+end
