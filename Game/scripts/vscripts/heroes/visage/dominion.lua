@@ -83,6 +83,11 @@ function dominion_debuff_death(event)
 		summon:SetForwardVector(fv)
 
 		local hp = unit:GetMaxHealth()
+
+		--base skill bonus
+		local specialBonus = ability:GetSpecialValueFor("flat_hp_increase")
+		hp = hp + specialBonus
+
 		local q_2_level = Runes:GetTotalRuneLevel(caster, 2, "q_2", "ekkan")
 		if q_2_level > 0 then
 			local q_2_hp_mult = EKKAN_Q2_BONUS_HP * q_2_level
