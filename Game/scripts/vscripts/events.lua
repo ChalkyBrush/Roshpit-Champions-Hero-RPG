@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = true
+Beacons.cheats = false
 
 if Events == nil then
 	Events = class({})
