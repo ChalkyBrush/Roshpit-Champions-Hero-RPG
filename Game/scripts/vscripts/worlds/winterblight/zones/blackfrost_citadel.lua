@@ -62,14 +62,14 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_scale"] = 0.88
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"] = {}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 12, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 11, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 9, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 7, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 6, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 5, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 4, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][8] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 3, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 3, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 9, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 7, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 6, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 5, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 4, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][8] = {index = 3, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][2] = {}
 		Winterblight.CASTLE_DATA["tarot"][2]["name"] = "magician"
@@ -412,7 +412,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][12]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][12]["enemies_slain"] = 0
 		Winterblight.CASTLE_DATA["rooms"][12]["extra_goal"] = 0
-		Winterblight.CASTLE_DATA["rooms"][12]["key_positions"] = {Vector(12532, -863), Vector(15694, -632), Vector(15744, -1792)}
+		Winterblight.CASTLE_DATA["rooms"][12]["key_positions"] = {Vector(15240, -863), Vector(15694, -632), Vector(15744, -1792)}
 		Winterblight.CASTLE_DATA["rooms"][12]["cleared"] = 0
 end
 
@@ -736,7 +736,15 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 end
 
 function Winterblight:CastleRoomEnemyGoalReached(room_index)
-	Winterblight:SpawnRoomKey(room_index)
+	if not Winterblight.CastleDungeonMaster.key_drops then
+		Winterblight.CastleDungeonMaster.key_drops = 0
+	end
+	Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
+	if Winterblight.CastleDungeonMaster.key_drops == #Winterblight.CastleTarot["rooms"] then
+		Winterblight:SpawnRoomKey(room_index, true)
+	else
+		Winterblight:SpawnRoomKey(room_index, false)
+	end
 end
 
 function Winterblight:SpawnCastleRoom1(variant)
@@ -1530,30 +1538,130 @@ function Winterblight:SpawnCastleRoom11(variant)
 end
 
 function Winterblight:SpawnCastleRoom12(variant)
-	local room_index = 9
+	local room_index = 12
 	if variant == 1 then
 		Timers:CreateTimer(0.5, function()
-			local positionTable = {Vector(9088, 186), Vector(9863, -256), Vector(8941, -888)}
+			local positionTable = {Vector(14848, 384), Vector(14848, -640), Vector(16000, -52), Vector(16000, -1305), Vector(15416, -1305), Vector(15269, -1664)}
 			for i = 1, #positionTable, 1 do
-				local fv = (Vector(9455, 988) - positionTable[i]):Normalized()
-				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winter_bone_blister", positionTable[i], fv, false, false)
-				monster.deathCode = "freezer"
+				local fv = (Vector(14204, 13) - positionTable[i]):Normalized()
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_blue_slime_monster", positionTable[i], fv, false, true)
+				local corrected_position = GetGroundPosition(positionTable[i], monster)
+				monster:SetAbsOrigin(corrected_position - Vector(0,0,10))
+				monster.deathCode = "blue_slime_room"
 			end	
 		end)
-		Timers:CreateTimer(2, function()
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
+		Timers:CreateTimer(1, function()
+			for i = 0, 3, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(-1,0)
+					local x_spacing = 200
+					local y_spacing = 240
+					local base_pos = Vector(14601, -101)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_grave_skeleton", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+					monster.deathCode = "blue_slime_room"
+				end
+			end
+		end)
+		Timers:CreateTimer(1.5, function()
+			local positionTable = {Vector(15028, -1280), Vector(14848, -1152), Vector(15196, -1152), Vector(15028, -1024), Vector(15131, -843), Vector(15360, -952)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_skeleton_archer", positionTable[i], fv, false, false)
+				monster.deathCode = "blue_slime_room"
+			end	
+		end)	
+		Timers:CreateTimer(2.0, function()
+			for i = 0, 1, 1 do
+				for j = 0, 2, 1 do
+					local fv = Vector(-1,0)
+					local x_spacing = 280
+					local y_spacing = 220
+					local base_pos = Vector(15493, -768)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_skull_ripper", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+					monster.deathCode = "blue_slime_room"
+				end
+			end
+			local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_watchman", Vector(15781, -1272), Vector(0,1), false, false)
+			monster.deathCode = "blue_slime_room"
+		end)	
+		Timers:CreateTimer(3, function()
+			for i = 0, 1, 1 do
+				for j = 0, 2, 1 do
+					local fv = Vector(-1,0)
+					local x_spacing = 240
+					local y_spacing = 240
+					local base_pos = Vector(15619, -2029)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_draugr", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+					monster.deathCode = "blue_slime_room"
+				end
+			end
 		end)
 	end
 end
 
-function Winterblight:SpawnRoomKey(room_index)
+function Winterblight:SpawnSlimeRoomZombie()
+	if not Winterblight.BlueGooSpawnPositions then
+		Winterblight.BlueGooSpawnPositions = {}
+		Winterblight.BlueGooSpawnPositions[1] = {location = Vector(14848, -295), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[2] = {location = Vector(14848, -400), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[3] = {location = Vector(14978, -733), fv  = Vector(1,-1)}
+		Winterblight.BlueGooSpawnPositions[4] = {location = Vector(14819, -937), fv  = Vector(1,-1)}
+		Winterblight.BlueGooSpawnPositions[5] = {location = Vector(14764, -1003), fv  = Vector(1,-1)}
+		Winterblight.BlueGooSpawnPositions[6] = {location = Vector(14704, -1077), fv  = Vector(1,-1)}
+		Winterblight.BlueGooSpawnPositions[7] = {location = Vector(15026, -1499), fv  = Vector(-1,1)}
+		Winterblight.BlueGooSpawnPositions[8] = {location = Vector(15280, -1223), fv  = Vector(-1,1)}
+		Winterblight.BlueGooSpawnPositions[9] = {location = Vector(15350, -1140), fv  = Vector(-1,1)}
+		Winterblight.BlueGooSpawnPositions[10] = {location = Vector(15534, -1192), fv  = Vector(0,1)}
+		Winterblight.BlueGooSpawnPositions[11] = {location = Vector(15599, -1247), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[12] = {location = Vector(15599, -1337), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[13] = {location = Vector(15548, -1401), fv  = Vector(0,-1)}
+		Winterblight.BlueGooSpawnPositions[14] = {location = Vector(15414, -1508), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[15] = {location = Vector(15414, -1603), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[16] = {location = Vector(15414, -1703), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[17] = {location = Vector(15414, -1845), fv  = Vector(1,0)}
+		Winterblight.BlueGooSpawnPositions[18] = {location = Vector(15810, -2217), fv  = Vector(0,1)}
+		Winterblight.BlueGooSpawnPositions[19] = {location = Vector(16032, -1994), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[20] = {location = Vector(16032, -1888), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[21] = {location = Vector(16032, -1770), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[22] = {location = Vector(16032, -1501), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[23] = {location = Vector(15929, -1359), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[24] = {location = Vector(15929, -1272), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[25] = {location = Vector(16017, -794), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[26] = {location = Vector(16017, -616), fv  = Vector(-1,0)}
+		Winterblight.BlueGooSpawnPositions[27] = {location = Vector(15800, -160), fv  = Vector(0,-1)}
+		Winterblight.BlueGooSpawnPositions[28] = {location = Vector(15672, -160), fv  = Vector(0,-1)}
+		Winterblight.BlueGooSpawnPositions[29] = {location = Vector(15560, -160), fv  = Vector(0,-1)}
+		Winterblight.BlueGooSpawnPositions[30] = {location = Vector(15476, -160), fv  = Vector(0,-1)}
+	end
+	local index = RandomInt(1, #Winterblight.BlueGooSpawnPositions)
+	local position = Winterblight.BlueGooSpawnPositions[index].location
+	local fv = Winterblight.BlueGooSpawnPositions[index].fv
+	local zombie = Winterblight:SpawnCastleRoomUnit(12, "winterblight_slime_zombie", position, fv, false, false)
+	zombie:CrawlEnter(position, fv, "up", RandomInt(-600, -800), 8)
+	zombie.deathCode = "blue_slime_room"
+	zombie.extra_crawl_distance = 70
+	zombie.crawl_end_pfx = "particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf"
+	zombie.crawl_end_sound = "Winterblight.BlueSlime.AttackSplash"
+end
+
+function Winterblight:SpawnRoomKey(room_index, bSkull)
 	if Winterblight.CASTLE_DATA["rooms"][room_index]["cleared"] < 1 then
 		local position = Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"][RandomInt(1, #Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"])]
 		local key = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
 		key:SetDayTimeVisionRange(300)
 		key:SetNightTimeVisionRange(300)
-		key:SetModel("models/gameplay/prison_key.vmdl")
-		key:SetOriginalModel("models/gameplay/prison_key.vmdl")
+
+		local model = "models/gameplay/prison_key.vmdl"
+		if bSkull then
+			model = "models/heroes/silencer/silencer_curse_skull.vmdl"
+			key:SetModelScale(4.5)
+			key.skull = true
+			EmitSoundOn("Winterblight.KeySpawn.Skull", key)
+			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_skull", {})
+		end
+		key:SetModel(model)
+		key:SetOriginalModel(model)
 		key:SetAbsOrigin(key:GetAbsOrigin() + Vector(0,0,1000))
 		StartAnimation(key, {duration = 99999, activity = ACT_DOTA_IDLE, rate = 1})
 
@@ -1570,4 +1678,68 @@ function Winterblight:SpawnRoomKey(room_index)
 		key:FindAbilityByName("dummy_unit"):SetLevel(1)
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, key:GetAbsOrigin(), 300, 10, false)
 	end
+end
+
+function Winterblight:WinterCastleBossSpawn()
+	print("SUMMON CASTLE BOSS")
+	local position = Vector(12306, 188, 600)
+	local boss = Events:SpawnBoss("winterblight_castle_boss", position)
+	Winterblight.CastleBossMusic = true
+	if Beacons.cheats then
+		if Winterblight.castle_boss  then
+			UTIL_Remove(Winterblight.castle_boss)
+		end
+		Winterblight.castle_boss = boss
+	end
+	Winterblight.CastleBoss = boss
+	Winterblight:CastleBossMusicPlayer()
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 2500, 99999, false)
+	boss:SetAbsOrigin(position-Vector(0,0,1000))
+	-- boss:SetModelScale(6)
+
+	local bossAbility = boss:FindAbilityByName("winterblight_castle_boss_passive")
+	Events:smoothSizeChange(boss, 1, 6, 210)
+	Timers:CreateTimer(3, function()
+		Events:unitFVSpin(boss, 20, 240, 1, false)
+		StartAnimation(boss, {duration = 8.0, activity = ACT_DOTA_TELEPORT, rate = 0.5})
+
+		Timers:CreateTimer(0.6, function()
+			Winterblight:CastleBossSplash(boss)
+		end)
+
+		Events:smoothTranslate(boss, Vector(0,0,20), 74, Vector(0,0), nil)
+
+		Timers:CreateTimer(4, function()
+			EmitSoundOn("Winterblight.CastleBoss.Spawn.VO", boss)
+			bossAbility:ApplyDataDrivenModifier(boss, boss, "modifier_castle_boss_rotating", {})
+		end)
+
+		
+	end)
+end
+
+function Winterblight:CastleBossSplash(boss)
+	local splash_particle = "particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+	local splash_position = GetGroundPosition(boss:GetAbsOrigin(), boss) - Vector(0,0,300)
+	CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position, 5)
+	EmitSoundOnLocationWithCaster(splash_position, "Winterblight.Boss.Splash", boss)
+	for i = 1, 5, 1 do
+		local fv = WallPhysics:rotateVector(Vector(1,1), 2*math.pi*i/5)
+		CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position + fv * 240, 5)
+	end
+end
+
+function Winterblight:CastleBossMusicPlayer()
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.BlackfrostCitadel" then
+		  CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+		end
+	end
+	Timers:CreateTimer(0, function()
+		if Winterblight.CastleBossMusic then
+			local sound_position = GetGroundPosition(Winterblight.CastleBoss:GetAbsOrigin(), Winterblight.CastleBoss)
+			EmitSoundOnLocationWithCaster(sound_position, "Winterblight.CastleBoss.Music", Winterblight.CastleBoss)
+			return 40
+		end
+	end)
 end

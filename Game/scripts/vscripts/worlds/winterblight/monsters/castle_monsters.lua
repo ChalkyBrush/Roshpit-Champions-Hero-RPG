@@ -332,7 +332,8 @@ function castle_room_unit_die(event)
 	-- print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
 	-- print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
 	if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
-		if Winterblight.ActiveCastleRoom["active"] >= 2 then
+		if Winterblight.ActiveCastleRoom["active"] == 2 then
+			Winterblight.ActiveCastleRoom["active"] = 3
 			Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
 		end
 	end
@@ -418,7 +419,31 @@ function castle_room_unit_die(event)
 				end)
 			end
 		end
+	elseif unit.deathCode == "blue_slime_room" then
+		if not Winterblight.CastleDungeonMaster.blue_slime_deaths then
+			Winterblight.CastleDungeonMaster.blue_slime_deaths = 0
+		end
+		Winterblight.CastleDungeonMaster.blue_slime_deaths = Winterblight.CastleDungeonMaster.blue_slime_deaths + 1
+		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 6 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 22 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
+			for i = 1, 16, 1 do
+				Timers:CreateTimer(i*0.75, function()
+					Winterblight:SpawnSlimeRoomZombie()
+				end)
+			end	
+		end	
+		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
+			Timers:CreateTimer(10, function()
+				Winterblight.CASTLE_DATA["rooms"][12]["active"] = 2
+			end)
+		end
+	end
+end
 
+function castle_key_skull_think(event)
+	local key = event.target
+	if key.skull then
+		local newFV = WallPhysics:rotateVector(key:GetForwardVector(), 2*math.pi/80)
+		key:SetForwardVector(newFV)
 	end
 end
 
@@ -429,10 +454,18 @@ function castle_key_entering_think(event)
 	end
 	local distanceFromGround = key:GetDistanceFromGround()
 	key.fallSpeed = math.max(key.fallSpeed - 0.1, 7)
-	if distanceFromGround > 75 then
+	local distance_check = 75
+	if key.skull then
+		distance_check = 130
+	end
+	if distanceFromGround > distance_check then
 		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,key.fallSpeed))
 	else
 		EmitSoundOn("Winterblight.GhostBlink", key)
+		if key.skull then
+			local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/treasure_explosion_colorable.vpcf", key:GetAbsOrigin(), 3)
+			ParticleManager:SetParticleControl(pfx2, 4, Vector(1.0, 0.4, 0.2))
+		end
 		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/treasure_explosion_colorable.vpcf", key:GetAbsOrigin(), 3)
 		ParticleManager:SetParticleControl(pfx, 4, Vector(0.3, 0.8, 0.6))
 		key:RemoveModifierByName("modifier_winter_castle_key_entering")
@@ -441,7 +474,12 @@ function castle_key_entering_think(event)
 	end
 	if not key.soundPlayed then
 		if distanceFromGround < 140 then
-			EmitSoundOn("Winterblight.KeySpawn.Land", key)
+			if key.skull then
+				EmitSoundOn("Winterblight.KeySpawn.Land", key)
+				EmitSoundOn("Winterblight.KeySpawn.SkullLand", key)
+			else
+				EmitSoundOn("Winterblight.KeySpawn.Land", key)
+			end
 			key.soundPlayed = true
 		end
 	end
@@ -449,6 +487,9 @@ end
 
 function castle_key_waiting_think(event)
 	local key = event.target
+	if key.skull then
+		CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_oracle/time_blast2flash_glow.vpcf", key, 3)
+	end
 	local allies = FindUnitsInRadius( key:GetTeamNumber(), key:GetAbsOrigin(), nil, 180, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )	
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, key:GetAbsOrigin(), 300, 1, false)
 	if #allies > 0 then
@@ -464,7 +505,14 @@ function castle_key_waiting_think(event)
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_acquired", {})
 		Winterblight.ActiveCastleRoom["cleared"] = 1
 		Winterblight.CASTLE_DATA["rooms_cleared"] = Winterblight.CASTLE_DATA["rooms_cleared"] + 1
-		Winterblight:CastleNextRoomInit()
+		if key.skull then
+			EmitSoundOn("Winterblight.KeyCollect.Skull", key)
+			Timers:CreateTimer(4, function()
+				Winterblight:WinterCastleBossSpawn()
+			end)
+		else
+			Winterblight:CastleNextRoomInit()
+		end
 	end
 end
 
@@ -484,7 +532,11 @@ function castle_key_acquired_think(event)
 		key.liftSpeed = math.min(key.liftSpeed+0.2, 35)
 		key:SetAbsOrigin(key:GetAbsOrigin() + Vector(0,0,key.liftSpeed) )
 	else
-		key:SetAbsOrigin(key.acquiring_hero:GetAbsOrigin()+Vector(0,0,200))
+		local height = 200
+		if key.skull then
+			height = 400
+		end
+		key:SetAbsOrigin(key.acquiring_hero:GetAbsOrigin()+Vector(0,0,height))
 	end
 	if key.collected_interval == 92 then
 		CustomAbilities:QuickAttachParticle("particles/econ/events/frostivus/frostivus_tree_cast.vpcf", key, 5)
@@ -1038,5 +1090,95 @@ function moon_warden_pull_think(event)
 		Timers:CreateTimer(0.06, function()
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
 		end)
+	end
+end
+
+function blue_slime_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 740, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		if caster:HasModifier("modifier_blue_slime_submerged") then
+			caster:RemoveModifierByName("modifier_blue_slime_submerged")
+			--print("RISE!")
+			StartAnimation(caster, {duration = 0.61, activity = ACT_DOTA_SPAWN, rate = 0.6})
+			for i = 1, 23, 1 do
+				Timers:CreateTimer(0.03 * i, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 14))
+				end)
+			end
+			Timers:CreateTimer(0.18, function()
+				EmitSoundOn("Winterblight.BlueSlime.Splash", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", caster:GetAbsOrigin()+Vector(0,0,260), 4)
+			end)
+		end
+	else
+		if not caster:HasModifier("modifier_blue_slime_submerged") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_blue_slime_submerged", {})
+			--print("FALL!")
+			StartAnimation(caster, {duration = 0.57, activity = ACT_DOTA_SPAWN, rate = 0.6})
+			for i = 1, 23, 1 do
+				Timers:CreateTimer(0.03 * i, function()
+					caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0, 0, 14))
+				end)
+			end
+			Timers:CreateTimer(0.18, function()
+				EmitSoundOn("Winterblight.BlueSlime.Splash", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", caster:GetAbsOrigin()+Vector(0,0,180), 4)
+			end)
+		end
+	end
+end
+
+function blue_slime_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	EmitSoundOn("Winterblight.BlueSlime.AttackSplash", target)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 140, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Enemies:ApplyDamageToPlayer(enemy, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sticky_blue", {duration = event.duration})
+		end
+	end
+
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", target:GetAbsOrigin(), 4)
+end
+
+function blue_slime_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	Timers:CreateTimer(0.60, function()
+		EmitSoundOn("Winterblight.BlueSlime.Splash", caster)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", caster:GetAbsOrigin()+Vector(0,0,20), 4)
+	end)
+end
+
+function blue_slime_ghoul_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	EmitSoundOn("Winterblight.BlueSlime.AttackSplash", caster)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 140, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Enemies:ApplyDamageToPlayer(enemy, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sticky_blue", {duration = event.duration})
+		end
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", caster:GetAbsOrigin(), 4)
+end
+
+function castle_boss_rotator(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local divisor = 360
+	if caster.rotationDivisor then
+		divisor = caster.rotationDivisor
+	end
+	if divisor > 0 then
+		local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
+		caster:SetForwardVector(newFV)
 	end
 end

@@ -88444,6 +88444,21 @@
 					}
 				}
 			}
+			"modifier_winter_castle_key_skull"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_key_skull_think"
+						"target"		"TARGET"
+					}
+				}
+				
+			}
 			"modifier_winterblight_diviner_passive"
 			{
 				"IsPurgable"	"0"
@@ -88567,7 +88582,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"skeleton_king_reincarnation"
 		"MaxLevel"	"3"
-		"AbilityCooldown"				"60 40 20"
+		"AbilityCooldown"				"60 45 30"
 		"AbilitySpecial"
 		{
 			"01"
@@ -89638,6 +89653,210 @@
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"moon_warden_pull_think"
 						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"blue_slimeling_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_loss"			"-100 -200 -400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_aoe_magic_damage"			"80 300 1200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sticky_duration"			"0.8 1.6 2.4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blue_slime_ai"
+			{
+				"Passive"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_thinker"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_attack_land"
+						"damage"		"%bonus_aoe_magic_damage"
+						"duration"		"%sticky_duration"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_die"
+					}
+				}
+			}
+			"modifier_blue_slime_submerged"
+			{
+				"Passive"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_sticky_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_loss" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-60"
+				}
+			}
+		}
+
+	}
+
+	"blue_slime_ghoul_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_loss"			"-100 -200 -400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_aoe_magic_damage"			"80 300 1200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sticky_duration"			"0.8 1.6 2.4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blue_slime_ai"
+			{
+				"Passive"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_ghoul_die"
+						"damage"		"%bonus_aoe_magic_damage"
+						"duration"		"%sticky_duration"
+					}
+				}
+			}
+			"modifier_sticky_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_loss" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-60"
+				}
+			}
+		}
+
+	}
+
+	"winterblight_castle_boss_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_castle_boss_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_no_damage"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_castle_boss_rotating"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_boss_rotator"
 					}
 				}
 			}

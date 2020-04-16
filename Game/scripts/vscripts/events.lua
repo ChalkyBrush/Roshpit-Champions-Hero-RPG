@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = false
+Beacons.cheats = true
 
 if Events == nil then
 	Events = class({})
@@ -4028,6 +4028,16 @@ function Events:smoothSizeChange(object, startSize, endSize, ticks)
 	for i = 0, ticks, 1 do
 		Timers:CreateTimer(i * 0.03, function()
 			object:SetModelScale(startSize + growth * i)
+		end)
+	end
+end
+
+function Events:unitFVSpin(unit, rotationDivisor, ticks, divisorChange, bPerpetual)
+	for i = 0, ticks, 1 do
+		local divisor_this_tick = rotationDivisor + divisorChange*i
+		Timers:CreateTimer(i * 0.03, function()
+			local newFV = WallPhysics:rotateVector(unit:GetForwardVector(), 2*math.pi/divisor_this_tick)
+			unit:SetForwardVector(newFV)
 		end)
 	end
 end

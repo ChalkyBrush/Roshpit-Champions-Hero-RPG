@@ -244,7 +244,7 @@ end
 
 function Winterblight:Debug2()
 
-  Winterblight:SpawnTreasureRoomChests()
+  Winterblight:WinterCastleBossSpawn()
 
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
@@ -429,8 +429,10 @@ function Winterblight:CastleMusic()
   Timers:CreateTimer(1, function()
       for i = 1, #MAIN_HERO_TABLE, 1 do
         if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.BlackfrostCitadel" then
-          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
-          CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Music.Winterblight.BlackfrostCitadel"})
+          if not Winterblight.CastleBossMusic then
+            CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMend", {})
+            CustomGameEventManager:Send_ServerToPlayer(MAIN_HERO_TABLE[i]:GetPlayerOwner(), "BGMstart", {songName = "Music.Winterblight.BlackfrostCitadel"})
+          end
         end
       end
     -- end

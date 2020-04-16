@@ -66,13 +66,30 @@ function ai_climb_think(event)
 
 	unit:SetAbsOrigin(unit:GetAbsOrigin()+unit.crawlVector)
 	local distance_from_ground = unit:GetDistanceFromGround()
+	local end_crawl = false
 	if distance_from_ground < 30 and distance_from_ground > -30 then
+		end_crawl = true
+		if unit.crawl_end_pfx then
+			CustomAbilities:QuickParticleAtPoint(unit.crawl_end_pfx, unit:GetAbsOrigin(), 4)
+			unit.crawl_end_pfx = nil
+		end
+		if unit.crawl_end_sound then
+			EmitSoundOn(unit.crawl_end_sound, unit)
+			unit.crawl_end_sound = nil
+		end
+		if unit.extra_crawl_distance then
+			end_crawl = false
+		end
+	end
+	if unit.extra_crawl_distance then
+		if (distance_from_ground - unit.extra_crawl_distance) < 30 and (distance_from_ground - unit.extra_crawl_distance) > -30 then
+			end_crawl = true
+		end
+	end
+	if end_crawl then
 		unit:RemoveModifierByName("ai_crawling_enter")
 		unit:SetAngles(0, 0, 0)
 		FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), false)
 		Dungeons:AggroUnit(unit)
-		if unit.crawl_end_pfx then
-			CustomAbilities:QuickParticleAtPoint(unit.crawl_end_pfx, unit:GetAbsOrigin(), 4)
-		end
 	end
 end
