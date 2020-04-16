@@ -208,36 +208,26 @@ function SpawnMudGolems()
 end
 
 function egg_hit(event)
-	local caster = event.unit
+	local egg = event.unit
 	if not Tanari.EggsHatching then
 		Tanari.EggsHatching = 0
 	end
-	if not caster.hatching and Tanari.EggsHatching < 4 then
+	if not egg.hatching and Tanari.EggsHatching < 4 then
 		Tanari.EggsHatching = Tanari.EggsHatching + 1
-		caster.hatching = true
+		egg.hatching = true
 		for i = 1, 20, 1 do
 			Timers:CreateTimer(i * 0.03, function()
 				if i % 2 == 0 then
-					caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(7, 7, 0))
+					egg:SetAbsOrigin(egg:GetAbsOrigin() + Vector(7, 7, 0))
 				else
-					caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(7, 7, 0))
+					egg:SetAbsOrigin(egg:GetAbsOrigin() - Vector(7, 7, 0))
 				end
 			end)
 		end
 		Timers:CreateTimer(0.65, function()
-			Tanari:SpawnGreenViper(caster:GetAbsOrigin(), RandomVector(1))
-			EmitSoundOn("Tanari.Boulderspine.EggHatch", caster)
-			local currentScale = caster:GetModelScale()
-			local eggShell = SpawnEntityFromTableSynchronous("prop_dynamic", {origin = caster:GetAbsOrigin()})
-			local randomIndex = RandomInt(1, 4)
-			local modelName = "models/props_winter/egg_shatter_0"..randomIndex..".vmdl"
-			eggShell:SetModel(modelName)
-			eggShell:SetModelScale(currentScale)
-			eggShell:SetRenderColor(95, 145, 92)
-			UTIL_Remove(caster)
-			Timers:CreateTimer(60, function()
-				UTIL_Remove(eggShell)
-			end)
+			egg:ForceKill(false)
+			EmitSoundOn("Tanari.Boulderspine.EggHatch", egg)
+			Tanari:SpawnGreenViper(egg:GetAbsOrigin(), RandomVector(1))
 		end)
 		Timers:CreateTimer(3.0, function()
 			Tanari.EggsHatching = Tanari.EggsHatching - 1

@@ -29,7 +29,7 @@ function Winterblight:SpawnCup1()
 	Timers:CreateTimer(1, function()
 		if Winterblight.ZefnarDead then
 			if Winterblight:CupSpawnCondition(1) then
-				Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(-1, 0), 1)
+				Winterblight:SpawnAzaleaCup(Vector(15910, -15831), Vector(0, 1), 1)
 			end
 		end
 	end)
@@ -39,7 +39,7 @@ function Winterblight:SpawnCup2()
 	Timers:CreateTimer(1.2, function()
 		if Winterblight.CandyCrushCup then
 			if Winterblight:CupSpawnCondition(2) then
-				Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(0, -1), 2)
+				Winterblight:SpawnAzaleaCup(Vector(5653, -14257), Vector(-1, 0), 2)
 			end
 		end
 	end)
@@ -49,7 +49,7 @@ function Winterblight:SpawnCup3()
 	Timers:CreateTimer(1.4, function()
 		if Winterblight.CruxalSlain then
 			if Winterblight:CupSpawnCondition(3) then
-				Winterblight:SpawnAzaleaCup(Vector(128, -11520), Vector(-1, 0), 3)
+				Winterblight:SpawnAzaleaCup(Vector(128, -11520), Vector(0, 1), 3)
 			end
 		end
 	end)
@@ -59,7 +59,7 @@ function Winterblight:SpawnCup4()
 	Timers:CreateTimer(1.6, function()
 		if Winterblight.RuptholdSlain or Winterblight.AllMazeSpectersSlain then
 			if Winterblight:CupSpawnCondition(4) then
-				Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(0, -1), 4)
+				Winterblight:SpawnAzaleaCup(Vector(-7077, -15307), Vector(-1, 0), 4)
 			end
 		end
 	end)
@@ -69,7 +69,7 @@ function Winterblight:SpawnCup5()
 	Timers:CreateTimer(1.8, function()
 		if Winterblight.TriBossesSlain then
 			if Winterblight:CupSpawnCondition(5) then
-				Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(0, 1), 5)
+				Winterblight:SpawnAzaleaCup(Vector(-5618, -13574), Vector(-1, 0), 5)
 			end
 		end
 	end)

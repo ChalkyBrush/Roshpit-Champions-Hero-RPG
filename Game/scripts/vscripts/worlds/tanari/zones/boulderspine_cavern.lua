@@ -247,11 +247,8 @@ end
 
 function Tanari:SpawnEgg(position)
 	local egg = CreateUnitByName("boulderspine_viper_egg", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
-	egg:SetOriginalModel("models/custom_egg.vmdl")
-	egg:SetModel("models/custom_egg.vmdl")
 	local modelScale = RandomInt(90, 270) / 100
 	egg:SetModelScale(modelScale)
-	egg.dummy = true
 	egg:SetRenderColor(95, 145, 92)
 	egg:SetForwardVector(RandomVector(1))
 	egg:AddAbility("boulderspine_viper_egg_ability"):SetLevel(1)
