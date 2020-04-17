@@ -748,7 +748,8 @@ function GameMode:OnPlayerChat(keys)
 			Beacons.paragon = false
 			Beacons.packs = true
 			Tanari:FireTempleFinalBossSpawn()
-
+		elseif check_command("-black_mage") then
+			Arena:SpawnConquestBoss()
 		elseif check_command("-log") then
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
 		elseif check_command("-load") then --example "-load 1@111481062"

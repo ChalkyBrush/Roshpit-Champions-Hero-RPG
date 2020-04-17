@@ -2640,51 +2640,6 @@ function GameState:FilterDamage(filterTable)
 		filterTable["damage"] = healthDamage
 	end
 
-	-- if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS and victim:GetUnitName() ~= "arena_training_dummy" then
-	-- 	if GameState:GetDifficultyFactor() == 2 then
-	-- 		if victim.mainBoss then
-	-- 			filterTable["damage"] = filterTable["damage"] * 0.4
-	-- 		elseif victim.bossStatus then
-	-- 			filterTable["damage"] = filterTable["damage"] * 0.6
-	-- 		else
-	-- 			filterTable["damage"] = filterTable["damage"] * 1
-	-- 			difficultyDamageReduce = 1
-	-- 		end
-	-- 	elseif GameState:GetDifficultyFactor() == 3 then
-	-- 		if victim.mainBoss then
-	-- 			filterTable["damage"] = filterTable["damage"] * 0.1
-	-- 		elseif victim.bossStatus then
-	-- 			filterTable["damage"] = filterTable["damage"] * 0.25
-	-- 		else
-	-- 			filterTable["damage"] = filterTable["damage"] * 0.6
-	-- 			difficultyDamageReduce = 0.6
-	-- 		end
-	-- 	end
-	-- end
-	-- if victim:HasModifier("modifier_arena_pit_of_trials_enemy") then
-	-- 	filterTable["damage"] = filterTable["damage"] * Arena:GetResistancePercentage()
-	-- end
-	-- if attacker:HasModifier("modifier_arena_pit_of_trials_enemy") then
-	-- 	filterTable["damage"] = filterTable["damage"] + filterTable["damage"] * (Arena:GetDamageStacks() / 10)
-	-- end
-	-- if victim:HasModifier("modifier_arena_enemy") or victim:HasModifier("modifier_general_reduc") then
-	-- 	if victim.damageReduc then
-	-- 		filterTable["damage"] = filterTable["damage"] * victim.damageReduc
-	-- 		if victim:GetUnitName() == "champion_league_challenger_2" then
-	-- 			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * 0.01)
-	-- 		elseif victim:GetUnitName() == "champion_league_challenger_1" then
-	-- 			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * 0.008)
-	-- 		else
-	-- 			filterTable["damage"] = math.min(filterTable["damage"], victim:GetMaxHealth() * 0.07)
-	-- 		end
-	-- 		filterTable["damage"] = math.max(filterTable["damage"], victim:GetMaxHealth() * 0.001)
-	-- 	end
-	-- end
-	-- if attacker:HasModifier("modifier_arena_crowd_buff") then
-	-- 	local stacks = attacker:GetModifierStackCount("modifier_arena_crowd_buff", Arena.ArenaMaster)
-	-- 	local crowdDamageAmp = 1 + (stacks * 0.1)
-	-- 	filterTable["damage"] = filterTable["damage"] * crowdDamageAmp
-	-- end
 	if victim:HasModifier("modifier_twig_of_the_enlightened_shield") then
 		filterTable["damage"] = Filters:TwigTakeDamage(filterTable["damage"], victim)
 	end
@@ -2809,6 +2764,8 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_conquest_boss_ai") then
 		if filterTable["damagetype_const"] == DAMAGE_TYPE_MAGICAL or filterTable["damagetype_const"] == DAMAGE_TYPE_PHYSICAL then
 			filterTable["damage"] = 0
+		elseif filterTable["damagetype_const"] == DAMAGE_TYPE_PURE then
+			filterTable["damage"] = filterTable["damage"] * math.pow(0.8, Arena.PitLevel - 1)
 		end
 	end
 	if victim:HasModifier("modifier_ironbound_gloves") and applyEffects and damagetype == DAMAGE_TYPE_PHYSICAL then
@@ -3557,6 +3514,7 @@ function GameState:FilterDamage(filterTable)
 	-- if attacker:HasModifier("modifier_line_unit_passive") then
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
+	
 	if Beacons.cheats then
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
