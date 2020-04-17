@@ -50,7 +50,7 @@ function base_ability:GetManaCost(level)
         pct = hero:GetModifierStackCount("modifier_r_pct_manacost_modifier", hero)
     end
     local baseManaCost = self:GetManaCostBase(level) or 0
-    local manaCost = (baseManaCost + flat / 100) * (pct / 10000)
+    local manaCost = (baseManaCost + flat) * (pct / 10000)
     return math.max(manaCost, 0)
 end
 

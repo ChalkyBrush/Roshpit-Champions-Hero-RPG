@@ -8,7 +8,7 @@ function jex_activate_cinderbark(event)
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
 
-	ability.tech_level = onibi_get_total_tech_level(caster, "fire", "nature", "E")
+	ability.tech_level = GetOnibiTotalTechLevel(caster, "fire", "nature", "E")
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", point, 3)
 
@@ -89,7 +89,7 @@ function jex_cinderbark_death(event)
 	local caster = event.caster
 	local ability = event.ability
 	if caster.summoner then
-		ability.tech_level = onibi_get_total_tech_level(caster.summoner, "fire", "nature", "Q")
+		ability.tech_level = GetOnibiTotalTechLevel(caster.summoner, "fire", "nature", "Q")
 	end
 	local explosion_attack_damage_per_tech = event.explosion_attack_damage_per_tech
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_huskar/huskar_inner_fire.vpcf", unit:GetAbsOrigin(), 4)

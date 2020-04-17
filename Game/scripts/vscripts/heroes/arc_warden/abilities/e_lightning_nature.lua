@@ -8,7 +8,7 @@ function jex_activate_thunder_blossom(event)
 		ability.summons_table = {}
 	end
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)
-	local tech_level = onibi_get_total_tech_level(caster, "lightning", "nature", "E")
+	local tech_level = GetOnibiTotalTechLevel(caster, "lightning", "nature", "E")
 	ability.tech_level = tech_level
 	if #ability.summons_table >= tech_level then
 		ability.summons_table[1]:ForceKill(false)

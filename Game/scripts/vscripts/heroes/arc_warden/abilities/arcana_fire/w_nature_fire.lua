@@ -14,7 +14,7 @@ function jex_living_bomb_explode(event)
 	local ability = event.ability
 	local target = event.target
 	local radius = 600
-	local tech_level = onibi_get_total_tech_level(caster, "nature", "fire", "W")
+	local tech_level = GetOnibiTotalTechLevel(caster, "nature", "fire", "W")
 	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/jex/jex_explode_living_bomb.vpcf", target:GetAbsOrigin(), 3)
 	for i = 1, 5, 1 do
 		ParticleManager:SetParticleControl(pfx, i, Vector(radius, radius, radius))

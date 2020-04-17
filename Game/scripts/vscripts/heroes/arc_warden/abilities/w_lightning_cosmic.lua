@@ -13,7 +13,7 @@ function jex_ion_cannon_throw(event)
 		ability.projectiles_table = {}
 	end
 	local target = event.target
-	ability.tech_level = onibi_get_total_tech_level(caster, "lightning", "cosmic", "W")
+	ability.tech_level = GetOnibiTotalTechLevel(caster, "lightning", "cosmic", "W")
 	ability.damage = event.base_damage + (event.damage_attack_power_per_tech / 100) * ability.tech_level * OverflowProtectedGetAverageTrueAttackDamage(caster) + event.strength_added_to_damage * caster:GetStrength()
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then

@@ -13,7 +13,7 @@ function jex_cosmic_port_start(event)
     local ability = event.ability
     local target = event.target_points[1]
 
-    local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "E")
+    local tech_level = GetOnibiTotalTechLevel(caster, "cosmic", "cosmic", "E")
 
     local range = event.additional_cast_range_per_tech * tech_level + event.cast_range
     local e_4_level = caster:GetRuneValue("e", 4)

@@ -7,7 +7,7 @@ function jex_activate_q_lightning_cosmic(event)
 	local duration_base = event.duration
 	local stacks_per_tech = event.stacks_per_tech
 
-	local tech_level = onibi_get_total_tech_level(caster, "lightning", "cosmic", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "lightning", "cosmic", "Q")
 	local duration = Filters:GetAdjustedBuffDuration(caster, duration_base, false)
 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_jex_lightning_cosmic_shield", {duration = duration})

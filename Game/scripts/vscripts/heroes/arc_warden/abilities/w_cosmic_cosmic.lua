@@ -52,7 +52,7 @@ function jex_grenade_throw_start(event)
     bomb:SetForwardVector(fv)
     bomb.particle = 2
 
-    local tech_level = onibi_get_total_tech_level(caster, "cosmic", "cosmic", "W")
+    local tech_level = GetOnibiTotalTechLevel(caster, "cosmic", "cosmic", "W")
     ability.tech_level = tech_level
     local damage = event.damage + (event.attack_power_added_per_tech / 100) * tech_level * OverflowProtectedGetAverageTrueAttackDamage(caster) + event.intelligence_added_to_damage * caster:GetIntellect()
     local e_4_level = caster:GetRuneValue("e", 4)

@@ -13,7 +13,7 @@ function jex_activate_q_fire_fire(event)
 	local base_damage = event.base_damage
 	local agility_added_to_base_damage = event.agility_added_to_base_damage
 
-	local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "fire", "Q")
 	local damage = base_damage + agility_added_to_base_damage * caster:GetAgility() + (attack_damage_per_tech / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * tech_level
 
 	ability.damage = damage

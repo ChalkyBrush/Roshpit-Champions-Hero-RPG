@@ -1933,14 +1933,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
 	end
-	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
-		if not ability.tech_level then
-			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
-		end
-		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
-		armor_pierce_modify = armor_pierce_modify + pierces
-	end
 	if unit:HasModifier("modifier_omnimace_undead_buff") then
 		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
 	end
@@ -2336,14 +2328,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if unit.r_4_level then
 			spell_pierce_modify = spell_pierce_modify + JEX_RUNE_R4_SPELL_PIERCE * unit.r_4_level
 		end
-	end
-	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
-		if not ability.tech_level then
-			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
-		end
-		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
-		spell_pierce_modify = spell_pierce_modify + pierces
 	end
     if unit:HasModifier("modifier_orthok_zeal") then
     	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
@@ -3864,6 +3848,27 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
 end
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
+	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)
+	if q_ability and q_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetQManaCostModifier(self)
+		if not self:HasModifier("modifier_q_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_q_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_q_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_q_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_q_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_q_pct_manacost_modifier", self, 0)
+		end
+	end
 	local w_ability = self:GetAbilityByIndex(DOTA_W_SLOT)
 	if w_ability and w_ability.BaseClass then
 		local manaCostModifier, manaCostMultiplier = GetWManaCostModifier(self)
@@ -3883,6 +3888,48 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
 			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, modifierStacks)
 		else
 			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, 0)
+		end
+	end
+	local e_ability = self:GetAbilityByIndex(DOTA_E_SLOT)
+	if e_ability and e_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetEManaCostModifier(self)
+		if not self:HasModifier("modifier_e_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_e_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_e_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_e_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_e_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_e_pct_manacost_modifier", self, 0)
+		end
+	end
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetRManaCostModifier(self)
+		if not self:HasModifier("modifier_r_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_r_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_r_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_r_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_r_pct_manacost_modifier", self, 0)
 		end
 	end
 end

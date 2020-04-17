@@ -8,7 +8,7 @@ function jex_activate_q_nature_nature(event)
 	local duration_per_tech = event.duration_per_tech_level
 	local stacks_per_tech = event.stacks_per_tech
 
-	local tech_level = onibi_get_total_tech_level(caster, "nature", "nature", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "nature", "nature", "Q")
 
 	ability.tech_level = tech_level
 

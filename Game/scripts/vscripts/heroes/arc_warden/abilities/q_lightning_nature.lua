@@ -5,7 +5,7 @@ function jex_activate_charged_mushroom(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	local tech_level = onibi_get_total_tech_level(caster, "lightning", "nature", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "lightning", "nature", "Q")
 	ability.tech_level = tech_level
 	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_treant/treant_overgrowth_vines.vpcf", point, 3)
 

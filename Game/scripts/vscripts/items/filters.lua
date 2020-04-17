@@ -933,9 +933,6 @@ function Filters:CastSkillArguments(slot, caster)
             Filters:OrthokStack(caster, ORTHOK_R_CAST_STACKS)
         end
     end
-    if caster:HasModifier("modifier_jex_nature_cosmic_w") then
-        Filters:JexNatureCostmicW(caster)
-    end
     if caster:HasModifier("modifier_mask_of_mugato") then
         caster:AddNewModifier(caster, nil, "modifier_silence", {duration = MUGATO_SPELL_SILENCE_DUR})
     end
@@ -4856,8 +4853,8 @@ function Filters:UpdateOrthokPFX(hero, totalStacks, chains)
     end
 end
 
-function Filters:JexNatureCostmicW(caster)
-    local ability = caster:FindAbilityByName("jex_nature_cosmic_w")
+function Filters:JexCosmicNatureW(caster)
+    local ability = caster:FindAbilityByName("jex_cosmic_nature_w")
     local mana_usage = ability:GetSpecialValueFor("mana_cost_per_cast")
     if mana_usage > caster:GetMana() then
         ability:ToggleAbility()

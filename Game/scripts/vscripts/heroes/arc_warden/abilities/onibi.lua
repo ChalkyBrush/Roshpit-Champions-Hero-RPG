@@ -282,7 +282,7 @@ function get_ability_name_by_element_combination_and_key(element1, element2, abi
 		elseif (element1 == "nature" and element2 == "lightning") or (element1 == "lightning" and element2 == "nature") then
 			ability_name = "jex_lightning_nature_w"
 		elseif (element1 == "nature" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "nature") then
-			ability_name = "jex_nature_cosmic_w"
+			ability_name = "jex_cosmic_nature_w"
 		elseif element1 == "lightning" and element2 == "lightning" then
 			ability_name = "jex_lightning_lightning_w"
 		elseif (element1 == "lightning" and element2 == "cosmic") or (element1 == "cosmic" and element2 == "lightning") then
@@ -627,7 +627,7 @@ function jex_equip_immortal_weapon(event)
 	write_onibi_to_nettable(onibi)
 end
 
-function onibi_get_total_tech_level(caster, element1, element2, ability_key)
+function GetOnibiTotalTechLevel(caster, element1, element2, ability_key)
 	local base_level = caster.onibi.stats_table[element1][element2][ability_key]["level"]
 	local bonus_level = caster.onibi.stats_table[element1][element2][ability_key]["bonus_level"]
 	return base_level + bonus_level

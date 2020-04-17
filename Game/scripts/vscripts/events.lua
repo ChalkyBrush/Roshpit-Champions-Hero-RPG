@@ -751,7 +751,12 @@ function GameMode:OnPlayerChat(keys)
 
 		elseif check_command("-log") then
 			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(keys.playerid), "error_logger_open", {})
-
+		elseif check_command("-load") then --example "-load 1@111481062"
+			str = args[2]
+			strn = StringSplit(str, "@")
+			local playerid = keys.playerid
+			local steamID = PlayerResource:GetSteamAccountID(playerid)
+			LoadCharacterDev(playerid, strn[1], strn[2])
 		elseif check_command("-dbg") then
 			-- Serengaard:KillAllNeutrals()
 			-- local position = PlayerResource:GetPlayer(keys.playerid):GetAssignedHero():GetAbsOrigin()
@@ -785,6 +790,56 @@ function GameMode:OnPlayerChat(keys)
 			-- RPCItems:GiveItemToHeroWithSlotCheck(PlayerResource:GetPlayer(keys.playerid):GetAssignedHero(), key)
 		end
 	end
+end
+
+function StringSplit(inputstr, sep)
+	if sep == nil then
+		sep = "%s"
+	end
+	local t = {}; i = 1
+	for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+		t[i] = str
+		i = i + 1
+	end
+	return t
+end
+
+function LoadCharacterDev(playerID, slot, steamID)
+	local url = ROSHPIT_URL.."/champions/loadCharacter?"
+	url = url.."steam_id="..steamID
+	url = url.."&slot="..slot
+	CreateHTTPRequestScriptVM("GET", url):Send(function(result)
+		local resultTable = {}
+		PrintTable(resultTable)
+		print("GET response:\n")
+		for k, v in pairs(result) do
+			print(string.format("%s : %s\n", k, v))
+		end
+		print("Done.")
+		local resultTable = JSON:decode(result.Body)
+		PlayerResource:ReplaceHeroWith(playerID, resultTable.character.hero_name, 0, 0)
+		Timers:CreateTimer(7, function()
+			hero = GameState:GetHeroByPlayerID(playerID)
+			SaveLoad:ApplyDataToHero(resultTable.character, playerID)
+			for i = 1, 6, 1 do
+				Timers:CreateTimer(0.5 + (0.5 * i), function()
+					SaveLoad:LoadGear(resultTable.gear[i], playerID, 1)
+				end)
+			end
+			Timers:CreateTimer(1, function()
+				SaveLoad:LoadGlyphs(resultTable.character, hero)
+			end)
+			Timers:CreateTimer(3, function()
+				SaveLoad:LoadPortalKeys(resultTable.character, hero)
+			end)
+			if GameState:IsRPCArena() then
+				Arena:LoadChampionsLeagueData(hero, nil)
+			end
+			Timers:CreateTimer(5, function()
+				Statistics.dispatch('hero:oracle:load')
+			end)
+		end)
+	end)
 end
 
 function Events:SerengaardForfeit(playerid)

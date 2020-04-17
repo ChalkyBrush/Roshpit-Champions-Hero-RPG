@@ -11,7 +11,7 @@ function jex_activate_q_lightning_lightning(event)
 	local base_damage = event.base_damage
 	local agility_added_to_base_damage = event.agility_added_to_base_damage
 
-	local tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "lightning", "lightning", "Q")
 	local total_radius = radius + radius_per_tech * tech_level
 	local damage = base_damage + agility_added_to_base_damage * caster:GetAgility() + (attack_damage_per_tech / 100) * OverflowProtectedGetAverageTrueAttackDamage(caster) * tech_level
 

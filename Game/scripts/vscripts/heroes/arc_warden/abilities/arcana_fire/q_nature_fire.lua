@@ -6,7 +6,7 @@ function jex_activate_q_nature_fire(event)
 	local ability = event.ability
 	local point = event.target_points[1]
 
-	local tech_level = onibi_get_total_tech_level(caster, "nature", "fire", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "nature", "fire", "Q")
 	local tree = CreateUnitByName("jex_fever_tree", point, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(caster, tree, "modifier_jex_fire_tree", {})
 	tree.pfx = ParticleManager:CreateParticle("particles/econ/items/treant_protector/ti7_shoulder/treant_ti7_crimson_livingarmor.vpcf", PATTACH_CUSTOMORIGIN, nil)

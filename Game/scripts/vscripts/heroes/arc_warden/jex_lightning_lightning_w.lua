@@ -34,7 +34,7 @@ function jex_lightning_lightning_w:OnToggle()
         local ability = self
         local caster = self:GetCaster()
         if self:GetToggleState() then
-            ability.tech_level = onibi_get_total_tech_level(caster, "lightning", "lightning", "W")
+            ability.tech_level = GetOnibiTotalTechLevel(caster, "lightning", "lightning", "W")
             caster:AddNewModifier(caster, ability, "modifier_jex_lightning_lightning_w", {})
             caster:AddNewModifier(caster, ability, "modifier_jex_lightning_lightning_w_damage_buff", {})
             caster:SetModifierStackCount("modifier_jex_lightning_lightning_w_damage_buff", caster, ability.tech_level)
@@ -72,8 +72,6 @@ function modifier_jex_lightning_lightning_w:OnAttackLanded(event)
 	local ability = self:GetAbility()
 	local target = event.target
 	local drain_mana = ability:GetManaCost()
-	local damage_mult = JEX_LIGHTNING_LIGHTNING_W_DAMAGE_PCT[ability:GetLevel()]
-	local jumps_per_tech = event.jumps_per_tech
     if caster:GetMana() < ability:GetManaCost(-1) then
         ability:ToggleAbility()
         return false
@@ -83,10 +81,10 @@ function modifier_jex_lightning_lightning_w:OnAttackLanded(event)
 	local max_targets = ability.tech_level * JEX_LIGHTNING_LIGHTNING_W_CHAIN_PER_TECH
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	local targets_to_hit = math.min(#enemies, max_targets)
-	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * (damage_mult / 100)
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * JEX_LIGHTNING_LIGHTNING_W_DAMAGE_PCT[ability:GetLevel()]
 	local w_4_level = caster:GetRuneValue("w", 4)
 	if w_4_level > 0 then
-		damage = damage + caster:GetAgility() * event.w_4_agility_added_to_lightning_damage
+		damage = damage + caster:GetAgility() * w_4_level * JEX_LIGHTNING_LIGHTNING_W_BASE_DMG_PER_AGI_PER_W4
 	end
 	for i = 1, targets_to_hit, 1 do
 		Timers:CreateTimer((i - 1) * 0.15, function()
