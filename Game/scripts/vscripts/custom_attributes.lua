@@ -931,12 +931,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
 		armor_modify = armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
-	if unit:HasModifier("modifier_omnimace_earth_buff") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
-	end
-	if unit:HasModifier("modifier_omniro_shadow_debuff") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "shadow_special_b", "modifier_omniro_shadow_debuff")
-	end
 	if unit:HasModifier("modifier_familiar_armor_break") then
 		local modifier = unit:FindModifierByName("modifier_familiar_armor_break")
 		armor_modify = armor_modify + modifier:GetStackCount()*EKKAN_E3_ARMOR_REDUCTION
@@ -1574,9 +1568,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
 		magic_armor_modify = magic_armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
-	if unit:HasModifier("modifier_omnimace_earth_buff") then
-		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")
-	end
 	if unit:HasModifier("modifier_arcane_orb_magic_resist") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "arcane_orb_b", "modifier_arcane_orb_magic_resist")
 	end
@@ -1932,9 +1923,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
-	end
-	if unit:HasModifier("modifier_omnimace_undead_buff") then
-		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
 	end
 	if unit:HasModifier("challen_postmit_buff") then
 		armor_pierce_modify = armor_pierce_modify + 1000
@@ -3025,10 +3013,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_stonewall_aura_axe_armor_strength", CustomAttributes.AXE_ARCANA2_W2_STRENGTH)
 	end
-	if hero:HasModifier("modifier_omnimace_wind_buff") then
-		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))
-	end
 	if hero:HasModifier("modifier_ice_scathe_q2_shield") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
 	end
@@ -3437,10 +3421,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
-	end
-	if excludedModifier ~= "modifier_omnimace_cosmic_buff" and hero:HasModifier("modifier_omnimace_cosmic_buff") then
-		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a") * hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
 	end
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
@@ -4014,7 +3994,12 @@ function GetQCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_Q_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownBase(-1) < GLOBAL_Q_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_Q_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
 		function(result, data)
 			cooldownMinModifier = math.min(cooldownMinModifier, result)
@@ -4045,7 +4030,12 @@ function GetWCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_W_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownBase(-1) < GLOBAL_W_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_W_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
 		function(result, data)
 			cooldownMinModifier = math.min(cooldownMinModifier, result)
@@ -4076,7 +4066,12 @@ function GetECooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_E_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownBase(-1) < GLOBAL_E_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_E_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
 		function(result, data)
 			cooldownMinModifier = math.min(cooldownMinModifier, result)
@@ -4107,7 +4102,12 @@ function GetRCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_R_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownBase(-1) < GLOBAL_R_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_R_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
 		function(result, data)
 			cooldownMinModifier = math.min(cooldownMinModifier, result)

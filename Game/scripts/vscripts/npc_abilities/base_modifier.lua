@@ -5,11 +5,11 @@ local class = npc_base_modifier
 function class:HasSpecialTypes(types)
     self.specialTypes = self.specialTypes or {}
     for _,type in pairs(types) do
-        if not self.specialTypes[type] then
-            return false
+        if self.specialTypes[type] then
+            return true
         end
     end
-    return true
+    return false
 end
 function class:SetSpecialTypes(types)
     self.specialTypes = {}

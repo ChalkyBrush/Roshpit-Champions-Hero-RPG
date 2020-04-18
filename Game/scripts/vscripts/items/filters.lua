@@ -447,7 +447,13 @@ function Filters:ReduceQCooldown(caster, ability, baseCD, bIncludeFlatCD)
         )
     end
     abilityCooldown = math.min(abilityCooldown, GLOBAL_Q_MAX_CD)
-    abilityCooldown = math.max(abilityCooldown, GLOBAL_Q_MIN_CD)
+    if ability.BaseClass and ability:GetCooldownBase(-1) < GLOBAL_Q_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldownBase(-1))
+    elseif ability:GetCooldown(-1) < GLOBAL_Q_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldown(-1))
+    else
+        abilityCooldown = math.max(abilityCooldown, GLOBAL_Q_MIN_CD)
+    end
 
     if abilityCooldown ~= baseCD then
         ability:EndCooldown()
@@ -486,7 +492,13 @@ function Filters:ReduceWCooldown(caster, ability, baseCD, bIncludeFlatCD)
         )
     end
     abilityCooldown = math.min(abilityCooldown, GLOBAL_W_MAX_CD)
-    abilityCooldown = math.max(abilityCooldown, GLOBAL_W_MIN_CD)
+    if ability.BaseClass and ability:GetCooldownBase(-1) < GLOBAL_W_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldownBase(-1))
+    elseif ability:GetCooldown(-1) < GLOBAL_W_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldown(-1))
+    else
+        abilityCooldown = math.max(abilityCooldown, GLOBAL_W_MIN_CD)
+    end
 
     if abilityCooldown ~= baseCD then
         ability:EndCooldown()
@@ -546,7 +558,13 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
     end
 
     abilityCooldown = math.min(abilityCooldown, GLOBAL_E_MAX_CD)
-    abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
+    if ability.BaseClass and ability:GetCooldownBase(-1) < GLOBAL_E_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldownBase(-1))
+    elseif ability:GetCooldown(-1) < GLOBAL_E_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldown(-1))
+    else
+        abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
+    end
 
     if abilityCooldown ~= baseCD then
         ability:EndCooldown()
@@ -587,7 +605,13 @@ function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     end
 
     abilityCooldown = math.min(abilityCooldown, GLOBAL_R_MAX_CD)
-    abilityCooldown = math.max(abilityCooldown, GLOBAL_R_MIN_CD)
+    if ability.BaseClass and ability:GetCooldownBase(-1) < GLOBAL_R_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldownBase(-1))
+    elseif ability:GetCooldown(-1) < GLOBAL_R_MIN_CD then
+        abilityCooldown = math.max(abilityCooldown, ability:GetCooldown(-1))
+    else
+        abilityCooldown = math.max(abilityCooldown, GLOBAL_R_MIN_CD)
+    end
 
     if abilityCooldown ~= baseCD then
         ability:EndCooldown()
@@ -2195,8 +2219,8 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         end
     end
     if unitName == "npc_dota_hero_faceless_void" then
-        require('heroes/faceless_void/omni_mace')
-        mult = mult + omniro_elemental_bonus(element1, element2, attacker)
+        require('heroes/faceless_void/omniro_common')
+        mult = mult + OmniroElementalBonus(element1, element2, attacker)
     end
     if element1 == RPC_ELEMENT_NORMAL then
         if bIsRealDamage then
@@ -2234,27 +2258,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 element2 = RPC_ELEMENT_FIRE
             end
         end
-        if element1 > 0 then
-            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', { element1 }, { }, 
-                function(result, data)
-                    mult = mult + result
-                end
-            )
-        end
-        if element2 > 0 then
-            Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', { element2 }, { }, 
-                function(result, data)
-                    mult = mult + result
-                end
-            )
-        end
         if victim:HasModifier("modifier_elemental_resistance") then
             damage = damage * 0.5
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_all_elements", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_all_elements", 1))/100
-        if attacker:HasModifier("modifier_omniro_dragon_buff") then
-            mult = mult + (OMNIRO_MACE_DRAGON_ELEMENTAL_BUFF/100)
-        end
         if attacker:HasModifier("shadow_deity_passive") then
             if bIsRealDamage and slot ~= 0 then
                 if element1 == RPC_ELEMENT_NORMAL or element1 == RPC_ELEMENT_NONE then
@@ -2274,6 +2281,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
     if element2 ~= RPC_ELEMENT_NONE then
         table.insert(elements, element2)
     end
+    Util.Modifier:SimpleEvent(attacker, 'GetRoshpitElementalDmgBonus', elements, { }, 
+        function(result, data)
+            mult = mult + result
+        end
+    )
 
     local newDamageCalculatorData = {
         victim = victim,

@@ -312,7 +312,7 @@ function InitializeMenu(){
 function SetKeyVisibility(){
 	var difficulty = GetDifficultyFactor()
 	var heroIndex = getSelectedHeroIndex()
-	var keys = CustomNetTables.GetTableValue( "portal_keys", heroIndex+"-"+difficulty )
+	//var keys = CustomNetTables.GetTableValue( "portal_keys", heroIndex+"-"+difficulty )
 	//$.Msg(heroIndex)
 	//$.Msg(keys)
 	if (!(keys === undefined)){

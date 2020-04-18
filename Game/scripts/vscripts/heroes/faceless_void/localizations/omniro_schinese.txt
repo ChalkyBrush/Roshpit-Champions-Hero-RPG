@@ -14,15 +14,15 @@
 		"omniro_fire_special_description"									"施加一个 <% OMNIRO_FIRE_SPECIAL_DURATION %> 秒的buff，该buff增加奥尼 洛的基础攻击力。"
 		"omniro_fire_special_a_pretext"										"基础攻击力增加："		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"全能权杖: 火"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"增加基础攻击力"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"全能权杖: 火"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"增加基础攻击力"							
 
 		"omniro_earth_special_description"									"施加一个 <% OMNIRO_EARTH_SPECIAL_DURATION %> 秒的buff，增加护甲和魔甲。"
 		"omniro_earth_special_a_pretext"									"额外护甲："		
 		"omniro_earth_special_b_pretext"									"额外魔甲："	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"全能权杖: 土"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"增加护甲和魔甲"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"全能权杖: 土"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"增加护甲和魔甲"									
 
 		"omniro_lightning_special_description"									"造成数值基于目标当前生命值的额外伤害。"
 		"omniro_lightning_special_a_pretext"										"目标当前生命值% 的额外伤害："					
@@ -32,15 +32,15 @@
 		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成 <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x 的伤害。"
 		"omniro_poison_special_a_pretext"										"攻击力 %的DoT伤害 ： "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"全能权杖：毒"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"没0.5秒受到一次伤害"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"全能权杖：毒"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"没0.5秒受到一次伤害"
 
 		"omniro_time_special_description"									"施加一个 <% OMNIRO_TIME_SPECIAL_DURATION %>秒的buff，该buff增加攻击 速度和移动速度。"
 		"omniro_time_special_a_pretext"									"移动速度："		
 		"omniro_time_special_b_pretext"									"攻击速度："		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"全能权杖：时"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"增加攻击速度和移动速度"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"全能权杖：时"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"增加攻击速度和移动速度"
 
 		"omniro_holy_special_description"									"提供短暂的魔法免疫。"
 		"omniro_holy_special_a_pretext"										"魔法免疫持续时间："		
@@ -51,15 +51,15 @@
 		"omniro_cosmic_special_description"									"施加一个 <% OMNIRO_COSMIC_SPECIAL_DURATION %> 秒的buff，该buff增加最 大生命值。"
 		"omniro_cosmic_special_a_pretext"										"最大生命值："	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"全能权杖：宇宙"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"增加最大生命值"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"全能权杖：宇宙"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"增加最大生命值"								
 
 		"omniro_ice_special_description"									"造成一个 <% OMNIRO_ICE_SPECIAL_RADIUS %> 范围的AOE，该AOE对敌人造成 减速效果，持续 <% OMNIRO_ICE_SPECIAL_DURATION %> 秒。"
 		"omniro_ice_special_a_pretext"									"移动速度降低："		
 		"omniro_ice_special_b_pretext"									"攻击速度降低："	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"全能权杖：冰"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"移动速度和攻击速度被降低"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"全能权杖：冰"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"移动速度和攻击速度被降低"									
 
 		"omniro_arcane_special_description"									"汲取 <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% 的最大魔法值来造成一 次额外伤害。"
 		"omniro_arcane_special_a_pretext"										"X魔法汲取量："							
@@ -67,42 +67,42 @@
 		"omniro_shadow_special_description"									"造成一次额外伤害并且对敌人施加一个减甲的debuff，持续 <% OMNIRO_SHADOW_SPECIAL_DURATION %> 秒。"
 		"omniro_shadow_special_a_pretext"										"额外伤害倍数%："		
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"全能权杖：暗"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"护甲降低"												
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"全能权杖：暗"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"护甲降低"												
 
 	
 
 		"omniro_wind_special_description"									"施加一个 <% OMNIRO_WIND_SPECIAL_DURATION %>秒的buff，该buff增加敏捷。"
 		"omniro_wind_special_a_pretext"										"额外敏捷："	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"全能权杖：风"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"增加敏捷值"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"全能权杖：风"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"增加敏捷值"									
 
 		"omniro_ghost_special_description"									"提供短暂的100%闪避。"
 		"omniro_ghost_special_a_pretext"										"闪避持续时间："
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"全能权杖：鬼"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%%闪避"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"全能权杖：鬼"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"100%%闪避"											
 
 		"omniro_water_special_description"									"治疗一部分生命值并且获得生命回复速率加成，持续 <% OMNIRO_WATER_SPECIAL_DURATION %> 秒。"
 		"omniro_water_special_a_pretext"									"治疗："		
 		"omniro_water_special_b_pretext"									"额外生命值回复："		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"全能权杖：水"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"增加生命回复"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"全能权杖：水"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"增加生命回复"							
 
 		"omniro_demon_special_description"									"施加一个 <% OMNIRO_DEMON_SPECIAL_DURATION %> 秒的buff来提供额外攻击力。"
 		"omniro_demon_special_a_pretext"										"额外攻击力%："		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"全能权杖：恶魔"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"增加额外攻击力"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"全能权杖：恶魔"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"增加额外攻击力"								
 
 		"omniro_nature_special_description"									"缠绕目标，并且目标每1秒受到一次伤害。"
 		"omniro_nature_special_a_pretext"									"缠绕持续时间："		
 		"omniro_nature_special_b_pretext"									"攻击力%的缠绕伤害："		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"全能权杖: 自然"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"被缠绕并且每秒受到一次伤害"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"全能权杖: 自然"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"被缠绕并且每秒受到一次伤害"		
 
 		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加税后伤害，持续<% OMNIRO_UNDEAD_SPECIAL_DURATION %> 秒"
 		"omniro_undead_special_a_pretext"									"禁止治疗debuff持续时间："		
@@ -112,14 +112,14 @@
 		"omniro_dragon_special_a_pretext"									"元素伤害增加："		
 "omniro_undead_special_b_pretext"									"物理穿透:"	
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"全能权杖：龙"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"增加所有元素伤害"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"全能权杖：龙"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"增加所有元素伤害"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"全能权杖：不死"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"禁止治疗"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"全能权杖：不死"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"禁止治疗"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"全能权杖：不死"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"增加物理穿透"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"全能权杖：不死"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"增加物理穿透"
 
 		"omniro_orb_effect_title"											"全能之球效果"
 

@@ -771,8 +771,8 @@ function CustomAbilities:UnitsSpecial(msg)
 			CustomAbilities:ClickOpenDialogue(msg)
 		end
 	elseif msg.omniro then
-		require('heroes/faceless_void/omni_mace')
-		omni_mace_ui_toggle(msg)
+		require('heroes/faceless_void/omniro_common')
+		OmniroOmniMaceUIToggle(msg)
 	elseif msg.winterblight then
 		Winterblight:ProcessUIMessage(msg)
 	end

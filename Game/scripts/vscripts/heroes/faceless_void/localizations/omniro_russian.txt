@@ -14,15 +14,15 @@
 		"omniro_fire_special_description"									"Базовый урон атаки увеличен на <% OMNIRO_FIRE_SPECIAL_DURATION %> секунд."
 		"omniro_fire_special_a_pretext"										"БАЗОВЫЙ УРОН АТАКИ: "		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Огонь"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Увеличен урон атаки"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"Omni Mace: Огонь"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"Увеличен урон атаки"							
 
 		"omniro_earth_special_description"									"Броня и Магическая Защита увеличены на <% OMNIRO_EARTH_SPECIAL_DURATION %> секунд."
 		"omniro_earth_special_a_pretext"									"БРОНЯ:"		
 		"omniro_earth_special_b_pretext"									"МАГ. ЗАЩИТА:"	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Земля"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическая защита увеличены."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Земля"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Броня и магическая защита увеличены."									
 
 		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущего процента ХП цели."
 		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ЗДОРОВЬЯ ЦЕЛИ:"										
@@ -30,15 +30,15 @@
 		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x урона, если цель стоит в луже яда от орб-эффекта."
 		"omniro_poison_special_a_pretext"										"УРОН ЯДА % СИЛЫ АТАКИ: "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Яд"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Получает урон каждые 0.5 секунды."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"Omni Mace: Яд"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"Получает урон каждые 0.5 секунды."
 
 		"omniro_time_special_description"									"Увеличивает скорость атаки и передвижения на <% OMNIRO_TIME_SPECIAL_DURATION %> секунд."
 		"omniro_time_special_a_pretext"									"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"		
 		"omniro_time_special_b_pretext"									"СКОРОСТЬ АТАКИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"Omni Mace: Время"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"Скорости атаки и бега увеличены."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"Omni Mace: Время"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"Скорости атаки и бега увеличены."
 
 		"omniro_holy_special_description"									"Дает иммунитет к заклинаниям на некоторое время."
 		"omniro_holy_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ ИММУНИТЕТА: "		
@@ -49,15 +49,15 @@
 		"omniro_cosmic_special_description"									"Увеличивает здоровье героя на <% OMNIRO_COSMIC_SPECIAL_DURATION %> секунд."
 		"omniro_cosmic_special_a_pretext"										"БОНУС ЗДОРОВЬЯ:"	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"Omni Mace: Космос"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"Здоровье увеличено."								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"Omni Mace: Космос"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"Здоровье увеличено."								
 
 		"omniro_ice_special_description"									"Наносит урон в <% OMNIRO_ICE_SPECIAL_RADIUS %> AOE, замедляя противников на <% OMNIRO_ICE_SPECIAL_DURATION %> секунд."
 		"omniro_ice_special_a_pretext"									"ЗАМЕДЛЕНИЕ ПЕРЕМЕЩЕНИЯ:"		
 		"omniro_ice_special_b_pretext"									"ЗАМЕДЛЕНИЕ АТАК:"	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Лёд"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Скорость атаки и бега снижены."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"Omni Mace: Лёд"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"Скорость атаки и бега снижены."									
 
 		"omniro_arcane_special_description"									"Наносит урон, затрачивая <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% от максимальной маны героя."
 		"omniro_arcane_special_a_pretext"										"МНОЖИТЕЛЬ УРОНА ОТ МАНЫ:"							
@@ -66,40 +66,40 @@
 		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"
 		"omniro_shadow_special_b_pretext"										"СНИЖЕНИЕ БРОНИ:"
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Тень"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня снижена."													
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"Omni Mace: Тень"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"Броня снижена."													
 
 		"omniro_wind_special_description"									"Увеличивает Ловкость на <% OMNIRO_WIND_SPECIAL_DURATION %> секунд."
 		"omniro_wind_special_a_pretext"										"БОНУС ЛОВКОСТИ: "	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Ветер"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Ловкость увеличена."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"Omni Mace: Ветер"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"Ловкость увеличена."									
 
-		"omniro_ghost_special_description"									"Дарует <% OMNIRO_GHOST_MACE_EVASION_CHANCE %>% уклонение на некоторое время."
+		"omniro_ghost_special_description"									"Дарует <% OMNIRO_MACE_GHOST_EVASION_PCT %>% уклонение на некоторое время."
 		"omniro_ghost_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ: "
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Призрак"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<% OMNIRO_GHOST_MACE_EVASION_CHANCE %>%% Уклонение"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"Omni Mace: Призрак"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"<% OMNIRO_MACE_GHOST_EVASION_PCT %>%% Уклонение"											
 
 		"omniro_water_special_description"									"Восстанавливает указанное количество ХП и дает дополнительную регенерацию здоровья на <% OMNIRO_WATER_SPECIAL_DURATION %> секунд."
 		"omniro_water_special_a_pretext"									"ЛЕЧЕНИЕ:"		
 		"omniro_water_special_b_pretext"									"БОНУС РЕГЕНЕРАЦИИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"Omni Mace: Вода"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Регенерация здоровья увеличена."							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"Omni Mace: Вода"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"Регенерация здоровья увеличена."							
 
 		"omniro_demon_special_description"									"Увеличивает бонусный урон атаки на <% OMNIRO_DEMON_SPECIAL_DURATION %> секунд."
 		"omniro_demon_special_a_pretext"										"% БОНУСНЫЙ УРОН АТАКИ: "		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Демон"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Урон атаки увеличен."								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Демон"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Урон атаки увеличен."								
 
 		"omniro_nature_special_description"									"Цель опутана корнями и получает урон каждую секунду."
 		"omniro_nature_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОПУТЫВАНИЯ:"		
 		"omniro_nature_special_b_pretext"									"УРОН ЗА СЕКУНДУ, % ОТ СИЛЫ АТАКИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Природа"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Опутан корнями и получает ежесекундный урон."		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Природа"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Опутан корнями и получает ежесекундный урон."		
 
 		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <% OMNIRO_UNDEAD_SPECIAL_DURATION %> секунд увеличивает Пробитие Брони."
 		"omniro_undead_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОТКЛЮЧЕНИЯ РЕГЕНЕРАЦИИ:"		
@@ -108,14 +108,14 @@
 		"omniro_dragon_special_description"									"Увеличивает урон всех элементов на <% OMNIRO_DRAGON_SPECIAL_DURATION %> секунд."
 		"omniro_dragon_special_a_pretext"									"УРОН ЭЛЕМЕНТОВ:"		
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"Omni Mace: Дракон"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"Урон элементов увеличен"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"Omni Mace: Дракон"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"Урон элементов увеличен"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"Omni Mace: Нежить"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Регенерация отключена"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"Omni Mace: Нежить"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"Регенерация отключена"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пробитие Брони увеличено."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"Пробитие Брони увеличено."
 
 		"omniro_orb_effect_title"											"Орб-эффект"
 
