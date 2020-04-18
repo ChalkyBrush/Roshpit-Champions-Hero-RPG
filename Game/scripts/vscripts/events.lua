@@ -3910,6 +3910,7 @@ function Events:PVPBuild(msg)
 	PVP:BuildUnit(msg)
 end
 
+
 function Events:ColorWearablesAndBase(unit, color)
 	unit:SetRenderColor(color[1], color[2], color[3])
 	for k, v in pairs(unit:GetChildren()) do
@@ -3928,6 +3929,23 @@ function Events:ColorWearables(unit, color)
 		end
 	end
 end
+
+function Events:ColorWearablesAndBaseOverPeriod(unit, startColor, endColor, ticks)
+	local colorChangeVector = (endColor - startColor) / ticks
+	for i = 0, ticks, 1 do
+		Timers:CreateTimer(i * 0.03, function()
+			unit:SetRenderColor(startColor.x + colorChangeVector.x * i, startColor.y + colorChangeVector.y * i, startColor.z + colorChangeVector.z * i)
+			for k, v in pairs(unit:GetChildren()) do
+				if v:GetClassname() == "dota_item_wearable" then
+					local model = v:GetModelName()
+					v:SetRenderColor(startColor.x + colorChangeVector.x * i, startColor.y + colorChangeVector.y * i, startColor.z + colorChangeVector.z * i)
+				end
+			end
+		end)
+	end
+
+end
+
 
 function Events:SetPositionCastArgs(unit, radius, minRadius, cooldown, targetFindOrder)
 	unit.targetRadius = radius

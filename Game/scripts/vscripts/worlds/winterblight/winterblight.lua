@@ -887,12 +887,16 @@ function Winterblight:MithrilReward(position, code)
   Timers:CreateTimer(5, function()
         local reward = WINTERBLIGHT_MITHRIL_BASE_REWARD
         local stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD_STONE
+        if code == "cruxys" then
+          reward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD
+          stonesReward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD_STONE
+        end
         if GameState:GetDifficultyFactor() == 2 then
-          reward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_ELITE
-          stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_ELITE_STONE
+          reward = reward * WINTERBLIGHT_MITHRIL_MULT_ELITE
+          stonesReward = stonesReward * WINTERBLIGHT_MITHRIL_MULT_ELITE_STONE
         elseif GameState:GetDifficultyFactor() == 3 then
-          reward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_LEGEND
-          stonesReward = WINTERBLIGHT_MITHRIL_BASE_REWARD * WINTERBLIGHT_MITHRIL_MULT_LEGEND_STONE
+          reward = reward * WINTERBLIGHT_MITHRIL_MULT_LEGEND
+          stonesReward = stonesReward * WINTERBLIGHT_MITHRIL_MULT_LEGEND_STONE
         end
         if code == "azalea" then
           Timers:CreateTimer(4, function()
@@ -912,7 +916,13 @@ function Winterblight:MithrilReward(position, code)
         elseif code == "realm_breaker" then
           reward = reward*WINTERBLIGHT_MITHRIL_MULT_REALM_BR
           local bonus_mult = Winterblight.RealmBreakerLevel*WINTERBLIGHT_MITHRIL_MULT_REALM_BR_PER_LVL
-          reward = reward + reward*bonus_mult          
+          reward = reward + reward*bonus_mult  
+        elseif code == "cruxys" then
+          Timers:CreateTimer(4, function()
+            for i = 1, #MAIN_HERO_TABLE, 1 do
+              Stars:StarEventPlayer("wb_castle", MAIN_HERO_TABLE[i])
+            end
+          end)           
         end
 
         local mithrilReward = reward*Events.ResourceBonus+(stonesReward*(Winterblight.Stones))

@@ -601,7 +601,14 @@ end
 
 function winterblight_boss_dying_particle(event)
 	local caster = event.caster
-	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/boss_dying_tgt.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 250), 3)
+	local offset = 250
+	if caster:GetUnitName() == "winterblight_castle_boss" then
+		offset = 1000
+	end
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/boss_dying_tgt.vpcf", caster:GetAbsOrigin() + Vector(0, 0, offset), 3)
+	if not caster.soundInterval then
+		caster.soundInterval = 0
+	end
 	if caster.soundInterval % 3 == 0 then
 		EmitSoundOn("Winterblight.BossDying", caster)
 	end

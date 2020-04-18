@@ -89823,12 +89823,43 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"morphling_adaptive_strike"
 		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed_loss"		"-100 -300 -700"
+				"attack_speed_loss"		"-100 -200 -400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-80 -120 -160"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"nuke_damage"		"500 1500 9000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"		"5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"60 240 1000"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"chain_frost_damage"		"240 700 2500"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"chain_frost_ms_loss_pct"			"-25 -33 -40"
 			}
 		}
 		"Modifiers"
@@ -89836,6 +89867,15 @@
 			"modifier_castle_boss_ai"
 			{
 				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_aura_can_attack_castle_boss"
+				"Aura_Radius"   	"2000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_aura_can_attack_castle_boss"
+			{
 				"IsHidden"	"1"
 			}
 			"modifier_no_damage"
@@ -89845,6 +89885,10 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
 				}
 			}
 			"modifier_castle_boss_rotating"
@@ -89857,6 +89901,140 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"castle_boss_rotator"
+					}
+				}
+			}
+			"modifier_castle_boss_projectile"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_boss_projectile_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_boss_dying"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "1.0"
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_boss_death_effect_think"
+					}
+				}
+			}
+			"modifier_castle_boss_burning_slow"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss" 
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"burn_damage_thinker"
+						"burn_damage"	"%burn_damage"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_boss_frost_skull"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"ice_skull_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_castle_boss_chain_frost_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_chain_frost_thinker"
+						"target"		"TARGET"
+						"damage"		"%chain_frost_damage"
+					}
+				}
+			}
+			"modifier_chilled"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%chain_frost_ms_loss_pct"
+				}
+			}
+		}
+	}
+
+	"winterblight_castle_boss_surrogate_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_surrogate_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_boss_surrogate_die"
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_boss_surrogate_rotator"
 					}
 				}
 			}

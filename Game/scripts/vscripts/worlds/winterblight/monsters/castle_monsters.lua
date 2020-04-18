@@ -1177,8 +1177,604 @@ function castle_boss_rotator(event)
 	if caster.rotationDivisor then
 		divisor = caster.rotationDivisor
 	end
-	if divisor > 0 then
-		local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
-		caster:SetForwardVector(newFV)
+	if caster.dying then
+		divisor = 240
 	end
+	if divisor > 0 then
+		if not caster.rotateLock then
+			local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
+			caster:SetForwardVector(newFV)
+		end
+	end
+	if caster.dying then
+		return false
+	end
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster.interval = caster.interval + 1
+
+	if not caster.handIndex then
+		caster.handIndex = 1
+	end
+	local spawnMod = 60 - math.ceil(((caster:GetMaxHealth() - caster:GetHealth())/caster:GetMaxHealth())*50)
+	if caster.interval % spawnMod == 0 then
+		castle_boss_projectile_create(caster.handIndex)
+		if caster.handIndex == 1 then
+			caster.handIndex = 2
+		else
+			caster.handIndex = 1
+		end
+	end
+	if caster.vision_guy then
+		caster.vision_guy:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,100))
+	end
+	if caster.interval%(spawnMod*5) == 0 then
+		if not caster.chain_frost_phase then
+			caster.chain_frost_phase = 0
+		end
+		if caster.chain_frost_phase >= 3 then
+			castle_boss_projectile_create(3)
+		end
+	end
+	if caster.interval%60 == 0 then
+		local splash_particle = "particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+		local splash_position = GetGroundPosition(caster:GetAbsOrigin(), caster) - Vector(0,0,240)
+		CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position, 5)
+		for i = 1, 5, 1 do
+			local fv = WallPhysics:rotateVector(Vector(1,1), 2*math.pi*i/5)
+			CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position + fv * 240, 5)
+		end
+	end
+	if caster.interval % 100 == 0 then
+		if not caster.surrogates then
+			caster.surrogates = {}
+		end
+		if not caster.pain_animating then
+			if #caster.surrogates == 0 then
+				for i = 1, 3, 1 do
+					local spawnPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
+					local surrogate = Enemies:SpawnEnemyUnit("winterblight_castle_boss_surrogate", spawnPosition, Vector(0,-1), false)
+					table.insert(caster.surrogates, surrogate)
+					CustomAbilities:QuickParticleAtPoint("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", surrogate:GetAbsOrigin(), 4)
+					EmitSoundOnLocationWithCaster(surrogate:GetAbsOrigin(), "Winterblight.CastleBoss.SurrogateSpawn", caster)
+					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
+					surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+				end
+				if caster.rotationDivisor then
+					print(caster.rotationDivisor)
+					local temp_divisor = caster.rotationDivisor
+					caster.rotationDivisor = caster.rotationDivisor/2.5
+					Timers:CreateTimer(0.8, function()
+						caster.rotationDivisor = temp_divisor/1.7
+					end)
+					Timers:CreateTimer(2, function()
+						caster.rotationDivisor = temp_divisor
+					end)
+				end
+			end
+		end
+	end
+	if caster.interval == 300 then
+		caster.interval = 0
+	end
+end
+
+function castle_boss_projectile_create(index)
+	
+	local offsetAngleDegrees = 90
+	local offsetDistance = 320
+	local offsetFixed = Vector(0,0,1500)
+	if index ~= 3 then
+		if Winterblight.CastleBoss.pain_animating then
+			return false
+		end
+	end
+	if index == 2 then
+		offsetAngleDegrees = -120
+		offsetDistance = 320
+		offsetFixed = Vector(0,0,1420)
+	end
+
+	local rotatedFV = WallPhysics:rotateVector(Winterblight.CastleBoss:GetForwardVector(), 2*math.pi*offsetAngleDegrees/360)
+	local offset =  rotatedFV*offsetDistance + offsetFixed
+	local position = Winterblight.CastleBoss:GetAbsOrigin() + offset
+
+
+	local projectile = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	if index == 3 then
+		position = Winterblight.CastleBoss:GetAttachmentOrigin(2)
+		projectile.chain_hand = true
+	end
+	projectile.offsetAngleDegrees = offsetAngleDegrees
+	projectile.offsetDistance = offsetDistance
+	projectile.offsetFixed = offsetFixed
+
+	projectile:SetModelScale(3.0)
+	projectile:SetAbsOrigin(position)
+	Winterblight.CastleBoss.main_ability:ApplyDataDrivenModifier(Winterblight.CastleBoss, projectile, "modifier_castle_boss_projectile", {})
+	
+	projectile.dummy = true
+	projectile:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+	-- projectile:SetModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+	-- projectile:SetOriginalModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+	local projectileName = "particles/roshpit/winterblight/castle_boss_projectile.vpcf"
+	if index == 3 then
+		projectileName = "particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_lightning.vpcf"
+	end
+	CustomAbilities:QuickAttachParticle(projectileName, projectile, 6)
+	projectile.phase = 0
+	EmitSoundOn("Winterblight.CastleBoss.HandProjectile.Create", projectile)
+end
+
+function castle_boss_projectile_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local projectile = event.target
+	if projectile.lock then
+		return false
+	end
+	if not IsValidEntity(projectile) then
+		return false
+	end
+	if not projectile.offsetAngleDegrees then
+		return false
+	end
+	if not projectile.interval then
+		projectile.interval = 0
+	end
+	if Winterblight.CastleBoss.dying then
+		projectile:RemoveModifierByName("modifier_castle_boss_projectile")
+		projectile.lock = true
+		UTIL_Remove(projectile)
+	end
+	projectile.interval = projectile.interval + 1
+	local rotatedFV = WallPhysics:rotateVector(Winterblight.CastleBoss:GetForwardVector(), 2*math.pi*projectile.offsetAngleDegrees/360)
+	local offset =  rotatedFV*projectile.offsetDistance + projectile.offsetFixed
+
+	local movement = Vector(8, 8, 6) * math.cos(2 * math.pi * projectile.interval / 90)
+
+	if projectile.phase == 0 then
+		local position = Winterblight.CastleBoss:GetAbsOrigin() + offset + movement
+		if projectile.chain_hand then
+			position = Winterblight.CastleBoss:GetAttachmentOrigin(2)
+		end
+		if IsValidEntity(projectile) then
+			projectile:SetAbsOrigin(position)
+		end
+	end
+
+	local newFV = WallPhysics:rotateVector(projectile:GetForwardVector(), 2*math.pi/100)
+	projectile:SetForwardVector(newFV)
+	if projectile.phase == 0 then
+		if Winterblight.CastleBoss.pain_animating then
+			projectile:RemoveModifierByName("modifier_castle_boss_projectile")
+			projectile.lock = true
+			UTIL_Remove(projectile)
+		end
+	end
+	if projectile.interval == 100 then
+		if projectile.chain_hand then
+			local eventTable = {caster = Winterblight.CastleBoss, ability = Winterblight.CastleBoss.main_ability}
+			create_chain_frost(eventTable)
+			projectile:RemoveModifierByName("modifier_castle_boss_projectile")
+			projectile.lock = true
+			UTIL_Remove(projectile)			
+		else
+			projectile.phase = 1
+			projectile.forwardSpeed = RandomInt(10, 30)
+			EmitSoundOn("Winterblight.CastleBoss.HandProjectile.Launch", projectile)
+		end
+	end
+	if projectile.phase == 1 then
+		if not projectile.direction then
+			projectile.direction = WallPhysics:rotateVector(Winterblight.CastleBoss:GetForwardVector(), 2*math.pi*projectile.offsetAngleDegrees/360)
+		end
+		local newPos = projectile:GetAbsOrigin() + projectile.direction*projectile.forwardSpeed - Vector(0,0,20)
+		projectile:SetAbsOrigin(newPos)
+		local distanceFromGround = projectile:GetDistanceFromGround()
+		if distanceFromGround < 10 then
+			EmitSoundOn("Winterblight.CastleBoss.HandProjectile.Impact", projectile)
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/castle_boss_nuke_explosion_magical.vpcf", projectile:GetAbsOrigin(), 5)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(1,0.5,0.5))
+			projectile:RemoveModifierByName("modifier_castle_boss_projectile")
+			projectile.lock = true
+			local damage = Winterblight.CastleBoss.main_ability:GetSpecialValueFor("nuke_damage")
+			local slow_duration = Winterblight.CastleBoss.main_ability:GetSpecialValueFor("slow_duration")
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), projectile:GetAbsOrigin(), nil, 360, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Enemies:ApplyDamageToPlayer(enemy, Winterblight.CastleBoss, damage, DAMAGE_TYPE_MAGICAL, Winterblight.CastleBoss.main_ability)
+					Winterblight.CastleBoss.main_ability:ApplyDataDrivenModifier(Winterblight.CastleBoss, enemy, "modifier_castle_boss_burning_slow", {duration = slow_duration})
+				end
+			end
+			UTIL_Remove(projectile)
+		end
+	end
+end
+
+function castle_boss_surrogate_die(event)
+	local surrogate = event.unit
+	Winterblight:EvilExplosion(surrogate:GetAbsOrigin())
+	EmitSoundOn("Winterblight.Surrogate.Explode", surrogate)
+	EmitSoundOn("Winterblight.Surrogate.Explode2", surrogate)
+	surrogate:AddNoDraw()
+	reindex_castle_boss_surrogate_table()
+
+	local light_damage = 3
+	local heavy_damage = 14
+	if GameState:GetDifficultyFactor() == 2 then
+		light_damage = 3
+		heavy_damage = 11
+	elseif GameState:GetDifficultyFactor() == 3 then
+		light_damage = 2
+		heavy_damage = 11
+	end
+	if #Winterblight.CastleBoss.surrogates > 0 then
+		castle_boss_take_damage(light_damage)
+		Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Winterblight.CastleBoss.color, Vector(255, 20, 40), 30)
+		Timers:CreateTimer(0.9, function()
+			Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Vector(255, 20, 40), Winterblight.CastleBoss.color, 30)
+		end)
+	else
+		castle_boss_take_damage(heavy_damage)
+		Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Winterblight.CastleBoss.color, Vector(255, 20, 40), 50)
+		Timers:CreateTimer(3.4, function()
+			Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Vector(255, 20, 40), Winterblight.CastleBoss.color, 50)
+		end)
+	end
+end
+
+function castle_boss_take_damage(damage)
+	local healthLoss = Winterblight.CastleBoss:GetMaxHealth()*(damage/100)
+	if damage >= 10 then
+		Winterblight.CastleBoss.pain_animating = true
+		EndAnimation(Winterblight.CastleBoss)
+		Timers:CreateTimer(0.03, function()
+			Winterblight.CastleBoss.rotateLock = true
+			StartAnimation(Winterblight.CastleBoss, {duration = 4.0, activity = ACT_DOTA_FLAIL, rate = 0.5})
+			Timers:CreateTimer(0.1, function()
+				Winterblight.CastleBoss.rotateLock = false
+			end)
+		end)
+		EmitSoundOn("Winterblight.EvilExplosion.Main", Winterblight.CastleBoss)
+		EmitSoundOn("Winterblight.EvilExplosion.Highlight", Winterblight.CastleBoss)
+		EmitSoundOn("Winterblight.CastleBoss.PainBig", Winterblight.CastleBoss)
+		Timers:CreateTimer(4, function()
+			Winterblight.CastleBoss.pain_animating = false
+		end)
+		Events:objectShake(Winterblight.CastleBoss, 50, 20, true, false, true, nil, 20)
+	else
+		Events:objectShake(Winterblight.CastleBoss, 8, 9, true, false, true, nil, 20)
+		EmitSoundOn("Winterblight.CastleBoss.PainSmall", Winterblight.CastleBoss)
+	end
+	Winterblight.CastleBoss:SetHealth(math.max(Winterblight.CastleBoss:GetHealth() - healthLoss, 0))
+	CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = Winterblight.CastleBoss:GetHealth(), bossId = tostring(Winterblight.CastleBoss)})
+
+	Winterblight.CastleBoss.rotationDivisor = 360 - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*330
+	Winterblight.CastleBoss.color = Vector(255, 255, 255) - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*Vector(0, 255, 255)
+
+	if Winterblight.CastleBoss:GetHealth() == 0 then
+		Winterblight:CastleBossDeath(Winterblight.CastleBoss)
+	end
+	if damage >= 10 then
+		if not Winterblight.CastleBoss.chain_frost_phase then
+			Winterblight.CastleBoss.chain_frost_phase = 0
+		end
+		Winterblight.CastleBoss.chain_frost_phase = Winterblight.CastleBoss.chain_frost_phase + 1
+		Timers:CreateTimer(4, function()
+			if Winterblight.CastleBoss:GetHealth() > 0 then
+				Winterblight:CastleBossSpawnPhase()
+			end
+			if not Winterblight.CastleBoss.main_ability.skullFrostTable then
+				Winterblight.CastleBoss.main_ability.skullFrostTable = {}
+			end
+			if #Winterblight.CastleBoss.main_ability.skullFrostTable < ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*3.1 then
+				print("ICE SKILL 1")
+				if #Winterblight.CastleBoss.main_ability.skullFrostTable < 3 then
+					print("ICE SKULL 2")
+					ice_skull_create(Winterblight.CastleBoss, Winterblight.CastleBoss.main_ability)
+				end
+			end
+		end)
+	end
+end
+
+function reindex_castle_boss_surrogate_table()
+	local new_surrogate_table = {}
+	for i = 1, #Winterblight.CastleBoss.surrogates, 1 do
+		local surrogate = Winterblight.CastleBoss.surrogates[i]
+		if surrogate and IsValidEntity(surrogate) and surrogate:IsAlive() then
+			table.insert(new_surrogate_table, surrogate)
+		end
+	end
+	Winterblight.CastleBoss.surrogates = new_surrogate_table
+end
+
+function castle_boss_surrogate_rotator(event)
+	local caster = event.caster
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 4) * math.cos(2 * math.pi * caster.interval / 90))
+	caster.interval = caster.interval + 1
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 90)
+	caster:SetForwardVector(rotatedFV)
+	if caster.interval == 90 then
+		caster.interval = 0
+	end
+end
+
+function castle_boss_death_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/boss_exploding.vpcf", caster, 3)
+	EmitSoundOn("Winterblight.AzaleaBoss.DeathEffect", caster)
+end
+
+function burn_damage_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local burn_damage = event.burn_damage
+
+	Enemies:ApplyDamageToPlayer(target, caster, burn_damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function ice_skull_create(caster, ability)
+    if not ability.skullFrostTable then
+        ability.skullFrostTable = {}
+    end
+
+    local dummy = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+    dummy.speed = 600
+    dummy.index = #ability.skullFrostTable + 1
+    
+    if dummy.index == 3 then
+   	 	dummy.rotationDelta = 160
+   	elseif dummy.index == 2 then
+   		dummy.rotationDelta = 120
+   	elseif dummy.index == 1 then
+   		dummy.rotationDelta = 80
+   	end
+
+    local baseFV = caster:GetForwardVector()
+    local projectileFV = WallPhysics:rotateVector(baseFV, 2 * math.pi * dummy.index / dummy.rotationDelta)
+    local pfx = ParticleManager:CreateParticle("particles/econ/items/lich/lich_ti8_immortal_arms/lich_ti8_chain_frost.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    local base_position = GetGroundPosition(caster:GetAbsOrigin(), caster) + Vector(0,0,80)
+    ParticleManager:SetParticleControl(pfx, 0, base_position)
+    ParticleManager:SetParticleControl(pfx, 1, GetGroundPosition(caster:GetAbsOrigin() + projectileFV * 700 + Vector(0, 0, 80), caster))
+    ParticleManager:SetParticleControl(pfx, 2, Vector(dummy.speed, dummy.speed, dummy.speed))
+    dummy.pfx = pfx
+    dummy.interval = 0
+    dummy.dummy = true
+    dummy.distance = 700
+    if #ability.skullFrostTable == 1 then
+    	dummy.distance = 1050
+    elseif #ability.skullFrostTable == 2 then
+    	dummy.distance = 1400
+    end
+    dummy.pullPoint = caster:GetAbsOrigin() + projectileFV * dummy.distance + Vector(0, 0, 80)
+    dummy.baseFV = projectileFV
+    dummy.hardInterval = 0
+    table.insert(ability.skullFrostTable, dummy)
+    Timers:CreateTimer(dummy.distance/dummy.speed - 1, function()
+    	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_boss_frost_skull", {})
+    	dummy:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin() + projectileFV * dummy.distance + Vector(0, 0, 80), caster))
+    end)
+end
+
+function ice_skull_thinker(event)
+    local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local dummy = target
+	if not dummy.interval then
+		UTIL_Remove(dummy)
+		ability.skullFrostTable = {}
+	end
+	dummy.interval = dummy.interval + 1
+	dummy.hardInterval = dummy.hardInterval + 1
+	local movement = ((dummy.pullPoint - dummy:GetAbsOrigin()):Normalized() * 0.03) * dummy.speed
+	movement = movement * Vector(1, 1, 0)
+    dummy:SetAbsOrigin(dummy:GetAbsOrigin() + movement)
+
+	if dummy.interval == 3 then
+		dummy.interval = 0
+		local newFV = WallPhysics:rotateVector(dummy.baseFV, 2 * math.pi / dummy.rotationDelta)
+		dummy.baseFV = newFV
+		local newPos = GetGroundPosition(caster:GetAbsOrigin() + newFV * dummy.distance + Vector(0, 0, 80), caster)
+		dummy.pullPoint = newPos
+		ParticleManager:SetParticleControl(dummy.pfx, 1, newPos)
+		-- ParticleManager:SetParticleControl(dummy.pfx, 2, Vector(ability.velocity, ability.velocity, ability.velocity))
+	end
+    if dummy.hardInterval == 7 then
+        dummy.hardInterval = 0
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 110, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.EnergyField.Hit", caster)
+			for _, enemy in pairs(enemies) do
+				print("HIT ENEMY")
+				local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", enemy, 3)
+				ParticleManager:SetParticleControl(pfx1, 3, enemy:GetAbsOrigin()+Vector(0,0,40))
+				EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Winterblight.Reaper.Scream", caster)
+				EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", enemy)
+				EmitSoundOn("Winterblight.CastleBoss.SkullImpact", enemy)
+				local particleName = "particles/roshpit/winterblight/econ/items/necrolyte/necro_sullen_harvest/red_reaper.vpcf"
+				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
+				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+				for i = 1, 9, 1 do
+					ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() , true)
+				end
+				Timers:CreateTimer(1.2, function()
+					EmitSoundOn("Winterblight.ReaperSlice.Hit", enemy)
+					enemy:ForceKill(false)
+				end)
+			end
+		end
+    end
+end
+
+function create_chain_frost(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.lock then
+		return false
+	end
+	-- StartAnimation(caster, {duration = 0.2, activity = ACT_DOTA_CAST_ABILITY_1, rate = 2.2})
+	EmitSoundOn("Winterblight.ChainFrostCast", caster)
+	local vorpal_particle = "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+
+	local baseFV = caster:GetForwardVector()
+	local search_area = caster:GetAbsOrigin()
+	local search_radius = event.search_radius
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), search_area, nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_castle_boss_chain_frost_thinker", {})
+
+	if not ability.vorpals then
+		ability.vorpals = {}
+	end
+	local total_max_blades = event.max_blades
+
+
+	local damage = event.damage
+
+	
+
+	local vorpal = {}
+	local vorpal_distance = 900
+	local vorpal_fv = caster:GetForwardVector()
+	local perpFV = WallPhysics:rotateVector(vorpal_fv, 2*math.pi/4)
+	local vorpal_target = caster:GetAbsOrigin() + caster:GetForwardVector()*780 + Vector(0,0,1660)
+	local vorpal_speed = 300
+	local vorpal_origin = caster:GetAbsOrigin() + Vector(0,0,1220) + caster:GetForwardVector()*160 - perpFV*400
+
+	local bounces = 9
+
+	vorpal.active = true
+	vorpal.speed = vorpal_speed
+	vorpal.position = vorpal_origin
+	vorpal.target = vorpal_target
+	vorpal.interval = 0
+	vorpal.damage = damage
+	vorpal.mana_restore = mana_restore
+
+	vorpal.type = event.type
+	local pfx = ParticleManager:CreateParticle(vorpal_particle, PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, vorpal_origin)
+	ParticleManager:SetParticleControl(pfx, 1, vorpal_target)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(vorpal_speed, vorpal_speed, vorpal_speed))
+	vorpal.pfx = pfx
+	vorpal.targets_hit = 0
+	vorpal.bounces = bounces
+	if #enemies > 0 then
+		local lock_target = enemies[RandomInt(1, #enemies)]
+		vorpal.lock_entity = lock_target
+	else
+		vorpal.lock_entity = nil
+	end
+	table.insert(ability.vorpals, vorpal)
+
+end
+
+function castle_chain_frost_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local new_vorpal_table = {}
+	local think_interval = 0.1
+
+	local damage = event.damage
+
+	for i = 1, #ability.vorpals, 1 do
+		local vorpal = ability.vorpals[i]
+		if vorpal.active then
+			vorpal.speed = math.min(vorpal.speed + 70, 800)
+			local direction = (vorpal.target - vorpal.position):Normalized()
+			vorpal.position = vorpal.position + vorpal.speed*think_interval*direction
+			vorpal.interval = vorpal.interval + 1
+
+			if vorpal.interval >= 4 then
+				if IsValidEntity(vorpal.lock_entity) and vorpal.lock_entity:IsAlive() then
+					vorpal.target = vorpal.lock_entity:GetAbsOrigin() + Vector(0,0,100)
+				end
+			end
+			if vorpal.interval >= 120 then
+				vorpal.active = false
+			end
+
+			local distance = WallPhysics:GetDistance2d(vorpal.position, vorpal.target)
+			
+			if distance <= (vorpal.speed*think_interval) then
+				-- CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf", vorpal.position, 3)
+				if not vorpal.bounces then
+					vorpal.bounces = 9
+				end
+				if vorpal.targets_hit < (vorpal.bounces - 1) then
+					vorpal.targets_hit = vorpal.targets_hit + 1
+					local nearby_enemies = FindUnitsInRadius(caster:GetTeamNumber(), vorpal.position, nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+					local new_target = nil
+					if #nearby_enemies > 0 then
+						if IsValidEntity(vorpal.lock_entity) then
+							for _, enemy in pairs(nearby_enemies) do
+								if enemy:GetEntityIndex() ~= vorpal.lock_entity:GetEntityIndex() then
+									new_target = enemy
+									break
+								end
+								-- Filters:TakeArgumentsAndApplyDamage(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_R, RPC_ELEMENT_EARTH, RPC_ELEMENT_NONE)
+							end
+						else
+							new_target = nearby_enemies[1]
+						end
+					end
+					if not IsValidEntity(new_target) then
+						local nearby_allies = FindUnitsInRadius(caster:GetTeamNumber(), vorpal.position, nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+						if #nearby_allies > 0 then
+							if IsValidEntity(vorpal.lock_entity) then
+								for _, ally in pairs(nearby_allies) do
+									if ally:GetUnitName() == "winterblight_castle_boss_surrogate" then
+										if ally:GetEntityIndex() ~= vorpal.lock_entity:GetEntityIndex() then
+											new_target = ally
+											break
+										end
+									end
+								end
+							end
+						end
+					end
+					if IsValidEntity(vorpal.lock_entity) then
+						EmitSoundOn("Winterblight.ChainFrost.Impact", vorpal.lock_entity)
+						local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", vorpal.lock_entity, 3)
+						ParticleManager:SetParticleControl(pfx1, 3, vorpal.lock_entity:GetAbsOrigin()+Vector(0,0,40))
+						Winterblight.CastleBoss.main_ability:ApplyDataDrivenModifier(Winterblight.CastleBoss, vorpal.lock_entity, "modifier_chilled", {duration = 5})
+						local damage = event.damage
+						if vorpal.lock_entity:GetTeamNumber() ~= caster:GetTeamNumber() then
+							Enemies:ApplyDamageToPlayer(vorpal.lock_entity, Winterblight.CastleBoss, damage, DAMAGE_TYPE_MAGICAL, Winterblight.CastleBoss.main_ability)
+						end
+					end
+					if IsValidEntity(new_target) then
+						vorpal.lock_entity = new_target
+						vorpal.target = vorpal.lock_entity:GetAbsOrigin()
+					else
+						vorpal.active = false
+					end
+
+				else
+					vorpal.active = false
+				end
+			end
+			if vorpal.active then
+				ParticleManager:SetParticleControl(vorpal.pfx, 1, vorpal.target)
+				ParticleManager:SetParticleControl(vorpal.pfx, 2, Vector(vorpal.speed, vorpal.speed, vorpal.speed))
+				table.insert(new_vorpal_table, vorpal)
+			else
+				ParticleManager:DestroyParticle(vorpal.pfx, false)
+				ParticleManager:ReleaseParticleIndex(vorpal.pfx)	
+			end			
+		end
+	end
+	ability.vorpals = new_vorpal_table
 end

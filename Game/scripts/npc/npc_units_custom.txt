@@ -109075,7 +109075,7 @@
         "RoshpitMagicArmor"     "535"
         "RoshpitLevel"          "35"
         "RoshpitDominion"       "1"
-        "EnemyTier"             "0" 
+        "EnemyTier"             "2" 
         "RoshpitAggroSound"     "Winterblight.Graviton.Aggro"
         "RoshpitDeathSound"     "Winterblight.Graviton.Death"
         "RoshpitAIFightJuke"    "1"
@@ -109382,6 +109382,12 @@
         {
             "particle"  "particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf"
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+            "particle"  "particles/roshpit/winterblight/castle_boss_projectile.vpcf"
+            "particle"  "particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_lightning.vpcf"
+            "particle"  "particles/roshpit/winterblight/castle_boss_nuke_explosion_magical.vpcf"
+            "particle"  "particles/econ/items/lich/lich_ti8_immortal_arms/lich_ti8_chain_frost.vpcf"
+            "particle"  "particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf"
+            "particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -109404,8 +109410,8 @@
         "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
         "MovementSpeed" "360"
         "MovementTurnRate"  "0.4"
-        "StatusHealth"  "2700"
-        "StatusHealthRegen" "10"
+        "StatusHealth"  "100000"
+        "StatusHealthRegen" "0"
         "StatusMana"    "2000"
         "StatusManaRegen"   "20"
         "VisionDaytimeRange"    "1400"
@@ -109462,6 +109468,103 @@
         "EnemyTier"             "4"
         "RoshpitPushLock"       "1"
         "RoshpitJumpLock"       "1"
+    }
+
+    "winterblight_castle_boss_surrogate"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/lich/lich.vmdl"
+        "ModelScale"    "1"
+        "Level" "1"
+        "HealthBarOffset"   "300"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Lich"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "210"
+        "AttackDamageMax"   "210"
+        "ProjectileSpeed"   "500"
+        "ProjectileModel"   "particles/units/heroes/hero_lich/lich_base_attack.vpcf"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "450"
+        "BountyGoldMin" "400"
+        "BountyGoldMax" "500"
+        "BountyXP" "400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "50"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "100000"
+        "StatusHealthRegen" "10"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "winterblight_castle_boss_surrogate_passive"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12792"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12794"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12796"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12795"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "12797"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+
+        }
+        "RoshpitArmor"          "735"
+        "RoshpitArmorPierce"    "810"
+        "RoshpitSpellPierce"    "985"
+        "RoshpitMagicArmor"     "655"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "RoshpitNoParagon"      "1"
+        "EnemyTier"             "2"
+        "RoshpitPushLock"       "1"
     }
     
 

@@ -1692,16 +1692,19 @@ function Winterblight:WinterCastleBossSpawn()
 		Winterblight.castle_boss = boss
 	end
 	Winterblight.CastleBoss = boss
+	local bossAbility = boss:FindAbilityByName("winterblight_castle_boss_passive")
+	Winterblight.CastleBoss.main_ability = bossAbility
+
 	Winterblight:CastleBossMusicPlayer()
-	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 2500, 99999, false)
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 2100, 99999, true)
 	boss:SetAbsOrigin(position-Vector(0,0,1000))
 	-- boss:SetModelScale(6)
-
-	local bossAbility = boss:FindAbilityByName("winterblight_castle_boss_passive")
+	Winterblight:InitCastleBossData()
+	boss.color = Vector(255,255,255)
 	Events:smoothSizeChange(boss, 1, 6, 210)
 	Timers:CreateTimer(3, function()
 		Events:unitFVSpin(boss, 20, 240, 1, false)
-		StartAnimation(boss, {duration = 8.0, activity = ACT_DOTA_TELEPORT, rate = 0.5})
+		StartAnimation(boss, {duration = 6.0, activity = ACT_DOTA_TELEPORT, rate = 0.5})
 
 		Timers:CreateTimer(0.6, function()
 			Winterblight:CastleBossSplash(boss)
@@ -1715,6 +1718,14 @@ function Winterblight:WinterCastleBossSpawn()
 		end)
 
 		
+	end)
+	Timers:CreateTimer(2, function()
+		local vision_guy = CreateUnitByName("npc_flying_dummy_vision", boss:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_GOODGUYS)
+		vision_guy:SetAbsOrigin(boss:GetAbsOrigin())
+		vision_guy:SetDayTimeVisionRange(1000)
+		vision_guy:SetNightTimeVisionRange(1000)
+		vision_guy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		boss.vision_guy = vision_guy
 	end)
 end
 
@@ -1738,8 +1749,166 @@ function Winterblight:CastleBossMusicPlayer()
 	Timers:CreateTimer(0, function()
 		if Winterblight.CastleBossMusic then
 			local sound_position = GetGroundPosition(Winterblight.CastleBoss:GetAbsOrigin(), Winterblight.CastleBoss)
-			EmitSoundOnLocationWithCaster(sound_position, "Winterblight.CastleBoss.Music", Winterblight.CastleBoss)
+			local musicSpeed = "Slow"
+			if (Winterblight.CastleBoss:GetHealth()/Winterblight.CastleBoss:GetMaxHealth()) < 0.64 then
+				musicSpeed = "Mezzo"
+			end
+			if (Winterblight.CastleBoss:GetHealth()/Winterblight.CastleBoss:GetMaxHealth()) < 0.3 then
+				musicSpeed = "Fast"
+			end
+			EmitSoundOnLocationWithCaster(sound_position, "Winterblight.CastleBoss.Music"..musicSpeed, Winterblight.CastleBoss)
 			return 40
 		end
+	end)
+end
+
+function Winterblight:InitCastleBossData()
+	-- Winterblight.CastleBoss.data = {}
+	-- Winterblight.CastleBoss.data["position_offsets"] = {}
+	-- Winterblight.CastleBoss.data["position_offsets"][1] = {animation_state = "idle", offsetVector = }
+end
+
+function Winterblight:CastleBossDeath(boss)
+	boss.dying = true
+	local ability = boss:FindAbilityByName("winterblight_castle_boss_passive")
+
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_dying", {})
+	Winterblight.CastleBossMusic = false
+	-- EmitSoundOn("Winterblight.AzaleaBoss.Death1.VO", boss)
+	Timers:CreateTimer(1.5, function()
+		EmitGlobalSound("Loot_Drop_Stinger_Arcana")
+		Notifications:TopToAll({text = "Dungeon Clear!", duration = 8.0})
+	end)
+	for i = 1, #ability.skullFrostTable, 1 do
+		ParticleManager:DestroyParticle(ability.skullFrostTable[i].pfx, false)
+		UTIL_Remove(ability.skullFrostTable[i])
+	end
+	EmitSoundOn("Winterblight.CastleBoss.Death.VO", boss)
+	local position = boss:GetAbsOrigin()
+	boss:BossDrops(20)
+	Timers:CreateTimer(1, function()
+		-- local max_roll = math.max(130 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.TiamatBossLevel)
+		-- max_roll = math.max(max_roll, 1)
+		-- local arcanaLuck = RandomInt(1, max_roll)
+		-- if arcanaLuck == 1 then
+		-- 	RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_warlord_arcana2")
+		-- end
+		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
+		if luck2 == 1 then
+			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
+		end
+	end)
+	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
+		Timers:CreateTimer(j * 0.3, function()
+			Winterblight:DropGlacierStone(boss:GetAbsOrigin())
+		end)
+	end
+	Timers:CreateTimer(6, function()
+		for j = 1, Winterblight.Stones, 1 do
+			Timers:CreateTimer(j, function()
+				RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
+			end)
+		end
+	end)
+	boss.deathLock = true
+	boss.rotateLock = true
+	Timers:CreateTimer(0.03, function()
+		StartAnimation(boss, {duration = 10, activity = ACT_DOTA_FLAIL, rate = 0.7})
+		Timers:CreateTimer(0.1, function()
+			boss.rotateLock = false
+		end)
+	end)
+	Timers:CreateTimer(10, function()
+		EmitSoundOn("Winterblight.CastleBoss.Death.VO2", boss)
+		EndAnimation(boss)
+		Events:smoothSizeChange(boss, 6, 3, 160)
+		Enemies:EnemySlain(boss, nil)
+		Events:MainBossSlain(boss:GetUnitName())
+		-- EmitSoundOn("Winterblight.AzaleaBoss.Death2.VO", boss)
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})
+		boss:RemoveModifierByName("modifier_boss_dying")
+		-- Timers:CreateTimer(0.03, function()
+		-- 	StartAnimation(boss, {duration = 10, activity = ACT_DOTA_DIE, rate = 0.24})
+		-- end)
+	    boss.rotateLock = true
+		boss:StartGestureWithPlaybackRate(ACT_DOTA_DIE, 0.22)
+		Timers:CreateTimer(0.1, function()
+			boss.rotateLock = false
+		end)
+		Timers:CreateTimer(2.6, function()
+			Winterblight:CastleBossSplash(boss)
+		end)
+		Timers:CreateTimer(4, function()
+			Winterblight:CastleBossSplash(boss)
+		end)
+		Timers:CreateTimer(7, function()
+			local position = boss:GetAbsOrigin()
+			Winterblight:objectShake(boss, 48, 15, true, true, true, "Winterblight.AzaleaBoss.DeathShaking", 24)
+			Timers:CreateTimer(1.5, function()
+				for i = 0, 3, 1 do
+					Timers:CreateTimer(0.1 * i, function()
+						local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, position + Vector(0, 0, 80 + i * 120))
+						ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.9, 1.0))
+						ParticleManager:SetParticleControl(pfx, 2, Vector(0.8, 0.8, 0.8))
+						Timers:CreateTimer(10, function()
+							ParticleManager:DestroyParticle(pfx, false)
+							ParticleManager:ReleaseParticleIndex(pfx)
+						end)
+					end)
+				end
+				EmitSoundOn("Winterblight.Tiamat.Ice.Explode", boss)
+				local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+				local radius = 800
+				local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(particle1, 0, boss:GetAbsOrigin())
+				ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1000))
+				ParticleManager:SetParticleControl(particle1, 3, Vector(radius, radius, radius))
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(particle1, false)
+				end)
+				Winterblight:CastleBossSplash(boss)
+				UTIL_Remove(boss)
+			end)
+		end)
+	end)
+	Timers:CreateTimer(13, function()
+		Winterblight:MithrilReward(position, "cruxys")
+	end)
+
+end
+
+function Winterblight:CastleBossSpawnPhase()
+	local amount_weak = 8
+	local amount_strong = 1
+	if GameState:GetDifficultyFactor() == 2 then
+		amount_weak = 7
+		amount_strong = 3
+	elseif GameState:GetDifficultyFactor() == 3 then
+		amount_weak = 8
+		amount_strong = 4
+	end
+	if Winterblight.Stones > 0 then
+		amount_strong = amount_strong + Winterblight.Stones
+	end
+	local weak_creeps = {"winterblight_frozen_phantom", "winterblight_frozen_mage", "winterblight_frozen_cage", "winterblight_frozen_soul", "winterblight_castle_warrior", "winterblight_wraithguard"}
+	local strong_creeps = {"winterblight_accursed", "winterblight_draugr", "winterblight_defiler", "winterblight_elite_castle_warrior", "winterblight_mountain_spirit", "winterblight_grave_skeleton"}
+	for i = 1, amount_weak, 1 do
+		Timers:CreateTimer(i*0.9, function()
+			local spawnPos = Winterblight.CastleBoss:GetAbsOrigin()+RandomVector(RandomInt(300, 1000))
+			local enemy = Enemies:SpawnEnemyUnit(weak_creeps[RandomInt(1, #weak_creeps)], spawnPos, Vector(0,-1), true)
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", enemy:GetAbsOrigin(), 3)
+			EmitSoundOn("Winterblight.GraveGhostSpawn", enemy)
+		end)
+	end
+	Timers:CreateTimer(6, function()
+		for i = 1, amount_strong, 1 do
+			Timers:CreateTimer(i*0.9, function()
+				local spawnPos = Winterblight.CastleBoss:GetAbsOrigin()+RandomVector(RandomInt(300, 1000))
+				local enemy = Enemies:SpawnEnemyUnit(strong_creeps[RandomInt(1, #strong_creeps)], spawnPos, Vector(0,-1), true)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", enemy:GetAbsOrigin(), 3)
+				EmitSoundOn("Winterblight.GraveGhostSpawn", enemy)
+			end)
+		end	
 	end)
 end
