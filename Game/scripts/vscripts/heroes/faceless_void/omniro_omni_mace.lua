@@ -579,7 +579,6 @@ function modifier_omniro_omni_mace_nature:OnIntervalThink()
 	local target = self:GetParent()
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
-	print("Dealing Damage")
 	local nature_damage = OMNIRO_MACE_NATURE_ATTACK_POWER_MULT_PCT[ability:GetLevel()] * OMNIRO_MACE_NATURE_TICK_INTERVAL * OverflowProtectedGetAverageTrueAttackDamage(caster) * caster.omniro_data[RPC_ELEMENT_NATURE]["level"]
 	local hit_data = OmniroOmniMaceBaseElementData(RPC_ELEMENT_NATURE)
 	Filters:ApplyDotDamage(caster, ability, target, nature_damage, hit_data["damage_type"], BASE_ABILITY_Q, RPC_ELEMENT_NATURE, RPC_ELEMENT_NONE)

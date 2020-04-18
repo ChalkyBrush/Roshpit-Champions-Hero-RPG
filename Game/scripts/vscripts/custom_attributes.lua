@@ -4002,7 +4002,7 @@ function GetQCooldownModifier(caster)
     end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -4038,7 +4038,7 @@ function GetWCooldownModifier(caster)
     end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -4074,7 +4074,7 @@ function GetECooldownModifier(caster)
     end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -4110,7 +4110,7 @@ function GetRCooldownModifier(caster)
     end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
