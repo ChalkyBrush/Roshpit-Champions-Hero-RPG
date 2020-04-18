@@ -62,14 +62,15 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][1]["prop_scale"] = 0.88
 		Winterblight.CASTLE_DATA["tarot"][1]["rooms"] = {}
-		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 3, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 3, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 9, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 7, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 6, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 5, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 4, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][1]["rooms"][8] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][1] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][2] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][3] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][4] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][5] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][6] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][7] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][8] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][1]["rooms"][9] = {index = 9, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][2] = {}
 		Winterblight.CASTLE_DATA["tarot"][2]["name"] = "magician"
@@ -1911,4 +1912,20 @@ function Winterblight:CastleBossSpawnPhase()
 			end)
 		end	
 	end)
+end
+
+function Winterblight:DropScryersStone(position)
+	local item = RPCItems:CreateUnstashable("item_rpc_winterblight_scryers_stone", "uncommon", "Scryers Stone", -1, false, "Winterblight Only", "winterblight_scryers_stone_desc")
+    local drop = CreateItemOnPositionSync( position, item )
+    item.cantStash = true
+    local dropPosition = position+RandomVector(RandomInt(30, 280))
+    --item:LaunchLoot(false, 240, 0.75, dropPosition)
+	RPCItems:LaunchLoot(item, 240, 0.5, dropPosition, dropPosition)
+end
+
+function Winterblight:PostCastleBossEvents()
+	if Winterblight.CastleTarot["name"] == "fool" then
+		Winterblight:OpenCastleDoorByIndex(11)
+		Winterblight:SpawnTreasureRoomChests()
+	end
 end

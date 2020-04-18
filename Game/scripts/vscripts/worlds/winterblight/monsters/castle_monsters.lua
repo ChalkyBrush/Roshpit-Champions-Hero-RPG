@@ -115,6 +115,11 @@ function diviner_think(event)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_diviner_invisible", {})
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", caster:GetAbsOrigin(), 3)
 			EmitSoundOn("Winterblight.GraveGhostSpawn", caster)
+			if Winterblight.CastleTarot["name"] ~= "fool" then
+				for i = 1, #MAIN_HERO_TABLE, 1 do
+					Winterblight:DropScryersStone(caster:GetAbsOrigin())
+				end
+			end
 		end)
 		Timers:CreateTimer(3, function()
 			Winterblight:OpenCastleDoorByIndex(1)
@@ -1777,4 +1782,33 @@ function castle_chain_frost_thinker(event)
 		end
 	end
 	ability.vorpals = new_vorpal_table
+end
+
+function use_scryers_stone(event)
+	local caster = event.caster
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_buildup.vpcf", caster, 2.5)
+	EmitSoundOn("Winterblight.ScryersStone.Use", caster)
+	Timers:CreateTimer(2, function()
+		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_pop.vpcf", caster, 3.5)
+		ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+Vector(0,0,30))
+		if Winterblight.CastleBossMusic then
+			local reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
+			AddFOWViewer(caster:GetTeamNumber(), reveal_pos, 600, 10, false)
+			MinimapEvent(caster:GetTeamNumber(), caster, reveal_pos.x, reveal_pos.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+			EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
+			EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
+		elseif Winterblight.ActiveCastleRoom then
+			local door_index = Winterblight.ActiveCastleRoom["door_index"]
+			local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
+			AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
+			MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+			EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+			local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
+			CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf", eyePosition, 10)
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
+			EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+		end
+	end)
 end

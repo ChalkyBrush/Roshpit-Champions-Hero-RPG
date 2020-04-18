@@ -5309,5 +5309,39 @@
 		}
 	}
 
+	"item_rpc_winterblight_scryers_stone"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/scryers_stone"
+		"AbilityCastAnimation"	"ACT_DOTA_TELEPORT"
+		"AbilityCastRange"	"0"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"40"
+		"AbilityManaCost"	"0"
+		"ItemCost"			"0"
+		"ItemInitialCharges"	"3"
+		"ItemPermanent"			"0"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/gem01.vmdl"
+		"precache"
+		{
 
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"use_scryers_stone"
+			}
+		}
+	}
 }

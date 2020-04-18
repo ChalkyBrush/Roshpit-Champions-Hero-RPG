@@ -21850,5 +21850,8 @@
 
 		"winterblight_tarot_title"									"Choose your Fate"
 		"winterblight_tarot_leave_text"								"Leave"
+
+		"item_rpc_winterblight_scryers_stone"						"Scryer's Stone"
+		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
 	}	
 }
