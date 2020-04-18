@@ -997,6 +997,16 @@ function GameMode:OnPlayerChat(keys)
 		end
 	end
 
+	if true then
+		local playerID = keys.playerid 
+		local amount = 2000000000
+		local player = PlayerResource:GetPlayer(keys.playerid)
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = amount})
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = amount})
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {mithril = amount})
+		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = amount, mithril = amount, gemstones = amount, player = playerID})
+	end
+
 	if string.match(text, "-givegems") then
 		local amount = 2000000000
 		local player = PlayerResource:GetPlayer(keys.playerid)
