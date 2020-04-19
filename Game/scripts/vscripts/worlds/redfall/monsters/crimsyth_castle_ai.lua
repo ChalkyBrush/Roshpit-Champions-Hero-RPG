@@ -3931,7 +3931,11 @@ function crystal_mine_attack(event)
 	local ability = event.ability
 	local position = caster:GetAbsOrigin()
 	caster.attacks = caster.attacks - 1
-	Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, GameState:GetDifficultyFactor() * 34, 0.45)
+	local resource_mult = 34
+	if caster.resource_mult then
+		resource_mult = caster.resource_mult
+	end
+	Glyphs:DropArcaneCrystals(position, ENEMY_TYPE_NORMAL_CREEP, GameState:GetDifficultyFactor() * resource_mult, 0.45)
 	caster:SetModelScale(4.0 - (6 - caster.attacks) * 0.3)
 	StartAnimation(caster, {duration = 0.87, activity = ACT_DOTA_IDLE, rate = 2.0})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_cant_be_attacked", {duration = 0.9})

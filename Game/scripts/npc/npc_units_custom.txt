@@ -106383,6 +106383,7 @@
             "particle"  "particles/roshpit/rubilash/paint_status/green.vpcf"  
             "particle"  "particles/roshpit/winterblight/treasure_explosion_colorable.vpcf"  
             "particle"  "particles/units/heroes/hero_oracle/time_blast2flash_glow.vpcf"
+            "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -109957,6 +109958,207 @@
         "AIFleeRange"           "400"
         "AIFleeDistance"        "200"
         "RoshpitAggroSound"     "Winterblight.Magicians.Aggro"
+    }
+
+    "winterblight_shadow_priestess"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/luna/luna.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Hook_Flinger"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_Luna"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts"
+            "particle"  "particles/roshpit/sorceress/shield_shatter.vpcf"
+            "particle"  "particles/roshpit/winterblight/luna_shield.vpcf"
+            "particle"  "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
+            "particle"  "particles/econ/events/ti7/fountain_regen_ti7.vpcf"
+            "particle"  "particles/frostivus_gameplay/wraith_king_heal.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileSpeed"       "840"
+        "ProjectileModel"       "particles/units/heroes/hero_dazzle/dazzle_base_attack.vpcf"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "54"
+        "AttackDamageMax"   "54"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.2"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "440"
+        "BountyGoldMin" "100"
+        "BountyGoldMax" "200"
+        "BountyXP" "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "285"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "1000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1000"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"          "winterblight_death_coil"
+        "Ability2"          "luna_taskmaster_shield"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"           "12869"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"           "12512"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"           "8301"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"           "7218"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"           "7965"
+                }
+            }
+        }
+        "RoshpitArmor"          "216"
+        "RoshpitArmorPierce"    "346"
+        "RoshpitSpellPierce"    "452"
+        "RoshpitMagicArmor"     "456"
+        "RoshpitLevel"          "39"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
+        "RoshpitColorRenderType"    "1"
+        "RoshpitColorRenderR"   "40"
+        "RoshpitColorRenderG"   "40"
+        "RoshpitColorRenderB"   "40"
+        "RoshpitAIFlee"         "1"
+        "AIFleeRange"           "400"
+        "AIFleeDistance"        "200"
+        "RoshpitAI1"            "4"
+        "RoshpitCastAOE"        "800"
+        "RoshpitAggroSound"     "Winterblight.Priestess.Aggro"
+    }
+
+    "winter_castle_faceless_empress"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/death_prophet/death_prophet.vmdl"
+        "ModelScale"    "2.4"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_DeathProphet"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1240"
+        "AttackDamageMax"   "1240"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.25"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "900"
+        "ProjectileModel"           "particles/units/heroes/hero_death_prophet/death_prophet_base_attack.vpcf"
+        "AttackRange"   "900"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "110"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "48000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_life_drain"
+        "Ability2"              "ghost_frost_attack"
+        "Ability3"              "mega_steadfast"
+        "Ability4"              "dungeon_creep"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9257"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9658"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "12741"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "12739"
+                }
+            }
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+        "RoshpitArmor"          "185"
+        "RoshpitArmorPierce"    "319"
+        "RoshpitSpellPierce"    "344"
+        "RoshpitMagicArmor"     "485"
+        "RoshpitLevel"          "38"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
+        "RoshpitAggroSound"     "Winterblight.FacelessEmpress.Aggro"
+        "RoshpitDeathSound"     "Winterblight.FacelessEmpress.Death"
     }
     
 

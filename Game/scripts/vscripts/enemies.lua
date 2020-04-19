@@ -707,6 +707,13 @@ function Enemies:SetupAI(unit)
 			unit.targetRadius = targetAOE
 		end
 	end
+	if ai_type and ai_type == RPC_AI_TYPE_CAST_ABILITY1_ALLY then
+		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_cast_ally", {})
+		local targetAOE = unit:GetKeyValue("RoshpitCastAOE")
+		if targetAOE then
+			unit.targetRadius = targetAOE
+		end
+	end
 
 
 	if unit:GetKeyValue("RoshpitAIFlee") > 0 then

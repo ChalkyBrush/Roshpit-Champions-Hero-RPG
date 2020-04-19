@@ -344,7 +344,7 @@ function castle_room_unit_die(event)
 			end
 		end
 	end
-
+	Winterblight:CastleEnemyDieItemHype(unit)
 	if not unit.deathCode then
 		return true
 	end
@@ -529,6 +529,9 @@ function castle_key_waiting_think(event)
 			end)
 		else
 			Winterblight:CastleNextRoomInit()
+		end
+		if Winterblight.CastleTarot["name"] == "empress" then
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key.acquiring_hero, "modifier_diviner_empress_speed_boost", {duration = 90})
 		end
 	end
 end
@@ -1483,7 +1486,7 @@ function castle_boss_take_damage(damage)
 		end
 		Winterblight.CastleBoss.chain_frost_phase = Winterblight.CastleBoss.chain_frost_phase + 1
 		Timers:CreateTimer(4, function()
-			if Winterblight.CastleBoss:GetHealth() > 0 then
+			if Winterblight.CastleBoss:GetHealth() > 10 then
 				Winterblight:CastleBossSpawnPhase()
 			end
 			if not Winterblight.CastleBoss.main_ability.skullFrostTable then
@@ -1804,25 +1807,31 @@ function use_scryers_stone(event)
 	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_buildup.vpcf", caster, 2.5)
 	EmitSoundOn("Winterblight.ScryersStone.Use", caster)
 	Timers:CreateTimer(2, function()
-		local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_pop.vpcf", caster, 3.5)
-		ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+Vector(0,0,30))
-		if Winterblight.CastleBossMusic then
-			local reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
-			AddFOWViewer(caster:GetTeamNumber(), reveal_pos, 600, 10, false)
-			MinimapEvent(caster:GetTeamNumber(), caster, reveal_pos.x, reveal_pos.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
-			EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
-			EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
-		elseif Winterblight.ActiveCastleRoom then
-			local door_index = Winterblight.ActiveCastleRoom["door_index"]
-			local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
-			AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
-			MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
-			EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
-			local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
-			CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf", eyePosition, 10)
-			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
-			EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+		if caster.bgm == "Music.Winterblight.BlackfrostCitadel" then
+			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_pop.vpcf", caster, 3.5)
+			ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+Vector(0,0,30))
+			if Winterblight.CastleBossMusic then
+				local reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
+				AddFOWViewer(caster:GetTeamNumber(), reveal_pos, 600, 10, false)
+				MinimapEvent(caster:GetTeamNumber(), caster, reveal_pos.x, reveal_pos.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
+				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
+			elseif Winterblight.ActiveCastleRoom then
+				local door_index = Winterblight.ActiveCastleRoom["door_index"]
+				local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
+				AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
+				MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+				local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
+				CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf", eyePosition, 10)
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
+				EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+			end
+			if Winterblight.CastleTarot["name"] == "high_priestess" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_high_priestess_heal", {duration = 15})
+			end
 		end
 	end)
 end
@@ -2015,4 +2024,90 @@ function haunt_mage_think(event)
 			break
 		end
 	end
+end
+
+function priestess_death_coil_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	EmitSoundOn("Winterblight.Priestess.DeathCoil", caster)
+	local info =
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf",
+		StartPosition = "attach_hitloc",
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 5,
+		bProvidesVision = false,
+		iVisionRadius = 0,
+		iMoveSpeed = 1000,
+	iVisionTeamNumber = caster:GetTeamNumber()}
+
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
+end
+
+function castle_death_coil_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local healAmount = target:GetMaxHealth()*event.heal_pct_max_health/100
+	Filters:ApplyHeal(caster, target, healAmount, true)
+	local particleName = "particles/frostivus_gameplay/wraith_king_heal.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, target)
+	ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(pfx, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+end
+
+function castle_death_coil_owner_ai(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		if ability:IsFullyCastable() then
+			local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #allies > 0 then
+				local target = nil
+				for i = 1, #allies, 1 do
+					if (allies[i]:GetHealth() < allies[i]:GetMaxHealth()) then
+						target = allies[i]
+						break
+					end
+				end
+				if target then
+					local newOrder = {
+						UnitIndex = caster:entindex(),
+						OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+						TargetIndex = target:entindex(),
+						AbilityIndex = ability:entindex(),
+					}
+
+					ExecuteOrderFromTable(newOrder)
+				end
+			end
+		end
+	end
+end
+
+function castle_high_priestess_heal_think(event)
+	local target = event.target
+
+	local heal = math.ceil(target:GetMaxHealth() * 2/100)
+	Filters:ApplyHeal(target, target, heal, true)
+
+	local manaRestore = math.ceil(target:GetMaxMana() * 1/100)
+	target:GiveMana(manaRestore)
+	Timers:CreateTimer(0.1, function()
+		PopupMana(target, manaRestore)
+	end)
+
 end

@@ -88573,6 +88573,32 @@
 					}
 				}
 			}
+			"modifier_diviner_high_priestess_heal"
+			{
+				"IsHidden"	"0"
+				"EffectName"		"particles/econ/events/ti7/fountain_regen_ti7.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_high_priestess_heal_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_empress_speed_boost"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/generic_gameplay/rune_haste_owner.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "100" 
+				}
+			}
 		}
 	}
 
@@ -90524,6 +90550,91 @@
 					{
 		        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 		        		"Function"		"haunt_mage_think"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_death_coil"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"necrolyte_death_pulse"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastRange"				"1000"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal_pct_max_health"			"10 20 30"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+        		"Function"		"priestess_death_coil_cast"
+        		"Target"		"TARGET"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+        		"Function"		"castle_death_coil_hit"
+        		"Target"		"TARGET"
+        		"heal_pct_max_health"	"%heal_pct_max_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_death_coil_ai"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+		        		"Function"		"castle_death_coil_owner_ai"
 					}
 				}
 			}

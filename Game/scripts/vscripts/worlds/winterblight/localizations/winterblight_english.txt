@@ -1231,4 +1231,10 @@
 		"tarot_fool_description"									"New Beginnings..."
 
 		"tarot_magician"												"The Magician"
-		"tarot_magician_description"									"Achieving the Impossible..."
+		"tarot_magician_description"									"Channeling Between Realms..."
+
+		"tarot_high_priestess"												"The High Priestess"
+		"tarot_high_priestess_description"									"Intuition and Sacred Knowledge..."
+
+		"tarot_empress"												"The Empress"
+		"tarot_empress_description"									"Abundance and Nurturing..."
