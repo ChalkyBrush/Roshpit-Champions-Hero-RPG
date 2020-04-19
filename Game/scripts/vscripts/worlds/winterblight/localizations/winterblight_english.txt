@@ -1241,3 +1241,6 @@
 
 		"tarot_emperor"												"The Emperor"
 		"tarot_emperor_description"									"Structure and Authority..."
+
+		"tarot_hierophant"												"The Hierophant"
+		"tarot_hierophant_description"									"Spiritual Wisdom..."

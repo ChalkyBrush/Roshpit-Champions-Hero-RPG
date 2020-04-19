@@ -1353,7 +1353,9 @@ function castle_boss_projectile_thinker(event)
 	if Winterblight.CastleBoss.dying then
 		projectile:RemoveModifierByName("modifier_castle_boss_projectile")
 		projectile.lock = true
-		UTIL_Remove(projectile)
+		Timers:CreateTimer(0.03, function()
+			UTIL_Remove(projectile)
+		end)
 	end
 	projectile.interval = projectile.interval + 1
 	local rotatedFV = WallPhysics:rotateVector(Winterblight.CastleBoss:GetForwardVector(), 2*math.pi*projectile.offsetAngleDegrees/360)
@@ -1460,10 +1462,11 @@ function castle_boss_take_damage(damage)
 	if damage >= 10 then
 		Winterblight.CastleBoss.pain_animating = true
 		EndAnimation(Winterblight.CastleBoss)
+		Winterblight.CastleBoss.rotateLock = true
 		Timers:CreateTimer(0.03, function()
-			Winterblight.CastleBoss.rotateLock = true
+			
 			StartAnimation(Winterblight.CastleBoss, {duration = 4.0, activity = ACT_DOTA_FLAIL, rate = 0.5})
-			Timers:CreateTimer(0.1, function()
+			Timers:CreateTimer(1.5, function()
 				Winterblight.CastleBoss.rotateLock = false
 			end)
 		end)
@@ -1825,7 +1828,7 @@ function use_scryers_stone(event)
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.ActiveCastleRoom then
-				if Winterblight.CastleBossDead then
+				if not Winterblight.CastleBossDead then
 					local door_index = Winterblight.ActiveCastleRoom["door_index"]
 					local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
 					AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
@@ -1839,6 +1842,9 @@ function use_scryers_stone(event)
 			if Winterblight.CastleTarot["name"] == "high_priestess" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_high_priestess_heal", {duration = 15})
+			elseif Winterblight.CastleTarot["name"] == "hierophant" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hierophant_spirit_buff", {duration = 40})
 			end
 		end
 	end)
@@ -2154,4 +2160,28 @@ function slime_emperor_aura_aura_hit(event)
 	target:ApplyAndIncrementStack(ability, caster, "modifier_winterblight_slime_emperor_slowed", 1, 20, event.slow_duration)
 
 	EmitSoundOn("Winterblight.SlimeEmperor.ProjectileImpact", target)
+end
+
+function necro_knight_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	if not ability.necro_knight_table then
+		ability.necro_knight_table = {}
+	end
+	if #ability.necro_knight_table < event.max_summons then
+		local summon = Enemies:SpawnEnemySummon(caster, "winterblight_castle_warrior", target:GetAbsOrigin()+RandomVector(100), RandomVector(1))
+		CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", summon:GetAbsOrigin(), 4)
+		table.insert(ability.necro_knight_table, summon)
+	else
+		local new_summon_table = {}
+		for i = 1, #ability.necro_knight_table, 1 do
+			local summon = ability.necro_knight_table[i]
+			if summon and IsValidEntity(summon) and summon:IsAlive() then
+				table.insert(new_summon_table, summon)
+			end
+		end
+		ability.necro_knight_table = new_summon_table		
+	end
 end

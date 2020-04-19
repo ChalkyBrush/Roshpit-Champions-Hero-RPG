@@ -106380,6 +106380,7 @@
             "particle"  "particles/roshpit/winterblight/treasure_explosion_colorable.vpcf"  
             "particle"  "particles/units/heroes/hero_oracle/time_blast2flash_glow.vpcf"
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf"
+            "particle"  "particles/units/heroes/hero_troll_warlord/troll_warlord_berserk_buff.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -110344,6 +110345,99 @@
         "EnemyTier"             "3"
     }
 
+    "winterblight_necro_knight"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/abaddon/abaddon.vmdl"
+        "ModelScale"    "1.05"
+        "Level" "1"
+        "HealthBarOffset"   "320"
+        "HasInventory"  "0"
+        "precache"
+        {
+
+        }
+        "SoundSet"          "Hero_Abaddon"
+        "DefaultState"  "Invade"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "700"
+        "AttackDamageMax"   "700"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.4"
+        "PathfindingSearchDepthScale" "0.5"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "500"
+        "BountyGoldMax" "840"
+        "BountyXP" "500"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "80"
+        "FormationRank" "2"
+
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "19000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "winterblight_necro_knight_attack"
+        "Ability2"  "normal_steadfast"
+
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9492"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9490"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "13262"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9493"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9491"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"   "522"
+                }
+            }
+        }
+        "RoshpitArmor"          "500"
+        "RoshpitArmorPierce"    "605"
+        "RoshpitSpellPierce"    "705"
+        "RoshpitMagicArmor"     "680"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "2"
+        "RoshpitAggroSound"     "Winterblight.NecroKnight.Aggro"
+        
+    }
     
 
     "tutorial_master"

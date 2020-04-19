@@ -745,3 +745,16 @@ end
 function Enemies:ApplyDamageToPlayer(victim, attacker, damage, damage_type, ability)
 	ApplyDamage({victim = victim, attacker = attacker, damage = damage, damage_type = damage_type, ability = ability})
 end
+
+function Enemies:SpawnEnemySummon(caster, unitName, spawnPoint, fv)
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+		local enemy = Enemies:SpawnEnemyUnit(unitName, spawnPoint, fv, true)
+		enemy.roshpit_attributes.deathXP = 0
+		enemy.disable_drops = true
+		return enemy
+	else
+		local summon = CreateUnitByName(unitName, spawnPoint, false, caster, caster, caster:GetTeamNumber())
+		Enemies:InitializeEnemy(summon)
+		return summon
+	end
+end

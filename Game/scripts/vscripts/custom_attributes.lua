@@ -3047,6 +3047,10 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_ice_scathe_q2_shield") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
 	end
+	if hero:HasModifier("modifier_diviner_hierophant_spirit_buff") then
+		local ability = hero:FindModifierByName("modifier_diviner_hierophant_spirit_buff"):GetAbility()
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_hierophant_spirit_buff", ability:GetSpecialValueFor("hierophant_spirit"))
+	end
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_agility", 1)
