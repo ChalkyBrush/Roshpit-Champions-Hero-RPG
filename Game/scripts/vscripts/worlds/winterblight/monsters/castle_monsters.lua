@@ -331,15 +331,17 @@ end
 
 function castle_room_unit_die(event)
 	local unit = event.unit
-	Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] = Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] + 1
-	-- print("----")
-	-- print("ROOM UNIT DIE - Room: "..unit.room_index..", Total Slain: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"])
-	-- print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
-	-- print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
-	if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
-		if Winterblight.ActiveCastleRoom["active"] == 2 then
-			Winterblight.ActiveCastleRoom["active"] = 3
-			Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
+	if unit.room_index and unit.room_index > 0 then
+		Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] = Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] + 1
+		print("----")
+		print("ROOM UNIT DIE - Room: "..unit.room_index..", Total Slain: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"])
+		print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
+		print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
+		if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
+			if Winterblight.ActiveCastleRoom["active"] == 2 then
+				Winterblight.ActiveCastleRoom["active"] = 3
+				Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
+			end
 		end
 	end
 
@@ -399,6 +401,15 @@ function castle_room_unit_die(event)
 				local monster = Winterblight:SpawnCastleRoomUnit(5, "winterblight_castle_watchman", positionTable[i], fv, false, false)
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", monster:GetAbsOrigin(), 3)
 				EmitSoundOn("Winterblight.GraveGhostSpawn", monster)
+				if Winterblight.CastleTarot["name"] == "magician" then
+					local unitTable = {"winterblight_red_magician", "winterblight_blue_magician", "winterblight_green_magician"}
+					for j = 1, 2, 1 do
+						local unitName
+						local monster = Winterblight:SpawnCastleRoomUnit(5, unitTable[RandomInt(1, #unitTable)], positionTable[i]+RandomVector(240), fv, false, false)
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", monster:GetAbsOrigin(), 3)
+						EmitSoundOn("Winterblight.GraveGhostSpawn", monster)						
+					end
+				end
 			end			
 			Winterblight.CASTLE_DATA["rooms"][5]["active"] = 2
 		end
@@ -476,6 +487,7 @@ function castle_key_entering_think(event)
 		key:RemoveModifierByName("modifier_winter_castle_key_entering")
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_waiting", {})
+		Winterblight:KeyLand(key:GetAbsOrigin())
 	end
 	if not key.soundPlayed then
 		if distanceFromGround < 140 then
@@ -716,7 +728,7 @@ function ground_blade_thinker(event)
 	if not caster.pfx then
 		local particleName = "particles/econ/items/juggernaut/bladekeeper_bladefury/_dc_juggernaut_blade_fury.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origic", caster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
 		ParticleManager:SetParticleControl(pfx, 5, Vector(trap_radius, 2, 100))
 		caster.pfx = pfx
 	end
@@ -750,7 +762,7 @@ function ground_blade_thinker(event)
 		-- newFV = WallPhysics:rotateVector(newFV, 2*math.pi*RandomInt(-3, 3)/60)
 		caster.moveFV = newFV
 		EmitSoundOn("Winterblight.SpinBlade.WallBounce", caster)
-		CustomAbilities:QuickAttachParticle("particles/dire_fx/bad_stuff_end_sparks.vpcf", caster, 3)
+		CustomAbilities:QuickParticleAtPoint("particles/dire_fx/bad_stuff_end_sparks.vpcf", caster:GetAbsOrigin(), 3)
 		-- caster:SetAbsOrigin(caster:GetAbsOrigin() + cas)
 	else
 		caster:SetAbsOrigin(newPosition)
@@ -1025,12 +1037,14 @@ function treasure_chest_attacked(event)
 		end
 	end)
 	if Winterblight.CastleTarot["name"] ~= "wheel_of_fortune" then
-		for i = 1, #Winterblight.CastleDungeonMaster.treasure_room_chests, 1 do
-			local chest = Winterblight.CastleDungeonMaster.treasure_room_chests[i]
-			if chest:GetEntityIndex() ~= caster:GetEntityIndex() then
-				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", chest:GetAbsOrigin(), 3)
-				EmitSoundOn("Winterblight.GraveGhostSpawn", chest)
-				UTIL_Remove(chest)
+		if caster.treasure_room then
+			for i = 1, #Winterblight.CastleDungeonMaster.treasure_room_chests, 1 do
+				local chest = Winterblight.CastleDungeonMaster.treasure_room_chests[i]
+				if chest:GetEntityIndex() ~= caster:GetEntityIndex() then
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", chest:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", chest)
+					UTIL_Remove(chest)
+				end
 			end
 		end
 	end
@@ -1460,7 +1474,7 @@ function castle_boss_take_damage(damage)
 	Winterblight.CastleBoss.rotationDivisor = 360 - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*330
 	Winterblight.CastleBoss.color = Vector(255, 255, 255) - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*Vector(0, 255, 255)
 
-	if Winterblight.CastleBoss:GetHealth() == 0 then
+	if Winterblight.CastleBoss:GetHealth() < 10 then
 		Winterblight:CastleBossDeath(Winterblight.CastleBoss)
 	end
 	if damage >= 10 then
@@ -1811,4 +1825,194 @@ function use_scryers_stone(event)
 			EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
 		end
 	end)
+end
+
+function castle_flamethrower_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not ability.interval then
+		ability.interval = -4
+		ability.rising = true
+	end
+
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2 * math.pi * ability.interval / 40)
+
+	if ability.rising then
+		ability.interval = ability.interval + 1
+		if ability.interval == 4 then
+			ability.rising = false
+		end
+	else
+		ability.interval = ability.interval - 1
+		if ability.interval == -4 then
+			ability.rising = true
+		end
+	end
+
+	local start_radius = 120
+	local end_radius = 200
+	local range = 900
+	local speed = 1000
+
+	local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+
+	local info =
+	{
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = caster:GetAbsOrigin() + rotatedFV * 30 + Vector(0, 0, 80),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = rotatedFV * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function castle_flamethrower_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function castle_red_mage_burn(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function green_mage_poison_shot_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	local particle = "particles/units/heroes/hero_venomancer/venomancer_venomous_gale.vpcf"
+	local range = 800
+	local speed = 1000
+	local fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+
+	local info =
+	{
+		Ability = ability,
+		EffectName = particle,
+		vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 60),
+		fDistance = range,
+		fStartRadius = 170,
+		fEndRadius = 170,
+		Source = caster,
+		StartPosition = "attach_attack1",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+	EmitSoundOn("Winterblight.GreenMage.VenomGale", caster)
+end
+
+function green_mage_poison_shot_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.impact_damage, DAMAGE_TYPE_MAGICAL, ability)
+	local stacks = event.slow_ms_stacks
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_green_mage_poison_slow", {duration = stacks*0.5})
+	target:SetModifierStackCount("modifier_green_mage_poison_slow", caster, stacks)
+end
+
+function green_mage_poison_dot_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+	local modifier = target:FindModifierByName("modifier_green_mage_poison_slow")
+	local newStacks = modifier:GetStackCount() - 1
+	if newStacks > 1 then
+		modifier:SetStackCount(newStacks)
+	else
+		caster:RemoveModifierByName("modifier_green_mage_poison_slow")
+	end
+
+end
+
+function castle_green_mage_poison_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function blue_mage_nova(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+
+	local damage = event.damage
+	local icePoint = target
+	local radius = 440
+	EmitSoundOnLocationWithCaster(icePoint, "Winterblight.BlueMage.NovaCast", caster)
+	local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+	local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, icePoint)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+	Timers:CreateTimer(2.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_blue_mage_root", {duration = event.root_duration})
+			Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+		end
+	end
+end
+
+function haunt_mage_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster.aggro then
+		return false
+	end
+	for i = 0, 2, 1 do
+		local castAbility = caster:GetAbilityByIndex(i)
+		if caster.castLock then
+			return false
+		end
+		if castAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 940, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				if caster.position_cast_self then
+					castPoint = caster:GetAbsOrigin()
+				end
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = castAbility:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+			break
+		end
+	end
 end

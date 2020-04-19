@@ -21853,5 +21853,13 @@
 
 		"item_rpc_winterblight_scryers_stone"						"Scryer's Stone"
 		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
+
+		//tarot
+
+		"tarot_fool"												"The Fool"
+		"tarot_fool_description"									"New Beginnings..."
+
+		"tarot_magician"												"The Magician"
+		"tarot_magician_description"									"Achieving the Impossible..."
 	}	
 }

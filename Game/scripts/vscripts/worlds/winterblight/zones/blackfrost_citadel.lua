@@ -77,6 +77,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][2]["index"] = "01"
 		Winterblight.CASTLE_DATA["tarot"][2]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][2]["prop_scale"] = 0.5
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][1] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][2] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][3] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][4] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][5] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][6] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][7] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][8] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][2]["rooms"][9] = {index = 11, variant = 2}
 
 		Winterblight.CASTLE_DATA["tarot"][3] = {}
 		Winterblight.CASTLE_DATA["tarot"][3]["name"] = "high_priestess"
@@ -473,6 +483,9 @@ function Winterblight:TarotCardSelect(msg)
 			PrecacheUnitByNameAsync(model_name, precache_function)	
 		end
 	end)
+	Timers:CreateTimer(2, function()
+		Winterblight:PrecacheTarotAssets()
+	end)
 end
 
 function Winterblight:CastleNextRoomInit()
@@ -493,50 +506,50 @@ function Winterblight:CastleLobbySpawn1()
 			local positionTable = {Vector(13440, 13858), Vector(13952, 13742), Vector(13952, 13440), Vector(13440, 13056)}
 			for i = 1, #positionTable, 1 do
 				local fv = (Vector(13467, 13568) - positionTable[i]):Normalized()
-				Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_accursed", positionTable[i], fv, false, true)
 			end
 		end)
 		Timers:CreateTimer(1, function()
 			local positionTable = {Vector(14336, 13312), Vector(14592, 13312), Vector(14848, 13312), Vector(15104, 13312), Vector(15360, 13312)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(0,1)
-				Enemies:SpawnEnemyUnit("winterblight_frozen_cage", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_frozen_cage", positionTable[i], fv, false, true)
 			end
 		end)
 		Timers:CreateTimer(1.5, function()
 			local positionTable = {Vector(14208, 13628), Vector(14515, 13628), Vector(14821, 13628), Vector(15135, 13628)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(-1,0)
-				Enemies:SpawnEnemyUnit("winterblight_castle_warrior", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_warrior", positionTable[i], fv, false, true)
 			end
 		end)
 		Timers:CreateTimer(2, function()
-			Enemies:SpawnEnemyUnit("winterblight_mountain_spirit", Vector(15616, 13233), Vector(-1,1), false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_mountain_spirit", Vector(15616, 13233), Vector(-1,1), false)
 		end)
 		Timers:CreateTimer(2.5, function()
 			local positionTable = {Vector(13824, 11648), Vector(13517, 11648), Vector(13517, 11904), Vector(13824, 11904), Vector(13496, 12164), Vector(13824, 12164)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(0,1)
-				Enemies:SpawnEnemyUnit("winterblight_wraithguard", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_wraithguard", positionTable[i], fv, false, true)
 			end
 		end)
 		Timers:CreateTimer(3.0, function()
 			local positionTable = {Vector(13524, 12682), Vector(13824, 12682)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(0,1)
-				Enemies:SpawnEnemyUnit("winterblight_wraithguard_elite", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_wraithguard_elite", positionTable[i], fv, false, true)
 			end
 		end)
 		Timers:CreateTimer(4, function()
 			local positionTable = {Vector(13440, 10500), Vector(13656, 10485), Vector(13440, 10697), Vector(13672, 10678), Vector(13440, 10880), Vector(13666, 10880)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(0,1)
-				Enemies:SpawnEnemyUnit("winterblight_castle_warrior", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_warrior", positionTable[i], fv, false, true)
 			end
 			local positionTable = {Vector(13952, 10749), Vector(13952, 10527)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(-1,1)
-				Enemies:SpawnEnemyUnit("winterblight_frozen_mage", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_frozen_mage", positionTable[i], fv, false, true)
 			end
 		end)
 	end
@@ -544,12 +557,12 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(13440, 9216), Vector(13912, 9216)}
 		for i = 1, #positionTable, 1 do
 			local fv = Vector(0,1)
-			Enemies:SpawnEnemyUnit("winterblight_castle_watchman", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", positionTable[i], fv, false, true)
 		end
 		local positionTable = {Vector(13730, 8049), Vector(14208, 8192)}
 		for i = 1, #positionTable, 1 do
 			local fv = Vector(-0.2,1)
-			Enemies:SpawnEnemyUnit("winterblight_accursed", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_accursed", positionTable[i], fv, false, true)
 		end
 		for i = 0, 3, 1 do
 			for j = 0, 1, 1 do
@@ -557,7 +570,7 @@ function Winterblight:CastleLobbySpawn1()
 				local x_spacing = 128
 				local y_spacing = 128
 				local base_pos = Vector(13420, 8661)
-				Enemies:SpawnEnemyUnit("winterblight_frozen_phantom", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_frozen_phantom", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 			end
 		end
 	end)
@@ -568,7 +581,7 @@ function Winterblight:CastleLobbySpawn1()
 				local x_spacing = 128
 				local y_spacing = 128
 				local base_pos = Vector(14720, 8576)
-				Enemies:SpawnEnemyUnit("winterblight_frozen_soul", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_frozen_soul", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 			end
 		end
 	end)
@@ -576,9 +589,9 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(13269, 7805), Vector(12032, 7936)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(13209, 8448) - positionTable[i]):Normalized()
-			Enemies:SpawnEnemyUnit("winterblight_draugr", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_draugr", positionTable[i], fv, false, true)
 		end
-		Enemies:SpawnEnemyUnit("winterblight_castle_watchman", Vector(12288, 7040), Vector(1,0.6), false)
+		Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", Vector(12288, 7040), Vector(1,0.6), false)
 	end)
 	Timers:CreateTimer(9.0, function()
 		for i = 0, 1, 1 do
@@ -587,7 +600,7 @@ function Winterblight:CastleLobbySpawn1()
 				local x_spacing = 600
 				local y_spacing = 128
 				local base_pos = Vector(11904, 5338)
-				Enemies:SpawnEnemyUnit("winterblight_frozen_mage", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_frozen_mage", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 			end
 		end
 	end)
@@ -595,7 +608,7 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(12919, 4415), Vector(12800, 4631), Vector(12672, 4960), Vector(12032, 4550), Vector(11799, 4722), Vector(12040, 4960)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(12396, 4734) - positionTable[i]):Normalized()
-			Enemies:SpawnEnemyUnit("winterblight_castle_warrior", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_warrior", positionTable[i], fv, false, true)
 		end
 	end)
 	Timers:CreateTimer(2, function()
@@ -606,9 +619,9 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(11906, 7040), Vector(12582, 6144), Vector(14272, 9250), Vector(13440, 3968)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(13568, 9344) - positionTable[i]):Normalized()
-			Enemies:SpawnEnemyUnit("winterblight_suffering_spirit", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_suffering_spirit", positionTable[i], fv, false, true)
 		end
-		Enemies:SpawnEnemyUnit("winterblight_ancient_mountain_spirit", Vector(14080, 8576), Vector(-0.2, 1), false)
+		Winterblight:SpawnCastleRoomUnit(0,"winterblight_ancient_mountain_spirit", Vector(14080, 8576), Vector(-0.2, 1), false)
 	end)
 	Timers:CreateTimer(12, function()
 		for i = 0, 2, 1 do
@@ -617,7 +630,7 @@ function Winterblight:CastleLobbySpawn1()
 				local x_spacing = 288
 				local y_spacing = 428
 				local base_pos = Vector(10350, 2033)
-				Enemies:SpawnEnemyUnit("winterblight_defiler", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_defiler", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 			end
 		end
 	end)
@@ -625,12 +638,12 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(11904, 3350), Vector(13056, 2891), Vector(12160, 2560)}
 		for i = 1, #positionTable, 1 do
 			local fv = (Vector(12396, 4734) - positionTable[i]):Normalized()
-			Enemies:SpawnEnemyUnit("winterblight_wraithguard_elite", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_wraithguard_elite", positionTable[i], fv, false, true)
 		end
 		local positionTable = {Vector(12323, 1794), Vector(12800, 1494)}
 		for i = 1, #positionTable, 1 do
 			local fv = Vector(0,1)
-			Enemies:SpawnEnemyUnit("winterblight_castle_watchman", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", positionTable[i], fv, false, true)
 		end
 	end)	
 	Timers:CreateTimer(13.5, function()
@@ -638,7 +651,7 @@ function Winterblight:CastleLobbySpawn1()
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.25, function()
 				local fv = RandomVector(1)
-				Enemies:SpawnEnemyUnit( "winterblight_elite_ghoul", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_elite_ghoul", positionTable[i], fv, false, true)
 			end)
 		end
 	end)
@@ -647,7 +660,7 @@ function Winterblight:CastleLobbySpawn1()
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.25, function()
 				local fv = RandomVector(1)
-				Enemies:SpawnEnemyUnit( "winterblight_elite_ghoul", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_elite_ghoul", positionTable[i], fv, false, true)
 			end)
 		end
 	end)
@@ -656,7 +669,7 @@ function Winterblight:CastleLobbySpawn1()
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.25, function()
 				local fv = RandomVector(1)
-				Enemies:SpawnEnemyUnit( "winterblight_frozen_mage", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_frozen_mage", positionTable[i], fv, false, true)
 			end)
 		end
 	end)
@@ -666,7 +679,7 @@ function Winterblight:CastleLobbySpawn1()
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.25, function()
 				local fv = RandomVector(1)
-				Enemies:SpawnEnemyUnit("winterblight_draugr", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0,"winterblight_draugr", positionTable[i], fv, false, true)
 			end)
 		end
 	end)
@@ -675,14 +688,14 @@ function Winterblight:CastleLobbySpawn1()
 		local positionTable = {Vector(9856, 1408), Vector(10240, 1541)}
 		for i = 1, #positionTable, 1 do
 			local fv = Vector(1,0)
-			Enemies:SpawnEnemyUnit("winterblight_suffering_spirit", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_suffering_spirit", positionTable[i], fv, false, true)
 		end
 	end)
 	Timers:CreateTimer(18.5, function()
 		local positionTable = {Vector(8964, 2508), Vector(8964, 2048), Vector(8964, 1664)}
 		for i = 1, #positionTable, 1 do
 			local fv = Vector(1,0)
-			Enemies:SpawnEnemyUnit("winterblight_castle_watchman", positionTable[i], fv, false)
+			Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", positionTable[i], fv, false, true)
 		end
 	end)
 	Timers:CreateTimer(19.5, function()
@@ -690,7 +703,7 @@ function Winterblight:CastleLobbySpawn1()
 		for i = 1, #positionTable, 1 do
 			Timers:CreateTimer(i*0.25, function()
 				local fv = RandomVector(1)
-				Enemies:SpawnEnemyUnit( "winterblight_elite_ghoul", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_elite_ghoul", positionTable[i], fv, false, true)
 			end)
 		end
 	end)
@@ -725,14 +738,27 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 end
 
 function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, aggro, bIgnoreCounter)
-	if bIgnoreCounter then
-	else
-		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
-	end
+
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	if Winterblight.CastleTarot["name"] == "magician" then
+		if unit_name == "winterblight_frozen_phantom" then
+			unit_name = "winterblight_green_magician"
+		elseif unit_name == "winterblight_frozen_mage" then
+			unit_name = "winterblight_blue_magician"
+		elseif unit_name == "winterblight_frozen_soul" then
+			unit_name = "winterblight_red_magician"
+		end
+	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
 	enemy.room_index = room_index
+
+	if bIgnoreCounter then
+	else
+		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
+		print(Winterblight.ActiveCastleRoom["enemy_spawn_count"])
+	end
+
 	return enemy
 end
 
@@ -833,7 +859,7 @@ function Winterblight:SpawnCastleRoom2(variant)
 		Timers:CreateTimer(1, function()
 			local positionTable = {Vector(16128, 15841), Vector(15183, 16023), Vector(14848, 15744), Vector(14848, 14966), Vector(15320, 15232), Vector(15903, 14966)}
 			for i = 1, #positionTable, 1 do
-				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_spider_egg_sack", positionTable[i], RandomVector(1), false, false)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_spider_egg_sack", positionTable[i], RandomVector(1), false, true)
 			end
 			-- add 5 to extra_goal for each spider sack
 		end)	
@@ -852,7 +878,7 @@ function Winterblight:SpawnCastleRoom3(variant)
 					local x_spacing = 196
 					local y_spacing = 196
 					local base_pos = Vector(12381, 10496)
-					Enemies:SpawnEnemyUnit("winterblight_frozen_phantom", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+					Winterblight:SpawnCastleRoomUnit(0, "winterblight_frozen_phantom", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 				end
 			end
 		end)
@@ -867,7 +893,7 @@ function Winterblight:SpawnCastleRoom3(variant)
 			local positionTable = {Vector(11776, 9901), Vector(11458, 10069)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(0,1)
-				Enemies:SpawnEnemyUnit("winterblight_ancient_mountain_spirit", positionTable[i], fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_ancient_mountain_spirit", positionTable[i], fv, false, true)
 			end
 		end)	
 		Timers:CreateTimer(2, function()
@@ -877,7 +903,7 @@ function Winterblight:SpawnCastleRoom3(variant)
 					local x_spacing = 304
 					local y_spacing = 166
 					local base_pos = Vector(11726, 11106)
-					Enemies:SpawnEnemyUnit("winterblight_frozen_mage", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false)
+					Winterblight:SpawnCastleRoomUnit(0, "winterblight_frozen_mage", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, true)
 				end
 			end
 		end)
@@ -988,7 +1014,7 @@ function Winterblight:SpawnCastleRoom5(variant)
 			local positionTable = {Vector(9472, 6272), Vector(9626, 6656), Vector(9458, 7168), Vector(9795, 7497), Vector(9532, 7888)}
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(1,0)
-				local monster = Enemies:SpawnEnemyUnit("winterblight_soul_fletcher", positionTable[i], fv, false)
+				local monster = Winterblight:SpawnCastleRoomUnit(0, "winterblight_soul_fletcher", positionTable[i], fv, false, true)
 			end	
 		end)
 		Timers:CreateTimer(3.5, function()
@@ -1473,6 +1499,7 @@ function Winterblight:SpawnTreasureRoomChests()
 		end)
 		chest.contents = rewardTables[i]
 		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
+		chest.treasure_room = true
 	end
 end
 
@@ -1533,6 +1560,63 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_frozen_cage", positionTable[i], fv, false, false)
 			end	
 			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_moon_warden", Vector(14712, -2720), Vector(0,-1), false, false)
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
+		end)
+	elseif variant == 2 then
+		Timers:CreateTimer(0.5, function()
+			local positionTable = {Vector(12800, -3385), Vector(13082, -3020), Vector(13865, -2951), Vector(15232, -2774), Vector(14464, -2305), Vector(13747, -1920), Vector(12928, -2432)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(12960, -1624) - positionTable[i]):Normalized()
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_blue_magician", positionTable[i], fv, false, false)
+			end	
+		end)
+		Timers:CreateTimer(1.2, function()
+			for i = 0, 3, 1 do
+				for j = 0, 1, 1 do
+					local fv = Vector(0,1)
+					local x_spacing = 256
+					local y_spacing = 256
+					local base_pos = Vector(13494, -2615)
+					local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_green_magician", base_pos + Vector(x_spacing*i, y_spacing*j), fv, false, false)
+				end
+			end
+		end)
+		Timers:CreateTimer(1.7, function()
+			local positionTable = {Vector(12509, -3200), Vector(12557, -3003), Vector(12621, -2803)}
+			for i = 1, #positionTable, 1 do
+				local fv = (Vector(12960, -1624) - positionTable[i]):Normalized()
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_red_magician", positionTable[i], fv, false, false)
+			end	
+		end)		
+		Timers:CreateTimer(2.5, function()
+			local positionTable = {Vector(13824, -1601), Vector(14031, -1497), Vector(14279, -1517)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,-1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_blue_magician", positionTable[i], fv, false, false)
+			end	
+		end)	
+		Timers:CreateTimer(3, function()
+			local positionTable = {Vector(13440, -2944), Vector(13696, -3082), Vector(13952, -2944)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(0,1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_red_magician", positionTable[i], fv, false, false)
+			end	
+		end)	
+		Timers:CreateTimer(3.5, function()
+			local positionTable = {Vector(15419, -3272), Vector(15246, -3123), Vector(15140, -3278), Vector(15246, -3456), Vector(14953, -3456), Vector(14822, -3286), Vector(14667, -3454), Vector(14537, -3287), Vector(14366, -3456), Vector(14170, -3311), Vector(13959, -3473), Vector(13824, -3314), Vector(13568, -3278), Vector(13486, -3456)}
+			local unitTable = {"winterblight_blue_magician", "winterblight_red_magician", "winterblight_green_magician"}
+			for i = 1, #positionTable, 1 do
+				local fv = RandomVector(1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, unitTable[RandomInt(1, #unitTable)], positionTable[i], fv, false, false)
+			end	
+		end)	
+		Timers:CreateTimer(4, function()
+			local positionTable = {Vector(15244, -2407), Vector(15104, -2233), Vector(15003, -2363), Vector(14848, -2176)}
+			for i = 1, #positionTable, 1 do
+				local fv = Vector(-1,-1)
+				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_green_magician", positionTable[i], fv, false, false)
+			end	
+			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_haunt_magician", Vector(14712, -2720), Vector(0,-1), false, false)
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	end
@@ -1897,7 +1981,7 @@ function Winterblight:CastleBossSpawnPhase()
 	for i = 1, amount_weak, 1 do
 		Timers:CreateTimer(i*0.9, function()
 			local spawnPos = Winterblight.CastleBoss:GetAbsOrigin()+RandomVector(RandomInt(300, 1000))
-			local enemy = Enemies:SpawnEnemyUnit(weak_creeps[RandomInt(1, #weak_creeps)], spawnPos, Vector(0,-1), true)
+			local enemy = Winterblight:SpawnCastleRoomUnit(0, weak_creeps[RandomInt(1, #weak_creeps)], spawnPos, Vector(0,-1), true, true)
 			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", enemy:GetAbsOrigin(), 3)
 			EmitSoundOn("Winterblight.GraveGhostSpawn", enemy)
 		end)
@@ -1906,7 +1990,7 @@ function Winterblight:CastleBossSpawnPhase()
 		for i = 1, amount_strong, 1 do
 			Timers:CreateTimer(i*0.9, function()
 				local spawnPos = Winterblight.CastleBoss:GetAbsOrigin()+RandomVector(RandomInt(300, 1000))
-				local enemy = Enemies:SpawnEnemyUnit(strong_creeps[RandomInt(1, #strong_creeps)], spawnPos, Vector(0,-1), true)
+				local enemy = Winterblight:SpawnCastleRoomUnit(0, strong_creeps[RandomInt(1, #strong_creeps)], spawnPos, Vector(0,-1), true, true)
 				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", enemy:GetAbsOrigin(), 3)
 				EmitSoundOn("Winterblight.GraveGhostSpawn", enemy)
 			end)
@@ -1928,4 +2012,49 @@ function Winterblight:PostCastleBossEvents()
 		Winterblight:OpenCastleDoorByIndex(11)
 		Winterblight:SpawnTreasureRoomChests()
 	end
+end
+
+function Winterblight:PrecacheTarotAssets()
+	if Winterblight.CastleTarot["name"] == "magician" then
+		local function precache_function()
+			PrecacheUnitByNameAsync("winterblight_red_magician", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_blue_magician", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_green_magician", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_haunt_magician", precache_function)	
+		end
+	end
+end
+
+function Winterblight:KeyLand(position)
+	if Winterblight.CastleTarot["name"] == "magician" then
+		local luck = RandomInt(1, 10)
+		if luck == 1 then
+			local spawnPoint = GetGroundPosition(position + RandomVector(240), Events.GameMaster)
+			local pfx_dummy = CreateUnitByName("npc_dummy_unit", spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
+			pfx_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", pfx_dummy, 8)
+			ParticleManager:SetParticleControl(pfx, 1, spawnPoint)
+			Timers:CreateTimer(0.5, function()
+				EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+			end)
+			Timers:CreateTimer(2, function()
+				local rewardTables = Winterblight:GetGeneralChestRewards()
+				local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, Vector(0, 1), false)
+				EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
+				EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
+				chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+				Timers:CreateTimer(6, function()
+					UTIL_Remove(pfx_dummy)
+				end)
+				CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
+			end)
+		end
+	end
+
+end
+
+function Winterblight:GetGeneralChestRewards()
+	local glyphs_count = RandomInt(2, math.floor(3 + GameState:GetPlayerPremiumStatusCount()))
+	local crystals_count = (GameState:GetDifficultyFactor() * RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))*6
+	return {{items = RandomInt(6, 9+GameState:GetPlayerPremiumStatusCount())}, {crystals = crystals_count}, {glyphs = glyphs_count}}
 end

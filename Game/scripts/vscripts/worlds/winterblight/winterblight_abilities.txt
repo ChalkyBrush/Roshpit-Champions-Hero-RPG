@@ -17484,6 +17484,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_HEALING" "1"
+					"MODIFIER_PROPERTY_MIN_HEALTH"		"1"
 				}
 			}
 			"modifier_castle_boss_rotating"
@@ -17630,6 +17631,494 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"castle_boss_surrogate_rotator"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_red_mage_flamethrower"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"winterblight/megmus_explosion"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"9"
+		"AbilityChannelTime"	"1.0"
+		"AbilityCastRange"				"700"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"AbilityManaCost"	"100"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_flamethrower_casting"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Winterblight.RedMage.Flamethrower"
+				"Target" 		"CASTER"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_flamethrower_casting"
+			}
+
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_flamethrower_casting"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_flamethrower_casting"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_flamethrower_think"
+						"target"		"POINT"
+					}
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"castle_flamethrower_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"35 90 600"
+			}
+		}
+
+	}
+
+	"winterblight_red_mage_attack_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"100 300 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"burn_duration"		"4 5 6"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_red_mage_attack_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_red_mage_burn"
+						"Target" 		"TARGET"
+						"Duration"		"%burn_duration"
+					}
+				}
+			}
+			"modifier_red_mage_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_red_mage_burn"
+						"target"		"TARGET"
+						"damage"		"%burn_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_green_mage_poison_spray"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"venomancer_poison_sting"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"1000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9.0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"impact_damage"			"300 1000 6500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dot_damage"			"40 150 1000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_ms_stacks"			"5 10 15"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+        		"Function"		"green_mage_poison_shot_start"
+        		"Target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+        		"Function"		"green_mage_poison_shot_impact"
+        		"Target"		"TARGET"
+        		"impact_damage"	"%impact_damage"
+        		"slow_ms_stacks"	"%slow_ms_stacks"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_green_mage_poison_slow"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"green_mage_poison_dot_thinker"
+						"damage"		"%dot_damage"
+						"target"		"TARGET"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-8"
+				}
+			}
+
+		}
+	}
+
+	"winterblight_green_mage_attack_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"poison_damage"		"15 50 300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"poison_duration"		"1 1.2 1.4"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_green_mage_attack_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_green_mage_attack_poison"
+						"Target" 		"TARGET"
+						"Duration"		"%poison_duration"
+					}
+				}
+			}
+			"modifier_green_mage_attack_poison"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_green_mage_poison_think"
+						"target"		"TARGET"
+						"damage"		"%poison_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_blue_mage_frost_nova"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"venomancer_poison_sting"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"1000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AOERadius"						"440"
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"9.0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"nova_damage"			"200 800 4000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"root_duration"			"0.6 1.2 1.8"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+        		"Function"		"blue_mage_nova"
+        		"Target"		"POINT"
+        		"damage"		"%nova_damage"
+        		"root_duration"	"%root_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blue_mage_root"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsStunDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.BlueMage.Root"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+
+		}
+	}
+
+	"winterblight_blue_mage_attack_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"		"-40 -80 -160"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"as_slow"		"-60 -120 -180"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"		"2.5 3.0 3.5"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_blue_mage_attack_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_blue_mage_attack_slow"
+						"Target" 		"TARGET"
+						"Duration"		"%slow_duration"
+					}
+				}
+			}
+			"modifier_blue_mage_attack_slow"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow"
+				}
+			}
+		}
+	}
+
+	"winterblight_haunt_mage_ai"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_haunt_mage_ai"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "1.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+		        		"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+		        		"Function"		"haunt_mage_think"
 					}
 				}
 			}
