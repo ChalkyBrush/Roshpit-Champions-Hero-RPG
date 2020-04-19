@@ -21867,5 +21867,8 @@
 
 		"tarot_empress"												"The Empress"
 		"tarot_empress_description"									"Abundance and Nurturing..."
+
+		"tarot_emperor"												"The Emperor"
+		"tarot_emperor_description"									"Structure and Authority..."
 	}	
 }

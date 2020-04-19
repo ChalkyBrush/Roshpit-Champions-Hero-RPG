@@ -18235,3 +18235,97 @@
 			}
 		}
 	}
+
+   	"winterblight_slime_emperor_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ancient_apparition_chilling_touch"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"				"300 550 800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_loss"			"-10 -20 -30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-10 -15 -20"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen_loss"			"-7 -20 -80"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"450 700 950"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"			"7.0"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"slime_emperor_aura_aura_hit"
+				"slow_duration"	"%slow_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"slime_emperor_aura_aura"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Aura"          	"modifier_slime_emperor_aura_effect"
+				"Aura_Radius"   	"%aoe_radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_slime_emperor_aura_effect"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"slime_emperor_aura_aura_effect_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_winterblight_slime_emperor_slowed"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"EffectName"	"particles/econ/items/bristleback/ti7_head_nasal_goo/bristleback_ti7_nasal_goo_debuff.vpcf"
+				"EffectAttachType"	  "attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%mana_regen_loss"
+				}
+			}
+		}
+
+	}

@@ -125,6 +125,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][5]["index"] = "04"
 		Winterblight.CASTLE_DATA["tarot"][5]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][5]["prop_scale"] = 0.85
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][1] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][2] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][3] = {index = 7, variant = 2}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][4] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][5] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][6] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][7] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][8] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][5]["rooms"][9] = {index = 1, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][6] = {}
 		Winterblight.CASTLE_DATA["tarot"][6]["name"] = "hierophant"
@@ -544,7 +554,7 @@ function Winterblight:CastleLobbySpawn1()
 			end
 		end)
 		Timers:CreateTimer(2, function()
-			Winterblight:SpawnCastleRoomUnit(0,"winterblight_mountain_spirit", Vector(15616, 13233), Vector(-1,1), false)
+			Winterblight:SpawnCastleRoomUnit(0, "winterblight_mountain_spirit", Vector(15616, 13233), Vector(-1,1), false, true)
 		end)
 		Timers:CreateTimer(2.5, function()
 			local positionTable = {Vector(13824, 11648), Vector(13517, 11648), Vector(13517, 11904), Vector(13824, 11904), Vector(13496, 12164), Vector(13824, 12164)}
@@ -611,7 +621,7 @@ function Winterblight:CastleLobbySpawn1()
 			local fv = (Vector(13209, 8448) - positionTable[i]):Normalized()
 			Winterblight:SpawnCastleRoomUnit(0,"winterblight_draugr", positionTable[i], fv, false, true)
 		end
-		Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", Vector(12288, 7040), Vector(1,0.6), false)
+		Winterblight:SpawnCastleRoomUnit(0,"winterblight_castle_watchman", Vector(12288, 7040), Vector(1,0.6), false, true)
 	end)
 	Timers:CreateTimer(9.0, function()
 		for i = 0, 1, 1 do
@@ -641,7 +651,7 @@ function Winterblight:CastleLobbySpawn1()
 			local fv = (Vector(13568, 9344) - positionTable[i]):Normalized()
 			Winterblight:SpawnCastleRoomUnit(0,"winterblight_suffering_spirit", positionTable[i], fv, false, true)
 		end
-		Winterblight:SpawnCastleRoomUnit(0,"winterblight_ancient_mountain_spirit", Vector(14080, 8576), Vector(-0.2, 1), false)
+		Winterblight:SpawnCastleRoomUnit(0,"winterblight_ancient_mountain_spirit", Vector(14080, 8576), Vector(-0.2, 1), false, true)
 	end)
 	Timers:CreateTimer(12, function()
 		for i = 0, 2, 1 do
@@ -759,6 +769,19 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 		local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
 		local position = key_positions[RandomInt(1, #key_positions)] + RandomVector(200)
 		Winterblight:SpawnArcaneCrystalMine(position)
+	elseif Winterblight.CastleTarot["name"] == "emperor" then
+		if not Winterblight.CastleEmperorChests then
+			Winterblight.CastleEmperorChests = 3
+		end
+		if Winterblight.CastleEmperorChests > 0 then
+			local luck = RandomInt(1, 9 - Winterblight.CASTLE_DATA["rooms_cleared"])
+			if luck <= Winterblight.CastleEmperorChests then
+				Winterblight.CastleEmperorChests = Winterblight.CastleEmperorChests - 1
+				local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
+				local position = key_positions[RandomInt(1, #key_positions)] + RandomVector(200)
+				Winterblight:GeneralChestSpawn(position, Vector(0,-1))
+			end
+		end
 	end
 end
 
@@ -792,6 +815,12 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		if unit_name == "winterblight_castle_watchman" then
 			unit_name = "winterblight_shadow_priestess"
 		end
+	elseif Winterblight.CastleTarot["name"] == "emperor" then
+		if unit_name == "winterblight_elite_castle_warrior" then
+			unit_name = "winterblight_emperors_servant"
+		elseif unit_name == "winterblight_castle_warrior" then
+			unit_name = "winterblight_elite_castle_warrior"
+		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -800,7 +829,9 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 	if bIgnoreCounter then
 	else
 		Winterblight.ActiveCastleRoom["enemy_spawn_count"] = Winterblight.ActiveCastleRoom["enemy_spawn_count"] + 1
+		print("SPAWN FOR ROOM")
 		print(Winterblight.ActiveCastleRoom["enemy_spawn_count"])
+		print(unit_name)
 	end
 	Timers:CreateTimer(0.1, function()
 		Winterblight:AdjustCastleUnit(enemy)
@@ -811,19 +842,21 @@ end
 
 function Winterblight:AdjustCastleUnit(enemy)
 	if Winterblight.CastleTarot["name"] == "empress" then
-		local newArmor = unit.roshpit_attributes.roshpit_armor * 2
-		unit:SetBaseRoshpitArmor(newArmor, false)
+		local newArmor = enemy.roshpit_attributes.roshpit_armor * 2
+		enemy:SetBaseRoshpitArmor(newArmor, false)
 
-		local newMagicArmor = unit.roshpit_attributes.roshpit_magic_armor * 2
-		unit:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+		local newMagicArmor = enemy.roshpit_attributes.roshpit_magic_armor * 2
+		enemy:SetBaseRoshpitMagicArmor(newMagicArmor, false)
 
-		local newArmorPierce = unit.roshpit_attributes.roshpit_armor_pierce * 2
-		unit:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+		enemy:CalculateAndSaveRoshpitAttributes()
+	elseif Winterblight.CastleTarot["name"] == "emperor" then
+		local newArmorPierce = enemy.roshpit_attributes.roshpit_armor_pierce * 2
+		enemy:SetBaseRoshpitArmorPierce(newArmorPierce, false)
 
-		local newSpellPierce = unit.roshpit_attributes.roshpit_spell_pierce * 2
-		unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+		local newSpellPierce = enemy.roshpit_attributes.roshpit_spell_pierce * 2
+		enemy:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
-		unit:CalculateAndSaveRoshpitAttributes()
+		enemy:CalculateAndSaveRoshpitAttributes()
 	end
 end
 
@@ -1175,7 +1208,7 @@ function Winterblight:SpawnCastleRoom7(variant)
 	end
 	Winterblight.CastleDungeonMaster.goo_switches = {0, 0, 0}
 	Winterblight.CastleDungeonMaster.goo_dummy = goo_dummy
-	if variant == 1 then
+	if variant == 1 or variant == 2 then
 		Timers:CreateTimer(0.5, function()
 			for i = 0, 2, 1 do
 				for j = 0, 1, 1 do
@@ -1275,6 +1308,9 @@ function Winterblight:SpawnCastleRoom7(variant)
 				local fv = Vector(0,-1)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
 			end	
+			if variant == 2 then
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_slime_emperor", Vector(10317, 4511), Vector(0,-1), false, false)
+			end
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
@@ -1982,7 +2018,7 @@ end
 function Winterblight:CastleBossDeath(boss)
 	boss.dying = true
 	local ability = boss:FindAbilityByName("winterblight_castle_boss_passive")
-
+	Winterblight.CastleBossDead = true
 	ability:ApplyDataDrivenModifier(boss, boss, "modifier_boss_dying", {})
 	Winterblight.CastleBossMusic = false
 	-- EmitSoundOn("Winterblight.AzaleaBoss.Death1.VO", boss)
@@ -2152,6 +2188,9 @@ function Winterblight:PrecacheTarotAssets()
 		PrecacheUnitByNameAsync("winterblight_shadow_priestess", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "empress" then
 		PrecacheUnitByNameAsync("winter_castle_faceless_empress", precache_function)	
+	elseif Winterblight.CastleTarot["name"] == "emperor" then
+		PrecacheUnitByNameAsync("winterblight_emperors_servant", precache_function)
+		PrecacheUnitByNameAsync("winterblight_slime_emperor", precache_function)
 	end
 end
 
@@ -2214,4 +2253,26 @@ function Winterblight:GetGeneralChestRewards()
 	local glyphs_count = RandomInt(2, math.floor(3 + GameState:GetPlayerPremiumStatusCount()))
 	local crystals_count = (GameState:GetDifficultyFactor() * RandomInt(34, 40 + GameState:GetPlayerPremiumStatusCount()*4))*6
 	return {{items = RandomInt(6, 9+GameState:GetPlayerPremiumStatusCount())}, {crystals = crystals_count}, {glyphs = glyphs_count}}
+end
+
+function Winterblight:GeneralChestSpawn(position, fv)
+	local spawnPoint = GetGroundPosition(position, Events.GameMaster)
+	local pfx_dummy = CreateUnitByName("npc_dummy_unit", spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	pfx_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", pfx_dummy, 8)
+	ParticleManager:SetParticleControl(pfx, 1, spawnPoint)
+	Timers:CreateTimer(0.5, function()
+		EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+	end)
+	Timers:CreateTimer(2, function()
+		local rewardTables = Winterblight:GetGeneralChestRewards()
+		local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, fv*-1, false)
+		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
+		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
+		chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+		Timers:CreateTimer(6, function()
+			UTIL_Remove(pfx_dummy)
+		end)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
+	end)
 end

@@ -1254,7 +1254,11 @@ function castle_boss_rotator(event)
 		end
 		if not caster.pain_animating then
 			if #caster.surrogates == 0 then
-				for i = 1, 3, 1 do
+				local surrogate_count = 3
+				if Winterblight.CastleTarot["name"] == "emperor" then
+					surrogate_count = 5
+				end
+				for i = 1, surrogate_count, 1 do
 					local spawnPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
 					local surrogate = Enemies:SpawnEnemyUnit("winterblight_castle_boss_surrogate", spawnPosition, Vector(0,-1), false)
 					table.insert(caster.surrogates, surrogate)
@@ -1434,6 +1438,9 @@ function castle_boss_surrogate_die(event)
 		heavy_damage = 11
 	end
 	if #Winterblight.CastleBoss.surrogates > 0 then
+		if Winterblight.CastleTarot["name"] == "emperor" then
+			light_damage = light_damage/2
+		end
 		castle_boss_take_damage(light_damage)
 		Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Winterblight.CastleBoss.color, Vector(255, 20, 40), 30)
 		Timers:CreateTimer(0.9, function()
@@ -1818,15 +1825,16 @@ function use_scryers_stone(event)
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.ActiveCastleRoom then
-				local door_index = Winterblight.ActiveCastleRoom["door_index"]
-				local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
-				AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
-				MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
-				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
-				local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
-				CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_apex_quas_orb.vpcf", eyePosition, 10)
-				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
-				EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+				if Winterblight.CastleBossDead then
+					local door_index = Winterblight.ActiveCastleRoom["door_index"]
+					local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
+					AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
+					MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+					EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+					local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
+					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
+					EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+				end
 			end
 			if Winterblight.CastleTarot["name"] == "high_priestess" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
@@ -2110,4 +2118,40 @@ function castle_high_priestess_heal_think(event)
 		PopupMana(target, manaRestore)
 	end)
 
+end
+
+function slime_emperor_aura_aura_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	EmitSoundOn("Winterblight.SlimeEmperor.Projectile", caster)
+	local info =
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,
+		EffectName = "particles/econ/items/bristleback/ti7_head_nasal_goo/bristleback_ti7_nasal_goo_proj.vpcf",
+		StartPosition = caster:GetAbsOrigin() + Vector(0,0,300),
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 5,
+		bProvidesVision = false,
+		iVisionRadius = 0,
+		iMoveSpeed = 750,
+	iVisionTeamNumber = caster:GetTeamNumber()}
+
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
+end
+
+function slime_emperor_aura_aura_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	target:ApplyAndIncrementStack(ability, caster, "modifier_winterblight_slime_emperor_slowed", 1, 20, event.slow_duration)
+
+	EmitSoundOn("Winterblight.SlimeEmperor.ProjectileImpact", target)
 end
