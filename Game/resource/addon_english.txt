@@ -7276,18 +7276,18 @@
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff"				"Root Weaver"
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff_Description"	"Reduced attack range and rooted"
 
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex's elemental modules disrupt natural balance, granting him increased Armor Pierce and Spell Pierce. Additionally provides bonus base attack damage while active. While the equilibrium shift is toggled on, mana is drained each second and also on each ability cast. If mana falls below the mana cost, Equilibrium Shifter is toggled off."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"<font color=\"#f4b942\">ARMOR PIERCE AND SPELL PIERCE PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">MOVESPEED PER TECH</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"INCREASED BASE ATTACK DAMAGE:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"MANA COST PER CAST:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_drain_per_second"			"MANA DRAIN PER SECOND:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Max Mana bonus</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Mana drain per second reduction</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w"					"Equilibrium Shifter"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_Description"		"Jex's elemental modules disrupt natural balance, granting him increased Armor Pierce and Spell Pierce. Additionally provides bonus base attack damage while active. While the equilibrium shift is toggled on, mana is drained each second and also on each ability cast. If mana falls below the mana cost, Equilibrium Shifter is toggled off."
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_pierces_per_tech"	"<font color=\"#f4b942\">ARMOR PIERCE AND SPELL PIERCE PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">MOVESPEED PER TECH</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_attack_damage"					"INCREASED BASE ATTACK DAMAGE:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_cost_per_cast"				"MANA COST PER CAST:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_drain_per_second"			"MANA DRAIN PER SECOND:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Max Mana bonus</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Mana drain per second reduction</font>:"
 
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Increase armor and magic pierces, attack damage and movespeed. Losing mana per second and on each ability cast."
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w"					"Equilibrium Shifter"		
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Increase armor and magic pierces, attack damage and movespeed. Losing mana per second and on each ability cast."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex breaks through the fabric of space allowing him to quickly transport himself to the target location."
@@ -8011,31 +8011,31 @@
 		"omniro_fire_special_description"									"Applies a <font color='#ccff66'>12</font> second buff that increases base attack damage."
 		"omniro_fire_special_a_pretext"										"BASE ATTACK DAMAGE: "		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Fire"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Increased Base Attack damage"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"Omni Mace: Fire"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"Increased Base Attack damage"							
 
 		"omniro_earth_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases Armor and Magic Armor."
 		"omniro_earth_special_a_pretext"									"BONUS ARMOR:"		
 		"omniro_earth_special_b_pretext"									"BONUS MAGIC ARMOR:"	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic armor"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Earth"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Increased armor and magic armor"									
 
-		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP percent."
-		"omniro_lightning_special_a_pretext"										"CURRENT HP % MULTIPLE:"												
+		"omniro_lightning_special_description"									"Deals an extra instance of damage based your Agility."
+		"omniro_lightning_special_a_pretext"										"DAMAGE % AGILITY:"												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <font color='#ccff66'>4</font>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
-		"omniro_poison_special_a_pretext"										"DOT, % OF ATTACK POWER: "
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every <font color='#ccff66'>0.5</font> seconds. Deals <font color='#ccff66'>4</font>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
+		"omniro_poison_special_a_pretext"										"DPS, % OF ATTACK POWER: "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Poison"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Taking damage on 0.5 second interval"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"Omni Mace: Poison"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"Taking damage on <font color='#ccff66'>0.5</font> second interval"
 
 		"omniro_time_special_description"									"Applies a <font color='#ccff66'>10</font> second buff that increases attack speed and movespeed."
 		"omniro_time_special_a_pretext"									"MOVESPEED:"		
 		"omniro_time_special_b_pretext"									"ATTACK SPEED:"		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"Omni Mace: Temporal"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"Increased Attack Speed and Movespeed"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"Omni Mace: Temporal"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"Increased Attack Speed and Movespeed"
 
 		"omniro_holy_special_description"									"Grants Magic Immunity for a short duration."
 		"omniro_holy_special_a_pretext"										"MAGIC IMMUNITY DURATION: "		
@@ -8046,15 +8046,15 @@
 		"omniro_cosmic_special_description"									"Applies a <font color='#ccff66'>15</font> second buff that increases Max Health."
 		"omniro_cosmic_special_a_pretext"										"MAX HEALTH:"	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"Omni Mace: Cosmic"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"Increased Max Health"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"Omni Mace: Cosmic"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"Increased Max Health"								
 
 		"omniro_ice_special_description"									"Deals an additional instance of damage in a small <font color='#ccff66'>220</font> AOE that slows enemies for <font color='#ccff66'>8</font> seconds."
 		"omniro_ice_special_a_pretext"									"MOVESPEED REDUCTION:"		
 		"omniro_ice_special_b_pretext"									"ATTACK SPEED REDUCTION:"	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Ice"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Movespeed and Attack Speed slowed"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"Omni Mace: Ice"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"Movespeed and Attack Speed slowed"									
 
 		"omniro_arcane_special_description"									"Drains <font color='#ccff66'>5</font>% of max mana to deal an additional instance of damage."
 		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
@@ -8063,40 +8063,40 @@
 		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"
 		"omniro_shadow_special_b_pretext"										"ARMOR REDUCTION:"			
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor reduced"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"Omni Mace: Shadow"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"Armor reduced"											
 
 		"omniro_wind_special_description"									"Applies a <font color='#ccff66'>14</font> second buff that increases agility."
 		"omniro_wind_special_a_pretext"										"BONUS AGILITY: "	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Wind"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Increased Agility"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"Omni Mace: Wind"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"Increased Agility"									
 
 		"omniro_ghost_special_description"									"Grants <font color='#ccff66'>70</font>% evasion for a short duration."
 		"omniro_ghost_special_a_pretext"										"EVASION DURATION: "
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Ghost"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<font color='#ccff66'>70</font>%% Evasion"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"Omni Mace: Ghost"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"<font color='#ccff66'>70</font>%% Evasion"											
 
 		"omniro_water_special_description"									"Heal a flat amount and gain additional health regen for <font color='#ccff66'>14</font> seconds."
 		"omniro_water_special_a_pretext"									"IMMEDIATE HEAL:"		
 		"omniro_water_special_b_pretext"									"BONUS HEALTH REGEN:"		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"Omni Mace: Water"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Increased Health Regen"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"Omni Mace: Water"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"Increased Health Regen"							
 
 		"omniro_demon_special_description"									"Applies a <font color='#ccff66'>10</font> second buff that provides green bonus attack damage."
 		"omniro_demon_special_a_pretext"										"PERCENTILE DAMAGE BONUS: "		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Demon"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Increased Bonus Attack Damage"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Demon"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Increased Bonus Attack Damage"								
 
-		"omniro_nature_special_description"									"Target is rooted and takes damage every 1 second of root time."
+		"omniro_nature_special_description"									"Target is rooted and takes damage over time."
 		"omniro_nature_special_a_pretext"									"ROOT DURATION:"		
-		"omniro_nature_special_b_pretext"									"ROOT DPS, ATTACK POWER MULT:"		
+		"omniro_nature_special_b_pretext"									"ROOT DPS, % OF ATTACK POWER:"		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Nature"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each second"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Nature"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Rooted and taking damage each second"		
 
 		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <font color='#ccff66'>12</font> seconds that increases Armor Pierce."
 		"omniro_undead_special_a_pretext"									"HEALING DISABLE DURATION:"		
@@ -8105,14 +8105,14 @@
 		"omniro_dragon_special_description"									"Applies a <font color='#ccff66'>12</font> second buff that provides increase to all elemental damage."
 		"omniro_dragon_special_a_pretext"									"ELEMENTAL DAMAGE AMP:"		
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"Omni Mace: Dragon"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"Increased elemental damage"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"Omni Mace: Dragon"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"Increased elemental damage"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Disabled Healing"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"Disabled Healing"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Armor Pierce"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"Increased Armor Pierce"
 
 		"omniro_orb_effect_title"											"Orb Effect"
 
@@ -8129,11 +8129,11 @@
 		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <font color='#ccff66'>3</font> times. Gains an extra bounce for each of lightning's maximum charges."
 		"omniro_lightning_orb_a_pretext"										"DAMAGE % AGILITY:"			
 
-		"omniro_poison_orb_description"										"Creates a <font color='#ccff66'>340</font> radius poison puddle that lasts for <font color='#ccff66'>9</font> seconds. Enemies inside are damaged every 0.5 seconds"
-		"omniro_poison_orb_a_pretext"											"DAMAGE, % OF ATTACK POWER:"	
+		"omniro_poison_orb_description"										"Creates a <font color='#ccff66'>340</font> radius poison puddle that lasts for <font color='#ccff66'>9</font> seconds. Enemies inside are damaged every <font color='#ccff66'>0.5</font> seconds"
+		"omniro_poison_orb_a_pretext"											"DPS, % OF ATTACK POWER:"	
 
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy"					"Omni Orb: Poison"
-		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Taking damage each 0.5 seconds"
+		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Taking damage each <font color='#ccff66'>0.5</font> seconds"
 
 		"omniro_time_orb_description"									"All enemies in a <font color='#ccff66'>600</font> radius around the target are frozen for a duration. When the freeze ends, they take damage based on Omniro's attack power."
 		"omniro_time_orb_a_pretext"										"DAMAGE, % OF ATTACK POWER:"				
@@ -12350,6 +12350,7 @@
         "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
         "item_property_dunetreads"                   "Dunewalker"
         "property_dunetreads_description"            "Reduces the cooldown of @Ability3 by <font color='#ccff66'>2</font> seconds."
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
 
         "item_rpc_dunetreads_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
         "item_rpc_dunetreads_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
@@ -12459,6 +12460,7 @@
 
 		"item_property_iron_treads_of_destruction"					"Improved Initiative"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 
 		"item_rpc_iron_treads_of_destruction_ruby1"	"Increases [R] Base Ability Damage by @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"Increases all [R] runes by @emerald_property1"
@@ -12674,6 +12676,7 @@
 
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <font color='#ccff66'>700</font>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <font color='#ccff66'>70</font>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <font color='#ccff66'>4</font> second cooldown."
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>4</font>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "Increases the corona radius by @ruby_property1 and its damage by @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "Static Corona can deal up to @emerald_property1x increased damage at the edge of the ring, decreasing linearly toward the center"
@@ -12733,6 +12736,8 @@
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager_boots"                     "Voyager"
         "property_voyager_boots_description"              "Every <font color='#ccff66'>100</font> distance travelled reduces the current cooldowns of all Base Abilities by <font color='#ccff66'>2</font>% of their base cooldown time. Can't trigger more than once every <font color='#ccff66'>0.2</font>s."
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"
@@ -12796,6 +12801,7 @@
 		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
 		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"item_rpc_armor_of_the_violet_guard_ability_ruby_tooltip"				"Enemies hit lose @ruby_property1 armor for  <font color='#ccff66'>10</font>s."
 		"property_armor_of_the_violet_guard_description"	"Reduces cooldown of @Ability1 by <font color='#ccff66'>35</font>%"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Reduced Armor."
@@ -12950,6 +12956,7 @@
 
 		"item_property_enchanted_solar_cape"				"Solar Flare"
 		"property_enchanted_solar_cape_description"		"Every <font color='#ccff66'>0.5</font> seconds, gain a Sunlight stack. Upon reaching <font color='#ccff66'>24</font> stacks, gain the Solar Flare buff for <font color='#ccff66'>12</font> seconds. During Solar Flare, all cooldowns are reduced by <font color='#ccff66'>66</font>% and cast rate is increased by <font color='#ccff66'>60</font>%. Cannot gain Sunlight stacks during Solar Flare."
+		"item_rpc_enchanted_solar_cape_ability_ruby_tooltip"				"Grants @ruby_property1 Sunlight Stacks while Solar Flare is inactive."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<font color='#ccff66'>66</font>%% reduced cooldowns and <font color='#ccff66'>60</font>%% increased cast rate."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
@@ -14008,6 +14015,7 @@
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire_gloves"								"Spellfire"
 		 "property_spellfire_gloves_description"						"Cast rate is increased by <font color='#ccff66'>60</font>%."
+		"item_rpc_spellfire_gloves_ability_ruby_tooltip"				"@ruby_property1% chance to be cast again with no cooldown or cast time after a delay of <font color='#ccff66'>0.5</font>s."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Casting a [Q], [W] or [E] base ability has a @ruby_property1% chance to cast it again with no cooldown or cast time on a <font color='#ccff66'>0.5</font> second delay"
     	"item_rpc_spellfire_gloves_emerald1"								"Reduces base ability cooldowns by @emerald_property1%"
@@ -14668,6 +14676,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"item_property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability1 by <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Increases Rune [Q1] by @ruby_property1"
@@ -14676,8 +14685,9 @@
 		"item_rpc_twisted_purple_mask_of_ahnqhir_amethyst1" "Increases Rune [Q4] by @amethyst_property1"		
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
-		"item_property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
-		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <font color='#ccff66'>1</font> second."
+		"item_property_twisted_yellow_mask_of_ahnqhir"									"Hypercast B"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
+		"property_twisted_yellow_mask_of_ahnqhir_Description"							"@Ability2 has its cast point set to <font color='#ccff66'>0.05</font>s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability2 by <font color='#ccff66'>1</font> second."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Increases Rune [W1] by @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"Increases Rune [W3] by @emerald_property1"
@@ -14686,6 +14696,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"item_property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 has its cast point set to 0.05s (the time between issuing the cast order and the spell's effect and cooldown activating). Reduces cooldown of @Ability3 by <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Increases Rune [E1] by @ruby_property1"
@@ -15188,12 +15199,14 @@
         "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
+        "item_property_neverlord_soul_ring"                                         "Soul Conversion"
+        "property_neverlord_soul_ring_description"                                  "Converts <font color='#ccff66'>30</font>% of max health to max mana."
+        "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+
         "item_rpc_neverlord_soul_ring_ruby1"                                        "Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
         "item_rpc_neverlord_soul_ring_emerald1"                                     "Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
         "item_rpc_neverlord_soul_ring_sapphire1"                                    "Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
         "item_rpc_neverlord_soul_ring_amethyst1"                                    "Casting [W] burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
-        "item_property_neverlord_soul_ring"                                             "Soul Conversion"
-        "property_neverlord_soul_ring_description"                                          "Converts <font color='#ccff66'>30</font>% of max health to max mana."
 
         "DOTA_Tooltip_ability_item_rpc_omega_ruby"                                      "Omega Ruby"
 
@@ -15291,8 +15304,10 @@
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='#3894FF'>Water</font>, <font color='#5B648C'>Demon</font>, <font color='#69BC71'>Nature</font>, <font color='#5C776E'>Undead</font>, and <font color='#3289C7'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
-        "item_property_signus_charm"                      "Authority"
-        "property_signus_charm_description"               "Decreases cooldown of @Ability4 by <font color='#ccff66'>50</font>%. Increases the cooldown of @Ability3 by <font color='#ccff66'>125</font>%."
+        "item_property_signus_charm"                                                    "Authority"
+        "property_signus_charm_description"                                             "Decreases cooldown of @Ability4 by <font color='#ccff66'>50</font>%. Increases the cooldown of @Ability3 by <font color='#ccff66'>125</font>%."
+        "item_rpc_signus_charm_ability_ruby_tooltip"				                "Removes @ruby_property1s from current [E] cooldown."
+        "item_rpc_signus_charm_ability_amethyst_tooltip"				            "Applies a <font color='#ccff66'>5</font>s buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
         "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <font color='#ccff66'>1</font> seconds."

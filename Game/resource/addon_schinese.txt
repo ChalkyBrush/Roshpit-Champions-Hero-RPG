@@ -7717,15 +7717,15 @@
 		"omniro_fire_special_description"									"施加一个 <font color='#ccff66'>12</font> 秒的buff，该buff增加奥尼 洛的基础攻击力。"
 		"omniro_fire_special_a_pretext"										"基础攻击力增加："		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"全能权杖: 火"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"增加基础攻击力"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"全能权杖: 火"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"增加基础攻击力"							
 
 		"omniro_earth_special_description"									"施加一个 <font color='#ccff66'>14</font> 秒的buff，增加护甲和魔甲。"
 		"omniro_earth_special_a_pretext"									"额外护甲："		
 		"omniro_earth_special_b_pretext"									"额外魔甲："	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"全能权杖: 土"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"增加护甲和魔甲"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"全能权杖: 土"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"增加护甲和魔甲"									
 
 		"omniro_lightning_special_description"									"造成数值基于目标当前生命值的额外伤害。"
 		"omniro_lightning_special_a_pretext"										"目标当前生命值% 的额外伤害："					
@@ -7735,15 +7735,15 @@
 		"omniro_poison_special_description"									"施加一个2秒的DoT，DoT每0.5秒造成一次伤害。当站在毒液沼泽中时造成 <font color='#ccff66'>4</font>x 的伤害。"
 		"omniro_poison_special_a_pretext"										"攻击力 %的DoT伤害 ： "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"全能权杖：毒"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"没0.5秒受到一次伤害"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"全能权杖：毒"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"没0.5秒受到一次伤害"
 
 		"omniro_time_special_description"									"施加一个 <font color='#ccff66'>10</font>秒的buff，该buff增加攻击 速度和移动速度。"
 		"omniro_time_special_a_pretext"									"移动速度："		
 		"omniro_time_special_b_pretext"									"攻击速度："		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"全能权杖：时"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"增加攻击速度和移动速度"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"全能权杖：时"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"增加攻击速度和移动速度"
 
 		"omniro_holy_special_description"									"提供短暂的魔法免疫。"
 		"omniro_holy_special_a_pretext"										"魔法免疫持续时间："		
@@ -7754,15 +7754,15 @@
 		"omniro_cosmic_special_description"									"施加一个 <font color='#ccff66'>15</font> 秒的buff，该buff增加最 大生命值。"
 		"omniro_cosmic_special_a_pretext"										"最大生命值："	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"全能权杖：宇宙"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"增加最大生命值"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"全能权杖：宇宙"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"增加最大生命值"								
 
 		"omniro_ice_special_description"									"造成一个 <font color='#ccff66'>220</font> 范围的AOE，该AOE对敌人造成 减速效果，持续 <font color='#ccff66'>8</font> 秒。"
 		"omniro_ice_special_a_pretext"									"移动速度降低："		
 		"omniro_ice_special_b_pretext"									"攻击速度降低："	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"全能权杖：冰"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"移动速度和攻击速度被降低"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"全能权杖：冰"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"移动速度和攻击速度被降低"									
 
 		"omniro_arcane_special_description"									"汲取 <font color='#ccff66'>5</font>% 的最大魔法值来造成一 次额外伤害。"
 		"omniro_arcane_special_a_pretext"										"X魔法汲取量："							
@@ -7770,42 +7770,42 @@
 		"omniro_shadow_special_description"									"造成一次额外伤害并且对敌人施加一个减甲的debuff，持续 <font color='#ccff66'>12</font> 秒。"
 		"omniro_shadow_special_a_pretext"										"额外伤害倍数%："		
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"全能权杖：暗"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"护甲降低"												
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"全能权杖：暗"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"护甲降低"												
 
 	
 
 		"omniro_wind_special_description"									"施加一个 <font color='#ccff66'>14</font>秒的buff，该buff增加敏捷。"
 		"omniro_wind_special_a_pretext"										"额外敏捷："	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"全能权杖：风"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"增加敏捷值"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"全能权杖：风"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"增加敏捷值"									
 
 		"omniro_ghost_special_description"									"提供短暂的100%闪避。"
 		"omniro_ghost_special_a_pretext"										"闪避持续时间："
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"全能权杖：鬼"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"100%%闪避"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"全能权杖：鬼"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"100%%闪避"											
 
 		"omniro_water_special_description"									"治疗一部分生命值并且获得生命回复速率加成，持续 <font color='#ccff66'>14</font> 秒。"
 		"omniro_water_special_a_pretext"									"治疗："		
 		"omniro_water_special_b_pretext"									"额外生命值回复："		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"全能权杖：水"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"增加生命回复"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"全能权杖：水"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"增加生命回复"							
 
 		"omniro_demon_special_description"									"施加一个 <font color='#ccff66'>10</font> 秒的buff来提供额外攻击力。"
 		"omniro_demon_special_a_pretext"										"额外攻击力%："		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"全能权杖：恶魔"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"增加额外攻击力"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"全能权杖：恶魔"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"增加额外攻击力"								
 
 		"omniro_nature_special_description"									"缠绕目标，并且目标每1秒受到一次伤害。"
 		"omniro_nature_special_a_pretext"									"缠绕持续时间："		
 		"omniro_nature_special_b_pretext"									"攻击力%的缠绕伤害："		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"全能权杖: 自然"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"被缠绕并且每秒受到一次伤害"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"全能权杖: 自然"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"被缠绕并且每秒受到一次伤害"		
 
 		"omniro_undead_special_description"									"施加一个禁止治疗的debuff。施加一个buff来增加税后伤害，持续<font color='#ccff66'>12</font> 秒"
 		"omniro_undead_special_a_pretext"									"禁止治疗debuff持续时间："		
@@ -7815,14 +7815,14 @@
 		"omniro_dragon_special_a_pretext"									"元素伤害增加："		
 "omniro_undead_special_b_pretext"									"物理穿透:"	
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"全能权杖：龙"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"增加所有元素伤害"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"全能权杖：龙"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"增加所有元素伤害"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"全能权杖：不死"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"禁止治疗"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"全能权杖：不死"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"禁止治疗"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"全能权杖：不死"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"增加物理穿透"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"全能权杖：不死"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"增加物理穿透"
 
 		"omniro_orb_effect_title"											"全能之球效果"
 
@@ -11979,18 +11979,18 @@
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff"				"缠绕编织者"
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff_Description"	"被缠绕并且攻击距离降低"
 
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"衡势转换"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"杰克斯的元素模块破坏了自然的平衡，使他获得额外的物理穿透和魔法穿透。在衡势转换开启时，每秒都会消耗魔法同时每次释放技能也会消耗魔法值。如果魔法值低于魔法消耗时，衡势转换自动关闭。"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"%<font color=\"#f4b942\">每点科技点增加的物理穿透和魔法穿透</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">每点科技点增加的移动速度</font>："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"增加基础攻击力："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"每次释放技能时消耗的魔法值："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_drain_per_second"			"每秒消耗的魔法值："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] 增加最大魔法值</font>："
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] 降低每秒消耗魔法值</font>："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w"					"衡势转换"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_Description"		"杰克斯的元素模块破坏了自然的平衡，使他获得额外的物理穿透和魔法穿透。在衡势转换开启时，每秒都会消耗魔法同时每次释放技能也会消耗魔法值。如果魔法值低于魔法消耗时，衡势转换自动关闭。"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_pierces_per_tech"	"%<font color=\"#f4b942\">每点科技点增加的物理穿透和魔法穿透</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">每点科技点增加的移动速度</font>："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_attack_damage"					"增加基础攻击力："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_cost_per_cast"				"每次释放技能时消耗的魔法值："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_drain_per_second"			"每秒消耗的魔法值："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] 增加最大魔法值</font>："
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] 降低每秒消耗魔法值</font>："
 
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"衡势转换"		
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"增加双穿和移动速度。每秒丢失魔法值并且每次释放技能消耗魔法值。"
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w"					"衡势转换"		
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"增加双穿和移动速度。每秒丢失魔法值并且每次释放技能消耗魔法值。"
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"氙折跃"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"杰克斯打破空间束缚，使得他能迅速的将自己传送至目标地点。"
@@ -12371,6 +12371,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_dunetreads"									"沙丘之靴"
         "item_rpc_dunetreads_ruby1"                                    "释放 [E] 有 @ruby_property1% 概率重置该技能的冷却时间。"
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
         "item_rpc_dunetreads_emerald1"                                 "当 [E] 不在冷却时将会获得 @emerald_property1 点物理穿透"
         "item_rpc_dunetreads_sapphire1"                                    "当 [E] 不在冷却时，获得 @sapphire_property1 点移动速度和最大移动速度加成。"
         "item_rpc_dunetreads_amethyst1"                                    "每点敏捷提供 @amethyst_property1点护甲和魔甲"
@@ -12523,6 +12524,8 @@
     	"DOTA_Tooltip_ability_item_rpc_voyager_boots"									"航海长靴"
 		"item_property_voyager_boots"						"航海家"
         "property_voyager_boots_description"              "每移动 <font color='#ccff66'>100</font> 距离降低所有其他技能的冷却时间降低数值为<font color='#ccff66'>2</font>%的技能的基础冷却时间"
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "释放 [E] 后，降低其他技能的冷却时间，数值为 @ruby_property1% 技能基础冷却时间"
         "item_rpc_voyager_boots_emerald1"                                   "每有一个技能处于冷却中时，你的移动速度和最大移动速度将会提高 @emerald_property1"
         "item_rpc_voyager_boots_sapphire1"                                  "每有一个技能不在冷却中时，你的攻击力将会提高 @sapphire_property1% 攻击力加成，每一个非冷却状态技能都会增加一层这个效果"
@@ -12817,18 +12820,20 @@
 	
 	
 		"DOTA_Tooltip_ability_item_rpc_iron_treads_of_destruction"	"钢铁毁灭足踏"
+		"item_property_iron_treads_of_destruction"					"快速释放"
+		"property_iron_treads_of_destruction_description"			"@Ability4 不需要持续施法就可以释放。"
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 		"item_rpc_iron_treads_of_destruction_ruby1"	"增加 [R] 的基础技能伤害 @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"增加所有 [R] 的符文数 @emerald_property1"
 		"item_rpc_iron_treads_of_destruction_sapphire1"	"增加全属性 @sapphire_property1"
 		"item_rpc_iron_treads_of_destruction_amethyst1"	"降低 [R] 的冷却时间 @amethyst_property1%"
-		"item_property_iron_treads_of_destruction"					"快速释放"
-		"property_iron_treads_of_destruction_description"			"@Ability4 不需要持续施法就可以释放。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_storm_pacer_sabatons"        "风暴漫步者之靴"
 
         	"item_property_storm_pacer_sabatons"                        "风暴漫步者"
         "property_storm_pacer_sabatons_description"                 "释放 @Ability3后，你将会释放一个范围为 <font color='#ccff66'>700</font>的静电之环，对敌人造成2次伤害，一次在扩散时，一次在收缩时。伤害为<font color='#ccff66'>70</font>% 的攻击力，元素为你最后一次造成的伤害的元素。内置冷却时间 <font color='#ccff66'>4</font> 秒。"
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>4</font>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "增加静电之环的范围 @ruby_property1 以及他的伤害 @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "静电之环对边缘的敌人造成的伤害将会提高 @emerald_property1x ，这个伤害加成与敌人与静电之环的中心的距离有关，随着距离的减少而递减。"
@@ -12933,6 +12938,7 @@
 		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"紫罗兰卫士之甲"
 		"item_property_armor_of_the_violet_guard"			"紫罗兰征服者"
 		"property_armor_of_the_violet_guard_description"	"降低@Ability1的冷却时间 <font color='#ccff66'>35</font>%。"
+		"item_rpc_armor_of_the_violet_guard_ability_ruby_tooltip"				"被 [Q] 击中的敌人的护甲将会降低@ruby_property1 ，持续 <font color='#ccff66'>10</font> 秒"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"紫罗兰征服者"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"护甲被降低"
 
@@ -13157,6 +13163,7 @@
 		"DOTA_Tooltip_ability_item_rpc_enchanted_solar_cape"							"魔日披肩"
 		"item_property_enchanted_solar_cape"				"耀斑"
 		"property_enchanted_solar_cape_description"		"每 <font color='#ccff66'>0.5</font> 秒获得一层日光，到达 <font color='#ccff66'>24</font> 层后获得耀斑效果，持续  <font color='#ccff66'>12</font> 秒，处于耀斑状态下时，你的所有技能的冷却时间将会降低  <font color='#ccff66'>66</font> %并且施法速度将会提高 <font color='#ccff66'>60</font>%。处于耀斑状态下时不能获得日光层数。"
+		"item_rpc_enchanted_solar_cape_ability_ruby_tooltip"				"Grants @ruby_property1 Sunlight Stacks while Solar Flare is inactive."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"耀斑"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"降低冷却时间<font color='#ccff66'>66</font>%%并且提高施法速度<font color='#ccff66'>60</font>%% "
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"日光"
@@ -13992,6 +13999,8 @@
 		 
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"火法术手套"	
     	"item_rpc_spellfire_gloves_ruby1"								"施放 [Q], [W] 或 [E] 基础技能有 @ruby_property1% 概率额外施放一次（无冷却时间和施法点），有一个 <font color='#ccff66'>0.5</font> 秒的延迟时间"
+		"item_rpc_spellfire_gloves_ability_ruby_tooltip"				"@ruby_property1% chance to be cast again with no cooldown or cast time after a delay of <font color='#ccff66'>0.5</font>s."
+		
     	"item_rpc_spellfire_gloves_emerald1"								"降低基础技能的冷却时间 @emerald_property1%"
     	"item_rpc_spellfire_gloves_sapphire1"								"提高所有 T3 符文@sapphire_property1"
     	"item_rpc_spellfire_gloves_amethyst1"								"[R] 的持续施法在还有 @amethyst_property1 秒完成的时候就能释放完毕"
@@ -14672,6 +14681,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"安赫尔的扭曲紫色面具"	
 		"property_twisted_purple_mask_of_ahnqhir"												"超级施法 A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"@Ability1 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability1 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"提高 [Q1] 符文 @ruby_property1"
 		"item_rpc_twisted_purple_mask_of_ahnqhir_emerald1"	"提高 [Q3] 符文 @emerald_property1"
@@ -14681,6 +14691,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"安赫尔的扭曲黄色面具"	
 		"property_twisted_yellow_mask_of_ahnqhir"												"超级施法 B"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"@Ability2 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability2 冷却时间 <font color='#ccff66'>1</font> 秒。"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"提高 [W1] 符文 @ruby_property1"
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_emerald1"	"提高 [W3] 符文 @emerald_property1"
@@ -14690,6 +14701,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"安赫尔的扭曲蓝色面具"	
 		"property_twisted_blue_mask_of_ahnqhir"												"超级施法 C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"@Ability3 技能抬手强制设定为 0.05 秒（指从玩家发出指令到技能真正释放并进入冷却时间之间的那一段时间变为0.05秒）。减少 @Ability3 冷却时间 <font color='#ccff66'>40</font>%。"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"提高 [E1] 符文 @ruby_property1"
 		"item_rpc_twisted_blue_mask_of_ahnqhir_emerald1"	"提高 [E3] 符文 @emerald_property1"
@@ -14824,13 +14836,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"							"灵魂之戒"
+		"item_property_neverlord_soul_ring"												"灵魂契约"
+		"property_neverlord_soul_ring_description"											"将 <font color='#ccff66'>30</font>% 最大生命值转换为最大魔法值."
+    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
+        "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+
 		"item_rpc_neverlord_soul_ring_ruby1"										"增加灵魂契约的转换量 @ruby_property1%."
 		"item_rpc_neverlord_soul_ring_emerald1"										"灵魂契约每转换1点魔法值提高物理穿透和魔法穿透 @emerald_property1."
 		"item_rpc_neverlord_soul_ring_sapphire1"									"灵魂契约每转换1点魔法值提高基础攻击力 @sapphire_property1 "
 		"item_rpc_neverlord_soul_ring_amethyst1"									"施放 [W] 燃烧 <font color='#ccff66'>5</font>% 你的最大生命值并回复你@amethyst_property1% 燃烧的生命值的魔法值."
-		"item_property_neverlord_soul_ring"												"灵魂契约"
-		"property_neverlord_soul_ring_description"											"将 <font color='#ccff66'>30</font>% 最大生命值转换为最大魔法值."
-    	"DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring_Description"							"部位：饰品"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_sand_tomb_orb"									"獠牙戒指"
@@ -14923,12 +14937,15 @@
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_signus_charm"									"西格拉斯的魅力"
+		"item_property_signus"						"西格拉斯"
+		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>50</font>%。 @Ability3 冷却时间提高<font color='#ccff66'>125</font>%。"
+        "item_rpc_signus_charm_ability_ruby_tooltip"				                "Removes @ruby_property1s from current [E] cooldown."
+        "item_rpc_signus_charm_ability_amethyst_tooltip"				            "Applies a <font color='#ccff66'>5</font>s buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
+
         "item_rpc_signus_charm_ruby1"                                   "施放 [Q] 减少 [E] @ruby_property1 秒的冷却时间"
         "item_rpc_signus_charm_emerald1"                                    "增加 [W] 的冷却时间@emerald_property1 秒，减少 [Q] 的冷却时间 @emerald_property2 秒"
         "item_rpc_signus_charm_sapphire1"                                   "提高基础技能伤害 @sapphire_property1%"
         "item_rpc_signus_charm_amethyst1"                                   "施放 [E] 获得一层持续 <font color='#ccff66'>5</font> 秒的buff，能提高你的物理穿透和魔法穿透 @amethyst_property1"
-		"item_property_signus"						"西格拉斯"
-		"property_signus_description"				"减少 @Ability4 冷却时间<font color='#ccff66'>50</font>%。 @Ability3 冷却时间提高<font color='#ccff66'>125</font>%。"
 		
 		
 		"DOTA_Tooltip_ability_item_rpc_eye_of_avernus"									"地狱之眼"

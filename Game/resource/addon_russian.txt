@@ -7377,15 +7377,15 @@
 		"omniro_fire_special_description"									"Базовый урон атаки увеличен на <font color='#ccff66'>12</font> секунд."
 		"omniro_fire_special_a_pretext"										"БАЗОВЫЙ УРОН АТАКИ: "		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Огонь"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Увеличен урон атаки"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"Omni Mace: Огонь"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"Увеличен урон атаки"							
 
 		"omniro_earth_special_description"									"Броня и Магическая Защита увеличены на <font color='#ccff66'>14</font> секунд."
 		"omniro_earth_special_a_pretext"									"БРОНЯ:"		
 		"omniro_earth_special_b_pretext"									"МАГ. ЗАЩИТА:"	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Земля"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Броня и магическая защита увеличены."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Земля"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Броня и магическая защита увеличены."									
 
 		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущего процента ХП цели."
 		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ЗДОРОВЬЯ ЦЕЛИ:"										
@@ -7393,15 +7393,15 @@
 		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <font color='#ccff66'>4</font>x урона, если цель стоит в луже яда от орб-эффекта."
 		"omniro_poison_special_a_pretext"										"УРОН ЯДА % СИЛЫ АТАКИ: "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Яд"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Получает урон каждые 0.5 секунды."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"Omni Mace: Яд"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"Получает урон каждые 0.5 секунды."
 
 		"omniro_time_special_description"									"Увеличивает скорость атаки и передвижения на <font color='#ccff66'>10</font> секунд."
 		"omniro_time_special_a_pretext"									"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ:"		
 		"omniro_time_special_b_pretext"									"СКОРОСТЬ АТАКИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"Omni Mace: Время"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"Скорости атаки и бега увеличены."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"Omni Mace: Время"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"Скорости атаки и бега увеличены."
 
 		"omniro_holy_special_description"									"Дает иммунитет к заклинаниям на некоторое время."
 		"omniro_holy_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ ИММУНИТЕТА: "		
@@ -7412,15 +7412,15 @@
 		"omniro_cosmic_special_description"									"Увеличивает здоровье героя на <font color='#ccff66'>15</font> секунд."
 		"omniro_cosmic_special_a_pretext"										"БОНУС ЗДОРОВЬЯ:"	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"Omni Mace: Космос"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"Здоровье увеличено."								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"Omni Mace: Космос"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"Здоровье увеличено."								
 
 		"omniro_ice_special_description"									"Наносит урон в <font color='#ccff66'>220</font> AOE, замедляя противников на <font color='#ccff66'>8</font> секунд."
 		"omniro_ice_special_a_pretext"									"ЗАМЕДЛЕНИЕ ПЕРЕМЕЩЕНИЯ:"		
 		"omniro_ice_special_b_pretext"									"ЗАМЕДЛЕНИЕ АТАК:"	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Лёд"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Скорость атаки и бега снижены."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"Omni Mace: Лёд"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"Скорость атаки и бега снижены."									
 
 		"omniro_arcane_special_description"									"Наносит урон, затрачивая <font color='#ccff66'>5</font>% от максимальной маны героя."
 		"omniro_arcane_special_a_pretext"										"МНОЖИТЕЛЬ УРОНА ОТ МАНЫ:"							
@@ -7429,40 +7429,40 @@
 		"omniro_shadow_special_a_pretext"										"% МНОЖИТЕЛЬ УРОНА:"
 		"omniro_shadow_special_b_pretext"										"СНИЖЕНИЕ БРОНИ:"
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Тень"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Броня снижена."													
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"Omni Mace: Тень"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"Броня снижена."													
 
 		"omniro_wind_special_description"									"Увеличивает Ловкость на <font color='#ccff66'>14</font> секунд."
 		"omniro_wind_special_a_pretext"										"БОНУС ЛОВКОСТИ: "	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Ветер"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Ловкость увеличена."									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"Omni Mace: Ветер"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"Ловкость увеличена."									
 
 		"omniro_ghost_special_description"									"Дарует <font color='#ccff66'>70</font>% уклонение на некоторое время."
 		"omniro_ghost_special_a_pretext"										"ДЛИТЕЛЬНОСТЬ: "
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Призрак"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<font color='#ccff66'>70</font>%% Уклонение"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"Omni Mace: Призрак"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"<font color='#ccff66'>70</font>%% Уклонение"											
 
 		"omniro_water_special_description"									"Восстанавливает указанное количество ХП и дает дополнительную регенерацию здоровья на <font color='#ccff66'>14</font> секунд."
 		"omniro_water_special_a_pretext"									"ЛЕЧЕНИЕ:"		
 		"omniro_water_special_b_pretext"									"БОНУС РЕГЕНЕРАЦИИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"Omni Mace: Вода"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Регенерация здоровья увеличена."							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"Omni Mace: Вода"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"Регенерация здоровья увеличена."							
 
 		"omniro_demon_special_description"									"Увеличивает бонусный урон атаки на <font color='#ccff66'>10</font> секунд."
 		"omniro_demon_special_a_pretext"										"% БОНУСНЫЙ УРОН АТАКИ: "		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Демон"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Урон атаки увеличен."								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Демон"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Урон атаки увеличен."								
 
 		"omniro_nature_special_description"									"Цель опутана корнями и получает урон каждую секунду."
 		"omniro_nature_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОПУТЫВАНИЯ:"		
 		"omniro_nature_special_b_pretext"									"УРОН ЗА СЕКУНДУ, % ОТ СИЛЫ АТАКИ:"		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Природа"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Опутан корнями и получает ежесекундный урон."		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Природа"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Опутан корнями и получает ежесекундный урон."		
 
 		"omniro_undead_special_description"									"Отключает регенерацию здоровья цели. На <font color='#ccff66'>12</font> секунд увеличивает Пробитие Брони."
 		"omniro_undead_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОТКЛЮЧЕНИЯ РЕГЕНЕРАЦИИ:"		
@@ -7471,14 +7471,14 @@
 		"omniro_dragon_special_description"									"Увеличивает урон всех элементов на <font color='#ccff66'>12</font> секунд."
 		"omniro_dragon_special_a_pretext"									"УРОН ЭЛЕМЕНТОВ:"		
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"Omni Mace: Дракон"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"Урон элементов увеличен"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"Omni Mace: Дракон"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"Урон элементов увеличен"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"Omni Mace: Нежить"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Регенерация отключена"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"Omni Mace: Нежить"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"Регенерация отключена"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Пробитие Брони увеличено."
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"Пробитие Брони увеличено."
 
 		"omniro_orb_effect_title"											"Орб-эффект"
 
@@ -11667,18 +11667,18 @@
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff"				"Root Weaver"
 	"DOTA_Tooltip_modifier_jex_root_weave_debuff_Description"	"Дальность атаки снижена, получает урон"
 
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w"					"Equilibrium Shifter"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает Физическое и Магическое Пробития. Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_pierces_per_tech"	"<font color=\"#f4b942\">УСИЛЕНИЕ ПРОБИТИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_attack_damage"					"УВЕЛИЧЕНИЕ БАЗОВОЙ АТАКИ:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_mana_drain_per_second"			"СНИЖЕНИЕ МАНЫ В СЕКУНДУ:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Максимальная мана увеличена</font>:"
-	"DOTA_Tooltip_ability_jex_nature_cosmic_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшается</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w"					"Equilibrium Shifter"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_Description"		"Jex нарушает естественный баланс природы при помощи своих модулей и усиливает Физическое и Магическое Пробития. Пока усиление активно, базовая атака увеличена, скорость перемещения увеличена и каждую секунду отбирается мана. Мана дополнительно тратится и при касте любой из способностей. Если показатель маны падает слишком низко, способность отключается. Переключение модулей на другую способность сохранит эффект в действии."
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_pierces_per_tech"	"<font color=\"#f4b942\">УСИЛЕНИЕ ПРОБИТИЙ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_movespeed_bonus_per_tech"			"<font color=\"#f4b942\">СКОРОСТЬ ЗА ТЕХ. УРОВЕНЬ</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_attack_damage"					"УВЕЛИЧЕНИЕ БАЗОВОЙ АТАКИ:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_drain_per_second"			"СНИЖЕНИЕ МАНЫ В СЕКУНДУ:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Максимальная мана увеличена</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшается</font>:"
 
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_nature_cosmic_w_Description"		"Увеличены магический пост-резистный урон, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w"					"Equilibrium Shifter"		
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Увеличены магический пост-резистный урон, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex прорывается сквозь пространство и перемещается в выбранную точку. Может иметь касты без перезарядки."
@@ -12222,6 +12222,7 @@
         "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
         "item_property_dunetreads"                   "Dunewalker"
         "property_dunetreads_description"            "Снижает перезарядку @Ability3 на <font color='#ccff66'>2</font> сек."
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
 
         "item_rpc_dunetreads_ruby1"                                    "Прочтение [E] имеет @ruby_property1% шанс сбросить её перезарядку"
         "item_rpc_dunetreads_emerald1"                                 "Когда [E] не перезаряжается, герой получает @emerald_property1 бонус Пробития Брони"
@@ -12331,6 +12332,7 @@
 
 		"item_property_iron_treads_of_destruction"					"Improved Initiative"
 		"property_iron_treads_of_destruction_description"			"Прочтение @Ability4 происходит мгновенно."
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 
 		"item_rpc_iron_treads_of_destruction_ruby1"	"Увеличивает Базовый Урон Способности [R] на @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"Увеличивает все руны [R] на @emerald_property1"
@@ -12534,6 +12536,7 @@
 
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "Прочтение @Ability3 вызывает <font color='#ccff66'>700</font>-АОЕ кольцевую волну плазмы, которая затем возвращается к герою, наносит урон противникам при контакте во время движения от героя и обратно. Наносит урон в <font color='#ccff66'>70</font>% от Силы Атаки героя, элемент урона заимствуется из последней нанесенной героем порции урона. Перезарядка <font color='#ccff66'>4</font> сек."
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <font color='#ccff66'>4</font>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "Увеличивает радиус кольца на @ruby_property1, а его урон на @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "Урон кольца линейно растет по мере его расширения, достигая максимального множителя @emerald_property1x на границе максимального радиуса"
@@ -12593,6 +12596,8 @@
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager_boots"                     "Voyager"
         "property_voyager_boots_description"              "Каждые <font color='#ccff66'>100</font> пройденной дистанции уменьшают текущую перезарядку всех Способностей на <font color='#ccff66'>2</font>% от их базовой Перезарядки."
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "Прочтение [E] уменьшает Перезарядку всех остальных способностей на @ruby_property1% от их базовой Перезарядки."
         "item_rpc_voyager_boots_emerald1"                                   "Даёт @emerald_property1 Скорости Передвижения и Лимита Скорости за каждую из способностей, которая в данный момент на перезарядке."
         "item_rpc_voyager_boots_sapphire1"                                  "Даёт @sapphire_property1% Бонус Силы Атаки за каждую из способностей, которая в данный момент не на перезарядке."
@@ -12654,6 +12659,7 @@
 
 		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
 		"property_armor_of_the_violet_guard_description"	"Уменьшает перезарядку @Ability1 на <font color='#ccff66'>35</font>%"
+		"item_rpc_armor_of_the_violet_guard_ability_ruby_tooltip"				"Противники, пораженные [Q] теряют @ruby_property1 брони на <font color='#ccff66'>10</font> сек."
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Броня снижена."
 
@@ -12807,6 +12813,7 @@
 
 		"item_property_enchanted_solar_cape"				"Solar Flare"
 		"property_enchanted_solar_cape_description"		"Каждые <font color='#ccff66'>0.5</font> сек дает заряд предмета. <font color='#ccff66'>24</font> заменятся на бафф Solar Flare на <font color='#ccff66'>12</font> сек. Во время него все способности перезаряжаются <font color='#ccff66'>66</font>% быстрее, скорость каста тоже повышена на <font color='#ccff66'>60</font>%. Заряды не накапливаются во время Solar Flare."
+		"item_rpc_enchanted_solar_cape_ability_ruby_tooltip"				"Grants @ruby_property1 Sunlight Stacks while Solar Flare is inactive."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<font color='#ccff66'>66</font>%% уменьшеная перезарядка и на <font color='#ccff66'>60</font>%% ускоренный каст."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"
@@ -13865,6 +13872,7 @@
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire_gloves"								"Spellfire"
 		 "property_spellfire_gloves_description"						"Скорость каста заклинаний увеличена на <font color='#ccff66'>60</font>%."
+		"item_rpc_spellfire_gloves_ability_ruby_tooltip"				"@ruby_property1% chance to be cast again with no cooldown or cast time after a delay of <font color='#ccff66'>0.5</font>s."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Прочтение [Q], [W] или [E] имеет шанс @ruby_property1% автоматически произнести это же заклинание через <font color='#ccff66'>0.5</font> секунды"
     	"item_rpc_spellfire_gloves_emerald1"								"Уменьшает базовую перезарядку всех способностей на @emerald_property1%"
@@ -14527,6 +14535,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
@@ -14536,6 +14545,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <font color='#ccff66'>1</font> сек."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"
@@ -14545,6 +14555,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <font color='#ccff66'>0.05</font>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <font color='#ccff66'>40</font>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [E1] на @ruby_property1"
@@ -15048,6 +15059,8 @@
         "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
 		"item_property_neverlord_soul_ring"                                             "Soul Conversion"
         "property_neverlord_soul_ring_description"                                          "Конвертирует <font color='#ccff66'>30</font>% от запаса Здоровья в запас Маны."
+        "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <font color='#ccff66'>5</font>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+
         "item_rpc_neverlord_soul_ring_ruby1"                                        "Увеличивает конвертирование Здоровья в Ману на @ruby_property1%."
         "item_rpc_neverlord_soul_ring_emerald1"                                     "Увеличивает Пробитие Брони и Пробитие Магической Защиты на @emerald_property1 за каждую конвертированную эффектом единицу Здоровья."
         "item_rpc_neverlord_soul_ring_sapphire1"                                    "Увеличивает Базовый Урон Атаки на @sapphire_property1 за каждую конвертированную эффектом единицу Здоровья."
@@ -15149,6 +15162,8 @@
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
         "item_property_signus"                      "Authority"
         "property_signus_description"               "Уменьшает перезарядку @Ability4 на <font color='#ccff66'>50</font>%. Увеличивает перезарядку @Ability3 на <font color='#ccff66'>125</font>%."
+        "item_rpc_signus_charm_ability_ruby_tooltip"				                "Removes @ruby_property1s from current [E] cooldown."
+        "item_rpc_signus_charm_ability_amethyst_tooltip"				            "Applies a <font color='#ccff66'>5</font>s buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
 
         "item_rpc_signus_charm_ruby1"                                   "Прочтение [Q] снижает текущую перезарядку [E] на @ruby_property1"
         "item_rpc_signus_charm_emerald1"                                    "Добавляет @emerald_property1 секунд к перезарядке [W]. Снижает перезарядку [Q] на @emerald_property2 сек"
