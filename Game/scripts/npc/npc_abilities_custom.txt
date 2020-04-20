@@ -2770,7 +2770,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/faceless_void/omniro_omni_mace.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"omniro/omni_mace"
@@ -2799,17 +2800,6 @@
 			"particle"		"particles/roshpit/omniro/basic_water_heal.vpcf"
 		}
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -2837,7 +2827,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_special_a"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
+				"lightning_special_a"			"1 1.25 1.5 1.75 2 2.25 2.5"
 			}
 			"06"
 			{
@@ -2922,7 +2912,7 @@
 			"22"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"nature_special_b"			"0.4 0.5 0.6 0.7 0.8 0.9 1"
+				"nature_special_b"			"20 22.5 25 27.5 30 32.5 35"
 			}
 			"23"
 			{
@@ -2937,308 +2927,7 @@
 			"25"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"dragon_special_a"			"70"
-			}
-		}
-		"OnToggleOn"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-				"Function"		"omni_mace_toggle_on"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-				"Function"		"omni_mace_toggle_off"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_omnimace_passive"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omni_mace_init_go"
-					}
-				}
-				"ThinkInterval"  "0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omni_mace_main_think"
-					}
-				}
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omniro_mace_attack_land"
-						"damage_mult"	"%damage_mult"
-						"lightning_special_a"	"%lightning_special_a"
-						"holy_special_a"		"%holy_special_a"
-						"arcane_special_a"		"%arcane_special_a"
-						"shadow_special_a"		"%shadow_special_a"
-						"ghost_special_a"		"%ghost_special_a"
-						"water_special_a"		"%water_special_a"
-						"nature_special_a"		"%nature_special_a"
-						"undead_special_a"		"%undead_special_a"
-					}
-				}
-			}
-			"modifier_omnimace_offloading"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omni_mace_offload_think"
-					}
-				}
-			}
-			"modifier_omnimace_fire_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"omniro/omniro_element_fire"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%fire_special_a"
-				}
-			}
-			"modifier_omnimace_earth_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"omniro/omniro_element_earth"
-			}
-			"modifier_omnimace_poison_debuff"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"ThinkInterval"		"0.5"
-				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_poison_debuff_nova.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"TextureName"	"omniro/omniro_element_poison"
-
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omnimace_poison_debuff_think"
-						"target"		"TARGET"
-						"poison_special_a"	"%poison_special_a"
-					}
-				}
-			}
-			"modifier_omnimace_time_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			
-				"EffectName"		"particles/roshpit/omniro/time_haste.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"TextureName"	"omniro/omniro_element_time"
-			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%time_special_b"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%time_special_a" 
-				}
-			}
-			"modifier_omnimace_holy_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/items_fx/black_king_bar_avatar.vpcf"
-				"EffectAttachType"	"follow_origin"
-
-				"TextureName"	"omniro/omniro_element_holy"
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Item.GiantHunterImmunity"
-						"Target" 		"TARGET"
-					}
-				}
-			}
-			"modifier_omnimace_cosmic_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"TextureName"	"omniro/omniro_element_cosmic"
-			}
-			"modifier_ice_debuff"
-			{
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"IsHidden"	"1"
-				"TextureName"	"omniro/omniro_element_ice"
-				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
-				"StatusEffectPriority"  "20"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%ice_special_b"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ice_special_a"
-				}
-			}
-			"modifier_omniro_shadow_debuff"
-			{
-				"TextureName"		"slardar_amplify_damage"
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-				"TextureName"	"omniro/omniro_element_shadow"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omniro_AmplifyDamageParticle"
-					}
-				}
-
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omniro_EndAmplifyDamageParticle"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"npc_abilities/general.lua"
-						"Function"		"utility_recalculate_roshpit_attributes"
-						"target"		"TARGET"
-					}
-				}
-			}
-			"modifier_omnimace_wind_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"omniro/omniro_element_wind"
-			}
-			"modifier_omnimace_ghost_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/omniro/omniro_ghost_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"TextureName"	"omniro/omniro_element_ghost"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT" "70"
-				}
-			}
-			"modifier_omnimace_water_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"EffectName"	"particles/roshpit/draghor/mark_of_the_talon_heal.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"TextureName"	"omniro/omniro_element_water"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%water_special_b"
-				}
-			}
-			"modifier_omnimace_demon_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"omniro/omniro_element_demon"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%demon_special_a"
-				}
-			}
-			"modifier_omnimace_nature_debuff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-		
-				"EffectName"		"particles/roshpit/jex/jex_root.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"TextureName"	"omniro/omniro_element_nature"
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/faceless_void/omni_mace.lua"
-						"Function"		"omnimace_root_think"
-						"nature_special_b"	"%nature_special_b"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_omnimace_undead_debuff"
-			{
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_invoker/invoker_ghost_walk.vpcf"
-						"EffectAttachType"  "attach_hitloc"
-						"Target"            "TARGET"
-					}
-				}
-				"TextureName"	"omniro/omniro_element_undead"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"IsStunDebuff"	"1"
-				"EffectName"		"particles/econ/courier/courier_trail_hw_2012/courier_trail_hw_2012_ghosts.vpcf"
-				"EffectAttachType"	"attach_hitloc"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DISABLE_HEALING"			"1"
-				}
-			}
-			"modifier_omnimace_undead_buff"
-			{
-				"IsHidden"	"0"
-				"IsBuff"	"1"
-				"TextureName"	"omniro/omniro_element_undead"
-			}
-			"modifier_omniro_dragon_buff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-
-				"EffectName"		"particles/econ/generic/generic_buff_1/rainbow_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
+				"dragon_special_a"			"0.7"
 			}
 		}
 	}
@@ -3350,7 +3039,7 @@
 			"11"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cosmic_orb_a"			"0.1 0.1 0.2 0.2 0.3 0.3 0.4"
+				"cosmic_orb_a"			"0.1 0.15 0.2 0.25 0.3 0.35 0.4"
 			}
 			"12"
 			{
@@ -4591,495 +4280,7 @@
 			}
 		}
 	}
-	
-	"onibi_nature_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_nature"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
 
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"nature"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_lightning_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_lightning"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"lightning"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_cosmic_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_cosmic"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"cosmic"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_nature_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_nature"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"nature"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_lightning_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_lightning"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"lightning"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_cosmic_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_cosmic"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"cosmic"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_q"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_q"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"q"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_onibi_master_thinker"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"onibi_master_rune_thinker"
-					}
-				}
-			}
-			"modifier_onibi_all_attributes"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_onibi_base_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.06"
-				}
-			}
-		}
-	}
-
-	"onibi_w"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_w"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"w"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_e"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_e"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"e"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_invoke"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_ability"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_invoke"
-			}
-		}
-		"Modifiers"
-		{
-		}
-	}
 
 
 	"jex_essence_harvest"
@@ -6471,7 +5672,8 @@
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/arc_warden/jex_lightning_lightning_w.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/vortex_weapon"
@@ -6479,24 +5681,6 @@
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"20 45 70 95 120 145 170"
 
 		// Special
 		//-------------------------------------------------------
@@ -6531,74 +5715,6 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"w_4_agility_added_to_lightning_damage"			"0.1"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_jex_vortex_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_jex_vortex_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_jex_vortex_w"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-				}
-				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
-				"StatusEffectPriority"	"100"
-				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_attack_land"
-						"drain_mana"	"%mana_cost"
-						"damage_mult"	"%damage_mult"
-						"jumps_per_tech"	"%jumps_per_tech"
-						"w_4_agility_added_to_lightning_damage"	"%w_4_agility_added_to_lightning_damage"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_toggled_on"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_toggled_off"
-					}
-				}
-			}
-			"modifier_jex_vortex_w_attack_dmg"
-			{
-				"IsHidden" "1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_dmg_pct_per_tech"
-				}
 			}
 		}
 	}
@@ -7002,40 +6118,19 @@
 		}
 	}
 
-	"jex_nature_cosmic_w"
+	"jex_cosmic_nature_w"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/arc_warden/jex_cosmic_nature_w.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/equilibrium_shifter"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"60 180 300 420 540 660 780"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
+				"AbilitySpecial"
 		{
 			"01"
 			{
@@ -7071,86 +6166,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"e_4_mana_drain_per_second_reduction"			"2"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_jex_nature_cosmic_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_jex_nature_cosmic_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_jex_nature_cosmic_w"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage"
-				}
-				"EffectName"		"particles/roshpit/jex/equilibrium_shift_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_nature_cosmic_toggled_on"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_nature_cosmic_toggled_off"
-					}
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"nature_cosmic_w_think"
-						"mana_drain_per_second"	"%mana_drain_per_second"
-						"e_4_mana_drain_per_second_reduction"	"%e_4_mana_drain_per_second_reduction"
-					}
-				}
-			}
-			"modifier_jex_nature_cosmic_movespeed"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus_per_tech"
-				}
-			}
-			"modifier_jex_nature_cosmic_w_max_mana"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "%q_4_max_mana_while_toggled_on"
-				}
-			}
-			"modifier_jex_nature_cosmic_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
 			}
 		}
 	}
@@ -8056,6 +7071,310 @@
 						"Function"		"path_flying_think"
 					}
 				}
+			}
+		}
+	}
+
+
+
+	"jex_rune_q_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_q_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.06"
+			}
+		}
+	}
+
+	"jex_rune_q_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_q_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"16"
+			}			
+		}
+	}
+
+	"jex_rune_q_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_q_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"jex_rune_q_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_q_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"jex_rune_w_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_w_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.06"
+			}
+		}
+	}
+
+	"jex_rune_w_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_w_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"4"
+			}	
+		}
+	}
+
+	"jex_rune_w_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_w_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"jex_rune_w_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_w_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+	}
+	"jex_rune_e_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_e_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.06"
+			}
+		}
+	}
+
+	"jex_rune_e_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_e_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"8"
+			}
+		}
+	}
+
+	"jex_rune_e_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_e_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"0.08"
+			}
+		}
+	}
+
+	"jex_rune_e_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_e_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"1"
+			}
+		}
+	}
+
+	"jex_rune_r_1"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_r_1"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.1"
+			}
+		}
+	}
+
+	"jex_rune_r_2"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_r_2"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"2.1"
+			}
+		}
+	}
+
+	"jex_rune_r_3"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_r_3"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"4.2"
+			}
+		}
+	}
+
+	"jex_rune_r_4"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"jex/runes/jex_rune_r_4"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"150"
 			}
 		}
 	}
@@ -9552,7 +8871,6 @@
 		}
 	}
 
-
 	"jex_rune_w_1_arcana1"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -9631,309 +8949,494 @@
 	}
 
 
-
-	"jex_rune_q_1"
+	"onibi_nature_1"
 	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_q_1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_nature"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"nature"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_lightning_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_lightning"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"lightning"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_cosmic_1"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_cosmic"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"cosmic"
+				"index"			"1"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_nature_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_nature"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"nature"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_lightning_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_lightning"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"lightning"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_cosmic_2"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/onibi_cosmic"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_essence"
+				"essence"		"cosmic"
+				"index"			"2"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"onibi_q"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_q"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_ability_key"
+				"ability_key" 	"q"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_onibi_master_thinker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+						"Function"		"onibi_master_rune_thinker"
+					}
+				}
+			}
+			"modifier_onibi_all_attributes"
+			{
+				"IsHidden"	"1"
+			}
+			"modifier_onibi_base_attack_damage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "0.06"
+				}
 			}
 		}
 	}
 
-	"jex_rune_q_2"
+	"onibi_w"
 	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_q_2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_w"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_ability_key"
+				"ability_key" 	"w"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"16"
-			}			
+		}
+		"Modifiers"
+		{
+
 		}
 	}
 
-	"jex_rune_q_3"
+	"onibi_e"
 	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_q_3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_e"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+
+		// Precache
+		//-------------------------------------------------------
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_activate_ability_key"
+				"ability_key" 	"e"
 			}
+		}
+		"Modifiers"
+		{
+
 		}
 	}
 
-	"jex_rune_q_4"
+	"onibi_invoke"
 	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_q_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
-	}
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"jex/invoke_ability"
+		"LevelsBetweenUpgrades"  "0"
+		"MaxLevel"				 "7"
+		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
+		// Precache
+		//-------------------------------------------------------
 
-	"jex_rune_w_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
-			}
-		}
-	}
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
 
-	"jex_rune_w_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"4"
-			}	
-		}
-	}
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0.1"
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
 
-	"jex_rune_w_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
+		// Special
+		//-------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-	}
 
-	"jex_rune_w_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_w_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
+		}
+		"OnSpellStart"
 		{
-			"01"
+			"RunScript"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
+				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
+				"Function"		"onibi_invoke"
 			}
 		}
-	}
-	"jex_rune_e_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_e_1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
+		"Modifiers"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.06"
-			}
 		}
 	}
-
-	"jex_rune_e_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_e_2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"element_one"			"8"
-			}
-		}
-	}
-
-	"jex_rune_e_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_e_3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"0.08"
-			}
-		}
-	}
-
-	"jex_rune_e_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_e_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"1"
-			}
-		}
-	}
-
-	"jex_rune_r_1"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_r_1"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.1"
-			}
-		}
-	}
-
-	"jex_rune_r_2"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_r_2"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"2.1"
-			}
-		}
-	}
-
-	"jex_rune_r_3"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_r_3"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"4.2"
-			}
-		}
-	}
-
-	"jex_rune_r_4"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"jex/runes/jex_rune_r_4"
-		"MaxLevel"				"20"
-		"LevelsBetweenUpgrades" "0"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_one"			"150"
-			}
-		}
-	}
-
 
 
 
