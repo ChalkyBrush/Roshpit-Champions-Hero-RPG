@@ -2187,7 +2187,7 @@ function redfall_molok_bombs_ability_start(event)
 			flare:SetAbsOrigin(flare:GetAbsOrigin() + Vector(0, 0, 200))
 			flare:SetOriginalModel("models/boss_sphere.vmdl")
 			flare:SetModel("models/boss_sphere.vmdl")
-			flare:SetRenderColor(0, 0, 0)
+			flare:SetRenderColor(127, 127, 127)
 			flare:SetModelScale(0.1)
 			flare.fv = flareAngle
 			flare.stun_duration = 2
@@ -2278,7 +2278,7 @@ function moloth_sphere_take_damage(event)
 	elseif caster.colorCode == 1 then
 		caster.colorCode = 2
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_moloth_sphere_blue", {})
-		caster:SetRenderColor(0, 0, 255)
+		caster:SetRenderColor(0, 127, 255)
 		caster:RemoveModifierByName("modifier_moloth_sphere_red")
 		caster:RemoveModifierByName("modifier_moloth_sphere_green")
 	elseif caster.colorCode == 2 then

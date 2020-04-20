@@ -784,7 +784,7 @@ function Redfall:SpawnMolothSphere(baseFV)
   sphere:SetModel("models/boss_sphere.vmdl")
   sphere.jumpLock = true
   sphere.dummy = true
-  sphere:SetRenderColor(0, 0, 0)
+  sphere:SetRenderColor(127, 127, 127)
   sphere.colorCode = 0
   sphere:AddAbility("redfall_moloth_sphere_ability"):SetLevel(1)
   sphere.baseFV = baseFV
