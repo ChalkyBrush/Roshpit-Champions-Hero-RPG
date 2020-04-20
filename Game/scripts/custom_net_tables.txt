@@ -16,5 +16,6 @@
 	  //"min_level_reduction",
 	  "premium_pass",
 	  "hero_values", // for save some hero based that should be send to client side
+	  "tooltip",
   ]
 }

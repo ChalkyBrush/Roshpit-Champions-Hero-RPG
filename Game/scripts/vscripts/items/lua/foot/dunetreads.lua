@@ -1,4 +1,4 @@
-require('items/lua/foot/base')
+require('items/lua/foot/base_boot')
 require('npc_abilities/base_modifier')
 
 item_rpc_dunetreads = class(BaseFoot, nil, BaseFoot)
@@ -25,7 +25,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_dunetreads"
-    self:SetSpecialValue("dunetreads", "#8A8546")
+    self:SetSpecialValue("dunetreads", ITEM_RPC_DUNETREADS_COLOR)
 end
 function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, nil, 1.25)
@@ -51,7 +51,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
         MODIFIER_ROSHPIT_ARMOR_BONUS,
         MODIFIER_ROSHPIT_MAGIC_ARMOR_BONUS,
-        MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY
+        MODIFIER_SPECIAL_TYPE_CAST_E_ABILITY,
+        MODIFIER_ROSHPIT_TOOLTIP_E
     })
 end
 function modifierClass:DeclareFunctions()
@@ -113,6 +114,17 @@ function modifierClass:GetModifierMoveSpeed_Max_Increase(params)
 end
 function modifierClass:GetRoshpitEFlatCdModifier()
     return - ITEM_RPC_DUNETREADS_CD_RED
+end
+function modifierClass:GetRoshpitTooltipE()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_DUNETREADS_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 
 function modifierClass:IsHidden()

@@ -12,8 +12,6 @@
 			<Panel id="UpgradeBorder">
 				<Panel id="AbilityStatusBorder">
 					<Button id="AbilityButton"
-							onmouseover="AbilityShowTooltip()"
-							onmouseout="AbilityHideTooltip()"
 							onactivate="ActivateAbility()"
 							oncontextmenu="RightClickAbility()"
 							>

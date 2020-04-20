@@ -1,4 +1,4 @@
-require('items/lua/body/base')
+require('items/lua/body/base_chest')
 require('npc_abilities/base_modifier')
 
 item_rpc_armor_of_the_violet_guard = class(BaseBody, nil, BaseBody)
@@ -25,7 +25,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_armor_of_the_violet_guard"
-    self:SetSpecialValue("armor_of_the_violet_guard", "#A337E6")
+    self:SetSpecialValue("armor_of_the_violet_guard", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_COLOR)
 end
 function itemClass:RollProperty2(item_level)
      local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
@@ -57,7 +57,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_AGILITY_BONUS,
         MODIFIER_ROSHPIT_Q_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_ARMOR_PIERCE_BONUS,
-        MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY
+        MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY,
+        MODIFIER_ROSHPIT_TOOLTIP_Q
     })
 end
 function modifierClass:OnHitQAbility(data)
@@ -99,6 +100,17 @@ function debuffModifierClass:OnCreated()
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_ARMOR_BONUS
     })
+end
+function modifierClass:GetRoshpitTooltipQ()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function debuffModifierClass:GetRoshpitArmorBonus()
     return self:GetAbility():GetFinalGemPropertyValue("ruby", ITEM_RPC_ARMOR_OF_VIOLET_GUARD_GEM_RUBY)

@@ -7,7 +7,7 @@ function jex_fire_fire_w_start(event)
 		ability.missleTable = {}
 	end
 	ability.point = event.target_points[1]
-	local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "W")
+	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "fire", "W")
 	local missle_count = math.max(event.flames_per_tech * tech_level, 1)
 	for i = 1, missle_count, 1 do
 		Timers:CreateTimer((i - 1) * 0.1, function()

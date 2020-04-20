@@ -170,6 +170,7 @@
         "DOTA_Tooltip_ability_item_rpc_dunetreads"                                 "Dunetreads"
         "item_property_dunetreads"                   "Dunewalker"
         "property_dunetreads_description"            "Reduces the cooldown of @Ability3 by <% ITEM_RPC_DUNETREADS_CD_RED %> seconds."
+		"item_rpc_dunetreads_ability_ruby_tooltip"				"@ruby_property1% chance to not go on cooldown."
 
         "item_rpc_dunetreads_ruby1"                                    "Casting [E] has a @ruby_property1% chance to refresh its cooldown"
         "item_rpc_dunetreads_emerald1"                                 "While [E] is not on cooldown, gain @emerald_property1 Armor Pierce"
@@ -279,6 +280,7 @@
 
 		"item_property_iron_treads_of_destruction"					"Improved Initiative"
 		"property_iron_treads_of_destruction_description"			"@Ability4 does not require channeling to complete."
+        "item_rpc_iron_treads_of_destruction_ability_tooltip"		"Does not require channeling to complete."
 
 		"item_rpc_iron_treads_of_destruction_ruby1"	"Increases [R] Base Ability Damage by @ruby_property1%"
 		"item_rpc_iron_treads_of_destruction_emerald1"	"Increases all [R] runes by @emerald_property1"
@@ -494,6 +496,7 @@
 
         "item_property_storm_pacer_sabatons"                        "Static Corona"
         "property_storm_pacer_sabatons_description"                 "When you cast @Ability3, a <% ITEM_RPC_STORM_PACER_SABATONS_RADIUS %>-radius static ring expands outward from you, damaging enemies once while expanding and again while contracting back toward you. Damage is based on <% ITEM_RPC_STORM_PACER_SABATONS_DMG_ATK_POWER_PCT %>% of attack power and has the same element as the last elemental damage you dealt. Ring emission has a <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %> second cooldown."
+        "item_rpc_storm_pacer_sabatons_ability_tooltip"		"Can create a static ring on cast once every <% ITEM_RPC_STORM_PACER_SABATONS_COOLDOWN %>s."
 
         "item_rpc_storm_pacer_sabatons_ruby1"        "Increases the corona radius by @ruby_property1 and its damage by @ruby_property2"
         "item_rpc_storm_pacer_sabatons_emerald1"        "Static Corona can deal up to @emerald_property1x increased damage at the edge of the ring, decreasing linearly toward the center"
@@ -553,6 +556,8 @@
         "DOTA_Tooltip_ability_item_rpc_voyager_boots"                                   "Voyager Boots"
         "item_property_voyager_boots"                     "Voyager"
         "property_voyager_boots_description"              "Every <% ITEM_RPC_VOYAGER_BOOTS_TRAVEL_DISTANCE %> distance travelled reduces the current cooldowns of all Base Abilities by <% ITEM_RPC_VOYAGER_BOOTS_PCT_CD_REDUCTION_ON_TRIGGER %>% of their base cooldown time. Can't trigger more than once every <% ITEM_RPC_VOYAGER_BOOTS_THINK_INTERVAL %>s."
+		"item_rpc_voyager_boots_ability_ruby_tooltip"				"Reduces cooldown of all others skills by @ruby_property1% of their base cooldown."
+
         "item_rpc_voyager_boots_ruby1"                                  "When you cast [E], reduce the current cooldowns of all other base abilities by @ruby_property1% of their base cooldown time."
         "item_rpc_voyager_boots_emerald1"                                   "Gain @emerald_property1 movespeed and max movespeed for each of your 4 active Base Abilities that are currently on cooldown"
         "item_rpc_voyager_boots_sapphire1"                                  "Gain @sapphire_property1% increased attack power for each of your 4 active Base Abilities that are not on cooldown"

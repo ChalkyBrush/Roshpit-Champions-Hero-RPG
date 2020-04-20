@@ -555,6 +555,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveCooldownModifier()
 		self:CalculateAndSaveManacostModifier()
 		self:CalculateAndSaveChanneltimeModifier()
+		self:GetTooltips()
 	end
 end
 
@@ -929,12 +930,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local modifier = unit:FindModifierByName("modifier_stonewall_aura_enemy_effect")
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
 		armor_modify = armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
-	end
-	if unit:HasModifier("modifier_omnimace_earth_buff") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_a", "modifier_omnimace_earth_buff")
-	end
-	if unit:HasModifier("modifier_omniro_shadow_debuff") then
-		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "shadow_special_b", "modifier_omniro_shadow_debuff")
 	end
 	if unit:HasModifier("modifier_familiar_armor_break") then
 		local modifier = unit:FindModifierByName("modifier_familiar_armor_break")
@@ -1573,9 +1568,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 		local rune_stacks_w_1 = modifier:GetCaster():GetRuneValue("w", 1)
 		magic_armor_modify = magic_armor_modify + RED_GENERAL_ARCANA2_W1_ARMOR_AND_SPELL_PIERCE * rune_stacks_w_1
 	end
-	if unit:HasModifier("modifier_omnimace_earth_buff") then
-		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "earth_special_b", "modifier_omnimace_earth_buff")
-	end
 	if unit:HasModifier("modifier_arcane_orb_magic_resist") then
 		magic_armor_modify = magic_armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "arcane_orb_b", "modifier_arcane_orb_magic_resist")
 	end
@@ -1931,17 +1923,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	if unit:GetUnitName() == "npc_dota_hero_axe" and unit:HasAbility("red_general_ability_base_r_sunder") then
 		local r_4_level = unit:GetRuneValue("r", 4)
 		armor_pierce_modify = armor_pierce_modify + r_4_level*RED_GENERAL_R4_ARMOR_PIERCE
-	end
-	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
-		if not ability.tech_level then
-			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
-		end
-		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
-		armor_pierce_modify = armor_pierce_modify + pierces
-	end
-	if unit:HasModifier("modifier_omnimace_undead_buff") then
-		armor_pierce_modify = armor_pierce_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "undead_special_b", "modifier_omnimace_undead_buff")
 	end
 	if unit:HasModifier("challen_postmit_buff") then
 		armor_pierce_modify = armor_pierce_modify + 1000
@@ -2335,14 +2316,6 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 		if unit.r_4_level then
 			spell_pierce_modify = spell_pierce_modify + JEX_RUNE_R4_SPELL_PIERCE * unit.r_4_level
 		end
-	end
-	if unit:HasModifier("modifier_jex_nature_cosmic_w") then
-		local ability = unit:FindModifierByName("modifier_jex_nature_cosmic_w"):GetAbility()
-		if not ability.tech_level then
-			ability.tech_level = unit.onibi.stats_table["nature"]["cosmic"]["W"]["level"]
-		end
-		local pierces = ability:GetSpecialValueFor("pierces_per_tech") * ability.tech_level
-		spell_pierce_modify = spell_pierce_modify + pierces
 	end
     if unit:HasModifier("modifier_orthok_zeal") then
     	if unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetGemValue("emerald") > 0 then
@@ -3040,10 +3013,6 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_stonewall_aura_axe_armor_strength") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_stonewall_aura_axe_armor_strength", CustomAttributes.AXE_ARCANA2_W2_STRENGTH)
 	end
-	if hero:HasModifier("modifier_omnimace_wind_buff") then
-		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero, "modifier_omnimace_wind_buff", ability:GetSpecialValueFor("wind_special_a"))
-	end
 	if hero:HasModifier("modifier_ice_scathe_q2_shield") then
 		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_ice_scathe_q2_shield", WARLORD_ARCANA2_Q2_INT_BONUS)
 	end
@@ -3457,10 +3426,6 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_earth_deity_q_2" and hero:HasModifier("modifier_earth_deity_q_2") then
 		flatHealthBonus = flatHealthBonus + CONJUROR_ARCANA_Q2_FLAT_HEALTH * hero:GetRuneValue("q", 2)
 	end
-	if excludedModifier ~= "modifier_omnimace_cosmic_buff" and hero:HasModifier("modifier_omnimace_cosmic_buff") then
-		local ability = hero:FindAbilityByName("omniro_omni_mace")
-		flatHealthBonus = flatHealthBonus + ability:GetSpecialValueFor("cosmic_special_a") * hero.omniro_data[RPC_ELEMENT_COSMOS]["level"]
-	end
 	if excludedModifier ~= "modifier_grasp_of_elder" and hero:HasModifier("modifier_grasp_of_elder") then
 		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("ruby", ITEM_RPC_GRASP_OF_ELDER_GEM_RUBY)*hero:GetSpirit()
 	end
@@ -3867,6 +3832,27 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
 end
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
+	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)
+	if q_ability and q_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetQManaCostModifier(self)
+		if not self:HasModifier("modifier_q_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_q_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_q_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_q_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_q_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_q_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_q_pct_manacost_modifier", self, 0)
+		end
+	end
 	local w_ability = self:GetAbilityByIndex(DOTA_W_SLOT)
 	if w_ability and w_ability.BaseClass then
 		local manaCostModifier, manaCostMultiplier = GetWManaCostModifier(self)
@@ -3886,6 +3872,48 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveManacostModifier()
 			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, modifierStacks)
 		else
 			self:SetModifierStackCount("modifier_w_pct_manacost_modifier", self, 0)
+		end
+	end
+	local e_ability = self:GetAbilityByIndex(DOTA_E_SLOT)
+	if e_ability and e_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetEManaCostModifier(self)
+		if not self:HasModifier("modifier_e_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_e_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_e_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_e_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_e_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_e_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_e_pct_manacost_modifier", self, 0)
+		end
+	end
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		local manaCostModifier, manaCostMultiplier = GetRManaCostModifier(self)
+		if not self:HasModifier("modifier_r_flat_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_flat_manacost_modifier", {})
+		end
+		if not self:HasModifier("modifier_r_pct_manacost_modifier") then
+			Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_r_pct_manacost_modifier", {})
+		end
+		if manaCostModifier ~= 0 then
+			self:SetModifierStackCount("modifier_r_flat_manacost_modifier", self, manaCostModifier)
+		else
+			self:SetModifierStackCount("modifier_r_flat_manacost_modifier", self, 0)
+		end
+		if manaCostMultiplier ~= 0 then
+			local modifierStacks = math.floor((manaCostMultiplier) * 10000)
+			self:SetModifierStackCount("modifier_r_pct_manacost_modifier", self, modifierStacks)
+		else
+			self:SetModifierStackCount("modifier_r_pct_manacost_modifier", self, 0)
 		end
 	end
 end
@@ -3914,6 +3942,47 @@ function CDOTA_BaseNPC_Hero:CalculateAndSaveChanneltimeModifier()
 	end
 end
 
+function CDOTA_BaseNPC_Hero:GetTooltips()
+	--------------
+	--Q TOOLTIPS--
+	--------------
+	local qTooltips = self:GetTooltipsFor('GetRoshpitTooltipQ', MODIFIER_ROSHPIT_TOOLTIP_Q)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_Q_SLOT, qTooltips)
+
+	--------------
+	--W TOOLTIPS--
+	--------------
+	local wTooltips = self:GetTooltipsFor('GetRoshpitTooltipW', MODIFIER_ROSHPIT_TOOLTIP_W)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_W_SLOT, wTooltips)
+
+	--------------
+	--E TOOLTIPS--
+	--------------
+	local eTooltips = self:GetTooltipsFor('GetRoshpitTooltipE', MODIFIER_ROSHPIT_TOOLTIP_E)
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_E_SLOT, eTooltips)
+
+	--------------
+	--R TOOLTIPS--
+	--------------
+	local rTooltips = self:GetTooltipsFor('GetRoshpitTooltipR', MODIFIER_ROSHPIT_TOOLTIP_R)
+
+	local r_ability = self:GetAbilityByIndex(DOTA_R_SLOT)
+	if r_ability and r_ability.BaseClass then
+		table.insert(rTooltips, { channeltime = r_ability:GetChannelTime() })
+	end
+	CustomNetTables:SetTableValue("tooltip", tostring(self:GetEntityIndex()).."-"..DOTA_R_SLOT, rTooltips)
+end
+
+function CDOTA_BaseNPC_Hero:GetTooltipsFor(functionName, modifierConstant)
+	local table = {}
+	Util.Modifier:SimpleEvent(self, functionName, { modifierConstant }, { }, 
+		function(result, data)
+			table[#table] = result
+		end
+	)
+	return table
+end
+
 function GetQCooldownModifier(caster)
 	local cooldownFlatModifier = 0
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQFlatCdModifier', { MODIFIER_ROSHPIT_Q_FLAT_CD_MOD }, { }, 
@@ -3929,10 +3998,15 @@ function GetQCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_Q_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownBase(-1) < GLOBAL_Q_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_Q_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_Q_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitQMinCdModifier', { MODIFIER_ROSHPIT_Q_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -3960,10 +4034,15 @@ function GetWCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_W_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownBase(-1) < GLOBAL_W_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_W_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_W_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitWMinCdModifier', { MODIFIER_ROSHPIT_W_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -3991,10 +4070,15 @@ function GetECooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_E_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownBase(-1) < GLOBAL_E_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_E_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_E_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitEMinCdModifier', { MODIFIER_ROSHPIT_E_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 
@@ -4022,10 +4106,15 @@ function GetRCooldownModifier(caster)
 		end
 	)
 
-	local cooldownMinModifier = GLOBAL_R_MIN_CD
+	local cooldownMinModifier = 0
+	if caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownBase(-1) < GLOBAL_R_MIN_CD then
+        cooldownMinModifier = caster:GetAbilityByIndex(DOTA_R_SLOT):GetCooldownBase(-1)
+    else
+        cooldownMinModifier = GLOBAL_R_MIN_CD
+    end
 	Util.Modifier:SimpleEvent(caster, 'GetRoshpitRMinCdModifier', { MODIFIER_ROSHPIT_R_MIN_CD_MOD }, { }, 
 		function(result, data)
-			cooldownMinModifier = math.min(cooldownMinModifier, result)
+			cooldownMinModifier = math.max(cooldownMinModifier, result)
 		end
 	)
 

@@ -1,4 +1,4 @@
-require('items/lua/foot/base')
+require('items/lua/foot/base_boot')
 require('npc_abilities/base_modifier')
 
 item_rpc_emerald_speed_runners = class(BaseFoot, nil, BaseFoot)

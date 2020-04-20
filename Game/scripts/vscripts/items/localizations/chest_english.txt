@@ -45,6 +45,7 @@
 		"DOTA_Tooltip_ability_item_rpc_armor_of_the_violet_guard"							"Armor of the Violet Guard"
 
 		"item_property_armor_of_the_violet_guard"			"Violet Conqueror"
+		"item_rpc_armor_of_the_violet_guard_ability_ruby_tooltip"				"Enemies hit lose @ruby_property1 armor for  <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_ARMOR_LOSS_DURATION %>s."
 		"property_armor_of_the_violet_guard_description"	"Reduces cooldown of @Ability1 by <% ITEM_RPC_ARMOR_OF_VIOLET_GUARD_Q_CD_REDUCE * 100 %>%"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff"	"Violet Subjugation"
 		"DOTA_Tooltip_modifier_armor_of_the_violet_guard_ruby_debuff_Description"	"Reduced Armor."
@@ -199,6 +200,7 @@
 
 		"item_property_enchanted_solar_cape"				"Solar Flare"
 		"property_enchanted_solar_cape_description"		"Every <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_INTERVAL %> seconds, gain a Sunlight stack. Upon reaching <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_STACKS %> stacks, gain the Solar Flare buff for <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_SOLAR_FLARE_DURATION %> seconds. During Solar Flare, all cooldowns are reduced by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>% and cast rate is increased by <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%. Cannot gain Sunlight stacks during Solar Flare."
+		"item_rpc_enchanted_solar_cape_ability_ruby_tooltip"				"Grants @ruby_property1 Sunlight Stacks while Solar Flare is inactive."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff"				"Solar Flare"
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_buff_Description"	"<% ITEM_RPC_ENCHANTED_SOLAR_CAPE_COOLDOWN_PCT * 100 %>%% reduced cooldowns and <% ITEM_RPC_ENCHANTED_SOLAR_CAPE_CAST_RATE %>%% increased cast rate."
 		"DOTA_Tooltip_modifier_enchanted_solar_cape_stacks"			"Sunlight"

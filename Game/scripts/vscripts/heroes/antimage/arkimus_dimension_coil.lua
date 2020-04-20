@@ -3,7 +3,7 @@ require('heroes/base_ability')
 require('heroes/antimage/arkimus_common')
 arkimus_dimension_coil = class(base_ability)
 
-function arkimus_dimension_coil:GetBaseManaCost(level)
+function arkimus_dimension_coil:GetManaCostBase(level)
     return 0
 end
 
@@ -15,7 +15,7 @@ function arkimus_dimension_coil:GetAbilitySlot()
     return DOTA_Q_SLOT
 end
 
-function arkimus_dimension_coil:GetBaseCooldown(level)
+function arkimus_dimension_coil:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
@@ -23,7 +23,7 @@ function arkimus_dimension_coil:GetBaseCooldown(level)
 end
 
 
-function arkimus_dimension_coil:GetBehavior()
+function arkimus_dimension_coil:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
 

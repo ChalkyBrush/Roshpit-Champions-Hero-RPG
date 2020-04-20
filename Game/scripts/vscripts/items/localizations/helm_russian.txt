@@ -604,6 +604,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_twisted_purple_mask_of_ahnqhir"					"Twisted Purple Mask of Ahn'Qhir"	
 		"property_twisted_purple_mask_of_ahnqhir"												"Hypercast A"
+		"item_rpc_twisted_purple_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CAST_POINT %>s."
 		"property_twisted_purple_mask_of_ahnqhir_Description"									"Точка каста @Ability1 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability1 на <% TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_purple_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [Q1] на @ruby_property1"
@@ -613,6 +614,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_yellow_mask_of_ahnqhir"					"Twisted Yellow Mask of Ahn'Qhir"	
 		"property_twisted_yellow_mask_of_ahnqhir"												"Hypercast B"
+		"item_rpc_twisted_yellow_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CAST_POINT %>s."
 		"property_twisted_yellow_mask_of_ahnqhir_Description"									"Точка каста @Ability2 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability2 на <% TWISTED_MASK_OF_AHNQHIR_YELLOW_CD_RED %> сек."
 
 		"item_rpc_twisted_yellow_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [W1] на @ruby_property1"
@@ -622,6 +624,7 @@
 		
 		"DOTA_Tooltip_ability_item_rpc_twisted_blue_mask_of_ahnqhir"					"Twisted Blue Mask of Ahn'Qhir"	
 		"property_twisted_blue_mask_of_ahnqhir"												"Hypercast C"
+		"item_rpc_twisted_blue_mask_of_ahnqhir_ability_tooltip"					"Castpoint reduced to <% TWISTED_MASK_OF_AHNQHIR_BLUE_CAST_POINT %>s."
 		"property_twisted_blue_mask_of_ahnqhir_Description"									"Точка каста @Ability3 установлена на 0.05 сек (время между приказом каста и началом перезарядки). Снижает перезарядку @Ability3 на <% TWISTED_MASK_OF_AHNQHIR_BLUE_CD_RED_PCT %>%."
 
 		"item_rpc_twisted_blue_mask_of_ahnqhir_ruby1"	"Увеличивает показатель руны [E1] на @ruby_property1"

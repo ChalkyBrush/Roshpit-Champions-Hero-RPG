@@ -1,4 +1,4 @@
-require('items/lua/body/base')
+require('items/lua/body/base_chest')
 require('npc_abilities/base_modifier')
 
 item_rpc_enchanted_solar_cape = class(BaseBody, nil, BaseBody)
@@ -132,6 +132,7 @@ function buffModifierClass:OnCreated()
         MODIFIER_ROSHPIT_W_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_E_BASE_ABILITY_DMG_BONUS,
         MODIFIER_ROSHPIT_R_BASE_ABILITY_DMG_BONUS,
+        MODIFIER_ROSHPIT_TOOLTIP_R,
     })
 end
 function buffModifierClass:GetModifierPercentageCasttime()
@@ -169,6 +170,17 @@ function buffModifierClass:GetRoshpitMagicArmorBonus()
 end
 function buffModifierClass:GetRoshpitSpellPierceBonus()
     return self:GetAbility():GetFinalGemPropertyValue("amethyst", ITEM_RPC_ENCHANTED_SOLAR_CAPE_GEM_AMETHYST)
+end
+function modifierClass:GetRoshpitTooltipR()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_ARMOR_OF_VIOLET_GUARD_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function buffModifierClass:GetTexture()
     return "itemicons/enchanted_solar_cape"

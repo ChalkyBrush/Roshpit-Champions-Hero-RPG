@@ -9,6 +9,7 @@
 		<include src="file://{resources}/scripts/custom_game/ability_tree.js" />
 		<include src="file://{resources}/scripts/custom_game/action_bar.js" />
 		<include src="file://{resources}/scripts/custom_game/rune_bar.js" />
+		<include src="file://{resources}/scripts/custom_game/tooltips/tooltips.js" />
 	</scripts>
 	<Panel class="ability_tree_panel">
 		<Panel id="full_ability_tree_hud_container">

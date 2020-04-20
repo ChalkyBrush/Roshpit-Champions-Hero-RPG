@@ -1,4 +1,4 @@
--- require('/items/lua/trinket/base')
+-- require('/items/lua/trinket/base_trinket')
 -- require('/npc_abilities/base_modifier')
 
 -- local modifierName = 'modifier_stargazers_sphere'

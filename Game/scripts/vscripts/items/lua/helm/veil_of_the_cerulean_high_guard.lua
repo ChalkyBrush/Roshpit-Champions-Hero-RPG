@@ -1,4 +1,4 @@
-require('items/lua/helm/base')
+require('items/lua/helm/base_helm')
 require('npc_abilities/base_modifier')
 
 item_rpc_veil_of_the_cerulean_high_guard = class(BaseHelm, nil, BaseHelm)

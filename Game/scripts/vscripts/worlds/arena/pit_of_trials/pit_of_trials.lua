@@ -254,24 +254,6 @@ function Arena:AddPitToUnit(unit)
     end
 end
 
-function Arena:GetResistancePercentage()
-	local resistMult = 1
-	if Arena.PitLevel == 2 then
-		resistMult = 0.5	
-	elseif Arena.PitLevel == 3 then
-		resistMult = 0.2	
-	elseif Arena.PitLevel == 4 then
-		resistMult = 0.1	
-	elseif Arena.PitLevel == 5 then
-		resistMult = 0.007	
-	elseif Arena.PitLevel == 6 then
-		resistMult = 0.001	
-	elseif Arena.PitLevel == 7 then
-		resistMult = 0.0001	
-	end
-	return resistMult
-end
-
 function Arena:GetDamageStacks()
 	local damageStacks = 0
 	if Arena.PitLevel == 2 then

@@ -1,4 +1,4 @@
-require('items/lua/helm/base')
+require('items/lua/helm/base_helm')
 require('npc_abilities/base_modifier')
 
 item_rpc_twisted_purple_mask_of_ahnqhir = class(BaseHelm, nil, BaseHelm)
@@ -25,7 +25,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_twisted_purple_mask_of_ahnqhir"
-    self:SetSpecialValue("twisted_purple_mask_of_ahnqhir", "#BC60F2")
+    self:SetSpecialValue("twisted_purple_mask_of_ahnqhir", TWISTED_MASK_OF_AHNQHIR_PURPLE_COLOR)
 end
 function itemClass:RollProperty2(item_level)
     RPCItems:RollBasicItemProperty(self, self:GetSlotNumber(), 2, item_level, "rune_q_3", 1)
@@ -48,6 +48,7 @@ function modifierClass:OnCreated()
     end
     self:SetSpecialTypes({ 
         MODIFIER_ROSHPIT_Q_PCT_CD_MOD,
+        MODIFIER_ROSHPIT_TOOLTIP_Q
     })  
     self:StartIntervalThink(1)
 end
@@ -79,6 +80,17 @@ function modifierClass:OnDestroy()
 end
 function modifierClass:GetRoshpitQPctCdModifier()
     return - TWISTED_MASK_OF_AHNQHIR_PURPLE_CD_RED_PCT / 100
+end
+function modifierClass:GetRoshpitTooltipQ()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = TWISTED_MASK_OF_AHNQHIR_PURPLE_COLOR, 
+        immortal = true, 
+        ruby = 0, --self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0 --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function modifierClass:IsHidden()
     return true

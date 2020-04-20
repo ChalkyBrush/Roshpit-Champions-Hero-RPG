@@ -2,14 +2,14 @@ require('heroes/legion_commander/mountain_protector_constants')
 require('heroes/base_ability')
 mountain_protector_mountain_guardian = class(base_ability)
 
-function mountain_protector_mountain_guardian:GetBaseManaCost(level)
+function mountain_protector_mountain_guardian:GetManaCostBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
     return MOUNTAIN_PROTECTOR_W_MANA_COST[level + 1]
 end
 
-function mountain_protector_mountain_guardian:GetBehavior()
+function mountain_protector_mountain_guardian:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_TOGGLE
 end
 
@@ -21,7 +21,7 @@ function mountain_protector_mountain_guardian:GetCastPoint()
     return 0
 end
 
-function mountain_protector_mountain_guardian:GetBaseCooldown(level)
+function mountain_protector_mountain_guardian:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end

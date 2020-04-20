@@ -523,6 +523,7 @@
     	"DOTA_Tooltip_ability_item_rpc_spellfire_gloves"								"Spellfire Gloves"	
 		 "item_property_spellfire_gloves"								"Spellfire"
 		 "property_spellfire_gloves_description"						"Скорость каста заклинаний увеличена на <% ITEM_RPC_SPELLFIRE_GLOVES_CAST_POINT_REDUCTION %>%."
+		"item_rpc_spellfire_gloves_ability_ruby_tooltip"				"@ruby_property1% chance to be cast again with no cooldown or cast time after a delay of <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %>s."
 
     	"item_rpc_spellfire_gloves_ruby1"								"Прочтение [Q], [W] или [E] имеет шанс @ruby_property1% автоматически произнести это же заклинание через <% ITEM_RPC_SPELLFIRE_GLOVES_RUBY_DELAY %> секунды"
     	"item_rpc_spellfire_gloves_emerald1"								"Уменьшает базовую перезарядку всех способностей на @emerald_property1%"

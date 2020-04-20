@@ -398,12 +398,14 @@
         "item_rpc_monkey_paw_amethyst1"                                     "Increases All Elemental damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_neverlord_soul_ring"                         "Neverlord's Soul Ring"
+        "item_property_neverlord_soul_ring"                                         "Soul Conversion"
+        "property_neverlord_soul_ring_description"                                  "Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
+        "item_rpc_neverlord_soul_ring_ability_amethyst_tooltip"				"Burns <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% of your max health and restores your mana by @amethyst_property1% of the burned health."
+
         "item_rpc_neverlord_soul_ring_ruby1"                                        "Increases Soul Conversion's max health to max mana by an additional @ruby_property1%."
         "item_rpc_neverlord_soul_ring_emerald1"                                     "Increases Armor Pierce and Spell Pierce by @emerald_property1 per max health converted to max mana by Soul Conversion."
         "item_rpc_neverlord_soul_ring_sapphire1"                                    "Increases Base Attack damage by @sapphire_property1 per max health converted to max mana by Soul Conversion."
         "item_rpc_neverlord_soul_ring_amethyst1"                                    "Casting [W] burns <% ITEM_RPC_NEVERLORD_SOUL_RING_GEM_AMETHYST_HEALTH_BURN_PCT %>% of your max health and restores your mana by @amethyst_property1% of the burned health."
-        "item_property_neverlord_soul_ring"                                             "Soul Conversion"
-        "property_neverlord_soul_ring_description"                                          "Converts <% ITEM_RPC_NEVERLORD_SOUL_RING_HP_CONVERSION_PCT %>% of max health to max mana."
 
         "DOTA_Tooltip_ability_item_rpc_omega_ruby"                                      "Omega Ruby"
 
@@ -501,8 +503,10 @@
         "item_rpc_serengaard_sun_crystal_amethyst1"                         "Increases <font color='<% RPC_ELEMENT_WATER_COLOR %>'>Water</font>, <font color='<% RPC_ELEMENT_DEMON_COLOR %>'>Demon</font>, <font color='<% RPC_ELEMENT_NATURE_COLOR %>'>Nature</font>, <font color='<% RPC_ELEMENT_UNDEAD_COLOR %>'>Undead</font>, and <font color='<% RPC_ELEMENT_DRAGON_COLOR %>'>Dragon</font> Elemental Damage by @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_signus_charm"                                    "Signus Charm"
-        "item_property_signus_charm"                      "Authority"
-        "property_signus_charm_description"               "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%."
+        "item_property_signus_charm"                                                    "Authority"
+        "property_signus_charm_description"                                             "Decreases cooldown of @Ability4 by <% ITEM_RPC_SIGNUS_CHARM_R_CD_REDUCTION * 100 %>%. Increases the cooldown of @Ability3 by <% ITEM_RPC_SIGNUS_CHARM_E_CD_INCREASE * 100 %>%."
+        "item_rpc_signus_charm_ability_ruby_tooltip"				                "Removes @ruby_property1s from current [E] cooldown."
+        "item_rpc_signus_charm_ability_amethyst_tooltip"				            "Applies a <% ITEM_RPC_SIGNUS_CHARM_AMETHYST_DURATION %>s buff that increases Armor Pierce and Spell Pierce by @amethyst_property1"
 
         "item_rpc_signus_charm_ruby1"                                   "Casting [Q] removes @ruby_property1 seconds from [E] cooldown"
         "item_rpc_signus_charm_emerald1"                                    "Adds @emerald_property1 seconds to [W] cooldown. Reduce [Q] cooldown by @emerald_property2 seconds, to a minimum of <% ITEM_RPC_SIGNUS_CHARM_EMERALD_MIN_Q_CD %> seconds."

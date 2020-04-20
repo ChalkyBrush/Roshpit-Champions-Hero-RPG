@@ -6,7 +6,7 @@ function jex_fire_fire_e:OnSpellStart()
 
     local ability = self
 
-    local tech_level = onibi_get_total_tech_level(caster, "fire", "fire", "E")
+    local tech_level = GetOnibiTotalTechLevel(caster, "fire", "fire", "E")
     ability.tech_level = tech_level
 	if not ability.fv then
 		ability.fv = caster:GetForwardVector()

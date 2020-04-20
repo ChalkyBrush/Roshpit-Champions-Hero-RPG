@@ -7,7 +7,7 @@ function jex_cast_portal(event)
 
 	ability.radius = ability:GetSpecialValueFor('radius')
 
-	local tech_level = onibi_get_total_tech_level(caster, "nature", "cosmic", "E")
+	local tech_level = GetOnibiTotalTechLevel(caster, "nature", "cosmic", "E")
 	ability.tech_level = tech_level
 
 	point = WallPhysics:WallSearch(caster:GetAbsOrigin(), point, caster)

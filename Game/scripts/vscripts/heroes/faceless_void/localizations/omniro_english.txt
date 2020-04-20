@@ -14,31 +14,31 @@
 		"omniro_fire_special_description"									"Applies a <% OMNIRO_FIRE_SPECIAL_DURATION %> second buff that increases base attack damage."
 		"omniro_fire_special_a_pretext"										"BASE ATTACK DAMAGE: "		
 
-		"DOTA_Tooltip_modifier_omnimace_fire_buff"							"Omni Mace: Fire"	
-		"DOTA_Tooltip_modifier_omnimace_fire_buff_Description"				"Increased Base Attack damage"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire"							"Omni Mace: Fire"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_fire_Description"				"Increased Base Attack damage"							
 
 		"omniro_earth_special_description"									"Applies a <% OMNIRO_EARTH_SPECIAL_DURATION %> second buff that increases Armor and Magic Armor."
 		"omniro_earth_special_a_pretext"									"BONUS ARMOR:"		
 		"omniro_earth_special_b_pretext"									"BONUS MAGIC ARMOR:"	
 
-		"DOTA_Tooltip_modifier_omnimace_earth_buff"							"Omni Mace: Earth"
-		"DOTA_Tooltip_modifier_omnimace_earth_buff_Description"				"Increased armor and magic armor"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Earth"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Increased armor and magic armor"									
 
-		"omniro_lightning_special_description"									"Deals an extra instance of damage based on target's current HP percent."
-		"omniro_lightning_special_a_pretext"										"CURRENT HP % MULTIPLE:"												
+		"omniro_lightning_special_description"									"Deals an extra instance of damage based your Agility."
+		"omniro_lightning_special_a_pretext"										"DAMAGE % AGILITY:"												
 
-		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every 0.5 seconds. Deals <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
-		"omniro_poison_special_a_pretext"										"DOT, % OF ATTACK POWER: "
+		"omniro_poison_special_description"									"Applies a 2 second DoT that deals damage every <% OMNIRO_MACE_POISON_TICK_INTERVAL %> seconds. Deals <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x damage when afflicted enemy is also standing in Orb Effect's poison puddle."
+		"omniro_poison_special_a_pretext"										"DPS, % OF ATTACK POWER: "
 
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff"						"Omni Mace: Poison"
-		"DOTA_Tooltip_modifier_omnimace_poison_debuff_Description"			"Taking damage on 0.5 second interval"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison"						"Omni Mace: Poison"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_poison_Description"			"Taking damage on <% OMNIRO_MACE_POISON_TICK_INTERVAL %> second interval"
 
 		"omniro_time_special_description"									"Applies a <% OMNIRO_TIME_SPECIAL_DURATION %> second buff that increases attack speed and movespeed."
 		"omniro_time_special_a_pretext"									"MOVESPEED:"		
 		"omniro_time_special_b_pretext"									"ATTACK SPEED:"		
 
-		"DOTA_Tooltip_modifier_omnimace_time_buff"							"Omni Mace: Temporal"
-		"DOTA_Tooltip_modifier_omnimace_time_buff_Description"				"Increased Attack Speed and Movespeed"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time"							"Omni Mace: Temporal"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_time_Description"				"Increased Attack Speed and Movespeed"
 
 		"omniro_holy_special_description"									"Grants Magic Immunity for a short duration."
 		"omniro_holy_special_a_pretext"										"MAGIC IMMUNITY DURATION: "		
@@ -49,15 +49,15 @@
 		"omniro_cosmic_special_description"									"Applies a <% OMNIRO_COSMIC_SPECIAL_DURATION %> second buff that increases Max Health."
 		"omniro_cosmic_special_a_pretext"										"MAX HEALTH:"	
 
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff"						"Omni Mace: Cosmic"		
-		"DOTA_Tooltip_modifier_omnimace_cosmic_buff_Description"			"Increased Max Health"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic"						"Omni Mace: Cosmic"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_cosmic_Description"			"Increased Max Health"								
 
 		"omniro_ice_special_description"									"Deals an additional instance of damage in a small <% OMNIRO_ICE_SPECIAL_RADIUS %> AOE that slows enemies for <% OMNIRO_ICE_SPECIAL_DURATION %> seconds."
 		"omniro_ice_special_a_pretext"									"MOVESPEED REDUCTION:"		
 		"omniro_ice_special_b_pretext"									"ATTACK SPEED REDUCTION:"	
 
-		"DOTA_Tooltip_modifier_ice_debuff"								"Omni Mace: Ice"	
-		"DOTA_Tooltip_modifier_ice_debuff_Description"					"Movespeed and Attack Speed slowed"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice"								"Omni Mace: Ice"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ice_Description"					"Movespeed and Attack Speed slowed"									
 
 		"omniro_arcane_special_description"									"Drains <% OMNIRO_ARCANE_MANA_DRAIN_PERCENTAGE %>% of max mana to deal an additional instance of damage."
 		"omniro_arcane_special_a_pretext"										"DAMAGE MULT PER MANA USED:"							
@@ -66,40 +66,40 @@
 		"omniro_shadow_special_a_pretext"										"% EXTRA DAMAGE MULTIPLIER:"
 		"omniro_shadow_special_b_pretext"										"ARMOR REDUCTION:"			
 
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff"					"Omni Mace: Shadow"		
-		"DOTA_Tooltip_modifier_omniro_shadow_debuff_Description"		"Armor reduced"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow"					"Omni Mace: Shadow"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_shadow_Description"		"Armor reduced"											
 
 		"omniro_wind_special_description"									"Applies a <% OMNIRO_WIND_SPECIAL_DURATION %> second buff that increases agility."
 		"omniro_wind_special_a_pretext"										"BONUS AGILITY: "	
 
-		"DOTA_Tooltip_modifier_omnimace_wind_buff"						"Omni Mace: Wind"
-		"DOTA_Tooltip_modifier_omnimace_wind_buff_Description"			"Increased Agility"									
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind"						"Omni Mace: Wind"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_wind_Description"			"Increased Agility"									
 
-		"omniro_ghost_special_description"									"Grants <% OMNIRO_GHOST_MACE_EVASION_CHANCE %>% evasion for a short duration."
+		"omniro_ghost_special_description"									"Grants <% OMNIRO_MACE_GHOST_EVASION_PCT %>% evasion for a short duration."
 		"omniro_ghost_special_a_pretext"										"EVASION DURATION: "
 
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff"						"Omni Mace: Ghost"	
-		"DOTA_Tooltip_modifier_omnimace_ghost_buff_Description"			"<% OMNIRO_GHOST_MACE_EVASION_CHANCE %>%% Evasion"											
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost"						"Omni Mace: Ghost"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_ghost_Description"			"<% OMNIRO_MACE_GHOST_EVASION_PCT %>%% Evasion"											
 
 		"omniro_water_special_description"									"Heal a flat amount and gain additional health regen for <% OMNIRO_WATER_SPECIAL_DURATION %> seconds."
 		"omniro_water_special_a_pretext"									"IMMEDIATE HEAL:"		
 		"omniro_water_special_b_pretext"									"BONUS HEALTH REGEN:"		
 
-		"DOTA_Tooltip_modifier_omnimace_water_buff"							"Omni Mace: Water"	
-		"DOTA_Tooltip_modifier_omnimace_water_buff_Description"				"Increased Health Regen"							
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water"							"Omni Mace: Water"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_water_Description"				"Increased Health Regen"							
 
 		"omniro_demon_special_description"									"Applies a <% OMNIRO_DEMON_SPECIAL_DURATION %> second buff that provides green bonus attack damage."
 		"omniro_demon_special_a_pretext"										"PERCENTILE DAMAGE BONUS: "		
 
-		"DOTA_Tooltip_modifier_omnimace_demon_buff"							"Omni Mace: Demon"	
-		"DOTA_Tooltip_modifier_omnimace_demon_buff_Description"				"Increased Bonus Attack Damage"								
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Demon"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Increased Bonus Attack Damage"								
 
-		"omniro_nature_special_description"									"Target is rooted and takes damage every 1 second of root time."
+		"omniro_nature_special_description"									"Target is rooted and takes damage over time."
 		"omniro_nature_special_a_pretext"									"ROOT DURATION:"		
-		"omniro_nature_special_b_pretext"									"ROOT DPS, ATTACK POWER MULT:"		
+		"omniro_nature_special_b_pretext"									"ROOT DPS, % OF ATTACK POWER:"		
 
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff"						"Omni Mace: Nature"
-		"DOTA_Tooltip_modifier_omnimace_nature_debuff_Description"			"Rooted and taking damage each second"		
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Nature"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Rooted and taking damage each second"		
 
 		"omniro_undead_special_description"									"Target gains a debuff that disables healing. Applies a buff for <% OMNIRO_UNDEAD_SPECIAL_DURATION %> seconds that increases Armor Pierce."
 		"omniro_undead_special_a_pretext"									"HEALING DISABLE DURATION:"		
@@ -108,14 +108,14 @@
 		"omniro_dragon_special_description"									"Applies a <% OMNIRO_DRAGON_SPECIAL_DURATION %> second buff that provides increase to all elemental damage."
 		"omniro_dragon_special_a_pretext"									"ELEMENTAL DAMAGE AMP:"		
 
-		"DOTA_Tooltip_modifier_omniro_dragon_buff"							"Omni Mace: Dragon"
-		"DOTA_Tooltip_modifier_omniro_dragon_buff_Description"				"Increased elemental damage"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon"							"Omni Mace: Dragon"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_dragon_Description"				"Increased elemental damage"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_debuff_Description"			"Disabled Healing"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_debuff_Description"			"Disabled Healing"
 
-		"DOTA_Tooltip_modifier_omnimace_undead_buff"						"Omni Mace: Undead"	
-		"DOTA_Tooltip_modifier_omnimace_undead_buff_Description"			"Increased Armor Pierce"
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff"						"Omni Mace: Undead"	
+		"DOTA_Tooltip_modifier_omniro_omni_mace_undead_buff_Description"			"Increased Armor Pierce"
 
 		"omniro_orb_effect_title"											"Orb Effect"
 
@@ -132,11 +132,11 @@
 		"omniro_lightning_orb_description"										"Struck target releases a chain lightning that bounces <% OMNIRO_ORB_LIGHTNING_BASE_BOUNCES %> times. Gains an extra bounce for each of lightning's maximum charges."
 		"omniro_lightning_orb_a_pretext"										"DAMAGE % AGILITY:"			
 
-		"omniro_poison_orb_description"										"Creates a <% OMNIRO_ORB_POISON_POOL_RADIUS %> radius poison puddle that lasts for <% OMNIRO_ORB_POISON_POOL_DURATION %> seconds. Enemies inside are damaged every 0.5 seconds"
-		"omniro_poison_orb_a_pretext"											"DAMAGE, % OF ATTACK POWER:"	
+		"omniro_poison_orb_description"										"Creates a <% OMNIRO_ORB_POISON_POOL_RADIUS %> radius poison puddle that lasts for <% OMNIRO_ORB_POISON_POOL_DURATION %> seconds. Enemies inside are damaged every <% OMNIRO_ORB_POISON_TICK_INTERVAL %> seconds"
+		"omniro_poison_orb_a_pretext"											"DPS, % OF ATTACK POWER:"	
 
 		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy"					"Omni Orb: Poison"
-		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Taking damage each 0.5 seconds"
+		"DOTA_Tooltip_modifier_omniro_poison_pool_enemy_Description"		"Taking damage each <% OMNIRO_ORB_POISON_TICK_INTERVAL %> seconds"
 
 		"omniro_time_orb_description"									"All enemies in a <% OMNIRO_ORB_TIME_AOE %> radius around the target are frozen for a duration. When the freeze ends, they take damage based on Omniro's attack power."
 		"omniro_time_orb_a_pretext"										"DAMAGE, % OF ATTACK POWER:"				

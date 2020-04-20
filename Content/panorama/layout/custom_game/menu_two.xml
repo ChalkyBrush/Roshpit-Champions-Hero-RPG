@@ -6,6 +6,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/util/util.js" />
 		<include src="file://{resources}/scripts/custom_game/menu/menu.js" />
+		<include src="file://{resources}/scripts/custom_game/tooltips/tooltips.js" />
 		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 	</scripts>
 	<snippets>

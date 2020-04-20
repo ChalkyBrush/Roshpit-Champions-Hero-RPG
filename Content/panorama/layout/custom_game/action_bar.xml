@@ -5,6 +5,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/action_bar.js" />
+		<include src="file://{resources}/scripts/custom_game/tooltips/tooltips.js" />
 	</scripts>
 	<Panel class="AbilityOverlayRoot">
 		<Panel id="ability_list" />

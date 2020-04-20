@@ -75,495 +75,7 @@
 			}
 		}
 	}
-	
-	"onibi_nature_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_nature"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
 
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"nature"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_lightning_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_lightning"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"lightning"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_cosmic_1"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_cosmic"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"cosmic"
-				"index"			"1"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_nature_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_nature"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"nature"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_lightning_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_lightning"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"lightning"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_cosmic_2"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/onibi_cosmic"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_essence"
-				"essence"		"cosmic"
-				"index"			"2"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_q"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_q"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"q"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_onibi_master_thinker"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"ThinkInterval"  "1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-						"Function"		"onibi_master_rune_thinker"
-					}
-				}
-			}
-			"modifier_onibi_all_attributes"
-			{
-				"IsHidden"	"1"
-			}
-			"modifier_onibi_base_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "<% JEX_RUNE_ROW_1_VALUE %>"
-				}
-			}
-		}
-	}
-
-	"onibi_w"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_w"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"w"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_e"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_e"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_activate_ability_key"
-				"ability_key" 	"e"
-			}
-		}
-		"Modifiers"
-		{
-
-		}
-	}
-
-	"onibi_invoke"
-	{
-		// General
-		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"jex/invoke_ability"
-		"LevelsBetweenUpgrades"  "0"
-		"MaxLevel"				 "7"
-		"AbilityType"            "DOTA_ABILITY_TYPE_ULTIMATE"
-		// Precache
-		//-------------------------------------------------------
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0.1"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"0"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
-		{
-
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/arc_warden/abilities/onibi.lua"
-				"Function"		"onibi_invoke"
-			}
-		}
-		"Modifiers"
-		{
-		}
-	}
 
 
 	"jex_essence_harvest"
@@ -1955,32 +1467,15 @@
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/arc_warden/jex_lightning_lightning_w.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/vortex_weapon"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"20 45 70 95 120 145 170"
+		"AbilityUnitDamageType"			"<% JEX_LIGHTNING_LIGHTNING_W_DAMAGE_TYPE %>"
 
 		// Special
 		//-------------------------------------------------------
@@ -1989,100 +1484,32 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"jumps_per_tech"			"1"
+				"jumps_per_tech"			"<% JEX_LIGHTNING_LIGHTNING_W_CHAIN_PER_TECH %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_dmg_pct_per_tech"			"8"
+				"attack_dmg_pct_per_tech"			"<% JEX_LIGHTNING_LIGHTNING_W_BONUS_DAMAGE_PCT_PER_TECH %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage_mult"			"6 8 10 12 14 16 18"
+				"damage_mult"			"<% JEX_LIGHTNING_LIGHTNING_W_DAMAGE_PCT * 100 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_cost"			"20 45 70 95 120 145 170"
+				"mana_cost"			"<% JEX_LIGHTNING_LIGHTNING_W_MANA_COST %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attack_speed"			"180 195 210 225 240 255 270"
+				"attack_speed"			"<% JEX_LIGHTNING_LIGHTNING_W_BONUS_ATTACKSPEED %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"w_4_agility_added_to_lightning_damage"			"0.1"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_jex_vortex_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_jex_vortex_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_jex_vortex_w"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-				}
-				"StatusEffectName"	"particles/status_fx/status_effect_electrical.vpcf"
-				"StatusEffectPriority"	"100"
-				"EffectName"		"particles/roshpit/jex/thunder_flow_ambient.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnAttackLanded"
-				// "%attack_damage" is set to the damage value before mitigation
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_attack_land"
-						"drain_mana"	"%mana_cost"
-						"damage_mult"	"%damage_mult"
-						"jumps_per_tech"	"%jumps_per_tech"
-						"w_4_agility_added_to_lightning_damage"	"%w_4_agility_added_to_lightning_damage"
-					}
-				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_toggled_on"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_lightning_lightning.lua"
-						"Function"		"jex_lightning_lightning_toggled_off"
-					}
-				}
-			}
-			"modifier_jex_vortex_w_attack_dmg"
-			{
-				"IsHidden" "1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_dmg_pct_per_tech"
-				}
+				"w_4_agility_added_to_lightning_damage"			"<% JEX_LIGHTNING_LIGHTNING_W_BASE_DMG_PER_AGI_PER_W4 %>"
 			}
 		}
 	}
@@ -2486,40 +1913,19 @@
 		}
 	}
 
-	"jex_nature_cosmic_w"
+	"jex_cosmic_nature_w"
 	{
 		// General
 		//-------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/arc_warden/jex_cosmic_nature_w.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"jex/invoked_abilities/equilibrium_shifter"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"LevelsBetweenUpgrades"  "0"
 		"MaxLevel"				 "7"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		// Precache
-		//-------------------------------------------------------
-		"precache"
-		{
-
-		}
-
-		// Casting
-		//-------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time
-		//-------------------------------------------------------
-		"AbilityCooldown"				"0"
-		// Cost
-		//-------------------------------------------------------
-		"AbilityManaCost"				"60 180 300 420 540 660 780"
-
-		// Special
-		//-------------------------------------------------------
-		"AbilitySpecial"
+				"AbilitySpecial"
 		{
 			"01"
 			{
@@ -2555,86 +1961,6 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"e_4_mana_drain_per_second_reduction"			"2"
-			}
-		}
-		"OnToggleOn"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_jex_nature_cosmic_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_jex_nature_cosmic_w"
-				"Target" 		"CASTER"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_jex_nature_cosmic_w"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%attack_damage"
-				}
-				"EffectName"		"particles/roshpit/jex/equilibrium_shift_heal.vpcf"
-				"EffectAttachType"	"attach_origin"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_nature_cosmic_toggled_on"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"jex_nature_cosmic_toggled_off"
-					}
-				}
-				"ThinkInterval"  "1.0"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/arc_warden/abilities/w_nature_cosmic.lua"
-						"Function"		"nature_cosmic_w_think"
-						"mana_drain_per_second"	"%mana_drain_per_second"
-						"e_4_mana_drain_per_second_reduction"	"%e_4_mana_drain_per_second_reduction"
-					}
-				}
-			}
-			"modifier_jex_nature_cosmic_movespeed"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_bonus_per_tech"
-				}
-			}
-			"modifier_jex_nature_cosmic_w_max_mana"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "%q_4_max_mana_while_toggled_on"
-				}
-			}
-			"modifier_jex_nature_cosmic_attack_damage"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
-				}
 			}
 		}
 	}

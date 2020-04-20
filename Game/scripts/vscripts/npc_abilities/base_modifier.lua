@@ -5,11 +5,11 @@ local class = npc_base_modifier
 function class:HasSpecialTypes(types)
     self.specialTypes = self.specialTypes or {}
     for _,type in pairs(types) do
-        if not self.specialTypes[type] then
-            return false
+        if self.specialTypes[type] then
+            return true
         end
     end
-    return true
+    return false
 end
 function class:SetSpecialTypes(types)
     self.specialTypes = {}
@@ -38,7 +38,11 @@ function class:OnDestroy()
 end
 
 function class:CheckOnDamageTaken(event)
-    return event.attacker ~= self:GetParent() and event.inflictor == nil and event.damage > 0 
+    return IsValidEntity(event.attacker) and --Does Attacker still exist?
+            event.attacker ~= self:GetParent() and --Attacker cant be unit that has the modifier
+            event.inflictor == nil and --This removes the base auto attack and only allows skills and the roshpit custom auto attack
+            event.damage > 0 and --Does it even deal dmg?
+            event.unit == self:GetParent() --Is the unit that has the modifier really the victim?
 end
 
 function class:GetRadius(baseRadius)

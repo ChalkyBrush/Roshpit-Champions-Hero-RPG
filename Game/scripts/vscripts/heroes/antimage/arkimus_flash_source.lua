@@ -2,14 +2,14 @@ require('heroes/antimage/arkimus_constants')
 require('heroes/base_ability')
 arkimus_flash_source = class(base_ability)
 
-function arkimus_flash_source:GetBaseManaCost(level)
+function arkimus_flash_source:GetManaCostBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
     return ARKIMUS_W_MANA_COST[level + 1]
 end
 
-function arkimus_flash_source:GetBehavior()
+function arkimus_flash_source:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_TOGGLE
 end
 
@@ -21,7 +21,7 @@ function arkimus_flash_source:GetCastPoint()
     return 0
 end
 
-function arkimus_flash_source:GetBaseCooldown(level)
+function arkimus_flash_source:GetCooldownBase(level)
     return 0
 end
 

@@ -41,7 +41,7 @@ function jex_activate_q_fire_cosmic(event)
 	local cast_index = ability.cast_index
 	CustomAbilities:QuickParticleAtPoint("particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf", caster:GetAbsOrigin(), 3)
 	table.insert(ability.meteor_showers_table, new_meteor_shower)
-	local tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "cosmic", "Q")
 	EmitSoundOn("Jex.Grunt", caster)
 	EmitSoundOn("Jex.MeteorShower.Start", caster)
 	local w_4_level = caster:GetRuneValue("w", 4)
@@ -49,7 +49,7 @@ function jex_activate_q_fire_cosmic(event)
 	Timers:CreateTimer(0.03, function()
 		StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1.2})
 	end)
-	local tech_level = onibi_get_total_tech_level(caster, "fire", "cosmic", "Q")
+	local tech_level = GetOnibiTotalTechLevel(caster, "fire", "cosmic", "Q")
 	local meteors = event.base_meteors + event.meteors_per_tech * tech_level
 	local stun_duration = event.e_4_stun_duration * e_4_level
 

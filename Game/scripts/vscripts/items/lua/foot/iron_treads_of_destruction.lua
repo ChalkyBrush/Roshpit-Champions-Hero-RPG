@@ -1,4 +1,4 @@
-require('items/lua/foot/base')
+require('items/lua/foot/base_boot')
 require('npc_abilities/base_modifier')
 
 item_rpc_iron_treads_of_destruction = class(BaseFoot, nil, BaseFoot)
@@ -25,7 +25,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_iron_treads_of_destruction"
-    self:SetSpecialValue("iron_treads_of_destruction", "#4259F4")
+    self:SetSpecialValue("iron_treads_of_destruction", ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_COLOR)
 end
 function itemClass:RollProperty2(item_level)
     local rune_type = RPCItems:RollRuneType({"r"}, {tier1 = 35, tier2 = 70, tier3 = 90, tier4 = 100})
@@ -48,7 +48,8 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_AGILITY_BONUS,
         MODIFIER_ROSHPIT_INTELLIGENCE_BONUS,
         MODIFIER_ROSHPIT_SPIRIT_BONUS,
-        MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD
+        MODIFIER_ROSHPIT_R_PCT_CHANNELTIME_MOD,
+        MODIFIER_ROSHPIT_TOOLTIP_R
     })
 end
 function modifierClass:DeclareFunctions()
@@ -77,6 +78,17 @@ function modifierClass:GetRoshpitSpiritBonus()
 end
 function modifierClass:GetRoshpitRPctChanneltimeModifier()
     return - ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_PCT_CHANNELTIME_MOD
+end
+function modifierClass:GetRoshpitTooltipR()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_IRON_TREADS_OF_DESTRUCTION_COLOR, 
+        immortal = true, 
+        ruby = 0, --self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 function modifierClass:IsHidden()
     return true

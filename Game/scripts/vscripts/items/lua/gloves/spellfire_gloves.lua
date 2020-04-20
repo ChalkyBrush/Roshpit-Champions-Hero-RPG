@@ -1,4 +1,4 @@
-require('items/lua/gloves/base')
+require('items/lua/gloves/base_glove')
 require('npc_abilities/base_modifier')
 
 item_rpc_spellfire_gloves = class(BaseGloves, nil, BaseGloves)
@@ -36,7 +36,7 @@ end
 function itemClass:RollProperty1(item_level)
     self.newItemTable.property1 = 1
     self.newItemTable.property1name = "!immortal!_modifier_spellfire_gloves"
-    self:SetSpecialValue("spellfire_gloves", "#FFA62B")
+    self:SetSpecialValue("spellfire_gloves", ITEM_RPC_SPELLFIRE_GLOVES_COLOR)
 end
 function itemClass:RollProperty2(item_level)
     local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier3 = 80, tier4 = 100})
@@ -61,7 +61,10 @@ function modifierClass:OnCreated()
         MODIFIER_ROSHPIT_W_PCT_CD_MOD,
         MODIFIER_ROSHPIT_E_PCT_CD_MOD,
         MODIFIER_ROSHPIT_R_PCT_CD_MOD,
-        MODIFIER_ROSHPIT_R_FLAT_CHANNELTIME_MOD
+        MODIFIER_ROSHPIT_R_FLAT_CHANNELTIME_MOD,
+        MODIFIER_ROSHPIT_TOOLTIP_Q,
+        MODIFIER_ROSHPIT_TOOLTIP_W,
+        MODIFIER_ROSHPIT_TOOLTIP_E
     })
 end
 function modifierClass:DeclareFunctions()
@@ -216,6 +219,40 @@ end
 
 function channelModifierClass:OnCreated()
     self:StartIntervalThink(0.1)
+end
+
+function modifierClass:GetRoshpitTooltipQ()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_SPELLFIRE_GLOVES_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
+end
+function modifierClass:GetRoshpitTooltipW()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_SPELLFIRE_GLOVES_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
+end
+function modifierClass:GetRoshpitTooltipE()
+    return { 
+        itemIndex = self:GetAbility():GetEntityIndex(), 
+        color = ITEM_RPC_SPELLFIRE_GLOVES_COLOR, 
+        immortal = false, 
+        ruby = self:GetAbility():GetGemValue("ruby"), 
+        amethyst = 0, --self:GetAbility():GetGemValue("amethyst"), 
+        sapphire = 0, --self:GetAbility():GetGemValue("sapphire"), 
+        emerald = 0, --self:GetAbility():GetGemValue("emerald") 
+    }
 end
 
 function channelModifierClass:OnIntervalThink()

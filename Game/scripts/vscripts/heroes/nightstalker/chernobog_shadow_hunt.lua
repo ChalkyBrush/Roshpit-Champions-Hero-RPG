@@ -3,11 +3,11 @@ require('heroes/base_ability')
 --require('heroes/nightstalker/chernobog_common')
 chernobog_shadow_hunt = class(base_ability)
 
-function chernobog_shadow_hunt:GetBaseManaCost(level)
+function chernobog_shadow_hunt:GetManaCostBase(level)
     return 0
 end
 
-function chernobog_shadow_hunt:GetBehavior()
+function chernobog_shadow_hunt:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_TOGGLE + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL + DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT + DOTA_ABILITY_BEHAVIOR_AOE
 end
 
@@ -19,7 +19,7 @@ function chernobog_shadow_hunt:GetCastPoint()
     return 0
 end
 
-function chernobog_shadow_hunt:GetBaseCooldown(level)
+function chernobog_shadow_hunt:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end

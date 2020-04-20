@@ -1280,8 +1280,6 @@ function black_staff_think(event)
 				ParticleManager:DestroyParticle(lightningBolt, false)
 			end)
 			local damageAmount = boss:GetMaxHealth()*0.15
-			damageAmount = damageAmount/Arena:GetResistancePercentage()
-			damageAmount = damageAmount/Arena.PitLevel
 			ApplyDamage({ victim = boss, attacker = enemy, damage = damageAmount, damage_type = DAMAGE_TYPE_PURE })	
 		end
 	end

@@ -4,7 +4,7 @@ require('heroes/antimage/arkimus_common')
 
 arkimus_magnetic_flux = class(base_ability)
 
-function arkimus_magnetic_flux:GetBaseManaCost(level)
+function arkimus_magnetic_flux:GetManaCostBase(level)
     return 0
 end
 
@@ -12,7 +12,7 @@ function arkimus_magnetic_flux:GetAbilitySlot()
     return DOTA_Q_SLOT
 end
 
-function arkimus_magnetic_flux:GetBaseCooldown(level)
+function arkimus_magnetic_flux:GetCooldownBase(level)
     if level == -1 then
         level = self:GetLevel() - 1
     end
@@ -20,7 +20,7 @@ function arkimus_magnetic_flux:GetBaseCooldown(level)
 end
 
 
-function arkimus_magnetic_flux:GetBehavior()
+function arkimus_magnetic_flux:GetBehaviorBase()
     return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING
 end
 
@@ -236,9 +236,8 @@ function modifier_arkimus_arcana_q_3:DeclareFunctions()
 end
 
 function modifier_arkimus_arcana_q_3:OnTakeDamage(event)
-    local hero = self:GetParent()
     if IsServer() and self:CheckOnDamageTaken(event) then
-        --print(event.damage)
+        local hero = self:GetParent()
         local ability = self:GetAbility()
         if not ability.pfxCount then
             ability.pfxCount = 0
