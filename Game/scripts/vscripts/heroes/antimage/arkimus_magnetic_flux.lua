@@ -236,9 +236,8 @@ function modifier_arkimus_arcana_q_3:DeclareFunctions()
 end
 
 function modifier_arkimus_arcana_q_3:OnTakeDamage(event)
-    local hero = self:GetParent()
     if IsServer() and self:CheckOnDamageTaken(event) then
-        --print(event.damage)
+        local hero = self:GetParent()
         local ability = self:GetAbility()
         if not ability.pfxCount then
             ability.pfxCount = 0

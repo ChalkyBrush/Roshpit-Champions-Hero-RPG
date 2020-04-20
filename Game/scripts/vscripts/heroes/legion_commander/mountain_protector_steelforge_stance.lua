@@ -262,35 +262,27 @@ function modifier_mountain_protector_arcana_w_3:IsHidden()
     return true
 end
 function modifier_mountain_protector_arcana_w_3:OnTakeDamage(event)
-    if IsServer() then
+    if IsServer() and self:CheckOnDamageTaken(event) then
         local attacker = event.attacker
         local hero = self:GetParent()
         local ability = self:GetAbility()
-        if IsValidEntity(attacker) then
-            if not attacker:IsAlive() then
-                return false
+        local w_3_level = hero:GetRuneValue("w", 3)
+        if w_3_level > 0 then
+            Filters:ApplyStun(hero, MOUNTAIN_PROTECTOR_ARCANA1_W3_STUN_DURATION_CONST, attacker)
+            if not ability.w_3_particles then
+                ability.w_3_particles = 0
             end
-            if attacker == hero then
-                return false
-            end
-            local w_3_level = hero:GetRuneValue("w", 3)
-            if w_3_level > 0 then
-                Filters:ApplyStun(hero, MOUNTAIN_PROTECTOR_ARCANA1_W3_STUN_DURATION_CONST, attacker)
-                if not ability.w_3_particles then
-                    ability.w_3_particles = 0
-                end
-                if ability.w_3_particles < 10 then
-                    ability.w_3_particles = ability.w_3_particles + 1
-                    local w_3_damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * MOUNTAIN_PROTECTOR_ARCANA1_W3_DAMAGE_PERCENT / 100 * w_3_level
-                    Filters:TakeArgumentsAndApplyDamage(attacker, hero, w_3_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
-                    local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, hero)
-                    ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
-                    ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin() + Vector(0, 0, 80), true)
-                    Timers:CreateTimer(2.0, function()
-                        ParticleManager:DestroyParticle(pfx, false)
-                        ability.w_3_particles = ability.w_3_particles - 1
-                    end)
-                end
+            if ability.w_3_particles < 10 then
+                ability.w_3_particles = ability.w_3_particles + 1
+                local w_3_damage = OverflowProtectedGetAverageTrueAttackDamage(hero) * MOUNTAIN_PROTECTOR_ARCANA1_W3_DAMAGE_PERCENT / 100 * w_3_level
+                Filters:TakeArgumentsAndApplyDamage(attacker, hero, w_3_damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_NORMAL, RPC_ELEMENT_ICE)
+                local pfx = ParticleManager:CreateParticle("particles/roshpit/mountain_protector/blue_steel_dagon_lvl2_ti5.vpcf", PATTACH_POINT_FOLLOW, hero)
+                ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_POINT, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 80), true)
+                ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT, "attach_hitloc", attacker:GetAbsOrigin() + Vector(0, 0, 80), true)
+                Timers:CreateTimer(2.0, function()
+                    ParticleManager:DestroyParticle(pfx, false)
+                    ability.w_3_particles = ability.w_3_particles - 1
+                end)
             end
         end
     end

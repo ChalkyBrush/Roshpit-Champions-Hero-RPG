@@ -38,7 +38,11 @@ function class:OnDestroy()
 end
 
 function class:CheckOnDamageTaken(event)
-    return event.attacker ~= self:GetParent() and event.inflictor == nil and event.damage > 0 
+    return IsValidEntity(event.attacker) and --Does Attacker still exist?
+            event.attacker ~= self:GetParent() and --Attacker cant be unit that has the modifier
+            event.inflictor == nil and --This removes the base auto attack and only allows skills and the roshpit custom auto attack
+            event.damage > 0 and --Does it even deal dmg?
+            event.unit == self:GetParent() --Is the unit that has the modifier really the victim?
 end
 
 function class:GetRadius(baseRadius)
