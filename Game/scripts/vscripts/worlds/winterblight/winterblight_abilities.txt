@@ -16210,7 +16210,7 @@
 			"modifier_diviner_hierophant_spirit_buff"
 			{
 				"IsHidden"	"0"
-				"EffectName"	"particles/units/heroes/hero_troll_warlord/troll_warlord_berserk_buff.vpcf"
+				"EffectName"	"particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{

@@ -21873,5 +21873,8 @@
 
 		"tarot_hierophant"												"The Hierophant"
 		"tarot_hierophant_description"									"Spiritual Wisdom..."
+
+		"tarot_lovers"												"The Lovers"
+		"tarot_lovers_description"									"Harmony and Alignment..."
 	}	
 }

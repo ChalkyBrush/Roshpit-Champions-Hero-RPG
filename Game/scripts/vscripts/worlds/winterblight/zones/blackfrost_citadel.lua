@@ -803,6 +803,19 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 				Winterblight:GeneralChestSpawn(position, Vector(0,-1))
 			end
 		end
+	elseif Winterblight.CastleTarot["name"] == "fool" then
+		if not Winterblight.CastleFoolChests then
+			Winterblight.CastleFoolChests = 1
+		end
+		if Winterblight.CastleFoolChests > 0 then
+			local luck = RandomInt(1, 9 - Winterblight.CASTLE_DATA["rooms_cleared"])
+			if luck <= Winterblight.CastleFoolChests then
+				Winterblight.CastleFoolChests = Winterblight.CastleFoolChests - 1
+				local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
+				local position = key_positions[RandomInt(1, #key_positions)] + RandomVector(200)
+				Winterblight:GeneralChestSpawn(position, Vector(0,-1))
+			end
+		end
 	end
 end
 

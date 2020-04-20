@@ -106380,7 +106380,7 @@
             "particle"  "particles/roshpit/winterblight/treasure_explosion_colorable.vpcf"  
             "particle"  "particles/units/heroes/hero_oracle/time_blast2flash_glow.vpcf"
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf"
-            "particle"  "particles/units/heroes/hero_troll_warlord/troll_warlord_berserk_buff.vpcf"
+            "particle"  "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
