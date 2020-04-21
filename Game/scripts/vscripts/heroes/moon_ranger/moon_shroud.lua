@@ -45,9 +45,14 @@ function create_moon_shroud_dummy(location, caster, duration, ability)
   if dummy.pfx then
     ParticleManager:DestroyParticle(dummy.pfx, false)
   end
+  if dummy.hero:HasModifier("modifier_astral_glyph_1_2") then
+	aoe_mult = ASTRAL_RANGER_GLYPH_1_2_Q_AOE_MULT
+  else
+    aoe_mult = 1
+  end
   dummy.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
   ParticleManager:SetParticleControl(dummy.pfx, 0, location + Vector(0, 0, 80))
-  ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(400, 400, 200))
+  ParticleManager:SetParticleControl(dummy.pfx, 1, Vector(400*aoe_mult, 400*aoe_mult, 200*aoe_mult))
 end
 
 function moon_shroud_move(caster, point)
@@ -61,12 +66,17 @@ function moon_shroud_move(caster, point)
     if caster:HasModifier("modifier_astral_glyph_4_1") then
       bonus_duration = bonus_duration * (1 - ASTRAL_RANGER_GLYPH_4_1_DURATION_REDUCTION_PCT / 100)
     end
+	if caster:HasModifier("modifier_astral_glyph_1_2") then
+		aoe_mult = ASTRAL_RANGER_GLYPH_1_2_Q_AOE_MULT
+	else
+		aoe_mult = 1
+    end
     local duration = dummy:FindModifierByName("modifier_moon_shroud_thinker"):GetRemainingTime() + bonus_duration
     dummy:FindModifierByName("modifier_moon_shroud_thinker"):SetDuration(duration, true)
     dummy:FindModifierByName("friendly_moon_shroud_thinker"):SetDuration(duration, true)
     local newPfx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/astral_smoke.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(newPfx, 0, point * Vector(1, 1, 0) + Vector(0, 0, 80) + GetGroundHeight(point, caster) * Vector(0, 0, 1))
-    ParticleManager:SetParticleControl(newPfx, 1, Vector(400, 400, 200))
+    ParticleManager:SetParticleControl(newPfx, 1, Vector(400*aoe_mult, 400*aoe_mult, 200*aoe_mult))
     ParticleManager:DestroyParticle(dummy.pfx, false)
     dummy.pfx = newPfx
   end
@@ -129,9 +139,12 @@ function moon_shroud_debuff_apply(event)
   target.origAcquisition = target:GetAcquisitionRange()
   target:SetAcquisitionRange(100)
   local caster = event.caster
+  local hero = event.caster.hero
   local moveDirection = ((target:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
-  if target:HasGroundMovementCapability() then
-    target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
+  if not hero:HasModifier("modifier_astral_glyph_1_2") then
+	  if target:HasGroundMovementCapability() then
+		target:MoveToPosition(target:GetAbsOrigin() + moveDirection * 200)
+	  end
   end
 end
 

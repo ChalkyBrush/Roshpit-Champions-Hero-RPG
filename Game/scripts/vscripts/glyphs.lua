@@ -468,7 +468,7 @@ function Glyphs:GetRandomHeroname()
 end
 
 function Glyphs:GetRandomHeronameForBook()
-	local heroNameTable = {"sorceress", "axe", "trapper", "duskbringer", "venomort", "paladin"}
+	local heroNameTable = {"sorceress", "axe", "trapper", "duskbringer", "venomort", "paladin", "astral"}
 	local random = RandomInt(1, #heroNameTable)
 	return heroNameTable[random]
 end
@@ -858,7 +858,7 @@ function Glyphs:GetAvailableColumnCount(rpcHeroName)
 	local columns = 1
 	if rpcHeroName == "neutral" then
 		columns = 3
-	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" or rpcHeroName == "trapper" or rpcHeroName == "duskbringer" or rpcHeroName == "venomort" or rpcHeroName == "paladin" then
+	elseif rpcHeroName == "sorceress" or rpcHeroName == "axe" or rpcHeroName == "trapper" or rpcHeroName == "duskbringer" or rpcHeroName == "venomort" or rpcHeroName == "paladin" or rpcHeroName == "astral" then
 		columns = 2
 	end
 	return columns
