@@ -99,42 +99,42 @@ function modifier_arkimus_flash_source:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
     local ability = self:GetAbility()
-    if attacker ~= self:GetParent() then
+    if not self:CheckOnAttackLanded(event) then
         return
-    end	
+    end
     if attacker:GetMana() < self:GetAbility():GetManaCost(-1) then
         ability:ToggleAbility()
         return false
     else
         self:GetAbility():PayManaCost()
     end
-	CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_ti_5.vpcf", target, 3)
+    CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_ti_5.vpcf", target, 3)
     local damageMult = ARKIMUS_W_DAMAGE_PCT[self:GetAbility():GetLevel()] / 100
     local attackDamage = OverflowProtectedGetAverageTrueAttackDamage(attacker)
     local damage = attackDamage * damageMult
     Filters:CastSkillArguments(BASE_ABILITY_W, attacker)
-	EmitSoundOn("Akrimus.StormWeaponImpact", target)
-	attacker:RemoveModifierByName("modifier_burnout")
-	local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, ARKIMUS_W_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, ARKMIUS_W_DAMAGE_TYPE, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
-			CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_explode_b_basher_cast.vpcf", enemy, 3)
-		end
-	end
-	local w_1_level = attacker:GetRuneValue("w", 1)
-	if w_1_level > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(attacker, ARKIMUS_W1_DURATION, false)
+    EmitSoundOn("Akrimus.StormWeaponImpact", target)
+    attacker:RemoveModifierByName("modifier_burnout")
+    local enemies = FindUnitsInRadius(attacker:GetTeamNumber(), target:GetAbsOrigin(), nil, ARKIMUS_W_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+    if #enemies > 0 then
+        for _, enemy in pairs(enemies) do
+            Filters:TakeArgumentsAndApplyDamage(enemy, attacker, damage, ARKMIUS_W_DAMAGE_TYPE, BASE_ABILITY_W, RPC_ELEMENT_ARCANE, RPC_ELEMENT_NONE)
+            CustomAbilities:QuickAttachParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5/antimage_manavoid_explode_b_basher_cast.vpcf", enemy, 3)
+        end
+    end
+    local w_1_level = attacker:GetRuneValue("w", 1)
+    if w_1_level > 0 then
+        local duration = Filters:GetAdjustedBuffDuration(attacker, ARKIMUS_W1_DURATION, false)
         attacker:AddNewModifier(attacker, ability, "modifier_arkimus_w_1_damage_buff", {duration = duration})
-		attacker:SetModifierStackCount("modifier_arkimus_w_1_damage_buff", attacker, w_1_level)
-	end
-	local w_4_level = attacker:GetRuneValue("w", 4)
-	local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)
-	if procs > 0 then
-		local duration = Filters:GetAdjustedBuffDuration(attacker, ARKIMUS_W4_SHIELD_DURATION, false)
+        attacker:SetModifierStackCount("modifier_arkimus_w_1_damage_buff", attacker, w_1_level)
+    end
+    local w_4_level = attacker:GetRuneValue("w", 4)
+    local procs = Runes:Procs(w_4_level, ARKIMUS_W4_SHIELD_CHANCE, 1)
+    if procs > 0 then
+        local duration = Filters:GetAdjustedBuffDuration(attacker, ARKIMUS_W4_SHIELD_DURATION, false)
         attacker:AddNewModifier(attacker, ability, "modifier_arkimus_w_4_shield", {duration = duration})
-		attacker:SetModifierStackCount("modifier_arkimus_w_4_shield", attacker, procs)
-	end
+        attacker:SetModifierStackCount("modifier_arkimus_w_4_shield", attacker, procs)
+    end
 end
 
 function modifier_arkimus_flash_source:OnOrderFilter(data)
@@ -320,7 +320,7 @@ function modifier_arkimus_w_3_bonus_damage:OnAttackLanded(event)
     local attacker = event.attacker
     local target = event.target
     local ability = self:GetAbility()
-    if attacker ~= self:GetParent() then
+    if not self:CheckOnAttackLanded(event) then
         return
     end
     attacker:RemoveModifierByName("modifier_arkimus_w_3_dash")
