@@ -3,6 +3,7 @@
 	horizontal-align:center;
 	width:900px;
 	height:1000px;	
+	z-index: -1337;
 }
 
 #heroes_special_attach_point{
