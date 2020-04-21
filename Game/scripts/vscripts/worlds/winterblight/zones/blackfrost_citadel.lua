@@ -2440,6 +2440,8 @@ end
 function Winterblight:SpawnTreasureRoomLoversHearts()
 	local positionTable = {Vector(9498, -2670), Vector(10130, -2278), Vector(10746, -1901)}
 	Winterblight.CastleDungeonMaster.treasure_room_chests = {}
+	local indeces = {1, 2, 3}
+	local shuffledIndeces = WallPhysics:ShuffleTable(indeces)
 	for i = 1, #positionTable, 1 do
 		local chest = Enemies:SpawnEnemyUnit("winterblight_lovers_heart_path", positionTable[i], Vector(1,-1), false)
 		chest:SetAbsOrigin(chest:GetAbsOrigin() + Vector(0,0,110))
@@ -2453,6 +2455,7 @@ function Winterblight:SpawnTreasureRoomLoversHearts()
 		end)
 		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
 		chest.treasure_room = true
+		chest.selection_index = shuffledIndeces[i]
 	end
 end
 

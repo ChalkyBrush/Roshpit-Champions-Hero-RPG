@@ -2210,7 +2210,7 @@ function lover_heart_attacked(event)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_activated", {})
 	caster.opened = true	
 	EmitSoundOn("Winterblight.LoverHeart.Hit", caster)
-	local selection = 3
+	local selection = caster.selection_index
 	Timers:CreateTimer(2, function()
 		local particlePos = GetGroundPosition(caster:GetAbsOrigin(), caster)
 		CustomAbilities:QuickParticleAtPoint("particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf", particlePos, 3)
