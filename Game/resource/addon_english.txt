@@ -21869,6 +21869,16 @@
 		"item_rpc_winterblight_scryers_stone"						"Scryer's Stone"
 		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
 
+		//QUESTS
+
+		"lovers_quest_item_use_fail"						"Must use near Apple Tree"
+
+		"DOTA_Tooltip_ability_item_rpc_galrens_skull"		"Galren's Skull"
+		"item_rpc_galrens_skull_desc"						"Use near an Apple Tree in Winterblight Castle to summon the spirit of Galren."
+
+		"DOTA_Tooltip_ability_item_rpc_elynas_feather"		"Elyna's Feather"
+		"item_rpc_elynas_feather_desc"						"Use near an Apple Tree in Winterblight Castle to summon the spirit of Elyna."
+
 		//tarot
 
 		"tarot_fool"												"The Fool"
@@ -21884,12 +21894,15 @@
 		"tarot_empress_description"									"Abundance and Nurturing..."
 
 		"tarot_emperor"												"The Emperor"
-		"tarot_emperor_description"									"Structure and Authority..."
+		"tarot_emperor_description"									"Authority..."
 
 		"tarot_hierophant"												"The Hierophant"
 		"tarot_hierophant_description"									"Spiritual Wisdom..."
 
 		"tarot_lovers"												"The Lovers"
-		"tarot_lovers_description"									"Harmony and Alignment..."
+		"tarot_lovers_description"									"Duality..."
+
+
+
 	}	
 }

@@ -494,6 +494,9 @@ function castle_key_entering_think(event)
 			if key.skull then
 				EmitSoundOn("Winterblight.KeySpawn.Land", key)
 				EmitSoundOn("Winterblight.KeySpawn.SkullLand", key)
+				local ground_position = GetGroundPosition(key:GetAbsOrigin(), key)
+				key.skullpfx = ParticleManager:CreateParticle("particles/econ/items/silencer/silencer_ti6/silencer_last_word_status_ti6.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(key.skullpfx, 0, ground_position)
 			else
 				EmitSoundOn("Winterblight.KeySpawn.Land", key)
 			end
@@ -527,6 +530,9 @@ function castle_key_waiting_think(event)
 			Timers:CreateTimer(4, function()
 				Winterblight:WinterCastleBossSpawn()
 			end)
+			if key.skullpfx then
+				ParticleManager:DestroyParticle(key.skullpfx, false)
+			end
 		else
 			Winterblight:CastleNextRoomInit()
 		end
@@ -999,7 +1005,11 @@ function winter_treasure_tower_die(event)
 	end
 
 	Timers:CreateTimer(1, function()
-		Winterblight:SpawnTreasureRoomChests()
+		if Winterblight.CastleTarot["name"] == "lovers" then
+			
+		else
+			Winterblight:SpawnTreasureRoomChests()
+		end
 	end)
 end
 
@@ -2185,3 +2195,280 @@ function necro_knight_attack_land(event)
 		ability.necro_knight_table = new_summon_table		
 	end
 end
+
+function lover_heart_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if caster.opened then
+		return false
+	end
+	caster.rotationDivisor = 6
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_rotation_animation", {duration = 2})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_activated", {})
+	caster.opened = true	
+	EmitSoundOn("Winterblight.LoverHeart.Hit", caster)
+	local selection = 3
+	Timers:CreateTimer(2, function()
+		local particlePos = GetGroundPosition(caster:GetAbsOrigin(), caster)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf", particlePos, 3)
+		EmitSoundOn("Winterblight.LoverHeart.Reveal", caster)
+		local prop_name = nil
+		local prop_scale = 1
+		local prop_color = Vector(255, 255, 255)
+		if selection == 1 then
+			prop_name = "winterblight_galren"
+			prop_scale = 0.8
+			prop_color = Vector(70, 70, 70)
+		elseif selection == 2 then
+			prop_name = "winterblight_elyna"
+			prop_scale = 0.8
+			prop_color = Vector(70, 70, 70)
+		elseif selection == 3 then
+			prop_name = "npc_dummy_unit"
+			prop_scale = 0.9
+			prop_color = Vector(255, 44, 44)
+		end
+		local prop = CreateUnitByName(prop_name, caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		if selection == 3 then
+			prop:SetModel("models/props_tree/mango_tree.vmdl")
+			prop:SetOriginalModel("models/props_tree/mango_tree.vmdl")
+		end
+		prop:SetModelScale(prop_scale)
+		Events:ColorWearablesAndBase(prop, prop_color)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, prop, "modifier_diviner_prop_disable", {})
+		Timers:CreateTimer(4, function()
+			Winterblight:UpdateLoversTarot(selection)
+			Winterblight:SpawnRoomKey(10, false)
+		end)
+	end)
+	for i = 1, #Winterblight.CastleDungeonMaster.treasure_room_chests, 1 do
+		local heart = Winterblight.CastleDungeonMaster.treasure_room_chests[i]
+		if heart:GetEntityIndex() ~= caster:GetEntityIndex() then
+			SpecialFX:ColoredPop(heart:GetAbsOrigin(), Vector(255, 120, 120))
+			UTIL_Remove(heart)
+		end
+	end
+end
+
+function lover_heart_main_rotator_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/120)
+	caster:SetForwardVector(rotatedFV)
+end
+
+function lover_heart_rotation_animation(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/caster.rotationDivisor)
+	caster:SetForwardVector(rotatedFV)
+	caster.rotationDivisor = caster.rotationDivisor + 1
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,3.5))
+end
+
+function dragon_dual_burn_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function lovers_special_die(event)
+	local unit = event.unit
+	if unit:GetUnitName() == "winterblight_galren" then
+		RPCItems:CreateBasicConsumable(unit:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
+	elseif unit:GetUnitName() == "winterblight_elyna" then
+		RPCItems:CreateBasicConsumable(unit:GetAbsOrigin(), "item_rpc_elynas_feather", "Elyna's Feather", "mythical", true)
+	end
+end
+
+function use_winterblight_castle_lover_quest_item(event)
+	local caster = event.caster
+	local item = event.ability
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(13773, -2507))
+	if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "apple_tree" and distance < 800 then
+		if event.index == 1 then
+			if not Winterblight.CastleGalrenSpirit then
+				local spawnPos = caster:GetAbsOrigin()+caster:GetForwardVector()*200
+				if Winterblight.CastleElynaSpirit then
+					local spawnDistance = WallPhysics:GetDistance2d(spawnPos, Winterblight.CastleElynaSpirit:GetAbsOrigin())
+					if spawnDistance < 400 then
+						spawnPos = Winterblight.CastleElynaSpirit:GetAbsOrigin() + RandomVector(400)
+					end
+				end
+				local lover = CreateUnitByName("winterblight_galren", spawnPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				lover:SetForwardVector(Vector(0,-1))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, lover, "modifier_diviner_lovers_item_spawn", {})
+				SpecialFX:ColoredSpotlight(lover:GetAbsOrigin(), Vector(255, 60, 60))
+				lover.phase = 0
+				lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,600))
+				Winterblight.CastleGalrenSpirit = lover
+				EmitSoundOn("Winterblight.LoverQuestItemUse", lover)
+				UTIL_Remove(item)
+			end
+		elseif event.index == 2 then
+			if not Winterblight.CastleElynaSpirit then 
+				local spawnPos = caster:GetAbsOrigin()+caster:GetForwardVector()*200
+				if Winterblight.CastleGalrenSpirit then
+					local spawnDistance = WallPhysics:GetDistance2d(spawnPos, Winterblight.CastleGalrenSpirit:GetAbsOrigin())
+					if spawnDistance < 400 then
+						spawnPos = Winterblight.CastleGalrenSpirit:GetAbsOrigin() + RandomVector(400)
+					end
+				end
+				local lover = CreateUnitByName("winterblight_elyna", spawnPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				lover:SetForwardVector(Vector(0,-1))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, lover, "modifier_diviner_lovers_item_spawn", {})
+				SpecialFX:ColoredSpotlight(lover:GetAbsOrigin(), Vector(255, 60, 60))
+				lover.phase = 0
+				lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,600))
+				Winterblight.CastleElynaSpirit = lover
+				EmitSoundOn("Winterblight.LoverQuestItemUse", lover)
+				UTIL_Remove(item)
+			end
+		end
+	else
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "lovers_quest_item_use_fail", duration = 2, style = {color = "red"}, continue = true})
+	end
+end
+
+function lover_quest_spawn_think(event)
+	local lover = event.target
+	if not lover.interval then
+		lover.interval = 0
+	end
+	lover.interval = lover.interval + 1
+	if lover.phase == 0 then
+		if not lover.fallSpeed then
+			lover.fallSpeed = 12
+		end
+		local distanceFromGround = lover:GetDistanceFromGround()
+		lover.fallSpeed = math.max(lover.fallSpeed - 0.1, 7)
+		local distance_check = 20
+		if distanceFromGround > distance_check then
+			lover:SetAbsOrigin(lover:GetAbsOrigin()-Vector(0,0,lover.fallSpeed))
+		else
+			EmitSoundOn("Winterblight.LoverSummon.Land", lover)
+			SpecialFX:ColoredPop(lover:GetAbsOrigin(), Vector(255, 100, 60))
+			lover.phase = 1
+		end
+		if not lover.soundPlayed then
+			if distanceFromGround < 140 then
+				EmitSoundOn("Winterblight.KeySpawn.Land", lover)
+				lover.soundPlayed = true
+			end
+		end
+	elseif lover.phase == 1 then
+		if (Winterblight.CastleGalrenSpirit and lover:GetUnitName() == "winterblight_elyna") or (Winterblight.CastleElynaSpirit and lover:GetUnitName() == "winterblight_galren") then
+			if not lover.other_lover then
+				local other_lover = Winterblight.CastleElynaSpirit
+				if lover:GetUnitName() == "winterblight_elyna" then
+					other_lover = Winterblight.CastleGalrenSpirit
+				end
+				lover.other_lover = other_lover
+			end
+			if lover.other_lover and (lover.other_lover.phase == 1 or lover.other_lover.phase == 2) then
+				CustomAbilities:QuickAttachParticle("particles/msg_fx/big_excalamation.vpcf", lover, 3)	
+				EmitSoundOn("Winterblight.LoverSurprise", lover)
+				local fv = ((lover.other_lover:GetAbsOrigin() - lover:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				lover:SetForwardVector(fv)
+				lover.phase = 100
+				Timers:CreateTimer(1.5, function()
+					lover.phase = 2
+				end)
+			end
+		end
+	elseif lover.phase == 2 then
+		if lover.interval % 10 == 0 then
+			local move_to_position = (lover.other_lover:GetAbsOrigin()) - (((lover:GetAbsOrigin() - lover.other_lover:GetAbsOrigin())*Vector(1,1,0)):Normalized())*400
+			lover:MoveToPosition(move_to_position)
+			local distance = WallPhysics:GetDistance2d(lover:GetAbsOrigin(), lover.other_lover:GetAbsOrigin())
+			if distance < 540 then
+				lover.phase = 3
+				lover:Stop()
+				lover.other_lover:Stop()
+				if not Winterblight.FinalLoverSceneStart then
+					Winterblight.FinalLoverSceneStart = true
+					Timers:CreateTimer(2, function()
+						final_lover_scene(lover, lover.other_lover)
+					end)
+				end
+			end
+		end
+	elseif lover.phase == 4 then
+		local fv = ((lover.other_lover:GetAbsOrigin() - lover:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		lover:SetForwardVector(fv)
+		local perpFV = WallPhysics:rotateVector(fv, 2*math.pi/4)
+		lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,6) + fv*2 + perpFV*13)
+		if lover.interval % 5 == 0 then
+			local distance = WallPhysics:GetDistance2d(lover:GetAbsOrigin(), lover.other_lover:GetAbsOrigin())
+			if distance < 50 then
+				if not Winterblight.FinalLoverPop then
+					Winterblight.FinalLoverPop = true
+					local position = lover:GetAbsOrigin()
+					SpecialFX:ColoredPop(lover:GetAbsOrigin(), Vector(255,40,40))
+					SpecialFX:ColoredPop(lover.other_lover:GetAbsOrigin(), Vector(255,40,40))
+					EmitSoundOn("Winterblight.LoversSequenceEnd", lover)
+					UTIL_Remove(lover)
+					UTIL_Remove(lover.other_lover)
+					UTIL_Remove(lover.heart)
+					local arcana = RPCItems:RollAndDropArcanaByLevel(position, 120, "item_rpc_flamewaker_arcana1")
+					arcana.pickedUp = true
+					Timers:CreateTimer(2, function()
+						Winterblight.FinalLoverPop = nil
+						Winterblight.FinalLoverSceneStart = nil
+						Winterblight.CastleGalrenSpirit = nil
+						Winterblight.CastleElynaSpirit = nil
+					end)
+				end
+			end
+		end
+	end
+	if lover.interval > 100 then
+		lover.interval = 0
+	end
+end
+
+function final_lover_scene(lover1, lover2)
+	local midPoint = (lover1:GetAbsOrigin() + lover2:GetAbsOrigin())/2
+
+	local heart = Enemies:SpawnEnemyUnit("winterblight_lovers_heart_path", midPoint, Vector(1,-1), false)
+	heart:SetAbsOrigin(heart:GetAbsOrigin() + Vector(0,0,110))
+	local particleName = "particles/roshpit/winterblight/colorable_pop.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, heart)
+	ParticleManager:SetParticleControlEnt(pfx, 0, heart, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", heart:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(1,0.2,0.2))
+	EmitSoundOn("Winterblight.LoverHeart.Reveal", heart)
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	heart.rotationDivisor = 10
+	local heart_ability = heart:FindAbilityByName("winterblight_lover_heart_ability")
+	heart_ability:ApplyDataDrivenModifier(heart, heart, "modifier_heart_activated", {})
+	heart_ability:ApplyDataDrivenModifier(heart, heart, "modifier_heart_rotation_animation", {duration = 4})
+
+	Timers:CreateTimer(2, function()
+		Events:smoothTranslate(heart, Vector(0,0,2.5), 94, Vector(0,0), "Winterblight.HeartSequenceRise")
+	end)
+	Timers:CreateTimer(3, function()
+		lover1.phase = 4
+		lover2.phase = 4
+		lover1.animation_distance = WallPhysics:GetDistance2d(lover1:GetAbsOrigin(), lover2:GetAbsOrigin())
+		lover2.animation_distance = WallPhysics:GetDistance2d(lover1:GetAbsOrigin(), lover2:GetAbsOrigin())
+		SpecialFX:ColoredSpotlight(lover1:GetAbsOrigin()+Vector(0,0,30), Vector(60, 255, 255))
+		SpecialFX:ColoredSpotlight(lover2:GetAbsOrigin()+Vector(0,0,30), Vector(60, 255, 255))
+		EmitSoundOn("Winterblight.LoversSequenceRise", heart)
+		lover1.heart = heart
+		lover2.heart = heart
+	end)
+end
+
+-- particles/units/heroes/hero_windrunner/wr_taunt_kiss_heart.vpcf

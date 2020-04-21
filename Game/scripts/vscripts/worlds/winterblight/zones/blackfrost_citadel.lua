@@ -157,6 +157,8 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][7]["index"] = "06"
 		Winterblight.CASTLE_DATA["tarot"][7]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][7]["prop_scale"] = 1.02
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][1] = {index = 10, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][8] = {}
 		Winterblight.CASTLE_DATA["tarot"][8]["name"] = "chariot"
@@ -859,6 +861,14 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		if unit_name == "winterblight_castle_watchman" then
 			unit_name = "winterblight_necro_knight"
 		end
+	elseif Winterblight.CastleTarot["name"] == "lovers" then
+		local possible_units_table = {"winterblight_castle_watchman", "winterblight_draugr", "winterblight_accursed", "winterblight_castle_warrior", "winterblight_elite_castle_warrior", "winterblight_defiler", "winterblight_wraithguard", "winterblight_bloodripper", "winterblight_frozen_mage", "winterblight_frozen_soul", "winterblight_frozen_cage", "winterblight_frozen_phantom", "winterblight_suffering_spirit", "winterblight_elite_ghoul", "winterblight_ghost_pirate"}
+		if WallPhysics:DoesTableHaveValue(possible_units_table, unit_name) then
+			local luck = RandomInt(1, 10)
+			if luck == 1 then
+				unit_name = "winterblight_dual_drake"
+			end
+		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -908,11 +918,16 @@ function Winterblight:CastleRoomEnemyGoalReached(room_index)
 	if not Winterblight.CastleDungeonMaster.key_drops then
 		Winterblight.CastleDungeonMaster.key_drops = 0
 	end
-	Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
-	if Winterblight.CastleDungeonMaster.key_drops == #Winterblight.CastleTarot["rooms"] then
-		Winterblight:SpawnRoomKey(room_index, true)
+	if Winterblight.CastleDungeonMaster.key_drops == 0 and Winterblight.CastleTarot["name"] == "lovers" then
+		Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
+		Winterblight:SpawnTreasureRoomLoversHearts()
 	else
-		Winterblight:SpawnRoomKey(room_index, false)
+		Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
+		if Winterblight.CastleDungeonMaster.key_drops == #Winterblight.CastleTarot["rooms"] then
+			Winterblight:SpawnRoomKey(room_index, true)
+		else
+			Winterblight:SpawnRoomKey(room_index, false)
+		end
 	end
 end
 
@@ -978,6 +993,11 @@ function Winterblight:SpawnCastleRoom1(variant)
 			for i = 1, #positionTable, 1 do
 				local fv = Vector(1,-1)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elite_castle_warrior", positionTable[i], fv, false, false)
+			end
+			if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "galren" then
+				local galren = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_galren", Vector(12207, 15488), Vector(0,-1), false, false)
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, galren, "modifier_lovers_miniboss", {})
 			end
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
@@ -1118,6 +1138,9 @@ function Winterblight:SpawnCastleRoom3(variant)
 			elseif variant == 2 then
 				Winterblight:SpawnCastleRoomUnit(room_index, "winter_castle_faceless_empress", Vector(11859, 12105), Vector(0,-1), false, false)
 			end
+			if Winterblight.CastleTarot["name"] == "lovers" then
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_ice_harbor_mini_boss", Vector(11648, 9984), Vector(0,1), false, false)
+			end
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 	end
@@ -1243,7 +1266,12 @@ function Winterblight:SpawnCastleRoom5(variant)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_ghost_pirate", positionTable[i], fv, false, false)
 				monster.deathCode = "mould_room_mob"
 			end	
-			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2		
+			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
+			if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "elyna" then
+				local galren = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_elyna", Vector(10240, 6656), Vector(1,0), false, false)
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, galren, "modifier_lovers_miniboss", {})
+			end	
 		end)	
 	end
 end
@@ -1771,7 +1799,18 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local fv = Vector(-1,-1)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_frozen_cage", positionTable[i], fv, false, false)
 			end	
-			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_moon_warden", Vector(14712, -2720), Vector(0,-1), false, false)
+			if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "apple_tree" then
+				local apple_tree = CreateUnitByName("npc_dummy_unit", Vector(13773, -2507), false, nil, nil, DOTA_TEAM_NEUTRALS)
+				apple_tree:SetModel("models/props_tree/mango_tree.vmdl")
+				apple_tree:SetOriginalModel("models/props_tree/mango_tree.vmdl")
+				apple_tree:SetModelScale(2)
+				apple_tree:SetRenderColor(255, 44, 44)
+				apple_tree:FindAbilityByName("dummy_unit"):SetLevel(1)
+				local snake_pos = Vector(13773, -2507) + RandomVector(300)
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_serpent_nachash", snake_pos, RandomVector(1), false, false)
+			else
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_moon_warden", Vector(14712, -2720), Vector(0,-1), false, false)
+			end
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	elseif variant == 2 then
@@ -2305,6 +2344,13 @@ function Winterblight:PrecacheTarotAssets()
 		PrecacheUnitByNameAsync("winterblight_slime_emperor", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "hierophant" then
 		PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)	
+	elseif Winterblight.CastleTarot["name"] == "lovers" then
+		PrecacheUnitByNameAsync("winterblight_lovers_heart_path", precache_function)
+		PrecacheUnitByNameAsync("winterblight_dual_drake", precache_function)
+		PrecacheUnitByNameAsync("winterblight_galren", precache_function)
+		PrecacheUnitByNameAsync("winterblight_elyna", precache_function)
+		PrecacheUnitByNameAsync("winterblight_serpent_nachash", precache_function)
+
 	end
 end
 
@@ -2389,4 +2435,58 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		end)
 		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
 	end)
+end
+
+function Winterblight:SpawnTreasureRoomLoversHearts()
+	local positionTable = {Vector(9498, -2670), Vector(10130, -2278), Vector(10746, -1901)}
+	Winterblight.CastleDungeonMaster.treasure_room_chests = {}
+	for i = 1, #positionTable, 1 do
+		local chest = Enemies:SpawnEnemyUnit("winterblight_lovers_heart_path", positionTable[i], Vector(1,-1), false)
+		chest:SetAbsOrigin(chest:GetAbsOrigin() + Vector(0,0,110))
+		local particleName = "particles/roshpit/winterblight/colorable_pop.vpcf"
+		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, chest)
+		ParticleManager:SetParticleControlEnt(pfx, 0, chest, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", chest:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(1,0.2,0.2))
+		EmitSoundOn("Winterblight.LoverHeart.Spawn", chest)
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
+		chest.treasure_room = true
+	end
+end
+
+
+function Winterblight:UpdateLoversTarot(selection)
+	if selection == 1 then
+		Winterblight.CastleLoversPath = "galren"
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][2] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][3] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][4] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][5] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][6] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][7] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][8] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][9] = {index = 1, variant = 1}
+	elseif selection == 2 then
+		Winterblight.CastleLoversPath = "elyna"
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][2] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][3] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][4] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][5] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][6] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][7] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][8] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][9] = {index = 5, variant = 1}
+	elseif selection == 3 then
+		Winterblight.CastleLoversPath = "apple_tree"
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][2] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][3] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][4] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][5] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][6] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][7] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][8] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][9] = {index = 11, variant = 1}
+	end
 end

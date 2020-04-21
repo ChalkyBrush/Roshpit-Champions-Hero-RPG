@@ -948,7 +948,7 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 			end
 			RPCItems:ItemUpdateCustomNetTables(item)
 			return item
-		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" then
+		elseif gearTable.item_variant == "item_rpc_boreal_granite_chunk" or gearTable.item_variant == "item_rpc_grimloks_soul_vessel" or gearTable.item_variant == "item_rpc_galrens_skull" or gearTable.item_variant == "item_rpc_elynas_feather" then
 			local item = RPCItems:CreateBasicConsumable(nil, gearTable.item_variant, gearTable.item_name, RPCItems:GetRarityNameFromFactor(gearTable.rarity), false)
 			item.pickedUp = true
 			if gearTable.validator then
