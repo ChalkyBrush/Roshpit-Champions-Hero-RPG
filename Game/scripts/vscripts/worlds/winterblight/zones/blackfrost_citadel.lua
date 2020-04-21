@@ -1806,6 +1806,7 @@ function Winterblight:SpawnCastleRoom11(variant)
 				apple_tree:SetModelScale(2)
 				apple_tree:SetRenderColor(255, 44, 44)
 				apple_tree:FindAbilityByName("dummy_unit"):SetLevel(1)
+				Winterblight.AppleTreeExists = true
 				local snake_pos = Vector(13773, -2507) + RandomVector(300)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_serpent_nachash", snake_pos, RandomVector(1), false, false)
 			else

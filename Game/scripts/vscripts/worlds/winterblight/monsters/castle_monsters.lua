@@ -2293,7 +2293,7 @@ function use_winterblight_castle_lover_quest_item(event)
 	local caster = event.caster
 	local item = event.ability
 	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(13773, -2507))
-	if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "apple_tree" and distance < 800 then
+	if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "apple_tree" and distance < 800 and Winterblight.AppleTreeExists then
 		if event.index == 1 then
 			if not Winterblight.CastleGalrenSpirit then
 				local spawnPos = caster:GetAbsOrigin()+caster:GetForwardVector()*200
