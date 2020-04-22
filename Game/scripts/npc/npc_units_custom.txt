@@ -106380,9 +106380,10 @@
             "particle"  "particles/roshpit/winterblight/treasure_explosion_colorable.vpcf"  
             "particle"  "particles/units/heroes/hero_oracle/time_blast2flash_glow.vpcf"
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf"
-            "particle"  "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+            "particle"  "particles/roshpit/winterblight/purple_buff.vpcf"
             "particle"  "particles/econ/items/silencer/silencer_ti6/silencer_last_word_status_ti6.vpcf"
             "particle"  "particles/roshpit/winterblight/chariot_teleport.vpcf"
+            "particle"  "particles/roshpit/winterblight/red_buff.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -110916,6 +110917,206 @@
         "RoshpitColorRenderR"   "255"
         "RoshpitColorRenderG"   "50"
         "RoshpitColorRenderB"   "80"   
+    }
+
+    "winterblight_castle_strength_spine_drake"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/dragon_knight/aurora_warrior_set_dragon_style2_aurora_warrior_set/aurora_warrior_set_dragon_style2_aurora_warrior_set.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "340"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "SoundSet"      "Hero_Winter_Wyvern"
+        "precache"
+        {
+
+        }
+
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileModel"   "particles/neutral_fx/black_dragon_attack.vpcf"
+        "ProjectileSpeed"   "1000"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1540"
+        "AttackDamageMax"   "1550"
+        "AttackRate"    "0.8"
+        "AttackAnimationPoint"  "0.42"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "840"
+        "BountyGoldMin" "50"
+        "BountyGoldMax" "60"
+        "BountyXP" "155"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "BuildTime" "0"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+        "MovementSpeed" "500"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "33000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "PathfindingSearchDepthScale" "0.2"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+          
+            }
+
+        }
+        "Ability1"  "winterblight_crystal_charge"
+        "Ability2"  "ghost_frost_attack"
+        "Ability3"  "winterblight_wolf_ability"
+        "Ability4"  "mega_steadfast"
+        "Ability5"  "winterblight_tanky"
+        "Ability6"  "winterblight_spine_drake_death_animation"
+        "RoshpitArmor"          "600"
+        "RoshpitArmorPierce"    "480"
+        "RoshpitSpellPierce"    "420"
+        "RoshpitMagicArmor"     "480"
+        "RoshpitLevel"          "38"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
+        "RoshpitMatGroup"       "3"
+        "RoshpitAggroSound"     "Winterblight.SpineDrake.Aggro"
+        "RoshpitDeathSound"     "Winterblight.SpineDrake.Death"
+        "RoshpitAI1"            "2"
+        "RoshpitCastAOE"        "800"
+        "RoshpitAIFightJuke"    "1"
+    }
+
+    "winterblight_lost_gladiator"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/axe/axe.vmdl"
+        "ModelScale"    "2.4"
+        "Level" "1"
+        "HealthBarOffset"   "340"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Axe"
+        "precache"
+        {
+            "particle" "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+            "particle"  "particles/roshpit/winterblight/strength_rock_explode.vpcf"
+            "soundfile"     "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1400"
+        "AttackDamageMax"   "1400"
+        "AttackRate"    "1.4"
+        "AttackAnimationPoint"  "0.32"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "320"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "14600"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "340"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "156400"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "strength_boss_charge"
+        "Ability2"      "mega_steadfast"
+        "Ability3"      "fire_temple_frenzy"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "RoshpitArmor"      "805"
+        "RoshpitArmorPierce"    "910"
+        "RoshpitSpellPierce"    "80"
+        "RoshpitMagicArmor"     "420"
+        "RoshpitLevel"          "38"
+        "EnemyTier"      "3"
+        "RoshpitColorRenderType"    "1"
+        "RoshpitColorRenderR"   "80"
+        "RoshpitColorRenderG"   "80"
+        "RoshpitColorRenderB"   "80"   
+        "RoshpitAI1"            "1"
+        "RoshpitCastAOE"        "1750"
+        "RoshpitTargetSearchPreference" "2"
+        "RoshpitAggroSound"     "Winterblight.StrengthBoss.Charge"
+        "RoshpitDeathSound"     "Winterblight.StrengthBoss.Death"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9040"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12954"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7767"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "7766"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "5472"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
     }
     
 

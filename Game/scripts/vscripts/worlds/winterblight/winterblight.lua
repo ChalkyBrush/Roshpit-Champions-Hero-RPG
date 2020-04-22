@@ -245,9 +245,10 @@ end
 function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
-  Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
-  Winterblight:WinterCastleBossSpawn()
-
+  -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
+  -- Winterblight:WinterCastleBossSpawn()
+  Winterblight:SpawnStrengthEvent()
+  
   -- Winterblight:SpawnCastleRoom12(variant)
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]

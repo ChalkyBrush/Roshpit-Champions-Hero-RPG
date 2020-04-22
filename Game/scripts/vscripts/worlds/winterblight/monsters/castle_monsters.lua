@@ -940,9 +940,27 @@ function winter_armory_rock_destroy(event)
 	local caster = event.caster
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/rock_explode.vpcf", caster:GetAbsOrigin(), 5)
 	EmitSoundOn("Winterblight.BlueRock.Explode", caster)
-	for j = -1, 1, 1 do
-		local skeleton = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), RandomVector(1), true, true)
-		CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", skeleton:GetAbsOrigin(), 4)
+	local amount = 3
+	if Winterblight.CastleTarot["name"] == "strength" then
+		amount = 6
+	end
+	if caster.strength_boss_rock then
+		for i = 1, 9, 1 do
+			local fv = WallPhysics:rotateVector(Vector(-1, -0.5), 2*math.pi*i/9)
+			local monster = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), fv, true, false)
+			monster:SetAbsOrigin(monster:GetAbsOrigin() + Vector(0,0,RandomInt(100, 240)))
+			WallPhysics:JumpWithBlocking(monster, fv, RandomInt(14, 16), RandomInt(10, 12), 20, 1)
+			StartAnimation(monster, {duration = 1.35, activity = ACT_DOTA_SPAWN, rate = 0.8})
+		end
+		local spawnPos = caster:GetAbsOrigin()
+		Timers:CreateTimer(0.1, function()
+			Winterblight:SpawnStrengthMiniboss(spawnPos)
+		end)
+	else
+		for j = 1, amount, 1 do
+			local rubble = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), RandomVector(1), true, true)
+			CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", rubble:GetAbsOrigin(), 4)
+		end
 	end
 	Timers:CreateTimer(0.06, function()
 		UTIL_Remove(caster)
@@ -1316,6 +1334,7 @@ function castle_boss_rotator(event)
 					EmitSoundOnLocationWithCaster(surrogate:GetAbsOrigin(), "Winterblight.CastleBoss.SurrogateSpawn", caster)
 					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
 					surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+					Winterblight:AdjustCastleUnit(surrogate)
 				end
 				if caster.rotationDivisor then
 					print(caster.rotationDivisor)
@@ -1913,6 +1932,9 @@ function use_scryers_stone(event)
 				EmitSoundOn("Winterblight.Tarot.ChariotTeleport", caster)
 				ability:EndCooldown()
 				ability:StartCooldown(20)
+			elseif Winterblight.CastleTarot["name"] == "strength" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_strength_attack_power_player", {duration = 40})
 			end
 		end
 	end)
@@ -2529,4 +2551,106 @@ function final_lover_scene(lover1, lover2)
 	end)
 end
 
--- particles/units/heroes/hero_windrunner/wr_taunt_kiss_heart.vpcf
+function strength_charge_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+	local invisible_duration = 3
+	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.targetPoint = target
+	local warpDuration = 3.0
+	ability.fallVelocity = 3
+	ability.forwardVelocity = 45
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_strength_charge_flying", {duration = warpDuration})
+
+	caster:RemoveModifierByName("modifier_end_strength_charge_falling")
+
+    EmitSoundOn("Winterblight.StrengthBoss.Charge", caster)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.6, 0.45, 0.24))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.2, 0.2, 0.2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_FLAIL, rate = 0.7, translate = "forcestaff_friendly"})
+end
+
+function strength_chargeing_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.fv*45), caster)
+    local forwardSpeed = ability.forwardVelocity
+	if blockUnit then
+		forwardSpeed = 0
+		print("BLOCKED?")
+	end
+	print("GOOOO")
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv*forwardSpeed + Vector(0,0,5))
+	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
+	if distance < 100 then
+		caster:RemoveModifierByName("modifier_strength_charge_flying")
+		EndAnimation(caster)
+		Timers:CreateTimer(0.03, function()
+			StartAnimation(caster, {duration=3, activity=ACT_DOTA_TELEPORT_END, rate=0.8})
+		end)
+		if ability.pfx then
+			ParticleManager:DestroyParticle(ability.pfx, false)
+			ability.pfx = false
+		end
+	end
+end
+
+function strength_charge_after_warp_falling(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	ability.fallVelocity = ability.fallVelocity + 3
+	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
+	local damage = event.damage
+	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
+		caster:RemoveModifierByName("modifier_end_strength_charge_falling")
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+
+		local radius = 400
+		local position = caster:GetAbsOrigin()
+		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		local damage = event.damage
+		local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		EmitSoundOn("Winterblight.StrengthChargeQuake", caster)
+		-- FindClearSpaceForUnit(caster, position, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
+				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
+			end
+		end
+	end
+end
+
+function spine_drake_die(event)
+	local caster = event.caster
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.4, 0.4))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.7, 0.7, 0.7))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+	Timers:CreateTimer(0.1, function()
+		UTIL_Remove(caster)
+	end)
+end

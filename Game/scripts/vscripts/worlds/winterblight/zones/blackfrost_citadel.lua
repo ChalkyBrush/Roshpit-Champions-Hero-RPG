@@ -181,6 +181,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][9]["index"] = "08"
 		Winterblight.CASTLE_DATA["tarot"][9]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][9]["prop_scale"] = 0.95
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][1] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][2] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][3] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][4] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][5] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][6] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][7] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][8] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][9]["rooms"][9] = {index = 8, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][10] = {}
 		Winterblight.CASTLE_DATA["tarot"][10]["name"] = "hermit"
@@ -879,6 +889,13 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 				unit_name = "winterblight_dual_drake"
 			end
 		end
+	elseif Winterblight.CastleTarot["name"] == "strength" then
+		if unit_name ~= "winterblight_castle_strength_spine_drake" then
+			local luck = RandomInt(1, 100)
+			if luck == 1 then
+				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_castle_strength_spine_drake", position+RandomVector(240), fv, false, true)
+			end
+		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -903,27 +920,36 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 	elseif Winterblight.CastleTarot["name"] == "chariot" then
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_chariot_speed", {})
+	elseif Winterblight.CastleTarot["name"] == "strength" then
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_strength_attack_power_enemy", {})
 	end
 	return enemy
 end
 
 function Winterblight:AdjustCastleUnit(enemy)
-	if Winterblight.CastleTarot["name"] == "empress" then
-		local newArmor = enemy.roshpit_attributes.roshpit_armor * 2
-		enemy:SetBaseRoshpitArmor(newArmor, false)
+	if enemy:IsAlive() then
+		if Winterblight.CastleTarot["name"] == "empress" then
+			local newArmor = enemy.roshpit_attributes.roshpit_armor * 2
+			enemy:SetBaseRoshpitArmor(newArmor, false)
 
-		local newMagicArmor = enemy.roshpit_attributes.roshpit_magic_armor * 2
-		enemy:SetBaseRoshpitMagicArmor(newMagicArmor, false)
+			local newMagicArmor = enemy.roshpit_attributes.roshpit_magic_armor * 2
+			enemy:SetBaseRoshpitMagicArmor(newMagicArmor, false)
 
-		enemy:CalculateAndSaveRoshpitAttributes()
-	elseif Winterblight.CastleTarot["name"] == "emperor" then
-		local newArmorPierce = enemy.roshpit_attributes.roshpit_armor_pierce * 2
-		enemy:SetBaseRoshpitArmorPierce(newArmorPierce, false)
+			enemy:CalculateAndSaveRoshpitAttributes()
+		elseif Winterblight.CastleTarot["name"] == "emperor" then
+			local newArmorPierce = enemy.roshpit_attributes.roshpit_armor_pierce * 2
+			enemy:SetBaseRoshpitArmorPierce(newArmorPierce, false)
 
-		local newSpellPierce = enemy.roshpit_attributes.roshpit_spell_pierce * 2
-		enemy:SetBaseRoshpitSpellPierce(newSpellPierce, false)
+			local newSpellPierce = enemy.roshpit_attributes.roshpit_spell_pierce * 2
+			enemy:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
-		enemy:CalculateAndSaveRoshpitAttributes()
+			enemy:CalculateAndSaveRoshpitAttributes()
+		elseif Winterblight.CastleTarot["name"] == "strength" then
+			local strength_hp_increase_pct = {30, 60, 90}
+			local newMaxHP = enemy:GetMaxHealth() * (1 + strength_hp_increase_pct[GameState:GetDifficultyFactor()]/100)
+			enemy:SetMaxHPandHealToFull(newMaxHP)
+		end
 	end
 end
 
@@ -1478,8 +1504,17 @@ function Winterblight:SpawnCastleRoom8(variant)
 			local spawnPos = WallPhysics:RandomPointInBlockCollection(vertices)
 			local rock = Enemies:SpawnEnemyUnit("winterblight_armory_rock", spawnPos, RandomVector(1), false)
 			rock:SetAbsOrigin(rock:GetAbsOrigin() + Vector(0,0,40))
-			rock:SetHullRadius(180)
+			if Winterblight.CastleTarot["name"] == "strength" then
+				rock:SetModelScale(2.6)
+				rock:SetHullRadius(260)
+				rock:SetMaxHPandHealToFull(rock:GetMaxHealth()+1)
+			else
+				rock:SetHullRadius(180)
+			end
 		end)
+	end
+	if Winterblight.CastleTarot["name"] == "strength" then
+		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] + 24
 	end
 	if variant == 1 then
 		Timers:CreateTimer(0.5, function()
@@ -2287,6 +2322,9 @@ function Winterblight:CastleBossDeath(boss)
 			end)
 		end)
 	end)
+	Timers:CreateTimer(10, function()
+		Winterblight:PostCastleBossEvents()
+	end)
 	Timers:CreateTimer(13, function()
 		Winterblight:MithrilReward(position, "cruxys")
 	end)
@@ -2344,6 +2382,8 @@ function Winterblight:PostCastleBossEvents()
 	if Winterblight.CastleTarot["name"] == "fool" then
 		Winterblight:OpenCastleDoorByIndex(11)
 		Winterblight:SpawnTreasureRoomChests()
+	elseif Winterblight.CastleTarot["name"] == "strength" then
+		Winterblight:SpawnStrengthEvent()
 	end
 end
 
@@ -2370,7 +2410,9 @@ function Winterblight:PrecacheTarotAssets()
 		PrecacheUnitByNameAsync("winterblight_galren", precache_function)
 		PrecacheUnitByNameAsync("winterblight_elyna", precache_function)
 		PrecacheUnitByNameAsync("winterblight_serpent_nachash", precache_function)
-
+	elseif Winterblight.CastleTarot["name"] == "strength" then
+		PrecacheUnitByNameAsync("winterblight_castle_strength_spine_drake", precache_function)
+		PrecacheUnitByNameAsync("winterblight_lost_gladiator", precache_function)
 	end
 end
 
@@ -2512,4 +2554,99 @@ function Winterblight:UpdateLoversTarot(selection)
 		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][8] = {index = 9, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][7]["rooms"][9] = {index = 11, variant = 1}
 	end
+end
+
+function Winterblight:SpawnStrengthEvent()
+	local spawnPos = Vector(15172, 1750)
+	local rock_hp_table = {30, 40, 60}
+	local rock = Enemies:SpawnEnemyUnit("winterblight_armory_rock", spawnPos, RandomVector(1), false)
+	rock:SetAbsOrigin(rock:GetAbsOrigin() + Vector(0,0,2500))
+	rock:SetModelScale(4.5)
+	rock:SetHullRadius(360)
+	rock.strength_boss_rock = true
+	rock.speed = 20
+	rock.distanceMoved = 0
+	local rock_ability = rock:FindAbilityByName("winterblight_armory_rock_ability")
+	rock_ability:ApplyDataDrivenModifier(rock, rock, "modifier_armory_rock_immune", {duration = 2})
+	rock:SetMaxHPandHealToFull(rock_hp_table[GameState:GetDifficultyFactor()])
+	Timers:CreateTimer(0.03, function()
+		rock.speed = math.min(rock.speed + 1, 100)
+		rock.distanceMoved = rock.distanceMoved + rock.speed
+		rock:SetAbsOrigin(rock:GetAbsOrigin() - Vector(0, 0, rock.speed))
+		if rock.distanceMoved >= 2400 then
+		else
+			return 0.03
+		end
+	end)
+	Timers:CreateTimer(1.4, function()
+		local startPoint = GetGroundPosition(rock:GetAbsOrigin(), Events.GameMaster)
+		EmitSoundOnLocationWithCaster(startPoint, "Winterblight.AzaleaBoss.Stuate.Land", Events.GameMaster)
+
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+		ParticleManager:SetParticleControl(pfx, 0, startPoint)
+		ParticleManager:SetParticleControl(pfx, 5, Vector(0.8, 0.5, 0.3))
+		ParticleManager:SetParticleControl(pfx, 2, Vector(0.9, 0.9, 0.9))
+		Timers:CreateTimer(10, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:ReleaseParticleIndex(pfx)
+		end)
+		ScreenShake(rock:GetAbsOrigin(), 800, 0.8, 0.8, 9000, 0, true)
+
+		local damage = 10000
+		local procs = 0
+		local enemies = FindUnitsInRadius(rock:GetTeamNumber(), rock:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		for _, enemy in pairs(enemies) do
+			ApplyDamage({victim = enemy, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = Winterblight.MasterAbility})
+			Filters:ApplyStun(Events.GameMaster, 3, enemy)
+			FindClearSpaceForUnit(enemy, enemy:GetAbsOrigin(), false)
+		end
+		for j = 0, procs, 1 do
+			Timers:CreateTimer(j * 0.5, function()
+				for i = 0, 4, 1 do
+					Timers:CreateTimer(0.15, function()
+
+						local forkDirection = WallPhysics:rotateVector(Vector(-1, -1), 2 * math.pi * i / 5)
+						local direction = forkDirection
+						if j == 0 then
+							EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Moving", Events.GameMaster)
+						end
+
+						local particleName = "particles/units/heroes/hero_elder_titan/elder_titan_earth_splitter.vpcf"
+						local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+						ParticleManager:SetParticleControl(pfx, 0, startPoint + forkDirection * 50)
+						ParticleManager:SetParticleControl(pfx, 1, startPoint + forkDirection * 3000)
+						ParticleManager:SetParticleControl(pfx, 3, Vector(200, 3.5, 200)) -- y COMPONENT = duration
+						-- ParticleManager:SetParticleControl(pfx, 1, point)
+						Timers:CreateTimer(3.5, function()
+							ParticleManager:DestroyParticle(pfx, false)
+							for i = 1, 3, 1 do
+								EmitSoundOnLocationWithCaster(startPoint, "Winterblight.ArcanaSunder.Explode"..i, Events.GameMaster)
+							end
+							local enemies = FindUnitsInLine(DOTA_TEAM_NEUTRALS, startPoint, startPoint + forkDirection * 3000, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+							for _, enemy in pairs(enemies) do
+								ApplyDamage({victim = enemy, attacker = Events.GameMaster, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = Winterblight.MasterAbility})
+								Filters:ApplyStun(Events.GameMaster, 3, enemy)
+							end
+						end)
+					end)
+				end
+			end)
+		end
+	end)
+end
+
+function Winterblight:SpawnStrengthMiniboss(position)
+	local miniboss = Winterblight:SpawnCastleRoomUnit(8, "winterblight_lost_gladiator", position, Vector(0,-1), true, false)
+	local boss_ability = miniboss:FindAbilityByName("strength_boss_charge")
+	miniboss.cantAggro = true
+	boss_ability:ApplyDataDrivenModifier(miniboss, miniboss, "modifier_disable_player", {duration = 3})
+	StartAnimation(miniboss, {duration = 3.0, activity = ACT_DOTA_TELEPORT, rate = 1})
+	EmitSoundOn("Winterblight.StrengthBoss.Charge", miniboss)
+	local call_particle = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/strength_rock_explode.vpcf", miniboss:GetAbsOrigin(), 4)
+	ScreenShake(miniboss:GetAbsOrigin(), 800, 0.8, 0.8, 9000, 0, true)
+	Timers:CreateTimer(3, function()
+		miniboss:RemoveModifierByName("modifier_disable_player")
+		miniboss.cantAggro = false
+		Dungeons:AggroUnit(miniboss)
+	end)
 end

@@ -16000,6 +16000,16 @@
 				"var_type"			"FIELD_FLOAT"
 				"chariot_enemy_ms"		"20 25 30"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"strength_attack_power_enemy"		"30 65 100"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"strength_attack_power_player"		"40 70 100"
+			}			
 		}
 		"Modifiers"
 		{
@@ -16215,7 +16225,7 @@
 			"modifier_diviner_hierophant_spirit_buff"
 			{
 				"IsHidden"	"0"
-				"EffectName"	"particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+				"EffectName"	"particles/roshpit/winterblight/purple_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"Properties"
 				{
@@ -16282,6 +16292,25 @@
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%chariot_enemy_ms" 
 				}
 			}
+			"modifier_strength_attack_power_enemy"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%strength_attack_power_enemy"
+				}
+			}
+			"modifier_strength_attack_power_player"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/winterblight/red_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%strength_attack_power_player"
+				}
+			}
+
 		}
 	}
 
@@ -17157,6 +17186,14 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_armory_rock_immune"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -18640,6 +18677,138 @@
 				{
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "-135"
 				}
+			}
+		}
+	}
+
+	"strength_boss_charge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/p2/spirit_warp"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"1400"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0 8.0 7.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"500 3000 20000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"strength_charge_start"
+				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_strength_charge_flying"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"strength_chargeing_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_end_strength_charge_falling"
+						"Target" 		"CASTER"
+						"Duration"		"2"
+					}
+				}
+			}
+			"modifier_end_strength_charge_falling"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"strength_charge_after_warp_falling"
+						"damage"		"%damage"
+					}
+				}
+			}
+			"modifier_disable_player"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_spine_drake_death_animation"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"spine_drake_die"
 			}
 		}
 	}
