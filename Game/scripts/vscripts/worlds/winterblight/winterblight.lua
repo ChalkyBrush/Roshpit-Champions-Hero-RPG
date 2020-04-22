@@ -9,7 +9,7 @@ require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
 require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = false
+Winterblight.Winter3Enabled = true
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -243,9 +243,12 @@ function Winterblight:DropGlacierStone(position)
 end
 
 function Winterblight:Debug2()
-
+  -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
+  -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
+  Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   Winterblight:WinterCastleBossSpawn()
 
+  -- Winterblight:SpawnCastleRoom12(variant)
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   --   Winterblight:SpawnRoomKey(1)
@@ -373,7 +376,7 @@ function Winterblight:CalculateHeroZones()
         elseif (WallPhysics:IsWithinRegionA(heroOrigin, Vector(-9856, -9496), Vector(7600,267))) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_mountain"} )
           hero.bgm = "Music.Winterblight.Start"
-        elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,16000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(7136, -3559), Vector(16128, 9004)) then
+        elseif WallPhysics:IsWithinRegionA(heroOrigin, Vector(10816, 11264), Vector(16000,17000)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(11085, 9600), Vector(16128, 11209)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(9892, 8704), Vector(16128,11230)) or WallPhysics:IsWithinRegionA(heroOrigin, Vector(7136, -3559), Vector(16128, 9004)) then
           CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_zone_display", {zoneName = "winterblight_castle"} )
           hero.bgm = "Music.Winterblight.BlackfrostCitadel"
         else
