@@ -2582,6 +2582,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasAbility("star_blink") then
                 cosmosMult = cosmosMult + (ASTRAL_RANGER_E4_COSMIC_AMP/100)*attacker:GetRuneValue("e", 4)
             end
+			if attacker:HasModifier("modifier_astral_glyph_7_2") then
+			cosmosMult = cosmosMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4/100
+			end
             -- if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
             --     cosmosMult = cosmosMult + 0.01 * victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
             -- end
