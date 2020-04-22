@@ -17,6 +17,13 @@ function class:GetBehavior(table)
 	return self.BaseClass.GetBehavior(self)
 end
 
+function class:GetCooldownBase(level)
+	if level == -1 then
+        level = self:GetLevel() - 1
+    end
+    return PALADIN_Q_COOLDOWN[level + 1]
+end
+
 function class:GetIntrinsicModifierName()
 	return "modifier_paladin_q_passive"
 end
