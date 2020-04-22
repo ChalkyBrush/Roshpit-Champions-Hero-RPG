@@ -113,7 +113,7 @@ end
 
 function modifierClass:OnAttackLanded(event)
     local attacker = event.attacker
-    if attacker ~= self:GetParent() then
+    if not self:CheckOnAttackLanded(event) then
         return
     end
     local target = event.target
