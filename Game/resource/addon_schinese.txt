@@ -3052,7 +3052,7 @@
 		"item_rpc_astral_glyph_6_1_description" 				"攻击时攻击分裂，最多可以攻击 @glyph_property1 个额外的单位。"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"[T7-1] 银星雕文"
-		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 <font color='#ccff66'>2</font>x 伤害。"
+		"item_rpc_astral_glyph_7_1_description" 				"施放天体爆发时获得100% 闪避。天体爆发、流星雨、星辰震颤造成 <font color='#ccff66'>1.5</font>x 伤害。"
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"银星"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% 闪避"

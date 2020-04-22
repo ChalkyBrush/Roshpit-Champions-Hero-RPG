@@ -4,7 +4,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"glyphs/book/glyph_book_astral_ranger"
+		"AbilityTextureName"	"glyphs/book/glyph_book_astral"
 		"AbilityCastRange"	"900"
 		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
 		"AbilityCastPoint"	"0"
