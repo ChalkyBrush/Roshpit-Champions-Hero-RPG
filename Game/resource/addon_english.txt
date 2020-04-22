@@ -21905,5 +21905,10 @@
 		"tarot_chariot"												"The Chariot"
 		"tarot_chariot_description"									"Determination..."
 
+		"tarot_strength"												"Strength"
+		"tarot_strength_description"									"Unyielding Power..."
+
+		"tarot_hermit"												"The Hermit"
+		"tarot_hermit_description"									"Isolation..."
 	}	
 }

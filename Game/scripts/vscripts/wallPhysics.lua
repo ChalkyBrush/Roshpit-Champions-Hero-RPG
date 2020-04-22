@@ -682,7 +682,7 @@ end
 function WallPhysics:ShuffleTable(tbl)
 	size = #tbl
 	for i = size, 1, -1 do
-		local rand = math.random(size)
+		local rand = RandomInt(1, size)
 		tbl[i], tbl[rand] = tbl[rand], tbl[i]
 	end
 	return tbl

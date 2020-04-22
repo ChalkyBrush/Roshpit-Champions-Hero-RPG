@@ -1576,14 +1576,17 @@ end
 
 function castle_boss_surrogate_rotator(event)
 	local caster = event.caster
-	local caster = event.caster
 	local ability = event.ability
 	if not caster.interval then
 		caster.interval = 0
 	end
+	local rotation_divisor = 90
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		rotation_divisor = 45
+	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 4) * math.cos(2 * math.pi * caster.interval / 90))
 	caster.interval = caster.interval + 1
-	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 90)
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / rotation_divisor)
 	caster:SetForwardVector(rotatedFV)
 	if caster.interval == 90 then
 		caster.interval = 0
@@ -1625,7 +1628,7 @@ function ice_skull_create(caster, ability)
 
     local baseFV = caster:GetForwardVector()
     local projectileFV = WallPhysics:rotateVector(baseFV, 2 * math.pi * dummy.index / dummy.rotationDelta)
-    local pfx = ParticleManager:CreateParticle("particles/econ/items/lich/lich_ti8_immortal_arms/lich_ti8_chain_frost.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/boss_death_skull.vpcf", PATTACH_CUSTOMORIGIN, caster)
     local base_position = GetGroundPosition(caster:GetAbsOrigin(), caster) + Vector(0,0,80)
     ParticleManager:SetParticleControl(pfx, 0, base_position)
     ParticleManager:SetParticleControl(pfx, 1, GetGroundPosition(caster:GetAbsOrigin() + projectileFV * 700 + Vector(0, 0, 80), caster))
@@ -1679,22 +1682,25 @@ function ice_skull_thinker(event)
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.EnergyField.Hit", caster)
 			for _, enemy in pairs(enemies) do
-				print("HIT ENEMY")
-				local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", enemy, 3)
-				ParticleManager:SetParticleControl(pfx1, 3, enemy:GetAbsOrigin()+Vector(0,0,40))
-				EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Winterblight.Reaper.Scream", caster)
-				EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", enemy)
-				EmitSoundOn("Winterblight.CastleBoss.SkullImpact", enemy)
-				local particleName = "particles/roshpit/winterblight/econ/items/necrolyte/necro_sullen_harvest/red_reaper.vpcf"
-				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
-				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-				for i = 1, 9, 1 do
-					ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() , true)
+				local heightDifference = enemy:GetAbsOrigin().z - dummy:GetAbsOrigin().z 
+				if heightDifference < 150 then
+					print("HIT ENEMY")
+					local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", enemy, 3)
+					ParticleManager:SetParticleControl(pfx1, 3, enemy:GetAbsOrigin()+Vector(0,0,40))
+					EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Winterblight.Reaper.Scream", caster)
+					EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", enemy)
+					EmitSoundOn("Winterblight.CastleBoss.SkullImpact", enemy)
+					local particleName = "particles/roshpit/winterblight/econ/items/necrolyte/necro_sullen_harvest/red_reaper.vpcf"
+					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
+					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+					for i = 1, 9, 1 do
+						ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() , true)
+					end
+					Timers:CreateTimer(1.2, function()
+						EmitSoundOn("Winterblight.ReaperSlice.Hit", enemy)
+						enemy:ForceKill(false)
+					end)
 				end
-				Timers:CreateTimer(1.2, function()
-					EmitSoundOn("Winterblight.ReaperSlice.Hit", enemy)
-					enemy:ForceKill(false)
-				end)
 			end
 		end
     end

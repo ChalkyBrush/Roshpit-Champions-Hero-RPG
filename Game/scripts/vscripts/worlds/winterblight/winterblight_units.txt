@@ -20870,7 +20870,7 @@
             "particle"  "particles/roshpit/winterblight/castle_boss_projectile.vpcf"
             "particle"  "particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_lightning.vpcf"
             "particle"  "particles/roshpit/winterblight/castle_boss_nuke_explosion_magical.vpcf"
-            "particle"  "particles/econ/items/lich/lich_ti8_immortal_arms/lich_ti8_chain_frost.vpcf"
+            "particle"  "particles/roshpit/winterblight/boss_death_skull.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf"
             "particle"  "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
         }

@@ -17571,11 +17571,11 @@
                               "value0"        "sounds/items/item_necro_death_01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.117000"  }
+                    "volume"            {   "value"     "0.617000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "0.84000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "soundlevel"        {   "value"     "89.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -17699,11 +17699,11 @@
                               "value0"        "sounds/items/item_necro_death_02.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.117000"  }
+                    "volume"            {   "value"     "0.747000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "0.84000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "soundlevel"        {   "value"     "89.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -17763,11 +17763,11 @@
                               "value0"        "sounds/items/item_necro_death_01.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.127000"  }
+                    "volume"            {   "value"     "0.827000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "0.72000"  }
-                    "soundlevel"        {   "value"     "92.00000" }
+                    "soundlevel"        {   "value"     "89.00000" }
                     "distance_max"      {   "value"     "3000.000"  }
                     "event_type"        {   "value"     "1.000000"  }
                 }
@@ -17795,7 +17795,7 @@
                               "value0"        "sounds/items/item_necro_death_02.vsnd"
                         }
                     }
-                    "volume"            {   "value"     "1.117000"  }
+                    "volume"            {   "value"     "0.817000"  }
                     "pitch_rand_min"    {   "value"     "-0.00000"  }
                     "pitch_rand_max"    {   "value"     "0.000000"  }
                     "pitch"             {   "value"     "1.14000"  }
