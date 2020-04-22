@@ -781,7 +781,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
         local modifiers = target:FindAllModifiersByName("modifier_pirate_aura_debuff")
         for _, modifier in pairs(modifiers) do
             local pirateCaster = modifier:GetCaster()
-            local finalValue = OverflowProtectedMaxHealingValue(healAmount * 100)
+            local finalValue = OverflowProtectedMaxHealingValue(healAmount)
             Filters:ApplyHeal(pirateCaster, pirateCaster, finalValue, true)
         end
     end

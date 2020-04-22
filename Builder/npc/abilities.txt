@@ -67333,7 +67333,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"heal_mult"			"100"
+				"heal_mult"			"1"
 			}
 			"02"
 			{
@@ -67356,6 +67356,7 @@
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster"	"0"
 			}
 			"modifier_pirate_aura_debuff"
 			{
