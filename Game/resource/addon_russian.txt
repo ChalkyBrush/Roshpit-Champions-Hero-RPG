@@ -2670,13 +2670,37 @@
 		"item_rpc_astral_glyph_6_1_description" 				"Стрелы от обычных атак разделяются при попадании и могут поразить до <font color='#ccff66'>10</font> дополнительных целей, при этом может сработать [Q2], но не другие модификаторы атаки. Физический урон стрел равен половине от урона атаки."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"[T7-1] Glyph of Silver Stars"
-		"item_rpc_astral_glyph_7_1_description" 				"Во время произнесения (R) @Ability4, герой уворачивается от 100% атак. (R) @Ability4 и [R1] наносят <font color='#ccff66'>2</font>-кратный урон."
+		"item_rpc_astral_glyph_7_1_description" 				"Во время произнесения (R) @Ability4, герой уворачивается от 100% атак. (R) @Ability4, Starstorm и Star Quakes наносят <font color='#ccff66'>1.5</font>-кратный урон."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% уклонение"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] Glyph of Parallax Arrows"
 		"item_rpc_astral_glyph_5_a_description" 				"Увеличивает Базовый Урон атаки на <font color='#ccff66'>1000</font>."
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_book" 		"Книга Глифов Astral Ranger"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_2"       "[T1-2] Glyph of Rarefied Shroud"
+        "item_rpc_astral_glyph_1_2_description"                "(Q) Moon Shroud имеет в x<font color='#ccff66'>2</font> раз(а) большую область действия, но противники внутри облака больше не дезориентируются."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_2_2"       "[T2-2] Glyph of Moonlight Bowstring"
+        "item_rpc_astral_glyph_2_2_description"                "Стрелы способности (W) Split Shot имеют дополнительную дальность <font color='#ccff66'>800</font> единиц."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_3_2"       "[T3-2] Glyph of Satellite"
+        "item_rpc_astral_glyph_3_2_description"                "(R2) Star Quakes образует взрывы с увеличенной задержкой <font color='#ccff66'>0.4</font> сек, но область эффекта увеличена до <font color='#ccff66'>550</font>. Урон Star Quakes также увеличен на x<font color='#ccff66'>1.3</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_4_2"       "[T4-2] Glyph of Furious Rift"
+        "item_rpc_astral_glyph_4_2_description"                "Урон @Ability3 увеличен на x<font color='#ccff66'>3</font> от общей Силы Атаки Astral Ranger."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_5_2"       "[T5-2] Glyph of Celestial Presence"
+        "item_rpc_astral_glyph_5_2_description"                "Противники в радиусе <font color='#ccff66'>500</font> от героя теряют <font color='#ccff66'>50</font> скорости атаки."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] Glyph of Crystal Arrowheads"
+        "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <font color='#ccff66'>5</font>% шанс обездвижить противника."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
+        "item_rpc_astral_glyph_7_2_description"                "Каждая руна 4го ряда дополнительно увеличивает урон <font color=\"#C25DFC\">Космоса</font> на <font color='#ccff66'>2</font>%."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

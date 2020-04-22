@@ -59,7 +59,7 @@
             "03"
             {
                 "var_type"              "FIELD_INTEGER"
-                "damage"                "15 35 65 95 125 155 185"
+                "damage"                "<% ASTRAL_RANGER_Q_DAMAGE %>"
             }
             "04"
             {

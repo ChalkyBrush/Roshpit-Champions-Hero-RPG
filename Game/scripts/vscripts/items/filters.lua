@@ -566,10 +566,10 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
     end
 
-    if abilityCooldown ~= baseCD then
+    --if abilityCooldown ~= baseCD then
         ability:EndCooldown()
         ability:StartCooldown(abilityCooldown)
-    end
+    --end
 end
 function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
@@ -781,7 +781,7 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
         local modifiers = target:FindAllModifiersByName("modifier_pirate_aura_debuff")
         for _, modifier in pairs(modifiers) do
             local pirateCaster = modifier:GetCaster()
-            local finalValue = OverflowProtectedMaxHealingValue(healAmount * 100)
+            local finalValue = OverflowProtectedMaxHealingValue(healAmount)
             Filters:ApplyHeal(pirateCaster, pirateCaster, finalValue, true)
         end
     end
@@ -2582,6 +2582,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
             if attacker:HasAbility("star_blink") then
                 cosmosMult = cosmosMult + (ASTRAL_RANGER_E4_COSMIC_AMP/100)*attacker:GetRuneValue("e", 4)
             end
+			if attacker:HasModifier("modifier_astral_glyph_7_2") then
+			cosmosMult = cosmosMult + (attacker:GetRuneValue("q", 4) + attacker:GetRuneValue("w", 4) + attacker:GetRuneValue("e", 4) + attacker:GetRuneValue("r", 4))*ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4/100
+			end
             -- if victim:HasModifier("modifier_apollo_c_b_proc_invisible") then
             --     cosmosMult = cosmosMult + 0.01 * victim:GetModifierStackCount("modifier_apollo_c_b_proc_invisible", attacker)
             -- end

@@ -2102,11 +2102,11 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 		local dmgMultiplier = (100 - reduction) / 100
 		damage = damage * dmgMultiplier
 	end
-	if victim:HasModifier("modifier_syphist_passive") then
-		if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
-			damage = 0
-		end
-	end
+	-- if victim:HasModifier("modifier_syphist_passive") then
+	-- 	if victim:GetHealth() / victim:GetMaxHealth() >= 0.1 then
+	-- 		damage = 0
+	-- 	end
+	-- end
 	-- if victim:HasModifier("modifier_triboss_powered_up_single") then
 	-- 	local difficultyReduc = {0.7, 0.1, 0.01}
 	-- 	damage = damage * difficultyReduc[GameState:GetDifficultyFactor()]

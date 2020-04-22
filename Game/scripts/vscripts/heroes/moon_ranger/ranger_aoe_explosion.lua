@@ -324,12 +324,22 @@ function r_2_quake_original(ability, caster, r_2_level)
   end
   local radius = ASTRAL_RANGER_R2_EXPLOSION_RADIUS_CONSTANT
   local forwardVector = caster:GetForwardVector()
+  local delay = 0.05 
+  if caster:HasModifier("modifier_astral_glyph_3_2") then
+	delay = ASTRAL_RANGER_GLYPH_3_2_R2_DELAY
+	targetPoint = caster:GetAbsOrigin()
+	radius = ASTRAL_RANGER_GLYPH_3_2_R2_EXP_AOE
+	r_2_damage = r_2_damage * ASTRAL_RANGER_GLYPH_3_2_R2_DAMAGE_MULT
+  end
   for i=-3, 3, 1 do
-    Timers:CreateTimer((i+3)*0.05, function()
-      EmitSoundOn("Astral.CelesialBurst.R2", caster)
-      local rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)
-      local targetPoint = rotatedVector*Vector(240, 240, 0) + caster:GetAbsOrigin()
+    Timers:CreateTimer((i+3)*delay, function()
+      EmitSoundOn("Astral.CelesialBurst.R2", caster)     
       local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_leshrac/astral_rune_b_d.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	  local targetPoint = rotatedVector*Vector(240, 240, 0) + caster:GetAbsOrigin() 
+	  if caster:HasModifier("modifier_astral_glyph_3_2") then
+		targetPoint = caster:GetAbsOrigin()
+	  end
+	  local rotatedVector = rotateVector(forwardVector, i*2*math.pi/7)
       ParticleManager:SetParticleControl(pfx, 0, targetPoint)
       ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, 0))
       ParticleManager:SetParticleControl(pfx, 2, Vector(radius, radius, 0))

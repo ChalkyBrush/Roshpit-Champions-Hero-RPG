@@ -2669,13 +2669,37 @@
         "item_rpc_astral_glyph_6_1_description"                 "Attacks split on impact and hit up to <font color='#ccff66'>10</font> additional targets. These extra arrows can apply [Q2] but not any other on-hit effects."
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_7_1"		"[T7-1] Glyph of Silver Stars"
-		"item_rpc_astral_glyph_7_1_description" 				"Gain 100% evasion while channeling @Ability4. @Ability4, Starfall, and Starquakes deal <font color='#ccff66'>2</font>x damage."
+		"item_rpc_astral_glyph_7_1_description" 				"Gain 100% evasion while channeling @Ability4. @Ability4, Starfall, and Starquakes deal <font color='#ccff66'>1.5</font>x damage."
 
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect"	"Silver Stars"
 		"DOTA_Tooltip_modifier_astral_glyph_7_1_evasion_effect_Description"	"100%% Evasion"
 
 		"DOTA_Tooltip_ability_item_rpc_astral_glyph_5_a"		"[T5-a] Glyph of Parallax Arrows"
 		"item_rpc_astral_glyph_5_a_description" 				"Increases Base Attack Damage by <font color='#ccff66'>1000</font>."
+		
+		//Column2Glyphs
+		"DOTA_Tooltip_ability_item_rpc_astral_glyph_book" 		"Astral Ranger Glyph Book"
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_1_2"       "[T1-2] Glyph of Rarefied Shroud"
+        "item_rpc_astral_glyph_1_2_description"                "(Q) Moon Shroud has x<font color='#ccff66'>2</font> area of effect, but loses ability to distract enemies."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_2_2"       "[T2-2] Glyph of Moonlight Bowstring"
+        "item_rpc_astral_glyph_2_2_description"                "Arrows shot by (W) Split Shot have maximum range increased by <font color='#ccff66'>800</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_3_2"       "[T3-2] Glyph of Satellite"
+        "item_rpc_astral_glyph_3_2_description"                "(R2) Star Quakes release explosions with increased delay of <font color='#ccff66'>0.4</font>s, but also have increased area of effect to <font color='#ccff66'>550</font>. Damage of Star Quakes is increased furthermore by x<font color='#ccff66'>1.3</font>."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_4_2"       "[T4-2] Glyph of Furious Rift"
+        "item_rpc_astral_glyph_4_2_description"                "@Ability3 damage increased by x<font color='#ccff66'>3</font> of Astral Ranger's attack power."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_5_2"       "[T5-2] Glyph of Celestial Presence"
+        "item_rpc_astral_glyph_5_2_description"                "Enemies in <font color='#ccff66'>500</font> range lose <font color='#ccff66'>50</font> attack speed."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] Glyph of Crystal Arrowheads"
+        "item_rpc_astral_glyph_6_2_description"                "Normal attacks have <font color='#ccff66'>5</font>% chance to freeze an enemy."
+
+        "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
+        "item_rpc_astral_glyph_7_2_description"                "Every point in Tier 4 runes grants an additional <font color='#ccff66'>2</font>% <font color=\"#C25DFC\">Cosmic</font> element damage."
 		
 		//Weapons
 		"astral_weapon_01"			"Mithril String Bow"

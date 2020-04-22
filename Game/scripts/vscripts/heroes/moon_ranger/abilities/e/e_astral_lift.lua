@@ -103,6 +103,9 @@ function damage(event)
     local target = event.target
     local caster = event.caster
     local damage = event.damage
+	if caster:HasModifier("modifier_astral_glyph_4_2") then
+		damage = damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*ASTRAL_RANGER_GLYPH_4_2_ATTACK_TO_E_DMG
+	end
     local stun_duration = event.stun_duration
     Filters:ApplyStun(caster, stun_duration, target)
     Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_E, RPC_ELEMENT_COSMOS, RPC_ELEMENT_NONE)

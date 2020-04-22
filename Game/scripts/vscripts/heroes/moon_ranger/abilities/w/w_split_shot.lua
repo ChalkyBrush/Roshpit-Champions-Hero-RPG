@@ -16,6 +16,9 @@ function beginCast(event)
     local ability = event.ability
     local damage = event.damage
     local range = event.range
+	if caster:HasModifier("modifier_astral_glyph_2_2") then
+		range = range + ASTRAL_RANGER_GLYPH_2_2_W_BONUS_RANGE
+	end
     local shotsCount = AstralVolley.getVolleysCount(caster)
 
     EmitSoundOn("Astral.AstralVolleyBig", caster)
