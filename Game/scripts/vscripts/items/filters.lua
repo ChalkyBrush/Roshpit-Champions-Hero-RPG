@@ -566,10 +566,10 @@ function Filters:ReduceECooldown(caster, ability, baseCD, bIncludeFlatCD)
         abilityCooldown = math.max(abilityCooldown, GLOBAL_E_MIN_CD)
     end
 
-    if abilityCooldown ~= baseCD then
+    --if abilityCooldown ~= baseCD then
         ability:EndCooldown()
         ability:StartCooldown(abilityCooldown)
-    end
+    --end
 end
 function Filters:ReduceRCooldown(caster, ability, baseCD, bIncludeFlatCD)
     local abilityCooldown = baseCD
