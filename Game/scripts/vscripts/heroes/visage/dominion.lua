@@ -150,6 +150,7 @@ function dominion_debuff_death(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_dominion_counter", {})
 		caster:SetModifierStackCount("modifier_dominion_counter", caster, #ability.dominionTable)
 
+		change_summon_model(caster, summon)
 		-- if caster:HasModifier("modifier_ekkan_glyph_5_a") and dominion_allowed_selfcasted_units(summon:GetUnitName()) then
 		-- 	event.attacker = summon
 		-- 	for i = 1, EKKAN_GLYPH_5_a_STACKS do

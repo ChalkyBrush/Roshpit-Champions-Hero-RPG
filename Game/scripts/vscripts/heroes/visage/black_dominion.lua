@@ -154,6 +154,8 @@ function dominion_debuff_death(event)
 				end
 			end
 		end
+
+		change_summon_model(caster, summon)
 	end
 end
 
