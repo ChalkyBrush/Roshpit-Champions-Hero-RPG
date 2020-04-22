@@ -21902,7 +21902,8 @@
 		"tarot_lovers"												"The Lovers"
 		"tarot_lovers_description"									"Duality..."
 
-
+		"tarot_chariot"												"The Chariot"
+		"tarot_chariot_description"									"Determination..."
 
 	}	
 }

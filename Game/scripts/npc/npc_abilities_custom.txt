@@ -87903,6 +87903,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"hierophant_mana_regen"		"40 120 400"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"chariot_enemy_ms"		"20 25 30"
+			}
 		}
 		"Modifiers"
 		{
@@ -88175,6 +88180,14 @@
 						"Function"		"lover_quest_spawn_think"
 						"target"		"TARGET"
 					}
+				}
+			}
+			"modifier_chariot_speed"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%chariot_enemy_ms" 
 				}
 			}
 		}
@@ -88639,6 +88652,33 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"spike_trap_think"
+						"damage_base"	"%damage_base"
+						"damage_pct_max_health"	"%damage_pct_max_health"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_spike_trap_passive_chariot"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "2.31"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"spike_trap_think_chariot"
 						"damage_base"	"%damage_base"
 						"damage_pct_max_health"	"%damage_pct_max_health"
 					}

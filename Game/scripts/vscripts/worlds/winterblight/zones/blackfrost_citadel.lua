@@ -164,7 +164,17 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][8]["name"] = "chariot"
 		Winterblight.CASTLE_DATA["tarot"][8]["index"] = "07"
 		Winterblight.CASTLE_DATA["tarot"][8]["prop_angle"] = Vector(0, -1)
-		Winterblight.CASTLE_DATA["tarot"][8]["prop_scale"] = 0.7
+		Winterblight.CASTLE_DATA["tarot"][8]["prop_scale"] = 0.75
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][1] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][2] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][3] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][4] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][5] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][6] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][7] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][8] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][8]["rooms"][9] = {index = 7, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][9] = {}
 		Winterblight.CASTLE_DATA["tarot"][9]["name"] = "strength"
@@ -890,6 +900,9 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 			local chest_position = position + RandomVector(120)
 			Winterblight:GeneralChestSpawn(chest_position, fv)
 		end
+	elseif Winterblight.CastleTarot["name"] == "chariot" then
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_chariot_speed", {})
 	end
 	return enemy
 end
@@ -1153,10 +1166,16 @@ function Winterblight:SpawnCastleRoom4(variant)
 		for i = 1, #positionTable, 1 do
 			local trap = CreateUnitByName("winterblight_spike_trap", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
 			trap:SetAbsOrigin(trap:GetAbsOrigin()+Vector(0,0,10))
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				trap:RemoveModifierByName("modifier_spike_trap_passive")
+				local trap_ability = trap:FindAbilityByName("winterblight_spike_trap_passive")
+				trap_ability:ApplyDataDrivenModifier(trap, trap, "modifier_spike_trap_passive_chariot", {})
+			end
 		end
 		Timers:CreateTimer(0.5, function()
 			local positionTable = {Vector(14976, 9795), Vector(15360, 10368), Vector(15360, 10831), Vector(15360, 11392)}
-			for i = 1, 1 + GameState:GetDifficultyFactor(), 1 do
+			local extra_max = 0
+			for i = 1, 1 + GameState:GetDifficultyFactor() + extra_max, 1 do
 				local trap = CreateUnitByName("winterblight_ground_blade", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
 				trap:SetAbsOrigin(trap:GetAbsOrigin()+Vector(0,0,10))
 				trap:SetForwardVector(RandomVector(1))

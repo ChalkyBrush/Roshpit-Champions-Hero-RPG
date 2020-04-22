@@ -106382,6 +106382,7 @@
             "particle"  "particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf"
             "particle"  "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
             "particle"  "particles/econ/items/silencer/silencer_ti6/silencer_last_word_status_ti6.vpcf"
+            "particle"  "particles/roshpit/winterblight/chariot_teleport.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"

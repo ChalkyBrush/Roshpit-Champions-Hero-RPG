@@ -351,41 +351,49 @@ function castle_room_unit_die(event)
 	-- CELLAR
 	if unit.deathCode == "invading_spiderling" then
 		Winterblight.CastleDungeonMaster.spider_invade_kills = Winterblight.CastleDungeonMaster.spider_invade_kills + 1
+		local delay = 0.7
+		local crawlspeed = 8
+		local active_delay = 6.5
+		if Winterblight.CastleTarot["name"] == "chariot" then
+			delay = delay/2
+			crawlspeed = 12
+			active_delay = active_delay/2
+		end
 		if Winterblight.CastleDungeonMaster.spider_invade_kills == 10 then
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 		elseif Winterblight.CastleDungeonMaster.spider_invade_kills == 28 then
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
-			Timers:CreateTimer(6.5, function()
+			Timers:CreateTimer(active_delay, function()
 				Winterblight.CASTLE_DATA["rooms"][2]["active"] = 2
 			end)
 		end
@@ -424,13 +432,20 @@ function castle_room_unit_die(event)
 			if GameState:GetDifficultyFactor() == 3 then
 				delay = 0.8 - Winterblight.Stones*0.1
 			end
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				delay = delay/2
+			end
+			local active_delay = delay*(8 + GameState:GetDifficultyFactor()*2)
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				active_delay = active_delay/2
+			end			
 			for i = 1, 10 + GameState:GetDifficultyFactor()*2, 1 do
 				Timers:CreateTimer(i*delay, function()
 					Winterblight:DropRoom9IcicleAtRandomPosition()
 				end)
 			end
 			if Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 30 then
-				Timers:CreateTimer(delay*(8 + GameState:GetDifficultyFactor()*2), function()
+				Timers:CreateTimer(active_delay, function()
 					Winterblight.CASTLE_DATA["rooms"][9]["active"] = 2
 				end)
 			end
@@ -440,15 +455,21 @@ function castle_room_unit_die(event)
 			Winterblight.CastleDungeonMaster.blue_slime_deaths = 0
 		end
 		Winterblight.CastleDungeonMaster.blue_slime_deaths = Winterblight.CastleDungeonMaster.blue_slime_deaths + 1
+		local active_delay = 10
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 6 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 22 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
+			local delay = 0.75
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				delay = delay/2
+				active_delay = active_delay/2
+			end
 			for i = 1, 16, 1 do
-				Timers:CreateTimer(i*0.75, function()
+				Timers:CreateTimer(delay*i, function()
 					Winterblight:SpawnSlimeRoomZombie()
 				end)
 			end	
 		end	
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
-			Timers:CreateTimer(10, function()
+			Timers:CreateTimer(active_delay, function()
 				Winterblight.CASTLE_DATA["rooms"][12]["active"] = 2
 			end)
 		end
@@ -696,19 +717,28 @@ function spike_trap_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
-
 	local trap_dimension = 150
-
 	local damage = event.damage_base
-
-
 	Timers:CreateTimer(1.05, function()
 		EmitSoundOn("Winterblight.SpikeTrap.Up", caster)
 		spike_trap_damage(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spike_trap_active", {duration = 3.0})
 	end)
 	EmitSoundOn("Winterblight.SpikeTrap.Prepare", caster)
+end
 
+function spike_trap_think_chariot(event)
+	local ability = event.ability
+	local caster = event.caster
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 2})
+	local trap_dimension = 150
+	local damage = event.damage_base
+	Timers:CreateTimer(0.52, function()
+		EmitSoundOn("Winterblight.SpikeTrap.Up.Chariot", caster)
+		spike_trap_damage(event)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spike_trap_active", {duration = 1.5})
+	end)
+	EmitSoundOn("Winterblight.SpikeTrap.Prepare.Chariot", caster)
 end
 
 function spike_trap_damage(event)
@@ -734,6 +764,10 @@ function ground_blade_thinker(event)
 	local trap_radius = 200
 	local trap_move_speed = 15
 	local rotate_speed = 25
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		trap_move_speed = 30
+		rotate_speed = 40
+	end
 	if not caster.pfx then
 		local particleName = "particles/econ/items/juggernaut/bladekeeper_bladefury/_dc_juggernaut_blade_fury.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -1212,6 +1246,9 @@ function castle_boss_rotator(event)
 	if caster.dying then
 		divisor = 240
 	end
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		divisor = divisor/2
+	end
 	if divisor > 0 then
 		if not caster.rotateLock then
 			local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
@@ -1230,6 +1267,9 @@ function castle_boss_rotator(event)
 		caster.handIndex = 1
 	end
 	local spawnMod = 60 - math.ceil(((caster:GetMaxHealth() - caster:GetHealth())/caster:GetMaxHealth())*50)
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		spawnMod = math.ceil(spawnMod/2)
+	end
 	if caster.interval % spawnMod == 0 then
 		castle_boss_projectile_create(caster.handIndex)
 		if caster.handIndex == 1 then
@@ -1823,6 +1863,7 @@ end
 
 function use_scryers_stone(event)
 	local caster = event.caster
+	local ability = event.ability
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
 	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_buildup.vpcf", caster, 2.5)
 	EmitSoundOn("Winterblight.ScryersStone.Use", caster)
@@ -1830,14 +1871,16 @@ function use_scryers_stone(event)
 		if caster.bgm == "Music.Winterblight.BlackfrostCitadel" then
 			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_pop.vpcf", caster, 3.5)
 			ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+Vector(0,0,30))
+			local reveal_pos = nil
 			if Winterblight.CastleBossMusic then
-				local reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
+				reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
 				AddFOWViewer(caster:GetTeamNumber(), reveal_pos, 600, 10, false)
 				MinimapEvent(caster:GetTeamNumber(), caster, reveal_pos.x, reveal_pos.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
 				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.ActiveCastleRoom then
+				print("ACTIVE ROOM?")
 				if not Winterblight.CastleBossDead then
 					local door_index = Winterblight.ActiveCastleRoom["door_index"]
 					local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
@@ -1847,6 +1890,7 @@ function use_scryers_stone(event)
 					local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
 					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 					EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+					reveal_pos = door_position
 				end
 			end
 			if Winterblight.CastleTarot["name"] == "high_priestess" then
@@ -1855,6 +1899,14 @@ function use_scryers_stone(event)
 			elseif Winterblight.CastleTarot["name"] == "hierophant" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hierophant_spirit_buff", {duration = 40})
+			elseif Winterblight.CastleTarot["name"] == "chariot" and reveal_pos then
+				Events:LockCameraWithDuration(caster, 0.5)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/chariot_teleport.vpcf", caster, 3)
+				FindClearSpaceForUnit(caster, reveal_pos, false)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/chariot_teleport.vpcf", caster, 3)
+				EmitSoundOn("Winterblight.Tarot.ChariotTeleport", caster)
+				ability:EndCooldown()
+				ability:StartCooldown(20)
 			end
 		end
 	end)
