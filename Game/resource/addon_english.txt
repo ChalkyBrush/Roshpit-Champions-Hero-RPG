@@ -6431,6 +6431,7 @@
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect"		"Substituted Time"
 		//"DOTA_Tooltip_modifier_epoch_glyph_5_1_effect_Description"	"Increasing attack damage while focusing the same target."
 
+		"DOTA_Tooltip_ability_item_rpc_epoch_glyph_6_1"		"[T6-1] Glyph of Tangled Flow"
 		"item_rpc_epoch_glyph_6_1_description" 				"Enemies effected by @Ability1 and [Q1] have <font color='#ccff66'>80</font>% reduced attack damage. Additionally, the effects of [Q2] are multiplied by <font color='#ccff66'>2</font>."
 
 		"DOTA_Tooltip_modifier_epoch_glyph_6_1_effect"		"Tangled Flow"
