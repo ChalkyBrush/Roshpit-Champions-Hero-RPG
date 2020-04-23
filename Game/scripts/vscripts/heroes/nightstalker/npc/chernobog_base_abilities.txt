@@ -379,14 +379,13 @@
 			}
 		}	
 	}
-	"chernobog_4_r"
+	"chernobog_nights_procession"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 		"BaseClass"	"ability_lua"
-		"ScriptFile" "heroes/nightstalker/4_r.lua"
+		"ScriptFile" "heroes/nightstalker/chernobog_nights_procession.lua"
 		"AbilityTextureName"	"night_stalker_void"
 		"AbilityCastPoint"	"0.0"
-		"AbilityCooldown"	"35 33 31 29 27 25 23"
 		"AbilityCastRange"			"1200"
 		"AOERadius"					"440"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
@@ -408,14 +407,13 @@
 			"particle"			"particles/roshpit/chernobog/d_d_intro.vpcf"
 		}
 
-		"AbilityManaCost"	"0"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"440"
+				"radius"	"<% CHERNOBOG_R_RADIUS %>"
 			}
 			"02"
 			{
