@@ -1033,7 +1033,7 @@ function redfall_shipyard_boss_death_check(event)
 			Events:MainBossSlain(caster:GetUnitName())
 			Enemies:EnemySlain(caster, nil)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_dying_generic", {duration = 20})
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = caster:GetEntityIndex()})
 			caster.deathStart = true
 			StartAnimation(caster, {duration = 7, activity = ACT_DOTA_FLAIL, rate = 1})
 			if caster.paragonDummy == nil or caster.buddiesSlain == caster.packSize then

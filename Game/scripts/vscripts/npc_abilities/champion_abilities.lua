@@ -12,7 +12,7 @@ function paragon_die(event)
 			if IsValidEntity(buddy) then
 				buddy.buddiesSlain = buddy.buddiesSlain + 1
 				if buddy.enemyType == ENEMY_TYPE_BOSS or buddy.enemyType == ENEMY_TYPE_MAJOR_BOSS then
-					CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(thisEntity)})
+					CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = thisEntity:GetEntityIndex())})
 				end
 			end
 		end

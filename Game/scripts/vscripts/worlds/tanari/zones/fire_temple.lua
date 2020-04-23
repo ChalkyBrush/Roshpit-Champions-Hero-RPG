@@ -882,7 +882,7 @@ function Tanari:SpawnFireLord(kolthun)
 	boss.type = ENEMY_TYPE_BOSS
 	kolthun.phase3active = true
 	kolthun.boss = boss
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", { bossEntityIndex = boss:GetEntityIndex() })
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 1000, 900, false)
 	kolthun:SetModelScale(1.16)
 	local bossAbility = boss:FindAbilityByName("firelord_ability_ai")

@@ -243,7 +243,7 @@ function Die:Begin()
 	EmitGlobalSound(sound)
 	EmitGlobalSound(sound)
 	Events:EarnKey("desert")
-	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(thisEntity)})
+	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = thisEntity:GetEntityIndex())})
 	for i = 1, 5, 1 do
 		Timers:CreateTimer(i + 0.5, function()
 			StartAnimation(thisEntity, {duration = 6 - i, activity = ACT_DOTA_FLAIL, rate = 0.8})
