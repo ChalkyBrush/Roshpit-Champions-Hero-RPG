@@ -271,6 +271,7 @@ end
 function modifier_chernobog_r_2:OnIntervalThink()
     if IsServer() then
         local hero = self:GetCaster()
+        local dummy = self:GetParent()
         local ability = self:GetAbility()
         local e_2_level = hero:GetRuneValue("e", 2)
         local e_4_level = hero:GetRuneValue("e", 4)
@@ -284,7 +285,7 @@ function modifier_chernobog_r_2:OnIntervalThink()
                 radius = radius * CHERNOBOG_T21_RADIUS_AMP
             end
             self:StartIntervalThink(interval)
-            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             for _, enemy in ipairs(enemies) do
                 local damageDelay =  0.9 * interval
                 local animationRate = 1 + 0.3 * (0.5/interval - 1)
@@ -316,7 +317,7 @@ function modifier_chernobog_r_2:OnIntervalThink()
                 radius = radius * CHERNOBOG_T21_RADIUS_AMP
             end
             self:StartIntervalThink(interval)
-            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
             for _, enemy in ipairs(enemies) do
                 local damageDelay =  0.9 * interval
                 local animationRate = 1 + 0.3 * (0.5/interval - 1)
