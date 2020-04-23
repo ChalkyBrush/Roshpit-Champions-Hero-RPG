@@ -1025,7 +1025,7 @@ function Runes:EquipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then
-			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasySwapArcanaSkills(hero, DOTA_R_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			if hero:FindAbilityByName("chernobog_shadow_hunt"):GetToggleState() then
 				hero:FindAbilityByName("chernobog_shadow_hunt"):ToggleAbility()
@@ -1794,7 +1794,7 @@ function Runes:UnequipArcana(hero, index)
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_night_stalker" then
 		if index == 1 then
-			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "chernobog_4_r", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+			Runes:EasyRevertArcanaSkills(hero, DOTA_R_SLOT, "chernobog_nights_procession", "chernobog_demon_morph", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
 		elseif index == 2 then
 			--print("HERE?????????")
 			if hero:GetAbilityByIndex(DOTA_E_SLOT):GetAbilityName() == "chernobog_demon_flight" then
