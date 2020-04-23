@@ -5496,7 +5496,7 @@ function sea_fortress_final_boss_think(event)
 		Timers:CreateTimer(9, function()
 			Enemies:EnemySlain(caster, nil)
 			Events:MainBossSlain(caster:GetUnitName())
-			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(caster)})
+			CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = caster:GetEntityIndex()})
 			caster:RemoveModifierByName("modifier_boss_dying")
 			Timers:CreateTimer(0.1, function()
 				StartAnimation(caster, {duration = 10, activity = ACT_DOTA_DISABLED, rate = 0.25})
@@ -5532,7 +5532,7 @@ function final_boss_take_damage(event)
 	if not caster.init then
 		EmitSoundOn("Seafortress.FinalBoss.Start", caster)
 		caster.init = true
-		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = caster:GetUnitName(), bossMaxHealth = caster:GetMaxHealth(), bossId = tostring(caster)})
+		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", { bossEntityIndex = caster:GetEntityIndex() })
 		Seafortress:BossMusic()
 	end
 end

@@ -26,6 +26,7 @@
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/guard_of_luma.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/helm.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/hood.png" />
+			<Image id="seq_bg" class="SeqBg" src="file://{images}/custom_game/ui/healthbar_fill_2.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/hood_of_chosen.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/hurricane_vest.png" />
 			<Image id="seq_bg" class="SeqBg" src="file://{images}/items/rpc/hyper_visor.png" />

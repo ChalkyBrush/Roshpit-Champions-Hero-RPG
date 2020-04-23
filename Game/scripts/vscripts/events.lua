@@ -2547,7 +2547,7 @@ function Events:AdjustBossPower(unit, damageFactor, healthFactor, bHealthbar)
 	-- 	unit:SetHealth(newHealth)
 	-- 	unit:Heal(newHealth, unit)
 	 	if bHealthbar then
-	 		CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = unit:GetUnitName(), bossMaxHealth = unit:GetMaxHealth(), bossId = tostring(unit)})
+			CustomGameEventManager:Send_ServerToAllClients("show_boss_health", { bossEntityIndex = unit:GetEntityIndex() })
 	 		--unit.mainBoss = true
 	 	end
 	-- 	unit.bossStatus = true
@@ -2610,7 +2610,7 @@ end
 function Events:SpawnBoss(unitName, spawnPoint)
 	local boss = CreateUnitByName(unitName, spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
 	boss.mainBoss = true
-	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", {bossName = boss:GetUnitName(), bossMaxHealth = boss:GetMaxHealth(), bossId = tostring(boss)})
+	CustomGameEventManager:Send_ServerToAllClients("show_boss_health", { bossEntityIndex = boss:GetEntityIndex() })
 	return boss
 end
 
