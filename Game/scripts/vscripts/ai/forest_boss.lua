@@ -180,7 +180,7 @@ function Die:Begin()
 	self.endTime = GameRules:GetGameTime() + 13
 	--ParticleCity(thisEntity)
 	thisEntity.dead = true
-	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(thisEntity)})
+	CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = thisEntity:GetEntityIndex())})
 	Events:updateKillQuest(thisEntity)
 	local ability = thisEntity:FindAbilityByName("cant_die")
 	ability:ApplyDataDrivenModifier(thisEntity, thisEntity, "modifier_dying", {duration = 13})

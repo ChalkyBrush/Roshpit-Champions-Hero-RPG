@@ -1597,7 +1597,7 @@ function castle_boss_take_damage(damage)
 		EmitSoundOn("Winterblight.CastleBoss.PainSmall", Winterblight.CastleBoss)
 	end
 	Winterblight.CastleBoss:SetHealth(math.max(Winterblight.CastleBoss:GetHealth() - healthLoss, 0))
-	CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = Winterblight.CastleBoss:GetHealth(), bossId = tostring(Winterblight.CastleBoss)})
+	--CustomGameEventManager:Send_ServerToAllClients("update_boss_health", {current_health = Winterblight.CastleBoss:GetHealth(), bossId = tostring(Winterblight.CastleBoss)})
 
 	Winterblight.CastleBoss.rotationDivisor = 360 - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*330
 	Winterblight.CastleBoss.color = Vector(255, 255, 255) - ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*Vector(0, 255, 255)

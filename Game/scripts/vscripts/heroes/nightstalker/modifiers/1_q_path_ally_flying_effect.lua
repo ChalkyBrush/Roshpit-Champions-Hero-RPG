@@ -1,6 +1,5 @@
 require('/npc_abilities/base_modifier')
 require('heroes/nightstalker/chernobog_constants')
-require('/wallPhysics')
 modifier_chernobog_1_q_path_ally_flying_effect = class(npc_base_modifier, nil, npc_base_modifier)
 local class = modifier_chernobog_1_q_path_ally_flying_effect
 
@@ -19,14 +18,16 @@ function class:OnCreated()
     self:StartIntervalThink(0.03)
 end
 function class:OnIntervalThink()
-    local parent = self:GetParent()
-    local currentPosition = parent:GetAbsOrigin()
+    if IsServer() then
+        local parent = self:GetParent()
+        local currentPosition = parent:GetAbsOrigin()
 
-    local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
-    if afterWallPosition ~= currentPosition or parent:IsRooted() then
-        parent:RemoveModifierByName(self:GetName())
-    else
-        self.previousPosition = currentPosition
+        local afterWallPosition = WallPhysics:WallSearch(self.previousPosition, currentPosition, parent)
+        if afterWallPosition ~= currentPosition or parent:IsRooted() then
+            parent:RemoveModifierByName(self:GetName())
+        else
+            self.previousPosition = currentPosition
+        end
     end
 end
 

@@ -44,7 +44,7 @@ function aspect_global_think(event)
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_c_c_damage", {})
 			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
 			ability:ApplyDataDrivenModifier(conjuror, target, "modifier_conjuror_rune_e_3_range", {})
-			target:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(e_3_level)
+			target:FindModifierByName("modifier_conjuror_rune_e_3_range"):SetStackCount(e_3_level)
 		else
 			target:RemoveModifierByName("modifier_conjuror_c_c_damage")
 			target:RemoveModifierByName("modifier_conjuror_rune_e_3_range")
@@ -296,14 +296,13 @@ function shadow_aspect(event)
 		caster.shadowAspect:CalculateAndSaveRoshpitAttributes()
 		common_aspect_effects(caster, ability, caster.shadowAspect)
 	end)
-	local c_c_level = get_c_c_level(caster)
-	if c_c_level > 0 then
-		local totalStats = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect()
-		local stacks = totalStats * c_c_level * 0.15
+	local e_3_level = caster:GetRuneValue("e", 3)
+	if e_3_level > 0 then
+		local totalStats = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect() + caster:GetSpirit()) * e_3_level * CONJUROR_E3_STATS_TO_ATTACK_DAMAGE_PCT/100
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_c_c_damage", {})
-		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_c_c_damage", ability, stacks)
+		caster.shadowAspect:FindModifierByName("modifier_conjuror_c_c_damage"):SetStackCount(totalStats)
 		ability:ApplyDataDrivenModifier(caster, caster.shadowAspect, "modifier_conjuror_rune_e_3_range", {})
-		caster.shadowAspect:SetModifierStackCount("modifier_conjuror_rune_e_3_range", ability, c_c_level)
+		caster.shadowAspect:FindModifierByName("modifier_conjuror_rune_e_3_range"):SetStackCount(e_3_level)
 	end
 	local d_c_level = caster:GetRuneValue("e", 4)
 	caster.shadowAspect.e_4_level = d_c_level
@@ -803,11 +802,6 @@ end
 
 function shadow_aspect_kill(event)
 	local caster = event.attacker
-end
-
-function get_c_c_level(caster)
-	local totalLevel = caster:GetRuneValue("e", 3)
-	return totalLevel
 end
 
 function earth_aspect_a_a_think(event)

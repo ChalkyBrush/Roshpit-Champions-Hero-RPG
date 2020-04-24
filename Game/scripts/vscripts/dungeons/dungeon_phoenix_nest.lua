@@ -722,7 +722,7 @@ function Dungeons:begin_phoenix_boss_sequence()
 		local boss = Events:SpawnBoss("phoenix_boss", particleLoc)
 		Dungeons.phoenixBoss = boss
 		boss:SetForwardVector(Vector(0, -1))
-		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossId = tostring(boss)})
+		CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = boss:GetEntityIndex()})
 		boss:SetAbsOrigin(boss:GetAbsOrigin() + Vector(0, 0, 1000))
 		Dungeons:PhoenixScale(boss)
 		Events:AdjustBossPower(boss, Dungeons.phoenixWave, Dungeons.phoenixWave, false)

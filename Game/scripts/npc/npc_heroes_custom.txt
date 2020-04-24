@@ -973,7 +973,7 @@
 		"Ability3"	"chernobog_shadow_hunt"
 		"Ability4"	"generic_hidden"
 		"Ability5"	"generic_hidden"
-		"Ability6"	"chernobog_4_r"
+		"Ability6"	"chernobog_nights_procession"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
