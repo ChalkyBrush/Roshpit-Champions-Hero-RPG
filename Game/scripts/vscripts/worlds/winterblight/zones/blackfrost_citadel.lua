@@ -212,7 +212,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][11]["name"] = "wheel_of_fortune"
 		Winterblight.CASTLE_DATA["tarot"][11]["index"] = "10"
 		Winterblight.CASTLE_DATA["tarot"][11]["prop_angle"] = Vector(1, 0)
-		Winterblight.CASTLE_DATA["tarot"][11]["prop_scale"] = 1.1
+		Winterblight.CASTLE_DATA["tarot"][11]["prop_scale"] = 1.25
 		Winterblight.CASTLE_DATA["tarot"][11]["rooms"] = {}
 		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][1] = {index = 3, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][2] = {index = 9, variant = 1}
@@ -2550,7 +2550,7 @@ function Winterblight:GeneralChestSpawn(position, fv)
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.Magician.ChestSpawn", Events.GameMaster)
 	end)
-	Timers:CreateTimer(2, function()
+	Timers:CreateTimer(2, function
 		local rewardTables = Winterblight:GetGeneralChestRewards()
 		local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, fv*-1, false)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)

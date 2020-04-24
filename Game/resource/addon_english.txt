@@ -21934,5 +21934,11 @@
 
 		"tarot_hermit"												"The Hermit"
 		"tarot_hermit_description"									"Isolation..."
+
+		"tarot_wheel_of_fortune"												"Wheel of Fortune"
+		"tarot_wheel_of_fortune_description"									"The Cycle of Luck..."
+
+		"tarot_justice"												"Justice"
+		"tarot_justice_description"									"Equity and Triumph..."
 	}	
 }
