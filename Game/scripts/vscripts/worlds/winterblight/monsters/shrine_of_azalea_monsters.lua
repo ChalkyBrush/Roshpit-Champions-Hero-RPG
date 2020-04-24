@@ -822,8 +822,9 @@ function malefor_beginCharge(event)
 	Timers:CreateTimer(0.05, function()
 		StartAnimation(caster, {duration = 0.9, activity = ACT_DOTA_RUN, rate = 1.5})
 	end)
-
-	EmitSoundOn("Winterblight.Malefor.Charge", caster)
+	if caster:GetUnitName() == "winterblight_crystal_malefor" then
+		EmitSoundOn("Winterblight.Malefor.Charge", caster)
+	end
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Malefor.ChargeWarp", caster)
 end
 

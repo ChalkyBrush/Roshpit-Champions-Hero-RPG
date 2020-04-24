@@ -123,6 +123,9 @@ function diviner_think(event)
 		end)
 		Timers:CreateTimer(3, function()
 			Winterblight:OpenCastleDoorByIndex(1)
+			if Winterblight.CastleTarot["name"] == "hermit" then
+				Winterblight:CastleLobbySpawnHermit()
+			end
 			Winterblight:CastleLobbySpawn1()
 			Winterblight:CastleNextRoomInit()
 			StartSoundEvent("Winterblight.HorusHYPE", caster)
@@ -185,6 +188,24 @@ function diviner_think(event)
 						ghoul.crawl_end_pfx = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"	
 					end)
 				end
+			end
+		end
+	end
+	if caster.phase >= 7 and Winterblight.CastleTarot["name"] == "hermit" then
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			local hero = MAIN_HERO_TABLE[i]
+			if hero.bgm == "Music.Winterblight.BlackfrostCitadel" then
+				local buffAdjust = 0
+				if hero:HasModifier("modifier_diviner_hermit_buff") then
+					buffAdjust = 700
+				end
+				local base_vision = hero:GetNightTimeVisionRange() - buffAdjust + hero:GetModifierStackCount("modifier_diviner_hermit_debuff", caster)
+				local debuff_stacks = base_vision*(ability:GetSpecialValueFor("hermit_vision_loss_pct")*-1)/100
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_diviner_hermit_debuff", {})
+				hero:SetModifierStackCount("modifier_diviner_hermit_debuff", caster, debuff_stacks)
+			else
+				hero:RemoveModifierByName("modifier_diviner_hermit_debuff")
+				hero:RemoveModifierByName("modifier_diviner_hermit_buff")
 			end
 		end
 	end
@@ -351,41 +372,49 @@ function castle_room_unit_die(event)
 	-- CELLAR
 	if unit.deathCode == "invading_spiderling" then
 		Winterblight.CastleDungeonMaster.spider_invade_kills = Winterblight.CastleDungeonMaster.spider_invade_kills + 1
+		local delay = 0.7
+		local crawlspeed = 8
+		local active_delay = 6.5
+		if Winterblight.CastleTarot["name"] == "chariot" then
+			delay = delay/2
+			crawlspeed = 12
+			active_delay = active_delay/2
+		end
 		if Winterblight.CastleDungeonMaster.spider_invade_kills == 10 then
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 		elseif Winterblight.CastleDungeonMaster.spider_invade_kills == 28 then
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(15104, 16232) + Vector(RandomInt(0, 1200), 0)
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(0,-1), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
 			for i = 1, 10, 1 do
-				Timers:CreateTimer(0.7*i, function()
+				Timers:CreateTimer(delay*i, function()
 					local position = Vector(16279, 15198) + Vector(0, RandomInt(0, 850))
 					local spider = Winterblight:SpawnCastleRoomUnit(2, "winterblight_invading_spider", position, RandomVector(1), false, false)
-					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), 8)
+					spider:CrawlEnter(position, Vector(-1,0), "down", RandomInt(700, 1000), crawlspeed)
 					spider.deathCode = "invading_spiderling"
 				end)
 			end
-			Timers:CreateTimer(6.5, function()
+			Timers:CreateTimer(active_delay, function()
 				Winterblight.CASTLE_DATA["rooms"][2]["active"] = 2
 			end)
 		end
@@ -424,13 +453,20 @@ function castle_room_unit_die(event)
 			if GameState:GetDifficultyFactor() == 3 then
 				delay = 0.8 - Winterblight.Stones*0.1
 			end
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				delay = delay/2
+			end
+			local active_delay = delay*(8 + GameState:GetDifficultyFactor()*2)
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				active_delay = active_delay/2
+			end			
 			for i = 1, 10 + GameState:GetDifficultyFactor()*2, 1 do
 				Timers:CreateTimer(i*delay, function()
 					Winterblight:DropRoom9IcicleAtRandomPosition()
 				end)
 			end
 			if Winterblight.CastleDungeonMaster.freezer_room_mob_deaths == 30 then
-				Timers:CreateTimer(delay*(8 + GameState:GetDifficultyFactor()*2), function()
+				Timers:CreateTimer(active_delay, function()
 					Winterblight.CASTLE_DATA["rooms"][9]["active"] = 2
 				end)
 			end
@@ -440,15 +476,21 @@ function castle_room_unit_die(event)
 			Winterblight.CastleDungeonMaster.blue_slime_deaths = 0
 		end
 		Winterblight.CastleDungeonMaster.blue_slime_deaths = Winterblight.CastleDungeonMaster.blue_slime_deaths + 1
+		local active_delay = 10
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 6 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 22 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
+			local delay = 0.75
+			if Winterblight.CastleTarot["name"] == "chariot" then
+				delay = delay/2
+				active_delay = active_delay/2
+			end
 			for i = 1, 16, 1 do
-				Timers:CreateTimer(i*0.75, function()
+				Timers:CreateTimer(delay*i, function()
 					Winterblight:SpawnSlimeRoomZombie()
 				end)
 			end	
 		end	
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
-			Timers:CreateTimer(10, function()
+			Timers:CreateTimer(active_delay, function()
 				Winterblight.CASTLE_DATA["rooms"][12]["active"] = 2
 			end)
 		end
@@ -494,6 +536,9 @@ function castle_key_entering_think(event)
 			if key.skull then
 				EmitSoundOn("Winterblight.KeySpawn.Land", key)
 				EmitSoundOn("Winterblight.KeySpawn.SkullLand", key)
+				local ground_position = GetGroundPosition(key:GetAbsOrigin(), key)
+				key.skullpfx = ParticleManager:CreateParticle("particles/econ/items/silencer/silencer_ti6/silencer_last_word_status_ti6.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(key.skullpfx, 0, ground_position)
 			else
 				EmitSoundOn("Winterblight.KeySpawn.Land", key)
 			end
@@ -527,6 +572,9 @@ function castle_key_waiting_think(event)
 			Timers:CreateTimer(4, function()
 				Winterblight:WinterCastleBossSpawn()
 			end)
+			if key.skullpfx then
+				ParticleManager:DestroyParticle(key.skullpfx, false)
+			end
 		else
 			Winterblight:CastleNextRoomInit()
 		end
@@ -690,19 +738,28 @@ function spike_trap_think(event)
 	local ability = event.ability
 	local caster = event.caster
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
-
 	local trap_dimension = 150
-
 	local damage = event.damage_base
-
-
 	Timers:CreateTimer(1.05, function()
 		EmitSoundOn("Winterblight.SpikeTrap.Up", caster)
 		spike_trap_damage(event)
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spike_trap_active", {duration = 3.0})
 	end)
 	EmitSoundOn("Winterblight.SpikeTrap.Prepare", caster)
+end
 
+function spike_trap_think_chariot(event)
+	local ability = event.ability
+	local caster = event.caster
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 2})
+	local trap_dimension = 150
+	local damage = event.damage_base
+	Timers:CreateTimer(0.52, function()
+		EmitSoundOn("Winterblight.SpikeTrap.Up.Chariot", caster)
+		spike_trap_damage(event)
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spike_trap_active", {duration = 1.5})
+	end)
+	EmitSoundOn("Winterblight.SpikeTrap.Prepare.Chariot", caster)
 end
 
 function spike_trap_damage(event)
@@ -728,6 +785,10 @@ function ground_blade_thinker(event)
 	local trap_radius = 200
 	local trap_move_speed = 15
 	local rotate_speed = 25
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		trap_move_speed = 30
+		rotate_speed = 40
+	end
 	if not caster.pfx then
 		local particleName = "particles/econ/items/juggernaut/bladekeeper_bladefury/_dc_juggernaut_blade_fury.vpcf"
 		local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -900,9 +961,27 @@ function winter_armory_rock_destroy(event)
 	local caster = event.caster
 	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/rock_explode.vpcf", caster:GetAbsOrigin(), 5)
 	EmitSoundOn("Winterblight.BlueRock.Explode", caster)
-	for j = -1, 1, 1 do
-		local skeleton = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), RandomVector(1), true, true)
-		CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", skeleton:GetAbsOrigin(), 4)
+	local amount = 3
+	if Winterblight.CastleTarot["name"] == "strength" then
+		amount = 6
+	end
+	if caster.strength_boss_rock then
+		for i = 1, 9, 1 do
+			local fv = WallPhysics:rotateVector(Vector(-1, -0.5), 2*math.pi*i/9)
+			local monster = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), fv, true, false)
+			monster:SetAbsOrigin(monster:GetAbsOrigin() + Vector(0,0,RandomInt(100, 240)))
+			WallPhysics:JumpWithBlocking(monster, fv, RandomInt(14, 16), RandomInt(10, 12), 20, 1)
+			StartAnimation(monster, {duration = 1.35, activity = ACT_DOTA_SPAWN, rate = 0.8})
+		end
+		local spawnPos = caster:GetAbsOrigin()
+		Timers:CreateTimer(0.1, function()
+			Winterblight:SpawnStrengthMiniboss(spawnPos)
+		end)
+	else
+		for j = 1, amount, 1 do
+			local rubble = Winterblight:SpawnCastleRoomUnit(8, "winterblight_sun_rubble", caster:GetAbsOrigin(), RandomVector(1), true, true)
+			CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", rubble:GetAbsOrigin(), 4)
+		end
 	end
 	Timers:CreateTimer(0.06, function()
 		UTIL_Remove(caster)
@@ -999,7 +1078,11 @@ function winter_treasure_tower_die(event)
 	end
 
 	Timers:CreateTimer(1, function()
-		Winterblight:SpawnTreasureRoomChests()
+		if Winterblight.CastleTarot["name"] == "lovers" then
+			
+		else
+			Winterblight:SpawnTreasureRoomChests()
+		end
 	end)
 end
 
@@ -1016,27 +1099,48 @@ function treasure_chest_attacked(event)
 	StartAnimation(caster, {duration = 3.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
 	EmitSoundOn("Winterblight.Chest.Open", caster)
 	Timers:CreateTimer(0.6, function()
-		EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
-		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
+		if caster.bad_chest then
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/items/riki/riki_head_ti8_gold/riki_smokebomb_ti8_gold.vpcf", caster:GetAbsOrigin(), 3)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(300, 300, 300))
+			EmitSoundOn("Winterblight.BadChest.Smoke", caster)
+			Timers:CreateTimer(0.35, function()
+				EmitSoundOn("Winterblight.BadChest.Laugh.VO", caster)
+			end)
+			
+			Timers:CreateTimer(2.0, function()
+				local skullbone = Enemies:SpawnEnemyUnit("lies_golden_skullbone", caster:GetAbsOrigin(), caster:GetForwardVector()*-1, true)
+				skullbone:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,30))
+				local scale = skullbone:GetModelScale()
+				Events:smoothSizeChange(skullbone, 0.1, scale, 30)
+				WallPhysics:JumpWithBlocking(skullbone, caster:GetForwardVector()*-1, RandomInt(14, 16), RandomInt(24, 32), 20, 1)
+				local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
+				ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
+				EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
+			end)
+			
+		else
+			EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
+			ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
 
-		if caster.contents.items and caster.contents.items > 0 then
-			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
-			for i = 1, caster.contents.items, 1 do
-				RPCItems:RollRandomItemAtLocation(caster.roshpit_attributes.roshpit_level, caster:GetAbsOrigin(), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+			if caster.contents.items and caster.contents.items > 0 then
+				Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+				for i = 1, caster.contents.items, 1 do
+					RPCItems:RollRandomItemAtLocation(caster.roshpit_attributes.roshpit_level, caster:GetAbsOrigin(), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+				end
+				Dungeons.lootLaunch = false
 			end
-			Dungeons.lootLaunch = false
-		end
-		if caster.contents.glyphs and caster.contents.glyphs > 0 then
-			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
-			for i = 1, caster.contents.glyphs, 1 do
-				local glyph = RPCItems:RebornGlyph()
-				RPCItems:BasicDropItem(caster:GetAbsOrigin(), glyph)
+			if caster.contents.glyphs and caster.contents.glyphs > 0 then
+				Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+				for i = 1, caster.contents.glyphs, 1 do
+					local glyph = RPCItems:RebornGlyph()
+					RPCItems:BasicDropItem(caster:GetAbsOrigin(), glyph)
+				end
+				Dungeons.lootLaunch = false
 			end
-			Dungeons.lootLaunch = false
-		end
-		if caster.contents.crystals and caster.contents.crystals > 0 then
-			Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+			if caster.contents.crystals and caster.contents.crystals > 0 then
+				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+			end
 		end
 	end)
 	if Winterblight.CastleTarot["name"] ~= "wheel_of_fortune" then
@@ -1202,6 +1306,9 @@ function castle_boss_rotator(event)
 	if caster.dying then
 		divisor = 240
 	end
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		divisor = divisor/2
+	end
 	if divisor > 0 then
 		if not caster.rotateLock then
 			local newFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/divisor)
@@ -1220,6 +1327,9 @@ function castle_boss_rotator(event)
 		caster.handIndex = 1
 	end
 	local spawnMod = 60 - math.ceil(((caster:GetMaxHealth() - caster:GetHealth())/caster:GetMaxHealth())*50)
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		spawnMod = math.ceil(spawnMod/2)
+	end
 	if caster.interval % spawnMod == 0 then
 		castle_boss_projectile_create(caster.handIndex)
 		if caster.handIndex == 1 then
@@ -1240,7 +1350,7 @@ function castle_boss_rotator(event)
 		end
 	end
 	if caster.interval%60 == 0 then
-		local splash_particle = "particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+		local splash_particle = "particles/roshpit/winterblight/blue_goo_explosion.vpcf"
 		local splash_position = GetGroundPosition(caster:GetAbsOrigin(), caster) - Vector(0,0,240)
 		CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position, 5)
 		for i = 1, 5, 1 do
@@ -1266,6 +1376,11 @@ function castle_boss_rotator(event)
 					EmitSoundOnLocationWithCaster(surrogate:GetAbsOrigin(), "Winterblight.CastleBoss.SurrogateSpawn", caster)
 					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
 					surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+					Winterblight:AdjustCastleUnit(surrogate)
+					if Winterblight.CastleTarot["name"] == "hermit" then
+						local spawnPos = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
+						Winterblight:SpawnCastleRoomUnit(0,"winterblight_hermit_eye", spawnPos, RandomVector(1), false, true)
+					end
 				end
 				if caster.rotationDivisor then
 					print(caster.rotationDivisor)
@@ -1526,14 +1641,17 @@ end
 
 function castle_boss_surrogate_rotator(event)
 	local caster = event.caster
-	local caster = event.caster
 	local ability = event.ability
 	if not caster.interval then
 		caster.interval = 0
 	end
+	local rotation_divisor = 90
+	if Winterblight.CastleTarot["name"] == "chariot" then
+		rotation_divisor = 45
+	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 4) * math.cos(2 * math.pi * caster.interval / 90))
 	caster.interval = caster.interval + 1
-	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 90)
+	local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / rotation_divisor)
 	caster:SetForwardVector(rotatedFV)
 	if caster.interval == 90 then
 		caster.interval = 0
@@ -1575,7 +1693,7 @@ function ice_skull_create(caster, ability)
 
     local baseFV = caster:GetForwardVector()
     local projectileFV = WallPhysics:rotateVector(baseFV, 2 * math.pi * dummy.index / dummy.rotationDelta)
-    local pfx = ParticleManager:CreateParticle("particles/econ/items/lich/lich_ti8_immortal_arms/lich_ti8_chain_frost.vpcf", PATTACH_CUSTOMORIGIN, caster)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/boss_death_skull.vpcf", PATTACH_CUSTOMORIGIN, caster)
     local base_position = GetGroundPosition(caster:GetAbsOrigin(), caster) + Vector(0,0,80)
     ParticleManager:SetParticleControl(pfx, 0, base_position)
     ParticleManager:SetParticleControl(pfx, 1, GetGroundPosition(caster:GetAbsOrigin() + projectileFV * 700 + Vector(0, 0, 80), caster))
@@ -1629,22 +1747,25 @@ function ice_skull_thinker(event)
 		if #enemies > 0 then
 			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Arkimus.EnergyField.Hit", caster)
 			for _, enemy in pairs(enemies) do
-				print("HIT ENEMY")
-				local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", enemy, 3)
-				ParticleManager:SetParticleControl(pfx1, 3, enemy:GetAbsOrigin()+Vector(0,0,40))
-				EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Winterblight.Reaper.Scream", caster)
-				EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", enemy)
-				EmitSoundOn("Winterblight.CastleBoss.SkullImpact", enemy)
-				local particleName = "particles/roshpit/winterblight/econ/items/necrolyte/necro_sullen_harvest/red_reaper.vpcf"
-				local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
-				ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-				for i = 1, 9, 1 do
-					ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() , true)
+				local heightDifference = enemy:GetAbsOrigin().z - dummy:GetAbsOrigin().z 
+				if heightDifference < 150 then
+					print("HIT ENEMY")
+					local pfx1 = CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_lich/lich_chain_frost_explode.vpcf", enemy, 3)
+					ParticleManager:SetParticleControl(pfx1, 3, enemy:GetAbsOrigin()+Vector(0,0,40))
+					EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Winterblight.Reaper.Scream", caster)
+					EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", enemy)
+					EmitSoundOn("Winterblight.CastleBoss.SkullImpact", enemy)
+					local particleName = "particles/roshpit/winterblight/econ/items/necrolyte/necro_sullen_harvest/red_reaper.vpcf"
+					local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, enemy)
+					ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+					for i = 1, 9, 1 do
+						ParticleManager:SetParticleControlEnt(pfx, i, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin() , true)
+					end
+					Timers:CreateTimer(1.2, function()
+						EmitSoundOn("Winterblight.ReaperSlice.Hit", enemy)
+						enemy:ForceKill(false)
+					end)
 				end
-				Timers:CreateTimer(1.2, function()
-					EmitSoundOn("Winterblight.ReaperSlice.Hit", enemy)
-					enemy:ForceKill(false)
-				end)
 			end
 		end
     end
@@ -1813,6 +1934,7 @@ end
 
 function use_scryers_stone(event)
 	local caster = event.caster
+	local ability = event.ability
 	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
 	CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_buildup.vpcf", caster, 2.5)
 	EmitSoundOn("Winterblight.ScryersStone.Use", caster)
@@ -1820,14 +1942,16 @@ function use_scryers_stone(event)
 		if caster.bgm == "Music.Winterblight.BlackfrostCitadel" then
 			local pfx = CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/scryer_stone_pop.vpcf", caster, 3.5)
 			ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin()+Vector(0,0,30))
+			local reveal_pos = nil
 			if Winterblight.CastleBossMusic then
-				local reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
+				reveal_pos = Winterblight.CastleBoss:GetAbsOrigin()
 				AddFOWViewer(caster:GetTeamNumber(), reveal_pos, 600, 10, false)
 				MinimapEvent(caster:GetTeamNumber(), caster, reveal_pos.x, reveal_pos.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
 				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.ActiveCastleRoom then
+				print("ACTIVE ROOM?")
 				if not Winterblight.CastleBossDead then
 					local door_index = Winterblight.ActiveCastleRoom["door_index"]
 					local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
@@ -1837,6 +1961,7 @@ function use_scryers_stone(event)
 					local eyePosition = GetGroundPosition(door_position, Events.GameMaster) + Vector(0,0,400)
 					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 					EmitSoundOnLocationWithCaster(door_position, "Winterblight.ScryersStone.Effect", caster)
+					reveal_pos = door_position
 				end
 			end
 			if Winterblight.CastleTarot["name"] == "high_priestess" then
@@ -1845,6 +1970,21 @@ function use_scryers_stone(event)
 			elseif Winterblight.CastleTarot["name"] == "hierophant" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hierophant_spirit_buff", {duration = 40})
+			elseif Winterblight.CastleTarot["name"] == "chariot" and reveal_pos then
+				Events:LockCameraWithDuration(caster, 0.5)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/chariot_teleport.vpcf", caster, 3)
+				FindClearSpaceForUnit(caster, reveal_pos, false)
+				CustomAbilities:QuickAttachParticle("particles/roshpit/winterblight/chariot_teleport.vpcf", caster, 3)
+				EmitSoundOn("Winterblight.Tarot.ChariotTeleport", caster)
+				ability:EndCooldown()
+				ability:StartCooldown(20)
+			elseif Winterblight.CastleTarot["name"] == "strength" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_strength_attack_power_player", {duration = 40})
+			elseif Winterblight.CastleTarot["name"] == "hermit" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hermit_buff", {duration = 15})
+
 			end
 		end
 	end)
@@ -2185,3 +2325,674 @@ function necro_knight_attack_land(event)
 		ability.necro_knight_table = new_summon_table		
 	end
 end
+
+function lover_heart_attacked(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if caster.opened then
+		return false
+	end
+	caster.rotationDivisor = 6
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_rotation_animation", {duration = 2})
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_heart_activated", {})
+	caster.opened = true	
+	EmitSoundOn("Winterblight.LoverHeart.Hit", caster)
+	local selection = caster.selection_index
+	Timers:CreateTimer(2, function()
+		local particlePos = GetGroundPosition(caster:GetAbsOrigin(), caster)
+		CustomAbilities:QuickParticleAtPoint("particles/econ/items/wisp/wisp_relocate_teleport_ti7.vpcf", particlePos, 3)
+		EmitSoundOn("Winterblight.LoverHeart.Reveal", caster)
+		local prop_name = nil
+		local prop_scale = 1
+		local prop_color = Vector(255, 255, 255)
+		if selection == 1 then
+			prop_name = "winterblight_galren"
+			prop_scale = 0.8
+			prop_color = Vector(70, 70, 70)
+		elseif selection == 2 then
+			prop_name = "winterblight_elyna"
+			prop_scale = 0.8
+			prop_color = Vector(70, 70, 70)
+		elseif selection == 3 then
+			prop_name = "npc_dummy_unit"
+			prop_scale = 0.9
+			prop_color = Vector(255, 44, 44)
+		end
+		local prop = CreateUnitByName(prop_name, caster:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		if selection == 3 then
+			prop:SetModel("models/props_tree/mango_tree.vmdl")
+			prop:SetOriginalModel("models/props_tree/mango_tree.vmdl")
+		end
+		prop:SetModelScale(prop_scale)
+		Events:ColorWearablesAndBase(prop, prop_color)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, prop, "modifier_diviner_prop_disable", {})
+		Timers:CreateTimer(4, function()
+			Winterblight:UpdateLoversTarot(selection)
+			Winterblight:SpawnRoomKey(10, false)
+		end)
+	end)
+	for i = 1, #Winterblight.CastleDungeonMaster.treasure_room_chests, 1 do
+		local heart = Winterblight.CastleDungeonMaster.treasure_room_chests[i]
+		if heart:GetEntityIndex() ~= caster:GetEntityIndex() then
+			SpecialFX:ColoredPop(heart:GetAbsOrigin(), Vector(255, 120, 120))
+			UTIL_Remove(heart)
+		end
+	end
+end
+
+function lover_heart_main_rotator_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/120)
+	caster:SetForwardVector(rotatedFV)
+end
+
+function lover_heart_rotation_animation(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/caster.rotationDivisor)
+	caster:SetForwardVector(rotatedFV)
+	caster.rotationDivisor = caster.rotationDivisor + 1
+	caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,3.5))
+end
+
+function dragon_dual_burn_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function lovers_special_die(event)
+	local unit = event.unit
+	if unit:GetUnitName() == "winterblight_galren" then
+		RPCItems:CreateBasicConsumable(unit:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
+	elseif unit:GetUnitName() == "winterblight_elyna" then
+		RPCItems:CreateBasicConsumable(unit:GetAbsOrigin(), "item_rpc_elynas_feather", "Elyna's Feather", "mythical", true)
+	end
+end
+
+function use_winterblight_castle_lover_quest_item(event)
+	local caster = event.caster
+	local item = event.ability
+	local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(13773, -2507))
+	if Winterblight.CastleLoversPath and Winterblight.CastleLoversPath == "apple_tree" and distance < 800 and Winterblight.AppleTreeExists then
+		if event.index == 1 then
+			if not Winterblight.CastleGalrenSpirit then
+				local spawnPos = caster:GetAbsOrigin()+caster:GetForwardVector()*200
+				if Winterblight.CastleElynaSpirit then
+					local spawnDistance = WallPhysics:GetDistance2d(spawnPos, Winterblight.CastleElynaSpirit:GetAbsOrigin())
+					if spawnDistance < 400 then
+						spawnPos = Winterblight.CastleElynaSpirit:GetAbsOrigin() + RandomVector(400)
+					end
+				end
+				local lover = CreateUnitByName("winterblight_galren", spawnPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				lover:SetForwardVector(Vector(0,-1))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, lover, "modifier_diviner_lovers_item_spawn", {})
+				SpecialFX:ColoredSpotlight(lover:GetAbsOrigin(), Vector(255, 60, 60))
+				lover.phase = 0
+				lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,600))
+				Winterblight.CastleGalrenSpirit = lover
+				EmitSoundOn("Winterblight.LoverQuestItemUse", lover)
+				UTIL_Remove(item)
+			end
+		elseif event.index == 2 then
+			if not Winterblight.CastleElynaSpirit then 
+				local spawnPos = caster:GetAbsOrigin()+caster:GetForwardVector()*200
+				if Winterblight.CastleGalrenSpirit then
+					local spawnDistance = WallPhysics:GetDistance2d(spawnPos, Winterblight.CastleGalrenSpirit:GetAbsOrigin())
+					if spawnDistance < 400 then
+						spawnPos = Winterblight.CastleGalrenSpirit:GetAbsOrigin() + RandomVector(400)
+					end
+				end
+				local lover = CreateUnitByName("winterblight_elyna", spawnPos, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				lover:SetForwardVector(Vector(0,-1))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, lover, "modifier_diviner_lovers_item_spawn", {})
+				SpecialFX:ColoredSpotlight(lover:GetAbsOrigin(), Vector(255, 60, 60))
+				lover.phase = 0
+				lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,600))
+				Winterblight.CastleElynaSpirit = lover
+				EmitSoundOn("Winterblight.LoverQuestItemUse", lover)
+				UTIL_Remove(item)
+			end
+		end
+	else
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "lovers_quest_item_use_fail", duration = 2, style = {color = "red"}, continue = true})
+	end
+end
+
+function lover_quest_spawn_think(event)
+	local lover = event.target
+	if not lover.interval then
+		lover.interval = 0
+	end
+	lover.interval = lover.interval + 1
+	if lover.phase == 0 then
+		if not lover.fallSpeed then
+			lover.fallSpeed = 12
+		end
+		local distanceFromGround = lover:GetDistanceFromGround()
+		lover.fallSpeed = math.max(lover.fallSpeed - 0.1, 7)
+		local distance_check = 20
+		if distanceFromGround > distance_check then
+			lover:SetAbsOrigin(lover:GetAbsOrigin()-Vector(0,0,lover.fallSpeed))
+		else
+			EmitSoundOn("Winterblight.LoverSummon.Land", lover)
+			SpecialFX:ColoredPop(lover:GetAbsOrigin(), Vector(255, 100, 60))
+			lover.phase = 1
+		end
+		if not lover.soundPlayed then
+			if distanceFromGround < 140 then
+				EmitSoundOn("Winterblight.KeySpawn.Land", lover)
+				lover.soundPlayed = true
+			end
+		end
+	elseif lover.phase == 1 then
+		if (Winterblight.CastleGalrenSpirit and lover:GetUnitName() == "winterblight_elyna") or (Winterblight.CastleElynaSpirit and lover:GetUnitName() == "winterblight_galren") then
+			if not lover.other_lover then
+				local other_lover = Winterblight.CastleElynaSpirit
+				if lover:GetUnitName() == "winterblight_elyna" then
+					other_lover = Winterblight.CastleGalrenSpirit
+				end
+				lover.other_lover = other_lover
+			end
+			if lover.other_lover and (lover.other_lover.phase == 1 or lover.other_lover.phase == 2) then
+				CustomAbilities:QuickAttachParticle("particles/msg_fx/big_excalamation.vpcf", lover, 3)	
+				EmitSoundOn("Winterblight.LoverSurprise", lover)
+				local fv = ((lover.other_lover:GetAbsOrigin() - lover:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				lover:SetForwardVector(fv)
+				lover.phase = 100
+				Timers:CreateTimer(1.5, function()
+					lover.phase = 2
+				end)
+			end
+		end
+	elseif lover.phase == 2 then
+		if lover.interval % 10 == 0 then
+			local move_to_position = (lover.other_lover:GetAbsOrigin()) - (((lover:GetAbsOrigin() - lover.other_lover:GetAbsOrigin())*Vector(1,1,0)):Normalized())*400
+			lover:MoveToPosition(move_to_position)
+			local distance = WallPhysics:GetDistance2d(lover:GetAbsOrigin(), lover.other_lover:GetAbsOrigin())
+			if distance < 540 then
+				lover.phase = 3
+				lover:Stop()
+				lover.other_lover:Stop()
+				if not Winterblight.FinalLoverSceneStart then
+					Winterblight.FinalLoverSceneStart = true
+					Timers:CreateTimer(2, function()
+						final_lover_scene(lover, lover.other_lover)
+					end)
+				end
+			end
+		end
+	elseif lover.phase == 4 then
+		local fv = ((lover.other_lover:GetAbsOrigin() - lover:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+		lover:SetForwardVector(fv)
+		local perpFV = WallPhysics:rotateVector(fv, 2*math.pi/4)
+		lover:SetAbsOrigin(lover:GetAbsOrigin() + Vector(0,0,6) + fv*2 + perpFV*13)
+		if lover.interval % 5 == 0 then
+			local distance = WallPhysics:GetDistance2d(lover:GetAbsOrigin(), lover.other_lover:GetAbsOrigin())
+			if distance < 50 then
+				if not Winterblight.FinalLoverPop then
+					Winterblight.FinalLoverPop = true
+					local position = lover:GetAbsOrigin()
+					SpecialFX:ColoredPop(lover:GetAbsOrigin(), Vector(255,40,40))
+					SpecialFX:ColoredPop(lover.other_lover:GetAbsOrigin(), Vector(255,40,40))
+					EmitSoundOn("Winterblight.LoversSequenceEnd", lover)
+					UTIL_Remove(lover)
+					UTIL_Remove(lover.other_lover)
+					UTIL_Remove(lover.heart)
+					local arcana = RPCItems:RollAndDropArcanaByLevel(position, 120, "item_rpc_flamewaker_arcana1")
+					arcana.pickedUp = true
+					Timers:CreateTimer(2, function()
+						Winterblight.FinalLoverPop = nil
+						Winterblight.FinalLoverSceneStart = nil
+						Winterblight.CastleGalrenSpirit = nil
+						Winterblight.CastleElynaSpirit = nil
+					end)
+				end
+			end
+		end
+	end
+	if lover.interval > 100 then
+		lover.interval = 0
+	end
+end
+
+function final_lover_scene(lover1, lover2)
+	local midPoint = (lover1:GetAbsOrigin() + lover2:GetAbsOrigin())/2
+
+	local heart = Enemies:SpawnEnemyUnit("winterblight_lovers_heart_path", midPoint, Vector(1,-1), false)
+	heart:SetAbsOrigin(heart:GetAbsOrigin() + Vector(0,0,110))
+	local particleName = "particles/roshpit/winterblight/colorable_pop.vpcf"
+	local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, heart)
+	ParticleManager:SetParticleControlEnt(pfx, 0, heart, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", heart:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(1,0.2,0.2))
+	EmitSoundOn("Winterblight.LoverHeart.Reveal", heart)
+	Timers:CreateTimer(3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	heart.rotationDivisor = 10
+	local heart_ability = heart:FindAbilityByName("winterblight_lover_heart_ability")
+	heart_ability:ApplyDataDrivenModifier(heart, heart, "modifier_heart_activated", {})
+	heart_ability:ApplyDataDrivenModifier(heart, heart, "modifier_heart_rotation_animation", {duration = 4})
+
+	Timers:CreateTimer(2, function()
+		Events:smoothTranslate(heart, Vector(0,0,2.5), 94, Vector(0,0), "Winterblight.HeartSequenceRise")
+	end)
+	Timers:CreateTimer(3, function()
+		lover1.phase = 4
+		lover2.phase = 4
+		lover1.animation_distance = WallPhysics:GetDistance2d(lover1:GetAbsOrigin(), lover2:GetAbsOrigin())
+		lover2.animation_distance = WallPhysics:GetDistance2d(lover1:GetAbsOrigin(), lover2:GetAbsOrigin())
+		SpecialFX:ColoredSpotlight(lover1:GetAbsOrigin()+Vector(0,0,30), Vector(60, 255, 255))
+		SpecialFX:ColoredSpotlight(lover2:GetAbsOrigin()+Vector(0,0,30), Vector(60, 255, 255))
+		EmitSoundOn("Winterblight.LoversSequenceRise", heart)
+		lover1.heart = heart
+		lover2.heart = heart
+	end)
+end
+
+function strength_charge_start(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target_points[1]
+	target = WallPhysics:WallSearch(caster:GetAbsOrigin(), target, caster)
+	local invisible_duration = 3
+	ability.fv = ((target - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	ability.targetPoint = target
+	local warpDuration = 3.0
+	ability.fallVelocity = 3
+	ability.forwardVelocity = 45
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_strength_charge_flying", {duration = warpDuration})
+
+	caster:RemoveModifierByName("modifier_end_strength_charge_falling")
+
+    EmitSoundOn("Winterblight.StrengthBoss.Charge", caster)
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.6, 0.45, 0.24))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.2, 0.2, 0.2))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_FLAIL, rate = 0.7, translate = "forcestaff_friendly"})
+end
+
+function strength_chargeing_think(event)
+	local caster = event.caster
+	local ability = event.ability
+
+
+	local blockSearch = caster:GetAbsOrigin()*Vector(1,1,0)+Vector(0,0,GetGroundHeight(caster:GetAbsOrigin(), caster))
+    local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+    local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch+ability.fv*45), caster)
+    local forwardSpeed = ability.forwardVelocity
+	if blockUnit then
+		forwardSpeed = 0
+		print("BLOCKED?")
+	end
+	print("GOOOO")
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.fv*forwardSpeed + Vector(0,0,5))
+	local distance = WallPhysics:GetDistance2d(ability.targetPoint, caster:GetAbsOrigin())
+	if distance < 100 then
+		caster:RemoveModifierByName("modifier_strength_charge_flying")
+		EndAnimation(caster)
+		Timers:CreateTimer(0.03, function()
+			StartAnimation(caster, {duration=3, activity=ACT_DOTA_TELEPORT_END, rate=0.8})
+		end)
+		if ability.pfx then
+			ParticleManager:DestroyParticle(ability.pfx, false)
+			ability.pfx = false
+		end
+	end
+end
+
+function strength_charge_after_warp_falling(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,ability.fallVelocity))
+	ability.fallVelocity = ability.fallVelocity + 3
+	local groundHeight = GetGroundHeight(caster:GetAbsOrigin(), caster)
+	local damage = event.damage
+	if caster:GetAbsOrigin().z - groundHeight < ability.fallVelocity/2 then
+		caster:RemoveModifierByName("modifier_end_strength_charge_falling")
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+
+		local radius = 400
+		local position = caster:GetAbsOrigin()
+		local splitEarthParticle = "particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
+		local damage = event.damage
+		local pfx = ParticleManager:CreateParticle(splitEarthParticle, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(pfx, 0, position)
+		ParticleManager:SetParticleControl(pfx, 1, Vector(radius, radius, radius))
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+		EmitSoundOn("Winterblight.StrengthChargeQuake", caster)
+		-- FindClearSpaceForUnit(caster, position, false)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
+				enemy:AddNewModifier(caster, event.ability, "modifier_stunned", {duration = 2})
+			end
+		end
+	end
+end
+
+function spine_drake_die(event)
+	local caster = event.caster
+	local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight_dust.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin()+Vector(0,0,80))
+	ParticleManager:SetParticleControl(pfx, 5, Vector(0.9, 0.4, 0.4))
+	ParticleManager:SetParticleControl(pfx, 2, Vector(0.7, 0.7, 0.7))
+	Timers:CreateTimer(10, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+	Timers:CreateTimer(0.1, function()
+		UTIL_Remove(caster)
+	end)
+end
+
+function hermit_eye_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/160)
+
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster.interval = caster.interval + 1
+	if caster.interval % 30 == 0 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			caster.target_lock = enemies[1]
+		else
+			caster.target_lock = nil
+		end
+		caster.interval = 0
+	end
+	if caster.target_lock then
+		rotatedFV = ((caster.target_lock:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	end
+
+	caster:SetForwardVector(rotatedFV)
+	if caster.dying then
+		if not caster.descend_speed then
+			caster.descend_speed = 6
+		end
+		local fv = caster:GetForwardVector()
+		local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/60)
+		caster:SetForwardVector(rotatedFV)	
+
+		caster.descend_speed = math.min(20, caster.descend_speed + 0.3)
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,12))
+	end	
+end
+
+function hermit_eye_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local info =
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_dark_willow/dark_willow_base_attack.vpcf",
+		StartPosition = "attach_hitloc",
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 5,
+		bProvidesVision = false,
+		iVisionRadius = 0,
+		iMoveSpeed = 500,
+	iVisionTeamNumber = caster:GetTeamNumber()}
+
+	projectile = ProjectileManager:CreateTrackingProjectile(info)		
+end
+
+function hermit_eye_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.HermitEye.AttackLand", target)
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function hermit_eye_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hermit_eye_dying", {duration = 3})
+	caster.dying = true
+end
+
+function winterblight_shadow_tornado_owner_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability.tornadoTable then
+		for i = 1, #ability.tornadoTable, 1 do
+			ability.tornadoTable[i]:RemoveModifierByName("modifier_tornado_thinker")
+		end
+	end
+end
+
+function winter_castle_shadow_tornado_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local baseFV = caster:GetForwardVector()
+
+	if not caster:IsAlive() then
+		return false
+	end
+	if not ability.tornadoTable then
+		ability.tornadoTable = {}
+	end
+	Timers:CreateTimer(0.05, function()
+		StartAnimation(caster, {duration = 1.1, activity = ACT_DOTA_ATTACK, rate = 1.6})
+	end)
+	local startPoint = caster:GetAbsOrigin() + RandomVector(RandomInt(400, 700))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		startPoint = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(90, 270))
+	end
+	ability.velocity = 1000
+	ability.rotationDelta = 20
+
+	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
+	ability.velocity = distance * 1
+	-- if event.noSound then
+	-- 	local luck = RandomInt(1, 3)
+	-- 	if luck == 1 then
+	-- 		EmitSoundOn("Sorceress.TornadoCast.VO", caster)
+	-- 	end
+	-- else
+	-- 	EmitSoundOn("Sorceress.TornadoCast.VO", caster)
+	-- end
+
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ShadowTornado.Launch", caster)
+
+	local bAvatar = false
+	local casterOrigin = caster:GetAbsOrigin()
+
+
+	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, false, nil, nil, caster:GetTeamNumber())
+	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_tornado_thinker", {duration = 14})
+	local projectileFV = ((startPoint - casterOrigin) * Vector(1, 1, 0)):Normalized()
+	local tornadoParticle = "particles/roshpit/winterblight/shadow_tornado_ti6.vpcf"
+
+	local pfx = ParticleManager:CreateParticle(tornadoParticle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, casterOrigin)
+
+	ParticleManager:SetParticleControlEnt(pfx, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", dummy:GetAbsOrigin(), true)
+
+	ability.clearcast = false
+
+	dummy.pfx = pfx
+	dummy.interval = 0
+	dummy.dummy = true
+	dummy.pullPoint = casterOrigin + projectileFV * 1300 + Vector(0, 0, 80)
+	dummy.baseFV = projectileFV
+	dummy.hardInterval = 0
+	dummy.velocity = ability.velocity
+	dummy.position = casterOrigin
+	dummy.targetPosition = startPoint
+	dummy.newTarget = startPoint
+	dummy.atPoint = false
+	table.insert(ability.tornadoTable, dummy)
+	local max_tornados = event.max_tornados
+	if bAvatar then
+		max_tornados = 3
+	end
+	--print(max_tornados)
+	if #ability.tornadoTable > max_tornados then
+		ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
+	end
+	Timers:CreateTimer(1, function()
+		StartSoundEvent("Winterblight.ShadowTornado.LP", dummy)
+	end)
+
+end
+
+function winter_shadow_tornado_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local dummy = target
+	if not IsValidEntity(ability) then
+		return false
+	end
+	dummy.interval = dummy.interval + 1
+	dummy.hardInterval = dummy.hardInterval + 1
+
+	dummy:SetAbsOrigin(dummy:GetAbsOrigin() + dummy.velocity * 0.03 * dummy.baseFV)
+	dummy:SetAbsOrigin(GetGroundPosition(dummy:GetAbsOrigin(), caster))
+	local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), dummy.newTarget)
+	dummy.velocity = math.max(dummy.velocity - 15, 300)
+	if dummy.atPoint then
+		if dummy.interval % 5 == 0 then
+			AddFOWViewer(caster:GetTeamNumber(), dummy:GetAbsOrigin(), 400, 1, false)
+			dummy.baseFV = WallPhysics:rotateVector(dummy.baseFV, 2 * math.pi / 10)
+			dummy.newTarget = dummy.targetPosition + dummy.baseFV * 500
+		end
+	else
+
+		if distance < 100 then
+			dummy.atPoint = true
+		end
+	end
+
+	if dummy.interval % 15 == 0 then
+		local radius = 800
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local enemy = enemies[1]
+			local info =
+			{
+				Target = enemy,
+				Source = dummy,
+				Ability = ability,
+				EffectName = "particles/units/heroes/hero_bane/bane_projectile.vpcf",
+				vSourceLoc = dummy:GetAbsOrigin() + Vector(0, 0, RandomInt(80, 140)),
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = false,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 10,
+				bProvidesVision = true,
+				iVisionRadius = 0,
+				iMoveSpeed = 900,
+			iVisionTeamNumber = caster:GetTeamNumber()}
+			projectile = ProjectileManager:CreateTrackingProjectile(info)
+		end
+	end
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			if enemy.pushLock or enemy.jumpLock then
+			else
+				local pullVector = ((dummy:GetAbsOrigin() - enemy:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), enemy:GetAbsOrigin())
+				local pullSpeed = math.max(4, 10 - distance / 12)
+				enemy:SetAbsOrigin(enemy:GetAbsOrigin() + pullVector * pullSpeed)
+			end
+		end
+	end
+end
+
+function winter_shadow_tornado_splinter_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local damage = event.damage
+
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function winter_shadow_tornado_thinker_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local pfx = target.pfx
+	StopSoundEvent("Winterblight.ShadowTornado.LP", target)
+	Timers:CreateTimer(0.03, function()
+		UTIL_Remove(target)
+		reindex_shadow_tornado_table(ability)
+	end)
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+end
+
+function tornado_damage_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target.pushLock then
+		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	end
+end
+
+function enemy_inside_winter_tornado_thinker(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	local ability = event.ability
+	if IsValidEntity(caster) then
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_shadow_tornado_blind", {duration = 1})
+	end
+end
+
+function reindex_shadow_tornado_table(ability)
+	local newTable = {}
+	for i = 1, #ability.tornadoTable, 1 do
+		if IsValidEntity(ability.tornadoTable[i]) then
+			table.insert(newTable, ability.tornadoTable[i])
+		end
+	end
+	ability.tornadoTable = newTable
+end
+
+

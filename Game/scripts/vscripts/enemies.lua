@@ -343,6 +343,10 @@ function Enemies:InitializeEnemy(unit)
 			Events:ColorWearablesAndBase(unit, Vector(unit:GetKeyValue("RoshpitColorRenderR"), unit:GetKeyValue("RoshpitColorRenderG"), unit:GetKeyValue("RoshpitColorRenderB")))
 		end)
 	end
+	local mat_group = unit:GetKeyValue("RoshpitMatGroup")
+	if mat_group ~= 0 then
+		unit:SetSkin(mat_group)
+	end
 
 end
 

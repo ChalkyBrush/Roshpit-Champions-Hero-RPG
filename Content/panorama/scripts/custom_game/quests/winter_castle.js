@@ -62,4 +62,5 @@ function TarotSelect(card_index)
 (function()
 {
 	GameEvents.Subscribe( "open_winter_castle_event", OpenDivinerUI);
+	GameEvents.Subscribe( "close_wb_castle_tarot", CloseTarot);
 })();

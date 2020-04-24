@@ -3020,6 +3020,10 @@ function CustomAttributes:SetAttributes(hero)
 		local ability = hero:FindModifierByName("modifier_diviner_hierophant_spirit_buff"):GetAbility()
 		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_hierophant_spirit_buff", ability:GetSpecialValueFor("hierophant_spirit"))
 	end
+	if hero:HasModifier("modifier_strength_attack_power_player") then
+		local ability = hero:FindModifierByName("modifier_strength_attack_power_player"):GetAbility()
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_strength_attack_power_player", ability:GetSpecialValueFor("hierophant_spirit"))
+	end
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)
 	agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_agility", 1)
