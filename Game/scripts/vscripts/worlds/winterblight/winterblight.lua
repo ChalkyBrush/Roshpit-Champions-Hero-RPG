@@ -9,7 +9,7 @@ require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
 require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = true
+Winterblight.Winter3Enabled = false
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
