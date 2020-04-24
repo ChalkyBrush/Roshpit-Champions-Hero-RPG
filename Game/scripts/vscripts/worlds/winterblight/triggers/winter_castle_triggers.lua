@@ -71,7 +71,17 @@ function GooSwitchTriggerEnter(trigger)
 					local goo = Entities:FindByNameNearest("CastleGoo", Vector(9742, 4586, 1300), 2000)
 					UTIL_Remove(goo)
 				end
+				Timers:CreateTimer(2, function()
+					 Winterblight:BlueGooSwitchCheck()
+				end)
 			end)
 		end
+	end
+end
+
+function BlueGooSwitchTrigger(trigger)
+	if Winterblight.BlueGooSwitchSpawned == 2 then
+		Winterblight.BlueGooSwitchSpawned = 3
+		Winterblight:BlueGooSwitchPressed()
 	end
 end

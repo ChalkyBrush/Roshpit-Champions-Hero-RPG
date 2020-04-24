@@ -229,6 +229,10 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][12]["index"] = "11"
 		Winterblight.CASTLE_DATA["tarot"][12]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][12]["prop_scale"] = 0.85
+		Winterblight.CASTLE_DATA["tarot"][12]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][12]["rooms"][1] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][12]["rooms"][2] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][12]["rooms"][3] = {index = 5, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][13] = {}
 		Winterblight.CASTLE_DATA["tarot"][13]["name"] = "hanged_man"
@@ -1012,6 +1016,11 @@ end
 function Winterblight:CastleRoomEnemyGoalReached(room_index)
 	if not Winterblight.CastleDungeonMaster.key_drops then
 		Winterblight.CastleDungeonMaster.key_drops = 0
+	end
+	if room_index == 12 then
+		Timers:CreateTimer(10, function()
+		 	Winterblight:BlueGooSwitchCheck()
+		end)
 	end
 	if Winterblight.CastleDungeonMaster.key_drops == 0 and Winterblight.CastleTarot["name"] == "lovers" then
 		Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
@@ -2247,6 +2256,14 @@ function Winterblight:CastleBossSplash(boss)
 	end
 end
 
+
+function Winterblight:BlueGooSplash(position)
+	local splash_particle = "particles/roshpit/winterblight/blue_goo_explosion.vpcf"
+	local splash_position = position
+	CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position, 5)
+	EmitSoundOnLocationWithCaster(splash_position, "Winterblight.Boss.Splash", Events.GameMaster)
+end
+
 function Winterblight:CastleBossMusicPlayer()
 	for i = 1, #MAIN_HERO_TABLE, 1 do
 		if MAIN_HERO_TABLE[i].bgm == "Music.Winterblight.BlackfrostCitadel" then
@@ -2862,4 +2879,62 @@ function Winterblight:CastleWheelOfFortuneParagonChance(unit)
 	else
 		return false
 	end
+end
+
+function Winterblight:BlueGooSwitchCheck()
+	if not Winterblight.BlueGooSwitchSpawned then
+		if Winterblight.CASTLE_DATA["rooms"][12]["active"] >= 2 then
+			if Winterblight.CastleDungeonMaster.goo_switches then
+				if Winterblight.CastleDungeonMaster.goo_switches[1] + Winterblight.CastleDungeonMaster.goo_switches[2] + Winterblight.CastleDungeonMaster.goo_switches[3] == 3 then
+					Winterblight.BlueGooSwitchSpawned = 0
+					Winterblight:ActivateSwitchGeneric(Vector(15751, -1818, 1976), "BlueGooSwitchButton", false, 0.76)
+					local switchObject = Entities:FindByNameNearest("BlueGooSwitchButton", Vector(15751, -1818, 1976), 1000)
+					Events:objectShake(switchObject, 60, 6, true, true, false, "Winterblight.DirtMoundShake", 20)
+					local ground_position = GetGroundPosition(Vector(15751, -1818, 1976), Events.GameMaster)
+					for mud_count = 0, 4, 1 do
+						Timers:CreateTimer(mud_count*0.4, function()
+							for mudx = 0, 1, 1 do
+								for mudy = 0, 1, 1 do
+									local mud_position = ground_position + Vector((mudx-0.5)*60, (mudy-0.5)*60, 0)
+									CustomAbilities:QuickParticleAtPoint("particles/econ/items/pets/pet_frondillo/pet_spawn_dirt_frondillo.vpcf", mud_position, 4)
+								end
+							end
+						end)
+					end
+					Timers:CreateTimer(2, function()
+						Winterblight.BlueGooSwitchSpawned = 2
+					end)
+				end
+			end
+		end
+	end
+end
+
+function Winterblight:BlueGooSwitchPressed()
+	Winterblight:ActivateSwitchGeneric(Vector(15751, -1818, 1976), "BlueGooSwitchButton", true, 0.352)
+
+	local goo_dummy = CreateUnitByName("npc_dummy_unit", Vector(9778, 4642), false, nil, nil, DOTA_TEAM_NEUTRALS)
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, goo_dummy, "modifier_room_7_goo_aura", {})
+	goo_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	Winterblight.CastleDungeonMaster.blue_goo_dummy = goo_dummy
+
+	Timers:CreateTimer(1, function()
+		local goo = Entities:FindByNameNearest("CastleGooBlue", Vector(9742, 4586, 1500), 2000)
+		print("ZXC FOUND GOO")
+		print(goo:GetAbsOrigin())
+		goo:SetAbsOrigin(goo:GetAbsOrigin()+Vector(0,0,240))
+		Events:smoothTranslate(goo, Vector(0,0,0.74), 280, Vector(0,0), nil)
+		StartSoundEvent("Winterblight.Castle.GooDrain", Winterblight.CastleDungeonMaster.blue_goo_dummy)
+	end)
+	Timers:CreateTimer(8.4, function()
+		EmitSoundOn("Winterblight.Castle.GooDrainEnd", Winterblight.CastleDungeonMaster.blue_goo_dummy)
+	end)
+	Timers:CreateTimer(8.5, function()
+		StopSoundEvent("Winterblight.Castle.GooDrain", Winterblight.CastleDungeonMaster.blue_goo_dummy)
+	end)
+	Timers:CreateTimer(10, function()
+		local miniboss = Winterblight:SpawnCastleRoomUnit(0,"winterblight_blue_goo_gunman", Vector(10368, 4454), Vector(0,-1), false, true)
+		miniboss:SetAbsOrigin(miniboss:GetAbsOrigin()-Vector(0,0,80))
+	end)
 end

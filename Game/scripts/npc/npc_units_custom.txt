@@ -111672,6 +111672,119 @@
         "RoshpitAggroSound"     "Winterblight.WanderingShadow.Aggro"
 
     }
+
+    "winterblight_blue_goo_gunman"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/sniper/sniper.vmdl"
+        "ModelScale"    "2.1"
+        "Level" "1"
+        "HealthBarOffset"   "140"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Human_Riflemen"
+        "PathfindingSearchDepthScale" "0.2"
+        "DefaultState"  "Invade"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+            "particle"  "particles/roshpit/winterblight/blue_shrapnel.vpcf"
+        }
+        "SoundSet"  "Hero_Sniper"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "885"
+        "AttackDamageMax"   "1000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.17"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "2200"
+        "ProjectileModel"   "particles/econ/items/sniper/sniper_charlie/sniper_base_attack_charlie.vpcf"
+        "ProjectileSpeed"   "2300"
+        "BountyGoldMin" "15"
+        "BountyGoldMax" "30"
+        "BountyXP"  "700"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "55650"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "0"
+        "StatusManaRegen"   "0"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"  "winterblight_blue_gunman_main_ability"
+        "Ability2"  "winterblight_blue_goo_shrapnel"
+        "Ability3"  "mega_steadfast"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9650"
+                }
+
+                "Wearable2"
+                {
+                    "ItemDef"   "9592"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9590"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "8241"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "5041"
+                }
+
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                }             
+            }
+
+        }
+        "RoshpitArmor"          "225"
+        "RoshpitArmorPierce"    "665"
+        "RoshpitSpellPierce"    "145"
+        "RoshpitMagicArmor"     "260"
+        "RoshpitLevel"          "38"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
+        "RoshpitAggroSound"     "Winterblight.BlueGooSniper.Aggro"
+        "RoshpitDeathSound"     "Winterblight.BlueGooSniper.Death"
+    }
     
 
     "tutorial_master"

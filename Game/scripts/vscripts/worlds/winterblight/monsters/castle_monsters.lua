@@ -476,7 +476,7 @@ function castle_room_unit_die(event)
 			Winterblight.CastleDungeonMaster.blue_slime_deaths = 0
 		end
 		Winterblight.CastleDungeonMaster.blue_slime_deaths = Winterblight.CastleDungeonMaster.blue_slime_deaths + 1
-		local active_delay = 10
+		local active_delay = 8.5
 		if Winterblight.CastleDungeonMaster.blue_slime_deaths == 6 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 22 or Winterblight.CastleDungeonMaster.blue_slime_deaths == 38 then
 			local delay = 0.75
 			if Winterblight.CastleTarot["name"] == "chariot" then
@@ -922,38 +922,60 @@ function room_7_goo_aura_thinker(event)
 	local target = event.target
 	local target_origin = target:GetAbsOrigin()
 	if (WallPhysics:IsWithinRegionA(target_origin, Vector(8657, 3200), Vector(11140,4392))) or (WallPhysics:IsWithinRegionA(target_origin, Vector(8119, 4329), Vector(11358,6004))) then
-		local safest_height = GetGroundHeight(Vector(10880, 3584), target)
-		local victim_height = target:GetAbsOrigin().z
-		local depth = 0
-		if (safest_height - victim_height) > 140 then
-			depth = 3
-		elseif (safest_height - victim_height) > 80 then
-			depth = 2
-		elseif (safest_height - victim_height) > 20 then
-			depth = 1
-		end
-
-		local goo_depth = 3 - Winterblight.CastleDungeonMaster.goo_switches[1] - Winterblight.CastleDungeonMaster.goo_switches[2] - Winterblight.CastleDungeonMaster.goo_switches[3]
-
-		local victim_goo_amount = math.min(depth, goo_depth)
-		if depth == 1 and goo_depth < 3 then
-			victim_goo_amount = 0
-		end
-		if (depth == 2 or depth == 1) and goo_depth < 2 then
-			victim_goo_amount = 0
-		end
-		if depth == 2 and goo_depth == 2 then
-			victim_goo_amount = 1
-		end
-		if victim_goo_amount > 0 then
-			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
-			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, target, "modifier_room_7_in_goo", {})	
-			target:SetModifierStackCount("modifier_room_7_in_goo", Winterblight.CastleDungeonMaster, victim_goo_amount)		
+		if Winterblight.CastleDungeonMaster.blue_goo_dummy then
+			local safest_height = GetGroundHeight(Vector(10880, 3584), target)
+			local victim_height = target:GetAbsOrigin().z
+			local depth = 0
+			if (safest_height - victim_height) > 140 then
+				depth = 3
+			elseif (safest_height - victim_height) > 80 then
+				depth = 2
+			elseif (safest_height - victim_height) > 20 then
+				depth = 1
+			end
+			local victim_goo_amount = depth
+			if victim_goo_amount > 0 then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, target, "modifier_room_7_in_blue_goo", {})	
+				target:SetModifierStackCount("modifier_room_7_in_blue_goo", Winterblight.CastleDungeonMaster, victim_goo_amount)		
+			else
+				target:RemoveModifierByName("modifier_room_7_in_blue_goo")
+			end
 		else
-			target:RemoveModifierByName("modifier_room_7_in_goo")
+			local safest_height = GetGroundHeight(Vector(10880, 3584), target)
+			local victim_height = target:GetAbsOrigin().z
+			local depth = 0
+			if (safest_height - victim_height) > 140 then
+				depth = 3
+			elseif (safest_height - victim_height) > 80 then
+				depth = 2
+			elseif (safest_height - victim_height) > 20 then
+				depth = 1
+			end
+
+			local goo_depth = 3 - Winterblight.CastleDungeonMaster.goo_switches[1] - Winterblight.CastleDungeonMaster.goo_switches[2] - Winterblight.CastleDungeonMaster.goo_switches[3]
+
+			local victim_goo_amount = math.min(depth, goo_depth)
+			if depth == 1 and goo_depth < 3 then
+				victim_goo_amount = 0
+			end
+			if (depth == 2 or depth == 1) and goo_depth < 2 then
+				victim_goo_amount = 0
+			end
+			if depth == 2 and goo_depth == 2 then
+				victim_goo_amount = 1
+			end
+			if victim_goo_amount > 0 then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, target, "modifier_room_7_in_goo", {})	
+				target:SetModifierStackCount("modifier_room_7_in_goo", Winterblight.CastleDungeonMaster, victim_goo_amount)		
+			else
+				target:RemoveModifierByName("modifier_room_7_in_goo")
+			end
 		end
 	else
 		target:RemoveModifierByName("modifier_room_7_in_goo")
+		target:RemoveModifierByName("modifier_room_7_in_blue_goo")
 	end
 end
 
@@ -2995,4 +3017,196 @@ function reindex_shadow_tornado_table(ability)
 	ability.tornadoTable = newTable
 end
 
+function in_blue_goo_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if not target.blue_goo_interval then
+		target.blue_goo_interval = 0
+	end
+	target.blue_goo_interval = target.blue_goo_interval + 1
+	local stacks = target:GetModifierStackCount("modifier_room_7_in_blue_goo", caster)
+	local mod = 4 - stacks
+	if target.blue_goo_interval%mod == 0 then
+		local damage = target:GetMaxHealth()*0.15
+		Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_PURE, ability)
+		EmitSoundOn("Winterblight.BlueGoo.Damage", target)
+		StartAnimation(target, {duration = 0.3, activity = ACT_DOTA_FLAIL, rate = 2.1})
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/rubilash/ink_blot_explosion_blue.vpcf", target:GetAbsOrigin(), 4)
+	end
+	if target.blue_goo_interval == 3 then
+		target.blue_goo_interval = 0
+	end
+end
 
+function blue_goo_sniper_leap_onspellstart(event)
+	local caster = event.caster
+	local ability = event.ability
+	abilityLevel = ability:GetLevel()
+	--ability.location = caster:GetOrigin() + caster:GetForwardVector()*Vector(400,400)
+	ability.jump_level = 0
+	EmitSoundOn("Winterblight.BlueGooSniper.Jump.VO", caster)
+
+
+	ability.animation = false
+	ability.extra_particle = false
+
+
+	ability:ApplyDataDrivenModifier(caster, caster, "modfier_blue_goo_sniper_jumping", {duration = 8})
+	local targetPoint = event.target_points[1]
+	local distance = WallPhysics:GetDistance(targetPoint * Vector(1, 1, 0), caster:GetAbsOrigin() * Vector(1, 1, 0))
+	local jumpFV = ((targetPoint - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+	--print(jumpFV)
+	ability.jump_velocity = distance / 50 + 55
+	ability.jumpFV = jumpFV
+	ability.distance = distance
+	ability.targetPoint = targetPoint
+	ability.lifting = true
+	Timers:CreateTimer(0.9, function()
+		ability.lifting = false
+	end)
+	ability.landing_point = targetPoint
+	local zDiff = targetPoint.z - caster:GetAbsOrigin().z
+	StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_TELEPORT_END, rate = 0.3})
+end
+
+function blue_goo_sniper_leap_jumping_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local forwardSpeed = ability.distance / 65
+	print("GOING?")
+	forwardSpeed = Filters:GetAdjustedESpeed(caster, forwardSpeed, false)
+	local blockSearch = caster:GetAbsOrigin() * Vector(1, 1, 0) + Vector(0, 0, GetGroundHeight(caster:GetAbsOrigin(), caster))
+	local obstruction = WallPhysics:FindNearestObstruction(blockSearch)
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (blockSearch + ability.jumpFV * 35), caster)
+	if blockUnit then
+		forwardSpeed = 0
+	end
+	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
+	local vertical_deceleration = 3.3
+	ability.jump_velocity = math.max(ability.jump_velocity - vertical_deceleration, -35)
+	--print(ability.jumpFV)
+	local distanceToPoint = WallPhysics:GetDistance2d(ability.landing_point, caster:GetAbsOrigin())
+	if distanceToPoint < 50 then
+		caster:RemoveModifierByName("modfier_blue_goo_sniper_jumping")
+		print("LAND 2d")
+	end
+	if caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 10 then
+		if not ability.lifting then
+			caster:RemoveModifierByName("modfier_blue_goo_sniper_jumping")
+			print("LAND NOT LIFTING")
+		end
+	elseif caster:GetAbsOrigin().z < GetGroundHeight(caster:GetAbsOrigin(), caster) + 200 and not ability.animation and not ability.lifting then
+		ability.animation = true
+		-- StartAnimation(caster, {duration = 1, activity = ACT_DOTA_TELEPORT_END, rate = 1.5, translate = "assassin"})
+	end
+end
+
+function blue_goo_sniper_leap_landing(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local location = caster:GetAbsOrigin()
+	local damage = keys.damage
+	local sticky_duration = keys.sticky_duration
+	Timers:CreateTimer(0.06, function()
+		WallPhysics:ClearSpaceForUnit(caster, location)
+		Winterblight:BlueGooSplash(caster:GetAbsOrigin())
+	end)
+
+	Winterblight:BlueGooSplash(caster:GetAbsOrigin())
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_sticky_blue", {duration = sticky_duration})
+		end
+	end
+
+end
+
+function blue_goo_gunner_splash(event)
+	local caster = event.caster
+	Winterblight:BlueGooSplash(caster:GetAbsOrigin()+Vector(0,0,100))
+end
+
+function blue_goo_gunner_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+	if not caster.current_jump_index then
+		caster.current_jump_index = 1
+	end
+
+	local safest_height = GetGroundHeight(Vector(10880, 3584), caster)
+	local victim_height = caster:GetAbsOrigin().z
+	local depth = 0
+	if (safest_height - victim_height) > 120 then
+		depth = 1
+	end
+	if depth == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_goo_gunner_in_deep_goo", {})
+	else
+		caster:RemoveModifierByName("modifier_goo_gunner_in_deep_goo")
+	end
+
+	if ability:IsFullyCastable() then
+		local positions = {Vector(9984, 4224), Vector(9024, 3614), Vector(9500, 5487), Vector(10854, 5610)}
+		local new_jump_index = RandomInt(1, 4)
+		while caster.current_jump_index == new_jump_index do
+			new_jump_index = RandomInt(1, 4)
+		end
+		caster.current_jump_index = new_jump_index
+
+		local castPoint = GetGroundPosition(positions[caster.current_jump_index], caster) 
+		local newOrder = {
+			UnitIndex = caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+			AbilityIndex = ability:entindex(),
+			Position = castPoint
+		}
+
+		ExecuteOrderFromTable(newOrder)
+		return false
+	end
+	if not caster:HasModifier("modfier_blue_goo_sniper_jumping") then
+		local shrapnel_ability = caster:FindAbilityByName("winterblight_blue_goo_shrapnel")
+		if shrapnel_ability:IsFullyCastable() then
+			local positions = {Vector(9024, 3614), Vector(9500, 5487), Vector(10854, 5610)}
+			local castPoint = positions[RandomInt(1, 3)]
+			local newOrder = {
+				UnitIndex = caster:entindex(),
+				OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+				AbilityIndex = shrapnel_ability:entindex(),
+				Position = castPoint
+			}
+
+			ExecuteOrderFromTable(newOrder)
+			return false
+		end	
+	end
+
+end
+
+function blue_goo_shrapnel_cast(event)
+	local caster = event.caster
+	local ability = event.ability
+	local point = event.target_points[1]
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_shrapnel.vpcf", point, 5)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(450,450,450))
+	EmitSoundOn("Winterblight.Shgrapnel.Start", caster)
+	EmitSoundOnLocationWithCaster(point, "Winterblight.Shgrapnel.Effect", caster)
+	local damage = event.damage
+	for i = 1, 10, 1 do
+		Timers:CreateTimer(i*0.5, function()
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 440, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
+				end
+			end
+		end)
+	end
+end

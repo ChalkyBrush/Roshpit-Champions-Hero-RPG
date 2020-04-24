@@ -88098,6 +88098,28 @@
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_room_7_in_blue_goo"
+			{
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	   "-20"
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"in_blue_goo_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 			"modifier_room_9_icicle_fall"
 			{
 				"IsHidden"	"1"
@@ -91233,6 +91255,248 @@
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+		}
+	}
+
+	"winterblight_blue_gunman_main_ability"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"storm_spirit_ball_lightning"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"2600"
+
+		// Precache
+		//-------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"land_slow_duration"	"2.1 2.3 2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_radius"			"440"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_damage"			"500 2500 15000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_loss"			"-100 -200 -400"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sticky_duration"			"0.5 0.6 0.7"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_aoe_magic_damage"			"80 200 1600"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"blue_goo_sniper_leap_onspellstart"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_blue_goo_gunman_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_attack_land"
+						"damage"		"%bonus_aoe_magic_damage"
+						"duration"		"%sticky_duration"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_gunner_think"
+					}
+				}
+			}
+			"modifier_sticky_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_loss" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-60"
+				}
+			}
+			"modifier_goo_gunner_in_deep_goo"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_gunner_splash"
+					}
+				}
+			}
+			"modfier_blue_goo_sniper_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"EffectName"	"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_sniper_leap_jumping_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_sniper_leap_landing"
+						"damage"		"%land_damage"
+						"sticky_duration"	"%land_slow_duration"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_blue_goo_shrapnel"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"2100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tick_damage"	"80 240 3000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"blue_goo_shrapnel_cast"
+				"Target"		"POINT"
+				"damage"		"%tick_damage"
+			}
+		}
+		"Modifiers"
+		{
+
 		}
 	}
 

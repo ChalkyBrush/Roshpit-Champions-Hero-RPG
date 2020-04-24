@@ -248,7 +248,11 @@ function Winterblight:Debug2()
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   -- Winterblight:WinterCastleBossSpawn()
   -- Winterblight:SpawnStrengthEvent()
-    Enemies:SpawnEnemyUnit("winterblight_lonely_hermit", Vector(14464, -2304), Vector(1,1), false)
+
+  local goo = Entities:FindByNameNearest("CastleGoo", Vector(9742, 4586, 1900), 2000)
+  goo:SetAbsOrigin(goo:GetAbsOrigin()-Vector(0,0,400))
+  Winterblight:BlueGooSwitchPressed()
+    -- Enemies:SpawnEnemyUnit("winterblight_lonely_hermit", Vector(14464, -2304), Vector(1,1), false)
   -- Winterblight:SpawnCastleRoom12(variant)
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
