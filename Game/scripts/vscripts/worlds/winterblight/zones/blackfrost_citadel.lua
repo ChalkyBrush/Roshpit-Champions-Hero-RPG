@@ -2550,7 +2550,7 @@ function Winterblight:GeneralChestSpawn(position, fv)
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.Magician.ChestSpawn", Events.GameMaster)
 	end)
-	Timers:CreateTimer(2, function
+	Timers:CreateTimer(2, function()
 		local rewardTables = Winterblight:GetGeneralChestRewards()
 		local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, fv*-1, false)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
