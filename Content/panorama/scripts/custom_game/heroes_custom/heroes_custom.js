@@ -435,7 +435,7 @@ function getChernobogSkill(slot){
 	}else if(slot === 3){
         skillName = "DOTA_Tooltip_Ability_chernobog_3_e";
 	}else if(slot === 4){
-        skillName = "DOTA_Tooltip_Ability_chernobog_4_r";
+        skillName = "DOTA_Tooltip_Ability_chernobog_nights_procession";
 	}
     return skillName;
 }
