@@ -211,8 +211,18 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][11] = {}
 		Winterblight.CASTLE_DATA["tarot"][11]["name"] = "wheel_of_fortune"
 		Winterblight.CASTLE_DATA["tarot"][11]["index"] = "10"
-		Winterblight.CASTLE_DATA["tarot"][11]["prop_angle"] = Vector(0, -1)
-		Winterblight.CASTLE_DATA["tarot"][11]["prop_scale"] = 0.85
+		Winterblight.CASTLE_DATA["tarot"][11]["prop_angle"] = Vector(1, 0)
+		Winterblight.CASTLE_DATA["tarot"][11]["prop_scale"] = 1.1
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][1] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][2] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][3] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][4] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][5] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][6] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][7] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][8] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][11]["rooms"][9] = {index = 12, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][12] = {}
 		Winterblight.CASTLE_DATA["tarot"][12]["name"] = "justice"
@@ -516,7 +526,10 @@ function Winterblight:TarotCardSelect(msg)
 	local playerID = msg.PlayerID
 	local selection = msg.card_index
 	print("CARD SELECTED: "..selection)
-
+	CustomGameEventManager:Send_ServerToAllClients("close_wb_castle_tarot", {})
+	if Winterblight.CastleTarot then
+		return false
+	end
 	Winterblight.CastleDungeonMaster.phase = 1
 	Winterblight.CastleDungeonMaster.selected_card = selection
 	EmitSoundOn("Winterblight.TarotCardSelect", Winterblight.CastleDungeonMaster)
@@ -857,6 +870,10 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 			local spawnPos = key_positions[i] + RandomVector(320)
 			Winterblight:SpawnCastleRoomUnit(0,"winterblight_hermit_eye", spawnPos, RandomVector(1), false, true)
 		end
+	elseif Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
+		local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
+		local position = key_positions[RandomInt(1, #key_positions)] + RandomVector(200)
+		Winterblight:GeneralChestSpawn(position, Vector(0,-1))
 	end
 end
 
@@ -953,6 +970,15 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 	elseif Winterblight.CastleTarot["name"] == "strength" then
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_strength_attack_power_enemy", {})
+	elseif Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
+		Timers:CreateTimer(0.15, function()
+			if enemy:IsAlive() then
+				local attempt_paragon = Winterblight:CastleWheelOfFortuneParagonChance(enemy)
+				if attempt_paragon then
+					SpecialFX:ColoredPop(enemy:GetAbsOrigin()+Vector(0,0,60), Vector(255, 255, 0))
+				end
+			end
+		end)
 	end
 	return enemy
 end
@@ -2530,6 +2556,12 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 		chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+		if Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
+			local bad_luck = RandomInt(1, 2)
+			if bad_luck == 1 then
+				chest.bad_chest = true
+			end
+		end
 		Timers:CreateTimer(6, function()
 			UTIL_Remove(pfx_dummy)
 		end)
@@ -2806,4 +2838,28 @@ function Winterblight:SpawnHermitSpecialRoom()
 	Timers:CreateTimer(5, function()
 		Winterblight:SpawnCastleRoomUnit(0, "winterblight_lonely_hermit", Vector(15232, -2816), Vector(1,0), false, true)
 	end)
+end
+
+function Winterblight:CastleWheelOfFortuneParagonChance(unit)
+	local no_paragon = unit:GetKeyValue("RoshpitNoParagon")
+	if no_paragon and no_paragon == 1 then
+		return false
+	end
+	if unit:GetRoshpitLevel() <= 1 then
+		return false
+	end
+	if unit.cant_paragon then
+		return false
+	end
+	if unit.paragon then
+		return false
+	end
+	local top_roll = 30 - GameState:GetDifficultyFactor()*4
+	local luck = RandomInt(1, top_roll)
+	if luck == 1 then
+		Paragon:AddParagonUnit(unit)
+		return true	
+	else
+		return false
+	end
 end

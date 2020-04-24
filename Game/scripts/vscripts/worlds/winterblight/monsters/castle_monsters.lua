@@ -1099,27 +1099,48 @@ function treasure_chest_attacked(event)
 	StartAnimation(caster, {duration = 3.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.5})
 	EmitSoundOn("Winterblight.Chest.Open", caster)
 	Timers:CreateTimer(0.6, function()
-		EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
-		local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
-		ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
+		if caster.bad_chest then
+			local pfx = CustomAbilities:QuickParticleAtPoint("particles/econ/items/riki/riki_head_ti8_gold/riki_smokebomb_ti8_gold.vpcf", caster:GetAbsOrigin(), 3)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(300, 300, 300))
+			EmitSoundOn("Winterblight.BadChest.Smoke", caster)
+			Timers:CreateTimer(0.35, function()
+				EmitSoundOn("Winterblight.BadChest.Laugh.VO", caster)
+			end)
+			
+			Timers:CreateTimer(2.0, function()
+				local skullbone = Enemies:SpawnEnemyUnit("lies_golden_skullbone", caster:GetAbsOrigin(), caster:GetForwardVector()*-1, true)
+				skullbone:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0,0,30))
+				local scale = skullbone:GetModelScale()
+				Events:smoothSizeChange(skullbone, 0.1, scale, 30)
+				WallPhysics:JumpWithBlocking(skullbone, caster:GetForwardVector()*-1, RandomInt(14, 16), RandomInt(24, 32), 20, 1)
+				local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
+				ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
+				EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
+			end)
+			
+		else
+			EmitSoundOn("Winterblight.TreasureChest.OpenedWealth", caster)
+			local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/alchemist/alchemist_midas_knuckles/alch_knuckles_lasthit_coins.vpcf", caster, 3)
+			ParticleManager:SetParticleControl(pfx, 1, caster:GetAbsOrigin()+Vector(0,0,80))
 
-		if caster.contents.items and caster.contents.items > 0 then
-			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
-			for i = 1, caster.contents.items, 1 do
-				RPCItems:RollRandomItemAtLocation(caster.roshpit_attributes.roshpit_level, caster:GetAbsOrigin(), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+			if caster.contents.items and caster.contents.items > 0 then
+				Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+				for i = 1, caster.contents.items, 1 do
+					RPCItems:RollRandomItemAtLocation(caster.roshpit_attributes.roshpit_level, caster:GetAbsOrigin(), RPCItems.RARITY_BOOSTS[ENEMY_TYPE_BOSS])
+				end
+				Dungeons.lootLaunch = false
 			end
-			Dungeons.lootLaunch = false
-		end
-		if caster.contents.glyphs and caster.contents.glyphs > 0 then
-			Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
-			for i = 1, caster.contents.glyphs, 1 do
-				local glyph = RPCItems:RebornGlyph()
-				RPCItems:BasicDropItem(caster:GetAbsOrigin(), glyph)
+			if caster.contents.glyphs and caster.contents.glyphs > 0 then
+				Dungeons.lootLaunch = caster:GetAbsOrigin() - caster:GetForwardVector()*320
+				for i = 1, caster.contents.glyphs, 1 do
+					local glyph = RPCItems:RebornGlyph()
+					RPCItems:BasicDropItem(caster:GetAbsOrigin(), glyph)
+				end
+				Dungeons.lootLaunch = false
 			end
-			Dungeons.lootLaunch = false
-		end
-		if caster.contents.crystals and caster.contents.crystals > 0 then
-			Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+			if caster.contents.crystals and caster.contents.crystals > 0 then
+				Glyphs:DropArcaneCrystals(caster:GetAbsOrigin(), ENEMY_TYPE_NORMAL_CREEP, caster.roshpit_attributes.roshpit_level, caster.contents.crystals/10)
+			end
 		end
 	end)
 	if Winterblight.CastleTarot["name"] ~= "wheel_of_fortune" then

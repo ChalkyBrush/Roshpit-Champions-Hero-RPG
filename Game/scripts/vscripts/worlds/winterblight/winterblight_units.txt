@@ -17869,6 +17869,7 @@
             "particle"  "particles/econ/items/silencer/silencer_ti6/silencer_last_word_status_ti6.vpcf"
             "particle"  "particles/roshpit/winterblight/chariot_teleport.vpcf"
             "particle"  "particles/roshpit/winterblight/red_buff.vpcf"
+            "particle"  "particles/econ/items/riki/riki_head_ti8_gold/riki_smokebomb_ti8_gold.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
