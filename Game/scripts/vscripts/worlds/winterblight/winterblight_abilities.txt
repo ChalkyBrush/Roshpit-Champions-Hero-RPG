@@ -16009,7 +16009,17 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"strength_attack_power_player"		"40 70 100"
-			}			
+			}	
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"hermit_vision_loss_pct"		"-40 -60 -80"
+			}	
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"hermit_vision_gain_pct"		"40 60 80"
+			}		
 		}
 		"Modifiers"
 		{
@@ -16310,7 +16320,30 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%strength_attack_power_player"
 				}
 			}
-
+			"modifier_diviner_hermit_debuff"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"nightstalker_void"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "-1"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"-1"
+				}
+			}
+			"modifier_diviner_hermit_buff"
+			{
+				"IsHidden"	"0"
+				"TextureName"	"nightstalker_void"
+				"IsDebuff"	"0"
+				"EffectName"	 "particles/roshpit/winterblight/hermit_torch_overhead.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "700"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"700"
+				}
+			}
 		}
 	}
 
@@ -18809,6 +18842,490 @@
 			{
 				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 				"Function"		"spine_drake_die"
+			}
+		}
+	}
+
+	"winterblight_hermit_eye_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"redfall/autumn_spawner"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"hermit_eye_die"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_slow"			"-15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vision_loss"			"-300 -500 -700"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200 600 3000"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"hermit_eye_attack_land"
+				"damage"		"%damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hermit_eye_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/econ/items/bane/slumbering_terror/bane_slumber_nightmare.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+
+					}
+				}
+		
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hermit_eye_thinker"
+					}
+				}
+				"Aura"          	"modifier_hermit_eye_range"
+				"Aura_Radius"   	"900"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "100"
+				}
+			}
+			"modifier_hermit_eye_range"
+			{
+				"IsHidden"	"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_slow"
+				    "MODIFIER_PROPERTY_BONUS_DAY_VISION"			"%vision_loss"
+				    "MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%vision_loss"
+				}
+				"ThinkInterval"  "0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hermit_eye_effect_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/roshpit/winterblight/castle_hermit_latch.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"CASTER"	"attach_hitloc"
+						}
+
+					}
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.HermitEye.Latch"
+						"Target" 		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Winterblight.HermitEye.LatchEnd"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_hermit_eye_dying"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+
+	"winterblight_hermit_hoodling_ability"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"miss_chance"			"30 60 90"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_regen_loss"			"-40 -80 -400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"3"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_hermit_hoodling_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+				"StatusEffectPriority"  "15"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_hermit_hoodling_effect"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "80"
+				}
+			}
+			"modifier_hermit_hoodling_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/hoodling_blind.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%miss_chance"
+				    "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%mana_regen_loss" 
+				}
+			}
+		}
+	}
+
+	"winterblight_hermit_miniboss_shadow_tornado"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sorceress/glacial_vortex"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCooldown"	"0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"precache"
+		{
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_shadow_tornado_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winterblight_shadow_tornado_owner_die"
+					}
+				}
+				"ThinkInterval"  "%tornado_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winter_castle_shadow_tornado_passive_think"
+						"max_tornados"	"%max_tornados"
+					}
+				}
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName" 		"particles/status_fx/status_effect_terrorblade_reflection.vpcf"
+				"StatusEffectPriority"  "15"
+			}
+			"modifier_tornado_thinker"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winter_shadow_tornado_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winter_shadow_tornado_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+				"Aura"          	"modifier_enemy_inside_tornado"
+				"Aura_Radius"   	"350"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_enemy_inside_tornado"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"enemy_inside_winter_tornado_thinker"
+						"target"		"TARGET"
+						"damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"tornado_damage_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_shadow_tornado_blind"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/hoodling_blind.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "%miss_chance"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_slow" 
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"winter_shadow_tornado_splinter_hit"
+				"target"		"TARGET"
+				"damage"		"%splinter_damage"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"50 250 1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_slow"			"-24 -26 -28"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_tornados"			"5 6 7"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"splinter_damage"			"100 500 5000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"miss_chance"			"35 65 95"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"tornado_interval"			"3.0 2.5 2.0"
+			}
+		}
+	}
+
+   	"winterblight_shadow_mist"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"pudge_rot"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"				"240"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence_duration"			"0.3 0.4 0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_loss"			"-60 -140 -280"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe_radius"			"240"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"dps"				"60 240 1600"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shadow_mist_aura"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Aura"          	"modifier_shadow_mist_effect"
+				"Aura_Radius"   	"%aoe_radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/roshpit/winterblight/shadow_mist.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%aoe_radius 1 2"
+						}
+					}
+				}
+			}
+			"modifier_shadow_mist_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%dps"
+					}
+				}
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
+				}
+				"OnAbilityExecuted"
+				// Any ability (including items) was used by the unit with this modifier.
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_shadow_mist_silenced"
+						"Target" 		"UNIT"
+						"Duration"		"%silence_duration"
+					}
+				}
+			}
+			"modifier_shadow_mist_silenced"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/econ/items/death_prophet/death_prophet_ti9/death_prophet_silence_custom_ti9_overhead_model.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}

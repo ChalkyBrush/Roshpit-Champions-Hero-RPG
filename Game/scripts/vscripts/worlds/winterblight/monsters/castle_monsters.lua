@@ -123,6 +123,9 @@ function diviner_think(event)
 		end)
 		Timers:CreateTimer(3, function()
 			Winterblight:OpenCastleDoorByIndex(1)
+			if Winterblight.CastleTarot["name"] == "hermit" then
+				Winterblight:CastleLobbySpawnHermit()
+			end
 			Winterblight:CastleLobbySpawn1()
 			Winterblight:CastleNextRoomInit()
 			StartSoundEvent("Winterblight.HorusHYPE", caster)
@@ -185,6 +188,24 @@ function diviner_think(event)
 						ghoul.crawl_end_pfx = "particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"	
 					end)
 				end
+			end
+		end
+	end
+	if caster.phase >= 7 and Winterblight.CastleTarot["name"] == "hermit" then
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			local hero = MAIN_HERO_TABLE[i]
+			if hero.bgm == "Music.Winterblight.BlackfrostCitadel" then
+				local buffAdjust = 0
+				if hero:HasModifier("modifier_diviner_hermit_buff") then
+					buffAdjust = 700
+				end
+				local base_vision = hero:GetNightTimeVisionRange() - buffAdjust + hero:GetModifierStackCount("modifier_diviner_hermit_debuff", caster)
+				local debuff_stacks = base_vision*(ability:GetSpecialValueFor("hermit_vision_loss_pct")*-1)/100
+				ability:ApplyDataDrivenModifier(caster, hero, "modifier_diviner_hermit_debuff", {})
+				hero:SetModifierStackCount("modifier_diviner_hermit_debuff", caster, debuff_stacks)
+			else
+				hero:RemoveModifierByName("modifier_diviner_hermit_debuff")
+				hero:RemoveModifierByName("modifier_diviner_hermit_buff")
 			end
 		end
 	end
@@ -1308,7 +1329,7 @@ function castle_boss_rotator(event)
 		end
 	end
 	if caster.interval%60 == 0 then
-		local splash_particle = "particles/roshpit/rubilash/ink_splatter_blue.vpcf"
+		local splash_particle = "particles/roshpit/winterblight/blue_goo_explosion.vpcf"
 		local splash_position = GetGroundPosition(caster:GetAbsOrigin(), caster) - Vector(0,0,240)
 		CustomAbilities:QuickParticleAtPoint(splash_particle, splash_position, 5)
 		for i = 1, 5, 1 do
@@ -1335,6 +1356,10 @@ function castle_boss_rotator(event)
 					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
 					surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
 					Winterblight:AdjustCastleUnit(surrogate)
+					if Winterblight.CastleTarot["name"] == "hermit" then
+						local spawnPos = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
+						Winterblight:SpawnCastleRoomUnit(0,"winterblight_hermit_eye", spawnPos, RandomVector(1), false, true)
+					end
 				end
 				if caster.rotationDivisor then
 					print(caster.rotationDivisor)
@@ -1935,6 +1960,10 @@ function use_scryers_stone(event)
 			elseif Winterblight.CastleTarot["name"] == "strength" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_strength_attack_power_player", {duration = 40})
+			elseif Winterblight.CastleTarot["name"] == "hermit" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hermit_buff", {duration = 15})
+
 			end
 		end
 	end)
@@ -2654,3 +2683,295 @@ function spine_drake_die(event)
 		UTIL_Remove(caster)
 	end)
 end
+
+function hermit_eye_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	local fv = caster:GetForwardVector()
+	local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/160)
+
+	if not caster.interval then
+		caster.interval = 0
+	end
+	caster.interval = caster.interval + 1
+	if caster.interval % 30 == 0 then
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		if #enemies > 0 then
+			caster.target_lock = enemies[1]
+		else
+			caster.target_lock = nil
+		end
+		caster.interval = 0
+	end
+	if caster.target_lock then
+		rotatedFV = ((caster.target_lock:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	end
+
+	caster:SetForwardVector(rotatedFV)
+	if caster.dying then
+		if not caster.descend_speed then
+			caster.descend_speed = 6
+		end
+		local fv = caster:GetForwardVector()
+		local rotatedFV = WallPhysics:rotateVector(fv, 2*math.pi/60)
+		caster:SetForwardVector(rotatedFV)	
+
+		caster.descend_speed = math.min(20, caster.descend_speed + 0.3)
+		caster:SetAbsOrigin(caster:GetAbsOrigin()-Vector(0,0,12))
+	end	
+end
+
+function hermit_eye_effect_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local info =
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_dark_willow/dark_willow_base_attack.vpcf",
+		StartPosition = "attach_hitloc",
+		bDrawsOnMinimap = false,
+		bDodgeable = true,
+		bIsAttack = false,
+		bVisibleToEnemies = true,
+		bReplaceExisting = false,
+		flExpireTime = GameRules:GetGameTime() + 5,
+		bProvidesVision = false,
+		iVisionRadius = 0,
+		iMoveSpeed = 500,
+	iVisionTeamNumber = caster:GetTeamNumber()}
+
+	projectile = ProjectileManager:CreateTrackingProjectile(info)		
+end
+
+function hermit_eye_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local damage = event.damage
+	EmitSoundOn("Winterblight.HermitEye.AttackLand", target)
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function hermit_eye_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_hermit_eye_dying", {duration = 3})
+	caster.dying = true
+end
+
+function winterblight_shadow_tornado_owner_die(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability.tornadoTable then
+		for i = 1, #ability.tornadoTable, 1 do
+			ability.tornadoTable[i]:RemoveModifierByName("modifier_tornado_thinker")
+		end
+	end
+end
+
+function winter_castle_shadow_tornado_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local baseFV = caster:GetForwardVector()
+
+	if not caster:IsAlive() then
+		return false
+	end
+	if not ability.tornadoTable then
+		ability.tornadoTable = {}
+	end
+	Timers:CreateTimer(0.05, function()
+		StartAnimation(caster, {duration = 1.1, activity = ACT_DOTA_ATTACK, rate = 1.6})
+	end)
+	local startPoint = caster:GetAbsOrigin() + RandomVector(RandomInt(400, 700))
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		startPoint = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(90, 270))
+	end
+	ability.velocity = 1000
+	ability.rotationDelta = 20
+
+	local distance = WallPhysics:GetDistance2d(startPoint, caster:GetAbsOrigin())
+	ability.velocity = distance * 1
+	-- if event.noSound then
+	-- 	local luck = RandomInt(1, 3)
+	-- 	if luck == 1 then
+	-- 		EmitSoundOn("Sorceress.TornadoCast.VO", caster)
+	-- 	end
+	-- else
+	-- 	EmitSoundOn("Sorceress.TornadoCast.VO", caster)
+	-- end
+
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ShadowTornado.Launch", caster)
+
+	local bAvatar = false
+	local casterOrigin = caster:GetAbsOrigin()
+
+
+	local dummy = CreateUnitByName("npc_dummy_unit", casterOrigin, false, nil, nil, caster:GetTeamNumber())
+	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_tornado_thinker", {duration = 14})
+	local projectileFV = ((startPoint - casterOrigin) * Vector(1, 1, 0)):Normalized()
+	local tornadoParticle = "particles/roshpit/winterblight/shadow_tornado_ti6.vpcf"
+
+	local pfx = ParticleManager:CreateParticle(tornadoParticle, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx, 0, casterOrigin)
+
+	ParticleManager:SetParticleControlEnt(pfx, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", dummy:GetAbsOrigin(), true)
+
+	ability.clearcast = false
+
+	dummy.pfx = pfx
+	dummy.interval = 0
+	dummy.dummy = true
+	dummy.pullPoint = casterOrigin + projectileFV * 1300 + Vector(0, 0, 80)
+	dummy.baseFV = projectileFV
+	dummy.hardInterval = 0
+	dummy.velocity = ability.velocity
+	dummy.position = casterOrigin
+	dummy.targetPosition = startPoint
+	dummy.newTarget = startPoint
+	dummy.atPoint = false
+	table.insert(ability.tornadoTable, dummy)
+	local max_tornados = event.max_tornados
+	if bAvatar then
+		max_tornados = 3
+	end
+	--print(max_tornados)
+	if #ability.tornadoTable > max_tornados then
+		ability.tornadoTable[1]:RemoveModifierByName("modifier_tornado_thinker")
+	end
+	Timers:CreateTimer(1, function()
+		StartSoundEvent("Winterblight.ShadowTornado.LP", dummy)
+	end)
+
+end
+
+function winter_shadow_tornado_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local dummy = target
+	if not IsValidEntity(ability) then
+		return false
+	end
+	dummy.interval = dummy.interval + 1
+	dummy.hardInterval = dummy.hardInterval + 1
+
+	dummy:SetAbsOrigin(dummy:GetAbsOrigin() + dummy.velocity * 0.03 * dummy.baseFV)
+	dummy:SetAbsOrigin(GetGroundPosition(dummy:GetAbsOrigin(), caster))
+	local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), dummy.newTarget)
+	dummy.velocity = math.max(dummy.velocity - 15, 300)
+	if dummy.atPoint then
+		if dummy.interval % 5 == 0 then
+			AddFOWViewer(caster:GetTeamNumber(), dummy:GetAbsOrigin(), 400, 1, false)
+			dummy.baseFV = WallPhysics:rotateVector(dummy.baseFV, 2 * math.pi / 10)
+			dummy.newTarget = dummy.targetPosition + dummy.baseFV * 500
+		end
+	else
+
+		if distance < 100 then
+			dummy.atPoint = true
+		end
+	end
+
+	if dummy.interval % 15 == 0 then
+		local radius = 800
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			local enemy = enemies[1]
+			local info =
+			{
+				Target = enemy,
+				Source = dummy,
+				Ability = ability,
+				EffectName = "particles/units/heroes/hero_bane/bane_projectile.vpcf",
+				vSourceLoc = dummy:GetAbsOrigin() + Vector(0, 0, RandomInt(80, 140)),
+				bDrawsOnMinimap = false,
+				bDodgeable = true,
+				bIsAttack = false,
+				bVisibleToEnemies = true,
+				bReplaceExisting = false,
+				flExpireTime = GameRules:GetGameTime() + 10,
+				bProvidesVision = true,
+				iVisionRadius = 0,
+				iMoveSpeed = 900,
+			iVisionTeamNumber = caster:GetTeamNumber()}
+			projectile = ProjectileManager:CreateTrackingProjectile(info)
+		end
+	end
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), dummy:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			if enemy.pushLock or enemy.jumpLock then
+			else
+				local pullVector = ((dummy:GetAbsOrigin() - enemy:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				local distance = WallPhysics:GetDistance2d(dummy:GetAbsOrigin(), enemy:GetAbsOrigin())
+				local pullSpeed = math.max(4, 10 - distance / 12)
+				enemy:SetAbsOrigin(enemy:GetAbsOrigin() + pullVector * pullSpeed)
+			end
+		end
+	end
+end
+
+function winter_shadow_tornado_splinter_hit(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local damage = event.damage
+
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function winter_shadow_tornado_thinker_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local pfx = target.pfx
+	StopSoundEvent("Winterblight.ShadowTornado.LP", target)
+	Timers:CreateTimer(0.03, function()
+		UTIL_Remove(target)
+		reindex_shadow_tornado_table(ability)
+	end)
+	Timers:CreateTimer(1.5, function()
+		ParticleManager:DestroyParticle(pfx, false)
+		ParticleManager:ReleaseParticleIndex(pfx)
+	end)
+end
+
+function tornado_damage_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if not target.pushLock then
+		FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+	end
+end
+
+function enemy_inside_winter_tornado_thinker(event)
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	local ability = event.ability
+	if IsValidEntity(caster) then
+		Filters:TakeArgumentsAndApplyDamage(target, caster, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_R, RPC_ELEMENT_ICE, RPC_ELEMENT_WIND)
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_shadow_tornado_blind", {duration = 1})
+	end
+end
+
+function reindex_shadow_tornado_table(ability)
+	local newTable = {}
+	for i = 1, #ability.tornadoTable, 1 do
+		if IsValidEntity(ability.tornadoTable[i]) then
+			table.insert(newTable, ability.tornadoTable[i])
+		end
+	end
+	ability.tornadoTable = newTable
+end
+
+

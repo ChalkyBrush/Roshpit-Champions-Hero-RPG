@@ -247,8 +247,8 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   -- Winterblight:WinterCastleBossSpawn()
-  Winterblight:SpawnStrengthEvent()
-  
+  -- Winterblight:SpawnStrengthEvent()
+    Enemies:SpawnEnemyUnit("winterblight_lonely_hermit", Vector(14464, -2304), Vector(1,1), false)
   -- Winterblight:SpawnCastleRoom12(variant)
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
