@@ -3082,6 +3082,17 @@ function blue_goo_sniper_leap_jumping_think(event)
 	if blockUnit then
 		forwardSpeed = 0
 	end
+	local safest_height = GetGroundHeight(Vector(10880, 3584), caster)
+	local victim_height = caster:GetAbsOrigin().z
+	local depth = 0
+	if (safest_height - victim_height) > 120 then
+		depth = 1
+	end
+	if depth == 1 then
+		Winterblight:BlueGooSplash(caster:GetAbsOrigin()+Vector(0,0,370))
+	end
+	
+
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, ability.jump_velocity) + ability.jumpFV * forwardSpeed)
 	local vertical_deceleration = 3.3
 	ability.jump_velocity = math.max(ability.jump_velocity - vertical_deceleration, -35)
@@ -3110,10 +3121,20 @@ function blue_goo_sniper_leap_landing(keys)
 	local sticky_duration = keys.sticky_duration
 	Timers:CreateTimer(0.06, function()
 		WallPhysics:ClearSpaceForUnit(caster, location)
-		Winterblight:BlueGooSplash(caster:GetAbsOrigin())
+		local safest_height = GetGroundHeight(Vector(10880, 3584), caster)
+		local victim_height = caster:GetAbsOrigin().z
+		local depth = 0
+		if (safest_height - victim_height) > 120 then
+			depth = 1
+		end
+		if depth == 1 then
+			Winterblight:BlueGooSplash(caster:GetAbsOrigin()+Vector(0,0,450))
+		else
+			Winterblight:BlueGooSplash(caster:GetAbsOrigin())
+		end
 	end)
 
-	Winterblight:BlueGooSplash(caster:GetAbsOrigin())
+
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
 		for _, enemy in pairs(enemies) do

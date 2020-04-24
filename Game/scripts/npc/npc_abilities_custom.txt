@@ -91388,6 +91388,7 @@
 			"modifier_goo_gunner_in_deep_goo"
 			{
 				"IsHidden"	"1"
+				"OverrideAnimation"		"ACT_DOTA_TELEPORT"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
