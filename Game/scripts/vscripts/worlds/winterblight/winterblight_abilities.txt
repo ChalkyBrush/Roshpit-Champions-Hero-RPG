@@ -19482,11 +19482,11 @@
 			"modifier_goo_gunner_in_deep_goo"
 			{
 				"IsHidden"	"1"
-				"OverrideAnimation"		"ACT_DOTA_TELEPORT"
 				"States"
 				{
 					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnCreated"
 				{
