@@ -4137,10 +4137,10 @@
     	"DOTA_Tooltip_modifier_chernobog_e_4"									"Eclipse"
     	"DOTA_Tooltip_modifier_chernobog_e_4_Description"						"<font color='#ccff66'>75</font>%% Evasion."
 		
-      	"DOTA_Tooltip_ability_chernobog_4_r"		        "暗夜游行"
-       "DOTA_Tooltip_ability_chernobog_4_r_Description"        "暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
-        "DOTA_Tooltip_ability_chernobog_4_r_radius"	          "半径范围："
-        "DOTA_Tooltip_ability_chernobog_4_r_duration"		            "持续时间："
+      	"DOTA_Tooltip_ability_chernobog_nights_procession"		        "暗夜游行"
+       "DOTA_Tooltip_ability_chernobog_nights_procession_Description"        "暗夜魔王在目标位置召唤黑暗场，将敌人困住不能移动。"
+        "DOTA_Tooltip_ability_chernobog_nights_procession_radius"	          "半径范围："
+        "DOTA_Tooltip_ability_chernobog_nights_procession_duration"		            "持续时间："
 
       "DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect"                 "暗夜游行"
       "DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect_Description"       "定身"

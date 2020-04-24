@@ -3832,10 +3832,10 @@
     	"DOTA_Tooltip_modifier_chernobog_e_4"									"Eclipse"
     	"DOTA_Tooltip_modifier_chernobog_e_4_Description"						"<font color='#ccff66'>75</font>%% Evasion."
 		
-		"DOTA_Tooltip_ability_chernobog_4_r"						"Night's Procession"
-    	"DOTA_Tooltip_ability_chernobog_4_r_Description"			"Chernobog rises into the sky, then appears at the target point along with a large field of impenetrable darkness, completely freezing enemies trapped within."
-    	"DOTA_Tooltip_ability_chernobog_4_r_radius"				"RADIUS:"
-    	"DOTA_Tooltip_ability_chernobog_4_r_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_chernobog_nights_procession"						"Night's Procession"
+    	"DOTA_Tooltip_ability_chernobog_nights_procession_Description"			"Chernobog rises into the sky, then appears at the target point along with a large field of impenetrable darkness, completely freezing enemies trapped within."
+    	"DOTA_Tooltip_ability_chernobog_nights_procession_radius"				"RADIUS:"
+    	"DOTA_Tooltip_ability_chernobog_nights_procession_duration"				"DURATION:"
 
     	"DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect"					"Night's Procession"
     	"DOTA_Tooltip_modifier_chernobog_4_r_procession_enemy_effect_Description"		"Frozen"

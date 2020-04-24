@@ -3815,10 +3815,10 @@
     	"DOTA_Tooltip_modifier_chernobog_e_4"									"Eclipse"
     	"DOTA_Tooltip_modifier_chernobog_e_4_Description"						"<font color='#ccff66'>75</font>%% Уклонение."
 		
-        "DOTA_Tooltip_ability_chernobog_4_r"                        "Night's Procession"
-        "DOTA_Tooltip_ability_chernobog_4_r_Description"            "Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
-        "DOTA_Tooltip_ability_chernobog_4_r_radius"             "РАДИУС:"
-        "DOTA_Tooltip_ability_chernobog_4_r_duration"               "ДЛИТЕЛЬНОСТЬ:"
+        "DOTA_Tooltip_ability_chernobog_nights_procession"                        "Night's Procession"
+        "DOTA_Tooltip_ability_chernobog_nights_procession_Description"            "Chernobog образует купол тьмы в указанной точке, который полностью замораживает всех задетых врагов."
+        "DOTA_Tooltip_ability_chernobog_nights_procession_radius"             "РАДИУС:"
+        "DOTA_Tooltip_ability_chernobog_nights_procession_duration"               "ДЛИТЕЛЬНОСТЬ:"
 
         "DOTA_Tooltip_modifier_chernobog_ult_freeze_special"                    "Night's Procession"
         "DOTA_Tooltip_modifier_chernobog_ult_freeze_special_Description"        "Заморожен" 
