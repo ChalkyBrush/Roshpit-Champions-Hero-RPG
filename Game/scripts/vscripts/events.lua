@@ -17,7 +17,7 @@ require('spawning')
 require('keyvalues')
 require('challenges_reborn')
 
-Beacons.cheats = false
+Beacons.cheats = true
 
 if Events == nil then
 	Events = class({})
@@ -37,7 +37,7 @@ STARS_INCREASE_MITHRIL = false
 STARS_INCREASE_MITHRIL_ADDITIVE = false
 MITHRIL_INCREASE_PER_STAR_PCT = 0.08
 
-ROSHPIT_URL = "https://roshpit.herokuapp.com"
+ROSHPIT_URL = "https://roshpit-test.herokuapp.com"
 -- ROSHPIT_URL = "https://roshpit-test.herokuapp.com/"
 ROSHPIT_VERSION = '4.0'
 
