@@ -1619,9 +1619,9 @@ function GameMode:OnEntityKilled(keys)
 				end
 			end
 		end)
-		Timers:CreateTimer(4, function()
-			Events:smoothTranslate(killedUnit, Vector(0,0,-2), 100, Vector(0,0), nil)
-		end)
+		-- Timers:CreateTimer(4, function()
+		-- 	Events:smoothTranslate(killedUnit, Vector(0,0,-2), 100, Vector(0,0), nil)
+		-- end)
 		Timers:CreateTimer(8, function()
 			UTIL_Remove(killedUnit)
 		end)

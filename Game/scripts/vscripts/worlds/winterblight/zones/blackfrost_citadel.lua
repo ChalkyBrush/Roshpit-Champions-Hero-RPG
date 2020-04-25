@@ -474,7 +474,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][8]["active"] = 0
 		Winterblight.CASTLE_DATA["rooms"][8]["enemy_spawn_count"] = 0
 		Winterblight.CASTLE_DATA["rooms"][8]["enemies_slain"] = 0
-		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 24
+		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 18
 		Winterblight.CASTLE_DATA["rooms"][8]["key_positions"] = {Vector(15669, 1024), Vector(15120, 1870), Vector(14413, 1965)}
 		Winterblight.CASTLE_DATA["rooms"][8]["cleared"] = 0
 
@@ -2981,8 +2981,8 @@ function Winterblight:HandleJusticeSpawns()
 	current_room_data.angels_spawned_count = 0
 	current_room_data.demons_spawned_count = 0
 	for i = 1, angel_count, 1 do
-		local key_position = key_positions[RandomInt(1, #key_positions)]
-		local random_pos = key_position + RandomVector(RandomInt(40, 700))
+		local key_position = GetGroundPosition(key_positions[RandomInt(1, #key_positions)], Events.GameMaster) 
+		local random_pos =  GetGroundPosition(key_position + RandomVector(RandomInt(150, 700)), Events.GameMaster)
 		local spawnPos = WallPhysics:WallSearch(key_position, random_pos, Events.GameMaster)
 		local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_angel", spawnPos, RandomVector(1), false, true)
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_white", {})
@@ -2992,8 +2992,8 @@ function Winterblight:HandleJusticeSpawns()
 	end
 
 	for i = 1, demon_count, 1 do
-		local key_position = key_positions[RandomInt(1, #key_positions)]
-		local random_pos = key_position + RandomVector(RandomInt(40, 700))
+		local key_position = GetGroundPosition(key_positions[RandomInt(1, #key_positions)], Events.GameMaster) 
+		local random_pos =  GetGroundPosition(key_position + RandomVector(RandomInt(150, 700)), Events.GameMaster)
 		local spawnPos = WallPhysics:WallSearch(key_position, random_pos, Events.GameMaster)
 		local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_demon", spawnPos, RandomVector(1), false, true)
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_black", {})
@@ -3020,7 +3020,7 @@ end
 function Winterblight:SpawnJusticeHellmouth()
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 	local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_arch_demon_hellmouth", Vector(13312, 0), RandomVector(1), false, true)
-	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 100, 40), 120)
+	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 60, 40), 120)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_black", {})
 
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_imbalance", {})
@@ -3031,6 +3031,5 @@ end
 function Winterblight:SpawnJusticeBalance()
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 	local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_balance", Vector(12278, 1024), Vector(0,-1), false, true)
-	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 100, 40), 120)
-
+	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 120, 40), 120)
 end
