@@ -4,13 +4,15 @@ var updateHealthBar = {};
 
 function showBossHealth(msg) {
 	var bossHealthContainer = bossHealthContext.FindChildTraverse("boss_health_container");
-	var newBossHealthBar = $.CreatePanel( "Panel", bossHealthContainer, "boss" + msg.bossEntityIndex );
-	newBossHealthBar.BLoadLayoutSnippet("boss_health_bar_snippet"); 
-	newBossHealthBar.FindChildTraverse("boss_current_health").style.width = "100%";
-	newBossHealthBar.SetAttributeInt("boss_entity_index", msg.bossEntityIndex);
-	newBossHealthBar.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(msg.bossEntityIndex));
-	updateHealthBar[msg.bossEntityIndex] = true;
-	updateBossHealth(msg.bossEntityIndex);
+	if (bossHealthContainer.FindChildTraverse("boss" + msg.bossEntityIndex) == undefined) {
+		var newBossHealthBar = $.CreatePanel( "Panel", bossHealthContainer, "boss" + msg.bossEntityIndex );
+		newBossHealthBar.BLoadLayoutSnippet("boss_health_bar_snippet"); 
+		newBossHealthBar.FindChildTraverse("boss_current_health").style.width = "100%";
+		newBossHealthBar.SetAttributeInt("boss_entity_index", msg.bossEntityIndex);
+		newBossHealthBar.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(msg.bossEntityIndex));
+		updateHealthBar[msg.bossEntityIndex] = true;
+		updateBossHealth(msg.bossEntityIndex);
+	}
 }
 
 function updateBossHealth(bossEntityIndex){
