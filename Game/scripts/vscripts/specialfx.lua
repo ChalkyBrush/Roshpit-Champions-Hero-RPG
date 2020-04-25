@@ -19,3 +19,19 @@ function SpecialFX:ColoredPop(position, colorVector)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 end
+
+function SpecialFX:ColoredScaleSpotlightEntrance(unit, spotlight_color, scale_ticks)
+	unit.cantAggro = true
+	unit:SetAbsOrigin(unit:GetAbsOrigin()+Vector(0,0,2000))
+	local groundPosition = GetGroundPosition(unit:GetAbsOrigin(), unit)
+	SpecialFX:ColoredSpotlight(groundPosition, spotlight_color)
+	if scale_ticks > 0 then
+		local end_scale = unit:GetModelScale()
+		Events:smoothSizeChange(unit, 0.1, end_scale, scale_ticks)
+	end
+	Events:smoothTranslate(unit, Vector(0,0,-20), 99, Vector(0,0), nil)
+	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 3.2})
+	Timers:CreateTimer(3.1, function()
+		unit.cantAggro = false
+	end)
+end

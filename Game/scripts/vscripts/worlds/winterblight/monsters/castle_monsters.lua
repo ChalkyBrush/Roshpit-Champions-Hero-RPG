@@ -3231,3 +3231,71 @@ function blue_goo_shrapnel_cast(event)
 		end)
 	end
 end
+
+function castle_justice_unit_die(event)
+	local ability = event.ability
+	local caster = event.caster
+	local unit = event.unit
+	local justice_index = unit.justice_index
+	local justice_type = event.justice_type
+
+	local complete = false
+
+	if unit:GetUnitName() == "winterblight_castle_justice_arch_demon_hellmouth" or unit:GetUnitName() == "winterblight_castle_justice_arch_angel_matheus" then
+		return false
+	end
+	if justice_type == "angel" then
+		Winterblight.CastleJusticeData.total_angels_killed = Winterblight.CastleJusticeData.total_angels_killed + 1
+		Winterblight.CastleJusticeData.room_results[justice_index].angels_killed = Winterblight.CastleJusticeData.room_results[justice_index].angels_killed + 1
+		if Winterblight.CastleJusticeData.room_results[justice_index].angels_killed == Winterblight.CastleJusticeData.room_results[justice_index].angels_spawned_count then
+			for i = 1, #Winterblight.CastleJusticeData.room_results[justice_index].demons_entities, 1 do
+				local despawn_entity = Winterblight.CastleJusticeData.room_results[justice_index].demons_entities[i]
+				if IsValidEntity(despawn_entity) and despawn_entity:IsAlive() then
+					EmitSoundOn("Winterblight.JusticeDespawn", despawn_entity)
+					SpecialFX:ColoredPop(despawn_entity:GetAbsOrigin(), Vector(255, 50, 50))
+					UTIL_Remove(despawn_entity)
+				end
+			end
+			Winterblight.CastleJusticeData.angels_spawn_count = Winterblight.CastleJusticeData.angels_spawn_count + 2
+			complete = true
+		end
+	elseif justice_type == "demon" then
+		Winterblight.CastleJusticeData.total_demons_killed = Winterblight.CastleJusticeData.total_demons_killed + 1
+		Winterblight.CastleJusticeData.room_results[justice_index].demons_killed = Winterblight.CastleJusticeData.room_results[justice_index].demons_killed + 1
+		if Winterblight.CastleJusticeData.room_results[justice_index].demons_killed == Winterblight.CastleJusticeData.room_results[justice_index].demons_spawned_count then
+			for i = 1, #Winterblight.CastleJusticeData.room_results[justice_index].angels_entities, 1 do
+				local despawn_entity = Winterblight.CastleJusticeData.room_results[justice_index].angels_entities[i]
+				if IsValidEntity(despawn_entity) and despawn_entity:IsAlive() then
+					EmitSoundOn("Winterblight.JusticeDespawn", despawn_entity)
+					SpecialFX:ColoredPop(despawn_entity:GetAbsOrigin(), Vector(255, 255, 255))
+					UTIL_Remove(despawn_entity)
+				end
+			end
+			Winterblight.CastleJusticeData.demons_spawn_count = Winterblight.CastleJusticeData.demons_spawn_count + 2
+			complete = true
+		end
+	end
+	for j = 1, #MAIN_HERO_TABLE, 1 do
+		if Winterblight.CastleJusticeData.total_demons_killed > 0 then
+			ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[j], "modifier_diviner_demons_slain", {})
+			MAIN_HERO_TABLE[j]:SetModifierStackCount("modifier_diviner_demons_slain", caster, Winterblight.CastleJusticeData.total_demons_killed )
+		end
+		if Winterblight.CastleJusticeData.total_angels_killed > 0 then
+			ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[j], "modifier_diviner_angels_slain", {})
+			MAIN_HERO_TABLE[j]:SetModifierStackCount("modifier_diviner_angels_slain", caster, Winterblight.CastleJusticeData.total_angels_killed )
+		end
+	end
+	if complete then
+		if Winterblight.CastleJusticeData.room_index == 9 then
+			if Winterblight.CastleJusticeData.total_angels_killed > Winterblight.CastleJusticeData.total_demons_killed then
+				Winterblight:SpawnJusticeHellmouth()
+			elseif Winterblight.CastleJusticeData.total_demons_killed > Winterblight.CastleJusticeData.total_angels_killed then
+				Winterblight:SpawnJusticeMatheus()
+			else
+				Winterblight:SpawnJusticeBalance()
+			end
+		else
+			Winterblight:HandleJusticeSpawns()
+		end
+	end
+end

@@ -23270,3 +23270,528 @@
         "RoshpitAggroSound"     "Winterblight.BlueGooSniper.Aggro"
         "RoshpitDeathSound"     "Winterblight.BlueGooSniper.Death"
     }
+
+    "winterblight_castle_justice_angel"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+            "particle"  "particles/roshpit/rubilash/paint_status/white.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "600"
+        "AttackDamageMax"   "600"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/roshpit/winterblight/angel_attack.vpcf"
+        "AttackRange"   "550"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "13300"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_ice_bear_passive"
+        "Ability2"              "winterblight_mountain_dweller_passive"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12521"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9145"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9144"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9143"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "9142"
+                }
+            }
+        }
+
+        "RoshpitArmor"          "349"
+        "RoshpitArmorPierce"    "351"
+        "RoshpitSpellPierce"    "361"
+        "RoshpitMagicArmor"     "364"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
+        "RoshpitAggroSound"     "Winterblight.JusticeAngel.Aggro"
+    }
+
+    "winterblight_castle_justice_demon"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "1.0"
+        "Level" "1"
+        "HealthBarOffset"   "170"
+        "precache"
+        {
+            "particle"      "particles/roshpit/winterblight/red_lifesteal.vpcf"
+            "particle"      "particles/roshpit/rubilash/paint_status/black.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "600"
+        "AttackDamageMax"   "600"
+        "AttackRate"    "1.1"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/roshpit/winterblight/devil_attack.vpcf"
+        "AttackRange"   "550"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "13300"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_justice_demon_lifesteal"
+        "Ability2"              "armor_break"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7527"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12656"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12659"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "8317"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "7378"
+                }
+            }
+        }
+
+        "RoshpitArmor"          "349"
+        "RoshpitArmorPierce"    "351"
+        "RoshpitSpellPierce"    "361"
+        "RoshpitMagicArmor"     "364"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_ELITE_CREEP %>"
+        "RoshpitAggroSound"     "Winterblight.JusticeDevil.Aggro"
+    }
+
+    "winterblight_castle_justice_arch_angel_matheus"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "2.5"
+        "Level" "1"
+        "HealthBarOffset"   "370"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
+            "particle"  "particles/roshpit/rubilash/paint_status/white.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1500"
+        "AttackDamageMax"   "1500"
+        "AttackRate"    "1.0"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/roshpit/winterblight/angel_attack.vpcf"
+        "AttackRange"   "550"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "43300"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_ice_bear_passive"
+        "Ability2"              "winterblight_mountain_dweller_passive"
+        "Ability3"              "mega_steadfast"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "12521"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "9145"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "9144"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "9143"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "9142"
+                }
+            }
+        }
+
+        "RoshpitArmor"          "349"
+        "RoshpitArmorPierce"    "351"
+        "RoshpitSpellPierce"    "361"
+        "RoshpitMagicArmor"     "364"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+        "RoshpitAggroSound"     "Winterblight.Justice.Matheus.Aggro"
+        "RoshpitDeathSound"     "Winterblight.Justice.Matheus.Death"
+    }
+
+
+    "winterblight_castle_justice_arch_demon_hellmouth"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/faceless_void/faceless_void.vmdl"
+        "ModelScale"    "2.5"
+        "Level" "1"
+        "HealthBarOffset"   "370"
+        "precache"
+        {
+            "particle"      "particles/roshpit/winterblight/red_lifesteal.vpcf"
+            "particle"      "particles/roshpit/rubilash/paint_status/black.vpcf"
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ArcWarden"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1500"
+        "AttackDamageMax"   "1500"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1400"
+        "ProjectileModel"           "particles/roshpit/winterblight/devil_attack.vpcf"
+        "AttackRange"   "550"
+        "BountyGoldMin" "600"
+        "BountyGoldMax" "800"
+        "BountyXP" "3400"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "440"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "43300"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "200"
+        "StatusManaRegen"   "10"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_justice_demon_lifesteal"
+        "Ability2"              "armor_break"
+        "Ability3"              "mega_steadfast"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+            }
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "7527"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12656"
+                }
+
+                "Wearable3"
+                {
+                    "ItemDef"   "12659"
+                }
+
+                "Wearable4"
+                {
+                    "ItemDef"   "8317"
+                }
+
+                "Wearable5"
+                {
+                    "ItemDef"   "7378"
+                }
+            }
+        }
+
+        "RoshpitArmor"          "349"
+        "RoshpitArmorPierce"    "351"
+        "RoshpitSpellPierce"    "361"
+        "RoshpitMagicArmor"     "364"
+        "RoshpitLevel"          "37"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+        "RoshpitAggroSound"     "Winterblight.Justice.Hellmouth.Aggro"
+        "RoshpitDeathSound"     "Winterblight.Justice.Hellmouth.Death"
+    }
+
+    "winterblight_castle_justice_balance"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/legion_commander/legion_commander.vmdl"
+        "ModelScale"    "2.8"
+        "Level" "1"
+        "HealthBarOffset"   "400"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2" 
+        "SoundSet"      "Hero_LegionCommander"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "5000"
+        "AttackDamageMax"   "5000"
+        "AttackRate"    "0.9"
+        "AttackAnimationPoint"  "0.37"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "260"
+        "BountyGoldMin" "1000"
+        "BountyGoldMax" "2000"
+        "BountyXP" "1110"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.2"
+        "StatusHealth"  "85000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"              "winterblight_ice_bear_passive"
+        "Ability2"              "winterblight_mountain_dweller_passive"
+        "Ability3"              "winterblight_justice_demon_lifesteal"
+        "Ability4"              "armor_break_ultra"
+        "Ability5"      "mega_steadfast"
+        "Ability6"      "ability_mega_haste"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9116"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12788"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9802"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "9803"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"   "9791"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+        "RoshpitArmor"          "1000"
+        "RoshpitArmorPierce"    "1000"
+        "RoshpitSpellPierce"    "1000"
+        "RoshpitMagicArmor"     "1000"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+        "RoshpitColorRenderType"    "<% RPC_COLOR_RENDER_BASE_MODEL %>"
+        "RoshpitColorRenderR"   "0"
+        "RoshpitColorRenderG"   "0"
+        "RoshpitColorRenderB"   "0"   
+        "RoshpitAggroSound"     "Winterblight.Justice.Balance.Aggro"
+        "RoshpitDeathSound"     "Winterblight.Justice.Balance.Death"
+    }

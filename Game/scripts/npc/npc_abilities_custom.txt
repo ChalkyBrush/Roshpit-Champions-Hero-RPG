@@ -87926,6 +87926,26 @@
 				"var_type"			"FIELD_FLOAT"
 				"hermit_vision_gain_pct"		"40 60 80"
 			}		
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_as_per_stack"		"3 6 9"
+			}	
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_ms_per_stack"		"1 2 3"
+			}	
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_pwr_per_stack"		"6 12 30"
+			}	
+			"11"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_regen_per_stack"		"10 50 150"
+			}	
 		}
 		"Modifiers"
 		{
@@ -88270,6 +88290,60 @@
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "700"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"700"
+				}
+			}
+			"modifier_diviner_justice_white"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"1"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/white.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_justice_unit_die"
+						"justice_type"			"angel"
+					}
+				}				
+			}
+			"modifier_diviner_justice_black"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"1"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"		
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_justice_unit_die"
+						"justice_type"			"demon"
+					}
+				}		
+			}
+			"modifier_diviner_angels_slain"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_diviner_demons_slain"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+			}
+			"modifier_diviner_justice_imbalance"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%justice_as_per_stack"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%justice_ms_per_stack" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%justice_pwr_per_stack"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%justice_regen_per_stack"
 				}
 			}
 		}
@@ -91498,6 +91572,30 @@
 		"Modifiers"
 		{
 
+		}
+	}
+
+	"winterblight_justice_demon_lifesteal"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal"			"30"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_justice_demon_lifesteal_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
 		}
 	}
 

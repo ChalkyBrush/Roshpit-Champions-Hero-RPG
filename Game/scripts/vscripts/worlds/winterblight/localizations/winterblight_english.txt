@@ -1271,4 +1271,4 @@
 		"tarot_wheel_of_fortune_description"									"The Cycle of Luck..."
 
 		"tarot_justice"												"Justice"
-		"tarot_justice_description"									"Equity and Triumph..."
+		"tarot_justice_description"									"Equity and Karma..."

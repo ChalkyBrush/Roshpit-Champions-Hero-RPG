@@ -2776,6 +2776,16 @@ function GameState:FilterDamage(filterTable)
 			damage = 0
 		end
 	end
+	if attacker:HasModifier("modifier_justice_demon_lifesteal_passive") then
+		local lifesteal_ability = attacker:FindModifierByName("modifier_justice_demon_lifesteal_passive"):GetAbility()
+		local lifesteal = filterTable["damage"]*(lifesteal_ability:GetSpecialValueFor("lifesteal")/100)
+		local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/red_lifesteal.vpcf", PATTACH_CUSTOMORIGIN, attacker)
+		ParticleManager:SetParticleControlEnt(pfx, 0, attacker, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(pfx, 1, attacker, PATTACH_POINT_FOLLOW, "attach_hitloc", attacker:GetAbsOrigin() + Vector(0, 0, 70), true)
+		Timers:CreateTimer(1, function()
+			ParticleManager:DestroyParticle(pfx, false)
+		end)
+	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then
 			victim:Heal(filterTable["damage"], victim)
