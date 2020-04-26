@@ -765,7 +765,7 @@ end
 function spike_trap_damage(event)
 	local ability = event.ability
 	local caster = event.caster
-	local trap_dimension = 150
+	local trap_dimension = 120
 	local damage = event.damage_base
 	local victims = FindUnitsInLine(caster:GetTeamNumber(), caster:GetAbsOrigin()-Vector(0, trap_dimension,2), caster:GetAbsOrigin()+Vector(0, trap_dimension,2), caster, trap_dimension, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
 	if #victims > 0 then
@@ -1645,11 +1645,18 @@ function castle_boss_take_damage(damage)
 			if not Winterblight.CastleBoss.main_ability.skullFrostTable then
 				Winterblight.CastleBoss.main_ability.skullFrostTable = {}
 			end
-			if #Winterblight.CastleBoss.main_ability.skullFrostTable < ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*3.1 then
-				print("ICE SKILL 1")
-				if #Winterblight.CastleBoss.main_ability.skullFrostTable < 3 then
-					print("ICE SKULL 2")
+			local skullFrostCount = 3
+			if Winterblight.CastleTarot["name"] == "death" then
+				skullFrostCount = 6
+			end
+			if #Winterblight.CastleBoss.main_ability.skullFrostTable < ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*(skullFrostCount+0.1) then
+				if #Winterblight.CastleBoss.main_ability.skullFrostTable < skullFrostCount then
 					ice_skull_create(Winterblight.CastleBoss, Winterblight.CastleBoss.main_ability)
+					if Winterblight.CastleTarot["name"] == "death" then
+						Timers:CreateTimer(1, function()
+							ice_skull_create(Winterblight.CastleBoss, Winterblight.CastleBoss.main_ability)
+						end)
+					end
 				end
 			end
 		end)
@@ -1714,14 +1721,51 @@ function ice_skull_create(caster, ability)
     dummy.speed = 600
     dummy.index = #ability.skullFrostTable + 1
     
-    if dummy.index == 3 then
-   	 	dummy.rotationDelta = 160
-   	elseif dummy.index == 2 then
-   		dummy.rotationDelta = 120
-   	elseif dummy.index == 1 then
-   		dummy.rotationDelta = 80
-   	end
-
+    if Winterblight.CastleTarot["name"] == "death" then
+	    if dummy.index == 6 then
+	   	 	dummy.rotationDelta = 180
+	   	elseif dummy.index == 5 then
+	   		dummy.rotationDelta = 160
+	   	elseif dummy.index == 4 then
+	   		dummy.rotationDelta = 140
+	   	elseif dummy.index == 3 then
+	   		dummy.rotationDelta = 120
+	   	elseif dummy.index == 2 then
+	   		dummy.rotationDelta = 100
+	   	elseif dummy.index == 1 then
+	   		dummy.rotationDelta = 80
+	   	end
+	    dummy.distance = 700
+	    if #ability.skullFrostTable == 0 then
+	    	dummy.distance = 700
+	    elseif #ability.skullFrostTable == 1 then
+	    	dummy.distance = 875
+	    elseif #ability.skullFrostTable == 2 then
+	    	dummy.distance = 1050
+	    elseif #ability.skullFrostTable == 3 then
+	    	dummy.distance = 1225
+	    elseif #ability.skullFrostTable == 4 then
+	    	dummy.distance = 1400
+	    elseif #ability.skullFrostTable == 5 then
+	    	dummy.distance = 1575
+	    end
+    else
+	    if dummy.index == 3 then
+	   	 	dummy.rotationDelta = 160
+	   	elseif dummy.index == 2 then
+	   		dummy.rotationDelta = 120
+	   	elseif dummy.index == 1 then
+	   		dummy.rotationDelta = 80
+	   	end
+	    dummy.distance = 700
+	    if #ability.skullFrostTable == 0 then
+	    	dummy.distance = 700
+	    elseif #ability.skullFrostTable == 1 then
+	    	dummy.distance = 1050
+	    elseif #ability.skullFrostTable == 2 then
+	    	dummy.distance = 1400
+	    end
+	end
     local baseFV = caster:GetForwardVector()
     local projectileFV = WallPhysics:rotateVector(baseFV, 2 * math.pi * dummy.index / dummy.rotationDelta)
     local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/boss_death_skull.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -1732,12 +1776,7 @@ function ice_skull_create(caster, ability)
     dummy.pfx = pfx
     dummy.interval = 0
     dummy.dummy = true
-    dummy.distance = 700
-    if #ability.skullFrostTable == 1 then
-    	dummy.distance = 1050
-    elseif #ability.skullFrostTable == 2 then
-    	dummy.distance = 1400
-    end
+
     dummy.pullPoint = caster:GetAbsOrigin() + projectileFV * dummy.distance + Vector(0, 0, 80)
     dummy.baseFV = projectileFV
     dummy.hardInterval = 0
@@ -2015,7 +2054,28 @@ function use_scryers_stone(event)
 			elseif Winterblight.CastleTarot["name"] == "hermit" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_hermit_buff", {duration = 15})
-
+			elseif Winterblight.CastleTarot["name"] == "death" then
+				if not ability.death_knights then
+					ability.death_knights = {}
+				end
+				local newTable = {}
+				for i = 1, #ability.death_knights, 1 do
+					if ability.death_knights[i] and IsValidEntity(ability.death_knights[i]) and ability.death_knights[i]:IsAlive() then
+						table.insert(newTable, ability.death_knights[i])
+					end
+				end
+				ability.death_knights = newTable
+				local fvTable = {Vector(1,0), Vector(0,1), Vector(-1, 0), Vector(0,-1)}
+				for i = 1, #fvTable, 1 do
+					if #ability.death_knights < 12 then
+						local monster = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_watchman", caster:GetAbsOrigin()+fvTable[i]*280, fvTable[i]*-1, false, true)
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", monster:GetAbsOrigin(), 3)
+						EmitSoundOn("Winterblight.GraveGhostSpawn", monster)
+						EmitSoundOn("Winterblight.CastleBoss.ReaperScream2", monster)
+						monster:MakeNoDropsOrEXP()
+						table.insert(ability.death_knights, monster)
+					end
+				end
 			end
 		end
 	end)

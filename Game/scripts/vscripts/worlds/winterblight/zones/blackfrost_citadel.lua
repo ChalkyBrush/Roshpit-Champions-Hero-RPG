@@ -262,6 +262,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][14]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][14]["prop_scale"] = 0.6
 		Winterblight.CASTLE_DATA["tarot"][14]["horror"] = true
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][1] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][2] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][3] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][4] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][5] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][6] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][7] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][8] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][14]["rooms"][9] = {index = 1, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][15] = {}
 		Winterblight.CASTLE_DATA["tarot"][15]["name"] = "temperance"
@@ -974,6 +984,12 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		end
 	elseif Winterblight.CastleTarot["name"] == "hanged_man" then
 		unit_name = Winterblight:TranslateHangedManUnit(unit_name)
+	elseif Winterblight.CastleTarot["name"] == "death" then
+		if unit_name == "winterblight_castle_warrior" or unit_name == "winterblight_frozen_cage" then
+			unit_name = "winterblight_castle_watchman"
+		elseif unit_name == "winterblight_elite_castle_warrior" or unit_name == "winterblight_mountain_spirit" then
+			unit_name = "winterblight_necro_knight"
+		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -1281,6 +1297,9 @@ function Winterblight:SpawnCastleRoom4(variant)
 	local room_index = 4
 	if variant == 1 then
 		local positionTable = {Vector(15744, 10368), Vector(14976, 10368), Vector(14981, 10720), Vector(14976, 11119), Vector(14976, 11520)}
+		if Winterblight.CastleTarot["name"] == "death" then
+			positionTable = {Vector(16040, 10264), Vector(15616, 10264), Vector(16041, 10650), Vector(15616, 10650), Vector(14807, 9884), Vector(15232, 9984), Vector(14807, 10496), Vector(15232, 10496), Vector(15232, 11008), Vector(14807, 11008), Vector(14807, 11520), Vector(15232, 11520)}
+		end
 		for i = 1, #positionTable, 1 do
 			local trap = CreateUnitByName("winterblight_spike_trap", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
 			trap:SetAbsOrigin(trap:GetAbsOrigin()+Vector(0,0,10))
@@ -1293,6 +1312,11 @@ function Winterblight:SpawnCastleRoom4(variant)
 		Timers:CreateTimer(0.5, function()
 			local positionTable = {Vector(14976, 9795), Vector(15360, 10368), Vector(15360, 10831), Vector(15360, 11392)}
 			local extra_max = 0
+			if Winterblight.CastleTarot["name"] == "death" then
+				table.insert(positionTable, Vector(15832, 10496))
+				table.insert(positionTable, Vector(15488, 11648))
+				extra_max = 2
+			end
 			for i = 1, 1 + GameState:GetDifficultyFactor() + extra_max, 1 do
 				local trap = CreateUnitByName("winterblight_ground_blade", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
 				trap:SetAbsOrigin(trap:GetAbsOrigin()+Vector(0,0,10))

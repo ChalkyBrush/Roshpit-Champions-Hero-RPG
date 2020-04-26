@@ -762,3 +762,8 @@ function Enemies:SpawnEnemySummon(caster, unitName, spawnPoint, fv)
 		return summon
 	end
 end
+
+function CDOTA_BaseNPC:MakeNoDropsOrEXP()
+	self.roshpit_attributes.deathXP = 0
+	self.disable_drops = true
+end

@@ -112519,7 +112519,6 @@
         "RoshpitMagicArmor"     "455"
         "RoshpitLevel"          "40"
         "RoshpitDominion"       "1"
-        "RoshpitNoParagon"      "0"
         "EnemyTier"             "1"
         "RoshpitAggroSound"     "Winterblight.HangingSlayer.Aggro"
         "RoshpitColorRenderType"    "1"

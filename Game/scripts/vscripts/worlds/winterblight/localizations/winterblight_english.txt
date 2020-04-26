@@ -1275,3 +1275,9 @@
 
 		"tarot_hanged_man"												"The Hanged Man"
 		"tarot_hanged_man_description"									"Alternative Perspective..."
+
+		"tarot_death"												"Death"
+		"tarot_death_description"									"..."
+
+		"tarot_temperence"												"Temperance"
+		"tarot_temperence_description"									"Patience and Serenity..."
