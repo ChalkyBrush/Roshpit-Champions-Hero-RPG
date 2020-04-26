@@ -19,6 +19,9 @@ function updateBossHealth(bossEntityIndex){
 	if(updateHealthBar[bossEntityIndex]) { 
 		$.Schedule(0.03, () => updateBossHealth(bossEntityIndex));
 		var bossHealthContainer = bossHealthContext.FindChildTraverse("boss" + bossEntityIndex);
+		if (bossHealthContainer.FindChildTraverse("boss_name").text === "") {
+			bossHealthContainer.FindChildTraverse("boss_name").text = $.Localize(Entities.GetUnitName(bossEntityIndex));
+		}
 		bossHealthContainer.FindChildTraverse("boss_current_health").style.width = Entities.GetHealthPercent(bossEntityIndex) + "%";
 	}
 }
