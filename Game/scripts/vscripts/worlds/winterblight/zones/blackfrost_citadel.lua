@@ -245,6 +245,16 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][13]["index"] = "12"
 		Winterblight.CASTLE_DATA["tarot"][13]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][13]["prop_scale"] = 0.92
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][1] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][2] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][3] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][4] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][5] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][6] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][7] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][8] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][13]["rooms"][9] = {index = 9, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][14] = {}
 		Winterblight.CASTLE_DATA["tarot"][14]["name"] = "death"
@@ -581,6 +591,9 @@ function Winterblight:TarotCardSelect(msg)
 	Timers:CreateTimer(2, function()
 		Winterblight:PrecacheTarotAssets()
 	end)
+	if Winterblight.CastleTarot["name"] == "hanged_man" then
+		Winterblight:HangedManPrepareHashMap()
+	end
 end
 
 function Winterblight:CastleNextRoomInit()
@@ -888,6 +901,8 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 		if not Winterblight.CastleJusticeData then
 			Winterblight:HandleJusticeSpawns()
 		end
+	elseif Winterblight.CastleTarot["name"] == "hanged_man" then
+		Winterblight:HangedManSpawns(index)
 	end
 end
 
@@ -957,6 +972,8 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		elseif unit_name == "winterblight_skull_ripper" then
 			unit_name = "winterblight_shadow_wanderer"
 		end
+	elseif Winterblight.CastleTarot["name"] == "hanged_man" then
+		unit_name = Winterblight:TranslateHangedManUnit(unit_name)
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -3032,4 +3049,43 @@ function Winterblight:SpawnJusticeBalance()
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 	local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_balance", Vector(12278, 1024), Vector(0,-1), false, true)
 	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 120, 40), 120)
+end
+
+function Winterblight:HangedManSpawns(room_index)
+	print("HANG MAN SPAWNS")
+	local key_positions = Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"]
+	for i = 1, RandomInt(8, 12), 1 do
+		local key_position = GetGroundPosition(key_positions[RandomInt(1, #key_positions)], Events.GameMaster) 
+		local random_pos =  GetGroundPosition(key_position + RandomVector(RandomInt(150, 700)), Events.GameMaster)
+		local spawnPos = WallPhysics:WallSearch(key_position, random_pos, Events.GameMaster)
+		local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_hanging_slayer", spawnPos, RandomVector(1), false, true)
+	end
+end
+
+function Winterblight:HangedManPrepareHashMap()
+	local unit_table = {"winterblight_draugr", "winterblight_accursed", "winterblight_defiler", "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_castle_warrior",
+	"winterblight_elite_castle_warrior", "winterblight_skull_ripper", "winterblight_castle_watchman", "winterblight_frozen_mage", "winterblight_frozen_phantom", "winterblight_frozen_cage",
+	"winterblight_frozen_soul", "winterblight_suffering_spirit", "winterblight_mountain_spirit", "winterblight_ancient_mountain_spirit", "winterblight_castle_watchman",
+	"winterblight_skeleton_archer", "winterblight_bloodripper", "winterblight_saturn_zealot", "winterblight_ghost_pirate"}
+
+	local shuffled_unit_table = WallPhysics:ShuffleTable(unit_table)
+
+	local unit_table = {"winterblight_draugr", "winterblight_accursed", "winterblight_defiler", "winterblight_wraithguard", "winterblight_wraithguard_elite", "winterblight_castle_warrior",
+	"winterblight_elite_castle_warrior", "winterblight_skull_ripper", "winterblight_castle_watchman", "winterblight_frozen_mage", "winterblight_frozen_phantom", "winterblight_frozen_cage",
+	"winterblight_frozen_soul", "winterblight_suffering_spirit", "winterblight_mountain_spirit", "winterblight_ancient_mountain_spirit", "winterblight_castle_watchman",
+	"winterblight_skeleton_archer", "winterblight_bloodripper", "winterblight_saturn_zealot", "winterblight_ghost_pirate"}
+
+	Winterblight.HangedUnitHash = {}
+	for i = 1, #unit_table, 1 do
+		Winterblight.HangedUnitHash[unit_table[i]] = shuffled_unit_table[i]
+	end
+	DeepPrintTable(Winterblight.HangedUnitHash)
+end
+
+function Winterblight:TranslateHangedManUnit(unit_name)
+	if Winterblight.HangedUnitHash[unit_name] then
+		return Winterblight.HangedUnitHash[unit_name]
+	else
+		return unit_name
+	end
 end

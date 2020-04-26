@@ -27,7 +27,10 @@ function SpecialFX:ColoredScaleSpotlightEntrance(unit, spotlight_color, scale_ti
 	SpecialFX:ColoredSpotlight(groundPosition, spotlight_color)
 	if scale_ticks > 0 then
 		local end_scale = unit:GetModelScale()
-		Events:smoothSizeChange(unit, 0.1, end_scale, scale_ticks)
+		unit:SetModelScale(0.1)
+		Timers:CreateTimer(1, function()
+			Events:smoothSizeChange(unit, 0.1, end_scale, scale_ticks)
+		end)
 	end
 	Events:smoothTranslate(unit, Vector(0,0,-20), 99, Vector(0,0), nil)
 	Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "modifier_disable_player", {duration = 3.2})

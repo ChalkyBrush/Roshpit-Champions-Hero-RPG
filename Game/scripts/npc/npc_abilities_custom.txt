@@ -91599,6 +91599,81 @@
 		}
 	}
 
+	"winterblight_hanged_slayer_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_atk_power"			"20 40 60"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_max_health"			"1 2 4"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"hanging_slayer_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slayer_hanging"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_init"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_think"
+					}
+				}
+			}
+			"modifier_hanging_slayer_falling"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_dropping"
+					}
+				}
+			}
+		}
+	}
+
 
 	"soul_ferrier_passive"
 	{

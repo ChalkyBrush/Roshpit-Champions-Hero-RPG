@@ -1390,14 +1390,20 @@ function castle_boss_rotator(event)
 				if Winterblight.CastleTarot["name"] == "emperor" then
 					surrogate_count = 5
 				end
+				local surrogate_unit_name = "winterblight_castle_boss_surrogate"
+				if Winterblight.CastleTarot["name"] == "hanged_man" then
+					surrogate_unit_name = "winterblight_castle_boss_surrogate_hanged"
+				end
 				for i = 1, surrogate_count, 1 do
 					local spawnPosition = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
-					local surrogate = Enemies:SpawnEnemyUnit("winterblight_castle_boss_surrogate", spawnPosition, Vector(0,-1), false)
+					local surrogate = Enemies:SpawnEnemyUnit(surrogate_unit_name, spawnPosition, Vector(0,-1), false)
 					table.insert(caster.surrogates, surrogate)
 					CustomAbilities:QuickParticleAtPoint("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf", surrogate:GetAbsOrigin(), 4)
 					EmitSoundOnLocationWithCaster(surrogate:GetAbsOrigin(), "Winterblight.CastleBoss.SurrogateSpawn", caster)
 					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
-					surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+					if surrogate_unit_name == "winterblight_castle_boss_surrogate" then
+						surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+					end
 					Winterblight:AdjustCastleUnit(surrogate)
 					if Winterblight.CastleTarot["name"] == "hermit" then
 						local spawnPos = caster:GetAbsOrigin()+RandomVector(RandomInt(600, 1400))
@@ -1664,6 +1670,9 @@ end
 function castle_boss_surrogate_rotator(event)
 	local caster = event.caster
 	local ability = event.ability
+	if Winterblight.CastleTarot["name"] == "hanged_man" then
+		return false
+	end
 	if not caster.interval then
 		caster.interval = 0
 	end
@@ -3297,5 +3306,85 @@ function castle_justice_unit_die(event)
 		else
 			Winterblight:HandleJusticeSpawns()
 		end
+	end
+end
+
+function hanging_slayer_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetTeamNumber() ~= DOTA_TEAM_NEUTRALS then
+		return false
+	end
+	Timers:CreateTimer(0.03, function()
+		caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(0,0,2000))
+		caster:AddNoDraw()
+		caster:SetForwardVector(RandomVector(1))
+		caster.cantAggro = true
+		StartAnimation(caster, {duration = 99999, activity = ACT_DOTA_VICTORY, rate = 1})
+
+	end)
+end
+
+function hanging_slayer_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasModifier("modifier_hanging_slayer_falling") then
+		return false
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 320, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		caster:RemoveNoDraw()
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_hanging_slayer_falling", {})
+		ability.fallSpeed = 8
+		ability.angle = 180
+		EndAnimation(caster)
+		Timers:CreateTimer(1.0, function()
+			StartAnimation(caster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_2, rate = 0.5})
+		end)
+	else
+		
+	end
+end
+
+function hanging_slayer_dropping(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	ability.fallSpeed = math.min(ability.fallSpeed + 0.5, 30)
+	caster:SetAbsOrigin(caster:GetAbsOrigin() - Vector(0,0,ability.fallSpeed))
+	if caster:GetDistanceFromGround() <= 900 then
+		ability.angle = math.max(ability.angle - 6.2, 0)
+		
+		local newFV = Vector((180 - ability.angle) / 180, (180 - ability.angle) / 180, 1 - (180 - ability.angle) / 180)
+		caster:SetForwardVector(newFV)
+	end
+
+	if caster:GetDistanceFromGround() <= ability.fallSpeed then
+		caster:RemoveModifierByName("modifier_hanging_slayer_falling")
+		caster:RemoveModifierByName("modifier_slayer_hanging")
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
+        local pfx = ParticleManager:CreateParticle("particles/econ/events/ti5/teleport_end_dust_ti5.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+        ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+        ParticleManager:SetParticleControl(pfx, 1, Vector(200, 200, 200))
+        Timers:CreateTimer(2, function()
+          ParticleManager:DestroyParticle(pfx, false)
+        end)
+        caster:SetAngles(0, 0,0)
+        caster.cantAggro = false
+        Dungeons:AggroUnit(caster)
+        EndAnimation(caster)
+        StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_TELEPORT, rate = 1.3})
+	end
+end
+
+function hanging_slayer_die(event)
+	local caster = event.caster
+	if not Winterblight.HangingSlayersKilled then
+		Winterblight.HangingSlayersKilled = 0
+	end
+	Winterblight.HangingSlayersKilled = Winterblight.HangingSlayersKilled + 1
+	if Winterblight.HangingSlayersKilled%42 == 0 then
+		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(40, 160))
+		Winterblight:GeneralChestSpawn(position, Vector(0,-1))
 	end
 end

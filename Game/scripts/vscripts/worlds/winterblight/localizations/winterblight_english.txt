@@ -1241,7 +1241,7 @@
 		"tarot_fool_description"									"New Beginnings..."
 
 		"tarot_magician"												"The Magician"
-		"tarot_magician_description"									"Channeling Between Realms..."
+		"tarot_magician_description"									"Arcane Energies..."
 
 		"tarot_high_priestess"												"The High Priestess"
 		"tarot_high_priestess_description"									"Intuition and Sacred Knowledge..."
@@ -1272,3 +1272,6 @@
 
 		"tarot_justice"												"Justice"
 		"tarot_justice_description"									"Equity and Karma..."
+
+		"tarot_hanged_man"												"The Hanged Man"
+		"tarot_hanged_man_description"									"Alternative Perspective..."
