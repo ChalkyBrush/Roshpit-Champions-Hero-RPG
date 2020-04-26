@@ -265,7 +265,7 @@
         
         //Glyphs
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] Glyph of Gloom"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <% CHERNOBOG_GLYPH_1_1_MAX_MANA_RESTORE_ON_KILL * 100 %>% of your max mana."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Убийство противника восстанавливает <% CHERNOBOG_GLYPH_1_1_MAX_MANA_RESTORE_ON_KILL * 100 %>% от максимальной маны героя."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
         "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <% CHERNOBOG_T21_RADIUS_AMP %>. Также работает и на [R2]."
@@ -280,7 +280,7 @@
         "item_rpc_chernobog_glyph_5_1_description"              "Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% от максимума, и не снижает ману, если ее показатель равен или меньше <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] Glyph of Black Rifts"
-        "item_rpc_chernobog_glyph_6_1_description"              "[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>."
+        "item_rpc_chernobog_glyph_6_1_description"              "Длительность [E3] увеличена на <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] Glyph of Indomitability"
         "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <% CHERNOBOG_T71_POSTMIT * 100 %>% в течение <% CHERNOBOG_T71_POSTMIT_DUR %> сек."

@@ -288,7 +288,7 @@
 		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt stops draining health while at or below <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% of max health, and stops draining mana while at or below <% CHERNOBOG_T51_DRAIN_HP_CAP_PCT * 100 %>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Black Rifts"
-		"item_rpc_chernobog_glyph_6_1_description" 				"[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %>."
+		"item_rpc_chernobog_glyph_6_1_description" 				"[E3] duration is increased by <% CHERNOBOG_GLYPH_6_1_DURATION_INCREASE %> s."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Indomitability"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Stuns are cleansed every <% CHERNOBOG_T71_CD_CLEANSE %> seconds."
