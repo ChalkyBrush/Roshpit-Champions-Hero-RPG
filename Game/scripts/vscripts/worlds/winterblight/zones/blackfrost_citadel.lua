@@ -2525,6 +2525,8 @@ function Winterblight:PrecacheTarotAssets()
 		PrecacheUnitByNameAsync("winterblight_castle_justice_angel", precache_function)
 		PrecacheUnitByNameAsync("winterblight_castle_justice_demon", precache_function)
 		PrecacheUnitByNameAsync("winterblight_castle_justice_balance", precache_function)
+	elseif Winterblight.CastleTarot["name"] == "hanged_man" then
+		PrecacheUnitByNameAsync("winterblight_hanging_slayer", precache_function)
 	end
 end
 

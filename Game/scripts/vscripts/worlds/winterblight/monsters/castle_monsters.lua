@@ -1919,7 +1919,7 @@ function castle_chain_frost_thinker(event)
 						if #nearby_allies > 0 then
 							if IsValidEntity(vorpal.lock_entity) then
 								for _, ally in pairs(nearby_allies) do
-									if ally:GetUnitName() == "winterblight_castle_boss_surrogate" then
+									if ally:GetUnitName() == "winterblight_castle_boss_surrogate" or ally:GetUnitName() == "winterblight_castle_boss_surrogate_hanged" then
 										if ally:GetEntityIndex() ~= vorpal.lock_entity:GetEntityIndex() then
 											new_target = ally
 											break
