@@ -21947,7 +21947,10 @@
 		"tarot_death"												"Death"
 		"tarot_death_description"									"..."
 
-		"tarot_temperence"												"Temperance"
-		"tarot_temperence_description"									"Patience and Serenity..."
+		"tarot_temperance"												"Temperance"
+		"tarot_temperance_description"									"Patience and Serenity..."
+
+		"tarot_devil"												"The Devil"
+		"tarot_devil_description"									"Imprisonment..."
 	}	
 }

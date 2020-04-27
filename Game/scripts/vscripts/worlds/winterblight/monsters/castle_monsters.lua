@@ -166,7 +166,7 @@ function diviner_think(event)
 						end)
 					end
 					Timers:CreateTimer(3.6, function()
-						for j = -1, 1, 1 do
+						for j = -1, 1, 1 do 
 							local skeleton = Winterblight:SpawnCastleRoomUnit(1, "winterblight_grave_skeleton", position + Vector(0, j*240), RandomVector(1), true, true)
 							CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/skeleton_spawn.vpcf", skeleton:GetAbsOrigin(), 4)
 						end
@@ -206,6 +206,17 @@ function diviner_think(event)
 			else
 				hero:RemoveModifierByName("modifier_diviner_hermit_debuff")
 				hero:RemoveModifierByName("modifier_diviner_hermit_buff")
+			end
+		end
+	end
+	-- DEVIL THINK
+	if Winterblight.DevilRingData then
+		for i = 1, #Winterblight.DevilRingData, 1 do
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Winterblight.DevilRingData[i].position, nil, 110, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_diviner_scryer_doom", {duration = 8})
+				end
 			end
 		end
 	end
@@ -362,6 +373,13 @@ function castle_room_unit_die(event)
 			if Winterblight.ActiveCastleRoom["active"] == 2 then
 				Winterblight.ActiveCastleRoom["active"] = 3
 				Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
+			end
+		end
+		if Winterblight.CastleTarot["name"] == "devil" then
+			if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["active"] < 3 then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, Winterblight.CastleDungeonMaster, "modifier_diviner_devil_door_waiter", {duration = 10})
+				Winterblight:CloseCastleDoorByRoomIndex(unit.room_index)
 			end
 		end
 	end
@@ -566,6 +584,13 @@ function castle_key_waiting_think(event)
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key, "modifier_winter_castle_key_acquired", {})
 		Winterblight.ActiveCastleRoom["cleared"] = 1
+
+		if Winterblight.CastleTarot["name"] == "strength" and Winterblight.ActiveCastleRoom["door_index"] == 9 then
+			Timers:CreateTimer(60, function()
+				Winterblight:SpawnStrengthEvent()
+			end)
+		end
+
 		Winterblight.CASTLE_DATA["rooms_cleared"] = Winterblight.CASTLE_DATA["rooms_cleared"] + 1
 		if key.skull then
 			EmitSoundOn("Winterblight.KeyCollect.Skull", key)
@@ -581,6 +606,12 @@ function castle_key_waiting_think(event)
 		if Winterblight.CastleTarot["name"] == "empress" then
 			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key.acquiring_hero, "modifier_diviner_empress_speed_boost", {duration = 90})
 		end
+		if Winterblight.CastleTarot["name"] == "temperance" then
+			for i = 1, #MAIN_HERO_TABLE, 1 do
+				MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_temperance_scryer_debuff")
+			end
+		end
+		Winterblight.CastleDungeonMaster:RemoveModifierByName("modifier_diviner_devil_door_waiter")
 	end
 end
 
@@ -1330,6 +1361,8 @@ function castle_boss_rotator(event)
 	end
 	if Winterblight.CastleTarot["name"] == "chariot" then
 		divisor = divisor/2
+	elseif Winterblight.CastleTarot["name"] == "temperance" then
+		divisor = divisor*1.5
 	end
 	if divisor > 0 then
 		if not caster.rotateLock then
@@ -1351,6 +1384,8 @@ function castle_boss_rotator(event)
 	local spawnMod = 60 - math.ceil(((caster:GetMaxHealth() - caster:GetHealth())/caster:GetMaxHealth())*50)
 	if Winterblight.CastleTarot["name"] == "chariot" then
 		spawnMod = math.ceil(spawnMod/2)
+	elseif Winterblight.CastleTarot["name"] == "temperance" then
+		spawnMod = math.ceil(spawnMod*1.5)
 	end
 	if caster.interval % spawnMod == 0 then
 		castle_boss_projectile_create(caster.handIndex)
@@ -1648,6 +1683,8 @@ function castle_boss_take_damage(damage)
 			local skullFrostCount = 3
 			if Winterblight.CastleTarot["name"] == "death" then
 				skullFrostCount = 6
+			elseif Winterblight.CastleTarot["name"] == "temperance" then
+				skullFrostCount = 0
 			end
 			if #Winterblight.CastleBoss.main_ability.skullFrostTable < ((Winterblight.CastleBoss:GetMaxHealth() - Winterblight.CastleBoss:GetHealth())/Winterblight.CastleBoss:GetMaxHealth())*(skullFrostCount+0.1) then
 				if #Winterblight.CastleBoss.main_ability.skullFrostTable < skullFrostCount then
@@ -1686,6 +1723,8 @@ function castle_boss_surrogate_rotator(event)
 	local rotation_divisor = 90
 	if Winterblight.CastleTarot["name"] == "chariot" then
 		rotation_divisor = 45
+	elseif Winterblight.CastleTarot["name"] == "temperance" then
+		rotation_divisor = 135
 	end
 	caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 4) * math.cos(2 * math.pi * caster.interval / 90))
 	caster.interval = caster.interval + 1
@@ -2076,6 +2115,12 @@ function use_scryers_stone(event)
 						table.insert(ability.death_knights, monster)
 					end
 				end
+			elseif Winterblight.CastleTarot["name"] == "temperance" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_temperance_scryer_debuff", {duration = 40})
+			elseif Winterblight.CastleTarot["name"] == "devil" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_scryer_doom", {duration = 8})
 			end
 		end
 	end)
@@ -3447,4 +3492,44 @@ function hanging_slayer_die(event)
 		local position = caster:GetAbsOrigin()+RandomVector(RandomInt(40, 160))
 		Winterblight:GeneralChestSpawn(position, Vector(0,-1))
 	end
+end
+
+function water_bearer_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	local start_radius = 400
+	local end_radius = 400
+	local range = 1500
+	local speed = 550
+	local fv = ((target:GetAbsOrigin()-caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	EmitSoundOn("Winterblight.WaterBearer.Projectile", caster)
+
+	local projectileParticle = "particles/units/heroes/hero_tidehunter/tidehunter_gush_upgrade.vpcf"
+	local info =
+	{
+		Ability = ability,
+		EffectName = projectileParticle,
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = range,
+		fStartRadius = start_radius,
+		fEndRadius = end_radius,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = true,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = fv * speed,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+end
+
+function devil_door_waiter_end(event)
+	Winterblight:OpenCastleDoorByIndex(Winterblight.CastleDungeonMaster.closed_door_index)
 end

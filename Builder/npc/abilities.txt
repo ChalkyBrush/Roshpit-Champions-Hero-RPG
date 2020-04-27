@@ -57633,7 +57633,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 3000 5000"
+				"damage_per_hit" "300 1000 7000"
 			}
 			"02"
 			{
