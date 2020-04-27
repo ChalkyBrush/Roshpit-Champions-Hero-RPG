@@ -29,15 +29,15 @@ end
 
 function OmniroElementChargeThink(hero)
 	local recharge_rate = 1
-	if hero:HasModifier("modifier_omniro_immortal_weapon_2") then
-		recharge_rate = recharge_rate * (1 + OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE / 100)
-	end
 	for i = 1, #hero.omniro_data, 1 do
 		if hero.omniro_data[i]["level"] > 0 then
 			if hero.omniro_data[i]["charges"] < hero.omniro_data[i]["max_charges"] then
 				local local_recharge_rate = recharge_rate
 				if hero:HasModifier("modifier_omniro_glyph_4_1") and hero.omniro_data[i]["element_number"] == RPC_ELEMENT_NORMAL then
 					local_recharge_rate = local_recharge_rate * (1 + OMNIRO_GLYPH_4_1_NORMAL_RECHARGE / 100)
+				end
+				if hero:HasModifier("modifier_omniro_immortal_weapon_2") and hero.omniro_data[i]["element_number"] ~= RPC_ELEMENT_NORMAL then
+					local_recharge_rate = local_recharge_rate * (1 + hero.omniro_data[i]["max_charges"]*OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE / 100)
 				end
 				hero.omniro_data[i]["charge_up_fraction"] = hero.omniro_data[i]["charge_up_fraction"] + local_recharge_rate
 				if hero.omniro_data[i]["charge_up_fraction"] >= hero.omniro_data[i]["charge_up_fraction_full"] then
