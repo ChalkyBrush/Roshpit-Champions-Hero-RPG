@@ -664,7 +664,7 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
 				}
-				"OnTakeDamage"
+				"OnAttacked"
 				// "%attack_damage" is set to the damage value after mitigation
 				{
 					"RunScript"
