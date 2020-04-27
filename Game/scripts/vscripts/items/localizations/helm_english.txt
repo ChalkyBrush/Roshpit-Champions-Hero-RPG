@@ -696,8 +696,8 @@
 		
 		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"Each wolf provides a stacking @ruby_property1% attack damage buff aura to all nearby allies."
 		"item_rpc_wolfir_druids_spirit_helm_emerald1"	"Wolves have @emerald_property1 increased attack speed. Each active wolf increases their master's attack speed by @emerald_property2"
-		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Summoned wolve's base attack damage are increased by @sapphire_property1% of your Spell Pierce at the time of summoning"
-		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Summoned wolve's have an extra @amethyst_property1 health for each of their master's Strength and Spirit"			
+		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Summoned wolves' base attack damage are increased by @sapphire_property1% of your Spell Pierce at the time of summoning"
+		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Summoned wolves have an extra @amethyst_property1 health for each of their master's Strength and Spirit"			
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
 		"item_property_wraith_crown"							"Ethereal Form"					
