@@ -379,7 +379,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"幸运护身符"
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "每当一件物品触发它的效果时, 提高 @ruby_property1 力量和@ruby_property2 护甲，持续 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %>秒"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "每当一件物品触发它的效果时, 提高 @emerald_property1 敏捷值和 @ruby_property2 物理穿透，持续 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> 秒"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "每当一件物品触发它的效果时, 提高 @emerald_property1 敏捷值和 @emerald_property2 物理穿透，持续 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> 秒"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "每当一件物品触发它的效果时, 提高 @sapphire_property1 智力值和 @sapphire_property2 魔法穿透，持续 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> 秒"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "每当一件物品触发它的效果时, 提高 @amethyst_property1 精神值和 @amethyst_property2 魔甲，持续 <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> 秒"
 		"item_property_fortune_talisman"						"幸运项链"

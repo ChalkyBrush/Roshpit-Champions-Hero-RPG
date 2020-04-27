@@ -263,7 +263,7 @@
         "property_fortune_talisman_description"             "Increases the total proc chance of all equipped items by <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% of their base value."
 
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "When an item procs its effect, gain @ruby_property1 Strength and @ruby_property2 Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @ruby_property2 Armor Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @emerald_property2 Armor Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "When an item procs its effect, gain @sapphire_property1 Intelligence and @sapphire_property2 Spell Pierce for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "When an item procs its effect, gain @amethyst_property1 Spirit and @amethyst_property2 Magic Armor for <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> seconds"
 
