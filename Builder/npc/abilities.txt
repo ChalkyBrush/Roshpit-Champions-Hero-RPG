@@ -62879,7 +62879,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"item_resist"			"99"
+				"item_resist"			"90"
 			}
 		}
 		"Modifiers"
