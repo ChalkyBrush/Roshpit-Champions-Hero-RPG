@@ -802,7 +802,7 @@ function crystal_meditation_attack_start(event)
 	if ability.CD == false or ability.CD == nil then
 		ability.CD = true
 		for i = 1, attacks, 1 do
-			Timers:CreateTimer(i * 0.1, function()
+			Timers:CreateTimer(i * 0.2, function()
 				Filters:PerformAttackSpecial(attacker, target, true, true, true, false, true, false, false)
 				if i == attacks then
 					ability.CD = false

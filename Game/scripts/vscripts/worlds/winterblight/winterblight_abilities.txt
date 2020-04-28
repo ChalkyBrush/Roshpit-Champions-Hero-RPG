@@ -1034,7 +1034,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"8.0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -1216,7 +1216,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"300 5000 15000"
 			}
 			"02"
 			{
@@ -3390,12 +3390,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"10 100 1000"
+				"max_stacks"			"4 10 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1 2 3"
+				"damage"			"1"
 			}
 		}
 		"Modifiers"
@@ -13955,25 +13955,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power"			"10 50 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 5000 10000"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_tiamat_boss_passive"
@@ -13995,20 +13976,6 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"tiamat_boss_think"
 					}
-				}
-			}
-			"modifier_azalea_boss_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
-            	"StatusEffectPriority"  "10"
-            	"TextureName"		"crystal_maiden_crystal_nova"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
 				}
 			}
 			"modifier_disable_player"

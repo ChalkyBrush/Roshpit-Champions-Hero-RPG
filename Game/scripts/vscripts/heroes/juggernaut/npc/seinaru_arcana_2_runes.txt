@@ -46,7 +46,6 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_3_arcana2"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
