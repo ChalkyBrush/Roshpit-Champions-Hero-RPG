@@ -605,7 +605,7 @@ function SaveLoad:LoadGlyphs(character, hero)
 		Glyphs:ApplyGlyph(hero, 3, glyph:GetEntityIndex())
 	end
 	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_inventory", {})
-	CustomGameEventManager:Send_ServerToAllClients(hero:GetPlayerOwner(), "update_runes", {})
+	CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "update_runes", {})
 end
 
 function SaveLoad:LoadPortalKeys(character, hero)
