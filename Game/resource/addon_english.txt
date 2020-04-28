@@ -21952,5 +21952,11 @@
 
 		"tarot_devil"												"The Devil"
 		"tarot_devil_description"									"Imprisonment..."
+
+		"tarot_tower"												"The Tower"
+		"tarot_tower_description"									"Upheaval..."
+
+		"tarot_star"												"The Star"
+		"tarot_star_description"									"Hope and Renewal..."
 	}	
 }

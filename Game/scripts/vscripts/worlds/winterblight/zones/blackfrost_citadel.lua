@@ -298,8 +298,18 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][17]["name"] = "tower"
 		Winterblight.CASTLE_DATA["tarot"][17]["index"] = "16"
 		Winterblight.CASTLE_DATA["tarot"][17]["prop_angle"] = Vector(0, 1)
-		Winterblight.CASTLE_DATA["tarot"][17]["prop_scale"] = 0.73
+		Winterblight.CASTLE_DATA["tarot"][17]["prop_scale"] = 0.52
 		Winterblight.CASTLE_DATA["tarot"][17]["horror"] = true
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][1] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][2] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][3] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][4] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][5] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][6] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][7] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][8] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][9] = {index = 12, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][18] = {}
 		Winterblight.CASTLE_DATA["tarot"][18]["name"] = "star"
@@ -1103,6 +1113,24 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 	elseif Winterblight.CastleTarot["name"] == "temperance" then
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_temperance_enemy_buff", {})
+	elseif Winterblight.CastleTarot["name"] == "tower" then
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_tower_attack_buff", {})
+		local startScale = enemy:GetModelScale()
+		local endScale = startScale*1.22
+		Events:smoothSizeChange(enemy, startScale, endScale, 33)
+		if enemy:HasAbility("mega_steadfast") then
+			enemy:RemoveAbility("mega_steadfast")
+			enemy:RemoveModifierByName("modifier_mega_steadfast")
+			enemy:AddAbility("ancient_god_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		elseif enemy:HasAbility("normal_steadfast") then
+			enemy:RemoveAbility("normal_steadfast")
+			enemy:RemoveModifierByName("modifier_steadfast")
+			enemy:AddAbility("mega_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+
+		else
+			enemy:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		end
 	end
 	return enemy
 end

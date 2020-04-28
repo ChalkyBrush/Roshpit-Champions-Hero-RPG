@@ -69,12 +69,17 @@ function diviner_think(event)
 					Timers:CreateTimer(1.3, function()
 						tarot_symbol.active = true
 						if Winterblight.CastleTarot["horror"] then
-							EmitSoundOnLocationWithCaster(Vector(11808, 13046, 1767), "Winterblight.Tarot.PianoSlamHorror", Events.GameMaster)
+							-- EmitSoundOnLocationWithCaster(Vector(11808, 13046, 1767), "Winterblight.Tarot.PianoSlamHorror", Events.GameMaster)
 						else
 							EmitSoundOnLocationWithCaster(Vector(11808, 13046, 1767), "Winterblight.Tarot.PianoSlam", Events.GameMaster)
 						end
 					end)
 				end)
+				if Winterblight.CastleTarot["horror"] then
+					Timers:CreateTimer(7.9, function()
+						EmitSoundOnLocationWithCaster(Vector(11808, 13046, 1767), "Winterblight.Tarot.PianoSlamHorror", Events.GameMaster)
+					end)
+				end
 				Timers:CreateTimer(8.2, function()
 					StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_ATTACK, rate = 1})
 					Quests:ShowDialogueText(MAIN_HERO_TABLE, caster, "tarot_"..Winterblight.CastleTarot["name"], 4, false)
@@ -1424,6 +1429,8 @@ function castle_boss_rotator(event)
 				local surrogate_count = 3
 				if Winterblight.CastleTarot["name"] == "emperor" then
 					surrogate_count = 5
+				elseif Winterblight.CastleTarot["name"] == "tower" then
+					surrogate_count = 1
 				end
 				local surrogate_unit_name = "winterblight_castle_boss_surrogate"
 				if Winterblight.CastleTarot["name"] == "hanged_man" then
@@ -1438,6 +1445,10 @@ function castle_boss_rotator(event)
 					Events:ColorWearablesAndBase(surrogate, Vector(50,50,50))
 					if surrogate_unit_name == "winterblight_castle_boss_surrogate" then
 						surrogate:SetAbsOrigin(surrogate:GetAbsOrigin() + Vector(0,0,90))
+					end
+					if Winterblight.CastleTarot["name"] == "tower" then
+						surrogate:SetModelScale(surrogate:GetModelScale()*2)
+						surrogate:AddAbility("ancient_god_steadfast"):SetLevel(GameState:GetDifficultyFactor())
 					end
 					Winterblight:AdjustCastleUnit(surrogate)
 					if Winterblight.CastleTarot["name"] == "hermit" then
@@ -1627,6 +1638,9 @@ function castle_boss_surrogate_die(event)
 			Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Vector(255, 20, 40), Winterblight.CastleBoss.color, 30)
 		end)
 	else
+		if Winterblight.CastleTarot["name"] == "tower" then
+			heavy_damage = heavy_damage + light_damage*2
+		end
 		castle_boss_take_damage(heavy_damage)
 		Events:ColorWearablesAndBaseOverPeriod(Winterblight.CastleBoss, Winterblight.CastleBoss.color, Vector(255, 20, 40), 50)
 		Timers:CreateTimer(3.4, function()
@@ -2121,6 +2135,9 @@ function use_scryers_stone(event)
 			elseif Winterblight.CastleTarot["name"] == "devil" then
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_scryer_doom", {duration = 8})
+			elseif Winterblight.CastleTarot["name"] == "star" then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, caster, "modifier_diviner_star_all_stats_buff", {duration = 40})
 			end
 		end
 	end)

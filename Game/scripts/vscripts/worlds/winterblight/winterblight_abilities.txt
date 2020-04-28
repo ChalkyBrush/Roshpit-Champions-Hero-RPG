@@ -16050,6 +16050,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"temperance_ms_debuff_pct"		"-20"
 			}
+			"14"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"tower_atk_buff_pct"		"50 100 150"
+			}
+			"15"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"star_all_stats"			"50 150 400"
+			}
 		}
 		"Modifiers"
 		{
@@ -16512,6 +16522,21 @@
 						"Function"		"devil_door_waiter_end"
 					}
 				}
+			}
+			"modifier_tower_attack_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%tower_atk_buff_pct"
+				}
+			}
+			"modifier_diviner_star_all_stats_buff"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
 			}
 		}
 	}
