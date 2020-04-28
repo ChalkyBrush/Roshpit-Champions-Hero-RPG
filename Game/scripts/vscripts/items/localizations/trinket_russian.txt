@@ -263,7 +263,7 @@
         "property_fortune_talisman_description"             "Увеличивает шанс срабатывания всех предметов на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_CHANCE_AMP %>% от их базового значения шанса."
 
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "Когда срабатывает любой из шансов любого предмета, повышает Силу на @ruby_property1 и Броню на @ruby_property2 на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> сек"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "Когда срабатывает любой из шансов любого предмета, повышает Ловкость на @emerald_property1 и Пробитие Брони на @ruby_property2 на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> сек"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "Когда срабатывает любой из шансов любого предмета, повышает Ловкость на @emerald_property1 и Пробитие Брони на @emerald_property2 на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> сек"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "Когда срабатывает любой из шансов любого предмета, повышает Интеллект на @sapphire_property1 и Пробитие Магической Защиты на @sapphire_property2 на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> сек"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "Когда срабатывает любой из шансов любого предмета, повышает Дух на @amethyst_property1 и Магическую Защиту на @amethyst_property2 на <% ITEM_RPC_FORTUNES_TALISMAN_OF_TRUTH_GEM_BUFF_DURATIONS %> сек"
 

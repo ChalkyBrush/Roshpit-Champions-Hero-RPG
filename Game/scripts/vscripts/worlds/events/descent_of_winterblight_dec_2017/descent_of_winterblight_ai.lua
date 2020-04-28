@@ -176,6 +176,7 @@ function torturok_think(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local fv = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin()) * Vector(1, 1, 0)):Normalized()
+				if not enemies[1]:HasAbility("winterblight_cave_guide_ability") then
 				local order =
 				{
 					UnitIndex = caster:entindex(),
@@ -183,6 +184,7 @@ function torturok_think(event)
 					AbilityIndex = nova:entindex(),
 				Position = enemies[1]:GetAbsOrigin() + fv * RandomInt(-500, 500)}
 				ExecuteOrderFromTable(order)
+				end
 				return false
 			end
 		end

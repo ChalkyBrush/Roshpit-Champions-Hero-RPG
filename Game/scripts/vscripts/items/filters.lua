@@ -4999,11 +4999,13 @@ function Filters:ExtendBuffsDurationOnTarget(target, keyName, bonusAmplify, incr
 end
 function Filters:IsNonExtendableBuff(modifier)
     self.nonExtendableBuffs = self.nonExtendableBuffs or {
-        modifier_gravelfoot_buff = true,
-        modifier_animation = true,
-        modifier_burnout = true,
-        modifier_recently_respawned = true,
-        modifier_animation_translate = true,
+		modifier_gravelfoot_buff = true,
+		modifier_animation = true,
+		modifier_burnout = true,
+		modifier_recently_respawned = true,
+		modifier_animation_translate = true,
+		modifier_heavy_boulder_pushback = true,
+		modifier_bear_sliding = true,
     }
     return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
 end

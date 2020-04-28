@@ -225,8 +225,8 @@
 	"tutorial_quiz_question_6"											"Where can you unequip your gear?"
 	"tutorial_quiz_question_6_answer"									"blacksmith"
 
-	"tutorial_quiz_wrong_3_1_1"											"No that's not right, the answer is one of the NPC's in town."
-	"tutorial_quiz_wrong_3_1_2"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
+	"tutorial_quiz_wrong_3_1_3"											"No that's not right, the answer is one of the NPC's in town."
+	"tutorial_quiz_wrong_3_1_4"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
 
 	"tutorial_master_dialogue_3_1f"										"That's right! Only the blacksmith can remove an item for future use. Equipping a new item to the same slot will overwrite that existing gear."
 

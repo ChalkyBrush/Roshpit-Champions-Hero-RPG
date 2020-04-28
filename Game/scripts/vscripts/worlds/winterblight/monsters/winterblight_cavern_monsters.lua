@@ -3032,7 +3032,6 @@ end
 
 function tiamat_fly_out_phase(event)
 	local caster = event.caster
-	local target = event.target
 	local ability = event.ability
 	ability.flyout_phase_interval = ability.flyout_phase_interval + 1
 	caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.001)
@@ -3045,13 +3044,13 @@ function tiamat_fly_out_phase(event)
 			caster:SetSkin(3)
 		end
 	elseif ability.flyout_main_phase == 1 then
-		if ability.flyout_phase_interval%40 == 0 then
-			local hero_targets = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 6000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+		if ability.flyout_phase_interval%100 == 0 then
+			local hero_targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 6000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 			if #hero_targets > 0 then
 				local eventTable = {}
 				eventTable.caster = caster
 				eventTable.ability = caster:FindAbilityByName("tiamat_fire_breath")
-				eventTable.target_points = hero_targets[1]:GetAbsOrigin()
+				eventTable.target_points = { hero_targets[1]:GetAbsOrigin() }
 				tiamat_fire_finish_channel(eventTable)
 			end
 		end
@@ -3105,7 +3104,7 @@ function tiamat_boss_think(event)
 		if not caster:HasModifier("modifier_boss_between_phase") then
 			local charge_ability = caster:FindAbilityByName("tiamat_scorch_charge")
 			if charge_ability:IsFullyCastable() then
-			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false )
+			    local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
 			    if #enemies > 0 then
 			    	local targetDirection = ((enemies[1]:GetAbsOrigin() - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
 			    	local target_point = caster:GetAbsOrigin()+targetDirection*RandomInt(1200, 2200)

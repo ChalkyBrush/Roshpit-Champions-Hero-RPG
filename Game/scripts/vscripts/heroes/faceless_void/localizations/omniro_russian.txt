@@ -24,8 +24,8 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Земля"
 		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Броня и магическая защита увеличены."									
 
-		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущего процента ХП цели."
-		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ЗДОРОВЬЯ ЦЕЛИ:"										
+		"omniro_lightning_special_description"									"Наносит урон в зависимости от показателя Ловкости героя."
+		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ОТ ЛОВКОСТИ:"										
 
 		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <% OMNIRO_POISON_MULTIPLE_FOR_DOUBLE %>x урона, если цель стоит в луже яда от орб-эффекта."
 		"omniro_poison_special_a_pretext"										"УРОН ЯДА % СИЛЫ АТАКИ: "
@@ -94,9 +94,9 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Демон"	
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Урон атаки увеличен."								
 
-		"omniro_nature_special_description"									"Цель опутана корнями и получает урон каждую секунду."
+		"omniro_nature_special_description"									"Цель опутана корнями и получает урон в течение времени, каждые <% OMNIRO_MACE_NATURE_TICK_INTERVAL %> сек."
 		"omniro_nature_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОПУТЫВАНИЯ:"		
-		"omniro_nature_special_b_pretext"									"УРОН ЗА СЕКУНДУ, % ОТ СИЛЫ АТАКИ:"		
+		"omniro_nature_special_b_pretext"									"УРОН В СЕК, % ОТ СИЛЫ АТАКИ:"		
 
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Природа"
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Опутан корнями и получает ежесекундный урон."		
@@ -186,7 +186,7 @@
 		"omniro_demon_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"omniro_nature_orb_description"										"Применяет на героя щит, поглощающий урон. Базовое количество щитов <% OMNIRO_NATURE_SHIELD_BASE_MAX_STACKS %>, увеличивается с уровнем рун. Длится <% OMNIRO_NATURE_SHIELD_DURATION %> секунд."
-		"omniro_nature_orb_a_pretext"											"ШАНС НА ДОПОЛНИТЕЛЬНЫЕ ШИТЫ %:"	
+		"omniro_nature_orb_a_pretext"											"ШАНС НА ДОПОЛНИТЕЛЬНЫЕ ЩИТЫ %:"	
 		"omniro_nature_orb_b_pretext"											"ДОПОЛНИТЕЛЬНЫЕ ЩИТЫ:"
 
 		"DOTA_Tooltip_modifier_omniro_nature_shield"						"Omni Orb: Природа"
@@ -347,7 +347,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "Supercharged Prism Hammer"
 		"item_property_omniro_immortal_weapon2"                             "Kaleidoscopic Reload"
-		"property_omniro_immortal_weapon2_description"                      "Элементы заряжаются на <% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>% быстрее."
+		"property_omniro_immortal_weapon2_description"                      "Элементы заряжаются на <% OMNIRO_LEGEND_WEAPON_2_RECHARGE_INCREASE %>% быстрее за каждый уровень Максимума Зарядов соответствующего элемента (за исключением <font color=\"#DDDDDD\">Нормального</font> элемента)."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
@@ -376,4 +376,4 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>)получает <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% бонус урона, второй по счету получает <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, третий <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>, и четвертый <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>)получает <% OMNIRO_GLYPH_5_A_TOP_1_BONUS %>% бонус урона, второй по счету получает <% OMNIRO_GLYPH_5_A_TOP_2_BONUS%>%, третий <% OMNIRO_GLYPH_5_A_TOP_3_BONUS %>%, и четвертый <% OMNIRO_GLYPH_5_A_TOP_4_BONUS %>%."
