@@ -24576,3 +24576,77 @@
         "RoshpitCastAOE"        "1000"
         "RoshpitTargetSearchPreference" "<% FIND_CLOSEST %>"
     }
+
+    "winterblight_bloody_faceripper"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/items/undying/flesh_golem/incurable_pestilence_golem/incurable_pestilence_golem.vmdl"
+        "ModelScale"    "1.5"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "precache"
+        {
+
+        }
+        "HasInventory"  "0"
+        "SelectionGroup"    "Dark_Fighter"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"                  "Hero_ElderTitan"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1500"
+        "AttackDamageMax"   "1500"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.4"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "240"
+        "BountyGoldMin" "150"
+        "BountyGoldMax" "200"
+        "BountyXP" "1700"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HUGE"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "260"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "42000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "winterblight_faceripper_passive"
+        "Ability2"      "mega_steadfast"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+        }
+        "RoshpitArmor"          "440"
+        "RoshpitArmorPierce"    "740"
+        "RoshpitSpellPierce"    "241"
+        "RoshpitMagicArmor"     "500"
+        "RoshpitLevel"          "40"
+        "RoshpitDominion"       "0"
+        "RoshpitAggroSound"     "Winterblight.FaceRipper.Aggro"
+        "RoshpitDeathSound"     "Winterblight.FaceRipper.Death"
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+    }

@@ -20122,3 +20122,61 @@
 			}
 		}
 	}
+
+	"winterblight_faceripper_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"instance_count"		"4 7 10"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"		"80 400 4000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_faceripper_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_attack_land"
+						"instance_count"		"%instance_count"
+						"damage"			"%damage"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_take_damage"
+					}
+				}
+			}
+		}
+	}

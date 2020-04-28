@@ -3550,3 +3550,37 @@ end
 function devil_door_waiter_end(event)
 	Winterblight:OpenCastleDoorByIndex(Winterblight.CastleDungeonMaster.closed_door_index)
 end
+
+function faceripper_attack_start(event)
+	local caster = event.caster
+	local luck = RandomInt(1, 3)
+	if luck == 1 then
+		EmitSoundOn("Winterblight.FaceRipper.Preattack.VO", caster)
+	end
+end
+
+function faceripper_attack_land(event)
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local damage = event.damage
+	for i = 1, event.instance_count, 1 do
+		Timers:CreateTimer(i*0.06, function()
+			Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_PHYSICAL, ability)
+			local particleName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			local pfx = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, target )
+			ParticleManager:SetParticleControlEnt(pfx, 0, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, target, PATTACH_CUSTOMORIGIN, "attach_origin", target:GetAbsOrigin(), true)
+
+			EmitSoundOn("Winterblight.CoupBloodEffect", target)	
+		end)
+	end
+end
+
+function faceripper_take_damage(event)
+	local unit = event.caster
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, Winterblight.CastleDungeonMaster, "modifier_diviner_devil_door_waiter", {duration = 10})
+	Winterblight:CloseCastleDoorByRoomIndex(unit.room_index)
+end
+

@@ -25395,3 +25395,105 @@
         }
     }
 }
+
+"Winterblight.FaceRipper.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_attack_16.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FaceRipper.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_pain_15.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FaceRipper.Preattack.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_attack_08.vsnd"
+                              "value1"        "sounds/vo/undying/undying_big_attack_09.vsnd"
+                              "value2"        "sounds/vo/undying/undying_big_attack_10.vsnd"
+                              "value3"        "sounds/vo/undying/undying_big_attack_11.vsnd"
+                              "value4"        "sounds/vo/undying/undying_big_attack_12.vsnd"
+                              "value5"        "sounds/vo/undying/undying_big_attack_13.vsnd"
+                              "value6"        "sounds/vo/undying/undying_big_attack_14.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.52000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
