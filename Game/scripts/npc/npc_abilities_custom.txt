@@ -3009,12 +3009,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
+				"lightning_orb_a"			"6 7 8 9 10 11 12"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
+				"poison_orb_a"			"2 2.4 2.8 3.2 3.6 4 4.4"
 			}
 			"07"
 			{
@@ -3104,7 +3104,7 @@
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"1.9 2 2.1 2.2 2.3 2.4 2.5"
+				"demon_orb_a"			"2.5 2.5 2.5 2.5 3 3.5 4"
 			}
 			"23"
 			{
@@ -3688,7 +3688,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3720,7 +3720,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3752,7 +3752,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3784,7 +3784,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3817,7 +3817,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3849,7 +3849,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3881,7 +3881,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3913,7 +3913,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3946,7 +3946,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -3978,7 +3978,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4010,7 +4010,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4052,7 +4052,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4085,7 +4085,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4117,7 +4117,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4149,7 +4149,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4181,7 +4181,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -34631,7 +34631,6 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_3_arcana2"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -50910,11 +50909,6 @@
 		//-------------------------------------------------------
 		"AbilityCooldown"				"7"
 		"AbilityDuration"				"3.11 3.11 3.11 3.11"
-
-		// Damage.
-		//-------------------------------------------------------
-		"AbilityDamage"					"50 140 230 320"
-
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -72940,7 +72934,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"8.0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -73122,7 +73116,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"300 5000 15000"
 			}
 			"02"
 			{
@@ -75296,12 +75290,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"10 100 1000"
+				"max_stacks"			"4 10 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1 2 3"
+				"damage"			"1"
 			}
 		}
 		"Modifiers"
@@ -85861,25 +85855,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power"			"10 50 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 5000 10000"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_tiamat_boss_passive"
@@ -85901,20 +85876,6 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"tiamat_boss_think"
 					}
-				}
-			}
-			"modifier_azalea_boss_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
-            	"StatusEffectPriority"  "10"
-            	"TextureName"		"crystal_maiden_crystal_nova"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
 				}
 			}
 			"modifier_disable_player"
@@ -88443,6 +88404,27 @@
 				"IsHidden"	"0"
 				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_diviner_star_entering"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_star_entering_think"
+						"target"		"TARGET"
+					}
+				}
 			}
 		}
 	}
@@ -92087,6 +92069,53 @@
 		}
 	}
 
+	"winterblight_starwatcher_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"80 270 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"star_interval"		"1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"800"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_starwatcher_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "%star_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"starwatcher_think"
+						"damage"		"%damage"
+						"radius"		"%radius"
+					}
+				}
+			}
+		}
+	}
+
 
 	"soul_ferrier_passive"
 	{
@@ -95199,7 +95228,7 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
 				}
-				"OnTakeDamage"
+				"OnAttacked"
 				// "%attack_damage" is set to the damage value after mitigation
 				{
 					"RunScript"
@@ -157414,7 +157443,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"item_resist"			"99"
+				"item_resist"			"90"
 			}
 		}
 		"Modifiers"

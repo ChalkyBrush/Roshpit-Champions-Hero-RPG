@@ -113165,6 +113165,102 @@
         "RoshpitDeathSound"     "Winterblight.FaceRipper.Death"
         "EnemyTier"             "3"
     }
+
+    "winterblight_star_watcher"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/mirana/mirana.vmdl"
+        "ModelScale"    "1.14"
+        "Level" "1"
+        "HealthBarOffset"   "220"
+        "HasInventory"  "0"
+        "SelectionGroup"    "Hook_Flinger"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "SoundSet"      "Hero_Mirana"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+            "particle"  "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ProjectileSpeed"       "1040"
+        "ProjectileModel"       "particles/units/heroes/hero_vengeful/vengeful_base_attack.vpcf"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "645"
+        "AttackDamageMax"   "650"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.2"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "540"
+        "BountyGoldMin" "1000"
+        "BountyGoldMax" "2000"
+        "BountyXP" "5000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "24"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "350"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "12450"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "1000"
+        "StatusManaRegen"   "100"
+        "VisionDaytimeRange"    "1000"
+        "VisionNighttimeRange"  "1000"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"              "winterblight_starwatcher_passive"
+        "Ability2"              "luna_taskmaster_shield"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"           "6939"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"           "8834"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"           "5283"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"           "9098"
+                }
+                "Wearable5"
+                {
+                    "ItemDef"           "6663"
+                }
+                "Wearable6"
+                {
+                    "ItemDef"           "6158"
+                }
+            }
+        }
+        "RoshpitArmor"          "171"
+        "RoshpitArmorPierce"    "400"
+        "RoshpitSpellPierce"    "472"
+        "RoshpitMagicArmor"     "462"
+        "RoshpitLevel"          "35"
+        "RoshpitDominion"       "1"
+        "EnemyTier"             "2"
+        "RoshpitAggroSound"     "Winterblight.StarWatcher.Aggro"
+        "RoshpitColorRenderType"    "2"
+        "RoshpitColorRenderR"   "45"
+        "RoshpitColorRenderG"   "45"
+        "RoshpitColorRenderB"   "45"   
+    }
     
 
     "tutorial_master"

@@ -16505,6 +16505,27 @@
 				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
 				"EffectAttachType"	"attach_origin"
 			}
+			"modifier_diviner_star_entering"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_star_entering_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -20142,6 +20163,53 @@
 					{
 						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 						"Function"		"faceripper_take_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_starwatcher_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"80 270 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"star_interval"		"1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"800"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_starwatcher_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "%star_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"starwatcher_think"
+						"damage"		"%damage"
+						"radius"		"%radius"
 					}
 				}
 			}

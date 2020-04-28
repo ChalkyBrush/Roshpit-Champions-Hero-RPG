@@ -803,7 +803,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"property_one"			"66"
+				"property_one"			"20"
 			}
 		}
 	}
@@ -70200,6 +70200,23 @@
 			{
 				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
 				"Function"		"use_scryers_stone"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_holding_scryers_stone"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"die_holding_scryer_stone"
+					}
+				}
 			}
 		}
 	}

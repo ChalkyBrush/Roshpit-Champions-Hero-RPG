@@ -3584,3 +3584,64 @@ function faceripper_take_damage(event)
 	Winterblight:CloseCastleDoorByRoomIndex(unit.room_index)
 end
 
+function starwatcher_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			local particleName = "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, enemy)
+			ParticleManager:SetParticleControlEnt(pfx, 0, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+			Timers:CreateTimer(0.6, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			Timers:CreateTimer(0.45, function()
+				if enemy:IsAlive() then
+					Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PURE, ability)
+					EmitSoundOn("Winterblight.StarProphecy.Impact", enemy)
+				end
+			end)
+		end
+	end
+end
+
+function diviner_star_entering_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local key = event.target
+
+	if not key.fallSpeed then
+		key.fallSpeed = 12
+	end
+	local distanceFromGround = key:GetDistanceFromGround()
+	key.fallSpeed = math.max(key.fallSpeed - 0.1, 7)
+	local distance_check = 20
+	if distanceFromGround > distance_check then
+		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,key.fallSpeed))
+	else
+		key:RemoveModifierByName("modifier_diviner_star_entering")
+		key.cantAggro = false
+		Dungeons:AggroUnit(key)
+	end
+end
+
+function die_holding_scryer_stone(event)
+	local unit = event.unit
+	local ability = event.ability
+	if Winterblight.CastleTarot["name"] == "star" then
+		if ability:GetCooldownTimeRemaining() == 0 then
+			ability:StartCooldown(60)
+			local position = unit:GetAbsOrigin()
+			unit.revive = true
+			Timers:CreateTimer(1, function()
+				unit:RespawnHero(false, false)
+				unit:SetAbsOrigin(position + Vector(0,0,1000))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_star_entering", {duration = 10})
+				SpecialFX:ColoredSpotlight(position, Vector(255, 255, 0))	
+			end)	
+		end
+	end
+end

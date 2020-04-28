@@ -304,18 +304,28 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][1] = {index = 8, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][2] = {index = 9, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][3] = {index = 7, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][1] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][1] = {index = 12, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][5] = {index = 2, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][6] = {index = 1, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][7] = {index = 10, variant = 1}
 		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][8] = {index = 11, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][9] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][17]["rooms"][9] = {index = 4, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][18] = {}
 		Winterblight.CASTLE_DATA["tarot"][18]["name"] = "star"
 		Winterblight.CASTLE_DATA["tarot"][18]["index"] = "17"
-		Winterblight.CASTLE_DATA["tarot"][18]["prop_angle"] = Vector(1, 0)
-		Winterblight.CASTLE_DATA["tarot"][18]["prop_scale"] = 1.0
+		Winterblight.CASTLE_DATA["tarot"][18]["prop_angle"] = Vector(-1, 0)
+		Winterblight.CASTLE_DATA["tarot"][18]["prop_scale"] = 0.96
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][1] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][2] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][3] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][1] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][5] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][6] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][7] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][8] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][18]["rooms"][9] = {index = 7, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][19] = {}
 		Winterblight.CASTLE_DATA["tarot"][19]["name"] = "moon"
@@ -1073,6 +1083,10 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 			unit_name = "winterblight_winterblight_devil_warrior"
 		elseif unit_name == "winterblight_elite_castle_warrior" then
 			unit_name = "winterblight_winterblight_elite_devil_warrior"
+		end
+	elseif Winterblight.CastleTarot["name"] == "star" then
+		if unit_name == "winterblight_castle_watchman" then
+			unit_name = "winterblight_star_watcher"
 		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
@@ -2746,7 +2760,10 @@ function Winterblight:PrecacheTarotAssets()
 		local function precache_function()
 			PrecacheUnitByNameAsync("winterblight_bloody_faceripper", precache_function)	
 		end
-
+	elseif Winterblight.CastleTarot["name"] == "star" then
+		local function precache_function()
+			PrecacheUnitByNameAsync("winterblight_star_watcher", precache_function)	
+		end
 	end
 end
 
@@ -2801,6 +2818,27 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 				end)
 				CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
 			end)
+		end
+	elseif Winterblight.CastleTarot["name"] == "star" then
+		if not enemy.star_revived then
+			local luck = RandomInt(1, 4)
+			if enemy:GetUnitName() == "winterblight_star_watcher" then
+				luck = 1
+			end
+			if luck == 1 and enemy:GetEnemyTier() < ENEMY_TYPE_MINI_BOSS then
+				local star_revived_monster = Winterblight:SpawnCastleRoomUnit(0,enemy:GetUnitName(), enemy:GetAbsOrigin(), enemy:GetForwardVector(), false, true)
+				star_revived_monster.cantAggro = true
+				star_revived_monster.star_revived = true
+				star_revived_monster:SetAbsOrigin(star_revived_monster:GetAbsOrigin() + Vector(0,0,1000))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, star_revived_monster, "modifier_diviner_star_entering", {duration = 10})
+				SpecialFX:ColoredSpotlight(enemy:GetAbsOrigin(), Vector(255, 255, 0))
+			end
+		else
+			local luck = RandomInt(1, 100)
+			if luck == 1 then
+				Winterblight:GeneralChestSpawn(enemy:GetAbsOrigin(), enemy:GetForwardVector())
+			end
 		end
 	end
 end

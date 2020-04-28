@@ -3977,7 +3977,7 @@
 		"item_rpc_chernobog_glyph_5_1_description" 				"Shadow Hunt stops draining health while at or below <font color='#ccff66'>50</font>% of max health, and stops draining mana while at or below <font color='#ccff66'>50</font>% of max mana."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"		"[T6-1] Glyph of Black Rifts"
-		"item_rpc_chernobog_glyph_6_1_description" 				"[E3] duration is increased by <font color='#ccff66'>2</font>."
+		"item_rpc_chernobog_glyph_6_1_description" 				"[E3] duration is increased by <font color='#ccff66'>2</font> s."
 
 		"DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"		"[T7-1] Glyph of Indomitability"
 		"item_rpc_chernobog_glyph_7_1_description" 				"Stuns are cleansed every <font color='#ccff66'>0.2</font> seconds."
@@ -8115,7 +8115,7 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Demon"	
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Increased Bonus Attack Damage"								
 
-		"omniro_nature_special_description"									"Target is rooted and takes damage over time."
+		"omniro_nature_special_description"									"Target is rooted and takes damage over time, striking every <font color='#ccff66'>0.2</font> seconds."
 		"omniro_nature_special_a_pretext"									"ROOT DURATION:"		
 		"omniro_nature_special_b_pretext"									"ROOT DPS, % OF ATTACK POWER:"		
 
@@ -8368,7 +8368,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "Supercharged Prism Hammer"
 		"item_property_omniro_immortal_weapon2"                             "Kaleidoscopic Reload"
-		"property_omniro_immortal_weapon2_description"                      "Element charges replenish <font color='#ccff66'>66</font>% faster."
+		"property_omniro_immortal_weapon2_description"                      "Element charges replenish <font color='#ccff66'>20</font>% faster per Max Charge (excluding <font color=\"#DDDDDD\">Normal</font>)."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
@@ -8397,7 +8397,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Omniro's highest level element (excluding <font color=\"#3289C7\">Dragon</font>) has @glyph_property1 additional maximum orb charges."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a %<font color='#ccff66'>100</font> bonus, 2nd highest <font color='#ccff66'>75</font>%, 3rd highest <font color='#ccff66'>50</font>, and 4th highest <font color='#ccff66'>25</font>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Omniro gains bonuses to Elemental damage types matching his four highest-level elements (excluding <font color=\"#3289C7\">Dragon</font>). The highest gains a <font color='#ccff66'>100</font>% bonus, 2nd highest <font color='#ccff66'>75</font>%, 3rd highest <font color='#ccff66'>50</font>%, and 4th highest <font color='#ccff66'>25</font>%."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Element: <font color=\"#F6FFB5\">Holy</font> / <font color=\"#DDDDDD\">Normal</font><br>Empowers the Paladin's weapon to deal massive splash and slow effect, as well as heal him on successful strikes."
@@ -14794,8 +14794,8 @@
 		
 		"item_rpc_wolfir_druids_spirit_helm_ruby1"		"Each wolf provides a stacking @ruby_property1% attack damage buff aura to all nearby allies."
 		"item_rpc_wolfir_druids_spirit_helm_emerald1"	"Wolves have @emerald_property1 increased attack speed. Each active wolf increases their master's attack speed by @emerald_property2"
-		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Summoned wolve's base attack damage are increased by @sapphire_property1% of your Spell Pierce at the time of summoning"
-		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Summoned wolve's have an extra @amethyst_property1 health for each of their master's Strength and Spirit"			
+		"item_rpc_wolfir_druids_spirit_helm_sapphire1" 	"Summoned wolves' base attack damage are increased by @sapphire_property1% of your Spell Pierce at the time of summoning"
+		"item_rpc_wolfir_druids_spirit_helm_amethyst1" 	"Summoned wolves have an extra @amethyst_property1 health for each of their master's Strength and Spirit"			
 		
 		"DOTA_Tooltip_ability_item_rpc_wraith_crown"			"Wraith Crown"
 		"item_property_wraith_crown"							"Ethereal Form"					
@@ -15088,7 +15088,7 @@
         "property_fortune_talisman_description"             "Increases the total proc chance of all equipped items by <font color='#ccff66'>50</font>% of their base value."
 
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "When an item procs its effect, gain @ruby_property1 Strength and @ruby_property2 Armor for <font color='#ccff66'>2</font> seconds"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @ruby_property2 Armor Pierce for <font color='#ccff66'>2</font> seconds"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "When an item procs its effect, gain @emerald_property1 Agility and @emerald_property2 Armor Pierce for <font color='#ccff66'>2</font> seconds"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "When an item procs its effect, gain @sapphire_property1 Intelligence and @sapphire_property2 Spell Pierce for <font color='#ccff66'>2</font> seconds"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "When an item procs its effect, gain @amethyst_property1 Spirit and @amethyst_property2 Magic Armor for <font color='#ccff66'>2</font> seconds"
 
@@ -20229,8 +20229,8 @@
 	"tutorial_quiz_question_6"											"Where can you unequip your gear?"
 	"tutorial_quiz_question_6_answer"									"blacksmith"
 
-	"tutorial_quiz_wrong_3_1_1"											"No that's not right, the answer is one of the NPC's in town."
-	"tutorial_quiz_wrong_3_1_2"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
+	"tutorial_quiz_wrong_3_1_3"											"No that's not right, the answer is one of the NPC's in town."
+	"tutorial_quiz_wrong_3_1_4"											"You know what, maybe you should just restart this tutorial and read what I say next time!"
 
 	"tutorial_master_dialogue_3_1f"										"That's right! Only the blacksmith can remove an item for future use. Equipping a new item to the same slot will overwrite that existing gear."
 
@@ -21769,6 +21769,9 @@
 		"DOTA_Tooltip_ability_tiamat_fire_breath"									"Ultima Fire"
 		"DOTA_Tooltip_ability_tiamat_fire_breath_Description"						"Tiamat's prismatic breath creates pools of fire at the target positions."
 		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"DAMAGE:"
+		
+		"DOTA_Tooltip_ability_tiamat_boss_passive" 									"Dragon Ancestor"
+		"DOTA_Tooltip_ability_tiamat_boss_passive_Description"						"Tiamat is a mighty dragon being, that slept for many eons in depth of Winterbight Caverns."
 
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Tiamat's icy attacks deal Pure damage in an area around the target and slow victims' movespeed."
