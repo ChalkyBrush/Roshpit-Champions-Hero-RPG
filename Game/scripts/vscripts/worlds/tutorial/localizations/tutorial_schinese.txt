@@ -218,8 +218,8 @@
 	"tutorial_quiz_question_6"											"在哪里可以脱下装备？"
 	"tutorial_quiz_question_6_answer"									"铁匠"
 
-	"tutorial_quiz_wrong_3_1_1"											"错了错了，答案是城镇里的某位NPC哦。"
-	"tutorial_quiz_wrong_3_1_2"											"你知道吗，你真的应该重新学习一遍并好好记住我说的每一句！"
+	"tutorial_quiz_wrong_3_1_3"											"错了错了，答案是城镇里的某位NPC哦。"
+	"tutorial_quiz_wrong_3_1_4"											"你知道吗，你真的应该重新学习一遍并好好记住我说的每一句！"
 
 	"tutorial_master_dialogue_3_1f"										"对了！只有铁匠可以帮你卸下装备留以备用，装备同样位置的装备时会对原有装备进行覆盖。"
 
