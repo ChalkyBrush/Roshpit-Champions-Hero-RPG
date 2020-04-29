@@ -473,7 +473,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% VENOMORT_GLYPH_3_2_HEALTH_THRESHOLD_PERCENT %>"
 			}
-			"01"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"<% VENOMORT_GLYPH_3_2_AMPLIFY %>"
