@@ -1088,7 +1088,7 @@
 		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_heal_percent"		"% HEAL EVERY 0.5 SECONDS:"
 		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_duration"			"TOTEM DURATION:"
 
-		"DOTA_Tooltip_ability_gigarraun_fissure"									"Gigarruan Fissue"
+		"DOTA_Tooltip_ability_gigarraun_fissure"									"Gigarruan Fissure"
 		"DOTA_Tooltip_ability_gigarraun_fissure_Description"						"A long range fissure creates an immovable wall in a line. Enemies hit by the initial fissure take damage and are stunned."	
 		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_range"						"RANGE:"
 		"DOTA_Tooltip_ability_gigarraun_fissure_fissure_duration"					"FISSURE DURATION:"
