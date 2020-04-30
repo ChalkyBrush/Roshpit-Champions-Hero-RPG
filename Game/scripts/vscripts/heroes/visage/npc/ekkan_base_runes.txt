@@ -229,7 +229,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"<% EKKAN_E1_CORPSE_HP_TO_EXPLOSION * 100 %>"
 			}
 			"02"
