@@ -2085,7 +2085,12 @@
 
 		//WINTERBLIGHT ABILITIES AND BUFFS
 
-		
+		//TREASURE GOBLINS
+		"treasure_goblin_rpc_redfall_ridge"					"Treasure Goblin"
+		"treasure_goblin_rpc_tanari_jungle"					"Treasure Goblin"
+		"treasure_goblin_rpc_winterblight_mountain"			"Treasure Goblin"
+		"treasure_goblin_rpc_roshpit_arena"					"Treasure Goblin"
+		"treasure_goblin_rpc_sea_fortress"					"Treasure Goblin"
 
         ##ARKIMUS_ENGLISH##
         ##ASTRAL_RANGER_ENGLISH##
