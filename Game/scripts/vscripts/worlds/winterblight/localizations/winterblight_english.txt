@@ -1110,10 +1110,17 @@
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_ms_loss"				"MOVESPEED REDUCTION:"
 
+		"DOTA_Tooltip_ability_realm_breaker_midnight_pulse"							"Midnight Pulse"
+		"DOTA_Tooltip_ability_realm_breaker_midnight_pulse_Description"				"Realm Breaker steeps an area in dark resonance, damaging enemy units inside based on their max HP."
+		"DOTA_Tooltip_ability_realm_breaker_midnight_pulse_damage_percent"			"DAMAGE AS HP %"
+		
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit"							"Radeon Orbit"
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_Description"				"Cosmic Sparks seek out nearby enemies and bounce between targets on impact."
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_realm_breaker_radeon_orbit_base_bounces"				"MAX BOUNCES:"
+		
+		"DOTA_Tooltip_ability_winterblight_descent_boss_ability"					"Boss of Winterblight Cavern"
+		"DOTA_Tooltip_ability_winterblight_descent_boss_ability_Description"		"Powerful creature, whose existence attracts monsters to the Winterblight Cavern."
 
 
 
