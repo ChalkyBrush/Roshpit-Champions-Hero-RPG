@@ -1,4 +1,5 @@
 require("/heroes/visage/ekkan_constants")
+require("/heroes/visage/ekkan_helpers")
 
 function river_of_souls_start(event)
 	local caster = event.caster
@@ -142,11 +143,7 @@ function SummonFamiliar(caster, ability, portalPosition, b_c_level)
 	familiar.stance = "aggressive"
 	familiar:AddAbility("ekkan_creep_aggressive"):SetLevel(1)
 	familiar.owner = caster:GetPlayerOwnerID()
-	if caster:HasModifier("modifier_ekkan_immortal_weapon_2") then
-		familiar:SetOriginalModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-		familiar:SetModel("models/creeps/bat_spitter/bat_spitter.vmdl")
-		caster.equipped_gear[RPC_GEAR_SLOT_WEAPON]:ApplyDataDrivenModifier(caster.InventoryUnit, familiar, "modifier_ekkan_immortal_weapon2_gargoyle", {})
-	end
+	change_summon_model(caster, familiar)
 end
 
 function reindexFamiliarTable(ability)

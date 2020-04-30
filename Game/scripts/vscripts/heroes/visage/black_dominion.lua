@@ -154,6 +154,9 @@ function dominion_debuff_death(event)
 				end
 			end
 		end
+
+		summon:SetRoshpitLevel(caster:GetLevel())
+		change_summon_model(caster, summon)
 	end
 end
 
