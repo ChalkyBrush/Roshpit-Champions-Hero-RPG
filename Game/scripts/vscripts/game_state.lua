@@ -3525,36 +3525,36 @@ function GameState:FilterDamage(filterTable)
 	-- filterTable["damage"] = filterTable["damage"]/GameState.PVP_REDUCTION
 	-- end
 	
-	-- if Beacons.cheats then
-	-- 	if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if victim:IsHero() then
-	-- 			-- --print("TAKE DAMAGE: "..filterTable["damage"])
-	-- 			filterTable["damage"] = 0
-	-- 		end
-	-- 		if victim:GetUnitName() == "rubick_apprentice" then
-	-- 			filterTable["damage"] = 1000
-	-- 		end
-	-- 		-- filterTable["damage"] = victim:GetHealth() - 10
-	-- 	end
-	-- 	if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-	-- 		if attacker:IsHero() then
-	-- 			if not victim:HasModifier("modifier_disable_player") then
-	-- 				-- if not victim:HasModifier("modifier_aeon_shield_passive") then
-	-- 				-- 	if filterTable["damage"] > 0 then
-	-- 				-- 		filterTable["damage"] = 999999999999999
-	-- 				-- 	end
-	-- 				-- end
-	-- 			end
-	-- 		end
-	-- 		if not victim:HasModifier("modifier_take_1_damage_only") then
-	-- 			if not death_prevented then
-	-- 				filterTable["damage"] = 1000000
-	-- 			end
-	-- 		else
-	-- 			-- filterTable["damage"] = 25
-	-- 		end
-	-- 	end
-	-- end
+	if Beacons.cheats then
+		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if victim:IsHero() then
+				-- --print("TAKE DAMAGE: "..filterTable["damage"])
+				filterTable["damage"] = 0
+			end
+			if victim:GetUnitName() == "rubick_apprentice" then
+				filterTable["damage"] = 1000
+			end
+			-- filterTable["damage"] = victim:GetHealth() - 10
+		end
+		if attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+			if attacker:IsHero() then
+				if not victim:HasModifier("modifier_disable_player") then
+					-- if not victim:HasModifier("modifier_aeon_shield_passive") then
+					-- 	if filterTable["damage"] > 0 then
+					-- 		filterTable["damage"] = 999999999999999
+					-- 	end
+					-- end
+				end
+			end
+			if not victim:HasModifier("modifier_take_1_damage_only") then
+				if not death_prevented then
+					filterTable["damage"] = 1000000
+				end
+			else
+				-- filterTable["damage"] = 25
+			end
+		end
+	end
 
 	if (EntIndexToHScript(filterTable["entindex_attacker_const"]) == EntIndexToHScript(filterTable["entindex_victim_const"])) and (filterTable["damage"] > StartingDamage) then
 		filterTable["damage"] = StartingDamage

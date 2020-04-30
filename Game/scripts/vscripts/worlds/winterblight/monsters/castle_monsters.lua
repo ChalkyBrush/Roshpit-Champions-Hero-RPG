@@ -217,10 +217,71 @@ function diviner_think(event)
 	-- DEVIL THINK
 	if Winterblight.DevilRingData then
 		for i = 1, #Winterblight.DevilRingData, 1 do
-			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Winterblight.DevilRingData[i].position, nil, 110, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Winterblight.DevilRingData[i].position, nil, 110, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
 					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_diviner_scryer_doom", {duration = 8})
+				end
+			end
+		end
+	end
+	-- MOON THINKER
+	if caster.phase >= 7 and caster.moon_ghost_table and Winterblight.CastleTarot["name"] == "moon" then
+		for i = 1, #caster.moon_ghost_table, 1 do
+			local moon_ghost_item = caster.moon_ghost_table[i]
+			if moon_ghost_item["active"] == 1 then
+				local enemies = FindUnitsInRadius(caster:GetTeamNumber(), moon_ghost_item["position"], nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+				if #enemies > 0 then
+					moon_ghost_item["active"] = 0
+					Timers:CreateTimer(1, function()
+							local ghost = CreateUnitByName("npc_dummy_unit", moon_ghost_item["position"], false, nil, nil, DOTA_TEAM_NEUTRALS)
+							ghost:SetForwardVector(Vector(0,-1))
+							ghost:SetOriginalModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+							ghost:SetModel("models/items/necrolyte/necro_ti9_immortal_skirt/necro_ti9_immortal_ghost.vmdl")
+							ghost.target = caster.locked_target
+							Events:smoothSizeChange(ghost, 0.1, 3.5, 40)
+							EmitSoundOn("Winterblight.CrowSentry.HauntStart", ghost)
+							local pfx = ParticleManager:CreateParticle("particles/roshpit/seafortress/big_dust.vpcf", PATTACH_CUSTOMORIGIN, Events.GameMaster)
+							ParticleManager:SetParticleControl(pfx, 0, ghost:GetAbsOrigin()+Vector(0,0,200))
+							local blueFactor = RandomInt(50, 90)/100
+							ParticleManager:SetParticleControl(pfx, 5, Vector(0.4, 0.5, blueFactor))
+							ParticleManager:SetParticleControl(pfx, 2, Vector(0.2, 0.2, 0.2))
+							Timers:CreateTimer(6, function()
+								ParticleManager:DestroyParticle(pfx, false)
+								ParticleManager:ReleaseParticleIndex(pfx)
+							end)
+						    ability:ApplyDataDrivenModifier(caster, ghost, "modifier_owl_sentry_ghost", {})
+							Timers:CreateTimer(5, function()
+								EmitSoundOn("Winterblight.CrowSentry.HauntEnd", ghost)
+								Events:smoothSizeChange(ghost, 3.5, 0.01, 15)
+							end)
+							Timers:CreateTimer(5.5, function()
+								UTIL_Remove(ghost)
+							end)
+					end)
+					Timers:CreateTimer(8, function()
+						EmitSoundOnLocationWithCaster(moon_ghost_item["position"], "Winterblight.CrowSentry.HauntSpawn", caster)
+						for i = 1, 2 + GameState:GetDifficultyFactor()*2, 1 do
+							local spawn_pos = moon_ghost_item["position"] + RandomVector(RandomInt(180, 600))
+							local fv = ((moon_ghost_item["position"] - spawn_pos)*Vector(1,1,0)):Normalized()
+							local haunter = Winterblight:SpawnCastleRoomUnit(0, "winterblight_elite_ghoul", spawn_pos, RandomVector(1), false, true)
+							Dungeons:AggroUnit(haunter)
+							CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", haunter:GetAbsOrigin(), 3)
+							EmitSoundOn("Winterblight.GraveGhostSpawn", haunter)
+						end
+					end)
+				end
+			end
+		end
+	end
+
+	if Winterblight.CASTLE_DATA["rooms"][11]["active"] >= 1 then
+		if not caster.moon_lift_bros then
+			local heros = FindUnitsInRadius(caster:GetTeamNumber(), Vector(14712, -2720, 1800), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #heros > 0 then
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+				for _, hero in pairs(heros) do
+					master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, hero, "modifier_diviner_moon_platform", {duration = 1.5})
 				end
 			end
 		end
@@ -1266,7 +1327,10 @@ function moon_warden_pull_think(event)
 	local newStacks = target:GetModifierStackCount("modifier_moon_warden_pull", caster) - 3
 	if newStacks > 0 then
 		local pullDirection = ((caster:GetAbsOrigin() - target:GetAbsOrigin())*Vector(1,1,0)):Normalized()
-		target:SetAbsOrigin(target:GetAbsOrigin() + pullDirection*newStacks*0.5)
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target:GetAbsOrigin())
+		if distance > 200 then
+			target:SetAbsOrigin(target:GetAbsOrigin() + pullDirection*newStacks*0.4)
+		end
 		target:ApplyModifierAndSetStacks(ability, caster, "modifier_moon_warden_pull", newStacks, 3)
 	else
 		print("REMOVE MODIFIER")
@@ -3622,8 +3686,10 @@ function diviner_star_entering_think(event)
 		key:SetAbsOrigin(key:GetAbsOrigin()-Vector(0,0,key.fallSpeed))
 	else
 		key:RemoveModifierByName("modifier_diviner_star_entering")
-		key.cantAggro = false
-		Dungeons:AggroUnit(key)
+		if key:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
+			key.cantAggro = false
+			Dungeons:AggroUnit(key)
+		end
 	end
 end
 
@@ -3643,5 +3709,121 @@ function die_holding_scryer_stone(event)
 				SpecialFX:ColoredSpotlight(position, Vector(255, 255, 0))	
 			end)	
 		end
+	end
+end
+
+function diviner_moon_entering_think(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	if Winterblight.CastleMoonPlatform["lock"] then
+		return false
+	end
+	local target_distance = WallPhysics:GetDistance2d(target:GetAbsOrigin(), Vector(14715, -2711))
+	if target_distance > 240 then
+		target:RemoveModifierByName("modifier_diviner_moon_platform")
+		return false
+	end
+	if Winterblight.CastleMoonPlatform["color"] == Vector(255, 255, 255) then
+		Winterblight.CastleMoonPlatform["color"] = Vector(255, 255, 0)
+	end
+	Winterblight.CastleMoonPlatform["color"] = Winterblight.CastleMoonPlatform["color"] - Vector(1, 1, -0.2)
+	Winterblight.CastleMoonPlatform["entity"]:SetRenderColor(Winterblight.CastleMoonPlatform["color"].x, Winterblight.CastleMoonPlatform["color"].y, Winterblight.CastleMoonPlatform["color"].z)
+	if Winterblight.CastleMoonPlatform["color"].x < 40 then
+		Winterblight.CastleDungeonMaster.moon_lift_bros = {}
+		Winterblight.CastleMoonPlatform["lock"] = true
+		for i = 1, #MAIN_HERO_TABLE, 1 do
+			if MAIN_HERO_TABLE[i]:HasModifier("modifier_diviner_moon_platform") then
+				ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[i], "modifier_diviner_moon_platform_lock", {})
+				MAIN_HERO_TABLE[i]:RemoveModifierByName("modifier_diviner_moon_platform")
+				table.insert(Winterblight.CastleDungeonMaster.moon_lift_bros, MAIN_HERO_TABLE[i])
+				MAIN_HERO_TABLE[i]:SetAbsOrigin(MAIN_HERO_TABLE[i]:GetAbsOrigin() + Vector(0,0,15))
+			end
+		end
+		CustomAbilities:QuickParticleAtPoint("particles/econ/events/ti9/teleport_start_ti9.vpcf", Winterblight.CastleMoonPlatform["entity"]:GetAbsOrigin(), 10)
+		EmitSoundOnLocationWithCaster(Winterblight.CastleMoonPlatform["entity"]:GetAbsOrigin(), "Winterblight.MoonPlatform.Activate", Winterblight.CastleDungeonMaster)
+		Timers:CreateTimer(1, function()
+			EmitSoundOnLocationWithCaster(Winterblight.CastleMoonPlatform["entity"]:GetAbsOrigin(), "Winterblight.MoonPlatform.Spin", Winterblight.CastleDungeonMaster)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_diviner_moon_platform_lock_caster", {duration = 10})
+		end)
+	end
+end
+
+function diviner_moon_enter_end(event)
+	local target = event.target
+	local ability = event.ability
+	if Winterblight.CastleMoonPlatform["lock"] then
+		return false
+	end
+	local moon_modifier_count = 0
+	for i = 1, #MAIN_HERO_TABLE, 1 do
+		if MAIN_HERO_TABLE[i]:HasModifier("modifier_diviner_moon_platform") then
+			moon_modifier_count = moon_modifier_count + 1
+		end
+	end
+	if moon_modifier_count == 0 then
+		Winterblight.CastleMoonPlatform["color"] = Vector(255,255,255)
+		Winterblight.CastleMoonPlatform["entity"]:SetRenderColor(Winterblight.CastleMoonPlatform["color"].x, Winterblight.CastleMoonPlatform["color"].y, Winterblight.CastleMoonPlatform["color"].z)		
+	end
+end
+
+function diviner_moon_platform_thinker(event)
+	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+
+	Winterblight.CastleMoonPlatform["lift_speed"] = math.min(Winterblight.CastleMoonPlatform["lift_speed"] + 0.1, 30)
+	for i = 1, #caster.moon_lift_bros, 1 do
+		local hero = caster.moon_lift_bros[i]
+		hero:SetAbsOrigin(hero:GetAbsOrigin() + Vector(0,0,Winterblight.CastleMoonPlatform["lift_speed"]))
+	end
+	Winterblight.CastleMoonPlatform["entity"]:SetAbsOrigin(Winterblight.CastleMoonPlatform["entity"]:GetAbsOrigin() + Vector(0,0,Winterblight.CastleMoonPlatform["lift_speed"]))
+	Winterblight.CastleMoonPlatform["lift_interval"] = Winterblight.CastleMoonPlatform["lift_interval"] + 1
+	print(Winterblight.CastleMoonPlatform["lift_interval"])
+	if Winterblight.CastleMoonPlatform["lift_interval"] == 240 then
+		print("200 LETS GO")
+		caster:RemoveModifierByName("modifier_diviner_moon_platform_lock_caster")
+		for i = 1, #caster.moon_lift_bros, 1 do
+			local hero = caster.moon_lift_bros[i]
+			hero:SetAbsOrigin(Vector(13568, -2816, hero:GetAbsOrigin().z - 1240) + RandomVector(100*i))
+			local groundPosition = GetGroundPosition(hero:GetAbsOrigin(), hero)
+			SpecialFX:ColoredSpotlight(groundPosition, Vector(0, 120, 200))
+			ability:ApplyDataDrivenModifier(caster, hero, "modifier_diviner_star_entering", {duration = 10})
+			hero:RemoveModifierByName("modifier_diviner_moon_platform_lock")
+		end
+		local miniboss = Winterblight:SpawnCastleRoomUnit(0, "winterblight_lumos_king", Vector(14713, -2720), Vector(0,-1), false, true)
+		miniboss:SetAbsOrigin(miniboss:GetAbsOrigin() + Vector(0,0,1400))
+		local groundPosition = GetGroundPosition(miniboss:GetAbsOrigin(), miniboss)
+		SpecialFX:ColoredSpotlight(groundPosition, Vector(0, 120, 200))
+		miniboss.cantAggro = true
+		ability:ApplyDataDrivenModifier(caster, miniboss, "modifier_diviner_star_entering", {duration = 7})
+	end
+end
+
+function lumos_king_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local damage = event.damage
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PURE, ability)
+			EmitSoundOn("Winterblight.LumosKing.Moonbeam", enemy)
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lumos_king_beam", {duration = 0.15})
+			Filters:ApplyStun(caster, 0.03, enemy)
+		end
+	end
+end
+
+function claws_of_terror_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local fear_chance = event.fear_chance
+	local fear_duration = event.fear_duration
+	local luck = RandomInt(1, 100)
+	if luck <= fear_chance then
+		EmitSoundOn("Winterblight.TerrorClaw.Fear", target)
+		target:AddNewModifier(caster, ability, "modifier_fear", {duration = fear_duration})
 	end
 end

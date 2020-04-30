@@ -16526,6 +16526,55 @@
 					}
 				}
 			}
+			"modifier_diviner_moon_platform"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_entering_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_enter_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_moon_platform_lock"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"	
+				}
+			}
+			"modifier_diviner_moon_platform_lock_caster"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_platform_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -20210,6 +20259,121 @@
 						"Function"		"starwatcher_think"
 						"damage"		"%damage"
 						"radius"		"%radius"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_lumos_king_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"60 185 500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"beam_interval"		"0.5 0.4 0.2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"1000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_lumos_king_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "%beam_interval"
+				"EffectName"	"particles/roshpit/winterblight/norgok_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"lumos_king_think"
+						"damage"		"%damage"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_lumos_king_beam"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+
+						"ControlPointEntities"
+			            {
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			            }
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_claws_of_terror"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fear_chance"		"30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"fear_duration"		"1.0 1.25 1.50"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_claws_of_terror_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"claws_of_terror_attack_land"
+						"fear_chance"	"%fear_chance"
+						"fear_duration"	"%fear_duration"
 					}
 				}
 			}

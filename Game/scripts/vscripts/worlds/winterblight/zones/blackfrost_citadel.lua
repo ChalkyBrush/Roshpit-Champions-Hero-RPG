@@ -330,8 +330,18 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][19] = {}
 		Winterblight.CASTLE_DATA["tarot"][19]["name"] = "moon"
 		Winterblight.CASTLE_DATA["tarot"][19]["index"] = "18"
-		Winterblight.CASTLE_DATA["tarot"][19]["prop_angle"] = Vector(0, -1)
+		Winterblight.CASTLE_DATA["tarot"][19]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][19]["prop_scale"] = 0.9
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][1] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][2] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][3] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][4] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][5] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][6] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][7] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][8] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][19]["rooms"][9] = {index = 11, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][20] = {}
 		Winterblight.CASTLE_DATA["tarot"][20]["name"] = "sun"
@@ -683,6 +693,8 @@ function Winterblight:TarotCardSelect(msg)
 		Winterblight.TemperanceDungeonStartTime = GameRules:GetGameTime()
 	elseif Winterblight.CastleTarot["name"] == "devil" then
 		Winterblight:DevilBloodProps()
+	elseif Winterblight.CastleTarot["name"] == "moon" then
+		Winterblight:CastleMoonProps()
 	end
 end
 
@@ -813,6 +825,8 @@ function Winterblight:CastleLobbySpawn1()
 		local patrol_unit = "winterblight_skull_ripper"
 		if Winterblight.CastleTarot["name"] == "hermit" then
 			patrol_unit = "winterblight_shadow_wanderer"
+		elseif Winterblight.CastleTarot["name"] == "moon" then
+			patrol_unit = "winterblight_castle_werewolf"
 		end
 		Enemies:CreateUnitsWithPatrol(patrol_unit, 2, positionTable, 25, 12, 300, 300, 1, 1)
 	end)
@@ -995,6 +1009,16 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 		Winterblight:HangedManSpawns(index)
 	elseif Winterblight.CastleTarot["name"] == "devil" then
 		Winterblight:SpawnDevilRings(index)
+	elseif Winterblight.CastleTarot["name"] == "moon" then
+		local key_positions = Winterblight.CASTLE_DATA["rooms"][index]["key_positions"]
+		if not Winterblight.CastleDungeonMaster.moon_ghost_table then
+			Winterblight.CastleDungeonMaster.moon_ghost_table = {}
+		end
+		local ghost_position = key_positions[RandomInt(1, #key_positions)] + RandomVector(RandomInt(200, 500))
+		local moon_ghost_table_item = {}
+		moon_ghost_table_item["position"] = ghost_position
+		moon_ghost_table_item["active"] = 1
+		table.insert(Winterblight.CastleDungeonMaster.moon_ghost_table, moon_ghost_table_item)
 	end
 end
 
@@ -1087,6 +1111,12 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 	elseif Winterblight.CastleTarot["name"] == "star" then
 		if unit_name == "winterblight_castle_watchman" then
 			unit_name = "winterblight_star_watcher"
+		end
+	elseif Winterblight.CastleTarot["name"] == "moon" then
+		if unit_name == "winterblight_castle_watchman" or unit_name == "winterblight_skull_ripper" then
+			unit_name = "winterblight_castle_werewolf"
+		elseif unit_name == "winterblight_elite_castle_warrior" then
+			unit_name = "winterblight_elite_castle_werewolf"
 		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
@@ -2675,7 +2705,7 @@ function Winterblight:DropScryersStone(position)
     item.cantStash = true
     local dropPosition = position+RandomVector(RandomInt(30, 280))
     --item:LaunchLoot(false, 240, 0.75, dropPosition)
-	RPCItems:LaunchLoot(item, 240, 0.5, dropPosition, dropPosition)
+	RPCItems:LaunchLoot(item, 240, 0.5, dropPosition, position)
 end
 
 function Winterblight:PostCastleBossEvents()
@@ -2763,6 +2793,11 @@ function Winterblight:PrecacheTarotAssets()
 	elseif Winterblight.CastleTarot["name"] == "star" then
 		local function precache_function()
 			PrecacheUnitByNameAsync("winterblight_star_watcher", precache_function)	
+		end
+	elseif Winterblight.CastleTarot["name"] == "moon" then
+		local function precache_function()
+			PrecacheUnitByNameAsync("winterblight_lumos_king", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_castle_werewolf", precache_function)
 		end
 	end
 end
@@ -3396,6 +3431,25 @@ function Winterblight:DevilBloodProps()
 		Events:smoothTranslate(entity, Vector(0,0,5), 130, Vector(0,0), nil)
 		-- entity:SetAbsOrigin(entity:GetAbsOrigin() + Vector(0,0,700))
 	end)
+end
+
+function Winterblight:CastleMoonProps()
+	local entity = Entities:FindByNameNearest("CastleMoonPlatform", Vector(14713, -2720, 1800), 1000)
+	entity:SetAngles(0, 180, 0)
+	Winterblight.CastleMoonPlatform = {}
+	Winterblight.CastleMoonPlatform["entity"] = entity
+	Winterblight.CastleMoonPlatform["color"] = Vector(255, 255, 255)
+	Winterblight.CastleMoonPlatform["lock"] = false
+	Winterblight.CastleMoonPlatform["lift_speed"] = 0
+	Winterblight.CastleMoonPlatform["lift_interval"] = 0
+
+	local remove_platform = Entities:FindByNameNearest("MoonPlatformCollision", Vector(14713, -2720, 1800), 1000)
+	UTIL_Remove(remove_platform)
+end
+
+function Winterblight:ResetCastleMoonEvent()
+	-- MAIN_HERO_TABLE[1]:RemoveModifierByName(string pszScriptName)
+	-- Winterblight.CastleMoonPlatform["entity"]:SetAbsOrigin(Vector(14713, -2720, 1800))
 end
 
 function Winterblight:SpawnDevilRings(room_index)

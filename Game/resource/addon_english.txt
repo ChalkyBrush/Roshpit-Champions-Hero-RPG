@@ -21961,5 +21961,8 @@
 
 		"tarot_star"												"The Star"
 		"tarot_star_description"									"Hope and Renewal..."
+
+		"tarot_moon"												"The Moon"
+		"tarot_moon_description"									"Fear and Uncertainty..."
 	}	
 }
