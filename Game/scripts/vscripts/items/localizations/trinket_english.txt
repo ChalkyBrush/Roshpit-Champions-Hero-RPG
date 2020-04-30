@@ -453,7 +453,7 @@
         "item_rpc_ring_of_nobility_sapphire1"                               "When this ring upgrades, upgrade this Sapphire to Tier @sapphire_property1, which will increase all Tier 2 runes by @sapphire_property2."
         "item_rpc_ring_of_nobility_amethyst1"                               "When this ring upgrades, upgrade this Amethyst to Tier @amethyst_property1, which will increase all Tier 4 runes by @amethyst_property2."
         "item_property_nobility"                            "Path of Nobility"
-        "property_nobility_description"                        "Increases all attributes by <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith."
+        "property_nobility_description"                        "Increases all attributes by <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x your level. When you slay an enemy, this property counts up, and when it reaches 10,000 this ring upgrades, doubling its rune values. After upgrading, it cannot be reforged by the Blacksmith and forged gems cannot be salvaged."
 
         
         
