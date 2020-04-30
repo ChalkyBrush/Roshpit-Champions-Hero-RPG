@@ -326,7 +326,7 @@
         "item_rpc_astral_glyph_5_2_description"                "Противники в радиусе <% ASTRAL_RANGER_GLYPH_5_2_RADIUS %> от героя теряют <% ASTRAL_RANGER_GLYPH_5_2_AS_LOST %> скорости атаки."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] Glyph of Crystal Arrowheads"
-        "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% шанс обездвижить противника."
+        "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% шанс обездвижить противника на <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> сек."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
         "item_rpc_astral_glyph_7_2_description"                "Каждая руна 4го ряда дополнительно увеличивает урон <font color=\"#C25DFC\">Космоса</font> на <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>%."

@@ -325,7 +325,7 @@
         "item_rpc_astral_glyph_5_2_description"                "Enemies in <% ASTRAL_RANGER_GLYPH_5_2_RADIUS %> range lose <% ASTRAL_RANGER_GLYPH_5_2_AS_LOST %> attack speed."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] Glyph of Crystal Arrowheads"
-        "item_rpc_astral_glyph_6_2_description"                "Normal attacks have <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% chance to freeze an enemy."
+        "item_rpc_astral_glyph_6_2_description"                "Normal attacks have <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_CHANCE %>% chance to freeze an enemy for <% ASTRAL_RANGER_GLYPH_6_2_FREEZE_DURATION %> second."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
         "item_rpc_astral_glyph_7_2_description"                "Every point in Tier 4 runes grants an additional <% ASTRAL_RANGER_GLYPH_7_2_COSMIC_DMG_PER_T4 %>% <font color=\"#C25DFC\">Cosmic</font> element damage."
