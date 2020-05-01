@@ -17,3 +17,20 @@ function change_summon_model(caster, summon)
 		end
 	end
 end
+
+function dominion_hero_dead_thinker(event)
+	local caster = event.target
+	local ability = event.ability
+	if not ability.dominionTable then
+		ability.dominionTable = {}
+	end
+	if not caster:IsAlive() then
+		for i = 1, #ability.dominionTable, 1 do
+			ability:ApplyDataDrivenModifier(caster, ability.dominionTable[i], "modifier_ekkan_dominion_hero_dead", {})
+		end
+	else
+		for i = 1, #ability.dominionTable, 1 do
+			ability.dominionTable[i]:RemoveModifierByName("modifier_ekkan_dominion_hero_dead")
+		end
+	end
+end
