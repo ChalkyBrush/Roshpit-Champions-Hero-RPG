@@ -152,7 +152,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"4"
 			}
-			"01"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"5"

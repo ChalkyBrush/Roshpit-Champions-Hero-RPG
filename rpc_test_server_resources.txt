@@ -1003,7 +1003,7 @@ function GameMode:OnPlayerChat(keys)
 		local player = PlayerResource:GetPlayer(keys.playerid)
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = amount})
 		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = amount})
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {mithril = amount})
+		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = amount})
 		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = amount, mithril = amount, gemstones = amount, player = playerID})
 	end
 
