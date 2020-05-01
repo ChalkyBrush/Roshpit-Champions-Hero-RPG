@@ -5543,7 +5543,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"4"
 			}
-			"01"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"5"
@@ -10269,7 +10269,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"10"
 			}
-			"01"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"10"
@@ -22191,7 +22191,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"9"
 			}
-			"01"
+			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"property_two"			"2"
