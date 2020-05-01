@@ -14353,6 +14353,7 @@
 		"MaxLevel"				 "7"
 		"AOERadius"				"600"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -14479,7 +14480,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"25.0 25.0 25.00"
+				"damage_percent"			"15.0 15.0 15.0"
 			}
 			"03"
 			{

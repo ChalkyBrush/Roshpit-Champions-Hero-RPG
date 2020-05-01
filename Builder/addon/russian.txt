@@ -2049,62 +2049,18 @@
 
 		//EVENT
 
-		"descent_of_winterblight_aertega"							"Aertega"
-		"descent_of_winterblight_torturok"							"Torturok"
-		"descent_of_winterblight_ozubu"								"Ozubu"
-
-		"ozubu_spiderling"											"Кристальный паучок"
-
-		"DOTA_Tooltip_ability_winterblight_aertega_passive"			"Cyrystal Viper"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_Description"	"Атаки образуют ледяной взрыв, наносящий урон по области и замедляющий пораженных врагов в области действия."	
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_damage"	"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_ms_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-
-		"DOTA_Tooltip_ability_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_ability_aertega_frost_nova_Description"		"После трехсекундной подготовки, образует вокруг себя мощную ледяную будрю, замораживая врагов в радиусе 2000."
-		"DOTA_Tooltip_ability_aertega_frost_nova_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_aertega_frost_nova_freeze_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
-
-		"DOTA_Tooltip_modifier_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_modifier_aertega_frost_nova_Description"		"Заморожен"
-
-		"DOTA_Tooltip_ability_winterblight_torturok_passive"		"Winterhide"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_Description"	"В ответ на любой входящий урон образуется ледяной осколок, направленный обратно в атаковавшего врага, который наносит урон и замедляет цель."
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_ms_loss"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_as_loss"		"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
-
-		"DOTA_Tooltip_ability_torturok_comet"						"Primal Leap"
-		"DOTA_Tooltip_ability_torturok_comet_Description"			"Прыгает в указанную точку"
-
-		"DOTA_Tooltip_ability_torturok_aura"						"Frostbite Aura"
-		"DOTA_Tooltip_ability_torturok_aura_Description"			"Враги в радиусе 800 получают урон, когда двигаются."
-		"DOTA_Tooltip_ability_torturok_aura_damage_per_distance"	"УРОН ЗА РАССТОЯНИЕ:"
-
-		"DOTA_Tooltip_modifier_torturok_aura_effect"				"Frostbite Aura"
-		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"Получает урон, пока двигается"
-
-		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
-		"DOTA_Tooltip_ability_ozubu_passive_Description"			"Постоянные ледяные взрывы вокруг владельца умения."
-		"DOTA_Tooltip_ability_ozubu_passive_damage"					"УРОН:"
-		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_ozubu_passive_as_loss"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
-
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom"			"Ice Venom Dart"
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_Description"	"Наносит урон выбранной цели и переносит с себя один отрицательный эффект на врага."
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_damage"	"УРОН:"
-
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive"				"Ice Venom Bite"
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive_Description"	"Переносит 1 отрицательный эффект на врага при попадании. Дополнительно ненадолго отравляет цель, нанося урон каждые 0.1 секунды."
-		
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison"				"Ice Venom Bite"
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison_Description"	"Получает урон каждые 0.1 секунды"
-
 		//WINTERBLIGHT
 
 		//Winterblight ITEMS
 
 		//WINTERBLIGHT ABILITIES AND BUFFS
+		
+		//TREASURE GOBLINS
+		"treasure_goblin_rpc_redfall_ridge"					"Treasure Goblin"
+		"treasure_goblin_rpc_tanari_jungle"					"Treasure Goblin"
+		"treasure_goblin_rpc_winterblight_mountain"			"Treasure Goblin"
+		"treasure_goblin_rpc_roshpit_arena"					"Treasure Goblin"
+		"treasure_goblin_rpc_sea_fortress"					"Treasure Goblin"
 		
         ##ARKIMUS_RUSSIAN##
         ##ASTRAL_RANGER_RUSSIAN##

@@ -190,7 +190,7 @@
         "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары () Ocean Rage добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары [W2] добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"Длительность эффекта (W) Whitewhater Mist на врагах"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" сек."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"Бонус к урону за заряд"

@@ -447,12 +447,12 @@
         "item_rpc_raven_idol_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
-        "item_rpc_ring_of_nobility_ruby1"                               "Когда это кольцо улучшается, этот Рубин улучшится до @ruby_property1го уровня"
-        "item_rpc_ring_of_nobility_emerald1"                                "Когда это кольцо улучшается, этот Изумруд улучшится до Tier @emerald_property1го уровня"
-        "item_rpc_ring_of_nobility_sapphire1"                               "Когда это кольцо улучшается, этот Сапфир улучшится до @sapphire_property1го уровня"
-        "item_rpc_ring_of_nobility_amethyst1"                               "Когда это кольцо улучшается, этот Аметист улучшится до @amethyst_property1го уровня"
+        "item_rpc_ring_of_nobility_ruby1"                               "Когда это кольцо улучшается, этот Рубин улучшится до @ruby_property1го уровня, что повысит все руны 1 строки на @ruby_property2."
+        "item_rpc_ring_of_nobility_emerald1"                                "Когда это кольцо улучшается, этот Изумруд улучшится до @emerald_property1го уровня, что повысит все руны 3 строки на @emerald_property2"
+        "item_rpc_ring_of_nobility_sapphire1"                               "Когда это кольцо улучшается, этот Сапфир улучшится до @sapphire_property1го уровня, что повысит все руны 2 строки на @sapphire_property2."
+        "item_rpc_ring_of_nobility_amethyst1"                               "Когда это кольцо улучшается, этот Аметист улучшится до @amethyst_property1го уровня, что повысит все руны 4 строки на @amethyst_property2."
         "item_property_nobility"                            "Path of Nobility"
-        "property_nobility_description"                        "Повышает все Атрибуты героя на <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x от Уровня героя. При убийстве противника кольцо увеличивает счетчик убийств, и когда он достигает 10,000, кольцо улучшается и удваивает Руны. После улучшения кольцо не может быть перковано у Кузнеца."
+        "property_nobility_description"                        "Повышает все Атрибуты героя на <% ITEM_RPC_RING_OF_NOBILITY_ALL_ATTRIBUTES %>x от Уровня героя. При убийстве противника кольцо увеличивает счетчик убийств, и когда он достигает 10,000, кольцо улучшается и удваивает Руны. После улучшения кольцо не может быть перковано у Кузнеца, а инкрустированные самоцветы не могут быть вынуты."
 
         
         

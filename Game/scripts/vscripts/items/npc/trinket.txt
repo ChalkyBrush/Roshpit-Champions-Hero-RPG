@@ -1641,6 +1641,26 @@
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_AMETHYST %>"
 			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_RUBY %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_EMERALD %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_SAPPHIRE %>"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_AMETHYST %>"
+			}
 		}
 		"precache"
 		{
