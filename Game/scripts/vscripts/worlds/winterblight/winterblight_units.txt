@@ -1230,7 +1230,7 @@
     "winterblight_ice_crystal"
     {
         "BaseClass" "npc_dota_creature"
-        "Model" "models/props_structures/crystal003.vmdl"
+        "Model" "models/winterblight/ice_crystal.vmdl"
         "ModelScale"    "0.7"
         "Level" "1"
         "HealthBarOffset"   "140"
