@@ -1225,7 +1225,7 @@
 		"winterblight_tarot_title"									"Choose your Fate"
 		"winterblight_tarot_leave_text"								"Leave"
 
-		"DOTA_Tooltip_ability_item_rpc_winterblight_scryers_stone"						"Scryer's Stone"
+		"DOTA_Tooltip_ability_item_rpc_winterblight_scryers_stone"	"Scryer's Stone"
 		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
 
 		//QUESTS
@@ -1299,3 +1299,6 @@
 
 		"tarot_sun"												"The Sun"
 		"tarot_sun_description"									"Energy and Warmth..."
+
+		"tarot_judgement"												"The Judgement"
+		"tarot_judgement_description"									"Evaluation and Awakening..."

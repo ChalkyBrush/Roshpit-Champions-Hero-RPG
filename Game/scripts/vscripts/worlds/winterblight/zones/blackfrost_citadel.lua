@@ -690,8 +690,9 @@ function Winterblight:TarotCardSelect(msg)
 	Timers:CreateTimer(1, function()
 		local model_name = "models/winterblight/tarot/"..Winterblight.CastleTarot["index"].."-"..Winterblight.CastleTarot["name"]..".vmdl"
 		local function precache_function()
-			PrecacheUnitByNameAsync(model_name, precache_function)	
+			
 		end
+		PrecacheUnitByNameAsync(model_name, precache_function)
 	end)
 	Timers:CreateTimer(2, function()
 		Winterblight:PrecacheTarotAssets()
@@ -2750,92 +2751,107 @@ end
 function Winterblight:PrecacheTarotAssets()
 	if Winterblight.CastleTarot["name"] == "magician" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_red_magician", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_blue_magician", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_green_magician", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_haunt_magician", precache_function)	
+
 		end
+		PrecacheUnitByNameAsync("winterblight_red_magician", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_blue_magician", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_green_magician", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_haunt_magician", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "high_priestess" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_shadow_priestess", precache_function)	
+			
 		end
+		PrecacheUnitByNameAsync("winterblight_shadow_priestess", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "empress" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winter_castle_faceless_empress", precache_function)	
+				
 		end	
+		PrecacheUnitByNameAsync("winter_castle_faceless_empress", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "emperor" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_emperors_servant", precache_function)
-			PrecacheUnitByNameAsync("winterblight_slime_emperor", precache_function)	
+
 		end
+		PrecacheUnitByNameAsync("winterblight_emperors_servant", precache_function)
+		PrecacheUnitByNameAsync("winterblight_slime_emperor", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "hierophant" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)		
+				
 		end
+		PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "lovers" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_lovers_heart_path", precache_function)
-			PrecacheUnitByNameAsync("winterblight_dual_drake", precache_function)
-			PrecacheUnitByNameAsync("winterblight_galren", precache_function)
-			PrecacheUnitByNameAsync("winterblight_elyna", precache_function)
-			PrecacheUnitByNameAsync("winterblight_serpent_nachash", precache_function)	
+	
 		end
+		PrecacheUnitByNameAsync("winterblight_lovers_heart_path", precache_function)
+		PrecacheUnitByNameAsync("winterblight_dual_drake", precache_function)
+		PrecacheUnitByNameAsync("winterblight_galren", precache_function)
+		PrecacheUnitByNameAsync("winterblight_elyna", precache_function)
+		PrecacheUnitByNameAsync("winterblight_serpent_nachash", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "strength" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_castle_strength_spine_drake", precache_function)
-			PrecacheUnitByNameAsync("winterblight_lost_gladiator", precache_function)	
+
 		end
+		PrecacheUnitByNameAsync("winterblight_castle_strength_spine_drake", precache_function)
+		PrecacheUnitByNameAsync("winterblight_lost_gladiator", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "hermit" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_hermit_eye", precache_function)
-			PrecacheUnitByNameAsync("winterblight_castle_hermit_hoodling", precache_function)
-			PrecacheUnitByNameAsync("winterblight_shadow_wanderer", precache_function)
-			PrecacheUnitByNameAsync("winterblight_lonely_hermit", precache_function)	
+
 		end
+		PrecacheUnitByNameAsync("winterblight_hermit_eye", precache_function)
+		PrecacheUnitByNameAsync("winterblight_castle_hermit_hoodling", precache_function)
+		PrecacheUnitByNameAsync("winterblight_shadow_wanderer", precache_function)
+		PrecacheUnitByNameAsync("winterblight_lonely_hermit", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "justice" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_castle_justice_angel", precache_function)
-			PrecacheUnitByNameAsync("winterblight_castle_justice_demon", precache_function)
-			PrecacheUnitByNameAsync("winterblight_castle_justice_balance", precache_function)	
+
 		end
+		PrecacheUnitByNameAsync("winterblight_castle_justice_angel", precache_function)
+		PrecacheUnitByNameAsync("winterblight_castle_justice_demon", precache_function)
+		PrecacheUnitByNameAsync("winterblight_castle_justice_balance", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "hanged_man" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_hanging_slayer", precache_function)	
+				
 		end
+		PrecacheUnitByNameAsync("winterblight_hanging_slayer", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "death" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)	
+			
 		end	
+		PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "temperance" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_water_bearer", precache_function)	
+				
 		end
+		PrecacheUnitByNameAsync("winterblight_water_bearer", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "devil" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_winterblight_devil_watcher", precache_function)
-			PrecacheUnitByNameAsync("winterblight_winterblight_elite_devil_warrior", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_devil_baphomet", precache_function)
+
 		end
+		PrecacheUnitByNameAsync("winterblight_winterblight_devil_watcher", precache_function)
+		PrecacheUnitByNameAsync("winterblight_winterblight_elite_devil_warrior", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_devil_baphomet", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "tower" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_bloody_faceripper", precache_function)	
 		end
+		PrecacheUnitByNameAsync("winterblight_bloody_faceripper", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "star" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_star_watcher", precache_function)	
+			
 		end
+		PrecacheUnitByNameAsync("winterblight_star_watcher", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "moon" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_lumos_king", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_castle_werewolf", precache_function)
 		end
+		PrecacheUnitByNameAsync("winterblight_lumos_king", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_castle_werewolf", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "sun" then
 		local function precache_function()
-			PrecacheUnitByNameAsync("winterblight_temple_sun_crow", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_heat_fletcher", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_elite_heat_fletcher", precache_function)	
-			PrecacheUnitByNameAsync("winterblight_aspect_of_solos", precache_function)
+
 		end
+		PrecacheUnitByNameAsync("winterblight_temple_sun_crow", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_heat_fletcher", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_elite_heat_fletcher", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_aspect_of_solos", precache_function)
 	end
 end
 
