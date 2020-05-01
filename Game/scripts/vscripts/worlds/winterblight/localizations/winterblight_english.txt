@@ -1283,7 +1283,7 @@
 		"winterblight_tarot_title"									"Choose your Fate"
 		"winterblight_tarot_leave_text"								"Leave"
 
-		"item_rpc_winterblight_scryers_stone"						"Scryer's Stone"
+		"DOTA_Tooltip_ability_item_rpc_winterblight_scryers_stone"	"Scryer's Stone"
 		"winterblight_scryers_stone_desc"							"Reveals the path ahead"
 
 		//QUESTS
@@ -1302,7 +1302,7 @@
 		"tarot_fool_description"									"New Beginnings..."
 
 		"tarot_magician"												"The Magician"
-		"tarot_magician_description"									"Channeling Between Realms..."
+		"tarot_magician_description"									"Arcane Energies..."
 
 		"tarot_high_priestess"												"The High Priestess"
 		"tarot_high_priestess_description"									"Intuition and Sacred Knowledge..."
@@ -1332,4 +1332,31 @@
 		"tarot_wheel_of_fortune_description"									"The Cycle of Luck..."
 
 		"tarot_justice"												"Justice"
-		"tarot_justice_description"									"Equity and Triumph..."
+		"tarot_justice_description"									"Equity and Karma..."
+
+		"tarot_hanged_man"												"The Hanged Man"
+		"tarot_hanged_man_description"									"Alternative Perspective..."
+
+		"tarot_death"												"Death"
+		"tarot_death_description"									"..."
+
+		"tarot_temperance"												"Temperance"
+		"tarot_temperance_description"									"Patience and Serenity..."
+
+		"tarot_devil"												"The Devil"
+		"tarot_devil_description"									"Imprisonment..."
+
+		"tarot_tower"												"The Tower"
+		"tarot_tower_description"									"Upheaval..."
+
+		"tarot_star"												"The Star"
+		"tarot_star_description"									"Hope and Renewal..."
+
+		"tarot_moon"												"The Moon"
+		"tarot_moon_description"									"Fear and Uncertainty..."
+
+		"tarot_sun"												"The Sun"
+		"tarot_sun_description"									"Burning Energy..."
+
+		"tarot_judgement"												"The Judgement"
+		"tarot_judgement_description"									"Evaluation and Awakening..."

@@ -8054,7 +8054,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "超级充能棱镜之锤"
 		"item_property_omniro_immortal_weapon2"                             "极速充能"
-		"property_omniro_immortal_weapon2_description"                      "元素充能的再充能时间加快 <font color='#ccff66'>66</font>% 。"
+		"property_omniro_immortal_weapon2_description"                      "元素充能的再充能时间加快 <font color='#ccff66'>20</font>% 。"
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "德雷克的权杖"
 		"item_property_omniro_immortal_weapon3"                             "龙之元素"
@@ -15175,7 +15175,7 @@
 		 
 		"DOTA_Tooltip_ability_item_rpc_fortunes_talisman_of_truth"						"幸运护身符"
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "每当一件物品触发它的效果时, 提高 @ruby_property1 力量和@ruby_property2 护甲，持续 <font color='#ccff66'>2</font>秒"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "每当一件物品触发它的效果时, 提高 @emerald_property1 敏捷值和 @ruby_property2 物理穿透，持续 <font color='#ccff66'>2</font> 秒"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "每当一件物品触发它的效果时, 提高 @emerald_property1 敏捷值和 @emerald_property2 物理穿透，持续 <font color='#ccff66'>2</font> 秒"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "每当一件物品触发它的效果时, 提高 @sapphire_property1 智力值和 @sapphire_property2 魔法穿透，持续 <font color='#ccff66'>2</font> 秒"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "每当一件物品触发它的效果时, 提高 @amethyst_property1 精神值和 @amethyst_property2 魔甲，持续 <font color='#ccff66'>2</font> 秒"
 		"item_property_fortune_talisman"						"幸运项链"
@@ -19609,8 +19609,8 @@
 	"tutorial_quiz_question_6"											"在哪里可以脱下装备？"
 	"tutorial_quiz_question_6_answer"									"铁匠"
 
-	"tutorial_quiz_wrong_3_1_1"											"错了错了，答案是城镇里的某位NPC哦。"
-	"tutorial_quiz_wrong_3_1_2"											"你知道吗，你真的应该重新学习一遍并好好记住我说的每一句！"
+	"tutorial_quiz_wrong_3_1_3"											"错了错了，答案是城镇里的某位NPC哦。"
+	"tutorial_quiz_wrong_3_1_4"											"你知道吗，你真的应该重新学习一遍并好好记住我说的每一句！"
 
 	"tutorial_master_dialogue_3_1f"										"对了！只有铁匠可以帮你卸下装备留以备用，装备同样位置的装备时会对原有装备进行覆盖。"
 

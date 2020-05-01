@@ -3009,12 +3009,12 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"lightning_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
+				"lightning_orb_a"			"6 7 8 9 10 11 12"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"poison_orb_a"			"0.8 1 1.2 1.4 1.6 1.8 2"
+				"poison_orb_a"			"2 2.4 2.8 3.2 3.6 4 4.4"
 			}
 			"07"
 			{
@@ -3104,7 +3104,7 @@
 			"24"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"demon_orb_a"			"1.9 2 2.1 2.2 2.3 2.4 2.5"
+				"demon_orb_a"			"2.5 2.5 2.5 2.5 3 3.5 4"
 			}
 			"23"
 			{
@@ -3688,7 +3688,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3720,7 +3720,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3752,7 +3752,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3784,7 +3784,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3817,7 +3817,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3849,7 +3849,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3881,7 +3881,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3913,7 +3913,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.04"
+				"property_two"			"0.06"
 			}
 			"03"
 			{
@@ -3946,7 +3946,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -3978,7 +3978,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4010,7 +4010,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4052,7 +4052,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.08"
+				"property_two"			"0.12"
 			}
 			"03"
 			{
@@ -4085,7 +4085,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4117,7 +4117,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4149,7 +4149,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -4181,7 +4181,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_two"			"0.16"
+				"property_two"			"0.24"
 			}
 			"03"
 			{
@@ -34631,7 +34631,6 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"seinaru/seinaru_rune_e_3_arcana2"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"
@@ -50910,11 +50909,6 @@
 		//-------------------------------------------------------
 		"AbilityCooldown"				"7"
 		"AbilityDuration"				"3.11 3.11 3.11 3.11"
-
-		// Damage.
-		//-------------------------------------------------------
-		"AbilityDamage"					"50 140 230 320"
-
 		// Cost
 		//-------------------------------------------------------
 		"AbilityManaCost"				"0"
@@ -72940,7 +72934,7 @@
 
 		// Time
 		//-------------------------------------------------------
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"8.0"
 
 		// Cost
 		//-------------------------------------------------------
@@ -73122,7 +73116,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300 5000 100000"
+				"damage"			"300 5000 15000"
 			}
 			"02"
 			{
@@ -75296,12 +75290,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"max_stacks"			"10 100 1000"
+				"max_stacks"			"4 10 30"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"1 2 3"
+				"damage"			"1"
 			}
 		}
 		"Modifiers"
@@ -85861,25 +85855,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"winterblight/azalea_boss"
 		"MaxLevel"	"3"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_attack_power"			"10 50 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ms_loss"			"-60 -140 -240"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"nova_damage"			"2000 5000 10000"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_tiamat_boss_passive"
@@ -85901,20 +85876,6 @@
 						"ScriptFile"	"worlds/winterblight/monsters/winterblight_cavern_monsters"
 						"Function"		"tiamat_boss_think"
 					}
-				}
-			}
-			"modifier_azalea_boss_slow"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"IsStunDebuff"			"1"
-            	"StatusEffectName" 		"particles/status_fx/status_effect_iceblast.vpcf"
-            	"StatusEffectPriority"  "10"
-            	"TextureName"		"crystal_maiden_crystal_nova"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_loss"
 				}
 			}
 			"modifier_disable_player"
@@ -87926,6 +87887,51 @@
 				"var_type"			"FIELD_FLOAT"
 				"hermit_vision_gain_pct"		"40 60 80"
 			}		
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_as_per_stack"		"3 6 9"
+			}	
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_ms_per_stack"		"1 2 3"
+			}	
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_pwr_per_stack"		"6 12 30"
+			}	
+			"11"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"justice_regen_per_stack"		"10 50 150"
+			}	
+			"12"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"temperance_atk_pwr_debuff"		"-20"
+			}
+			"13"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"temperance_ms_debuff_pct"		"-20"
+			}
+			"14"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"tower_atk_buff_pct"		"50 100 150"
+			}
+			"15"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"star_all_stats"			"50 150 400"
+			}
+			"16"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"immolation_damage"			"200 750 5000"
+			}
 		}
 		"Modifiers"
 		{
@@ -88098,6 +88104,28 @@
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_room_7_in_blue_goo"
+			{
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-40"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	   "-20"
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"in_blue_goo_think"
+						"target"		"TARGET"
+					}
+				}
+			}
 			"modifier_room_9_icicle_fall"
 			{
 				"IsHidden"	"1"
@@ -88248,6 +88276,257 @@
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION" "700"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"700"
+				}
+			}
+			"modifier_diviner_justice_white"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"1"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/white.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_justice_unit_die"
+						"justice_type"			"angel"
+					}
+				}				
+			}
+			"modifier_diviner_justice_black"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"1"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/black.vpcf"	   
+				"StatusEffectPriority"  "240"		
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_justice_unit_die"
+						"justice_type"			"demon"
+					}
+				}		
+			}
+			"modifier_diviner_angels_slain"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+			}
+			"modifier_diviner_demons_slain"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+			}
+			"modifier_diviner_justice_imbalance"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%justice_as_per_stack"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%justice_ms_per_stack" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%justice_pwr_per_stack"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%justice_regen_per_stack"
+				}
+			}
+			"modifier_temperance_enemy_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%temperance_ms_debuff_pct" 
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%temperance_atk_pwr_debuff"
+				}
+			}
+			"modifier_temperance_scryer_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_slow_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50" 
+				}
+			}
+			"modifier_diviner_scryer_doom"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/blue_doom.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"doomplate_doom_start"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"doomplate_doom_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_devil_door_waiter"
+			{
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"devil_door_waiter_end"
+					}
+				}
+			}
+			"modifier_tower_attack_buff"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%tower_atk_buff_pct"
+				}
+			}
+			"modifier_diviner_star_all_stats_buff"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/roshpit/winterblight/star_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_diviner_star_entering"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_star_entering_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_moon_platform"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_entering_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_enter_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_moon_platform_lock"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"	
+				}
+			}
+			"modifier_diviner_moon_platform_lock_caster"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_moon_platform_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_diviner_sun_immolation"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Aura"          	"modifier_diviner_sun_immolation_effect"
+				"Aura_Radius"   	"200"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" "0"
+			}
+			"modifier_diviner_sun_immolation_effect"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Duration"			"3"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%immolation_damage"
+					}
+				}
+			}
+			"modifier_diviner_sun_event_thinker"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"diviner_sun_event_egg_think"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -91231,6 +91510,1128 @@
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"winterblight_blue_gunman_main_ability"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"storm_spirit_ball_lightning"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"2600"
+
+		// Precache
+		//-------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"land_slow_duration"	"2.1 2.3 2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_radius"			"440"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"land_damage"			"500 2500 15000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_speed_loss"		"-100 -300 -700"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_loss"			"-100 -200 -400"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sticky_duration"			"0.5 0.6 0.7"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_aoe_magic_damage"			"80 200 1600"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"blue_goo_sniper_leap_onspellstart"
+				"Target"		"POINT"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_blue_goo_gunman_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "100"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_slime_attack_land"
+						"damage"		"%bonus_aoe_magic_damage"
+						"duration"		"%sticky_duration"
+					}
+				}
+				"ThinkInterval"  "0.3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_gunner_think"
+					}
+				}
+			}
+			"modifier_sticky_blue"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"StatusEffectName"	"particles/roshpit/rubilash/paint_status/blue.vpcf"	   
+				"StatusEffectPriority"  "240"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movespeed_loss" 
+				    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-60"
+				}
+			}
+			"modifier_goo_gunner_in_deep_goo"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_gunner_splash"
+					}
+				}
+			}
+			"modfier_blue_goo_sniper_jumping"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+				}
+				"EffectName"	"particles/units/heroes/hero_arc_warden/arc_warden_ambient.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_sniper_leap_jumping_think"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"blue_goo_sniper_leap_landing"
+						"damage"		"%land_damage"
+						"sticky_duration"	"%land_slow_duration"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_blue_goo_shrapnel"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"crystal_maiden_crystal_nova"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityCastRange"				"2100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+
+		// Precache
+		//-------------------------------------------------------
+	    "precache"
+	    {
+
+	    }
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tick_damage"	"80 240 3000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"blue_goo_shrapnel_cast"
+				"Target"		"POINT"
+				"damage"		"%tick_damage"
+			}
+		}
+		"Modifiers"
+		{
+
+		}
+	}
+
+	"winterblight_justice_demon_lifesteal"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"lifesteal"			"30"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_justice_demon_lifesteal_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+		}
+	}
+
+	"winterblight_hanged_slayer_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"skeleton_king_reincarnation"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_atk_power"			"20 40 60"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_max_health"			"1 2 4"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"hanging_slayer_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slayer_hanging"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_init"
+					}
+				}
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_think"
+					}
+				}
+			}
+			"modifier_hanging_slayer_falling"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"hanging_slayer_dropping"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_water_bearer_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"tidehunter_gush"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"moveslow"			"-20 -30 -80"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_slow"		"-80 -100 -150"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"300 1000 8000"
+			}
+		}
+		"MaxLevel"	"3"
+		"Modifiers"
+		{
+			"modifier_water_bearer_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"water_bearer_attack_land"
+					}
+				}
+			}
+			"modifier_water_bearer_soak_soak"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_gush.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%moveslow"
+				}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%damage"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_water_bearer_soak_soak"
+				"Target" 		"TARGET"
+				"Duration"		"3"
+			}
+		}
+	}
+
+	"winterblight_doom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"doom_bringer_doom"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.35"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 17 14"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"RPCItem.DoomCast.VO"
+				"Target" 		"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_winterblight_doom"
+				"Target" 		"TARGET"
+				"Duration"		"%duration"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 400 1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"		"2 3 4"
+			}
+		}
+		"Modifiers"
+		{
+		"modifier_winterblight_doom"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"EffectName"	"particles/roshpit/winterblight/blue_doom.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"doomplate_doom_start"
+						"target"		"TARGET"
+					}
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_PURE"
+						"Damage"		"%damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"doomplate_doom_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_doom_warrior_searing_blade"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"ms_slow"		"-40 -80 -160"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"as_slow"		"-60 -120 -180"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"		"2.5 3.0 3.5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"burn_damage"		"100 400 2000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dual_blade_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_dual_blade_effect"
+						"Target" 		"TARGET"
+						"Duration"		"%slow_duration"
+					}
+				}
+			}
+			"modifier_dual_blade_effect"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow"
+				}
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"dragon_dual_burn_think"
+						"target"		"TARGET"
+						"damage"		"%burn_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_faceripper_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"jakiro_dual_breath"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"instance_count"		"4 7 10"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"		"80 400 4000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_faceripper_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_attack_start"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_attack_land"
+						"instance_count"		"%instance_count"
+						"damage"			"%damage"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"faceripper_take_damage"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_starwatcher_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"80 270 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"star_interval"		"1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"800"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_starwatcher_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "%star_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"starwatcher_think"
+						"damage"		"%damage"
+						"radius"		"%radius"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_lumos_king_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"		"60 185 575"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"beam_interval"		"0.5 0.4 0.2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"1000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_lumos_king_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"  "%beam_interval"
+				"EffectName"	"particles/roshpit/winterblight/norgok_aura_ring.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"lumos_king_think"
+						"damage"		"%damage"
+						"radius"		"%radius"
+					}
+				}
+			}
+			"modifier_lumos_king_beam"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+
+						"ControlPointEntities"
+			            {
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			                "TARGET" "follow_origin"
+			            }
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_claws_of_terror"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AOE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"mirana_starfall"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AOERadius"				"800"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fear_chance"		"30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"fear_duration"		"1.0 1.25 1.50"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_claws_of_terror_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"claws_of_terror_attack_land"
+						"fear_chance"	"%fear_chance"
+						"fear_duration"	"%fear_duration"
+					}
+				}
+			}
+		}
+	}
+
+	"winterblight_sun_phoenix_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"morphling_adaptive_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"100 300 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"burn_duration"		"4 5 6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_speed_loss"		"-100 -240 -600"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"sun_phoenix_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_sun_phoenix_attack_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_sun_phoenix_burn"
+						"Target" 		"TARGET"
+						"Duration"		"%burn_duration"
+					}
+				}
+			}
+			"modifier_sun_phoenix_burn"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"castle_red_mage_burn"
+						"target"		"TARGET"
+						"damage"		"%burn_damage"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_loss"
+				}
+			}
+		}
+	}
+
+	"winterblight_searing_arrow"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"clinkz_searing_arrow"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"impact_damage"		"100 300 1200"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"armor_loss_duration"		"7"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"armor_loss"		"-300 -1200 -9000"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winterblight_searing_arrow_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_winterblight_searing_arrow_armor_loss"
+						"Target" 		"TARGET"
+						"Duration"		"%armor_loss_duration"
+					}
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_PURE"
+						"Damage"		"%impact_damage"
+					}
+				}
+			}
+			"modifier_winterblight_searing_arrow_armor_loss"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}	
+			}
+		}
+	}
+
+	"winterblight_fire_blink"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"winterblight/summoner_blink"
+		"RequiredLevel"          		"0"
+		"LevelsBetweenUpgrades"  		"0"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"2000"
+
+
+		// Precache
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4.5"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"winter_fire_blink_activate"
+				"target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_winter_fire_blink_passive_ai"
+			{
+				"IsHidden"		"1"
+				"Passive"		"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"winter_fire_blink_ai_thinker"
+					}
+				}
+			}
+		}
+
+	}
+
+	"winterblight_aspect_of_solos_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"lina_dragon_slave"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_dps"			"100 350 2500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"impact_damage"			"100 350 2500"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%AbilityDamage"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_aspect_of_solo_burn"
+				"Target" 		"TARGET"
+				"Duration"		"3"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"aspect_of_solos_projectile_hit"
+				"target"		"TARGET"
+				"damage"		"%damage"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"aspect_of_solos_die"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_redfall_aspect_of_solos_passive"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsPurgable"		"0"
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"0"
+				"ThinkInterval"  "0.09"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"aspect_of_solos_passive_think"
+					}
+				}
+
+			}
+			"modifier_aspect_of_solo_burn"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType" 	"attach_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%burn_dps"
+					}
 				}
 			}
 		}
@@ -94348,7 +95749,7 @@
 				{
 					"MODIFIER_PROPERTY_MIN_HEALTH" "1000"
 				}
-				"OnTakeDamage"
+				"OnAttacked"
 				// "%attack_damage" is set to the damage value after mitigation
 				{
 					"RunScript"
@@ -106304,6 +107705,24 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+			}
+			"modifier_visual_fly_height_decay"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"visual_fly_height_decay_thinker"
+						"target"		"TARGET"
+					}
 				}
 			}
 		}
@@ -151317,7 +152736,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_per_hit" "1000 3000 5000"
+				"damage_per_hit" "300 1000 7000"
 			}
 			"02"
 			{
@@ -156563,7 +157982,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"item_resist"			"99"
+				"item_resist"			"90"
 			}
 		}
 		"Modifiers"

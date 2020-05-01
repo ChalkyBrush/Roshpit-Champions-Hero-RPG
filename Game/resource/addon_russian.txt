@@ -3942,7 +3942,7 @@
         
         //Glyphs
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_1_1"     "[T1-1] Glyph of Gloom"
-		"item_rpc_chernobog_glyph_1_1_description" 				"Killing an enemy restores <font color='#ccff66'>10</font>% of your max mana."
+		"item_rpc_chernobog_glyph_1_1_description" 				"Убийство противника восстанавливает <font color='#ccff66'>10</font>% от максимальной маны героя."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_2_1"     "[T2-1] Glyph of Midnight"
         "item_rpc_chernobog_glyph_2_1_description"              "У всех эффектов, создающих зоны или ауры, атакующие противников, базовый радиус умножается на <font color='#ccff66'>2</font>. Также работает и на [R2]."
@@ -3957,10 +3957,10 @@
         "item_rpc_chernobog_glyph_5_1_description"              "Shadow Hunt не снижает здоровье если показатель здоровья равен или меньше <font color='#ccff66'>50</font>% от максимума, и не снижает ману, если ее показатель равен или меньше <font color='#ccff66'>50</font>%."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_6_1"     "[T6-1] Glyph of Black Rifts"
-        "item_rpc_chernobog_glyph_6_1_description"              "[E3] duration is increased by <font color='#ccff66'>2</font>."
+        "item_rpc_chernobog_glyph_6_1_description"              "Длительность [E3] увеличена на <font color='#ccff66'>2</font> сек."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_7_1"     "[T7-1] Glyph of Indomitability"
-        "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые 0.2 секунды, а после срабатывания увеличивает исходящий пост-резистный урон на <font color='#ccff66'>200</font>% в течение <font color='#ccff66'>4</font> сек."
+        "item_rpc_chernobog_glyph_7_1_description"              "Снимает эффекты оглушения каждые <font color='#ccff66'>0.2</font> секунды."
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_glyph_5_a"     "[T5-a] Glyph of the Apex Predator"
         "item_rpc_chernobog_glyph_5_a_description"              "Все бонусы рун от умения (W) @Ability2 работают при любом состоянии основного умения. Исцеление героя по прежнему невозможно, пока умение (W) @Ability2 активно."
@@ -7411,8 +7411,8 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_earth"							"Omni Mace: Земля"
 		"DOTA_Tooltip_modifier_omniro_omni_mace_earth_Description"				"Броня и магическая защита увеличены."									
 
-		"omniro_lightning_special_description"									"Наносит урон в зависимости от текущего процента ХП цели."
-		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ЗДОРОВЬЯ ЦЕЛИ:"										
+		"omniro_lightning_special_description"									"Наносит урон в зависимости от показателя Ловкости героя."
+		"omniro_lightning_special_a_pretext"										"МНОЖИТЕЛЬ % ОТ ЛОВКОСТИ:"										
 
 		"omniro_poison_special_description"									"Отравляет цель на 2 секунды, каждые 0.5 секунды. Наносит <font color='#ccff66'>4</font>x урона, если цель стоит в луже яда от орб-эффекта."
 		"omniro_poison_special_a_pretext"										"УРОН ЯДА % СИЛЫ АТАКИ: "
@@ -7481,9 +7481,9 @@
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon"							"Omni Mace: Демон"	
 		"DOTA_Tooltip_modifier_omniro_omni_mace_demon_Description"				"Урон атаки увеличен."								
 
-		"omniro_nature_special_description"									"Цель опутана корнями и получает урон каждую секунду."
+		"omniro_nature_special_description"									"Цель опутана корнями и получает урон в течение времени, каждые <font color='#ccff66'>0.2</font> сек."
 		"omniro_nature_special_a_pretext"									"ДЛИТЕЛЬНОСТЬ ОПУТЫВАНИЯ:"		
-		"omniro_nature_special_b_pretext"									"УРОН ЗА СЕКУНДУ, % ОТ СИЛЫ АТАКИ:"		
+		"omniro_nature_special_b_pretext"									"УРОН В СЕК, % ОТ СИЛЫ АТАКИ:"		
 
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature"						"Omni Mace: Природа"
 		"DOTA_Tooltip_modifier_omniro_omni_mace_nature_Description"			"Опутан корнями и получает ежесекундный урон."		
@@ -7573,7 +7573,7 @@
 		"omniro_demon_orb_a_pretext"											"УРОН % СИЛА АТАКИ:"	
 
 		"omniro_nature_orb_description"										"Применяет на героя щит, поглощающий урон. Базовое количество щитов <font color='#ccff66'>2</font>, увеличивается с уровнем рун. Длится <font color='#ccff66'>10</font> секунд."
-		"omniro_nature_orb_a_pretext"											"ШАНС НА ДОПОЛНИТЕЛЬНЫЕ ШИТЫ %:"	
+		"omniro_nature_orb_a_pretext"											"ШАНС НА ДОПОЛНИТЕЛЬНЫЕ ЩИТЫ %:"	
 		"omniro_nature_orb_b_pretext"											"ДОПОЛНИТЕЛЬНЫЕ ЩИТЫ:"
 
 		"DOTA_Tooltip_modifier_omniro_nature_shield"						"Omni Orb: Природа"
@@ -7734,7 +7734,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_2"            "Supercharged Prism Hammer"
 		"item_property_omniro_immortal_weapon2"                             "Kaleidoscopic Reload"
-		"property_omniro_immortal_weapon2_description"                      "Элементы заряжаются на <font color='#ccff66'>66</font>% быстрее."
+		"property_omniro_immortal_weapon2_description"                      "Элементы заряжаются на <font color='#ccff66'>20</font>% быстрее за каждый уровень Максимума Зарядов соответствующего элемента (за исключением <font color=\"#DDDDDD\">Нормального</font> элемента)."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_immortal_weapon_3"            "Mace of the Drakken"
 		"item_property_omniro_immortal_weapon3"                             "Dragon Element"
@@ -7763,7 +7763,7 @@
 		"item_rpc_omniro_glyph_7_1_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>) получает @glyph_property1 дополнительных заряда."
 
 		"DOTA_Tooltip_ability_item_rpc_omniro_glyph_5_a"		"[T5-a] Glyph of Chromaticity"
-		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>)получает <font color='#ccff66'>100</font>% бонус урона, второй по счету получает <font color='#ccff66'>75</font>%, третий <font color='#ccff66'>50</font>, и четвертый <font color='#ccff66'>25</font>."
+		"item_rpc_omniro_glyph_5_a_description" 				"Элемент с наивысшим уровнем (кроме элемента <font color=\"#3289C7\">Дракон</font>)получает <font color='#ccff66'>100</font>% бонус урона, второй по счету получает <font color='#ccff66'>75</font>%, третий <font color='#ccff66'>50</font>%, и четвертый <font color='#ccff66'>25</font>%."
 
 		"DOTA_Tooltip_ability_heroic_fury"								"Heroic Fury"
 		"DOTA_Tooltip_ability_heroic_fury_Description"					"Стихия: <font color=\"#F6FFB5\">Свет</font> / <font color=\"#DDDDDD\">Нормальный</font><br>Наделяет оружие Paladin силой, способной наносить урон соседним целям, замедляя их, и восполняя здоровье героя за каждый успешный удар."
@@ -14947,7 +14947,7 @@
         "property_fortune_talisman_description"             "Увеличивает шанс срабатывания всех предметов на <font color='#ccff66'>50</font>% от их базового значения шанса."
 
         "item_rpc_fortunes_talisman_of_truth_ruby1"                     "Когда срабатывает любой из шансов любого предмета, повышает Силу на @ruby_property1 и Броню на @ruby_property2 на <font color='#ccff66'>2</font> сек"
-        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "Когда срабатывает любой из шансов любого предмета, повышает Ловкость на @emerald_property1 и Пробитие Брони на @ruby_property2 на <font color='#ccff66'>2</font> сек"
+        "item_rpc_fortunes_talisman_of_truth_emerald1"                      "Когда срабатывает любой из шансов любого предмета, повышает Ловкость на @emerald_property1 и Пробитие Брони на @emerald_property2 на <font color='#ccff66'>2</font> сек"
         "item_rpc_fortunes_talisman_of_truth_sapphire1"                     "Когда срабатывает любой из шансов любого предмета, повышает Интеллект на @sapphire_property1 и Пробитие Магической Защиты на @sapphire_property2 на <font color='#ccff66'>2</font> сек"
         "item_rpc_fortunes_talisman_of_truth_amethyst1"                     "Когда срабатывает любой из шансов любого предмета, повышает Дух на @amethyst_property1 и Магическую Защиту на @amethyst_property2 на <font color='#ccff66'>2</font> сек"
 
@@ -19973,8 +19973,8 @@
 	"tutorial_quiz_question_6"											"Кто может снять снаряжение с героя?"
 	"tutorial_quiz_question_6_answer"									"Кузнец"
 
-	"tutorial_quiz_wrong_3_1_1"											"Неправильно, ответ - это один из NPC в городе. Который?"
-	"tutorial_quiz_wrong_3_1_2"											"Знаешь что, может перезапустишь Обучение и будешь слушать что я тебе говорю, а?!"
+	"tutorial_quiz_wrong_3_1_3"											"Неправильно, ответ - это один из NPC в городе. Который?"
+	"tutorial_quiz_wrong_3_1_4"											"Знаешь что, может перезапустишь Обучение и будешь слушать что я тебе говорю, а?!"
 
 	"tutorial_master_dialogue_3_1f"										"Правильно! Только Кузнец может снять предмет для дальнейшего использования или перековки. Наденешь другой предмет поверх текущего - и старый пропадет навсегда."
 
@@ -21507,6 +21507,9 @@
 		"DOTA_Tooltip_ability_tiamat_fire_breath"									"Ultima Fire"
 		"DOTA_Tooltip_ability_tiamat_fire_breath_Description"						"Пламя Тиамат создает огненные лужи в целевых местах."
 		"DOTA_Tooltip_ability_tiamat_fire_breath_damage"							"УРОН:"
+		
+		"DOTA_Tooltip_ability_tiamat_boss_passive" 									"Dragon Ancestor"
+		"DOTA_Tooltip_ability_tiamat_boss_passive_Description"						"Тиамат - могущественный предок драконов, что спала в глубинах Пещер Winterblight на протяжении многих эпох."
 
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack"						"Crystal Breath"
 		"DOTA_Tooltip_ability_winterblight_tiamat_frost_attack_Description"			"Тиамат наносит чистый урон по области своими атаками и замедляет противников."

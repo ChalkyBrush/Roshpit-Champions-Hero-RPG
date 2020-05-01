@@ -676,7 +676,7 @@ function mountain_dweller_think(event)
 		if caster.castLock then
 			return false
 		end
-		if castAbility:IsFullyCastable() then
+		if castAbility and castAbility:IsFullyCastable() then
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				local castPoint = enemies[1]:GetAbsOrigin() + RandomVector(RandomInt(0, 500))

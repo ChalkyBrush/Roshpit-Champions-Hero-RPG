@@ -711,6 +711,20 @@ function Enemies:SetupAI(unit)
 			unit.targetRadius = targetAOE
 		end
 	end
+	if ai_type and ai_type == RPC_AI_TYPE_CAST_ABILITY1_ENEMY then
+		unit:AddAbility("use_ability_1_target_ai"):SetLevel(1)
+		-- Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_cast_enemy", {})
+		local targetAOE = unit:GetKeyValue("RoshpitCastAOE")
+		if targetAOE then
+			unit.targetRadius = targetAOE
+		end
+		unit.targetAbilityCD = 1
+		unit.autoAbilityCD = 1
+		local target_preference = unit:GetKeyValue("RoshpitTargetSearchPreference")
+		if target_preference then
+			unit.targetFindOrder = target_preference
+		end
+	end
 	if ai_type and ai_type == RPC_AI_TYPE_CAST_ABILITY1_ALLY then
 		Events.GameMasterAIAbility:ApplyDataDrivenModifier(Events.GameMaster, unit, "ai_cast_ally", {})
 		local targetAOE = unit:GetKeyValue("RoshpitCastAOE")
@@ -761,4 +775,9 @@ function Enemies:SpawnEnemySummon(caster, unitName, spawnPoint, fv)
 		Enemies:InitializeEnemy(summon)
 		return summon
 	end
+end
+
+function CDOTA_BaseNPC:MakeNoDropsOrEXP()
+	self.roshpit_attributes.deathXP = 0
+	self.disable_drops = true
 end

@@ -725,11 +725,14 @@ function temple_protector_die(event)
 	local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	if #allies > 0 then
 		for i = 1, #allies, 1 do
-			if allies[i]:GetUnitName() == "fire_temple_protective_spirit" then
+			if allies[i]:HasAbility("fire_temple_protector_death_ability") then
 				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf", allies[i], 5)
 				local buffAbility = allies[i]:FindAbilityByName("fire_temple_protector_death_ability")
 				buffAbility:ApplyDataDrivenModifier(allies[i], allies[i], "modifier_death_ability_buff", {})
 				local currentStack = allies[i]:GetModifierStackCount("modifier_death_ability_buff", allies[i])
+				if not allies[i].modelScale then
+					allies[i].modelScale = allies[i]:GetModelScale()
+				end
 				allies[i]:SetModifierStackCount("modifier_death_ability_buff", allies[i], currentStack + 1)
 				allies[i].modelScale = allies[i].modelScale + 0.07
 				allies[i]:SetModelScale(allies[i].modelScale)

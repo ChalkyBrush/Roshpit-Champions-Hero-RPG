@@ -1619,7 +1619,9 @@ function GameMode:OnEntityKilled(keys)
 				end
 			end
 		end)
-
+		-- Timers:CreateTimer(4, function()
+		-- 	Events:smoothTranslate(killedUnit, Vector(0,0,-2), 100, Vector(0,0), nil)
+		-- end)
 		Timers:CreateTimer(8, function()
 			UTIL_Remove(killedUnit)
 		end)
@@ -4151,7 +4153,9 @@ function Events:smoothTranslate(object, velocity, ticks, acceleration, endSound)
 	for i = 0, ticks, 1 do
 		velocity = velocity + acceleration
 		Timers:CreateTimer(i * 0.03, function()
-			object:SetAbsOrigin(object:GetAbsOrigin() + velocity)
+			if object and IsValidEntity(object) then
+				object:SetAbsOrigin(object:GetAbsOrigin() + velocity)
+			end
 		end)
 	end
 	if endSound then

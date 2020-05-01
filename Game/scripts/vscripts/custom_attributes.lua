@@ -1133,6 +1133,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_rubilash_base_painted") then
 		armor_modify = armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor")
 	end
+	if unit:HasModifier("modifier_winterblight_searing_arrow_armor_loss") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_winterblight_searing_arrow_armor_loss")	
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -3023,6 +3026,14 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_strength_attack_power_player") then
 		local ability = hero:FindModifierByName("modifier_strength_attack_power_player"):GetAbility()
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_strength_attack_power_player", ability:GetSpecialValueFor("hierophant_spirit"))
+	end
+	if hero:HasModifier("modifier_diviner_star_all_stats_buff") then
+		local ability = hero:FindModifierByName("modifier_diviner_star_all_stats_buff"):GetAbility()
+		local bonus = ability:GetSpecialValueFor("star_all_stats")
+		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_star_all_stats_buff", bonus)
+		agi_bonus = agi_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_star_all_stats_buff", bonus)
+		int_bonus = int_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_star_all_stats_buff", bonus)
+		spr_bonus = spr_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_diviner_star_all_stats_buff", bonus)
 	end
 	-- BASIC ITEMS STATS --
 	str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, hero.InventoryUnit, "modifier_head_strength", 1)

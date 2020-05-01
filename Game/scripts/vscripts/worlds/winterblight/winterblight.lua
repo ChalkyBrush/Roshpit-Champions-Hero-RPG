@@ -246,9 +246,16 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
+  Winterblight:CastleSunPhoenixSequence()
   -- Winterblight:WinterCastleBossSpawn()
+  -- Enemies:SpawnEnemyUnit("winterblight_hanging_slayer", Vector(-15424,-2560), RandomVector(1), false)
+
   -- Winterblight:SpawnStrengthEvent()
-    Enemies:SpawnEnemyUnit("winterblight_lonely_hermit", Vector(14464, -2304), Vector(1,1), false)
+
+
+    -- Winterblight:SpawnJusticeMatheus()
+    -- Winterblight:SpawnJusticeHellmouth()
+    -- Winterblight:SpawnJusticeBalance()
   -- Winterblight:SpawnCastleRoom12(variant)
   -- Timers:CreateTimer(2, function()
   --   Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]

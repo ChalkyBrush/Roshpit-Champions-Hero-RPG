@@ -24657,3 +24657,1548 @@
         }
     }
 }
+
+"Winterblight.BlueGoo.Damage"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/morphling/attack.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.86000"  }
+                    "soundlevel"        {   "value"     "84.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.BlueGooSniper.Jump.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/sniper/snip_pain_02.vsnd"
+                              "value1"        "sounds/vo/sniper/snip_pain_05.vsnd"
+                              "value2"        "sounds/vo/sniper/snip_pain_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.50000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.86000"  }
+                    "soundlevel"        {   "value"     "95.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.BlueGooSniper.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/sniper/snip_anger_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.89000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.BlueGooSniper.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/sniper/snip_pain_08.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.00000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.89000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Shgrapnel.Start"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/sniper/shrapnel_fire.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.80000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Shgrapnel.Effect"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/sniper/shrapnel_shatter.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.60000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.JusticeAngel.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/faceless_void/face_pain_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.08000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.JusticeDevil.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/faceless_void/face_pain_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.90000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.JusticeDespawn"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/seafortress/shadow_bahamut_pop.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "91.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Hellmouth.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/night_stalker/nstalk_kill_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Hellmouth.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/night_stalker/nstalk_pain_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Matheus.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/skywrath_mage/drag_kill_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Matheus.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/skywrath_mage/drag_pain_04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Balance.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/legion_commander/legcom_dem_respawn_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Justice.Balance.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/legion_commander/legcom_dem_econ_death_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.88000"  }
+                    "soundlevel"        {   "value"     "98.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.HangingSlayer.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/antimage/anti_pain_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.10000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.5000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.WaterBearer.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/vengefulspirit/vng_anger_03.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.10000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.1000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.WaterBearer.Projectile"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/tidehunter/tidehunter_gush.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.80000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.2000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.DoomWatcher.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/doom_bringer/doom_pain_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.20000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.DoomWarrior.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/doom_bringer/doom_pain_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.72000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.1500"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.EliteDoomWarrior.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/doom_bringer/doom_pain_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Baphomet.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/doom_bringer/doom_kill_11.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Baphomet.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/doom_bringer/doom_pain_06.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.0000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FaceRipper.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_attack_16.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FaceRipper.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_pain_15.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "97.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FaceRipper.Preattack.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/undying/undying_big_attack_08.vsnd"
+                              "value1"        "sounds/vo/undying/undying_big_attack_09.vsnd"
+                              "value2"        "sounds/vo/undying/undying_big_attack_10.vsnd"
+                              "value3"        "sounds/vo/undying/undying_big_attack_11.vsnd"
+                              "value4"        "sounds/vo/undying/undying_big_attack_12.vsnd"
+                              "value5"        "sounds/vo/undying/undying_big_attack_13.vsnd"
+                              "value6"        "sounds/vo/undying/undying_big_attack_14.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.52000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.9700"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.StarWatcher.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/mirana/mir_pain_05.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.MoonPlatform.Spin"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/spawner_start_spinning.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.MoonPlatform.Activate"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/winterblight/computer1.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.LumosKing.Moonbeam"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/luna/luna_lucentbeam_impact.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.82000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.LumosKing.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/huskar/husk_kill_13.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.42000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.LumosKing.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/huskar/husk_pain_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.42000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.90000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.TerrorClaw.Fear"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/dark_willow/fear_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.02000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "89.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Werewolf.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_gnoll_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.95000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.Werewolf.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_gnoll_04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.95000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenix.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phoenix/phoenix_bird_moving01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.95000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenixBoss.VO"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phoenix/phoenix_bird_attack.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.95000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenix.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phoenix/phoenix_bird_emote_bad.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.95000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.EliteHeatFletcher.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/clinkz/clinkz_pain_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.617000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "0.94000"  }
+                    "soundlevel"        {   "value"     "94.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.FireBlink"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/underlord/firestorm_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.717000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.50000"  }
+                    "soundlevel"        {   "value"     "88.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.IronSunWarrior.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/ember_spirit/embr_pain_09.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.217000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.IronSunWarrior.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/ember_spirit/embr_pain_04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "1.017000"  }
+                    "pitch_rand_min"    {   "value"     "-0.00000"  }
+                    "pitch_rand_max"    {   "value"     "0.000000"  }
+                    "pitch"             {   "value"     "1.10000"  }
+                    "soundlevel"        {   "value"     "92.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunBurn.Activate"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_flamebreak_impact_01.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.72000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.25000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenixBig.Aggro"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phoenix/phoenix_bird_victory.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.85000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenixBig.Death"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/vo/phoenix/phoenix_bird_emote_bad.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "2.32000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.85000"  }
+                    "soundlevel"        {   "value"     "93.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+
+"Winterblight.SunPhoenixEvent.Egg.Supernova"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/phoenix/super_nova_cast.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.52000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.85000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.SunPhoenixEvent.Egg.Explode"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/phoenix/super_nova_explode.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.72000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.85000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"Winterblight.AspectOfSolos.Flamethrower"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/batrider/batrider_firefly_beginning.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.62000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.3000"  }
+                    "soundlevel"        {   "value"     "85.00000" }
+                    "distance_max"      {   "value"     "3000.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
