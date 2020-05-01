@@ -21967,7 +21967,7 @@
 		"tarot_moon_description"									"Fear and Uncertainty..."
 
 		"tarot_sun"												"The Sun"
-		"tarot_sun_description"									"Energy and Warmth..."
+		"tarot_sun_description"									"Burning Energy..."
 
 		"tarot_judgement"												"The Judgement"
 		"tarot_judgement_description"									"Evaluation and Awakening..."
