@@ -12622,6 +12622,24 @@
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
 				}
 			}
+			"modifier_visual_fly_height_decay"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "1"
+				}
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"visual_fly_height_decay_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 		"AbilitySpecial"
 		{

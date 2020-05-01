@@ -831,3 +831,18 @@ function utility_reequip_all_gear(event)
 	local target = event.target
 	target:ReequipAllGear(nil)
 end
+
+function visual_fly_height_decay_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local stacks = target:GetModifierStackCount("modifier_visual_fly_height_decay", caster) - 8
+	if target.min_stacks then
+		stacks = math.max(target.min_stacks, stacks)
+	end
+	if stacks > 0 then
+		target:SetModifierStackCount("modifier_visual_fly_height_decay", caster, stacks)
+	else
+		target:RemoveModifierByName("modifier_visual_fly_height_decay")
+	end
+end

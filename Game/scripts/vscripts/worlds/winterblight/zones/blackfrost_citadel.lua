@@ -347,7 +347,17 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][20]["name"] = "sun"
 		Winterblight.CASTLE_DATA["tarot"][20]["index"] = "19"
 		Winterblight.CASTLE_DATA["tarot"][20]["prop_angle"] = Vector(1, 0)
-		Winterblight.CASTLE_DATA["tarot"][20]["prop_scale"] = 0.45
+		Winterblight.CASTLE_DATA["tarot"][20]["prop_scale"] = 0.65
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"] = {}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][1] = {index = 1, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][2] = {index = 4, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][3] = {index = 2, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][4] = {index = 3, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][5] = {index = 9, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][6] = {index = 10, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][7] = {index = 11, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][8] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][1] = {index = 6, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][21] = {}
 		Winterblight.CASTLE_DATA["tarot"][21]["name"] = "judgement"
@@ -1019,6 +1029,8 @@ function Winterblight:SpawnCastleRoomByIndex(index, variant)
 		moon_ghost_table_item["position"] = ghost_position
 		moon_ghost_table_item["active"] = 1
 		table.insert(Winterblight.CastleDungeonMaster.moon_ghost_table, moon_ghost_table_item)
+	elseif Winterblight.CastleTarot["name"] == "sun" then
+		Winterblight:SpawnSunGroundFire(index)
 	end
 end
 
@@ -1118,6 +1130,16 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		elseif unit_name == "winterblight_elite_castle_warrior" then
 			unit_name = "winterblight_elite_castle_werewolf"
 		end
+	elseif Winterblight.CastleTarot["name"] == "sun" then
+		if unit_name == "winterblight_draugr" or unit_name == "winterblight_accursed" then
+			unit_name =  "winterblight_temple_sun_crow"
+		elseif unit_name == "winterblight_castle_warrior" then
+			unit_name = "winterblight_heat_fletcher"
+		elseif unit_name == "winterblight_elite_castle_warrior" then
+			unit_name = "winterblight_elite_heat_fletcher"
+		elseif unit_name == "winterblight_castle_watchman" then
+			unit_name = "winterblight_iron_sun_warrior"
+		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_winter_castle_room_unit", {})
@@ -1174,6 +1196,12 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 
 		else
 			enemy:AddAbility("normal_steadfast"):SetLevel(GameState:GetDifficultyFactor())
+		end
+	elseif Winterblight.CastleTarot["name"] == "sun" then
+		local luck = RandomInt(1, 5)
+		if luck == 1 then
+			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_diviner_sun_immolation", {})
 		end
 	end
 	return enemy
@@ -2496,6 +2524,8 @@ function Winterblight:WinterCastleBossSpawn()
 	end)
 	if Winterblight.CastleTarot["name"] == "devil" then
 		Winterblight:SpawnDevilRings(-1)
+	elseif Winterblight.CastleTarot["name"] == "sun" then
+		Winterblight:SpawnSunGroundFire(-1)
 	end
 end
 
@@ -2798,6 +2828,13 @@ function Winterblight:PrecacheTarotAssets()
 		local function precache_function()
 			PrecacheUnitByNameAsync("winterblight_lumos_king", precache_function)	
 			PrecacheUnitByNameAsync("winterblight_castle_werewolf", precache_function)
+		end
+	elseif Winterblight.CastleTarot["name"] == "sun" then
+		local function precache_function()
+			PrecacheUnitByNameAsync("winterblight_temple_sun_crow", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_heat_fletcher", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_elite_heat_fletcher", precache_function)	
+			PrecacheUnitByNameAsync("winterblight_aspect_of_solos", precache_function)
 		end
 	end
 end
@@ -3484,4 +3521,75 @@ function Winterblight:SpawnDevilRings(room_index)
 		table.insert(doomring_table, doomring)
 	end
 	Winterblight.DevilRingData = doomring_table
+end
+
+function Winterblight:SpawnSunGroundFire(room_index)
+	if room_index == 7 then
+		return false
+	end
+	if not Winterblight.SunFireData then
+		Winterblight.SunFireData = {}
+	else
+		for i = 1, #Winterblight.SunFireData, 1 do
+			print("Destroy particles")
+			ParticleManager:DestroyParticle(Winterblight.SunFireData[i].pfx, false)
+		end
+	end
+	local sunfire_table = {}
+	local key_positions = {}
+	if room_index == -1 then
+		for i = 1, 15+GameState:GetDifficultyFactor()*5 + Winterblight.Stones*4, 1 do
+			table.insert(key_positions, Vector(12306, 188, 600) + RandomVector(RandomInt(360, 1400)))
+		end
+	else
+		key_positions = Winterblight.CASTLE_DATA["rooms"][room_index]["key_positions"]
+	end
+	for i = 1, #key_positions, 1 do
+		local key_position = GetGroundPosition(key_positions[i], Events.GameMaster)
+		local random_pos = key_position + RandomVector(RandomInt(80, 400))
+		if room_index == -1 then
+			random_pos = key_position
+		end
+		local spawnPos = WallPhysics:WallSearch(key_position, random_pos, Events.GameMaster)
+		local moveDirection = RandomVector(1)
+		local lastSpawnPos = spawnPos
+		local count = 15
+		if room_index == -1 then
+			count = 1
+		end
+		for j = 1, count, 1 do
+			local sunfire = {}
+			moveDirection = WallPhysics:rotateVector(moveDirection, 2*math.pi*RandomInt(-30, 30)/360)
+			lastSpawnPos = lastSpawnPos + moveDirection*70
+			sunfire.pfx = ParticleManager:CreateParticle("particles/econ/items/batrider/batrider_ti8_immortal_mount/batrider_ti8_immortal_firefly.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			sunfire.position = lastSpawnPos
+			ParticleManager:SetParticleControl(sunfire.pfx, 0, sunfire.position)
+			ParticleManager:SetParticleControl(sunfire.pfx, 1, sunfire.position)
+			table.insert(sunfire_table, sunfire)
+		end
+	end
+	Winterblight.SunFireData = sunfire_table
+end
+
+function Winterblight:CastleSunPhoenixSequence()
+	local positionTable = {Vector(14812, 5376), Vector(15074, 5035), Vector(15401, 4692), Vector(15656, 4706), Vector(16083, 4876), Vector(15877, 5105), Vector(15488, 5058), Vector(16023, 6272), Vector(15634, 6528), Vector(15872, 6912), Vector(16023, 7424), Vector(14694, 6973), Vector(14382, 6639), Vector(14250, 6212)}
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	positionTable = WallPhysics:ShuffleTable(positionTable)
+	for i = 1, #positionTable, 1 do
+		Timers:CreateTimer(i*0.24, function()
+			local egg = CreateUnitByName("npc_dummy_unit", positionTable[i], false, nil, nil, DOTA_TEAM_NEUTRALS)
+			egg:SetAbsOrigin(egg:GetAbsOrigin()-Vector(0,0,RandomInt(600, 1000)))
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, egg, "modifier_diviner_sun_immolation", {})
+			egg:SetOriginalModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+			egg:SetModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+			egg:SetModelScale(1)	
+			StartAnimation(egg, {duration = 10.0, activity = ACT_DOTA_IDLE, rate = 0.8})	
+			egg:FindAbilityByName("dummy_unit"):SetLevel(1)
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, egg, "modifier_diviner_sun_event_thinker", {})
+			EmitSoundOn("Winterblight.SunPhoenixEvent.Egg.Supernova", egg)
+		end)
+	end
+
+	Winterblight.CastleDungeonMaster.sun_phoenixes_slain = 0
+	Winterblight.CastleDungeonMaster.sun_phoenixes_count = #positionTable
 end

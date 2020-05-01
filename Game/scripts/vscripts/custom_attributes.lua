@@ -1133,6 +1133,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_rubilash_base_painted") then
 		armor_modify = armor_modify + CustomAbilities:RubilashPaintRoshpitAttributes(unit, "armor")
 	end
+	if unit:HasModifier("modifier_winterblight_searing_arrow_armor_loss") then
+		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_winterblight_searing_arrow_armor_loss")	
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 

@@ -220,7 +220,9 @@ function diviner_think(event)
 			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Winterblight.DevilRingData[i].position, nil, 110, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #enemies > 0 then
 				for _, enemy in pairs(enemies) do
-					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_diviner_scryer_doom", {duration = 8})
+					if not Filters:HasFlyingModifier(enemy) then
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_diviner_scryer_doom", {duration = 8})
+					end
 				end
 			end
 		end
@@ -274,7 +276,66 @@ function diviner_think(event)
 			end
 		end
 	end
-
+	-- SUN THINKER
+	if Winterblight.SunFireData then
+		for i = 1, #Winterblight.SunFireData, 1 do
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Winterblight.SunFireData[i].position, nil, 80, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					if not Filters:HasFlyingModifier(enemy) then
+						if not enemy:HasModifier("modifier_diviner_sun_immolation_effect") then
+							EmitSoundOn("Winterblight.SunBurn.Activate", enemy)
+						end
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_diviner_sun_immolation_effect", {duration = 3})
+					end
+				end
+			end
+		end
+	end
+	if caster.phase >= 7 and Winterblight.CastleTarot["name"] == "sun" and Winterblight.CASTLE_DATA["rooms"][6]["active"] >= 1 then
+		if not caster.disable_sun_platform_thinker then
+			if not caster.sun_platform_props then
+				caster.sun_platform_props = {}
+				local platform = {}
+				platform["position"] = Vector(15455, 7363)
+				platform["activated"] = 0
+				platform["radius"] = 365
+				table.insert(caster.sun_platform_props, platform)
+				local platform = {}
+				platform["position"] = Vector(15642, 5710)
+				platform["activated"] = 0
+				platform["radius"] = 550
+				table.insert(caster.sun_platform_props, platform)
+				local platform = {}
+				platform["position"] = Vector(16000, 4206)
+				platform["activated"] = 0
+				platform["radius"] = 325
+				table.insert(caster.sun_platform_props, platform)
+			end
+			local activated_platform_count = 0
+			for i = 1, #caster.sun_platform_props, 1 do
+				local sun_platform = caster.sun_platform_props[i]
+				if sun_platform["activated"] == 0 then
+					local enemies = FindUnitsInRadius(caster:GetTeamNumber(), sun_platform["position"], nil, sun_platform["radius"], DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+					if #enemies > 0 then
+						sun_platform["activated"] = 1
+						local platform_entity = Entities:FindByNameNearest("SunPlatform", sun_platform["position"] + Vector(0,0,2000), 1500)
+						local starting_color = Vector(38, 43, 52)
+						local end_color = Vector(255, 181, 70)
+						Events:smoothColorTransition(platform_entity, starting_color, end_color, 100)
+					end
+				else
+					activated_platform_count = activated_platform_count + 1
+				end
+			end
+			if activated_platform_count == 3 then
+				caster.disable_sun_platform_thinker = true
+				Timers:CreateTimer(5, function()
+					Winterblight:CastleSunPhoenixSequence()
+				end)
+			end
+		end
+	end
 	if Winterblight.CASTLE_DATA["rooms"][11]["active"] >= 1 then
 		if not caster.moon_lift_bros then
 			local heros = FindUnitsInRadius(caster:GetTeamNumber(), Vector(14712, -2720, 1800), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -577,6 +638,22 @@ function castle_room_unit_die(event)
 			Timers:CreateTimer(active_delay, function()
 				Winterblight.CASTLE_DATA["rooms"][12]["active"] = 2
 			end)
+		end
+	elseif unit.deathCode == "sun_phoenix" then
+		Winterblight.CastleDungeonMaster.sun_phoenixes_slain = Winterblight.CastleDungeonMaster.sun_phoenixes_slain + 1
+		if Winterblight.CastleDungeonMaster.sun_phoenixes_slain == Winterblight.CastleDungeonMaster.sun_phoenixes_count - 1 then
+			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+			local egg = CreateUnitByName("npc_dummy_unit", Vector(15678, 6569), false, nil, nil, DOTA_TEAM_NEUTRALS)
+			egg:SetAbsOrigin(egg:GetAbsOrigin()-Vector(0,0,800))
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, egg, "modifier_diviner_sun_immolation", {})
+			egg:SetOriginalModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+			egg:SetModel("models/items/phoenix/ultimate/blazing_wing_blazing_egg/blazing_wing_blazing_egg.vmdl")
+			egg:SetModelScale(2)	
+			StartAnimation(egg, {duration = 10.0, activity = ACT_DOTA_IDLE, rate = 0.8})	
+			egg:FindAbilityByName("dummy_unit"):SetLevel(1)
+			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, egg, "modifier_diviner_sun_event_thinker", {})
+			EmitSoundOn("Winterblight.SunPhoenixEvent.Egg.Supernova", egg)
+			egg.giga_egg = true
 		end
 	end
 end
@@ -3806,12 +3883,11 @@ function lumos_king_think(event)
 	local damage = event.damage
 	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, event.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	if #enemies > 0 then
-		for _, enemy in pairs(enemies) do
-			Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PURE, ability)
-			EmitSoundOn("Winterblight.LumosKing.Moonbeam", enemy)
-			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lumos_king_beam", {duration = 0.15})
-			Filters:ApplyStun(caster, 0.03, enemy)
-		end
+		local enemy = enemies[RandomInt(1, #enemies)]
+		Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_PURE, ability)
+		EmitSoundOn("Winterblight.LumosKing.Moonbeam", enemy)
+		ability:ApplyDataDrivenModifier(caster, enemy, "modifier_lumos_king_beam", {duration = 0.15})
+		Filters:ApplyStun(caster, 0.03, enemy)
 	end
 end
 
@@ -3826,4 +3902,167 @@ function claws_of_terror_attack_land(event)
 		EmitSoundOn("Winterblight.TerrorClaw.Fear", target)
 		target:AddNewModifier(caster, ability, "modifier_fear", {duration = fear_duration})
 	end
+end
+
+function winter_fire_blink_activate(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	EmitSoundOn("Winterblight.FireBlink", caster)
+
+	local particleName = "particles/econ/events/ti5/blink_dagger_start_lvl2_ti5.vpcf"
+	local pfx1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx1, 0, caster:GetAbsOrigin())
+	local target = event.target_points[1]
+	local casterOrigin = caster:GetAbsOrigin()
+	target = WallPhysics:WallSearch(casterOrigin, target, caster)
+	-- local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_undying/undying_loadout.vpcf", PATTACH_ABSORIGIN, event.caster )
+	--     ParticleManager:SetParticleControl( pfx, 0, position )
+	local newPosition = target
+	FindClearSpaceForUnit(caster, newPosition, false)
+	local pfx2 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControl(pfx2, 0, newPosition)
+	Timers:CreateTimer(4, function()
+		ParticleManager:DestroyParticle(pfx1, false)
+		ParticleManager:DestroyParticle(pfx2, false)
+	end)
+end
+
+function winter_fire_blink_ai_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:GetTeamNumber() == DOTA_TEAM_NEUTRALS and caster.aggro then
+		if ability:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()+RandomVector(180)
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+		end
+	end
+end
+
+function sun_phoenix_die(event)
+	local caster = event.caster
+	Events:smoothTranslate(caster, Vector(0,0,-5), 45, Vector(0,0), nil)
+end
+
+function diviner_sun_event_egg_think(event)
+	local egg = event.target
+	if egg.lock then
+		return false
+	end
+	egg:SetAbsOrigin(egg:GetAbsOrigin() + Vector(0,0,6))
+	if egg:GetDistanceFromGround() > 440 then
+		egg.lock = true
+		EmitSoundOn("Winterblight.SunPhoenixEvent.Egg.Explode", egg)
+		local unitName = "winterblight_temple_sun_crow"
+		if egg.giga_egg then
+			unitName = "winterblight_aspect_of_solos"
+		end
+		local phoenix = Winterblight:SpawnCastleRoomUnit(0, unitName, egg:GetAbsOrigin(), RandomVector(1), false, true)
+		phoenix.deathCode = "sun_phoenix"
+		phoenix:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+		phoenix:SetAbsOrigin(egg:GetAbsOrigin())
+		Events.GameMasterAbility:ApplyDataDrivenModifier(Events.GameMaster, phoenix, "modifier_visual_fly_height_decay", {})
+		phoenix:SetModifierStackCount("modifier_visual_fly_height_decay", Events.GameMaster, 440)
+		phoenix.min_stacks = 110
+		if egg.giga_egg then
+			phoenix.min_stacks = 240
+		end
+		Dungeons:AggroUnit(phoenix)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, phoenix, "modifier_diviner_sun_immolation", {})
+
+		local particleName = "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, egg:GetAbsOrigin())
+		ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
+		ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+
+		UTIL_Remove(egg)
+	end
+end
+
+function aspect_of_solos_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if not caster:IsAlive() then
+		return false
+	end
+	if caster.aggro then
+		if not ability.fv then
+			ability.fv = caster:GetForwardVector()
+		end
+		local luck = RandomInt(1, 42)
+		if luck == 1 then
+			EmitSoundOn("Winterblight.SunPhoenixBoss.VO", caster)
+		end
+		EmitSoundOn("Winterblight.AspectOfSolos.Flamethrower", caster)
+		local start_radius = 120
+		local end_radius = 200
+		local range = 2000
+		local speed = 2000
+
+		local projectileParticle = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+
+		local info =
+		{
+			Ability = ability,
+			EffectName = projectileParticle,
+			vSpawnOrigin = caster:GetAbsOrigin() + ability.fv * 30 + Vector(0, 0, 80),
+			fDistance = range,
+			fStartRadius = start_radius,
+			fEndRadius = end_radius,
+			Source = caster,
+			StartPosition = "attach_origin",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = ability.fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+		ability.fv = WallPhysics:rotateVector(ability.fv, 2*math.pi/30)
+	end
+end
+
+function aspect_of_solos_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+
+	CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf", target, 4)
+	EmitSoundOn("Winterblight.SunBurn.Activate", target)
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function aspect_of_solos_die(event)
+	local caster = event.caster
+	Timers:CreateTimer(3.1, function()
+		local particleName = "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
+		local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin() + Vector(0,0,500) - caster:GetForwardVector()*120)
+		ParticleManager:SetParticleControl(particle1, 1, Vector(550, 2, 1000))
+		ParticleManager:SetParticleControl(particle1, 3, Vector(550, 550, 550))
+		EmitSoundOn("Winterblight.SunPhoenixEvent.Egg.Explode", caster)
+		Timers:CreateTimer(3, function()
+			ParticleManager:DestroyParticle(particle1, false)
+		end)
+		UTIL_Remove(caster)
+	end)
 end
