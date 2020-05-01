@@ -2049,62 +2049,18 @@
 
 		//EVENT
 
-		"descent_of_winterblight_aertega"							"Aertega"
-		"descent_of_winterblight_torturok"							"Torturok"
-		"descent_of_winterblight_ozubu"								"Ozubu"
-
-		"ozubu_spiderling"											"Кристальный паучок"
-
-		"DOTA_Tooltip_ability_winterblight_aertega_passive"			"Cyrystal Viper"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_Description"	"Атаки образуют ледяной взрыв, наносящий урон по области и замедляющий пораженных врагов в области действия."	
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_damage"	"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_aertega_passive_ms_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-
-		"DOTA_Tooltip_ability_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_ability_aertega_frost_nova_Description"		"После трехсекундной подготовки, образует вокруг себя мощную ледяную будрю, замораживая врагов в радиусе 2000."
-		"DOTA_Tooltip_ability_aertega_frost_nova_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_aertega_frost_nova_freeze_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
-
-		"DOTA_Tooltip_modifier_aertega_frost_nova"					"Giga Frost Nova"
-		"DOTA_Tooltip_modifier_aertega_frost_nova_Description"		"Заморожен"
-
-		"DOTA_Tooltip_ability_winterblight_torturok_passive"		"Winterhide"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_Description"	"В ответ на любой входящий урон образуется ледяной осколок, направленный обратно в атаковавшего врага, который наносит урон и замедляет цель."
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_ms_loss"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_winterblight_torturok_passive_as_loss"		"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
-
-		"DOTA_Tooltip_ability_torturok_comet"						"Primal Leap"
-		"DOTA_Tooltip_ability_torturok_comet_Description"			"Прыгает в указанную точку"
-
-		"DOTA_Tooltip_ability_torturok_aura"						"Frostbite Aura"
-		"DOTA_Tooltip_ability_torturok_aura_Description"			"Враги в радиусе 800 получают урон, когда двигаются."
-		"DOTA_Tooltip_ability_torturok_aura_damage_per_distance"	"УРОН ЗА РАССТОЯНИЕ:"
-
-		"DOTA_Tooltip_modifier_torturok_aura_effect"				"Frostbite Aura"
-		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"Получает урон, пока двигается"
-
-		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
-		"DOTA_Tooltip_ability_ozubu_passive_Description"			"Постоянные ледяные взрывы вокруг владельца умения."
-		"DOTA_Tooltip_ability_ozubu_passive_damage"					"УРОН:"
-		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
-		"DOTA_Tooltip_ability_ozubu_passive_as_loss"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
-
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom"			"Ice Venom Dart"
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_Description"	"Наносит урон выбранной цели и переносит с себя один отрицательный эффект на врага."
-		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_damage"	"УРОН:"
-
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive"				"Ice Venom Bite"
-		"DOTA_Tooltip_ability_ozubu_spiderling_passive_Description"	"Переносит 1 отрицательный эффект на врага при попадании. Дополнительно ненадолго отравляет цель, нанося урон каждые 0.1 секунды."
-		
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison"				"Ice Venom Bite"
-		"DOTA_Tooltip_modifier_ozubu_spiderling_poison_Description"	"Получает урон каждые 0.1 секунды"
-
 		//WINTERBLIGHT
 
 		//Winterblight ITEMS
 
 		//WINTERBLIGHT ABILITIES AND BUFFS
+		
+		//TREASURE GOBLINS
+		"treasure_goblin_rpc_redfall_ridge"					"Treasure Goblin"
+		"treasure_goblin_rpc_tanari_jungle"					"Treasure Goblin"
+		"treasure_goblin_rpc_winterblight_mountain"			"Treasure Goblin"
+		"treasure_goblin_rpc_roshpit_arena"					"Treasure Goblin"
+		"treasure_goblin_rpc_sea_fortress"					"Treasure Goblin"
 		
 
 		"DOTA_Tooltip_ability_arkimus_dimension_coil"								"Dimension Coil"
@@ -2697,7 +2653,7 @@
         "item_rpc_astral_glyph_5_2_description"                "Противники в радиусе <font color='#ccff66'>500</font> от героя теряют <font color='#ccff66'>50</font> скорости атаки."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_6_2"       "[T6-2] Glyph of Crystal Arrowheads"
-        "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <font color='#ccff66'>5</font>% шанс обездвижить противника."
+        "item_rpc_astral_glyph_6_2_description"                "Стандартные атаки имеют <font color='#ccff66'>5</font>% шанс обездвижить противника на <font color='#ccff66'>1</font> сек."
 
         "DOTA_Tooltip_ability_item_rpc_astral_glyph_7_2"       "[T7-2] Glyph of Inner Quasar"
         "item_rpc_astral_glyph_7_2_description"                "Каждая руна 4го ряда дополнительно увеличивает урон <font color=\"#C25DFC\">Космоса</font> на <font color='#ccff66'>2</font>%."
@@ -6943,7 +6899,7 @@
         "DOTA_Tooltip_ability_hydroxis_rune_w_3_arcana1_suffix_two"         ""
 
   		"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1"						"[W4] Wave Maker"
-    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары () Ocean Rage добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
+    	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_Description"			"Враги, получившие стихийный урон <font color=\"#3894FF\">Воды</font> подвергаются эффекту @Ability2. Дополнительно, каждая обычная атака или удары [W2] добавляют герою заряды. Каждый заряд увеличивает базовый урон на 10 секунд. Максимум 30 зарядов."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_one"		"Длительность эффекта (W) Whitewhater Mist на врагах"
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_suffix"				" сек."
     	"DOTA_Tooltip_ability_hydroxis_rune_w_4_arcana1_property_two"		"Бонус к урону за заряд"
@@ -14743,7 +14699,7 @@
 
 		"DOTA_Tooltip_ability_item_rpc_aquastone_ring"									"Aquastone Ring"	
 		"item_property_aquastone_ring"										"Platinum Augment"
-		"property_aquastone_ring_description"								"Каждая руна Т4 увеличивает Базовый Урон Способностей и Урон Предметов на <font color='#ccff66'>1.5</font>%."
+		"property_aquastone_ring_description"								"Каждая руна Т4 увеличивает Базовый Урон Способностей и Урон Предметов на <font color='#ccff66'>3</font>%."
 
 		"item_rpc_aquastone_ring_ruby1"									"Увеличивает руну [Q4] на @ruby_property1"
 		"item_rpc_aquastone_ring_emerald1"									"Увеличивает руну [E4] на @emerald_property1"
@@ -15131,12 +15087,12 @@
         "item_rpc_raven_idol_amethyst1"                                     "Увеличивает Урон Предметов и урон <font color=\"#7F4F84\">Тени</font> на @amethyst_property1%"
 
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
-        "item_rpc_ring_of_nobility_ruby1"                               "Когда это кольцо улучшается, этот Рубин улучшится до @ruby_property1го уровня"
-        "item_rpc_ring_of_nobility_emerald1"                                "Когда это кольцо улучшается, этот Изумруд улучшится до Tier @emerald_property1го уровня"
-        "item_rpc_ring_of_nobility_sapphire1"                               "Когда это кольцо улучшается, этот Сапфир улучшится до @sapphire_property1го уровня"
-        "item_rpc_ring_of_nobility_amethyst1"                               "Когда это кольцо улучшается, этот Аметист улучшится до @amethyst_property1го уровня"
+        "item_rpc_ring_of_nobility_ruby1"                               "Когда это кольцо улучшается, этот Рубин улучшится до @ruby_property1го уровня, что повысит все руны 1 строки на @ruby_property2."
+        "item_rpc_ring_of_nobility_emerald1"                                "Когда это кольцо улучшается, этот Изумруд улучшится до @emerald_property1го уровня, что повысит все руны 3 строки на @emerald_property2"
+        "item_rpc_ring_of_nobility_sapphire1"                               "Когда это кольцо улучшается, этот Сапфир улучшится до @sapphire_property1го уровня, что повысит все руны 2 строки на @sapphire_property2."
+        "item_rpc_ring_of_nobility_amethyst1"                               "Когда это кольцо улучшается, этот Аметист улучшится до @amethyst_property1го уровня, что повысит все руны 4 строки на @amethyst_property2."
         "item_property_nobility"                            "Path of Nobility"
-        "property_nobility_description"                        "Повышает все Атрибуты героя на <font color='#ccff66'>1</font>x от Уровня героя. При убийстве противника кольцо увеличивает счетчик убийств, и когда он достигает 10,000, кольцо улучшается и удваивает Руны. После улучшения кольцо не может быть перковано у Кузнеца."
+        "property_nobility_description"                        "Повышает все Атрибуты героя на <font color='#ccff66'>1</font>x от Уровня героя. При убийстве противника кольцо увеличивает счетчик убийств, и когда он достигает 10,000, кольцо улучшается и удваивает Руны. После улучшения кольцо не может быть перковано у Кузнеца, а инкрустированные самоцветы не могут быть вынуты."
 
         
         
@@ -21493,6 +21449,57 @@
 		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_Description"		"Создает тотем, исцеляющий союзников в радиусе. Требует 3 ударов для уничтожения."
 		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_heal_percent"		"% ИСЦЕЛЕНИЕ КАЖДЫЕ 0.5 СЕК.:"
 		"DOTA_Tooltip_ability_winterblight_wintertide_totem_base_duration"			"ДЛИТЕЛЬНОСТЬ ТОТЕМА:"
+		
+		"descent_of_winterblight_aertega"							"Aertega"
+		"descent_of_winterblight_torturok"							"Torturok"
+		"descent_of_winterblight_ozubu"								"Ozubu"
+
+		"ozubu_spiderling"											"Кристальный паучок"
+
+		"DOTA_Tooltip_ability_winterblight_aertega_passive"			"Cyrystal Viper"
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_Description"	"Атаки образуют ледяной взрыв, наносящий урон по области и замедляющий пораженных врагов в области действия."	
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_damage"	"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_aertega_passive_ms_loss"	"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+
+		"DOTA_Tooltip_ability_aertega_frost_nova"					"Giga Frost Nova"
+		"DOTA_Tooltip_ability_aertega_frost_nova_Description"		"После трехсекундной подготовки, образует вокруг себя мощную ледяную будрю, замораживая врагов в радиусе 2000."
+		"DOTA_Tooltip_ability_aertega_frost_nova_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_aertega_frost_nova_freeze_duration"	"ДЛИТЕЛЬНОСТЬ ЗАМОРОЗКИ:"
+
+		"DOTA_Tooltip_modifier_aertega_frost_nova"					"Giga Frost Nova"
+		"DOTA_Tooltip_modifier_aertega_frost_nova_Description"		"Заморожен"
+
+		"DOTA_Tooltip_ability_winterblight_torturok_passive"		"Winterhide"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_Description"	"В ответ на любой входящий урон образуется ледяной осколок, направленный обратно в атаковавшего врага, который наносит урон и замедляет цель."
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_ms_loss"		"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_winterblight_torturok_passive_as_loss"		"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_ability_torturok_comet"						"Primal Leap"
+		"DOTA_Tooltip_ability_torturok_comet_Description"			"Прыгает в указанную точку"
+
+		"DOTA_Tooltip_ability_torturok_aura"						"Frostbite Aura"
+		"DOTA_Tooltip_ability_torturok_aura_Description"			"Враги в радиусе 800 получают урон, когда двигаются."
+		"DOTA_Tooltip_ability_torturok_aura_damage_per_distance"	"УРОН ЗА РАССТОЯНИЕ:"
+
+		"DOTA_Tooltip_modifier_torturok_aura_effect"				"Frostbite Aura"
+		"DOTA_Tooltip_modifier_torturok_aura_effect_Description"	"Получает урон, пока двигается"
+
+		"DOTA_Tooltip_ability_ozubu_passive"						"Exonova"
+		"DOTA_Tooltip_ability_ozubu_passive_Description"			"Постоянные ледяные взрывы вокруг владельца умения."
+		"DOTA_Tooltip_ability_ozubu_passive_damage"					"УРОН:"
+		"DOTA_Tooltip_ability_ozubu_passive_ms_loss"				"СНИЖЕНИЕ СКОРОСТИ ПЕРЕДВИЖЕНИЯ:"
+		"DOTA_Tooltip_ability_ozubu_passive_as_loss"				"СНИЖЕНИЕ СКОРОСТИ АТАКИ:"
+
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom"			"Ice Venom Dart"
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_Description"	"Наносит урон выбранной цели и переносит с себя один отрицательный эффект на врага."
+		"DOTA_Tooltip_ability_winterblight_ozubu_ice_venom_damage"	"УРОН:"
+
+		"DOTA_Tooltip_ability_ozubu_spiderling_passive"				"Ice Venom Bite"
+		"DOTA_Tooltip_ability_ozubu_spiderling_passive_Description"	"Переносит 1 отрицательный эффект на врага при попадании. Дополнительно ненадолго отравляет цель, нанося урон каждые 0.1 секунды."
+		
+		"DOTA_Tooltip_modifier_ozubu_spiderling_poison"				"Ice Venom Bite"
+		"DOTA_Tooltip_modifier_ozubu_spiderling_poison_Description"	"Получает урон каждые 0.1 секунды"
 
 		"DOTA_Tooltip_ability_gigarraun_fissure"									"Gigarruan Fissue"
 		"DOTA_Tooltip_ability_gigarraun_fissure_Description"						"Длинный разлом создает недвижимую стену. Противники, попавшие под удар, получат урон и оглушение."	

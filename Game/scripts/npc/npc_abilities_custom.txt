@@ -11583,7 +11583,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"				"FIELD_FLOAT"
 				"property_one"			"0.5"
 			}
 			"02"
@@ -22748,7 +22748,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"15"
+				"property_one"			"0.5"
 			}
 		}
 	}
@@ -56806,7 +56806,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "3"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "7"
 				}
 			}
 		}
@@ -56924,7 +56924,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"property_two"			"3"
+				"property_two"			"7"
 			}
 		}
 	}
@@ -58565,18 +58565,23 @@
 		"AbilityTextureName"	"hydroxis/hydroxis_r_3"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"property_one"			"8"
+				"property_one"			"2"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"element_one"			"14"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"4"
 			}
 		}
 	}
@@ -86253,6 +86258,7 @@
 		"MaxLevel"				 "7"
 		"AOERadius"				"600"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -86379,7 +86385,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_percent"			"25.0 25.0 25.00"
+				"damage_percent"			"15.0 15.0 15.0"
 			}
 			"03"
 			{
@@ -116024,6 +116030,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"seafortress/creature_pure_strike"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{
@@ -134240,6 +134247,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"terrorblade_sunder"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"MaxLevel"	"3"
 		"Modifiers"
 		{

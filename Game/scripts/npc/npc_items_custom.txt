@@ -48719,7 +48719,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"500 1000 1500 2000 2500"
+				"amethyst1"			"2000 4000 6000 8000 10000"
 			}
 		}
 		"precache"
@@ -63660,6 +63660,26 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"amethyst1"			"2 3 4 5 5"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"2 4 6 8 10"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"1 2 3 4 5"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"2 4 6 8 10"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"1 1 2 2 3"
 			}
 		}
 		"precache"
