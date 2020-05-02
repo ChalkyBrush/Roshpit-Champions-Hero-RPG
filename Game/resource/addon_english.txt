@@ -21982,7 +21982,10 @@
 		"tarot_sun"												"The Sun"
 		"tarot_sun_description"									"Burning Energy..."
 
-		"tarot_judgement"												"The Judgement"
+		"tarot_judgement"												"Judgement"
 		"tarot_judgement_description"									"Evaluation and Awakening..."
+
+		"tarot_world"												"The World"
+		"tarot_world_description"									"Full Completion..."
 	}	
 }

@@ -902,6 +902,9 @@ function Winterblight:MithrilReward(position, code)
         if code == "cruxys" then
           reward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD
           stonesReward = WINTERBLIGHT_MITHRIL_CASTLE_REWARD_STONE
+        elseif code == "world_commander" then
+          reward = WINTERBLIGHT_MITHRIL_WORLD_COMMANDER_REWARD
+          stonesReward = WINTERBLIGHT_MITHRIL_WORLD_COMMANDER_REWARD_STONE
         end
         if GameState:GetDifficultyFactor() == 2 then
           reward = reward * WINTERBLIGHT_MITHRIL_MULT_ELITE

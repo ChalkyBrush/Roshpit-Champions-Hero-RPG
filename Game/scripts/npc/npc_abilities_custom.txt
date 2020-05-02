@@ -88535,6 +88535,20 @@
 					}
 				}
 			}
+			"modifier_diviner_world_pad_think"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"world_pad_thinker"
+						"target"		"TARGET"
+					}
+				}
+			}
 		}
 	}
 
@@ -92655,17 +92669,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"burn_damage"		"100 300 1200"
+				"buff_damage"		"100 200 300"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"burn_duration"		"4 5 6"
+				"buff_attackspeed"		"120 280 500"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_speed_loss"		"-100 -240 -600"
+				"buff_ms"		"40 70 100"
 			}
 		}
 
@@ -92717,8 +92731,154 @@
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				"EffectName"	"particles/econ/items/huskar/huskar_ti8/huskar_ti8_shoulder_heal.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"modifier_vorethrex_phase_2"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_gods_strength.vpcf" 	   
+				"StatusEffectPriority"  "15"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%buff_attackspeed"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%buff_ms"
+				    "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%buff_damage"
+				}
 			}
 		}
+	}
+
+	"winterblight_vorethrex_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"rpc/paladin_crusader_dash"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0 5.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"debuff_duration"				"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"atk_power_loss"				"-40 -70 -100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 1200 10000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_regen_loss"				"-3 -5 -7"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"vorethrex_dash_start"
+				"target"		"POINT"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+				"Function"		"vorethrex_projectile_hit"
+				"target"        "TARGET"
+				"damage"		"%damage"
+				"debuff_duration"	"%debuff_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_vorethrex_dash"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorethrex_dash_think"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/roshpit/winterblight/red_buff.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"vorethrex_dash_end"
+					}
+				}
+
+			}
+			"modifier_vorethrex_dash_debuff"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_silencer/silencer_curse.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%atk_power_loss"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%health_regen_loss"
+				}
+			}
+		}
+
 	}
 
 

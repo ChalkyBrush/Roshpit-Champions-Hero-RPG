@@ -365,6 +365,8 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_scale"] = 0.84
 		Winterblight.CASTLE_DATA["tarot"][21]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][1] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][2] = {index = 3, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][22] = {}
 		Winterblight.CASTLE_DATA["tarot"][22]["name"] = "world"
@@ -372,18 +374,18 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_scale"] = 0.87
 		Winterblight.CASTLE_DATA["tarot"][22]["rooms"] = {}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][1] = {index = 12, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][2] = {index = 11, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][3] = {index = 10, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][4] = {index = 9, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][5] = {index = 8, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][6] = {index = 7, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][7] = {index = 6, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][8] = {index = 5, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][9] = {index = 4, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][10] = {index = 3, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][11] = {index = 2, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][12] = {index = 1, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][1] = {index = 12, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][2] = {index = 11, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][3] = {index = 10, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][4] = {index = 9, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][5] = {index = 8, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][6] = {index = 7, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][7] = {index = 6, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][8] = {index = 5, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][9] = {index = 4, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][10] = {index = 3, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][11] = {index = 2, variant = 1}
+		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][12] = {index = 1, variant = 1}
 		-- DOORS
 		Winterblight.CASTLE_DATA["doors"] = {}
 		Winterblight.CASTLE_DATA["doors"][1] = {}
@@ -502,6 +504,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][1]["extra_goal"] = 9
 		Winterblight.CASTLE_DATA["rooms"][1]["key_positions"] = {Vector(11264,15232), Vector(12544, 15232)}
 		Winterblight.CASTLE_DATA["rooms"][1]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][1]["mid_point"] = Vector(12544, 15313)
 
 		-- cellar
 		Winterblight.CASTLE_DATA["rooms"][2] = {}
@@ -512,6 +515,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][2]["extra_goal"] = 30
 		Winterblight.CASTLE_DATA["rooms"][2]["key_positions"] = {Vector(15488,16000), Vector(15440, 15307)}
 		Winterblight.CASTLE_DATA["rooms"][2]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][2]["mid_point"] = Vector(15616, 15104)
 
 		-- ice_harbor
 		Winterblight.CASTLE_DATA["rooms"][3] = {}
@@ -522,6 +526,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][3]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][3]["key_positions"] = {Vector(11859,11682), Vector(11859, 10667), Vector(11628, 9898)}
 		Winterblight.CASTLE_DATA["rooms"][3]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][3]["mid_point"] = Vector(11865, 10702)
 
 		-- torture_chamber
 		Winterblight.CASTLE_DATA["rooms"][4] = {}
@@ -532,6 +537,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][4]["extra_goal"] = 25
 		Winterblight.CASTLE_DATA["rooms"][4]["key_positions"] = {Vector(15784, 10496), Vector(15304, 11008), Vector(15304, 11392), Vector(15304, 11776)}
 		Winterblight.CASTLE_DATA["rooms"][4]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][4]["mid_point"] = Vector(15021, 10624)
 
 		-- mouldy_burial_chamber
 		Winterblight.CASTLE_DATA["rooms"][5] = {}
@@ -542,6 +548,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][5]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][5]["key_positions"] = {Vector(10624, 6609), Vector(10624, 7212), Vector(10578, 8030)}
 		Winterblight.CASTLE_DATA["rooms"][5]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][5]["mid_point"] = Vector(10690, 8093)
 
 		-- lookout
 		Winterblight.CASTLE_DATA["rooms"][6] = {}
@@ -552,6 +559,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][6]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][6]["key_positions"] = {Vector(15646, 5704), Vector(15410, 7380), Vector(16000, 4224)}
 		Winterblight.CASTLE_DATA["rooms"][6]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][6]["mid_point"] = Vector(14697, 5747)
 
 		-- slime_chamber
 		Winterblight.CASTLE_DATA["rooms"][7] = {}
@@ -562,6 +570,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][7]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][7]["key_positions"] = {Vector(10837, 5609), Vector(9492, 5446), Vector(8960, 3660)}
 		Winterblight.CASTLE_DATA["rooms"][7]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][7]["mid_point"] = Vector(10902, 3637)
 
 		-- weapons_cache
 		Winterblight.CASTLE_DATA["rooms"][8] = {}
@@ -572,6 +581,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][8]["extra_goal"] = 18
 		Winterblight.CASTLE_DATA["rooms"][8]["key_positions"] = {Vector(15669, 1024), Vector(15120, 1870), Vector(14413, 1965)}
 		Winterblight.CASTLE_DATA["rooms"][8]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][8]["mid_point"] = Vector(15104, 1920)
 
 		-- freezer
 		Winterblight.CASTLE_DATA["rooms"][9] = {}
@@ -582,6 +592,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][9]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][9]["key_positions"] = {Vector(9412, -13), Vector(9412, -640), Vector(9088, -1152)}
 		Winterblight.CASTLE_DATA["rooms"][9]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][9]["mid_point"] = Vector(9441, -256)
 
 		-- treasure_stash
 		Winterblight.CASTLE_DATA["rooms"][10] = {}
@@ -592,6 +603,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][10]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][10]["key_positions"] = {Vector(11612, -2688), Vector(10491, -2688)}
 		Winterblight.CASTLE_DATA["rooms"][10]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][10]["mid_point"] = Vector(11008, -2688)
 
 		-- font_of_luminescence
 		Winterblight.CASTLE_DATA["rooms"][11] = {}
@@ -602,6 +614,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][11]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][11]["key_positions"] = {Vector(12928, -2944), Vector(15257, -2775), Vector(14350, -2018)}
 		Winterblight.CASTLE_DATA["rooms"][11]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][11]["mid_point"] = Vector(12971, -2673)
 
 		-- blue_goo_room
 		Winterblight.CASTLE_DATA["rooms"][12] = {}
@@ -612,6 +625,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][12]["extra_goal"] = 0
 		Winterblight.CASTLE_DATA["rooms"][12]["key_positions"] = {Vector(15240, -863), Vector(15694, -632), Vector(15744, -1792)}
 		Winterblight.CASTLE_DATA["rooms"][12]["cleared"] = 0
+		Winterblight.CASTLE_DATA["rooms"][12]["mid_point"] = Vector(15620, -620)
 end
 
 function Winterblight:InitCastleProps()
@@ -735,6 +749,14 @@ end
 
 function Winterblight:CastleLobbySpawn1()
 	local spawnIndex = 1
+	if Winterblight.CastleTarot["name"] == "world" then
+		local goo_dummy = CreateUnitByName("npc_dummy_unit", Vector(9778, 4642), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, goo_dummy, "modifier_room_7_goo_aura", {})
+		goo_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		Winterblight.CastleDungeonMaster.goo_dummy = goo_dummy
+		Winterblight.CastleDungeonMaster.goo_switches = {0, 0, 0}
+	end
 	if spawnIndex == 1 then
 		Timers:CreateTimer(0.2, function()
 			local positionTable = {Vector(13440, 13858), Vector(13952, 13742), Vector(13952, 13440), Vector(13440, 13056)}
@@ -1157,7 +1179,7 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 		end
 	elseif Winterblight.CastleTarot["name"] == "judgement" then
 		if unit_name == "winterblight_castle_watchman" then
-			unit_name = "winterblight_fallen_one"
+			unit_name = "winterblight_judgement_fallen"
 		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
@@ -1222,6 +1244,8 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 			local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, enemy, "modifier_diviner_sun_immolation", {})
 		end
+	elseif Winterblight.CastleTarot["name"] == "world" then
+		SpecialFX:ColoredPop(enemy:GetAbsOrigin()+Vector(0,0,60), Vector(120, 255, 140))
 	end
 	return enemy
 end
@@ -1266,10 +1290,18 @@ function Winterblight:CastleRoomEnemyGoalReached(room_index)
 		Winterblight:SpawnTreasureRoomLoversHearts()
 	else
 		Winterblight.CastleDungeonMaster.key_drops = Winterblight.CastleDungeonMaster.key_drops + 1
-		if Winterblight.CastleDungeonMaster.key_drops == #Winterblight.CastleTarot["rooms"] then
-			Winterblight:SpawnRoomKey(room_index, true)
+		if Winterblight.CastleTarot["name"] == "world" then
+			if Winterblight.CastleDungeonMaster.key_drops == 12 then
+				Winterblight:SpawnRoomKey(room_index, true)
+			else
+				Winterblight:SpawnRoomKey(room_index, false)
+			end
 		else
-			Winterblight:SpawnRoomKey(room_index, false)
+			if Winterblight.CastleDungeonMaster.key_drops == #Winterblight.CastleTarot["rooms"] then
+				Winterblight:SpawnRoomKey(room_index, true)
+			else
+				Winterblight:SpawnRoomKey(room_index, false)
+			end
 		end
 	end
 end
@@ -1737,20 +1769,21 @@ end
 
 function Winterblight:SpawnCastleRoom7(variant)
 	local room_index = 7
-
-	local goo_dummy = CreateUnitByName("npc_dummy_unit", Vector(9778, 4642), false, nil, nil, DOTA_TEAM_NEUTRALS)
-	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
-	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, goo_dummy, "modifier_room_7_goo_aura", {})
-	goo_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
-
-
+	if not Winterblight.CastleDungeonMaster.goo_dummy then
+		local goo_dummy = CreateUnitByName("npc_dummy_unit", Vector(9778, 4642), false, nil, nil, DOTA_TEAM_NEUTRALS)
+		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+		master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, goo_dummy, "modifier_room_7_goo_aura", {})
+		goo_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+		Winterblight.CastleDungeonMaster.goo_dummy = goo_dummy
+		Winterblight.CastleDungeonMaster.goo_switches = {0, 0, 0}
+	end
 	local buttonsPositions = {Vector(9037, 3622, 1584), Vector(9514, 5496, 1584), Vector(10867, 5619, 1584)}
 	for i = 1, #buttonsPositions, 1 do
 		local button = Entities:FindByNameNearest("GooSwitchButton", buttonsPositions[i], 800)
 		button:SetAbsOrigin(button:GetAbsOrigin() + Vector(0,0,285))
 	end
-	Winterblight.CastleDungeonMaster.goo_switches = {0, 0, 0}
-	Winterblight.CastleDungeonMaster.goo_dummy = goo_dummy
+	Winterblight.CastleDungeonMaster.goo_switches_can_be_pressed = true
+
 	if variant == 1 or variant == 2 then
 		Timers:CreateTimer(0.5, function()
 			for i = 0, 2, 1 do
@@ -2764,7 +2797,9 @@ function Winterblight:PostCastleBossEvents()
 	elseif Winterblight.CastleTarot["name"] == "temperance" then
 		Winterblight:TemperanceBossChests()
 	elseif Winterblight.CastleTarot["name"] == "world" then
-		Winterblight:WorldBossSpawn()
+		Timers:CreateTimer(10, function()
+			Winterblight:WorldBossSpawn()
+		end)
 	end
 end
 
@@ -2875,7 +2910,7 @@ function Winterblight:PrecacheTarotAssets()
 	elseif Winterblight.CastleTarot["name"] == "judgement" then
 		local function precache_function()
 		end
-		PrecacheUnitByNameAsync("winterblight_fallen_one", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_judgement_fallen", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "world" then
 		local function precache_function()
 		end
@@ -3661,4 +3696,34 @@ function Winterblight:WorldBossSpawn()
 	  boss.aggroSound = aggroSound
 	end
 	boss.fight_phase = 0
+end
+
+function Winterblight:WorldInit()
+	for i = 2, 13, 1 do
+		Winterblight:OpenCastleDoorByIndex(i)
+	end
+	Winterblight:WorldRoomInitializers()
+end
+
+function Winterblight:WorldRoomInitializers()
+	Winterblight.CastleDungeonMaster.world_pad_table = {}
+	for i = 1, 12, 1 do
+		Timers:CreateTimer(i*0.03, function()
+			if Winterblight.CASTLE_DATA["rooms"][i]["cleared"] == 0 then
+				local pad_point = Winterblight.CASTLE_DATA["rooms"][i]["mid_point"]
+				local pad_dummy = CreateUnitByName("npc_dummy_unit", pad_point, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				pad_dummy:SetRenderColor(100, 140, 255)
+				pad_dummy:SetModelScale(0.5)
+				pad_dummy:SetModel("models/props_gameplay/conquest_point.vmdl")
+				pad_dummy:SetOriginalModel("models/props_gameplay/conquest_point.vmdl")
+				pad_dummy:SetAbsOrigin(pad_dummy:GetAbsOrigin()+Vector(0,0,35))
+				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")		
+				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, pad_dummy, "modifier_diviner_world_pad_think", {})
+				pad_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+				pad_dummy.room_index = i
+				table.insert(Winterblight.CastleDungeonMaster.world_pad_table, pad_dummy)	
+			end
+		end)
+	end
+
 end

@@ -132,7 +132,11 @@ function diviner_think(event)
 				Winterblight:CastleLobbySpawnHermit()
 			end
 			Winterblight:CastleLobbySpawn1()
-			Winterblight:CastleNextRoomInit()
+			if Winterblight.CastleTarot["name"] == "world" then
+				Winterblight:WorldInit()
+			else
+				Winterblight:CastleNextRoomInit()
+			end
 			StartSoundEvent("Winterblight.HorusHYPE", caster)
 		end)
 		Timers:CreateTimer(6.0, function()
@@ -336,7 +340,7 @@ function diviner_think(event)
 			end
 		end
 	end
-	if Winterblight.CASTLE_DATA["rooms"][11]["active"] >= 1 then
+	if Winterblight.CASTLE_DATA["rooms"][11]["active"] >= 1 and Winterblight.CastleTarot["name"] == "moon" then
 		if not caster.moon_lift_bros then
 			local heros = FindUnitsInRadius(caster:GetTeamNumber(), Vector(14712, -2720, 1800), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 			if #heros > 0 then
@@ -496,7 +500,7 @@ function castle_room_unit_die(event)
 		print("ROOM UNIT DIE - Room: "..unit.room_index..", Total Slain: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"])
 		print("GOAL: "..Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"])
 		print("ROOM ACTIVE?: "..Winterblight.ActiveCastleRoom["active"])
-		if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] == Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
+		if Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemies_slain"] >= Winterblight.CASTLE_DATA["rooms"][unit.room_index]["enemy_spawn_count"] + Winterblight.CASTLE_DATA["rooms"][unit.room_index]["extra_goal"] then
 			if Winterblight.ActiveCastleRoom["active"] == 2 then
 				Winterblight.ActiveCastleRoom["active"] = 3
 				Winterblight:CastleRoomEnemyGoalReached(unit.room_index)
@@ -744,7 +748,11 @@ function castle_key_waiting_think(event)
 				ParticleManager:DestroyParticle(key.skullpfx, false)
 			end
 		else
-			Winterblight:CastleNextRoomInit()
+			if Winterblight.CastleTarot["name"] == "world" then
+				Winterblight:WorldRoomInitializers()
+			else
+				Winterblight:CastleNextRoomInit()
+			end
 		end
 		if Winterblight.CastleTarot["name"] == "empress" then
 			master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, key.acquiring_hero, "modifier_diviner_empress_speed_boost", {duration = 90})
@@ -2214,6 +2222,17 @@ function use_scryers_stone(event)
 				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
+			elseif Winterblight.CastleTarot["name"] == "world" then
+				for i = 1, 12, 1 do
+					if Winterblight.CASTLE_DATA["rooms"][i]["cleared"] == 0 then
+						local door_index = Winterblight.CASTLE_DATA["rooms"][i]["door_index"]
+						local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
+						AddFOWViewer(caster:GetTeamNumber(), door_position, 600, 10, false)
+						MinimapEvent(caster:GetTeamNumber(), caster, door_position.x, door_position.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+					end
+				end
+				EmitSoundOnClient("Winterblight.ScryersStone.Ping", caster:GetPlayerOwner())
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.ActiveCastleRoom then
 				print("ACTIVE ROOM?")
 				if not Winterblight.CastleBossDead then
@@ -4075,16 +4094,34 @@ function vorthrex_passive_think(event)
 	if caster.dying then
 		return false
 	end
+	if caster.aggro then
+		local castAbility = caster:FindAbilityByName("winterblight_vorethrex_dash")
+		if castAbility:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = castAbility:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+			return true
+		end
+	end
 	if caster:GetHealth() < 100 then
 		if caster.fight_phase == 0 then
 			caster.dying = true
 			EmitSoundOn("Winterblight.Vorethrex.Die.Pop", caster)
 			EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_dying_think", {})
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_disabled", {})
 			caster.deathPhase = 0	
 			Timers:CreateTimer(3, function()
 				caster:RemoveModifierByName("modifier_vorethrex_dying_think")
-				ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_disabled", {})
 				EmitSoundOn("Winterblight.Vorethrex.Aggro", caster)
 				Timers:CreateTimer(1.5, function()
 					StartAnimation(caster, {duration = 3.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.6})
@@ -4120,10 +4157,17 @@ function vorthrex_passive_think(event)
 							UTIL_Remove(skull)
 						end)
 					end
+					Timers:CreateTimer(1.1, function()
+						StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1})
+						EmitSoundOn("Winterblight.Vorethrex.GodsStrength.VO", caster)
+					end)
 					Timers:CreateTimer(1.5, function()
 						caster.fight_phase = 1
 						caster.dying = false
 						caster:RemoveModifierByName("modifier_vorethrex_disabled")
+						EmitSoundOn("Winterblight.Vorethrex.GodsStrength", caster)
+						ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_phase_2", {})
+						EmitSoundOn("particles/units/heroes/hero_sven/sven_loadout.vpcf", caster)
 					end)
 				end)
 			end)					
@@ -4131,10 +4175,13 @@ function vorthrex_passive_think(event)
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 10, false)
 			EmitSoundOn("Winterblight.Vorethrex.Die.Pop", caster)
 			caster.dying = true
-			EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
+			EmitSoundOn("Winterblight.Vorethrex.No.Vo", caster)
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_dying_think", {})
 			caster.deathPhase = 1
 			caster:BossDrops(12)
+			Timers:CreateTimer(2, function()
+				EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
+			end)
 			Timers:CreateTimer(4, function()
 				StartAnimation(caster, {duration = 8.0, activity = ACT_DOTA_DIE, rate = 1})
 				caster.deathPhase = 2
@@ -4199,4 +4246,110 @@ function vorthrex_dying_think(event)
 		caster:SetForwardVector(rotatedFV)
 	end
 
+end
+
+function vorethrex_dash_start(event)
+	local caster = event.caster
+	local ability = event.ability
+
+	
+	EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
+
+	-- WallPhysics:Jump(caster, caster:GetForwardVector(), 50, 15, 2, 0.7)
+	ability.forwardVec = ((event.target_points[1] - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	-- WallPhysics:JumpFixedDistanceWithBlocking(caster, caster:GetForwardVector(), 400, 15, 50, 1, 1)
+	Timers:CreateTimer(0.1, function()
+		EmitSoundOn("DOTA_Item.ForceStaff.Activate", caster)
+	end)
+	local dash_duration = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), event.target_points[1])/1800 + 0.3
+	StartAnimation(caster, {duration = dash_duration, activity = ACT_DOTA_OVERRIDE_ABILITY_1, rate = 1})
+	caster:RemoveModifierByName("modifier_crusader_dash")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_dash", {duration = dash_duration})
+
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.Vorethrex.Dash.Main", caster)
+	local info =
+	{
+		Ability = ability,
+		EffectName = "particles/roshpit/winterblight/vorethrex_dash_projectile.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 70) - ability.forwardVec * 300,
+		fDistance = 1600,
+		fStartRadius = 260,
+		fEndRadius = 260,
+		Source = caster,
+		StartPosition = "attach_origin",
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime = GameRules:GetGameTime() + 5.0,
+		bDeleteOnHit = false,
+		vVelocity = ability.forwardVec * 1600,
+		bProvidesVision = false,
+	}
+	projectile = ProjectileManager:CreateLinearProjectile(info)
+
+end
+
+function vorethrex_dash_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local position = caster:GetAbsOrigin()
+	local obstruction = WallPhysics:FindNearestObstruction(position)
+	local pushSpeed = 55
+	pushSpeed = Filters:GetAdjustedESpeed(caster, pushSpeed, false)
+	local newPosition = position + ability.forwardVec * pushSpeed
+	local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, (position + ability.forwardVec * 72), caster)
+	if not blockUnit then
+		caster:SetOrigin(newPosition)
+	end
+
+end
+
+function vorethrex_dash_end(event)
+	local caster = event.caster
+	local ability = event.ability
+	WallPhysics:ClearSpaceForUnit(caster, caster:GetAbsOrigin())
+end
+
+function vorethrex_projectile_hit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	EmitSoundOn("Winterblight.Vorethrex.DashProjectileHit", target)
+	Enemies:ApplyDamageToPlayer(target, caster, event.damage, DAMAGE_TYPE_MAGICAL, ability)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_vorethrex_dash_debuff", {duration = event.debuff_duration})
+end
+
+function world_pad_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, 280, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+	CustomAbilities:QuickParticleAtPoint("particles/econ/world/towers/rock_golem/radiant_rock_golem_destruction_sparkle.vpcf", target:GetAbsOrigin(), 3)
+	if #enemies > 0 then
+		target:RemoveModifierByName("modifier_diviner_world_pad_think")
+		local room_index = target.room_index
+		EmitSoundOn("Winterblight.Vorethrex.WorldPlatform.Pop", target)
+		EmitSoundOn("Winterblight.Vorethrex.WorldPlatform.Pop2", target)
+		local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/world_pad_pop_impact.vpcf", target:GetAbsOrigin()+Vector(0,0,100), 3)
+		ParticleManager:SetParticleControl(pfx, 3, target:GetAbsOrigin())
+		SpecialFX:ColoredPop(target:GetAbsOrigin()+Vector(0,0,80), Vector(140, 180, 255))
+		Winterblight.ActiveCastleRoom = Winterblight.CASTLE_DATA["rooms"][room_index]
+		Winterblight.ActiveCastleRoom["active"] = 1
+		Timers:CreateTimer(1, function()
+			Winterblight.CastleTarot["rooms"][Winterblight.CASTLE_DATA["rooms_cleared"] + 1] = {index = room_index, variant = 1}
+			Winterblight:CastleNextRoomInit()
+		end)
+		for i = 1, #Winterblight.CastleDungeonMaster.world_pad_table, 1 do
+			if Winterblight.CastleDungeonMaster.world_pad_table[i] == target then
+				Events:smoothTranslate(Winterblight.CastleDungeonMaster.world_pad_table[i], Vector(0,0,-4), 30, Vector(0,0), nil)
+				Timers:CreateTimer(1, function()
+					UTIL_Remove(Winterblight.CastleDungeonMaster.world_pad_table[i])
+				end)
+			else
+				UTIL_Remove(Winterblight.CastleDungeonMaster.world_pad_table[i])
+			end
+		end
+	end
 end

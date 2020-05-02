@@ -114027,7 +114027,7 @@
         "RoshpitCastAOE"        "1000"
     }
 
-    "winterblight_fallen_one"
+    "winterblight_judgement_fallen"
     {
         "BaseClass" "npc_dota_creature"
         "Model" "models/heroes/terrorblade/terrorblade.vmdl"
@@ -114142,6 +114142,12 @@
         "precache"
         {
             "soundfile" "soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+            "particle"  "particles/roshpit/winterblight/red_buff.vpcf"
+            "particle"  "particles/roshpit/winterblight/vorethrex_dash_projectile.vpcf"
+            "particle"  "particles/units/heroes/hero_sven/sven_loadout.vpcf"
+            "particle"  "particles/units/heroes/hero_silencer/silencer_curse.vpcf"
+            "model"     "models/props_gameplay/conquest_point.vmdl"
+            "particle"  "particles/roshpit/winterblight/world_pad_pop_impact.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
@@ -114149,7 +114155,7 @@
         "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
         "AttackDamageMin"   "100012"
         "AttackDamageMax"   "100012"
-        "AttackRate"    "1.0"
+        "AttackRate"    "0.9"
         "AttackAnimationPoint"  "0.35"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "280"
@@ -114170,6 +114176,7 @@
         "VisionNighttimeRange"  "800"
 
         "Ability1"          "winterblight_vorethrex_passive"
+        "Ability2"          "winterblight_vorethrex_dash"
         "TeamName"           "DOTA_TEAM_NEUTRALS"
         "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
         "Creature"
