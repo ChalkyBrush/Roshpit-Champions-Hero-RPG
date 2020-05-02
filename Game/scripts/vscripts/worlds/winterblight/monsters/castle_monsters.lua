@@ -2223,7 +2223,7 @@ function use_scryers_stone(event)
 				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Winterblight.ScryersStone.Effect", caster)
 				EmitSoundOnLocationWithCaster(reveal_pos, "Winterblight.ScryersStone.Effect", caster)
 			elseif Winterblight.CastleTarot["name"] == "world" then
-				for i = 1, 12, 1 do
+				for i = 12, 1, -1 do
 					if Winterblight.CASTLE_DATA["rooms"][i]["cleared"] == 0 then
 						local door_index = Winterblight.CASTLE_DATA["rooms"][i]["door_index"]
 						local door_position = Winterblight.CASTLE_DATA["doors"][door_index]["position"]
@@ -4348,6 +4348,7 @@ function world_pad_thinker(event)
 					UTIL_Remove(Winterblight.CastleDungeonMaster.world_pad_table[i])
 				end)
 			else
+				Winterblight.CastleDungeonMaster.world_pad_table[i]:RemoveModifierByName("modifier_diviner_world_pad_think")
 				UTIL_Remove(Winterblight.CastleDungeonMaster.world_pad_table[i])
 			end
 		end

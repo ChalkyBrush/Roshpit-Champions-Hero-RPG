@@ -371,7 +371,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][22] = {}
 		Winterblight.CASTLE_DATA["tarot"][22]["name"] = "world"
 		Winterblight.CASTLE_DATA["tarot"][22]["index"] = "21"
-		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(1, 0)
+		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_scale"] = 0.87
 		Winterblight.CASTLE_DATA["tarot"][22]["rooms"] = {}
 		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][1] = {index = 12, variant = 1}
@@ -3716,7 +3716,7 @@ function Winterblight:WorldRoomInitializers()
 				pad_dummy:SetModelScale(0.5)
 				pad_dummy:SetModel("models/props_gameplay/conquest_point.vmdl")
 				pad_dummy:SetOriginalModel("models/props_gameplay/conquest_point.vmdl")
-				pad_dummy:SetAbsOrigin(pad_dummy:GetAbsOrigin()+Vector(0,0,35))
+				pad_dummy:SetAbsOrigin(pad_dummy:GetAbsOrigin()+Vector(0,0,30))
 				local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")		
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, pad_dummy, "modifier_diviner_world_pad_think", {})
 				pad_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
