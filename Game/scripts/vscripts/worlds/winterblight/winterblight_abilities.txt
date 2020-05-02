@@ -4571,6 +4571,21 @@
 				"var_type"			"FIELD_INTEGER"
 				"burn_damage"			"10 40 240"
 			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stacks"			"<% WINTERBLIGHT_SOULFIRE_STORM_STACKS %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"tick_rate"			"<% WINTERBLIGHT_SOULFIRE_TICK_RATE %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_duration"			"<% WINTERBLIGHT_SOULFIRE_BURN_DURATION %>"
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -4602,7 +4617,7 @@
 				"EffectName"		"particles/roshpit/winterblight/cold_seer_wave_burn.vpcf"
 				"EffectAttachType"	"follow_origin"
 			
-				"ThinkInterval"  "0.1"
+				"ThinkInterval"  "<% WINTERBLIGHT_SOULFIRE_TICK_RATE %>"
 				"OnIntervalThink"
 				{
 					"RunScript"
