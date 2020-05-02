@@ -266,6 +266,8 @@
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Creates waves of soul piercing ice at the target location. Enemies who are affected take damage over time. Casting an ability or being hit by a wave adds an additional stack. Damage is multiplied by the stack count."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"DOT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"TICK RATE, SECONDS:"
 		
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Taking damage over time. Casting an ability increases the stack count."

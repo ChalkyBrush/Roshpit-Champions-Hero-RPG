@@ -1624,42 +1624,42 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_RING_OF_NOBILITY_GEM_RUBY %>"
+				"ruby1"				"<% ITEM_RPC_RING_OF_NOBILITY_GEM_RUBY1 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_EMERALD %>"
+				"emerald1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_EMERALD1 %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_SAPPHIRE1 %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_AMETHYST %>"
+				"amethyst1"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_AMETHYST1 %>"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_RUBY %>"
+				"ruby2"				"<% ITEM_RPC_RING_OF_NOBILITY_GEM_RUBY2 %>"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_EMERALD %>"
+				"emerald2"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_EMERALD2 %>"
 			}
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_SAPPHIRE %>"
+				"sapphire2"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_SAPPHIRE2 %>"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"<% ITEM_RPC_RING_OF_NOBILITY_AUGMENTED_GEM_AMETHYST %>"
+				"amethyst2"			"<% ITEM_RPC_RING_OF_NOBILITY_GEM_AMETHYST2 %>"
 			}
 		}
 		"precache"

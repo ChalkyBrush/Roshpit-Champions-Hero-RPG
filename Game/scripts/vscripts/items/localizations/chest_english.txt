@@ -445,6 +445,8 @@
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
 		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Increases the Apprentice's attack damage by an additional @sapphire_property1"
 		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Increases Item Damage by @amethyst_property1%"
+		
+		"rubick_apprentice"									"Rubick Apprentice"
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."

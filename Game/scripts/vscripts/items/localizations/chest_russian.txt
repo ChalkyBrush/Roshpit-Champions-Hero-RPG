@@ -445,6 +445,8 @@
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Уменьшает время возрождения подмастерья на @emerald_property1 сек"
 		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Увеличивает урон Атаки подмастерья на @sapphire_property1"
 		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Увеличивает урон Предметов на @amethyst_property1%"
+		
+		"rubick_apprentice"									"Подмастерье Рубика"
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Копирует случайное заклинание у вражеского юнита. Заклинания не будут копированы, если у подмастерья уже имеется такое, или если юнит имеет защиту от воздействия (если нельзя приручить или захватить)."
