@@ -349,27 +349,41 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][20]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][20]["prop_scale"] = 0.65
 		Winterblight.CASTLE_DATA["tarot"][20]["rooms"] = {}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][1] = {index = 1, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][2] = {index = 4, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][3] = {index = 2, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][4] = {index = 3, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][5] = {index = 9, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][6] = {index = 10, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][7] = {index = 11, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][20]["rooms"][8] = {index = 8, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][1] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][1] = {index = 1, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][2] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][3] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][4] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][5] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][6] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][7] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][8] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][20]["rooms"][9] = {index = 6, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][21] = {}
 		Winterblight.CASTLE_DATA["tarot"][21]["name"] = "judgement"
 		Winterblight.CASTLE_DATA["tarot"][21]["index"] = "20"
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_scale"] = 0.84
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"] = {}
 
 		Winterblight.CASTLE_DATA["tarot"][22] = {}
 		Winterblight.CASTLE_DATA["tarot"][22]["name"] = "world"
 		Winterblight.CASTLE_DATA["tarot"][22]["index"] = "21"
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(1, 0)
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_scale"] = 0.87
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"] = {}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][1] = {index = 12, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][2] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][3] = {index = 10, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][4] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][5] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][6] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][7] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][8] = {index = 5, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][9] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][10] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][11] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][22]["rooms"][12] = {index = 1, variant = 1}
 		-- DOORS
 		Winterblight.CASTLE_DATA["doors"] = {}
 		Winterblight.CASTLE_DATA["doors"][1] = {}
@@ -1140,6 +1154,10 @@ function Winterblight:SpawnCastleRoomUnit(room_index, unit_name, position, fv, a
 			unit_name = "winterblight_elite_heat_fletcher"
 		elseif unit_name == "winterblight_castle_watchman" then
 			unit_name = "winterblight_iron_sun_warrior"
+		end
+	elseif Winterblight.CastleTarot["name"] == "judgement" then
+		if unit_name == "winterblight_castle_watchman" then
+			unit_name = "winterblight_fallen_one"
 		end
 	end
 	local enemy = Enemies:SpawnEnemyUnit(unit_name, position, fv, aggro)
@@ -2745,6 +2763,8 @@ function Winterblight:PostCastleBossEvents()
 		Winterblight:SpawnTreasureRoomChests()
 	elseif Winterblight.CastleTarot["name"] == "temperance" then
 		Winterblight:TemperanceBossChests()
+	elseif Winterblight.CastleTarot["name"] == "world" then
+		Winterblight:WorldBossSpawn()
 	end
 end
 
@@ -2852,6 +2872,14 @@ function Winterblight:PrecacheTarotAssets()
 		PrecacheUnitByNameAsync("winterblight_heat_fletcher", precache_function)	
 		PrecacheUnitByNameAsync("winterblight_elite_heat_fletcher", precache_function)	
 		PrecacheUnitByNameAsync("winterblight_aspect_of_solos", precache_function)
+	elseif Winterblight.CastleTarot["name"] == "judgement" then
+		local function precache_function()
+		end
+		PrecacheUnitByNameAsync("winterblight_fallen_one", precache_function)	
+	elseif Winterblight.CastleTarot["name"] == "world" then
+		local function precache_function()
+		end
+		PrecacheUnitByNameAsync("winterblight_world_commander_vorethrex", precache_function)
 	end
 end
 
@@ -3608,4 +3636,29 @@ function Winterblight:CastleSunPhoenixSequence()
 
 	Winterblight.CastleDungeonMaster.sun_phoenixes_slain = 0
 	Winterblight.CastleDungeonMaster.sun_phoenixes_count = #positionTable
+end
+
+function Winterblight:WorldBossSpawn()
+	local boss = Events:SpawnBoss("winterblight_world_commander_vorethrex", Vector(12544, 2688))
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, boss:GetAbsOrigin(), 800, 20, false)
+	SpecialFX:ColoredSpotlight(boss:GetAbsOrigin(), Vector(40, 155, 255))
+
+	boss:SetAbsOrigin(boss:GetAbsOrigin()+Vector(0,0,1000))
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
+	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, boss, "modifier_diviner_star_entering", {duration = 10})
+	boss:SetForwardVector(Vector(0,-1))
+	Timers:CreateTimer(2, function()
+		EmitSoundOn("Winterblight.DescribeTarotHaunt", boss)
+	end)
+	Timers:CreateTimer(3, function()
+		EmitSoundOn("Winterblight.Vorethrex.Spawn", boss)
+	end)
+    local ability = boss:AddAbility("dungeon_creep")
+	ability:SetLevel(1)
+	ability:ApplyDataDrivenModifier(boss, boss, "modifier_dungeon_thinker_creep", {})
+	local aggroSound = boss:GetKeyValue("RoshpitAggroSound")
+	if aggroSound ~= 0 then
+	  boss.aggroSound = aggroSound
+	end
+	boss.fight_phase = 0
 end

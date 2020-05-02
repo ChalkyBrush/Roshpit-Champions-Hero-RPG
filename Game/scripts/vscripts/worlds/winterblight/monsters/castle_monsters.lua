@@ -3765,7 +3765,9 @@ function diviner_star_entering_think(event)
 		key:RemoveModifierByName("modifier_diviner_star_entering")
 		if key:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 			key.cantAggro = false
-			Dungeons:AggroUnit(key)
+			if key:GetUnitName() ~= "winterblight_world_commander_vorethrex" then
+				Dungeons:AggroUnit(key)
+			end
 		end
 	end
 end
@@ -4065,4 +4067,136 @@ function aspect_of_solos_die(event)
 		end)
 		UTIL_Remove(caster)
 	end)
+end
+
+function vorthrex_passive_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.dying then
+		return false
+	end
+	if caster:GetHealth() < 100 then
+		if caster.fight_phase == 0 then
+			caster.dying = true
+			EmitSoundOn("Winterblight.Vorethrex.Die.Pop", caster)
+			EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_dying_think", {})
+			caster.deathPhase = 0	
+			Timers:CreateTimer(3, function()
+				caster:RemoveModifierByName("modifier_vorethrex_dying_think")
+				ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_disabled", {})
+				EmitSoundOn("Winterblight.Vorethrex.Aggro", caster)
+				Timers:CreateTimer(1.5, function()
+					StartAnimation(caster, {duration = 3.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 0.6})
+					EmitSoundOn("Winterblight.Vorethrex.Summon.VO", caster)
+					local perpFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2*math.pi/4)
+					for i = -1, 1, 1 do
+						local skullPosition = caster:GetAbsOrigin() + caster:GetForwardVector()*480 + perpFV*400*i
+						local skull = CreateUnitByName("npc_dummy_unit", skullPosition, true, nil, nil, DOTA_TEAM_NEUTRALS)
+						skull:SetAbsOrigin(skull:GetAbsOrigin() + Vector(0,0,1000))
+						skull:SetModelScale(4)
+						skull:SetModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+						skull:SetOriginalModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+						local dummy_ability = skull:FindAbilityByName("dummy_unit")
+						dummy_ability:SetLevel(1)
+						dummy_ability:ApplyDataDrivenModifier(skull, skull, "dummy_unit", {})
+						skull:SetForwardVector(caster:GetForwardVector())
+						Events:smoothTranslate(skull, Vector(0,0,-40), 25, Vector(0,0), nil)
+						Timers:CreateTimer(0.75, function()
+							if i == -1 then
+								skull.boss_spawn = "winterblight_baron_moredi"
+							elseif i == 0 then
+								skull.boss_spawn = "winterblight_lich_king_sonder"
+							elseif i == 1 then
+								skull.boss_spawn = "winterblight_wrath_queen_asyria"
+							end
+							local miniboss = Enemies:SpawnEnemyUnit(skull.boss_spawn, skull:GetAbsOrigin(), skull:GetForwardVector(), false)
+							Winterblight:EvilExplosion(miniboss:GetAbsOrigin())
+							EmitSoundOn("Winterblight.EvilExplosion.Main", miniboss)
+							EmitSoundOn("Winterblight.EvilExplosion.Highlight", miniboss)
+							Timers:CreateTimer(0.2, function()
+								Dungeons:AggroUnit(miniboss)
+							end)
+							UTIL_Remove(skull)
+						end)
+					end
+					Timers:CreateTimer(1.5, function()
+						caster.fight_phase = 1
+						caster.dying = false
+						caster:RemoveModifierByName("modifier_vorethrex_disabled")
+					end)
+				end)
+			end)					
+		elseif caster.fight_phase == 1 then
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 500, 10, false)
+			EmitSoundOn("Winterblight.Vorethrex.Die.Pop", caster)
+			caster.dying = true
+			EmitSoundOn("Winterblight.Vorethrex.Die.VO1", caster)
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_vorethrex_dying_think", {})
+			caster.deathPhase = 1
+			caster:BossDrops(12)
+			Timers:CreateTimer(4, function()
+				StartAnimation(caster, {duration = 8.0, activity = ACT_DOTA_DIE, rate = 1})
+				caster.deathPhase = 2
+				EmitSoundOn("Winterblight.Vorethrex.Die.VO2", caster)
+				Events:objectShake(caster, 70, 25, true, false, true, "Winterblight.Vorethrex.Die.Shake", 50)
+				Events:smoothTranslate(caster, Vector(0,0,1), 70, Vector(0,0,0.08), nil)
+				Timers:CreateTimer(2.15, function()
+					Enemies:EnemySlain(caster, nil)
+					CustomGameEventManager:Send_ServerToAllClients("hide_boss_health", {bossEntityIndex = caster:GetEntityIndex()})
+					Winterblight:EvilExplosion(caster:GetAbsOrigin())
+					EmitSoundOn("Winterblight.EvilExplosion.Highlight", caster)
+					EmitSoundOn("Winterblight.Tombstone.Explode", caster)
+					local particleName = "particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
+					local radius = 800
+					local particle1 = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, nil)
+					ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
+					ParticleManager:SetParticleControl(particle1, 1, Vector(radius, 1, 1000))
+					ParticleManager:SetParticleControl(particle1, 3, Vector(radius, radius, radius))
+					Timers:CreateTimer(3, function()
+						ParticleManager:DestroyParticle(particle1, false)
+					end)
+					local position = caster:GetAbsOrigin()
+					Timers:CreateTimer(3, function()
+						Winterblight:MithrilReward(position, "world_commander")
+					end)
+					UTIL_Remove(caster)
+				end)
+			end)
+			for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
+				Timers:CreateTimer(j * 0.3, function()
+					Winterblight:DropGlacierStone(caster:GetAbsOrigin())
+				end)
+			end
+			Timers:CreateTimer(2, function()
+				for j = 1, Winterblight.Stones, 1 do
+					Timers:CreateTimer(j, function()
+						RPCItems:DropSynthesisVessel(boss:GetAbsOrigin())
+					end)
+				end
+			end)
+		end
+	end
+end
+
+function vorthrex_dying_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster.deathPhase == 0 then
+		caster:SetHealth(caster:GetHealth() + caster:GetMaxHealth()*0.01)
+	elseif caster.deathPhase == 1 then
+		
+		if not caster.soundInterval then
+			caster.soundInterval = 0
+		end
+		if caster.soundInterval % 40 == 0 then
+			CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/boss_dying_tgt.vpcf", caster:GetAbsOrigin() + Vector(0, 0, 300), 3)
+			EmitSoundOn("Winterblight.Vorethrex.DyingThink", caster)
+		end
+		caster.soundInterval = caster.soundInterval + 1
+	elseif caster.deathPhase == 2 then
+		local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 60)
+		caster:SetForwardVector(rotatedFV)
+	end
+
 end

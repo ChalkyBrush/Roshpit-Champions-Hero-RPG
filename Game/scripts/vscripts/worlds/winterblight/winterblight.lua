@@ -9,7 +9,7 @@ require('worlds/winterblight/zones/winter_cave')
 require('worlds/winterblight/zones/mountain')
 require('worlds/winterblight/zones/blackfrost_citadel')
 
-Winterblight.Winter3Enabled = false
+Winterblight.Winter3Enabled = true
 
 function Winterblight:Debug()
     local item = RPCItems:CreateItem("item_debug_blink", nil, nil)
@@ -246,7 +246,8 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_galrens_skull", "Galren's Skull", "mythical", true)
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
-  Winterblight:CastleSunPhoenixSequence()
+  -- Winterblight:CastleSunPhoenixSequence()
+  Winterblight:WorldBossSpawn()
   -- Winterblight:WinterCastleBossSpawn()
   -- Enemies:SpawnEnemyUnit("winterblight_hanging_slayer", Vector(-15424,-2560), RandomVector(1), false)
 
