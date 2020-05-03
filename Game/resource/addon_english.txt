@@ -21986,6 +21986,6 @@
 		"tarot_judgement_description"									"Evaluation and Awakening..."
 
 		"tarot_world"												"The World"
-		"tarot_world_description"									"Full Completion..."
+		"tarot_world_description"									"..."
 	}	
 }

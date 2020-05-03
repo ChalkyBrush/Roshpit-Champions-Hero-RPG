@@ -512,6 +512,10 @@ function castle_room_unit_die(event)
 				master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, Winterblight.CastleDungeonMaster, "modifier_diviner_devil_door_waiter", {duration = 10})
 				Winterblight:CloseCastleDoorByRoomIndex(unit.room_index)
 			end
+		elseif Winterblight.CastleTarot["name"] == "judgement" then
+			if not Winterblight.CASTLE_DATA["rooms"][unit.room_index]["judgement_time_start"] then
+				Winterblight.CASTLE_DATA["rooms"][unit.room_index]["judgement_time_start"] = GameRules:GetGameTime()
+			end 
 		end
 	end
 	Winterblight:CastleEnemyDieItemHype(unit)
@@ -4353,4 +4357,287 @@ function world_pad_thinker(event)
 			end
 		end
 	end
+end
+
+function winter_castle_judge_think(event)
+	local caster = event.caster
+	local ability = event.ability
+	local judge = event.target	
+	if not judge.final_phase then
+		return false
+	end
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, judge:GetAbsOrigin(), 600, 2, false)
+	if judge.final_phase == 0 then
+		local target_position = Vector(11648, -1280)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then
+			judge:MoveToPosition(judge:GetAbsOrigin() + Vector(0,-80))
+			Winterblight:OpenCastleDoorByIndex(11)
+			judge.final_phase = 1
+			Timers:CreateTimer(5, function()
+				judge.final_phase = 2
+			end)
+		end
+	elseif judge.final_phase == 2 then
+		local target_position = Vector(10569, -2628)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then
+			judge.final_phase = 3
+			judge:MoveToPosition(judge:GetAbsOrigin() + Vector(0,-80))
+		end	
+	elseif judge.final_phase == 3 then
+		local enemies = FindUnitsInRadius(judge:GetTeamNumber(), judge:GetAbsOrigin(), nil, 480, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1.25})
+			EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+			judge.final_phase = 4
+			local time = Winterblight.JudgementTotalTime
+			local digits = {}
+			digits[1] = math.floor(time/600)
+			digits[2] = math.floor((time%600)/60)
+			digits[3] = nil
+			local seconds = time%60
+			digits[4] = math.floor(seconds/10)
+			digits[5] = seconds%10
+			Timers:CreateTimer(2, function()
+				for i = 1, 5, 1 do
+					Timers:CreateTimer(i*0.6 - 0.45, function()
+						StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+					end)
+					Timers:CreateTimer(i*0.6, function()
+						local prop_point = judge:GetAbsOrigin() + judge:GetForwardVector()*300 + Vector(-300, 0) + Vector(150*(i-1), 0)
+						local time_prop = CreateUnitByName("npc_dummy_unit", prop_point, false, nil, nil, DOTA_TEAM_NEUTRALS)
+						time_prop:SetRenderColor(100, 140, 255)
+						time_prop:SetModelScale(1)
+						-- time_prop:SetModel("models/heroes/wisp/wisp_additive.vmdl")
+						-- time_prop:SetOriginalModel("models/heroes/wisp/wisp_additive.vmdl")
+						SpecialFX:ColoredPop(time_prop:GetAbsOrigin()+Vector(0,0,20), Vector(0, 240, 255))
+						EmitSoundOn("Winterblight.CastleJudge.PropSpawn", time_prop)
+						table.insert(judge.props_table, time_prop)
+						if digits[i] then
+							time_prop.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/judgement_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, time_prop)
+							ParticleManager:SetParticleControlEnt(time_prop.counter_pfx, 0, time_prop, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", time_prop:GetAbsOrigin(), true)
+							ParticleManager:SetParticleControl(time_prop.counter_pfx, 1, Vector(0, digits[i], 0))
+						else
+							time_prop.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/judgement_delimiter.vpcf", PATTACH_OVERHEAD_FOLLOW, time_prop)
+							ParticleManager:SetParticleControlEnt(time_prop.counter_pfx, 0, time_prop, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", time_prop:GetAbsOrigin(), true)
+							ParticleManager:SetParticleControl(time_prop.counter_pfx, 1, Vector(0, digits[i], 0))
+						end
+					end)
+				end
+				Timers:CreateTimer(7, function()
+					-- for i = 1, #judge.props_table, 1 do
+					-- 	SpecialFX:ColoredPop(judge.props_table[i]:GetAbsOrigin()+Vector(0,0,20), Vector(0, 240, 255))
+					-- 	if judge.props_table[i].counter_pfx then
+					-- 		ParticleManager:DestroyParticle(judge.props_table[i].counter_pfx, false)
+					-- 	end
+					-- 	UTIL_Remove(judge.props_table[i])
+					-- end
+					if Winterblight.JudgementTotalTime > 900 then
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+						EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+						EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+						UTIL_Remove(judge)
+					else
+						judge.final_phase = 5
+					end
+				end)
+			end)
+		end	
+	elseif judge.final_phase == 5 then
+		local target_position = Vector(9752, -2921)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then
+			judge.final_phase = 6
+			judge:MoveToPosition(judge:GetAbsOrigin() + Vector(-20,20))
+			StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+			EmitSoundOn("Winterblight.CastleJudge.ChestVO", judge)
+			Timers:CreateTimer(0.45, function()
+				EmitSoundOn("Winterblight.CastleJudge.PropSpawn", judge)
+				Winterblight:GeneralChestSpawn(Vector(9498, -2670), Vector(1,-1))
+			end)
+			Timers:CreateTimer(2, function()
+				if Winterblight.JudgementTotalTime > 600 then
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+					EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+					UTIL_Remove(judge)
+				else
+					judge.final_phase = 7
+				end	
+			end)		
+		end		
+	elseif judge.final_phase == 7 then
+		local target_position = Vector(10351, -2560)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then
+			judge.final_phase = 8
+			judge:MoveToPosition(judge:GetAbsOrigin() + Vector(-20,20))
+			StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+			EmitSoundOn("Winterblight.CastleJudge.ChestVO", judge)
+			Timers:CreateTimer(0.45, function()
+				EmitSoundOn("Winterblight.CastleJudge.PropSpawn", judge)
+				Winterblight:GeneralChestSpawn(Vector(10130, -2278), Vector(1,-1))
+			end)
+			Timers:CreateTimer(2, function()
+				if Winterblight.JudgementTotalTime > 420 then
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+					EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+					UTIL_Remove(judge)
+				else
+					judge.final_phase = 9
+				end	
+			end)		
+		end		
+	elseif judge.final_phase == 9 then
+		local target_position = Vector(10990, -2207)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then
+			judge.final_phase = 10
+			judge:MoveToPosition(judge:GetAbsOrigin() + Vector(-20,20))
+			StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+			EmitSoundOn("Winterblight.CastleJudge.ChestVO", judge)
+			Timers:CreateTimer(0.45, function()
+				EmitSoundOn("Winterblight.CastleJudge.PropSpawn", judge)
+				Winterblight:GeneralChestSpawn(Vector(10746, -1902), Vector(1,-1))
+			end)
+			Timers:CreateTimer(2, function()
+				if Winterblight.JudgementTotalTime > 300 then
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+					EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+					UTIL_Remove(judge)
+				else
+					judge.final_phase = 11
+				end	
+			end)		
+		end	
+	elseif judge.final_phase == 11 then
+		local target_position = Vector(11008, -2688)
+		judge:MoveToPosition(target_position)
+		if WallPhysics:GetDistance2d(target_position, judge:GetAbsOrigin()) < 100 then	
+			judge.final_phase = 12
+			Timers:CreateTimer(2, function()
+				EmitSoundOn("Winterblight.CastleJudge.FinalEventVO", judge)
+				Events:objectShake(judge, 70, 15, true, false, true, "Winterblight.CastleJudge.OutShake", 16)
+				Timers:CreateTimer(0.5, function()
+					EmitSoundOn("Winterblight.GuideCave.Magical", judge)
+				end)
+				Timers:CreateTimer(2.2, function()
+					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+					EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+					EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+
+					local particle = "particles/units/heroes/hero_warlock/charge_of_light.vpcf"
+					local pfx = ParticleManager:CreateParticle(particle, PATTACH_CUSTOMORIGIN, judge)
+					ParticleManager:SetParticleControl(pfx, 0, judge:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx, 1, judge:GetAbsOrigin())
+					ParticleManager:SetParticleControl(pfx, 2, judge:GetForwardVector())
+					Timers:CreateTimer(2.5, function()
+						ParticleManager:DestroyParticle(pfx, false)
+					end)
+					local miniboss = Winterblight:SpawnCastleRoomUnit(0, "winterblight_paragon_of_judgement", judge:GetAbsOrigin(), Vector(0,-1), false, true)
+					EmitSoundOn("Winterblight.ParagonOfJudgement.SpawnEffect", miniboss)
+					Dungeons:AggroUnit(miniboss)
+					UTIL_Remove(judge)				
+				end)
+			end)
+		end	
+	end
+end
+
+function paragon_of_judgement_attack_land(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target	
+
+	local impact_damage = event.impact_damage
+	local stun_duration = event.stun_duration
+	local stun_chance = event.stun_chance
+	local luck = RandomInt(1, 100)
+	if luck <= stun_chance then
+		CustomAbilities:QuickAttachParticle("particles/econ/items/troll_warlord/troll_warlord_ti7_axe/troll_ti7_axe_bash_explosion.vpcf", target, 3)
+		EmitSoundOn("Winterblight.ParagonOfJudgement.Bash", target)
+		Enemies:ApplyDamageToPlayer(target, caster, impact_damage, DAMAGE_TYPE_PURE, ability)
+		Filters:ApplyStun(caster, stun_duration, target)
+	end
+end
+
+function judgement_spark_phase(event)
+	local caster = event.caster
+	StartAnimation(caster, {duration = 0.6, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.8})
+	EmitSoundOn("Winterblight.Cavern.WraithSpark.Pre", caster)
+end
+
+function judgement_spark_throw(event)
+	local caster = event.caster
+	local ability = event.ability
+	local spark_count = 3
+	local base_damage = event.base_damage
+	ability.damage = base_damage + OverflowProtectedGetAverageTrueAttackDamage(caster)*(event.percent_attack_power/100)
+	EmitSoundOn("Winterblight.ParagonOfJudgement.CastVO", caster)
+	ability.paralyze_duration = event.paralyze_duration
+	local particle = "particles/units/heroes/hero_alchemist/charge_of_light_linear_projectile_concoction_projectile_linear.vpcf"
+	local range = 2000
+	local divisor = 15
+	if spark_count == 3 then
+		divisor = 17
+	elseif spark_count == 4 then
+		divisor = 18
+	elseif spark_count == 5 then
+		divisor = 22
+	end
+	EmitSoundOn("Winterblight.ParagonOfJudgement.Cast", caster)
+	for i = 1, spark_count, 1 do
+		local rotation_adjustment = spark_count / 2
+		local fv = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi * (i - rotation_adjustment) / divisor)
+		local speed = 1500
+		local info =
+		{
+			Ability = ability,
+			EffectName = particle,
+			vSpawnOrigin = caster:GetAbsOrigin() + Vector(0, 0, 140),
+			fDistance = range,
+			fStartRadius = 220,
+			fEndRadius = 220,
+			Source = caster,
+			StartPosition = "attach_attack1",
+			bHasFrontalCone = true,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			fExpireTime = GameRules:GetGameTime() + 5.0,
+			bDeleteOnHit = false,
+			vVelocity = fv * speed,
+			bProvidesVision = false,
+		}
+		projectile = ProjectileManager:CreateLinearProjectile(info)
+	end
+end
+
+function judgement_spark_impact(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local paralyze_duration = ability.paralyze_duration
+
+	local current_stacks = target:GetModifierStackCount("modifier_judgement_spark_paralyze_immunity", target)
+	local paralyze_immunity = 1
+	if current_stacks <= 5 then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_judgement_spark_paralyze_immunity", {duration = paralyze_immunity})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_judgement_spark_paralyze", {duration = paralyze_duration})
+		target:SetModifierStackCount("modifier_judgement_spark_paralyze_immunity", caster, current_stacks + 1)
+	end
+	StartAnimation(target, {duration = paralyze_duration, activity = ACT_DOTA_FLAIL, rate = 2.2})
+	EmitSoundOn("Winterblight.ParagonOfJudgement.SpellImpact", target)
+	local particleName = "particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 40))
+	ParticleManager:SetParticleControl(pfx, 1, target:GetAbsOrigin() + Vector(0, 0, target:GetBoundingMaxs().z + 60))
+	Timers:CreateTimer(0.3, function()
+		ParticleManager:DestroyParticle(pfx, false)
+	end)
+	Enemies:ApplyDamageToPlayer(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, ability)
 end

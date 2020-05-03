@@ -366,7 +366,14 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][21]["prop_scale"] = 0.84
 		Winterblight.CASTLE_DATA["tarot"][21]["rooms"] = {}
 		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][1] = {index = 1, variant = 1}
-		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][2] = {index = 3, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][2] = {index = 2, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][3] = {index = 4, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][4] = {index = 6, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][5] = {index = 7, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][6] = {index = 8, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][7] = {index = 9, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][8] = {index = 11, variant = 1}
+		Winterblight.CASTLE_DATA["tarot"][21]["rooms"][9] = {index = 12, variant = 1}
 
 		Winterblight.CASTLE_DATA["tarot"][22] = {}
 		Winterblight.CASTLE_DATA["tarot"][22]["name"] = "world"
@@ -374,18 +381,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_angle"] = Vector(0, -1)
 		Winterblight.CASTLE_DATA["tarot"][22]["prop_scale"] = 0.87
 		Winterblight.CASTLE_DATA["tarot"][22]["rooms"] = {}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][1] = {index = 12, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][2] = {index = 11, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][3] = {index = 10, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][4] = {index = 9, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][5] = {index = 8, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][6] = {index = 7, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][7] = {index = 6, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][8] = {index = 5, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][9] = {index = 4, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][10] = {index = 3, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][11] = {index = 2, variant = 1}
-		-- Winterblight.CASTLE_DATA["tarot"][22]["rooms"][12] = {index = 1, variant = 1}
+
 		-- DOORS
 		Winterblight.CASTLE_DATA["doors"] = {}
 		Winterblight.CASTLE_DATA["doors"][1] = {}
@@ -537,7 +533,7 @@ function Winterblight:SetupCastleData()
 		Winterblight.CASTLE_DATA["rooms"][4]["extra_goal"] = 25
 		Winterblight.CASTLE_DATA["rooms"][4]["key_positions"] = {Vector(15784, 10496), Vector(15304, 11008), Vector(15304, 11392), Vector(15304, 11776)}
 		Winterblight.CASTLE_DATA["rooms"][4]["cleared"] = 0
-		Winterblight.CASTLE_DATA["rooms"][4]["mid_point"] = Vector(15021, 10624)
+		Winterblight.CASTLE_DATA["rooms"][4]["mid_point"] = Vector(15298, 10572)
 
 		-- mouldy_burial_chamber
 		Winterblight.CASTLE_DATA["rooms"][5] = {}
@@ -1303,6 +1299,9 @@ function Winterblight:CastleRoomEnemyGoalReached(room_index)
 				Winterblight:SpawnRoomKey(room_index, false)
 			end
 		end
+	end
+	if Winterblight.CastleTarot["name"] == "judgement" then
+		Winterblight:JudgementShow(room_index)
 	end
 end
 
@@ -2911,6 +2910,8 @@ function Winterblight:PrecacheTarotAssets()
 		local function precache_function()
 		end
 		PrecacheUnitByNameAsync("winterblight_judgement_fallen", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_judgement_judge", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_paragon_of_judgement", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "world" then
 		local function precache_function()
 		end
@@ -3726,4 +3727,81 @@ function Winterblight:WorldRoomInitializers()
 		end)
 	end
 
+end
+
+function Winterblight:JudgementShow(room_index)
+	if not Winterblight.JudgementTimesCounted then
+		Winterblight.JudgementTimesCounted = 0
+	end
+	Winterblight.JudgementTimesCounted = Winterblight.JudgementTimesCounted + 1
+	local spawnPosition = Winterblight.CASTLE_DATA["rooms"][room_index]["mid_point"] + Vector(0, 240)
+	local judge = Enemies:SpawnEnemyUnit("winterblight_judgement_judge", spawnPosition, Vector(0,-1), false)
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+	EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+	EmitSoundOn("Winterblight.CastleJudge.InVO", judge)
+	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")		
+	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, judge, "modifier_diviner_judge_invincible", {})
+
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, judge:GetAbsOrigin(), 500, 15, false)
+	judge.props_table = {}
+	Winterblight.CASTLE_DATA["rooms"][room_index]["judgement_time_end"] = GameRules:GetGameTime()
+
+	local time = Winterblight.CASTLE_DATA["rooms"][room_index]["judgement_time_end"] - Winterblight.CASTLE_DATA["rooms"][room_index]["judgement_time_start"]
+	if not Winterblight.JudgementTotalTime then
+		Winterblight.JudgementTotalTime = 0
+	end
+	Winterblight.JudgementTotalTime = Winterblight.JudgementTotalTime + time
+
+	local digits = {}
+	digits[1] = math.floor(time/600)
+	digits[2] = math.floor((time%600)/60)
+	digits[3] = nil
+	local seconds = time%60
+	digits[4] = math.floor(seconds/10)
+	digits[5] = seconds%10
+	Timers:CreateTimer(2, function()
+		for i = 1, 5, 1 do
+			Timers:CreateTimer(i*0.6 - 0.45, function()
+				StartAnimation(judge, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+			end)
+			Timers:CreateTimer(i*0.6, function()
+				local prop_point = Winterblight.CASTLE_DATA["rooms"][room_index]["mid_point"] + Vector(-300, 0) + Vector(150*(i-1), 0)
+				local time_prop = CreateUnitByName("npc_dummy_unit", prop_point, false, nil, nil, DOTA_TEAM_NEUTRALS)
+				time_prop:SetRenderColor(100, 140, 255)
+				time_prop:SetModelScale(1)
+				-- time_prop:SetModel("models/heroes/wisp/wisp_additive.vmdl")
+				-- time_prop:SetOriginalModel("models/heroes/wisp/wisp_additive.vmdl")
+				SpecialFX:ColoredPop(time_prop:GetAbsOrigin()+Vector(0,0,20), Vector(0, 240, 255))
+				EmitSoundOn("Winterblight.CastleJudge.PropSpawn", time_prop)
+				table.insert(judge.props_table, time_prop)
+				if digits[i] then
+					time_prop.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/judgement_timer.vpcf", PATTACH_OVERHEAD_FOLLOW, time_prop)
+					ParticleManager:SetParticleControlEnt(time_prop.counter_pfx, 0, time_prop, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", time_prop:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControl(time_prop.counter_pfx, 1, Vector(0, digits[i], 0))
+				else
+					time_prop.counter_pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/judgement_delimiter.vpcf", PATTACH_OVERHEAD_FOLLOW, time_prop)
+					ParticleManager:SetParticleControlEnt(time_prop.counter_pfx, 0, time_prop, PATTACH_OVERHEAD_FOLLOW, "follow_overhead", time_prop:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControl(time_prop.counter_pfx, 1, Vector(0, digits[i], 0))
+				end
+			end)
+		end
+		Timers:CreateTimer(7, function()
+			for i = 1, #judge.props_table, 1 do
+				SpecialFX:ColoredPop(judge.props_table[i]:GetAbsOrigin()+Vector(0,0,20), Vector(0, 240, 255))
+				if judge.props_table[i].counter_pfx then
+					ParticleManager:DestroyParticle(judge.props_table[i].counter_pfx, false)
+				end
+				UTIL_Remove(judge.props_table[i])
+			end
+			if Winterblight.JudgementTimesCounted < 9 then
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", judge:GetAbsOrigin(), 3)
+				EmitSoundOn("Winterblight.GraveGhostSpawn", judge)
+				EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+				UTIL_Remove(judge)
+			else
+				judge.final_phase = 0
+				EmitSoundOn("Winterblight.CastleJudge.OutVO", judge)
+			end
+		end)
+	end)
 end
