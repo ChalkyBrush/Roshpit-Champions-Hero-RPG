@@ -209,12 +209,12 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"С каждым попаданием временного снаряда, оставляет на противнике заряды [R3], которые увеличивают стихийный урон <font color=\"#B5FFB7\">Времени</font>, получаемый от Zhonik."
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Доп. урон Времени"	
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				"% за заряд"
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"С каждым попаданием временного снаряда, оставляет на противнике заряды [R3], которые снижают Магическую Защиту противников. Максимум <% ZHONIK_ARCANA2_R3_MAX_STACKS %> зарядов."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Потеря Магической Защиты"	
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
     	"DOTA_Tooltip_modifier_tempo_flux_visible"							"Tempo Flux"
-    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Получает увеличенный урон Времени от героя Zhonik"
+    	"DOTA_Tooltip_modifier_tempo_flux_visible_Description"				"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2"								"[R4] Racer"
     	"DOTA_Tooltip_ability_zonik_rune_r_4_arcana2_Description"					"Увеличивает Ловкость героя. Каждое очко Ловкости дополнительно увеличивает базовый урон Zhonik."
