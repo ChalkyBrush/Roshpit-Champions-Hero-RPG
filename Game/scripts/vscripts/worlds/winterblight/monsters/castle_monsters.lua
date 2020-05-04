@@ -200,6 +200,21 @@ function diviner_think(event)
 			end
 		end
 	end
+	if Winterblight.CASTLE_DATA["rooms"][6]["active"] >= 1 then
+		if not caster.lookout_chest then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), Vector(15698, 8088), nil, 160, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				caster.lookout_chest = true
+				local particle = Entities:FindByNameNearest("LookoutChestLight", Vector(15698, 8088, 1200), 1000)
+				EmitSoundOnLocationWithCaster(Vector(15698, 8088), "Winterblight.Lookout.HiddenChest", caster)
+				CustomAbilities:QuickParticleAtPoint("particles/roshpit/zonik/sonic_boom_fallback_mid_egset.vpcf", particle:GetAbsOrigin(), 3)
+				UTIL_Remove(particle)
+				Timers:CreateTimer(1, function()
+					Winterblight:GeneralChestSpawn(Vector(16016, 8448), Vector(-1,-1))
+				end)
+			end
+		end
+	end
 	if caster.phase >= 7 and Winterblight.CastleTarot["name"] == "hermit" then
 		for i = 1, #MAIN_HERO_TABLE, 1 do
 			local hero = MAIN_HERO_TABLE[i]

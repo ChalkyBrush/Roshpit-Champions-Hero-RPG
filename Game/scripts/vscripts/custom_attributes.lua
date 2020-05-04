@@ -1136,6 +1136,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_winterblight_searing_arrow_armor_loss") then
 		armor_modify = armor_modify + CustomAttributes:GetAbilityValueFromSpecial(unit, "armor_loss", "modifier_winterblight_searing_arrow_armor_loss")	
 	end
+	if unit:HasModifier("plague_bearer_acid_spray_effect") then
+		local caster = unit:FindModifierByName("plague_bearer_acid_spray_effect"):GetCaster()
+		armor_modify = armor_modify + caster.w_3_level*EKKAN_ARCANA_W3A_ARMOR_REDUCTION
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 

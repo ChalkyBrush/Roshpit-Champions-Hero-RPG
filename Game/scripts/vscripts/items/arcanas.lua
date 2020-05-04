@@ -1367,6 +1367,29 @@ function RPCItems:RollRubilashArcana1(item_level)
     return item
 end
 
+function RPCItems:RollEkkanArcana2a(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_ARCANA
+
+    local item = RPCItems:CreateArcanaBasic("item_rpc_ekkan_arcana2a", "arcana", "Ekkan Arcana 2a", "hands", true, "Slot: Hands", "npc_dota_hero_visage", 0)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "arcana2a"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ekkan_arcana2a", "#27A13F", 1, "#property_ekkan_arcana2a_description")
+
+    local rune_property = RPCItems:RollArcanaRuneForSlot("w")
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1.5)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 3)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+    
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+
+    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:PreacheArcanaResources(item)
     Timers:CreateTimer(0.05, function()
         PrecacheItemByNameAsync(item:GetAbilityName(), function(...) end)
@@ -1612,6 +1635,8 @@ function RPCItems:RollArcanaByName(arcana_name, item_level)
         arcana = RPCItems:RollDuskbringerArcana2(item_level)
     elseif arcana_name == "item_rpc_rubilash_arcana1" then
         arcana = RPCItems:RollRubilashArcana1(item_level)
+    elseif arcana_name == "item_rpc_ekkan_arcana2a" then
+        arcana = RPCItems:RollEkkanArcana2a(item_level)
     end
     return arcana
 end

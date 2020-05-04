@@ -64,8 +64,8 @@ function Tanari:Debug()
     -- RPCItems:DropSynthesisVessel(Vector(-4928, 2048))
 
     -- Weapons:RollLegendWeapon1WithDotaName("npc_dota_hero_phantom_assassin", Vector(-4928, 2048))
-    -- local arcana = RPCItems:RollArcanaByName("item_rpc_flamewaker_arcana2", 110)
-    -- RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
+    local arcana = RPCItems:RollArcanaByName("item_rpc_ekkan_arcana2a", 1)
+    RPCItems:BasicDropItem(Vector(-4928, 2048), arcana)
     Gems:SpawnGemForger(Vector(-5928, 2048), Vector(-1,-1), 10)
     -- Gems:DropSocketForger(Vector(-4928, 2048))
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1

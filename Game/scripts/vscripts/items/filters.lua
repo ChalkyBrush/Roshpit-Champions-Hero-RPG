@@ -2498,6 +2498,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 mult = mult + TRAPPER_ARCANA_W_W4_ELEMENTAL_AMP * w_4_level
             end
         end
+        if attacker:GetUnitName() == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2a") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4A_ELEMENTAL_AMP/100
+            end
+        end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_poison", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_poison", 1))/100
     end
     if element1 == RPC_ELEMENT_TIME or element2 == RPC_ELEMENT_TIME then
@@ -2850,6 +2855,9 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 if raise_skeletons.skeleTable then
                     mult = mult + #raise_skeletons.skeleTable * w_2_level * EKKAN_W2_UNDEAD_AMP
                 end
+            end
+            if attacker:HasModifier("modifier_ekkan_arcana2a") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4A_ELEMENTAL_AMP/100
             end
         end
         mult = mult + (CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_head_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_weapon_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_hands_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_feet_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_body_element_undead", 1) + CustomAttributes:AddStatsBonusFromStacks(attacker, attacker.InventoryUnit, "modifier_amulet_element_undead", 1))/100

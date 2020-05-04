@@ -1144,6 +1144,9 @@ function Runes:EquipArcana(hero, index)
 				end
 			end
 			Runes:EasySwapArcanaSkills(hero, 0, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura")
+			Runes:EasySwapArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then
@@ -1885,14 +1888,17 @@ function Runes:UnequipArcana(hero, index)
 			Runes:EasyRevertArcanaSkills(hero, 0, new_ability_name, abilityCheck:GetAbilityName(), HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_visage" then
-		local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")
-		if dominionAbility.dominionTable then
-			for i = 1, #dominionAbility.dominionTable, 1 do
-				dominionAbility.dominionTable[1]:ForceKill(false)
-			end
-		end
 		if index == 1 then
+			local dominionAbility = hero:FindAbilityByName("ekkan_arcana_black_dominion")
+			if dominionAbility.dominionTable then
+				for i = 1, #dominionAbility.dominionTable, 1 do
+					dominionAbility.dominionTable[1]:ForceKill(false)
+				end
+			end
 			Runes:EasyRevertArcanaSkills(hero, 0, "ekkan_dominion", "ekkan_arcana_black_dominion", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana1")
+		elseif index == 2 then
+			hero:RemoveModifierByName("modifier_ekkan_passive_aura_arcana")
+			Runes:EasyRevertArcanaSkills(hero, 1, "ekkan_summon_skeleton", "ekkan_arcana2_plague_bearer", HerosCustom:GetInternalHeroName(hero:GetUnitName()), "arcana2a")
 		end
 	elseif hero:GetUnitName() == "npc_dota_hero_antimage" then
 		if index == 1 then

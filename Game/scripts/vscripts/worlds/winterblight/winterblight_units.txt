@@ -17872,6 +17872,7 @@
             "particle"  "particles/econ/items/riki/riki_head_ti8_gold/riki_smokebomb_ti8_gold.vpcf"
             "particle"  "particles/roshpit/winterblight/star_buff.vpcf"
             "particle"  "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+            "particle"  "particles/roshpit/zonik/sonic_boom_fallback_mid_egset.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"
