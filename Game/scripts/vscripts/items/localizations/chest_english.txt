@@ -733,3 +733,16 @@
 		"item_rpc_energizing_quest_gear_sapphire1"							"No effect"
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
+
+		//WB CASTLE ITEMS
+
+		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
+		"item_property_plague_emperor"												"Poison Globs"
+		"property_plague_emperor_description"										"Every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL %> seconds, throw a Poison Glob at a random enemy within <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE %> range. On impact, deal <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER %>% of attack power as damage in a <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %> radius."
+		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=\"#37DD3D\">Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
+		"item_rpc_plague_emperor_armor_emerald1"							"Enemies in the impact radius are poisoned for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION %> seconds, slowing attack speed by @emerald_property1 and taking @emerald_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %> seconds."
+		"item_rpc_plague_emperor_armor_sapphire1"							"Casting [Q] throws @sapphire_property1 poison globs forward. Casting [R] throws @sapphire_property2 poison globs in all directions. Distance thrown is <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE %> or the distance between you and the closest enemy. Can only trigger <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND %> time per second."
+		"item_rpc_plague_emperor_armor_amethyst1"							"Poison Globs leave a pile of slime at the impact point that lasts for <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION %> seconds. Enemies standing inside have @amethyst_property1% reduced movespeed and take @amethyst_property2% of Attack Power as damage every <% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %> seconds"
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Reduced Attack Speed and taking damage"

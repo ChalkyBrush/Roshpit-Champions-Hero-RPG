@@ -1,3 +1,204 @@
+	"item_rpc_plague_emperor_armor"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"winterblight/castle/plague_emperor_armor"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/plague_emperor/plague_emperor_impact_aoe.vpcf"
+			"particle"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+			"particle"	"particles/roshpit/items/plague_emperor/plague_emperor_projectile.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"			"<% RPC_ELEMENT_POISON %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY1 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY2 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY3 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE1 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE2 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST1 %>"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_plague_emperor_armor"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  	"0.05"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"plague_emperor_armor_think"
+					}
+				}
+			}
+			"modifier_plague_emperor_armor_emerald"
+			{
+				"IsDebuff"	"1"
+				"TextureName"	"ekkan/arcana2/plaguebearer_passive"
+				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ThinkInterval"  "<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_INTERVAL %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"plague_emperor_emerald_poison_think"
+						"target"		"TARGET"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_plague_emperor_emerald_attackspeed_loss"
+						"Target" 		"TARGET"
+					}
+				}			
+			}
+			"modifier_plague_emperor_emerald_attackspeed_loss"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+			"modifier_plague_emperor_amethyst_aura"
+			{
+				"IsHidden"	"1"
+				"Aura"          	"modifier_plague_emperor_amethyst_aura_effect"
+				"Aura_Radius"   	"<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS %>"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"plague_emperor_amethyst_poison_pool_thinker_end"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_plague_emperor_amethyst_aura_effect"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"TextureName"	"ekkan/arcana2/plaguebearer_passive"
+				"ThinkInterval"  "<% ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DAMAGE_INTERVAL %>"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"plague_emperor_amethyst_poison_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/special_item_effects.lua"
+						"Function"		"plague_emperor_amethyst_poison_pool_enter"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_plague_emperor_amethyst_slow"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+			"modifier_plague_emperor_amethyst_slow"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1" 
+				}
+			}
+		}
+	}
+
 	"item_rpc_windsteel_armor"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

@@ -2475,6 +2475,35 @@ function RPCItems:RollOutlandStoneCuirass(item_level)
     return item
 end
 
+function RPCItems:RollPlagueEmperorArmor(item_level)
+    local item_slot = RPC_GEAR_SLOT_BODY
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_plague_emperor_armor", "immortal", "Plague Emperor Armor", "body", true, "Slot: Body")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_plague_emperor_armor"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_plague_emperor", "#34EB5B", 1, "#property_plague_emperor_description")
+
+    local luck = RandomInt(1, 3)
+    if luck == 1 then
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 50, tier2 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.75)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "element_poison", 2.5)
+    elseif luck == 3 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "attack_damage", 2)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 3)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 1.5)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
 function RPCItems:RollRadiantRuinsLeather(item_level)
     local item_slot = RPC_GEAR_SLOT_BODY
     local rarity = RPC_ITEMS_RARITY_IMMORTAL
@@ -7410,6 +7439,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollStargazersSphere(item_level)
     elseif itemName == "item_rpc_ruptholds_helm_of_gluttony" then
         newItem = RPCItems:RollRuptholdsHelmOfGluttony(item_level)
+    elseif itemName == "item_rpc_plague_emperor_armor" then
+        newItem = RPCItems:RollPlagueEmperorArmor(item_level)
     end
     return newItem
 end

@@ -13657,6 +13657,19 @@
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
 
+		//WB CASTLE ITEMS
+
+		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
+		"item_property_plague_emperor"												"Poison Globs"
+		"property_plague_emperor_description"										"Every <font color='#ccff66'>2</font> seconds, throw a Poison Glob at a random enemy within <font color='#ccff66'>1000</font> range. On impact, deal <font color='#ccff66'>100</font>% of attack power as damage in a <font color='#ccff66'>320</font> radius."
+		"item_rpc_plague_emperor_armor_ruby1"							"Increases <font color=\"#37DD3D\">Poison</font> Elemental Damage by @ruby_property1%, increases the projectile speed of Poison Globs by @ruby_property2, and reduces the delay between Poison Globs by @ruby_property3. "
+		"item_rpc_plague_emperor_armor_emerald1"							"Enemies in the impact radius are poisoned for <font color='#ccff66'>7</font> seconds, slowing attack speed by @emerald_property1 and taking @emerald_property2% of Attack Power as damage every <font color='#ccff66'>0.5</font> seconds."
+		"item_rpc_plague_emperor_armor_sapphire1"							"Casting [Q] throws @sapphire_property1 poison globs forward. Casting [R] throws @sapphire_property2 poison globs in all directions. Distance thrown is <font color='#ccff66'>500</font> or the distance between you and the closest enemy. Can only trigger <font color='#ccff66'>1</font> time per second."
+		"item_rpc_plague_emperor_armor_amethyst1"							"Poison Globs leave a pile of slime at the impact point that lasts for <font color='#ccff66'>5</font> seconds. Enemies standing inside have @amethyst_property1% reduced movespeed and take @amethyst_property2% of Attack Power as damage every <font color='#ccff66'>0.5</font> seconds"
+
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
+		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Reduced Attack Speed and taking damage"
+
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
 		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <font color='#ccff66'>25</font>% of your attack power, and stunning for <font color='#ccff66'>0.5</font> seconds."

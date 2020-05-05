@@ -894,6 +894,9 @@ function Filters:CastSkillArguments(slot, caster)
     if caster:HasModifier("modifier_beryl_ring_of_intuiton") or caster:HasModifier("modifier_auric_ring_of_inspiration") then
         Filters:InpsirationRing(caster, slot)
     end
+    if caster:HasModifier("modifier_plague_emperor_armor") then
+        Filters:PlagueEmperorBombSetup(caster, slot, nil)
+    end
     if caster:HasModifier("modifier_depth_demon_claw_sapphire") then
         local mana_drain = caster:GetMaxMana()*(caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_DEPTH_DEMON_CLAW_GEM_SAPPHIRE3))/100
         caster:ReduceMana(mana_drain)
@@ -6801,4 +6804,98 @@ function Filters:WinterblightReincarnationDeath(hero, ability)
     ParticleManager:SetParticleControl(pfx, 12, Vector(10, 10, 10))
     ParticleManager:SetParticleControl(pfx, 15, Vector(1, 1, 1))
     StartSoundEvent("Winterblight.Reincarnation.Death", hero)
+end
+
+function Filters:PlagueEmperorBombSetup(hero, cast_type, optionalAbility)
+    print(cast_type)
+    if cast_type == "standard" then
+        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE
+        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+        if #enemies > 0 then
+            local target = enemies[1]
+            local position = GetGroundPosition(target:GetAbsOrigin(), target)
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            Filters:PlagueEmperorBomb(hero, position)
+        end
+    elseif cast_type == BASE_ABILITY_Q then
+        EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        if #enemies > 0 then
+            range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
+        end
+        local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE1)
+        for i = 1, projectile_count, 1 do
+            local bomb_fv = hero:GetForwardVector()
+            if i == 2 then
+                bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi/12)
+            elseif i == 3 then
+                bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), -2*math.pi/12)
+            end
+            local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+            Filters:PlagueEmperorBomb(hero, bomb_position)
+        end
+    elseif cast_type == BASE_ABILITY_R then
+        EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        if #enemies > 0 then
+            range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
+        end        
+        local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE2)
+        for i = 1, projectile_count, 1 do
+            local bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi*i/projectile_count)
+            local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+            Filters:PlagueEmperorBomb(hero, bomb_position)
+        end
+    end
+end
+
+function Filters:PlagueEmperorBomb(hero, position)
+    local ability = hero.equipped_gear[RPC_GEAR_SLOT_BODY]
+    local projectile_speed = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_PROJECTILE_SPEED + ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY2)
+    local pfx = ParticleManager:CreateParticle("particles/roshpit/items/plague_emperor/plague_emperor_projectile.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(pfx, 0, hero:GetAbsOrigin()+Vector(0,0,70))
+    ParticleManager:SetParticleControl(pfx, 1, position)
+    ParticleManager:SetParticleControl(pfx, 2, Vector(projectile_speed, projectile_speed, projectile_speed))
+
+    local travel_distance = WallPhysics:GetDistance2d(position, hero:GetAbsOrigin())
+    local delay = travel_distance/projectile_speed
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DMG_ATK_POWER/100)
+    local radius = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS
+    Timers:CreateTimer(delay, function()
+        ParticleManager:DestroyParticle(pfx, false)
+        local pfx2 = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/plague_emperor/plague_emperor_impact_aoe.vpcf", position, 3)
+        for i = 1, 5, 1 do
+            ParticleManager:SetParticleControl(pfx2, i, Vector(radius, radius, radius))
+        end
+        local emerald_value = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD1)
+        EmitSoundOnLocationWithCaster(position, "RPCItems.PlagueEmperor.Impact", hero)
+        local impact_enemies = FindUnitsInRadius(hero:GetTeamNumber(), position, nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_DAMAGE_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+        if #impact_enemies > 0 then
+            for _, enemy in pairs(impact_enemies) do
+                Filters:ApplyItemDamage(enemy, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+                if emerald_value > 0 then
+                    ability:ApplyDataDrivenModifier(hero.InventoryUnit, enemy, "modifier_plague_emperor_armor_emerald", {duration = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_EMERALD_DURATION})
+                    ability:ApplyDataDrivenModifier(hero.InventoryUnit, enemy, "modifier_plague_emperor_emerald_attackspeed_loss", {})
+                    enemy:SetModifierStackCount("modifier_plague_emperor_emerald_attackspeed_loss", hero.InventoryUnit, emerald_value)
+                end
+            end
+        end
+        if ability:GetGemValue("amethyst") > 0 then
+            local poison_goo_thinker = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, hero:GetTeamNumber())
+            poison_goo_thinker:FindAbilityByName("dummy_unit"):SetLevel(1)
+            poison_goo_thinker:SetAbsOrigin(position)
+
+            local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            ParticleManager:SetParticleControl(pfx, 0, poison_goo_thinker:GetAbsOrigin())
+            ParticleManager:SetParticleControl(pfx, 1, Vector(EKKAN_ARCANA_W3A_RADIUS, 1, 1))
+            ParticleManager:SetParticleControl(pfx, 15, Vector(40, 205, 40))
+            ParticleManager:SetParticleControl(pfx, 16, Vector(1, 1, 1))
+            poison_goo_thinker.pfx = pfx
+
+            local goo_pile_duration = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_AMETHYST_DURATION
+            ability:ApplyDataDrivenModifier(hero.InventoryUnit, poison_goo_thinker, "modifier_plague_emperor_amethyst_aura", {duration = goo_pile_duration})
+        end
+    end)
 end

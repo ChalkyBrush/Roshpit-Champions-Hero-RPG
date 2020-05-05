@@ -1543,7 +1543,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_AMETHYST, hero, "element_nature", RPC_GEAR_SLOT_TRINKET)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_WORLD_TREES_FLOWER_CACHE_GEM_AMETHYST, hero, "item_damage", RPC_GEAR_SLOT_TRINKET)
-		end			
+		end		
+	elseif item:GetAbilityName() == "item_rpc_plague_emperor_armor" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY1, hero, "element_poison", RPC_GEAR_SLOT_BODY)
+		end	
 	end
 end
 

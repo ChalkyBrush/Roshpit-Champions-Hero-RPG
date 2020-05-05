@@ -10219,3 +10219,54 @@ function umbral_sentinel_init(event)
 		ability:ApplyDataDrivenModifier(caster, hero, "modifier_umbral_sentinel_aura", {})
 	end
 end
+
+function plague_emperor_armor_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if not ability.interval then
+		ability.interval = 0
+	end
+	ability.interval = ability.interval + 1
+	local cast_delay = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_INTERVAL - ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY3)
+	if ability.interval % (cast_delay/0.05) == 0 then
+		ability.interval = 0
+		Filters:PlagueEmperorBombSetup(hero, "standard", nil)
+	end
+end
+
+function plague_emperor_emerald_poison_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_EMERALD2)/100)
+    Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function plague_emperor_amethyst_poison_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+    local damage = OverflowProtectedGetAverageTrueAttackDamage(hero)*(ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST2)/100)
+    Filters:ApplyItemDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, ability, RPC_ELEMENT_POISON, RPC_ELEMENT_NONE)
+end
+
+function plague_emperor_amethyst_poison_pool_enter(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_plague_emperor_amethyst_slow", {})
+	local slow_stacks = ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_AMETHYST1)*-1
+	target:SetModifierStackCount("modifier_plague_emperor_amethyst_slow", caster, slow_stacks)
+end
+
+function plague_emperor_amethyst_poison_pool_thinker_end(event)
+	local target = event.target
+	ParticleManager:DestroyParticle(target.pfx, false)
+	UTIL_Remove(target)
+end
