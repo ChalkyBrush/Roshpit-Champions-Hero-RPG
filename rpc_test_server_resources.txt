@@ -997,16 +997,6 @@ function GameMode:OnPlayerChat(keys)
 		end
 	end
 
-	if true then
-		local playerID = keys.playerid 
-		local amount = 2000000000
-		local player = PlayerResource:GetPlayer(keys.playerid)
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = amount})
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = amount})
-		CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = amount})
-		CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {arcane_crystals = amount, mithril = amount, gemstones = amount, player = playerID})
-	end
-
 	if string.match(text, "-givegems") then
 		local amount = 2000000000
 		local player = PlayerResource:GetPlayer(keys.playerid)
@@ -1438,22 +1428,21 @@ end
 function Glyphs:SaveResources()
 end
 
+function Glyphs:GetPlayerResources(playerID)
+	local amount = 2000000000
+	local player = PlayerResource:GetPlayer(playerID)
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-resources", {arcane = amount})
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-mithril", {mithril = amount})
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-gemstones", {gemstones = amount})
+	CustomNetTables:SetTableValue("player_stats", tostring(playerID) .. "-enchanter", {tier = 7})
+	CustomGameEventManager:Send_ServerToPlayer(player, "update_resources", {enchanter_tier = 7, arcane_crystals = amount, mithril = amount, gemstones = amount, player = playerID})
+end
+
 function Glyphs:GlyphPurchase(msg)
 	local hero = EntIndexToHScript(msg.heroIndex)
 	local tier = tonumber(msg.tier)
 	local column = tonumber(msg.column)
 	local glyphName = msg.glyphName
-	local cost = Glyphs:GetGlyphCostByTier(tier, column, msg.glyphHero)
-	local crystalReduce = cost *- 1
-	local glyphHero = HerosCustom:GetInternalHeroName(msg.glyphHero)
-	if hero.glyphRecipes[glyphHero] then
-		if column == 2 then
-			if hero.glyphRecipes[glyphHero][2][tier] == 0 then
-				Notifications:Top(hero:GetPlayerOwnerID(), {text = "Not Learned", duration = 3, style = {color = "red"}, continue = true})
-				return false
-			end
-		end
-	end
 	local playerID = hero:GetPlayerOwnerID()
 	Glyphs:RollGlyphAll(glyphName, Vector(0, 0), msg.heroIndex)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
@@ -1467,6 +1456,16 @@ function Glyphs:ReanimationPurchase(msg)
 	local hero = player:GetAssignedHero()
 	RPCItems:GiveReanimationStoneToHero(hero)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
+end
+
+function Glyphs:FormatRecipeResults(resultTable)
+	recipeResults = {}
+	recipeResults[1] = nil
+	recipeResults[2] = {}
+	for i = 1, 7, 1 do
+		recipeResults[2][i] = 1
+	end
+	return recipeResults
 end
 
 function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bountyFactorMax, itemRarity, isFloat, maximumValue)
