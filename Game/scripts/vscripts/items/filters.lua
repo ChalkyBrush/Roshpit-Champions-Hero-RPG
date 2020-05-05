@@ -1294,7 +1294,7 @@ function Filters:ApplyWskills(caster)
     if ability.castPointSave then
         local abilityCastPoint = ability:GetKeyValue("AbilityCastPoint", false)
         if abilityCastPoint then
-            ability:SetOverrideCastPoint()
+            ability:SetOverrideCastPoint(abilityCastPoint)
             ability.castPointSave = nil
         end
     end
