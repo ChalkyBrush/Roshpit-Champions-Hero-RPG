@@ -3214,6 +3214,9 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_no_damage") then
 		filterTable["damage"] = 0
 	end
+	if victim:HasModifier("modifier_ekkan_skeleton_corpse") then
+		filterTable["damage"] = 0
+	end
 	if victim:HasModifier("modifier_surrogate_ai") then
 		if not attacker:HasModifier("modifier_aura_can_attack_castle_boss") then
 			filterTable["damage"] = 0

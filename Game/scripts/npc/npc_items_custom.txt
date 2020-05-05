@@ -2115,7 +2115,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"arcana/ekkan_arcana2a"
+		"AbilityTextureName"	"arcana/ekkan_arcana2b"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -2131,7 +2131,11 @@
 		"ItemKillable" "0"
 		"precache"
 		{
-
+			"model"		"models/creeps/ice_biome/undeadtusk/undead_tuskskeleton01.vmdl"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			"particle"	"particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"particle"	"particles/roshpit/ekkan/frost_wraith_cold_effect.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -2178,7 +2182,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"arcana/ekkan_arcana2a"
+		"AbilityTextureName"	"arcana/ekkan_arcana2c"
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"0"
@@ -2193,8 +2197,14 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"ItemKillable" "0"
 		"precache"
-		{
-
+		{	
+			"model"		"models/items/wraith_king/wk_ti8_creep/wk_ti8_creep_crimson.vmdl"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_attack.vpcf"
+			"particle"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_cloak_of_flames.vpcf"
+			"particle"	"particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf"
+			"particle"	"particles/roshpit/ekkan/burning_legionnaire_mortar_ground.vpcf"
+			"particle"	"particles/neutral_fx/roshan_slam.vpcf"
 		}
 		"OnSpellStart"
 		{

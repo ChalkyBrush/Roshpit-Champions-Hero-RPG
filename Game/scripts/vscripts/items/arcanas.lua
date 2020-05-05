@@ -1377,8 +1377,54 @@ function RPCItems:RollEkkanArcana2a(item_level)
     RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ekkan_arcana2a", "#27A13F", 1, "#property_ekkan_arcana2a_description")
 
     local rune_property = RPCItems:RollArcanaRuneForSlot("w")
-    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 1.5)
-    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 3)
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "agility", 4)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+    
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+
+    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEkkanArcana2b(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_ARCANA
+
+    local item = RPCItems:CreateArcanaBasic("item_rpc_ekkan_arcana2b", "arcana", "Ekkan Arcana 2b", "hands", true, "Slot: Hands", "npc_dota_hero_visage", 0)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "arcana2b"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ekkan_arcana2b", "#778fd1", 1, "#property_ekkan_arcana2b_description")
+
+    local rune_property = RPCItems:RollArcanaRuneForSlot("w")
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "intelligence", 4)
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+    item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
+    
+    RPCItems:GrantItemBaseArmor(item, item_level, 2)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 3)
+
+    RPCItems:SetBaseItemValues(item, item_name, false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
+
+function RPCItems:RollEkkanArcana2c(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_ARCANA
+
+    local item = RPCItems:CreateArcanaBasic("item_rpc_ekkan_arcana2c", "arcana", "Ekkan Arcana 2c", "hands", true, "Slot: Hands", "npc_dota_hero_visage", 0)
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "arcana2c"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_ekkan_arcana2c", "#D13C21", 1, "#property_ekkan_arcana2c_description")
+
+    local rune_property = RPCItems:RollArcanaRuneForSlot("w")
+    RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_property, 2)
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, "strength", 4)
 
     RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
     item.newItemTable.slot = RPC_GEAR_SLOT_NAMES[item_slot]
@@ -1501,7 +1547,8 @@ function RPCItems:GetAllArcanaNames()
         "item_rpc_spirit_warrior_arcana1", "item_rpc_spirit_warrior_arcana2", "item_rpc_spirit_warrior_arcana3", "item_rpc_mountain_protector_arcana1", "item_rpc_mountain_protector_arcana2", "item_rpc_mountain_protector_arcana3",
         "item_rpc_chernobog_arcana1", "item_rpc_chernobog_arcana2", "item_rpc_solunia_arcana1", "item_rpc_solunia_arcana2", "item_rpc_hydroxis_arcana1", "item_rpc_ekkan_arcana1", "item_rpc_zonik_arcana1",
         "item_rpc_zonik_arcana2", "item_rpc_arkimus_arcana1", "item_rpc_arkimus_arcana2", "item_rpc_djanghor_arcana1", "item_rpc_hydroxis_arcana2", "item_rpc_voltex_arcana2", "item_rpc_duskbringer_arcana1", "item_rpc_auriun_arcana1", "item_rpc_auriun_arcana2",
-    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1", "item_rpc_rubilash_arcana1"}
+    "item_rpc_dinath_arcana1", "item_rpc_conjuror_arcana2", "item_rpc_conjuror_arcana3", "item_rpc_conjuror_arcana4", "item_rpc_axe_arcana2", "item_rpc_jex_arcana1", "item_rpc_slipfinn_arcana1", "item_rpc_rubilash_arcana1", 
+    "item_rpc_ekkan_arcana2a", "item_rpc_ekkan_arcana2b", "item_rpc_ekkan_arcana2c"}
     return arcanaTable
 end
 
@@ -1637,6 +1684,10 @@ function RPCItems:RollArcanaByName(arcana_name, item_level)
         arcana = RPCItems:RollRubilashArcana1(item_level)
     elseif arcana_name == "item_rpc_ekkan_arcana2a" then
         arcana = RPCItems:RollEkkanArcana2a(item_level)
+    elseif arcana_name == "item_rpc_ekkan_arcana2b" then
+        arcana = RPCItems:RollEkkanArcana2b(item_level)
+    elseif arcana_name == "item_rpc_ekkan_arcana2c" then
+        arcana = RPCItems:RollEkkanArcana2c(item_level)
     end
     return arcana
 end

@@ -2347,6 +2347,11 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 end
             end
         end
+        if unitName == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2c") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4C_ELEMENTAL_AMP/100
+            end
+        end
         if unitName == "npc_dota_hero_crystal_maiden" then
             if attacker.r_4_level and not attacker:HasModifier("modifier_sorceress_arcana1") then
                 fireMult = fireMult + SORCERESS_R4_FIRE_AMP * attacker.r_4_level
@@ -2655,6 +2660,10 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                 local d_d_level = attacker:GetRuneValue("r", 4)
                 mult = mult + SOLUNIA_ARCANA_R4_ELEM_AMP_PCT * d_d_level
             end
+        elseif unitName == "npc_dota_hero_visage" then
+            if attacker:HasModifier("modifier_ekkan_arcana2b") then
+                mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4B_ELEMENTAL_AMP/100
+            end
         end
 
         if victim:HasModifier("modifier_tornado_ice_resist_loss_invisible") then
@@ -2856,7 +2865,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
                     mult = mult + #raise_skeletons.skeleTable * w_2_level * EKKAN_W2_UNDEAD_AMP
                 end
             end
-            if attacker:HasModifier("modifier_ekkan_arcana2a") then
+            if attacker:HasModifier("modifier_ekkan_arcana2a") or attacker:HasModifier("modifier_ekkan_arcana2b") or attacker:HasModifier("modifier_ekkan_arcana2c") then
                 mult = mult + attacker:GetRuneValue("w", 4)*EKKAN_ARCANA_W4A_ELEMENTAL_AMP/100
             end
         end

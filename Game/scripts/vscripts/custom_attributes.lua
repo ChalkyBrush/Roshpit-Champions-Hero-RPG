@@ -1140,6 +1140,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local caster = unit:FindModifierByName("plague_bearer_acid_spray_effect"):GetCaster()
 		armor_modify = armor_modify + caster.w_3_level*EKKAN_ARCANA_W3A_ARMOR_REDUCTION
 	end
+	if unit:HasModifier("modifier_burning_legionnaire_cloak_of_flame_aura") then
+		local caster = unit:FindModifierByName("modifier_burning_legionnaire_cloak_of_flame_aura"):GetCaster()
+		armor_modify = armor_modify + caster.w_2_level*EKKAN_ARCANA_W2C_BONUS_ARMOR
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 

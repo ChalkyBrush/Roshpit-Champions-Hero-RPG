@@ -10037,7 +10037,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attack_mult"			"2"
+				"attack_mult"			"8"
 			}
 			"05"
 			{
@@ -10400,8 +10400,7 @@
 		"MaxLevel"				 		"3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastRange"				"600"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AOERadius"						"280"			
 
 		// Precache
@@ -10493,6 +10492,827 @@
 		}
 	}
 
+	"ekkan_arcana2_frost_wraith"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"100"
+		"AbilityTextureName"			"ekkan/arcana2/summon_frost_wraith"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_skeletons"			"4 4 5 5 6 6 7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_duration"		"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_health"		"5 10 15 20 25 30 35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration"			"5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"120 240 360 480 600 720 840"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"cast_raise_skeleton_cruxys"
+				"target"		"POINT"
+				"max_skeletons"	"%max_skeletons"
+				"skeleton_duration"	"%skeleton_duration"
+				"armor_mult"	"%armor_mult"
+				"attack_mult"	"%attack_mult"
+				"skeleton_health"	"%skeleton_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_passive_aura_arcana"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ekkan_corpsemaker_arcana"
+				"Aura_Radius"   	"1600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval"  	"2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"ekkan_think"
+					}
+				}
+			}
+			"modifier_ekkan_corpsemaker_arcana"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"corpse_maker_die"
+					}
+				}
+			}
+			"modifier_ekkan_skeleton_corpse"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"remove_corpse"
+						"target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ekkan_corpse_disabled"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ekkan_corpse_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_summon_skeleton_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_skeleton_summon_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"ThinkInterval"  "4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_expire"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_die"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_attack_land"
+					}
+				}
+			}
+			"modifier_skeleton_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+	}
+
+	"ekkan_frost_wraith_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/arcana2/frost_wraith_passive"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_ms_slow"			"-80 -100 -120 -140 -160 -180 -200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_as_slow"			"-20 -40 -60 -80 -100 -120 -140"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"frost_wraith_w2_projectile_hit"
+				"target"		"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_wraith_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/ekkan/frost_wraith_cold_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_attack_land"
+						"cold_duration" "%cold_duration"
+					}
+				}
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_take_damage"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"frost_wraith_think"
+					}
+				}
+			}
+			"modifier_frost_wraith_basic_chilled"
+			{
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%cold_as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%cold_ms_slow"
+				}
+			}
+			"modifier_frost_wraith_w_1_root"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	"ekkan_frost_wraith_freezing_rain"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"600"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"450"			
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"4"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+        		"Function"		"frost_wraith_freezing_rain_cast"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"frost_wraith_freezing_rain_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-2.5" 
+				}
+			}
+		}
+	}
+
+	"ekkan_arcana2_burning_legionnaire"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"FightRecapLevel"				"1"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"7"
+		"AOERadius"						"100"
+		"AbilityTextureName"			"ekkan/arcana2/summon_burning_legionnaire"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_skeletons"			"4 4 5 5 6 6 7"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_duration"		"45"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"armor_mult"			"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_mult"			"8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skeleton_health"		"5 10 15 20 25 30 35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_damage"			"100"
+			}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		// Precache
+		//-------------------------------------------------------
+		"precache"
+		{
+
+		}
+
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Damage.
+		//-------------------------------------------------------
+		"AbilityDamage"					"0"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"120 240 360 480 600 720 840"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+				"Function"		"cast_raise_skeleton_cruxys"
+				"target"		"POINT"
+				"max_skeletons"	"%max_skeletons"
+				"skeleton_duration"	"%skeleton_duration"
+				"armor_mult"	"%armor_mult"
+				"attack_mult"	"%attack_mult"
+				"skeleton_health"	"%skeleton_health"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ekkan_passive_aura_arcana"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Aura"          	"modifier_ekkan_corpsemaker_arcana"
+				"Aura_Radius"   	"1600"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval"  	"2.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"ekkan_think"
+					}
+				}
+			}
+			"modifier_ekkan_corpsemaker_arcana"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"corpse_maker_die"
+					}
+				}
+			}
+			"modifier_ekkan_skeleton_corpse"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsStunDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"remove_corpse"
+						"target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_ekkan_corpse_disabled"
+						"Target" 		"TARGET"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_ekkan_corpse_disabled"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_summon_skeleton_counter"
+			{
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+			"modifier_skeleton_summon_unit"
+			{
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"			"0"
+				"IsBuff"			"1"
+				"ThinkInterval"  "4.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/dominion.lua"
+						"Function"		"dominion_unit_think"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_expire"
+						"target"		"TARGET"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_die"
+					}
+				}
+				"OnAttackLanded"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"skeleton_attack_land"
+					}
+				}
+			}
+			"modifier_skeleton_spawning"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+
+		}
+	}
+
+	"ekkan_burning_legionnaire_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"ekkan/arcana2/burning_legionnaire_passive"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_damage"			"100"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_burning_legionnaire_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"EffectName"	"particles/roshpit/ekkan/burning_legionnaire_effect.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_attack_land"
+						"fire_damage" "%fire_damage"
+					}
+				}
+				"ThinkInterval"  "1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_think"
+					}
+				}
+				"Aura"          	"modifier_burning_legionnaire_nearby_aura"
+				"Aura_Radius"   	"1000"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_burning_legionnaire_nearby_aura"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"die_near_burning_legionnaire"
+					}
+				}
+			}
+			"modifier_burning_legionnaire_w_1_visible"
+			{
+				"IsHidden"	"0"
+				"EffectName"	"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+			}
+			"modifier_burning_legionnaire_w_1_effect"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0.1"
+				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "4" 
+				}
+			}
+			"modifier_burning_legionnaire_cloak_of_flame_aura"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"0"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Aura"          	"modifier_burning_legionnaire_cloak_of_flame_effect"
+				"Aura_Radius"   	"220"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "0"
+				"EffectName"		"particles/roshpit/ekkan/burning_legionnaire_cloak_of_flames.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"npc_abilities/general.lua"
+						"Function"		"utility_recalculate_roshpit_attributes"
+						"target"		"TARGET"
+					}
+				}
+			}
+			"modifier_burning_legionnaire_cloak_of_flame_effect"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2b"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+						"Function"		"burning_legionnaire_cloak_of_flames_burning_think"
+						"target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+
+	"ekkan_burning_legionnaire_skeletal_mortar"
+	{
+		// General
+		//-------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ekkan/arcana2/ekkan_rune_w_3_arcana2c"
+		"RequiredLevel"          		"-5"
+		"LevelsBetweenUpgrades"  		"10"
+		"MaxLevel"				 		"3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastRange"				"10000"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AOERadius"						"240"			
+
+		// Precache
+		"precache"
+		{
+
+		}
+		//-------------------------------------------------------
+		// Casting
+		//-------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time
+		//-------------------------------------------------------
+		"AbilityCooldown"				"6"
+
+		// Cost
+		//-------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Special
+		//-------------------------------------------------------
+		"AbilitySpecial"
+		{
+
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+        		"ScriptFile"	"heroes/visage/arcana/grasp_of_cruxys.lua"
+        		"Function"		"burning_legionnaire_skeletal_mortar_cast"
+        		"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_skeletal_mortar_wait"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 
 
 	"ekkan_rune_w_1_arcana2a"
@@ -10623,6 +11443,288 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2a"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+
+		}
+	}
+
+
+	"ekkan_rune_w_1_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one_base"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"0.01"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"9"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"		"300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"9"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"-2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"5"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2b"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2b"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_two"			"15"
+			}
+
+		}
+	}
+
+	"ekkan_rune_w_1_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_1_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"0.1"
+			}
+		}
+	}
+
+	"ekkan_rune_w_2_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_2_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"property_one"			"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"120"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"ekkan_rune_w_3_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_3_arcana2c"
+		"MaxLevel"				"20"
+		"LevelsBetweenUpgrades" "0"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_one"			"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"property_two_base"			"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_ability"			"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_one"			"17"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"element_two"			"2"
+			}
+		}
+	}
+
+	"ekkan_rune_w_4_arcana2c"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"ekkan/arcana2/ekkan_rune_w_4_arcana2c"
 		"MaxLevel"				"20"
 		"LevelsBetweenUpgrades" "0"
 		"AbilitySpecial"

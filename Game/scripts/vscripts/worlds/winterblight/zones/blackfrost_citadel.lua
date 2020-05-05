@@ -2646,12 +2646,10 @@ function Winterblight:CastleBossDeath(boss)
 	local position = boss:GetAbsOrigin()
 	boss:BossDrops(20)
 	Timers:CreateTimer(1, function()
-		-- local max_roll = math.max(130 - GameState:GetPlayerPremiumStatusCount() * 10 - Winterblight.TiamatBossLevel)
-		-- max_roll = math.max(max_roll, 1)
-		-- local arcanaLuck = RandomInt(1, max_roll)
-		-- if arcanaLuck == 1 then
-		-- 	RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_warlord_arcana2")
-		-- end
+		local arcanaLuck = RandomInt(1, 195 - GameState:GetPlayerPremiumStatusCount() * 12 - Winterblight.Stones * 30)
+		if arcanaLuck == 1 then
+			Winterblight:DropCruxysEkkanArcana(boss)
+		end
 		local luck2 = RandomInt(1, 100 - GameState:GetPlayerPremiumStatusCount() * 3)
 		if luck2 == 1 then
 			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
@@ -3804,4 +3802,17 @@ function Winterblight:JudgementShow(room_index)
 			end
 		end)
 	end)
+end
+
+function Winterblight:DropCruxysEkkanArcana(boss)
+	local luck = RandomInt(1, 3)
+	local arcana = nil
+	if luck == 1 then
+	    RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_ekkan_arcana2a")
+	elseif luck == 2 then
+		RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_ekkan_arcana2b")
+	elseif luck == 3 then
+		RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_ekkan_arcana2c")
+	end
+	return arcana
 end

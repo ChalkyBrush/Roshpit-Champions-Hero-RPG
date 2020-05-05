@@ -42,6 +42,14 @@ function cast_raise_skeleton_cruxys(event)
 					UTIL_Remove(target)
 					local unitName = "ekkan_plaguebearer"
 					local colorVector = Vector(100, 255, 120)
+					if ability:GetAbilityName() == "ekkan_arcana2_frost_wraith" then
+						unitName = "ekkan_frost_wraith"
+						colorVector = Vector(0, 125, 255)
+					elseif ability:GetAbilityName() == "ekkan_arcana2_burning_legionnaire" then
+						unitName = "ekkan_burning_legionnaire"
+						colorVector = Vector(255, 0, 0)
+					end
+
 					local attackDamage = caster:GetAttackDamage() * event.attack_mult
 					local luck = RandomInt(1, 10)
 
@@ -85,6 +93,7 @@ function cast_raise_skeleton_cruxys(event)
 					skeleton.hero = caster
 					skeleton.ekkan_dominion = true
 					skeleton.dominion = true
+					skeleton:SetAcquisitionRange(800)
 
 					skeleton.w_1_level = caster:GetRuneValue("w", 1)
 					skeleton.w_2_level = caster:GetRuneValue("w", 2)
@@ -105,7 +114,9 @@ function cast_raise_skeleton_cruxys(event)
 					StartAnimation(skeleton, {duration = 0.6, activity = ACT_DOTA_SPAWN, rate = 0.8})
 					ability:ApplyDataDrivenModifier(caster, skeleton, "modifier_skeleton_spawning", {duration = 0.5})
 					CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", skeleton, 3)
-					EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
+					if unitName ~= "ekkan_burning_legionnaire" then
+						EmitSoundOn("Ekkan.SkeletonSpawn", skeleton)
+					end
 
 					skeleton:SetRoshpitLevel(caster:GetLevel())
 					skeleton.stance = "aggressive"
@@ -124,6 +135,20 @@ function cast_raise_skeleton_cruxys(event)
 						if skeleton.w_2_level > 0 then
 							skeleton_ability = skeleton:FindAbilityByName("ekkan_plaguebearer_passive")
 							skeleton_ability:ApplyDataDrivenModifier(skeleton, skeleton, "modifier_plaguebearer_rot_aura", {})
+						end
+					elseif unitName == "ekkan_frost_wraith" then
+						skeleton:AddAbility("ekkan_frost_wraith_passive"):SetLevel(ability:GetLevel())
+						if skeleton.w_3_level > 0 then
+							skeleton:AddAbility("ekkan_frost_wraith_freezing_rain"):SetLevel(1)
+						end
+					elseif unitName == "ekkan_burning_legionnaire" then
+						skeleton:AddAbility("ekkan_burning_legionnaire_passive"):SetLevel(ability:GetLevel())
+						if skeleton.w_2_level > 0 then
+							skeleton_ability = skeleton:FindAbilityByName("ekkan_burning_legionnaire_passive")
+							skeleton_ability:ApplyDataDrivenModifier(skeleton, skeleton, "modifier_burning_legionnaire_cloak_of_flame_aura", {})
+						end
+						if skeleton.w_3_level > 0 then
+							skeleton:AddAbility("ekkan_burning_legionnaire_skeletal_mortar"):SetLevel(1)
 						end
 					end
 				end)
@@ -206,6 +231,10 @@ function skeleton_attack_land(event)
 	local ability = event.ability
 	if attacker:GetUnitName() == "ekkan_plaguebearer" then
 		EmitSoundOn("Ekkan.PlagueBearer.AttackLand", attacker)
+	elseif attacker:GetUnitName() == "ekkan_frost_wraith" then
+		EmitSoundOn("Ekkan.FrostWraith.Attack", attacker)
+	elseif attacker:GetUnitName() == "ekkan_burning_legionnaire" then
+		EmitSoundOn("Ekkan.BurningLegionnaire.Attack", attacker)
 	end
 end
 
@@ -325,4 +354,291 @@ function plaguebearer_poison_spray_think(event)
 	print(hero:GetUnitName())
 	local damage = caster:GetRoshpitArmorPierce()*(EKKAN_ARCANA_W3A_DAMAGE_PCT_ARMOR_PIERCE/100)*caster.w_3_level
 	Filters:TakeArgumentsAndApplyDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_POISON)
+end
+
+function frost_wraith_attack_land(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local hero = caster.hero
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_frost_wraith_basic_chilled", {duration = event.cold_duration})
+	if attacker.w_1_level > 0 then
+		local chance = RandomInt(1, 100)
+		if chance <= EKKAN_ARCANA_W1B_CHANCE then
+			local icePoint = target:GetAbsOrigin()
+			local radius = EKKAN_ARCANA_W1B_RADIUS
+			local root_duration = EKKAN_ARCANA_W1B_BASE_DURATION + EKKAN_ARCANA_W1B_ROOT_DURATION*attacker.w_1_level
+			local damage = attacker:GetRoshpitMagicArmor()*(EKKAN_ARCANA_W1B_DAMAGE_PCT_MAGIC_ARMOR/100)*caster.w_1_level
+			EmitSoundOnLocationWithCaster(icePoint, "Ekkan.FrostWraith.IceBlast", caster)
+			local particle = "particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
+			local pfx = ParticleManager:CreateParticle(particle, PATTACH_WORLDORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, icePoint)
+			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius * 2))
+			Timers:CreateTimer(2.5, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), icePoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_frost_wraith_w_1_root", {duration = root_duration})
+					Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_ICE)
+				end
+			end
+		end
+	end
+end
+
+function frost_wraith_take_damage(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local hero = caster.hero
+	if caster.w_2_level > 0 then
+		local chance = RandomInt(1, 100)
+		if chance <= EKKAN_ARCANA_W2B_CHANCE then
+			local radius = EKKAN_ARCANA_W2B_BASE_RADIUS + EKKAN_ARCANA_W2B_RADIUS * caster.w_2_level
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				EmitSoundOn("Ekkan.FrostWraith.IcicleThrow", caster)
+				for i = 1, EKKAN_ARCANA_W2B_SPEAR_COUNT, 1 do
+					local enemy = enemies[i]
+					if enemy then
+						local info =
+						{
+							Target = enemy,
+							Source = caster,
+							Ability = ability,
+							EffectName = "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast.vpcf",
+							vSourceLoc = caster:GetAbsOrigin(),
+							bDrawsOnMinimap = false,
+							bDodgeable = true,
+							bIsAttack = false,
+							bVisibleToEnemies = true,
+							bReplaceExisting = false,
+							flExpireTime = GameRules:GetGameTime() + 10,
+							bProvidesVision = true,
+							iVisionRadius = 0,
+							iMoveSpeed = 900,
+						iVisionTeamNumber = caster:GetTeamNumber()}
+						projectile = ProjectileManager:CreateTrackingProjectile(info)
+					end
+				end
+			end			
+		end
+	end
+end
+
+function frost_wraith_w2_projectile_hit(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local target = event.target
+	local ability = event.ability
+	local hero = caster.hero
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(EKKAN_ARCANA_W2B_DMG_PCT_ATK_POWER/100)
+	EmitSoundOn("Ekkan.FrostWraith.IcicleImpact", target)
+	Filters:TakeArgumentsAndApplyDamage(target, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_ICE)
+end
+
+function frost_wraith_think(event)
+	local caster = event.caster
+	local ability = caster:FindAbilityByName("ekkan_frost_wraith_freezing_rain")
+	if ability then
+		if ability:IsFullyCastable() then
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				if caster.position_cast_self then
+					castPoint = caster:GetAbsOrigin()
+				end
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+		end
+	end
+end
+
+function frost_wraith_freezing_rain_cast(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	local hero = caster.hero
+	local position = event.target_points[1]
+
+	local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
+	local pfx_table = {}
+	local fv = caster:GetForwardVector()
+	local pfx_positions = {}
+	table.insert(pfx_positions, position+RandomVector(RandomInt(20, 40)))
+	-- for i = 1, 6, 1 do
+	-- 	local ice_position = position + WallPhysics:rotateVector(fv, 2*math.pi*i/6)*RandomInt(EKKAN_ARCANA_W3B_RADIUS*0.8, EKKAN_ARCANA_W3B_RADIUS-30)
+	-- 	table.insert(pfx_positions, ice_position)
+	-- end
+	for i = 1, 5, 1 do
+		local ice_position = position + WallPhysics:rotateVector(fv, 2*math.pi*i/5)*RandomInt(EKKAN_ARCANA_W3B_RADIUS*0.5, EKKAN_ARCANA_W3B_RADIUS-120)
+		table.insert(pfx_positions, ice_position)
+	end
+	WallPhysics:ShuffleTable(pfx_positions)
+	for j = 1, #pfx_positions, 1 do
+		Timers:CreateTimer(j*0.03, function()
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControl(pfx, 0, pfx_positions[j])
+			table.insert(pfx_table, pfx)
+		end)
+	end
+
+	EmitSoundOn("Ekkan.FrostWraith.FreezingRain.Cast", caster)
+	local radius = EKKAN_ARCANA_W3B_RADIUS
+	local damage = caster:GetRoshpitSpellPierce()*(EKKAN_ARCANA_W3B_DMG_SPELL_PIERCE/100)*caster.w_3_level
+	
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	Timers:CreateTimer(EKKAN_ARCANA_W3B_DAMAGE_DELAY, function()
+		EmitSoundOnLocationWithCaster(position, "Ekkan.FrostWraith.FreezingRain.Impact", caster)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_ICE)
+				ability:ApplyDataDrivenModifier(caster, enemy, "frost_wraith_freezing_rain_effect", {duration = EKKAN_ARCANA_W3B_PCT_SLOW_DURATION})
+				enemy:SetModifierStackCount("frost_wraith_freezing_rain_effect", caster, caster.w_3_level)
+			end
+		end
+	end)
+	Timers:CreateTimer(1, function()
+		for i = 1, #pfx_table, 1 do
+			ParticleManager:DestroyParticle(pfx_table[i], false)
+		end
+	end)
+end
+
+function burning_legionnaire_attack_land(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	local hero = caster.hero
+	local target = event.target
+
+	local damage = (event.fire_damage/100)*OverflowProtectedGetAverageTrueAttackDamage(caster)
+	CustomAbilities:QuickAttachParticle("particles/roshpit/ekkan/burning_legionnaire_attack.vpcf", target, 0.5)
+	Filters:TakeArgumentsAndApplyDamage(target, hero, damage, DAMAGE_TYPE_PURE, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_FIRE)
+end
+
+function die_near_burning_legionnaire(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	local hero = caster.hero
+	local target = event.unit
+	if target:GetEnemyTier() <= ENEMY_TYPE_WEAK_CREEP then
+		return false
+	end
+	local range = EKKAN_ARCANA_W1C_RANGE
+
+	local playSound = true
+	local allies = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+	if #allies > 0 then
+		for _, ally in pairs(allies) do
+			if ally:GetUnitName() == "ekkan_burning_legionnaire" then
+				if ally.w_1_level > 0 then
+					local stacks = ally:GetModifierStackCount("modifier_burning_legionnaire_w_1_visible", ally)
+					local new_stacks = stacks + 1
+					ally:RemoveModifierByName("modifier_burning_legionnaire_w_1_visible")
+					local ally_ability = ally:FindAbilityByName(ability:GetAbilityName())
+					ally_ability:ApplyDataDrivenModifier(ally, ally, "modifier_burning_legionnaire_w_1_visible", {})
+					ally:SetModifierStackCount("modifier_burning_legionnaire_w_1_visible", ally, new_stacks)
+					ally_ability:ApplyDataDrivenModifier(ally, ally, "modifier_burning_legionnaire_w_1_effect", {})
+					ally:SetModifierStackCount("modifier_burning_legionnaire_w_1_effect", ally, new_stacks*ally.w_1_level)
+					if playSound then
+						EmitSoundOn("Ekkan.BurningLegionnaire.W1Buff", ally)
+						playSound = false
+					end
+				end
+			end
+		end
+	end
+end
+
+function burning_legionnaire_cloak_of_flames_burning_think(event)
+	local target = event.target
+	local caster = event.caster
+	local hero = event.caster.hero
+	local ability = event.ability
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(EKKAN_ARCANA_W2C_BURN_DAMAGE/100)*caster.w_2_level
+	Filters:TakeArgumentsAndApplyDamage(target, hero, damage, DAMAGE_TYPE_PHYSICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_FIRE)
+end
+
+function burning_legionnaire_skeletal_mortar_cast(event)
+	local caster = event.caster
+	local attacker = event.attacker
+	local ability = event.ability
+	local hero = caster.hero
+	local position = event.target_points[1]
+	EmitSoundOn("Ekkan.BurningLegionnaire.Mortar.Cast", caster)
+	caster:AddNoDraw()
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_skeletal_mortar_wait", {})
+
+	local max_distance = EKKAN_ARCANA_W3C_RANGE_BASE + EKKAN_ARCANA_W3C_RANGE*caster.w_3_level
+	local cast_distance = WallPhysics:GetDistance2d(position, caster:GetAbsOrigin())
+	local fv = ((position - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+	local actual_distance = cast_distance
+	if cast_distance > max_distance then
+		position = caster:GetAbsOrigin() + fv*max_distance
+		actual_distance = max_distance
+	end
+	local projectile_speed = 1000
+	local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_snapfire/snapfire_lizard_blobs_arced.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pfx, 1, position)
+	ParticleManager:SetParticleControl(pfx, 2, Vector(projectile_speed, projectile_speed, projectile_speed))
+	-- ParticleManager:SetParticleControl(pfx, 3, caster:GetAbsOrigin())
+	-- ParticleManager:SetParticleControl(pfx, 4, fv*actual_distance)
+
+	CustomAbilities:QuickParticleAtPoint("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf", caster:GetAbsOrigin(), 2)
+	local delay = actual_distance/projectile_speed
+	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster)*(EKKAN_ARCANA_W3C_IMPACT_DMG/100)*caster.w_3_level
+	Timers:CreateTimer(delay, function()
+		FindClearSpaceForUnit(caster, position, false)
+		ParticleManager:DestroyParticle(pfx, false)
+		caster:RemoveNoDraw()
+		caster:RemoveModifierByName("modifier_skeletal_mortar_wait")
+		EmitSoundOn("Ekkan.BurningLegionnaire.Mortar.Impact", caster)
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/ekkan/burning_legionnaire_mortar_ground.vpcf", caster:GetAbsOrigin(), 3)
+		CustomAbilities:QuickParticleAtPoint("particles/neutral_fx/roshan_slam.vpcf", caster:GetAbsOrigin(), 3)
+		local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, EKKAN_ARCANA_W3C_RADIUS, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		if #enemies > 0 then
+			for _, enemy in pairs(enemies) do
+				Filters:TakeArgumentsAndApplyDamage(enemy, hero, damage, DAMAGE_TYPE_MAGICAL, BASE_ABILITY_W, RPC_ELEMENT_UNDEAD, RPC_ELEMENT_FIRE)
+			end
+		end
+	end)
+end
+
+function burning_legionnaire_think(event)
+	local caster = event.caster
+	local ability = caster:FindAbilityByName("ekkan_burning_legionnaire_skeletal_mortar")
+	if ability then
+		if ability:IsFullyCastable() then
+			local max_distance = EKKAN_ARCANA_W3C_RANGE_BASE + EKKAN_ARCANA_W3C_RANGE*caster.w_3_level
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, max_distance, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				local castPoint = enemies[1]:GetAbsOrigin()
+				if caster.position_cast_self then
+					castPoint = caster:GetAbsOrigin()
+				end
+				local newOrder = {
+					UnitIndex = caster:entindex(),
+					OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+					AbilityIndex = ability:entindex(),
+					Position = castPoint
+				}
+
+				ExecuteOrderFromTable(newOrder)
+			end
+		end
+	end
 end
