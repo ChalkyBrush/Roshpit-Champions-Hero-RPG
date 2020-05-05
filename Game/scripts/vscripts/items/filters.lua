@@ -1292,8 +1292,11 @@ function Filters:ApplyWskills(caster)
     end
     local ability = caster:GetAbilityByIndex(DOTA_W_SLOT)
     if ability.castPointSave then
-        ability:SetOverrideCastPoint(ability:GetKeyValue("AbilityCastPoint", false))
-        ability.castPointSave = nil
+        local abilityCastPoint = ability:GetKeyValue("AbilityCastPoint", false)
+        if abilityCastPoint then
+            ability:SetOverrideCastPoint()
+            ability.castPointSave = nil
+        end
     end
     local gameMasterAbil = Events.GameMaster:FindAbilityByName("npc_abilities")
     if caster:HasModifier("modifier_burnout") then
