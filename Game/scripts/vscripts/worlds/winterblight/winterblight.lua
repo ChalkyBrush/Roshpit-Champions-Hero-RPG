@@ -247,12 +247,7 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   -- Winterblight:CastleSunPhoenixSequence()
-  Winterblight:OpenCastleDoorByIndex(13)
-  Winterblight.CASTLE_DATA["rooms"][12]["judgement_time_end"] = 135
-  Winterblight.CASTLE_DATA["rooms"][12]["judgement_time_start"] = 0
-  Winterblight:JudgementShow(12)
-  Winterblight.JudgementTimesCounted = 11
-  Winterblight.JudgementTotalTime = 0
+  Winterblight:CreateCastleTarotCard(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "devil")
   -- Winterblight:WinterCastleBossSpawn()
   -- Enemies:SpawnEnemyUnit("winterblight_hanging_slayer", Vector(-15424,-2560), RandomVector(1), false)
 

@@ -18,22 +18,24 @@ function diviner_think(event)
 		if distance < 80 then
 			caster.phase = 3
 			Timers:CreateTimer(1, function()
-				CustomAbilities:QuickParticleAtPoint("particles/econ/items/necrolyte/necronub_death_pulse/necrolyte_pulse_ka_explosion_flash_glow.vpcf", caster:GetAttachmentOrigin(0), 2)
-				local card_prop = caster.card_prop
-				caster.card_prop = nil
+				if not Winterblight.OverrideIntroThrow then
+					CustomAbilities:QuickParticleAtPoint("particles/econ/items/necrolyte/necronub_death_pulse/necrolyte_pulse_ka_explosion_flash_glow.vpcf", caster:GetAttachmentOrigin(0), 2)
+					local card_prop = caster.card_prop
+					caster.card_prop = nil
 
-				local card_index = caster.selected_card + 1
+					local card_index = caster.selected_card + 1
 
-				StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
-				EmitSoundOn("Winterblight.Horus.CardThrow.VO", caster)
-				EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.Horus.Throw", caster)
-				card_prop:SetAbsOrigin(Vector(11808, 13046, 2180))
-				Events:smoothTranslate(card_prop, Vector(0,0,-40), 15, Vector(0,0), nil)
-				Timers:CreateTimer(0.35, function()
-					CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/castle_tarot_splash.vpcf", Vector(11808, 13046, 1767), 5)
-					EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.TarotCard.Dunk", caster)
-					ScreenShake(Vector(11808, 13046, 1767), 800, 1, 1, 9000, 0, true)
-				end)
+					StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1})
+					EmitSoundOn("Winterblight.Horus.CardThrow.VO", caster)
+					EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.Horus.Throw", caster)
+					card_prop:SetAbsOrigin(Vector(11808, 13046, 2180))
+					Events:smoothTranslate(card_prop, Vector(0,0,-40), 15, Vector(0,0), nil)
+					Timers:CreateTimer(0.35, function()
+						CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/castle_tarot_splash.vpcf", Vector(11808, 13046, 1767), 5)
+						EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.TarotCard.Dunk", caster)
+						ScreenShake(Vector(11808, 13046, 1767), 800, 1, 1, 9000, 0, true)
+					end)
+				end
 				Timers:CreateTimer(1.0, function()
 					EmitSoundOn("Winterblight.Tarot.Suspense", caster)
 				end)
@@ -1366,6 +1368,9 @@ function treasure_chest_attacked(event)
 			end
 			if caster.contents.ring_of_mysteries and caster.contents.ring_of_mysteries > 0 then
 				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), caster.roshpit_attributes.roshpit_level, "item_rpc_ring_of_mysteries")
+			end
+			if caster.contents.tarot_card and caster.contents.tarot_card > 0 then
+				Winterblight:CreateCastleTarotCard(caster:GetAbsOrigin(), nil)
 			end
 		end
 	end)
@@ -4658,4 +4663,54 @@ function judgement_spark_impact(event)
 		ParticleManager:DestroyParticle(pfx, false)
 	end)
 	Enemies:ApplyDamageToPlayer(target, caster, ability.damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function use_winterblight_tarot_card(event)
+	local item = event.ability
+	local caster = event.caster
+	if Winterblight.CastleTarot then
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "winterblight_tarot_card_use_fail_1", duration = 2, style = {color = "red"}, continue = true})
+		item:StartCooldown(2)
+		return false
+	end
+	local allowable_position = Vector(11807, 13248)
+	local distance_to_allowable_position = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), allowable_position)
+	if distance_to_allowable_position > 300 then
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "winterblight_tarot_card_use_fail_2", duration = 2, style = {color = "red"}, continue = true})
+		item:StartCooldown(2)
+		return false
+	end
+
+	UTIL_Remove(item)
+	local tarot_target = nil
+	for i = 1, #Winterblight.CASTLE_DATA["tarot"], 1 do
+		if string.match(Winterblight.CASTLE_DATA["tarot"][i]["name"], string.gsub(item.newItemTable.property1name, "tarot_", "")) then
+			tarot_target = i
+			break
+		end
+	end
+	local card_prop = Entities:FindByNameNearest("tarot_card_prop_xtra", Vector(11807, 13042, 1400), 1000)
+
+	Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][tarot_target]
+
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", Winterblight.CastleDungeonMaster:GetAbsOrigin(), 3)
+	EmitSoundOn("Winterblight.GraveGhostSpawn", Winterblight.CastleDungeonMaster)
+	FindClearSpaceForUnit(Winterblight.CastleDungeonMaster, Vector(11800, 13320), false)
+	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", Winterblight.CastleDungeonMaster:GetAbsOrigin(), 3)
+	EmitSoundOn("Winterblight.GraveGhostSpawn", Winterblight.CastleDungeonMaster)
+	StartAnimation(Winterblight.CastleDungeonMaster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+	EmitSoundOn("Winterblight.Horus.CardThrow.VO", Winterblight.CastleDungeonMaster)
+	Winterblight.CastleDungeonMaster:MoveToPosition(Vector(11800, 13400))
+	Winterblight.CastleDungeonMaster.phase = 2
+	Winterblight.OverrideIntroThrow = true
+	StartAnimation(caster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
+	EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.Horus.Throw", caster)
+	card_prop:SetAbsOrigin(Vector(11808, 13046, 2180))
+	Events:smoothTranslate(card_prop, Vector(0,0,-40), 15, Vector(0,0), nil)
+	Timers:CreateTimer(0.35, function()
+		CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/castle_tarot_splash.vpcf", Vector(11808, 13046, 1767), 5)
+		EmitSoundOnLocationWithCaster(card_prop:GetAbsOrigin(), "Winterblight.TarotCard.Dunk", caster)
+		ScreenShake(Vector(11808, 13046, 1767), 800, 1, 1, 9000, 0, true)
+	end)
+
 end

@@ -462,7 +462,7 @@ function SaveLoad:AttachItemToURL(url, hero, is_stash, stash_slot, playerID, gea
 
 		local affixCount = 0
 		--print("TU78A")
-		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") then
+		if item:GetAbilityName() == "item_rpc_web_premium_token" or string.match(item:GetAbilityName(), "galactic_arcana_cache") or string.match(item:GetAbilityName(), "item_serengaard_hyperstone") or string.match(item:GetAbilityName(), "item_rpc_unrefined_gemstones") or string.match(item:GetAbilityName(), "item_rpc_winterblight_tarot_card") then
 			--print("TU78B")
 			local affixCount = 1
 			for i = 1, affixCount, 1 do
@@ -1000,6 +1000,13 @@ function SaveLoad:LoadGear(gearTable, playerID, bEquip)
 				item.newItemTable.validator = gearTable.validator
 			end
 			return item
+		elseif string.match(gearTable.item_variant, "item_rpc_winterblight_tarot_card") then
+			DeepPrintTable(gearTable)
+			local item = Winterblight:CreateCastleTarotCard(nil, string.gsub(gearTable.property1name, "tarot_", ""))
+			if gearTable.validator then
+				item.newItemTable.validator = gearTable.validator
+			end
+			return item
 		end
 	end
 end
@@ -1407,7 +1414,7 @@ end
 		--print("DRAGGED TO STASH")
 		if itemEntity.cantStash then
 			Notifications:Top(playerID, {text = "Can't Stash This", duration = 2, style = {color = "red"}, continue = true})
-			EmitSoundOnClient("General.Cancel", caster:GetPlayerOwner())
+			EmitSoundOnClient("General.Cancel", hero:GetPlayerOwner())
 			return false
 		end
 		--SaveLoad:NewKey()

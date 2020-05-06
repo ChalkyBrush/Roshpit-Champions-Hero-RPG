@@ -2192,6 +2192,10 @@ function Winterblight:SpawnTreasureRoomChests()
 		if luck == 1 then
 			chest.contents = {ring_of_mysteries = 1}
 		end
+		local luck_card = RandomInt(1, 24)
+		if luck_card == 1 then
+			table.insert(chest.contents, {tarot_card = 1})
+		end
 		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
 		chest.treasure_room = true
 	end
@@ -2660,6 +2664,13 @@ function Winterblight:CastleBossDeath(boss)
 			Winterblight:DropBorealGraniteChunk(boss:GetAbsOrigin())
 		end
 	end)
+	Timers:CreateTimer(1.5, function()
+		local card_chance = RandomInt(1, 100)
+		local chance_min = 10 + GameState:GetPlayerPremiumStatusCount()*5
+		if card_chance < chance_min then
+			Winterblight:CreateCastleTarotCard(boss:GetAbsOrigin(), nil)
+		end
+	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
 		Timers:CreateTimer(j * 0.3, function()
 			Winterblight:DropGlacierStone(boss:GetAbsOrigin())
@@ -2944,6 +2955,10 @@ function Winterblight:KeyLand(position)
 				if luck == 1 then
 					chest.contents = {ring_of_mysteries = 1}
 				end
+				local luck_card = RandomInt(1, 24)
+				if luck_card == 1 then
+					table.insert(chest.contents, {tarot_card = 1})
+				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)
 				end)
@@ -2976,6 +2991,10 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 				if luck == 1 then
 					chest.contents = {ring_of_mysteries = 1}
 				end
+				local luck_card = RandomInt(1, 24)
+				if luck_card == 1 then
+					table.insert(chest.contents, {tarot_card = 1})
+				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)
 				end)
@@ -3004,6 +3023,14 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 			end
 		end
 	end
+	local tarot_card_luck = RandomInt(1, 10000)
+	local chance_min = 20 + GameState:GetPlayerPremiumStatusCount()*5
+	if enemy:GetEnemyTier() == ENEMY_TYPE_MINI_BOSS then
+		chance_min = chance_min*10
+	end
+	if tarot_card_luck <= chance_min then
+		Winterblight:CreateCastleTarotCard(enemy:GetAbsOrigin(), nil)
+	end
 end
 
 function Winterblight:GetGeneralChestRewards()
@@ -3030,6 +3057,10 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		local luck = RandomInt(1, 15)
 		if luck == 1 then
 			chest.contents = {ring_of_mysteries = 1}
+		end
+		local luck_card = RandomInt(1, 24)
+		if luck_card == 1 then
+			table.insert(chest.contents, {tarot_card = 1})
 		end
 		if Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
 			local bad_luck = RandomInt(1, 2)
@@ -3837,4 +3868,33 @@ function Winterblight:DropCruxysEkkanArcana(boss)
 		RPCItems:RollAndDropUniqueArcana(boss, "item_rpc_ekkan_arcana2c")
 	end
 	return arcana
+end
+
+function Winterblight:CreateCastleTarotCard(position, tarot_name)
+	local item = RPCItems:CreateConsumable("item_rpc_winterblight_tarot_card", "mythical", "Winterblight Tarot Card", "consumable", false, "Consumable", "item_rpc_winterblight_tarot_card_desc")
+
+	card_tarot_name = tarot_name
+	if not tarot_name then
+		local card_tarot_name = Winterblight.CastleTarot["name"]
+		local luck = RandomInt(1, 2)
+		if luck == 1 then
+			card_tarot_name = Winterblight.CASTLE_DATA["tarot"][RandomInt(1, 22)]["name"]
+		end
+	end
+
+	item.newItemTable.stashable = true
+	item.newItemTable.consumable = true
+	item.cantStash = false
+	item.newItemTable.property1 = 1
+	item.newItemTable.property1name = "tarot_"..card_tarot_name
+	item.newItemTable.property1color = "#6a4373"
+	item.newItemTable.property1tooltip = "tarot_"..card_tarot_name
+	RPCItems:SetPropertyValues(item, item.newItemTable.property1, item.newItemTable.property1name, item.newItemTable.property1color, 1)
+	RPCItems:ItemUpdateCustomNetTables(item)
+	if position then
+		RPCItems:BasicDropItem(position, item)
+		return item
+	else
+		return item
+	end
 end

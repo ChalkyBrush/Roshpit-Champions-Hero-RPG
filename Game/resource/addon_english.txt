@@ -22156,6 +22156,12 @@
 		"DOTA_Tooltip_ability_item_rpc_elynas_feather"		"Elyna's Feather"
 		"item_rpc_elynas_feather_desc"						"Use near an Apple Tree in Winterblight Castle to summon the spirit of Elyna."
 
+		"DOTA_Tooltip_ability_item_rpc_winterblight_tarot_card" "Winterblight Tarot Card"
+		"item_rpc_winterblight_tarot_card_desc"				    "Use at the entrace of Winterblight Castle to select this fate."
+
+		"winterblight_tarot_card_use_fail_1"				"Castle Is Already Open"
+		"winterblight_tarot_card_use_fail_2"				"Diviner is too far away"
+
 		//tarot
 
 		"tarot_fool"												"The Fool"
