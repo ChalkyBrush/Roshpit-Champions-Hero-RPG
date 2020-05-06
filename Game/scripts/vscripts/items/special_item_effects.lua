@@ -10270,3 +10270,75 @@ function plague_emperor_amethyst_poison_pool_thinker_end(event)
 	ParticleManager:DestroyParticle(target.pfx, false)
 	UTIL_Remove(target)
 end
+
+function ring_of_mysteries_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+
+	if not hero.runes_bonus_ring_of_mysteries then
+		hero.runes_bonus_ring_of_mysteries = {}
+	end
+
+	ability.base_runes_hash = {}
+
+	ability.total_rune_levels = 0
+
+	local lowest_t3 = 10000
+	local lowest_t3_name = nil
+	local lowest_t4 = 10000
+	local lowest_t4_name = nil
+	local rune_letters = {"q", "w", "e", "r"}
+	for i = 1, 4, 1 do
+		for j = 1, #rune_letters, 1 do
+			local rune_name = rune_letters[j].."_"..i
+			local rune_level = hero:GetRuneValue(rune_letters[j], i)
+			if hero.runes_bonus_ring_of_mysteries[rune_name] then
+				rune_level = rune_level - hero.runes_bonus_ring_of_mysteries[rune_name]
+				hero.runes_bonus_ring_of_mysteries[rune_name] = nil
+			end
+			if i < 3 then
+				table.insert(ability.base_runes_hash, {rune_name, rune_level})
+			elseif i == 3 then
+				if rune_level < lowest_t3 then
+					lowest_t3 = rune_level
+					lowest_t3_name = rune_name
+				end
+			elseif i == 4 then
+				if rune_level < lowest_t4 then
+					lowest_t4 = rune_level
+					lowest_t4_name = rune_name
+				end
+			end
+			ability.total_rune_levels = ability.total_rune_levels + rune_level
+		end
+	end
+	local emerald_bonus = ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_RING_OF_MYSTERIES_GEM_EMERALD)
+
+	table.sort(ability.base_runes_hash, ring_of_mysteries_compare)
+	for k = 1, 3, 1 do
+		hero.runes_bonus_ring_of_mysteries[ability.base_runes_hash[k][1]] = ITEM_RPC_RING_OF_MYSTERIES_T1_AND_T2_BONUS + emerald_bonus
+	end
+
+	if ability:GetGemValue("ruby") > 0 then
+		hero.runes_bonus_ring_of_mysteries[lowest_t3_name] = ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_RING_OF_MYSTERIES_GEM_RUBY)
+	end
+	if ability:GetGemValue("sapphire") > 0 then
+		hero.runes_bonus_ring_of_mysteries[lowest_t4_name] = ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_RING_OF_MYSTERIES_GEM_SAPPHIRE)
+	end
+	DeepPrintTable(hero.runes_bonus_ring_of_mysteries)
+	hero:UpdateRuneBonusesFromGear()
+end
+
+function ring_of_mysteries_compare(a, b)
+  return a[2] < b[2]
+end
+
+function ring_of_mysteries_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	local target = event.target
+	hero.runes_bonus_ring_of_mysteries = nil
+end

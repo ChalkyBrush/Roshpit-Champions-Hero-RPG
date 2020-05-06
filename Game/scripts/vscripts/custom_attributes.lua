@@ -3212,6 +3212,11 @@ function CustomAttributes:SetAttributes(hero)
 	if hero:HasModifier("modifier_mountain_protector_glyph_5_a") then
 		str_bonus = str_bonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_mountain_protector_glyph_5_a", CustomAttributes.MOUNTAIN_PROTECTOR_GLYPH_5_A)
 	end
+	if hero:HasModifier("modifier_ring_of_mysteries") then
+		if hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetGemValue("amethyst") > 0 then
+			spr_bonus = spr_bonus + hero.equipped_gear[RPC_GEAR_SLOT_TRINKET].total_rune_levels*hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_RING_OF_MYSTERIES_GEM_AMETHYST)
+		end
+	end
 	if hero:HasModifier("modifier_red_divinex_amulet") then
 		local stat_bonus = hero:GetBaseStrength()*ITEM_RPC_RED_DIVINEX_AMULET_STR_PCT/100
 		local modifier = hero:FindModifierByName('modifier_red_divinex_amulet')

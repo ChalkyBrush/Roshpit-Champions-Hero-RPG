@@ -15428,6 +15428,15 @@
         "item_rpc_raven_idol_sapphire1"                                     "Reduces Spirit by @sapphire_property1 and increases Strength by @sapphire_property2"
         "item_rpc_raven_idol_amethyst1"                                     "Increases Item and <font color=\"#7F4F84\">Shadow</font> Elemental Damage by @amethyst_property1%"
 
+        "DOTA_Tooltip_ability_item_rpc_ring_of_mysteries"             "Ring of Mysteries"
+        "item_property_ring_of_mysteries"                                     "Resplendence"
+        "property_ring_of_mysteries_description"                              "Your 3 lowest Tier 1 or Tier 2 runes are increased by a bonus of +<font color='#ccff66'>30</font>."
+
+        "item_rpc_ring_of_mysteries_ruby1"                "Your lowest Tier 3 rune is increased by a bonus of +@ruby_property1"
+        "item_rpc_ring_of_mysteries_emerald1"             "The rune bonus for the 3 lowest Tier 1 or Tier 2 runes is increased by an additional +@emerald_property1"
+        "item_rpc_ring_of_mysteries_sapphire1"                "Your lowest Tier 4 rune is increased by a bonus of +@sapphire_property1"
+        "item_rpc_ring_of_mysteries_amethyst1"                "Each rune level increases Spirit by @amethyst_property1"
+
         "DOTA_Tooltip_ability_item_rpc_ring_of_nobility"                                "Ring of Nobility"
         "item_rpc_ring_of_nobility_ruby1"                               "When this ring upgrades, upgrade this Ruby to Tier @ruby_property1, which will increase all Tier 1 runes by @ruby_property2."
         "item_rpc_ring_of_nobility_emerald1"                                "When this ring upgrades, upgrade this Emerald to Tier @emerald_property1, which will increase all Tier 3 runes by @emerald_property2."

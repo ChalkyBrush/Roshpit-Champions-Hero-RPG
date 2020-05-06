@@ -297,6 +297,9 @@ function CDOTA_BaseNPC_Hero:UpdateRuneBonusesFromGear()
 				rune_bonus = rune_bonus + hero:GetModifierStackCount(modifier_name, hero.InventoryUnit)
 			end	
 		end
+		if hero.runes_bonus_ring_of_mysteries and hero.runes_bonus_ring_of_mysteries[rune_name] then
+			rune_bonus = rune_bonus + hero.runes_bonus_ring_of_mysteries[rune_name]
+		end
 		hero.runes_bonus_table[rune_name] = rune_bonus
 	end
 	CustomNetTables:SetTableValue("skill_tree", tostring(hero:GetEntityIndex()) .. "-rune_bonuses", hero.runes_bonus_table)
