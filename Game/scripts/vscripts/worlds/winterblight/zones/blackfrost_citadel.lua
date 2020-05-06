@@ -2188,6 +2188,10 @@ function Winterblight:SpawnTreasureRoomChests()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		chest.contents = rewardTables[i]
+		local luck = RandomInt(1, 15)
+		if luck == 1 then
+			chest.contents = {ring_of_mysteries = 1}
+		end
 		table.insert(Winterblight.CastleDungeonMaster.treasure_room_chests, chest)
 		chest.treasure_room = true
 	end
@@ -2936,6 +2940,10 @@ function Winterblight:KeyLand(position)
 				EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 				EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 				chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+				local luck = RandomInt(1, 15)
+				if luck == 1 then
+					chest.contents = {ring_of_mysteries = 1}
+				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)
 				end)
@@ -2964,6 +2972,10 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 				EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 				EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 				chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+				local luck = RandomInt(1, 15)
+				if luck == 1 then
+					chest.contents = {ring_of_mysteries = 1}
+				end
 				Timers:CreateTimer(6, function()
 					UTIL_Remove(pfx_dummy)
 				end)
