@@ -3875,7 +3875,7 @@ function Winterblight:CreateCastleTarotCard(position, tarot_name)
 
 	card_tarot_name = tarot_name
 	if not tarot_name then
-		local card_tarot_name = Winterblight.CastleTarot["name"]
+		card_tarot_name = Winterblight.CastleTarot["name"]
 		local luck = RandomInt(1, 2)
 		if luck == 1 then
 			card_tarot_name = Winterblight.CASTLE_DATA["tarot"][RandomInt(1, 22)]["name"]
