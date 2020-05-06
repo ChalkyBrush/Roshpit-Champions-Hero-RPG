@@ -1561,7 +1561,7 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             Filters:EternalForestStriders(attacker, victim, damage)
         end
     end
-
+    -- damage = Filters:AdjustBaseAbilityDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     local damageData = attacker._damage_data or {}
 
     local attackerName = attacker:GetUnitName()
@@ -1760,6 +1760,9 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         end
         if attacker:HasModifier("modifier_claw_of_azinoth") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_CLAW_OF_AZINOTH_GEM_SAPPHIRE2)/100
+        end
+        if attacker:HasModifier("modifier_angelic_gloves_of_the_judiciary_bad") then
+            damageMult = damageMult + attacker:GetModifierStackCount("modifier_angelic_gloves_of_the_judiciary_bad", attacker.InventoryUnit) * (ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR/100)
         end
         if attacker:HasModifier("modifier_space_tech_buff_invisible") then
             damageMult = damageMult + 0.01 * attacker:GetModifierStackCount("modifier_space_tech_buff_invisible", attacker.InventoryUnit)
@@ -2075,6 +2078,19 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
     or slot == BASE_NONE 
     or slot == BASE_AUTO_ATTACK then
         Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, ability or slot or 0)
+    end
+    return damage
+end
+
+function Filters:AdjustBaseAbilityDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
+    if attacker:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+        if not ignore_effects then
+            if slot == BASE_ABILITY_W then
+                if attacker.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+                    damage = damage + attacker:GetHealth()
+                end
+            end
+        end
     end
     return damage
 end
@@ -6818,36 +6834,42 @@ function Filters:PlagueEmperorBombSetup(hero, cast_type, optionalAbility)
             Filters:PlagueEmperorBomb(hero, position)
         end
     elseif cast_type == BASE_ABILITY_Q then
-        EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
-        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
-        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-        if #enemies > 0 then
-            range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
-        end
-        local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE1)
-        for i = 1, projectile_count, 1 do
-            local bomb_fv = hero:GetForwardVector()
-            if i == 2 then
-                bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi/12)
-            elseif i == 3 then
-                bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), -2*math.pi/12)
+        local limitKey = hero:GetEntityIndex().."_plague_emperor_q"
+        Util.Common:LimitPerTime(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND, 1, limitKey, function()
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            if #enemies > 0 then
+                range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
             end
-            local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
-            Filters:PlagueEmperorBomb(hero, bomb_position)
-        end
+            local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE1)
+            for i = 1, projectile_count, 1 do
+                local bomb_fv = hero:GetForwardVector()
+                if i == 2 then
+                    bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi/12)
+                elseif i == 3 then
+                    bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), -2*math.pi/12)
+                end
+                local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+                Filters:PlagueEmperorBomb(hero, bomb_position)
+            end
+        end)
     elseif cast_type == BASE_ABILITY_R then
-        EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
-        local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
-        local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
-        if #enemies > 0 then
-            range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
-        end        
-        local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE2)
-        for i = 1, projectile_count, 1 do
-            local bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi*i/projectile_count)
-            local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
-            Filters:PlagueEmperorBomb(hero, bomb_position)
-        end
+        local limitKey = hero:GetEntityIndex().."_plague_emperor_r"
+        Util.Common:LimitPerTime(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MAX_TRIGGERS_PER_SECOND, 1, limitKey, function()
+            EmitSoundOn("RPCItems.PlagueEmperor.Throw", hero)
+            local range = ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_DEFAULT_DISTANCE
+            local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, ITEM_RPC_PLAGUE_EMPEROR_ARMOR_RANGE*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            if #enemies > 0 then
+                range = math.max(ITEM_RPC_PLAGUE_EMPEROR_ARMOR_SAPPHIRE_MIN_THROW_DISTANCE, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), hero:GetAbsOrigin()))
+            end        
+            local projectile_count = hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_SAPPHIRE2)
+            for i = 1, projectile_count, 1 do
+                local bomb_fv = WallPhysics:rotateVector(hero:GetForwardVector(), 2*math.pi*i/projectile_count)
+                local bomb_position = hero:GetAbsOrigin() + bomb_fv*range
+                Filters:PlagueEmperorBomb(hero, bomb_position)
+            end
+        end)
     end
 end
 

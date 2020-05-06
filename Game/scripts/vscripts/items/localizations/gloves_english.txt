@@ -579,3 +579,23 @@
 		"item_rpc_swiftspike_bracer_emerald1"			"Increases Agility by @emerald_property1, and each point of movement speed increases Item Damage by @emerald_property2%"
 		"item_rpc_swiftspike_bracer_sapphire1"			"Increases Max Movement Speed by @sapphire_property1"
 		"item_rpc_swiftspike_bracer_amethyst1"			"Increases Movement Speed by @amethyst_property1%"
+
+		"DOTA_Tooltip_ability_item_rpc_angelic_gloves_of_the_judiciary"			"Angelic Gloves of the Judiciary"
+
+		"item_property_angelic_gloves_of_the_judiciary"							"Divine Balance"
+		"property_angelic_gloves_of_the_judiciary_description"					"Each point of your lowest Attribute increases Base Ability Damage by <% ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_BAD_PER_ATTR %>%."
+
+		"item_rpc_angelic_gloves_of_the_judiciary_ruby1"			"Restore @ruby_property1% of Max Health when attacked"
+		"item_rpc_angelic_gloves_of_the_judiciary_emerald1"			"Each point of Current Health increases Armor and Magic Armor by @emerald_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_sapphire1"			"Increases Intelligence and Spirit by @sapphire_property1"
+		"item_rpc_angelic_gloves_of_the_judiciary_amethyst1"			"All Attributes increase Max Health by @amethyst_property1"
+
+		"DOTA_Tooltip_ability_item_rpc_demonic_gloves_of_the_judiciary"			"Demonic Gloves of the Judiciary"
+
+		"item_property_demonic_gloves_of_the_judiciary"							"Infernal Balance"
+		"property_demonic_gloves_of_the_judiciary_description"					"Each point of your lowest Attribute increases Base Attack Damage by <% ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR %>."
+
+		"item_rpc_demonic_gloves_of_the_judiciary_ruby1"			"Restore @ruby_property1% of Max Health when landing an attack."
+		"item_rpc_demonic_gloves_of_the_judiciary_emerald1"			"Each point of Current Mana increases Armor Pierce and Spell Pierce by @emerald_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_sapphire1"			"Increases Strength and Agility by @sapphire_property1"
+		"item_rpc_demonic_gloves_of_the_judiciary_amethyst1"			"All Attributes increase Max Mana by @amethyst_property1"

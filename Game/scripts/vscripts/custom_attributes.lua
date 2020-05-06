@@ -1147,6 +1147,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 	if unit:HasModifier("modifier_justice_greaves_armor") then
 		armor_modify = armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor", unit.InventoryUnit)
 	end
+	if unit:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			armor_modify = armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1772,6 +1777,12 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_justice_greaves_magic_armor") then
 		magic_armor_modify = magic_armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_magic_armor", unit.InventoryUnit)
 	end
+	if unit:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			magic_armor_modify = magic_armor_modify + unit:GetHealth()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
+	end
+
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2153,6 +2164,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_justice_greaves_armor_pierce") then
 		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor_pierce", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			armor_pierce_modify = armor_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
 	end
 
 
@@ -2593,6 +2609,11 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	end
 	if unit:HasModifier("modifier_justice_greaves_spell_pierce") then
 		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_spell_pierce", unit.InventoryUnit)
+	end
+	if unit:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		if unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetGemValue("emerald") > 0 then
+			spell_pierce_modify = spell_pierce_modify + unit:GetMana()*unit.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("emerald", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_EMERALD)
+		end
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**
@@ -3478,6 +3499,9 @@ function CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	if excludedModifier ~= "modifier_rubilash_e_4_max_health" and hero:HasModifier("modifier_rubilash_e_4_max_health") then
 		flatHealthBonus = flatHealthBonus + hero:GetSumOfAllAttributes()*hero:GetRuneValue("e", 4)*RUBILASH_RUNE_E4_HEALTH_PER_ATTR
 	end
+	if excludedModifier ~= "modifier_angelic_gloves_of_the_judiciary" and hero:HasModifier("modifier_angelic_gloves_of_the_judiciary") then
+		flatHealthBonus = flatHealthBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST)*hero:GetSumOfAllAttributes()
+	end
 	
 	Util.Modifier:SimpleEvent(hero, 'GetFlatHealthBonus', { MODIFIER_ROSHPIT_FLAT_HEALTH_BONUS }, { }, 
 		function(result, data)
@@ -3545,6 +3569,9 @@ function CustomAttributes:GetBaseMana(hero, excludedModifier)
 	end
 	if excludedModifier ~= "modifier_weapon_max_mana" and hero:HasModifier("modifier_weapon_max_mana") then
 		flatManaBonus = flatManaBonus + CustomAttributes:AddStatsBonusFromStacks(hero, nil, "modifier_weapon_max_mana", 1)
+	end
+	if excludedModifier ~= "modifier_demonic_gloves_of_the_judiciary" and hero:HasModifier("modifier_demonic_gloves_of_the_judiciary") then
+		flatManaBonus = flatManaBonus + hero.equipped_gear[RPC_GEAR_SLOT_GLOVES]:GetFinalGemPropertyValue("amethyst", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_AMETHYST)*hero:GetSumOfAllAttributes()
 	end
 	Util.Modifier:SimpleEvent(hero, 'GetFlatManaBonus', { MODIFIER_ROSHPIT_FLAT_MANA_BONUS }, { }, 
 		function(result, data)

@@ -3459,6 +3459,8 @@ function Winterblight:SpawnJusticeMatheus()
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_imbalance", {})
 	local stacks = Winterblight.CastleJusticeData.total_demons_killed - Winterblight.CastleJusticeData.total_angels_killed
 	unit:SetModifierStackCount("modifier_diviner_justice_imbalance", Winterblight.CastleDungeonMaster, stacks)
+
+	unit:AddLootDrop("immortal", "item_rpc_angelic_gloves_of_the_judiciary", (Winterblight.CastleJusticeData.total_demons_killed-Winterblight.CastleJusticeData.total_angels_killed)*2)
 end
 
 function Winterblight:SpawnJusticeHellmouth()
@@ -3470,6 +3472,8 @@ function Winterblight:SpawnJusticeHellmouth()
 	master_ability:ApplyDataDrivenModifier(Winterblight.CastleDungeonMaster, unit, "modifier_diviner_justice_imbalance", {})
 	local stacks = Winterblight.CastleJusticeData.total_angels_killed - Winterblight.CastleJusticeData.total_demons_killed
 	unit:SetModifierStackCount("modifier_diviner_justice_imbalance", Winterblight.CastleDungeonMaster, stacks)
+
+	unit:AddLootDrop("immortal", "item_rpc_demonic_gloves_of_the_judiciary", (Winterblight.CastleJusticeData.total_angels_killed-Winterblight.CastleJusticeData.total_demons_killed)*2)
 end
 
 function Winterblight:SpawnJusticeBalance()

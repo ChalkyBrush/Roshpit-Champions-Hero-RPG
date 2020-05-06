@@ -1556,6 +1556,16 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1, hero, "strength", RPC_GEAR_SLOT_BOOTS)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_angelic_gloves_of_the_judiciary" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "intelligence", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "spirit", RPC_GEAR_SLOT_GLOVES)
+		end	
+	elseif item:GetAbilityName() == "item_rpc_demonic_gloves_of_the_judiciary" then
+		if socket_type == "sapphire" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "strength", RPC_GEAR_SLOT_GLOVES)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "sapphire", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_SAPPHIRE, hero, "agility", RPC_GEAR_SLOT_GLOVES)
+		end	
 	end
 end
 

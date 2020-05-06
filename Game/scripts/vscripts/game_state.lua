@@ -2797,6 +2797,7 @@ function GameState:FilterDamage(filterTable)
 		Timers:CreateTimer(1, function()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
+		Filters:ApplyHeal(attacker, attacker, lifesteal, true, false, nil)
 	end
 	if victim:HasModifier("modifier_starseeker_passive") then
 		if damagetype == DAMAGE_TYPE_MAGICAL then

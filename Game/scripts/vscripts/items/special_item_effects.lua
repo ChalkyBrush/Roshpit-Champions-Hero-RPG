@@ -10404,3 +10404,82 @@ function justice_greaves_end(event)
 	hero:RemoveModifierByName("modifier_justice_greaves_armor_pierce")
 	hero:RemoveModifierByName("modifier_justice_greaves_spell_pierce")
 end
+
+function angelic_judiciary_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	
+	local stat_item_str = {"strength", hero:GetStrength()}
+	local stat_item_agi = {"agility", hero:GetAgility()}
+	local stat_item_int = {"intelligence", hero:GetIntellect()}
+	local stat_item_spr = {"spirit", hero:GetSpirit()}
+
+	local stats_table = {stat_item_str, stat_item_agi, stat_item_int, stat_item_spr}
+	table.sort(stats_table, judiciary_compare)
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_angelic_gloves_of_the_judiciary_bad", {})
+	hero:SetModifierStackCount("modifier_angelic_gloves_of_the_judiciary_bad", caster, stats_table[1][2])
+end
+
+function judiciary_compare(a, b)
+  return a[2] < b[2]
+end
+
+function angelic_judiciary_attacked(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		local heal_amount = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_ANGELIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY)/100)
+		Filters:ApplyHeal(hero, hero, heal_amount, true, false, ability)
+	    local limitKey = hero:GetEntityIndex() .. '_judiciary_particle'
+	    Util.Common:LimitPerTime(2, 1, limitKey, function()
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/lifesteal_colorable.vpcf", PATTACH_CUSTOMORIGIN, hero)
+			ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 70), true)
+			ParticleManager:SetParticleControl(pfx, 3, Vector(60, 100, 255)/255)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+	end
+end
+
+
+function demonic_judiciary_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	
+	local stat_item_str = {"strength", hero:GetStrength()}
+	local stat_item_agi = {"agility", hero:GetAgility()}
+	local stat_item_int = {"intelligence", hero:GetIntellect()}
+	local stat_item_spr = {"spirit", hero:GetSpirit()}
+
+	local stats_table = {stat_item_str, stat_item_agi, stat_item_int, stat_item_spr}
+	table.sort(stats_table, judiciary_compare)
+
+	ability:ApplyDataDrivenModifier(caster, hero, "modifier_demonic_gloves_of_the_judiciary_attack", {})
+	hero:SetModifierStackCount("modifier_demonic_gloves_of_the_judiciary_attack", caster, stats_table[1][2]*ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_ATTACK_PER_ATTR)
+end
+
+function demonic_judiciary_attack_land(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+	if ability:GetGemValue("ruby") > 0 then
+		local heal_amount = hero:GetMaxHealth()*(ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_DEMONIC_GLOVES_OF_THE_JUDICIARY_GEM_RUBY)/100)
+		Filters:ApplyHeal(hero, hero, heal_amount, true, false, ability)
+	    local limitKey = hero:GetEntityIndex() .. '_judiciary_particle'
+	    Util.Common:LimitPerTime(2, 1, limitKey, function()
+			local pfx = ParticleManager:CreateParticle("particles/roshpit/winterblight/red_lifesteal.vpcf", PATTACH_CUSTOMORIGIN, hero)
+			ParticleManager:SetParticleControlEnt(pfx, 0, hero, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", hero:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(pfx, 1, hero, PATTACH_POINT_FOLLOW, "attach_hitloc", hero:GetAbsOrigin() + Vector(0, 0, 70), true)
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+		end)
+		
+	end
+end
