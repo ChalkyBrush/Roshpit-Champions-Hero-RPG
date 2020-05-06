@@ -3027,6 +3027,10 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 		chest.contents = rewardTables[RandomInt(1, #rewardTables)]
+		local luck = RandomInt(1, 15)
+		if luck == 1 then
+			chest.contents = {ring_of_mysteries = 1}
+		end
 		if Winterblight.CastleTarot["name"] == "wheel_of_fortune" then
 			local bad_luck = RandomInt(1, 2)
 			if bad_luck == 1 then
