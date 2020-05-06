@@ -322,4 +322,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% of max health, even if healing is disabled."
+        "property_chernobog_immortal_weapon3_description"                      "Landing an attack restores <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% of max health, even if healing is disabled by @Ability2. Health restore value cannot be modified."
