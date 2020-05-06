@@ -93,3 +93,20 @@ function ai_climb_think(event)
 		Dungeons:AggroUnit(unit)
 	end
 end
+
+function ai_loot_table_drop(event)
+	local unit = event.unit
+	print("LOOT DROP")
+	if not unit.loot_table then
+		return false
+	end
+	local percentage_mult = 1000
+	for _, loot in pairs(unit.loot_table) do
+		local luck = RandomInt(1, 100*percentage_mult)
+		if luck <= loot["chance"]*percentage_mult then
+			if loot["type"] == "immortal" then
+				RPCItems:RollAndDropUniqueItem(unit, loot["item"])
+			end
+		end
+	end
+end

@@ -77,8 +77,6 @@ function Tanari:Debug()
 
     local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_plague_emperor_armor")
 
-    
-
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 

@@ -1884,7 +1884,8 @@ function Winterblight:SpawnCastleRoom7(variant)
 				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_suffering_spirit", positionTable[i], fv, false, false)
 			end	
 			if variant == 2 then
-				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_slime_emperor", Vector(10317, 4511), Vector(0,-1), false, false)
+				local emperor = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_slime_emperor", Vector(10317, 4511), Vector(0,-1), false, false)
+				emperor:AddLootDrop("immortal", "item_rpc_plague_emperor_armor", 100)
 			end
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)

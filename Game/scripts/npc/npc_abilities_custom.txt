@@ -167855,6 +167855,18 @@
 					}
 				}
 			}
+			"ai_loot_table"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ai_modifiers.lua"
+						"Function"		"ai_loot_table_drop"
+					}
+				}
+			}
 		}
 	}
 
