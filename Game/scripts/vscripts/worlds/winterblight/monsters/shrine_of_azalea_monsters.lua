@@ -66,6 +66,10 @@ end
 
 function reset_crystal_puzzle(event)
 	local caster = event.caster
+	local attacker = event.attacker
+	if not attacker:IsHero() then
+	return false
+	end
 	if caster.locked or caster:HasModifier("modifier_crystal_finished") then
 		return false
 	end
