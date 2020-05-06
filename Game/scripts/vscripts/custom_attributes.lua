@@ -1144,6 +1144,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()
 		local caster = unit:FindModifierByName("modifier_burning_legionnaire_cloak_of_flame_aura"):GetCaster()
 		armor_modify = armor_modify + caster.w_2_level*EKKAN_ARCANA_W2C_BONUS_ARMOR
 	end
+	if unit:HasModifier("modifier_justice_greaves_armor") then
+		armor_modify = armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor", unit.InventoryUnit)
+	end
 
 	-- FINAL STEP: DEFILER | HOOD OF BLACK MAGE | NIGHTMARE RIDER
 
@@ -1766,6 +1769,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	if unit:HasModifier("modifier_rubilash_glyph_4_1") then
 		magic_armor_modify = magic_armor_modify + RUBILASH_GLYPH_4_1_MAGIC_ARMOR
 	end
+	if unit:HasModifier("modifier_justice_greaves_magic_armor") then
+		magic_armor_modify = magic_armor_modify + unit:GetModifierStackCount("modifier_justice_greaves_magic_armor", unit.InventoryUnit)
+	end
 	-- FINAL STEP DEFILER | NIGHTMARE RIDER MANTLE | ROOTED FEET
 
 	if unit:HasModifier("modifier_hood_of_defiler_effect_visible") then
@@ -2144,6 +2150,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmorPierce()
 	end
 	if unit:HasModifier("modifier_brazen_kabuto_channeling") then
 		armor_pierce_modify = armor_pierce_modify + unit.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", KABUTO_RUBY)
+	end
+	if unit:HasModifier("modifier_justice_greaves_armor_pierce") then
+		armor_pierce_modify = armor_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_armor_pierce", unit.InventoryUnit)
 	end
 
 
@@ -2581,6 +2590,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitSpellPierce()
 	if unit:HasModifier("modifier_umbral_sentinel_aura_effect") then
 		local aura_holder = unit:FindModifierByName("modifier_umbral_sentinel_aura_effect"):GetCaster().hero
 		spell_pierce_modify = spell_pierce_modify + (spell_pierce + spell_pierce_modify)*(aura_holder.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("ruby", UMBRAL_SENTINEL_RUBY)/100)
+	end
+	if unit:HasModifier("modifier_justice_greaves_spell_pierce") then
+		spell_pierce_modify = spell_pierce_modify + unit:GetModifierStackCount("modifier_justice_greaves_spell_pierce", unit.InventoryUnit)
 	end
 
 	-- PERCENTAGE OF OTHER ATTRIBUTES - **COULD CAUSE PROBLEMS BE WARY**

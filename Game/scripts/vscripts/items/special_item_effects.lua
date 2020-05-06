@@ -10342,3 +10342,65 @@ function ring_of_mysteries_end(event)
 	local target = event.target
 	hero.runes_bonus_ring_of_mysteries = nil
 end
+
+function justice_greaves_think(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	local highest_armor = 0
+	local highest_armor_pierce = 0
+	local highest_magic_armor = 0
+	local highest_spell_pierce = 0
+
+	local stat_pct = ITEM_RPC_JUSTICE_GREAVES_PCT_STAT + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_JUSTICE_GREAVES_GEM_SAPPHIRE)
+	local search_range = ITEM_RPC_JUSTICE_GREAVES_RANGE + ability:GetFinalGemPropertyValue("amethyst", ITEM_RPC_JUSTICE_GREAVES_GEM_AMETHYST)
+	local search_flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	if ability:GetGemValue("amethyst") > 0 then
+		search_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	end
+	local enemies = FindUnitsInRadius(hero:GetTeamNumber(), hero:GetAbsOrigin(), nil, search_range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, search_flags, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			highest_armor = math.max(highest_armor, enemy:GetRoshpitArmor())
+			highest_armor_pierce = math.max(highest_armor_pierce, enemy:GetRoshpitArmorPierce())
+			highest_magic_armor = math.max(highest_magic_armor, enemy:GetRoshpitMagicArmor())
+			highest_spell_pierce = math.max(highest_spell_pierce, enemy:GetRoshpitSpellPierce())
+		end
+	end
+	if highest_armor > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_armor", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_armor", caster, highest_armor*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_armor")
+	end
+	if highest_magic_armor > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_magic_armor", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_magic_armor", caster, highest_magic_armor*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_magic_armor")
+	end
+	if highest_armor_pierce > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_armor_pierce", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_armor_pierce", caster, highest_armor_pierce*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_armor_pierce")
+	end
+	if highest_spell_pierce > 0 then
+		ability:ApplyDataDrivenModifier(caster, hero, "modifier_justice_greaves_spell_pierce", {})
+		hero:SetModifierStackCount("modifier_justice_greaves_spell_pierce", caster, highest_spell_pierce*(stat_pct/100))
+	else
+		hero:RemoveModifierByName("modifier_justice_greaves_spell_pierce")
+	end
+end
+
+function justice_greaves_end(event)
+	local ability = event.ability
+	local caster = event.caster
+	local hero = caster.hero
+
+	hero:RemoveModifierByName("modifier_justice_greaves_armor")
+	hero:RemoveModifierByName("modifier_justice_greaves_magic_armor")
+	hero:RemoveModifierByName("modifier_justice_greaves_armor_pierce")
+	hero:RemoveModifierByName("modifier_justice_greaves_spell_pierce")
+end

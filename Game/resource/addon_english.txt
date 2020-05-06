@@ -12918,8 +12918,15 @@
         "item_rpc_yasha_boots_sapphire1"                                        "Increases Movespeed by @sapphire_property1%"
         "item_rpc_yasha_boots_amethyst1"                                        "Each point of Strength increases Base Attack Damage by @amethyst_property1"
 
- 
-		
+        "DOTA_Tooltip_ability_item_rpc_justice_greaves"                                "Justice Greaves"
+
+        "item_property_justice_greaves"                    "Equity"
+        "property_justice_greaves_description"         "Armor, Magic Armor, Armor Pierce and Spell Pierce are increased by <font color='#ccff66'>20</font>% of the highest statted enemy within <font color='#ccff66'>750</font> range"
+
+        "item_rpc_justice_greaves_ruby1"                                        "Increases Strength by @ruby_property1 and Max Health by @ruby_property2"
+        "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<font color='#ccff66'>90</font> degree range) is reduced by @emerald_property1"
+        "item_rpc_justice_greaves_sapphire1"                                        "Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
+        "item_rpc_justice_greaves_amethyst1"                                        "Increases the enemy search range by @amethyst_property1 and also works from enemies who are not visible"
 
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"

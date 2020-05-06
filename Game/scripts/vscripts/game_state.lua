@@ -1963,7 +1963,19 @@ function GameState:IncomingDamageDecrease(victim, attacker, shouldConsumeShields
 			end
 		end
 	end
-
+	if victim:HasModifier("modifier_rpc_justice_greaves") then
+		if shouldConsumeShields and victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetGemValue("emerald") > 0 then
+			local angle1 = victim:GetForwardVector()
+			local angle2 = ((victim:GetAbsOrigin() - attacker:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+			local angle_between = WallPhysics:angle_between_vectors(angle1, angle2)
+			if (angle_between > (180 - ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) and (angle_between < (180 + ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE/2)) then
+				CustomAbilities:QuickAttachParticle("particles/units/heroes/hero_mars/mars_shield_of_mars.vpcf", victim, 1)
+				EmitSoundOn("RPCItems.JusticeGreaves.Block", victim)
+				local reduction = victim.equipped_gear[RPC_GEAR_SLOT_BOOTS]:GetFinalGemPropertyValue("emerald", ITEM_RPC_JUSTICE_GREAVES_GEM_EMERALD)
+				damage = damage * (100-reduction)/100
+			end
+		end
+	end
 	if victim:HasModifier("modifier_chitinous_skin_stack") then
 		local stacks = victim:GetModifierStackCount("modifier_chitinous_skin_stack", victim.InventoryUnit)
 		local reduction = 1 - stacks * ITEM_RPC_CHITINOUS_LOBSTER_CLAW_DMG_RED_PER_STACK

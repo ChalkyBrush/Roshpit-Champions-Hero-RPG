@@ -1551,6 +1551,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "ruby" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_PLAGUE_EMPEROR_ARMOR_GEM_RUBY1, hero, "element_poison", RPC_GEAR_SLOT_BODY)
 		end	
+	elseif item:GetAbilityName() == "item_rpc_justice_greaves" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY1, hero, "strength", RPC_GEAR_SLOT_BOOTS)
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_JUSTICE_GREAVES_GEM_RUBY2, hero, "max_health", RPC_GEAR_SLOT_BOOTS)
+		end	
 	end
 end
 

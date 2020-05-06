@@ -3475,6 +3475,7 @@ end
 function Winterblight:SpawnJusticeBalance()
 	local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")
 	local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_justice_balance", Vector(12278, 1024), Vector(0,-1), false, true)
+	unit:AddLootDrop("immortal", "item_rpc_justice_greaves", 100)
 	SpecialFX:ColoredScaleSpotlightEntrance(unit, Vector(255, 120, 40), 120)
 end
 
