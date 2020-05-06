@@ -1548,7 +1548,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_tempo_flux_invisible") then
 		local modifier = unit:FindModifierByName("modifier_tempo_flux_invisible")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*ZHONIK_ARCANA2_R3_MAX_STACKS
+		magic_armor_modify = magic_armor_modify - modifier:GetStackCount()*ZHONIK_R3_ARCANA_MAGIC_ARMOR_LOSS
 	end
 	if unit:HasModifier("modifier_slipfinn_gloomshade_invisible") then
 		local modifier = unit:FindModifierByName("modifier_slipfinn_gloomshade_invisible")
