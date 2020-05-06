@@ -15,9 +15,13 @@ function diviner_think(event)
 		local target_pos = Vector(11800, 13400)
 		caster:MoveToPosition(target_pos)
 		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), target_pos)
-		if distance < 80 then
+		if distance < 80 or Winterblight.OverrideIntroThrow then
 			caster.phase = 3
-			Timers:CreateTimer(1, function()
+			local delay = 1
+			if Winterblight.OverrideIntroThrow then
+				delay = 0
+			end
+			Timers:CreateTimer(delay, function()
 				if not Winterblight.OverrideIntroThrow then
 					CustomAbilities:QuickParticleAtPoint("particles/econ/items/necrolyte/necronub_death_pulse/necrolyte_pulse_ka_explosion_flash_glow.vpcf", caster:GetAttachmentOrigin(0), 2)
 					local card_prop = caster.card_prop
@@ -4668,6 +4672,11 @@ end
 function use_winterblight_tarot_card(event)
 	local item = event.ability
 	local caster = event.caster
+	if not Winterblight.CastleDungeonMaster then
+		Notifications:Top(caster:GetPlayerOwnerID(), {text = "winterblight_tarot_card_use_fail_2", duration = 2, style = {color = "red"}, continue = true})
+		item:StartCooldown(2)
+		return false
+	end
 	if Winterblight.CastleTarot then
 		Notifications:Top(caster:GetPlayerOwnerID(), {text = "winterblight_tarot_card_use_fail_1", duration = 2, style = {color = "red"}, continue = true})
 		item:StartCooldown(2)
@@ -4682,6 +4691,7 @@ function use_winterblight_tarot_card(event)
 	end
 
 	UTIL_Remove(item)
+	CustomGameEventManager:Send_ServerToAllClients("close_wb_castle_tarot", {})
 	local tarot_target = nil
 	for i = 1, #Winterblight.CASTLE_DATA["tarot"], 1 do
 		if string.match(Winterblight.CASTLE_DATA["tarot"][i]["name"], string.gsub(item.newItemTable.property1name, "tarot_", "")) then
@@ -4693,13 +4703,10 @@ function use_winterblight_tarot_card(event)
 
 	Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][tarot_target]
 
-	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", Winterblight.CastleDungeonMaster:GetAbsOrigin(), 3)
-	EmitSoundOn("Winterblight.GraveGhostSpawn", Winterblight.CastleDungeonMaster)
-	FindClearSpaceForUnit(Winterblight.CastleDungeonMaster, Vector(11800, 13320), false)
-	CustomAbilities:QuickParticleAtPoint("particles/roshpit/winterblight/blue_raze.vpcf", Winterblight.CastleDungeonMaster:GetAbsOrigin(), 3)
-	EmitSoundOn("Winterblight.GraveGhostSpawn", Winterblight.CastleDungeonMaster)
 	StartAnimation(Winterblight.CastleDungeonMaster, {duration = 1.0, activity = ACT_DOTA_ATTACK, rate = 1})
-	EmitSoundOn("Winterblight.Horus.CardThrow.VO", Winterblight.CastleDungeonMaster)
+	Timers:CreateTimer(2, function()
+		EmitSoundOn("Winterblight.Horus.CardThrow.VO", Winterblight.CastleDungeonMaster)
+	end)
 	Winterblight.CastleDungeonMaster:MoveToPosition(Vector(11800, 13400))
 	Winterblight.CastleDungeonMaster.phase = 2
 	Winterblight.OverrideIntroThrow = true

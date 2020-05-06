@@ -247,7 +247,7 @@ function Winterblight:Debug2()
   -- RPCItems:CreateBasicConsumable(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "item_rpc_elynas_feather", "Galren's Skull", "mythical", true)
   -- Winterblight.CastleTarot = Winterblight.CASTLE_DATA["tarot"][1]
   -- Winterblight:CastleSunPhoenixSequence()
-  Winterblight:CreateCastleTarotCard(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "devil")
+  Winterblight:CreateCastleTarotCard(MAIN_HERO_TABLE[1]:GetAbsOrigin(), "world")
   -- Winterblight:WinterCastleBossSpawn()
   -- Enemies:SpawnEnemyUnit("winterblight_hanging_slayer", Vector(-15424,-2560), RandomVector(1), false)
 

@@ -1368,4 +1368,4 @@
 		"tarot_judgement_description"									"Evaluation and Awakening..."
 
 		"tarot_world"												"The World"
-		"tarot_world_description"									"..."
+		"tarot_world_description"									"Everything..."
