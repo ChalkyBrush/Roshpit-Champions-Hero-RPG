@@ -216,7 +216,7 @@ function RPCItems:RollRandomItemAtLocation(unit_level, location, roll_boost)
 	end
 end
 
-function RPCItems:RollRandomItem(unit_level, roll_boost)
+function RPCItems:RollRandomItem(unit_level, roll_boost, strict_rarity)
 	local item = nil
 	local random_type_boost = math.floor(roll_boost / 2)
 	local random_type_chance = RandomInt(0 + random_type_boost, 10000)
@@ -239,6 +239,9 @@ function RPCItems:RollRandomItem(unit_level, roll_boost)
 		if rarityChance >= value and rarity <= key then
 			rarity = key
 		end
+	end
+	if strict_rarity and type(strict_rarity) == "number" then
+		rarity = strict_rarity
 	end
 	if rarity == RPC_ITEMS_RARITY_COMMON or rarity == RPC_ITEMS_RARITY_UNCOMMON then
 		local removal_luck = RandomInt(1, 10)
