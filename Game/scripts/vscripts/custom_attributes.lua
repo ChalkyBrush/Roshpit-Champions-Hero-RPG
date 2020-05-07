@@ -1475,7 +1475,7 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitMagicArmor()
 	end
 	if unit:HasModifier("modifier_poison_whip") then
 		local modifier = unit:FindModifierByName("modifier_poison_whip")
-		magic_armor_modify = magic_armor_modify + modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
+		magic_armor_modify = magic_armor_modify - modifier:GetStackCount()*TRAPPER_ARCANA_W_W1_MAGIC_ARMOR_PER_STACK
 	end
 	if unit:HasModifier("modifier_flametongue_q_2_fire_shield") then
 		local modifier = unit:FindModifierByName("modifier_flametongue_q_2_fire_shield")

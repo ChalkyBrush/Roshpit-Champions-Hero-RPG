@@ -51,12 +51,17 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_mult_per_stack"			"1.0 1.2 1.4 1.6 1.8 2.0 2.2"
+				"attack_mult_per_stack"			"<% TRAPPER_ARCANA_W_ATTACK_DAMAGE_TO_DAMAGE_PCT %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"move_slow_per_stack"			"-12"
+				"max_stacks"			"<% TRAPPER_ARCANA_W_MAX_STACKS %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_slow_per_stack"			"-<% TRAPPER_ARCANA_W_SLOW %>"
 			}
 		}
 		"OnAbilityPhaseStart"
