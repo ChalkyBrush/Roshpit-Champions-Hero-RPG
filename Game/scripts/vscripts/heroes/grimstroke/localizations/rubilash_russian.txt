@@ -198,7 +198,7 @@
 	"item_rpc_rubilash_glyph_4_1_description" 				"Увеличивает Магическую Защиту на <% RUBILASH_GLYPH_4_1_MAGIC_ARMOR %>."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_5_1"		"[T5-1] Glyph of Blue Paint"
-	"item_rpc_rubilash_glyph_5_1_description" 				"Вся Синяя краска разрушает Иммунитек к Магии."
+	"item_rpc_rubilash_glyph_5_1_description" 				"Вся Синяя краска разрушает Иммунитет к Магии."
 
 	"DOTA_Tooltip_ability_item_rpc_rubilash_glyph_6_1"		"[T6-1] Glyph of Red Paint"
 	"item_rpc_rubilash_glyph_6_1_description" 				"Вся Красная краска наносит на <% RUBILASH_GLYPH_6_1_DAMAGE_INCREASE_PCT %>% больше урона и имеет Физический тип урона."
