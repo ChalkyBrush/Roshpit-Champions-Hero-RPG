@@ -106,7 +106,15 @@ function ai_loot_table_drop(event)
 		if luck <= loot["chance"]*percentage_mult then
 			if loot["type"] == "immortal" then
 				RPCItems:RollAndDropUniqueItem(unit, loot["item"])
+			elseif loot["type"] == "special" then
+				ai_loot_drop_special(unit, loot)
 			end
 		end
+	end
+end
+
+function ai_loot_drop_special(unit, loot)
+	if loot["item"] == "item_rpc_winterblight_tarot_card" then
+		Winterblight:CreateCastleTarotCard(unit:GetAbsOrigin(), nil)
 	end
 end

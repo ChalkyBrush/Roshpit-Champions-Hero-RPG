@@ -17207,7 +17207,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spike_trap_passive"
+			"modifier_ground_blade_passive"
 			{
 				"IsPurgable"	"0"
 				"Passive" 		"1"
@@ -21142,3 +21142,105 @@
 			}
 		}
 	}
+
+	"high_priest_xelethar_passive"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"rpc/axe_throw_ice"
+		"MaxLevel"	"3"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_base"			"50 200 1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_pct_max_health"			"2 4 6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"orb_damage"			"500 2000 10000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"				"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms_slow"				"-60 -140 -400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"as_slow"				"-100 -150 -200"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_xelethar_passive"
+			{
+				"IsPurgable"	"0"
+				"Passive" 		"1"
+				"IsHidden"		"1"
+				"IsBuff"		"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"xelethar_thinker"
+						"damage_base"	"%damage_base"
+						"damage_pct_max_health"	"%damage_pct_max_health"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA" "120"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_xelethar_projectile"
+			{
+				"IsHidden"	"1"
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"xelethar_projectile_thinker"
+						"target"		"TARGET"
+						"orb_damage"	"%orb_damage"
+						"slow_duration"	"%slow_duration"
+					}
+				}
+			}
+			"modifier_xelethar_slow"
+			{
+				"IsDebuff"	"1"
+				"StatusEffectName" 		"particles/status_fx/status_effect_frost_lich.vpcf"
+				"StatusEffectPriority"  "20"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%as_slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%ms_slow"
+				}
+			}
+		}
+
+	}
+

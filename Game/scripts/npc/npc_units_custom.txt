@@ -114670,6 +114670,105 @@
         "RoshpitAI1"            "2"
         "RoshpitCastAOE"        "1000"
     }
+
+    "winterblight_high_priest_xelethar"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/keeper_of_the_light/keeper_of_the_light.vmdl"
+        "ModelScale"    "2"
+        "Level" "1"
+        "SoundSet"      "Hero_KeeperOfTheLight"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
+            "particle"  "particles/roshpit/winterblight/xelethar_passive.vpcf"
+        }
+        "HealthBarOffset"   "380"
+        "HasInventory"  "0"
+        "PathfindingSearchDepthScale" "0.2"
+        "DefaultState"  "Invade"
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "700"
+        "AttackDamageMax"   "700"
+        "AttackRate"    "1.5"
+        "AttackAnimationPoint"  "0.27"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "1300"
+        "ProjectileModel"   "particles/base_attacks/ranged_tower_good.vpcf"
+        "ProjectileSpeed"   "900"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "270"
+        "MovementTurnRate"  "0.6"
+        "StatusHealth"  "32000"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Ability1"      "high_priest_xelethar_passive"
+        "Ability2"      "winterblight_mountain_dweller_passive"
+        "Ability3"      "mega_steadfast"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "4865"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "12774"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "7678"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+                "Ability1"                
+                {
+                }             
+            }
+
+        }
+        "RoshpitArmor"          "120"
+        "RoshpitArmorPierce"    "520"
+        "RoshpitSpellPierce"    "1150"
+        "RoshpitMagicArmor"     "1000"
+        "RoshpitLevel"          "39"
+        "RoshpitDominion"       "0"
+        "EnemyTier"             "3"
+        "RoshpitColorRenderType"    "1"
+        "RoshpitColorRenderR"   "40"
+        "RoshpitColorRenderG"   "40"
+        "RoshpitColorRenderB"   "40"   
+        "RoshpitAggroSound"     "Winterblight.HighPriestXelethar.Aggro"
+        "RoshpitDeathSound"     "Winterblight.HighPriestXelethar.Death"
+    }
     
 
     "tutorial_master"

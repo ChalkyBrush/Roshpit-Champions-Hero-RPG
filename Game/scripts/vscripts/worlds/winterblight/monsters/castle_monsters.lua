@@ -4721,3 +4721,171 @@ function use_winterblight_tarot_card(event)
 	end)
 
 end
+
+function xelethar_thinker(event)
+	local ability = event.ability
+	local caster = event.caster
+	if not caster:IsAlive() then
+		return false
+	end
+	if caster.aggro then
+		local trap_radius = 360
+		local trap_move_speed = 25
+
+		if not caster.pfx then
+			local particleName = "particles/roshpit/winterblight/xelethar_passive.vpcf"
+			local pfx = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:SetParticleControlEnt(pfx, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControl(pfx, 5, Vector(trap_radius, 2, 100))
+			caster.pfx = pfx
+		end
+
+		if not caster.angle then
+			caster.angle = 0
+		end
+		if not caster.startHeight then
+			caster.startHeight = caster:GetAbsOrigin().z
+		end
+		if not caster.interval then
+			caster.interval = 0
+		end
+		if not caster.projectile_interval then
+			caster.projectile_interval = 0
+		end
+		if not caster.moveFV then
+			caster.moveFV = caster:GetForwardVector()
+		end
+
+
+		local newPosition = GetGroundPosition(caster:GetAbsOrigin() + caster.moveFV*trap_move_speed, caster) + Vector(0,0,10) 
+		local obstruction_search_position = newPosition + caster.moveFV*400
+		local obstruction = WallPhysics:FindNearestObstruction(obstruction_search_position)
+		local blockUnit = WallPhysics:ShouldBlockUnit(obstruction, obstruction_search_position, caster)
+		local distance = WallPhysics:GetDistance2d(caster:GetAbsOrigin(), Vector(11393, 163))
+		if distance > 1200 then
+			blockUnit = true
+		end
+		if blockUnit then
+			local newFV = WallPhysics:rotateVector(caster.moveFV, 2*math.pi/RandomInt(2, 8)) 
+			-- newFV = WallPhysics:rotateVector(newFV, 2*math.pi*RandomInt(-3, 3)/60)
+			caster.moveFV = newFV
+			-- EmitSoundOn("Winterblight.SpinBlade.WallBounce", caster)
+			-- CustomAbilities:QuickParticleAtPoint("particles/dire_fx/bad_stuff_end_sparks.vpcf", caster:GetAbsOrigin(), 3)
+			-- caster:SetAbsOrigin(caster:GetAbsOrigin() + cas)
+		else
+			caster:SetAbsOrigin(newPosition)
+		end
+		caster.interval = caster.interval + 1
+		caster.projectile_interval = caster.projectile_interval + 1
+		if caster.interval >= 3 then
+			caster.interval = 0
+			local damage = event.damage_base
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, trap_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, victim in pairs(enemies) do
+					local victim_damage = math.floor(damage + (event.damage_pct_max_health/100)*victim:GetMaxHealth())
+					Enemies:ApplyDamageToPlayer(victim, caster, victim_damage, DAMAGE_TYPE_PURE, ability)
+					PopupDamage(victim, victim_damage)
+					EmitSoundOn("Winterblight.HighPriestXelethar.PassiveHit", victim)
+				end
+			end
+		end
+		local interval_reduction = (1 - (caster:GetHealth()/caster:GetMaxHealth()))*50
+		if caster.projectile_interval >= (70 - interval_reduction) then
+			caster.projectile_interval = 0
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin()+caster:GetForwardVector()*600, nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies == 0 then
+				xelethar_projectile_create(caster, ability, RandomInt(20, 40), caster:GetForwardVector())
+			else
+				local speed = math.max(10, WallPhysics:GetDistance2d(enemies[1]:GetAbsOrigin(), caster:GetAbsOrigin())/42)
+				local targetPoint = enemies[1]:GetAbsOrigin() + enemies[1]:GetForwardVector()*300
+				local fv = ((targetPoint - caster:GetAbsOrigin())*Vector(1,1,0)):Normalized()
+				xelethar_projectile_create(caster, ability, speed, fv)
+			end
+		end
+	else
+		if not caster.anim_interval then
+			caster.anim_interval = RandomInt(0, 89)
+		end
+		caster:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 8) * math.cos(2 * math.pi * caster.anim_interval / 90))
+		caster.anim_interval = caster.anim_interval + 1
+		local rotatedFV = WallPhysics:rotateVector(caster:GetForwardVector(), 2 * math.pi / 180)
+		caster:SetForwardVector(rotatedFV)
+		if caster.anim_interval == 90 then
+			caster.anim_interval = 0
+		end
+	end
+end
+
+function xelethar_projectile_create(caster, ability, speed, direction)
+	local position = caster:GetAttachmentOrigin(0)
+
+
+	local projectile = CreateUnitByName("npc_dummy_unit", position, false, nil, nil, DOTA_TEAM_NEUTRALS)
+	StartAnimation(caster, {duration = 0.5, activity = ACT_DOTA_CAST_ABILITY_2, rate = 1.6})
+	projectile:SetModelScale(3.0)
+	projectile:SetAbsOrigin(position + Vector(0,0,400))
+	ability:ApplyDataDrivenModifier(caster, projectile, "modifier_xelethar_projectile", {})
+	
+	projectile.dummy = true
+	projectile:FindAbilityByName("dummy_unit"):SetLevel(1)
+
+	-- projectile:SetModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+	-- projectile:SetOriginalModel("models/heroes/silencer/silencer_curse_skull.vmdl")
+
+	local projectileName = "particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_lightning.vpcf"
+
+	CustomAbilities:QuickAttachParticle(projectileName, projectile, 6)
+	projectile.phase = 1
+	EmitSoundOn("Winterblight.CastleBoss.HandProjectile.Create", projectile)
+	projectile.forwardSpeed = speed
+	projectile.direction = direction
+			-- EmitSoundOn("Winterblight.CastleBoss.HandProjectile.Launch", projectile)
+end
+
+function xelethar_projectile_thinker(event)
+	local caster = event.caster
+	local ability = event.ability
+	local projectile = event.target
+	if projectile.lock then
+		return false
+	end
+	if not IsValidEntity(projectile) then
+		return false
+	end
+	if not projectile.interval then
+		projectile.interval = 0
+	end
+	projectile.interval = projectile.interval + 1
+	if projectile.phase == 1 then
+		if not projectile.direction then
+			projectile.direction = caster:GetForwardVector()
+		end
+		local newPos = projectile:GetAbsOrigin() + projectile.direction*projectile.forwardSpeed - Vector(0,0,10)
+		projectile:SetAbsOrigin(newPos)
+		local distanceFromGround = projectile:GetDistanceFromGround()
+		if distanceFromGround < 10 then
+			EmitSoundOn("Winterblight.IceSummon", projectile)
+
+			local radius = 500
+			local pfx = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_CUSTOMORIGIN, Winterblight.Stargazer)
+			ParticleManager:SetParticleControl(pfx, 0, projectile:GetAbsOrigin())
+			ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius*2))
+			Timers:CreateTimer(4, function()
+				ParticleManager:DestroyParticle(pfx, false)
+			end)
+			projectile:RemoveModifierByName("modifier_xelethar_projectile")
+			projectile.lock = true
+			local damage = event.orb_damage
+			local slow_duration = event.slow_duration
+			local enemies = FindUnitsInRadius(caster:GetTeamNumber(), projectile:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+			if #enemies > 0 then
+				for _, enemy in pairs(enemies) do
+					Enemies:ApplyDamageToPlayer(enemy, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+					ability:ApplyDataDrivenModifier(caster, enemy, "modifier_xelethar_slow", {duration = slow_duration})
+				end
+			end
+			UTIL_Remove(projectile)
+		end
+	end
+end

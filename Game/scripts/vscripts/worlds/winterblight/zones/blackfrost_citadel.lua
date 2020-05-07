@@ -972,7 +972,19 @@ function Winterblight:CastleLobbySpawn1()
 				local rotatedFV = WallPhysics:rotateVector(baseFV, 2*math.pi*i/10)
 				local position = Vector(12288, 224) + rotatedFV*600
 				local fv = rotatedFV*-1
-				Winterblight:SpawnEnemyUnit("winterblight_castle_watchman", position, fv, false)
+				Winterblight:SpawnCastleRoomUnit(0, "winterblight_castle_watchman", position, fv, false, true)
+			end
+		end
+	end)
+	Timers:CreateTimer(21, function()
+		if Winterblight.CastleTarot["name"] =="hierophant" then
+			local luck = RandomInt(1, 4)
+			if luck <= 1 + Winterblight.Stones then
+				local xelethar = Winterblight:SpawnCastleRoomUnit(0, "winterblight_high_priest_xelethar", Vector(12285, 163), Vector(0,-1), false, true)
+				local groundHeight = GetGroundHeight(Vector(11393, 163), xelethar)
+				xelethar:SetAbsOrigin(Vector(12285, 163) + Vector(0,0,groundHeight))
+				Winterblight.xelethar = xelethar
+				xelethar:AddLootDrop("special", "item_rpc_winterblight_tarot_card", 100)
 			end
 		end
 	end)
@@ -2543,6 +2555,9 @@ function Winterblight:WinterCastleBossSpawn()
 		end
 		Winterblight.castle_boss = boss
 	end
+	if Winterblight.xelethar and IsValidEntity(Winterblight.xelethar) and Winterblight.xelethar:IsAlive() then
+		Dungeons:AggroUnit(Winterblight.xelethar)
+	end
 	Winterblight.CastleBoss = boss
 	local bossAbility = boss:FindAbilityByName("winterblight_castle_boss_passive")
 	Winterblight.CastleBoss.main_ability = bossAbility
@@ -2846,6 +2861,7 @@ function Winterblight:PrecacheTarotAssets()
 				
 		end
 		PrecacheUnitByNameAsync("winterblight_necro_knight", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_high_priest_xelethar", precache_function)	
 	elseif Winterblight.CastleTarot["name"] == "lovers" then
 		local function precache_function()
 	
