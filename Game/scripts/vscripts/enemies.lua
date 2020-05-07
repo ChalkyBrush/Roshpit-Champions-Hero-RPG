@@ -559,7 +559,7 @@ function Enemies:EnemySlain(unit, killingUnit)
 	if baseEXP > 0 then
 		local expPopup = baseEXP
 		
-		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+		local heroes = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, unit:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 		if #heroes > 0 then
 			for _, hero in pairs(heroes) do
 				local exp_per_hero = Enemies:SplitAdjustedEXP(baseEXP, #heroes)

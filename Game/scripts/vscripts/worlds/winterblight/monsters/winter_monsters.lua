@@ -2224,7 +2224,9 @@ function coldseer_wave_start(event)
 				if #enemies > 0 then
 					for _, enemy in pairs(enemies) do
 						ApplyDamage({victim = enemy, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
-						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_cold_seer_wave_burn", {duration = 8})
+						ability:ApplyDataDrivenModifier(caster, enemy, "modifier_cold_seer_wave_burn", {duration = WINTERBLIGHT_SOULFIRE_BURN_DURATION})
+						local stacks = enemy:GetModifierStackCount("modifier_cold_seer_wave_burn", caster)
+						enemy:SetModifierStackCount("modifier_cold_seer_wave_burn", caster, math.max(math.min(stacks+1, WINTERBLIGHT_SOULFIRE_STORM_STACKS), 1))
 					end
 				end
 			end)
@@ -2239,7 +2241,7 @@ function wave_burn_think(event)
 	local target = event.target
 	local stacks = target:GetModifierStackCount("modifier_cold_seer_wave_burn", caster)
 	local damage = damage * stacks
-	ApplyDamage({victim = enemy, attacker = Winterblight.Master, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+	ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 end
 
 function wave_burn_ability_executed(event)
@@ -2249,7 +2251,7 @@ function wave_burn_ability_executed(event)
 	local ability = event.ability
 	local modifier = target:FindModifierByName("modifier_cold_seer_wave_burn")
 	local stacks = modifier:GetStackCount() + 1
-	modifier:SetStackCount(stacks)
+	modifier:SetStackCount(math.min(stacks, WINTERBLIGHT_SOULFIRE_STORM_STACKS))
 	modifier:SetDuration(8, true)
 	EmitSoundOn("Winterblight.ColdSeer.BurnTrigger", unit)
 end
