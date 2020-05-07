@@ -126,7 +126,7 @@
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_property_one"			"Скорость Атаки"
 	"DOTA_Tooltip_ability_rubilash_rune_w_3_suffix"					""
     "DOTA_Tooltip_ability_rubilash_rune_w_3_property_two"            "Урон"
-    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% от урона @Ability2"
+    "DOTA_Tooltip_ability_rubilash_rune_w_3_suffix_two"              "% от урона Ink Blot"
 	
 	
 	"DOTA_Tooltip_ability_rubilash_rune_w_4"							"[W4] Viscosity"
@@ -254,8 +254,8 @@
 	"DOTA_Tooltip_ability_rubilash_rune_e_2_arcana1_suffix"					""
 
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1"						"[E3] Ace Acrylics"
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Увеличивает Урон всех способностей."
-	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Увеличение Урона"
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_Description"			"Прибавляет урон к базовому урону от краски (сложение)."
+	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_property_one"			"Прибавка Урона"
 	"DOTA_Tooltip_ability_rubilash_rune_e_3_arcana1_suffix"					""
 
 		"DOTA_Tooltip_ability_rubilash_rune_e_4_arcana1"						"[E4] Blank Canvas"
