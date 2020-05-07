@@ -14279,6 +14279,22 @@
 		"item_rpc_demonic_gloves_of_the_judiciary_sapphire1"			"Increases Strength and Agility by @sapphire_property1"
 		"item_rpc_demonic_gloves_of_the_judiciary_amethyst1"			"All Attributes increase Max Mana by @amethyst_property1"
 
+		"DOTA_Tooltip_ability_item_rpc_glove_of_the_hierophant"			"Glove of the Hierophant"
+
+		"item_property_glove_of_the_hierophant"							"Spirit Snap"
+		"property_glove_of_the_hierophant_description"					"Whenever you are heal yourself or an ally, deal <font color='#ccff66'>100</font>% of the heal amount as pure damage in <font color='#ccff66'>400</font> radius around the heal target. Can trigger a maximum of <font color='#ccff66'>5</font> times per second."
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind"	"Spirit Snap (Sapphire)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_sapphire_blind_Description"	"Reduced Accuracy"
+
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff"	"Spirit Snap (Amethyst)"
+		"DOTA_Tooltip_modifier_glove_of_the_hierophant_spirit_buff_Description"	"Increased Spirit"
+
+		"item_rpc_glove_of_the_hierophant_ruby1"			"Increases the potency of your healing effects by @ruby_property1%"
+		"item_rpc_glove_of_the_hierophant_emerald1"			"Increases the damage radius by @emerald_property1"
+		"item_rpc_glove_of_the_hierophant_sapphire1"			"Spirit Snap reduces nearby enemy accuracy by @sapphire_property1% for <font color='#ccff66'>0.6</font> seconds and its damage is increased by @sapphire_property2x your Spirit"
+		"item_rpc_glove_of_the_hierophant_amethyst1"			"When you heal yourself or an ally, the heal target gains a buff that increases spirit by @amethyst_property1 for <font color='#ccff66'>30</font> seconds"
+
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <font color='#ccff66'>20</font>% chance to deal <font color='#ccff66'>300</font>% increased damage."

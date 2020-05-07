@@ -985,6 +985,7 @@ function Winterblight:CastleLobbySpawn1()
 				xelethar:SetAbsOrigin(Vector(12285, 163) + Vector(0,0,groundHeight))
 				Winterblight.xelethar = xelethar
 				xelethar:AddLootDrop("special", "item_rpc_winterblight_tarot_card", 100)
+				xelethar:AddLootDrop("immortal", "item_rpc_glove_of_the_hierophant", 100)
 			end
 		end
 	end)

@@ -4550,6 +4550,34 @@ function RPCItems:RollDemonicGlovesOfTheJudiciary(item_level)
     return item
 end
 
+function RPCItems:RollGloveOfTheHierophant(item_level)
+    local item_slot = RPC_GEAR_SLOT_GLOVES
+    local rarity = RPC_ITEMS_RARITY_IMMORTAL
+
+    local item = RPCItems:CreateVariant("item_rpc_glove_of_the_hierophant", "immortal", "Demonic Gloves of the Judiciary", "hands", true, "Slot: Hands")
+    item.newItemTable.property1 = 1
+    item.newItemTable.property1name = "!immortal!_modifier_glove_of_the_hierophant"
+    RPCItems:SetPropertyValuesSpecial(item, "★", "#item_property_glove_of_the_hierophant", "#99B6FF", 1, "#property_glove_of_the_hierophant_description")
+
+    local luck = RandomInt(1, 4)
+    if luck == 1 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "spirit", 3)
+    elseif luck == 2 then
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, "all_attributes", 1.5)
+    else
+        local rune_type = RPCItems:RollRuneType({"q", "w", "e", "r"}, {tier1 = 40, tier2 = 80, tier3 = 100})
+        RPCItems:RollBasicItemProperty(item, item_slot, 2, item_level, rune_type, 1.5)
+    end
+
+    RPCItems:RollBasicItemProperty(item, item_slot, 3, item_level, nil, 1)
+    RPCItems:RollBasicItemProperty(item, item_slot, 4, item_level, nil, 1)
+
+    RPCItems:GrantItemBaseArmor(item, item_level, 1)
+    RPCItems:GrantItemBaseMagicArmor(item, item_level, 2)
+    RPCItems:SocketsChance(item)
+    RPCItems:SetBaseItemValues(item, item:GetAbilityName(), false, RPCItems.BASIC_ITEMS_SLOT_TEXT[item_slot], RPC_ITEM_RARITY_COLORS[rarity], RPCItems:GetRarityNameFromFactor(rarity), rarity, item_level, item_slot)
+    return item
+end
 -- BOOTS
 
 function RPCItems:RollAblecoreGreaves(item_level)
@@ -7558,6 +7586,8 @@ function RPCItems:RollImmortalByName(itemName, item_level)
         newItem = RPCItems:RollAngelicGlovesOfTheJudiciary(item_level)
     elseif itemName == "item_rpc_demonic_gloves_of_the_judiciary" then
         newItem = RPCItems:RollDemonicGlovesOfTheJudiciary(item_level)
+    elseif itemName == "item_rpc_glove_of_the_hierophant" then
+        newItem = RPCItems:RollGloveOfTheHierophant(item_level)
     end
     return newItem
 end

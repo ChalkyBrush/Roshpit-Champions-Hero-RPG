@@ -75,15 +75,11 @@ function Tanari:Debug()
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_demonic_gloves_of_the_judiciary")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_glove_of_the_hierophant")
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_angelic_gloves_of_the_judiciary")
-
-    helm = Gems:AddSocket(helm)
-    helm = Gems:AddSocket(helm)
 
     -- TreasureGoblins:SpawnTreasureGoblin(Vector(-5528, 2048))
     -- local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 80, "item_rpc_epsilons_eyeglass")

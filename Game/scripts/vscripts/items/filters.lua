@@ -772,6 +772,9 @@ function Filters:ApplyHeal(caster, target, healAmount, bCap, doPopUp, optional_a
             PopupMana(target, manaRestore)
         end
     end
+    if caster:HasModifier("modifier_glove_of_the_hierophant") then
+        healAmount = Filters:GloveOfTheHierophant(caster, target, healAmount)
+    end
     target:Heal(healAmount, caster)
     if doPopUp and healAmount > 0 then
         PopupHealing(target, healAmount)
@@ -6920,4 +6923,37 @@ function Filters:PlagueEmperorBomb(hero, position)
             ability:ApplyDataDrivenModifier(hero.InventoryUnit, poison_goo_thinker, "modifier_plague_emperor_amethyst_aura", {duration = goo_pile_duration})
         end
     end)
+end
+
+function Filters:GloveOfTheHierophant(caster, target, healAmount)
+    local ability = caster.equipped_gear[RPC_GEAR_SLOT_GLOVES]
+
+
+    if ability:GetGemValue("ruby") > 0 then
+        healAmount = healAmount * (1 + (ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_RUBY)/100))
+    end
+    local limitKey = caster:GetEntityIndex() .. '_hierophant_glove'
+    Util.Common:LimitPerTime(ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_TRIGGERS_PER_SECOND, 1, limitKey, function()
+        local damage = healAmount * (ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_HEAL_TO_DMG_PCT/100) + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE2)*caster:GetSpirit()
+        local radius = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_DMG_RADIUS + ability:GetFinalGemPropertyValue("emerald", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_EMERALD)
+
+        local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/items/glove_of_hierophant_aoe.vpcf", target:GetAbsOrigin(), 1)
+        ParticleManager:SetParticleControl(pfx, 1, Vector(radius, 2, radius/2))
+
+        local enemies = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
+        if #enemies > 0 then
+            for _,enemy in pairs(enemies) do
+                Filters:ApplyItemDamage(enemy, caster, damage, DAMAGE_TYPE_PURE, ability, RPC_ELEMENT_HOLY, RPC_ELEMENT_GHOST)
+                if ability:GetGemValue("sapphire") > 0 then
+                    ability:ApplyDataDrivenModifier(caster.InventoryUnit, enemy, "modifier_glove_of_the_hierophant_sapphire_blind", {duration = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION})
+                    enemy:SetModifierStackCount("modifier_glove_of_the_hierophant_sapphire_blind", enemy, ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_GEM_SAPPHIRE1))
+                end
+            end
+        end
+
+    end)
+    if ability:GetGemValue("amethyst") > 0 and target:IsHero() then
+        ability:ApplyDataDrivenModifier(caster.InventoryUnit, target, "modifier_glove_of_the_hierophant_spirit_buff", {duration = ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION})
+    end
+    return healAmount
 end
