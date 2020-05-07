@@ -2551,8 +2551,7 @@ function Filters:ElementalDamage(victim, attacker, damage, damage_type, slot, el
         elseif unitName == "npc_dota_hero_skywrath_mage" then
             if attacker:HasModifier("modifier_lightbomb_freecast") then
                 local stacks = attacker:GetModifierStackCount("modifier_lightbomb_freecast", caster)
-                local q_3_level = attacker:GetRuneValue("q", 3)
-                mult = mult + stacks * SEPHYR_Q3_HOLY_AMP_PCT/100 * q_3_level
+                mult = mult + stacks * SEPHYR_Q3_HOLY_AMP_PCT/100
             end
         elseif unitName == "npc_dota_hero_juggernaut" then
             if attacker:HasAbility("seinaru_odachi_leap") then

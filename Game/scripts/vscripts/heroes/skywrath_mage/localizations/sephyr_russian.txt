@@ -23,11 +23,9 @@
     	"DOTA_Tooltip_modifier_lightbomb_magic_armor_loss_Description"					"Магическая Защита снижена"
 
     	"DOTA_Tooltip_ability_sephyr_rune_q_3"									"[Q3] Clearfire"
-    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font>."
+    	"DOTA_Tooltip_ability_sephyr_rune_q_3_Description"						"С прочтением @Ability1, герой получит заряды этой руны. Когда количество зарядов больше или равно 10, прочтение @Ability1 не будет перезаряжаться. Заряды не будут добавляться, пока последнее прочтение не задействует перезарядку умения. Каждый заряд усиливает урон <font color=\"#F6FFB5\">Света</font> на <% SEPHYR_Q3_HOLY_AMP_PCT %>%."
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_property_one"						"Получение зарядов Clearfire"
     	"DOTA_Tooltip_ability_sephyr_rune_q_3_suffix"							""
-		"DOTA_Tooltip_ability_sephyr_rune_q_3_property_two"                     "Урон <font color=\"#F6FFB5\">Света</font>"
-        "DOTA_Tooltip_ability_sephyr_rune_q_3_suffix_two"                       "%"
 
     	"DOTA_Tooltip_modifier_lightbomb_freecast"								"Clearfire"
     	"DOTA_Tooltip_modifier_lightbomb_freecast_Description"					"10 зарядов снимают время перезарядки у следующего прочтения (Q) Lightbomb"

@@ -56,11 +56,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"property_one"			"<% SEPHYR_Q3_STACKS %>"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"property_two"			"<% SEPHYR_Q3_HOLY_AMP_PCT %>"
-			}
 		}
 	}
 
