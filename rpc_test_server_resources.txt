@@ -1458,14 +1458,67 @@ function Glyphs:ReanimationPurchase(msg)
 	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "reopen_glyph_shop", {})
 end
 
-function Glyphs:FormatRecipeResults(resultTable)
-	recipeResults = {}
-	recipeResults[1] = nil
-	recipeResults[2] = {}
-	for i = 1, 7, 1 do
-		recipeResults[2][i] = 1
+function Glyphs:GetGlyphAvailability(msg)
+	local playerID = msg.playerID
+	local heroName = msg.hero
+	local rpcHeroName = HerosCustom:GetInternalHeroNameMain(heroName)
+	if msg.hero == "tooltip_neutral" then
+		rpcHeroName = "neutral"
 	end
-	return recipeResults
+	local steamID = PlayerResource:GetSteamAccountID(playerID)
+	local player = PlayerResource:GetPlayer(playerID)
+	local hero = player:GetAssignedHero()
+	if not hero.glyphLoader then
+		hero.glyphLoader = 0
+	end
+	hero.glyphLoader = hero.glyphLoader + 1
+	local glyphCheck = hero.glyphLoader
+
+	if not hero.glyphRecipes then
+		hero.glyphRecipes = {}
+	end
+	if hero.loadedGlyphDisplay then
+		for i = 1, #hero.loadedGlyphDisplay, 1 do
+			UTIL_Remove(hero.loadedGlyphDisplay[i])
+		end
+	end
+	local recipeResults = {}
+	local columnsToLoad = Glyphs:GetAvailableColumnCount(rpcHeroName)
+	print(columnsToLoad)
+	for i=2,columnsToLoad do
+		print(i)
+		recipeResults[i] = {
+			[1] = 1,
+			[2] = 1,
+			[3] = 1,
+			[4] = 1,
+			[5] = 1,
+			[6] = 1,
+			[7] = 1,		
+		}
+	end
+	hero.loadedGlyphDisplay = {}
+	local totalDelay = 0.1
+	for i = 1, 7, 1 do
+		for j = 1, columnsToLoad, 1 do
+			totalDelay = totalDelay + 0.1
+			Timers:CreateTimer(0.03, function()
+				local glyphName = "item_rpc_"..rpcHeroName.."_glyph_"..i.."_"..j
+				local tempGlyph = Glyphs:RollGlyphAll(glyphName, hero:GetAbsOrigin(), -1)
+				hero.loadedGlyphDisplay[i.."_"..j] = tempGlyph:GetEntityIndex()
+			end)
+		end
+	end
+	-- ? :)
+	if rpcHeroName == "neutral" then
+		recipeResults = {}
+	end
+	hero.glyphRecipes[rpcHeroName] = recipeResults
+	Timers:CreateTimer(totalDelay, function()
+		if hero.glyphLoader == glyphCheck then
+			CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(playerID), "glyph_recipes_loaded", {heroName = heroName, data = recipeResults, glyphDisplay = hero.loadedGlyphDisplay})
+		end
+	end)
 end
 
 function RPCItems:RollAttribute(xpBounty, minBase, maxBase, bountyFactorMin, bountyFactorMax, itemRarity, isFloat, maximumValue)
