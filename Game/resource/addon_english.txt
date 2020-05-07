@@ -15036,6 +15036,15 @@
 		"item_rpc_wraith_hunters_steel_helm_sapphire1" 	"Increases Armor Pierce by @sapphire_property1"
 		"item_rpc_wraith_hunters_steel_helm_amethyst1" 	"Each point of Spirit increases Spell Pierce by @amethyst_property1"	
 
+    	"DOTA_Tooltip_ability_item_rpc_shadowguard_helm"						"Shadowguard Helm"
+		"item_property_shadowguard_helm"						"Mind Block"
+		"property_shadowguard_helm_description"				"When an enemy begins an attack on you, throw a <font color='#ccff66'>1000</font> speed projectile toward the attacker. On impact, deal <font color='#ccff66'>30</font>% of attack power as damage and disarm the target for <font color='#ccff66'>2</font> seconds. Can trigger a maximum of <font color='#ccff66'>10</font> times per second."
+
+		"item_rpc_shadowguard_helm_ruby1"		"Increases the impact damage by an additional @ruby_property1% of attack power and increases the maximum procs per second by @ruby_property2"
+		"item_rpc_shadowguard_helm_emerald1"	"Increases the projectile travel speed by @emerald_property1"
+		"item_rpc_shadowguard_helm_sapphire1" 	"Increases the disarm duration by @sapphire_property1 seconds"
+		"item_rpc_shadowguard_helm_amethyst1" 	"Enemies affected by the disarm additionally have @amethyst_property1 reduced Magic Armor and Spell Pierce"
+
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
         "item_property_aeriths_tear"                            "Last Wish"

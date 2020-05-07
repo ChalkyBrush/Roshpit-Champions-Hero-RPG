@@ -3048,12 +3048,14 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 	if tarot_card_luck <= chance_min then
 		Winterblight:CreateCastleTarotCard(enemy:GetAbsOrigin(), nil)
 	end
-	local immortals_luck = RandomInt(1, 100000)
+	local immortals_luck = RandomInt(1, 200000)
 	local chance_min = 50 + GameState:GetPlayerPremiumStatusCount()*10
 	if immortals_luck <= chance_min then
-		local luck = RandomInt(1, 1)
+		local luck = RandomInt(1, 2)
 		if luck == 1 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_musty_crypt_armor")
+		elseif luck == 2 then
+			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_shadowguard_helm")
 		end
 	end
 end
