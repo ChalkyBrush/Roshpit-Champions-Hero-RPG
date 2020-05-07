@@ -65,12 +65,12 @@
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each point of missing mana"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Gain attack damage for each percent of missing Mana."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_property_one"	"Attack Damage"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" per missing mana"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" per missing Mana %"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1"				"Temperament"
-    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing mana"	
+    	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Gaining attack damage for missing Mana percent"	
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2"				"[W2] Soul Render"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_2_Description"  "Casting Soul Thrust increases attack damage for 5 seconds. Stacks up to 3 times."

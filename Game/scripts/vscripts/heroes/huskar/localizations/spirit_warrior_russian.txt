@@ -61,15 +61,13 @@
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4"				"[Q4] Inner Flame"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_Description"	"Урон стихий <font color=\"#EF4126\">Огонь</font> и <font color=\"#7AE2A7\">Ветер</font> пассивно увеличен."
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихии Огня"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_one"	"Доп. урон стихий"
     	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix"		"%"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_property_two"	"Доп. урон стихии Ветра"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_q_4_suffix_two"	"%"
 
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1"				"[W1] Temperament"
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Увеличивает базовый урон за каждую отсутствующую единицу маны."
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_Description"  "Увеличивает базовый урон за каждый отсутствующий процент общей Маны героя."
     	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_property_one"	"Доп. урон"	
-    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" за отсутствующую ед. маны"
+    	"DOTA_Tooltip_ability_spirit_warrior_rune_w_1_suffix"		" за % отсутствующей Маны"
 
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1"				"Temperament"
     	"DOTA_Tooltip_modifier_spirit_warrior_rune_w_1_Description"	"Увеличивает урон за отсутствующую ману"	
