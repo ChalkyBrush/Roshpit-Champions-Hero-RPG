@@ -278,7 +278,7 @@
         "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"After casting rockfall, gain a chance to gain a free cast of Lava Glissade. Greater than 100% chance means it can proc multiple times."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"After casting rockfall, gain a chance to gain a free cast of Volcanic Glissade. Greater than 100% chance means it can proc multiple times."
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"Stack Chance"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 

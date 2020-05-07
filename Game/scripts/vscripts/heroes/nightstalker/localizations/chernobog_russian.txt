@@ -313,4 +313,4 @@
 
         "DOTA_Tooltip_ability_item_rpc_chernobog_immortal_weapon_3"            "Unholy Claw of Osyluth"
         "item_property_chernobog_immortal_weapon3"                             "Vampiric Thirst"
-        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% от макс. здоровья, даже если исцеление отключено. (Не означает, что здоровье перестанет отниматься при ударах @Ability2.)"
+        "property_chernobog_immortal_weapon3_description"                      "С каждой успешной атакой герой восстанавливает <% CHERNOBOG_IMMORTAL_WEAPON_3_HP_HEAL_PCT %>% от макс. здоровья, даже если исцеление отключено @Ability2 (но здоровье все еще будет уменьшаться при атаках в этой способности). Размер восстанавливаемого здоровья не может быть модифицирован."

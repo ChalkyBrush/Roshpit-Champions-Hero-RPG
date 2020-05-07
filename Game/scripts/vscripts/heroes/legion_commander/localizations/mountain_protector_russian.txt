@@ -258,17 +258,19 @@
     	"DOTA_Tooltip_modifier_glissade_freecast"										"Свободное прочтение Volcanic Glissade"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3"						"[E1] Crater"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Увеличивает базовый урон способностей и урон от предметов за каждые 1000 ед. недостающего здоровья."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Усиление урона способностей и предметов"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"% за каждые 1000 недостающего здоровья"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_Description"			"Увеличивает Магическую Защиту и Пробитие Брони за каждый отсутствующий процент здоровья."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_property_one"			"Усиление Магической Защиты и Пробития Брони"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_1_arcana3_suffix"				"за % отсутствующего здоровья"
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3"						"[E2] Batholith"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Прибавляет к базе урона умений значение, основанное на текущей Силе."
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус к базе урона умений"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				"x Силы"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_Description"			"Уменьшает Ловкость и увеличивает Силу."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_one"			"Бонус Силы"
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix"				""
+		"DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_property_two"         "Потеря Ловкости"
+        "DOTA_Tooltip_ability_mountain_protector_rune_e_2_arcana3_suffix_two"           ""
 
   		"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3"						"[E3] Lava Flow"
-    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"Дает шанс на свободное использование (E) Lava Glissade сразу после прочтения (E) Rockfall. Значение шанса выше 100% означает, что может быть получено несколько зарядов свободного прочтения."
+    	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_Description"			"Дает шанс на свободное использование (E) Volcanic Glissade сразу после прочтения (E) Rockfall. Значение шанса выше 100% означает, что может быть получено несколько зарядов свободного прочтения."
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_property_one"			"Шанс"
     	"DOTA_Tooltip_ability_mountain_protector_rune_e_3_arcana3_suffix"				"%"
 

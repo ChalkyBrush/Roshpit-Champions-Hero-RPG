@@ -1732,6 +1732,9 @@ function attackable_unit_hit(event)
 	local caster = event.caster
 	local ability = event.ability
 	local attacker = event.attacker
+	if not attacker:IsHero() then
+		return false
+	end
 	if caster.prop_id == 0 then
 		if not caster.hits then
 			caster.hits = 0

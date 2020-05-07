@@ -211,7 +211,7 @@
     	"DOTA_Tooltip_ability_zonik_rune_r_2_arcana2_suffix"				"%"
 
   		"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2"						"[R3] Tempo Flux"
-    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor."
+    	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_Description"  		"Each time a target is hit by a Timewarp Missile, they gain a stack of Tempo Flux, reducing their Magic Armor. Max <% ZHONIK_ARCANA2_R3_MAX_STACKS %> stacks."
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_property_one"			"Magic Armor Loss"	
     	"DOTA_Tooltip_ability_zonik_rune_r_3_arcana2_suffix"				""
 
