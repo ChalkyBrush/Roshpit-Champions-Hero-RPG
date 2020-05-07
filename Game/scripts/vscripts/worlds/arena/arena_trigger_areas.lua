@@ -372,26 +372,22 @@ function ArenaBattleStartArea(trigger)
 end
 
 function use_prizebox(event)
+	-- print("use_prizebox")
 	local caster = event.caster
 	local item = event.ability
+	-- DeepPrintTable(item.newItemTable)
 	local rarity = item.newItemTable.rarity
 	RPCItems.StrictItemLevel = 260
-	for i = 1, item.newItemTable.property2, 1 do
-		rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property2name)
-	end
-	if item.newItemTable.rarity == "rare" or item.newItemTable.rarity == "mythical" then
-		if item.newItemTable.property3name == "arcane_crystals" then
-			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.newItemTable.property3)
-		else
-			for i = 1, item.newItemTable.property3, 1 do
-				rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property3name)
-			end
-		end
-	end
-	if item.newItemTable.rarity == "mythical" then
-		if item.newItemTable.property4name == "arcane_crystals" then
-			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), item.newItemTable.property4)
-		elseif item.newItemTable.property4name == "champions_gear" then
+
+	local function rollPrizeItems(propertyName, propertyValue)
+		print("[rollPrizeItems] Property name: "..tostring(propertyName)..", value: "..tostring(propertyValue))
+		if not propertyName or not propertyValue or type(propertyValue) ~= "number" then
+			print("[rollPrizeItems] Error, item property broken.")
+			return
+		end		
+		if propertyName == "arcane_crystals" then
+			dropArcaneCrystalsPrizeBox(caster:GetAbsOrigin(), propertyValue)
+		elseif propertyName == "champions_gear" then
 			local luck = RandomInt(1, 4)
 			if luck == 1 then
 				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_helm_of_champions")
@@ -403,11 +399,17 @@ function use_prizebox(event)
 				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), 100, "item_rpc_boots_of_champions")
 			end
 		else
-			for i = 1, item.newItemTable.property4, 1 do
-				rollArenaPrizeItem(caster:GetAbsOrigin(), item.newItemTable.property4name)
+			for i = 1, propertyValue, 1 do
+				rollArenaPrizeItem(caster:GetAbsOrigin(), propertyName)
 			end
 		end
 	end
+
+	
+	rollPrizeItems(item.newItemTable.property2name, item.newItemTable.property2)
+	rollPrizeItems(item.newItemTable.property3name, item.newItemTable.property3)
+	rollPrizeItems(item.newItemTable.property4name, item.newItemTable.property4)
+
 	Timers:CreateTimer(0.5, function()
 		RPCItems.StrictItemLevel = false
 	end)
@@ -416,7 +418,7 @@ end
 
 function rollArenaPrizeItem(deathLocation, rarity)
 	local rarityFactor = RPCItems:GetRarityFactor(rarity)
-	local item = RPCItems:RollRandomItem(100, rarityFactor)
+	local item = RPCItems:RollRandomItem(100, 0, rarityFactor)
 	if item then
 		RPCItems:BasicDropItem(deathLocation, item)
 	end

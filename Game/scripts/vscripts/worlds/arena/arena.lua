@@ -921,6 +921,7 @@ function Arena:RollPrizebox(rank, score, hero)
 		rarity = "mythical"
 	end
 	local item = RPCItems:CreateVariantWithMin("item_rpc_arena_prizebox", rarity, "Prizebox", false, false, "Consumable", 0, nil, nil)
+	item.pickedUp = true
 	item.newItemTable.property1 = prizeLevel
 	item.newItemTable.property1name = "prize_level"
 	RPCItems:SetPropertyValues(item, item.newItemTable.property1, "#arena_prizebox_level", "#D1D1D1", 1)
