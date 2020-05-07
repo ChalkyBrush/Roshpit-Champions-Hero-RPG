@@ -3040,13 +3040,21 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 			end
 		end
 	end
-	local tarot_card_luck = RandomInt(1, 10000)
+	local tarot_card_luck = RandomInt(1, 100000)
 	local chance_min = 20 + GameState:GetPlayerPremiumStatusCount()*5
 	if enemy:GetEnemyTier() == ENEMY_TYPE_MINI_BOSS then
 		chance_min = chance_min*10
 	end
 	if tarot_card_luck <= chance_min then
 		Winterblight:CreateCastleTarotCard(enemy:GetAbsOrigin(), nil)
+	end
+	local immortals_luck = RandomInt(1, 100000)
+	local chance_min = 50 + GameState:GetPlayerPremiumStatusCount()*10
+	if immortals_luck <= chance_min then
+		local luck = RandomInt(1, 1)
+		if luck == 1 then
+			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_musty_crypt_armor")
+		end
 	end
 end
 

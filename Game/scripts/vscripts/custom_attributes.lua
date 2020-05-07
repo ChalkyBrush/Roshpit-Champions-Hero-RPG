@@ -555,6 +555,9 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveCooldownModifier()
 		self:CalculateAndSaveManacostModifier()
 		self:CalculateAndSaveChanneltimeModifier()
+		self:CalculateAndSaveMasterAttackSpeedBuff()
+		self:CalculateAndSaveMasterGreenDamageBuff()
+		self:CalculateAndSaveMasterBaseDamageBuff()
 		self:GetTooltips()
 	end
 end
@@ -3349,7 +3352,7 @@ function CustomAttributes:ApplyStatBonusesToHero(hero)
 	local agility = hero:GetAgility()
 	local intelligence = hero:GetIntellect()
 	if hero:HasModifier("modifier_frozen_heart") then
-		hero:RemoveModifierByName("modifier_strength_health")
+		hero:RemoveModifierByName("modifier_strength_health")	
 	else
 		if not hero:HasModifier("modifier_strength_health") then
 			ability:ApplyDataDrivenModifier(caster, hero, "modifier_strength_health", {})
@@ -3416,8 +3419,12 @@ function CustomAttributes:GetMaxHealth(hero, excludedModifier)
 	--100 hp base hp, base hp cant be changed with Code thats why its substracted again
 	local baseHealth = CustomAttributes:GetBaseHealth(hero, excludedModifier)
 	local healthMultiplier = CustomAttributes:GetPercentHealthMutliplier(hero, excludedModifier)
-	if hero:HasModifier("modifier_frozen_heart") then
-		return 100
+	if hero:HasModifier("modifier_frozen_heart") or hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+		if hero:HasModifier("modifier_musty_crypt_skeleton_transform") then
+			return ITEM_RPC_MUSTY_CRYPT_ARMOR_SKELETON_HP - 100 + hero.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_MUSTY_CRYPT_ARMOR_GEM_SAPPHIRE2)
+		elseif hero:HasModifier("modifier_frozen_heart") then
+			return 100
+		end
 	else
 		return baseHealth * healthMultiplier - 100 
 	end
@@ -3817,6 +3824,53 @@ end
 function CDOTA_BaseNPC_Hero:GetSumOfAllAttributes()
 	return self:GetStrength() + self:GetAgility() + self:GetIntellect() + self:GetSpirit()
 end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterAttackSpeedBuff()
+	local as_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterAS', { MODIFIER_ROSHPIT_MASTER_AS }, { }, 
+		function(result, data)
+			as_buff = as_buff + result
+		end
+	)
+	if as_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_as_buff", {})
+		self:SetModifierStackCount("modifier_master_as_buff", self, as_buff)
+	else
+		self:RemoveModifierByName("modifier_master_as_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterBaseDamageBuff()
+	local base_atk_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterBaseDMG', { MODIFIER_ROSHPIT_MASTER_BASE_ATTACK_DMG }, { }, 
+		function(result, data)
+			base_atk_buff = base_atk_buff + result
+		end
+	)
+	if base_atk_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_base_damage_buff", {})
+		self:SetModifierStackCount("modifier_master_base_damage_buff", self, base_atk_buff)
+	else
+		self:RemoveModifierByName("modifier_master_base_damage_buff")
+	end
+end
+
+function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
+	local atk_power_buff = 0
+	Util.Modifier:SimpleEvent(self, 'GetRoshpitMasterGreenDMG', { MODIFIER_ROSHPIT_MASTER_GREEN_DMG }, { }, 
+		function(result, data)
+			atk_power_buff = atk_power_buff + result
+		end
+	)
+	if atk_power_buff > 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_buff", {})
+		self:SetModifierStackCount("modifier_master_green_damage_buff", self, atk_power_buff)
+	else
+		self:RemoveModifierByName("modifier_master_green_damage_buff")
+	end
+end
+
+
 
 function CDOTA_BaseNPC_Hero:CalculateAndSaveCooldownModifier()
 	local q_ability = self:GetAbilityByIndex(DOTA_Q_SLOT)

@@ -3278,7 +3278,9 @@ function GameState:FilterDamage(filterTable)
 			filterTable["damage"] = 1
 		end
 	end
-
+	if victim:HasModifier("modifier_musty_crypt_skeleton_transform") and filterTable["damage"] > 0 then
+		filterTable["damage"] = ITEM_RPC_MUSTY_CRYPT_ARMOR_DAMAGE_TAKEN - victim.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("ruby", ITEM_RPC_MUSTY_CRYPT_ARMOR_GEM_RUBY3)
+	end
 	if victim:HasModifier("modifier_frozen_heart") then
 		if victim:GetTeamNumber() == DOTA_TEAM_NEUTRALS then
 			if not victim.equipped_gear then
@@ -3545,7 +3547,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- --print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000

@@ -75,7 +75,7 @@ function Tanari:Debug()
     MAIN_HERO_TABLE[1].roshpit_attributes.roshpit_level = 1
     -- RPCItems:RollAndDropUniqueItem(MAIN_HERO_TABLE[1], "item_rpc_winterblight_skull_ring")
 
-    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, "item_rpc_glove_of_the_hierophant")
+    local helm = RPCItems:RollAndDropImmortalByLevel(MAIN_HERO_TABLE[1]:GetAbsOrigin(), 1, 'item_rpc_musty_crypt_armor')
 
     helm = Gems:AddSocket(helm)
     helm = Gems:AddSocket(helm)
@@ -737,7 +737,7 @@ function Tanari:InitProps()
     Tanari.WaterTempleSpiritSwitch = Entities:FindByNameNearest("WaterSwitch", Vector(-13509, 15873), 1000)
     Tanari.WaterTempleSpiritSwitch:SetAbsOrigin(Tanari.WaterTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
 
-    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 1000)
+    Tanari.FireTempleSpiritSwitch = Entities:FindByNameNearest("FireSwitch", Vector(-11481, -12206), 2000)
     Tanari.FireTempleSpiritSwitch:SetAbsOrigin(Tanari.FireTempleSpiritSwitch:GetAbsOrigin()-Vector(0,0,300))
     
 end

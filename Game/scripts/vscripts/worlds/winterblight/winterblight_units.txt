@@ -17978,6 +17978,7 @@
              "soundfile" "soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
              "particle" "particles/roshpit/items/ankh_of_ancients_respawn.vpcf"
              "particle" "particles/roshpit/items/ankh_of_ancients_respawn_timer.vpcf"
+             "particle" "particles/econ/items/wraith_king/wraith_king_ti8/wk_ti8_creep_ambient.vpcf"
         }
         "ArmorPhysical" "0"
         "MagicalResistance" "0"

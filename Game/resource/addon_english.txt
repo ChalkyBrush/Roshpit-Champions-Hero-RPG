@@ -13375,6 +13375,8 @@
 		"item_rpc_robe_of_the_erudite_teacher_emerald1"		"Reduces the apprentice's respawn time by @emerald_property1 seconds"
 		"item_rpc_robe_of_the_erudite_teacher_sapphire1"		"Increases the Apprentice's attack damage by an additional @sapphire_property1"
 		"item_rpc_robe_of_the_erudite_teacher_amethyst1"		"Increases Item Damage by @amethyst_property1%"
+		
+		"rubick_apprentice"									"Rubick Apprentice"
 
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1"					"Spell Steal"
 		"DOTA_Tooltip_ability_apprentice_spell_steal_1_Description"		"Copies a random ability from the target dominatable enemy. The ability fails if the target has no copyable abilities, or if the Apprentice already knew the chosen ability."
@@ -13664,8 +13666,6 @@
 		"item_rpc_energizing_quest_gear_amethyst1"							"No effect"
 		
 
-		//WB CASTLE ITEMS
-
 		"DOTA_Tooltip_ability_item_rpc_plague_emperor_armor"							"Plague Emperor Armor"
 		"item_property_plague_emperor"												"Poison Globs"
 		"property_plague_emperor_description"										"Every <font color='#ccff66'>2</font> seconds, throw a Poison Glob at a random enemy within <font color='#ccff66'>1000</font> range. On impact, deal <font color='#ccff66'>100</font>% of attack power as damage in a <font color='#ccff66'>320</font> radius."
@@ -13676,6 +13676,20 @@
 
 		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald"					"Poison Glob"
 		"DOTA_Tooltip_modifier_plague_emperor_armor_emerald_Description"		"Reduced Attack Speed and taking damage"
+
+		"DOTA_Tooltip_ability_item_rpc_musty_crypt_armor"				"Musty Crypt Armor"
+		"item_property_musty_crypt_armor"				"Crypt Warrior"
+		"property_musty_crypt_armor_description"		"Casting @Ability1 transforms you into a melee skeleton warrior with <font color='#ccff66'>1000</font> Max Health. Any instance of damage taken while in Skeleton Form deals exactly <font color='#ccff66'>50</font> damage. While in skeleton form you cannot heal. Lasts <font color='#ccff66'>15</font> seconds or is removed when casting @Ability1 again."
+
+		"DOTA_Tooltip_modifier_musty_crypt_skeleton_transform"		"Crypt Warrior"
+		
+		"item_rpc_musty_crypt_armor_ruby1"									"Gain @ruby_property1 Attack Speed and @ruby_property2 movement speed while in skeleton form. Damage taken while in skeleton form is reduced by @ruby_property3"
+		"item_rpc_musty_crypt_armor_emerald1"									"Restore @emerald_property1 health in skeleton form every <font color='#ccff66'>0.1</font> seconds even while healing is disabled. While in Skeleton Form, each point of current health increases Base Attack Damage by @emerald_property2"
+		"item_rpc_musty_crypt_armor_sapphire1"									"Gain @sapphire_property1% increased attack power and @sapphire_property2 additional health while in skeleton form"
+		"item_rpc_musty_crypt_armor_amethyst1"									"Attacks in skeleton form leave a debuff on enemies for @amethyst_property1 seconds that makes them unable to heal. Attacks in skeleton form also restore @amethyst_property2 health, even when healing is disabled."
+
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
+		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Healing Disabled"	
 
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
@@ -21142,6 +21156,8 @@
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_Description"	"Creates waves of soul piercing ice at the target location. Enemies who are affected take damage over time. Casting an ability or being hit by a wave adds an additional stack. Damage is multiplied by the stack count."
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_wave_damage"	"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_winterblight_soulfire_storm_burn_damage"	"DOT DAMAGE:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_max_stacks"	"MAX STACKS:"
+		"DOTA_Tooltip_ability_winterblight_soulfire_storm_tick_rate"	"TICK RATE, SECONDS:"
 		
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn"				"Soulfrost"
 		"DOTA_Tooltip_modifier_cold_seer_wave_burn_Description"	"Taking damage over time. Casting an ability increases the stack count."

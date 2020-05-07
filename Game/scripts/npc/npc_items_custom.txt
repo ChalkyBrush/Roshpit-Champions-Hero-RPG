@@ -42134,6 +42134,93 @@
 	}
 
 
+	"item_rpc_musty_crypt_armor"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/body/musty_crypt_armor.lua"
+		"AbilityTextureName"	"winterblight/castle/musty_crypt_armor"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"80 160 240 320 400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"50 100 150 200 250"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"1 2 3 4 5"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"1 2 3 4 5"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"0.8 1.6 2.4 3.2 4"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"20 40 60 80 100"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"40 80 120 160 200"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"0.8 1.6 2.4 3.2 4"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"10 20 30 40 50"
+			}
+		}
+		"precache"
+		{
+			"particle"		"particles/roshpit/items/musty_crypt_transform.vpcf"
+			"model"			"models/items/wraith_king/wk_ti8_creep/wk_ti8_creep.vmdl"
+			"particle"		"particles/econ/items/wraith_king/wraith_king_ti8/wk_ti8_creep_ambient.vpcf"
+			"particle"		"particles/roshpit/items/musty_crypt_amethyst_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+
 	"item_rpc_plague_emperor_armor"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -64466,22 +64553,22 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"2 4 6 8 10"
+				"ruby2"				"4 6 8 10 10"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"			"1 2 3 4 5"
+				"emerald2"			"4 6 8 10 10"
 			}
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"2 4 6 8 10"
+				"sapphire2"			"4 6 8 10 10"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst2"			"1 1 2 2 3"
+				"amethyst2"			"4 6 8 10 10"
 			}
 		}
 		"precache"
