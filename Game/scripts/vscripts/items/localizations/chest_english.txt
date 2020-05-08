@@ -760,3 +760,13 @@
 
 		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
 		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Healing Disabled"	
+
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
+		"item_property_spellcrafter_coat"				"Magic Spell"
+		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <% ITEM_RPC_SPELLCRAFTER_COAT_PROJECTILE_SPEED_BASE %> speed projectile towards the nearest enemy within <% ITEM_RPC_SPELLCRAFTER_COAT_RANGE %> range in front of the caster. The spell deals <% ITEM_RPC_SPELLCRAFTER_COAT_BASE_DMG_ATK_POWER %>% of Attack Power as Magical Damage."
+
+		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
+		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"

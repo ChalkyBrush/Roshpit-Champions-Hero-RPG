@@ -13691,6 +13691,17 @@
 		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff"			"Crypt Warrior (Amethyst)"
 		"DOTA_Tooltip_modifier_musty_crypt_amethyst_debuff_Description"	"Healing Disabled"	
 
+
+		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
+		"item_property_spellcrafter_coat"				"Magic Spell"
+		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <font color='#ccff66'>800</font> speed projectile towards the nearest enemy within <font color='#ccff66'>1000</font> range in front of the caster. The spell deals <font color='#ccff66'>100</font>% of Attack Power as Magical Damage."
+
+		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"
+		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
+		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
+		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
+
+
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
 		"property_aquasteel_description"						"<font color='#ccff66'>20</font>% chance on taking damage to release a jet of water towards the attacking unit, dealing damage based on <font color='#ccff66'>25</font>% of your attack power, and stunning for <font color='#ccff66'>0.5</font> seconds."

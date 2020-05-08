@@ -2339,7 +2339,8 @@ function Winterblight:SpawnCastleRoom11(variant)
 				local fv = Vector(-1,-1)
 				local monster = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_green_magician", positionTable[i], fv, false, false)
 			end	
-			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_haunt_magician", Vector(14712, -2720), Vector(0,-1), false, false)
+			local miniboss = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_haunt_magician", Vector(14712, -2720), Vector(0,-1), false, false)
+			miniboss:AddLootDrop("immortal", "item_rpc_spellcrafter_coat", 100)
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2	
 		end)
 	elseif variant == 3 then

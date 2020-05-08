@@ -168015,4 +168015,19 @@
 		}
 	}
 
+	"spellcrafter_dummy_ability"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"items/lua/body/spellcrafter_coat.lua"
+		"AbilityTextureName"		"earthshaker_aftershock"
+		"MaxLevel"					"1"
+			
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
 }
+

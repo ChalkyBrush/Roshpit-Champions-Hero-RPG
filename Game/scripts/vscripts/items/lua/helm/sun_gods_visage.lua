@@ -79,8 +79,8 @@ function modifierClass:OnIntervalThink()
 	local hero = self:GetParent()
 	local ability = self:GetAbility()
 	local healthRemoval = hero:GetHealth()*(((ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN+ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SUN_GODS_VISAGE_RUBY))/100))
-	hero:SetHealth(math.max(hero:GetHealth() - healthRemoval, 1))
 	local heal = (hero:GetMaxHealth() - hero:GetHealth())*(((ITEM_RPC_SUN_GODS_VISAGE_HEAL+ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SUN_GODS_VISAGE_RUBY))/100))
+	hero:SetHealth(math.max(hero:GetHealth() - healthRemoval, 1))
 	Filters:ApplyHeal(hero, hero, heal, true, true, self:GetAbility())
 end
 
