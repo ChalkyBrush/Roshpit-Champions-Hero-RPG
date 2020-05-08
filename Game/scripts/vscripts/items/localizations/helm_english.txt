@@ -733,3 +733,12 @@
 		"item_rpc_shadowguard_helm_emerald1"	"Increases the projectile travel speed by @emerald_property1"
 		"item_rpc_shadowguard_helm_sapphire1" 	"Increases the disarm duration by @sapphire_property1 seconds"
 		"item_rpc_shadowguard_helm_amethyst1" 	"Enemies affected by the disarm additionally have @amethyst_property1 reduced Magic Armor and Spell Pierce"
+
+    	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"Sun God's Visage"
+		"item_property_sun_gods_visage"						"Burning Rejuvenation"
+		"property_sun_gods_visage_description"				"Lose <% ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN %>% of current health and heal <% ITEM_RPC_SUN_GODS_VISAGE_HEAL %>% of missing health every <% ITEM_RPC_SUN_GODS_VISAGE_INTERVAL %> seconds."
+
+		"item_rpc_sun_gods_visage_ruby1"		"Increases the health drain and heal by an additional @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_LOWER_BOUND %>% and <% ITEM_RPC_SUN_GODS_VISAGE_EMERALD_UPPER_BOUND %>% health"
+		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"

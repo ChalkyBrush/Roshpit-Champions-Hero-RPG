@@ -4028,6 +4028,7 @@ function diviner_sun_event_egg_think(event)
 		phoenix.min_stacks = 110
 		if egg.giga_egg then
 			phoenix.min_stacks = 240
+			phoenix:AddLootDrop("immortal", "item_rpc_sun_gods_visage", 100)
 		end
 		Dungeons:AggroUnit(phoenix)
 		local master_ability = Winterblight.CastleDungeonMaster:FindAbilityByName("winterblight_the_diviner_passive")

@@ -15045,6 +15045,15 @@
 		"item_rpc_shadowguard_helm_sapphire1" 	"Increases the disarm duration by @sapphire_property1 seconds"
 		"item_rpc_shadowguard_helm_amethyst1" 	"Enemies affected by the disarm additionally have @amethyst_property1 reduced Magic Armor and Spell Pierce"
 
+    	"DOTA_Tooltip_ability_item_rpc_sun_gods_visage"						"Sun God's Visage"
+		"item_property_sun_gods_visage"						"Burning Rejuvenation"
+		"property_sun_gods_visage_description"				"Lose <font color='#ccff66'>7</font>% of current health and heal <font color='#ccff66'>5</font>% of missing health every <font color='#ccff66'>0.3</font> seconds."
+
+		"item_rpc_sun_gods_visage_ruby1"		"Increases the health drain and heal by an additional @ruby_property1%"
+		"item_rpc_sun_gods_visage_emerald1"	"Gain @emerald_property1 Agility and Spirit while between <font color='#ccff66'>40</font>% and <font color='#ccff66'>60</font>% health"
+		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
+		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"
+
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
         "item_property_aeriths_tear"                            "Last Wish"
