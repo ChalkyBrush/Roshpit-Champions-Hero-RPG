@@ -73,6 +73,9 @@ function modifierClass:OnCreated()
 end
 
 function modifierClass:OnIntervalThink()
+	if not IsServer() then
+		return false
+	end
 	local hero = self:GetParent()
 	local ability = self:GetAbility()
 	local healthRemoval = hero:GetHealth()*(((ITEM_RPC_SUN_GODS_VISAGE_HEALTH_DRAIN+ability:GetFinalGemPropertyValue("ruby", ITEM_RPC_SUN_GODS_VISAGE_RUBY))/100))

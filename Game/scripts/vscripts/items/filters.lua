@@ -889,7 +889,6 @@ function Filters:CastSkillArguments(slot, caster)
     elseif slot == BASE_ABILITY_R then
         Filters:ApplyRskills(caster)
         Util.Modifier:SimpleEvent(caster, 'OnCastRAbility', { MODIFIER_SPECIAL_TYPE_CAST_R_ABILITY }, {}, nil)
-
     end
     if caster:HasModifier("modifier_torch_of_gengar_effect") then
         Filters:GengarCast(caster)

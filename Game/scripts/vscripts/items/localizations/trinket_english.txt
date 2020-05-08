@@ -655,12 +655,6 @@
         "item_rpc_world_trees_flower_cache_emerald1"                        "Reduces New Bloom's Cooldown by @emerald_property1 seconds"
         "item_rpc_world_trees_flower_cache_sapphire1"                       "Increases New Bloom's buff duration by @sapphire_property1 seconds"
         "item_rpc_world_trees_flower_cache_amethyst1"                       "Increases Item and <font color=\"#69BC71\">Nature</font> Elemental Damage by @amethyst_property1%"
-        
-		
-	
-		
-		
-
 		
 		"DOTA_Tooltip_ability_item_rpc_sparkling_sea_crystal"					"Sparkling Sea Crystal"	
 		"item_rpc_sparkling_sea_crystal_ruby1"					"No Effect"
@@ -671,7 +665,17 @@
 		"property_sea_crystal_Description"									"Casting @Ability4 summons a permanent Giga Ocean Elemental, gifted with @special_property1% of your total attack power and immense knockback with each attack. Casting @Ability4 again will re-summon or replace your existing Elemental."
 
 
-	
+	   "DOTA_Tooltip_ability_item_rpc_moon_shard"                              "Moon Shard"
+
+        "item_property_moon_shard"                  "Lumos Celerity"
+        "property_moon_shard_description"           "Each 1% of missing mana reduces all cooldowns by <% ITEM_RPC_MOON_SHARD_CD_REDUCTION_PER_MANA_PCT %>%."
+
+        "item_rpc_moon_shard_ruby1"                             "Gain @ruby_property1 attack speed for each 1% of missing mana."
+        "item_rpc_moon_shard_emerald1"                              "Gain @emerald_property1 movespeed and max movespeed for each 1% of current mana."
+        "item_rpc_moon_shard_sapphire1"                             "Every @sapphire_property1 seconds, gain a buff that makes your next spell cast have 100% reduced cooldown."
+        "DOTA_Tooltip_modifier_moon_shard_sapphire"                 "Lumos Celerity (Sapphire)"
+        "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100% reduced cooldown" 
+        "item_rpc_moon_shard_amethyst1"                             "Travelling <% ITEM_RPC_MOON_SHARD_AMETHYST_DISTANCE_TO_TRIGGER %> distance throws up to @amethyst_property1 icicles at the nearest enemies within <% ITEM_RPC_MOON_SHARD_AMETHYST_SEARCH_RADIUS %> range. Deals @amethyst_property2 damage for each point of Max Mana."
 	
 		
 

@@ -147,7 +147,7 @@ function itemClass:OnProjectileHit(target, location)
 	local hero = self:GetCaster()
 	local ability = self
 	local caster = self:GetCaster()
-	EmitSoundOn("RPCItems.ShadowguardHelm.Impact", hero)
+	EmitSoundOn("RPCItems.ShadowguardHelm.Impact", target)
 	local damage = OverflowProtectedGetAverageTrueAttackDamage(caster) * ((ITEM_RPC_SHADOWGUARD_HELM_DMG_PCT_ATK_POWER + ability:GetFinalGemPropertyValue("ruby", GEM_RPC_SHADOWGUARD_HELM_RUBY1))/100)
 	local disarm_duration = ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION + ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_SHADOWGUARD_HELM_SAPPHIRE)
 	target:AddNewModifier(caster, ability, "modifier_shadowguard_helm_disarmed", {duration = ITEM_RPC_SHADOWGUARD_HELM_DISARM_DURATION})
