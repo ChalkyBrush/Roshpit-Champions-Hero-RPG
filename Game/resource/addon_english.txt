@@ -13693,7 +13693,7 @@
 
 
 		"DOTA_Tooltip_ability_item_rpc_spellcrafter_coat"		"Spellcrafter Coat"
-		"item_property_spellcrafter_coat"				"Magic Spell"
+		"item_property_spellcrafter_coat"				"Custom Spell"
 		"property_spellcrafter_coat_description"		"Casting @Ability2 throws a <font color='#ccff66'>800</font> speed projectile towards the nearest enemy within <font color='#ccff66'>1000</font> range in front of the caster. The spell deals <font color='#ccff66'>100</font>% of Attack Power as Magical Damage."
 
 		"item_rpc_spellcrafter_coat_ruby1"									"Magic Spell deals <font color=\"#EF4126\">Fire</font> damage in a @ruby_property1 radius around the target. Magic Spell's damage is increased by @ruby_property2x Strength"

@@ -182,7 +182,10 @@ function itemClass:SpellCrafterProjectileHit(target, extraData)
 	local damage = ability:GetAbilityImpactDamage()
 	local element1 = ability:GetDamageElement1()
 	local element2 = ability:GetDamageElement2()
-
+	if not target:IsAlive() then
+		return
+	end
+	EmitSoundOn("RPCItems.Spellcrafter.Impact", target)
 	local damage_targets = {}
 	if extraData.aoe > 0 then
 		damage_targets = FindUnitsInRadius(hero:GetTeamNumber(), target:GetAbsOrigin(), nil, extraData.aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
