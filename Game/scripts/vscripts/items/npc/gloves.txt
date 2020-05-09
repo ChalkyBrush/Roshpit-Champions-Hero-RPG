@@ -1,3 +1,98 @@
+	"item_rpc_zombiegrip_gauntlet"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+		"ScriptFile"	"items/lua/gloves/zombiegrip_gauntlet.lua"
+		"AbilityTextureName"	"winterblight/castle/zombiegrip_gauntlet"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"element_one"				"<% RPC_ELEMENT_UNDEAD %>"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1 %>"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY2 %>"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY3 %>"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD1 %>"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD2 %>"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_EMERALD3 %>"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE1 %>"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE2 %>"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire3"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_SAPPHIRE3 %>"
+			}
+			"11"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST1 %>"
+			}
+			"12"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst2"			"<% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_AMETHYST2 %>"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
+
 	"item_rpc_glove_of_the_hierophant"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"

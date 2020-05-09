@@ -615,3 +615,19 @@
 		"item_rpc_glove_of_the_hierophant_emerald1"			"Increases the damage radius by @emerald_property1"
 		"item_rpc_glove_of_the_hierophant_sapphire1"			"Spirit Snap reduces nearby enemy accuracy by @sapphire_property1% for <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_SAPPHIRE_DURATION%> seconds and its damage is increased by @sapphire_property2x your Spirit"
 		"item_rpc_glove_of_the_hierophant_amethyst1"			"When you heal yourself or an ally, the heal target gains a buff that increases spirit by @amethyst_property1 for <% ITEM_RPC_GLOVE_OF_THE_HIEROPHANT_AMETHYST_DURATION %> seconds"
+
+		"DOTA_Tooltip_ability_item_rpc_zombiegrip_gauntlet"			"Zombiegrip Gauntlet"
+
+		"item_property_zombiegrip_gauntlet"							"Zombie Wall"
+		"property_zombiegrip_gauntlet_description"					"Casting @Ability1 summons an impassible wall made up of <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_BASE_ZOMBIE_COUNT %> zombies perpendicular to the caster. Enemies standing within <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ZOMBIE_ATTACK_RANGE %> range of the front of the wall are attacked by the zombies. Zombies have Attack Power based on <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACK_DMG_INHERIT_PCT%>% of the caster's Attack Power. Zombies die after <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_ATTACKS_TO_KILL %> attacks or <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_DURATION %> seconds. Only 1 wall can be active at a time."
+
+		"item_rpc_zombiegrip_gauntlet_ruby1"			"Increases Undead Elemental damage by @ruby_property1%, zombies have @ruby_property2 increased Attack Speed and @ruby_property3% additional attack damage."
+		"item_rpc_zombiegrip_gauntlet_emerald1"			"When a Zombie dies it explodes and deals @emerald_property1% of Attack Power in a <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_RADIUS %> radius. The explosion leaves a puddle of acid that deals @emerald_property2% of attack power every 0.5 seconds and lowers armor by @emerald_property3. The puddle lasts for <% ITEM_RPC_ZOMBIEGRIP_GAUNTLET_EMERALD_DURATION %> seconds"
+		"item_rpc_zombiegrip_gauntlet_sapphire1"			"Summon @sapphire_property1 additonal zombies. Zombies last for @sapphire_property2 seconds more and take an additional @sapphire_property3 attacks to destroy"
+		"item_rpc_zombiegrip_gauntlet_amethyst1"			"Zombies are surrounded in a poison cloud that slows nearby enemies' attack speed within <% ITEM_PROPERTY_ZOMBIEGRIP_GAUNTLET_AMETHYST_RADIUS %> range by @amethyst_property1 and movement speed by @amethyst_property2"
+
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile"	"Zombie Wall Acid"
+		"DOTA_Tooltip_modifier_zombiegrip_standing_in_acid_pile_Description"	"Armor Reduced and taking damage"
+
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"Zombie Wall Poison Cloud"
+		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"Reduced Attackspeed and Movespeed"

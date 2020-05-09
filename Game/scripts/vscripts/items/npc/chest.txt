@@ -19,6 +19,21 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_white.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_red.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_blue.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_green.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_purple.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_rb.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_rg.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_rp.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_bg.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_bp.vpcf"
+			"particle"  "particles/roshpit/items/spellcrafter_coat/projectile_dual_gp.vpcf"
+			"particle"	"particles/roshpit/items/spellcrafter_coat/fire_aoe.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"

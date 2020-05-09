@@ -1570,7 +1570,11 @@ function RPCItems:RecordGemBonusesBySlot(item, hero, socket_number, socket_type,
 		if socket_type == "amethyst" then
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SUN_GODS_VISAGE_AMETHYST1, hero, "max_health", RPC_GEAR_SLOT_HEAD)
 			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "amethyst", ITEM_RPC_SUN_GODS_VISAGE_AMETHYST2, hero, "element_fire", RPC_GEAR_SLOT_HEAD)
-		end			
+		end		
+	elseif item:GetAbilityName() == "item_rpc_zombiegrip_gauntlet" then
+		if socket_type == "ruby" then
+			RPCItems:RecordSpecificGemBonusForImmortalItem(item, "ruby", ITEM_RPC_ZOMBIEGRIP_GAUNTLET_GEM_RUBY1, hero, "element_undead", RPC_GEAR_SLOT_GLOVES)
+		end
 	end
 end
 

@@ -4338,3 +4338,11 @@ function CDOTA_BaseNPC:SetVisualFlyHeight(height)
 	end
 	self:SetModifierStackCount("modifier_visual_fly_height", Events.GameMaster, height)
 end
+
+function CDOTA_BaseNPC:EntityExistsAndIsAlive()
+	if self and IsValidEntity(self) and self:IsAlive() then
+		return true
+	else
+		return false
+	end
+end

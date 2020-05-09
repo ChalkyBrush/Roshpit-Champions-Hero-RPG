@@ -12669,6 +12669,10 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}				
 			}
+			"modifier_take_1_damage_only"
+			{
+				"IsHidden"	"1"
+			}
 		}
 		"AbilitySpecial"
 		{

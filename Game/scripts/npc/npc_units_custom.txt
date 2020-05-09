@@ -88739,6 +88739,54 @@
     }
 
 
+    "item_zombiegrip_gauntlet_zombie"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/undying/undying_minion.vmdl"
+        "ModelScale"    "1.2"
+        "Level" "1"
+        "HealthBarOffset"   "340"
+        "HasInventory"  "0"
+        "SelectionGroup"    "champion"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale" "0.2"
+        "precache"
+        {
+
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1"
+        "AttackDamageMax"   "1"
+        "AttackRate"    "1.2"
+        "AttackAnimationPoint"  "0.29"
+        "AttackAcquisitionRange"    "0"
+        "AttackRange"   "260"
+        "BountyGoldMin" "300"
+        "BountyGoldMax" "500"
+        "BountyXP"  "1000"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "70"
+        "CollisionSize" "32"
+        "FormationRank" "2"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+        "MovementSpeed" "400"
+        "MovementTurnRate"  "4"
+        "StatusHealth"  "1000"
+        "StatusHealthRegen" "0"
+        "StatusMana"    "100"
+        "StatusManaRegen"   "100"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+        "CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    }
+
+
     "winterblight_snowball_kid"
     {
         "BaseClass" "npc_dota_creature"
