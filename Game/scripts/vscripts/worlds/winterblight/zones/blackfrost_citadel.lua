@@ -3052,11 +3052,13 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 	local immortals_luck = RandomInt(1, 200000)
 	local chance_min = 50 + GameState:GetPlayerPremiumStatusCount()*10
 	if immortals_luck <= chance_min then
-		local luck = RandomInt(1, 2)
+		local luck = RandomInt(1, 3)
 		if luck == 1 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_musty_crypt_armor")
 		elseif luck == 2 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_shadowguard_helm")
+		elseif luck == 3 then
+			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_zombiegrip_gauntlet")
 		end
 	end
 end
@@ -3550,6 +3552,7 @@ function Winterblight:HangedManSpawns(room_index)
 		local random_pos =  GetGroundPosition(key_position + RandomVector(RandomInt(150, 700)), Events.GameMaster)
 		local spawnPos = WallPhysics:WallSearch(key_position, random_pos, Events.GameMaster)
 		local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_hanging_slayer", spawnPos, RandomVector(1), false, true)
+		unit:AddLootDrop("immortal", "item_rpc_hangman_slippers", 1)
 	end
 end
 

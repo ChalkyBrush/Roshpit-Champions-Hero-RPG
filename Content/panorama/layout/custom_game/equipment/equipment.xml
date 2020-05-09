@@ -74,6 +74,10 @@
 						onmouseout="ItemHideTooltipInit(0)">
 						<DOTAItemImage hittest="false" id="ItemImageHelm"/>
 						<Panel id="gems_container0" class="gems-equipment-container"/>
+						<Panel hittest="false" id="Cooldown0" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay0" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer0" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel class="item_container" id="armor_main_container" hittest="false">
@@ -83,6 +87,10 @@
 						onmouseout="ItemHideTooltipInit(4)">
 						<DOTAItemImage hittest="false" id="ItemImageArmor"/>
 						<Panel id="gems_container4" class="gems-equipment-container"/>
+						<Panel hittest="false" id="Cooldown4" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay4" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer4" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel class="item_container"  id="weapon_glove_main_container" hittest="false">
@@ -92,6 +100,10 @@
 						onmouseout="ItemHideTooltipInit(1)">
 						<DOTAItemImage hittest="false" id="ItemImageWeapon"/>
 						<Panel id="gems_container1" class="gems-equipment-container"/>
+						<Panel hittest="false" id="Cooldown1" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay1" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer1" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 					<Panel class="item_image" id="glove_container" hittest="true"
 						onactivate='EquipmentClick(2)'
@@ -99,7 +111,10 @@
 						onmouseout="ItemHideTooltipInit(2)">
 						<DOTAItemImage hittest="false" id="ItemImageGlove"/>
 						<Panel id="gems_container2" class="gems-equipment-container"/>
-
+						<Panel hittest="false" id="Cooldown2" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay2" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer2" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel class="item_container" id="boot_amulet_main_container" hittest="false">
@@ -109,6 +124,10 @@
 						onmouseout="ItemHideTooltipInit(3)">
 						<DOTAItemImage hittest="false" id="ItemImageBoot"/>
 						<Panel id="gems_container3" class="gems-equipment-container"/>
+						<Panel hittest="false" id="Cooldown3" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay3" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer3" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 					<Panel class="item_image" id="amulet_container" hittest="true"
 						onactivate='EquipmentClick(5)'
@@ -116,25 +135,15 @@
 						onmouseout="ItemHideTooltipInit(5)">
 						<DOTAItemImage hittest="false" id="ItemImageAmulet"/>
 						<Panel id="gems_container5" class="gems-equipment-container"/>
+						<Panel hittest="false" id="Cooldown5" class="Cooldown">
+							<Panel hittest="false" id="CooldownOverlay5" class="CooldownOverlay" />
+							<Label hittest="false" id="CooldownTimer5" class="CooldownTimer" />
+						</Panel>
 					</Panel>
 				</Panel>
 			</Panel>
 
 		</Panel>
-<!-- 			<Panel id="weapon_lvlup" hittest="false" class="invisible">
-				<Label class="weapon_title" id="weapon_title" text="Weapon" html="true" hittest="false"></Label>
-				<DOTAItemImage hittest="false" class="weapon_lvlup_item" id="weapon_lvlup_item" src="file://{images}/items/death_whisper_helm.png"/>
-				<Label class="weapon_lvl" id="weapon_level" text="Lv X" html="true" hittest="false"></Label>
-				<Label class="weapon_lvl_message" id="weapon_lvl_message" text="" html="true" hittest="false"></Label>
-				<Label class="weapon_lvl_message2" id="weapon_lvl_message2" text="" html="true" hittest="false"></Label>
-				<Panel class="weapon_xp_bar_container" id="weapon_xp_bar_container">
-					<Panel class="weapon_xp_bar" id="weapon_xp_bar">
-					</Panel>
-					<Label class="weapon_xp_text" id="weapon_xp_text" text="0/1000" html="true" hittest="false"></Label>
-				</Panel>
-				<Label class="weapon_upgrade_available" id="weapon_upgrade_available" text="" html="true" hittest="false"></Label>
-				<Label class="weapon_tip" id="weapon_tip" text="" html="true" hittest="false"></Label>
-			</Panel> -->
 	</Panel>
 
 

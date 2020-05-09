@@ -580,3 +580,13 @@
         "item_rpc_justice_greaves_emerald1"                                     "Damage taken from the front (<% ITEM_RPC_JUSTICE_GREAVES_EMERALD_ANGLE %> degree range) is reduced by @emerald_property1"
         "item_rpc_justice_greaves_sapphire1"                                        "Increases the Stat Gain from highest statted nearby enemy by an additional @sapphire_property1%"
         "item_rpc_justice_greaves_amethyst1"                                        "Increases the enemy search range by @amethyst_property1 and also works from enemies who are not visible"
+
+        "DOTA_Tooltip_ability_item_rpc_hangman_slippers"                                "Hangman Slippers"
+
+        "item_property_hangman_slippers"                    "Perspective Trick"
+        "property_hangman_slippers_description"         "Issuing an attack order makes your hero lob towards the target location. While travelling, you are disabled but completely invulnerable. Enemies within <% ITEM_RPC_HANGMAN_SLIPPERS_AOE %> range of the landing point are disarmed for <% ITEM_RPC_HANGMAN_SLIPPERS_DISARM_DURATION %> seconds. Cooldown of <% ITEM_RPC_HANGMAN_SLIPPERS_CD %> seconds and Max Distance of <% ITEM_RPC_HANGMAN_SLIPPERS_MAX_DISTANCE %>. "
+
+        "item_rpc_hangman_slippers_ruby1"                                        "Increases the Maximum Distance by @ruby_property1 and the Disarm AOE by @ruby_property2"
+        "item_rpc_hangman_slippers_emerald1"                                     "Increases the Travel Speed by @emerald_property1%"
+        "item_rpc_hangman_slippers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_hangman_slippers_amethyst1"                                        "Increases the Disarm duration by @amethyst_property1"

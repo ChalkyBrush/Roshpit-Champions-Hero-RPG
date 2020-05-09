@@ -19,6 +19,14 @@
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"precache"
+		{
+			"model"  "models/heroes/undying/undying_minion.vmdl"
+			"particle"	"particles/roshpit/items/musty_crypt_transform.vpcf"	
+			"particle"	"particles/roshpit/items/zombie_gauntlet_spawn.vpcf"
+			"particle"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"

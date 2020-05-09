@@ -160,18 +160,38 @@ function UpdateItem()
 		var altChargeCount = 0;
 		var hasAltCharges = false;
 
-
-		// $.Msg( $("#helm_container"));
-// 
 		itemImage.item_name = itemName;
 		itemImage.contextEntityIndex = item;
 		if (item == -1){
 			itemImage.SetImage("file://{images}/custom_game/ui/empty-inventory-slot.png");
 		}
 		manageSocketsEquipment(gemsContainer, item, i)
+
+		if ( item == -1 || Abilities.IsCooldownReady( item ) )
+		{
+			$.GetContextPanel().SetHasClass( "cooldown_ready", true );
+			$.GetContextPanel().SetHasClass( "in_cooldown", false );
+			$( "#CooldownTimer"+i ).text = "";
+			$( "#Cooldown"+i ).style.visibility = "collapse"
+		}
+		else
+		{
+			$( "#Cooldown"+i ).style.visibility = "visible"
+			$.GetContextPanel().SetHasClass( "cooldown_ready", false );
+			$.GetContextPanel().SetHasClass( "in_cooldown", true );
+			var cooldownLength = Abilities.GetCooldownLength( item );
+			var cooldownRemaining = Abilities.GetCooldownTimeRemaining( item );
+			var cooldownPercent = Math.ceil( 100 * cooldownRemaining / cooldownLength );
+			var cooldown_text = Math.ceil( cooldownRemaining * 10 )/10;
+			if (cooldown_text%1 == 0){
+				cooldown_text = cooldown_text + ".0"
+			}
+			$( "#CooldownTimer"+i ).text = cooldown_text;
+			$( "#CooldownOverlay"+i ).style.width = cooldownPercent+"%";
+		}
 	}
 
-	$.Schedule( 0.2, UpdateItem );
+	$.Schedule( 0.1, UpdateItem );
 }
 
 function getSlot(slot)

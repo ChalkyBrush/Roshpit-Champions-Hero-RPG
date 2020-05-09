@@ -496,8 +496,6 @@ function AttributeTooltipHoverFromServer(msg){
 	GameEvents.Subscribe( "", UpdateMenuValues );
 	
 	GameEvents.Subscribe( "correct_dota_ui", CorrectDotaUI );
-	GameEvents.Subscribe( "update_key_display", SetKeyVisibility );
-	GameEvents.Subscribe( "dota_player_update_query_unit", SetKeyVisibility );
 
 	GameEvents.Subscribe( "UpdateMenuValues", UpdateMenuValuesOnce );
 
