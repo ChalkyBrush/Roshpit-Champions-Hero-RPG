@@ -38,17 +38,17 @@
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_EMERALD %>"
+				"emerald1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_EMERALD %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_SAPPHIRE %>"
+				"sapphire1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_SAPPHIRE %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_AMETHYST %>"
+				"amethyst1"			"<% ITEM_RPC_HANGMAN_SLIPPERS_GEM_AMETHYST %>"
 			}
 		}
 		"OnSpellStart"

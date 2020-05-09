@@ -1562,6 +1562,15 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_eternal_forest_striders") and slot == BASE_ABILITY_E then
             Filters:EternalForestStriders(attacker, victim, damage)
         end
+        if slot == BASE_ABILITY_Q then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitQAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_W then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitWAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_E then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitEAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_E_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        elseif slot == BASE_ABILITY_R then
+            Util.Modifier:SimpleEvent(attacker, 'OnHitRAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_R_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
+        end
     end
     -- damage = Filters:AdjustBaseAbilityDamage(victim, attacker, damage, damage_type, slot, element1, element2, ignore_effects, ability)
     local damageData = attacker._damage_data or {}
@@ -2115,7 +2124,6 @@ function Filters:HasFlyingModifier(unit)
 end
 
 function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitQAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_Q_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     if attacker:HasModifier("modifier_vampiric_breastplate") then
         Filters:VampiricBreastplate(attacker, damage, "q_ability", "modifier_vampiric_breastplate")
     end
@@ -2130,17 +2138,14 @@ function Filters:ApplyQdamage(victim, attacker, damage, damage_type)
 end
 
 function Filters:ApplyWdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitWAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_W_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 1)
 end
 
 function Filters:ApplyEdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitEAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_E_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, 2)
 end
 
 function Filters:ApplyRdamage(victim, attacker, damage, damage_type)
-    Util.Modifier:SimpleEvent(attacker, 'OnHitRAbility', { MODIFIER_SPECIAL_TYPE_ON_HIT_R_ABILITY }, {victim = victim, attacker = attacker, damage = damage, damage_type = damage_type}, nil)
     Filters:ApplyDamageInstances(victim, attacker, damage, damage_type, DOTA_R_SLOT)
 end
 

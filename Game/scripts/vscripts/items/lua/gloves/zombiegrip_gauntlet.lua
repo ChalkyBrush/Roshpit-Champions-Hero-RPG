@@ -94,6 +94,10 @@ function modifierClass:IsHidden()
 	return true
 end
 
+function modifierClass:RemoveOnDeath()
+	return false
+end
+
 function modifierClass:GetZombieHullSize()
 	return 196
 end

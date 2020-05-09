@@ -3093,6 +3093,11 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_epoch_glyph_5_a_little_shield") then
 		filterTable["damage"] = 0
 	end
+	Util.Modifier:SimpleEvent(victim, 'HPShieldTakeDamage', { MODIFIER_ROSHPIT_HP_SHIELD }, { damage = filterTable["damage"], victim = victim }, 
+        function(result, data)
+            filterTable["damage"] = math.max(filterTable["damage"] - result, 0)
+        end
+    )
 	if victim:HasModifier("modifier_white_mage_shield") then
 		local shieldUsage = math.min(filterTable["damage"], victim.whiteMageShield)
 		filterTable["damage"] = filterTable["damage"] - shieldUsage
@@ -3566,7 +3571,7 @@ function GameState:FilterDamage(filterTable)
 			end
 			if not victim:HasModifier("modifier_take_1_damage_only") then
 				if not death_prevented then
-					filterTable["damage"] = 1000000
+					-- filterTable["damage"] = 1000000
 				end
 			else
 				-- filterTable["damage"] = 25

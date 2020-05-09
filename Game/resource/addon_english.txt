@@ -15091,6 +15091,20 @@
 		"item_rpc_sun_gods_visage_sapphire1" 	"Each point of current health increases Magic Armor by @sapphire_property1, and each point of missing health increases Spell Pierce by @sapphire_property2"
 		"item_rpc_sun_gods_visage_amethyst1" 	"Increases Max Health by @amethyst_property1 and <font color=\"#EF4126\">Fire</font> Elemental Damage by @amethyst_property2%"
 
+    	"DOTA_Tooltip_ability_item_rpc_cloak_of_the_cimmerian_priesthood"						"Cloak of the Cimmerian Priesthood"
+		"item_property_cloak_of_the_cimmerian_priesthood"						"Shadow Priest"
+		"property_cloak_of_the_cimmerian_priesthood_description"				"Attacks deal an additional instance of Magical <font color=\'#7F4F84\'>Shadow</font>/<font color=\'#F6FFB5\'>Holy</font> damage based on <font color='#ccff66'>10</font>% of target's current health, and heals you for <font color='#ccff66'>10</font>% of the base damage."
+
+		"item_rpc_cloak_of_the_cimmerian_priesthood_ruby1"		"Enemies hit by [Q] take <font color='#ccff66'>100</font>% of the original damage every @ruby_property1 seconds for @ruby_property2 seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_emerald1"	"Enemies hit by [W] heal nearby allies within <font color='#ccff66'>360</font> range for @emerald_property1% of base damage"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_sapphire1" 	"Casting [E] applies a shield that absorbs @sapphire_property1% of Max Health. Shield lasts <font color='#ccff66'>15</font> seconds"
+		"item_rpc_cloak_of_the_cimmerian_priesthood_amethyst1" 	"Casting [R] fears all enemies in <font color='#ccff66'>900</font> radius for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_q_dot"			"Shadow Priest (Ruby)"
+
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"Shadow Priest (Sapphire)"
+		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"Absorbing Damage"
+
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
         "item_property_aeriths_tear"                            "Last Wish"
