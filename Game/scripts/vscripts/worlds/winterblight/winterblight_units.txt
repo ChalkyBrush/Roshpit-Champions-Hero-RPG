@@ -26029,3 +26029,109 @@
         "RoshpitAggroSound"     "Winterblight.HighPriestXelethar.Aggro"
         "RoshpitDeathSound"     "Winterblight.HighPriestXelethar.Death"
     }
+
+    "winterblight_bishop_of_hades"
+    {
+        "BaseClass" "npc_dota_creature"
+        "Model" "models/heroes/necrolyte/necrolyte.vmdl"
+        "ModelScale"    "2.08"
+        "Level" "0"
+        "HealthBarOffset"   "340"
+        "HasInventory"  "0"
+        "SelectionGroup"    "rabid_walker"
+        "DefaultState"  "Invade"
+        "PathfindingSearchDepthScale"  "0.2"
+        "SoundSet"      "Hero_Necrolyte"
+        "precache"
+        {
+            "soundfile" "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+            "particle"  "particles/roshpit/items/cloak_of_cimmerian_priesthood/fear_ring.vpcf"
+            "particle"  "particles/roshpit/items/cloak_of_cimmerian_priesthood/q_dot.vpcf"
+            "particle"  "particles/units/heroes/hero_dark_willow/dark_willow_wisp_spell_fear_debuff.vpcf"
+            "particle"  "particles/roshpit/items/cloak_of_cimmerian_priesthood/e_shield.vpcf"
+        }
+        "ArmorPhysical" "0"
+        "MagicalResistance" "0"
+        "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackDamageType"  "DAMAGE_TYPE_ArmorPhysical"
+        "AttackDamageMin"   "1000"
+        "AttackDamageMax"   "1000"
+        "AttackRate"    "1"
+        "AttackAnimationPoint"  "0.45"
+        "AttackAcquisitionRange"    "0"
+        "ProjectileSpeed"           "1100"
+        "ProjectileModel"           "particles/roshpit/items/cloak_of_cimmerian_priesthood/attack_ovveride.vpcf"
+        "AttackRange"   "710"
+        "BountyGoldMin" "30"
+        "BountyGoldMax" "40"
+        "BountyXP" "110"
+        "BoundsHullName"    "DOTA_HULL_SIZE_HERO"
+        "RingRadius"    "50"
+        "CollisionSize" "16"
+        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed" "360"
+        "MovementTurnRate"  "0.4"
+        "StatusHealth"  "25520"
+        "StatusHealthRegen" "0.25"
+        "StatusMana"    "2000"
+        "StatusManaRegen"   "20"
+        "VisionDaytimeRange"    "1400"
+        "VisionNighttimeRange"  "800"
+        "Ability1"      "bishop_of_hades_passive"
+        "Ability2"      "bishop_of_hades_dot"
+        "TeamName"  "DOTA_TEAM_NEUTRALS"
+        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+        "Creature"
+        {
+            "DisableClumpingBehavior"   "1"
+            "AttachWearables"
+            {
+                "Wearable1"
+                {
+                    "ItemDef"   "9483"
+                }
+                "Wearable2"
+                {
+                    "ItemDef"   "4687"
+                }
+                "Wearable3"
+                {
+                    "ItemDef"   "9760"
+                }
+                "Wearable4"
+                {
+                    "ItemDef"   "8476"
+                }
+            }
+            "States"
+            {
+                "Invade"
+                {
+                    "Name"  "Invade"
+                    "Aggression"    "50.0"
+                    "Avoidance" "0.0"
+                    "Support"   "0.0"
+                    "RoamDistance"  "1000.0"
+                }
+
+            }
+            "OffensiveAbilities"
+            {
+   
+            }
+
+        }
+        "RoshpitArmor"          "245"
+        "RoshpitArmorPierce"    "395"
+        "RoshpitSpellPierce"    "1008"
+        "RoshpitMagicArmor"     "1240"
+        "RoshpitLevel"          "38"
+        "RoshpitDominion"       "1"
+        "RoshpitAggroSound"     "Winterblight.BishopOfHades.Aggro"
+        "RoshpitDeathSound"     "Winterblight.BishopOfHades.Death"
+        "RoshpitColorRenderType"    "<% RPC_COLOR_RENDER_BASE_AND_WEARABLES %>"
+        "RoshpitColorRenderR"   "20"
+        "RoshpitColorRenderG"   "20"
+        "RoshpitColorRenderB"   "20"   
+        "EnemyTier"             "<% ENEMY_TYPE_MINI_BOSS %>"
+    }

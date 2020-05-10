@@ -762,6 +762,11 @@ function castle_key_waiting_think(event)
 				Winterblight:SpawnStrengthEvent()
 			end)
 		end
+		if Winterblight.CastleTarot["name"] == "high_priestess" and Winterblight.ActiveCastleRoom["door_index"] == 6 then
+			Timers:CreateTimer(45, function()
+				Winterblight:SpawnHighPriestessBoss()
+			end)
+		end
 
 		Winterblight.CASTLE_DATA["rooms_cleared"] = Winterblight.CASTLE_DATA["rooms_cleared"] + 1
 		if key.skull then
@@ -4890,4 +4895,32 @@ function xelethar_projectile_thinker(event)
 			UTIL_Remove(projectile)
 		end
 	end
+end
+
+function bishop_of_hades_dot_cast(event)
+	local ability = event.ability
+	local caster = event.caster
+	local point = event.target_points[1]
+
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 600, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	if #enemies > 0 then
+		for _, enemy in pairs(enemies) do
+			ability:ApplyDataDrivenModifier(caster, enemy, "modifier_bishop_of_hades_dot", {duration = 30})
+		end
+	end
+	local pfx = CustomAbilities:QuickParticleAtPoint("particles/roshpit/conjuror/shadow_deity_cloak_of_shadows.vpcf", point, 3)
+	ParticleManager:SetParticleControl(pfx, 1, Vector(600, 2, 300))
+	EmitSoundOnLocationWithCaster(point, "Winterblight.BishopOfHades.DotAOE", caster)
+end
+
+function bishop_of_hades_dot_damage(event)
+	local ability = event.ability
+	local caster = event.caster
+	local target = event.target
+	local damage = event.damage
+	if not caster:IsAlive() then
+		target:RemoveModifierByName("modifier_bishop_of_hades_dot")
+		return false
+	end
+	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
 end

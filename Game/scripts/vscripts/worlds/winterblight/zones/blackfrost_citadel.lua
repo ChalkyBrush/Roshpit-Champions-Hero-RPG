@@ -2847,6 +2847,7 @@ function Winterblight:PrecacheTarotAssets()
 			
 		end
 		PrecacheUnitByNameAsync("winterblight_shadow_priestess", precache_function)	
+		PrecacheUnitByNameAsync("winterblight_bishop_of_hades", precache_function)
 	elseif Winterblight.CastleTarot["name"] == "empress" then
 		local function precache_function()
 				
@@ -2984,7 +2985,6 @@ function Winterblight:KeyLand(position)
 			end)
 		end
 	end
-
 end
 
 function Winterblight:CastleEnemyDieItemHype(enemy)
@@ -3928,4 +3928,16 @@ function Winterblight:CreateCastleTarotCard(position, tarot_name)
 	else
 		return item
 	end
+end
+
+function Winterblight:SpawnHighPriestessBoss()
+    local unit = Winterblight:SpawnCastleRoomUnit(0, "winterblight_bishop_of_hades", Vector(10624, 6683), Vector(0,-1), false, true)
+    Winterblight:AddPatrolArguments(unit, 40, 20, 200, {Vector(14592, 13568), Vector(10624, 6683), Vector(12318, 2304)})
+    unit:AddLootDrop("immortal", "item_rpc_cloak_of_the_cimmerian_priesthood", 100)
+
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", unit, 8)
+	ParticleManager:SetParticleControl(pfx, 1, unit:GetAbsOrigin())
+	Timers:CreateTimer(0.5, function()
+		EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+	end)
 end
