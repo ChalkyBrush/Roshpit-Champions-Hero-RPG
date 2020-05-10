@@ -631,3 +631,16 @@
 
 		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"Zombie Wall Poison Cloud"
 		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"Reduced Attackspeed and Movespeed"
+
+		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"Stonebreaker Gauntlet"
+
+		"item_property_stonebreaker_gauntlet"							"Stonebreaker"
+		"property_stonebreaker_gauntlet_description"					"Issuing an attack order on an enemy within <% ITEM_RPC_STONEBREAKER_GAUNTLET_RANGE %> range throws a rock that deals <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_ATK_PWR %>% of Attack Power + <% ITEM_RPC_STONEBREAKER_GAUNTLET_DMG_STRENGTH %>x Strength on impact. The boulder also stuns for <% ITEM_RPC_STONEBREAKER_GAUNTLET_STUN_DURATION %> seconds. <% ITEM_RPC_STONEBREAKER_GAUNTLET_COOLDOWN %> second cooldown."
+
+		"item_rpc_stonebreaker_gauntlet_ruby1"			"When you land an attack or hit an enemy with a boulder, gain @ruby_property1 strength for <% ITEM_RPC_STONEBREAKER_GAUNTLET_RUBY_DURATION %> second"
+		"item_rpc_stonebreaker_gauntlet_emerald1"			"On impact, the rock crumbles into @emerald_property1 additional boulders that will target the nearest enemies within <% ITEM_RPC_STONEBREAKER_GAUNTLET_EMERALD_FRACTURE_RANGE %> range from the original target. Also increases the stun duration by @emerald_property2 seconds"
+		"item_rpc_stonebreaker_gauntlet_sapphire1"			"Each point of Strength increases Bonus Attack Power by @sapphire_property1%"
+		"item_rpc_stonebreaker_gauntlet_amethyst1"			"While channeling [R], throw a boulder at a random enemy within <% ITEM_RPC_STONEBREAKER_GAUNTLET_AMETHYST_RANGE %> range every @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"Stonebreaker (Ruby)"
+		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"Increased Strength"

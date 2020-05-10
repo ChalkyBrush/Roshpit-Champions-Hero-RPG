@@ -985,6 +985,11 @@ function Filters:BeginRChannel(caster)
             caster:AddNewModifier(caster.InventoryUnity, caster.equipped_gear[RPC_GEAR_SLOT_GLOVES], "modifier_spellfire_gloves_channeling_think", {duration = ability:GetChannelTime()})
         end
     end
+    Util.Modifier:SimpleEvent(caster, 'OnRChannelStart', { MODIFIER_SPECIAL_TYPE_R_CHANNEL_START }, {caster = caster}, 
+        function(result, data)
+            
+        end
+    )
     local baseCd = ability:GetCooldownTimeRemaining()
     Filters:ReduceRCooldown(caster, ability, baseCd, false)
     if caster:HasModifier("modifier_galaxy_orb") then
@@ -1030,6 +1035,11 @@ function Filters:BeginRChannel(caster)
 end
 
 function Filters:EndRChannel(caster)
+    Util.Modifier:SimpleEvent(caster, 'OnRChannelEnd', { MODIFIER_SPECIAL_TYPE_R_CHANNEL_END }, {caster = caster}, 
+        function(result, data)
+            
+        end
+    )
     if caster:HasModifier("modifier_galaxy_orb") then
         caster:RemoveModifierByName("modifier_galaxy_orb_channel")
     end

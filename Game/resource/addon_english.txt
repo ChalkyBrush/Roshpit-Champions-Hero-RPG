@@ -14346,6 +14346,19 @@
 		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud"			"Zombie Wall Poison Cloud"
 		"DOTA_Tooltip_modifier_zombiegrip_in_poison_cloud_Description"	"Reduced Attackspeed and Movespeed"
 
+		"DOTA_Tooltip_ability_item_rpc_stonebreaker_gauntlet"			"Stonebreaker Gauntlet"
+
+		"item_property_stonebreaker_gauntlet"							"Stonebreaker"
+		"property_stonebreaker_gauntlet_description"					"Issuing an attack order on an enemy within <font color='#ccff66'>1000</font> range throws a rock that deals <font color='#ccff66'>100</font>% of Attack Power + <font color='#ccff66'>5</font>x Strength on impact. The boulder also stuns for <font color='#ccff66'>1.5</font> seconds. <font color='#ccff66'>2.5</font> second cooldown."
+
+		"item_rpc_stonebreaker_gauntlet_ruby1"			"When you land an attack or hit an enemy with a boulder, gain @ruby_property1 strength for <font color='#ccff66'>1</font> second"
+		"item_rpc_stonebreaker_gauntlet_emerald1"			"On impact, the rock crumbles into @emerald_property1 additional boulders that will target the nearest enemies within <font color='#ccff66'>600</font> range from the original target. Also increases the stun duration by @emerald_property2 seconds"
+		"item_rpc_stonebreaker_gauntlet_sapphire1"			"Each point of Strength increases Bonus Attack Power by @sapphire_property1%"
+		"item_rpc_stonebreaker_gauntlet_amethyst1"			"While channeling [R], throw a boulder at a random enemy within <font color='#ccff66'>900</font> range every @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"Stonebreaker (Ruby)"
+		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"Increased Strength"
+
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <font color='#ccff66'>20</font>% chance to deal <font color='#ccff66'>300</font>% increased damage."

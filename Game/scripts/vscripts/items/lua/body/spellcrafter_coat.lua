@@ -83,9 +83,6 @@ end
 function modifierClass:OnDestroy()
     if not IsServer() then return end
 
-    self:SetSpecialTypes({ 
-        MODIFIER_SPECIAL_TYPE_CAST_W_ABILITY
-    })
     local hero = self:GetParent()
     local ability = self:GetAbility()
    	hero.InventoryUnit:RemoveAbility("spellcrafter_dummy_ability")

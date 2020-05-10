@@ -8,9 +8,6 @@ LinkLuaModifier("modifier_bishop_of_hades_shield", "worlds/winterblight/abilitie
 
 
 function bishop_of_hades_passive:GetIntrinsicModifierName()
-	if not IsServer() then
-		return false
-	end
     return "modifier_bishop_hades_passive"
 end
 

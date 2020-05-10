@@ -3255,6 +3255,7 @@ function Winterblight:SpawnStrengthMiniboss(position)
 		miniboss.cantAggro = false
 		Dungeons:AggroUnit(miniboss)
 	end)
+	miniboss:AddLootDrop("immortal", "item_rpc_stonebreaker_gauntlet", 100)
 end
 
 function Winterblight:CastleLobbySpawnHermit()
