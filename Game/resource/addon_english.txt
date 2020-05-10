@@ -12938,6 +12938,21 @@
         "item_rpc_hangman_slippers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
         "item_rpc_hangman_slippers_amethyst1"                                        "Increases the Disarm duration by @amethyst_property1"
 
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "Boots of Temperance"
+
+        "item_property_boots_of_temperance"                    "Temperance"
+        "property_boots_of_temperance_description"         "Base Ability Damage bonus cannot exceed <font color='#ccff66'>0</font>%. All damage taken is reduced by <font color='#ccff66'>70</font>%."
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "Reduces Attack Power bonus by @ruby_property1%. Increase Max Health by @ruby_property2 and Max Mana by @ruby_property3"
+        "item_rpc_boots_of_temperance_emerald1"                                     "Reduces Armor Pierce and Spell Pierce by @emerald_property1. Increase Armor and Magic Armor by @emerald_property2"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "Issuing an attack order on an enemy within @sapphire_property1 range swaps position with them. Swapped enemies have @sapphire_property2% reduced movement speed for <font color='#ccff66'>3</font> seconds. <font color='#ccff66'>2</font> second cooldown."
+        "item_rpc_boots_of_temperance_amethyst1"                                        "Enemies who attack you have a @amethyst_property1% chance to be disarmed for <font color='#ccff66'>2.5</font> seconds"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "Disarmed"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"
+
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
 		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <font color='#ccff66'>2</font>x the caster's attack power, takes <font color='#ccff66'>50</font>% reduced damage, and lasts <font color='#ccff66'>10</font> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <font color='#ccff66'>3</font> second delay as long as the chosen illusion is still alive at that time. Max <font color='#ccff66'>1</font> active illusion."

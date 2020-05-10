@@ -1889,6 +1889,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
             local current_stack = attacker:GetModifierStackCount("modifier_royal_wristguards_stack_effect", attacker.InventoryUnit)
             damageMult = damageMult + (ITEM_RPC_ROYAL_WRISTGUARDS_Q_BAD/100) * current_stack
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitQBADMaxOverride', { MODIFIER_ROSHPIT_Q_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyQdamage(victim, attacker, damage, damage_type)
@@ -1972,6 +1977,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + TRAPPER_W4_AMPLIFY_PERCENT*attacker:GetRuneValue("w", 4)
             end
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitWBADMaxOverride', { MODIFIER_ROSHPIT_W_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyWdamage(victim, attacker, damage, damage_type)
@@ -2023,6 +2033,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
                 damageMult = damageMult + CONJUROR_IMMORTAL_WEAPON_2_BAD_PER_ATTRIBUTES_PCT/100 * (attacker:GetAgility())
             end
         end
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitEBADMaxOverride', { MODIFIER_ROSHPIT_E_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
         if not ignore_effects then
             Filters:ApplyEdamage(victim, attacker, damage, damage_type)
@@ -2055,8 +2070,11 @@ function Filters:TakeArgumentsAndApplyDamage(victim, attacker, damage, damage_ty
         if attacker:HasModifier("modifier_brazen_kabuto") then
             damageMult = damageMult + attacker.equipped_gear[RPC_GEAR_SLOT_HEAD]:GetFinalGemPropertyValue("emerald", KABUTO_EMERALD)/100
         end
-
-
+        Util.Modifier:SimpleEvent(attacker, 'GetRoshpitRBADMaxOverride', { MODIFIER_ROSHPIT_R_BASE_ABILITY_MAX_OVERRIDE }, { }, 
+            function(result, data)
+                damageMult = math.min(damageMult, result/100)
+            end
+        )
         damage = damage * (1 + damageMult)
 
         if not ignore_effects then

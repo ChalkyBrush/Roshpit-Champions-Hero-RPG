@@ -36406,6 +36406,85 @@
 	//LEGEND WEAPONS
 
 
+	"item_rpc_boots_of_temperance"
+	{
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"BaseClass"	"item_lua"
+        "ScriptFile" "items/lua/foot/boots_of_temperance.lua"
+		"AbilityTextureName"	"winterblight/castle/boots_of_temperance"
+		"AbilityCastRange"	"900"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"ItemPermanent"			"0"
+		"ItemQuality"			"common"
+		"ItemDroppable"	"1"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"MaxUpgradeLevel"	"1"
+		"ItemBaseLevel"	"1"
+		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/heavens_halberd.vpcf"
+			"particle"	"particles/units/heroes/hero_vengeful/vengeful_nether_swap.vpcf"
+			"particle"	"particles/roshpit/winterblight/colorable_pop.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby1"				"-20 -40 -60 -80 -100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby2"				"3000 6000 9000 12000 15000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ruby3"				"1000 2000 3000 4000 5000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald1"				"-1000 -2000 -3000 -4000 -5000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"emerald2"				"1500 3000 4500 6000 7500"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire1"			"300 600 900 1200 1500"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"sapphire2"			"-20 -40 -60 -80 -100"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"amethyst1"			"20 40 60 80 100"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/equipment.lua"
+				"Function"		"equip_item"
+			}
+		}
+	}
+
 	"item_rpc_hangman_slippers"
 	{
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -36426,7 +36505,6 @@
 		"MaxUpgradeLevel"	"1"
 		"ItemBaseLevel"	"1"
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"precache"
 		{
 

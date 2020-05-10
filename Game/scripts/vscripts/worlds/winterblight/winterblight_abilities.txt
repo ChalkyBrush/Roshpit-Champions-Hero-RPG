@@ -16679,6 +16679,18 @@
 					}
 				}
 			}
+			"modifier_diviner_temperance_death_tracker"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"temperance_death"
+					}
+				}
+			}
 		}
 	}
 

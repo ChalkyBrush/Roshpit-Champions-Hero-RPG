@@ -3865,7 +3865,13 @@ function CDOTA_BaseNPC:CalculateAndSaveMasterGreenDamageBuff()
 	if atk_power_buff > 0 then
 		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_buff", {})
 		self:SetModifierStackCount("modifier_master_green_damage_buff", self, atk_power_buff)
+		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
+	elseif atk_power_buff < 0 then
+		Events.GameMasterAbility:ApplyDataDrivenModifier(self, self, "modifier_master_green_damage_negative_buff", {})
+		self:SetModifierStackCount("modifier_master_green_damage_negative_buff", self, atk_power_buff*-1)
+		self:RemoveModifierByName("modifier_master_green_damage_buff")
 	else
+		self:RemoveModifierByName("modifier_master_green_damage_negative_buff")
 		self:RemoveModifierByName("modifier_master_green_damage_buff")
 	end
 end

@@ -90326,6 +90326,18 @@
 					}
 				}
 			}
+			"modifier_diviner_temperance_death_tracker"
+			{
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"temperance_death"
+					}
+				}
+			}
 		}
 	}
 
@@ -110121,6 +110133,15 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
+				}				
+			}
+			"modifier_master_green_damage_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
 				}				
 			}
 			"modifier_take_1_damage_only"

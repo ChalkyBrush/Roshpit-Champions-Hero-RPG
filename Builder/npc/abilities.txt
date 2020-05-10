@@ -12669,6 +12669,15 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "1"
 				}				
 			}
+			"modifier_master_green_damage_negative_buff"
+			{
+				"IsHidden"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "-1"
+				}				
+			}
 			"modifier_take_1_damage_only"
 			{
 				"IsHidden"	"1"

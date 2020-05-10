@@ -590,3 +590,18 @@
         "item_rpc_hangman_slippers_emerald1"                                     "Increases the Travel Speed by @emerald_property1%"
         "item_rpc_hangman_slippers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
         "item_rpc_hangman_slippers_amethyst1"                                        "Increases the Disarm duration by @amethyst_property1"
+
+        "DOTA_Tooltip_ability_item_rpc_boots_of_temperance"                                "Boots of Temperance"
+
+        "item_property_boots_of_temperance"                    "Temperance"
+        "property_boots_of_temperance_description"         "Base Ability Damage bonus cannot exceed <% ITEM_RPC_BOOTS_OF_TEMPERANCE_BAD_CAP %>%. All damage taken is reduced by <% ITEM_RPC_BOOTS_OF_TEMPERANCE_DMG_REDUCTION %>%."
+
+        "item_rpc_boots_of_temperance_ruby1"                                        "Reduces Attack Power bonus by @ruby_property1%. Increase Max Health by @ruby_property2 and Max Mana by @ruby_property3"
+        "item_rpc_boots_of_temperance_emerald1"                                     "Reduces Armor Pierce and Spell Pierce by @emerald_property1. Increase Armor and Magic Armor by @emerald_property2"
+        "item_rpc_boots_of_temperance_sapphire1"                                        "Issuing an attack order on an enemy within @sapphire_property1 range swaps position with them. Swapped enemies have @sapphire_property2% reduced movement speed for <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_SLOW_DURATION %> seconds. <% ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_CD %> second cooldown."
+        "item_rpc_boots_of_temperance_amethyst1"                                        "Enemies who attack you have a @amethyst_property1% chance to be disarmed for <% ITEM_RPC_BOOTS_OF_TEMPERANCE_AMETHYST_DISARM_DURATION %> seconds"
+
+        "DOTA_Tooltip_modifier_temperance_disarm"                   "Disarmed"
+
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
+        "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"

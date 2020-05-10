@@ -51,6 +51,10 @@ end
 function itemClass:RollMagicArmor(item_level)
     RPCItems:GrantItemBaseMagicArmor(self, item_level, 1.5)
 end
+
+-- MODIFIER
+
+
 function modifierClass:OnCreated()
     if not IsServer() then
         return

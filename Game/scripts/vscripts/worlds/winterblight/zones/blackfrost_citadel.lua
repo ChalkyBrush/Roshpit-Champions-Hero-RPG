@@ -3599,7 +3599,14 @@ function Winterblight:TemperanceBossChests()
 	chest_count = math.min(chest_count, 3)
 	local positionTable = {Vector(11776, 1024), Vector(12288, 1024), Vector(12800, 1024)}
 	for i = 1, chest_count, 1 do
-		Winterblight:GeneralChestSpawn(positionTable[i], Vector(0,-1))
+		Timers:CreateTimer(i*2, function()
+			Winterblight:GeneralChestSpawn(positionTable[i], Vector(0,-1))
+		end)
+	end
+	if Winterblight.TemperanceChest then
+		Timers:CreateTimer(8, function()
+			Winterblight:TemperanceChestSpawn(Vector(12515, 1468), Vector(0,-1))
+		end)
 	end
 end
 
@@ -3940,5 +3947,29 @@ function Winterblight:SpawnHighPriestessBoss()
 	ParticleManager:SetParticleControl(pfx, 1, unit:GetAbsOrigin())
 	Timers:CreateTimer(0.5, function()
 		EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(), "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+	end)
+end
+
+function Winterblight:TemperanceChestSpawn(position, fv)
+	if not Winterblight.TemperanceChest then
+		return false
+	end
+	local spawnPoint = GetGroundPosition(position, Events.GameMaster)
+	local pfx_dummy = CreateUnitByName("npc_dummy_unit", spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
+	pfx_dummy:FindAbilityByName("dummy_unit"):SetLevel(1)
+	local pfx = CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", pfx_dummy, 8)
+	ParticleManager:SetParticleControl(pfx, 1, spawnPoint)
+	Timers:CreateTimer(0.5, function()
+		EmitSoundOnLocationWithCaster(spawnPoint, "Winterblight.Magician.ChestSpawn", Events.GameMaster)
+	end)
+	Timers:CreateTimer(2, function()
+		local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, fv*-1, false)
+		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
+		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
+		chest.contents = {temperance_boots = 1}
+		Timers:CreateTimer(6, function()
+			UTIL_Remove(pfx_dummy)
+		end)
+		CustomAbilities:QuickAttachParticle("particles/econ/items/earthshaker/earthshaker_arcana/earthshaker_arcana_death.vpcf", chest, 8)
 	end)
 end

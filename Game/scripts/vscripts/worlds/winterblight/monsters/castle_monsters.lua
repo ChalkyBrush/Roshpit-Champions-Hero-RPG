@@ -121,6 +121,12 @@ function diviner_think(event)
 			EmitSoundOn("Winterblight.Horus.Exit.VO", caster)
 			StartAnimation(caster, {duration = 1.4, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1})
 		end)
+		if Winterblight.CastleTarot["name"] == "temperance" then
+			for i = 1, #MAIN_HERO_TABLE, 1 do
+				ability:ApplyDataDrivenModifier(caster, MAIN_HERO_TABLE[i], "modifier_diviner_temperance_death_tracker", {})
+			end
+			Winterblight.TemperanceChest = true
+		end
 		Timers:CreateTimer(0.7, function()
 			caster:AddNoDraw()
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_diviner_invisible", {})
@@ -1380,6 +1386,9 @@ function treasure_chest_attacked(event)
 			end
 			if caster.contents.tarot_card and caster.contents.tarot_card > 0 then
 				Winterblight:CreateCastleTarotCard(caster:GetAbsOrigin(), nil)
+			end
+			if caster.contents.temperance_boots and caster.contents.temperance_boots > 0 then
+				RPCItems:RollAndDropImmortalByLevel(caster:GetAbsOrigin(), caster.roshpit_attributes.roshpit_level, "item_rpc_boots_of_temperance")
 			end
 		end
 	end)
@@ -4923,4 +4932,8 @@ function bishop_of_hades_dot_damage(event)
 		return false
 	end
 	Enemies:ApplyDamageToPlayer(target, caster, damage, DAMAGE_TYPE_MAGICAL, ability)
+end
+
+function temperance_death(event)
+	Winterblight.TemperanceChest = false
 end
