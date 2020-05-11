@@ -15812,10 +15812,22 @@
         "DOTA_Tooltip_modifier_moon_shard_sapphire_Description"     "Next spell cast has 100% reduced cooldown" 
         "item_rpc_moon_shard_amethyst1"                             "Travelling <font color='#ccff66'>500</font> distance throws up to @amethyst_property1 icicles at the nearest enemies within <font color='#ccff66'>800</font> range. Deals @amethyst_property2 damage for each point of Max Mana."
 	
-		
+       "DOTA_Tooltip_ability_item_rpc_horn_of_the_triumphant"                              "Horn of the Triumphant"
+
+        "item_property_horn_of_the_triumphant"                  "Bastion"
+        "property_horn_of_the_triumphant_description"           "Issuing a Hold Position order places a <font color='#ccff66'>160</font> size area at your position that buffs up to 1 single ally or weakens 1 single enemy that is standing inside. If an ally or the wearer activates a Bastion, they gain <font color='#ccff66'>75</font>% attack power and take <font color='#ccff66'>50</font>% reduced damage from all sources. If an enemy activates a Bastion, they are rooted and pulled to the center. Bastions do not expire and they cannot stack. You can have up to <font color='#ccff66'>12</font> bastions active at a time."
+
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly"  "Bastion"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_friendly_Description"  "Gaining attack power and damage resistance"
 
 
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy"  "Bastion"
+        "DOTA_Tooltip_modifier_horn_of_triumphant_inside_bastion_enemy_Description"  "Rooted"
 
+        "item_rpc_horn_of_the_triumphant_ruby1"                             "Enemies standing in a Bastion lose @ruby_property1 Armor Pierce and Spell Pierce and have @ruby_property2 reduced attack range"
+        "item_rpc_horn_of_the_triumphant_emerald1"                              "Allies standing in a Bastion are healed by @emerald_property1% of their Max Health every <font color='#ccff66'>0.3</font> seconds"
+        "item_rpc_horn_of_the_triumphant_sapphire1"                             "Allies standing in a Bastion have @sapphire_property1% increased Max Health"
+        "item_rpc_horn_of_the_triumphant_amethyst1"                             "Allies standing in a Bastion gain @amethyst_property1 Armor and Magic Armor. Enemies standing in a Bastion lose @amethyst_property2 Armor and Magic Armor."
 
 		//Tier 1
 

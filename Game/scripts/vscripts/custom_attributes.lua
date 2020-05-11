@@ -556,10 +556,10 @@ function CDOTA_BaseNPC:CalculateAndSaveRoshpitAttributes()
 		self:CalculateAndSaveManacostModifier()
 		self:CalculateAndSaveChanneltimeModifier()
 		self:CalculateAndSaveMasterAttackSpeedBuff()
-		self:CalculateAndSaveMasterGreenDamageBuff()
 		self:CalculateAndSaveMasterBaseDamageBuff()
 		self:GetTooltips()
 	end
+	self:CalculateAndSaveMasterGreenDamageBuff()
 end
 
 function CDOTA_BaseNPC:CalculateAndSaveRoshpitArmor()

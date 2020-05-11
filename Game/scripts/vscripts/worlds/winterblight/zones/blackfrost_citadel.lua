@@ -3456,6 +3456,7 @@ function Winterblight:BlueGooSwitchPressed()
 	Timers:CreateTimer(10, function()
 		local miniboss = Winterblight:SpawnCastleRoomUnit(0,"winterblight_blue_goo_gunman", Vector(10368, 4454), Vector(0,-1), false, true)
 		miniboss:SetAbsOrigin(miniboss:GetAbsOrigin()-Vector(0,0,80))
+		miniboss:AddLootDrop("immortal", "item_rpc_horn_of_the_triumphant", 100)
 	end)
 end
 
@@ -3964,6 +3965,7 @@ function Winterblight:TemperanceChestSpawn(position, fv)
 	end)
 	Timers:CreateTimer(2, function()
 		local chest = Enemies:SpawnEnemyUnit("winterblight_treasure_chest", spawnPoint, fv*-1, false)
+		chest:SetRenderColor(80, 180, 250)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 		chest.contents = {temperance_boots = 1}
