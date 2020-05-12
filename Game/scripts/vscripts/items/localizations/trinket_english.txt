@@ -693,3 +693,16 @@
         "item_rpc_horn_of_the_triumphant_emerald1"                              "Allies standing in a Bastion are healed by @emerald_property1% of their Max Health every <% ITEM_RPC_HORN_OF_THE_TRIUMPHANT_EMERALD_HEAL_INTERVAL %> seconds"
         "item_rpc_horn_of_the_triumphant_sapphire1"                             "Allies standing in a Bastion have @sapphire_property1% increased Max Health"
         "item_rpc_horn_of_the_triumphant_amethyst1"                             "Allies standing in a Bastion gain @amethyst_property1 Armor and Magic Armor. Enemies standing in a Bastion lose @amethyst_property2 Armor and Magic Armor."
+
+       "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
+
+        "item_property_mortuary_charm"                  "Exsufflation"
+        "property_mortuary_charm_description"           "<% ITEM_RPC_MORTUARY_CHARM_BASE_GHOSTS %> ghosts follow you and attack enemies within <% ITEM_RPC_MORTUARY_CHARM_ATTACK_RANGE_BASE %> range. When attacked, enemies take <% ITEM_RPC_MORTUARY_CHARM_DMG_PCT_ATK_PWR %>% of the owner's Attack Power as damage and are paralyzed for <% ITEM_RPC_MORTUARY_CHARM_PARALYZE_DURATION %> seconds."
+
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
+       "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Paralyzed"
+
+        "item_rpc_mortuary_charm_ruby1"                             "Gain @ruby_property1 additional ghosts"
+        "item_rpc_mortuary_charm_emerald1"                              "Increases ghosts attack range by @emerald_property1"
+        "item_rpc_mortuary_charm_sapphire1"                             "Gain @sapphire_property1 additional ghosts"
+        "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce"

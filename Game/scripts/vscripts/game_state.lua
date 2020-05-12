@@ -3571,7 +3571,7 @@ function GameState:FilterDamage(filterTable)
 			end
 			if not victim:HasModifier("modifier_take_1_damage_only") then
 				if not death_prevented then
-					filterTable["damage"] = 1000000
+					-- filterTable["damage"] = 1000000
 				end
 			else
 				-- filterTable["damage"] = 25

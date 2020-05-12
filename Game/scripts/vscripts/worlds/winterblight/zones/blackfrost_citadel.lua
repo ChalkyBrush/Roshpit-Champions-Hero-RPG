@@ -2688,6 +2688,11 @@ function Winterblight:CastleBossDeath(boss)
 			Winterblight:CreateCastleTarotCard(boss:GetAbsOrigin(), nil)
 		end
 	end)
+	Timers:CreateTimer(2, function()
+		if Winterblight.CastleTarot["name"] == "death" then
+			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_mortuary_charm")
+		end
+	end)
 	for j = 1, 3 + GameState:GetPlayerPremiumStatusCount() * 2, 1 do
 		Timers:CreateTimer(j * 0.3, function()
 			Winterblight:DropGlacierStone(boss:GetAbsOrigin())

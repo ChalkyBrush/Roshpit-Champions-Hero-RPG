@@ -15829,6 +15829,19 @@
         "item_rpc_horn_of_the_triumphant_sapphire1"                             "Allies standing in a Bastion have @sapphire_property1% increased Max Health"
         "item_rpc_horn_of_the_triumphant_amethyst1"                             "Allies standing in a Bastion gain @amethyst_property1 Armor and Magic Armor. Enemies standing in a Bastion lose @amethyst_property2 Armor and Magic Armor."
 
+       "DOTA_Tooltip_ability_item_rpc_mortuary_charm"                              "Mortuary Charm"
+
+        "item_property_mortuary_charm"                  "Exsufflation"
+        "property_mortuary_charm_description"           "<font color='#ccff66'>3</font> ghosts follow you and attack enemies within <font color='#ccff66'>650</font> range. When attacked, enemies take <font color='#ccff66'>30</font>% of the owner's Attack Power as damage and are paralyzed for <font color='#ccff66'>0.2</font> seconds."
+
+       "DOTA_Tooltip_modifier_mortuary_paralyze"        "Exsufflation"
+       "DOTA_Tooltip_modifier_mortuary_paralyze_Description"    "Paralyzed"
+
+        "item_rpc_mortuary_charm_ruby1"                             "Gain @ruby_property1 additional ghosts"
+        "item_rpc_mortuary_charm_emerald1"                              "Increases ghosts attack range by @emerald_property1"
+        "item_rpc_mortuary_charm_sapphire1"                             "Gain @sapphire_property1 additional ghosts"
+        "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce"
+
 		//Tier 1
 
         "DOTA_Tooltip_ability_item_rpc_neutral_glyph_1_1"	"[T1-1] Glyph of Hard Skin"

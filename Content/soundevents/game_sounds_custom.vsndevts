@@ -10944,3 +10944,104 @@ Env.LavaHit
         }
     }
 }
+
+"RPCItems.MortuaryCharm.GhostVoice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/misc/creep_deaths/death_ghost.vsnd"
+                              "value1"        "sounds/misc/creep_deaths/death_ghost_fellbeast_01.vsnd"
+                              "value2"        "sounds/misc/creep_deaths/death_ghost_fellbeast_02.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.25000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.20000"  }
+                    "soundlevel"        {   "value"     "87.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.MortuaryCharm.AttackPre"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/weapons/hero/terrorblade/melee_pre_attack_01.vsnd"
+                              "value1"        "sounds/weapons/hero/terrorblade/melee_pre_attack_02.vsnd"
+                              "value2"        "sounds/weapons/hero/terrorblade/melee_pre_attack_03.vsnd"
+                              "value3"        "sounds/weapons/hero/terrorblade/melee_pre_attack_04.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.05000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "0.60000"  }
+                    "soundlevel"        {   "value"     "86.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
+
+"RPCItems.MortuaryCharm.AttackLand"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"              "sos_reference_stack"
+                "reference_stack"       "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                              "value0"        "sounds/dinath/drake_ring_puff.vsnd"
+                        }
+                    }
+                    "volume"            {   "value"     "0.24000"  }
+                    "pitch_rand_min"    {   "value"     "-0.03000"  }
+                    "pitch_rand_max"    {   "value"     "0.030000"  }
+                    "pitch"             {   "value"     "1.30000"  }
+                    "soundlevel"        {   "value"     "90.00000" }
+                    "distance_max"      {   "value"     "2400.000"  }
+                    "event_type"        {   "value"     "1.000000"  }
+                }
+            }
+        }
+    }
+}
