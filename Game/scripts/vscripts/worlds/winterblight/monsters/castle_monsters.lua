@@ -433,6 +433,12 @@ function reincarnation_respawning_end(event)
     end
 end
 
+function reaper_swipe_init(event)
+	local caster = event.caster
+	local ability = event.ability
+	caster:AddNewModifier(caster, ability, "modifier_truesight", {})
+end
+
 function reaper_swipe_attack_land(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -4937,3 +4943,4 @@ end
 function temperance_death(event)
 	Winterblight.TemperanceChest = false
 end
+

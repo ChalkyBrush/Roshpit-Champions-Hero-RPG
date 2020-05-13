@@ -12953,6 +12953,16 @@
         "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
         "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"
 
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
+
+        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "property_gravewalkers_description"         "Issuing a Stop or Hold Position order transforms you into a dancing skeleton for <font color='#ccff66'>5</font> seconds or until you move. At the time of transformation, enemies in a <font color='#ccff66'>500</font> range will de-aggro and walk <font color='#ccff66'>500</font> distance away from you. Other enemies will consider you harmless and won't attack you. Cannot attack or use spells while dancing. <font color='#ccff66'>12</font> second cooldown."
+
+        "item_rpc_gravewalkers_ruby1"                                        "Increases the maximum transformation duration by @ruby_property1, the walk way distance by @ruby_property2 and the de-aggro range by @ruby_property3"
+        "item_rpc_gravewalkers_emerald1"                                     "Issuing a move order while feigning as a dancing skeleton will case you to charge toward the target location in a cluster of bones. Travel speed is @emerald_property1 and max distance is @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"
+
 		"DOTA_Tooltip_ability_item_rpc_alien_armor"		"Alien Armor"
 		"property_alien_armor"							"Simulation"
 		"property_alien_armor_description"				"Casting @Ability4 creates an illusion of you whose damage is attributed to the caster and considered item damage. The illusion has <font color='#ccff66'>2</font>x the caster's attack power, takes <font color='#ccff66'>50</font>% reduced damage, and lasts <font color='#ccff66'>10</font> seconds. If the wearer dies while an illusion is active, they respawn in the place of a random illusion after a <font color='#ccff66'>3</font> second delay as long as the chosen illusion is still alive at that time. Max <font color='#ccff66'>1</font> active illusion."

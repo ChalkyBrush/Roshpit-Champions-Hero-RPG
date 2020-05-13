@@ -50709,6 +50709,12 @@
 						"Type"			"DAMAGE_TYPE_PURE"
 						"Damage"		"%damage"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"arena_doom_think"
+						"target"		"TARGET"
+					}
 				}
 				"OnDestroy"
 				{

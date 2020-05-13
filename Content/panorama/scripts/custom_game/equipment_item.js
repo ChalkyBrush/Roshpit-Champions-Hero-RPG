@@ -182,7 +182,7 @@ function UpdateItem()
 			var cooldownLength = Abilities.GetCooldownLength( item );
 			var cooldownRemaining = Abilities.GetCooldownTimeRemaining( item );
 			var cooldownPercent = Math.ceil( 100 * cooldownRemaining / cooldownLength );
-			var cooldown_text = Math.ceil( cooldownRemaining * 10 )/10;
+			var cooldown_text = Math.ceil( cooldownRemaining * 20 )/10;
 			if (cooldown_text%1 == 0){
 				cooldown_text = cooldown_text + ".0"
 			}

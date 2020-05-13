@@ -6989,3 +6989,7 @@ function Filters:GloveOfTheHierophant(caster, target, healAmount)
     end
     return healAmount
 end
+
+function Filters:AdjustCooldownForDotaCooldownRate(cooldown)
+    return cooldown * DOTA_COOLDOWN_RATE_OUTSIDE_INVENTORY
+end

@@ -179,6 +179,7 @@ function modifierClass:OnOrderFilter(data)
 
 
 	    local cooldown = ITEM_RPC_BOOTS_OF_TEMPERANCE_SAPPHIRE_CD
+	    cooldown = Filters:AdjustCooldownForDotaCooldownRate(cooldown)
 	    ability:StartCooldown(cooldown)
 	end
 end

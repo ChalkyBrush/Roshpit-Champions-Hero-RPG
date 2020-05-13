@@ -27,42 +27,37 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY1 %>"
+				"ruby1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY1 %>"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY2 %>"
+				"ruby2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY2 %>"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"ruby3"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_RUBY3 %>"
+				"ruby3"				"<% ITEM_RPC_GRAVEWALKERS_GEM_RUBY3 %>"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald1"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD1 %>"
+				"emerald1"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD1 %>"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"emerald2"				"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_EMERALD2 %>"
+				"emerald2"				"<% ITEM_RPC_GRAVEWALKERS_GEM_EMERALD2 %>"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE1 %>"
+				"sapphire1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_SAPPHIRE %>"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sapphire2"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_SAPPHIRE2 %>"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"amethyst1"			"<% ITEM_RPC_BOOTS_OF_TEMPERANCE_GEM_AMETHYST %>"
+				"amethyst1"			"<% ITEM_RPC_GRAVEWALKERS_GEM_AMETHYST %>"
 			}
 		}
 		"OnSpellStart"

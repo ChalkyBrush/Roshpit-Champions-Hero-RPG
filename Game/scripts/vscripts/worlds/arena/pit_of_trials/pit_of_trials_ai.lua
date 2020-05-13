@@ -3762,3 +3762,11 @@ function doom_mob_die(event)
 	end
 	EmitSoundOn("Arena.DoomUnit.Die", caster)
 end
+
+function arena_doom_think(event)
+	local caster = event.caster
+	local target = event.target
+	if not caster:IsAlive() then
+		target:RemoveModifierByName("modifier_doomplate_doom_debuff")
+	end
+end

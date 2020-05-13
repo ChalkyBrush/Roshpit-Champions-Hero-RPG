@@ -85,6 +85,7 @@ function modifierClass:OnOrderFilter(data)
     self:HangmanJump(position)
 
     local cooldown = ITEM_RPC_HANGMAN_SLIPPERS_CD - ability:GetFinalGemPropertyValue("sapphire", ITEM_RPC_HANGMAN_SLIPPERS_GEM_SAPPHIRE)
+    cooldown = Filters:AdjustCooldownForDotaCooldownRate(cooldown)
     ability:StartCooldown(cooldown)
 end
 

@@ -16781,6 +16781,14 @@
 						"damage_pct_max_health"	"%damage_pct_max_health"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"reaper_swipe_init"
+					}
+				}
 			}
 		}
 	}

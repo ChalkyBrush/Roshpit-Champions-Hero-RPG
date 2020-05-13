@@ -90428,6 +90428,14 @@
 						"damage_pct_max_health"	"%damage_pct_max_health"
 					}
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/winterblight/monsters/castle_monsters.lua"
+						"Function"		"reaper_swipe_init"
+					}
+				}
 			}
 		}
 	}
@@ -148174,6 +148182,12 @@
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_PURE"
 						"Damage"		"%damage"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"worlds/arena/pit_of_trials/pit_of_trials_ai.lua"
+						"Function"		"arena_doom_think"
+						"target"		"TARGET"
 					}
 				}
 				"OnDestroy"

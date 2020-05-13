@@ -3057,13 +3057,15 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 	local immortals_luck = RandomInt(1, 200000)
 	local chance_min = 50 + GameState:GetPlayerPremiumStatusCount()*10
 	if immortals_luck <= chance_min then
-		local luck = RandomInt(1, 3)
+		local luck = RandomInt(1, 4)
 		if luck == 1 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_musty_crypt_armor")
 		elseif luck == 2 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_shadowguard_helm")
 		elseif luck == 3 then
 			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_zombiegrip_gauntlet")
+		elseif luck == 4 then
+			RPCItems:RollAndDropUniqueItem(enemy, "item_rpc_gravewalkers")
 		end
 	end
 end

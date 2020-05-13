@@ -605,3 +605,13 @@
 
         "DOTA_Tooltip_modifier_temperance_sapphire_slow"            "Temperance (Sapphire)"
         "DOTA_Tooltip_modifier_temperance_sapphire_slow_Description"    "Reduced movespeed"
+
+        "DOTA_Tooltip_ability_item_rpc_gravewalkers"                                "Gravewalkers"
+
+        "item_property_gravewalkers"                    "Skeletal Pomp"
+        "property_gravewalkers_description"         "Issuing a Stop or Hold Position order transforms you into a dancing skeleton for <% ITEM_RPC_GRAVEWALKERS_BASE_DURATION %> seconds or until you move. At the time of transformation, enemies in a <% ITEM_RPC_GRAVEWALKERS_RANGE %> range will de-aggro and walk <% ITEM_RPC_GRAVEWALKERS_WALKWAY_DISTANCE %> distance away from you. Other enemies will consider you harmless and won't attack you. Cannot attack or use spells while dancing. <% ITEM_RPC_GRAVEWALKERS_COOLDOWN %> second cooldown."
+
+        "item_rpc_gravewalkers_ruby1"                                        "Increases the maximum transformation duration by @ruby_property1, the walk way distance by @ruby_property2 and the de-aggro range by @ruby_property3"
+        "item_rpc_gravewalkers_emerald1"                                     "Issuing a move order while feigning as a dancing skeleton will case you to charge toward the target location in a cluster of bones. Travel speed is @emerald_property1 and max distance is @emerald_property2"
+        "item_rpc_gravewalkers_sapphire1"                                        "Reduces the cooldown by @sapphire_property1 seconds"
+        "item_rpc_gravewalkers_amethyst1"                                        "Reduces any stray damage that hits you as a dancing skeleton by @amethyst_property1%"

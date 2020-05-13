@@ -124,6 +124,7 @@ function modifierClass:OnOrderFilter(data)
         self:CreateBastion(position)
 
         local cooldown = 0.5
+        cooldown = Filters:AdjustCooldownForDotaCooldownRate(cooldown)
         ability:StartCooldown(cooldown)
     end
 end

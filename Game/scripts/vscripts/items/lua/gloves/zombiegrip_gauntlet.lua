@@ -120,7 +120,9 @@ function modifierClass:OnCastQAbility()
 		local spawnPosition = forwardPosition + perpFV * hullSize * (i - 0.5 - zombie_count/2)
 		self:SummonZombie(spawnPosition, hero:GetForwardVector())
 	end
-	ability:StartCooldown(ITEM_RPC_ZOMBIEGRIP_GAUNTLET_COOLDOWN)
+	local cooldown = ITEM_RPC_ZOMBIEGRIP_GAUNTLET_COOLDOWN
+	cooldown = Filters:AdjustCooldownForDotaCooldownRate(cooldown)
+	ability:StartCooldown(cooldown)
 end
 
 function modifierClass:KillAllZombies()
