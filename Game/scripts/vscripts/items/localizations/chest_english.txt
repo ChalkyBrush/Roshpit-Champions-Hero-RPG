@@ -770,3 +770,12 @@
 		"item_rpc_spellcrafter_coat_emerald1"									"Magic Spell deals <font color=\"#7AE2A7\">Wind</font> damage and travels @emerald_property1 faster. Magic Spell's damage is increased by @emerald_property2x Agility"
 		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_SAPPHIRE_RANGE %> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
 		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <% ITEM_RPC_SPELLCRAFTER_COAT_GEM_AMETHYST_RANGE %> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
+
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
+		"property_cloak_of_isolation_description"		"Enemies within <% ITEM_RPC_CLOAK_OF_ISOLATION_RANGE %> range are pushed away with <% ITEM_RPC_CLOAK_OF_ISOLATION_BASE_FORCE %> force and have <% ITEM_RPC_CLOAK_OF_ISOLATION_MOVESPEED_REDUCE %>% reduced movespeed."
+
+		"item_rpc_cloak_of_isolation_ruby1"									"Increases isolation's range by @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"Increases isolation's push force by @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"Gain @sapphire_property1 Armor and Magic Armor while there are no enemies within <% ITEM_RPC_CLOAK_OF_ISOLATION_SAPPHIRE_RANGE %> range"
+		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> second cooldown"

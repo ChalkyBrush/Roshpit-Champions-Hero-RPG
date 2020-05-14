@@ -277,7 +277,7 @@ function Enemies:InitializeEnemy(unit)
 
 	local newSpellPierce = (unit.roshpit_attributes.roshpit_spell_pierce*Enemies.DIFFICULTY_ROSHPIT_ATTRIBUTE_ADJUST[difficulty][enemyTier]+Enemies:GetFlatRoshpitAttributeForDifficulty(unit, base_level))*Enemies.SPIRIT_REALM_CONSTANTS[spirit_realm]["roshpit_attribute"]
 	newSpellPierce = Enemies:AdjustAttributeForMapSpecial(unit, "roshpit_spell_pierce", newSpellPierce)
-	newSpellPierce = newArmorPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
+	newSpellPierce = newSpellPierce*Enemies.DIFFICULTY_PIERCE_ADJUST[difficulty]
 	unit:SetBaseRoshpitSpellPierce(newSpellPierce, false)
 
 

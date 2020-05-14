@@ -3381,7 +3381,8 @@ function Winterblight:SpawnHermitSpecialRoom()
 		end	
 	end)	
 	Timers:CreateTimer(5, function()
-		Winterblight:SpawnCastleRoomUnit(0, "winterblight_lonely_hermit", Vector(15232, -2816), Vector(1,0), false, true)
+		local miniboss = Winterblight:SpawnCastleRoomUnit(0, "winterblight_lonely_hermit", Vector(15232, -2816), Vector(1,0), false, true)
+		miniboss:AddLootDrop("immortal", "item_rpc_cloak_of_isolation", 100)
 	end)
 end
 

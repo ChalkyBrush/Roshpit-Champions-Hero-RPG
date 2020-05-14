@@ -13736,6 +13736,15 @@
 		"item_rpc_spellcrafter_coat_sapphire1"									"Magic Spell deals <font color=\"#87D9FF\">Ice</font> damage and the primary projectile fractures and hits up to @sapphire_property1 additional enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @sapphire_property2x Intelligence"
 		"item_rpc_spellcrafter_coat_amethyst1"									"Magic Spell deals  <font color=\"#E1A2E8\">Arcane</font> damage and the spell can bounce up to @amethyst_property1 times toward enemies within <font color='#ccff66'>600</font> range. Magic Spell's damage is increased by @amethyst_property2x Spirit"
 
+		"DOTA_Tooltip_ability_item_rpc_cloak_of_isolation"		"Cloak of Isolation"
+		"item_property_cloak_of_isolation"				"Isolation"
+		"property_cloak_of_isolation_description"		"Enemies within <font color='#ccff66'>600</font> range are pushed away with <font color='#ccff66'>16</font> force and have <font color='#ccff66'>-20</font>% reduced movespeed."
+
+		"item_rpc_cloak_of_isolation_ruby1"									"Increases isolation's range by @ruby_property1"
+		"item_rpc_cloak_of_isolation_emerald1"									"Increases isolation's push force by @emerald_property1%"
+		"item_rpc_cloak_of_isolation_sapphire1"									"Gain @sapphire_property1 Armor and Magic Armor while there are no enemies within <font color='#ccff66'>500</font> range"
+		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <font color='#ccff66'>10</font> second cooldown"
+
 
     	"DOTA_Tooltip_ability_item_rpc_aquasteel_bracers"								"Aquasteel Bracers"
 		"item_property_aquasteel"								"Water Jet"
