@@ -1571,7 +1571,8 @@ function Winterblight:SpawnCastleRoom3(variant)
 			end
 		end)
 		Timers:CreateTimer(3, function()
-			Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_devil_baphomet", Vector(11859, 12085), Vector(0,-1), false, false)
+			local miniboss = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_devil_baphomet", Vector(11859, 12085), Vector(0,-1), false, false)
+			miniboss:AddLootDrop("immortal", "item_rpc_baphomets_cursed_necklace", 100)
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 		end)
 		
@@ -2202,7 +2203,7 @@ function Winterblight:SpawnTreasureRoomChests()
 			ParticleManager:DestroyParticle(pfx, false)
 		end)
 		chest.contents = rewardTables[i]
-		local luck = RandomInt(1, 15)
+		local luck = RandomInt(1, 20)
 		if luck == 1 then
 			chest.contents = {ring_of_mysteries = 1}
 		end
@@ -2976,7 +2977,7 @@ function Winterblight:KeyLand(position)
 				EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 				EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 				chest.contents = rewardTables[RandomInt(1, #rewardTables)]
-				local luck = RandomInt(1, 15)
+				local luck = RandomInt(1, 20)
 				if luck == 1 then
 					chest.contents = {ring_of_mysteries = 1}
 				end
@@ -3011,7 +3012,7 @@ function Winterblight:CastleEnemyDieItemHype(enemy)
 				EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 				EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 				chest.contents = rewardTables[RandomInt(1, #rewardTables)]
-				local luck = RandomInt(1, 15)
+				local luck = RandomInt(1, 20)
 				if luck == 1 then
 					chest.contents = {ring_of_mysteries = 1}
 				end
@@ -3092,7 +3093,7 @@ function Winterblight:GeneralChestSpawn(position, fv)
 		EmitSoundOn("Winterblight.TreasureTower.GoldSound", chest)
 		EmitSoundOn("Winterblight.Magician.ChestSpawn2", chest)
 		chest.contents = rewardTables[RandomInt(1, #rewardTables)]
-		local luck = RandomInt(1, 15)
+		local luck = RandomInt(1, 20)
 		if luck == 1 then
 			chest.contents = {ring_of_mysteries = 1}
 		end

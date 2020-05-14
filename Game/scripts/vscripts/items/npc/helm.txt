@@ -20,7 +20,7 @@
 		"Model" 		"models/props_gameplay/treasure_chest001.vmdl"
 		"precache"
 		{
-
+			"particle"			"particles/roshpit/items/iron_tower_buff.vpcf"
 		}
 		"OnSpellStart"
 		{

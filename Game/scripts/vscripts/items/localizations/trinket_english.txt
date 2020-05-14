@@ -706,3 +706,14 @@
         "item_rpc_mortuary_charm_emerald1"                              "Increases ghosts attack range by @emerald_property1"
         "item_rpc_mortuary_charm_sapphire1"                             "Gain @sapphire_property1 additional ghosts"
         "item_rpc_mortuary_charm_amethyst1"                             "Ghost attacks have a @amethyst_property1% chance to bounce and hit an additional target. Subsequent hits also have the same chance to bounce"
+
+
+       "DOTA_Tooltip_ability_item_rpc_baphomets_cursed_necklace"                              "Baphomet's Cursed Necklace"
+
+        "item_property_baphomets_cursed_necklace"                  "Ruin"
+        "property_baphomets_cursed_necklace_description"           "When you cast @Ability4, refresh its cooldown and gain a buff that makes its next cast not require a channel. <% ITEM_RPC_BAPHOMETS_CURSED_NECKLACE_BASE_CD %> second cooldown."
+
+        "item_rpc_baphomets_cursed_necklace_ruby1"                                 "All attributes increase Base Attack Damage by @ruby_property1"
+        "item_rpc_baphomets_cursed_necklace_emerald1"                              "Reduces the cooldown by @emerald_property1 seconds"
+        "item_rpc_baphomets_cursed_necklace_sapphire1"                             "@sapphire_property1% chance when landing an attack to gain the Ruin effect"
+        "item_rpc_baphomets_cursed_necklace_amethyst1"                             "Gain @amethyst_property1% increased Attack power while Ruin is active"

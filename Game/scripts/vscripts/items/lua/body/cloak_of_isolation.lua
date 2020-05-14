@@ -175,7 +175,7 @@ function isolation_aura_effect:DeclareFunctions()
 end
 
 function isolation_aura_effect:IsHidden()
-	return false
+	return true
 end
 
 function isolation_aura_effect:RemoveOnDeath()

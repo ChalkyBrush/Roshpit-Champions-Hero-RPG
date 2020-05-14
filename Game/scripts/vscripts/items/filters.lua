@@ -973,7 +973,7 @@ function Filters:BeginRChannel(caster)
         return false
     end
     local baseCd = ability:GetCooldownTimeRemaining()
-    if not ability.BaseClass and caster:HasModifier("modifier_iron_treads_of_destruction") then
+    if not ability.BaseClass and (caster:HasModifier("modifier_iron_treads_of_destruction") or caster:HasModifier("modifier_baphomets_cursed_necklace_ruin_effect")) then
         ability:OnChannelFinish(false)
         Timers:CreateTimer(0.03, function()
             ability:EndChannel(true)
