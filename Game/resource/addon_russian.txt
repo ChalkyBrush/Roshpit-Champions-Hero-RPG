@@ -14385,7 +14385,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>12</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Каждая единица Силы дополнительно увеличивает Здоровье Героя на <font color='#ccff66'>20</font>, а Максимальную Ману на <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Увеличивает Максимальное Здоровье за единицу Силы дополнительно на @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Увеличивает Базовую Атаку героя за единицу Силы на @emerald_property1"

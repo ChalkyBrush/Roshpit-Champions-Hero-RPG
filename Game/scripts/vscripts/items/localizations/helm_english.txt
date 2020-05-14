@@ -756,3 +756,15 @@
 
 		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"Shadow Priest (Sapphire)"
 		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"Absorbing Damage"
+
+    	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"Iron Tower Barbute"
+		"item_property_iron_tower_barbute"						"Iron Tower"
+		"property_iron_tower_barbute_description"				"Issuing a Stop or Hold Position order adds <% ITEM_RPC_IRON_TOWER_BARBUTE_STRENGTH %> strength per hero level. Moving ends the effect."
+
+		"DOTA_Tooltip_modifier_iron_tower_effect"				"Iron Tower"
+		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"Increased Strength"
+
+		"item_rpc_iron_tower_barbute_ruby1"		"While Iron Tower is active, each point of Strength provides an additional @ruby_property1 Armor and Armor Pierce"
+		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1 second cooldown"
+		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_ENEMIES %> enemies (or 1 boss) within <% ITEM_RPC_IRON_TOWER_BARBUTE_SAPPHIRE_RANGE %> range, gain @sapphire_property1% increased attack power."
+		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"

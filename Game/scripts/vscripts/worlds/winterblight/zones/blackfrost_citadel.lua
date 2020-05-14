@@ -1650,7 +1650,8 @@ function Winterblight:SpawnCastleRoom4(variant)
 			Winterblight.CASTLE_DATA["rooms"][room_index]["active"] = 2
 
 			if Winterblight.CastleTarot["name"] == "tower" then
-				Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_bloody_faceripper", Vector(15432, 12287), Vector(0,-1), false, false)
+				local ripper = Winterblight:SpawnCastleRoomUnit(room_index, "winterblight_bloody_faceripper", Vector(15432, 12287), Vector(0,-1), false, false)
+				ripper:AddLootDrop("immortal", "item_rpc_iron_tower_barbute", 100)
 			end
 		end)
 	end

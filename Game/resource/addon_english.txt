@@ -14857,7 +14857,7 @@
 
     	"DOTA_Tooltip_ability_item_rpc_mask_of_tyrius"									"Mask of Tyrius"
 		"item_property_tyrius"						"Might of Tyrius"
-		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>12</font> and max mana by <font color='#ccff66'>2</font>."
+		"property_tyrius_description"				"Each point of Strength additionally increases max health by <font color='#ccff66'>20</font> and max mana by <font color='#ccff66'>2</font>."
 
 		"item_rpc_mask_of_tyrius_ruby1"		"Increases Max Health per Strength by an additional @ruby_property1"
 		"item_rpc_mask_of_tyrius_emerald1"	"Increases Base Attack Damage per Strength by @emerald_property1"
@@ -15142,6 +15142,18 @@
 
 		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield"		"Shadow Priest (Sapphire)"
 		"DOTA_Tooltip_modifier_cimmerian_priest_e_shield_Description"	"Absorbing Damage"
+
+    	"DOTA_Tooltip_ability_item_rpc_iron_tower_barbute"						"Iron Tower Barbute"
+		"item_property_iron_tower_barbute"						"Iron Tower"
+		"property_iron_tower_barbute_description"				"Issuing a Stop or Hold Position order adds <font color='#ccff66'>12</font> strength per hero level. Moving ends the effect."
+
+		"DOTA_Tooltip_modifier_iron_tower_effect"				"Iron Tower"
+		"DOTA_Tooltip_modifier_iron_tower_effect_Description"	"Increased Strength"
+
+		"item_rpc_iron_tower_barbute_ruby1"		"While Iron Tower is active, each point of Strength provides an additional @ruby_property1 Armor and Armor Pierce"
+		"item_rpc_iron_tower_barbute_emerald1"	"On death, place your respawn flag at your current position. @emerald_property1 second cooldown"
+		"item_rpc_iron_tower_barbute_sapphire1" 	"When there are <font color='#ccff66'>4</font> enemies (or 1 boss) within <font color='#ccff66'>360</font> range, gain @sapphire_property1% increased attack power."
+		"item_rpc_iron_tower_barbute_amethyst1" 	"Iron Tower effect sticks for @amethyst_property1 seconds after moving"
 
         "DOTA_Tooltip_ability_item_rpc_aeriths_tear"                                    "Aerith's Tear"
 
