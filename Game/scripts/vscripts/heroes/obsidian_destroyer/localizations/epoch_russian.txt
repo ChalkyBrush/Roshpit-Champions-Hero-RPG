@@ -79,7 +79,7 @@
     	"DOTA_Tooltip_ability_epoch_rune_w_4"							"[W4] Genesis"
     	"DOTA_Tooltip_ability_epoch_rune_w_4_Description"				"При прочтении @Ability2 теряется 5% макс. маны. героя, при этом урон от этого умения увеличивается в зависимости от количества затраченной маны."
     	"DOTA_Tooltip_ability_epoch_rune_w_4_property_one"				"Доп. урон"
-    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% за каждую ед. затраченной маны"
+    	"DOTA_Tooltip_ability_epoch_rune_w_4_suffix"					"% от затраченной Маны"
 		
 		"DOTA_Tooltip_ability_time_warp"										"Distortion Orb"
 		"DOTA_Tooltip_ability_time_warp_Description"							"Стихия: <font color=\"#B5FFB7\">Время</font><br>Герой выпускает перед собой Distortion Orb, искажающий пространство. Повторное использование умения до исчезновения шара переместит Epoch Guardian в точку, где был шар. <br><font color='#6cbfe2'>(W) Genesis Orb</font> нанесёт двойной урон соединенным <font color='#6cbfe2'>(Q) Time Binder</font> врагам. <br>Первое прочтение <font color='#6cbfe2'>(W) Genesis Orb</font> сразу после прыжка нанесёт двойной урон."
