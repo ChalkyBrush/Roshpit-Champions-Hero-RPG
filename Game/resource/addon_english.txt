@@ -14393,6 +14393,16 @@
 		"DOTA_Tooltip_modifier_stonebreaker_ruby"			"Stonebreaker (Ruby)"
 		"DOTA_Tooltip_modifier_stonebreaker_ruby_Description"	"Increased Strength"
 
+		"DOTA_Tooltip_ability_item_rpc_exodia_gloves"			"Exodia Gloves"
+
+		"item_property_exodia_gloves"							"Nebular Comet"
+		"property_exodia_gloves_description"					"Attacks deal an additional instance of magic damage based on <font color='#ccff66'>50</font>% of attack power. The effect splits and hits up to 2 additional enemies within <font color='#ccff66'>500</font> range, and each of those will split and hit up to 2 more enemies within range."
+
+		"item_rpc_exodia_gloves_ruby1"			"@ruby_property1% chance for the original impact to split a 3rd time"
+		"item_rpc_exodia_gloves_emerald1"			"Each 1% of missing mana increases attack power by @emerald_property1%"
+		"item_rpc_exodia_gloves_sapphire1"			"Increases the damage against the initial target by @sapphire_property1%"
+		"item_rpc_exodia_gloves_amethyst1"			"Increases the enemy search range for split attacks by @amethyst_property1 and increases the projectile speed by @amethyst_property2%"
+
     	"DOTA_Tooltip_ability_item_rpc_adamantine_samurai_helmet"						"Adamantine Samurai Helmet"
 		"item_property_samurai_helmet"				"Critical Strike"
 		"property_samurai_helmet_description"		"Your attacks have a <font color='#ccff66'>20</font>% chance to deal <font color='#ccff66'>300</font>% increased damage."

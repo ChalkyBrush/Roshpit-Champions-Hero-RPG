@@ -4046,5 +4046,6 @@ function Winterblight:StarQuestBossSpawn(position)
 			miniboss.cantAggro = false
 			Dungeons:AggroUnit(miniboss)
 		end)
+		miniboss:AddLootDrop("immortal", "item_rpc_exodia_gloves", 100)
 	end)
 end
