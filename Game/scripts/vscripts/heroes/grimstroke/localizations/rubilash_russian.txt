@@ -224,11 +224,11 @@
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_24"		"Old Master's Paintbrush"
 	"DOTA_Tooltip_ability_item_rpc_rubilash_weapon_25"		"Impressionist's Baton"
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quickstroke Handle"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_1"           "Quicksilver Font"
 	"item_property_rubilash_immortal_weapon"                             "Quickstroke"
 	"property_rubilash_immortal_weapon_description"                      "@Ability1 не имеет анимации каста и получает <% RUBILASH_IMMORTAL_WEAPON_1_Q_BAD %>% увеличение Урона Способности."
 
-	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Handcrafted Zombie Brush"
+	"DOTA_Tooltip_ability_item_rpc_rubilash_immortal_weapon_2"            "Bloody Pinion"
 	"item_property_rubilash_immortal_weapon2"                             "Spectral Artist"
 	"property_rubilash_immortal_weapon2_description"                      "Увеличивает Здоровье на <% RUBILASH_IMMORTAL_WEAPON_2_MAX_HEALTH_INCREASE %>%, но снижает все лечащие эффекты на <% RUBILASH_IMMORTAL_WEAPON_2_HEAL_REDUCTION %>%."
 
