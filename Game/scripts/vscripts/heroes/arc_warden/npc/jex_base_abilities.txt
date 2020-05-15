@@ -222,6 +222,7 @@
 			}
 			"modifier_channel_start"
 			{
+				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -867,7 +868,7 @@
 			"modifier_jex_thunder_wrath_thinker"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"0"
 				"ThinkInterval"  	"0.03"
 				"OnIntervalThink"

@@ -111,6 +111,11 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_chain_lightning_damage_pct_attack_power" "УРОН МОЛНИИ В % ОТ СИЛЫ АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_q_4_additional_duration"	"<font color=\"#7DFF12\">[Q4] Дополнительно время жизни воина</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_q_e_4_lightning_damage_increase"	"%<font color=\"#7DFF12\">[E4] Дополнительное усиление урона цепной молнии</font>:"
+	
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w"								"Vortex Weapon"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_Description"					"Стандартные атаки выпускают цепные молнии."
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff"					"Vortex Weapon - Бонус Урона Атаки"
+	"DOTA_Tooltip_modifier_jex_lightning_lightning_w_damage_buff_Description"		"Бонусный урон атаки героя увеличен."
 
 	"DOTA_Tooltip_ability_jex_nature_nature_q"					"Oak Infusion"
 	"DOTA_Tooltip_ability_jex_nature_nature_q_Description"		"Jex покрывает свое тело корой древнего дуба, регенереция здоровья и броня увеличиваются. Противники, атакующие Jex будут оглушены в ответ, пока щит активен."
@@ -187,10 +192,10 @@
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_cost_per_cast"				"СТОИМОСТЬ МАНЫ ЗА КАСТ:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_mana_drain_per_second"			"СНИЖЕНИЕ МАНЫ В СЕКУНДУ:"
 	"DOTA_Tooltip_ability_jex_cosmic_nature_w_q_4_max_mana_while_toggled_on"	"<font color=\"#7DFF12\">[Q4] Максимальная мана увеличена</font>:"
-	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшается</font>:"
+	"DOTA_Tooltip_ability_jex_cosmic_nature_w_e_4_mana_drain_per_second_reduction"	"<font color=\"#7DFF12\">[E4] Снижение маны уменьшено</font>:"
 
 	"DOTA_Tooltip_modifier_jex_cosmic_nature_w"					"Equilibrium Shifter"		
-	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Увеличены магический пост-резистный урон, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
+	"DOTA_Tooltip_modifier_jex_cosmic_nature_w_Description"		"Увеличены Пробития, скорость передвижения, базовая сила атаки, мана тратится при каждом касте и дополнительно каждую секунду."
 
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e"					"Xenon Warp"
 	"DOTA_Tooltip_ability_jex_cosmic_cosmic_e_Description"		"Jex прорывается сквозь пространство и перемещается в выбранную точку. Может иметь касты без перезарядки."
@@ -211,7 +216,7 @@
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_damage_pct_atk_power"	"УРОН УДАРА МОЛНИИ ОТ УРОНА РАСТЕНИЯ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_attack_range_base"		"БАЗОВЫЙ РАДИУС АТАКИ:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_cast_range"			"ДАЛЬНОСТЬ КАСТА:"
-	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_resistance"	"<font color=\"#7DFF12\">[Q4] Растения получают дополнительное сопротивление к магии</font>:"
+	"DOTA_Tooltip_ability_jex_lightning_nature_e_q_4_blossom_magic_armor"	"<font color=\"#7DFF12\">[Q4] Растения получают дополнительную Магическую Защиту</font>:"
 	"DOTA_Tooltip_ability_jex_lightning_nature_e_w_4_damage_increase_pct"		"%<font color=\"#7DFF12\">[W4] Усиление удара молнии</font>:"
 
 	"DOTA_Tooltip_ability_thunder_blossom_teleport"				"Lightning Tract"
