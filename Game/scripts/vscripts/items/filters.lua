@@ -5009,6 +5009,7 @@ function Filters:IsNonExtendableBuff(modifier)
 		modifier_animation_translate = true,
 		modifier_heavy_boulder_pushback = true,
 		modifier_bear_sliding = true,
+		modifier_recently_teleported_portal = true,
     }
     return self.nonExtendableBuffs[modifier:GetName()] or isDebuff or false
 end
