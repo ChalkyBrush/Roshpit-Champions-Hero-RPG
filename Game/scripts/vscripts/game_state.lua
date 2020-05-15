@@ -3322,7 +3322,11 @@ function GameState:FilterDamage(filterTable)
 	if victim:HasModifier("modifier_paladin_rune_e_1_invulnerable") then
 		filterTable["damage"] = 0
 	end
-
+	Util.Modifier:SimpleEvent(victim, 'RoshpitEventFinalTakeDamage', { MODIFIER_ROSHPIT_EVENT_FINAL_TAKE_DAMAGE }, {attacker = attacker, victim = victim, damage = filterTable["damage"], damageType = filterTable["damagetype_const"]}, 
+		function(result, data)
+			filterTable["damage"] = result
+		end
+	)	
 	--LETHAL CHECK
 	if filterTable["damage"] >= victim:GetHealth() then
 		local death_prevented = false
@@ -3552,7 +3556,7 @@ function GameState:FilterDamage(filterTable)
 		if victim:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 			if victim:IsHero() then
 				-- --print("TAKE DAMAGE: "..filterTable["damage"])
-				filterTable["damage"] = 0
+				-- filterTable["damage"] = 0
 			end
 			if victim:GetUnitName() == "rubick_apprentice" then
 				filterTable["damage"] = 1000

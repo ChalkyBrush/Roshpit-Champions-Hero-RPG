@@ -105,6 +105,10 @@ function aura_debuff_class:RemoveOnDeath()
 	return true
 end
 
+function aura_debuff_class:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE 
+end
+
 function aura_debuff_class:OnAttackStart(event)
 	local hero = self:GetCaster().hero
 	local ability = self:GetAbility()
@@ -113,6 +117,9 @@ function aura_debuff_class:OnAttackStart(event)
 	local parent = self:GetParent()
     if not self:CheckOnAttackLanded(event) then
         return
+    end
+    if target ~= hero then
+    	return false
     end
 	local limitKey = hero:GetEntityIndex().."_shadowguard"
 	local max_procs_per_second = ITEM_RPC_SHADOWGUARD_HELM_MAX_PROCS_PER_SECOND + ability:GetFinalGemPropertyValue("ruby", GEM_RPC_SHADOWGUARD_HELM_RUBY2)

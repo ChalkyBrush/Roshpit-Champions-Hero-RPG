@@ -779,3 +779,22 @@
 		"item_rpc_cloak_of_isolation_emerald1"									"Increases isolation's push force by @emerald_property1%"
 		"item_rpc_cloak_of_isolation_sapphire1"									"Gain @sapphire_property1 Armor and Magic Armor while there are no enemies within <% ITEM_RPC_CLOAK_OF_ISOLATION_SAPPHIRE_RANGE %> range"
 		"item_rpc_cloak_of_isolation_amethyst1"									"Issuing a stop order disjoints incoming projectiles and applies @amethyst_property1 seconds of persistent invisibility. <% ITEM_RPC_CLOAK_OF_ISOLATION_AMETHYST_COOLDOWN %> second cooldown"
+
+		"DOTA_Tooltip_ability_item_rpc_breastplate_of_abjudication"		"Breastplate of Abjudication"
+		"item_property_breastplate_of_abjudication"				"Abjudicator"
+		"property_breastplate_of_abjudication_description"		"When an enemy begins an attack on you, if their armor pierce is higher than your armor, gain bonus armor equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your armor and their armor pierce for <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_DURATION %> seconds."
+
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor"	"Abjudicator"
+		"DOTA_Tooltip_modifier_abjudication_base_effect_armor_Description"	"Increased Armor"
+
+		"item_rpc_breastplate_of_abjudication_ruby1"									"When beginning an attack on an enemy, if their armor is higher than your armor pierce, gain Armor Pierce equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Armor Pierce and their Armor for @ruby_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_emerald1"									"Increases the base effect's duration by @emerald_property1 seconds"
+		"item_rpc_breastplate_of_abjudication_sapphire1"									"Increases all attributes by @sapphire_property1%"
+		"item_rpc_breastplate_of_abjudication_amethyst1"									"After taking an instance of Magic or Pure damage, if the caster's Spell Pierce is higher than your Magic Armor, gain Magic Armor equal to <% ITEM_RPC_BREASTPLATE_OF_ABJUDICATION_STAT_PCT %>% of the difference between your Magic Armor and their Spell Pierce for @amethyst_property1 seconds"
+
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce"	"Abjudicator (Ruby)"
+		"DOTA_Tooltip_modifier_abjudication_ruby_armor_pierce_Description"	"Increased Armor Pierce"
+
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor" "Abjudicator (Amethyst)"
+		"DOTA_Tooltip_modifier_abjudication_amethyst_magic_armor_Description" "Increased Magic Armor"
+

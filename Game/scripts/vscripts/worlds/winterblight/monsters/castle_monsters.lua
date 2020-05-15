@@ -4593,6 +4593,7 @@ function winter_castle_judge_think(event)
 					EmitSoundOn("Winterblight.ParagonOfJudgement.SpawnEffect", miniboss)
 					Dungeons:AggroUnit(miniboss)
 					UTIL_Remove(judge)				
+					miniboss:AddLootDrop("immortal", "item_rpc_breastplate_of_abjudication", 100)
 				end)
 			end)
 		end	

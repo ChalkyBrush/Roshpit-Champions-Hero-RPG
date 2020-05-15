@@ -115004,7 +115004,7 @@
         "AttackAnimationPoint"  "0.25"
         "AttackAcquisitionRange"    "0"
         "AttackRange"   "950"
-        "ProjectileModel"   "particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"
+        "ProjectileModel"   "particles/roshpit/items/exodia_projectile.vpcf"
         "ProjectileSpeed"   "1600"
         "BountyGoldMin" "200"
         "BountyGoldMax" "300"

@@ -314,8 +314,6 @@ function CDOTA_BaseNPC_Hero:GetBaseSpirit()
 		spirit = spirit - modifier:GetStackCount()
 	end
 
-
-
 	return spirit
 end
 
@@ -449,6 +447,14 @@ function CDOTA_BaseNPC_Hero:SetRoshpitStrengthForLevel()
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		strength = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("ruby", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_RUBY)
 	end
+	local str_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthPctBonus', { MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS }, { }, 
+		function(result, data)
+			str_mult = str_mult + result/100
+		end
+	)
+	strength = strength*str_mult
+
 	hero.strength_custom = math.floor(strength)
 end
 
@@ -465,6 +471,14 @@ function CDOTA_BaseNPC_Hero:SetRoshpitAgilityForLevel()
 	elseif hero:HasModifier("modifier_blue_divinex_amulet") then
 		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 	end
+	local agi_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityPctBonus', { MODIFIER_ROSHPIT_AGILITY_PCT_BONUS }, { }, 
+		function(result, data)
+			agi_mult = agi_mult + result/100
+		end
+	)
+	agility = agility*agi_mult
+
 	hero.agility_custom = math.floor(agility)
 end
 
@@ -481,6 +495,15 @@ function CDOTA_BaseNPC_Hero:SetRoshpitIntelligenceForLevel()
 	elseif hero:HasModifier("modifier_green_divinex_amulet") then
 		intellect = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("sapphire", ITEM_RPC_GREEN_DIVINEX_AMULET_GEM_SAPPHIRE)
 	end
+
+	local int_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligencePctBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS }, { }, 
+		function(result, data)
+			int_mult = int_mult + result/100
+		end
+	)
+	intellect = intellect*int_mult
+
 	hero.intellect_custom = math.floor(intellect)
 end
 
@@ -492,6 +515,15 @@ function CDOTA_BaseNPC_Hero:SetRoshpitSpiritForLevel()
 		spirit_per_level = spirit_per_level * (1 + self.equipped_gear[RPC_GEAR_SLOT_BODY]:GetFinalGemPropertyValue("emerald", ITEM_RPC_TATTERED_NOVICE_ARMOR_GEM_EMERALD)/100)
 	end
 	spirit = spirit + self:GetLevel()*spirit_per_level
+
+	local spr_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritPctBonus', { MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS }, { }, 
+		function(result, data)
+			spr_mult = spr_mult + result/100
+		end
+	)
+	spirit = spirit*spr_mult
+
 	hero.spirit_custom = math.floor(spirit)
 end
 
@@ -3284,6 +3316,36 @@ function CustomAttributes:SetAttributes(hero)
 		agility = hero.equipped_gear[RPC_GEAR_SLOT_TRINKET]:GetFinalGemPropertyValue("emerald", ITEM_RPC_BLUE_DIVINEX_AMULET_GEM_EMERALD)
 		agi_bonus = 0
 	end
+
+	local str_mult = 1
+	local agi_mult = 1
+	local int_mult = 1
+	local spr_mult = 1
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitStrengthPctBonus', { MODIFIER_ROSHPIT_STRENGTH_PCT_BONUS }, { }, 
+		function(result, data)
+			str_mult = str_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitAgilityPctBonus', { MODIFIER_ROSHPIT_AGILITY_PCT_BONUS }, { }, 
+		function(result, data)
+			agi_mult = agi_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitIntelligencePctBonus', { MODIFIER_ROSHPIT_INTELLIGENCE_PCT_BONUS }, { }, 
+		function(result, data)
+			int_mult = int_mult + result/100
+		end
+	)
+	Util.Modifier:SimpleEvent(hero, 'GetRoshpitSpiritPctBonus', { MODIFIER_ROSHPIT_SPIRIT_PCT_BONUS }, { }, 
+		function(result, data)
+			spr_mult = spr_mult + result/100
+		end
+	)
+
+	str_bonus = math.floor(str_bonus*str_mult)
+	agi_bonus = math.floor(agi_bonus*agi_mult)
+	int_bonus = math.floor(int_bonus*int_mult)
+	spr_bonus = math.floor(spr_bonus*spr_mult)
 
 	strength = math.max(strength + str_bonus, 0)
 	agility = math.max(agility + agi_bonus, 0)
